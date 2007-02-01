@@ -55,45 +55,103 @@
         > ${contest.name}
     </div>
 
+<c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
+<div align="center">
+<table class="bodyText" style="margin-top: 20px; margin-bottom: 20px; width: 320px;" cellpadding="0" cellspacing="0">
+<tbody>
+    <tr>
+        <td width="100%">
+            <div class="bigRed" style="border-top: 1px solid rgb(153, 153, 153); border-bottom: 1px solid rgb(153, 153, 153);">
+<c:choose>
+    <c:when test="${fn:length(contest.prizes)==1}">
+        <c:forEach items="${contest.prizes}" var="prize">
+            <div style="float: right; text-align: right;">
+            <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/><br>
+            <tc-webtag:format object="${contest.endTime}" format="MM.dd.yyyy" timeZone="${sessionInfo.timezone}"/>
+            </div>
+            <strong>
+            Winner:<br>
+            Due date:
+            </strong> 
+        </c:forEach>
+    </c:when>
+    <c:otherwise>
+        <% int i = 1;%>
+        <c:forEach items="${contest.prizes}" var="prize">
+            <div style="float: right; clear: right; text-align: right;">
+            <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/><br>
+            </div>
+            <strong>Prize <%=i++%>:</strong><br>
+        </c:forEach>
+            <div style="float: right; clear: right; text-align: right;">
+            <tc-webtag:format object="${contest.endTime}" format="MM.dd.yyyy" timeZone="${sessionInfo.timezone}"/>
+            </div>
+            <strong>Due date:</strong>
+    </c:otherwise>
+</c:choose>
+            </div>
+        </td>
 <c:choose>
 <c:when test="${registered}">
-<strong>You are registered for this project.</strong>
-<br>
+        <td style="padding: 10px 5px 10px 20px;" align="right">
+        <div class="buttonIsOff" style="width: 60px;">Register</a>
+        </td>
+        <td style="padding: 10px 0px 10px 5px;" align="right">
+            <a class="button" style="width: 60px;" href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="padding-top: 10px;" align="center">
+        You are registered for this project.<br>
+        </td>
 </c:when>
 <c:otherwise>
-    <div style="float: left;">
-        <A href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="button" style="width: 60px;">Register</A>
-    </div>
-    <br>
+        <td style="padding: 10px 5px 10px 20px;" align="right">
+        <a class="button" style="width: 60px;" href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Register</a>
+        </td>
+        <td style="padding: 10px 0px 10px 5px;" align="right">
+        <div class="buttonIsOff" style="width: 60px;">Submit</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="padding-top: 10px;" align="center">
+        Register to get info necessary to submit a solution<br>
+        </td>
 </c:otherwise>
 </c:choose>
+    </tr>
+</tbody>
+</table>
+</div>
+</c:if>
 
 <h2>Project Overview</h2>
 ${contest.overview.value}
 <br><br>
 
+
 <c:choose>
 <c:when test="${registered}">
-	<c:if test="${fn:length(contest.documents)>0}">
-	    <strong>Documentation</strong><br>
-	    <%--
-	        To view this project's documentation, you must be a registered TopCoder Studio member. If you are <strong>
-	        already a registered TopCoder member</strong> you still need to add TopCoder Studio to your registration by
-	        <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</A>.
-	        <br><br>
-	    --%>
-	    <c:forEach items="${contest.documents}" var="document">
-	        ${document.type.description}:
-	        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
-	                ${document.originalFileName}</a> <br/>
-	    </c:forEach>
-	    <br><br>
-	</c:if>
+    <c:if test="${fn:length(contest.documents)>0}">
+        <strong>Documentation</strong><br>
+        <%--
+            To view this project's documentation, you must be a registered TopCoder Studio member. If you are <strong>
+            already a registered TopCoder member</strong> you still need to add TopCoder Studio to your registration by
+            <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">updating your profile</A>.
+            <br><br>
+        --%>
+        <c:forEach items="${contest.documents}" var="document">
+            ${document.type.description}:
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
+                    ${document.originalFileName}</a> <br/>
+        </c:forEach>
+        <br><br>
+    </c:if>
 </c:when>
 <c:otherwise>
-	To view this project's documentation, you must register for the project.
-	
-</c:otherwise>	
+    To view this project's documentation, you must register for the project.
+    
+</c:otherwise>    
 </c:choose>
 
 
@@ -171,18 +229,6 @@ All submissions are required to be submitted by the End Date.
         </tbody>
     </table>
 </div>
-
-<br><br>
-
-<c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
-<h2>Upload Your Submission</h2>
-    If you are ready to submit your design for this contest, click the button below.
-    <br><br>
-
-    <div style="float: left;">
-        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="button" style="width: 60px;">Submit</A>
-    </div>
-</c:if>
 
 </div>
     
