@@ -1,6 +1,7 @@
 package com.topcoder.web.common.model;
 
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.voting.RankBallot;
 
 import java.util.*;
 
@@ -35,6 +36,7 @@ public class User extends Base {
     private Contact contact;
     private Set terms;
     private SecretQuestion secretQuestion;
+    private Set ballots;
     /**
      * hoke: used for making changes
      */
@@ -57,6 +59,7 @@ public class User extends Base {
         transientResponses = new ArrayList();
         userPreferences = new HashSet();
         terms = new HashSet();
+        ballots = new HashSet();
     }
 
     public Long getId() {
@@ -365,6 +368,19 @@ public class User extends Base {
 
     public void setSecretQuestion(SecretQuestion secretQuestion) {
         this.secretQuestion = secretQuestion;
+    }
+
+
+    public Set getBallots() {
+        return Collections.unmodifiableSet(ballots);
+    }
+
+    public void setBallots(Set ballots) {
+        this.ballots = ballots;
+    }
+
+    public void addBallot(RankBallot ballot) {
+        ballots.add(ballot);
     }
 
 }
