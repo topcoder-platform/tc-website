@@ -71,4 +71,4 @@
 </div>
 
 <br><br>
-<span class="bigRed"><A href="/pl/?&module=Static&d1=gcjsa07&d2=advRd1" class="bigRed">The results for Round 1</A> are in!</span>
+<span class="bigRed"><A href="/pl/?&module=Static&d1=gcjsa07&d2=advRd2" class="bigRed">The results for Round 2</A> are in!</span>
