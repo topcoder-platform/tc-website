@@ -116,7 +116,7 @@ public class EventDAOTestCase extends TCHibernateTestCase {
             q.setRequired(i < 3);
             q.setStatusId(1);
             q.setAnswers(i < 3 ? createAnswers(q) : null);
-            q.setSurveys(setSurveys);
+            //q.setSurveys(setSurveys);
             ret.add(q);
         }
         return ret;
@@ -131,7 +131,7 @@ public class EventDAOTestCase extends TCHibernateTestCase {
             a.setText("answer" + i);
             a.setSort(i);
             a.setCorrect(new Boolean(i == 1));
-            a.setQuestion(q);
+            //a.setQuestion(q);
             ret.add(a);
         }
         return null;
