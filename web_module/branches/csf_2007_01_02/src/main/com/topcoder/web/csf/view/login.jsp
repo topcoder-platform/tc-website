@@ -10,7 +10,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>CSF</title>
-    <script type="text/javascript">
+<%--    <script type="text/javascript">
         function submitEnter(e) {
             var keycode;
             if (window.event) keycode = window.event.keyCode;
@@ -21,7 +21,7 @@
                 return false;
             } else return true;
         }
-    </script>
+    </script>--%>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="csf"/>
     </jsp:include>
@@ -68,7 +68,7 @@
                             Username:
                         </td>
                         <td>
-                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="80" onkeypress="submitEnter(event)" class="TextBox">
+                            <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="80" <%--onkeypress="submitEnter(event)"--%> class="TextBox">
                         </td>
                     </tr>
                     <tr>
@@ -76,18 +76,9 @@
                             Password:
                         </td>
                         <td>
-                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="80" onkeypress="submitEnter(event)" class="TextBox">
+                            <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="80" <%--onkeypress="submitEnter(event)"--%> class="TextBox">
                         </td>
                     </tr>
-                    <tr>
-                        <td style="color: #82AA31; font-size: 11px;">
-                            Remember Me:
-                        </td>
-                        <td>
-                            <input type="checkbox" name="<%=Login.REMEMBER_USER%>">
-                        </td>
-                    </tr>
-
                     <tr>
                         <td>
                             &nbsp;
