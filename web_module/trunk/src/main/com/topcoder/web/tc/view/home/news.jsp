@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.02.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=020207">TopCoder @ Work: Not Another Vista Article</A></span><br><br>
+       The TopCoder @ Work writers tackle Microsoft's new operating system and try to answer the question: should you or shouldn't you upgrade?</td>
+      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg"  alt="" width="55" height="61"/><img src="/i/m/rhudson_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=020207">full story</A> | 
+         <tc-webtag:forumLink forumID="506273" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>01.31.07<br>1:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -185,16 +201,3 @@ in more than one problem.
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>01.18.07<br>9:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      Marathon Match Ratings
-      </span><br><br>
-      Marathon Match competitors are now rated! Based on community feedback, we've come up with a rating formula and added the results to their member profiles, so take a look around.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <tc-webtag:forumLink forumID="506257" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
