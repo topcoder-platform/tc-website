@@ -128,6 +128,7 @@
 ${contest.overview.value}
 <br><br>
 
+<c:if test="${registered}">
 <c:if test="${fn:length(contest.documents)>0}">
     <strong>Documentation</strong><br>
 <%--
@@ -142,6 +143,7 @@ ${contest.overview.value}
                 ${document.originalFileName}</a> <br/>
     </c:forEach>
     <br><br>
+    </c:if>
 </c:if>
 
 
