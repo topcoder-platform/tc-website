@@ -50,7 +50,8 @@ public class EventDAOTestCase extends TCHibernateTestCase {
                 assertTrue("new answer entries size missmatch. Expected 3, got " + q.getAnswers().size(), 
                         q.getAnswers().size() == 3);
             } else {
-                assertFalse("new answer entries should be empty", q.getAnswers() != null); 
+                assertTrue("answer entries should be empty for " + q.getText() + " but returned " + 
+                        q.getAnswers().size() + " elements.", q.getAnswers() == null);  
             }
         }
     }
