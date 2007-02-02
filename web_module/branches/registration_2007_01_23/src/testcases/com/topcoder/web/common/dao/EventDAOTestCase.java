@@ -31,7 +31,6 @@ public class EventDAOTestCase extends TCHibernateTestCase {
         e.setTerms(createTerms());
         e.setType(createType());
         e.setUsers(createUsers());
-
         DAOUtil.getFactory().getEventDAO().saveOrUpdate(e);
 
         tearDown();
@@ -95,11 +94,14 @@ public class EventDAOTestCase extends TCHibernateTestCase {
         ret.setEnd(new Timestamp(ret.getStart().getTime() + 1000 * 60 * 60));
         ret.setResultsViewable(true);
         ret.setStatusId(new Integer(83));
-        ret.setQuestions(createQuestions());
+        ret.setQuestions(createQuestions(ret));
         return ret;
     }
 
-    private Set createQuestions() {
+    private Set createQuestions(Survey s) {
+        Set setSurveys = new HashSet();
+        setSurveys.add(s);
+        
         Set ret = new HashSet();
 
         for (int i = 1; i <= 5; i++) {
@@ -113,14 +115,14 @@ public class EventDAOTestCase extends TCHibernateTestCase {
             q.setLink("link" + i);
             q.setRequired(i < 3);
             q.setStatusId(1);
-            q.setAnswers(i < 3 ? createAnswers() : null);
-
+            q.setAnswers(i < 3 ? createAnswers(q) : null);
+            q.setSurveys(setSurveys);
             ret.add(q);
         }
         return ret;
     }
 
-    private Set createAnswers() {
+    private Set createAnswers(Question q) {
         Set ret = new HashSet();
 
         for (int i = 1; i <= 3; i++) {
@@ -129,7 +131,7 @@ public class EventDAOTestCase extends TCHibernateTestCase {
             a.setText("answer" + i);
             a.setSort(i);
             a.setCorrect(new Boolean(i == 1));
-
+            a.setQuestion(q);
             ret.add(a);
         }
         return null;
