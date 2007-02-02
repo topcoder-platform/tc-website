@@ -80,6 +80,14 @@
         <mapping resource="com/topcoder/web/common/model/User.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/UserPreference.hbm.xml"/>
+
+        <mapping resource="com/topcoder/web/common/voting/Candidate.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/CandidateProperty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/CondorcetSchulzeElection.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/RankBallot.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
+
     </session-factory>
 
 </hibernate-configuration>
