@@ -96,7 +96,7 @@
         <div class="buttonIsOff" style="width: 60px;">Register</a>
         </td>
         <td style="padding: 10px 0px 10px 5px;" align="right">
-            <a class="button" style="width: 60px;" href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit</a>
+            <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="btn_submit">&nbsp;</A>
         </td>
     </tr>
     <tr>
@@ -217,7 +217,7 @@ All submissions are required to be submitted by the End Date.
 </div>
 
 <br><br>
-
+<!-- 
 <c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
     <div class="header">Upload Your Submission</div>
     If you are ready to submit your design for this contest, click the button below.
@@ -228,7 +228,7 @@ All submissions are required to be submitted by the End Date.
             &nbsp;</A>
     </div>
 </c:if>
-
+ -->
 </div>
 </div>
 
