@@ -59,12 +59,12 @@ public class CreateElection extends Base {
             election.setName(submissions[0].getContest().getName());
         }
 
+        Contest contest = CSFDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
         if (hasErrors()) {
             setDefault(Constants.START_TIME, startTime);
             setDefault(Constants.END_TIME, endTime);
             setDefault(Constants.SUBMISSION_IDS, submissions);
 
-            Contest contest = CSFDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             ArrayList a = new ArrayList(contest.getSubmissions());
             Collections.sort(a, new Comparator() {
                 public int compare(Object o1, Object o2) {
@@ -85,7 +85,10 @@ public class CreateElection extends Base {
                 election.getCandidates().add(c);
             }
 
+            contest.getElections().add(election);
+
             VotingDAOUtil.getFactory().getCondorcetSchulzeElectionDAO().saveOrUpdate(election);
+            CSFDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                     "=Static&d1=admin&d2=electionCreationSuccess");
