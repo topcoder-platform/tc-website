@@ -44,7 +44,7 @@
 <span class="bodySubtitle">Application Overview</span><br>
 The SMC (Site Management Console) is a Server Client Application which allows users to create Calendar Entries and create reports. Part of an existing application called Product Management Console, the SMC will coordinate and organize different marketing and sales activities to create new landing pages for an eCommerce site. The SMC will also generate reports that the customer can use during its weekly meetings.
 <br><br>
-For this competition, we need teams to build a .NET 2.0 thick client prototype coded in C#. The prototype application has three main parts:
+For this competition, we need teams to build a .NET 2.0 thick client prototype coded in C#. The prototype has three main parts:
 <ol>
 <li>Creating, changing and deleting different events, including:
   <ul>
