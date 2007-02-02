@@ -112,14 +112,14 @@ public class EventDAOTestCase extends TCHibernateTestCase {
             q.setLink("link" + i);
             q.setRequired(i < 3);
             q.setStatusId(1);
-            q.setAnswers(i < 3 ? createAnswers() : null);
+            q.setAnswers(i < 3 ? createAnswers(q) : null);
 
             ret.add(q);
         }
         return ret;
     }
 
-    private Set createAnswers() {
+    private Set createAnswers(Question q) {
         Set ret = new HashSet();
 
         for (int i = 1; i <= 3; i++) {
@@ -128,6 +128,7 @@ public class EventDAOTestCase extends TCHibernateTestCase {
             a.setText("answer" + i);
             a.setSort(i);
             a.setCorrect(new Boolean(i == 1));
+            a.setQuestion(q);
             ret.add(a);
         }
         return ret;
