@@ -43,7 +43,7 @@
     </div>
 
     <div class="breadcrumb">
-        <A href="/?module=Static&d1=competitions">Competitions</A>
+        <A href="/?module=Static&amp;d1=competitions">Competitions</A>
         <c:choose>
             <c:when test="${currentTime>contest.endTime}">
                 > <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Creative Competitions</A>

@@ -48,7 +48,7 @@
 --%>
 
 <div class="breadcrumb">
-    <A href="/?module=Static&d1=competitions">Competitions</A>
+    <A href="/?module=Static&amp;d1=competitions">Competitions</A>
      > Active Creative Competitions
 </div>
 
@@ -107,7 +107,7 @@
 
                             <td class="valueR" nowrap="nowrap">
                             <% if (resultRow.getIntItem("is_user_registered") == 1) { %>
-                                <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="button" style="margin: 4px;">Submit & Rank</A>
+                                <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="button" style="margin: 4px;">Submit &amp; Rank</A>
                              <% } else { %>
                                <A href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="button" style="margin: 4px;">Register</A>                             
                              <% } %>

@@ -38,7 +38,7 @@ Microsoft and British Telecom, in association with TopCoder, will run a series o
 <p>
 Through this series of competitions, Sandbox members can take advantage of a "no-shore" pool of creative talent to design and assemble working prototypes of services which could result in commercialized deployments in service provider networks
 </p>
-<h2>Competition Series Goals & Objectives</h2>
+<h2>Competition Series Goals &amp; Objectives</h2>
 <ul>
 <li>Fuel the creative development process  and encourage collaboration among the wide range of Connected Services Sandbox participants, as well as freelance application developers</li>
 <li>Encourage broader development on and service experimentation with the Microsoft  Connected Services Framework platform</li>

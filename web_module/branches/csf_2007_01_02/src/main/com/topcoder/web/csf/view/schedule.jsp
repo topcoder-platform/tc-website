@@ -37,8 +37,8 @@
 <ul>
 <li><strong>Submission Start Date:</strong> March 6, 2007</li>
 <li><strong>Submission End Date:</strong> March 16, 2007</li>
-<li><strong>Review & Revision Start Date:</strong> March 23, 2007</li>
-<li><strong>Review & Revision End Date:</strong> March 27, 2007</li>
+<li><strong>Review &amp; Revision Start Date:</strong> March 23, 2007</li>
+<li><strong>Review &amp; Revision End Date:</strong> March 27, 2007</li>
 <li><strong>Winner Announced:</strong> April 2, 2007</li>
 </ul>
 

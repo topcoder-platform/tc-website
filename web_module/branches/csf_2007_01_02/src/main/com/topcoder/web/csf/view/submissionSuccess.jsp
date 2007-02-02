@@ -73,7 +73,7 @@
         </div>
 
         <div class="breadcrumb">
-            <A href="/?module=Static&d1=competitions">Competitions</A>
+            <A href="/?module=Static&amp;d1=competitions">Competitions</A>
             > <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Creative Competitions</A>
             > ${contest.name}
         </div>
