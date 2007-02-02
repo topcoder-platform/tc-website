@@ -12,7 +12,4 @@ public interface EventDAO {
     Event find(Long id);
 
     void saveOrUpdate(Event e);
-
-    void delete(Event e);
-
 }

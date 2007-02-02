@@ -3,6 +3,7 @@ package com.topcoder.web.common.dao;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import com.topcoder.web.common.model.Answer;
@@ -36,14 +37,20 @@ public class EventDAOTestCase extends TCHibernateTestCase {
         tearDown();
         setUp();
 
-        Event e2 = DAOUtil.getFactory().getEventDAO().find(new Long(2050));
-        DAOUtil.getFactory().getEventDAO().delete(e2);
-
-        tearDown();
-        setUp();
-
         Event new1 = DAOUtil.getFactory().getEventDAO().find(e.getId());
         assertFalse("new event entry not created", new1 == null);
+        assertFalse("new survey entry not created", new1.getSurvey() == null);
+        assertFalse("new question entries not created", new1.getSurvey().getQuestions() == null);
+        assertFalse("new question entries size missmatch", new1.getSurvey().getQuestions().size() == 4);
+        for (Iterator it = new1.getSurvey().getQuestions().iterator(); it.hasNext();) {
+            Question q = (Question) it.next();
+            if (q.getText().equals("Question 1") || q.getText().equals("Question 2")) {
+                assertFalse("new answer entries not created", q.getAnswers() == null); 
+                assertFalse("new question entries size missmatch", q.getAnswers().size() == 3);
+            } else {
+                assertFalse("new answer entries should be empty", q.getAnswers() != null); 
+            }
+        }
     }
 
 
