@@ -94,7 +94,7 @@ function toggleTabs(anchor,id) {
       <jsp:include page="searchHeader.jsp" />
     </td>
     <td align="right" nowrap="nowrap" valign="top">
-        <A href="?module=History" class="rtbcLink">My Post History</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A href="?module=Watches" class="rtbcLink">My Watches</A>&nbsp;&nbsp;|&nbsp;&nbsp;User Settings<br/>
+        <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | User Settings<br/>
     </td>
 </tr>
 <tr>
