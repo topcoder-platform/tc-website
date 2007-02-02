@@ -109,9 +109,9 @@ public class EventDAOTestCase extends TCHibernateTestCase {
          
             q.setText("Question " + i);
             q.setType(DAOUtil.getFactory().getQuestionTypeDAO().find(new Integer(1)));
-            q.setTypeId(1);
+            //q.setTypeId(1);
             q.setStyle(DAOUtil.getFactory().getQuestionStyleDAO().find(new Integer(i)));
-            q.setStyleId(i);
+            //q.setStyleId(i);
             q.setImagePath("/path" + i + "/");
             q.setKeyword("key" + i);
             q.setLink("link" + i);
