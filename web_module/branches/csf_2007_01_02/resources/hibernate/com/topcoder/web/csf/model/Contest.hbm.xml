@@ -41,6 +41,11 @@
             <one-to-many class="ContestResult"/>
         </set>
         <many-to-one name="status" column="contest_status_id" class="ContestStatus" access="field"/>
+        <set name="elections" table="contest_election_xref" cascade="save-update" access="field">
+            <key column="contest_id" not-null="true"/>
+            <many-to-many column="election_id" class="com.topcoder.web.common.voting.CondorcetSchulzeElection"/>
+        </set>
+
 
     </class>
 </hibernate-mapping>
