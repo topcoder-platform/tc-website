@@ -23,6 +23,6 @@
             <key column="election_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.voting.RankBallot"/>
         </set>
-
+        <many-to-one name="status" column="election_status_id" class="ElectionStatus" access="field"/>
     </class>
 </hibernate-mapping>

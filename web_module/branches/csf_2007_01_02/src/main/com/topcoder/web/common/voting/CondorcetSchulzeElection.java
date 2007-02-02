@@ -24,6 +24,7 @@ public class CondorcetSchulzeElection extends Base {
     private String name;
     private Set candidates;
     private Long id;
+    private ElectionStatus status;
 
     /**
      * default constructor
@@ -31,6 +32,15 @@ public class CondorcetSchulzeElection extends Base {
     public CondorcetSchulzeElection() {
         ballots = new HashSet();
         candidates = new HashSet();
+    }
+
+
+    public ElectionStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(ElectionStatus status) {
+        this.status = status;
     }
 
     public Set getBallots() {
