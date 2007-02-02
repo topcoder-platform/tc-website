@@ -217,7 +217,7 @@ public class ForumConversion {
         		+ " c.root_category_id, c.status_id, c.component_id "
                 + " from forum_master m, comp_forum_xref f, comp_versions v, comp_catalog c "
                 + " where m.forum_id = f.forum_id and "
-                + " f.comp_vers_id = v.comp_vers_id and v.component_id = c.component_id"
+                + " f.comp_vers_id = v.comp_vers_id and v.component_id = c.component_id and f.forum_type = 2"
         );
 
         rs = forumPS.executeQuery();
