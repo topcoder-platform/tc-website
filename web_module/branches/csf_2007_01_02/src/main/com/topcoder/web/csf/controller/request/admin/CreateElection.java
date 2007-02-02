@@ -57,6 +57,7 @@ public class CreateElection extends Base {
                 }
             });
             getRequest().setAttribute("submissions", a);
+            setDefault(Constants.CONTEST_ID, contest.getId());
 
             setNextPage("/admin/electionCreation.jsp");
             setIsNextPageInContext(true);
