@@ -11,6 +11,7 @@ import com.topcoder.web.csf.model.Submission;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -31,6 +32,7 @@ public class CreateElection extends Base {
 
         String[] submissionIds = getRequest().getParameterValues(Constants.SUBMISSION_IDS);
         Submission[] submissions = null;
+        CondorcetSchulzeElection election = new CondorcetSchulzeElection();
         if (submissionIds == null || submissionIds.length == 0) {
             addError(Constants.SUBMISSION_IDS, "No submissions selected");
         } else {
@@ -43,7 +45,20 @@ public class CreateElection extends Base {
             } catch (NumberFormatException ex) {
                 addError(Constants.SUBMISSION_IDS, "Please choose valid submissions");
             }
+            SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
+            try {
+                election.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
+            } catch (ParseException ex) {
+                addError(Constants.START_TIME, "Please choose a start time.");
+            }
+            try {
+                election.setEndTime(new Timestamp(sdf.parse(endTime).getTime()));
+            } catch (ParseException ex) {
+                addError(Constants.END_TIME, "Please choose a end time.");
+            }
+            election.setName(submissions[0].getContest().getName());
         }
+
         if (hasErrors()) {
             setDefault(Constants.START_TIME, startTime);
             setDefault(Constants.END_TIME, endTime);
@@ -62,12 +77,6 @@ public class CreateElection extends Base {
             setNextPage("/admin/electionCreation.jsp");
             setIsNextPageInContext(true);
         } else {
-            SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
-
-            CondorcetSchulzeElection election = new CondorcetSchulzeElection();
-            election.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
-            election.setEndTime(new Timestamp(sdf.parse(endTime).getTime()));
-            election.setName(submissions[0].getContest().getName());
 
             Candidate c;
             for (int i = 0; i < submissions.length; i++) {
