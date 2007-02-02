@@ -139,10 +139,10 @@
       </td>
       <td class="valueC">$11,000</td>
       <td class="valueC">
-      02.05.2007 9:00 AM EST
+      02.07.2007 9:00 AM EST
       </td>
       <td class="valueC">
-      02.26.2007 9:00 AM EST
+      02.28.2007 9:00 AM EST
       </td>
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506269">join a team</A>

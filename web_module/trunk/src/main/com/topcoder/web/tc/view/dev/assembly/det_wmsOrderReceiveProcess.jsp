@@ -105,16 +105,16 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="right"><strong>Start</strong></td><td align="right"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Team Creation:</td><td align="right">01.31.2007</td><td align="right">02.05.2007</td>
+      <td>Team Creation:</td><td align="right">02.03.2007</td><td align="right">02.07.2007</td>
    </tr>
    <tr>
-      <td>Competition Phase:</td><td align="right">02.05.2007</td><td align="right">02.26.2007</td>
+      <td>Competition Phase:</td><td align="right">02.07.2007</td><td align="right">02.28.2007</td>
    </tr>
    <tr>
-      <td>Review Phase:</td><td align="right">02.26.2007</td><td align="right">03.01.2007</td>
+      <td>Review Phase:</td><td align="right">02.28.2007</td><td align="right">03.03.2007</td>
    </tr>
    <tr>
-      <td>Feedback Phase:</td><td align="right">03.01.2007</td><td align="right">03.03.2007</td>
+      <td>Feedback Phase:</td><td align="right">03.03.2007</td><td align="right">03.07.2007</td>
    </tr>
 </table>
 </div>
