@@ -339,13 +339,12 @@ public class ProjectUtil {
                     // Create scorecard id
                     // 1, 'Scorecard ID'
                     createPhaseCriteria(conn, phaseId, 1, String.valueOf(reviewTemplateId), modUserId);
-                }
-                
-                if (phases[i].getPhaseType().getId() == PHASE_TYPE_REVIEW) {
-                    // Create scorecard id
-                    // 1, 'Scorecard ID'
-                    createPhaseCriteria(conn, phaseId, 1, String.valueOf(reviewTemplateId), modUserId);
-                }	   
+                }	            
+
+                if (phases[i].getPhaseType().getId() == PHASE_TYPE_APPEAL) {
+	                // View Response During Appeals
+	                createPhaseCriteria(conn, phaseId, 4, "No", modUserId);
+	            }
 
                 phaseIds.put(phases[i], String.valueOf(phaseId));
                 dependencies.addAll(Arrays.asList(phases[i].getAllDependencies()));
