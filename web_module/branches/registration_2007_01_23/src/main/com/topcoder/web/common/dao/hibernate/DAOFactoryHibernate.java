@@ -117,6 +117,18 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new TermsOfUseDAOHibernate();
     }
 
+    public EventTypeDAO getEventTypeDAO() {
+        return new EventTypeDAOHibernate();
+    }
+
+    public QuestionTypeDAO getQuestionTypeDAO() {
+        return new QuestionTypeDAOHibernate();
+    }
+
+    public QuestionStyleDAO getQuestionStyleDAO() {
+        return new QuestionStyleDAOHibernate();
+    }
+
     public TimeZoneDAO getTimeZoneDAO() {
         return new TimeZoneDAOHibernate();
     }

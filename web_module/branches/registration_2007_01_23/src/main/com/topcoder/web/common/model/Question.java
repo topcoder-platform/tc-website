@@ -13,11 +13,8 @@ public class Question implements Serializable {
     public static final int SCHULZE_ELECTION_TYPE = 7;
 
     private long id;
-    private int typeId;
-    private int styleId;
     private String text;
     private boolean required;
-    private List answerInfo;
     private String imagePath;
     private String link;
     private int statusId;
@@ -26,14 +23,12 @@ public class Question implements Serializable {
     private QuestionStyle style;
     private Set answers;
     private Set surveys;
-    private Set events;
 
     public Question() {
         type = new QuestionType();
         style = new QuestionStyle();
         answers = new TreeSet();
         surveys = new HashSet();
-        events = new HashSet();
     }
 
     public int getStatusId() {
@@ -93,15 +88,6 @@ public class Question implements Serializable {
     public void setSurveys(Set surveys) {
         this.surveys = surveys;
     }
-
-    public Set getEvents() {
-        return Collections.unmodifiableSet(events);
-    }
-
-    public void setEvents(Set events) {
-        this.events = events;
-    }
-
 
     public long getId() {
         return id;
