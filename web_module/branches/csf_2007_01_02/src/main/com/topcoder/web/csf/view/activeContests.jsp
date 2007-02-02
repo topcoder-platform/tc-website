@@ -39,11 +39,13 @@
         <span class="pageName">Active Competitions</span>
     </div>
 
+<%--
     <div align="right" style="float:right;"><strong>Need help? Learn how to
         <A href="/?module=Static&amp;d1=support&amp;d2=getStarted">get
             started</A>.<br>
         Got <A href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</A>?</strong>
     </div>
+--%>
 
 <div class="breadcrumb">
     <A href="/?module=Static&d1=competitions">Competitions</A>
