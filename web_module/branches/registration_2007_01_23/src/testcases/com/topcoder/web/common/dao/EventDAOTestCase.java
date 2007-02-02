@@ -41,12 +41,13 @@ public class EventDAOTestCase extends TCHibernateTestCase {
         assertFalse("new event entry not created", new1 == null);
         assertFalse("new survey entry not created", new1.getSurvey() == null);
         assertFalse("new question entries not created", new1.getSurvey().getQuestions() == null);
-        assertFalse("new question entries size missmatch", new1.getSurvey().getQuestions().size() == 4);
+        assertFalse("new question entries size missmatch. Expected 4, got " + new1.getSurvey().getQuestions().size(), 
+                new1.getSurvey().getQuestions().size() == 4);
         for (Iterator it = new1.getSurvey().getQuestions().iterator(); it.hasNext();) {
             Question q = (Question) it.next();
             if (q.getText().equals("Question 1") || q.getText().equals("Question 2")) {
                 assertFalse("new answer entries not created", q.getAnswers() == null); 
-                assertFalse("new question entries size missmatch", q.getAnswers().size() == 3);
+                assertFalse("new answer entries size missmatch. Expected 3, got " + q.getAnswers().size(), q.getAnswers().size() == 3);
             } else {
                 assertFalse("new answer entries should be empty", q.getAnswers() != null); 
             }
