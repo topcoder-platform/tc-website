@@ -3,6 +3,7 @@
 <%@ page import="com.topcoder.web.csf.controller.request.Login" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="csf.tld" prefix="csf" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
     String section = request.getParameter("section") == null ? "" : request.getParameter("section");
@@ -52,5 +53,5 @@
     <div class="csfLogo">
         <a href="/"><img src="/i/csf.png" alt="Connected Services Framework Competition Series" /></a>
     </div>
-    <A href="http://www.networkmashups.com/"><img src="/i/sandboxLogo.gif" alt="Connected Services Sandbox" /></A>
+    <A href="<tc-webtag:linkTracking link="http://www.networkmashups.com/" refer="csf_site_sandbox_logo"/>"><img src="/i/sandboxLogo.gif" alt="Connected Services Sandbox" /></A>
 </div>
