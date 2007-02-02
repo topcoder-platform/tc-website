@@ -49,26 +49,25 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
-<%--
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_smcUiPrototype">SMC UI Prototype</A>
       </td>
       <td class="valueC">
       <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: SMC UI Prototype">register</A>
-      <!--registration closed-->
+      <%--registration closed--%>
       </td>
       <td class="valueC">
       &#160;
-      <!--   
+      <%--   
       <A href="">results</A>
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!-- 
+      <%-- 
       <A href="">standings</A>
-      -->
+      --%>
       </td>
       <td class="valueC">$4,000</td>
       <td class="valueC">
@@ -80,11 +79,10 @@
       <td class="valueC" nowrap="nowrap">
       <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=ThreadList&forumID=506272">join a team</A>
       <br>
-      <!--<A href="">discuss</A>-->
+      <%--<A href="">discuss</A>--%>
       </td>
    </tr>
    <% even = !even;%>
---%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value" nowrap>
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_umlToolBackend">UML Tool Backend Assembly</A>
