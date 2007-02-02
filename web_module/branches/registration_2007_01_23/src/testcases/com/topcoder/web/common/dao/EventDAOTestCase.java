@@ -99,9 +99,6 @@ public class EventDAOTestCase extends TCHibernateTestCase {
     }
 
     private Set createQuestions(Survey s) {
-        Set setSurveys = new HashSet();
-        setSurveys.add(s);
-        
         Set ret = new HashSet();
 
         for (int i = 1; i <= 4; i++) {
@@ -109,23 +106,20 @@ public class EventDAOTestCase extends TCHibernateTestCase {
          
             q.setText("Question " + i);
             q.setType(DAOUtil.getFactory().getQuestionTypeDAO().find(new Integer(1)));
-            //q.setTypeId(1);
             q.setStyle(DAOUtil.getFactory().getQuestionStyleDAO().find(new Integer(i)));
-            //q.setStyleId(i);
             q.setImagePath("/path" + i + "/");
             q.setKeyword("key" + i);
             q.setLink("link" + i);
             q.setRequired(i < 3);
             q.setStatusId(1);
-            q.setAnswers(i < 3 ? createAnswers(q) : null);
-                       
-            //q.setSurveys(setSurveys);
+            q.setAnswers(i < 3 ? createAnswers() : null);
+
             ret.add(q);
         }
         return ret;
     }
 
-    private Set createAnswers(Question q) {
+    private Set createAnswers() {
         Set ret = new HashSet();
 
         for (int i = 1; i <= 3; i++) {
@@ -134,10 +128,9 @@ public class EventDAOTestCase extends TCHibernateTestCase {
             a.setText("answer" + i);
             a.setSort(i);
             a.setCorrect(new Boolean(i == 1));
-            //a.setQuestion(q);
             ret.add(a);
         }
-        return null;
+        return ret;
     }
 
 
