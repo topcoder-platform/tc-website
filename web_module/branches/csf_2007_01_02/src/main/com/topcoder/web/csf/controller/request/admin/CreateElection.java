@@ -10,8 +10,8 @@ import com.topcoder.web.csf.model.Contest;
 import com.topcoder.web.csf.model.Submission;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -88,7 +88,7 @@ public class CreateElection extends Base {
             VotingDAOUtil.getFactory().getCondorcetSchulzeElectionDAO().saveOrUpdate(election);
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                    "=Static&d1=admin&d2=electionCreationSuccess.jsp");
+                    "=Static&d1=admin&d2=electionCreationSuccess");
             setIsNextPageInContext(false);
         }
 
