@@ -1,0 +1,76 @@
+package com.topcoder.web.csf.controller.request;
+
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.voting.CondorcetSchulzeElection;
+import com.topcoder.web.common.voting.ElectionStatus;
+import com.topcoder.web.common.voting.dao.VotingDAOUtil;
+import com.topcoder.web.csf.Constants;
+import com.topcoder.web.csf.dao.CSFDAOUtil;
+import com.topcoder.web.csf.model.Contest;
+
+import java.util.Date;
+
+/**
+ * @author dok
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+ *          Create Date: Feb 2, 2007
+ */
+public class ViewBallot extends ShortHibernateProcessor {
+    protected void dbProcessing() throws Exception {
+
+        if (userLoggedIn()) {
+            String contestId = getRequest().getParameter(Constants.CONTEST_ID);
+            String electionId = getRequest().getParameter(Constants.ELECTION_ID);
+            if ("".equals(StringUtils.checkNull(contestId))) {
+                throw new NavigationException("No contest specified");
+            } else if ("".equals(StringUtils.checkNull(electionId))) {
+                throw new NavigationException("No election specified");
+            } else {
+                Long cid, eid;
+                try {
+                    cid = new Long(contestId);
+                } catch (NumberFormatException e) {
+                    throw new NavigationException("Invalid contest specified");
+                }
+                try {
+                    eid = new Long(electionId);
+                } catch (NumberFormatException e) {
+                    throw new NavigationException("Invalid election specified");
+                }
+
+                Contest contest = CSFDAOUtil.getFactory().getContestDAO().find(cid);
+                CondorcetSchulzeElection election = VotingDAOUtil.getFactory().getCondorcetSchulzeElectionDAO().find(eid);
+
+                if (contest == null) {
+                    throw new NavigationException("Invalid contest specified");
+                } else if (election == null) {
+                    throw new NavigationException("Invalid election specified");
+                } else {
+                    if (ElectionStatus.ACTIVE.equals(election.getStatus().getId())) {
+                        Date now = new Date();
+                        if (election.getStartTime().before(now) && election.getEndTime().after(now)) {
+                            setDefault(Constants.ELECTION_ID, election.getId());
+                            getRequest().setAttribute("election", election);
+                            getRequest().setAttribute("contest", contest);
+                        } else {
+                            throw new NavigationException("Inactive election specified.");
+                        }
+                    } else {
+                        throw new NavigationException("Invalid election specified.");
+                    }
+
+
+                    setNextPage("/vote/ballot.jsp");
+                    setIsNextPageInContext(true);
+                }
+            }
+        } else {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+
+    }
+}
