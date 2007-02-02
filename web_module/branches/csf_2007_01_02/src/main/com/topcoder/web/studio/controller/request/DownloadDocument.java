@@ -20,6 +20,10 @@ public class DownloadDocument extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
         Long documentId;
 
+        if (!userLoggedIn()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));            
+        }
+        
         try {
             documentId = new Long(getRequest().getParameter(Constants.DOCUMENT_ID));
         } catch (NumberFormatException e) {
@@ -27,6 +31,28 @@ public class DownloadDocument extends ShortHibernateProcessor {
         }
 
         Document d = StudioDAOUtil.getFactory().getDocumentDAO().find(documentId);
+        // don't check permissions for admins
+        if (!isAdmin()) {
+            
+            // check if the user is registered for any contest that uses this documentation, or any of those contests is over.
+            User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+
+            Set contests = d.getContests();
+            boolean isRegistered = false;
+            
+            for (Iterator it = contests.iterator(); it.hasNext() && !isRegistered ; ) {
+                Contest c = (Contest) it.next();
+                
+                if ((ContestStatus.ACTIVE.equals(c.getStatus().getId()) && CSFDAOUtil.getFactory().getContestRegistrationDAO().find(c, u) != null) 
+                        || new Date().after(c.getEndTime())) {
+                    isRegistered = true;
+                }
+            }
+            
+            if (!isRegistered) {
+                throw new NavigationException("User needs to be registered to the project in order to download documents.");
+            }
+        }
 
         //stream it out via the response
         getResponse().addHeader("content-disposition", "inline; filename=" + d.getOriginalFileName());
@@ -42,6 +68,14 @@ public class DownloadDocument extends ShortHibernateProcessor {
         getResponse().setStatus(HttpServletResponse.SC_OK);
         getResponse().flushBuffer();
 
+    }
 
+    private boolean isAdmin() throws Exception {
+        TCSubject subject = SecurityHelper.getUserSubject(getUser().getId());
+        boolean found = false;
+        for (Iterator it = subject.getPrincipals().iterator(); it.hasNext() && !found;) {
+            found = ((TCPrincipal) it.next()).getId() == Constants.CONTEST_ADMIN_ROLE_ID;
+        }
+        return found;
     }
 }

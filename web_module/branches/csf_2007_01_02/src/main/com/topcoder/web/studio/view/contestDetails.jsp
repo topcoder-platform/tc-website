@@ -54,6 +54,76 @@
 <div align="center">
 <div style="width:510px;" align="left">
 
+<c:if test="${currentTime<=contest.endTime && currentTime>=contest.startTime}">
+<div align="center">
+<table class="bodyText" style="margin-top: 20px; margin-bottom: 20px; width: 320px;" cellpadding="0" cellspacing="0">
+<tbody>
+    <tr>
+        <td width="100%">
+            <div class="bigRed" style="border-top: 1px solid rgb(153, 153, 153); border-bottom: 1px solid rgb(153, 153, 153);">
+<c:choose>
+    <c:when test="${fn:length(contest.prizes)==1}">
+        <c:forEach items="${contest.prizes}" var="prize">
+            <div style="float: right; text-align: right;">
+            <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/><br>
+            <tc-webtag:format object="${contest.endTime}" format="MM.dd.yyyy" timeZone="${sessionInfo.timezone}"/>
+            </div>
+            <strong>
+            Winner:<br>
+            Due date:
+            </strong> 
+        </c:forEach>
+    </c:when>
+    <c:otherwise>
+        <% int i = 1;%>
+        <c:forEach items="${contest.prizes}" var="prize">
+            <div style="float: right; clear: right; text-align: right;">
+            <fmt:formatNumber value="${prize.amount}" pattern="$###,###.00"/><br>
+            </div>
+            <strong>Prize <%=i++%>:</strong><br>
+        </c:forEach>
+            <div style="float: right; clear: right; text-align: right;">
+            <tc-webtag:format object="${contest.endTime}" format="MM.dd.yyyy" timeZone="${sessionInfo.timezone}"/>
+            </div>
+            <strong>Due date:</strong>
+    </c:otherwise>
+</c:choose>
+            </div>
+        </td>
+<c:choose>
+<c:when test="${registered}">
+        <td style="padding: 10px 5px 10px 20px;" align="right">
+        <div class="buttonIsOff" style="width: 60px;">Register</a>
+        </td>
+        <td style="padding: 10px 0px 10px 5px;" align="right">
+            <a class="button" style="width: 60px;" href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="padding-top: 10px;" align="center">
+        You are registered for this project.<br>
+        </td>
+</c:when>
+<c:otherwise>
+        <td style="padding: 10px 5px 10px 20px;" align="right">
+        <a class="button" style="width: 60px;" href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Register</a>
+        </td>
+        <td style="padding: 10px 0px 10px 5px;" align="right">
+        <div class="buttonIsOff" style="width: 60px;">Submit</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3" style="padding-top: 10px;" align="center">
+        Register to get info necessary to submit a solution<br>
+        </td>
+</c:otherwise>
+</c:choose>
+    </tr>
+</tbody>
+</table>
+</div>
+</c:if>
+
 <div class="header">Project Overview</div>
 ${contest.overview.value}
 <br><br>

@@ -47,6 +47,15 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid contest specified.");
                 }
             }
+            boolean registered = false;
+            if (userLoggedIn()) {
+                User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+                if (CSFDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
+                    registered = true;
+                }
+            }
+            
+            getRequest().setAttribute("registered", Boolean.valueOf(registered));
 
             getRequest().setAttribute("currentTime", new Date());
 
