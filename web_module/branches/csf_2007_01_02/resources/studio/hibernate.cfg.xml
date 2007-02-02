@@ -21,7 +21,8 @@
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
         <property name="current_session_context_class">
-            com.topcoder.web.common.ExtendedThreadLocalSessionContext</property>
+            com.topcoder.web.common.ExtendedThreadLocalSessionContext
+        </property>
 
 
         <!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
@@ -102,6 +103,7 @@
         <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CandidateProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CondorcetSchulzeElection.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/ElectionStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/RankBallot.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
 

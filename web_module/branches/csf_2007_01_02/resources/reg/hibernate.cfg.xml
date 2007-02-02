@@ -9,18 +9,19 @@
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_OLTP</property>
-<!--
-    <session-factory>
-                <property name="connection.username">coder</property>
-                <property name="connection.password">altec</property>
-                <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/csf_oltp:INFORMIXSERVER=devinformix10_shm</property>
-                <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
--->
+        <!--
+            <session-factory>
+                        <property name="connection.username">coder</property>
+                        <property name="connection.password">altec</property>
+                        <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/csf_oltp:INFORMIXSERVER=devinformix10_shm</property>
+                        <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+        -->
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
         <property name="current_session_context_class">
-            com.topcoder.web.common.ExtendedThreadLocalSessionContext</property>
+            com.topcoder.web.common.ExtendedThreadLocalSessionContext
+        </property>
 
 
         <!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
@@ -30,8 +31,8 @@
 
 
         <!-- Echo all executed SQL to stdout -->
-                <property name="show_sql">true</property>
-                <property name="format_sql">true</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
         <mapping resource="com/topcoder/web/common/model/Address.hbm.xml"/>
@@ -84,6 +85,7 @@
         <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CandidateProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CondorcetSchulzeElection.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/ElectionStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/RankBallot.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
 

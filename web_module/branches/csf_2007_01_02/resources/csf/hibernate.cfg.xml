@@ -103,6 +103,7 @@
         <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CandidateProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CondorcetSchulzeElection.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/ElectionStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/RankBallot.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
 
