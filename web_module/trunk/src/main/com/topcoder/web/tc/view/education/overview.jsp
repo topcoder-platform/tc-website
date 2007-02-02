@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><A href="/tc?module=Static&d1=features&d2=120106"><strong>TopCoder @ Work: Professional Ethics</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
-By providing near limitless flexibility and unparalleled access to resources, technology has lubricated the downward slide of ethics in the workplace. However, it's up to you to transcend distractions and figure out your own ethical standards: what is right, what is wrong, and what is fair.</li>
-<li><A href="/tc?module=Static&d1=features&d2=112806"><strong>Digital Run Stage 2: Going for the win</strong></A>, by <tc-webtag:handle coderId="287614" /><br>
-Over the course of just ten weeks of the stage, <tc-webtag:handle coderId="287614" context="design"/> competed on 35 components, winning 28 and taking second place on 7. Here, he tells us how he did it.</li>
-<li><A href="/tc?module=Static&d1=features&d2=112106"><strong>A Number or a String: <br>Parsing Your Input and Formatting Your Output in C++</strong></A>, by <tc-webtag:handle coderId="15635590" /><br>
-This article is focused on main fast-to-type and convenient means of parsing input and formatting output in cases that are typical for TopCoder problems. All methods are specific to C++, but Java and VB coders may find several helpful ideas.</li>
+<li><A href="/tc?module=Static&d1=features&d2=020207"><strong>TopCoder @ Work: Not Another Vista Article</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
+Even a peaceful venture to my favorite bookstore can't shield me from stacks of dead trees festooned with the five-letter-word I've tried to escape: VISTA.</li>
+<li><A href="/tc?module=Static&d1=features&d2=013107"><strong>Five Things You Didn't Know About C++, Part 2</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
+This is a follow-up to my previous article, Five Things You Didn't Know About C++, a collection of obscure, surprising and (possibly) useful C++ features.</li>
+<li><A href="/tc?module=Static&d1=features&d2=012607"><strong>Five Things You Didn't Know About C++, Part 1</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
+'ve been using C++ for many years, but it is such an incredibly rich and complex language that I still learn new things about it from time to time. In this article, I would like to point out five of the more surprising features that I've discovered.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
