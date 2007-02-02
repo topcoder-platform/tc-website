@@ -27,6 +27,7 @@ public class Contest extends Base {
     private Set submissions = new HashSet();
     private Set fileTypes = new HashSet();
     private Set results = new TreeSet();
+    private Set elections = new HashSet();
 
     public Long getId() {
         return id;
@@ -171,4 +172,12 @@ public class Contest extends Base {
         this.results = results;
     }
 
+
+    public Set getElections() {
+        return elections;
+    }
+
+    public void setElections(Set elections) {
+        this.elections = elections;
+    }
 }

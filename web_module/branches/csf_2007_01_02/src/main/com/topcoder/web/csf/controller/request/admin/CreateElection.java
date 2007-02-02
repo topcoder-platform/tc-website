@@ -1,5 +1,6 @@
 package com.topcoder.web.csf.controller.request.admin;
 
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.voting.Candidate;
 import com.topcoder.web.common.voting.CondorcetSchulzeElection;
 import com.topcoder.web.common.voting.dao.VotingDAOUtil;
@@ -60,6 +61,12 @@ public class CreateElection extends Base {
         }
 
         Contest contest = CSFDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
+
+        if (!contest.getElections().isEmpty()) {
+            throw new NavigationException("Contest already has an election, you've been denied!");
+        }
+
+
         if (hasErrors()) {
             setDefault(Constants.START_TIME, startTime);
             setDefault(Constants.END_TIME, endTime);
