@@ -236,6 +236,25 @@ Please select a <strong>season</strong><br>
 <%even = !even;%>
 </c:forEach>
 </table>
+<div class="pagingBox" style="width:300px;">
+    <c:choose>
+        <c:when test="${croppedDataBefore}">
+            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+        </c:when>
+        <c:otherwise>
+            &lt;&lt; prev
+        </c:otherwise>
+    </c:choose>
+    |
+    <c:choose>
+        <c:when test="${croppedDataAfter}">
+            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+        </c:when>
+        <c:otherwise>
+            next &gt;&gt;
+        </c:otherwise>
+    </c:choose>
+</div>
 
 <p class="small" align="left">
     * Prizes are based on current earned points and the dollar per point value for completed projects. Current and

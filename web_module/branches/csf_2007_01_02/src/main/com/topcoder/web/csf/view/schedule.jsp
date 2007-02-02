@@ -32,9 +32,7 @@
     <div class="pageHeader">
         <span class="pageName">Schedule</span>
     </div>
-<p>
-Competition #1: BT Business CSF Mashup Design Competition
-</p>
+<h2>Competition #1: BT Business CSF Mashup Design Competition</h2>
 
 <ul>
 <li><strong>Submission Start Date:</strong> March 6, 2007</li>
