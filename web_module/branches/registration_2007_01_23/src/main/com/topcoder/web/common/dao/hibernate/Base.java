@@ -31,6 +31,10 @@ public abstract class Base {
         session.saveOrUpdate(o);
     }
 
+    protected void delete(Object o) {
+        session.delete(o);
+    }
+
     protected Object find(Class c, Serializable id) {
         return session.get(c, id);
     }

@@ -36,38 +36,15 @@ public class EventDAOTestCase extends TCHibernateTestCase {
         tearDown();
         setUp();
 
+        Event e2 = DAOUtil.getFactory().getEventDAO().find(new Long(2050));
+        DAOUtil.getFactory().getEventDAO().delete(e2);
+
+        tearDown();
+        setUp();
+
         Event new1 = DAOUtil.getFactory().getEventDAO().find(e.getId());
         assertFalse("new event entry not created", new1 == null);
     }
-
-/*    public void testFind() {
-        Contest c = new Contest();
-        c.setName("gp contest " + System.currentTimeMillis());
-        c.setStartTime(new Timestamp(new Date().getTime()));
-        c.setEndTime(new Timestamp(c.getStartTime().getTime() + 1000 * 60 * 60));
-        c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
-        StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
-        User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
-        ContestRegistration cr = new ContestRegistration();
-        cr.setContest(c);
-        cr.setUser(dok);
-        cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(Constants.CONTEST_TERMS_OF_USE_ID)));
-        cr.getId().setContest(c);
-        cr.getId().setUser(dok);
-
-        StudioDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
-
-        ContestRegistration new1 = StudioDAOUtil.getFactory().getContestRegistrationDAO().find(c, dok);
-        assertFalse("new contest reg entry not created", new1 == null);
-    }
-
-
-    public void testFind() {
-
-        Event test = DAOUtil.getFactory().getEventDAO().find(new Long(1));
-        assertTrue("could not load test", test != null);
-
-    }*/
 
 
     private Set createUsers() {

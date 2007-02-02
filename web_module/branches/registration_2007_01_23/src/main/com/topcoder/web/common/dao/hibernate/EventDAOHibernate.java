@@ -26,4 +26,8 @@ public class EventDAOHibernate extends Base implements EventDAO {
     public void saveOrUpdate(Event e) {
         super.saveOrUpdate(e);
     }
+
+    public void delete(Event e) {
+        super.delete(e);
+    }
 }
