@@ -151,19 +151,21 @@
             </td>
             <td align="right" nowrap="nowrap" valign="top">
                 <A href="?module=History" class="rtbcLink">My
-                Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User
+                Post History</A> | <A href="?module=Settings" class="rtbcLink">User
                 Settings</A><br>
                 View:
                 <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>&<%=ForumConstants.THREAD_VIEW%>=<%=flatMode%>" class="rtbcLink">Flat</A>&#160;&#160;|
                 <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>&<%=ForumConstants.THREAD_VIEW%>=threaded" class="rtbcLink">Threaded</A>&#160;&#160;|
                 <span class="currentPage">Tree</span>
+<%--
                 <br>
                 <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
                 class="rtbcLink"><%=watchMessage%></A>
                 <% if (errors.get(ForumConstants.WATCH_THREAD) != null) { %><br><font color="red">
                 <tc-webtag:errorIterator id="err" name="<%=ForumConstants.WATCH_THREAD%>"><%=err%>
                 </tc-webtag:errorIterator></font><% } %>
-                <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
+--%>    
+            <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
                 <% if (prevThread != null) { %>
                 <% prevPost = ForumsUtil.getLatestMessage(prevThread);
                     prevTrackerClass = (user == null || readTracker.getReadStatus(user, prevPost) == ReadTracker.READ) ? "rtbcLink" : "rtLinkBold"; %>
@@ -234,8 +236,8 @@
                     negRatings = ratings[1];
                     ratingCount = posRatings + negRatings; %>
                 <br>Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> |
-                <a href="javascript:void(0)" onclick="rate('<%=activeMessage.getID()%>','2')" class="rtbcLink">[+]</a>
-                <a href="javascript:void(0)" onclick="rate('<%=activeMessage.getID()%>','1')" class="rtbcLink">[-]</a>
+                <a href="javascript:void(0)" onClick="rate('<%=activeMessage.getID()%>','2')" class="rtbcLink">[+]</a>
+                <a href="javascript:void(0)" onClick="rate('<%=activeMessage.getID()%>','1')" class="rtbcLink">[-]</a>
                 <% } %>
                 <br>
                 <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getID()%>" class="rtbcLink">Reply</A>

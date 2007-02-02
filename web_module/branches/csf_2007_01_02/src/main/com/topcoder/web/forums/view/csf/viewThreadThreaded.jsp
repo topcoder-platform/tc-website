@@ -149,18 +149,20 @@
         </td>
         <td align="right" nowrap="nowrap" valign="top">
             <A href="?module=History" class="rtbcLink">My
-            Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User
+            Post History</A> | <A href="?module=Settings" class="rtbcLink">User
             Settings</A><br>
             View:
             <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>&<%=ForumConstants.THREAD_VIEW%>=<%=flatMode%>" class="rtbcLink">Flat</A>&#160;&#160;|
             <span class="currentPage">Threaded</span>&#160;&#160;|
             <A href="?module=Thread&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>&mc=<%=thread.getMessageCount()%>&<%=ForumConstants.THREAD_VIEW%>=tree" class="rtbcLink">Tree</A>
+<%--
             <br>
             <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
                class="rtbcLink"><%=watchMessage%></A>
             <% if (errors.get(ForumConstants.WATCH_THREAD) != null) { %><br><font color="red">
             <tc-webtag:errorIterator id="err" name="<%=ForumConstants.WATCH_THREAD%>"><%=err%>
             </tc-webtag:errorIterator></font><% } %>
+--%>    
             <% if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
             <% if (prevThread != null) { %>
             <% prevPost = ForumsUtil.getLatestMessage(prevThread);
@@ -223,7 +225,7 @@
                         <a name=<%=message.getID()%>><tc-webtag:format object="${message.creationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
                     </div>
                     <% if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) { %>
-                    <a class="pointer" onclick="toggle('<%=msgBodyID%>')";>
+                    <a class="pointer" onClick="toggle('<%=msgBodyID%>')";>
                         <%=message.getSubject()%></a>
                             <%  } else { %>
                             <%=message.getSubject()%>
@@ -244,8 +246,8 @@
                             %>
                         <br>Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span>
                         |
-                        <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a>
-                        <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
+                        <a href="javascript:void(0)" onClick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a>
+                        <a href="javascript:void(0)" onClick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
                             <%  } %>
                         <br>
                         <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>">Reply</A>

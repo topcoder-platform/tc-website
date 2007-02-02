@@ -76,7 +76,7 @@ function noenter(e)
         <jsp:include page="categoriesHeader.jsp" />
     </td>
     <td align="right" nowrap="nowrap" width="100%" valign="top">   
-        <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
+        <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
     </td>
 </tr>
 <tr>
@@ -97,8 +97,8 @@ function noenter(e)
       <td class="rtTextCell" nowrap="nowrap"><strong>Query:</strong></td>
       <td class="rtTextCell100">
          <input name="<%=ForumConstants.SEARCH_QUERY%>" size="50" maxlength="100" value="<%if (query != null) {%><%=StringUtils.escapeHTMLTags(query.getQueryString())%><%}%>" id="<%=ForumConstants.SEARCH_QUERY%>" type="text">
-         <input name="Search" value="Search" type="submit" alt="Search" onclick="">
-         &#160;<a href="#" onclick="openWin('searchTips.jsp','st',600,400);" class="rtLinkOld">Search Tips</a>
+         <input name="Search" value="Search" type="submit" alt="Search" onClick="">
+         &#160;<a href="#" onClick="openWin('searchTips.jsp','st',600,400);" class="rtLinkOld">Search Tips</a>
          <% if (errors.get(ForumConstants.SEARCH_QUERY) != null) { %><br/><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.SEARCH_QUERY%>"><%=err%></tc-webtag:errorIterator></span><% } %>
       </td>
    </tr>

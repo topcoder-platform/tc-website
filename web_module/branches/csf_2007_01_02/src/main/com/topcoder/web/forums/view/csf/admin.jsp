@@ -48,7 +48,7 @@
          <jsp:include page="searchHeader.jsp" />
        </td>
        <td align="right" nowrap="nowrap" valign="top">
-           <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
+           <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
        </td>
    </tr>
    <tr>

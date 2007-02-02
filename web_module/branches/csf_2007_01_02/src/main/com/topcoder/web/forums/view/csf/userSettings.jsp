@@ -33,28 +33,28 @@
 var section;
 function toggleTabs(anchor,id) {
    var genStyle = (id=="gen")?'':'none';
-   var watchStyle = (id=="watch")?'':'none';
+//   var watchStyle = (id=="watch")?'':'none';
    var rateStyle = (id=="rate")?'':'none';
    if(anchor.blur)anchor.blur();
    if(id=='gen'){
       document.getElementById('tabGen').className = 'tabLinkOn';
-      document.getElementById('tabWatch').className = 'tabLinkOff';
+//      document.getElementById('tabWatch').className = 'tabLinkOff';
       document.getElementById('tabRate').className = 'tabLinkOff';
    }else if(id=='watch'){
       document.getElementById('tabGen').className = 'tabLinkOff';
-      document.getElementById('tabWatch').className = 'tabLinkOn';
+//      document.getElementById('tabWatch').className = 'tabLinkOn';
       document.getElementById('tabRate').className = 'tabLinkOff';
    }else if(id=='rate'){
       document.getElementById('tabGen').className = 'tabLinkOff';
-      document.getElementById('tabWatch').className = 'tabLinkOff';
+//      document.getElementById('tabWatch').className = 'tabLinkOff';
       document.getElementById('tabRate').className = 'tabLinkOn';
    }
    for (i=1; i<=11; i++) {
       document.getElementById('bodyGen'+i).style.display = genStyle;
    }
-   for (i=1; i<=5; i++) {
-      document.getElementById('bodyWatch'+i).style.display = watchStyle;
-   }
+//   for (i=1; i<=5; i++) {
+//      document.getElementById('bodyWatch'+i).style.display = watchStyle;
+//   }
    for (i=1; i<=4; i++) {
       document.getElementById('bodyRate'+i).style.display = rateStyle;
    }
@@ -69,7 +69,7 @@ function toggleTabs(anchor,id) {
 -->
 </style>
 
-<body onload="toggleTabs('','gen')">
+<body onLoad="toggleTabs('','gen')">
 
 <div align="center">
 <div id="content">
@@ -94,7 +94,7 @@ function toggleTabs(anchor,id) {
       <jsp:include page="searchHeader.jsp" />
     </td>
     <td align="right" nowrap="nowrap" valign="top">
-        <A href="?module=History" class="rtbcLink">My Post History</A> | <A href="?module=Watches" class="rtbcLink">My Watches</A> | User Settings<br/>
+        <A href="?module=History" class="rtbcLink">My Post History</A> | User Settings<br/>
     </td>
 </tr>
 <tr>
@@ -111,9 +111,8 @@ function toggleTabs(anchor,id) {
 
 <table cellpadding="0" cellspacing="0" border="0" class="tabTable" style="clear:both;">
   <tr>
-      <td width="20%"><A id="tabGen" href="javascript:void(0)" onclick="toggleTabs(this,'gen')" class="tabLinkOff"><span>General Settings</span></A></td>
-      <td width="20%"><A id="tabWatch" href="javascript:void(0)" onclick="toggleTabs(this,'watch')" class="tabLinkOff"><span>Watch Preferences</span></A></td>
-      <td width="20%"><A id="tabRate" href="javascript:void(0)" onclick="toggleTabs(this,'rate')" class="tabLinkOff"><span>Rating Preferences</span></A></td>
+      <td width="20%"><A id="tabGen" href="javascript:void(0)" onClick="toggleTabs(this,'gen')" class="tabLinkOff"><span>General Settings</span></A></td>
+      <td width="20%"><A id="tabRate" href="javascript:void(0)" onClick="toggleTabs(this,'rate')" class="tabLinkOff"><span>Rating Preferences</span></A></td>
       <td width="40%"></td>
   </tr>
 </table>
@@ -296,6 +295,7 @@ function toggleTabs(anchor,id) {
       <label for="jiveDisplayAllMemberPhotosNo">No</label>
       </td>
    </tr>
+<%--
    <tr style="display:none;" id="bodyWatch1">
       <td class="rtHeader" colspan="2">Watch Preferences</td>
    </tr>
@@ -353,6 +353,7 @@ function toggleTabs(anchor,id) {
          (<%= user.getEmail() %>)
       </td>
    </tr>
+--%>
    <tr style="display:none;" id="bodyRate1">
         <td class="rtHeader" colspan="2">Rating Preferences</td>
    </tr>
