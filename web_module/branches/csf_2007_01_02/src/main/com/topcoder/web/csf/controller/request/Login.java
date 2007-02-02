@@ -164,14 +164,7 @@ public class Login extends ShortHibernateProcessor {
         } catch (javax.xml.rpc.ServiceException e) {
             throw new TCWebException(e);
         } catch (RemoteException e) {
-            if (log.isDebugEnabled()) {
-                log.debug("cause stack");
-                if (e.getCause() != null) {
-                    e.getCause().printStackTrace();
-                } else {
-                    log.debug("cause was null");
-                }
-            }
+            log.warn("Login failed " + e);
             throw new LoginException("Handle or password incorrect.");
         }
 
