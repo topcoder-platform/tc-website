@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.SortInfo;
 
 /**

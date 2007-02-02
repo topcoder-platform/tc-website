@@ -1,18 +1,20 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Date;
+import java.util.Iterator;
+
 import com.topcoder.security.TCPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
-
-import java.util.Date;
-import java.util.Iterator;
 
 /**
  * @author dok
@@ -50,7 +52,7 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             boolean registered = false;
             if (userLoggedIn()) {
                 User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-                if (CSFDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
+                if (StudioDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
                     registered = true;
                 }
             }
