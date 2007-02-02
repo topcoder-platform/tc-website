@@ -162,13 +162,7 @@ public class Login extends ShortHibernateProcessor {
             Sandbox10Soap sandBox = api.getSandbox10Soap();
             sandBox.authenticate(username, password, res, user);
         } catch (javax.xml.rpc.ServiceException e) {
-            if (log.isDebugEnabled()) {
-                e.printStackTrace();
-                log.debug("............linked cause............");
-                e.getLinkedCause().printStackTrace();
-                log.debug("............end linked cause .......");
-            }
-            throw new LoginException("Handle or password incorrect.");
+            throw new TCWebException(e);
         } catch (RemoteException e) {
             if (log.isDebugEnabled()) {
                 log.debug("cause stack");
@@ -178,7 +172,7 @@ public class Login extends ShortHibernateProcessor {
                     log.debug("cause was null");
                 }
             }
-            throw new TCWebException(e);
+            throw new LoginException("Handle or password incorrect.");
         }
 
         log.debug("correct user name and password " + res.value);
