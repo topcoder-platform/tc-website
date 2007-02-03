@@ -555,8 +555,8 @@ public class ForumsBean extends BaseEJB {
     	try {
     		ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
     		String oldVersionText = forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT);
-    		String versionTextStr = "v" + versionText + " - ";
-    		String oldVersionTextStr = "v" + oldVersionText + " - ";
+    		String versionTextStr = "v" + versionText;
+    		String oldVersionTextStr = "v" + oldVersionText;
     		forumCategory.setName(StringUtils.replace(forumCategory.getName(), oldVersionTextStr, versionTextStr));
     		forumCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, String.valueOf(versionText));
     	} catch (Exception e) {

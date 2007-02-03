@@ -270,8 +270,10 @@ public class ForumsUtil {
         int n=0;
         while (itCategories.hasNext()) {
         	log.info("*** Category: " + ++n + " of " + forumCategory.getCategoryCount());
-        	ForumCategory c = (ForumCategory)itCategories.next();
+        	ForumCategory c = (ForumCategory)itCategories.next();	// the bottleneck?
+        	log.info("*** found category");
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
+        	log.info("*** found archival status");
         	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
         			ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
         	try {
@@ -575,11 +577,13 @@ public class ForumsUtil {
         		name += " (" + versionText.trim() + ")";
         	}
         }
+        /*
         if (forumType == ForumConstants.CUSTOMER_FORUM) {
         	name += " - " + "Customer Forum";
         } else if (forumType == ForumConstants.DEVELOPER_FORUM) {
         	name += " - " + "Developer Forum";
         }
+        */
         return name;
     }
     
