@@ -57,7 +57,7 @@ For each Stage, competitors will accumulate placement points according to the <A
 <strong>4th</strong> - $3,000<br>
 <strong>5th</strong> - $2,000
 <br><br>
-<span class="bigRed">Please note: For Stage 3 (November 3, 2006 - February 1, 2007), Design Cup prizes for the Top Five have increased and the Top 1/3 prizes have been extended to the Top 1/2! See below for the updated prize amounts.
+<span class="bigRed">Please note: For Stage 4 (February 2, 2007 - May 3, 2007), Design Cup prizes for the Top Five have increased and the Top 1/3 prizes have been extended to the Top 1/2! See below for the updated prize amounts.
 <br><br>
 <strong>Top Five Stage Prizes</strong><br>
 <strong>1st</strong> - $40,000<br>
@@ -74,10 +74,10 @@ If there is a tie for a position among the top 5 finishers, the tie will be reso
 <li>If a tie still remains, then the tied competitors will share equally the prize money at hand.</li>
 </ol>
 <strong>Top Third Stage Prizes</strong><br>
-The remaining $28,000 <span class="bigRed">($68,000 for Stage 3)</span> will be distributed among the top 1/3 <span class="bigRed">(top 1/2 for for Stage 3)</span> of point-getters (all people tied for the last spot will be included), and will be allocated based on the value of each placement point.  
+The remaining $28,000 <span class="bigRed">($68,000 for Stage 4)</span> will be distributed among the top 1/3 <span class="bigRed">(top 1/2 for Stage 4)</span> of point-getters (all people tied for the last spot will be included), and will be allocated based on the value of each placement point.  
 <br><br>
 For example:<br>
-A total of 120 designers accumulate placement points during the Stage.  We will sum the total number of placement points accumulated by the top 40 designers and divide $28,000 <span class="bigRed">($68,000 for Stage 3)</span> by that number to find the dollar per placement point bonus that is available to those 40 designers.  If the total placement points of those 40 designers are 7,000, then each point is worth $4 ($28,000/7,000 = $4 per placement point).  Each of the top 40 designers, including the top 5, will receive $4 for each placement point received during the Stage.  In addition, the top 5 point-getters each Stage will receive the Top Five Stage prizes outlined above.
+A total of 120 designers accumulate placement points during the Stage.  We will sum the total number of placement points accumulated by the top 40 designers and divide $28,000 <span class="bigRed">($68,000 for Stage 4)</span> by that number to find the dollar per placement point bonus that is available to those 40 designers.  If the total placement points of those 40 designers are 7,000, then each point is worth $4 ($28,000/7,000 = $4 per placement point).  Each of the top 40 designers, including the top 5, will receive $4 for each placement point received during the Stage.  In addition, the top 5 point-getters each Stage will receive the Top Five Stage prizes outlined above.
 <br><br>
 As an added prize, the top 5 point-getters from each Stage will win a trip to the TCO finals to be recognized.  At the TCO awards presentation, the overall highest point-getter for the entire year will be recognized as the winner of the TopCoder&#174; Design Cup.
 <br><br>
