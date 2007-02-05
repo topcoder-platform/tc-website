@@ -37,6 +37,7 @@ import java.text.NumberFormat;
 import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.ArrayList;
 
@@ -267,15 +268,27 @@ public class ForumsUtil {
     	log.info("*** Created iterator traversing " + forumCategory.getCategoryCount() + " elements");
         ArrayList categoriesList = new ArrayList();
         ArrayList emptyCategories = new ArrayList();
+        
+        long[] compIDs = new long[forumCategory.getCategoryCount()];
         int n=0;
         while (itCategories.hasNext()) {
+        	ForumCategory c = (ForumCategory)itCategories.next();
+        	compIDs[n++] = c.getID();
+        }
+        log.info("*** Start: Find approved components");
+        HashSet approvedComponents = forumsBean.getApprovedComponents(compIDs);
+        log.info("*** End: Find approved components");
+        
+        itCategories = forumCategory.getCategories();
+        n = 0;
+        while (itCategories.hasNext()) {
         	log.info("*** Category: " + ++n + " of " + forumCategory.getCategoryCount());
-        	ForumCategory c = (ForumCategory)itCategories.next();	// the bottleneck?
-        	log.info("*** found category");
+        	ForumCategory c = (ForumCategory)itCategories.next();
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
         	log.info("*** found archival status");
         	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
         			ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
+        	/*
         	try {
         		log.info("*** start EJB call");
         		long componentStatus = forumsBean.getComponentStatus(Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)));
@@ -285,11 +298,18 @@ public class ForumsUtil {
         		log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
         		continue;
         	}      	
-        	if (c.getMessageCount() > 0) {
-        		categoriesList.add(c);
+        	*/
+        	if (approvedComponents.contains(String.valueOf(c.getID()))) {
+        		log.info("*** category " + c.getID() + "is approved");
+	        	if (c.getMessageCount() > 0) {
+	        		categoriesList.add(c);
+	        	} else {
+	        		emptyCategories.add(c);
+	        	}
         	} else {
-        		emptyCategories.add(c);
+        		log.info("*** category " + c.getID() + "is not approved");
         	}
+        	log.info("*** added to list");
         }
         log.info("*** Began sort of categoriesList");
         Collections.sort(categoriesList, 

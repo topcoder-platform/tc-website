@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.forums;
 
+import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.StringUtils;
@@ -34,6 +35,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Iterator;
 
 import javax.ejb.EJBException;
@@ -519,26 +521,33 @@ public class ForumsBean extends BaseEJB {
     	}
     }
     
-    public long getComponentStatus(long compID) {    	
+    // Given an input list of component IDs, returns the IDs corresponding with approved components.
+    public HashSet getApprovedComponents(long[] compIDs) {    	
     	Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
     	
     	try {
 	    	conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
-			ps = conn.prepareStatement(
-					"select status_id from comp_catalog c " +
-					"where c.component_id = ?");
-			ps.setLong(1, compID);
+	    	StringBuffer psStrBuf = new StringBuffer(
+	    		"select c.component_id from comp_catalog c where status_id = " + ComponentInfo.APPROVED + " " +
+	    		"and c.component_id IN (");
+	    	for (int i=0; i<compIDs.length-1; i++) {
+	    		psStrBuf.append(compIDs[i]);
+	    		psStrBuf.append(',');
+	    	}
+	    	if (compIDs.length > 0) {
+	    		psStrBuf.append(compIDs[compIDs.length-1]); 
+	    	}
+	    	psStrBuf.append(")");
+			ps = conn.prepareStatement(psStrBuf.toString());
 			rs = ps.executeQuery();
-			
-			long statusID = -1;
-            if (rs.next()) {
-                statusID = rs.getLong("status_id");
-            } else {
-                throw new RowNotFoundException("no row found for " + ps.toString());
-            }
-            return statusID;			
+            
+			HashSet h = new HashSet();
+			while (rs.next()) {
+				h.add(rs.getString("component_id"));
+			}
+			return h;
     	} catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw new EJBException(e.getMessage());

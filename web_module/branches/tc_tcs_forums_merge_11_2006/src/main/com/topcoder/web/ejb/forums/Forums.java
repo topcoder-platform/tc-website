@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.forums;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
+import java.util.HashSet;
 
 import javax.ejb.EJBException;
 
@@ -57,7 +58,7 @@ public interface Forums extends EJBObject {
     
     public long getComponentRootCategory(long compID) throws EJBException, RemoteException;
     
-    public long getComponentStatus(long compID) throws EJBException, RemoteException;
+    public HashSet getApprovedComponents(long[] compIDs) throws EJBException, RemoteException;
     
     public void updateComponentVersion(long categoryID, String versionText) throws EJBException, RemoteException, Exception;
     
