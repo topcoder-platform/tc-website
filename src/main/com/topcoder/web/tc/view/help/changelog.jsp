@@ -46,6 +46,7 @@
     5.6.4 - 2007.01.xx
     <ul>
         <li>TCS Loader: Added filter by elegibility (just open projects)</li>
+        <li>When submiting a long contest, if the round id, contest id and component id are not consistent, throw an exception</li>
     </ul>
 </p>
 
