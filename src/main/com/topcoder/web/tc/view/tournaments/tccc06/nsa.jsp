@@ -35,7 +35,7 @@ NSA employs the country's premier cryptologists and conducts one of the U.S. gov
 <br><br>
 The National Security Agency (NSA) has excellent opportunities for Mathematicians, Engineers, and Computer Scientists to fill positions in Cryptanalysis, Signals Analysis, Math, Computer/Electrical Engineering and Computer Science. If you are a U.S. citizen and interested in learning more about NSA employment opportunities, <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa_confirm">apply now</A>.
 <br><br>
-NSA looks forward to recruiting from the top competitors in the 2006 TopCoder Open.  
+NSA looks forward to recruiting from the top competitors in the 2006 TopCoder Collegiate Challenge.  
 <br><br>
 <span class="smallText">NSA is an Equal Opportunity Employer.</span>
 <br><br>
