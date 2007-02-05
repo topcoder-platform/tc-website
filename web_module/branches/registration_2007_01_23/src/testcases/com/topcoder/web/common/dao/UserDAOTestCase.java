@@ -265,11 +265,8 @@ public void testFindWithImage() {
         Set registrations = pulky2.getEventRegistrations();
         boolean foundRegistration = false;
         EventRegistration er2 = null;
-        log.info("looking for registration : " + er.getId().getEvent().getId() + ", " + er.getId().getUser().getId());
         for (Iterator it = registrations.iterator(); it.hasNext() && !foundRegistration;) {
             er2 = (EventRegistration) it.next();
-            log.info("found: " + er2.getId().getEvent().getId() + ", " + er2.getId().getUser().getId());
-            log.info("equals? " + er2.getId().equals(er.getId()));
             if (er2.getId().equals(er.getId())) {
                 foundRegistration = true;
             }
@@ -297,11 +294,11 @@ public void testFindWithImage() {
         Set responses = pulky2.getResponses();
         for (Iterator it = responses.iterator(); it.hasNext();) {
             Response r = (Response) it.next();
+            log.info("Question id: " + r.getQuestion().getId());
             if (r.getQuestion().isFreeForm()) {
                 assertTrue("Response not found (1)", r.getText().equals("test response"));
             } else {
-                Answer a = ((Answer) (r.getQuestion().getAnswers().iterator().next()));
-                assertTrue("Response not found (2)", r.getAnswer().getId().equals(a.getId()));
+                assertFalse("Response not found (2)", r.getAnswer() == null);
             }
         }
     }
