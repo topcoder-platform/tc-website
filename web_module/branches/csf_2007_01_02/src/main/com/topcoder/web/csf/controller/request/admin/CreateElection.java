@@ -3,6 +3,7 @@ package com.topcoder.web.csf.controller.request.admin;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.voting.Candidate;
 import com.topcoder.web.common.voting.CondorcetSchulzeElection;
+import com.topcoder.web.common.voting.ElectionStatus;
 import com.topcoder.web.common.voting.dao.VotingDAOUtil;
 import com.topcoder.web.csf.Constants;
 import com.topcoder.web.csf.dao.CSFDAOUtil;
@@ -91,6 +92,8 @@ public class CreateElection extends Base {
                 c.setElection(election);
                 election.getCandidates().add(c);
             }
+
+            election.setStatus(VotingDAOUtil.getFactory().getElectionStatusDAO().find(ElectionStatus.ACTIVE));
 
             contest.getElections().add(election);
 
