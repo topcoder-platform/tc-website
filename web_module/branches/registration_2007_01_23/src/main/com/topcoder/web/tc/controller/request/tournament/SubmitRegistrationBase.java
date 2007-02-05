@@ -26,7 +26,11 @@ import com.topcoder.web.tc.controller.request.survey.Helper;
  */
 public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
 
+    protected final Integer HIGH_SCHOOL_REGION_TYPE = new Integer(1);
+
     protected abstract boolean validateSurvey(Survey survey, List responses);
+    
+    protected abstract void completeRegistration(Event event, User user, boolean elegible, List responses);
 
     protected void regProcessing(Event event, User user) throws Exception {
         List responses = processSurvey(event, user);
@@ -55,25 +59,9 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
             } else if (r.getAnswer() == null) {
                 setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), r.getText());
             } else {
-                setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), new Long(r.getAnswer().getId()));
+                setDefault(AnswerInput.PREFIX + r.getQuestion().getId(), r.getAnswer().getId());
             }
         }
-    }
-    
-    protected void completeRegistration(Event event, User user, boolean elegible, List responses) {
-        UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
-
-        EventRegistration er = new EventRegistration();
-        er.getId().setUser(user);
-        er.getId().setEvent(event);
-        er.setEligible(elegible);
-
-        user.addEventRegistration(er);
-        user.addTerms(event.getTerms());
-        user.addResponse(responses);
-
-        userDAO.saveOrUpdate(user);
-        refreshCache(event);
     }
     
     protected void refreshCache(Event e) {

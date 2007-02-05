@@ -4,9 +4,15 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.RegionType;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.tc.controller.request.survey.Helper;
 import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
@@ -17,6 +23,7 @@ import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
  *          Create Date: Jan 16, 2007
  */
 public class SubmitRegistration extends SubmitRegistrationBase {
+
     protected boolean validateSurvey(Survey survey, List responses) {
         String ageInput = "";
         String inCollegeInput = "";
@@ -48,5 +55,28 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         }
         
         return (age <= 20 && age >= 13 && !"Yes".equals(inCollegeInput) && "Yes".equals(inHighSchoolInput));
+    }
+    
+    
+    protected void completeRegistration(Event event, User user, boolean elegible, List responses) {
+        UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
+
+        EventRegistration er = new EventRegistration();
+        er.getId().setUser(user);
+        er.getId().setEvent(event);
+        er.setEligible(elegible);
+
+        user.addEventRegistration(er);
+        user.addTerms(event.getTerms());
+        user.addResponse(responses);
+
+        userDAO.saveOrUpdate(user);
+        refreshCache(event);
+        
+        RegionType rt = new RegionType();
+        rt.setId(HIGH_SCHOOL_REGION_TYPE);
+        
+        getRequest().setAttribute("assignedRegion", user.getHomeAddress().getCountry().getRegionByType(rt).getName());
+        
     }
 }

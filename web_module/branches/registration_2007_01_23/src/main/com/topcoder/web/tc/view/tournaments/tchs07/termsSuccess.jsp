@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<% String assignedRegion = (String) request.getAttribute("assignedRegion");  %>
 <html> 
 <head> 
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/> 
@@ -27,7 +28,7 @@
 <div align="center" style="margin:40px;">
 You have successfully registered for the 2007 TopCoder&#174; High School Tournament.
 <br><br>
-You have been assigned to the <strong>Alpha Region</strong>.
+You have been assigned to the <strong><%=assignedRegion%></strong>.
 <br><br>
 If you have any concerns regarding your assigned region, please email <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
 </div>
