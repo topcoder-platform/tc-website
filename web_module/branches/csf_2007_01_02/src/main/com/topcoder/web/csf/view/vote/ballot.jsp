@@ -14,6 +14,270 @@
     <script type="text/javascript" src="/js/popup.js"></script>
 
     <script type="text/javascript">
+
+    var srcBtnUp = 'http://csf.dev.topcoder.com/i/layout/btnMoveUp.png';
+    var srcBtnUpOn = 'http://csf.dev.topcoder.com/i/layout/btnMoveUpOn.png';
+    var srcBtnDown = 'http://csf.dev.topcoder.com/i/layout/btnMoveDown.png';
+    var srcBtnDownOn = 'http://csf.dev.topcoder.com/i/layout/btnMoveDownOn.png';
+    var srcBtnUpNA = 'http://csf.dev.topcoder.com/i/layout/btnMoveUpNA.png';
+    var srcBtnDownNA = 'http://csf.dev.topcoder.com/i/layout/btnMoveDownNA.png';
+
+    var srcBtnTop = 'http://csf.dev.topcoder.com/i/layout/btnMoveToTop.png';
+    var srcBtnTopOn = 'http://csf.dev.topcoder.com/i/layout/btnMoveToTopOn.png';
+    var srcBtnBottom = 'http://csf.dev.topcoder.com/i/layout/btnMoveToBottom.png';
+    var srcBtnBottomOn = 'http://csf.dev.topcoder.com/i/layout/btnMoveToBottomOn.png';
+    var srcBtnTopNA = 'http://csf.dev.topcoder.com/i/layout/btnMoveToTopNA.png';
+    var srcBtnBottomNA = 'http://csf.dev.topcoder.com/i/layout/btnMoveToBottomNA.png';
+
+    /**
+     * find the first parent row of element
+     */
+    function findRow(element) {
+        while (element.tagName != 'BODY') {
+            if (element.tagName == 'TR') {
+                return element;
+            } else {
+                element = element.parentNode;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * swap the the given two rows
+     */
+    function swap(row1, row2) {
+        if (row1.parentNode.tagName == 'TBODY' && row2.parentNode == row1.parentNode && row1 != row2) {
+            var body = row1.parentNode;
+            var idx1, idx2;
+            for (var i = 0; i < body.rows.length && (idx1 == null || idx2 == null); i++) {
+                if (body.rows[i] == row1) {
+                    idx1 = i;
+                } else if (body.rows[i] == row2) {
+                    idx2 = i;
+                }
+            }
+            var temp;
+            for (var i = 1; i < row1.cells.length; i++) {
+                temp = row2.cells[i].innerHTML;
+                row2.cells[i].innerHTML = row1.cells[i].innerHTML;
+                row1.cells[i].innerHTML = temp;
+            }
+        }
+    }
+
+    /**
+     * find an image whose source is src that is a child of element
+     */
+    function findChildImage(element, src) {
+        for (var i = 0; i < element.childNodes.length; i++) {
+            if (element.childNodes[i].tagName == 'IMG' && element.childNodes[i].src == src) {
+                return element.childNodes[i];
+            } else {
+                var ret = findChildImage(element.childNodes[i], src);
+                if (ret != null) {
+                    return ret;
+                }
+            }
+        }
+        return null;
+
+    }
+
+    function mouseOutDown(element) {
+        element.src = srcBtnDown;
+    }
+    function mouseOutUp(element) {
+        element.src = srcBtnUp;
+    }
+    function mouseOutBottom(element) {
+        element.src = srcBtnBottom;
+    }
+    function mouseOutTop(element) {
+        element.src = srcBtnTop;
+    }
+
+    /**
+     * move a row up one spot.
+     * element - an element that is a child of the row to be moved up
+     */
+    function up(element) {
+        var row = findRow(element);
+        if (row.parentNode.tagName == 'TBODY') {
+            var body = row.parentNode;
+            for (var i = 1; i < body.rows.length; i++) {
+                if (body.rows[i] == row) {
+                    swap(row, body.rows[i - 1]);
+                    var image = findChildImage(body.rows[i - 1], srcBtnUpOn);
+                    if (image) {
+                        mouseOutUp(image);
+                    }
+                    return;
+                }
+            }
+        }
+
+    }
+
+
+    /**
+     * move a row down one spot.
+     * element - an element that is a child of the row to be moved up
+     */
+    function down(element) {
+        var row = findRow(element);
+        if (row.parentNode.tagName == 'TBODY') {
+            var body = row.parentNode;
+            for (var i = 0; i < body.rows.length - 1; i++) {
+                if (body.rows[i] == row) {
+                    swap(row, body.rows[i + 1]);
+                    var image = findChildImage(body.rows[i + 1], srcBtnDownOn);
+                    if (image) {
+                        mouseOutDown(image);
+                    }
+                    return;
+                }
+            }
+        }
+    }
+
+    function disableTopButtons(row) {
+        //find up button and top button
+        //replace img with dead button image
+        //remove link
+
+    }
+
+    function disableBottomButtons(row) {
+
+    }
+
+    function enableTopButtons(row) {
+
+    }
+
+    function enableBottomButtons(row) {
+
+    }
+
+    /**
+     * move a row to the top.
+     * element - an element that is a child of the row to be moved up
+     */
+    function top(element) {
+        var row = findRow(element);
+        var rankedBody = document.getElementById("rankedBody");
+        if (rankedBody) {
+
+            var tr = rankedBody.insertRow(0);
+            var td;
+            for (var j = 0; j < row.cells.length; j++) {
+                td = tr.insertCell(tr.cells.length);
+                td.innerHTML = row.cells[j].innerHTML;
+            }
+
+            //look around and delete the old row
+            var found = false;
+            for (var i = 1; i < rankedBody.rows.length && !found; i++) {
+                if (rankedBody.rows[i] == row) {
+                    found = true;
+                    rankedBody.deleteRow(i);
+                }
+            }
+            if (!found) {
+                var unRankedBody = document.getElementById("unRankedBody");
+                for (var i = 0; i < unRankedBody.rows.length; i++) {
+                    if (unRankedBody.rows[i] == row) {
+                        unRankedBody.deleteRow(i);
+                    }
+                }
+            }
+
+            var imgTop = findChildImage(rankedBody.rows[0], srcBtnTopOn);
+            if (imgTop) {
+                mouseOutTop(imgTop);
+            }
+            refresh(rankedBody);
+        }
+    }
+
+    /**
+     * move a row to the bottom.
+     * element - an element that is a child of the row to be moved up
+     */
+    function bottom(element) {
+        var row = findRow(element);
+        if (row.parentNode.tagName == 'TBODY' && isRanked(row)) {
+            var body = row.parentNode;
+            for (var i = 0; i < body.rows.length - 1; i++) {
+                if (body.rows[i] == row) {
+                    var tr = body.insertRow(body.rows.length);
+                    var td;
+                    for (var j = 0; j < row.cells.length; j++) {
+                        td = tr.insertCell(tr.cells.length);
+                        td.innerHTML = row.cells[j].innerHTML;
+                    }
+                    body.deleteRow(i);
+                    var imgBottom = findChildImage(body.rows[body.rows.length - 1], srcBtnBottomOn);
+                    if (imgBottom) {
+                        mouseOutBottom(imgBottom);
+                    }
+                    refresh(body);
+                    return;
+
+                }
+            }
+        }
+    }
+
+    var styles = ["valueC", "value", "valueC", "valueC"];
+    var nowraps = [null, "nowrap", null, null];
+    /**
+     * refresh presentation after data/structure changes
+     */
+    function refresh(body) {
+        var tr, td;
+        for (var i = 0; i < body.rows.length; i++) {
+            tr = body.rows[i];
+            tr.setAttribute("class", i % 2 == 0 ? "light" : "dark");
+            for (var j = 0; j < tr.cells.length; j++) {
+                td = tr.cells[j];
+                if (j == 0) {
+                    //rerank the rows
+                    td.innerHTML = i + 1;
+                }
+                if (styles[j]) {
+                    td.setAttribute("class", styles[j]);
+                }
+                if (nowraps[j]) {
+                    td.setAttribute("nowrap", nowraps[j]);
+                }
+            }
+        }
+    }
+
+    function isRanked(element) {
+        while (element.tagName != 'BODY') {
+            if (element.tagName == 'TABLE') {
+                return element.id == 'ranked';
+            } else {
+                element = element.parentNode;
+            }
+        }
+        return null;
+    }
+
+    function isUnRanked(element) {
+        while (element.tagName != 'BODY') {
+            if (element.tagName == 'TABLE') {
+                return element.id == 'unranked';
+            } else {
+                element = element.parentNode;
+            }
+        }
+        return null;
+    }
+
     </script>
 
     <style type="text/css">
@@ -70,7 +334,7 @@
         </td>
     </tr>
 </thead>
-<tbody>
+<tbody id="rankedBody">
 <%--
 <tr class="light">
     <td class="valueC">
@@ -249,7 +513,7 @@
 </table>
 <%-- table for the disabled candidates --%>
 <table id="unranked" class="stat" style="width: 100%;" cellpadding="0" cellspacing="0">
-    <tbody>
+    <tbody id="unRankedBody">
         <c:forEach items="${candidates}" var="candidate">
 
             <tr class="disabled">
@@ -271,7 +535,7 @@
                     </div>
                 </td>
                 <td class="valueC">
-                    <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
+                    <a href="#" onclick="top(this)" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
                 </td>
                 <td class="valueC">
                     <img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>
