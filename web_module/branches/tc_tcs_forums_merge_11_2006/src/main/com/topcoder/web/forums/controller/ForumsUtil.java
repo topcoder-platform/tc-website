@@ -307,7 +307,8 @@ public class ForumsUtil {
         		continue;
         	}      	
         	*/
-        	if (approvedComponents.contains(String.valueOf(c.getID()))) {
+    		String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
+        	if (approvedComponents.contains(componentIDStr)) {
         		log.info("*** category " + c.getID() + " is approved");
 	        	if (c.getMessageCount() > 0) {
 	        		categoriesList.add(c);
