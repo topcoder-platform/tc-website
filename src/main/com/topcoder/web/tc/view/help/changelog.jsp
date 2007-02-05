@@ -44,7 +44,8 @@
 
 <p>
     5.6.4 - 2007.01.xx
-    <ul>    
+    <ul>
+        <li>TCS Loader: Added filter by elegibility (just open projects)</li>
     </ul>
 </p>
 
