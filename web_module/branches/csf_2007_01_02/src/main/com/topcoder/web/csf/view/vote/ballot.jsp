@@ -71,6 +71,7 @@
     </tr>
 </thead>
 <tbody>
+<%--
 <tr class="light">
     <td class="valueC">
         <strong>1</strong>
@@ -244,6 +245,7 @@
         <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
     </td>
 </tr>
+--%>
 </table>
 <%-- table for the disabled candidates --%>
 <table id="unranked" class="stat" style="width: 100%;" cellpadding="0" cellspacing="0">
