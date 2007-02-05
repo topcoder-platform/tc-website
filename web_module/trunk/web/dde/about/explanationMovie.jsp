@@ -23,7 +23,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>How engineering meets manufacturing at TopCoder Software</title>
+    <title>How engineering meets manufacturing at TopCoder</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 </head>
@@ -57,7 +57,7 @@
         <td width="99%">
         <div align="center">
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
-            <img src="/images/about_title.gif" alt="About TopCoder Software" width="530" height="30" border="0" />
+            <img src="/images/about_title.png" alt="About TopCoder" width="530" height="30" border="0" />
 <table width="530" border="0" cellspacing="0" cellpadding="0">
 <tr><td align="left" colspan="2">
 <H3>TopCoder Software Application Development Methodology Explained</H3>

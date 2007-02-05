@@ -13,7 +13,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Software Components form the basis of the applications built by TopCoder Software</title>
+    <title>Software Components form the basis of the applications built by TopCoder</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css"/>
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 </head>
@@ -114,7 +114,7 @@
                     working on our code. Each week, hundreds of
                     TopCoder members compete in programming <a href="http://www.topcoder.com">competitions,</a> where
                     they are rated based on the results.
-                    Only members with acceptable ratings are allowed to develop software for TopCoder Software.</p>
+                    Only members with acceptable ratings are allowed to develop software for TopCoder.</p>
 
                 <p>Our Component Catalogs are made up of the extremely high quality components developed by our members.
                     These components are of such high
@@ -123,7 +123,7 @@
                     re-usable components as possible.</p>
             </td>
             <td width="49%" class="bodyText" align="center">
-                <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"><img src="/images/apps/apps_index_scorecard.gif" alt="Uncompromising Quality" width="216" height="212" border="0"/></a>
+                <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"><img src="/images/apps/apps_index_scorecard.png" alt="Uncompromising Quality" width="216" height="212" border="0"/></a>
                 <br><br>
             </td>
         </tr>

@@ -24,7 +24,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Software Components form the basis of the applications built by TopCoder Software</title>
+    <title>Software Components form the basis of the applications built by TopCoder</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 </head>
@@ -63,7 +63,7 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/abb_logo.gif" alt="ABB" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">ABB, a leading power and automation technology enabler, needed a modern, user-friendly HTML interface that would allow users in its engineering and systems business units to access data on its mainframe legacy system. The Project Management Dashboard application delivered by TopCoder Software limited the amount of custom code built to 42 percent that of more traditional development models.<br><br>
+                    <td width="99%" class="bodyText">ABB, a leading power and automation technology enabler, needed a modern, user-friendly HTML interface that would allow users in its engineering and systems business units to access data on its mainframe legacy system. The Project Management Dashboard application delivered by TopCoder limited the amount of custom code built to 42 percent that of more traditional development models.<br><br>
                     <A href="<tc-webtag:linkTracking link="http://www.abb.com/" refer="customer_index"/>" target="_blank">homepage</A> | 
                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/abb_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
@@ -79,7 +79,7 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/fin_services_logo.gif" alt="Financial Services" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">A national financial institution needed database management functionality delivered across a variety of platforms as part of an Information Quality Management initiative. TopCoder Software devised an IQM solution that allows users to intuitively navigate through data.<br><br>
+                    <td width="99%" class="bodyText">A national financial institution needed database management functionality delivered across a variety of platforms as part of an Information Quality Management initiative. TopCoder devised an IQM solution that allows users to intuitively navigate through data.<br><br>
                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/fin_services_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
@@ -94,7 +94,7 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/id_manage_logo.gif" alt="Identity Management" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">With a proven track record of success within Fortune 100 organizations, TopCoder Software's identity and access management solutions centralize users and passwords, allowing organizations to reduce maintenance cost, improve accessibility and enforce consistent security policies.<br><br>
+                    <td width="99%" class="bodyText">With a proven track record of success within Fortune 100 organizations, TopCoder's identity and access management solutions centralize users and passwords, allowing organizations to reduce maintenance cost, improve accessibility and enforce consistent security policies.<br><br>
                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=http://software.topcoder.com/pdfs/casestudies/identity_management.pdf&refer=customer_index" target="_blank">case study</A>
                      </td>
                 </tr>
@@ -109,7 +109,7 @@
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/salk_logo.gif" alt="Salk Institute" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">The world-renowned Salk Institute, a private, non-profit, research organization dedicated to fundamental research in biology and its relation to health, wanted to make an extremely large amount of gene data resulting from years of research on the topic of spinal cord injury available to the scientific community. TopCoder Software devised a solution that enables users to access project data through an HTML-based interface.<br><br>
+                    <td width="99%" class="bodyText">The world-renowned Salk Institute, a private, non-profit, research organization dedicated to fundamental research in biology and its relation to health, wanted to make an extremely large amount of gene data resulting from years of research on the topic of spinal cord injury available to the scientific community. TopCoder devised a solution that enables users to access project data through an HTML-based interface.<br><br>
                     <A href="<tc-webtag:linkTracking link="http://www.salk.edu/" refer="customer_index"/>" target="_blank">homepage</A> | 
                      <A href="http://<%=ApplicationServer.SERVER_NAME%>/?t=sponsor&c=link&link=/pdfs/tcs/casestudies/salk_institute_casestudy.pdf&refer=customer_index" target="_blank">case study</A>
                     </td>
@@ -367,7 +367,7 @@ ESPN ends
                 <tr valign="top">
                     <td width="170"><img src="/images/clients/verisign_logo.png" alt="Verisign" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the world�s voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
+                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the world's voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
                     <A href="<tc-webtag:linkTracking link="http://www.verisign.com" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>

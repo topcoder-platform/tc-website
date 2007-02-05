@@ -21,7 +21,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Component Development Methodology at TopCoder Software</title>
+    <title>Component Development Methodology at TopCoder</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 </head>
@@ -69,12 +69,12 @@
                 <tr valign="top">
                     <td class="bodyText">
 
-					<p>The TopCoder Software Application Development Methodology utilizes the TopCoder Software Component Catalog and distributed member base to create robust, 
+					<p>The TopCoder Software Application Development Methodology utilizes the TopCoder Component Catalog and distributed member base to create robust, 
 					high quality applications. It combines our Component Development Methodology with our peer review, component customization, and application integration processes.  
 					This methodology is designed to deliver a repeatable and consistent solution to our customers.</p>
 <!-- Specification begins -->
                         <p class=catalogIndexHeader>Specification</p>
-						<p>A TopCoder Software Project Manager performs the specification phase of the project hand-in-hand with all appropriate client resources.  
+						<p>A TopCoder Project Manager performs the specification phase of the project hand-in-hand with all appropriate client resources.  
 						At the conclusion of the specification phase, the applicable deliverables outlined below are presented to the client: <br>
 
 						<li><strong>Application Requirements Specification:</strong> Serves as a scope document, describing what functionality is to be included in the application, 
@@ -91,7 +91,7 @@
 
 						<li><strong>Prototype:</strong> A graphical rendition of the application user interface.  This includes the look, feel and navigation of the system.  
 						The prototype is used both as an iterative tool for TopCoder Project Managers to develop Functional Requirements, as well as direction for TopCoder 
-						Design and Development Teams.  Prototypes are developed by TopCoder Software Creative Designers and Information Architects.
+						Design and Development Teams.  Prototypes are developed by TopCoder Creative Designers and Information Architects.
 
 						<li><strong>Quality Assurance Plan:</strong> Defines the overall testing strategy and detailed test scenarios that verify the adherence of the application 
 						to all of the requirements.
@@ -124,7 +124,7 @@
 
 <!-- Component Production begins -->
                         <p class=catalogIndexHeader>Component Production</p>
-                        <p>In this phase, the TopCoder Software Component Development Methodology is used to design and develop components.  The deliverables for each component are:
+                        <p>In this phase, the TopCoder Component Development Methodology is used to design and develop components.  The deliverables for each component are:
 
 						<li><strong>Component Specifications:</strong> Individual specifications are defined for each new component, whether the component is being added to 
 						the TopCoder Component Catalog or custom built for the application. 
@@ -145,7 +145,7 @@
 
 <!-- Application begins -->
                         <p class=catalogIndexHeader>Application Assembly</p>
-                        <p>In this phase, a TopCoder Software application assembly team assembles the application using the component pieces.  The result of this phase is:
+                        <p>In this phase, a TopCoder application assembly team assembles the application using the component pieces.  The result of this phase is:
 						<li><strong>Complete Application:</strong> Fully unit tested, documented and system tested implementation of the specification.<br><br>
 </p>
 <!-- Application ends -->

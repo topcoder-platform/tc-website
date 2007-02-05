@@ -22,7 +22,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Software Components form the basis of the applications built by TopCoder Software</title>
+    <title>Software Components form the basis of the applications built by TopCoder</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 </head>
@@ -104,13 +104,12 @@
                 <tr valign="top">
                     <td width="100%" class="bodyText">
                         <p><strong>Increased Productivity</strong><br>
-                        Use of TopCoder Software components drives down the cost of software development in two ways. The first is by introducing
-                        re-usable components to the development life cycle, which reduces the amount of software that must be built. The development
-                        team can focus on customizing and integrating these components into a business solution. The second way TopCoder Software drives
-                        down the cost of development is by lowering the cost of the components themselves. We utilize our member base of over 28,000 talented
-                        individuals as a distributed development resource. This way, the components themselves are developed at a lower cost, and that cost can
-                        be passed along to our customers. The end result is lower cost, higher quality software components, which leads to lower
-                        cost, higher quality <a href="/applications/index.jsp">software applications.</a></p>
+                       Use of TopCoder components drives down the cost of software development in two ways. The first is by introducing re-usable components to the 
+                       development life cycle, which reduces the amount of software that must be built. The development team can focus on customizing and integrating 
+                       these components into a business solution. The second way TopCoder drives down the cost of development is by lowering the cost of the components 
+                       themselves. We utilize our member base of over 100,000 talented individuals as a distributed development resource. This way, the components 
+                       themselves are developed at a lower cost, and that cost can be passed along to our customers. The end result is lower cost, higher quality software 
+                       components, which leads to lower cost, higher quality <a href="/applications/index.jsp">software applications.</a></p>
                     </td>
                 </tr>
             </table>

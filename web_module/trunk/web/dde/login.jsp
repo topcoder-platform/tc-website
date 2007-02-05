@@ -117,7 +117,7 @@
         "http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>TopCoder Software | Login</title>
+    <title>TopCoder | Login</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
 
@@ -165,7 +165,7 @@
                         If you cannot remember your password <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click here</A>
                         and we can help you restore your account.</p>
 
-                        <p><b>New to TopCoder Software?</b><br/>
+                        <p><b>New to TopCoder?</b><br/>
                         <A href="http://<%=ApplicationServer.SERVER_NAME%>/reg/" class="bodyText">Register now.</A>
                         After you complete the registration process, we will send your account activation code via email.</p>
                     </td>

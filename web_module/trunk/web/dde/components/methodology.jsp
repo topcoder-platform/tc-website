@@ -12,7 +12,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Component Development Methodology at TopCoder Software</title>
+    <title>Component Development Methodology at TopCoder</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css"/>
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 </head>
@@ -89,24 +89,19 @@
                     requirements about a new Component Project. Once the project scope has been determined, the PM
                     creates a Requirements Specification
                     for the Design Phase of the project. New projects are regularly posted to the TopCoder
-                    <a href="http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=112">Software Development
-                        site</a>
-                    and emails are sent out to members notifying them of the new projects.</p>
+                    <a href="http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=112">Software Design
+                        page</a>, with members notified each week by email.</p>
                 <!-- Collaboration ends -->
 
                 <!-- Design begins -->
                 <p><strong>Architecture and Design</strong><br>
-                    The PM creates an Architecture Review Board made up of three TopCoder members who regularly submit
-                    designs for TopCoder Software
-                    Projects. Submitted designs are scored using a standardized
-                    <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">scorecard</a>.
-                    The design with the best score above the TopCoder Software
-                    Minimum Score is chosen for the project. The winning designer is given additional time to
-                    incorporate suggestions from the
-                    Review Board. If the time frame is not met, the designer will be disqualified and the next design in
-                    order of score will be declared the
-                    winner. Once a winning design is determined, the PM posts the Development Phase of the project on
-                    the TopCoder Software Development site.</p>
+                    The PM creates an Architecture Review Board made up of three TopCoder members who regularly submit designs. 
+                    Submitted designs are scored using a standardized <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=desReviewSample">scorecard</a>. 
+                    The design with the best score above the minimum 
+                    score is chosen for the project. The winning designer is given additional time to incorporate suggestions from the 
+                    Review Board. If the time frame is not met, the designer will be disqualified and the next design, in order of score, 
+                    will be declared the winner. Once a winning design is determined, the PM posts the Development Phase of the 
+                    project on the TopCoder Software Development page.</p>
                 <!-- Design ends -->
 
                 <!-- Development begins -->
@@ -115,8 +110,8 @@
                     development proposals for TopCoder Software
                     Projects. Submitted development solutions are scored using a standardized
                     <a href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=support&d3=devReviewSample">scorecard</a>.
-                    The development submission with the best score above the TopCoder
-                    Software Miniumum Score is chosen for the project. The winning developer is given additional time to
+                    The development submission with the best score above the 
+                     miniumum score is chosen for the project. The winning developer is given additional time to
                     incorporate suggestions from the
                     Review Board. If the time frame is not met, the developer is disqualified and the next design in
                     order of score will be declared the winner.</p>
