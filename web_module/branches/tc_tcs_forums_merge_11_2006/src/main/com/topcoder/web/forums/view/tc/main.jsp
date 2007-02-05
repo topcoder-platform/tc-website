@@ -148,12 +148,16 @@
             <% if (subcategory.getMessageCount() > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
             <tr>
                 <td class="rtThreadCellWrap">
+  					<%	String phaseIcon = ImageMapper.getPhaseIcon(forumsBean, subcategory);
+  						String phaseText = ImageMapper.getPhaseText(forumsBean, subcategory);
+  						String technologyIcon = ImageMapper.getTechnologyIcon(forumsBean, subcategory);
+  						String technologyText = ImageMapper.getTechnologyText(forumsBean, subcategory); %>
                 	<%	if ("software".equals(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
-                		<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getPhaseIcon(forumsBean, subcategory)))) { %>
-                			<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getPhaseIcon(forumsBean, subcategory)%>" alt="<%=ImageMapper.getPhaseText(forumsBean, subcategory)%>" width="25" height="17" border="0">
+                		<%	if (!"".equals(StringUtils.checkNull(phaseIcon))) { %>
+                			<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=phaseIcon%>" alt="<%=phaseText%>" width="25" height="17" border="0">
                 		<%	} %>
-                		<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getTechnologyIcon(forumsBean, subcategory)))) { %>
-							<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(forumsBean, subcategory)%>" alt="<%=ImageMapper.getTechnologyText(forumsBean, subcategory)%>" border="0"/>
+                		<%	if (!"".equals(StringUtils.checkNull(technologyIcon))) { %>
+							<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=technologyIcon%>" alt="<%=technologyText%>" border="0"/>
 						<%	} %>
 						&#160;
 					<%	} %>

@@ -246,14 +246,18 @@
         } %>
         <tr>
             <td class="rtThreadCellWrap">
+            	<%	String phaseIcon = ImageMapper.getPhaseIcon(forumsBean, category);
+  					String phaseText = ImageMapper.getPhaseText(forumsBean, category);
+  					String technologyIcon = ImageMapper.getTechnologyIcon(forumsBean, category);
+  					String technologyText = ImageMapper.getTechnologyText(forumsBean, category); %>
             	<%	if ("software".equals(forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
-            		<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getPhaseIcon(forumsBean, category)))) { %>
-                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getPhaseIcon(forumsBean, category)%>" alt="<%=ImageMapper.getPhaseText(forumsBean, category)%>" width="25" height="17" border="0">
+            		<%	if (!"".equals(StringUtils.checkNull(phaseIcon))) { %>
+                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=phaseIcon%>" alt="<%=phaseText%>" width="25" height="17" border="0">
 					<%	} %>
-					<%	if (!"".equals(StringUtils.checkNull(ImageMapper.getTechnologyIcon(forumsBean, category)))) { %>
-						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(forumsBean, category)%>" alt="<%=ImageMapper.getTechnologyText(forumsBean, category)%>" border="0"/>
+					<%	if (!"".equals(StringUtils.checkNull(technologyIcon))) { %>
+						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=technologyIcon%>" alt="<%=technologyText%>" border="0"/>
 					<%	} %>
-						&#160;
+					&#160;
 				<%	} %>
                 <% if (user == null) { %>
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew"><%=category.getName()%></A>

@@ -263,7 +263,6 @@ public class ForumsUtil {
     // the list's end. Only forums for approved software components are displayed.
     public static ArrayList getCategories(Forums forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories) throws RemoteException {
-    	log.info("*** Started: getCategories()");
     	Iterator itCategories = forumCategory.getCategories();
         ArrayList categoriesList = new ArrayList();
         ArrayList emptyCategories = new ArrayList();
@@ -290,7 +289,7 @@ public class ForumsUtil {
         		emptyCategories.add(c);
         	}
         }
-        log.info("*** Started: removal");
+
         HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
         for (int i=categoriesList.size()-1; i>=0; i--) {
         	ForumCategory c = (ForumCategory)categoriesList.get(i);
@@ -306,7 +305,7 @@ public class ForumsUtil {
         		emptyCategories.remove(i);
         	}
         }
-        log.info("*** Ended: removal");
+
         Collections.sort(categoriesList, 
         		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
         Collections.sort(emptyCategories, 
@@ -314,7 +313,6 @@ public class ForumsUtil {
         if (!excludeEmptyCategories) {
         	categoriesList.addAll(emptyCategories);
         }
-        log.info("*** Ended: getCategories()");
         return categoriesList;
     }
 
