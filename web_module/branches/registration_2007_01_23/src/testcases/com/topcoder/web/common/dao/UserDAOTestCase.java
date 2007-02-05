@@ -213,12 +213,12 @@ public void testFindWithImage() {
 
         }
     }
-*/
 
     public void testFindWithSchool() {
         User dok = DAOUtil.getFactory().getUserDAO().find("tomek", true);
         assertFalse("did not load tomek's school", dok.getCoder().getCurrentSchool() == null);
     }
+*/
 
     public void testEventRegistration() {
         User pulky = DAOUtil.getFactory().getUserDAO().find("pulky", true);
@@ -248,7 +248,7 @@ public void testFindWithImage() {
         pulky.addResponse(createResponses(e.getSurvey().getQuestions(), pulky));
         
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(pulky);
-        
+/*        
         tearDown();
         setUp();
 
@@ -294,7 +294,7 @@ public void testFindWithImage() {
                 Answer a = ((Answer) (r.getQuestion().getAnswers().iterator().next()));
                 assertTrue("Response not found (2)", r.getAnswer().getId() == a.getId());
             }
-        }
+        }*/
     }
 
     private List createResponses(Set questions, User u) {
