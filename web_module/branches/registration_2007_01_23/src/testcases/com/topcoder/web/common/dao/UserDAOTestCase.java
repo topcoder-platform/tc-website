@@ -277,9 +277,9 @@ public void testFindWithImage() {
 
         assertTrue("Event registration not found", foundRegistration);
         assertTrue("Wrong associated event: " + er2.getId().getEvent().getId() + " expected: " + 
-                latestEvent.getId(), er2.getId().getEvent().getId() == latestEvent.getId());
+                latestEvent.getId(), er2.getId().getEvent().getId().equals(latestEvent.getId()));
         assertTrue("Wrong associated user: " + er2.getId().getUser().getId() + " expected: " + 
-                pulky.getId(), er2.getId().getUser().getId() == pulky.getId());
+                pulky.getId(), er2.getId().getUser().getId().equals(pulky.getId()));
 
         // check terms
         Set terms = pulky2.getTerms();
@@ -301,7 +301,7 @@ public void testFindWithImage() {
                 assertTrue("Response not found (1)", r.getText().equals("test response"));
             } else {
                 Answer a = ((Answer) (r.getQuestion().getAnswers().iterator().next()));
-                assertTrue("Response not found (2)", r.getAnswer().getId() == a.getId());
+                assertTrue("Response not found (2)", r.getAnswer().getId().equals(a.getId()));
             }
         }
     }

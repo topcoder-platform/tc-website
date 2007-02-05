@@ -3,7 +3,7 @@ package com.topcoder.web.common.model;
 import java.io.Serializable;
 
 public class Answer implements Serializable, Cloneable, Comparable {
-    private long id;
+    private Long id;
     private long questionId;
     private Question question;
     private String text;
@@ -22,11 +22,11 @@ public class Answer implements Serializable, Cloneable, Comparable {
         return ret;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
