@@ -143,8 +143,8 @@ public void testFindWithImage() {
     }
 
     public void testNotificationsLoaded() {
-        User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
-        assertTrue("did not load notifications for dok", !dok.getNotifications().isEmpty());
+        User pulky = DAOUtil.getFactory().getUserDAO().find("pulky", true);
+        assertTrue("did not load notifications for pulky", !pulky.getNotifications().isEmpty());
     }
 
     public void testFindByUserName() {
