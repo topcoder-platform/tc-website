@@ -12,6 +12,8 @@ import com.topcoder.web.csf.Constants;
 import com.topcoder.web.csf.dao.CSFDAOUtil;
 import com.topcoder.web.csf.model.Contest;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -54,6 +56,9 @@ public class ViewBallot extends ShortHibernateProcessor {
                         Date now = new Date();
                         if (election.getStartTime().before(now) && election.getEndTime().after(now)) {
                             setDefault(Constants.ELECTION_ID, election.getId());
+                            ArrayList shuffledCandidates = new ArrayList(election.getCandidates());
+                            Collections.shuffle(shuffledCandidates);
+                            getRequest().setAttribute("candidates", shuffledCandidates);
                             getRequest().setAttribute("election", election);
                             getRequest().setAttribute("contest", contest);
                         } else {
