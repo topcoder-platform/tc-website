@@ -226,12 +226,18 @@ public void testFindWithImage() {
 
         List events = DAOUtil.getFactory().getEventDAO().getEvents();
         
-        Event e = null;
+        // get the latest test event
+        Event latestEvent = null;
         boolean foundTestEvent = false;
-        for (Iterator it = events.iterator(); it.hasNext() && !foundTestEvent;) {
-            e = (Event) it.next();
+        Long lastId = new Long(0);
+        for (Iterator it = events.iterator(); it.hasNext();) {
+            Event e = (Event) it.next();
             if (e.getShortDescription().equals("tstvnt")) {
-                foundTestEvent = true;
+                if (lastId.compareTo(e.getId()) < 0) {
+                    foundTestEvent = true;
+                    lastId = e.getId();
+                    latestEvent = e;
+                }
             }
         }
         assertTrue("Test event not found, EventDAOTestCase must be run to create it", foundTestEvent);
@@ -240,12 +246,12 @@ public void testFindWithImage() {
         
         EventRegistration er = new EventRegistration();
         er.getId().setUser(pulky);
-        er.getId().setEvent(e);
+        er.getId().setEvent(latestEvent);
         er.setEligible(true);
         
         pulky.addEventRegistration(er);
-        pulky.addTerms(e.getTerms());
-        pulky.addResponse(createResponses(e.getSurvey().getQuestions(), pulky));
+        pulky.addTerms(latestEvent.getTerms());
+        pulky.addResponse(createResponses(latestEvent.getSurvey().getQuestions(), pulky));
         
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(pulky);
 /*        
