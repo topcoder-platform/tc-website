@@ -269,14 +269,22 @@ public class ForumsUtil {
         ArrayList categoriesList = new ArrayList();
         ArrayList emptyCategories = new ArrayList();
         
-        long[] compIDs = new long[forumCategory.getCategoryCount()];
+        long[] componentIDs = new long[forumCategory.getCategoryCount()];
         int n=0;
         while (itCategories.hasNext()) {
+        	n++;
+        	log.info("*** Category: " + n + " of " + forumCategory.getCategoryCount());
         	ForumCategory c = (ForumCategory)itCategories.next();
-        	compIDs[n++] = c.getID();
+        	try {
+        		componentIDs[n] = Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+        	} catch (NumberFormatException nfe) {
+        		log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
+        		continue;
+        	}
         }
         log.info("*** Start: Find approved components");
-        HashSet approvedComponents = forumsBean.getApprovedComponents(compIDs);
+        HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
+    	log.info("*** approvedComponents.size() = " + approvedComponents.size());
         log.info("*** End: Find approved components");
         
         itCategories = forumCategory.getCategories();
@@ -300,14 +308,14 @@ public class ForumsUtil {
         	}      	
         	*/
         	if (approvedComponents.contains(String.valueOf(c.getID()))) {
-        		log.info("*** category " + c.getID() + "is approved");
+        		log.info("*** category " + c.getID() + " is approved");
 	        	if (c.getMessageCount() > 0) {
 	        		categoriesList.add(c);
 	        	} else {
 	        		emptyCategories.add(c);
 	        	}
         	} else {
-        		log.info("*** category " + c.getID() + "is not approved");
+        		log.info("*** category " + c.getID() + " is not approved");
         	}
         	log.info("*** added to list");
         }
