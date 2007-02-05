@@ -80,6 +80,10 @@
                 <mapping resource="com/topcoder/web/common/model/QuestionType.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/RegistrationType.hbm.xml"/>
+
+                <mapping resource="com/topcoder/web/common/model/Region.hbm.xml"/>
+                <mapping resource="com/topcoder/web/common/model/RegionType.hbm.xml"/>
+
         <mapping resource="com/topcoder/web/common/model/Referral.hbm.xml"/>
 
                 <mapping resource="com/topcoder/web/common/model/Response.hbm.xml"/>
