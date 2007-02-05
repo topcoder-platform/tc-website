@@ -31,20 +31,13 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
 
     protected abstract boolean isEligible(Event event, User user) throws Exception;
 
+    protected abstract String getEventShortDesc();
+
     protected void dbProcessing() throws Exception {
-
-        Long eventId = null;
-
-        try {
-            eventId = new Long(StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_ID)));
-        } catch (NumberFormatException e) {
-            throw new NavigationException("Invalid event specified in request.");
-        }
-
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
-            Event e = DAOUtil.getFactory().getEventDAO().find(eventId);
+            Event e = DAOUtil.getFactory().getEventDAO().find(getEventShortDesc());
             getRequest().setAttribute("event", e);
             Calendar now = Calendar.getInstance();
             now.setTime(new Date());
@@ -54,7 +47,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
                 throw new NavigationException("The registration period for the " + e.getDescription() + " has not yet begun.");
             } else {
                 User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-                if (!isRegistered(e, u)) {
+                if (getRegistration(e, u) == null) {
                     if (isEligible(e, u)) {
                         getRequest().setAttribute("event", e);
                         regProcessing(e, u);
@@ -69,7 +62,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         }
     }
     
-    protected boolean isRegistered(Event e, User u) throws Exception {
+/*    protected boolean isRegistered(Event e, User u) throws Exception {
         if (log.isDebugEnabled()) {
             log.debug("checking if " + getUser().getId() + " is registered for " + e.getId());
         }
@@ -82,5 +75,20 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             }
         }
         return false;
+    }*/
+    
+    protected EventRegistration getRegistration(Event e, User u) throws Exception {
+        if (log.isDebugEnabled()) {
+            log.debug("checking if " + getUser().getId() + " is registered for " + e.getId());
+        }
+
+        EventRegistration curr;
+        for (Iterator it = u.getEventRegistrations().iterator(); it.hasNext();) {
+            curr = ((EventRegistration) it.next());
+            if (curr.getId().getEvent().getId() == e.getId()) {
+                return curr;
+            }
+        }
+        return null;
     }
 }

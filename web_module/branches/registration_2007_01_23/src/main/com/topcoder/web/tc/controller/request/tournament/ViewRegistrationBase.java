@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
 
 /**
@@ -15,7 +16,10 @@ import com.topcoder.web.common.model.User;
 public abstract class ViewRegistrationBase extends RegistrationBase {
 
     protected void setNextPage(Event e, User u) throws Exception {
-        if (isRegistered(e, u)) {
+        EventRegistration er = getRegistration(e, u);
+        if (er != null) {
+            getRequest().setAttribute("elegible", er.isEligible());
+
             setNextPage("/tournaments/" + e.getShortDescription() + "/termsSuccess.jsp");
             setIsNextPageInContext(true);
         } else {

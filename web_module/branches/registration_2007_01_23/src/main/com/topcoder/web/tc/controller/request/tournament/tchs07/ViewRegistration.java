@@ -10,6 +10,11 @@ import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
  *          Create Date: Jan 16, 2007
  */
 public class ViewRegistration extends ViewRegistrationBase {
+    
+    protected String getEventShortDesc() {
+        return "tchs07";
+    }
+
     protected void regProcessing(Event event, User user) throws Exception {
     }
 }

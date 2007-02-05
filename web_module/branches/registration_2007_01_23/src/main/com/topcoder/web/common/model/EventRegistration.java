@@ -10,17 +10,17 @@ import java.io.Serializable;
 public class EventRegistration extends Base {
 
     private Identifier id = new Identifier();
-    private boolean eligible;
+    private Boolean eligible;
 
     public Identifier getId() {
         return id;
     }
 
-    public boolean isEligible() {
+    public Boolean isEligible() {
         return eligible;
     }
 
-    public void setEligible(boolean eligible) {
+    public void setEligible(Boolean eligible) {
         this.eligible = eligible;
     }
 

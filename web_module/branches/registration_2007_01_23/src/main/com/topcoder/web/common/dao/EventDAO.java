@@ -13,6 +13,8 @@ public interface EventDAO {
 
     Event find(Long id);
 
+    Event find(String keyword);
+
     List getEvents();
         
     void saveOrUpdate(Event e);
