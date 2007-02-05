@@ -77,6 +77,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         rt.setId(HIGH_SCHOOL_REGION_TYPE);
         
         getRequest().setAttribute("assignedRegion", user.getHomeAddress().getCountry().getRegionByType(rt).getName());
+        getRequest().setAttribute("elegible", new Boolean(elegible));
         
     }
 }
