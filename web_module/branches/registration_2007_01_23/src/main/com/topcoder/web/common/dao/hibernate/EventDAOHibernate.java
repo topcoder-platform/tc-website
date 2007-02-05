@@ -1,8 +1,11 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.EventDAO;
+import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.Event;
 
 /**
@@ -23,6 +26,10 @@ public class EventDAOHibernate extends Base implements EventDAO {
         return (Event) super.find(Event.class, id);
     }
 
+    public List getEvents() {
+        return findAll(Event.class);
+    }
+    
     public void saveOrUpdate(Event e) {
         super.saveOrUpdate(e);
     }

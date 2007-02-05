@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import com.topcoder.web.common.model.Answer;
@@ -55,7 +56,13 @@ public class EventDAOTestCase extends TCHibernateTestCase {
         }
     }
 
+    public void testFindAll() {
 
+        List events = DAOUtil.getFactory().getEventDAO().getEvents();
+
+        assertFalse("Events could not be retrieved", events == null || events.size() <= 0);
+    }
+    
     private Set createUsers() {
         Set ret = new HashSet();
         ret.add(DAOUtil.getFactory().getUserDAO().find("cucu", true));

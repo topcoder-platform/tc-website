@@ -1,6 +1,17 @@
 package com.topcoder.web.common.dao;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.model.Answer;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.Response;
+import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
@@ -209,5 +220,100 @@ public void testFindWithImage() {
         assertFalse("did not load tomek's school", dok.getCoder().getCurrentSchool() == null);
     }
 
+    public void testEventRegistration() {
+        User pulky = DAOUtil.getFactory().getUserDAO().find("pulky", true);
+        assertFalse("did not load pulky user", pulky == null);
 
+        List events = DAOUtil.getFactory().getEventDAO().getEvents();
+        
+        Event e = null;
+        boolean foundTestEvent = false;
+        for (Iterator it = events.iterator(); it.hasNext() && !foundTestEvent;) {
+            e = (Event) it.next();
+            if (e.getShortDescription().equals("tstvnt")) {
+                foundTestEvent = true;
+            }
+        }
+        assertTrue("Test event not found, EventDAOTestCase must be run to create it", foundTestEvent);
+
+        // register pulky to the event
+        
+        EventRegistration er = new EventRegistration();
+        er.getId().setUser(pulky);
+        er.getId().setEvent(e);
+        er.setEligible(true);
+        
+        pulky.addEventRegistration(er);
+        pulky.addTerms(e.getTerms());
+        pulky.addResponse(createResponses(e.getSurvey().getQuestions(), pulky));
+        
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(pulky);
+        
+        tearDown();
+        setUp();
+
+        User pulky2 = DAOUtil.getFactory().getUserDAO().find("pulky", true);
+        assertFalse("did not load pulky user", pulky2 == null);
+
+        // check registration
+        Set registrations = pulky2.getEventRegistrations();
+        boolean foundRegistration = false;
+        EventRegistration er2 = null;
+        for (Iterator it = registrations.iterator(); it.hasNext() && !foundRegistration;) {
+            er2 = (EventRegistration) it.next();
+            if (er2.getId().equals(er.getId())) {
+                foundRegistration = true;
+            }
+        }
+
+        assertTrue("Event registration not found", foundRegistration);
+        assertTrue("Wrong associated event: " + er2.getId().getEvent().getId() + " expected: " + 
+                e.getId(), er2.getId().getEvent().getId() == e.getId());
+        assertTrue("Wrong associated user: " + er2.getId().getUser().getId() + " expected: " + 
+                pulky.getId(), er2.getId().getUser().getId() == pulky.getId());
+
+        // check terms
+        Set terms = pulky2.getTerms();
+        boolean foundTerms = false;
+        for (Iterator it = terms.iterator(); it.hasNext() && !foundTerms;) {
+            TermsOfUse t = (TermsOfUse) it.next();
+            if (t.getId().equals(e.getTerms().getId())) {
+                foundTerms = true;
+            }
+        }
+
+        assertTrue("Event terms not found", foundTerms);
+
+        // check responses
+        Set responses = pulky2.getResponses();
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            Response r = (Response) it.next();
+            if (r.getQuestion().isFreeForm()) {
+                assertTrue("Response not found (1)", r.getText().equals("test response"));
+            } else {
+                Answer a = ((Answer) (r.getQuestion().getAnswers().iterator().next()));
+                assertTrue("Response not found (2)", r.getAnswer().getId() == a.getId());
+            }
+        }
+    }
+
+    private List createResponses(Set questions, User u) {
+        List ret = new ArrayList(); 
+        
+        for (Iterator it = questions.iterator(); it.hasNext();) {
+            Response r = new Response();
+            Question q = (Question) it.next();
+            if (q.isFreeForm()) {
+                r.setText("test response");
+            } else {
+                r.setAnswer((Answer) q.getAnswers().iterator().next());
+            }
+            r.setQuestion(q);
+            r.setUser(u);
+            
+            ret.add(r);
+        }
+        
+        return ret;
+    }
 }
