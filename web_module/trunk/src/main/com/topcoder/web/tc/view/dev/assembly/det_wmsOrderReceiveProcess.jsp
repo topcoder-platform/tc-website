@@ -131,7 +131,7 @@ At intervals during the competition phase, assembly teams will be expected to de
       <td valign="top" colspan="2">&#160;</td>
    </tr>
    <tr>
-      <td valign="top"><b>02.12.2007</b></td><td valign="top"><b>Milestone 1</b></td>
+      <td valign="top"><b>02.14.2007</b></td><td valign="top"><b>Milestone 1</b></td>
    </tr>
    <tr>
       <td valign="top">&#160;</td>
@@ -145,7 +145,7 @@ At intervals during the competition phase, assembly teams will be expected to de
       <td valign="top" colspan="2">&#160;</td>
    </tr>
    <tr>
-      <td valign="top"><b>02.20.2007</b></td><td valign="top"><b>Milestone 2</b></td>
+      <td valign="top"><b>02.22.2007</b></td><td valign="top"><b>Milestone 2</b></td>
    </tr>
    <tr>
       <td valign="top" colspan="2">&#160;</td>
@@ -175,7 +175,7 @@ At intervals during the competition phase, assembly teams will be expected to de
       <td valign="top" colspan="2">&#160;</td>
    </tr>
    <tr>
-      <td valign="top"><b>02.26.2007</b></td><td valign="top"><b>Due at Submission</b></td>
+      <td valign="top"><b>02.28.2007</b></td><td valign="top"><b>Due at Submission</b></td>
    </tr>
    <tr>
       <td valign="top" colspan="2">&#160;</td>
