@@ -57,7 +57,6 @@ public class EventDAOTestCase extends TCHibernateTestCase {
     }
 
     public void testFindAll() {
-
         List events = DAOUtil.getFactory().getEventDAO().getEvents();
 
         assertFalse("Events could not be retrieved", events == null || events.size() <= 0);
@@ -126,7 +125,4 @@ public class EventDAOTestCase extends TCHibernateTestCase {
         }
         return ret;
     }
-
-
-
 }

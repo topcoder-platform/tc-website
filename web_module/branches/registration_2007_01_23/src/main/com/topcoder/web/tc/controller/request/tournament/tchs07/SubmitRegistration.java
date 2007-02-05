@@ -24,9 +24,10 @@ import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
  */
 public class SubmitRegistration extends SubmitRegistrationBase {    
     
-    protected String getEventShortDesc() {
+    protected final String getEventShortDesc() {
         return "tchs07";
     }
+    
     protected boolean validateSurvey(Survey survey, List responses) {
         String ageInput = "";
         String inCollegeInput = "";
@@ -81,6 +82,5 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         
         getRequest().setAttribute("assignedRegion", user.getHomeAddress().getCountry().getRegionByType(rt).getName());
         getRequest().setAttribute("elegible", new Boolean(elegible));
-        
     }
 }

@@ -248,7 +248,7 @@ public void testFindWithImage() {
         EventRegistration er = new EventRegistration();
         er.getId().setUser(pulky);
         er.getId().setEvent(latestEvent);
-        er.setEligible(true);
+        er.setEligible(new Boolean(true));
         
         pulky.addEventRegistration(er);
         pulky.addTerms(latestEvent.getTerms());

@@ -11,7 +11,7 @@ import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
  */
 public class ViewRegistration extends ViewRegistrationBase {
     
-    protected String getEventShortDesc() {
+    protected final String getEventShortDesc() {
         return "tchs07";
     }
 

@@ -2,18 +2,14 @@ package com.topcoder.web.tc.controller.request.tournament;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Iterator;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.tc.Constants;
 
 /**
  * @author dok
@@ -47,7 +43,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
                 throw new NavigationException("The registration period for the " + e.getDescription() + " has not yet begun.");
             } else {
                 User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-                if (getRegistration(e, u) == null) {
+                if (u.getEventRegistrations(e) == null) {
                     if (isEligible(e, u)) {
                         getRequest().setAttribute("event", e);
                         regProcessing(e, u);
@@ -60,35 +56,5 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
                 setNextPage(e, u);
             }
         }
-    }
-    
-/*    protected boolean isRegistered(Event e, User u) throws Exception {
-        if (log.isDebugEnabled()) {
-            log.debug("checking if " + getUser().getId() + " is registered for " + e.getId());
-        }
-
-        Event curr;
-        for (Iterator it = u.getEventRegistrations().iterator(); it.hasNext();) {
-            curr = ((EventRegistration) it.next()).getId().getEvent();
-            if (curr.getId() == e.getId()) {
-                return true;
-            }
-        }
-        return false;
-    }*/
-    
-    protected EventRegistration getRegistration(Event e, User u) throws Exception {
-        if (log.isDebugEnabled()) {
-            log.debug("checking if " + getUser().getId() + " is registered for " + e.getId());
-        }
-
-        EventRegistration curr;
-        for (Iterator it = u.getEventRegistrations().iterator(); it.hasNext();) {
-            curr = ((EventRegistration) it.next());
-            if (curr.getId().getEvent().getId() == e.getId()) {
-                return curr;
-            }
-        }
-        return null;
     }
 }

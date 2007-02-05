@@ -16,7 +16,7 @@ import com.topcoder.web.common.model.User;
 public abstract class ViewRegistrationBase extends RegistrationBase {
 
     protected void setNextPage(Event e, User u) throws Exception {
-        EventRegistration er = getRegistration(e, u);
+        EventRegistration er = u.getEventRegistrations(e);
         if (er != null) {
             getRequest().setAttribute("elegible", er.isEligible());
 
