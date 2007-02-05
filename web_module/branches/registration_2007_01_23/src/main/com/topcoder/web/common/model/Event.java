@@ -20,15 +20,11 @@ public class Event extends Base {
     private Timestamp registrationEnd;
     private TermsOfUse terms;
     private Survey survey;
-    //private Set questions;
     private Set users;
 
     public Event() {
-        //questions = new TreeSet();
         users = new HashSet();
-
     }
-
 
     public Long getId() {
         return id;
@@ -87,43 +83,19 @@ public class Event extends Base {
         this.terms = terms;
     }
 
-
-    /**
-     * @return the survey
-     */
     public Survey getSurvey() {
         return survey;
     }
 
-
-    /**
-     * @param survey the survey to set
-     */
     public void setSurvey(Survey survey) {
         this.survey = survey;
     }
 
-
-    /**
-     * @return the shortDescription
-     */
     public String getShortDescription() {
         return shortDescription;
     }
 
-
-    /**
-     * @param shortDescription the shortDescription to set
-     */
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
     }
-
-/*    public Set getQuestions() {
-        return Collections.unmodifiableSet(questions);
-    }
-
-    public void setQuestions(Set questions) {
-        this.questions = questions;
-    }*/
 }

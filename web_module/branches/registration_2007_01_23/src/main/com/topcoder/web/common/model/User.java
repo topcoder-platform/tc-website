@@ -383,6 +383,17 @@ public class User extends Base {
         eventRegistrations.add(er);
     }
 
+    public EventRegistration getEventRegistrations(Event e) {
+        EventRegistration curr;
+        for (Iterator it = getEventRegistrations().iterator(); it.hasNext();) {
+            curr = ((EventRegistration) it.next());
+            if (curr.getId().getEvent().getId() == e.getId()) {
+                return curr;
+            }
+        }
+        return null;
+    }
+
     public Set getResponses() {
         return Collections.unmodifiableSet(responses);
     }
@@ -398,5 +409,4 @@ public class User extends Base {
     public void addResponse(List r) {
         responses.addAll(r);
     }
-
 }

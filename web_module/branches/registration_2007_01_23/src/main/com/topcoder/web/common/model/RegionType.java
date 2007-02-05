@@ -10,7 +10,6 @@ public class RegionType extends Base {
     private String description;
 
     public RegionType() {
-
     }
 
     public Integer getId() {
@@ -21,9 +20,6 @@ public class RegionType extends Base {
         return description;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(Integer id) {
         this.id = id;
     }

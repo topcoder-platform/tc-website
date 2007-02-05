@@ -22,9 +22,6 @@ public class Country extends Base {
         regions = new HashSet();
     }
 
-    /**
-     * @return the regions
-     */
     public Set getRegions() {
         return Collections.unmodifiableSet(regions);
     }
