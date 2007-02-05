@@ -30,7 +30,7 @@
 				<td class=homeRightPromos width="50%">
 				<table width="170" border=0 cellpadding=0 cellspacing=0 align=right>
 					<tr><td><img src="/i/corp/featClientsHead.gif" border=0 /></td></tr>
-					<tr><td class=homeClientPromo><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/corp/promos/praxairNrodale.gif" border=0 /></A></td></tr>
+					<tr><td class=homeClientPromo><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/corp/promos/praxairNrodale.png" border=0 /></A></td></tr>
 					<tr><td><A href="/i/tournament/tco04/onsite_movies/rhughes.mov"><img src="/i/corp/promos/rhughesMovie.gif" alt="" border=0 /></A></td></tr>
 				</table>
 				</td>
@@ -55,7 +55,7 @@
 						<td class=homeText>
 						<br/>
 						<A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/index.jsp">Component Catalogs</A><br/>
-						Re-usable software components in the TopCoder Software catalogs drive down cost while increasing the level of quality and speed of delivery.
+						Re-usable software components in the TopCoder catalogs drive down cost while increasing the level of quality and speed of delivery.
 						<br/><br/>
 						<A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/applications/index.jsp">Application Development</A><br/>
 						TopCoder leverages our member base of qualified software developers and our unique competition-based development methodology to create commercial software for our customers.
