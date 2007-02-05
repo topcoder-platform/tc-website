@@ -21,7 +21,6 @@
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -62,7 +61,6 @@
 <html>
 <head>
 <title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
    <jsp:param name="key" value="tc_forums"/>
