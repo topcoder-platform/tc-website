@@ -272,8 +272,6 @@ public class ForumsUtil {
         long[] componentIDs = new long[forumCategory.getCategoryCount()];
         int n=0;
         while (itCategories.hasNext()) {
-        	n++;
-        	log.info("*** Category: " + n + " of " + forumCategory.getCategoryCount());
         	ForumCategory c = (ForumCategory)itCategories.next();
         	try {
         		componentIDs[n] = Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
@@ -281,6 +279,8 @@ public class ForumsUtil {
         		log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
         		continue;
         	}
+        	n++;
+        	log.info("*** Category: " + n + " of " + forumCategory.getCategoryCount());
         }
         log.info("*** Start: Find approved components");
         HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
