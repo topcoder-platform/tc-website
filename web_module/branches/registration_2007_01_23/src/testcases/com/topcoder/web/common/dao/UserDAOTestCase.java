@@ -1,12 +1,20 @@
 package com.topcoder.web.common.dao;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.model.Answer;
+import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.Contact;
+import com.topcoder.web.common.model.DemographicAnswer;
+import com.topcoder.web.common.model.DemographicAssignment;
+import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
@@ -14,6 +22,7 @@ import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.TermsOfUse;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.TCHibernateTestCase;
+import com.topcoder.web.reg.TestUtils;
 
 /**
  * @author dok
@@ -23,14 +32,12 @@ import com.topcoder.web.reg.TCHibernateTestCase;
 public class UserDAOTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
 
-/*
-
     public void testTransientDemogUpdate() {
-        User u = Util.getFactory().getUserDAO().find("Petr", true);
+        User u = DAOUtil.getFactory().getUserDAO().find("Petr", true);
 
         HashSet h = new HashSet();
-        h.add(Util.getFactory().getRegistrationTypeDAO().getCompetitionType());
-        List assignments = Util.getFactory().getDemographicAssignmentDAO().getAssignments(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT),
+        h.add(DAOUtil.getFactory().getRegistrationTypeDAO().getCompetitionType());
+        List assignments = DAOUtil.getFactory().getDemographicAssignmentDAO().getAssignments(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT),
                 u.getHomeAddress().getState(), h);
         DemographicAssignment da;
         DemographicResponse dr;
@@ -61,7 +68,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
                 dr = new DemographicResponse();
                 dr.setUser(u);
                 dr.setQuestion(da.getQuestion());
-                dr.setAnswer(Util.getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
+                dr.setAnswer(DAOUtil.getFactory().getDemographicAnswerDAO().findFreeForm(da.getQuestion()));
                 dr.setResponse("hell");
                 //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
                 log.debug("add free form " + dr.getQuestion().getId() + " " + dr.getResponse());
@@ -70,25 +77,23 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         }
         u.setTransientResponses(responses);
 
-        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
         assertTrue("couldn't make demographic change", true);
 
     }
-*/
 
-/*
 
     public void testDemogUpdate() {
-        User u = Util.getFactory().getUserDAO().find("dok");
+        User u = DAOUtil.getFactory().getUserDAO().find("dok", true);
         DemographicResponse r = new DemographicResponse();
-        r.setAnswer(Util.getFactory().getDemographicAnswerDAO().find(new Long(183)));
-        r.setQuestion(Util.getFactory().getDemographicQuestionDAO().find(new Long(26)));
+        r.setAnswer(DAOUtil.getFactory().getDemographicAnswerDAO().find(new Long(183)));
+        r.setQuestion(DAOUtil.getFactory().getDemographicQuestionDAO().find(new Long(26)));
         r.setUser(u);
         r.getId().setUser(u);
         r.getId().setAnswer(r.getAnswer());
         r.getId().setQuestion(r.getQuestion());
         u.addDemographicResponse(r);
-        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
         assertTrue("couldn't make demographic change", true);
 
     }
@@ -96,110 +101,106 @@ public class UserDAOTestCase extends TCHibernateTestCase {
 
         public void testSaveOrUpdate() {
             User u = TestUtils.makeUser();
-            Util.getFactory().getUserDAO().saveOrUpdate(u);
-            User u1 = Util.getFactory().getUserDAO().find(u.getId());
+            DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+            User u1 = DAOUtil.getFactory().getUserDAO().find(u.getId());
             assertTrue("new coder does not exist", u1 != null);
 
         }
 
-*/
-
-/*
 public void testFindWithTerms() {
-    User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
+    User tomek = DAOUtil.getFactory().getUserDAO().find(new Long(144400));
     assertFalse("could not find any terms for tomek", tomek.getTerms().isEmpty());
 }
 
 public void testFindWithImage() {
-    User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
+    User tomek = DAOUtil.getFactory().getUserDAO().find(new Long(144400));
     assertFalse("could not find any images for tomek's", tomek.getCoder().getMemberPhoto()==null);
 }
 
     public void testSaveOrUpdateResponses() {
         User u = TestUtils.makeUser();
-        Util.getFactory().getUserDAO().saveOrUpdate(u);
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
 
-        User u1 = Util.getFactory().getUserDAO().find(u.getId());
+        User u1 = DAOUtil.getFactory().getUserDAO().find(u.getId());
         assertFalse("new responses do not exist", u1.getDemographicResponses().isEmpty());
 
     }
 
 
     public void testFind() {
-        User tomek = Util.getFactory().getUserDAO().find(new Long(144400));
+        User tomek = DAOUtil.getFactory().getUserDAO().find(new Long(144400));
         assertTrue("could not load tomek", tomek != null && "tomek".equals(tomek.getHandle()));
     }
 
     public void testSecurityGroupsLoaded() {
-        User dok = Util.getFactory().getUserDAO().find(new Long(132456));
+        User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
         assertTrue("did not load groups for dok", !dok.getSecurityGroups().isEmpty());
     }
 
     public void testAddressesLoaded() {
-        User dok = Util.getFactory().getUserDAO().find(new Long(132456));
+        User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
         assertTrue("did not load addresses for dok", !dok.getAddresses().isEmpty());
     }
 
     public void testNotificationsLoaded() {
-        User dok = Util.getFactory().getUserDAO().find(new Long(132456));
+        User dok = DAOUtil.getFactory().getUserDAO().find(new Long(132456));
         assertTrue("did not load notifications for dok", !dok.getNotifications().isEmpty());
     }
 
     public void testFindByUserName() {
-        User dok = Util.getFactory().getUserDAO().find("dok");
+        User dok = DAOUtil.getFactory().getUserDAO().find("dok", true);
         assertTrue("did not load dok", dok != null);
     }
 
     public void testFailureFindByUserName() {
-        User dok = Util.getFactory().getUserDAO().find("dokd9d898df333");
+        User dok = DAOUtil.getFactory().getUserDAO().find("dokd9d898df333", true);
         assertTrue("loaded dokd9d898df333", dok == null);
     }
 
     public void testSaveUpdateWithCoder() {
         User u = TestUtils.makeUser();
         Coder c = new Coder();
-        c.setCompCountry(Util.getFactory().getCountryDAO().find("840"));
+        c.setCompCountry(DAOUtil.getFactory().getCountryDAO().find("840"));
         c.setMemberSince(new Timestamp(System.currentTimeMillis()));
-        c.setCoderType(Util.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
+        c.setCoderType(DAOUtil.getFactory().getCoderTypeDAO().find(CoderType.STUDENT));
 
         u.setCoder(c);
         c.setUser(u);
-        Util.getFactory().getUserDAO().saveOrUpdate(u);
-        User u1 = Util.getFactory().getUserDAO().find(u.getId());
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = DAOUtil.getFactory().getUserDAO().find(u.getId());
         assertTrue("new coder does not exist", u1 != null);
     }
 
 
     public void testSaveUpdateWithOutContact() {
         User u = TestUtils.makeUser();
-        Util.getFactory().getUserDAO().saveOrUpdate(u);
-        User u1 = Util.getFactory().getUserDAO().find(u.getId());
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = DAOUtil.getFactory().getUserDAO().find(u.getId());
         assertTrue("contactexists and should not", u1.getContact() == null);
     }
 
     public void testSaveUpdateWithContact() {
         User u = TestUtils.makeUser();
         Contact c = new Contact();
-        c.setCompany(Util.getFactory().getCompanyDAO().find(new Long(1)));
+        c.setCompany(DAOUtil.getFactory().getCompanyDAO().find(new Long(1)));
         c.setTitle("the man!");
         u.setContact(c);
         c.setUser(u);
-        Util.getFactory().getUserDAO().saveOrUpdate(u);
-        User u1 = Util.getFactory().getUserDAO().find(u.getId());
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = DAOUtil.getFactory().getUserDAO().find(u.getId());
         assertTrue("new coder does not exist", u1 != null);
 
     }
 
     public void testFindWithContactAndCoder() {
-        User dok = Util.getFactory().getUserDAO().find("dok");
+        User dok = DAOUtil.getFactory().getUserDAO().find("dok", true);
         assertTrue("couldn't find dok's contact information", dok.getContact() != null);
         assertTrue("couldn't find dok's coder information", dok.getCoder() != null);
     }
 
-*/
-/*
+
     public void testFindWithDemographicInfo() {
-        User dok = Util.getFactory().getUserDAO().find("duner");
+        User dok = DAOUtil.getFactory().getUserDAO().find("duner", true);
         Set s = dok.getDemographicResponses();
         DemographicResponse dr;
         assertFalse("couldn't find demographic responses", dok.getDemographicResponses().isEmpty());
@@ -218,7 +219,7 @@ public void testFindWithImage() {
         User dok = DAOUtil.getFactory().getUserDAO().find("tomek", true);
         assertFalse("did not load tomek's school", dok.getCoder().getCurrentSchool() == null);
     }
-*/
+
 
     public void testEventRegistration() {
         User pulky = DAOUtil.getFactory().getUserDAO().find("pulky", true);
@@ -294,7 +295,6 @@ public void testFindWithImage() {
         Set responses = pulky2.getResponses();
         for (Iterator it = responses.iterator(); it.hasNext();) {
             Response r = (Response) it.next();
-            log.info("Question id: " + r.getQuestion().getId());
             if (r.getQuestion().isFreeForm()) {
                 assertTrue("Response not found (1)", r.getText().equals("test response"));
             } else {
