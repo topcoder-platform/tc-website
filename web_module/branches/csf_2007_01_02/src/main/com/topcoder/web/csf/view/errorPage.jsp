@@ -33,16 +33,16 @@
     <div class="csfLogo">
         <a href="/"><img src="/i/csf.png" alt="Connected Services Framework Competition Series"></a>
     </div>
-    <a href=""><img src="/i/sandboxLogo.gif" alt="Connected Services Sandbox"></a>
+    <a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://www.networkmashups.com/&amp;refer=csf_site_sandbox_logo"><img src="/i/sandboxLogo.gif" alt="Connected Services Sandbox"></a>
 </div>
 
 <div id="primaryNav">
 <ul>
 <li style="border-top: 1px solid rgb(204, 204, 204);"><a href="/" onfocus="this.blur();">Home</a></li>
-<li><a href="" onfocus="this.blur();">Schedule</a></li>
-<li><a href="" onfocus="this.blur();">Rules</a></li>
-<li><a href="/?module=ViewActiveContests" onfocus="this.blur();">Competitions</a></li>
-<li style="border-bottom: 1px solid rgb(204, 204, 204); background-image: none;"><a href="" onfocus="this.blur();">Discuss the Competitions</a></li>
+<li><a href="/?module=Static&d1=schedule" onfocus="this.blur();">Schedule</a></li>
+<li><a href="/?module=Static&d1=rules" onfocus="this.blur();">Rules</a></li>
+<li><a href="/?module=Static&d1=competitions" onfocus="this.blur();">Competitions</a></li>
+<li style="border-bottom: 1px solid rgb(204, 204, 204); background-image: none;"><a href="/forums" onfocus="this.blur();">Discuss the Competitions</a></li>
 </ul>
 <a href="http://www.topcoder.com" style="margin-left: 5px;"><img src="/i/pbtc.png" alt="Powered by TopCoder"></a>
 </div>
@@ -60,7 +60,7 @@
                         viewing.
                         <br><br>
                         If you have a question or comment, please email
-                        <A href="service@topcoder.com?subject=TopCoder Studio Error">service@topcoder.com</A>.
+                        <A href="mailto:csf@topcoder.com?subject=Microsoft CSF Error">csf@topcoder.com</A>.
                         <br><br>
                         <%=new Date().toString()%>
                     </div>
@@ -74,9 +74,9 @@
     </div>
     <div style="padding-left: 5px; padding-top: 5px;">
         <a id="ctl00_Copyright_HyperLink1" class="footerLink" href="http://privacy.microsoft.com/">Privacy Policy</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink2" class="footerLink" href="TermsOfUse.aspx">Terms of Use</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink4" class="footerLink" href="ContactUs.aspx">Contact Us</a>
-        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink5" class="footerLink" href="Feedback.aspx">Feedback</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink2" class="footerLink" href="http://www.networkmashups.com/TermsOfUse.aspx">Terms of Use</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink4" class="footerLink" href="mailto:csf@topcoder.com">Contact Us</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;<a id="ctl00_Copyright_HyperLink5" class="footerLink" href="http://www.networkmashups.com/Feedback.aspx">Feedback</a>
     </div>
 </div>
 </div>
