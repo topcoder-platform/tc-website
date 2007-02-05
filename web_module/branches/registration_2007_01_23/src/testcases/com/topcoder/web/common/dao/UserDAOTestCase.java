@@ -265,8 +265,11 @@ public void testFindWithImage() {
         Set registrations = pulky2.getEventRegistrations();
         boolean foundRegistration = false;
         EventRegistration er2 = null;
+        log.info("looking for registration : " + er.getId().getEvent().getId() + ", " + er.getId().getUser().getId());
         for (Iterator it = registrations.iterator(); it.hasNext() && !foundRegistration;) {
             er2 = (EventRegistration) it.next();
+            log.info("found: " + er2.getId().getEvent().getId() + ", " + er2.getId().getUser().getId());
+            log.info("equals? " + er2.getId().equals(er.getId()));
             if (er2.getId().equals(er.getId())) {
                 foundRegistration = true;
             }

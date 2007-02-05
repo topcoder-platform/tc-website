@@ -65,8 +65,8 @@ public class EventRegistration extends Base {
             }
             try {
                 Identifier up = (Identifier) o;
-                return (up.getEvent().equals(getEvent()) &&
-                        up.getUser().equals(getUser()));
+                return (up.getEvent().getId().equals(getEvent().getId()) &&
+                        up.getUser().getId().equals(getUser().getId()));
             } catch (ClassCastException e) {
                 return false;
             }
