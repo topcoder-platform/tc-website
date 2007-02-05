@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <html>
 <head>
@@ -246,81 +248,35 @@
 <%-- table for the disabled candidates --%>
 <table id="unranked" class="stat" style="width: 100%;" cellpadding="0" cellspacing="0">
     <tbody>
-        <tr class="disabled">
-            <td class="valueC">
-                not ranked
-            </td>
-            <td class="value" nowrap="nowrap">
-                Movie maps
-                <a href="" target="_blank">
-                    <img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
-                </a>
-            </td>
-            <td class="valueC">
-                <div style="margin: 2px;" align="center">
-                    <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
-                </div>
-                <div style="margin: 2px;" align="center">
-                    <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
-                </div>
-            </td>
-            <td class="valueC">
-                <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
-            </td>
-            <td class="valueC">
-                <img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>
-            </td>
-        </tr>
-        <tr class="disabled">
-            <td class="valueC">
-                not ranked
-            </td>
-            <td class="value" nowrap="nowrap">
-                ABCDEFGHIJKLMNOPQRSTUVWXYZ
-                <a href="" target="_blank">
-                    <img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
-                </a>
-            </td>
-            <td class="valueC">
-                <div style="margin: 2px;" align="center">
-                    <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
-                </div>
-                <div style="margin: 2px;" align="center">
-                    <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
-                </div>
-            </td>
-            <td class="valueC">
-                <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
-            </td>
-            <td class="valueC">
-                <img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>
-            </td>
-        </tr>
-        <tr class="disabled">
-            <td class="valueC">
-                not ranked
-            </td>
-            <td class="value" nowrap="nowrap">
-                Movie maps
-                <a href="" target="_blank">
-                    <img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
-                </a>
-            </td>
-            <td class="valueC">
-                <div style="margin: 2px;" align="center">
-                    <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
-                </div>
-                <div style="margin: 2px;" align="center">
-                    <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
-                </div>
-            </td>
-            <td class="valueC">
-                <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
-            </td>
-            <td class="valueC">
-                <img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>
-            </td>
-        </tr>
+        <c:forEach items="${candidates}" var="candidate">
+
+            <tr class="disabled">
+                <td class="valueC">
+                    not ranked
+                </td>
+                <td class="value" nowrap="nowrap">
+                    ${candidate.name}
+                    <a href="" target="_blank">
+                        <img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
+                    </a>
+                </td>
+                <td class="valueC">
+                    <div style="margin: 2px;" align="center">
+                        <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
+                    </div>
+                    <div style="margin: 2px;" align="center">
+                        <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
+                    </div>
+                </td>
+                <td class="valueC">
+                    <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
+                </td>
+                <td class="valueC">
+                    <img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>
+                </td>
+            </tr>
+
+</c:forEach>
     </tbody>
     <%-- This row is required to space out the disabled table the same as the enabled table --%>
     <tfoot>
