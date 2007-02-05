@@ -292,14 +292,14 @@ public class ForumsUtil {
         }
         log.info("*** Started: removal");
         HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
-        for (int i=categoriesList.size()-1; i>0; i--) {
+        for (int i=categoriesList.size()-1; i>=0; i--) {
         	ForumCategory c = (ForumCategory)categoriesList.get(i);
         	String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
         	if (!approvedComponents.contains(componentIDStr)) {
         		categoriesList.remove(i);
         	}
         }
-        for (int i=emptyCategories.size()-1; i>0; i--) {
+        for (int i=emptyCategories.size()-1; i>=0; i--) {
         	ForumCategory c = (ForumCategory)emptyCategories.get(i);
         	String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
         	if (!approvedComponents.contains(componentIDStr)) {
