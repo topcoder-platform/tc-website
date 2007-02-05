@@ -30,7 +30,6 @@ import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
-import com.topcoder.dde.catalog.ComponentInfo;
 
 import java.rmi.RemoteException;
 import java.text.NumberFormat;
