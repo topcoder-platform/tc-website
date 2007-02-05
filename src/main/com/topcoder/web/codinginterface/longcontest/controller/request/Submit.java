@@ -88,7 +88,7 @@ public class Submit extends Base {
             // Fetch request
             Map m = dataAccess.getData(r);
 
-            if (((ResultSetContainer) m.get("long_contest_check_ids")).getRowCount() > 0) {
+            if (((ResultSetContainer) m.get("long_contest_check_ids")).getRowCount() == 0) {
                 throw new NavigationException("Invalid ids provided");
             }
 
