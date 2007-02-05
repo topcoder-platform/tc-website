@@ -254,7 +254,7 @@ public void testFindWithImage() {
         pulky.addResponse(createResponses(latestEvent.getSurvey().getQuestions(), pulky));
         
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(pulky);
-/*        
+
         tearDown();
         setUp();
 
@@ -274,7 +274,7 @@ public void testFindWithImage() {
 
         assertTrue("Event registration not found", foundRegistration);
         assertTrue("Wrong associated event: " + er2.getId().getEvent().getId() + " expected: " + 
-                e.getId(), er2.getId().getEvent().getId() == e.getId());
+                latestEvent.getId(), er2.getId().getEvent().getId() == latestEvent.getId());
         assertTrue("Wrong associated user: " + er2.getId().getUser().getId() + " expected: " + 
                 pulky.getId(), er2.getId().getUser().getId() == pulky.getId());
 
@@ -283,7 +283,7 @@ public void testFindWithImage() {
         boolean foundTerms = false;
         for (Iterator it = terms.iterator(); it.hasNext() && !foundTerms;) {
             TermsOfUse t = (TermsOfUse) it.next();
-            if (t.getId().equals(e.getTerms().getId())) {
+            if (t.getId().equals(latestEvent.getTerms().getId())) {
                 foundTerms = true;
             }
         }
@@ -300,7 +300,7 @@ public void testFindWithImage() {
                 Answer a = ((Answer) (r.getQuestion().getAnswers().iterator().next()));
                 assertTrue("Response not found (2)", r.getAnswer().getId() == a.getId());
             }
-        }*/
+        }
     }
 
     private List createResponses(Set questions, User u) {
