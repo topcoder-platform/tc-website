@@ -11,4 +11,6 @@ public interface VotingDAOFactory {
     CondorcetSchulzeElectionDAO getCondorcetSchulzeElectionDAO();
 
     CandidatePropertyDAO getContestPropertyDAO();
+
+    ElectionStatusDAO getElectionStatusDAO();
 }
