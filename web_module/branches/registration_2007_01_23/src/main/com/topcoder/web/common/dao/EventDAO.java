@@ -13,7 +13,7 @@ public interface EventDAO {
 
     Event find(Long id);
 
-    Event find(String keyword);
+    Event find(String shortDescription);
 
     List getEvents();
         
