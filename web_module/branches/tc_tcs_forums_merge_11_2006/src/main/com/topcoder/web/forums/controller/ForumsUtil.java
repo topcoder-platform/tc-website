@@ -263,40 +263,50 @@ public class ForumsUtil {
     // the list's end. Only forums for approved software components are displayed.
     public static ArrayList getCategories(Forums forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories) throws RemoteException {
+    	log.info("*** Started: getCategories()");
     	Iterator itCategories = forumCategory.getCategories();
         ArrayList categoriesList = new ArrayList();
         ArrayList emptyCategories = new ArrayList();
-        
         long[] componentIDs = new long[forumCategory.getCategoryCount()];
-        int n=0;
-        while (itCategories.hasNext()) {
-        	ForumCategory c = (ForumCategory)itCategories.next();
-        	try {
-        		componentIDs[n] = Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
-        	} catch (NumberFormatException nfe) {
-        		continue;
-        	}
-        	n++;
-        }
-        HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
+        int n = -1;
         
-        itCategories = forumCategory.getCategories();
-        n = 0;
         while (itCategories.hasNext()) {
+        	n++;
         	ForumCategory c = (ForumCategory)itCategories.next();
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
         	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
         			ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
         	
-    		String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
-        	if (approvedComponents.contains(componentIDStr)) {
-	        	if (c.getMessageCount() > 0) {
-	        		categoriesList.add(c);
-	        	} else {
-	        		emptyCategories.add(c);
-	        	}
+        	try {
+        		componentIDs[n] = Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+        	} catch (NumberFormatException nfe) {
+        		log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
+        		continue;
+        	}
+        	
+        	if (c.getMessageCount() > 0) {
+        		categoriesList.add(c);
+        	} else {
+        		emptyCategories.add(c);
         	}
         }
+        log.info("*** Started: removal");
+        HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
+        for (int i=categoriesList.size()-1; i>0; i--) {
+        	ForumCategory c = (ForumCategory)categoriesList.get(i);
+        	String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
+        	if (!approvedComponents.contains(componentIDStr)) {
+        		categoriesList.remove(i);
+        	}
+        }
+        for (int i=emptyCategories.size()-1; i>0; i--) {
+        	ForumCategory c = (ForumCategory)emptyCategories.get(i);
+        	String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
+        	if (!approvedComponents.contains(componentIDStr)) {
+        		emptyCategories.remove(i);
+        	}
+        }
+        log.info("*** Ended: removal");
         Collections.sort(categoriesList, 
         		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
         Collections.sort(emptyCategories, 
@@ -304,6 +314,7 @@ public class ForumsUtil {
         if (!excludeEmptyCategories) {
         	categoriesList.addAll(emptyCategories);
         }
+        log.info("*** Ended: getCategories()");
         return categoriesList;
     }
 
