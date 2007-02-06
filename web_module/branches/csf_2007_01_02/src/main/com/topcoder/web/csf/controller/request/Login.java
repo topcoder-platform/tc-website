@@ -1,5 +1,8 @@
 package com.topcoder.web.csf.controller.request;
 
+import Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Locator;
+import Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
+import Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.holders.SandboxUserHolder;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -15,9 +18,6 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Locator;
-import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
-import com.topcoder.web.csf.Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.holders.SandboxUserHolder;
 
 import javax.naming.Context;
 import javax.xml.rpc.holders.BooleanHolder;
