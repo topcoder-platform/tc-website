@@ -237,9 +237,9 @@
                 tdTop = tr.insertCell(tr.cells.length);
                 tdRemove = tr.insertCell(tr.cells.length);
             } else {
-                tdUpDown = tr.cells[3];
-                tdTop = tr.cells[4];
-                tdRemove= tr.cells[5];
+                tdUpDown = tr.cells[2];
+                tdTop = tr.cells[3];
+                tdRemove = tr.cells[4];
             }
             if (i==0) {
                 tdUpDown.innerHTML = srcUpNA+(body.rows.length==1?srcDownNA:srcDownDiv);
@@ -284,9 +284,9 @@
                 tdTop = tr.insertCell(tr.cells.length);
                 tdRemove = tr.insertCell(tr.cells.length);
             } else {
-                tdUpDown = tr.cells[3];
-                tdTop = tr.cells[4];
-                tdRemove= tr.cells[5];
+                tdUpDown = tr.cells[2];
+                tdTop = tr.cells[3];
+                tdRemove = tr.cells[4];
             }
             tdUpDown.innerHTML = srcUpDiv+srcDownNA;
             tdTop.innerHTML = srcTopDiv;
