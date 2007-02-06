@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.tournament;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
@@ -42,14 +43,19 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             getRequest().setAttribute("event", e);
             Calendar now = Calendar.getInstance();
             now.setTime(new Date());
+            Calendar regStart = new GregorianCalendar();
+            regStart.setTime(e.getRegistrationStart());
+            Calendar regEnd = new GregorianCalendar();
+            regEnd.setTime(e.getRegistrationEnd());
+            
             log.info("now.getTime(): " + now.getTime().toString());
-            log.info("e.getRegistrationStart().getTime(): " + e.getRegistrationStart().toString());
-            log.info("e.getRegistrationEnd().getTime(): " + e.getRegistrationEnd().toString());
-            log.info("now.before(e.getRegistrationStart()): " + now.before(e.getRegistrationStart()));
-            log.info("now.after(e.getRegistrationEnd()): " + now.after(e.getRegistrationEnd()));
-            if (now.after(e.getRegistrationEnd())) {
+            log.info("regStart.getTime(): " + regStart.toString());
+            log.info("regEnd.getTime(): " + regEnd.toString());
+            log.info("now.before(regStart): " + now.before(regStart));
+            log.info("now.after(regEnd): " + now.after(regEnd));
+            if (now.after(regEnd)) {
                 throw new NavigationException("The registration period for the " + e.getDescription() + " is over.");
-            } else if (now.before(e.getRegistrationStart())) {
+            } else if (now.before(regStart)) {
                 throw new NavigationException("The registration period for the " + e.getDescription() + " has not yet begun.");
             } else {
                 User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
