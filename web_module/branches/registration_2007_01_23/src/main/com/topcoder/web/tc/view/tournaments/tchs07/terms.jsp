@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.web.common.model.Event,
                  com.topcoder.web.common.model.Question,
                  com.topcoder.web.common.tag.AnswerInput,
+                 com.topcoder.web.tc.controller.request.tournament.RegistrationBase,
                  java.util.Collections" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="java.util.ArrayList" %>
@@ -98,7 +99,18 @@
                 <% i++;%>
             </tc:questionIterator>
 
+                <p align="center">
+                    How old are you? <tc-webtag:textInput name="age2" size="3" maxlength="3"/>
+                </p>
 
+                <p align="center">
+                    Are you enrolled full time at a college or university? <tc-webtag:listSelect name='col2' list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>
+                </p>
+
+                <p align="center">
+                    Are you enrolled full time at a secondary school? <tc-webtag:listSelect name='hs2' list="<%=RegistrationBase.YES_NO_ANSWERS%>"/>
+                </p>
+                
                 <div align="center">
                     <button name="submit" value="submit" type="submit">Submit</button>
                 </div>
