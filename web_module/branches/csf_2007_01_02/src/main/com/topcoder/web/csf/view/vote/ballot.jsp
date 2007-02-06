@@ -214,6 +214,7 @@
                     td.innerHTML = row.cells[1].innerHTML;
                     rankedBody.deleteRow(i);
                     refreshUnRanked(unRankedBody);
+                    refreshRanked(rankedBody);
                 }
             }
         }
@@ -288,7 +289,7 @@
 
         for (var i = 0; i < body.rows.length; i++) {
             tr = body.rows[i];
-            tr.setAttribute("class", i % 2 == 0 ? "light" : "dark");
+            tr.setAttribute("class", "disabled");
             for (var j = 0; j < tr.cells.length; j++) {
                 td = tr.cells[j];
                 if (j == 0) {
