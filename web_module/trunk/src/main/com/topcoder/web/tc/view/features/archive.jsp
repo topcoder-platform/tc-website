@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21464956" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=020607"><strong>Marathon Man: An interview with <tc-webtag:handle coderId="7504863" context="algorithm"/></strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Feb 6, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=020207"><strong>TopCoder @ Work: Not Another Vista Article</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Feb 2, 2007</td> 

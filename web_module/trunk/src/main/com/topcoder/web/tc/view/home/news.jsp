@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.06.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=020607">Marathon Man: An interview with <tc-webtag:handle coderId="7504863" context="algorithm"/></A></span><br><br>
+       On December 27, 2006, TopCoder wrapped up the Intel Multi-Threading Competition Series. Over the course of the 12 Intel competitions, an average of 836 TopCoder members registered for each match, with an average of 206 members submitting at least one solution in each.</td>
+      <td class="newsPhoto"><img src="/i/m/d000hg_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21464956" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=020607">full story</A> | 
+         <tc-webtag:forumLink forumID="506274" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.02.07<br>4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -181,23 +197,3 @@ TopCoder High School algorithm competitors once again demonstrated impressive sp
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=27">discuss this</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.18.07<br>1:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm335">SRM 335 - Problem Set & Analysis</A></span><br><br>
-Single Round Match 335 saw a fairly high number
-of coders face a seemingly innocent -- but tough -- set of problems. In both divisions there were many failed submissions
-in more than one problem.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm335">full story</A> | 
-        <tc-webtag:forumLink forumID="506225" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
