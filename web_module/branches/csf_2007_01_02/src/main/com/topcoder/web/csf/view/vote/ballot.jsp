@@ -223,7 +223,7 @@
                 tdRemove.innerHTML = srcBtnOutCell;
             } else {
                 tdUpDown.innerHTML = srcUpDiv+srcDownDiv;
-                tdTop.innerHTML = srcTop;
+                tdTop.innerHTML = srcTopDiv;
                 tdRemove.innerHTML = srcBtnOutCell;
             }
         }
