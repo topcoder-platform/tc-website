@@ -405,7 +405,7 @@ function isUnRanked(element) {
                 </td>
                 <td class="valueC">
                     <div style="margin: 2px;" align="center">
-                        <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
+                        <a href="javascript:void(0)" onclick="up(this)" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
                     </div>
                     <div style="margin: 2px;" align="center">
                         <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
