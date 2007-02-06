@@ -21,6 +21,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.06.07<br>5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm31">TCHS SRM 31 - Problem Set & Analysis</A></span><br><br>
+As HS SRM 31 kicked off, 243 young competitors fought their way through traffic in order to complete this problem set.  An exciting battle ensued, as the coders fought for victory in the penultimate SRM of the first season.
+      </td>
+      <td class="newsPhoto"><%--<img src="/i/m/_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm31">full story</A> | 
+        <tc-webtag:forumLink forumID="506247" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.06.07<br>4:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -189,18 +206,5 @@ TopCoder High School algorithm competitors once again demonstrated impressive sp
          <A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary2">full story</A> | 
          <tc-webtag:forumLink forumID="506253" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>01.22.07<br>5:20 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="http://forums.topcoder.com/?module=Thread&threadID=515502&mc=1#578866">Save the Date: Stress Test SRM</A></span><br><br>
-      Don't make any plans for Saturday, Feb. 10 at 12:00 Noon EST. We're running a Stress Test SRM, and we need your help to test our systems (and freak out our admins). 
-      Your incentive: a one-time shot at some special problems and $5,000 in prizes.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="http://forums.topcoder.com/?module=Thread&threadID=515502&mc=1#578866">discuss</A> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
