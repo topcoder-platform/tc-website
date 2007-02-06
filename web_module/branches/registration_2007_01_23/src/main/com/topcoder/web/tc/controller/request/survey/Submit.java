@@ -256,7 +256,7 @@ public class Submit extends View {
         boolean found = false;
         for (Iterator it = question.getAnswerInfo().iterator(); it.hasNext() && !found;) {
             a = (Answer) it.next();
-            found = (a.getId() == answerId);
+            found = a.getId().equals(new Long(answerId));
         }
         return found ? a : null;
     }

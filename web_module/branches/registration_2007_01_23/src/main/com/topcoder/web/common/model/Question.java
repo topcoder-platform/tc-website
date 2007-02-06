@@ -76,7 +76,7 @@ public class Question implements Serializable {
         boolean found = false;
         for (Iterator it = answers.iterator(); it.hasNext() && !found;) {
             a = (Answer) it.next();
-            found = (a.getId() == answerId);
+            found = a.getId().equals(new Long(answerId));
         }
         return found ? a : null;
     }
