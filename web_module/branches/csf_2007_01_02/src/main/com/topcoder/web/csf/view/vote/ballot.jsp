@@ -38,7 +38,7 @@
     var srcDownNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnDownNA + '" alt="Move down"/></div>';
     var srcUpNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnUpNA + '" alt="Move up"/></div>';
 
-    var srcBtnOutCell = '<a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="'+srcBtnOut +'" alt="Remove" onmouseover="this.src = \'' + srcBtnOutOn + '\';" onmouseout="this.src = \'' + srcBtnOut + '\';"/></a>';
+    var srcBtnOutCell = '<a href="javascript:void(0)" onclick="remove(this)" onfocus="this.blur();"><img src="'+srcBtnOut +'" alt="Remove" onmouseover="this.src = \'' + srcBtnOutOn + '\';" onmouseout="this.src = \'' + srcBtnOut + '\';"/></a>';
     var srcBtnOutNA = '<img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>';
 
 
@@ -199,6 +199,28 @@
     }
 
 
+    function remove(element) {
+        var row = findRow(element);
+        if (isRanked(row)) {
+            var rankedBody = document.getElementById("rankedBody");
+            for (var i=0; i<rankedBody.rows.length; i++) {
+                if (rankedBody.rows[i]==row) {
+                    var unRankedBody = document.getElementById("unRankedBody");
+                    var newRow = unRankedBody.insertRow(unRankedBody.rows.length);
+                    var td;
+                    td = newRow.insertCell(newRow.cells.length);
+                    td.innertHTML = 'not ranked';
+                    td = newRow.insertCell(newRow.cells.length);
+                    td.innerHTML = row.cells[1].innerHTML;
+                    rankedBody.deleteRow(i);
+                    refreshUnRanked(unRankedBody);
+                }
+            }
+        }
+    }
+
+
+
     var styles = ["valueC", "value", "valueC", "valueC", "valueC"];
     var nowraps = [null, "nowrap", null, null, null];
     /**
@@ -246,6 +268,46 @@
             }
         }
     }
+
+    /**
+     * refresh presentation after data/structure changes
+     */
+    function refreshUnRanked(body) {
+        var tr, td, tdUpDown,tdTop,tdRemove;
+        for (var i=0;i<body.rows.length; i++) {
+            tr = body.rows[i];
+            if (tr.cells.length==2) {
+                tdUpDown = tr.insertCell(tr.cells.length);
+                tdTop = tr.insertCell(tr.cells.length);
+                tdRemove = tr.insertCell(tr.cells.length);
+            }
+            tdUpDown.innerHTML = srcUpDiv+srcDownNA;
+            tdTop.innerHTML = srcTopDiv;
+            tdRemove.innerHTML = srcBtnOutNA;
+        }
+
+        for (var i = 0; i < body.rows.length; i++) {
+            tr = body.rows[i];
+            tr.setAttribute("class", i % 2 == 0 ? "light" : "dark");
+            for (var j = 0; j < tr.cells.length; j++) {
+                td = tr.cells[j];
+                if (j == 0) {
+                    //rerank the rows
+                    td.innerHTML = i + 1;
+                }
+                if (styles[j]) {
+                    td.setAttribute("class", styles[j]);
+                }
+                if (nowraps[j]) {
+                    td.setAttribute("nowrap", nowraps[j]);
+                }
+            }
+        }
+    }
+
+
+
+
 
     function isRanked(element) {
         while (element.tagName != 'BODY') {
