@@ -150,22 +150,6 @@
         }
     }
 
-    function disableTopButtons(row) {
-        //find up button and top button
-        //replace img with dead button image
-        //remove link
-
-    }
-
-
-    function enableTopButtons(row) {
-
-    }
-
-    function enableBottomButtons(row) {
-
-    }
-
     /**
      * move a row to the top.
      * element - an element that is a child of the row to be moved up
@@ -179,7 +163,10 @@
             var td;
             for (var j = 0; j < 2; j++) {
                 td = tr.insertCell(tr.cells.length);
-                td.innerHTML = row.cells[j].innerHTML;
+                if (j==1) {
+                    //only need to copy the data, the rest will be taken care of in the refresh
+                    td.innerHTML = row.cells[j].innerHTML;
+                }
             }
 
 /*
