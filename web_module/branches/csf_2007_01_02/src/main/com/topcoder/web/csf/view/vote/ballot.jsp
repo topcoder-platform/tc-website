@@ -332,8 +332,6 @@ function isUnRanked(element) {
 
 </script>
 
-<style type="text/css">
-</style>
 
 </head>
 
@@ -399,7 +397,7 @@ function isUnRanked(element) {
                 </td>
                 <td class="value" nowrap="nowrap">
                         ${candidate.name}
-                    <a href="" target="_blank">
+                    <a href="#" target="_blank">
                         <img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
                     </a>
                 </td>
@@ -450,7 +448,7 @@ function isUnRanked(element) {
 <div align="center" style="margin:20px;">
     Are you done ranking the candidates?
     <div align="center" style="margin-top:10px;">
-        <A href="" class="button" style="width: 160px;">Submit my vote</A>
+        <A href="#" class="button" style="width: 160px;">Submit my vote</A>
     </div>
 </div>
 
