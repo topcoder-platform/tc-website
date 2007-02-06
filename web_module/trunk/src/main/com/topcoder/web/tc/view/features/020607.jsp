@@ -114,7 +114,7 @@ It's rewarding when you come up with a theory, and that theory translates perfec
 Low points would be wasting an hour chasing a bug, or trying ideas that end up not working.
 <br><br>
 <span class="subtitle">Are you going to start doing regular marathons now that the Intel series has ended?</span><br>
-I'd like to do a one-week marathon once in a while, when I find the problem particularly interesting and have enough time. But it won't be a regular thing -- I can't keep doing this every month like I did last year. I have two daughters and a job that are important, plus other interests, and I'm enjoying having a little more free time to devote to them.
+I'd like to do a one-week marathon once in a while, when I find the problem particularly interesting and have enough time. But it won't be a regular thing -- I can't keep doing this every month like I did last year, on top of my full-time job. I have two daughters and other interests, and I'm enjoying having a little more free time to devote to them.
 <br><br>
         </td>
 <!-- Center Column Ends -->
