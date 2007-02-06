@@ -199,7 +199,7 @@
             td = tr.insertCell(tr.cells.length);
             td.innerHTML = (srcUpNA+(rankedBody.rows.length==1?srcDownNA:srcDownDiv));
             td = tr.insertCell(tr.cells.length);
-            td.innerHTML = srcTopNA + rankedBody.rows.length==1?srcBottomNA:srcBottomDiv;;
+            td.innerHTML = (srcTopNA + (rankedBody.rows.length==1?srcBottomNA:srcBottomDiv));
             td = tr.insertCell(tr.cells.length);
             td.innerHTML = srcBtnOutCell;
 
