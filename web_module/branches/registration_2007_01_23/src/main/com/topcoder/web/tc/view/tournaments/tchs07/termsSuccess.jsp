@@ -2,7 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <% String assignedRegion = (String) request.getAttribute("assignedRegion"); 
-   Boolean elegible = (Boolean) request.getAttribute("elegible"); %>
+   Boolean eligible = (Boolean) request.getAttribute("eligible"); %>
 <html> 
 <head> 
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/> 
@@ -27,14 +27,14 @@
           <h2>Registration</h2>
 
         <div align="center" style="margin:40px;">
-        <%if (elegible.booleanValue()) {%>
+        <%if (eligible.booleanValue()) {%>
             You have successfully registered for the 2007 TopCoder&#174; High School Tournament.
             <br><br>
             You have been assigned to the <strong><%=assignedRegion%> Region</strong>.
             <br><br>
             If you have any concerns regarding your assigned region, please email <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
         <%} else {%>
-            Sorry, you are not elegible for competing in this tournament.
+            Sorry, you are not eligible for competing in this tournament.
             <br><br>
             If you have any concerns, please email <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
         <%}%>

@@ -9,16 +9,16 @@ import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
 
 /**
- * @author dok
+ * @author dok, pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 16, 2007
  */
 public abstract class ViewRegistrationBase extends RegistrationBase {
 
     protected void setNextPage(Event e, User u) throws Exception {
-        EventRegistration er = u.getEventRegistrations(e);
+        EventRegistration er = u.getEventRegistration(e);
         if (er != null) {
-            getRequest().setAttribute("elegible", er.isEligible());
+            getRequest().setAttribute("eligible", er.isEligible());
 
             setNextPage("/tournaments/" + e.getShortDescription() + "/termsSuccess.jsp");
             setIsNextPageInContext(true);

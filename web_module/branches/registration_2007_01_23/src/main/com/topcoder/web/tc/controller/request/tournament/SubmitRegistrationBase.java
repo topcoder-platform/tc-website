@@ -17,21 +17,19 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.survey.Helper;
 
 /**
- * @author dok
+ * @author dok, pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 16, 2007
  */
 public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
 
-    protected final Integer HIGH_SCHOOL_REGION_TYPE = new Integer(1);
-
     protected abstract boolean validateSurvey(Survey survey, List responses);
     
-    protected abstract void completeRegistration(Event event, User user, boolean elegible, List responses);
+    protected abstract void completeRegistration(Event event, User user, boolean eligible, List responses);
 
     protected void regProcessing(Event event, User user) throws Exception {
         List responses = processSurvey(event, user);
-        boolean elegible = validateSurvey(event.getSurvey(), responses);
+        boolean eligible = validateSurvey(event.getSurvey(), responses);
         
         String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
         if (!"on".equals(termsAgree)) {
@@ -42,7 +40,7 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
             setDefaults(responses);
             setDefault(Constants.TERMS_AGREE, String.valueOf("on".equals(termsAgree)));
         } else {
-            completeRegistration(event, user, elegible, responses);
+            completeRegistration(event, user, eligible, responses);
         }
 
     }

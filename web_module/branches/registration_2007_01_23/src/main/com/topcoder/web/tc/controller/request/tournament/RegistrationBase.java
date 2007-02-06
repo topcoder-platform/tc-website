@@ -12,11 +12,13 @@ import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.User;
 
 /**
- * @author dok
+ * @author dok, pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 16, 2007
  */
 public abstract class RegistrationBase extends ShortHibernateProcessor {
+
+    protected static final Integer HIGH_SCHOOL_REGION_TYPE = new Integer(1);
     protected static final String AGE = "age";
     protected static final String IN_COLLEGE = "incollege";
     protected static final String IN_HIGH_SCHOOL = "inhs";
@@ -43,7 +45,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
                 throw new NavigationException("The registration period for the " + e.getDescription() + " has not yet begun.");
             } else {
                 User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-                if (u.getEventRegistrations(e) == null) {
+                if (u.getEventRegistration(e) == null) {
                     if (isEligible(e, u)) {
                         getRequest().setAttribute("event", e);
                         regProcessing(e, u);

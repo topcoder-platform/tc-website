@@ -18,7 +18,7 @@ import com.topcoder.web.tc.controller.request.survey.Helper;
 import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
 
 /**
- * @author dok
+ * @author dok, pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 16, 2007
  */
@@ -62,13 +62,13 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     }
     
     
-    protected void completeRegistration(Event event, User user, boolean elegible, List responses) {
+    protected void completeRegistration(Event event, User user, boolean eligible, List responses) {
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
 
         EventRegistration er = new EventRegistration();
         er.getId().setUser(user);
         er.getId().setEvent(event);
-        er.setEligible(new Boolean(elegible));
+        er.setEligible(new Boolean(eligible));
 
         user.addEventRegistration(er);
         user.addTerms(event.getTerms());
@@ -81,6 +81,6 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         rt.setId(HIGH_SCHOOL_REGION_TYPE);
         
         getRequest().setAttribute("assignedRegion", user.getHomeAddress().getCountry().getRegionByType(rt).getName());
-        getRequest().setAttribute("elegible", new Boolean(elegible));
+        getRequest().setAttribute("eligible", new Boolean(eligible));
     }
 }

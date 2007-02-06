@@ -383,7 +383,7 @@ public class User extends Base {
         eventRegistrations.add(er);
     }
 
-    public EventRegistration getEventRegistrations(Event e) {
+    public EventRegistration getEventRegistration(Event e) {
         EventRegistration curr;
         for (Iterator it = getEventRegistrations().iterator(); it.hasNext();) {
             curr = ((EventRegistration) it.next());
