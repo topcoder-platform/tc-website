@@ -1,5 +1,7 @@
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.User,
+                 com.jivesoftware.base.Permissions,
+                 com.jivesoftware.forum.ForumPermissions,
                  com.jivesoftware.forum.ReadTracker,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.WatchManager,
@@ -11,8 +13,6 @@
                  com.topcoder.web.forums.util.ImageMapper,
                  java.util.Iterator"
         %>
-<%@ page contentType="text/html;charset=utf-8" %>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
@@ -20,6 +20,7 @@
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
+<tc-webtag:useBean id="forumsBean" name="forumsBean" type="com.topcoder.web.ejb.forums.Forums" toScope="request"/>
 
 <%	User user = (User) request.getAttribute("user");
     ResultFilter resultFilter = (ResultFilter) request.getAttribute("resultFilter");
@@ -78,7 +79,6 @@
 <html>
 <head>
     <title>TopCoder Forums</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <jsp:include page="script.jsp"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_forums"/>
@@ -121,9 +121,13 @@
                     <jsp:include page="searchHeader.jsp"/>
                 </td>
                 <td align="right" nowrap="nowrap" valign="top">
-                    <A href="?module=History" class="rtbcLink">My Post
-                        History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User
-                    Settings</A><br/>
+                	<%	boolean isAuthorized = forumCategory.isAuthorized(Permissions.SYSTEM_ADMIN) || 
+        					forumCategory.isAuthorized(ForumPermissions.FORUM_CATEGORY_ADMIN);
+        				boolean canModifyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_MODIFY_FORUMS)) && isAuthorized;
+        				if (canModifyForums) {	%>
+        					<A href="?module=CreateForum&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.POST_MODE%>=New" class="rtbcLink">Create Forum</A>&#160; |&#160; 
+        			<%	} %>
+                    <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br/>
                     <%	if (forumFactory.getRootForumCategory().equals(forumCategory) ||
                     		forumFactory.getRootForumCategory().equals(forumCategory.getParentCategory())) { %>
 	                    <div style="float:right; margin: 30px 0px 10px 10px;">
@@ -132,15 +136,20 @@
                     <%	} %>
                 </td>
             </tr>
-            <tr><td colspan="2" style="padding-bottom:3px;"><b>
+            <tr>
+            	<%	int colspan = (paginator.getNumPages () > 1) ? 2 : 3; %>
+            	<td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
                     <% if (category.getID() != forumCategory.getID()) { %>
                     <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-                    >
+                    <img src="/i/interface/exp_w.gif" align="absmiddle"/>
                     <% } else { %>
                     <%=category.getName()%>
                     <% } %>
                 </tc-webtag:iterator>
+                <%	if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
+                	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)
+				<%	} %>
             </b></td>
                 <% Page[] pages; %>
                 <% if (paginator.getNumPages() > 1) { %>
@@ -161,7 +170,7 @@
                     <% } else { %> ... <% } %>
                     <% } %> ]
                     <% if (paginator.getNextPage()) { %>
-                    &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT >></A>
+                    &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT ></A>
                     <% } %>
                 </b></td></tr>
             <% } %>
@@ -188,8 +197,13 @@
                 <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="<%=trackerClass%>"><%=forum.getName()%></A>
                 <% } %>
                 <% if (forum.getDescription() != null) { %><br/>
-
-                <div class="rtDescIndent"><%=forum.getDescription()%></div><% } %></td>
+	                <div class="rtDescIndent"><%=forum.getDescription()%>
+	                	<%	if (canModifyForums) { %>
+	                	(<A href="?module=CreateForum&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&<%=ForumConstants.POST_MODE%>=Edit" class="rtbcLink">Edit</A>)
+	                	<%	} %>
+	                </div>
+                <% } %>
+            </td>
             <td class="rtThreadCell" style="width: 80px;"><%=forum.getThreadCount()%>&#160;/&#160;<%=forum.getMessageCount()%></td>
             <% if (forum.getMessageCount() > 0) { %>
             <tc-webtag:useBean id="message" name="forum" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
@@ -229,9 +243,18 @@
         } %>
         <tr>
             <td class="rtThreadCellWrap">
+            	<%	String phaseIcon = ImageMapper.getPhaseIcon(forumsBean, category);
+  					String phaseText = ImageMapper.getPhaseText(forumsBean, category);
+  					String technologyIcon = ImageMapper.getTechnologyIcon(forumsBean, category);
+  					String technologyText = ImageMapper.getTechnologyText(forumsBean, category); %>
             	<%	if ("software".equals(forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
-                	<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getPhaseIcon(category)%>" alt="<%=ImageMapper.getPhaseText(category)%>" width="25" height="17" border="0">
-					<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=ImageMapper.getTechnologyIcon(category)%>" alt="<%=ImageMapper.getTechnologyText(category)%>" border="0"/>
+            		<%	if (!"".equals(StringUtils.checkNull(phaseIcon))) { %>
+                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=phaseIcon%>" alt="<%=phaseText%>" width="25" height="17" border="0">
+					<%	} %>
+					<%	if (!"".equals(StringUtils.checkNull(technologyIcon))) { %>
+						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=technologyIcon%>" alt="<%=technologyText%>" border="0"/>
+					<%	} %>
+					&#160;
 				<%	} %>
                 <% if (user == null) { %>
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>&<%=ForumConstants.MESSAGE_COUNT%>=<%=category.getMessageCount()%>" class="rtLinkNew"><%=category.getName()%></A>

@@ -3,9 +3,18 @@
  */
 package com.topcoder.web.forums.util;
 
+import java.rmi.RemoteException;
+
+import javax.naming.InitialContext;
+
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.ForumCategory;
 
 /**
@@ -55,21 +64,17 @@ public class ImageMapper {
 		 TECH_FLASH_TEXT, TECH_APPLICATION_TEXT}
 	};
 	
-	public static String getPhaseIcon(ForumCategory category) {
-		return getPhaseProperty(category, 0);
+	public static String getPhaseIcon(Forums forumsBean, ForumCategory category) throws RemoteException {
+		return getPhaseProperty(forumsBean, category, 0);
 	}
 		
-	public static String getPhaseText(ForumCategory category) {
-		return getPhaseProperty(category, 1);
+	public static String getPhaseText(Forums forumsBean, ForumCategory category) throws RemoteException {
+		return getPhaseProperty(forumsBean, category, 1);
 	}
 	
-	public static String getPhaseProperty(ForumCategory category, int propIdx) {
-		String strComponentPhase = category.getProperty(ForumConstants.PROPERTY_COMPONENT_PHASE);
-		if(strComponentPhase == null) {
-			return "";
-		}
-		
-		int componentPhase = Integer.parseInt(strComponentPhase);
+	public static String getPhaseProperty(Forums forumsBean, ForumCategory category, int propIdx) throws RemoteException {
+		long compVersID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+		long componentPhase = forumsBean.getComponentVersionPhase(compVersID);
 		
 		for (int i=0; i<PHASE_IDS.length; i++) {
 			if (componentPhase == PHASE_IDS[i]) {
@@ -79,23 +84,20 @@ public class ImageMapper {
 		return "";
 	}
 	
-	public static String getTechnologyIcon(ForumCategory category) {
-		return getTechnologyProperty(category, 0);
+	public static String getTechnologyIcon(Forums forumsBean, ForumCategory category) throws RemoteException {
+		return getTechnologyProperty(forumsBean, category, 0);
 	}
 	
-	public static String getTechnologyText(ForumCategory category) {
-		return getTechnologyProperty(category, 1);
+	public static String getTechnologyText(Forums forumsBean, ForumCategory category) throws RemoteException {
+		return getTechnologyProperty(forumsBean, category, 1);
 	}
 	
-	public static String getTechnologyProperty(ForumCategory category, int propIdx) {
-		String strRootCategoryId = category.getProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID);
-		if (strRootCategoryId == null) {
-			return "";
-		}
-		long rootCategoryId = Long.parseLong(strRootCategoryId);
+	public static String getTechnologyProperty(Forums forumsBean, ForumCategory category, int propIdx) throws RemoteException {
+		long compID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+		long rootCategoryID = forumsBean.getComponentRootCategory(compID);
 		
 		for (int i=0; i<TECH_IDS.length; i++) {
-			if (rootCategoryId == TECH_IDS[i]) {
+			if (rootCategoryID == TECH_IDS[i]) {
 				return TECH_PROPERTIES[propIdx][i];
 			}
 		}

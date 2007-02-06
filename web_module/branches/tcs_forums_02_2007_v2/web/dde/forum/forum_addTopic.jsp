@@ -206,7 +206,7 @@
 </table>
 <!-- breadcrumb ends -->
 
-<jsp:include page="/includes/footer.jsp" flush="true" />
+<jsp:include page="/includes/foot.jsp" flush="true" />
 
 </form>
 </body>

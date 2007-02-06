@@ -1,3 +1,9 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+
+<%	TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id")); %>
+
 <!-- Nav Bar begins -->
 <table width="100%" border="0" cellpadding="3" cellspacing="0">
     <tr>
@@ -10,7 +16,7 @@
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_showroom.jsp">Browse Catalogs</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_learn.jsp">Products</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_prodTools.jsp?comp=600191">Productivity Tools</a>&nbsp;&nbsp;</td>
-        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_active_collab.jsp">Forums</a>&nbsp;&nbsp;</td>
+        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Forums</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_comp_request.jsp">Suggest a Component</a>&nbsp;&nbsp;</td>
 <!--        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_advanced_search.jsp">Advanced Search</a>&nbsp;&nbsp;</td> -->
             
@@ -21,7 +27,7 @@
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_showroom.jsp">Browse Catalogs</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_learn.jsp">Products</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_prodTools.jsp?comp=600191">Productivity Tools</a>&nbsp;&nbsp;</td>
-        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_active_collab.jsp">Forums</a>&nbsp;&nbsp;</td>
+        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Forums</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_comp_request.jsp">Suggest a Component</a>&nbsp;&nbsp;</td>
 <!--        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_advanced_search.jsp">Advanced Search</a>&nbsp;&nbsp;</td> -->
             
@@ -32,7 +38,7 @@
         <td align="center" class="topNavOn" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_showroom.jsp">Browse Catalogs</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_learn.jsp">Products</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_prodTools.jsp?comp=600191">Productivity Tools</a>&nbsp;&nbsp;</td>
-        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_active_collab.jsp">Forums</a>&nbsp;&nbsp;</td>
+        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Forums</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_comp_request.jsp">Suggest a Component</a>&nbsp;&nbsp;</td>
 <!--        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_advanced_search.jsp">Advanced Search</a>&nbsp;&nbsp;</td> -->
             
@@ -43,7 +49,7 @@
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_showroom.jsp">Browse Catalogs</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNavOn" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_learn.jsp">Products</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_prodTools.jsp?comp=600191">Productivity Tools</a>&nbsp;&nbsp;</td>
-        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_active_collab.jsp">Forums</a>&nbsp;&nbsp;</td>
+        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Forums</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_comp_request.jsp">Suggest a Component</a>&nbsp;&nbsp;</td>
 <!--        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_advanced_search.jsp">Advanced Search</a>&nbsp;&nbsp;</td> -->
             
@@ -54,7 +60,7 @@
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_showroom.jsp">Browse Catalogs</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_learn.jsp">Products</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNavOn" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_prodTools.jsp?comp=600191">Productivity Tools</a>&nbsp;&nbsp;</td>
-        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_active_collab.jsp">Forums</a>&nbsp;&nbsp;</td>
+        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Forums</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_comp_request.jsp">Suggest a Component</a>&nbsp;&nbsp;</td>
 <!--        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_advanced_search.jsp">Advanced Search</a>&nbsp;&nbsp;</td> -->
             
@@ -65,7 +71,7 @@
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_showroom.jsp">Browse Catalogs</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_learn.jsp">Products</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_prodTools.jsp?comp=600191">Productivity Tools</a>&nbsp;&nbsp;</td>
-        <td align="center" class="topNavOn" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_active_collab.jsp">Forums</a>&nbsp;&nbsp;</td>
+        <td align="center" class="topNavOn" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Forums</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_comp_request.jsp">Suggest a Component</a>&nbsp;&nbsp;</td>
 <!--        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_advanced_search.jsp">Advanced Search</a>&nbsp;&nbsp;</td> -->
             
@@ -76,7 +82,7 @@
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_showroom.jsp">Browse Catalogs</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_learn.jsp">Products</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_prodTools.jsp?comp=600191">Productivity Tools</a>&nbsp;&nbsp;</td>
-        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_active_collab.jsp">Forums</a>&nbsp;&nbsp;</td>
+        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Forums</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNavOn" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_comp_request.jsp">Suggest a Component</a>&nbsp;&nbsp;</td>
 <!--        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_advanced_search.jsp">Advanced Search</a>&nbsp;&nbsp;</td> -->
             
@@ -87,7 +93,7 @@
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_showroom.jsp">Browse Catalogs</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_learn.jsp">Products</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_prodTools.jsp?comp=600191">Productivity Tools</a>&nbsp;&nbsp;</td>
-        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_active_collab.jsp">Forums</a>&nbsp;&nbsp;</td>
+        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Forums</a>&nbsp;&nbsp;</td>
         <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="c_comp_request.jsp">Suggest a Component</a>&nbsp;&nbsp;</td>
 <!--        <td align="center" class="topNav" nowrap>&nbsp;&nbsp;<a class="topNavLinks" href="s_advanced_search.jsp">Advanced Search</a>&nbsp;&nbsp;</td> -->
             

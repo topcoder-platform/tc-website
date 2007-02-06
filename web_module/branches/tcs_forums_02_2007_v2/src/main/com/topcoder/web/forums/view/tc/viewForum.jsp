@@ -1,6 +1,7 @@
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.base.User,
+                 com.jivesoftware.forum.ForumCategory,
                  com.jivesoftware.forum.ForumMessage,
                  com.jivesoftware.forum.ReadTracker,
                  com.jivesoftware.forum.ResultFilter,
@@ -8,18 +9,16 @@
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.stats.ViewCountManager,
+                 com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.topcoder.web.forums.model.Paging,
                  java.util.Iterator"
         %>
-
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-
-<%@ page language="java" %>
-<%@ page contentType="text/html;charset=utf-8" %>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page language="java" %>
+
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
@@ -80,7 +79,6 @@
 <html>
 <head>
     <title>TopCoder Forums</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
     <jsp:include page="script.jsp"/>
@@ -133,12 +131,18 @@
         </td>
     </tr>
     <tr>
-    <tr><td colspan="2" style="padding-bottom:3px;"><b>
-        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory"
-                            iterator='<%=ForumsUtil.getCategoryTree(forum.getForumCategory())%>'>
-        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-        >
-        </tc-webtag:iterator>
+    <tr>
+    	<%	int colspan = (paginator.getNumPages () > 1) ? 2 : 3; %>
+    	<td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
+        <%	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
+        	while (itCategories.hasNext()) {
+        		ForumCategory category = (ForumCategory)itCategories.next(); %>
+		        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+		<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+		        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)
+			<%	} %>
+			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
+        <%	} %>
         <%=forum.getName()%>
         <%
         String linkStr = ForumsUtil.createLinkString(forum);

@@ -5,7 +5,6 @@
                  com.topcoder.web.forums.controller.request.Settings,
                  java.util.*"
 %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -22,7 +21,6 @@
 <html>
 <head>
 <title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
     <jsp:include page="script.jsp" />
         <jsp:include page="/style.jsp">
           <jsp:param name="key" value="tc_forums"/>
@@ -89,7 +87,7 @@ function toggleTabs(id) {
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <div class="topLinksL">
-   <span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> > User Settings </span><br><br>
+   <span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> User Settings </span><br><br>
    </div>
    <div class="topLinksR">
    <A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<b>User Settings</b><br/>

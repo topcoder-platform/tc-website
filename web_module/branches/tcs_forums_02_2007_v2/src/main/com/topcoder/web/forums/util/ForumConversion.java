@@ -3,7 +3,13 @@
  */
 package com.topcoder.web.forums.util;
 
+import com.jivesoftware.base.Group;
+import com.jivesoftware.base.GroupManager;
+import com.jivesoftware.base.GroupNotFoundException;
 import com.jivesoftware.base.JiveGlobals;
+import com.jivesoftware.base.PermissionType;
+import com.jivesoftware.base.PermissionsManager;
+import com.jivesoftware.base.User;
 import com.jivesoftware.base.UserManager;
 import com.jivesoftware.base.UserNotFoundException;
 
@@ -15,6 +21,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,6 +34,7 @@ import java.sql.ResultSet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -67,6 +75,11 @@ public class ForumConversion {
      * The statement to select forum data from old topcoder forum database.
      */
     private static PreparedStatement forumPS = null;
+    
+    /**
+     * The statement to update rows in the "comp_forum_xref" table of the old topcoder forum database.
+     */
+    private static PreparedStatement updateCompForumXrefPS = null;
 
     /**
      * The statement to select topic data from old topcoder forum database.
@@ -93,8 +106,12 @@ public class ForumConversion {
      */
     private static PreparedStatement techPS = null;
     
+    private static PreparedStatement oldForumPS = null;	// determine old forum IDs
+    private static PreparedStatement rolesPS = null;	// select forum security roles
+    private static PreparedStatement adminPS = null;	// determines admin privileges for SW forums
+    private static PreparedStatement publicPS = null;	// determine public SW forums
+    
     static boolean ATTACHMENTS_ENABLED = true;
-
     
     public static void convertForums(ForumFactory forumFactory) {       
     	if (!JiveGlobals.getJiveBooleanProperty("tc.convert.tcs.forums")) {
@@ -104,7 +121,7 @@ public class ForumConversion {
     	
         try {
             fileDir = bundle.getProperty("forums_attachment_dir");
-            rootCategoryId = Long.parseLong(bundle.getProperty("forums_root_category_id"));
+            rootCategoryId = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
             tcConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             
             if (!fileDir.endsWith("/")) {
@@ -143,28 +160,82 @@ public class ForumConversion {
      */
     private static void convert(ForumCategory root, ForumFactory forumFactory) throws Exception {
         UserManager userManager = forumFactory.getUserManager();
+        GroupManager groupManager = forumFactory.getGroupManager();
         MimetypesFileTypeMap fileTypeMap = new MimetypesFileTypeMap();
-    	
+        
+        // Remove old software user/moderator groups
+        Iterator itGroups = groupManager.getGroups();
+        while (itGroups.hasNext()) {
+        	Group group = (Group)itGroups.next();
+        	if (group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX) ||
+        			group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX)) {
+        		groupManager.deleteGroup(group);
+        	}
+        }
+        
+        Group swAdminGroup = null;
+        try {
+        	swAdminGroup = groupManager.getGroup(ForumConstants.GROUP_SOFTWARE_ADMINS);
+        } catch (GroupNotFoundException ge) {
+        	swAdminGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_ADMINS);
+        }
+        swAdminGroup.setDescription(ForumConstants.GROUP_SOFTWARE_ADMINS);
+        
+        adminPS = tcConn.prepareStatement("select login_id from user_role_xref where role_id = 1");
+        ResultSet rs = adminPS.executeQuery();
+        while (rs.next()) {
+        	User user = userManager.getUser(rs.getLong(1));
+        	if (!swAdminGroup.isMember(user)) {
+        		swAdminGroup.addMember(user);
+        	}
+        }
+        rs.close();
+        
+        for (int i=0; i<ForumConstants.ADMIN_PERMS.length; i++) {
+        	root.getPermissionsManager().addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, ForumConstants.ADMIN_PERMS[i]);
+        }
+        
+        HashSet publicOldForumSet = new HashSet();
+        publicPS = tcConn.prepareStatement("select permission from security_perms p, security_roles r "
+        		+ " where p.permission like 'com.topcoder.dde.forum.ForumPostPermission %' "
+        		+ " and p.role_id = r.role_id and p.role_id = 2");
+        rs = publicPS.executeQuery();
+        while (rs.next()) {
+        	String[] ss = rs.getString(1).split(" ");
+        	publicOldForumSet.add(ss[1]);
+        }
+        rs.close();
+        
+        //Context context = new InitialContext();
+        //LocalIdGenHome localIdGenHome = (LocalIdGenHome) context.lookup(LocalIdGenHome.EJB_REF_NAME);
+        //LocalIdGen localIdGen = localIdGenHome.create();
+        
     	// get forums from FORUM_MASTER table        
         forumPS = tcConn.prepareStatement(
                 "select m.forum_id, c.component_name, c.short_desc, m.status_id, m.create_time, "
-        		+ " v.comp_vers_id, v.version_text, v.phase_id, f.forum_type, c.root_category_id, c.status_id "
+        		+ " v.comp_vers_id, v.version_text, v.phase_id, f.forum_type, "
+        		+ " c.root_category_id, c.status_id, c.component_id "
                 + " from forum_master m, comp_forum_xref f, comp_versions v, comp_catalog c "
                 + " where m.forum_id = f.forum_id and "
-                + " f.comp_vers_id = v.comp_vers_id and v.component_id = c.component_id"
+                + " f.comp_vers_id = v.comp_vers_id and v.component_id = c.component_id and f.forum_type = 2"
         );
 
-        ResultSet rs = forumPS.executeQuery();
+        rs = forumPS.executeQuery();
         List forums = new ArrayList();
 
         while (rs.next()) {
             ForumMaster forum = new ForumMaster(rs.getLong(1), rs.getString(2), rs.getString(3), rs.getLong(4),
                     rs.getDate(5), rs.getLong(6), rs.getString(7), rs.getLong(8), rs.getLong(9), rs.getLong(10),
-                    rs.getLong(11));
+                    rs.getLong(11), rs.getLong(12));
             forums.add(forum);
         }
 
         rs.close();
+        
+        // the ps to insert rows into the comp_jive_xref table
+        updateCompForumXrefPS = tcConn.prepareStatement("update comp_forum_xref " 
+        		+ "set jive_category_id = ? " 
+        		+ "where comp_vers_id = ? and forum_type = ?");
 
         // the ps to get topics from forum_topics table
         topicPS = tcConn.prepareStatement("select topic_id, topic_name, topic_text, create_time from forum_topics "
@@ -188,42 +259,98 @@ public class ForumConversion {
         techPS = tcConn.prepareStatement("select tech.technology_type_id "
         		+ " from comp_forum_xref f, comp_technology tech "
 				+ " where f.forum_id = ? and f.comp_vers_id = tech.comp_vers_id");
+        
+        // the ps to get the old forum id from comp_forum_xref table
+        oldForumPS = tcConn.prepareStatement("select forum_id from comp_forum_xref "
+        		+ " where comp_vers_id = ? and forum_type = ?");
 
         int forumNum = 0;
         int totalForum = forums.size();
-
+       	int limit = JiveGlobals.getJiveIntProperty("tc.convert.tcs.forums.limit", totalForum);
+       	log.info("Returning " + limit + " out of " + totalForum + " total forums: ");
+        
         for (Iterator it = forums.iterator(); it.hasNext();) {
             forumNum++;
 
             // create a category for topcoder forum
             ForumMaster forum = (ForumMaster) it.next();
-            String categoryName = forum.getName();
-            if (forum.getVersionText() != null && !forum.getVersionText().trim().equals("")) {
-            	boolean wellFormatted = forum.getVersionText().trim().matches("\\d+(\\.\\d+)*\\w?");    	
-            	if (wellFormatted) {
-                	categoryName += " v" + forum.getVersionText().trim();            		
-            	} else {
-            		categoryName += " (" + forum.getVersionText().trim() + ")";
-            	}
-            }
-            if (forum.getForumType() == ForumConstants.CUSTOMER_FORUM) {
-            	categoryName += " - " + "Customer Forum";
-            } else if (forum.getForumType() == ForumConstants.DEVELOPER_FORUM) {
-            	categoryName += " - " + "Developer Forum";
-            }
+            String categoryName = ForumsUtil.getComponentCategoryName(forum.getName(), forum.getVersionText(),
+            		forum.getForumType());
             ForumCategory category = root.createCategory(categoryName, forum.getDesc());
             category.setCreationDate(forum.getCreation());
             category.setModificationDate(forum.getCreation());
             category.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, forum.getStatus() + "");           
-            category.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, forum.getComponentPhase() + "");
-            category.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, forum.getComponentStatus() + "");
+            //category.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, forum.getComponentPhase() + "");
+            //category.setProperty(ForumConstants.PROPERTY_COMPONENT_STATUS, forum.getComponentStatus() + "");
+            category.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, forum.getComponentId() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, forum.getCompVersId() + "");
-            category.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, 
-            		forum.getRootCategoryId() + "");
+            //category.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, 
+            //		forum.getRootCategoryId() + "");
             category.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, forum.getForumType() + "");
-            category.setProperty(ForumConstants.PROPERTY_VERSION_TEXT, forum.getVersionText());
+            category.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, forum.getVersionText());
+            category.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
+            
+            // set moderator, user, admin permissions
+            Group moderatorGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX + category.getID());  // close resultset
+            Group userGroup = groupManager.createGroup(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX + category.getID());	// close resultset
+            moderatorGroup.setDescription(category.getName());
+            userGroup.setDescription(category.getName());
+            PermissionsManager categoryPermissionsManager = category.getPermissionsManager();
+            for (int i=0; i<ForumConstants.MODERATOR_PERMS.length; i++) {
+            	categoryPermissionsManager.addGroupPermission(moderatorGroup, PermissionType.ADDITIVE, ForumConstants.MODERATOR_PERMS[i]);
+            }
+            for (int i=0; i<ForumConstants.REGISTERED_PERMS.length; i++) {
+            	categoryPermissionsManager.addGroupPermission(userGroup, PermissionType.ADDITIVE, ForumConstants.REGISTERED_PERMS[i]);
+            }
+            for (int i=0; i<ForumConstants.ADMIN_PERMS.length; i++) {
+            	categoryPermissionsManager.addGroupPermission(swAdminGroup, PermissionType.ADDITIVE, ForumConstants.ADMIN_PERMS[i]);
+            }
+            
+            oldForumPS.setLong(1, forum.getCompVersId());
+            oldForumPS.setLong(2, forum.getForumType());
+            rs = oldForumPS.executeQuery();
+            rs.next();
+            long oldForumID = rs.getLong(1);
+            rs.close();
+            
+            if (!publicOldForumSet.contains(String.valueOf(oldForumID))) {
+            	for (int i=0; i<ForumConstants.SW_BLOCK_PERMS.length; i++) {
+                	categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);	
+	            	categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);
+            	}
+            }
+           
+            // the ps to get the security roles from user_roles_xref table
+            rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
+            		+ "where r.description = 'ForumModerator " + oldForumID + "' and urx.role_id = r.role_id");
+            rs = rolesPS.executeQuery();
+            while (rs.next()) {
+            	try {
+            		long userID = rs.getLong("login_id");
+            		moderatorGroup.addMember(userManager.getUser(userID));
+            	} catch (UserNotFoundException unfe) {
+                	log.info("UserNotFoundException when trying to add member to moderatorGroup: " + unfe.getMessage());
+                	log.info("userID: " + rs.getLong("login_id"));
+            	}
+            }
+            rs.close();
+            
+            rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
+            		+ "where r.description = 'ForumUser " + oldForumID + "' and urx.role_id = r.role_id");
+            rs = rolesPS.executeQuery();
+            while (rs.next()) {
+            	try {
+            		long userID = rs.getLong("login_id");
+            		userGroup.addMember(userManager.getUser(userID));
+            	} catch (UserNotFoundException unfe) {
+                	log.info("UserNotFoundException when trying to add member to userGroup: " + unfe.getMessage());
+                	log.info("userID: " + rs.getLong("login_id"));
+            	}
+            }
+            rs.close();
             
             // set technology types for this category
+            /*
             techPS.setLong(1, forum.getId());
             // holds list of technology types in form "1,5,15"
             StringBuffer techTypeList = new StringBuffer();
@@ -236,6 +363,13 @@ public class ForumConversion {
             }
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_TECH_TYPES, techTypeList.toString());
             rs.close();
+            */
+            
+            // link comp_forum_xref entries to Jive categories
+            updateCompForumXrefPS.setLong(1, category.getID());
+            updateCompForumXrefPS.setLong(2, forum.getCompVersId());
+            updateCompForumXrefPS.setLong(3, forum.getForumType());
+            updateCompForumXrefPS.executeUpdate();
             
             // get topics in this forum           
             topicPS.setLong(1, forum.getId());
@@ -342,7 +476,7 @@ public class ForumConversion {
                         try {
                         	msg = topicForum.createMessage(userManager.getUser(post.getLoginId()));
                         } catch (UserNotFoundException unfe) {
-                        	log.info("UserNotFoundException: " + unfe.getMessage());
+                        	log.info("UserNotFoundException when trying to create message: " + unfe.getMessage());
                         	log.info("post.getId(): " + post.getId());
                         	log.info("post.getLoginId(): " + post.getLoginId());
 
@@ -419,8 +553,8 @@ public class ForumConversion {
                 }
             }
             
-            log.info(forumNum + " out of " + totalForum + " forums have been processed.");
-            if (forumNum >= 75) {
+            log.info(forumNum + " out of " + limit + " forums have been processed.");
+            if (forumNum >= limit) {
             	break;
             }
         }
@@ -523,17 +657,29 @@ class ForumMaster {
     private long componentStatus;
     
     /**
+     * The component id
+     */
+    private long componentId;
+    
+    /**
      * Constructor.
      *
      * @param id forum id.
      * @param name forum name.
      * @param desc forum description.
-     * @param status forum phase.
      * @param status forum status.
      * @param creation forum creation time.
+     * @param compVersId component version id.
+     * @param versionText component version text.
+     * @param componentPhase component phase.
+     * @param forumType forum type.
+     * @param rootCategoryId root category id.
+     * @param componentStatus component status.
+     * @param componentId component id.
      */
     public ForumMaster(long id, String name, String desc, long status, Date creation, long compVersId, 
-    		String versionText, long componentPhase, long forumType, long rootCategoryId, long componentStatus) {
+    		String versionText, long componentPhase, long forumType, long rootCategoryId, long componentStatus,
+    		long componentId) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -545,6 +691,7 @@ class ForumMaster {
         this.forumType = forumType;
         this.rootCategoryId = rootCategoryId;
         this.componentStatus = componentStatus;
+        this.componentId = componentId;
     }
 
     /**
@@ -644,6 +791,15 @@ class ForumMaster {
      */
     public long getComponentStatus() {
     	return this.componentStatus;
+    }
+    
+    /**
+     * Return the component's id.
+     * 
+     * @return the component's id
+     */
+    public long getComponentId() {
+    	return this.componentId;
     }
 }
 

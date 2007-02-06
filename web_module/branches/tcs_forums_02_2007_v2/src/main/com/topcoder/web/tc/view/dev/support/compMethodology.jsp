@@ -1,7 +1,8 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-
 <head>
 <title>TopCoder Application Methodology</title>
 
@@ -80,7 +81,7 @@
                 <tr valign="top">
                     <td class="bodyText">
                         <p>Gather component scope by collaborating with customers and TopCoder members through online 
-                        <a href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums.</a>  For new components this 
+                        <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=Constants.TCS_FORUMS_ROOT_CATEGORY_ID%>">Software Forums</a>.  For new components this 
                         is a new request for a component. For existing components it is a request for additional functionality.</p>
                                     
                         <p><strong>Participants</strong><br />
@@ -90,8 +91,7 @@
                                     
                         <p><strong>Details</strong><br />
                         <ol>
-                            <li>PM moderates <a href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums</a> on 
-                            topcodersoftware.com to gather component requirements.</li>
+                            <li>PM moderates <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=Constants.TCS_FORUMS_ROOT_CATEGORY_ID%>">Software Forums</a> to gather component requirements.</li>
                             
                             <li>The Customer Forums are open to view by all TopCoder Software visitors, but only registered members are allowed to post messages 
                             to the forums.</li>
