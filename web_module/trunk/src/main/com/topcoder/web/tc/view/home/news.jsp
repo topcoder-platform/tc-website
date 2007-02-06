@@ -2,7 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%--------------------------------------------------------%>
+<%--------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.06.07<br>4:00 PM</td>
       <td class="newsTextCell">
@@ -16,6 +16,26 @@
          <A href="/tc?module=Static&d1=features&d2=020607">full story</A> | 
          <tc-webtag:forumLink forumID="506274" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+------------------------------%>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.06.07<br>4:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm337">SRM 337 - Problem Set & Analysis</A></span><br><br>
+This match was a mix of some classical but tough hard problems with a couple of ad-hoc
+and tricky (but less difficult) easy and medium problems. The trickyness, however, led
+to an entertaining challenge phase.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm337">full story</A> | 
+        <tc-webtag:forumLink forumID="506227" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
@@ -184,16 +204,3 @@ TopCoder High School algorithm competitors once again demonstrated impressive sp
          <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>01.22.06<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=ViewSurvey&sid=16270">Vote for your favorite TCO'07 web design</A></span><br><br> 
-      Help us pick a new look for the 2007 TopCoder Open website by ranking your favorite designs. Vote now!            
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=16270">vote now</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=27">discuss this</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
