@@ -15,19 +15,38 @@
 
     <script type="text/javascript">
 
-    var srcBtnUp = 'http://csf.dev.topcoder.com/i/layout/btnMoveUp.png';
-    var srcBtnUpOn = 'http://csf.dev.topcoder.com/i/layout/btnMoveUpOn.png';
-    var srcBtnDown = 'http://csf.dev.topcoder.com/i/layout/btnMoveDown.png';
-    var srcBtnDownOn = 'http://csf.dev.topcoder.com/i/layout/btnMoveDownOn.png';
-    var srcBtnUpNA = 'http://csf.dev.topcoder.com/i/layout/btnMoveUpNA.png';
-    var srcBtnDownNA = 'http://csf.dev.topcoder.com/i/layout/btnMoveDownNA.png';
+    var srcBtnUp = '/i/layout/btnMoveUp.png';
+    var srcBtnUpOn = '/i/layout/btnMoveUpOn.png';
+    var srcBtnDown = '/i/layout/btnMoveDown.png';
+    var srcBtnDownOn = '/i/layout/btnMoveDownOn.png';
+    var srcBtnUpNA = '/i/layout/btnMoveUpNA.png';
+    var srcBtnDownNA = '/i/layout/btnMoveDownNA.png';
 
-    var srcBtnTop = 'http://csf.dev.topcoder.com/i/layout/btnMoveToTop.png';
-    var srcBtnTopOn = 'http://csf.dev.topcoder.com/i/layout/btnMoveToTopOn.png';
-    var srcBtnBottom = 'http://csf.dev.topcoder.com/i/layout/btnMoveToBottom.png';
-    var srcBtnBottomOn = 'http://csf.dev.topcoder.com/i/layout/btnMoveToBottomOn.png';
-    var srcBtnTopNA = 'http://csf.dev.topcoder.com/i/layout/btnMoveToTopNA.png';
-    var srcBtnBottomNA = 'http://csf.dev.topcoder.com/i/layout/btnMoveToBottomNA.png';
+    var srcBtnTop = '/i/layout/btnMoveToTop.png';
+    var srcBtnTopOn = '/i/layout/btnMoveToTopOn.png';
+    var srcBtnBottom = '/i/layout/btnMoveToBottom.png';
+    var srcBtnBottomOn = '/i/layout/btnMoveToBottomOn.png';
+    var srcBtnTopNA = '/i/layout/btnMoveToTopNA.png';
+    var srcBtnBottomNA = '/i/layout/btnMoveToBottomNA.png';
+
+    var srcBtnOut = '/i/layout/btnMoveOut.png';
+    var srcBtnOutOn = '/i/layout/btnMoveOutOn.png';
+
+    var srcUpDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="up(this)" onfocus="this.blur();"><img src="'+ srcBtnUp +'" name="upButton" alt="Move up" onmouseover="this.src = ' +srcBtnUpOn +'";" onmouseout="mouseOutUp(this)"/></a></div>';
+    var srcDownDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="down(this)" onfocus="this.blur();"><img src="'+srcBtnDown+'" name="downButton" alt="Move down" onmouseover="this.src = ' + srcBtnDownOn + ';" onmouseout="mouseOutDown(this)"/></a></div>';
+    var srcTopDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="top(this)" onfocus="this.blur();"><img src="'+srcBtnTop+ '" name="topButton" alt="Move to top" onmouseover="this.src = ' + srcBtnTopOn + ';" onmouseout="this.src = ' + srcBtnTop + ';"/></a></div>';
+    var srcBottomDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="bottom(this)" onfocus="this.blur();"><img src="'+srcBtnBottom+'" name="bottomButton" alt="Move to bottom" onmouseover="this.src = '+srcBtnBottomOn+';" onmouseout="this.src = '+srcBtnBottom+';"/></a></div>';
+
+    var srcTopNA = '<img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>';
+    var srcBottomNA = '<img src="/i/layout/btnMoveToBottomNA.png" alt="Move to bottom"/>';
+
+    var srcDownNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnDownNA + '" alt="Move down"/></div>';
+    var srcUpNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnUpNA + '" alt="Move up"/></div>';
+
+
+    var srcBtnOutCell = '<a href="#" onclick="layout" onfocus="this.blur();"><img src="'+srcBtnOut +'" alt="Remove" onmouseover="this.src = ' + srcBtnOutOn + ';" onmouseout="this.src = ' + srcBtnOut + ';"/></a>';
+    var srcBtnOutNA = '<img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>';
+
 
     /**
      * find the first parent row of element
@@ -171,10 +190,18 @@
 
             var tr = rankedBody.insertRow(0);
             var td;
-            for (var j = 0; j < row.cells.length; j++) {
+            for (var j = 0; j < 2; j++) {
                 td = tr.insertCell(tr.cells.length);
                 td.innerHTML = row.cells[j].innerHTML;
             }
+
+            td = tr.insertCell(tr.cells.length);
+            td.innerHTML = srcUpNA+srcDownDiv;
+            td = tr.insertCell(tr.cells.length);
+            td.innerHTML = srcTopNA + srcBottomDiv;
+            td = tr.insertCell(tr.cells.length);
+            td.innerHTML = srcBtnOutCell;
+
 
             var imgTop = findChildImage(rankedBody.rows[0], srcBtnTopOn);
             if (imgTop) {
@@ -199,7 +226,7 @@
                 }
             }
 
-            refresh(rankedBody);
+            refreshRanked();
         }
     }
 
@@ -215,16 +242,22 @@
                 if (body.rows[i] == row) {
                     var tr = body.insertRow(body.rows.length);
                     var td;
-                    for (var j = 0; j < row.cells.length; j++) {
+                    for (var j = 0; j < 2; j++) {
                         td = tr.insertCell(tr.cells.length);
                         td.innerHTML = row.cells[j].innerHTML;
                     }
+                    td = tr.insertCell(tr.cells.length);
+                    td.innerHTML = srcUpDiv+srcDownNA;
+                    td = tr.insertCell(tr.cells.length);
+                    td.innerHTML = srcTopDiv + srcBottomNA;
+                    td = tr.insertCell(tr.cells.length);
+                    td.innerHTML = srcBtnOutCell;
                     body.deleteRow(i);
                     var imgBottom = findChildImage(body.rows[body.rows.length - 1], srcBtnBottomOn);
                     if (imgBottom) {
                         mouseOutBottom(imgBottom);
                     }
-                    refresh(body);
+                    refreshRanked();
                     return;
 
                 }
@@ -237,8 +270,10 @@
     /**
      * refresh presentation after data/structure changes
      */
-    function refresh(body) {
+    function refreshRanked() {
+        var body = document.getElementById("ranked");
         var tr, td;
+
         for (var i = 0; i < body.rows.length; i++) {
             tr = body.rows[i];
             tr.setAttribute("class", i % 2 == 0 ? "light" : "dark");
