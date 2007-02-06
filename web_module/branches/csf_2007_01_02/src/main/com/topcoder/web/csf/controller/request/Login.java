@@ -3,6 +3,7 @@ package com.topcoder.web.csf.controller.request;
 import Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Locator;
 import Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
 import Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.holders.SandboxUserHolder;
+import Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.SharedUserProfile;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -161,6 +162,8 @@ public class Login extends ShortHibernateProcessor {
             Sandbox10Locator api = new Sandbox10Locator();
             Sandbox10Soap sandBox = api.getSandbox10Soap();
             sandBox.authenticate(username, password, res, user);
+            SharedUserProfile profile = sandBox.getSharedUserProfile(user.value.getUserId());
+            log.debug(profile.getEmailId());
         } catch (javax.xml.rpc.ServiceException e) {
             throw new TCWebException(e);
         } catch (RemoteException e) {
