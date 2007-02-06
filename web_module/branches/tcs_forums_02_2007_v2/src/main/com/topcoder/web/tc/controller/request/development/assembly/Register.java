@@ -2,7 +2,7 @@ package com.topcoder.web.tc.controller.request.development.assembly;
 
 import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
-import com.topcoder.dde.catalog.Forum;
+import com.topcoder.dde.catalog.ForumCategory;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.shared.dataAccess.Request;
@@ -99,7 +99,7 @@ public class Register extends ViewRegistration {
                     (ComponentManagerHome) PortableRemoteObject.narrow(objComponentManager, ComponentManagerHome.class);
             ComponentManager componentManager = componentManagerHome.create(componentId);
             String project = componentManager.getComponentInfo().getName() + " Assembly Project";
-            long activeForumId = componentManager.getActiveForum(Forum.SPECIFICATION).getId();
+            long activeForumId = componentManager.getActiveForumCategory(ForumCategory.SPECIFICATION).getId();
 
             if (log.isDebugEnabled()) {
                 log.debug("creating user: " + UserManagerRemoteHome.EJB_REF_NAME);
