@@ -1,8 +1,7 @@
 package com.topcoder.web.tc.controller.request.tournament.tchs07;
 
-import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.RegionType;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
 
 /**
@@ -16,12 +15,10 @@ public class ViewRegistration extends ViewRegistrationBase {
         return "tchs07";
     }
 
-    protected void regProcessing(Event event, User user) throws Exception {
+    protected void alreadyRegisteredProcessing(EventRegistration er) {
         RegionType rt = new RegionType();
         rt.setId(HIGH_SCHOOL_REGION_TYPE);
         
-        getRequest().setAttribute("assignedRegion", user.getHomeAddress().getCountry().getRegionByType(rt).getName());
-        
-        log.info("Country: " + user.getHomeAddress().getCountry().getName() + " assignedRegion: " + user.getHomeAddress().getCountry().getRegionByType(rt).getName());
+        getRequest().setAttribute("assignedRegion", er.getId().getUser().getHomeAddress().getCountry().getRegionByType(rt).getName());
     }
 }

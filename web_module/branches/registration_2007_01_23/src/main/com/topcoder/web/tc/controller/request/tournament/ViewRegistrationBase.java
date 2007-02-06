@@ -15,7 +15,11 @@ import com.topcoder.web.common.model.User;
  */
 public abstract class ViewRegistrationBase extends RegistrationBase {
 
-    protected void setNextPage(Event e, User u) throws Exception {
+    protected void regProcessing(Event event, User user) {
+        // nothing to do
+    }
+    
+    protected void setNextPage(Event e, User u) {
         EventRegistration er = u.getEventRegistration(e);
         if (er != null) {
             getRequest().setAttribute("eligible", er.isEligible());
@@ -28,7 +32,7 @@ public abstract class ViewRegistrationBase extends RegistrationBase {
         }
     }
 
-    protected boolean isEligible(Event e, User u) throws Exception {
+    protected boolean isEligible(Event e, User u) throws Exception{
         Request r = new Request();
         r.setContentHandle(e.getShortDescription() + "_eligibility");
         r.setProperty("cr", String.valueOf(u.getId()));

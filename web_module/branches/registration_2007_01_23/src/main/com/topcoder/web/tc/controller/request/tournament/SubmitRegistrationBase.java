@@ -8,6 +8,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
@@ -27,7 +28,7 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
     
     protected abstract void completeRegistration(Event event, User user, boolean eligible, List responses);
 
-    protected void regProcessing(Event event, User user) throws Exception {
+    protected void regProcessing(Event event, User user) {
         List responses = processSurvey(event, user);
         boolean eligible = validateSurvey(event.getSurvey(), responses);
         
@@ -70,7 +71,7 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
         }
     }
     
-    protected void setNextPage(Event e, User u) throws Exception {
+    protected void setNextPage(Event e, User u) {
         if (hasErrors()) {
             setNextPage("/tournaments/" + e.getShortDescription() + "/terms.jsp");
             setIsNextPageInContext(true);
@@ -99,5 +100,9 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
         }
         
         return responses;
+    }
+
+    protected void alreadyRegisteredProcessing(EventRegistration er) {
+        // nothing to do
     }
 }
