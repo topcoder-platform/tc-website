@@ -294,10 +294,6 @@
 
             for (var j = 0; j < tr.cells.length; j++) {
                 td = tr.cells[j];
-                if (j == 0) {
-                    //rerank the rows
-                    td.innerHTML = i + 1;
-                }
                 if (styles[j]) {
                     td.setAttribute("class", styles[j]);
                 }
