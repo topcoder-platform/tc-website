@@ -24,27 +24,35 @@
 
     var srcBtnTop = '/i/layout/btnMoveToTop.png';
     var srcBtnTopOn = '/i/layout/btnMoveToTopOn.png';
+/*
     var srcBtnBottom = '/i/layout/btnMoveToBottom.png';
     var srcBtnBottomOn = '/i/layout/btnMoveToBottomOn.png';
+*/
     var srcBtnTopNA = '/i/layout/btnMoveToTopNA.png';
+/*
     var srcBtnBottomNA = '/i/layout/btnMoveToBottomNA.png';
+*/
 
     var srcBtnOut = '/i/layout/btnMoveOut.png';
     var srcBtnOutOn = '/i/layout/btnMoveOutOn.png';
 
-    var srcUpDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="up(this)" onfocus="this.blur();"><img src="'+ srcBtnUp +'" name="upButton" alt="Move up" onmouseover="this.src = \'' +srcBtnUpOn +'\';" onmouseout="mouseOutUp(this)"/></a></div>';
-    var srcDownDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="down(this)" onfocus="this.blur();"><img src="'+srcBtnDown+'" name="downButton" alt="Move down" onmouseover="this.src = ' + srcBtnDownOn + '\';" onmouseout="mouseOutDown(this)"/></a></div>';
-    var srcTopDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="top(this)" onfocus="this.blur();"><img src="'+srcBtnTop+ '" name="topButton" alt="Move to top" onmouseover="this.src = \'' + srcBtnTopOn + '\';" onmouseout="this.src = \'' + srcBtnTop + '\';"/></a></div>';
-    var srcBottomDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="bottom(this)" onfocus="this.blur();"><img src="'+srcBtnBottom+'" name="bottomButton" alt="Move to bottom" onmouseover="this.src = \''+srcBtnBottomOn+'\';" onmouseout="this.src = \''+srcBtnBottom+'\';"/></a></div>';
+    var srcUpDiv = '<div style="margin: 2px;" align="center"><a href="javascript:void(0)" onclick="up(this)" onfocus="this.blur();"><img src="'+ srcBtnUp +'" name="upButton" alt="Move up" onmouseover="this.src = \'' +srcBtnUpOn +'\';" onmouseout="mouseOutUp(this)"/></a></div>';
+    var srcDownDiv = '<div style="margin: 2px;" align="center"><a href="javascript:void(0)" onclick="down(this)" onfocus="this.blur();"><img src="'+srcBtnDown+'" name="downButton" alt="Move down" onmouseover="this.src = ' + srcBtnDownOn + '\';" onmouseout="mouseOutDown(this)"/></a></div>';
+    var srcTopDiv = '<div style="margin: 2px;" align="center"><a href="javascript:void(0)" onclick="top(this)" onfocus="this.blur();"><img src="'+srcBtnTop+ '" name="topButton" alt="Move to top" onmouseover="this.src = \'' + srcBtnTopOn + '\';" onmouseout="this.src = \'' + srcBtnTop + '\';"/></a></div>';
+/*
+    var srcBottomDiv = '<div style="margin: 2px;" align="center"><a href="javascript:void(0)" onclick="bottom(this)" onfocus="this.blur();"><img src="'+srcBtnBottom+'" name="bottomButton" alt="Move to bottom" onmouseover="this.src = \''+srcBtnBottomOn+'\';" onmouseout="this.src = \''+srcBtnBottom+'\';"/></a></div>';
+*/
 
     var srcTopNA = '<img src="'+srcBtnTopNA+'" alt="Move to top"/>';
+/*
     var srcBottomNA = '<img src="'+srcBtnBottomNA+'" alt="Move to bottom"/>';
+*/
 
     var srcDownNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnDownNA + '" alt="Move down"/></div>';
     var srcUpNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnUpNA + '" alt="Move up"/></div>';
 
 
-    var srcBtnOutCell = '<a href="#" onclick="layout" onfocus="this.blur();"><img src="'+srcBtnOut +'" alt="Remove" onmouseover="this.src = \'' + srcBtnOutOn + '\';" onmouseout="this.src = \'' + srcBtnOut + '\';"/></a>';
+    var srcBtnOutCell = '<a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="'+srcBtnOut +'" alt="Remove" onmouseover="this.src = \'' + srcBtnOutOn + '\';" onmouseout="this.src = \'' + srcBtnOut + '\';"/></a>';
     var srcBtnOutNA = '<img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>';
 
 
@@ -109,9 +117,11 @@
     function mouseOutUp(element) {
         element.src = srcBtnUp;
     }
+/*
     function mouseOutBottom(element) {
         element.src = srcBtnBottom;
     }
+*/
     function mouseOutTop(element) {
         element.src = srcBtnTop;
     }
@@ -167,9 +177,6 @@
 
     }
 
-    function disableBottomButtons(row) {
-
-    }
 
     function enableTopButtons(row) {
 
@@ -195,11 +202,10 @@
                 td.innerHTML = row.cells[j].innerHTML;
             }
 
-            alert(rankedBody.rows.length);
             td = tr.insertCell(tr.cells.length);
-            td.innerHTML = (srcUpNA+(rankedBody.rows.length==1?srcDownNA:srcDownDiv));
+            td.innerHTML = srcUpNA+(rankedBody.rows.length==1?srcDownNA:srcDownDiv);
             td = tr.insertCell(tr.cells.length);
-            td.innerHTML = (srcTopNA + (rankedBody.rows.length==1?srcBottomNA:srcBottomDiv));
+            td.innerHTML = srcTopNA;
             td = tr.insertCell(tr.cells.length);
             td.innerHTML = srcBtnOutCell;
 
@@ -250,14 +256,16 @@
                     td = tr.insertCell(tr.cells.length);
                     td.innerHTML = srcUpDiv+srcDownNA;
                     td = tr.insertCell(tr.cells.length);
-                    td.innerHTML = srcTopDiv + srcBottomNA;
+                    td.innerHTML = srcTopDiv;
                     td = tr.insertCell(tr.cells.length);
                     td.innerHTML = srcBtnOutCell;
                     body.deleteRow(i);
+/*
                     var imgBottom = findChildImage(body.rows[body.rows.length - 1], srcBtnBottomOn);
                     if (imgBottom) {
                         mouseOutBottom(imgBottom);
                     }
+*/
                     refreshRanked(body);
                     return;
 
@@ -383,17 +391,17 @@
     </td>
     <td class="valueC">
                 <div style="margin: 2px;" align="center">
-                    <a href="#" onclick="up(this)" onfocus="this.blur();"><img src="http://csf.dev.topcoder.com/i/layout/btnMoveUp.png" name="upButton" alt="Move up" onmouseover="this.src = 'http://csf.dev.topcoder.com/i/layout/btnMoveUpOn.png';" onmouseout="mouseOutUp(this)"/></a>
+                    <a href="javascript:void(0)" onclick="up(this)" onfocus="this.blur();"><img src="http://csf.dev.topcoder.com/i/layout/btnMoveUp.png" name="upButton" alt="Move up" onmouseover="this.src = 'http://csf.dev.topcoder.com/i/layout/btnMoveUpOn.png';" onmouseout="mouseOutUp(this)"/></a>
                 </div>
                 <div style="margin: 2px;" align="center">
-                    <a href="#" onclick="down(this)" onfocus="this.blur();"><img src="http://csf.dev.topcoder.com/i/layout/btnMoveDown.png" name="downButton" alt="Move down" onmouseover="this.src = 'http://csf.dev.topcoder.com/i/layout/btnMoveDownOn.png';" onmouseout="mouseOutDown(this)"/></a>
+                    <a href="javascript:void(0)" onclick="down(this)" onfocus="this.blur();"><img src="http://csf.dev.topcoder.com/i/layout/btnMoveDown.png" name="downButton" alt="Move down" onmouseover="this.src = 'http://csf.dev.topcoder.com/i/layout/btnMoveDownOn.png';" onmouseout="mouseOutDown(this)"/></a>
                 </div>
     </td>
     <td class="valueC">
         <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
     </td>
 </tr>
 <tr class="dark">
@@ -408,17 +416,17 @@
     </td>
     <td class="valueC">
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
         </div>
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
         </div>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
     </td>
 </tr>
 <tr class="light">
@@ -433,17 +441,17 @@
     </td>
     <td class="valueC">
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
         </div>
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
         </div>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
     </td>
 </tr>
 <tr class="dark">
@@ -458,17 +466,17 @@
     </td>
     <td class="valueC">
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
         </div>
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
         </div>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
     </td>
 </tr>
 <tr class="light">
@@ -483,17 +491,17 @@
     </td>
     <td class="valueC">
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
         </div>
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
         </div>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
     </td>
 </tr>
 <tr class="dark">
@@ -508,17 +516,17 @@
     </td>
     <td class="valueC">
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
         </div>
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
         </div>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
     </td>
 </tr>
 <tr class="light">
@@ -533,17 +541,17 @@
     </td>
     <td class="valueC">
         <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
+            <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
         </div>
         <div style="margin: 2px;" align="center">
             <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
         </div>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
     </td>
     <td class="valueC">
-        <a href="#" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
+        <a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="/i/layout/btnMoveOut.png" alt="Remove" onmouseover="this.src = '/i/layout/btnMoveOutOn.png';" onmouseout="this.src = '/i/layout/btnMoveOut.png';"/></a>
     </td>
 </tr>
 --%>
@@ -565,14 +573,14 @@
                 </td>
                 <td class="valueC">
                     <div style="margin: 2px;" align="center">
-                        <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
+                        <a href="javascript:void(0)" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
                     </div>
                     <div style="margin: 2px;" align="center">
                         <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
                     </div>
                 </td>
                 <td class="valueC">
-                    <a href="#" onclick="top(this)" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
+                    <a href="javascript:void(0)" onclick="top(this)" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
                 </td>
                 <td class="valueC">
                     <img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>
