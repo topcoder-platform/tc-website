@@ -98,7 +98,7 @@ public class Question implements Serializable {
     }
 
     public int getTypeId() {
-        return type.getId().intValue();
+        return type.getId() == null ? 0 : type.getId().intValue();
     }
 
     public void setTypeId(int typeId) {
@@ -106,7 +106,7 @@ public class Question implements Serializable {
     }
 
     public int getStyleId() {
-        return style.getId().intValue();
+        return style.getId() == null ? 0 : style.getId().intValue();
     }
 
     public void setStyleId(int styleId) {
