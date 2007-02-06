@@ -60,10 +60,10 @@
 
             <% int i = 1; %>
             <tc:questionIterator list="<%=questionInfo%>" id="question">
-                <table cellpadding="0" cellspacing="0" class="stat">
-                <tbody>
+                <table cellpadding="0" cellspacing="0" class="stat" align="center">
+                <tbody align="center">
                     <tr align="center">
-                        <td colspan="2">
+                        <td align="center">
                             <span class="bigRed">
                             <tc-webtag:errorIterator id="err"
                                 name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br />
@@ -72,7 +72,7 @@
                         </td>
                     </tr>
                     <tr align="center">
-                        <td colspan="2" align="center">
+                        <td align="center">
                             <jsp:getProperty name="question" property="text"/>
                             <br/>
 		                    <tc:answerInput id="answerInput" question="<%=question%>">
