@@ -32,10 +32,10 @@
     var srcBtnOut = '/i/layout/btnMoveOut.png';
     var srcBtnOutOn = '/i/layout/btnMoveOutOn.png';
 
-    var srcUpDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="up(this)" onfocus="this.blur();"><img src="'+ srcBtnUp +'" name="upButton" alt="Move up" onmouseover="this.src = ' +srcBtnUpOn +'";" onmouseout="mouseOutUp(this)"/></a></div>';
-    var srcDownDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="down(this)" onfocus="this.blur();"><img src="'+srcBtnDown+'" name="downButton" alt="Move down" onmouseover="this.src = ' + srcBtnDownOn + ';" onmouseout="mouseOutDown(this)"/></a></div>';
-    var srcTopDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="top(this)" onfocus="this.blur();"><img src="'+srcBtnTop+ '" name="topButton" alt="Move to top" onmouseover="this.src = ' + srcBtnTopOn + ';" onmouseout="this.src = ' + srcBtnTop + ';"/></a></div>';
-    var srcBottomDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="bottom(this)" onfocus="this.blur();"><img src="'+srcBtnBottom+'" name="bottomButton" alt="Move to bottom" onmouseover="this.src = '+srcBtnBottomOn+';" onmouseout="this.src = '+srcBtnBottom+';"/></a></div>';
+    var srcUpDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="up(this)" onfocus="this.blur();"><img src="'+ srcBtnUp +'" name="upButton" alt="Move up" onmouseover="this.src = \'' +srcBtnUpOn +'\';" onmouseout="mouseOutUp(this)"/></a></div>';
+    var srcDownDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="down(this)" onfocus="this.blur();"><img src="'+srcBtnDown+'" name="downButton" alt="Move down" onmouseover="this.src = ' + srcBtnDownOn + '\';" onmouseout="mouseOutDown(this)"/></a></div>';
+    var srcTopDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="top(this)" onfocus="this.blur();"><img src="'+srcBtnTop+ '" name="topButton" alt="Move to top" onmouseover="this.src = \'' + srcBtnTopOn + '\';" onmouseout="this.src = \'' + srcBtnTop + '\';"/></a></div>';
+    var srcBottomDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="bottom(this)" onfocus="this.blur();"><img src="'+srcBtnBottom+'" name="bottomButton" alt="Move to bottom" onmouseover="this.src = \''+srcBtnBottomOn+'\';" onmouseout="this.src = \''+srcBtnBottom+'\';"/></a></div>';
 
     var srcTopNA = '<img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>';
     var srcBottomNA = '<img src="/i/layout/btnMoveToBottomNA.png" alt="Move to bottom"/>';
@@ -44,7 +44,7 @@
     var srcUpNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnUpNA + '" alt="Move up"/></div>';
 
 
-    var srcBtnOutCell = '<a href="#" onclick="layout" onfocus="this.blur();"><img src="'+srcBtnOut +'" alt="Remove" onmouseover="this.src = ' + srcBtnOutOn + ';" onmouseout="this.src = ' + srcBtnOut + ';"/></a>';
+    var srcBtnOutCell = '<a href="#" onclick="layout" onfocus="this.blur();"><img src="'+srcBtnOut +'" alt="Remove" onmouseover="this.src = \'' + srcBtnOutOn + '\';" onmouseout="this.src = \'' + srcBtnOut + '\';"/></a>';
     var srcBtnOutNA = '<img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>';
 
 
