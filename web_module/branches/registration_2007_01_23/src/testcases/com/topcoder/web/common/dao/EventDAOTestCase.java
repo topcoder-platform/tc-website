@@ -56,6 +56,12 @@ public class EventDAOTestCase extends TCHibernateTestCase {
         }
     }
 
+    public void testFindShortDescription() {
+        Event event = DAOUtil.getFactory().getEventDAO().find("tstvnt");
+
+        assertFalse("Event could not be retrieved using short description", event == null);
+    }
+    
     public void testFindAll() {
         List events = DAOUtil.getFactory().getEventDAO().getEvents();
 
