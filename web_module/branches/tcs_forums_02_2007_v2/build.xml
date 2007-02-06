@@ -917,6 +917,7 @@
 
     <target name="build-forums" depends="">
         <antcall target="war-forums"/>
+    	<antcall target="build-security"/>
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
@@ -981,6 +982,7 @@
     </target>
 
     <target name="deploy-forums-full" depends="">
+    	<antcall target="build-forums"/>
         <antcall target="deploy-forums"/>
 
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
