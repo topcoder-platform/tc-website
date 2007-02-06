@@ -3,7 +3,6 @@ package com.topcoder.web.csf.controller.request;
 import Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Locator;
 import Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
 import Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.holders.SandboxUserHolder;
-import Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.SharedUserProfile;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -158,12 +157,12 @@ public class Login extends ShortHibernateProcessor {
     private void loginUser(String username, String password) throws LoginException, TCWebException {
         BooleanHolder res = new BooleanHolder();
         SandboxUserHolder user = new SandboxUserHolder();
+        String email = null;
         try {
             Sandbox10Locator api = new Sandbox10Locator();
             Sandbox10Soap sandBox = api.getSandbox10Soap();
             sandBox.authenticate(username, password, res, user);
-            SharedUserProfile profile = sandBox.getSharedUserProfile(user.value.getUserId());
-            log.debug(profile.getEmailId());
+            email = sandBox.getSharedUserProfile(user.value.getUserId()).getEmailId();
         } catch (javax.xml.rpc.ServiceException e) {
             throw new TCWebException(e);
         } catch (RemoteException e) {
@@ -183,6 +182,7 @@ public class Login extends ShortHibernateProcessor {
             a.setPrimary(Boolean.TRUE);
             a.setEmailTypeId(Email.TYPE_ID_PRIMARY);
             a.setStatusId(Email.STATUS_ID_UNACTIVE);
+            a.setAddress(email);
             a.setUser(u);
             u.addEmailAddress(a);
             dao.saveOrUpdate(u);
@@ -194,7 +194,10 @@ public class Login extends ShortHibernateProcessor {
             markForCommit();
             closeConversation();
             beginCommunication();
-
+        } else {
+            if (email!=null && !email.equals(u.getPrimaryEmailAddress().getAddress())) {
+                u.getPrimaryEmailAddress().setAddress(email);
+            }
         }
         String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
         if (nextPage != null && !nextPage.equals("")) {
