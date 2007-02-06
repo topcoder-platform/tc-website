@@ -196,9 +196,9 @@
             }
 
             td = tr.insertCell(tr.cells.length);
-            td.innerHTML = srcUpNA+srcDownDiv;
+            td.innerHTML = srcUpNA+rankedBody.length==1?srcDownNA:srcDownDiv;
             td = tr.insertCell(tr.cells.length);
-            td.innerHTML = srcTopNA + srcBottomDiv;
+            td.innerHTML = srcTopNA + rankedBody.length==1?srcBottomNA:srcBottomDiv;;
             td = tr.insertCell(tr.cells.length);
             td.innerHTML = srcBtnOutCell;
 
