@@ -22,6 +22,6 @@ public class ViewRegistration extends ViewRegistrationBase {
         
         getRequest().setAttribute("assignedRegion", user.getHomeAddress().getCountry().getRegionByType(rt).getName());
         
-        log.info("Country: " + user.getHomeAddress().getCountry().getName() + " assignedRegion: " + user.getHomeAddress().getCountry().getRegionByType(rt).getName())
+        log.info("Country: " + user.getHomeAddress().getCountry().getName() + " assignedRegion: " + user.getHomeAddress().getCountry().getRegionByType(rt).getName());
     }
 }
