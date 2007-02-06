@@ -57,6 +57,7 @@
                     <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                     I agree
                 </div>
+                <br/>
 
             <tc:questionIterator list="<%=questionInfo%>" id="question">
                 <table cellpadding="0" cellspacing="0" class="stat" align="center">
@@ -80,6 +81,7 @@
 	                    </td>
 	                </tr>
                 </table>
+                <br/>
             </tc:questionIterator>
 
                 <p align="center">
