@@ -221,9 +221,11 @@
         var tr, td, tdUpDown,tdTop,tdRemove;
         for (var i=0;i<body.rows.length; i++) {
             tr = body.rows[i];
-            tdUpDown = tr.insertCell(tr.cells.length);
-            tdTop = tr.insertCell(tr.cells.length);
-            tdRemove = tr.insertCell(tr.cells.length);
+            if (tr.cells.length==2) {
+                tdUpDown = tr.insertCell(tr.cells.length);
+                tdTop = tr.insertCell(tr.cells.length);
+                tdRemove = tr.insertCell(tr.cells.length);
+            }
             if (i==0) {
                 tdUpDown.innerHTML = srcUpNA+(body.rows.length==1?srcDownNA:srcDownDiv);
                 tdTop.innerHTML = srcTopNA;
