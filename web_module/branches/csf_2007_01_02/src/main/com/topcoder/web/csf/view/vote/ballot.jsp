@@ -195,7 +195,7 @@
                 td.innerHTML = row.cells[j].innerHTML;
             }
 
-            alert(rankedBody.length);
+            alert(rankedBody.rows.length);
             td = tr.insertCell(tr.cells.length);
             td.innerHTML = srcUpNA+rankedBody.rows.length==1?srcDownNA:srcDownDiv;
             td = tr.insertCell(tr.cells.length);
