@@ -85,6 +85,10 @@
             </tc:questionIterator>
 
                 <p align="center">
+				<hl/>
+                </p>
+
+                <p align="center">
                     How old will you be on February 26? <tc-webtag:textInput name="age2" size="3" maxlength="3"/>
                 </p>
 
