@@ -24,13 +24,13 @@ import com.topcoder.web.tc.controller.request.survey.Helper;
  */
 public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
 
-    protected abstract boolean validateSurvey(Survey survey, List responses);
+    protected abstract Boolean validateSurvey(Survey survey, List responses);
     
-    protected abstract void completeRegistration(Event event, User user, boolean eligible, List responses);
+    protected abstract void completeRegistration(Event event, User user, Boolean eligible, List responses);
 
     protected void regProcessing(Event event, User user) {
         List responses = processSurvey(event, user);
-        boolean eligible = validateSurvey(event.getSurvey(), responses);
+        Boolean eligible = validateSurvey(event.getSurvey(), responses);
         
         String termsAgree = getRequest().getParameter(Constants.TERMS_AGREE);
         if (!"on".equals(termsAgree)) {

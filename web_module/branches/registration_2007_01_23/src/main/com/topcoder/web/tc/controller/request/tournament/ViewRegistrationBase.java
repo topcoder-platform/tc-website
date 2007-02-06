@@ -15,10 +15,6 @@ import com.topcoder.web.common.model.User;
  */
 public abstract class ViewRegistrationBase extends RegistrationBase {
 
-    protected void regProcessing(Event event, User user) {
-        // nothing to do
-    }
-    
     protected void setNextPage(Event e, User u) {
         EventRegistration er = u.getEventRegistration(e);
         if (er != null) {
@@ -42,5 +38,9 @@ public abstract class ViewRegistrationBase extends RegistrationBase {
             log.debug("they " + (rsc.isEmpty() ? "are not" : "are") + " eligible");
         }
         return !rsc.isEmpty();
+    }
+
+    protected void regProcessing(Event event, User user) {
+        // nothing to do
     }
 }

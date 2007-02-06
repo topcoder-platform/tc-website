@@ -409,4 +409,15 @@ public class User extends Base {
     public void addResponse(List r) {
         responses.addAll(r);
     }
+
+    public void addEventRegistration(Event event, List responses, Boolean eligible) {
+        EventRegistration er = new EventRegistration();
+        er.getId().setUser(this);
+        er.getId().setEvent(event);
+        er.setEligible(eligible);
+
+        addEventRegistration(er);
+        addTerms(event.getTerms());
+        addResponse(responses);        
+    }
 }
