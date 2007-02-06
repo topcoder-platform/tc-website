@@ -100,19 +100,19 @@
             </tc:questionIterator>
 
                 <p align="center">
-                    How old will you be on February 26? <tc-webtag:textInput name="<%=RegistrationBase.AGE%>" size="3" maxlength="3"/>
+                    How old will you be on February 26? <tc-webtag:textInput name="age2" size="3" maxlength="3"/>
                 </p>
 
                 <p align="center">
                     Are you enrolled full time at a college or university?
-                    <br><input name="college" value="Yes" onchange="" type="radio">Yes&nbsp;&nbsp;&nbsp;
-                    <input name="college" value="No" onchange="" type="radio"> No
+                    <br><input name="college2" value="Yes" onchange="" type="radio">Yes&nbsp;&nbsp;&nbsp;
+                    <input name="college2" value="No" onchange="" type="radio"> No
                 </p>
 
                 <p align="center">
                     Are you enrolled full time at a secondary school (high school)?
-                    <br><input name="college" value="Yes" onchange="" type="radio">Yes&nbsp;&nbsp;&nbsp;
-                    <input name="college" value="No" onchange="" type="radio"> No
+                    <br><input name="hs2" value="Yes" onchange="" type="radio">Yes&nbsp;&nbsp;&nbsp;
+                    <input name="hs2" value="No" onchange="" type="radio"> No
                 </p>
                 
                 <div align="center">
