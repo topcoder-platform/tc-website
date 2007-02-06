@@ -37,8 +37,8 @@
     var srcTopDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="top(this)" onfocus="this.blur();"><img src="'+srcBtnTop+ '" name="topButton" alt="Move to top" onmouseover="this.src = \'' + srcBtnTopOn + '\';" onmouseout="this.src = \'' + srcBtnTop + '\';"/></a></div>';
     var srcBottomDiv = '<div style="margin: 2px;" align="center"><a href="#" onclick="bottom(this)" onfocus="this.blur();"><img src="'+srcBtnBottom+'" name="bottomButton" alt="Move to bottom" onmouseover="this.src = \''+srcBtnBottomOn+'\';" onmouseout="this.src = \''+srcBtnBottom+'\';"/></a></div>';
 
-    var srcTopNA = '<img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>';
-    var srcBottomNA = '<img src="/i/layout/btnMoveToBottomNA.png" alt="Move to bottom"/>';
+    var srcTopNA = '<img src="'+srcBtnTopNA+'" alt="Move to top"/>';
+    var srcBottomNA = '<img src="'+srcBtnBottomNA+'" alt="Move to bottom"/>';
 
     var srcDownNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnDownNA + '" alt="Move down"/></div>';
     var srcUpNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnUpNA + '" alt="Move up"/></div>';
@@ -195,6 +195,7 @@
                 td.innerHTML = row.cells[j].innerHTML;
             }
 
+            alert(rankedBody.length);
             td = tr.insertCell(tr.cells.length);
             td.innerHTML = srcUpNA+rankedBody.length==1?srcDownNA:srcDownDiv;
             td = tr.insertCell(tr.cells.length);
