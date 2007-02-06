@@ -207,11 +207,10 @@
                 if (rankedBody.rows[i]==row) {
                     var unRankedBody = document.getElementById("unRankedBody");
                     var newRow = unRankedBody.insertRow(unRankedBody.rows.length);
-                    var td;
-                    td = newRow.insertCell(newRow.cells.length);
-                    td.innertHTML = 'not ranked';
-                    td = newRow.insertCell(newRow.cells.length);
-                    td.innerHTML = row.cells[1].innerHTML;
+                    var tdRank= newRow.insertCell(newRow.cells.length);
+                    tdRank.innerHTML = 'not ranked';
+                    var tdData = newRow.insertCell(newRow.cells.length);
+                    tdData.innerHTML = row.cells[1].innerHTML;
                     rankedBody.deleteRow(i);
                     refreshUnRanked(unRankedBody);
                     refreshRanked(rankedBody);
