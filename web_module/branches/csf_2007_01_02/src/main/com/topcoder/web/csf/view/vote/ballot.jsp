@@ -114,8 +114,7 @@ function up(element) {
     var row = findRow(element);
     if (isUnRanked(element)) {
         reRank(element, document.getElementById("rankedBody").rows.length);
-    }
-    if (isRanked(element)) {
+    } else if (isRanked(element)) {
         if (row.parentNode.tagName == 'TBODY') {
             var body = row.parentNode;
             for (var i = 1; i < body.rows.length; i++) {
