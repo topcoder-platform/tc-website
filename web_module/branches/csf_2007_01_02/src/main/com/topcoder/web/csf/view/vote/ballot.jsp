@@ -176,7 +176,12 @@
                 td.innerHTML = row.cells[j].innerHTML;
             }
 
-            //look around and delete the old row
+            var imgTop = findChildImage(rankedBody.rows[0], srcBtnTopOn);
+            if (imgTop) {
+                mouseOutTop(imgTop);
+            }
+
+            //look around and delete the old row from the ranked table
             var found = false;
             for (var i = 1; i < rankedBody.rows.length && !found; i++) {
                 if (rankedBody.rows[i] == row) {
@@ -184,6 +189,7 @@
                     rankedBody.deleteRow(i);
                 }
             }
+            //if it wasn't a ranked row, perhaps it was an unranked one
             if (!found) {
                 var unRankedBody = document.getElementById("unRankedBody");
                 for (var i = 0; i < unRankedBody.rows.length; i++) {
@@ -193,10 +199,6 @@
                 }
             }
 
-            var imgTop = findChildImage(rankedBody.rows[0], srcBtnTopOn);
-            if (imgTop) {
-                mouseOutTop(imgTop);
-            }
             refresh(rankedBody);
         }
     }
@@ -230,8 +232,8 @@
         }
     }
 
-    var styles = ["valueC", "value", "valueC", "valueC"];
-    var nowraps = [null, "nowrap", null, null];
+    var styles = ["valueC", "value", "valueC", "valueC", "valueC"];
+    var nowraps = [null, "nowrap", null, null, null];
     /**
      * refresh presentation after data/structure changes
      */
@@ -345,12 +347,12 @@
         <a href="" target="_blank"><img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/></a>
     </td>
     <td class="valueC">
-        <div style="margin: 2px;" align="center">
-            <img src="/i/layout/btnMoveUpNA.png" alt="Move up"/>
-        </div>
-        <div style="margin: 2px;" align="center">
-            <a href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></a>
-        </div>
+                <div style="margin: 2px;" align="center">
+                    <a href="#" onclick="up(this)" onfocus="this.blur();"><img src="http://csf.dev.topcoder.com/i/layout/btnMoveUp.png" name="upButton" alt="Move up" onmouseover="this.src = 'http://csf.dev.topcoder.com/i/layout/btnMoveUpOn.png';" onmouseout="mouseOutUp(this)"/></a>
+                </div>
+                <div style="margin: 2px;" align="center">
+                    <a href="#" onclick="down(this)" onfocus="this.blur();"><img src="http://csf.dev.topcoder.com/i/layout/btnMoveDown.png" name="downButton" alt="Move down" onmouseover="this.src = 'http://csf.dev.topcoder.com/i/layout/btnMoveDownOn.png';" onmouseout="mouseOutDown(this)"/></a>
+                </div>
     </td>
     <td class="valueC">
         <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
