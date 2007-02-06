@@ -42,6 +42,9 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             getRequest().setAttribute("event", e);
             Calendar now = Calendar.getInstance();
             now.setTime(new Date());
+            log.info("now.getTime(): " + now.getTime().toString());
+            log.info("e.getRegistrationStart().getTime(): " + e.getRegistrationStart().toString());
+            log.info("e.getRegistrationEnd().getTime(): " + e.getRegistrationEnd().toString());
             if (now.after(e.getRegistrationEnd())) {
                 throw new NavigationException("The registration period for the " + e.getDescription() + " is over.");
             } else if (now.before(e.getRegistrationStart())) {
