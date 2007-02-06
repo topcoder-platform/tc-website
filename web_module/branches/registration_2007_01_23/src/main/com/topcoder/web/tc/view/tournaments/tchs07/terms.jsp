@@ -62,17 +62,7 @@
             <tc:questionIterator list="<%=questionInfo%>" id="question">
                 <table cellpadding="0" cellspacing="0" class="stat">
                 <tbody>
-                    <tr class="light">
-                        <td colspan="2"><span class="subtitle">
-                            <%=questionInfo.size() > 1 ? i + ". " : ""%>
-                            <jsp:getProperty name="question" property="text"/>
-                            <br /><br />
-                            </span>
-                            <hr width="100%" size="1" noshade/>
-                        </td>
-
-                    </tr>
-                    <tr class="light">
+                    <tr align="center">
                         <td colspan="2">
                             <span class="bigRed">
                             <tc-webtag:errorIterator id="err"
@@ -81,18 +71,16 @@
                             </span>
                         </td>
                     </tr>
-                    <% boolean even = false; %>
-                    <tc:answerInput id="answerInput" question="<%=question%>">
-                        <tr class="<%=even?"light":"dark"%>">
-                            <td class="value" width="100%">
-                                <%=answerText%>
-                            </td>
-                            <td class="valueR">
-                                <%=answerInput%>
-                            </td>
-                        </tr>
-                        <% even = !even; %>
-                    </tc:answerInput>
+                    <tr align="center">
+                        <td colspan="2" align="center">
+                            <jsp:getProperty name="question" property="text"/>
+                            <br/>
+		                    <tc:answerInput id="answerInput" question="<%=question%>">
+                             <%=answerInput%>
+                             <%=answerText%>&nbsp;&nbsp;&nbsp;
+		                    </tc:answerInput>
+                        </td>
+                    </tr>
                 </tbody>
                 </table>
                 <p><br /></p>
