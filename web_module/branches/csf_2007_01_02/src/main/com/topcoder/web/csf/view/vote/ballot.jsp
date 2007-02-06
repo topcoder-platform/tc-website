@@ -24,14 +24,7 @@
 
     var srcBtnTop = '/i/layout/btnMoveToTop.png';
     var srcBtnTopOn = '/i/layout/btnMoveToTopOn.png';
-/*
-    var srcBtnBottom = '/i/layout/btnMoveToBottom.png';
-    var srcBtnBottomOn = '/i/layout/btnMoveToBottomOn.png';
-*/
     var srcBtnTopNA = '/i/layout/btnMoveToTopNA.png';
-/*
-    var srcBtnBottomNA = '/i/layout/btnMoveToBottomNA.png';
-*/
 
     var srcBtnOut = '/i/layout/btnMoveOut.png';
     var srcBtnOutOn = '/i/layout/btnMoveOutOn.png';
@@ -39,18 +32,11 @@
     var srcUpDiv = '<div style="margin: 2px;" align="center"><a href="javascript:void(0)" onclick="up(this)" onfocus="this.blur();"><img src="'+ srcBtnUp +'" name="upButton" alt="Move up" onmouseover="this.src = \'' +srcBtnUpOn +'\';" onmouseout="mouseOutUp(this)"/></a></div>';
     var srcDownDiv = '<div style="margin: 2px;" align="center"><a href="javascript:void(0)" onclick="down(this)" onfocus="this.blur();"><img src="'+srcBtnDown+'" name="downButton" alt="Move down" onmouseover="this.src = ' + srcBtnDownOn + '\';" onmouseout="mouseOutDown(this)"/></a></div>';
     var srcTopDiv = '<div style="margin: 2px;" align="center"><a href="javascript:void(0)" onclick="top(this)" onfocus="this.blur();"><img src="'+srcBtnTop+ '" name="topButton" alt="Move to top" onmouseover="this.src = \'' + srcBtnTopOn + '\';" onmouseout="this.src = \'' + srcBtnTop + '\';"/></a></div>';
-/*
-    var srcBottomDiv = '<div style="margin: 2px;" align="center"><a href="javascript:void(0)" onclick="bottom(this)" onfocus="this.blur();"><img src="'+srcBtnBottom+'" name="bottomButton" alt="Move to bottom" onmouseover="this.src = \''+srcBtnBottomOn+'\';" onmouseout="this.src = \''+srcBtnBottom+'\';"/></a></div>';
-*/
 
     var srcTopNA = '<img src="'+srcBtnTopNA+'" alt="Move to top"/>';
-/*
-    var srcBottomNA = '<img src="'+srcBtnBottomNA+'" alt="Move to bottom"/>';
-*/
 
     var srcDownNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnDownNA + '" alt="Move down"/></div>';
     var srcUpNA  = '<div style="margin: 2px;" align="center"><img src="' + srcBtnUpNA + '" alt="Move up"/></div>';
-
 
     var srcBtnOutCell = '<a href="javascript:void(0)" onclick="layout" onfocus="this.blur();"><img src="'+srcBtnOut +'" alt="Remove" onmouseover="this.src = \'' + srcBtnOutOn + '\';" onmouseout="this.src = \'' + srcBtnOut + '\';"/></a>';
     var srcBtnOutNA = '<img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>';
@@ -85,11 +71,10 @@
                 }
             }
             var temp;
-            for (var i = 1; i < row1.cells.length; i++) {
-                temp = row2.cells[i].innerHTML;
-                row2.cells[i].innerHTML = row1.cells[i].innerHTML;
-                row1.cells[i].innerHTML = temp;
-            }
+            //we only really need to swap the data, the buttons and all can remain as they are
+                temp = row2.cells[1].innerHTML;
+                row2.cells[1].innerHTML = row1.cells[1].innerHTML;
+                row1.cells[1].innerHTML = temp;
         }
     }
 
@@ -117,11 +102,6 @@
     function mouseOutUp(element) {
         element.src = srcBtnUp;
     }
-/*
-    function mouseOutBottom(element) {
-        element.src = srcBtnBottom;
-    }
-*/
     function mouseOutTop(element) {
         element.src = srcBtnTop;
     }
@@ -202,18 +182,12 @@
                 td.innerHTML = row.cells[j].innerHTML;
             }
 
-            td = tr.insertCell(tr.cells.length);
-            td.innerHTML = srcUpNA+(rankedBody.rows.length==1?srcDownNA:srcDownDiv);
-            td = tr.insertCell(tr.cells.length);
-            td.innerHTML = srcTopNA;
-            td = tr.insertCell(tr.cells.length);
-            td.innerHTML = srcBtnOutCell;
-
-
+/*
             var imgTop = findChildImage(rankedBody.rows[0], srcBtnTopOn);
             if (imgTop) {
                 mouseOutTop(imgTop);
             }
+*/
 
             //look around and delete the old row from the ranked table
             var found = false;
@@ -237,42 +211,6 @@
         }
     }
 
-    /**
-     * move a row to the bottom.
-     * element - an element that is a child of the row to be moved up
-     */
-    function bottom(element) {
-        var row = findRow(element);
-        if (row.parentNode.tagName == 'TBODY' && isRanked(row)) {
-            var body = row.parentNode;
-            for (var i = 0; i < body.rows.length - 1; i++) {
-                if (body.rows[i] == row) {
-                    var tr = body.insertRow(body.rows.length);
-                    var td;
-                    for (var j = 0; j < 2; j++) {
-                        td = tr.insertCell(tr.cells.length);
-                        td.innerHTML = row.cells[j].innerHTML;
-                    }
-                    td = tr.insertCell(tr.cells.length);
-                    td.innerHTML = srcUpDiv+srcDownNA;
-                    td = tr.insertCell(tr.cells.length);
-                    td.innerHTML = srcTopDiv;
-                    td = tr.insertCell(tr.cells.length);
-                    td.innerHTML = srcBtnOutCell;
-                    body.deleteRow(i);
-/*
-                    var imgBottom = findChildImage(body.rows[body.rows.length - 1], srcBtnBottomOn);
-                    if (imgBottom) {
-                        mouseOutBottom(imgBottom);
-                    }
-*/
-                    refreshRanked(body);
-                    return;
-
-                }
-            }
-        }
-    }
 
     var styles = ["valueC", "value", "valueC", "valueC", "valueC"];
     var nowraps = [null, "nowrap", null, null, null];
@@ -280,7 +218,26 @@
      * refresh presentation after data/structure changes
      */
     function refreshRanked(body) {
-        var tr, td;
+        var tr, td, tdUpDown,tdTop,tdRemove;
+        for (var i=0;i<body.rows.length; i++) {
+            tr = body.rows[i];
+            tdUpDown = tr.insertCell(tr.cells.length);
+            tdTop = tr.insertCell(tr.cells.length);
+            tdRemove = tr.insertCell(tr.cells.length);
+            if (i==0) {
+                tdUpDown.innerHTML = srcUpNA+(body.rows.length==1?srcDownNA:srcDownDiv);
+                tdTop.innerHTML = srcTopNA;
+                tdRemove.innerHTML = srcBtnOutCell;
+            } else if (i==body.rows.length-1) {
+                tdUpDown.innerHTML = (body.rows.length==1?srcUpNA:srcUpDiv) + srcDownNA;
+                tdTop.innerHTML = body.rows.length==1?srcTopNA:srcTopDiv;
+                tdRemove.innerHTML = srcBtnOutCell;
+            } else {
+                tdUpDown.innerHTML = srcUpDiv+srcDownDiv;
+                tdTop.innerHTML = srcTop;
+                tdRemove.innerHTML = srcBtnOutCell;
+            }
+        }
 
         for (var i = 0; i < body.rows.length; i++) {
             tr = body.rows[i];
