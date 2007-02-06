@@ -138,6 +138,28 @@
     </target>
 
 
+
+    <target name="jar-webservice" depends="init">
+        <javac
+                srcdir="src/Microsoft"
+                destdir="${classes}"
+                classpathref="class.path"
+                deprecation="${deprecation}"
+                debug="${debug}"
+                source="1.5"
+                target="1.5"
+                >
+        </javac>
+        <jar jarfile="${bin}/ms_webservice.jar">
+            <fileset dir="${classes}">
+                <include name="Microsoft/**/*.class"/>
+            </fileset>
+        </jar>
+
+    </target>
+
+
+
     <target name="javadocs">
         <mkdir dir="${build.javadocs}"/>
         <javadoc
