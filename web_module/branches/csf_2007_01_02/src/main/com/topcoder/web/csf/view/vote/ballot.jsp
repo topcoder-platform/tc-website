@@ -226,7 +226,7 @@
                 }
             }
 
-            refreshRanked();
+            refreshRanked(rankedBody);
         }
     }
 
@@ -257,7 +257,7 @@
                     if (imgBottom) {
                         mouseOutBottom(imgBottom);
                     }
-                    refreshRanked();
+                    refreshRanked(body);
                     return;
 
                 }
@@ -270,8 +270,7 @@
     /**
      * refresh presentation after data/structure changes
      */
-    function refreshRanked() {
-        var body = document.getElementById("ranked");
+    function refreshRanked(body) {
         var tr, td;
 
         for (var i = 0; i < body.rows.length; i++) {
