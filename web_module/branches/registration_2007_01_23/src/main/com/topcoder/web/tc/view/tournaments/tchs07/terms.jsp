@@ -85,7 +85,7 @@
             </tc:questionIterator>
 
                 <p align="center">
-				<hl/>
+					<hr width="100%" size="1" noshade/>
                 </p>
 
                 <p align="center">
