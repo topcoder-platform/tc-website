@@ -228,8 +228,10 @@
      */
     function refreshRanked(body) {
         var tr, td, tdUpDown,tdTop,tdRemove;
-        for (var i=0;i<body.rows.length; i++) {
+
+        for (var i = 0; i < body.rows.length; i++) {
             tr = body.rows[i];
+            tr.setAttribute("class", i % 2 == 0 ? "light" : "dark");
             if (tr.cells.length==2) {
                 tdUpDown = tr.insertCell(tr.cells.length);
                 tdTop = tr.insertCell(tr.cells.length);
@@ -248,11 +250,7 @@
                 tdTop.innerHTML = srcTopDiv;
                 tdRemove.innerHTML = srcBtnOutCell;
             }
-        }
-
-        for (var i = 0; i < body.rows.length; i++) {
-            tr = body.rows[i];
-            tr.setAttribute("class", i % 2 == 0 ? "light" : "dark");
+            
             for (var j = 0; j < tr.cells.length; j++) {
                 td = tr.cells[j];
                 if (j == 0) {
@@ -274,8 +272,9 @@
      */
     function refreshUnRanked(body) {
         var tr, td, tdUpDown,tdTop,tdRemove;
-        for (var i=0;i<body.rows.length; i++) {
+        for (var i = 0; i < body.rows.length; i++) {
             tr = body.rows[i];
+            tr.setAttribute("class", "disabled");
             if (tr.cells.length==2) {
                 tdUpDown = tr.insertCell(tr.cells.length);
                 tdTop = tr.insertCell(tr.cells.length);
@@ -284,11 +283,7 @@
             tdUpDown.innerHTML = srcUpDiv+srcDownNA;
             tdTop.innerHTML = srcTopDiv;
             tdRemove.innerHTML = srcBtnOutNA;
-        }
 
-        for (var i = 0; i < body.rows.length; i++) {
-            tr = body.rows[i];
-            tr.setAttribute("class", "disabled");
             for (var j = 0; j < tr.cells.length; j++) {
                 td = tr.cells[j];
                 if (j == 0) {
