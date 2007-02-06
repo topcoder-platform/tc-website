@@ -309,7 +309,7 @@ function refreshUnRanked(body) {
 
 
 function isRanked(element) {
-    while (element.tagName != 'BODY') {
+    while (element && element.tagName != 'BODY') {
         if (element.tagName == 'TABLE') {
             return element.id == 'ranked';
         } else {
@@ -320,7 +320,7 @@ function isRanked(element) {
 }
 
 function isUnRanked(element) {
-    while (element.tagName != 'BODY') {
+    while (element && element.tagName != 'BODY') {
         if (element.tagName == 'TABLE') {
             return element.id == 'unranked';
         } else {
