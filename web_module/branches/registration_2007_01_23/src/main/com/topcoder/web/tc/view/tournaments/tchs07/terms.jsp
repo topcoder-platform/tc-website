@@ -44,9 +44,7 @@
                     must <b>read and agree to</b> the terms listed below.</p>
 
                 <div align="center">
-                    <textarea style="width:590; height:300;" name="textarea">
-                        <%=event.getTerms().getText()%>
-                    </textarea>
+	                <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tchs07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId().intValue()%>"></iframe>
                 </div>
 
                 <div align="center">
