@@ -42,7 +42,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
 
     protected abstract void setNextPage(Event event, User user);
 
-    protected abstract boolean isEligible(Event event, User user) throws Exception;
+    public abstract boolean isEligible(Event event, User user) throws Exception;
 
     protected abstract String getEventShortDesc();
 
@@ -50,7 +50,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
-            Event e = DAOUtil.getFactory().getEventDAO().find(getEventShortDesc());
+            Event e = getEvent();
             getRequest().setAttribute("event", e);
             Calendar now = Calendar.getInstance();
             now.setTime(new Date());
@@ -59,19 +59,14 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             Calendar regEnd = new GregorianCalendar();
             regEnd.setTime(e.getRegistrationEnd());
             
-            log.info("now.getTime(): " + now.getTime().toString());
-            log.info("regStart.getTime(): " + regStart.toString());
-            log.info("regEnd.getTime(): " + regEnd.toString());
-            log.info("now.before(regStart): " + now.before(regStart));
-            log.info("now.after(regEnd): " + now.after(regEnd));
             if (now.after(regEnd)) {
                 throw new NavigationException("The registration period for the " + e.getDescription() + " is over.");
             } else if (now.before(regStart)) {
                 throw new NavigationException("The registration period for the " + e.getDescription() + " has not yet begun.");
             } else {
-                User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+                User u = getActiveUser();
                 EventRegistration er = u.getEventRegistration(e);
-                if (u.getEventRegistration(e) == null) {
+                if (alreadyRegistered(e, u)) {
                     if (isEligible(e, u)) {
                         getRequest().setAttribute("event", e);
                         regProcessing(e, u);
@@ -85,4 +80,16 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             }
         }
     }
+    
+    public boolean alreadyRegistered(Event e, User u) {
+        return u.getEventRegistration(e) == null;
+    }
+    
+    public Event getEvent() {
+        return DAOUtil.getFactory().getEventDAO().find(getEventShortDesc());
+    }   
+
+    public User getActiveUser() {
+        return getUser().isAnonymous() ? null : DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+    }   
 }

@@ -28,7 +28,7 @@ public abstract class ViewRegistrationBase extends RegistrationBase {
         }
     }
 
-    protected boolean isEligible(Event e, User u) throws Exception{
+    public boolean isEligible(Event e, User u) throws Exception{
         Request r = new Request();
         r.setContentHandle(e.getShortDescription() + "_eligibility");
         r.setProperty("cr", String.valueOf(u.getId()));

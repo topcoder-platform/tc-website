@@ -1,4 +1,24 @@
-<%-- TCHS07 STARTS HERE
+<%-- TCHS07 STARTS HERE --%>
+<%@ page import="java.util.Calendar,
+                 java.util.GregorianCalendar,
+                 java.util.Date,
+                 com.topcoder.web.common.model.Event,
+                 com.topcoder.web.common.model.User" %>    
+                              
+<jsp:useBean id="tchs07Reg" class="com.topcoder.web.tc.controller.request.tournament.tchs07.ViewRegistration" scope="request"/>
+<% 
+	Event event = tchs07Reg.getEvent();
+	User user = tchs07Reg.getActiveUser();
+
+	Calendar now = Calendar.getInstance();
+    Calendar regStart = new GregorianCalendar();
+    regStart.setTime(event.getRegistrationStart());
+    Calendar regEnd = new GregorianCalendar();
+    regEnd.setTime(event.getRegistrationEnd());
+
+    now.setTime(new Date());
+    if ((now.after(regStart) && now.before(regEnd) && tchs07Reg.isEligible(event, user)))  {
+%>
 
 <style type="text/css">
     .tchs07Message {
@@ -39,23 +59,17 @@
         <td class="tchs07Message" align="center">
             <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=about"><img src="/i/tournament/tchs07/message.png" alt="TCHS07" border="0"/></A>
             <br /><br />
-            <% if (algoTerms.isRegistered()) { %>
-            You are registered for the <strong>2007 TopCoder High School Tournament</strong>.<br />
+            <% if (tchs07Reg.alreadyRegistered(event, user)) { %>
+            	You are registered for the <strong>2007 TopCoder High School Tournament</strong>.<br />
             <% } else { %>
-            <% if ((now.after(algoTerms.getBeginning()) && now.before(algoTerms.getEnd()))) { %>
-            <% if (algoTerms.isEligible()) { %>
-            You are not registered for the <strong>2007 TopCoder High School Tournament</strong>, click
-            <a href="" class="tchs07MessageLink">here</a> to register.<br />
-            <% } else { %>
-            Sorry, you are not eligible to register for the <strong>2007 TopCoder High School Tournament</strong>.<br />
-            <% }
-            }
-            } %>
+            	You are not registered for the <strong>2007 TopCoder High School Tournament</strong>, click
+            <a href="/tc?module=TCHS07ViewRegistration" class="tchs07MessageLink">here</a> to register.<br />
+            <% } %>
         </td>
     </tr>
 </table>
+<% } %>
 
---%>
 
 <%-- TCCC06 STARTS HERE
 <%@ page import="java.util.Calendar,
