@@ -236,6 +236,7 @@ public class ForumsBean extends BaseEJB {
     
     // Software Forums
     public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) throws ForumCategoryNotFoundException {
+    	log.info("!!! entered getSoftwareForumCategory: categoryID = " + categoryID);
     	ForumCategory category = forumFactory.getForumCategory(categoryID);
     	return new com.topcoder.dde.catalog.ForumCategory(categoryID, category.getCreationDate(), 
     			Long.parseLong(category.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS)), version, versionLabel);
