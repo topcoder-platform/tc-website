@@ -129,18 +129,20 @@ public class ForumConversion {
             }
             
             ForumCategory root = forumFactory.getForumCategory(rootCategoryId);
-            if (root.getCategoryCount() > 0 || root.getForumCount() > 0) {
-            	//log.info("Stopping conversion - the root category is not empty.");
-            	log.info("Deleting categories in dev.... ");
-            	Iterator itCat = root.getCategories();
-            	int numCategories = root.getCategoryCount();
-            	int numDeleted = 0;
-            	while (itCat.hasNext()) {
-            		ForumCategory cat = (ForumCategory)itCat.next();
-            		root.deleteCategory(cat);
-            		log.info(++numDeleted + "/" + numCategories + " categories deleted");
-            	}
-            	log.info("All dev categories deleted.");
+            if (JiveGlobals.getJiveBooleanProperty("tc.convert.tcs.forums.delete")) {
+	            if (root.getCategoryCount() > 0 || root.getForumCount() > 0) {
+	            	//log.info("Stopping conversion - the root category is not empty.");
+	            	log.info("Deleting categories in dev.... ");
+	            	Iterator itCat = root.getCategories();
+	            	int numCategories = root.getCategoryCount();
+	            	int numDeleted = 0;
+	            	while (itCat.hasNext()) {
+	            		ForumCategory cat = (ForumCategory)itCat.next();
+	            		root.deleteCategory(cat);
+	            		log.info(++numDeleted + "/" + numCategories + " categories deleted");
+	            	}
+	            	log.info("All dev categories deleted.");
+	            }
             }
 
             log.info("Starting the forum conversion: attachmentDir = " + fileDir + " | rootCategoryId = "
