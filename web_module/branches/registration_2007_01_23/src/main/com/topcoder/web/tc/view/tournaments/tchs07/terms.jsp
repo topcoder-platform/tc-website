@@ -3,16 +3,20 @@
                  com.topcoder.web.common.model.Question,
                  com.topcoder.web.common.tag.AnswerInput,
                  com.topcoder.web.tc.controller.request.tournament.RegistrationBase,
-                 java.util.Collections" %>
-<%@ page import="java.util.Set" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="java.util.List" %>
+                 com.topcoder.web.common.BaseProcessor" %>
+<%@ page import="java.util.Collections,
+                 java.util.Set,
+                 java.util.ArrayList,
+                 java.util.List,
+                 java.util.HashMap" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <% Event event = (Event) request.getAttribute("event"); 
-   List questionInfo = new ArrayList(event.getSurvey().getQuestions()); %>
+   List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
+   HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
+   %>
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -72,7 +76,7 @@
                 	<% if (question.getKeyword().equals(RegistrationBase.AGE)) { %>
 	                    <td align="center">
 	                        <jsp:getProperty name="question" property="text"/> 
-	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" />
+	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
 	                    </td>
                 	<% } else { %>
 	                    <td align="center">
