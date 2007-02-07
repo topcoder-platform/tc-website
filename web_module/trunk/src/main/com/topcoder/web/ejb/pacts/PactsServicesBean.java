@@ -5868,7 +5868,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, ");
         query.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         query.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        query.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number , pd.client ");
+        query.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.client, ");
         query.append("    (SELECT reference_field_name   ");
         query.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
         query.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
