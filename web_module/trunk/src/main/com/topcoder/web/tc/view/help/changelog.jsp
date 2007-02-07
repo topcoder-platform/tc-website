@@ -50,6 +50,7 @@
         <li>When registering for a long round, the room_id is not looked up anymore, it wasn't needed. 
            <%-- after deploying, the query and command long_contest_find_room can be deleted --%> </li>
         <li>Studio payments shown in My Topcoder Payments</li>
+        <li>PACTS bug fix: client didn't appear when updating a payment</li>
 
     </ul>
 </p>
