@@ -71,7 +71,7 @@
 	                    </td>
                 	<% if (question.getKeyword().equals(RegistrationBase.AGE)) { %>
 	                    <td align="center">
-	                        <jsp:getProperty name="question" property="text"/>&nbsp;&nbsp;&nbsp;
+	                        <jsp:getProperty name="question" property="text"/> 
 	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" />
 	                    </td>
                 	<% } else { %>
