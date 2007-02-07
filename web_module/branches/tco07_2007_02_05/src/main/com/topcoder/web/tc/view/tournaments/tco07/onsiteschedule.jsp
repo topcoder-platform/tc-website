@@ -21,16 +21,15 @@
 
                     <jsp:include page="nav.jsp" >
                     <jsp:param name="tabLev1" value="overview"/>
-                    <jsp:param name="tabLev2" value="details"/>
-                    <jsp:param name="tabLev3" value=""/>
+                    <jsp:param name="tabLev2" value="joinus"/>
+                    <jsp:param name="tabLev3" value="onsiteschedule"/>
                     </jsp:include>
 
                 </td>
                 <td id="bodySpacer" width="100%">
-                    <img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />
                     <div id="pageBody">
 
-                        <h1><div>2007 TopCoder Open</div></h1>
+                        <h1><div>Onsite Schedule</div></h1>
                         <p>
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
                         </p>

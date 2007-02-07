@@ -18,10 +18,10 @@ function toggleMenu(menuTitle,menuID){
     <ul>
     <li class="<% if (tabLev1.equals("overview")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Tournament Overview</div></a>
         <ul>
-        <li class="stop"<% if (tabLev1.equals("overview") && tabLev2.equals("details")) {%> class="navHighlight"<% } %>><a href=""><div>Details</div></a></li>
+        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"<% if (tabLev1.equals("overview") && tabLev2.equals("details")) {%> class="navHighlight"<% } %>><div>Details</div></a></li>
         <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("joinus")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Join Us Onsite</div></a>
             <ul>
-            <li class="stop"><a href=""<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("schedule")) {%> class="navHighlight"<% } %>><div>Schedule</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteschedule"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("onsiteschedule")) {%> class="navHighlight"<% } %>><div>Schedule</div></a></li>
             <li class="stop"><a href=""<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("devforums")) {%> class="navHighlight"<% } %>><div>Developer Forums</div></a></li>
             <li class="stop"><a href=""<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("blogthis")) {%> class="navHighlight"<% } %>><div>"Blog This" Contest</div></a></li>
             <li class="stop"><a href=""<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("transportation")) {%> class="navHighlight"<% } %>><div>Transportation</div></a></li>
@@ -112,4 +112,21 @@ function toggleMenu(menuTitle,menuID){
     <li class="<% if (tabLev1.equals("studio")) {%>open<% } else { %>closed<% } %>"><a href=""><div>Studio</div></a>
     </li>
     </ul>
+</div>
+
+<div id="navSponsors">
+
+    <div>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=aol"><img src="/i/tournament/tco07/navsponsoraol.png" alt="AOL" /></A>
+    </div>
+    <div>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=nsa"><img src="/i/tournament/tco07/navsponsornsa.png" alt="NSA" /></A>
+    </div>
+    <div>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=ubs"><img src="/i/tournament/tco07/navsponsorubs.png" alt="UBS" /></A>
+    </div>
+    <div>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=verisign"><img src="/i/tournament/tco07/navsponsorverisign.png" alt="VeriSign" /></A>
+    </div>
+
 </div>
