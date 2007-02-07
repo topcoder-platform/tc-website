@@ -24,9 +24,9 @@ import com.topcoder.web.common.tag.ListSelectTag;
 public abstract class RegistrationBase extends ShortHibernateProcessor {
 
     protected static final Integer HIGH_SCHOOL_REGION_TYPE = new Integer(1);
-    protected static final String AGE = "age";
-    protected static final String IN_COLLEGE = "incollege";
-    protected static final String IN_HIGH_SCHOOL = "inhs";
+    public static final String AGE = "age";
+    public static final String IN_COLLEGE = "incollege";
+    public static final String IN_HIGH_SCHOOL = "inhs";
 
     public static final List YES_NO_ANSWERS;
 
