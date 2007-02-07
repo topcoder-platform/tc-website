@@ -1,10 +1,8 @@
 <%-- TCHS07 STARTS HERE --%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer%>    
                               
-<% ResultSetContainer rscTch07 = (ResultSetContainer)request.getAttribute("tchs07_info");%>
-
-<% 
-    if (rscTch07!=null && !rscTch07.isEmpty() && rscTch07.getIntItem(0, "open").equals(1)) {
+<% ResultSetContainer rscTch07 = (ResultSetContainer)request.getAttribute("tchs07_info");
+    if (rscTch07 != null && !rscTch07.isEmpty() && rscTch07.getIntItem(0, "open") == 1) {
 %>
 
 <style type="text/css">
@@ -46,7 +44,7 @@
         <td class="tchs07Message" align="center">
             <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=about"><img src="/i/tournament/tchs07/message.png" alt="TCHS07" border="0"/></A>
             <br /><br />
-            <% if (rscTch07.getIntItem(0, "registered").equals(1)) { %>
+            <% if (rscTch07.getIntItem(0, "registered")== 1) { %>
             	You are registered for the <strong>2007 TopCoder High School Tournament</strong>.<br />
             <% } else { %>
             	You are not registered for the <strong>2007 TopCoder High School Tournament</strong>, click
