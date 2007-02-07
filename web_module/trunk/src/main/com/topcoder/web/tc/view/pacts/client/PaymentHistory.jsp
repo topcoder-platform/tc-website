@@ -132,7 +132,6 @@
 	<c:set var="digitalRunSeasonId" value="<%= resultRow.getStringItem("digital_run_season_id") %>" />			
 	<c:choose>
 <c:when test="${typeId == 4}"><!-- coder referral --></c:when>
-<c:when test="${typeId == 13}"><!-- studio --></c:when>
 <c:otherwise>
 	
     <tr class="<%=even?"light":"dark"%>">
