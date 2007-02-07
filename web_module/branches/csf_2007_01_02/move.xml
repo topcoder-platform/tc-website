@@ -271,6 +271,7 @@
                 <include name="build/ears/*.ear"/>
                 <include name="resources/csf/**"/>
                 <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/csf/**"/>
                 <include name="resources/CSF.properties"/>
                 <include name="move.xml"/>
                 <include name="build_csf.xml"/>
