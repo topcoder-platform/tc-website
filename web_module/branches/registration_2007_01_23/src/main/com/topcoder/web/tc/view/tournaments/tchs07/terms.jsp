@@ -72,7 +72,7 @@
 	                    </td>
 	                    <td align="center">
 	                        <jsp:getProperty name="question" property="text"/>&nbsp;&nbsp;&nbsp;
-	                        <input type="text" size="40" maxlength="255" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" />
+	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" />
 	                    </td>
 	                </tr>
                 	<% } else { %>
