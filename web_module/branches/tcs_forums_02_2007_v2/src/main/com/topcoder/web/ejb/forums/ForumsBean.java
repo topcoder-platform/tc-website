@@ -359,6 +359,7 @@ public class ForumsBean extends BaseEJB {
     		long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description, 
     		String versionText, long templateID, boolean isPublic) throws Exception {
     	try {
+    		log.info("TCS_FORUMS_ROOT_CAT: " + TCS_FORUMS_ROOT_CATEGORY_ID);
     		String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText, templateID);
     		ForumCategory newCategory = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).createCategory(categoryName, description);
     		newCategory.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
@@ -609,7 +610,7 @@ public class ForumsBean extends BaseEJB {
     // Software Forums - End
     
     private void logException(Exception e, String msg) {
-    	log.info("***" + msg + ": " + e);
+    	log.info("*** " + msg + ": " + e);
     	StackTraceElement[] ste = e.getStackTrace();
 		for (int i=0; i<ste.length; i++) {
 			log.info(ste[i]);
