@@ -97,6 +97,14 @@ public class Home extends Base {
             getRequest().setAttribute("compTerms", compTerms);
             getRequest().setAttribute("algoTerms", algoTerms);
 
+            CachedDataAccess tchs07Dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Request tchs07Request = new Request();
+            tchs07Request.setProperty("cr", String.valueOf(getUser().getId()));
+            
+            tchs07Request.setContentHandle("tchs07_eligibility");
+            getRequest().setAttribute("tchs07_info",
+                    tchs07Dai.getData(tchs07Request).get("tchs07_eligibility"));
+
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
