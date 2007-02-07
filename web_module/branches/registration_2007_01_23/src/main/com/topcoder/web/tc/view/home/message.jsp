@@ -1,23 +1,10 @@
 <%-- TCHS07 STARTS HERE --%>
-<%@ page import="java.util.Calendar,
-                 java.util.GregorianCalendar,
-                 java.util.Date,
-                 com.topcoder.web.common.model.Event,
-                 com.topcoder.web.common.model.User" %>    
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer%>    
                               
-<jsp:useBean id="tchs07Reg" class="com.topcoder.web.tc.controller.request.tournament.tchs07.ViewRegistration" scope="request"/>
+<% ResultSetContainer rscTch07 = (ResultSetContainer)request.getAttribute("tchs07_info");%>
+
 <% 
-	Event event = tchs07Reg.getEvent();
-	User user = tchs07Reg.getActiveUser();
-
-	Calendar now = Calendar.getInstance();
-    Calendar regStart = new GregorianCalendar();
-    regStart.setTime(event.getRegistrationStart());
-    Calendar regEnd = new GregorianCalendar();
-    regEnd.setTime(event.getRegistrationEnd());
-
-    now.setTime(new Date());
-    if ((now.after(regStart) && now.before(regEnd) && tchs07Reg.isEligible(event, user)))  {
+    if (rscTch07!=null && !rscTch07.isEmpty() && rscTch07.getIntItem(0, "open") == 1) {
 %>
 
 <style type="text/css">
@@ -59,7 +46,7 @@
         <td class="tchs07Message" align="center">
             <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=about"><img src="/i/tournament/tchs07/message.png" alt="TCHS07" border="0"/></A>
             <br /><br />
-            <% if (tchs07Reg.alreadyRegistered(event, user)) { %>
+            <% if (rscTch07.getIntItem(0, "registered") == 1) { %>
             	You are registered for the <strong>2007 TopCoder High School Tournament</strong>.<br />
             <% } else { %>
             	You are not registered for the <strong>2007 TopCoder High School Tournament</strong>, click
