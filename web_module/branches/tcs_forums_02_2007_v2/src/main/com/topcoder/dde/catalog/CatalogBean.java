@@ -1094,10 +1094,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 }
             }
 
-            log.info("@@@@ attempting to get forumDbName");
-            log.info("@@@@ DBMS.FORUMS = " + DBMS.FORUMS_DATASOURCE_NAME);
             String forumDbName = DBMS.getDbName(DBMS.FORUMS_DATASOURCE_NAME);
-            log.info("@@@@ forumDbName = " + forumDbName);
             query = new StringBuffer(500);
             query.append("SELECT cat.categoryid, cat.creationdate, ");
             query.append("       p.propvalue, v.version, v.version_text    ");
@@ -1116,7 +1113,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 query.append("   AND c.current_version = v.version ");
             else
                 query.append("   AND ? = v.version ");  
-            log.info("@@@@ query = " + query.toString());
             
             try {
 
@@ -1125,7 +1121,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 ps.setLong(2, ForumCategory.DELETED);
                 if (version >= 0) ps.setLong(3, version);
                 rs = ps.executeQuery();
-                log.info("@@@@ executed query");
 
                 List list = new ArrayList();
                 while (rs.next())
@@ -1133,7 +1128,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                              rs.getLong(3), rs.getLong(4), rs.getString(5)));
 
                 forums = (ForumCategory[]) list.toArray(new ForumCategory[0]);
-                log.info("@@@@ found forums: " + forums.length);
 
             } finally {
                 try {
@@ -1152,7 +1146,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 }
             }
 
-            log.info("@@@@ before tech");
             query = new StringBuffer(500);
             query.append("SELECT t.technology_type_id, t.technology_name,    ");
             query.append("       t.description                               ");
@@ -1200,7 +1193,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 }
             }
 
-            log.info("@@@@ before docs");
             query = new StringBuffer(500);
             query.append("SELECT d.document_id, d.document_name,        ");
             query.append("       d.url, d.document_type_id              ");
@@ -1257,7 +1249,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 }
             }
 
-            log.info("@@@@ before res");
             query = new StringBuffer(500);
             query.append("select r.resource_id, s.login_id, s.user_id, r.resource_role_id, project_category_id ");
             query.append("  from resource r, resource_info ri, security_user s, project_info pi, project p");
@@ -1314,7 +1305,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                 }
             }
 
-            log.info("@@@@ before comp");
             query = new StringBuffer(500);
             query.append("SELECT c2.component_id, v2.comp_vers_id, v2.version,    ");
             query.append("       c2.component_name, v2.version_text, v2.comments, ");
@@ -1378,7 +1368,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             } catch (Exception e) {
             }
         }
-        log.info("@@@@ returned");
+
         return new ComponentDetail(info, summary, versionInfo, docs, techs, forums, members, dependencies);
     }
 

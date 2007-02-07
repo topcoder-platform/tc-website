@@ -1718,7 +1718,6 @@ public class ComponentManagerBean
     }
 
     public ForumCategory getActiveForumCategory(int type) throws CatalogException {
-    	log.info("@@@ getActiveForumCategory() called");
     	Forums forumsBean = getForumsBean();
         Collection categories = new HashSet();
         Iterator versionIterator = getAllVersionInfo().iterator();
@@ -1736,7 +1735,6 @@ public class ComponentManagerBean
                 long categoryId = ((LocalDDECompForumXref)
                         categoryIterator.next()).getCategoryId();
                 try {
-                	log.info("@@@ categoryId = " + categoryId + " infov = " + info.getVersion() + " infovl = " + info.getVersionLabel());
                 	ForumCategory forumCategory = forumsBean.getSoftwareForumCategory(categoryId, info.getVersion(), info.getVersionLabel());
             		if (forumCategory.getStatus() == ForumCategory.ACTIVE) {
             			categories.add(forumCategory);
