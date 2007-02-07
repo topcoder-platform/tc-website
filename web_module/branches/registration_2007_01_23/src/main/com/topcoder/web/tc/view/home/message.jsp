@@ -44,7 +44,7 @@
             <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=about"><img src="/i/tournament/tchs07/message.png" alt="TCHS07" border="0"/></A>
             <br /><br />
             <% if (rscTch07.getIntItem(0, "registered")== 0) { %>
-            	Sorry, you are ineligible for the <strong>2007 TopCoder High School Tournament</strong>. If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.<br />
+            	Sorry, you are ineligible for the <strong>2007 TopCoder High School Tournament</strong>.<br><br>If this is a mistake, contact <A href="mailto:service@topcoder.com" class="tchs07MessageLink">service@topcoder.com</A>.<br />
             <% } else if (rscTch07.getIntItem(0, "registered")== 1) { %>
             	You are registered for the <strong>2007 TopCoder High School Tournament</strong>.<br />
             <% } else { %>
