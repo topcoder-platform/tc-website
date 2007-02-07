@@ -1,8 +1,8 @@
-<%@  page language="java"  %>
+<%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<jsp:include page="/script.jsp" />
+<jsp:include page="../../script.jsp" />
 <title>2007 TopCoder Open - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
 <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
