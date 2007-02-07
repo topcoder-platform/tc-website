@@ -2,12 +2,36 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%----------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.08.07<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2056">Now open: Registration Tool Design Contest</A></span><br><br>
+        The Registration Tool Wireframe Design contest, now open at TopCoder Studio, is your chance to help design a new user-friendly way to register for TopCoder competitions. The contest offers cash prizes totaling $2,750.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2056">details</A> | 
+        <A href="http://studio.topcoder.com/forums?module=ThreadList&forumID=30">discuss</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+----------------------%>
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.07.07<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Forums maintenance scheduled</span><br><br>
+      Please note: We will be performing maintenance work on the TopCoder forums beginning on Thursday, Feb. 8 at 9:00 PM EST. The work will last for approximately four hours, will cause signicant forum outages, and may cause site outages as well.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <tc-webtag:forumLink forumID="506277" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.06.07<br>5:50 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=020607">Marathon Man: An interview with <tc-webtag:handle coderId="7504863" context="algorithm"/></A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=020607">Marathon Man: An interview with battyone</A></span><br><br>
        On December 27, 2006, TopCoder wrapped up the Intel Multi-Threading Competition Series. Over the course of the 12 Intel competitions, an average of 836 TopCoder members registered for each match, with an average of 206 members submitting at least one solution in each.</td>
       <td class="newsPhoto"><img src="/i/m/d000hg_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21464956" /></td></tr></table>
       </td>
@@ -189,21 +213,5 @@ TopCoder High School algorithm competitors once again demonstrated impressive sp
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm29">full story</A> | 
         <tc-webtag:forumLink forumID="506245" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial" border="0" /><br>01.23.07<br>5:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary2">Power up C++ with the STL: Part II: Advanced Uses</A></span><br><br>
-       Part II of the tutorial, featuring some advanced uses for the powerful features of the C++ Standard Template Library.</td>
-      <td class="newsPhoto"><img src="/i/m/DmitryKorolev_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21749340" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary2">full story</A> | 
-         <tc-webtag:forumLink forumID="506253" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
