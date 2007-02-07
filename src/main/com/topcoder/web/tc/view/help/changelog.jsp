@@ -49,6 +49,8 @@
         <li>When submiting a long contest, if the round id, contest id and component id are not consistent, throw an exception</li>
         <li>When registering for a long round, the room_id is not looked up anymore, it wasn't needed. 
            <%-- after deploying, the query and command long_contest_find_room can be deleted --%> </li>
+        <li>Studio payments shown in My Topcoder Payments</li>
+
     </ul>
 </p>
 
