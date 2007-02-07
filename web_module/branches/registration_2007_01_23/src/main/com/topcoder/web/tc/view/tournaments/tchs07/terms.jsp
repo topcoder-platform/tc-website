@@ -69,6 +69,8 @@
 	                        </tc-webtag:errorIterator>
 	                        </span>
 	                    </td>
+	                </tr>
+	                <tr>
                 	<% if (question.getKeyword().equals(RegistrationBase.AGE)) { %>
 	                    <td align="center">
 	                        <jsp:getProperty name="question" property="text"/> 
