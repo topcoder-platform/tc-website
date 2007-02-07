@@ -61,6 +61,21 @@
 
             <tc:questionIterator list="<%=questionInfo%>" id="question">
                 <table cellpadding="0" cellspacing="0" class="stat" align="center">
+                	<% if (question.getKeyword().equals(RegistrationBase.AGE)) { %>
+	                <tr>
+	                    <td align="center">
+	                        <span class="bigRed">
+	                        <tc-webtag:errorIterator id="err"
+	                            name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
+	                        </tc-webtag:errorIterator>
+	                        </span>
+	                    </td>
+	                    <td align="center">
+	                        <jsp:getProperty name="question" property="text"/>&nbsp;&nbsp;&nbsp;
+	                        <input type="text" size="40" maxlength="255" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" />
+	                    </td>
+	                </tr>
+                	<% } else { %>
 	                <tr>
 	                    <td align="center">
 	                        <span class="bigRed">
@@ -80,6 +95,7 @@
 			                  </tc:answerInput>
 	                    </td>
 	                </tr>
+                	<% } else { %>
                 </table>
                 <br/>
             </tc:questionIterator>
