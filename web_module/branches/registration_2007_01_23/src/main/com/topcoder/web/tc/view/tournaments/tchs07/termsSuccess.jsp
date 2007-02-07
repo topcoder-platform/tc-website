@@ -34,9 +34,8 @@
             <br><br>
             If you have any concerns regarding your assigned region, please email <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
         <%} else {%>
-            Sorry, you are not eligible to compete in this tournament.
+            Sorry, you are ineligible for the TCHS07.  If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
             <br><br>
-            If you have any concerns, please email <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
         <%}%>
         </div>
 
