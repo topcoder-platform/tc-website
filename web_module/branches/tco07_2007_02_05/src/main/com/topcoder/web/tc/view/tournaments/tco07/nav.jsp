@@ -22,30 +22,31 @@ function toggleMenu(menuTitle,menuID){
         <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("joinus")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Join Us Onsite</div></a>
             <ul>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteschedule"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("onsiteschedule")) {%> class="navHighlight"<% } %>><div>Schedule</div></a></li>
-            <li class="stop"><a href=""<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("devforums")) {%> class="navHighlight"<% } %>><div>Developer Forums</div></a></li>
-            <li class="stop"><a href=""<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("blogthis")) {%> class="navHighlight"<% } %>><div>"Blog This" Contest</div></a></li>
-            <li class="stop"><a href=""<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("transportation")) {%> class="navHighlight"<% } %>><div>Transportation</div></a></li>
-            <li class="stop"><a href=""<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("hotels")) {%> class="navHighlight"<% } %>><div>Hotels</div></a></li>
-            <li class="stop"><a href=""<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("whattodo")) {%> class="navHighlight"<% } %>><div>What To Do</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=devforums"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("devforums")) {%> class="navHighlight"<% } %>><div>Developer Forums</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogthis"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("blogthis")) {%> class="navHighlight"<% } %>><div>"Blog This" Contest</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=transportation"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("transportation")) {%> class="navHighlight"<% } %>><div>Transportation</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=hotels"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("hotels")) {%> class="navHighlight"<% } %>><div>Hotels</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=whattodo"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("whattodo")) {%> class="navHighlight"<% } %>><div>What To Do</div></a></li>
             </ul>
         </li>
         <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("onsiteevents")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Onsite Events</div></a>
             <ul>
-            <li class="stop"><a href=""><div>Photos</div></a></li>
-            <li class="stop"><a href=""><div>Movies</div></a></li>
-            <li class="stop"><a href=""><div>Blogs</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=photos"><div>Photos</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies"><div>Movies</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs"><div>Blogs</div></a></li>
             </ul>
         </li>
         <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Sponsors</div></a>
             <ul>
-            <li class="stop"><a href=""><div>AOL</div></a></li>
-            <li class="stop"><a href=""><div>Bloomberg</div></a></li>
-            <li class="stop"><a href=""><div>UBS</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol"><div>AOL</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw"><div>DRW</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs"><div>UBS</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign"><div>VeriSign</div></a></li>
             </ul>
         </li>
         <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("eventpatrons")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Event Patrons</div></a>
             <ul>
-            <li class="stop"><a href=""><div>NSA</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa"><div>NSA</div></a></li>
             </ul>
         </li>
         </ul>
@@ -54,27 +55,27 @@ function toggleMenu(menuTitle,menuID){
         <ul>
         <li class="<% if (tabLev1.equals("algorithm") && tabLev2.equals("details")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Details</div></a>
             <ul>
-            <li class="stop"><a href=""><div>Description</div></a></li>
-            <li class="stop"><a href=""><div>Schedule</div></a></li>
-            <li class="stop"><a href=""><div>Rules</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=description"><div>Description</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule"><div>Schedule</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=rules"><div>Rules</div></a></li>
             </ul>
         </li>
-        <li class="stop"><a href=""<% if (tabLev1.equals("algorithm") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>
+        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=registrants"<% if (tabLev1.equals("algorithm") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>
         <li class="<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Advancers</div></a>
             <ul>
-            <li class="stop"><a href=""><div>Qualification</div></a></li>
-            <li class="stop"><a href=""><div>Sections</div></a></li>
-            <li class="stop"><a href=""><div>Overview</div></a></li>
-            <li class="stop"><a href=""><div>Bracket</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=qualification"><div>Qualification</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=sectiona"><div>Sections</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=advancersoverview"><div>Overview</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=bracket"><div>Bracket</div></a></li>
             </ul>
         </li>
         <li class="<% if (tabLev1.equals("algorithm") && tabLev2.equals("summary")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Summary</div></a>
             <ul>
-            <li class="stop"><a href=""><div>Room 1</div></a></li>
-            <li class="stop"><a href=""><div>Room 2</div></a></li>
-            <li class="stop"><a href=""><div>Room 3</div></a></li>
-            <li class="stop"><a href=""><div>WildCard</div></a></li>
-            <li class="stop"><a href=""><div>Finals</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=room1"><div>Room 1</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=room2"><div>Room 2</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=room3"><div>Room 3</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=wildcard"><div>WildCard</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=finals"><div>Finals</div></a></li>
             </ul>
         </li>
         </ul>
@@ -117,16 +118,16 @@ function toggleMenu(menuTitle,menuID){
 <div id="navSponsors">
 
     <div>
-    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=aol"><img src="/i/tournament/tco07/navsponsoraol.png" alt="AOL" /></A>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol"><img src="/i/tournament/tco07/navsponsoraol.png" alt="AOL" /></A>
     </div>
     <div>
-    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=nsa"><img src="/i/tournament/tco07/navsponsornsa.png" alt="NSA" /></A>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa"><img src="/i/tournament/tco07/navsponsornsa.png" alt="NSA" /></A>
     </div>
     <div>
-    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=ubs"><img src="/i/tournament/tco07/navsponsorubs.png" alt="UBS" /></A>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs"><img src="/i/tournament/tco07/navsponsorubs.png" alt="UBS" /></A>
     </div>
     <div>
-    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=verisign"><img src="/i/tournament/tco07/navsponsorverisign.png" alt="VeriSign" /></A>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign"><img src="/i/tournament/tco07/navsponsorverisign.png" alt="VeriSign" /></A>
     </div>
 
 </div>
