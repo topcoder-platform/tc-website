@@ -50,7 +50,7 @@
     <tc-webtag:forumLink forumID="506274" message="Discuss this article" />
 </div>
 
-<span class="bigTitle">Marathon Man: An interview with <tc-webtag:handle coderId="7504863" context="algorithm"/></span>
+<span class="bigTitle">Marathon Man: An interview with battyone</span>
 <br><br>
 
 <div class="authorPhoto">

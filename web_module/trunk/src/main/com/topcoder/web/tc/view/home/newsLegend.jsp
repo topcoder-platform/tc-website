@@ -175,7 +175,7 @@ OR
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>12.11.06<br>4:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid">"How to get paid" updated</A></span><br><br>
-        As TopCoder has grown, our ability to effectively manage member payments has become a growing challenge. To help make the process more predictable, members will now receive one regularly scheduled monthly payment for any and all money earned during the previous month.
+        As TopCoder has grown, our ability to effectively manage member payments has become a growing challenge. To help make the process more predictable, members will now receive one regularly scheduled monthly payment for any and all money earned during the previous month.</td>
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid">details</A> | 
