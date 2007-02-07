@@ -152,10 +152,8 @@
 
     boolean hasPreviousForums = false;
 
-    com.topcoder.dde.catalog.ForumCategory activeCollab = null;
     com.topcoder.dde.catalog.ForumCategory activeSpec = null;
     ComponentVersionInfo versions[] = null;
-    com.topcoder.dde.catalog.ForumCategory collaborations[] = null;
     com.topcoder.dde.catalog.ForumCategory specifications[] = null;
 
     ComponentVersionInfo versionInfo = details.getVers();
@@ -173,30 +171,26 @@
 
         Collection colVersions = componentManager.getAllVersionInfo();
         versions = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
-        collaborations = new com.topcoder.dde.catalog.ForumCategory[versions.length];
         specifications = new com.topcoder.dde.catalog.ForumCategory[versions.length];
         for (int i=0; i < versions.length; i++) {
             if (versions[i].getPhase() != ComponentVersionInfo.COMPLETED) {
-                collaborations[i] = null;
                 specifications[i] = null;
                 continue;
             } else {
                 componentManager.setVersion(versions[i].getVersion());
                 try {
-                    collaborations[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
                     specifications[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
                 } catch (CatalogException ce) {
                     // getForum returns multiple forums of a type which is not supposed to happen
                     // what to do?
                 }
-                if (collaborations[i] != null || specifications[i] != null) {
+                if (specifications[i] != null) {
                     hasPreviousForums = true;
                 }
             }
         }
         componentManager.setVersion(versionInfo.getVersion());
         try {
-            activeCollab = componentManager.getActiveForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
             activeSpec = componentManager.getActiveForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
         } catch (CatalogException ce) {
         }
@@ -676,12 +670,7 @@
                   <hr width="100%" size="1" noshade="noshade" />
 
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
-<%  if (activeCollab != null) { %>
-                            <tr><td class="rightColDisplay"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%= activeCollab.getId() %>">Customer Forum</a></td></tr>
-<%  } else { %>
-                            <tr><td class="rightColOff">No active customer forum</td></tr>
-
-<%  } if (activeSpec != null) { %>
+<%  if (activeSpec != null) { %>
                             <tr><td class="rightColDisplay"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%= activeSpec.getId() %>">Developer Forum</a></td></tr>
 <%  } else { %>
                             <tr><td class="rightColOff">No active developer forum</td></tr>
@@ -700,10 +689,8 @@
                 <tr><td><img src="/images/catalog/catpg_pforums.gif" alt="Previous Forums" width="129" height="13" border="0" />
                 	<hr width="100%" size="1" noshade="noshade" />
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
-<%  for (int i=0; i < versions.length; i++) {
-            if (collaborations[i] != null) {  %>
-                            <tr><td class="rightColDisplay"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%= collaborations[i].getId() %>">Customer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
-            <%  }  if (specifications[i] != null) {  %>
+<%  for (int i=0; i < versions.length; i++) { %>
+            <%  if (specifications[i] != null) {  %>
                             <tr><td class="rightColDisplay"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%= specifications[i].getId() %>">Developer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
             <%  }
 }  %>
