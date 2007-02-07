@@ -1,7 +1,6 @@
-<%-- TCHS07 STARTS HERE --%>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer%>    
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>    
                               
-<% ResultSetContainer rscTch07 = (ResultSetContainer)request.getAttribute("tchs07_info");
+<% ResultSetContainer rscTch07 = (ResultSetContainer) request.getAttribute("tchs07_info");
     if (rscTch07 != null && !rscTch07.isEmpty() && rscTch07.getIntItem(0, "open") == 1) {
 %>
 
