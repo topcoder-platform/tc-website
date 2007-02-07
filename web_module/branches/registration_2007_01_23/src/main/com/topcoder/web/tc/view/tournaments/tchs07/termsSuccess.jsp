@@ -34,7 +34,7 @@
             <br><br>
             If you have any concerns regarding your assigned region, please email <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
         <%} else {%>
-            Sorry, you are not eligible for competing in this tournament.
+            Sorry, you are not eligible to compete in this tournament.
             <br><br>
             If you have any concerns, please email <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
         <%}%>
