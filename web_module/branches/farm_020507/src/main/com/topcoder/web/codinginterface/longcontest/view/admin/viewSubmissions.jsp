@@ -80,6 +80,7 @@
         <%if (!submissions.isEmpty()) { %>
             <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>" value="<%=submissions.getStringItem(0, "round_id")%>"/>
         <% } %>
+        <tc-webtag:hiddenInput name="<%=Constants.EXAMPLE_FLAG%>"/>
         <table cellpadding="0" cellspacing="0" border="0" width="100%" class="statTableHolder">
 
             <tr><td><a href="?<%=Constants.MODULE%>=AdminHome">Back to the Long Contest Admin Home</a></td></tr>

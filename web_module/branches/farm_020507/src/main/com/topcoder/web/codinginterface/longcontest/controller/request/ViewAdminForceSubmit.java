@@ -27,6 +27,7 @@ public class ViewAdminForceSubmit extends Base {
             getRequest().setAttribute("submissions", getDataAccess().getData(r).get("long_contest_submissions"));
 
             setDefault(Constants.ROUND_ID, getRequest().getParameter(Constants.ROUND_ID));
+            setDefault(Constants.EXAMPLE_FLAG, getRequest().getParameter(Constants.EXAMPLE_FLAG));
 
             SortInfo s = new SortInfo();
             getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
