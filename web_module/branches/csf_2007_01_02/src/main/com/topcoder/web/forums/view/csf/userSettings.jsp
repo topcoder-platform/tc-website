@@ -295,6 +295,7 @@ function toggleTabs(anchor,id) {
       <label for="jiveDisplayAllMemberPhotosNo">No</label>
       </td>
    </tr>
+
 <%--
    <tr style="display:none;" id="bodyWatch1">
       <td class="rtHeader" colspan="2">Watch Preferences</td>
@@ -354,8 +355,10 @@ function toggleTabs(anchor,id) {
       </td>
    </tr>
 --%>
-   <input name="watchFrequency" value="-1"/>
-
+   <input type="hidden" name="autoWatchNewTopics" value="No"/>
+   <input type="hidden" name="autoWatchReplies" value="No"/>
+   <input type="hidden" name="markWatchesRead" value="No"/>
+   <input type="hidden" name="watchFrequency" value="-1"/>
 
 
 
