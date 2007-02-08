@@ -342,9 +342,9 @@ function submit() {
     rankedRows = document.getElementById("rankedBody").rows;
     for (var i = 0; i < rankedRows.length; i++) {
         if (i < rankedRows.length - 2) {
-            candidates += rankedRows[i] + ",";
+            candidates += rankedRows[i].id + ",";
         } else {
-            candidates += rankedRows[i];
+            candidates += rankedRows[i].id;
         }
     }
     document.ballotForm.<%=Constants.CANDIDATE_IDS%>.value = candidates;
