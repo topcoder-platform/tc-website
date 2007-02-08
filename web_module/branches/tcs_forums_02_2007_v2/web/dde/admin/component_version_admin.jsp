@@ -947,32 +947,6 @@ if (action != null) {
         }
     }
 
-    // Assign a user a role that has permissions to moderate a customer forum
-    if (action.equals("Customer Forum Moderator")) {
-        String txtUsername = request.getParameter("txtHandle");
-        com.topcoder.dde.catalog.ForumCategory activeCollab = null;
-        String matchCollab = "";
-        long lngRole1 = 0;
-        try {
-            activeCollab = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
-        } catch (CatalogException ce) {
-            debug.addMsg("component version admin", "catalog exception occurred");
-        }
-        
-        if (activeCollab != null) {
-	     	try {
-	     		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
-	     		String groupName = ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX+activeCollab.getId();
-	    		forums.assignRole(userID, groupName);
-	    		strMessage += txtUsername + " successfully added as customer forum moderator.";
-	    	} catch (Exception e) {
-	    		strError += "Error occurred while assigning forums role: " + e.getMessage();
-	    	}
-    	} else {
-    		strMessage += "No customer forum found for this component version.";
-    	}
-    }
-
     // Assign a user a role that has permissions to participate in developer forum for this component
     if (action.equals("Developer Forum User")) {
         String txtUsername = request.getParameter("txtHandle");
@@ -2027,7 +2001,6 @@ if (action != null) {
                         Handle: &#160;<input class="adminSearchForm" type="text" size="20" name="txtHandle">
                     </td>
                     <td>
-                        <input class="adminButton" type="submit" name="a" value="Customer Forum Moderator">
 <%if (ver.getPhase() != ver.COLLABORATION) {%>
                         <input class="adminButton" type="submit" name="a" value="Developer Forum User">
                         <input class="adminButton" type="submit" name="a" value="Developer Forum Moderator">
