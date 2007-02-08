@@ -337,17 +337,17 @@ function isUnRanked(element) {
 
 
 function submit() {
-    var submissions='';
+    var candidates = '';
     var rankedRows;
     rankedRows = document.getElementById("rankedBody").rows;
-    for (var i=0; i<rankedRows.length; i++) {
-        if (i<rankedRows.length-2) {
-            submissions+=rankedRows[i]+",";
+    for (var i = 0; i < rankedRows.length; i++) {
+        if (i < rankedRows.length - 2) {
+            candidates += rankedRows[i] + ",";
         } else {
-            submissions+=rankedRows[i];
+            candidates += rankedRows[i];
         }
     }
-    document.ballotForm.<%=Constants.SUBMISSION_IDS%>=submissions;
+    document.ballotForm.<%=Constants.CANDIDATE_IDS%>= candidates;
     document.ballotForm.submit();
 }
 </script>
@@ -469,7 +469,7 @@ function submit() {
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitBallot"/>
     <tc-webtag:hiddenInput name="<%=Constants.ELECTION_ID%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-    <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_IDS%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CANDIDATE_IDS%>"/>
 
     <div align="center" style="margin:20px;">
         Are you done ranking the candidates?
