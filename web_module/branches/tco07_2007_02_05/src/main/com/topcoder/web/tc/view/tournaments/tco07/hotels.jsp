@@ -31,16 +31,34 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Hotels in Las Vegas</div></h1>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
-                        </p>
-                        <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
-                        </p>
-                        <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
-                        </p>
+<h1><div>Hotels near the TCO07</div></h1>
+<p>
+<A href="http://www.mirage.com/" target="_blank">The Mirage</A><br>
+3400 S. Las Vegas Blvd.<br>
+Las Vegas, NV 89109<br>
+800-374-9000
+</p>
+<p>
+Several other hotels are located only a short walk from The Mirage.  We have included a representative sample for your convenience: 
+</p>
+<p>
+<A href="http://www.imperialpalace.com/stay.php" target="_blank">Imperial Palace</A><br>
+3535 S. Las Vegas Blvd.<br>
+Las Vegas, NV 89109<br>
+800-634-6441
+</p>
+<p>
+<A href="http://www.harrahs.com/casinos/harrahs-las-vegas/casino-misc/hotel-overview.html" target="_blank">Harrah's Las Vegas</A><br>
+3475 S. Las Vegas Blvd.<br>
+Las Vegas, NV 89109<br>
+800-392-9002
+</p>
+<p>
+<A href="http://www.harrahs.com/casinos/caesars-palace/hotel-casino/property-home.shtml" target="_blank">Caesars Palace</A><br>
+3570 S. Las Vegas Blvd.<br>
+Las Vegas, NV 89109<br>
+877-427-7243
+</p>
 
                     </div>
                 </td>
