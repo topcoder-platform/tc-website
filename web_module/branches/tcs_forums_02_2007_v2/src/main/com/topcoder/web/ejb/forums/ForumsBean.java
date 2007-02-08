@@ -15,12 +15,15 @@ import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
+import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumPermissions;
+import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.Watch;
 import com.jivesoftware.forum.WatchManager;
 import com.jivesoftware.base.Group;
 import com.jivesoftware.base.GroupManager;
+import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.PermissionType;
 import com.jivesoftware.base.PermissionsManager;
 import com.jivesoftware.base.UnauthorizedException;
@@ -55,6 +58,7 @@ public class ForumsBean extends BaseEJB {
     private static TCResourceBundle bundle = new TCResourceBundle("TC");
     private static final long TCS_FORUMS_ROOT_CATEGORY_ID = 
     	Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
+    private static long swAdminID = 303584;
 
     // Creates a new forum in the "Algorithm Matches" category of the forums for the given round.
     // Also sets the forum_id field of the corresponding row in DW.round.
@@ -384,6 +388,28 @@ public class ForumsBean extends BaseEJB {
     		forumsPS.close();
     		forumsConn.close();
     	
+    		// SW admin posts one introductory message in every category so that it will rise to the top
+    		// of the list of forums. This should be replaced by a search function that will find category
+    		// by name, or (possibly better) by not moving empty categories to the end.
+    		try {
+    			String swAdminIDStr = JiveGlobals.getJiveProperty("tc.tcs.forums.admin");
+    			if (swAdminIDStr != null) {
+    				swAdminID = Long.parseLong(swAdminIDStr);
+    			}
+    		} catch (Exception e) {
+    			com.jivesoftware.base.Log.debug("ForumsBean.createSoftwareComponentForums(): cannot find SW admin");
+    		}
+    		User swAdmin = forumFactory.getUserManager().getUser(swAdminID);
+    		if (newCategory.getForumCount() > 0) {
+    			Iterator itForums = newCategory.getForums();
+    			Forum f = (Forum)itForums.next();
+    			ForumMessage m = f.createMessage(swAdmin);
+    			m.setSubject(newCategory.getName());
+    			m.setBody("Welcome to the " + newCategory.getName() + " forums. Please post component-related questions and documents here.");
+    			ForumThread t = f.createThread(m);
+    			f.addThread(t);
+    		}
+    				
     		// Customer forums are always public
     		if (templateID != ForumConstants.CUSTOMER_FORUM) {
     			createSoftwareComponentPermissions(newCategory, isPublic);

@@ -884,6 +884,7 @@ public class ComponentManagerBean
 	    	    				((Long)compBean.getPrimaryKey()).longValue(), ((Long)versionBean.getPrimaryKey()).longValue(), 
 	    	    				versionBean.getPhaseId(), compBean.getStatusId(), compBean.getRootCategory(), 
 	    	    				compBean.getShortDesc(), versionBean.getVersionText(), ForumCategory.SPECIFICATION, info.getPublicForum());
+	    	    		compforumHome.create(newForum, categoryID, ForumCategory.SPECIFICATION, versionBean);
 	    	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
 	    	    	} catch (RemoteException e) {
 	    	    		ejbContext.setRollbackOnly();
