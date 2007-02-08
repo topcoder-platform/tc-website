@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><A href="/tc?module=Static&d1=features&d2=020607"><strong>Marathon Man: An interview with <tc-webtag:handle coderId="7504863" context="algorithm"/></strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
+<li><A href="/tc?module=Static&d1=features&d2=020807"><strong>Beginning TopCoder Competition with C++</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
+This article is aimed at programmers who are thinking of using C++ as a programming language for TopCoder algorithm matches &mdash; either because they are new to TopCoder, or because they want to switch languages.</li>
+<li><A href="/tc?module=Static&d1=features&d2=020607"><strong>Marathon Man: An interview with battyone</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
 Over the course of 11 Intel competitions, <tc-webtag:handle coderId="7504863" context="algorithm"/> finished at #1 six times, and finished in the top 5 in three more. With the Intel series now behind us, I asked <tc-webtag:handle coderId="7504863" context="algorithm"/> for his advice and insights on marathon matches.</li>
 <li><A href="/tc?module=Static&d1=features&d2=020207"><strong>TopCoder @ Work: Not Another Vista Article</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
 Even a peaceful venture to my favorite bookstore can't shield me from stacks of dead trees festooned with the five-letter-word I've tried to escape: VISTA.</li>
-<li><A href="/tc?module=Static&d1=features&d2=013107"><strong>Five Things You Didn't Know About C++, Part 2</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
-This is a follow-up to my previous article, Five Things You Didn't Know About C++, a collection of obscure, surprising and (possibly) useful C++ features.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
