@@ -2,9 +2,9 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%----------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.08.07<br>9:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.08.07<br>9:20 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2056">Now open: Registration Tool Design Contest</A></span><br><br>
         The Registration Tool Wireframe Design contest, now open at TopCoder Studio, is your chance to help design a new user-friendly way to register for TopCoder competitions. The contest offers cash prizes totaling $2,750.</td>
@@ -14,7 +14,7 @@
         <A href="http://studio.topcoder.com/forums?module=ThreadList&forumID=30">discuss</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-----------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.07.07<br>5:00 PM</td>
