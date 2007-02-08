@@ -1,6 +1,8 @@
+<%@ page import="com.topcoder.web.csf.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 
 <html>
@@ -75,6 +77,10 @@ function swap(row1, row2) {
         temp = row2.cells[1].innerHTML;
         row2.cells[1].innerHTML = row1.cells[1].innerHTML;
         row1.cells[1].innerHTML = temp;
+
+        temp = row2.id;
+        row2.id = row1.id;
+        row1.id = temp;
     }
 }
 
@@ -155,42 +161,41 @@ function down(element) {
 }
 
 /**
- * Move a row from being unranked to ranked.
+ * Move a row from it's current position to another.
  */
 
 function reRank(element, idx) {
     var row = findRow(element);
-    if (isUnRanked(row)) {
-        var rankedBody = document.getElementById("rankedBody");
-            var tr = rankedBody.insertRow(idx);
-            var td;
-            for (var j = 0; j < 2; j++) {
-                td = tr.insertCell(tr.cells.length);
-                if (j == 1) {
-                    //only need to copy the data, the rest will be taken care of in the refresh
-                    td.innerHTML = row.cells[j].innerHTML;
-                }
-            }
-
-            //look around and delete the old row from the ranked table
-            var found = false;
-            for (var i = 1; i < rankedBody.rows.length && !found; i++) {
-                if (rankedBody.rows[i] == row) {
-                    found = true;
-                    rankedBody.deleteRow(i);
-                }
-            }
-
-            //if it wasn't a ranked row, perhaps it was an unranked one
-            var unRankedBody = document.getElementById("unRankedBody");
-            for (var i = 0; i < unRankedBody.rows.length; i++) {
-                if (unRankedBody.rows[i] == row) {
-                    unRankedBody.deleteRow(i);
-                }
-            }
-
-            refreshRanked(rankedBody);
+    var rankedBody = document.getElementById("rankedBody");
+    var tr = rankedBody.insertRow(idx);
+    var td;
+    for (var j = 0; j < 2; j++) {
+        td = tr.insertCell(tr.cells.length);
+        if (j == 1) {
+            //only need to copy the data, the rest will be taken care of in the refresh
+            td.innerHTML = row.cells[j].innerHTML;
+        }
     }
+    tr.id = row.id;
+
+    //look around and delete the old row from the ranked table
+    var found = false;
+    for (var i = 1; i < rankedBody.rows.length && !found; i++) {
+        if (rankedBody.rows[i] == row) {
+            found = true;
+            rankedBody.deleteRow(i);
+        }
+    }
+
+    //if it wasn't a ranked row, perhaps it was an unranked one
+    var unRankedBody = document.getElementById("unRankedBody");
+    for (var i = 0; i < unRankedBody.rows.length; i++) {
+        if (unRankedBody.rows[i] == row) {
+            unRankedBody.deleteRow(i);
+        }
+    }
+
+    refreshRanked(rankedBody);
 }
 
 /**
@@ -210,6 +215,7 @@ function remove(element) {
             if (rankedBody.rows[i] == row) {
                 var unRankedBody = document.getElementById("unRankedBody");
                 var newRow = unRankedBody.insertRow(unRankedBody.rows.length);
+                newRow.id = row.id;
                 var tdRank = newRow.insertCell(newRow.cells.length);
                 tdRank.innerHTML = 'not ranked';
                 var tdData = newRow.insertCell(newRow.cells.length);
@@ -361,36 +367,36 @@ function isUnRanked(element) {
 </div>
 
 <table id="ranked" class="stat" style="width: 100%; margin-bottom: 0px;" cellpadding="0" cellspacing="0">
-<thead>
-    <tr>
-        <td class="title" colspan="5"><span class="title">My Vote</span></td>
-    </tr>
-    <tr>
-        <td class="headerC">
-            <div style="width: 45px;">Rank</div>
-        </td>
-        <td class="header" width="100%">
-            Candidate
-        </td>
-        <td class="headerC" nowrap="nowrap">
-            <div style="width: 80px;">Move Up /<br>Move Down</div>
-        </td>
-        <td class="headerC" nowrap="nowrap">
-            <div style="width: 56px;">Move to<br>Top</div>
-        </td>
-        <td class="headerC" nowrap="nowrap">
-            <div style="width: 62px;">Remove</div>
-        </td>
-    </tr>
-</thead>
-<tbody id="rankedBody">
+    <thead>
+        <tr>
+            <td class="title" colspan="5"><span class="title">My Vote</span></td>
+        </tr>
+        <tr>
+            <td class="headerC">
+                <div style="width: 45px;">Rank</div>
+            </td>
+            <td class="header" width="100%">
+                Candidate
+            </td>
+            <td class="headerC" nowrap="nowrap">
+                <div style="width: 80px;">Move Up /<br>Move Down</div>
+            </td>
+            <td class="headerC" nowrap="nowrap">
+                <div style="width: 56px;">Move to<br>Top</div>
+            </td>
+            <td class="headerC" nowrap="nowrap">
+                <div style="width: 62px;">Remove</div>
+            </td>
+        </tr>
+    </thead>
+    <tbody id="rankedBody">
 </table>
 <%-- table for the disabled candidates --%>
 <table id="unranked" class="stat" style="width: 100%;" cellpadding="0" cellspacing="0">
     <tbody id="unRankedBody">
         <c:forEach items="${candidates}" var="candidate">
 
-            <tr class="disabled">
+            <tr class="disabled" id="${candidate.id}">
                 <td class="valueC">
                     not ranked
                 </td>
@@ -444,12 +450,20 @@ function isUnRanked(element) {
     <div>View full submission</div>
 </div>
 
-<div align="center" style="margin:20px;">
-    Are you done ranking the candidates?
-    <div align="center" style="margin-top:10px;">
-        <A href="#" class="button" style="width: 160px;">Submit my vote</A>
+<form action="${sessionInfo.servletPath}" method="POST" name="ballotForm">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitBallot"/>
+    <tc-webtag:hiddenInput name="<%=Constants.ELECTION_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_IDS%>"/>
+
+    <div align="center" style="margin:20px;">
+        Are you done ranking the candidates?
+        <div align="center" style="margin-top:10px;">
+            <A href="javascript:void(0)" onclick="submit()" class="button" style="width: 160px;">Submit my vote</A>
+        </div>
     </div>
-</div>
+</form>
+
 
 </div>
 
