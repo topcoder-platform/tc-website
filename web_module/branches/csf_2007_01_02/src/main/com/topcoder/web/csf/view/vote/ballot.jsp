@@ -381,11 +381,18 @@ function submit() {
     When you're done, click the <strong>Submit my vote</strong> button on bottom.
 </div>
 
+<p>
+<tc-webtag:errorIterator id="err" name="<%=Constants.CANDIDATE_IDS%>">
+                        <span class="bigRed">${err}</span>
+                        <br></tc-webtag:errorIterator>
+</p>
 <table id="ranked" class="stat" style="width: 100%; margin-bottom: 0px;" cellpadding="0" cellspacing="0">
     <thead>
         <tr>
             <td class="title" colspan="5"><span class="title">My Vote</span></td>
         </tr>
+
+
         <tr>
             <td class="headerC">
                 <div style="width: 45px;">Rank</div>
