@@ -23,4 +23,8 @@ public class VotingDAOFactoryHibernate implements VotingDAOFactory {
     public ElectionStatusDAO getElectionStatusDAO() {
         return new ElectionStatusDAOHibernate();
     }
+
+    public CandidateDAO getCandidateDAO() {
+        return new CandidateDAOHibernate();
+    }
 }
