@@ -58,7 +58,7 @@ public class ForumsBean extends BaseEJB {
     private static TCResourceBundle bundle = new TCResourceBundle("TC");
     private static final long TCS_FORUMS_ROOT_CATEGORY_ID = 
     	Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
-    private static long swAdminID = 303584;
+    private static long swAdminID = 305384;
 
     // Creates a new forum in the "Algorithm Matches" category of the forums for the given round.
     // Also sets the forum_id field of the corresponding row in DW.round.
