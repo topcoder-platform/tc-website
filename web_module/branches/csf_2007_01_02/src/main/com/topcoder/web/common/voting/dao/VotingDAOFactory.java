@@ -13,4 +13,6 @@ public interface VotingDAOFactory {
     CandidatePropertyDAO getContestPropertyDAO();
 
     ElectionStatusDAO getElectionStatusDAO();
+
+    CandidateDAO getCandidateDAO();
 }

@@ -15,4 +15,6 @@ public interface RankBallotDAO {
     List getBallots(Long electionId);
 
     RankBallot find(Long electionId, Long userId);
+
+    void saveOrUpdate(RankBallot ballot);
 }

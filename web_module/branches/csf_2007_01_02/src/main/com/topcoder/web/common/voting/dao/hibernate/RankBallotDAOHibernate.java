@@ -34,4 +34,8 @@ public class RankBallotDAOHibernate extends Base implements RankBallotDAO {
         return (RankBallot) q.uniqueResult();
     }
 
+    public void saveOrUpdate(RankBallot ballot) {
+        super.saveOrUpdate(ballot);
+    }
+
 }
