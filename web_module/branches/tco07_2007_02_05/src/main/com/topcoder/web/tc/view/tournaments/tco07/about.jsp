@@ -39,7 +39,7 @@ It's the ultimate TopCoder experience!  Four competitions, professional and coll
 <p>
 This is your chance to compete in one of the most prestigious competitions on earth.  If you have programming talent and/or graphic design talent, you don't want to miss this tournament.  We're handing out $250,000 in prize money and 80 all expense-paid trips to Las Vegas, Nevada!
 </p>
-<h2>How do you get at chance at the glory, cash and trip?</h2>
+<h2>How do you get a chance at the glory, cash and trip?</h2>
 <ol>
 <li><A href="">Register</A> as a TopCoder Competitor.</li>
 <li>Make sure you're eligible.  All registered TopCoder members over the age of 18 may compete.  See the complete rules for each competition to get the full details.</li>
