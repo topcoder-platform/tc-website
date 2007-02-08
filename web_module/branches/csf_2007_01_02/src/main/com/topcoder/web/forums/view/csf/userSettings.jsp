@@ -354,6 +354,11 @@ function toggleTabs(anchor,id) {
       </td>
    </tr>
 --%>
+   <input name="watchFrequency" value="-1"/>
+
+
+
+
    <tr style="display:none;" id="bodyRate1">
         <td class="rtHeader" colspan="2">Rating Preferences</td>
    </tr>
