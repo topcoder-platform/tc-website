@@ -335,6 +335,21 @@ function isUnRanked(element) {
     return null;
 }
 
+
+function submit() {
+    var submissions='';
+    var rankedRows;
+    rankedRows = document.getElementById("rankedBody").rows;
+    for (var i=0; i<rankedRows.length; i++) {
+        if (i<rankedRows.length-2) {
+            submissions+=rankedRows[i]+",";
+        } else {
+            submissions+=rankedRows[i];
+        }
+    }
+    document.ballotForm.<%=Constants.SUBMISSION_IDS%>=submissions;
+    document.ballotForm.submit();
+}
 </script>
 
 
