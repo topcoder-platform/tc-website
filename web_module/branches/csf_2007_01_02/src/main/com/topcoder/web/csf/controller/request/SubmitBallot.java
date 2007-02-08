@@ -1,12 +1,12 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.voting.CondorcetSchulzeElection;
 import com.topcoder.web.common.voting.Candidate;
-import com.topcoder.web.common.voting.Vote;
+import com.topcoder.web.common.voting.CondorcetSchulzeElection;
 import com.topcoder.web.common.voting.RankBallot;
+import com.topcoder.web.common.voting.Vote;
 import com.topcoder.web.common.voting.dao.CandidateDAO;
 import com.topcoder.web.common.voting.dao.VotingDAOUtil;
 import com.topcoder.web.csf.Constants;
@@ -23,6 +23,7 @@ public class SubmitBallot extends ViewBallot {
     protected void ballotProcessing(Contest contest, CondorcetSchulzeElection election) throws Exception {
         String candidateIds = StringUtils.checkNull(getRequest().getParameter(Constants.CANDIDATE_IDS));
         if ("".equals(candidateIds)) {
+            loadDataIntoRequest(contest, election);
             addError(Constants.CANDIDATE_IDS, "Please be sure to make your selections before you submit.");
         }
 
@@ -34,13 +35,13 @@ public class SubmitBallot extends ViewBallot {
         String id;
         Candidate c;
         Vote v;
-        int i=0;
+        int i = 0;
         RankBallot b = new RankBallot(election, DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId())));
         for (StringTokenizer st = new StringTokenizer(candidateIds, ","); st.hasMoreTokens();) {
             id = st.nextToken();
             try {
                 c = dao.find(new Long(id));
-                if (c==null) {
+                if (c == null) {
                     throw new NavigationException("Invalid candidate specified.");
                 } else {
                     v = new Vote();
@@ -54,12 +55,12 @@ public class SubmitBallot extends ViewBallot {
             }
             VotingDAOUtil.getFactory().getRankBallotDAO().saveOrUpdate(b);
         }
-   }
-
+    }
 
 
     protected void setNextPage() {
         if (hasErrors()) {
+
             setNextPage("/vote/ballot.jsp");
             setIsNextPageInContext(true);
         } else {
