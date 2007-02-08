@@ -27,6 +27,7 @@
     <title>Software Components form the basis of the applications built by TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
+    <meta http-equiv="REFRESH" content="1;url=/">
 </head>
 
 <body class="body">
@@ -58,7 +59,7 @@
         <td width="99%">
 
 <div style="margin: 60px 20px 100px 20px;" align="center">
-The Component Forums have moved <a href="">here</a>.
+The Component Forums have moved <a href="/">here</a>.
 <br><br>
 You will be redirected there momentarily.
 </div>
