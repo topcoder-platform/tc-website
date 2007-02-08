@@ -73,13 +73,15 @@ public class ViewBallot extends ShortHibernateProcessor {
 
     protected void loadDataIntoRequest(Contest contest, CondorcetSchulzeElection election) {
         setDefault(Constants.ELECTION_ID, election.getId());
+        setDefault(Constants.CONTEST_ID, contest.getId());
         ArrayList shuffledCandidates = new ArrayList(election.getCandidates());
         Collections.shuffle(shuffledCandidates);
-                getRequest().setAttribute("candidates", shuffledCandidates);
-                getRequest().setAttribute("election", election);
-                getRequest().setAttribute("contest", contest);
+        getRequest().setAttribute("candidates", shuffledCandidates);
+        getRequest().setAttribute("election", election);
+        getRequest().setAttribute("contest", contest);
 
     }
+
     protected void setNextPage() {
         setNextPage("/vote/ballot.jsp");
         setIsNextPageInContext(true);

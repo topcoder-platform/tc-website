@@ -41,6 +41,7 @@ public class Constants implements WebConstants {
     public static final String SUBMISSION_RANK = "srank";
     public static final String SUBMISSION_IDS = "sids";
     public static final String ELECTION_ID = "elid";
+    public static final String CANDIDATE_IDS = "cids";
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
