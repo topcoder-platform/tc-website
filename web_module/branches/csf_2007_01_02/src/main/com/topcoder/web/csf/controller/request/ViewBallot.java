@@ -55,27 +55,37 @@ public class ViewBallot extends ShortHibernateProcessor {
                     if (ElectionStatus.ACTIVE.equals(election.getStatus().getId())) {
                         Date now = new Date();
                         if (election.getStartTime().before(now) && election.getEndTime().after(now)) {
-                            setDefault(Constants.ELECTION_ID, election.getId());
-                            ArrayList shuffledCandidates = new ArrayList(election.getCandidates());
-                            Collections.shuffle(shuffledCandidates);
-                            getRequest().setAttribute("candidates", shuffledCandidates);
-                            getRequest().setAttribute("election", election);
-                            getRequest().setAttribute("contest", contest);
+                            ballotProcessing(contest, election);
+                            setNextPage();
                         } else {
                             throw new NavigationException("Inactive election specified.");
                         }
                     } else {
                         throw new NavigationException("Invalid election specified.");
                     }
-
-
-                    setNextPage("/vote/ballot.jsp");
-                    setIsNextPageInContext(true);
                 }
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
+    }
+
+    protected void loadDataIntoRequest(Contest contest, CondorcetSchulzeElection election) {
+        setDefault(Constants.ELECTION_ID, election.getId());
+        ArrayList shuffledCandidates = new ArrayList(election.getCandidates());
+        Collections.shuffle(shuffledCandidates);
+                getRequest().setAttribute("candidates", shuffledCandidates);
+                getRequest().setAttribute("election", election);
+                getRequest().setAttribute("contest", contest);
+
+    }
+    protected void setNextPage() {
+        setNextPage("/vote/ballot.jsp");
+        setIsNextPageInContext(true);
+    }
+
+    protected void ballotProcessing(Contest contest, CondorcetSchulzeElection election) throws Exception {
+        loadDataIntoRequest(contest, election);
     }
 }
