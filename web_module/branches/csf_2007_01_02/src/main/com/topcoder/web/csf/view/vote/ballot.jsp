@@ -347,7 +347,7 @@ function submit() {
             candidates += rankedRows[i];
         }
     }
-    document.ballotForm.<%=Constants.CANDIDATE_IDS%>= candidates;
+    document.ballotForm.<%=Constants.CANDIDATE_IDS%>.value = candidates;
     document.ballotForm.submit();
 }
 </script>
@@ -382,9 +382,9 @@ function submit() {
 </div>
 
 <p>
-<tc-webtag:errorIterator id="err" name="<%=Constants.CANDIDATE_IDS%>">
-                        <span class="bigRed">${err}</span>
-                        <br></tc-webtag:errorIterator>
+    <tc-webtag:errorIterator id="err" name="<%=Constants.CANDIDATE_IDS%>">
+        <span class="bigRed">${err}</span>
+        <br></tc-webtag:errorIterator>
 </p>
 <table id="ranked" class="stat" style="width: 100%; margin-bottom: 0px;" cellpadding="0" cellspacing="0">
     <thead>
