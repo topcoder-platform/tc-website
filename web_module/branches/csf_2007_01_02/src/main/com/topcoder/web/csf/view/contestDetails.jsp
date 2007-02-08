@@ -170,29 +170,18 @@ ${contest.prizeDescription.value}
 
 <h2>Eligibility</h2>
 
-<p>You must be a TopCoder Studio member, at least 18 years of age, meeting all of the membership requirements.
+<p>You must be a Microsoft Connected Services Sandbox (<a href="http://www.networkmashups.com" target="blank">www.networkmashups.com</a>) member, at least 18 years of age, meeting all of the membership requirements.
     In addition, you must fit into one of the following categories.
 </p>
 
 <p>If you reside in the United States, you must be either:</p>
 <ul>
-    <li>A US Citizen</li>
-    <li>A Lawful Permanent Resident of the US</li>
-    <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
-        permitting unrestricted employment in the U.S.
-    </li>
+    <li>You must be authorized to perform work in your country of residence.</li>
 </ul>
-<c:choose>
-<c:when test="${contest.id==2048}"></c:when>
-<c:otherwise>
-<p>If you do not reside in the United States:</p>
-<ul>
-    <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you will
-        not need to do anything to become authorized)
-    </li>
-    </c:otherwise>
-    </c:choose>
-</ul>
+
+<p>Employees of Microsoft Corporation ("Microsoft"), British Telecom ("BT") and TopCoder, Inc. ("TopCoder"), their affiliated
+    companies, advertising and promotion agencies and immediate family members of each are not eligible. All federal,
+    state and local laws and regulations apply. Void where prohibited.</p> 
 
 
 <h2>Timeline</h2>
