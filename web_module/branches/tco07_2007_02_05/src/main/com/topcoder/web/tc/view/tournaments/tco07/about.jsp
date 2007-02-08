@@ -32,16 +32,33 @@
                     <img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />
                     <div id="pageBody">
 
-                        <h1><div>2007 TopCoder Open</div></h1>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
-                        </p>
-                        <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
-                        </p>
-                        <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
-                        </p>
+<h1><div>2007 TopCoder Open</div></h1>
+<p>
+It's the ultimate TopCoder experience!  Four competitions, professional and collegiate programmers and designers from all over the world, 80 finalists, and one grand finale at The Mirage in Las Vegas, Nevada, June 26 - 29, 2007; the 2007 TopCoder Open has arrived!
+</p>
+<p>
+This is your chance to compete in one of the most prestigious competitions on earth.  If you have programming talent and/or graphic design talent, you don't want to miss this tournament.  We're handing out $250,000 in prize money and 80 all expense-paid trips to Las Vegas, Nevada!
+</p>
+<h2>How do you get at chance at the glory, cash and trip?</h2>
+<ol>
+<li><A href="">Register</A> as a TopCoder Competitor.</li>
+<li>Make sure you're eligible.  All registered TopCoder members over the age of 18 may compete.  See the complete rules for each competition to get the full details.</li>
+<li>Pick your competition and read the rules:
+    <ul>
+    <li><A href="">Algorithm Competition</A></li>
+    <li><A href="">Component Design Competition and Development Competition</A></li>
+    <li><A href="">Marathon Match Competition</A></li>
+    <li><A href="">Studio Design Competition</A></li>
+    </ul>
+</li>
+<li>Have fun and best of luck in the competition arena!</li>
+</ol>
+
+<p align="center" style="margin-top: 40px;">
+This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033.<br>
+<span class="small">[AOL LLC is not responsible for any aspect of the Tournament.]</span>
+</p>
+
 
                     </div>
                 </td>

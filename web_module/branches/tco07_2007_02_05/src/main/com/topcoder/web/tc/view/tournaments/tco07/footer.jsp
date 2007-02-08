@@ -1,5 +1,7 @@
 <div style="position:relative;">
-    <div id="topcoderLogo" align="center"><a href="/"><img src="/i/tournament/tco07/topcoderlogo.png" alt="TopCoder&#174;" /></a></div>
+    <div id="topcoderLogo" align="center">
+        <a href="/"><img src="/i/tournament/tco07/topcoderlogo.png" alt="TopCoder&#174;" /></a>
+    </div>
     <div id="footer">
         <div class="links">
             <a href="/">Home</a>
