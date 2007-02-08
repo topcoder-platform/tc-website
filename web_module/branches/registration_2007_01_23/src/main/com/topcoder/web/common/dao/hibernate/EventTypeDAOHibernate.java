@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import org.hibernate.Session;
+
 import com.topcoder.web.common.dao.EventTypeDAO;
 import com.topcoder.web.common.model.EventType;
 
@@ -9,6 +11,14 @@ import com.topcoder.web.common.model.EventType;
  *          Create Date: May 25, 2006
  */
 public class EventTypeDAOHibernate extends Base implements EventTypeDAO {
+    public EventTypeDAOHibernate() {
+        super();
+    }
+    
+    public EventTypeDAOHibernate(Session session) {
+        super(session);
+    }
+    
     public EventType find(Integer id) {
         return (EventType) find(EventType.class, id);
     }

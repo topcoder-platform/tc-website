@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import org.hibernate.Session;
+
 import com.topcoder.web.common.dao.QuestionStyleDAO;
 import com.topcoder.web.common.model.QuestionStyle;
 
@@ -9,6 +11,14 @@ import com.topcoder.web.common.model.QuestionStyle;
  *          Create Date: May 25, 2006
  */
 public class QuestionStyleDAOHibernate extends Base implements QuestionStyleDAO {
+    public QuestionStyleDAOHibernate() {
+        super();
+    }
+    
+    public QuestionStyleDAOHibernate(Session session) {
+        super(session);
+    }
+    
     public QuestionStyle find(Integer id) {
         return (QuestionStyle) find(QuestionStyle.class, id);
     }
