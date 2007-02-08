@@ -341,7 +341,7 @@ function submit() {
     var rankedRows;
     rankedRows = document.getElementById("rankedBody").rows;
     for (var i = 0; i < rankedRows.length; i++) {
-        if (i < rankedRows.length - 2) {
+        if (i < rankedRows.length - 1) {
             candidates += rankedRows[i].id + ",";
         } else {
             candidates += rankedRows[i].id;
