@@ -28,33 +28,36 @@ public class SubmitBallot extends ViewBallot {
         }
 
         if (log.isDebugEnabled()) {
-            log.debug("submission ids: " + candidateIds);
+            log.debug("candidate ids: " + candidateIds);
         }
 
-        CandidateDAO dao = VotingDAOUtil.getFactory().getCandidateDAO();
-        String id;
-        Candidate c;
-        Vote v;
-        int i = 0;
-        RankBallot b = new RankBallot(election, DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId())));
-        for (StringTokenizer st = new StringTokenizer(candidateIds, ","); st.hasMoreTokens();) {
-            id = st.nextToken();
-            try {
-                c = dao.find(new Long(id));
-                if (c == null) {
+        if (!hasErrors()) {
+            CandidateDAO dao = VotingDAOUtil.getFactory().getCandidateDAO();
+            String id;
+            Candidate c;
+            Vote v;
+            int i = 0;
+            RankBallot b = new RankBallot(election, DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId())));
+            for (StringTokenizer st = new StringTokenizer(candidateIds, ","); st.hasMoreTokens();) {
+                id = st.nextToken();
+                try {
+                    c = dao.find(new Long(id));
+                    if (c == null) {
+                        throw new NavigationException("Invalid candidate specified.");
+                    } else {
+                        v = new Vote();
+                        v.setRank(new Integer(++i));
+                        v.getId().setCandidate(c);
+                        v.getId().setBallot(b);
+                        b.getVotes().add(v);
+                    }
+                } catch (NumberFormatException e) {
                     throw new NavigationException("Invalid candidate specified.");
-                } else {
-                    v = new Vote();
-                    v.setRank(new Integer(++i));
-                    v.getId().setCandidate(c);
-                    v.getId().setBallot(b);
-                    b.getVotes().add(v);
                 }
-            } catch (NumberFormatException e) {
-                throw new NavigationException("Invalid candidate specified.");
+                VotingDAOUtil.getFactory().getRankBallotDAO().saveOrUpdate(b);
             }
-            VotingDAOUtil.getFactory().getRankBallotDAO().saveOrUpdate(b);
         }
+
     }
 
 
