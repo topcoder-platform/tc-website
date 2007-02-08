@@ -396,18 +396,22 @@ public class ForumsBean extends BaseEJB {
     			if (swAdminIDStr != null) {
     				swAdminID = Long.parseLong(swAdminIDStr);
     			}
-    		} catch (Exception e) {
-    			com.jivesoftware.base.Log.debug("ForumsBean.createSoftwareComponentForums(): cannot find SW admin");
+    		} catch (NumberFormatException nfe) {
+    			com.jivesoftware.base.Log.debug("ForumsBean.createSoftwareComponentForums(): cannot find SW admin from Jive property");
     		}
-    		User swAdmin = forumFactory.getUserManager().getUser(swAdminID);
-    		if (newCategory.getForumCount() > 0) {
-    			Iterator itForums = newCategory.getForums();
-    			Forum f = (Forum)itForums.next();
-    			ForumMessage m = f.createMessage(swAdmin);
-    			m.setSubject(newCategory.getName());
-    			m.setBody("Welcome to the " + newCategory.getName() + " forums. Please post component-related questions and documents here.");
-    			ForumThread t = f.createThread(m);
-    			f.addThread(t);
+    		try {
+    			User swAdmin = forumFactory.getUserManager().getUser(swAdminID);
+    		    if (newCategory.getForumCount() > 0) {
+	    			Iterator itForums = newCategory.getForums();
+	    			Forum f = (Forum)itForums.next();
+	    			ForumMessage m = f.createMessage(swAdmin);
+	    			m.setSubject(newCategory.getName());
+	    			m.setBody("Welcome to the " + newCategory.getName() + " forums. Please post component-related questions and documents here.");
+	    			ForumThread t = f.createThread(m);
+	    			f.addThread(t);
+    		    }
+    		} catch (UserNotFoundException unfe) {
+    			com.jivesoftware.base.Log.debug("ForumsBean.createSoftwareComponentForums(): admin not found - will not create initial message");
     		}
     				
     		// Customer forums are always public
