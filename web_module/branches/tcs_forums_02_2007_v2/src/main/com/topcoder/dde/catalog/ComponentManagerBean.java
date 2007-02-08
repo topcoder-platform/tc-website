@@ -872,7 +872,31 @@ public class ComponentManagerBean
         if (forums.size() == 0) {
             if (info.getPhase() == ComponentVersionInfo.SPECIFICATION
                     || info.getPhase() == ComponentVersionInfo.DEVELOPMENT) {
-        	
+            	/*	TODO: remove */
+            	 	        	try {
+            	 	                com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
+            	 	                try {
+            	 	                    forum = forumadminHome.create().createForum(forum,
+            	 	                            Long.parseLong(getConfigValue("spec_forum_template")));
+            	 	                } catch (ConfigManagerException cme) {
+            	 	                    log.warn("Encountered a configuration manager exception reading spec_forum_template property");
+            	 	                    forum = forumadminHome.create().createForum(forum);
+            	 	                } catch (NumberFormatException nfe) {
+            	 	                    log.warn("Failed to parse the spec_forum_template property");
+            	 	                    forum = forumadminHome.create().createForum(forum);
+            	 	                }
+            	 	                newForum = forum.getId();
+            	 	                //compforumHome.create(newForum, categoryID, ForumCategory.SPECIFICATION, versionBean);
+            	 	            } catch (ForumException exception) {
+            	 	                ejbContext.setRollbackOnly();
+            	 	                throw new CatalogException(
+            	 	                        "Failed to create specification forum: "
+            	 	                        + exception.toString());
+            	 	            } catch (CreateException exception) {
+            	 	                ejbContext.setRollbackOnly();
+            	 	                throw new CatalogException(exception.toString());
+            	 	            }
+            	            	
 	            if (!ejbContext.getRollbackOnly()) {
 	    	    	try {
 	    	    		/*
