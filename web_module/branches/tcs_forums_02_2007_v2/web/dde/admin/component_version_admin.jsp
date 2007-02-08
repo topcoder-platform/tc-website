@@ -2011,6 +2011,7 @@ if (action != null) {
             </table>
 
 <!-- Notifications begins -->
+<%if (ver.getPhase() != ver.COLLABORATION) {%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td class="adminSubhead">Forum Watches</td></tr>
             </table>
@@ -2025,6 +2026,7 @@ if (action != null) {
                     </td>
                 </tr>
             </table>
+<%}%>
 <!-- Notifications ends -->
 
         </td>
