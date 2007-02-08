@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.08.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=020807">Beginning TopCoder Competition with C++</A></span><br><br>
+       This article is aimed at programmers who are thinking of using C++ as a programming language for TopCoder algorithm matches &mdash; either because they are new to TopCoder, or because they want to switch languages.</td>
+      <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=020807">full story</A> | 
+         <tc-webtag:forumLink forumID="506278" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.08.07<br>9:20 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2056">Now open: Registration Tool Design Contest</A></span><br><br>
@@ -180,38 +196,5 @@ vast majority of them almost optimally.
         <A href="/tc?module=SurveyResults&sid=16270">vote results</A> | 
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=27">discuss this</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>01.26.07<br>12:10 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=012607">Five Things You Didn't Know About C++</A></span><br><br>
-       I've been using C++ for many years, but it is an incredibly rich and complex language. In this article, I point out five of the more surprising features that I've discovered, both for the "Wow, I had no idea!" factor as well as because some of them have proven useful.</td>
-      <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=012607">full story</A> | 
-         <tc-webtag:forumLink forumID="506264" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.26.07<br>10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm29">TCHS SRM 29 - Problem Set & Analysis</A></span><br><br>
-TopCoder High School algorithm competitors once again demonstrated impressive speed and accuracy in tackling a difficult set of problems.  Many competitors submitted very fast solutions on the easy and medium problems, with the hard providing a stiffer challenge.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm29">full story</A> | 
-        <tc-webtag:forumLink forumID="506245" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
