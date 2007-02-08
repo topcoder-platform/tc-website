@@ -176,12 +176,22 @@ ${contest.prizeDescription.value}
 
 <p>If you reside in the United States, you must be either:</p>
 <ul>
+    <li>A US Citizen</li>
+    <li>A Lawful Permanent Resident of the US</li>
+    <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
+        permitting unrestricted employment in the U.S.
+    </li>
+</ul>
+<p>If you do not reside in the United States:</p>
+<ul>
     <li>You must be authorized to perform work in your country of residence.</li>
 </ul>
 
-<p>Employees of Microsoft Corporation ("Microsoft"), British Telecom ("BT") and TopCoder, Inc. ("TopCoder"), their affiliated
-    companies, advertising and promotion agencies and immediate family members of each are not eligible. All federal,
-    state and local laws and regulations apply. Void where prohibited.</p> 
+    
+    <p>Employees of Microsoft Corporation ("Microsoft"), British Telecom ("BT") and TopCoder, Inc. ("TopCoder"), their affiliated
+        companies, advertising and promotion agencies and immediate family members of each are not eligible. All federal,
+        state and local laws and regulations apply. Void where prohibited.</p>
+
 
 
 <h2>Timeline</h2>
