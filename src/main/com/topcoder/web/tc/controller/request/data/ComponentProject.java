@@ -1,5 +1,10 @@
 package com.topcoder.web.tc.controller.request.data;
 
+import com.topcoder.common.web.datafeed.AllColumns;
+import com.topcoder.common.web.datafeed.Column;
+import com.topcoder.common.web.datafeed.CommandRunner;
+import com.topcoder.common.web.datafeed.DataFeeder;
+import com.topcoder.common.web.datafeed.RSCDataFeed;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
@@ -7,8 +12,6 @@ import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.DataResource;
-
-import java.util.Map;
 
 /**
  * @author dok
@@ -25,8 +28,44 @@ public class ComponentProject extends Base {
 
         DataResource resource = new DataResource(r.getContentHandle());
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
-            //for now we'll assume they're gettin data from the warehouse, perhaps that'll change later
-            Map m = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true).getData(r);
+            CommandRunner cmd = new CommandRunner(getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true), r);
+            
+            DataFeeder df = new DataFeeder("project_details");
+            
+            // Add general project information
+            RSCDataFeed projectInfo = new RSCDataFeed(null, "project_info", cmd, "dd_project_info"); 
+            AllColumns ac = new AllColumns();
+            ac.replace(new Column("component", "component_name", "id", "component_id"));
+            ac.replace(new Column("winner", "winner", "id", "winner_id"));
+            ac.replace(new Column("stage", "stage", "id", "stage_id"));
+            projectInfo.add(ac);
+
+            df.add(projectInfo);
+            
+            // Add reviewer information
+            RSCDataFeed reviewers = new RSCDataFeed("reviewers", "reviewer", cmd, "dd_reviewers_for_project"); 
+            ac = new AllColumns();
+            ac.replace(new Column("reviewer", "reviewer", "id", "reviewer_id"));
+            ac.replace(new Column("review_resp", "review_resp_desc", "id", "review_resp_id"));
+            reviewers.add(ac);
+            
+            df.add(reviewers);
+
+            // Add submission information
+            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_submissions"); 
+            ac = new AllColumns();
+            ac.replace(new Column("coder", "coder", "id", "user_id"));
+            ac.replace(new Column("score1", "score1", "review_resp_id", "score1_review_resp_id"));
+            ac.replace(new Column("score2", "score2", "review_resp_id", "score2_review_resp_id"));
+            ac.replace(new Column("score3", "score3", "review_resp_id", "score3_review_resp_id"));
+           
+            submissions.add(ac);
+            df.add(submissions);
+
+            df.writeXML(getResponse().getOutputStream());
+            
+            getResponse().flushBuffer();
+            
 
         } else {
             throw new PermissionException(getUser(), resource);
