@@ -5,7 +5,7 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.dde.DDEException;
 import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
-import com.topcoder.dde.catalog.Forum;
+import com.topcoder.dde.catalog.ForumCategory;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.dde.util.Constants;
 import com.topcoder.file.render.ValueTag;
@@ -1035,11 +1035,11 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             ComponentManager componentMgr = home.create(componentId);
-            Forum activeForum = componentMgr.getActiveForum(Forum.SPECIFICATION);
+            ForumCategory activeForumCategory = componentMgr.getActiveForumCategory(ForumCategory.SPECIFICATION);
 
-            if (activeForum == null) throw new EJBException("Could not find forum for component " + componentId);
+            if (activeForumCategory == null) throw new EJBException("Could not find forum for component " + componentId);
 
-            String roleName = "ForumUser " + activeForum.getId();
+            String roleName = "ForumUser " + activeForumCategory.getId();
 
             //add the user to the appropriate role to view the forum
             Object objPrincipalManager = ctx.lookup("security/PrincipalMgr");

@@ -714,7 +714,7 @@ function TabNext(obj,event,len,next_field) {
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="/includes/footer.jsp" flush="true" />
+<jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
 </body>

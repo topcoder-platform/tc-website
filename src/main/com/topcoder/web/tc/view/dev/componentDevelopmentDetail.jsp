@@ -138,10 +138,10 @@
 <%-- Documentation --%>
 <p><strong>Documentation</strong><br/>
     Documentation / Specification available in the
-    <% if (projectDetail.getItem(0, "forum_id").getResultData() == null) { %>
+    <% if (projectDetail.getItem(0, "jive_category_id").getResultData() == null) { %>
     component forums.
     <% } else { %>
-    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=<rsc:item set="<%=projectDetail%>" name="forum_id"/>">component
+    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">component
         forums</a>.
     <% } %>
 

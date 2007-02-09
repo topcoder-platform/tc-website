@@ -97,8 +97,8 @@ public class ProjectTrackerBean implements SessionBean {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        PreparedStatement psForum = null;
-        ResultSet rsForum = null;
+        PreparedStatement psForumCategory = null;
+        ResultSet rsForumCategory = null;
 
         try {
             conn = dataSource.getConnection();
@@ -188,7 +188,7 @@ public class ProjectTrackerBean implements SessionBean {
                 }
 
 
-                long forumId = -1;
+                long forumCategoryId = -1;
 /*
                 // Get forum id from ComponentManagerBean
                 Context context = new InitialContext();
@@ -204,25 +204,23 @@ public class ProjectTrackerBean implements SessionBean {
                 forumId = forum.getId();
 */
 
-                // Get forum id with custom sql
-                psForum = conn.prepareStatement(
-                        "SELECT fm.forum_id " +
-                                "FROM forum_master fm, comp_forum_xref cfx " +
-                                "WHERE fm.forum_id = cfx.forum_id AND " +
-                                "cfx.comp_vers_id = ? AND " +
-                                "cfx.forum_type = 2 AND " + // TODO Hardcoded specification type
-                                "fm.status_id = 1");
+                // Get forum category id with custom sql
+                psForumCategory = conn.prepareStatement(
+                        "SELECT cfx.category_id " +
+                                "FROM comp_forum_xref cfx " +
+                                "WHERE cfx.comp_vers_id = ? AND " +
+                                "cfx.forum_type = 2"); // TODO Hardcoded specification type
 
-                psForum.setLong(1, compVersId);
-                rsForum = psForum.executeQuery();
-                if (rsForum.next()) {
-                    forumId = rsForum.getLong(1);
+                psForumCategory.setLong(1, compVersId);
+                rsForumCategory = psForumCategory.executeQuery();
+                if (rsForumCategory.next()) {
+                    forumCategoryId = rsForumCategory.getLong(1);
                 }
-                log.debug("PT.getProjectById(): forumId: " + forumId);
+                log.debug("PT.getProjectById(): forumCategoryId: " + forumCategoryId);
 
                 long[] templateId = getProjectTemplates(projectId);
 
-                project = new Project(projectId, componentId, forumId,
+                project = new Project(projectId, componentId, forumCategoryId,
                         compVersId, name, version,
                         projectmanager, winner, timeline,
                         currentPhaseInstance, userRole, notes, overview, projectType,
@@ -247,8 +245,8 @@ public class ProjectTrackerBean implements SessionBean {
             throw new RuntimeException(e);
         }*/
         finally {
-            Common.close(rsForum);
-            Common.close(psForum);
+            Common.close(rsForumCategory);
+            Common.close(psForumCategory);
             Common.close(conn, ps, rs);
         }
 

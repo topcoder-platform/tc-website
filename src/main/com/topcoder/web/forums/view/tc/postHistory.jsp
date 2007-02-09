@@ -7,7 +7,6 @@
                  com.topcoder.web.forums.controller.ForumsUtil,
                  java.util.Iterator"
         %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -66,7 +65,6 @@
 <html>
 <head>
     <title>TopCoder Forums</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_forums"/>
@@ -104,7 +102,7 @@
     <table cellpadding="0" cellspacing="0" class="rtbcTable">
         <tr>
             <div class="topLinksL">
-                <strong><a href="?module=Main" class="rtbcLink">Forums</a> > Post History:
+                <strong><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Post History:
                     <tc-webtag:handle coderId="<%=historyUser.getID()%>"/>
                     (<%=ForumsUtil.display(forumFactory.getUserMessageCount(historyUser), "post")%>)</strong>
             </div>

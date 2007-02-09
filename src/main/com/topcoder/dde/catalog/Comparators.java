@@ -151,11 +151,11 @@ class Comparators {
         }
     }
 
-    public static class ForumSorter
+    public static class ForumCategorySorter
             implements Serializable, Comparator {
         public int compare(Object o1, Object o2) {
-            Forum t1 = (Forum) o1;
-            Forum t2 = (Forum) o2;
+            ForumCategory t1 = (ForumCategory) o1;
+            ForumCategory t2 = (ForumCategory) o2;
             return t2.getStartDate().compareTo(t1.getStartDate());
         }
     }

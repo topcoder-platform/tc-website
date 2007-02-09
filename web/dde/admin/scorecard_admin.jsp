@@ -8,7 +8,6 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
 
-<%@ page import="com.topcoder.forum.*" %>
 <%@ page import="com.topcoder.dde.catalog.*" %>
 
 <%@ page import="com.topcoder.apps.review.document.*" %>

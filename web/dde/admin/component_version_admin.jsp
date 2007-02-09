@@ -7,8 +7,6 @@
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypesHome,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocTypes,
                  com.topcoder.file.TCSFile,
-                 com.topcoder.dde.notification.NotificationHome,
-                 com.topcoder.dde.notification.Notification,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalog,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECategories,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalogHome,
@@ -21,11 +19,16 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
+<%@ page import="javax.naming.Context" %>
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
 <%@ page import="com.topcoder.dde.forum.*" %>
-<%@ page import = "com.topcoder.util.config.*" %>
-<%@ page import = "com.topcoder.servlet.request.*" %>
+<%@ page import="com.topcoder.web.ejb.forums.*" %>
+<%@ page import="com.topcoder.web.forums.ForumConstants" %>
+<%@ page import="com.topcoder.util.config.*" %>
+<%@ page import="com.topcoder.servlet.request.*" %>
+<%@ page import="com.topcoder.shared.util.TCContext" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
@@ -40,6 +43,15 @@
 
     // Logger instance.
     org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger("component_version_admin");
+    
+    Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
+	Forums forums = null;
+	try {
+		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+		forums = forumsHome.create();
+	} catch (Exception e) { 
+    	debug.addMsg("user admin", "error initializing Forums EJB");
+    }
 %>
 
 
@@ -604,26 +616,20 @@ if (action != null) {
             ver.setPublicForum(false);
         }
   	    initialSubmissionDate = "01/01/2000";
-        finalSubmissionDate =  initialSubmissionDate;
-
-        estimatedDevDate =   initialSubmissionDate;
+        finalSubmissionDate = initialSubmissionDate;
+        estimatedDevDate = initialSubmissionDate;
         screeningCompleteDate = initialSubmissionDate;
+        reviewCompleteDate = initialSubmissionDate;
+        winnerAnnouncedDate = initialSubmissionDate;
+        aggregationCompleteDate = initialSubmissionDate;
+        phaseCompleteDate = initialSubmissionDate;
 
-        reviewCompleteDate=initialSubmissionDate;
-
-
-        winnerAnnouncedDate=initialSubmissionDate;
-        aggregationCompleteDate=initialSubmissionDate;
-        phaseCompleteDate=initialSubmissionDate;
-
-
-	if(request.getParameter("txtProductionDate")!=""){
+		if(request.getParameter("txtProductionDate")!=""){
 	        productionDate= request.getParameter("txtProductionDate");
         }
         else{
             productionDate = null;
         }
-
 
         String phaseVersionPrice =   request.getParameter("txtPhaseVersionPrice");
         phasePrice = Double.parseDouble(phaseVersionPrice);
@@ -632,12 +638,12 @@ if (action != null) {
         levelId = Long.parseLong(request.getParameter("selLevelId"));
 
         aggregationCompleteDateComment = null;
-        phaseCompleteDateComment= null;
-        productionDateComment= request.getParameter("txtProductionDateComment");
+        phaseCompleteDateComment = null;
+        productionDateComment = request.getParameter("txtProductionDateComment");
         reviewCompleteDateComment = null;
-        winnerAnnouncedDateComment= null;
-        initialSubmissionDateComment= null;
-        screeningCompleteDateComment    = null;
+        winnerAnnouncedDateComment = null;
+        initialSubmissionDateComment = null;
+        screeningCompleteDateComment = null;
         finalSubmissionDateComment = null;
 
         String phaseDate =   "9/9/2000";
@@ -646,7 +652,20 @@ if (action != null) {
         ver.setComments(comments);
         ver.setPrice(Double.parseDouble(price));
 
-
+		com.topcoder.dde.catalog.ForumCategory activeCollab = null;
+		com.topcoder.dde.catalog.ForumCategory activeSpec = null;
+        try {
+            activeCollab = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
+            if (activeCollab != null) {
+            	forums.updateComponentVersion(activeCollab.getId(), versionLabel);
+            }
+            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+            if (activeSpec != null) {
+            	forums.updateComponentVersion(activeSpec.getId(), versionLabel);
+            }
+        } catch (CatalogException ce) {
+            debug.addMsg("component version admin", "catalog exception occurred");
+        }
 
         //StringTokenizer stDate = new StringTokenizer(phaseDate, "/");
         String month = "5";
@@ -673,7 +692,7 @@ if (action != null) {
                     }
                 }
             }
-            log.debug("Public: " + ver.getPublicForum());
+            log.debug("Public: " + ver.getPublicForum());            
             componentManager.updateVersionInfo(ver, tcSubject, levelId);
             if(verDateInfo != null && (ver.getPhase() == ComponentVersionInfo.DEVELOPMENT || ver.getPhase() == ComponentVersionInfo.SPECIFICATION || ver.getPhase() == ComponentVersionInfo.COMPLETED))
             {
@@ -752,11 +771,7 @@ if (action != null) {
             }
         } catch (Exception e) {
             log.error("An error occurred while updating version info", e);
-            if (e.getMessage().startsWith("Online Review:")) {
-                strError += e.getMessage();
-            } else {
-                strError += "An error occurred while updating version info.<BR>";
-            }
+			strError += "An error occurred while updating version info: " + e.getMessage();
             ver = componentManager.getVersionInfo();
         }
     }
@@ -905,7 +920,7 @@ if (action != null) {
     }
 
     // Assign a user a role that has permissions to download this component
-    if (action.equals("Assign Download Role")) {
+    if (action.equals("Download Role")) {
         String txtUsername = request.getParameter("txtHandle");
         DownloadPermission permission = new DownloadPermission(lngComponent);
         long lngRole = 0;
@@ -932,117 +947,50 @@ if (action != null) {
         }
     }
 
-    // Assign a user a role that has permissions to moderate a forum
-    if (action.equals("Assign Collaboration Moderator Role")) {
+    // Assign a user a role that has permissions to participate in developer forum for this component
+    if (action.equals("Developer Forum User")) {
         String txtUsername = request.getParameter("txtHandle");
-        com.topcoder.dde.catalog.Forum activeCollab = null;
-        String matchCollab = "";
-        long lngRole1 = 0;
+        com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-            activeCollab = componentManager.getForum(com.topcoder.dde.catalog.Forum.COLLABORATION);
+            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
         } catch (CatalogException ce) {
-            debug.addMsg("component version admin", "catalog exception occurred");
         }
 
-        if (activeCollab != null) {
-            matchCollab = "ForumModerator " + activeCollab.getId();
-            debug.addMsg("component version admin", "loooking for role for " + matchCollab);
-        }
-        try {
-            com.topcoder.security.UserPrincipal selectedPrincipal = PRINCIPAL_MANAGER.getUser(txtUsername);
-            RolePrincipal roles[] = (RolePrincipal[])PRINCIPAL_MANAGER.getRoles(null).toArray(new RolePrincipal[0]);
-            for (int i=0; i < roles.length; i++) {
-                debug.addMsg("component version admin", "role: '" + roles[i].getName() + "'");
-                if (roles[i].getName().equals(matchCollab)) {
-                    debug.addMsg("component version admin", "found collab role " + activeCollab.getId());
-                    lngRole1 = roles[i].getId();
-                }
-            }
-            if (lngRole1 > 0) {
-                PRINCIPAL_MANAGER.assignRole(selectedPrincipal, PRINCIPAL_MANAGER.getRole(lngRole1), tcSubject);
-                strMessage += "Forum moderator role was assigned to " + txtUsername;
-            }
-        } catch (RemoteException re) {
-            strError += "RemoteException occurred while assigning role: " + re.getMessage();
-        } catch (GeneralSecurityException gse) {
-            strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
-        } catch (Exception e) {
-            strError += "Principal user could not be found.<BR>";
-        }
+		if (activeSpec != null) {
+			try {
+	     		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
+	     		String groupName = ForumConstants.GROUP_SOFTWARE_USERS_PREFIX+activeSpec.getId();
+	    		forums.assignRole(userID, groupName);
+	    		strMessage += txtUsername + " successfully added as developer forum user.";
+	    	} catch (Exception e) {
+	    		strError += "Error occurred while assigning forums role: " + e.getMessage();
+	    	}
+    	} else {
+    		strMessage += "No developer forum found for this component version.";
+    	}
     }
 
-    // Assign a user a role that has permissions to participate in specification forum for this component
-    if (action.equals("Assign Specification User Role")) {
+    // Assign a user a role that has permissions to moderate developer forum for this component
+    if (action.equals("Developer Forum Moderator")) {
         String txtUsername = request.getParameter("txtHandle");
-        com.topcoder.dde.catalog.Forum activeSpec = null;
+        com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-            activeSpec = componentManager.getForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
+            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
         } catch (CatalogException ce) {
         }
 
-        ForumModeratePermission permission = null;
-        if (activeSpec != null) permission = new ForumModeratePermission(activeSpec.getId());
-        long lngRole = 0;
-        try {
-            com.topcoder.security.UserPrincipal selectedPrincipal = PRINCIPAL_MANAGER.getUser(txtUsername);
-            RolePrincipal roles[] = (RolePrincipal[])PRINCIPAL_MANAGER.getRoles(null).toArray(new RolePrincipal[0]);
-            for (int i=0; i < roles.length && (permission != null && lngRole == 0); i++) {
-                //debug.addMsg("component version admin", "role: '" + roles[i].getName() + "'");
-                if (permission != null) {
-                    if (roles[i].getName().equals("ForumUser " + activeSpec.getId())) {
-                        debug.addMsg("component version admin", "found spec role " + activeSpec.getId());
-                        lngRole = roles[i].getId();
-                    }
-                }
-            }
-            if (lngRole > 0) {
-                PRINCIPAL_MANAGER.assignRole(selectedPrincipal, PRINCIPAL_MANAGER.getRole(lngRole), tcSubject);
-                strMessage += "Specification role was assigned to " + txtUsername;
-            }
-        } catch (RemoteException re) {
-            strError += "RemoteException occurred while assigning role: " + re.getMessage();
-        } catch (GeneralSecurityException gse) {
-            strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
-        } catch (Exception e) {
-            strError += "Principal user could not be found.<BR>";
-        }
-    }
-
-    // Assign a user a role that has permissions to participate in specification forum for this component
-    if (action.equals("Assign Specification Moderator Role")) {
-        String txtUsername = request.getParameter("txtHandle");
-        com.topcoder.dde.catalog.Forum activeSpec = null;
-        try {
-            activeSpec = componentManager.getForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
-        } catch (CatalogException ce) {
-        }
-
-        ForumModeratePermission permission = null;
-        if (activeSpec != null) permission = new ForumModeratePermission(activeSpec.getId());
-        long lngRole = 0;
-        try {
-            com.topcoder.security.UserPrincipal selectedPrincipal = PRINCIPAL_MANAGER.getUser(txtUsername);
-            RolePrincipal roles[] = (RolePrincipal[])PRINCIPAL_MANAGER.getRoles(null).toArray(new RolePrincipal[0]);
-            for (int i=0; i < roles.length && (permission != null && lngRole == 0); i++) {
-                //debug.addMsg("component version admin", "role: '" + roles[i].getName() + "'");
-                if (permission != null) {
-                    if (roles[i].getName().equals("ForumUser " + activeSpec.getId())) {
-                        debug.addMsg("component version admin", "found spec role " + activeSpec.getId());
-                        lngRole = roles[i].getId();
-                    }
-                }
-            }
-            if (lngRole > 0) {
-                PRINCIPAL_MANAGER.assignRole(selectedPrincipal, PRINCIPAL_MANAGER.getRole(lngRole), tcSubject);
-                strMessage += "Specification role was assigned to " + txtUsername;
-            }
-        } catch (RemoteException re) {
-            strError += "RemoteException occurred while assigning role: " + re.getMessage();
-        } catch (GeneralSecurityException gse) {
-            strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
-        } catch (Exception e) {
-            strError += "Principal user could not be found.";
-        }
+		if (activeSpec != null) {
+	       	try {
+	     		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
+	     		String groupName = ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX+activeSpec.getId();
+	    		forums.assignRole(userID, groupName);
+	    		strMessage += txtUsername + " successfully added as developer forum moderator.";
+	    	} catch (Exception e) {
+	    		strError += "Error occurred while assigning forums role: " + e.getMessage();
+	    	}
+	    } else {
+	    	strMessage += "No developer forum found for this component version.";
+	    }
     }
 
     // Review
@@ -1071,59 +1019,30 @@ if (action != null) {
         //response.sendRedirect("component_version_admin.jsp?comp=" + lngComponent + "ver=" + lngVersion);
     }
 
-    if (action.equals("Assign Forum Post Notification Event")) {
+    if (action.equals("Watch Developer Forums")) {
         String strUsername = request.getParameter("txtTCHandle");
         if (strUsername == null || strUsername.trim().length() == 0) {
             strError = "User handle must not be empty.";
         } else {
             try {
-                log.debug("Locating entity EJBs...");
-                LocalDDECompCatalogHome catalogHome
-                    = (LocalDDECompCatalogHome) CONTEXT.lookup(LocalDDECompCatalogHome.EJB_REF_NAME);
-
-                LocalDDECategoriesHome categoriesHome
-                    = (LocalDDECategoriesHome) CONTEXT.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
-
                 log.debug("Locating the user for handle '" + strUsername + "' ...");
                 User user = USER_MANAGER.getUser(strUsername);
 
-                String event = "com.topcoder.dde.forum.ForumPostEvent " + componentManager.getForum(Forum.SPECIFICATION).getId();
-
-                StringBuffer buffer = new StringBuffer();
-                String category = "";
-                try {
-                    component = componentManager.getComponentInfo();
-
-                    // Locate the base category for the component.
-                    LocalDDECompCatalog cat = catalogHome.findByPrimaryKey(new Long(component.getId()));
-                    LocalDDECategories categories = categoriesHome.findByPrimaryKey(new Long(cat.getRootCategory()));
-                    category = categories.getName();
-                } catch (FinderException e) {
-                    throw new CatalogException(e.toString());
-                }
-
-                buffer.append(category);
-                buffer.append(" ");
-                buffer.append(component.getName());
-                buffer.append(" ");
-                buffer.append(ver.getVersionLabel());
-                buffer.append(" - Forum Post");
-
-                // Locate the Notification bean
-                log.debug("Locating the Notification EJB ...");
-                Object objNotification = CONTEXT.lookup(NotificationHome.EJB_REF_NAME);
-                NotificationHome notificationHome = (NotificationHome) PortableRemoteObject.narrow(objNotification, NotificationHome.class);
-                Notification notification = notificationHome.create();
-
-                // Assign notification event
-                log.info("Assigning notification event '" + event + "' to user " + user.getId());
-                notification.createNotification(event, user.getId(), Notification.FORUM_POST_TYPE_ID, buffer.toString());
-
+				long forumCategoryId = componentManager.getForumCategory(ForumCategory.SPECIFICATION).getId();
+				boolean canReadCategory = forums.canReadCategory(user.getId(), forumCategoryId);
+				if (!canReadCategory) {
+					strError = "User " + strUsername + " must have permission to read this component's forums before this watch can be assigned.";
+				} else {
+	                // Assign watch
+	                forums.createCategoryWatch(user.getId(), forumCategoryId);
+	                log.info("Assigning watch on category " + forumCategoryId + " to user " + user.getId());
+					strMessage += "User " + strUsername + " is now watching developer forums for this component. ";
+				}
             } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
                 strError = "User '" + strUsername + "' was not found.";
             } catch (Exception e) {
-                log.error("An error occurred while assigning notification event to user", e);
-                strError = "An error occurred while assigning notification event to user : " + e;
+                log.error("An error occurred while assigning watch to user", e);
+                strError = "An error occurred while assigning watch to user : " + e;
             }
         }
     }
@@ -1531,7 +1450,7 @@ if (action != null) {
 <!-- Public Forums -->
                             <tr valign="middle" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
-                                <td width="1%" class="adminLabel" nowrap>Public Forums</td>
+                                <td width="1%" class="adminLabel" nowrap>Public Developer Forums</td>
                                 <td width="1%" class="adminText">
                                    <!-- <input type="checkbox" name="public_forum" value ="1" checked> </input> -->
                                    <input type="checkbox" name="public_forum" value ="1" <%= ( ver.getPublicForum() == true ? " CHECKED" : "") %> > </input>
@@ -1540,23 +1459,18 @@ if (action != null) {
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
 <!-- Technologies-->
-                            <tr valign="top">
-                                <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
-                                <td width="1%" class="adminLabel" nowrap>Technologies Used</td>
-                                <td width="1%" class="adminText"></td>
-                                <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
-                            </tr>
-
 <%
+	int technologyCNT = 0;
 	if (colTechnology != null) {
 		Iterator iter = colTechnology.iterator();
 		while (iter.hasNext()) {
 			Object obj = iter.next();
 			if (obj instanceof Technology) {
+				technologyCNT++;
 %>
-                            <tr valign="top">
+                            <tr valign="middle">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
-                                <td width="1%" class="adminLabel"></td>
+                                <td width="1%" class="adminLabel"><% if (technologyCNT == 1) { %>Technologies Used<% } %></td>
                                 <td width="1%" class="adminText">
                                     <input type="checkbox" name="tech_<%= ((Technology)obj).getId() %>" value ="<%= ((Technology)obj).getId() %>"<%= ( technologies.get("" + ((Technology)obj).getId()) != null ? " CHECKED" : "") %>> <%= ((Technology)obj).getName() %></input><br />
                                 </td>
@@ -2084,35 +1998,35 @@ if (action != null) {
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
                 <tr valign="top">
                     <td>
-                        <input class="adminSearchForm" type="text" size="20" name="txtHandle">
+                        Handle: &#160;<input class="adminSearchForm" type="text" size="20" name="txtHandle">
                     </td>
                     <td>
-                        <input class="adminButton" type="submit" name="a" value="Assign Collaboration Moderator Role">
 <%if (ver.getPhase() != ver.COLLABORATION) {%>
-                        <input class="adminButton" type="submit" name="a" value="Assign Specification User Role">
-                        <input class="adminButton" type="submit" name="a" value="Assign Specification Moderator Role">
+                        <input class="adminButton" type="submit" name="a" value="Developer Forum User">
+                        <input class="adminButton" type="submit" name="a" value="Developer Forum Moderator">
 <%}%>
-                        <input class="adminButton" type="submit" name="a" value="Assign Download Role">
+                        <input class="adminButton" type="submit" name="a" value="Download Role">
                     </td>
                 </tr>
             </table>
 
 <!-- Notifications begins -->
+<%if (ver.getPhase() != ver.COLLABORATION) {%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-                <tr><td class="adminSubhead">Notifications</td></tr>
+                <tr><td class="adminSubhead">Forum Watches</td></tr>
             </table>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
                 <tr valign="top">
-                    <td>TC handle</td>
                     <td>
-                        <input class="adminSearchForm" type="text" size="20" name="txtTCHandle">
+                        Handle: &#160;<input class="adminSearchForm" type="text" size="20" name="txtTCHandle">
                     </td>
                     <td>
-                        <input class="adminButton" type="submit" name="a" value="Assign Forum Post Notification Event">
+                        <input class="adminButton" type="submit" name="a" value="Watch Developer Forums">
                     </td>
                 </tr>
             </table>
+<%}%>
 <!-- Notifications ends -->
 
         </td>
@@ -2238,7 +2152,7 @@ if (colTechnology != null) {
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="/includes/footer.jsp" flush="true" />
+<jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
 </body>

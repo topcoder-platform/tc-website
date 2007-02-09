@@ -268,7 +268,7 @@ public interface Catalog extends javax.ejb.EJBObject {
      * if the component could not be created
      */
     public ComponentSummary requestComponent(ComponentRequest request)
-            throws RemoteException, CatalogException;
+            throws RemoteException, CatalogException, NamingException, SQLException;
 
     /**
      * Approves the specified component. The component's status is set to

@@ -8,7 +8,6 @@
                 com.jivesoftware.forum.Forum,
                 java.util.*"
 %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -69,7 +68,6 @@ function AllowTabCharacter() {
 <html>
 <head>
 <title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
     <jsp:include page="script.jsp" />
         <jsp:include page="/style.jsp">
           <jsp:param name="key" value="tc_forums"/>
@@ -124,12 +122,12 @@ function AllowTabCharacter() {
                 crumbCategory = forumFactory.getRootForumCategory();
             }   %>
        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(crumbCategory)%>'>
-            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> >
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> <img src="/i/interface/exp_w.gif" align="absmiddle"/>
        </tc-webtag:iterator>
        <%   if (forum != null) { %>
        <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
        <%   } %>
-       > <%=postHeading%>
+       <img src="/i/interface/exp_w.gif" align="absmiddle"/> <%=postHeading%>
        </td>
        <!--<td align="right" class="rtbc"><a href="javascript:toggle('Options')" class="rtbcLink">Options</a></td>-->
    </tr>

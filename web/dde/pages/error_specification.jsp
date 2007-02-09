@@ -10,6 +10,8 @@
 <%@ page import="javax.servlet.http.*" %>
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
@@ -17,7 +19,10 @@
 <%
 	// STANDARD PAGE VARIABLES
 	String page_name = "error_specification.jsp";
-	String action = request.getParameter("a");	
+	String action = request.getParameter("a");
+	
+	TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));	
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -64,7 +69,7 @@
 				<tr><td class="subhead">You need permission to participate in this Developer Forum</td></tr>
 				<tr><td class="normal">
 						<p>TopCoder Software selects a few experienced individuals to participate in each Developer Forum. You always have access 
-						to <a href="c_active_collab.jsp">Customer Forums.</a></p>
+						to <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Customer Forums.</a></p>
 
 						<p>Contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> to find out how you 
 						can participate in future Developer Forums.</p>
@@ -81,7 +86,7 @@
 </table>
 	
 <!-- Footer begins -->
-<jsp:include page="/includes/footer.jsp" flush="true" />
+<jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
 </body>

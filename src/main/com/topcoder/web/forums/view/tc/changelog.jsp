@@ -1,4 +1,10 @@
-<%@ page contentType="text/html;charset=utf-8" %>
+<%@ page import="com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.base.JiveConstants,
+                 com.jivesoftware.base.User,
+           		 java.util.Iterator,
+                 java.util.Enumeration"
+%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -7,9 +13,8 @@
 
 <html>
 <head>
-    <title>TopCoder Forums</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <jsp:include page="script.jsp"/>
+<title>TopCoder Forums</title>
+<jsp:include page="script.jsp" />
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_forums"/>
     </jsp:include>
@@ -43,7 +48,7 @@
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> > Change Log</span>
+<span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Change Log</span>
 
 <!-- Links to versions -->
 
@@ -114,7 +119,7 @@
 </p>
 
 <p>
-    <b>1.1.09 - 2006.03.02</b>
+    <b>1.1.9 - 2006.03.02</b>
     <ul>
         <li>Added message ratings.</li>
         <li>Added tabs, ratings section to user settings.</li>
@@ -126,7 +131,7 @@
 </p>
 
 <p>
-    <b>1.1.081 - 2006.02.03</b>
+    <b>1.1.8.1 - 2006.02.03</b>
     <ul>
         <li>Updated watch emails to include the original message author's handle and a direct link to the message in the
             thread.
@@ -136,7 +141,7 @@
 </p>
 
 <p>
-    <b>1.1.08 - 2006.01.31</b>
+    <b>1.1.8 - 2006.01.31</b>
     <ul>
         <li>Created announcements (sticky posts).</li>
         <li>Fixed an issue where invalid usernames for [handle] tags would break subsequent handle tags.</li>
@@ -151,7 +156,7 @@
 </p>
 
 <p>
-    <b>1.1.07 - 2005.10.18</b>
+    <b>1.1.7 - 2005.10.18</b>
     <ul>
         <li>Extended "Mark watched threads as read" option to forum and category highlighting.</li>
         <li>Updated [code], [cpp] filters to not strip trailing "L" characters for longs.</li>
@@ -167,6 +172,7 @@
 </p>
 
 <p>
+<<<<<<< changelog.jsp
     <b>1.1.06 - 2005.09.14</b>
     <ul>
         <li>Updated main page such that each forum can display its N most recent posts, or posts made within the last N
@@ -175,10 +181,18 @@
         <li>Displayed day of week in message headers.</li>
         <li>Added "Mark watched threads as read" option in user settings.</li>
     </ul>
+=======
+    <b>1.1.6 - 2005.09.14</b>
+    <ul>    
+		<li>Updated main page such that each forum can display its N most recent posts, or posts made within the last N days.</li>
+		<li>Displayed day of week in message headers.</li>
+		<li>Added "Mark watched threads as read" option in user settings.</li>
+    </ul> 
+>>>>>>> 1.3.20.4
 </p>
 
 <p>
-    <b>1.1.05 - 2005.09.09</b>
+    <b>1.1.5 - 2005.09.09</b>
     <ul>
         <li>Highlighted categories with unread forums in left navigation and category view.</li>
         <li>Fixed pluralization of post and edit counts.</li>
@@ -187,7 +201,7 @@
 </p>
 
 <p>
-    <b>1.1.04 - 2005.08.30</b>
+    <b>1.1.4 - 2005.08.30</b>
     <ul>
         <li>Created category view.</li>
         <li>Added category tree to breadcrumbs on category, forum, thread, revision history, post, and preview pages.
@@ -200,7 +214,7 @@
 </p>
 
 <p>
-    <b>1.1.03 - 2005.08.15</b>
+    <b>1.1.3 - 2005.08.15</b>
     <ul>
         <li>Created revision history of messages.</li>
         <li>Fixed code filter bug that eliminated starting characters of enclosed code blocks.</li>
@@ -213,7 +227,7 @@
 </p>
 
 <p>
-    <b>1.1.02 - 2005.08.03</b>
+    <b>1.1.2 - 2005.08.03</b>
     <ul>
         <li>Added server-side read tracker for threads, forums, and categories.</li>
         <li>Added login redirect to main TopCoder login if forums can't be reached.</li>
@@ -226,7 +240,7 @@
 </p>
 
 <p>
-    <b>1.1.01 - 2005.07.20</b>
+    <b>1.1.1 - 2005.07.20</b>
     <ul>
         <li>Fixed an error with the bottom paginator of the flat thread view.</li>
         <li>Displayed day of week in forums and thread lists.</li>
@@ -237,7 +251,11 @@
 </p>
 
 <p>
+<<<<<<< changelog.jsp
     <b>1.1.00 - 2005.07.18</b>
+=======
+	<b>1.1 - 2005.07.18</b>
+>>>>>>> 1.3.20.4
     <ul>
         <li>Deployed the current version of TopCoder Forums.</li>
         <li>Stripped HTML from message subjects.</li>

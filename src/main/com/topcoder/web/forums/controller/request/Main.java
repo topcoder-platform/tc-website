@@ -4,13 +4,19 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 
 import java.util.Iterator;
 import java.util.ArrayList;
+
+import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -40,10 +46,22 @@ public class Main extends ForumsProcessor {
         }
 
         Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
+        
+		InitialContext ctx = null;
+        Forums forumsBean = null;
+        try {
+            ctx = TCContext.getInitial();
+            forumsBean = (Forums)createEJB(ctx, Forums.class);
+        } catch (Exception e) {
+            Log.error(e);
+        } finally {
+            BaseProcessor.close(ctx);
+        }
 
         getRequest().setAttribute("forums", itForums);
         getRequest().setAttribute("categories", categoryList);
         getRequest().setAttribute("resultFilter", resultFilter);
+        getRequest().setAttribute("forumsBean", forumsBean);
 
         if (markRead.equals("t")) {
         	setNextPage(getSessionInfo().getServletPath() + "?module=Main");

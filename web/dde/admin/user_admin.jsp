@@ -1,30 +1,19 @@
-<%@ page import="javax.naming.*,
-                 com.topcoder.dde.notification.NotificationEvent,
-                 com.topcoder.dde.notification.NotificationHome,
-                 com.topcoder.dde.notification.Notification" %>
+<%@ page import="javax.naming.*" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
 <%@ page import="javax.rmi.*" %>
 <%@ page import="java.util.*" %>
-<%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
+<%@ page import="javax.naming.Context" %>
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
-<%@ page import="com.topcoder.dde.forum.*" %>
+<%@ page import="com.topcoder.web.ejb.forums.*" %>
+<%@ page import="com.topcoder.shared.util.TCContext" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
-
-<%!
-    public String translateForumType(ForumComponent forumComponent, long associatedId) {
-        if (associatedId == forumComponent.getSpecForumId()) {
-            return "specification";
-        } else {
-            return "collaboration";
-        }
-    }
-%>
 
 <%
     // STANDARD PAGE VARIABLES
@@ -32,8 +21,15 @@
     String action = request.getParameter("a");
 %>
 
+<%	Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
+	Forums forums = null;
+	try {
+		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+		forums = forumsHome.create();
+	} catch (Exception e) { 
+    	debug.addMsg("user admin", "error initializing Forums EJB");
+    }
 
-<%
     long lngPrincipal = 0;
 
     com.topcoder.security.UserPrincipal selectedPrincipal = null;
@@ -50,21 +46,20 @@
     String strError = "";
     String strMessage = "";
 
-    // Obtain a reference to Notification EJB
-    NotificationHome notificationHome
-        = (NotificationHome) PortableRemoteObject.narrow(CONTEXT.lookup(NotificationHome.EJB_REF_NAME),
-                                                         NotificationHome.class);
-    Notification notification = notificationHome.create();
-
+	if (request.getParameter("txtHandle") != null && action == null) {
+		action = "Lookup";
+	}
 
     if (action != null) {
         if (action.equalsIgnoreCase("Lookup")) {
             String txtUsername = request.getParameter("txtHandle");
-            try {
-                selectedPrincipal = PRINCIPAL_MANAGER.getUser(txtUsername);
-                lngPrincipal = selectedPrincipal.getId();
-            } catch (Exception e) {
-                strError += "Principal user could not be found.";
+            if (txtUsername != null && !txtUsername.trim().equals("")) {
+	            try {
+	                selectedPrincipal = PRINCIPAL_MANAGER.getUser(txtUsername);
+	                lngPrincipal = selectedPrincipal.getId();
+	            } catch (Exception e) {
+	                strError += "Principal user could not be found.";
+	            }
             }
         }
 
@@ -102,6 +97,17 @@
                 strError += "GeneralSecurityException occurred while assigning role: " + gse.getMessage();
             }
         }
+        
+        if (action.equalsIgnoreCase("Assign Forum Role")) {
+        	long userID = Long.parseLong(request.getParameter("user"));
+        	long groupID = Long.parseLong(request.getParameter("selForumRole"));
+        	try {
+        		forums.assignRole(userID, groupID);
+        		strMessage += "Assigned forum role.";
+        	} catch (Exception e) {
+        		strError += "Error occurred while assigning forums role: " + e.getMessage();
+        	}
+        }
 
         if (action.equalsIgnoreCase("RemoveRole")) {
             debug.addMsg("user admin", "removing role");
@@ -117,33 +123,43 @@
                 strError += "GeneralSecurityException occurred while unassigning role: " + gse.getMessage();
             }
         }
+        
+        if (action.equalsIgnoreCase("RemoveForumRole")) {
+        	long groupID = Long.parseLong(request.getParameter("groupID"));
+        	try {
+        		forums.removeRole(selectedPrincipal.getId(), groupID);
+        		strMessage += "Removed forum role.";
+        	} catch (Exception e) {
+        		strError += "Error occurred while removing forums role: " + e.getMessage();
+        	}
+        }
 
         // Handle the actions specific to notification event assignments
-        if (action.equalsIgnoreCase("Assign Event")) {
-            debug.addMsg("user admin", "assigning notification events");
-            String[] strEvents = request.getParameterValues("selEvent");
+        if (action.equalsIgnoreCase("Watch Forum")) {
             try {
+                String[] strCategoryIDs = request.getParameterValues("categoryID");
+	            long[] categoryIDs = new long[strCategoryIDs.length];
+	            for (int i=0; i<categoryIDs.length; i++) {
+	            	categoryIDs[i] = Long.parseLong(strCategoryIDs[i]);
+	            }
                 long lngUser = Long.parseLong(request.getParameter("user"));
-                for (int i = 0; i < strEvents.length; i++) {
-                    notification.assignEvent(Long.parseLong(strEvents[i]), lngUser);
-                }
-                strMessage += "Notification events were assigned";
+                forums.createCategoryWatches(lngUser, categoryIDs);
+                if (categoryIDs.length > 1) {
+                	strMessage += "Added " + categoryIDs.length + " watches.";
+                } else if (categoryIDs.length == 1) {
+       		    	strMessage += "Added watch.";
+       		    }
             } catch (RemoteException re) {
                 strError += "RemoteException occurred while assigning notification event: " + re.getMessage();
-            } catch (SQLException e) {
-                strError += "SQLException occurred while assigning notification event: " + e.getMessage();
             }
         }
 
-        if (action.equalsIgnoreCase("RemoveEvent")) {
-            debug.addMsg("user admin", "unassigning notification event");
-            String strEvent = request.getParameter("event");
-            debug.addMsg("user admin", "unassign notification event" + strEvent);
+        if (action.equalsIgnoreCase("RemoveWatch")) {
             try {
-                long lngEvent = Long.parseLong(strEvent);
+                long categoryID = Long.parseLong(request.getParameter("categoryID"));
                 long lngUser = Long.parseLong(request.getParameter("user"));
-                notification.unassignEvent(lngUser, lngEvent);
-                strMessage += "Notification event was unassigned";
+                forums.deleteCategoryWatch(lngUser, categoryID);
+                strMessage += "Removed watch.";
             } catch (RemoteException re) {
                 strError += "RemoteException occurred while unassigning notification event: " + re.getMessage();
             }
@@ -162,12 +178,6 @@
     Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
     CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
     Catalog catalog = home.create();
-
-    DDEForumHome ddeforumhome = (DDEForumHome) PortableRemoteObject.narrow(
-    CONTEXT.lookup(DDEForumHome.EJB_REF_NAME), DDEForumHome.class);
-    DDEForum ddeforum = ddeforumhome.create();
-
-
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -187,6 +197,8 @@
 <%@ include file="/includes/adminHeader.jsp" %>
 <%@ include file="/includes/adminNav.jsp" %>
 <!-- Header ends -->
+
+<%=strMessage%>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
 	<tr valign="top">
@@ -232,7 +244,7 @@
 									<form name="frmPrincipal" action="<%= page_name %>" method="post">
 									<img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></td>
 								<td width="1%" class="adminLabel" nowrap="nowrap">Handle</td>
-								<td width="1%" class="adminText"><input class="adminForm" type="text" name="txtHandle" value ="" size="25" maxlength="30"></input></td>
+								<td width="1%" class="adminText"><input class="adminForm" type="text" name="txtHandle" value="" size="25" maxlength="30"></input></td>
 								<td width="1%" class="adminText"><input class="adminButton" type="submit" name="a" value="Lookup"></input></td>
 								<td width="48%"><img src="/images/clear.gif" alt="" width="5" height="1" border="0" /></form></td>
 							</tr>
@@ -402,21 +414,14 @@
                 } catch (Exception e) {
                     debug.addMsg("user admin", "error parsing " + roleName);
                 }
-            } else if (roleName.startsWith("ForumModerator") || roleName.startsWith("ForumUser")) {
-                try {
-                    associatedId = Long.parseLong(roleName.substring(roleName.indexOf(" ") + 1, roleName.length()));
-                    ForumComponent forumComponent = ddeforum.getLinkedComponent(associatedId);
-                    associatedLabel = "(" + forumComponent.getName() + " - " + translateForumType(forumComponent, associatedId) + ")";
-                } catch (Exception e) {
-                    debug.addMsg("user admin", "error parsing " + roleName);
-                }
             }
 	%>
+	<%	if (!roleName.startsWith("ForumModerator") && !roleName.startsWith("ForumUser")) { %>
 				<tr valign="top">
-					<td class="forumText"><%= roleName %> <%= associatedLabel %>
-                                        </td>
+					<td class="forumText"><%= roleName %> <%= associatedLabel %></td>
 					<td class="forumTextCenter"><strong><a href="user_admin.jsp?lngPrincipal=<%= lngPrincipal %>&role=<%= user_roles[i].getId() %>&a=RemoveRole">Remove Role</a></strong></td>
 				</tr>
+	<%	} %>
 	<% } %>
 
 				<tr valign="top">
@@ -444,18 +449,12 @@
                 } catch (Exception e) {
                     debug.addMsg("user admin", "error parsing " + roleName);
                 }
-            } else if (roleName.startsWith("ForumModerator") || roleName.startsWith("ForumUser")) {
-                try {
-                    associatedId = Long.parseLong(roleName.substring(roleName.indexOf(" ") + 1, roleName.length()));
-                    ForumComponent forumComponent = ddeforum.getLinkedComponent(associatedId);
-                    associatedLabel = "(" + forumComponent.getName() + " - " + translateForumType(forumComponent, associatedId) + ")";
-                } catch (Exception e) {
-                    debug.addMsg("user admin", "error parsing " + roleName);
-                }
             }
 */
 	%>
+	<%	if (!roleName.startsWith("ForumModerator") && !roleName.startsWith("ForumUser")) { %>
                             	<option value="<%= roles[i].getId() %>"><%= roles[i].getName() %> <%= associatedLabel %></option>
+	<%	} %>
 	<% } %>
                         	</select></td>
 					<td class="forumSubjectCenter"><input class="adminButton" type="submit" name="a" value="Assign Role"></input></td>
@@ -465,20 +464,64 @@
 			</table>
 <!-- User Roles ends -->
 
+<!-- Forum Roles begins -->
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+		<tr><td class="adminSubhead">Forum Roles</td></tr>
+	</table>
+	
+	<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
+		<tr valign="top">
+			<td width="80%" class="adminTitle">Role Name</td>
+			<td width="20%" class="adminTitleCenter">Action</td>
+		</tr>
+		<%	try {
+				String[][] itForumRoles = forums.getSoftwareRolesData(selectedUser.getId());
+				for (int i=0; i<itForumRoles.length; i++) {
+					String associatedLabel = ""; 
+					if (!itForumRoles[i][2].trim().equals("")) {
+						associatedLabel = "(" + itForumRoles[i][2] + ")"; 
+					}	%>
+					<tr valign="top">
+						<td class="forumText"><%=itForumRoles[i][1]%> <%=associatedLabel%></td>
+						<td class="forumTextCenter"><strong><a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&groupID=<%=itForumRoles[i][0]%>&a=RemoveForumRole">Remove Role</a></strong></td>	
+					</tr>
+		<%		}
+	        } catch (Exception e) {
+	        	debug.addMsg("user admin", "error displaying user's forum roles");
+	        } %> 
+		<tr valign="top">
+			<td class="forumSubject">
+				<select class="adminForm" name="selForumRole">
+				<%	try {
+						String[][] itForumRoles = forums.getAllSoftwareRolesData();
+						for (int i=0; i<itForumRoles.length; i++) {
+							String associatedLabel = ""; 
+							if (!itForumRoles[i][2].trim().equals("")) {
+								associatedLabel = "(" + itForumRoles[i][2] + ")"; 
+							} %>			
+							<option value="<%=itForumRoles[i][0]%>"><%=itForumRoles[i][1]%> <%=associatedLabel%></option>
+				<%		}
+			        } catch (Exception e) { 
+			        	debug.addMsg("user admin", "error displaying user's forum roles");
+			        } %>
+                </select>
+            </td>
+			<td class="forumSubjectCenter"><input class="adminButton" type="submit" name="a" value="Assign Forum Role"></input></td>
+		</tr>
+		<tr><td class="adminTitle" colspan="2"><img src="/images/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
+	</table>
+<!-- Forum Roles ends -->
 
-<!-- User Notification Events begins -->
+<!-- Forum Watches begins -->
 
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-				<tr><td class="adminSubhead">User Notification Events</td></tr>
+				<tr><td class="adminSubhead">Forum Watches</td></tr>
 			</table>
 
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
-    <%
-        // Obtain a list of notification events assigned to user
-        Set events = notification.getAssignedEvents(selectedUser.getId());
-        NotificationEvent event;
-
-        if (events.size() > 0) {
+    <%	
+    	String[][] itWatches = forums.getWatchedSoftwareCategoriesData(selectedUser.getId(), true);
+        if (itWatches.length > 0) {
     %>
 				<tr valign="top">
 					<td width="80%" class="adminTitle">Notification Event</td>
@@ -486,20 +529,17 @@
 				</tr>
 
 	<%
-
             // Render the list of notification events assigned to user
-            Iterator iterator = events.iterator();
-            while (iterator.hasNext()) {
-                event = (NotificationEvent) iterator.next();
+            for (int i=0; i<itWatches.length; i++) {
     %>
 				<tr valign="top">
 					<td class="forumText">
-                        <%=event.getDescription()%>
+                        <%=itWatches[i][1]%>
                     </td>
 					<td class="forumTextCenter">
                         <strong>
-                            <a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&user=<%=selectedUser.getId()%>&event=<%=event.getId()%>&a=RemoveEvent">
-                                Remove Event
+                            <a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&user=<%=selectedUser.getId()%>&categoryID=<%=itWatches[i][0]%>&a=RemoveWatch">
+                                Remove Watch
                             </a>
                         </strong>
                     </td>
@@ -510,33 +550,29 @@
 
         // Render the drop-down list to select the notification event to assign to user
         // Such a drop-down list should better not contain the events already assigned to user
-        events = notification.getUnassignedEvents(selectedUser.getId());
-        if (events.size() > 0) {
+        itWatches = forums.getWatchedSoftwareCategoriesData(selectedUser.getId(), false);
+        if (itWatches.length > 0) {
 	%>
 
 				<tr valign="top">
 					<td class="forumSubject">
-						<select class="adminForm" name="selEvent" multiple="true" >
-	<%
-        Iterator iterator = events.iterator();
-        while (iterator.hasNext()) {
-            event = (NotificationEvent) iterator.next();
-	%>
-                           	<option value="<%=event.getId()%>">
-                                <%=event.getDescription()%>
+						<select class="adminForm" name="categoryID" multiple="true" >
+		<%	for (int i=0; i<itWatches.length; i++) { %>
+                           	<option value="<%=itWatches[i][0]%>">
+                                <%=itWatches[i][1]%>
                             </option>
-	<%  } %>
+		<%  } %>
                         </select>
                     </td>
 					<td class="forumSubjectCenter">
-                        <input class="adminButton" type="submit" name="a" value="Assign Event" />
+                        <input class="adminButton" type="submit" name="a" value="Watch Forum" />
                     </td>
 				</tr>
     <%  }  %>
 				<tr><td class="adminTitle" colspan="2"><img src="/images/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
 			</table>
 
-<!-- User Notification Events ends -->
+<!-- Forum Watches ends -->
 
 <% } %>
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center">
@@ -564,7 +600,7 @@
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="/includes/footer.jsp" flush="true" />
+<jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
 </form>

@@ -2,10 +2,16 @@
 <%@ include file="/includes/session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
 
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_learn.jsp";
     String action = request.getParameter("a");
+    
+    TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -105,7 +111,7 @@
                     <a href="http://www.topcoder.com" target="_blank">TopCoder</a> members using our unique
                     <a href="s_methodology.jsp">Component Development Methodology.</a> Subscribers can also make use of
                     the
-                    <a href="c_active_collab.jsp">Customer Forums</a> to ask questions and request enhancements to
+                    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Customer Forums</a> to ask questions and request enhancements to
                     components. In addition
                     all subscribers can recommend <a href="c_comp_request.jsp">new component ideas.</a></p>
 
@@ -182,7 +188,7 @@
         <tr valign="top">
             <td class="normal" width="100%">
                 <p><strong>Interested in components?</strong><br/>
-                    Weigh in with ideas and suggestions by <a href="c_active_collab.jsp">collaborating</a> with others.
+                    Weigh in with ideas and suggestions by <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">collaborating</a> with others.
                 </p>
             </td>
         </tr>

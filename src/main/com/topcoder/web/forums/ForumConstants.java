@@ -4,6 +4,9 @@
 package com.topcoder.web.forums;
 
 import com.jivesoftware.base.JiveGlobals;
+import com.jivesoftware.forum.ForumPermissions;
+import com.topcoder.dde.catalog.Catalog;
+import com.topcoder.dde.catalog.ComponentVersionInfo;
 
 /**
  * @author mtong
@@ -17,6 +20,11 @@ public interface ForumConstants {
     public final static String USER_ID = "userID";
     public final static String ANNOUNCEMENT_ID = "annID";
     public final static String POLL_ID = "pollID";
+    
+    public final static String FORUM_NAME = "name";
+    public final static String FORUM_DESCRIPTION = "desc";
+    public final static int FORUM_NAME_MAX_LENGTH = 250;
+    public final static int FORUM_DESCRIPTION_MAX_LENGTH = 1000;
     
     public final static String THREAD_VIEW = "view";
     public final static String THREAD_ERROR = "error";
@@ -51,10 +59,12 @@ public interface ForumConstants {
     public final static Long FORUM_MODERATE_PERMISSION = new Long(1);
     public final static Long FORUM_POST_PERMISSION = new Long(2);
     public final static Long FORUM_MODERATE_AND_POST_PERMISSION = new Long(3);
-    
-    public final static String SOFTWARE_MODERATORS_PREFIX = "Software_Moderators_";
-    public final static String SOFTWARE_USERS_PREFIX = "Software_Users_";
 
+    // Groups
+    public final static String GROUP_SOFTWARE_MODERATORS_PREFIX = "Software_Moderators_";
+    public final static String GROUP_SOFTWARE_USERS_PREFIX = "Software_Users_";
+    public final static String GROUP_SOFTWARE_ADMINS = "Software Admins";
+    
     // Extended Properties
     public final static String PROPERTY_HIDE_EMPTY_FORUMS = "hideEmptyForums";
     public final static String PROPERTY_HIDE_SEARCH_FORUMS = "hideSearchForums";
@@ -65,17 +75,27 @@ public interface ForumConstants {
     public final static String PROPERTY_HIDE_MAIN_RSS = "hideMainRSS";
     public final static String PROPERTY_LINK_NAMES = "linkNames";
     public final static String PROPERTY_LINK = "link";
+    public final static String PROPERTY_MODIFY_FORUMS = "modifyForums";
     
-    public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
-    public final static String PROPERTY_COMPONENT_PHASE = "componentPhase";
-    public final static String PROPERTY_COMPONENT_STATUS = "componentStatus";
+    /* Some of the following software-related properties are now retrieved directly from the TCS database */
+    
+    /* See Catalog.JAVA_CATALOG, etc. Determines technology icon displayed by the ImageMapper. */
+    //public final static String PROPERTY_COMPONENT_ROOT_CATEGORY_ID = "compRootCategoryId";
+    
+    /* See ComponentVersionInfo.COLLABORATION, etc. Determines phase icon displayed by the ImageMapper. */
+    //public final static String PROPERTY_COMPONENT_PHASE = "componentPhase";		
+    
+    /* See ComponentInfo.APPROVED, etc. Only approved components are displayed. */
+    //public final static String PROPERTY_COMPONENT_STATUS = "componentStatus";
+    
+    public final static String PROPERTY_COMPONENT_ID = "componentId";
     public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";
-    public final static String PROPERTY_COMPONENT_ROOT_CATEGORY_ID = "compRootCategoryId";
+    public final static String PROPERTY_COMPONENT_VERSION_TEXT = "versionText";
     public final static String PROPERTY_COMPONENT_TECH_TYPES = "compTechTypes";
     public final static String PROPERTY_FORUM_TYPE = "forumType";
-    public final static String PROPERTY_VERSION_TEXT = "versionText";
 
-    public final static String PROPERTY_ARCHIVAL_STATUS_DELETED = "0";
+    public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
+    public final static String PROPERTY_ARCHIVAL_STATUS_CLOSED = "0";
     public final static String PROPERTY_ARCHIVAL_STATUS_ACTIVE = "1";
     public final static String PROPERTY_ARCHIVAL_STATUS_ARCHIVED = "2";
     
@@ -155,11 +175,32 @@ public interface ForumConstants {
     public final static int MAX_DISPLAYED_FORUMS_PER_CATEGORY = 15;
     public final static int MAX_POLL_CHOICES = 100;
 
+    // Permissions
+    public final static long[] ANONYMOUS_PERMS = {
+		ForumPermissions.READ_FORUM };
+    public final static long[] REGISTERED_PERMS = {
+		ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+		ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL};
+    public final static long[] ADMIN_PERMS = {
+    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
+    	ForumPermissions.VOTE_IN_POLL, ForumPermissions.ANNOUNCEMENT_ADMIN, ForumPermissions.FORUM_CATEGORY_ADMIN};
+    public final static long[] MODERATOR_PERMS = {
+    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.FORUM_CATEGORY_ADMIN, 
+    	ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, ForumPermissions.VOTE_IN_POLL};
+    public final static long[] SW_BLOCK_PERMS = {	    // permissions blocked in software component forums
+    	ForumPermissions.READ_FORUM, ForumPermissions.CREATE_THREAD, ForumPermissions.CREATE_MESSAGE,
+    	ForumPermissions.RATE_MESSAGE, ForumPermissions.CREATE_MESSAGE_ATTACHMENT, ForumPermissions.CREATE_POLL, 
+    	ForumPermissions.VOTE_IN_POLL, ForumPermissions.ANNOUNCEMENT_ADMIN};
+    
     // Error messages
     public final static String ERR_EMPTY_MESSAGE_SUBJECT =
         "Please include a message subject.";
     public final static String ERR_EMPTY_MESSAGE_BODY =
         "Please include a message body.";
+    public final static String ERR_EMPTY_FORUM_NAME =
+        "Please include a forum name.";
     public final static String ERR_CANNOT_POST_THREAD =
         "You do not have permission to post a new thread in this forum.";
     public final static String ERR_CANNOT_POST_MESSAGE =
@@ -169,9 +210,13 @@ public interface ForumConstants {
     public final static String ERR_CANNOT_EDIT_FOREIGN_POST =
     	"You cannot edit messages created by other users.";
     public final static String ERR_LONG_MESSAGE_SUBJECT =
-        "Error: Message body exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
+        "Error: Message subject exceeds " + MESSAGE_SUBJECT_MAX_LENGTH + " characters.";
     public final static String ERR_LONG_MESSAGE_BODY =
         "Error: Message body exceeds " + MESSAGE_BODY_MAX_LENGTH + " characters.";
+    public final static String ERR_LONG_FORUM_NAME =
+        "Error: Forum name exceeds " + FORUM_NAME_MAX_LENGTH + " characters.";
+    public final static String ERR_LONG_FORUM_DESCRIPTION =
+        "Error: Forum description exceeds " + FORUM_DESCRIPTION_MAX_LENGTH + " characters.";
     public final static String ERR_FORUM_RANGE_EXCEEDED =
         "Error: Forum view range exceeded.";
     public final static String ERR_THREAD_RANGE_EXCEEDED =

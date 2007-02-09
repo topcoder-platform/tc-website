@@ -6,6 +6,8 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
@@ -15,6 +17,9 @@
 	// STANDARD PAGE VARIABLES
 	String page_name = "s_spec_permission.jsp";
 	String action = request.getParameter("a");	
+	
+	TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -61,7 +66,7 @@
 				<tr><td class="subhead">You do not have permission to participate in this Specification forum</td></tr>
 				<tr><td class="normal">
 						<p>TopCoder Software selects a few experienced individuals to participate in each Specification forum. You may still 
-						participate in <a href="c_active_collab.jsp">Collaboration forums.</a></p>
+						participate in <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Collaboration forums.</a></p>
 
 						<p>Contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a> to find out how you 
 						can participate in future Specification forums.</p>
@@ -78,7 +83,7 @@
 </table>
 	
 <!-- Footer begins -->
-<jsp:include page="/includes/footer.jsp" flush="true" />
+<jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
 </body>

@@ -762,7 +762,7 @@ public class ProjectAdministration implements Model {
                                 log.debug(userPrincipal.getName() + " has got role " + rolePrincipal.getName());
 
                                 // add the forum permission
-                                roleName = "ForumUser " + oldProject.getForumId();
+                                roleName = "ForumUser " + oldProject.getForumCategoryId();
                                 rolePrincipal = getRolePrincipal(roleName, user.getTCSubject());
                                 // unassign and assign in case the user already had the role
                                 principalMgr.unAssignRole(userPrincipal, rolePrincipal, user.getTCSubject());

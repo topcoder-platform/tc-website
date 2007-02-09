@@ -8,7 +8,6 @@
                  java.util.*,
                  java.text.SimpleDateFormat"
 %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -39,7 +38,6 @@ function noenter(e)
 <html>
 <head>
 <title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
     <jsp:include page="script.jsp" />
         <jsp:include page="/style.jsp">
           <jsp:param name="key" value="tc_forums"/>
@@ -76,7 +74,7 @@ function noenter(e)
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
 	<td style="padding-bottom:3px;">
-		<b><a href="?module=Main" class="rtbcLink">Forums</a> > Search</b>
+		<b><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Search</b>
 	</td>
 </tr>
 </table>

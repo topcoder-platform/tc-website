@@ -8,7 +8,6 @@
            		 java.util.Iterator,
                  java.util.Enumeration"
 %>
-<%@ page contentType="text/html;charset=utf-8" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -24,7 +23,6 @@
 <html>
 <head>
 <title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <jsp:include page="script.jsp" />
     <jsp:include page="/style.jsp">
       <jsp:param name="key" value="tc_forums"/>
@@ -59,7 +57,7 @@
                 <jsp:param name="title" value="&#160;"/>
             </jsp:include>
     
-<span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> > Administration</span>
+<span class="rtbc"><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Administration</span>
 
 <form name="form1" method="post" action="${sessionInfo.servletPath}">
 <tc-webtag:hiddenInput name="module" value="Admin"/>

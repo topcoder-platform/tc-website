@@ -4,7 +4,6 @@
                  com.topcoder.web.forums.ForumConstants,
                  java.util.Iterator"
         %>
-<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
@@ -20,7 +19,6 @@
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
 
     <jsp:include page="style.jsp">
@@ -72,6 +70,7 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
 
                 <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
                     <tc-webtag:hiddenInput name="module" value="Watches"/>
+                    <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.THREAD)%>"/>
                     <tc-webtag:hiddenInput name="<%=ForumConstants.STATUS%>"/>
                     <table cellpadding="0" cellspacing="0" class="rtTable">
                         <tr>
@@ -94,28 +93,27 @@ To prevent any watch from being automatically deleted, toggle the "save" option.
                                     </a></td>
                                 <td class="rtThreadCell"><%if (rootMessage.getUser() != null) {%>
                                     <studio:handle coderId="<%=rootMessage.getUser().getID()%>"/><%}%></td>
-                                <td class="rtThreadCell" align="right"><%=thread.getMessageCount() - 1%>&#160;&#160;&#160;&#160;&#160;</td>
-                                <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%>
-                                    &#160;&#160;&#160;&#160;</td>
+                                <td class="rtThreadCell" align="right"><%=thread.getMessageCount() - 1%></td>
+                                <td class="rtThreadCell" align="right"><%=ViewCountManager.getInstance().getThreadCount(thread)%></td>
                                 <td class="rtThreadCell"><b>
                                     <tc-webtag:format object="${thread.modificationDate}" format="MMM d, yyyy h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
                                 </td>
                                 <td class="rtThreadCell"><%if (latestMessage.getUser() != null) {%>
                                     <studio:handle coderId="<%=latestMessage.getUser().getID()%>"/><%}%></td>
                                 <td class="rtThreadCell" align="center">
-                                    <input name="<%=ForumConstants.WATCHES_SAVE_THREAD%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
-                                            <%= (watchManager.getWatch(user, thread).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_DELETE_THREAD%><%=thread.getID()%>.checked=false;"/>
+                                    <input name="<%=ForumConstants.STATUS_SAVE%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
+                                            <%= (watchManager.getWatch(user, thread).isExpirable()) ? "" : "checked" %> onclick="Javascript:document.form1.<%=ForumConstants.STATUS_DELETE%><%=thread.getID()%>.checked=false;"/>
                                 </td>
                                 <td class="rtThreadCell" align="center">
-                                    <input name="<%=ForumConstants.WATCHES_DELETE_THREAD%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
-                                           onclick="Javascript:document.form1.<%=ForumConstants.WATCHES_SAVE_THREAD%><%=thread.getID()%>.checked=false;"/>
+                                    <input name="<%=ForumConstants.STATUS_DELETE%><%=thread.getID()%>" value="<%=thread.getID()%>" type="checkbox"
+                                           onclick="Javascript:document.form1.<%=ForumConstants.STATUS_SAVE%><%=thread.getID()%>.checked=false;"/>
                                 </td>
                             </tr>
                         </tc-webtag:iterator>
                     </table>
 
                     <div align="right">
-                        <input type="image" src="/i/forums/update.gif" alt="Update" onclick="form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.WATCHES_UPDATE%>'"/>
+                        <input type="image" src="/i/forums/update.gif" alt="Update" onclick="form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
                     </div>
 
                 </form>
