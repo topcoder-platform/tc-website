@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.request.data;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.datafeed.AllColumns;
 import com.topcoder.web.common.datafeed.Column;
 import com.topcoder.web.common.datafeed.CommandRunner;
@@ -61,6 +62,8 @@ public class ComponentProject extends Base {
            
             submissions.add(ac);
             df.add(submissions);
+
+            getResponse().setContentType("text/xml");
 
             df.writeXML(getResponse().getOutputStream());
             
