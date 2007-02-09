@@ -411,7 +411,7 @@ function submit() {
             </td>
         </tr>
     </thead>
-    <tbody id="rankedBody">
+    <tbody id="rankedBody"></tbody>
 </table>
 <%-- table for the disabled candidates --%>
 <table id="unranked" class="stat" style="width: 100%;" cellpadding="0" cellspacing="0">
