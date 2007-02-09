@@ -3,6 +3,7 @@ package com.topcoder.web.common.voting;
 import com.topcoder.web.common.model.Base;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 /**
  * @author dok
@@ -115,6 +116,20 @@ public class Vote extends Base {
         }
 
 
+    }
+
+
+        /**
+     * class to sort candidates alphabetically by name, and if two are named the same,
+     * then by id.  undefined if both name and id are the same.
+     */
+    public static class RankComparator implements Comparator {
+
+        public int compare(Object o1, Object o2) {
+            Vote v1 = (Vote) o1;
+            Vote v2 = (Vote) o2;
+            return v1.getRank().compareTo(v2.getRank());
+        }
     }
 
 
