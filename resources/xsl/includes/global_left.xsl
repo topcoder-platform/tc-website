@@ -170,7 +170,7 @@
 <!-- Software Forums -->
                 <tr>
                     <td id="leftNav">
-                        <A class="left"><xsl:attribute name="href">http://<xsl:value-of select="/TC/ForumsHost"/>/?module=Category&amp;categoryID=378</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Software Forums</A>
+                        <A class="left"><xsl:attribute name="href">http://<xsl:value-of select="/TC/ForumsHost"/>/?module=Category&amp;categoryID=22</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Software Forums</A>
                     </td>
                 </tr>
 
