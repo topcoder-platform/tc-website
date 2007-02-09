@@ -22,6 +22,7 @@
         <xs:enumeration value="String[][]"/>
 		<xs:enumeration value="int[][]"/>
         <xs:enumeration value="long[][]"/>
+        <xs:enumeration value="Matrix2D"/>
     </xs:restriction>
 </xs:simpleType>
 
