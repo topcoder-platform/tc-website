@@ -122,8 +122,8 @@
       <A href="/tc?module=Static&d1=dev&d2=assembly&d3=det_wmsOrderReceiveProcess">Warehouse Management Phase 2 - <br>Ordering, Receiving and Processing</A>
       </td>
       <td class="valueC">
-      <A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 2 - Ordering, Receiving and Processing">register</A>
-      <%--registration closed--%>
+      <%--<A href="mailto:AssemblyCompetitions@topcoder.com?subject=Register: Warehouse Management Phase 2 - Ordering, Receiving and Processing">register</A>--%>
+      registration closed
       </td>
       <td class="valueC">
       &#160;
