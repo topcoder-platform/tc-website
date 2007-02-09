@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<server>
+	<mbean code="com.topcoder.utilities.pacts.ExpireOldAffidavitsAndPayments"
+		name="topcoder.startup:name=ExpireOldAffidavitsAndPayments">
+		<attribute name="InitStatus"/>
+		<attribute name="RunningTime">00:01 am</attribute>
+	</mbean>
+</server>
