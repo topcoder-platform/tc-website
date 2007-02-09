@@ -38,7 +38,7 @@
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#000000">
     <tr valign="bottom">
-        <td width="219" height="57"><a href="/pages/s_index.jsp"><img src="/images/logoTCSHome.gif" alt="TopCoder Software" width="216" height="57" border="0" /></a></td>
+        <td width="219" height="57"><a href="/"><img src="/images/logoTCSHome.gif" alt="TopCoder Software" width="216" height="57" border="0" /></a></td>
         <td width="99%" class="headRight"><img src="/images/homeBannerHead.gif" alt="Customized Sofware Components for the Enterprise" width="541" height="22" border="0" /></td>
     </tr>
 

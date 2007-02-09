@@ -5,14 +5,17 @@ package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.base.Log;
+import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.stats.ViewCountManager;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
@@ -39,7 +42,12 @@ public class Thread extends ForumsProcessor {
         }
 
         long threadID = Long.parseLong(getRequest().getParameter(ForumConstants.THREAD_ID));
-        ForumThread thread = forumFactory.getForumThread(threadID);
+        ForumThread thread;
+        try {
+        	thread = forumFactory.getForumThread(threadID);
+        } catch (UnauthorizedException ue) {
+        	throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
         ViewCountManager.getInstance().addThreadCount(thread);
         Forum forum = thread.getForum();
 

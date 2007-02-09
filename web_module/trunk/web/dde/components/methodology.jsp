@@ -2,10 +2,16 @@
 <%@ include file="/includes/session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
 
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+
 <%
     // STANDARD PAGE VARIABLES
     String page_name = "s_methodology.jsp";
     String action = request.getParameter("a");
+    
+    TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -84,13 +90,11 @@
             <td class="bodyText">
                 <!-- Collaboration begins -->
                 <p><strong>Specification</strong><br>
-                    TopCoder Project Managers (PM) moderate the TopCoder <a href="/forum/c_active_collab.jsp">Customer
-                    Forums</a> to gather
-                    requirements about a new Component Project. Once the project scope has been determined, the PM
-                    creates a Requirements Specification
-                    for the Design Phase of the project. New projects are regularly posted to the TopCoder
-                    <a href="http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=112">Software Design
-                        page</a>, with members notified each week by email.</p>
+                    TopCoder Project Managers (PM) moderate the TopCoder <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Software
+                    Forums</a> to gather requirements about a new Component Project. Once the project scope has been determined, the PM
+                    creates a Requirements Specification for the Design Phase of the project. New projects are regularly posted to the TopCoder
+                    <a href="http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=112">Software Development site</a>
+                    and emails are sent out to members notifying them of the new projects.</p>
                 <!-- Collaboration ends -->
 
                 <!-- Design begins -->
@@ -124,7 +128,7 @@
                     tested to ensure acceptable performance, accuracy of results, and abillity to handle bad data and
                     incorrect usage. Extensive documentation
                     is downloaded along with the component. Customers, the PM and other TopCoder members interact in the
-                    <a href="/forum/c_active_collab.jsp">Customer Forums</a> to discuss the current complete version of
+                    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Software Forums</a> to discuss the current complete version of
                     the component, as well as make
                     suggestions for future versions of the component.</li>
                 <!-- Complete ends -->

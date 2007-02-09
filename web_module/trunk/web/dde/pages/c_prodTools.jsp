@@ -117,11 +117,11 @@
     Document documents[] = (Document[])colDocuments.toArray(new Document[0]);
     //Document screenshots[] = (Document[])colScreenShots.toArray(new Document[0]);
 
-    boolean hasPreviousForums = false;
+    boolean hasPreviousForumCategories = false;
     Collection colVersions = componentManager.getAllVersionInfo();
     ComponentVersionInfo versions[] = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
-    com.topcoder.dde.catalog.Forum collaborations[] = new com.topcoder.dde.catalog.Forum[versions.length];
-    com.topcoder.dde.catalog.Forum specifications[] = new com.topcoder.dde.catalog.Forum[versions.length];
+    com.topcoder.dde.catalog.ForumCategory collaborations[] = new com.topcoder.dde.catalog.ForumCategory[versions.length];
+    com.topcoder.dde.catalog.ForumCategory specifications[] = new com.topcoder.dde.catalog.ForumCategory[versions.length];
     for (int i=0; i < versions.length; i++) {
         if (versions[i].getPhase() != ComponentVersionInfo.COMPLETED) {
             collaborations[i] = null;
@@ -130,23 +130,23 @@
         } else {
             componentManager.setVersion(versions[i].getVersion());
             try {
-                collaborations[i] = componentManager.getForum(com.topcoder.dde.catalog.Forum.COLLABORATION);
-                specifications[i] = componentManager.getForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
+                collaborations[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
+                specifications[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
             } catch (CatalogException ce) {
-                // getForum returns multiple forums of a type which is not supposed to happen
+                // getForumCategory returns multiple forum categories of a type which is not supposed to happen
                 // what to do?
             }
             if (collaborations[i] != null || specifications[i] != null) {
-                hasPreviousForums = true;
+                hasPreviousForumCategories = true;
             }
         }
     }
     componentManager.setVersion(versionInfo.getVersion());
-    com.topcoder.dde.catalog.Forum activeCollab = null;
-    com.topcoder.dde.catalog.Forum activeSpec = null;
+    com.topcoder.dde.catalog.ForumCategory activeCollab = null;
+    com.topcoder.dde.catalog.ForumCategory activeSpec = null;
     try {
-        activeCollab = componentManager.getActiveForum(com.topcoder.dde.catalog.Forum.COLLABORATION);
-        activeSpec = componentManager.getActiveForum(com.topcoder.dde.catalog.Forum.SPECIFICATION);
+        activeCollab = componentManager.getActiveForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
+        activeSpec = componentManager.getActiveForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
     } catch (CatalogException ce) {
     }
 %>
@@ -419,7 +419,7 @@
     </tr>
 </table>
 
-<jsp:include page="/includes/footer.jsp" flush="true" />
+<jsp:include page="/includes/foot.jsp" flush="true" />
 
 </body>
 </html>

@@ -7,6 +7,9 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
 
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
@@ -17,7 +20,8 @@
     String page_name = "s_index.jsp";
     String action = request.getParameter("a");
 
-
+	TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
 %>
 
 <%
@@ -166,7 +170,7 @@
                         <p>These samples are only a few of the dozens of components available in our .NET&#8482; and Java&#8482; <a href="/catalog/c_showroom.jsp">component catalogs.</a> To
                         access all of our components or to use them in a commercial application, purchase a <a href="/components/subscriptions.jsp">subscription</a> to either of the catalogs.</p>
 
-                        <p>Use our <a href="/forum/c_active_collab.jsp">Customer Forums</a> to discuss component features and usage or to report bugs. For issues with the downloads or to speak
+                        <p>Use our <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Software Forums</a> to discuss component features and usage or to report bugs. For issues with the downloads or to speak
                         with a component product manager, contact us at <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com.</a></p>
 
                         <hr width="100%" size="1" color="#999999" noshade>

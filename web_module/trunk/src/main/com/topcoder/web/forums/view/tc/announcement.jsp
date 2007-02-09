@@ -5,8 +5,7 @@
                 com.topcoder.web.common.StringUtils,
                 com.jivesoftware.base.User,
                 com.jivesoftware.forum.Forum,
-                java.util.*"
-%><%@ page contentType="text/html;charset=utf-8" %>
+                java.util.*" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -27,7 +26,6 @@
 <html>
 <head>
 <title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
     <jsp:include page="script.jsp" />
         <jsp:include page="/style.jsp">
           <jsp:param name="key" value="tc_forums"/>
@@ -84,10 +82,10 @@
    </div>
    <%   } %> 
     <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
-        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> >  
+        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> <img src="/i/interface/exp_w.gif" align="absmiddle"/>  
     </tc-webtag:iterator>
      <%  if (forum != null) { %>
-         <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A> > 
+         <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A> <img src="/i/interface/exp_w.gif" align="absmiddle"/> 
      <%  } %>
      <img src="/i/interface/announcement.gif" alt="" border="0" /> <%=announcement.getSubject()%>
    </td>

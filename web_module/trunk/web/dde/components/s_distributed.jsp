@@ -7,6 +7,9 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
 
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
@@ -15,6 +18,9 @@
 	// STANDARD PAGE VARIABLES
 	String page_name = "s_distributed.jsp";
 	String action = request.getParameter("a");
+	
+	TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id")); 
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -82,7 +88,7 @@
 						<p>See what is available today. Visit our <a href="c_showroom.jsp">Component Catalog</a></p>
 
 						<p><strong>Interested in components?</strong><br />
-						Weigh in with ideas and suggestions by <a href="c_active_collab.jsp" class="bodyText">collaborating</a> with others.</p></td>
+						Weigh in with ideas and suggestions by <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>" class="bodyText">collaborating</a> with others.</p></td>
 				</tr>
 				<tr><td><img src="/images/clear.gif" alt="" width="10" height="40" border="0" /></td></tr>
 			</table>

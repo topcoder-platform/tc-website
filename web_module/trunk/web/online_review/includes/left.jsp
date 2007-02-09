@@ -1,4 +1,10 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%><script type="text/javascript">
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+
+<%	TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id")); %>
+
+<script type="text/javascript">
 <!--
 function arena() {
   w=window.open("http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=applet&d2=launch","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
@@ -34,7 +40,7 @@ function arena() {
 <!-- TCS Forums begins -->
                 <tr>
                     <td id="<%=level2.equals("tcsForums")?"leftNavOn":"leftNav"%>">
-                        <img src="/images/nav_arrow_<%=level2.equals("tcsForums")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://software.topcoder.com/forum/c_active_collab.jsp?ft=2" class="<%=level2.equals("tcsForums")?"leftOn":"left"%>">TCS Developer Forums</a>
+                        <img src="/images/nav_arrow_<%=level2.equals("tcsForums")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>"> class="<%=level2.equals("tcsForums")?"leftOn":"left"%>">TCS Developer Forums</a>
                     </td>
                 </tr>
 

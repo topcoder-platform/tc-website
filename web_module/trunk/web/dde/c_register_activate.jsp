@@ -7,6 +7,9 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.lang.reflect.*" %>
 
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
@@ -16,6 +19,9 @@
     // STANDARD PAGE VARIABLES
     String page_name = "c_register_activate.jsp";
     String action = request.getParameter("a");
+    
+    TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
 %>
 
 <%
@@ -104,8 +110,8 @@
 <%  if (activated) { %>
                         <p><strong>Congratulations! Your new TopCoder Software Account has been activated.</strong></p>
 
-                        <p>Start experiencing the TopCoder Difference today! Visit our <a href="catalog/c_showroom.jsp">Component Catalog,</a>
-                        participate in an online <a href="forum/c_active_collab.jsp">Collaboration Forum</a> or purchase a
+                        <p>Start experiencing the TopCoder difference today! Visit our <a href="catalog/c_showroom.jsp">Component Catalog,</a>
+                        participate in an online <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">Collaboration Forum</a>, or obtain a
                         <a href="components/subscriptions.jsp">subscription package</a> so you can start downloading components.</p>
 <%  } else { %>
                         <p><strong>Please verify that you have entered the supplied URL correctly.</strong></p>
@@ -124,7 +130,7 @@
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="/includes/footer.jsp" flush="true" />
+<jsp:include page="/includes/foot.jsp" flush="true" />
 <!-- Footer ends -->
 
 </body>
