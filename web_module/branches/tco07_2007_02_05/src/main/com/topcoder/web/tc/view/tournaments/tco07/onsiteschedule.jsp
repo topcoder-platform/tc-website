@@ -32,16 +32,119 @@
                     <div id="pageBody">
 
                         <h1><div>Onsite Schedule</div></h1>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
-                        </p>
-                        <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
-                        </p>
-                        <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
-                        </p>
-
+                        <p><br></p>
+                        
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="title" colspan="2">Schedule of Onsite Events</td>
+                                </tr>
+                                <tr>
+                                       <td class="header" colspan="2">Tuesday, June 26, 2007</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr class="light">
+                                       <td class="value">7:00pm - 9:00pm</td>
+                                       <td class="value">Welcome Reception</td>
+                                </tr>
+                                <tr>
+                                       <td class="header" colspan="2">Wednesday, June 27, 2007</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">9:00am - 11:00am</td>
+                                       <td class="value">Algorithm Semifinal Room 1</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">9:00am – 6:00pm</td>
+                                       <td class="value">Marathon Match Finals</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">11:00am - Noon</td>
+                                       <td class="value">UBS Presentation</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Noon - 1:00pm</td>
+                                       <td class="value">Lunch</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">1:00pm - 2:00pm</td>
+                                       <td class="value">Component Design & Development 1</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">3:00pm – 4:00pm</td>
+                                       <td class="value">NSA Presentation</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">4:00pm - 6:00pm</td>
+                                       <td class="value">Algorithm Semifinal Room 2</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">4:00pm – 10:00pm</td>
+                                       <td class="value">Competitor Game Room</td>
+                                </tr>
+                                <tr>
+                                       <td class="header" colspan="2">Thursday, June 28, 2007</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">9:00am - 11:00am</td>
+                                       <td class="value">Algorithm Semifinal Room 3</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">9:00am – 6:00pm</td>
+                                       <td class="value">Studio Graphic Design Finals</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">11:00am - Noon</td>
+                                       <td class="value">DRW Presentation</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Noon - 1:00pm</td>
+                                       <td class="value">Lunch</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">1:00pm - 2:00pm</td>
+                                       <td class="value">Component Design & Development 2</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">4:00pm – 6:00pm</td>
+                                       <td class="value">Algorithm Wildcard Round</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">6:30pm - 10:00pm</td>
+                                       <td class="value">AOL Evening Event</td>
+                                </tr>
+                                <tr>
+                                       <td class="header" colspan="2">Friday, June 29, 2007</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">9:00am - 10:00am</td>
+                                       <td class="value">Component Design & Development Appeals Final</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">11:00am - Noon</td>
+                                       <td class="value">AOL Presentation</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Noon - 1:00pm</td>
+                                       <td class="value">Lunch</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">1:30pm - 3:30pm</td>
+                                       <td class="value">Algorithm Championship Round</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">3:30pm - 4:30pm</td>
+                                       <td class="value">All Champion Announcements</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">7:00pm - 10:00pm</td>
+                                       <td class="value">Awards Reception</td>
+                                </tr>
+                        </tbody>
+                        </table>
+                        
+                        
                     </div>
                 </td>
             </tr>

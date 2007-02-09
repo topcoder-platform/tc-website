@@ -33,15 +33,50 @@
 
                         <h1><div>Developer Forums</div></h1>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
+                        <b>**NEED NEW CONTENT**</b> <br>
+                        Are you attending the TCO finals as a spectator or finalist? Either way, be sure to attend the Developer Forums. This year's TCO features three rewarding topics:
                         </p>
+                        <h3>Wednesday, November 15</h3>
                         <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
+                        <b>3:00PM - 4:00PM  :  Applying the TopCoder Philosophy to New Frontiers</b><br>
+                        Two TopCoder clients have utilized the core TopCoder philosophies -- 
+                        competition-based business models and objective rating systems - as a 
+                        means of assessing performance and reducing risk. In the first part of 
+                        the forum, Aizling will discuss how the company based its revolutionary 
+                        approach to nursing and the healthcare industry on a competition model, 
+                        feedback system, and shift matching logic. Next up will be Equitrader, 
+                        which will review its simulated trading competitions, its rating system, 
+                        and new technology that enables members to create autonomous trading bots. 
+                        How does the TopCoder approach apply to staffing a medical facility or 
+                        trading stocks? Join in the discussion, and find out!
                         </p>
+                        <h3>Thursday, November 16</h3>
                         <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
+                        <b>3:00PM - 4:00PM  :  Estimating Project Size</b><br>
+                        How long will this take? How much money will it cost? These two simple 
+                        questions can be infuriatingly difficult to answer, especially when it comes 
+                        to an enterprise software project. But there's hope, thanks to the "Use 
+                        Case Points" methodology. Use Case Points can help evaluate a project's 
+                        scope - based on the Use Cases and Actors outlined in the Use Case model - 
+                        as well as a project's complexity. This forum will discuss the features of 
+                        the Use Case Points approach, and highlight how it has been applied to 
+                        TopCoder projects.
                         </p>
-
+                        <h3>Friday, November 17</h3>
+                        <p>
+                        <b>1:00PM - 2:00PM  :  Overview of Recent TopCoder Projects</b><br>
+                        New clients and projects have expanded TopCoder's presence in a variety 
+                        of market spaces, from energy and insurance to finance, healthcare, media, 
+                        and retail. TopCoder has built a variety of applications - including data 
+                        warehousing, internal, integration, and mobile device systems - using new 
+                        and emerging technologies like J2ME, RFID, and AJAX. For each project, 
+                        TopCoder has applied its software development methodology to build 
+                        reliable, scalable solutions - and, by leveraging TopCoder's component 
+                        library, these projects have been completed for less money and with fewer 
+                        bugs. In this forum, learn more about the diverse array of projects 
+                        TopCoder is tackling, and what we've learned by applying our methods 
+                        to a wide range of industries.
+                        </p>
                     </div>
                 </td>
             </tr>

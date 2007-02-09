@@ -31,16 +31,191 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Algorithm Competition Schedule</div></h1>
+                        <h1><div>Algorithm Competition Schedule *</div></h1>
+                        <h2>Registration</h2>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
+                        Registration for the 2007 TopCoder Open Algorithm Competition will open at 9:00 AM EDT on Monday, March 12, and will close at 7:00 AM EDT on Wednesday, March 28 2007. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.
                         </p>
+                        
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="header">Registration</td>
+                                       <td class="header">OPENS: Monday, February 19, 2007 9:00 AM EDT<br>
+                                       CLOSES: Tuesday, March 27 2007 5:00 PM EDT </td>
+                                </tr>
+                        </thead>
+                        </table>
+                        <p></p>
+                        
+                        <h2>Qualification Round</h2>
                         <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
+                        There will be three Qualification Rounds available for those registered for the TCO. A maximum of 450 competitors will advance to Online Round #1 from each Qualification Round, plus the 150 top rated members who automatically advance without competing in the Qualification Round. 
                         </p>
-                        <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
-                        </p>
+                        
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="title" colspan="2">Qualification Rounds</td>
+                                </tr>
+                                <tr>
+                                       <td class="header">Round</td>
+                                       <td class="header">Date and Time*</td>
+                                       <td class="header"># of Participants</td>
+                                       <td class="header"># of Advancers</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr class="light">
+                                       <td class="value">Qualification Round #1</td>
+                                       <td class="value">Thursday, March 29<br>Register: 4:00 - 6:55 AM<br>START: 7:00 AM</td>
+                                       <td class="value">All members who have not previously qualified - limited to the first 1,350 participants to register</td>
+                                       <td class="value">550</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">Qualification Round #2</td>
+                                       <td class="value">Saturday, March 31<br>Register: 10:00 AM - 12:55 PM<br>START: 1:00 PM</td>
+                                       <td class="value">All members who have not previously qualified - limited to the first 1,350 participants to register</td>
+                                       <td class="value">550</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Qualification Round #3</td>
+                                       <td class="value">Tuesday, April 3<br>Register: 6:00 - 8:55 PM<br>START: 9:00 PM</td>
+                                       <td class="value">All members who have not previously qualified - limited to the first 1,350 participants to register</td>
+                                       <td class="value">550</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value" colspan="4">*All times are Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
+                                </tr>
+                        </tbody>
+                        </table>
+                        <p><br></p>
+                        
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="title" colspan="4">Online Elimination Rounds</td>
+                                </tr>
+                                <tr>
+                                       <td class="header">Round</td>
+                                       <td class="header">Date and Time*</td>
+                                       <td class="header"># of Participants</td>
+                                       <td class="header"># of Advancers</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr class="light">
+                                       <td class="value">Online Round #1 - Section A</td>
+                                       <td class="value">Saturday, April 7<br>Register: 10:00 AM - 12:55 PM<br>START: 1:00 PM</td>
+                                       <td class="value">Up to 720**</td>
+                                       <td class="value">300</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">Online Round #1 - Section B</td>
+                                       <td class="value">Tuesday, April 10<br>Register: 6:00 - 8:55 PM<br>START: 9:00 PM</td>
+                                       <td class="value">Up to 720**</td>
+                                       <td class="value">300</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Online Round #1 - Section C</td>
+                                       <td class="value">Thursday, April 12<br>Register: 4:00 - 6:55 AM<br>START: 7:00 AM</td>
+                                       <td class="value">Up to 720**</td>
+                                       <td class="value">300</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">Online Round #2</td>
+                                       <td class="value">Saturday, April 14<br>Register: 10:00 AM - 12:55 PM<br>START: 1:00 PM</td>
+                                       <td class="value">900</td>
+                                       <td class="value">300</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Online Round #3</td>
+                                       <td class="value">Saturday, April 21<br>Register: 10:00 AM - 12:55 PM<br>START: 1:00 PM</td>
+                                       <td class="value">300</td>
+                                       <td class="value">150</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">Online Round #4</td>
+                                       <td class="value">Saturday, April 28<br>Register: 10:00 AM - 12:55 PM<br>START: 1:00 PM</td>
+                                       <td class="value">150</td>
+                                       <td class="value">48</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value" colspan="4">* NOTE: All times are Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will be the following day at the same time.<br>
+                                       ** If less than 1,800 competitors qualify to compete in Online Round #1, the maximum number of competitors that will be assigned into any section will be 40% of the actual number of qualifiers, rounded up.</td>
+                                </tr>
+                        </tbody>
+                        </table>
+                       <p><br></p>
+                       
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="title" colspan="2">Onsite Rounds</td>
+                                </tr>
+                                <tr>
+                                       <td class="header">Round of Competition</td>
+                                       <td class="header">Date and Time (Pacific Daylight Time)</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr class="light">
+                                       <td class="value">Semifinal Room #1</td>
+                                       <td class="value">Wednesday, June 26, 9:00 AM</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">Semifinal Room #2</td>
+                                       <td class="value">Wednesday, June 26, 4:00 PM</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Semifinal Room #3</td>
+                                       <td class="value">Thursday, June 27, 9:00 AM</td>
+                                </tr>
+                                 <tr class="dark">
+                                       <td class="value">Wildcard Round</td>
+                                       <td class="value">Thursday, June 27, 4:00 PM</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Championship Round</td>
+                                       <td class="value">Friday, June 28, 1:30 PM</td>
+                                </tr>
+                       </tbody>
+                        </table>
+                       <p><br></p>
+                       
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="title" colspan="2">Important Dates</td>
+                                </tr>
+                                <tr>
+                                       <td class="header">Important Items to Note</td>
+                                       <td class="header">Date and Time (Eastern Daylight Time)</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr class="light">
+                                       <td class="value">Last Day to Request a Visa Letter</td>
+                                       <td class="value">Monday, April 23, 2007 at 5:00 PM</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">Finalist Documents Due</td>
+                                       <td class="value">Friday, May 11, 2007 at 5:00 PM</td>
+                                </tr>
+                       </tbody>
+                        </table>
+                       <p><br></p>
+<p>
+<b>* Find start times in your time zone</b><br>
+Below is a list of start times for the various rounds. Click the time that corresponds to the round you are interested in to see what time coding begins in your time zone. 
+</p>
+<p>
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=29&year=2007&hour=7&min=0&sec=0&p1=179">7:00 AM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=29&year=2007&hour=9&min=0&sec=0&p1=179">9:00 AM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=31&year=2007&hour=13&min=0&sec=0&p1=179">1:00 PM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=27&year=2007&hour=17&min=0&sec=0&p1=179">5:00 PM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=4&day=3&year=2007&hour=21&min=0&sec=0&p1=179">9:00 PM</A>
+</p>
 
                     </div>
                 </td>
