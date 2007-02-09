@@ -48,7 +48,7 @@
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/bfograph.jar"/>
-        <pathelement location="${jars.dir}/activation.jar"/>
+    	<pathelement location="${jars.dir}/activation.jar"/>
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -140,8 +140,7 @@
                 deprecation="${deprecation}"
                 debug="${debug}"
                 source="1.5"
-                target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true"
-                >
+                target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">    
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
