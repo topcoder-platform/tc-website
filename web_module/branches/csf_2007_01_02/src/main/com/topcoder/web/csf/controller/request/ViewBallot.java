@@ -3,10 +3,11 @@ package com.topcoder.web.csf.controller.request;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.voting.CondorcetSchulzeElection;
 import com.topcoder.web.common.voting.ElectionStatus;
+import com.topcoder.web.common.voting.RankBallot;
+import com.topcoder.web.common.voting.Vote;
 import com.topcoder.web.common.voting.dao.VotingDAOUtil;
 import com.topcoder.web.csf.Constants;
 import com.topcoder.web.csf.dao.CSFDAOUtil;
@@ -21,7 +22,7 @@ import java.util.Date;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Feb 2, 2007
  */
-public class ViewBallot extends ShortHibernateProcessor {
+public class ViewBallot extends Base {
     protected void dbProcessing() throws Exception {
 
         if (userLoggedIn()) {
@@ -52,16 +53,30 @@ public class ViewBallot extends ShortHibernateProcessor {
                 } else if (election == null) {
                     throw new NavigationException("Invalid election specified");
                 } else {
-                    if (ElectionStatus.ACTIVE.equals(election.getStatus().getId())) {
-                        Date now = new Date();
-                        if (election.getStartTime().before(now) && election.getEndTime().after(now)) {
+                    if (VotingDAOUtil.getFactory().getRankBallotDAO().find(election.getId(), new Long(getUser().getId()))==null) {
+                        boolean isAdmin = isAdmin();
+                        if (isAdmin) {
                             ballotProcessing(contest, election);
                             setNextPage();
+                        } else if (ElectionStatus.ACTIVE.equals(election.getStatus().getId())) {
+                            Date now = new Date();
+                            if (election.getStartTime().before(now) && election.getEndTime().after(now)) {
+                                ballotProcessing(contest, election);
+                                setNextPage();
+                            } else {
+                                throw new NavigationException("Inactive election specified.");
+                            }
                         } else {
-                            throw new NavigationException("Inactive election specified.");
+                            throw new NavigationException("Invalid election specified.");
                         }
                     } else {
-                        throw new NavigationException("Invalid election specified.");
+                        RankBallot ballot = VotingDAOUtil.getFactory().getRankBallotDAO().find(election.getId(), new Long(getUser().getId()));
+                        ArrayList votes = new ArrayList(ballot.getVotes());
+                        Collections.sort(votes, new Vote.RankComparator());
+                        getRequest().setAttribute("ballot", ballot);
+                        getRequest().setAttribute("votes", votes);
+                        setNextPage("/vote/completedBallot.jsp");
+                        setIsNextPageInContext(true);
                     }
                 }
             }
