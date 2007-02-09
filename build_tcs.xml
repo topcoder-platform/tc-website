@@ -15,6 +15,7 @@
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
+	<property name="jive.dir" value="lib/jars/jive"/>
     <property name="resources.dir" value="resources"/>
     <property name="web.dir" value="web"/>
     <property name="src.dir" value="src"/>
@@ -52,6 +53,11 @@
 
         <pathelement location="${jars.dir}/idgenerator.jar"/>
 
+    	<pathelement location="${jive.dir}/jivebase.jar"/>
+        <pathelement location="${jive.dir}/jiveforums.jar"/>
+      	<pathelement location="${jive.dir}/xwork.jar"/>
+        <pathelement location="${jive.dir}/htmlparser.jar"/>
+	
         <!-- tcs components -->
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
@@ -146,6 +152,8 @@
             <exclude name="com/topcoder/apps/screening/**"/>
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/web/common/**"/>
+        	<include name="com/topcoder/web/forums/ForumConstants.java"/>
+        	<include name="com/topcoder/web/ejb/forums/**"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
@@ -154,6 +162,7 @@
         <jar jarfile="${common.jar}">
             <fileset dir="${classes.dir}">
                 <include name="com/topcoder/web/common/**/*.class"/>
+            	<include name="com/topcoder/web/forums/**/*.class"/>
                 <include name="com/topcoder/common/**/*.class"/>
             </fileset>
         </jar>
@@ -258,6 +267,13 @@
             <metainf dir="${java.dir}/com/topcoder/dde/submission" includes="*.xml"/>
         </jar>
 
+        <jar jarfile="${ejb.jars.dir}/forums.jar">
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/forums/*.class"/>
+        	<zipfileset dir="${classes.dir}" includes="com/topcoder/dde/catalog/ForumCategory.class"/>
+            <metainf dir="${java.dir}/com/topcoder/web/ejb/forums" includes="*.xml"/>
+        </jar>
+    	
         <jar jarfile="${ejb.jars.dir}/notification.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/notification/**, com/topcoder/apps/review/ConfigHelper.class, com/topcoder/apps/review/EJBHelper.class, com/topcoder/apps/review/persistence/Common.class"/>
             <metainf dir="${java.dir}/com/topcoder/dde/notification" includes="*.xml"/>
@@ -376,6 +392,7 @@
                 <include name="cache.properties"/>
                 <include name="DBMS.properties"/>
                 <include name="DataAccess.properties"/>
+            	<include name="TC.properties"/>
                 <include name="TCS.properties"/>
                 <include name="onsite.properties"/>
             </fileset>
@@ -389,6 +406,16 @@
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${ejb.jars.dir}">
                 <include name="security.jar"/>
+            </fileset>
+        </copy>
+    	<copy todir="${jboss.lib.dir}">
+            <fileset dir="${jive.dir}">
+                <include name="htmlparser.jar"/>
+            	<include name="jivebase.jar"/>
+                <include name="jiveforums.jar"/>
+            	<include name="velocity-dep.jar"/>
+            	<include name="xwork.jar"/>
+            	<include name="webwork.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
@@ -565,7 +592,7 @@
             </fileset>
         </ear>
     </target>
-
+	
     <target name="explode">
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
@@ -582,6 +609,7 @@
             <fileset dir="${ejb.jars.dir}">
                 <include name="Project.jar"/>
                 <include name="RBoard.jar"/>
+            	<include name="forums.jar"/>
 <!--remove with new OR
                 <include name="Specification.jar"/>
 -->
