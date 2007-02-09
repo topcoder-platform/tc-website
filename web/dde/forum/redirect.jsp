@@ -1,13 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%--<%@ page import="javax.naming.*,
-           com.topcoder.dde.util.ApplicationServer" %>
-<%@ page import="javax.ejb.CreateException" %>
-<%@ page import="java.io.*" %>
-<%@ page import="java.rmi.*" %>
-<%@ page import="javax.rmi.*" %>
-<%@ page import="java.util.*" %>
-<%@ page import="java.sql.*" %>
-<%@ page import="java.lang.reflect.*" %>--%>
+<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
@@ -18,6 +10,9 @@
     // STANDARD PAGE VARIABLES
     String page_name = "s_definition.jsp";
     String action = request.getParameter("a");
+    
+    TCResourceBundle bundle = new TCResourceBundle("TC");
+	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -27,7 +22,7 @@
     <title>Software Components form the basis of the applications built by TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
-    <meta http-equiv="REFRESH" content="1;url=/">
+    <meta http-equiv="REFRESH" content="1;url=http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">
 </head>
 
 <body class="body">
@@ -59,7 +54,7 @@
         <td width="99%">
 
 <div style="margin: 60px 20px 100px 20px;" align="center">
-The Component Forums have moved <a href="/">here</a>.
+The Component Forums have moved <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">here</a>.
 <br><br>
 You will be redirected there momentarily.
 </div>
