@@ -1,3 +1,4 @@
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
     String selectedTab = request.getParameter("selectedTab") == null ? "" : request.getParameter("selectedTab");
 %>
@@ -12,5 +13,5 @@
 <li<% if (selectedTab.equals("discuss")) {%> class="on"<% } %> style="background-image: none; border-bottom: 1px solid #CCCCCC;"><A href="/forums" onfocus="this.blur();">Discuss the Competitions</A></li>
 --%>
 </ul>
-<A href="http://www.topcoder.com/" style="margin-left: 5px;"><img src="/i/pbtc.png" alt="Powered by TopCoder" /></A>
+<A href="<tc-webtag:linkTracking link="http://www.topcoder.com" refer="csf_site_tc_logo"/>" style="margin-left: 5px;"><img src="/i/pbtc.png" alt="Powered by TopCoder" /></A>
 </div>

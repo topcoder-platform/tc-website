@@ -91,7 +91,9 @@
 
                 <A href="http://www.networkmashups.com/Forgotpassword.aspx">Forgot your password? Click here!</A>
                 <br> 
+<%--
                 <A href="http://www.networkmashups.com/Signup.aspx">Don't have an account? Create one!</A>
+--%>
 
                 <script type="text/javascript">
                     document.frmLogin.<%=Login.USER_NAME%>.focus();
