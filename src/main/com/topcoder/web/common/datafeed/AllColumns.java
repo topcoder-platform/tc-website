@@ -10,7 +10,12 @@ import org.xml.sax.helpers.AttributesImpl;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-
+/**
+ * This element will add all the columns found in the ResultSetContainer in the DataFeed.
+ * It is possible to skip some columns and to replace them by some other elements.
+ * 
+ * @author Cucu
+ */
 public class AllColumns implements RSCElement {
 
     private Set skip;
@@ -20,7 +25,13 @@ public class AllColumns implements RSCElement {
         skip = new HashSet();
         replace = new HashMap();
     }
-    
+
+    /**
+     * Replace the column with the field name of the column with the specified column.
+     * If it contains an id field, it is added to the skip list.
+     * 
+     * @param col column to replace.
+     */
     public void replace(Column col) {
         replace.put(col.getField(), col);
         if (col.getIdField() != null) {
@@ -28,15 +39,28 @@ public class AllColumns implements RSCElement {
         }        
     }
     
+    /**
+     * Replace a field with an element.
+     * 
+     * @param field field to replace.
+     * @param element element to put instead of the field.
+     */
     public void replace(String field, RSCElement element) {
         replace.put(field, element);
     }
     
+    /**
+     * Add a field in the skip list.
+     * 
+     * @param field field to skip
+     */
     public void skip(String field) {
         skip.add(field);
     }
 
-    
+    /**
+     * Write the xml for all columns, doing the replacement and skipping of the specified columns
+     */
     public void writeXML(TransformerHandler hd, ResultSetContainer rsc, ResultSetContainer.ResultSetRow row) throws Exception {
         for (int i = 0; i < rsc.getColumnCount(); i++) {
             String value = row.getStringItem(i);
@@ -52,16 +76,7 @@ public class AllColumns implements RSCElement {
                 continue;
             }
             
-            AttributesImpl attr = new AttributesImpl();
-/*            if (nameId.get(name) != null) {
-                String idColumn = ((String[]) nameId.get(name))[2];
-                String attrName = ((String[]) nameId.get(name))[1];
-                String id = row.getStringItem(idColumn);
-                
-                attr.addAttribute("", "", attrName, "CDATA", id == null? "" : id);
-                name = ((String[]) nameId.get(name))[0];
-            }*/
-            hd.startElement("", "", name, attr);
+            hd.startElement("", "", name, new AttributesImpl());
             
             if (value != null) {
                 hd.characters(value.toCharArray(), 0, value.length());
