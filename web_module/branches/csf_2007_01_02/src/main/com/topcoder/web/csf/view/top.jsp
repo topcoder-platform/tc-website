@@ -22,7 +22,7 @@
     <c:choose>
         <c:when test="${sessionInfo.anonymous}">
             <div class="topLinkBox" style="padding-right: 0px;">
-                <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="mailto:csf@topcoder.com?subject=CSF Help">Help</a>
+                <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="mailto:csf@topcoder.com?subject=CSF%20Help">Help</a>
             </div>
             <div class="topLinkBox">
                 <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<A href="<tc-webtag:linkTracking link="http://www.networkmashups.com/Signup.aspx" refer="csf_site_register_link"/>">Register</A>
