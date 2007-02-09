@@ -10,13 +10,39 @@ import org.xml.sax.helpers.AttributesImpl;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 
+/**
+ * Base class for data feeds based on ResultSet Containers.
+ * 
+ * @author Cucu
+ */
 public abstract class RSCBaseDataFeed implements DataFeed {
 
+    /**
+     * Root tag that wraps all the rsc rows.
+     */
     private String rootTag;
+    
+    /**
+     * Tag for each row of the rsc.
+     */
     private String rowTag;
+    
+    /**
+     * List of RSCBaseDataFeed that will be executed for each row. 
+     */
     private List children;
+    
+    /**
+     * List of elements to be rendered in each row.
+     */
     private List elements;
     
+    /**
+     * Create a Data feed.
+     * 
+     * @param rootTag tag that wraps all the rsc rows.
+     * @param rowTag tag for each row of the rsc.
+     */
     public RSCBaseDataFeed(String rootTag, String rowTag) {
         this.rootTag = rootTag;
         this.rowTag = rowTag;
@@ -24,28 +50,63 @@ public abstract class RSCBaseDataFeed implements DataFeed {
         this.elements = new ArrayList();
     }
     
+    /**
+     * Implementing classes must return a ResultSetContainer. The parentRow is provided to give the opportuinity of using some fields as parameters.
+     * 
+     * @param parentRow 
+     * @return a ResultSetContainer to render to XML.
+     * @throws Exception
+     */
     protected abstract ResultSetContainer getRSC(ResultSetContainer.ResultSetRow parentRow) throws Exception;
     
     public void addChild(RSCBaseDataFeed df) {
         children.add(df);
     }
     
-    public void add(String columnName) {
-        elements.add(new Column(columnName, columnName));
+    /**
+     * Add a ResultSetContainer field to render in the xml; the tag name will be the same as the field.
+     * 
+     * @param field field name.
+     */    
+    public void add(String field) {
+        elements.add(new Column(field, field));
     }
 
-    public void add(String tagName, String columnName) {
-        elements.add(new Column(tagName, columnName));
+    /**
+     * Add a ResultSetContainer field to render in the xml.
+     * 
+     * @param tagName name of the XML tag.
+     * @param field field name.
+     */    
+    public void add(String tagName, String field) {
+        elements.add(new Column(tagName, field));
     }
 
+    /**
+     * Add an element to render in the xml.
+     * 
+     * @param element element to add.
+     */
     public void add(RSCElement element) {
         elements.add(element);
     }
     
+    /**
+     * Write the data feed's xml to hd.
+     * 
+     * @param hd xml is written here.
+     */
     public void writeXML(TransformerHandler hd) throws Exception {
         writeXML(hd, null);
     }
     
+    /**
+     * Writes the XML, by writing each element and child of this data feed.
+     * 
+     * @param hd
+     * @param parentRow
+     * @throws Exception
+     */
     protected void writeXML(TransformerHandler hd, ResultSetContainer.ResultSetRow parentRow) throws Exception {
         ResultSetContainer rsc =  getRSC(parentRow);
 
@@ -84,12 +145,4 @@ public abstract class RSCBaseDataFeed implements DataFeed {
         }
 
     }
-/*
-    private void addElement(TransformerHandler hd, String name, String value, Attributes atts) throws SAXException {
-        String temp = value == null ? "" : value;
-        hd.startElement("", "", name, atts);
-        hd.characters(temp.toCharArray(), 0, temp.length());
-        hd.endElement("", "", name);
-    }
-*/
 }
