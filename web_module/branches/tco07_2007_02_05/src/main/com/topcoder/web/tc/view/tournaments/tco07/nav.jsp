@@ -24,6 +24,7 @@ function toggleMenu(menuTitle,menuID){
             <ul>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteschedule"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("onsiteschedule")) {%> class="navHighlight"<% } %>><div>Schedule</div></a></li>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=devforums"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("devforums")) {%> class="navHighlight"<% } %>><div>Developer Forums</div></a></li>
+            <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=getvisa"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("getvisa")) {%> class="navHighlight"<% } %>><div>Getting a Visa</div></a></li>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=transportation"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("transportation")) {%> class="navHighlight"<% } %>><div>Transportation</div></a></li>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=hotels"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("hotels")) {%> class="navHighlight"<% } %>><div>Hotels</div></a></li>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=whattodo"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("whattodo")) {%> class="navHighlight"<% } %>><div>What To Do</div></a></li>
