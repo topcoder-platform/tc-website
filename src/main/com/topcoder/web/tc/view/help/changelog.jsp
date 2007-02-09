@@ -45,6 +45,7 @@
 <p>
     5.6.4 - 2007.01.xx
     <ul>
+        <%--<li>Fixed bug when showing a problem with Matrix2D data type</li>--%>
         <%--<li>TCS Loader: Added filter by elegibility (just open projects)</li>--%>
         <li>When submiting a long contest, if the round id, contest id and component id are not consistent, throw an exception</li>
         <%--<li>When registering for a long round, the room_id is not looked up anymore, it wasn't needed.
