@@ -36,7 +36,7 @@
         </c:when>
         <c:otherwise>
             <div class="topLinkBox" style="padding-right: 0px;">
-                <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="mailto:csf@topcoder.com?subject=CSF Help">Help</a>
+                <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="mailto:csf@topcoder.com?subject=CSF%20Help">Help</a>
             </div>
             <div class="topLinkBox">
                 <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="http://<%=ApplicationServer.CSF_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=Logout">Logout</a>
