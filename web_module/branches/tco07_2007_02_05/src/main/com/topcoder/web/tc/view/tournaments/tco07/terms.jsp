@@ -1,5 +1,8 @@
+<%@ page import="com.topcoder.web.common.model.Event" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%String compType = (String) request.getAttribute("ct");
+  Event e = (Event) request.getAttribute("event");%>
 <html>
 <head>
     <title>2007 TopCoder Open - Computer Programming Tournament</title>
@@ -21,9 +24,8 @@
             <tr>
                 <td id="navSpacer">
 
-<%--tabLev1 should be algorithm/component/marathon/studio--%>
                     <jsp:include page="nav.jsp" >
-                    <jsp:param name="tabLev1" value="algorithm"/>
+                    <jsp:param name="tabLev1" value="<%=compType%>"/>
                     <jsp:param name="tabLev2" value="register"/>
                     <jsp:param name="tabLev3" value=""/>
                     </jsp:include>
@@ -35,26 +37,34 @@
                         <h1><div>Registration</div></h1>
 
                         <form name="terms" method="post" action="/tc">
-                            <input name="module" value="TCHS07SubmitRegistration" type="hidden">
+                            <input name="module" value="TCO07SubmitRegistration" type="hidden">
                             <input name="eid" value="1" type="hidden">
-<%--USE THE RIGHT SENTENCE HERE--%>
-    <p align="center">To complete your registration for the 2007 TopCoder&#174; Open Algorithm Competition you must <b>read and agree to</b> the terms listed below.</p>
-<%--<p align="center">To complete your registration for the 2007 TopCoder&#174; Open Component Competition you must <b>read and agree to</b> the terms listed below.</p>--%>
-<%--<p align="center">To complete your registration for the 2007 TopCoder&#174; Open Marathon Matches Competition you must <b>read and agree to</b> the terms listed below.</p>--%>
-<%--<p align="center">To complete your registration for the 2007 TopCoder&#174; Open Studio Competition you must <b>read and agree to</b> the terms listed below.</p>--%>
+                            <p align="center">To complete your registration for the <%=e.getDescription()%> you must <b>read and agree to</b> the terms listed below.</p>
                             <div align="center">
-                                <iframe marginwidth="5" src="" height="300" width="590"></iframe>
+                                <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=e.getTerms().getId()%>"></iframe>
                             </div>
+
                             <div align="center">
-                                <span class="bigRed">error</span>
-                                &nbsp;<br>
-                                <input name="terms_agree" type="checkbox">
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.TERMS_AGREE%>">
+                                    <span class="bigRed">${err}</span>
+                                    &nbsp;<br/></tc-webtag:errorIterator>
+                                <tc-webtag:chkBox name="<%=Constants.TERMS_AGREE%>"/>
                                 I agree
                             </div>
+
+
+                            <tc:questionIterator list="<%=questionInfo%>" id="question">
                             <p align="center">
-                                <span class="bigRed">error</span>
-                                &nbsp;<br>How old will you be on March 29? <input size="3" maxlength="3" name="" id="answerInput" value="" type="text">
-                            </p>
+	                        <span class="bigRed">
+	                        <tc-webtag:errorIterator id="err"
+	                            name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
+	                        </tc-webtag:errorIterator>
+	                        </span>&nbsp;<br>
+                            <jsp:getProperty name="question" property="text"/> 
+	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
+	                        </p>
+                            </tc:questionIterator>
+
                             <div align="center">
                                 <button name="submit" value="submit" type="submit">Submit</button>
                             </div>
