@@ -275,12 +275,12 @@ public class ForumConversion {
        	log.info("Returning forums " + startIdx + "-" + endIdx + " out of " + totalForum + " total forums: ");
         
         for (Iterator it = forums.iterator(); it.hasNext();) {
+            ForumMaster forum = (ForumMaster) it.next();
         	++forumNum;
         	if (forumNum < startIdx) continue;
             if (forumNum > endIdx) break;
 
             // create a category for topcoder forum
-            ForumMaster forum = (ForumMaster) it.next();
             log.info("Processing forum " + forumNum + "/" + endIdx + " (ID = " + forum.getId() + "): ");
             String categoryName = ForumsUtil.getComponentCategoryName(forum.getName(), forum.getVersionText(),
             		forum.getForumType());
