@@ -30,7 +30,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <p>*** NEED LOGO ***<br></p>
+                        <div style="margin-bottom: 20px;"><img src="/i/tournament/tco07/drwlogo.png" alt="DRW" border="0" /></div>
                         
                         <h2>Think you’re the best?</h2> 
                         <p>

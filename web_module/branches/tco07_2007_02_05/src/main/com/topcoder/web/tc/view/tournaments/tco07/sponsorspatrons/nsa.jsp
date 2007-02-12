@@ -30,10 +30,8 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <img src="/i/tournament/tco07/nsa_logo.png" align="left" alt="NSA" border="0" />
-                        <br clear="all">
-                        <p><br></p>
-                        <p>
+                        <div style="margin-bottom: 20px;"><img src="/i/tournament/tco07/nsa_logo.png" alt="NSA" border="0" /></div>
+
                         <h2>Where Intelligence Goes to Work</h2>
                         <p>
                         Everyday, the National Security Agency is faced with new threats to our nation’s security. Our adversaries do their best to keep their plans a secret. We work to uncover those secrets, and keep our own secrets safe. That is why it is vital for NSA to employ the most intelligent people in the country.

@@ -30,9 +30,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <img src="/i/tournament/tco07/verisign_logo.png" align="left" alt="VeriSign" border="0" />
-                        <br clear="all">
-                        <p><br></p>
+                        <div style="margin-bottom: 20px;"><img src="/i/tournament/tco07/verisign_logo.png" alt="VeriSign" border="0" /></div>
                         <p>
                         *** NEED CONTENT *** 
                         <br><br>

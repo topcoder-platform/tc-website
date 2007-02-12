@@ -30,9 +30,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <img src="/i/tournament/tco07/ubs_logo.png" align="left" alt="UBS" border="0" />
-                        <br clear="all">
-                        <p><br></p>
+                        <div style="margin-bottom: 20px;"><img src="/i/tournament/tco07/ubs_logo.png" alt="UBS" border="0" /></div>
                         <p>
                         UBS is pleased to once again sponsor the TopCoder Open&#174;. UBS, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
                         </p>

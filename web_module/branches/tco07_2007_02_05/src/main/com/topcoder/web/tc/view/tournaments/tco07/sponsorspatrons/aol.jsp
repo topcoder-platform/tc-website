@@ -30,9 +30,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <img src="/i/tournament/tco07/aol_logo.png" align="left" alt="AOL" border="0" />
-                        <br clear="all">
-                        <p><br></p>
+                        <div style="margin-bottom: 20px;"><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></div>
                         <p>
                         AOL is pleased to welcome you, the world's leading programmers and designers, to the 2007 TopCoder Open. We are proud to again partner with TopCoder, a prestigious organization that exemplifies and shares our commitment to innovation and creativity.
                         </p>
