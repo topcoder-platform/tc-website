@@ -2,6 +2,7 @@
                  com.jivesoftware.forum.AttachmentManager,
                  com.jivesoftware.base.action.ActionUtils,
                  com.jivesoftware.forum.Attachment,
+                 com.jivesoftware.forum.database.DbAttachmentManager,
                  com.jivesoftware.forum.action.AttachAction,
                  com.jivesoftware.forum.ForumMessage,
                  com.jivesoftware.forum.ForumThread,
@@ -122,7 +123,7 @@
 				        <tr>
 					        <td>File <%=i++%>: </td>
 					        <td>
-					        	<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+					        	<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
 					        	<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>) [<a href="javascript:void(0)" onclick="form1.module.value='<%=removeProcessor%>';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_DELETE%>';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</a>]
 					        </td>
 				    	</tr>

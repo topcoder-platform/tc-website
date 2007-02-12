@@ -4,6 +4,7 @@
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.jivesoftware.forum.Attachment,
+                 com.jivesoftware.forum.database.DbAttachmentManager,
                  com.jivesoftware.forum.ForumPermissions,
                  java.util.*"
 %>
@@ -180,7 +181,7 @@
 									<%	Iterator attachments = tempMessage.getAttachments();
 										while(attachments.hasNext()) {
 											Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-											<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+											<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
 											<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)
 											<%	if (!postMode.equals("Edit")) { %>
 													[<A href="javascript:void(0)" onclick="form1.module.value='RemoveAttachment';form1.<%=ForumConstants.ATTACHMENT_ID%>.value='<%=attachment.getID()%>';form1.submit();" class="rtbcLink">remove</A>]
@@ -252,7 +253,7 @@
 								<%	Iterator attachments = message.getAttachments();
 									while(attachments.hasNext()) {
 										Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-										<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+										<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
 										<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
 								<% 	} %>
 							</td>

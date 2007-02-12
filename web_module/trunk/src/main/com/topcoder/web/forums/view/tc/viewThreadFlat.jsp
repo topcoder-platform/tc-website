@@ -19,6 +19,7 @@
                 com.jivesoftware.forum.RatingManagerFactory,
                 com.jivesoftware.forum.RatingManager,
                 com.jivesoftware.forum.Attachment,
+                com.jivesoftware.forum.database.DbAttachmentManager,
                 java.text.NumberFormat,
                 java.text.DecimalFormat,
                 java.util.*,
@@ -382,7 +383,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 			<%	Iterator attachments = message.getAttachments();
 				while(attachments.hasNext()) {
 					Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-					<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+					<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
 					<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
 			<% 	} %>
 		</td>
