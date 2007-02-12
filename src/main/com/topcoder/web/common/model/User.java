@@ -383,6 +383,16 @@ public class User extends Base {
         eventRegistrations.add(er);
     }
 
+    public EventRegistration getEventRegistration(Event e) {
+        EventRegistration curr;
+        for (Iterator it = getEventRegistrations().iterator(); it.hasNext();) {
+            curr = ((EventRegistration) it.next());
+            if (curr.getId().getEvent().getId() == e.getId()) {
+                return curr;
+            }
+        }
+        return null;
+    }
 
     public Set getResponses() {
         return Collections.unmodifiableSet(responses);
@@ -396,4 +406,18 @@ public class User extends Base {
         responses.add(r);
     }
 
+    public void addResponse(List r) {
+        responses.addAll(r);
+    }
+
+    public void addEventRegistration(Event event, List responses, Boolean eligible) {
+        EventRegistration er = new EventRegistration();
+        er.getId().setUser(this);
+        er.getId().setEvent(event);
+        er.setEligible(eligible);
+
+        addEventRegistration(er);
+        addTerms(event.getTerms());
+        addResponse(responses);        
+    }
 }

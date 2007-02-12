@@ -18,6 +18,10 @@ public class QuestionStyle extends Base {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public String getDescription() {
         return description;
     }

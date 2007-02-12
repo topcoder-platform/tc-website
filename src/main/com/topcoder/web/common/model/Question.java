@@ -13,11 +13,8 @@ public class Question implements Serializable {
     public static final int SCHULZE_ELECTION_TYPE = 7;
 
     private long id;
-    private int typeId;
-    private int styleId;
     private String text;
     private boolean required;
-    private List answerInfo;
     private String imagePath;
     private String link;
     private int statusId;
@@ -26,13 +23,12 @@ public class Question implements Serializable {
     private QuestionStyle style;
     private Set answers;
     private Set surveys;
-    private Set events;
 
     public Question() {
+        type = new QuestionType();
+        style = new QuestionStyle();
         answers = new TreeSet();
         surveys = new HashSet();
-        events = new HashSet();
-
     }
 
     public int getStatusId() {
@@ -75,6 +71,16 @@ public class Question implements Serializable {
         this.answers = answers;
     }
 
+    public Answer findAnswer(long answerId) {
+        Answer a = null;
+        boolean found = false;
+        for (Iterator it = answers.iterator(); it.hasNext() && !found;) {
+            a = (Answer) it.next();
+            found = a.getId().equals(new Long(answerId));
+        }
+        return found ? a : null;
+    }
+
     public Set getSurveys() {
         return Collections.unmodifiableSet(surveys);
     }
@@ -82,15 +88,6 @@ public class Question implements Serializable {
     public void setSurveys(Set surveys) {
         this.surveys = surveys;
     }
-
-    public Set getEvents() {
-        return Collections.unmodifiableSet(events);
-    }
-
-    public void setEvents(Set events) {
-        this.events = events;
-    }
-
 
     public long getId() {
         return id;
@@ -101,19 +98,19 @@ public class Question implements Serializable {
     }
 
     public int getTypeId() {
-        return typeId;
+        return type.getId() == null ? 0 : type.getId().intValue();
     }
 
     public void setTypeId(int typeId) {
-        this.typeId = typeId;
+        this.type.setId(new Integer(typeId));
     }
 
     public int getStyleId() {
-        return styleId;
+        return style.getId() == null ? 0 : style.getId().intValue();
     }
 
     public void setStyleId(int styleId) {
-        this.styleId = styleId;
+        this.style.setId(new Integer(styleId));
     }
 
     public String getText() {
@@ -133,15 +130,15 @@ public class Question implements Serializable {
     }
 
     public List getAnswerInfo() {
-        return answerInfo;
+        return new ArrayList(answers);
     }
 
     public void setAnswerInfo(List answerInfo) {
-        this.answerInfo = answerInfo;
+        this.answers = new TreeSet(answerInfo);
     }
 
     public boolean isFreeForm() {
-        return isFreeForm(styleId);
+        return isFreeForm(this.getStyleId());
     }
 
     public static boolean isFreeForm(int styleId) {

@@ -88,9 +88,9 @@ public class AnswerInput extends BaseTag {
         } else if (answers != null && answers.hasNext()) {
             answer = (Answer) answers.next();
             if (question.getStyleId() == Question.MULTIPLE_CHOICE) {
-                inputText = buildCheckBox(answer.getId());
+                inputText = buildCheckBox(answer.getId().longValue());
             } else if (question.getStyleId() == Question.SINGLE_CHOICE) {
-                inputText = buildRadioButton(answer.getId());
+                inputText = buildRadioButton(answer.getId().longValue());
             }
             pageContext.setAttribute(ANSWER_TEXT, answer.getText(), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
@@ -236,7 +236,7 @@ public class AnswerInput extends BaseTag {
             s.append("\"");
 
             // add the posibility to specify a default value.
-            if (getDefaultValue() != null && getDefaultValue().equals(new Long(a.getId()))) {
+            if (getDefaultValue() != null && getDefaultValue().equals(a.getId())) {
                 s.append(" selected");
             }
             

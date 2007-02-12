@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request;
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
@@ -97,6 +98,14 @@ public class Home extends Base {
             getRequest().setAttribute("compTerms", compTerms);
             getRequest().setAttribute("algoTerms", algoTerms);
 
+            DataAccess tchs07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Request tchs07Request = new Request();
+            tchs07Request.setProperty("cr", String.valueOf(getUser().getId()));
+            
+            tchs07Request.setContentHandle("tchs07_eligibility");
+            getRequest().setAttribute("tchs07_info",
+                    tchs07Dai.getData(tchs07Request).get("tchs07_eligibility"));
+            
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.common.model">
 
-    <class name="Answer" table="demographic_answer" mutable="false">
+    <class name="Answer" table="answer" mutable="false">
         <id name="id" column="answer_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">SURVEY_SEQ</param>

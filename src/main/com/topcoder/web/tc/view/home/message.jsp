@@ -1,4 +1,8 @@
-<%-- TCHS07 STARTS HERE
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>    
+                              
+<% ResultSetContainer rscTch07 = (ResultSetContainer) request.getAttribute("tchs07_info");
+    if (rscTch07 != null && !rscTch07.isEmpty() && rscTch07.getIntItem(0, "open") == 1) {
+%>
 
 <style type="text/css">
     .tchs07Message {
@@ -39,23 +43,19 @@
         <td class="tchs07Message" align="center">
             <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=about"><img src="/i/tournament/tchs07/message.png" alt="TCHS07" border="0"/></A>
             <br /><br />
-            <% if (algoTerms.isRegistered()) { %>
-            You are registered for the <strong>2007 TopCoder High School Tournament</strong>.<br />
+            <% if (rscTch07.getIntItem(0, "registered")== 0) { %>
+            	Sorry, you are ineligible for the <strong>2007 TopCoder High School Tournament</strong>.<br><br>If this is a mistake, contact <A href="mailto:service@topcoder.com" class="tchs07MessageLink">service@topcoder.com</A>.<br />
+            <% } else if (rscTch07.getIntItem(0, "registered")== 1) { %>
+            	You are registered for the <strong>2007 TopCoder High School Tournament</strong>.<br />
             <% } else { %>
-            <% if ((now.after(algoTerms.getBeginning()) && now.before(algoTerms.getEnd()))) { %>
-            <% if (algoTerms.isEligible()) { %>
-            You are not registered for the <strong>2007 TopCoder High School Tournament</strong>, click
-            <a href="" class="tchs07MessageLink">here</a> to register.<br />
-            <% } else { %>
-            Sorry, you are not eligible to register for the <strong>2007 TopCoder High School Tournament</strong>.<br />
-            <% }
-            }
-            } %>
+            	You are not registered for the <strong>2007 TopCoder High School Tournament</strong>, click
+            <a href="/tc?module=TCHS07ViewRegistration" class="tchs07MessageLink">here</a> to register.<br />
+            <% } %>
         </td>
     </tr>
 </table>
+<% } %>
 
---%>
 
 <%-- TCCC06 STARTS HERE
 <%@ page import="java.util.Calendar,

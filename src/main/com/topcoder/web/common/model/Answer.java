@@ -3,12 +3,12 @@ package com.topcoder.web.common.model;
 import java.io.Serializable;
 
 public class Answer implements Serializable, Cloneable, Comparable {
-    private long id;
+    private Long id;
     private long questionId;
     private Question question;
     private String text;
     private int sort;
-    private boolean correct;
+    private Boolean correct;
 
     public Answer() {
     }
@@ -22,11 +22,11 @@ public class Answer implements Serializable, Cloneable, Comparable {
         return ret;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -63,11 +63,11 @@ public class Answer implements Serializable, Cloneable, Comparable {
         this.question = question;
     }
 
-    public boolean isCorrect() {
+    public Boolean isCorrect() {
         return correct;
     }
 
-    public void setCorrect(boolean correct) {
+    public void setCorrect(Boolean correct) {
         this.correct = correct;
     }
 

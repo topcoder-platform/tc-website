@@ -209,7 +209,7 @@ public class ViewReg extends Base {
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 row = (ResultSetRow) it.next();
                 a = new Answer();
-                a.setId(row.getLongItem("answer_id"));
+                a.setId(new Long(row.getLongItem("answer_id")));
                 a.setQuestionId(row.getLongItem("question_id"));
                 a.setSort(row.getIntItem("sort_order"));
                 a.setText(row.getStringItem("answer_text"));

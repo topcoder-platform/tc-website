@@ -72,6 +72,11 @@ public class Submit extends View {
                 if (hasErrors()) {
                     setDefaults(responses);
                     setNextPage(Constants.SURVEY_VIEW);
+                    if (alreadyResponded()) {
+                        getRequest().setAttribute("alreadyResponded", new Boolean("true"));
+                    } else {
+                        getRequest().setAttribute("alreadyResponded", new Boolean("false"));
+                    }
                     setIsNextPageInContext(true);
                 } else if (hasAllFreeForm && !responses.isEmpty()) {
                     setNextPage(Constants.SURVEY_THANKS);
@@ -251,7 +256,7 @@ public class Submit extends View {
         boolean found = false;
         for (Iterator it = question.getAnswerInfo().iterator(); it.hasNext() && !found;) {
             a = (Answer) it.next();
-            found = (a.getId() == answerId);
+            found = a.getId().equals(new Long(answerId));
         }
         return found ? a : null;
     }

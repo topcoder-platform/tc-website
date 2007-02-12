@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * @author dok
@@ -16,18 +15,16 @@ public class Event extends Base {
     private Long id;
     private EventType type;
     private String description;
+    private String shortDescription;
     private Timestamp registrationStart;
     private Timestamp registrationEnd;
     private TermsOfUse terms;
-    private Set questions;
+    private Survey survey;
     private Set users;
 
     public Event() {
-        questions = new TreeSet();
         users = new HashSet();
-
     }
-
 
     public Long getId() {
         return id;
@@ -86,11 +83,19 @@ public class Event extends Base {
         this.terms = terms;
     }
 
-    public Set getQuestions() {
-        return Collections.unmodifiableSet(questions);
+    public Survey getSurvey() {
+        return survey;
     }
 
-    public void setQuestions(Set questions) {
-        this.questions = questions;
+    public void setSurvey(Survey survey) {
+        this.survey = survey;
+    }
+
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 }

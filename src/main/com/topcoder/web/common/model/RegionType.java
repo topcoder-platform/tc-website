@@ -5,28 +5,22 @@ package com.topcoder.web.common.model;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 18, 2007
  */
-public class QuestionType extends Base {
+public class RegionType extends Base {
     private Integer id;
     private String description;
-    private boolean active;
 
-    protected QuestionType() {
-
+    public RegionType() {
     }
 
     public Integer getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
     
     public String getDescription() {
         return description;
     }
 
-    public boolean isActive() {
-        return active;
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
