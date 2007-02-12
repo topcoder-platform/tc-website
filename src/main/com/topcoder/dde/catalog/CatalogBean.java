@@ -1792,6 +1792,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     + exception.toString());
         }
 
+        /* 2/12/07: No customer forums
         Forums forumsBean = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
@@ -1813,10 +1814,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         long categoryID = -1;
         if (!ejbContext.getRollbackOnly()) {
 	    	try {
-	    		/*
-	    		 * This should be replaced by a distributed transaction (XA, etc.) that rolls back 
-	    		 * changes on the software and forum servers when an error in the workflow occurs.
-	    		 */
+	    		// This should be replaced by a distributed transaction (XA, etc.) that rolls back 
+	    		// changes on the software and forum servers when an error in the workflow occurs.
 	    		categoryID = forumsBean.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
 	    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), newComponent.getStatusId(), 
 	    				newComponent.getRootCategory(), newComponent.getShortDesc(), newVersion.getVersionText(), 
@@ -1830,63 +1829,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 	            throw new CatalogException(e.toString());
 	    	}
     	}
-    	
-    	/*	TODO: remove
-        Connection c = null;
-        PreparedStatement ps = null;
-        try {
-	        c = getConnection();
-	        StringBuffer query = new StringBuffer(200);
-	        query.append("INSERT INTO comp_forum_xref(comp_forum_id, comp_vers_id, forum_type, jive_category_id) ");
-	        query.append("		VALUES(?,?,?,?) ");
-			ps = c.prepareStatement(query.toString());
-	        ps.executeUpdate();
-        } finally {
-            try {
-                if (ps != null) {
-                    ps.close();
-                    ps = null;
-                }
-            } catch (SQLException e) {
-            }
-            try {
-                if (c != null) {
-                    c.close();
-                    c = null;
-                }
-            } catch (SQLException e) {
-            }
-        }
-        */
-
-    	// TODO: remove when complete
-        try {
-            com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
-            try {
-                forum = forumadminHome.create().createForum(forum,
-                        Long.parseLong(getConfigValue("collab_forum_template")));
-            } catch (ConfigManagerException cme) {
-                log.warn("Encountered a configuration manager exception reading collab_forum_template property");
-                forum = forumadminHome.create().createForum(forum);
-            } catch (NumberFormatException nfe) {
-                log.warn("Failed to parse the collab_forum_template property");
-                forum = forumadminHome.create().createForum(forum);
-            }
-            compforumHome.create(forum.getId(), categoryID, ForumCategory.COLLABORATION, newVersion);
-            createForumRoles(forum.getId(), ForumCategory.COLLABORATION);
-        } 
-        catch (ForumException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to create new collaboration forum for component: "
-                    + exception.toString());
-        } catch (CreateException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to create new collaboration forum for component: "
-                    + exception.toString());
-        }
-        // TODO: remove when complete (end)
+    	*/
 
         createComponentRole(((Long) newComponent.getPrimaryKey()).longValue());
 
