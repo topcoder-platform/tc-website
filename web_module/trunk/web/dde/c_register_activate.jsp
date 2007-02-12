@@ -8,7 +8,6 @@
 <%@ page import="java.lang.reflect.*" %>
 
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
@@ -19,9 +18,8 @@
     // STANDARD PAGE VARIABLES
     String page_name = "c_register_activate.jsp";
     String action = request.getParameter("a");
-    
-    TCResourceBundle bundle = new TCResourceBundle("TC");
-	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
+
+	long tcsForumsID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID;
 %>
 
 <%
