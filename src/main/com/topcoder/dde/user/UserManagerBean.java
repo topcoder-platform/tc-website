@@ -18,11 +18,16 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.login.LoginRemoteHome;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.ConfigManagerInterface;
 import com.topcoder.util.errorhandling.BaseException;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsHome;
+
 import org.apache.log4j.Logger;
 
 import javax.ejb.*;
@@ -1039,24 +1044,16 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
             if (activeForumCategory == null) throw new EJBException("Could not find forum for component " + componentId);
 
-            String roleName = "ForumUser " + activeForumCategory.getId();
-
-            //add the user to the appropriate role to view the forum
-            Object objPrincipalManager = ctx.lookup("security/PrincipalMgr");
-            PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
-            PrincipalMgrRemote principalMgr = principalManagerHome.create();
-            Collection roles = principalMgr.getRoles(null);
-            RolePrincipal role = null;
-            for (Iterator it = roles.iterator(); it.hasNext();) {
-                role = (RolePrincipal) it.next();
-                if (role.getName().equalsIgnoreCase(roleName)) {
-                    UserPrincipal up = principalMgr.getUser(userId);
-                    try {
-                        principalMgr.assignRole(up, role, null);
-                    } catch (Exception e) {
-                    }
-                }
+            // add the user to the appropriate role to view the forum
+            Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
+        	Forums forums = null;
+        	try {
+        		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+        		forums = forumsHome.create();
+        	} catch (Exception e) { 
+            	logger.debug("Error initializing Forums EJB");
             }
+        	forums.assignRole(userId, "Software_Users_" + activeForumCategory.getId());
 
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
