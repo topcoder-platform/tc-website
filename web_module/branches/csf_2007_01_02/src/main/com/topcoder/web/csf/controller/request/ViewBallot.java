@@ -53,7 +53,8 @@ public class ViewBallot extends Base {
                 } else if (election == null) {
                     throw new NavigationException("Invalid election specified");
                 } else {
-                    if (VotingDAOUtil.getFactory().getRankBallotDAO().find(election.getId(), new Long(getUser().getId()))==null) {
+                    RankBallot ballot = VotingDAOUtil.getFactory().getRankBallotDAO().find(election.getId(), new Long(getUser().getId()));
+                    if (ballot==null) {
                         boolean isAdmin = isAdmin();
                         if (isAdmin) {
                             ballotProcessing(contest, election);
@@ -70,7 +71,6 @@ public class ViewBallot extends Base {
                             throw new NavigationException("Invalid election specified.");
                         }
                     } else {
-                        RankBallot ballot = VotingDAOUtil.getFactory().getRankBallotDAO().find(election.getId(), new Long(getUser().getId()));
                         ArrayList votes = new ArrayList(ballot.getVotes());
                         Collections.sort(votes, new Vote.RankComparator());
                         getRequest().setAttribute("ballot", ballot);
@@ -94,7 +94,6 @@ public class ViewBallot extends Base {
         getRequest().setAttribute("candidates", shuffledCandidates);
         getRequest().setAttribute("election", election);
         getRequest().setAttribute("contest", contest);
-
     }
 
     protected void setNextPage() {
