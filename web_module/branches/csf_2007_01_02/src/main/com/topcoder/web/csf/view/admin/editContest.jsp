@@ -126,6 +126,26 @@
     </td>
 </tr>
 
+<tr>
+    <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="<%=Constants.PROJECT_ID_KEY%>"><span class="bigRed">${err}</span>
+                    <br></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Project:
+    </td>
+    <td class="value">
+        <tc-webtag:rscSelect name="<%=Constants.PROJECT_ID_KEY%>"
+                             list="<%=(ResultSetContainer)request.getAttribute("projects")%>" fieldText="project_name"
+                             fieldValue="project_id"/>
+    </td>
+</tr>
+
+
+
+
 <c:set value="<%=Constants.FILE_TYPE%>" var="fileType"/>
 
 <tr>
