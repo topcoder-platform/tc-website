@@ -34,7 +34,7 @@
                         <br clear="all">
                         <p><br></p>
                         <p>
-                        UBS is pleased to once again sponsor the TopCoder Open.  UBS, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
+                        UBS is pleased to once again sponsor the TopCoder Open&#174;. UBS, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
                         </p>
                         <p>
                         The global financial markets are increasingly electronic and trading in these markets presents a unique combination of technical and trading challenges. We are looking for developers to join our team that can work on advanced automated trading algorithms, build the underlying infrastructure to trade with milliseconds of latency and integrate access to a wide range of global products.
