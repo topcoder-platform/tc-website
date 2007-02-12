@@ -27,9 +27,11 @@
             <div class="topLinkBox">
                 <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<A href="<tc-webtag:linkTracking link="http://www.networkmashups.com/Signup.aspx" refer="csf_site_register_link"/>">Register</A>
             </div>
+<%--
             <div class="topLinkBox">
                 <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="/?module=Login">Login</a>
             </div>
+--%>
             <div class="topLinkBox">
                 <img src="/i/layout/headerBullet.png" alt="bullet" />&nbsp;<a href="/">Home</a>
             </div>

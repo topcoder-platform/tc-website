@@ -46,65 +46,15 @@
                                 <iframe marginwidth="5" src="" height="300" width="590"></iframe>
                             </div>
                             <div align="center">
-                                <br>
+                                <span class="bigRed">error</span>
+                                &nbsp;<br>
                                 <input name="terms_agree" type="checkbox">
                                 I agree
                             </div>
-                            <br>
-                            <table class="stat" align="center" cellpadding="0" cellspacing="0">
-                            <tbody><tr>
-                                    <td align="center">
-                                        <span class="bigRed">&nbsp;
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        How old will you be on February 26, 2007? 
-                                        <input size="3" maxlength="3" name="question_8084" id="answerInput" value="" type="text">
-                                    </td>
-                                </tr>
-                            </tbody>
-                            </table>
-                            <br>
-                            <table class="stat" align="center" cellpadding="0" cellspacing="0">
-                                <tbody><tr>
-                                    <td align="center">
-                                        <span class="bigRed">&nbsp;
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        Are you enrolled full time at a college or university?
-                                         <br>
-                                                 <input name="question_8085" id="answerInput" value="8086" type="radio">
-                                                 Yes&nbsp;&nbsp;&nbsp;
-                                                 <input name="question_8085" id="answerInput" value="8087" type="radio">
-                                                 No&nbsp;&nbsp;&nbsp;
-                                    </td>
-                                </tr>
-                            </tbody></table>
-                            <br>
-                            <table class="stat" align="center" cellpadding="0" cellspacing="0">
-                                <tbody><tr>
-                                    <td align="center">
-                                        <span class="bigRed">&nbsp;
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        Are you enrolled full time at a secondary school (high school)?
-                                         <br>
-                                                 <input name="question_8088" id="answerInput" value="8089" type="radio">
-                                                 Yes&nbsp;&nbsp;&nbsp;
-                                                 <input name="question_8088" id="answerInput" value="8090" type="radio">
-                                                 No&nbsp;&nbsp;&nbsp;
-                                    </td>
-                                </tr>
-                            </tbody></table>
-                            <br>
+                            <p align="center">
+                                <span class="bigRed">error</span>
+                                &nbsp;<br>How old will you be on March 29? <input size="3" maxlength="3" name="" id="answerInput" value="" type="text">
+                            </p>
                             <div align="center">
                                 <button name="submit" value="submit" type="submit">Submit</button>
                             </div>
