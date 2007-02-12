@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.WebConstants" %>
 
-<%	long tcsForumsID = WebConstants.TCS_FORUMS_ROOM_CATEGORY_ID; %>
+<%	long tcsForumsID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID; %>
 	
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");

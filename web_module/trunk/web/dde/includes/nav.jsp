@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.WebConstants" %>
 
-<%	long tcsForumsID = WebConstants.TCS_FORUMS_ROOM_CATEGORY_ID; %>
+<%	long tcsForumsID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID; %>
 
 <!-- Nav Bar begins -->
 <table width="100%" border="0" cellpadding="3" cellspacing="0">

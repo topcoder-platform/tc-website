@@ -4,7 +4,7 @@
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
 	
-	long tcsForumsID = WebConstants.TCS_FORUMS_ROOM_CATEGORY_ID; 
+	long tcsForumsID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID; 
 %>
 
             <img src="/images/clear.gif" width="180" height="6" border="0" alt=""><br>

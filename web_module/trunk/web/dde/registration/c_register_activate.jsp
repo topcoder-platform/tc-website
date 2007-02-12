@@ -12,7 +12,7 @@
     String page_name = "c_register_activate.jsp";
     String action = request.getParameter("a");
     
-    long tcsForumsID = WebConstants.TCS_FORUMS_ROOM_CATEGORY_ID;
+    long tcsForumsID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID;
 %>
 
 <%
