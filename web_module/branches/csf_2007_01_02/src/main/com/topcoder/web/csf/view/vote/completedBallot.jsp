@@ -56,12 +56,12 @@
     <tbody id="unRankedBody">
         <c:forEach items="${votes}" var="vote">
 
-            <tr class="disabled" id="${candidate.id}">
+            <tr class="disabled">
                 <td class="valueC">
                     ${vote.rank}
                 </td>
                 <td class="value" nowrap="nowrap">
-                        ${vot.candidate.name}
+                        ${vote.candidate.name}
                     <a href="#" target="_blank">
                         <img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
                     </a>
