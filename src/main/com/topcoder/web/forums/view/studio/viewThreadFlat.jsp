@@ -2,6 +2,7 @@
                  com.jivesoftware.base.User,
                  com.jivesoftware.forum.*,
                  com.jivesoftware.forum.action.util.Page,
+                 com.jivesoftware.forum.database.DbAttachmentManager,
                  com.topcoder.shared.util.DBMS,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.common.StringUtils,
@@ -287,7 +288,7 @@
 				<%	Iterator attachments = message.getAttachments();
 					while(attachments.hasNext()) {
 						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
 						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
 				<% 	} %>
 			</td>

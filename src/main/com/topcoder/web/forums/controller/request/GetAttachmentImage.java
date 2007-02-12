@@ -27,7 +27,9 @@ import com.topcoder.web.forums.ForumConstants;
 /**
  * @author mktong
  * 
- * Handles an attachment image request.
+ * Handles an attachment image request. This allows for use of Jive's attachment settings (enabling/disabling
+ * previews, preserving aspect ratio, setting the maximum preview dimension, etc.). Currently, this code is not
+ * used for efficiency - attachment type images are simply retrieved from ForumsUtil. 
  * (Code is mostly modified from /com/jivesoftware/forum/util/JiveServlet.java.) 
  */
 public class GetAttachmentImage extends ForumsProcessor {

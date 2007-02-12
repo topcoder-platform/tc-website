@@ -16,6 +16,7 @@
                 com.jivesoftware.forum.RatingManagerFactory,
                 com.jivesoftware.forum.RatingManager,
                 com.jivesoftware.forum.Attachment,
+                com.jivesoftware.forum.database.DbAttachmentManager,
                 java.util.*,
                 com.topcoder.shared.util.DBMS"
 %>
@@ -252,7 +253,7 @@ function displayVotes(messageID, posVotes, negVotes) {
 			<%	Iterator attachments = activeMessage.getAttachments();
 				while(attachments.hasNext()) {
 					Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-					<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="?module=GetAttachmentImage&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>&<%=ForumConstants.ATTACHMENT_CONTENT_TYPE%>=<%=attachment.getContentType()%>" border="0" alt="Attachment" /></A>
+					<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
 					<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
 			<% 	} %>
 		</td>
