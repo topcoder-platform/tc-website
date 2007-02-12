@@ -66,15 +66,22 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             } else {
                 User u = getActiveUser();
                 EventRegistration er = u.getEventRegistration(e);
-                if (alreadyRegistered(e, u)) {
+                log.info("1");
+                if (!alreadyRegistered(e, u)) {
+                    log.info("2");
                     if (isEligible(e, u)) {
+                        log.info("3");
                         getRequest().setAttribute("event", e);
+                        log.info("4");
                         regProcessing(e, u);
+                        log.info("5");
                     } else {
                         throw new NavigationException("You are not eligible to register for the " + e.getDescription());
                     }
                 } else {
+                    log.info("6");
                     alreadyRegisteredProcessing(er);
+                    log.info("7");
                 }
                 setNextPage(e, u);
             }
@@ -82,7 +89,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
     }
     
     public boolean alreadyRegistered(Event e, User u) {
-        return u.getEventRegistration(e) == null;
+        return u.getEventRegistration(e) != null;
     }
     
     public Event getEvent() {
