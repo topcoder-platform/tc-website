@@ -50,13 +50,10 @@
         </tr>
     </thead>
     <tbody id="rankedBody">
-</table>
-<%-- table for the disabled candidates --%>
-<table id="unranked" class="stat" style="width: 100%;" cellpadding="0" cellspacing="0">
-    <tbody id="unRankedBody">
+        <% boolean even = true;%>
         <c:forEach items="${votes}" var="vote">
 
-            <tr class="disabled">
+            <tr class="<%=even?"light":"dark"%>">
                 <td class="valueC">
                     ${vote.rank}
                 </td>
@@ -67,7 +64,7 @@
                     </a>
                 </td>
             </tr>
-
+        <% even = !even;%>
         </c:forEach>
     </tbody>
 </table>
