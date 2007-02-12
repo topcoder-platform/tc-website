@@ -23,4 +23,9 @@ public class ViewRegistration extends ViewRegistrationBase {
     public boolean isEligible(Event e, User u) throws Exception{
         return true;
     }
+    
+    protected void setNextPage(Event e, User u) {
+        setNextPage("/tournaments/tco07/termsSuccess.jsp");
+        setIsNextPageInContext(true);
+    }
 }

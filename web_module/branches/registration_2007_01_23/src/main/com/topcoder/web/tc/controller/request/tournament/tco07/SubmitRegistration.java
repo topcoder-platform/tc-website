@@ -60,4 +60,12 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         return true;
     }
 
+    protected void setNextPage(Event e, User u) {
+        if (hasErrors()) {
+            setNextPage("/tournaments/tco07/terms.jsp");
+        } else {
+            setNextPage("/tournaments/tco07/termsSuccess.jsp");
+        }
+        setIsNextPageInContext(true);
+    }
 }
