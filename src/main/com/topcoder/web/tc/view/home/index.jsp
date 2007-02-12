@@ -256,6 +256,12 @@
             <td class="homeText"><br>
 
                 <div style="float: right; padding-left: 5px;">
+                    <img src="/i/pressroom/csflogo.png" alt="Connected Services Sandbox Logo" width="67" height="45" border="0"/>
+                </div>
+                Connected Services Sandbox Launches
+                <A href="/tc?module=Static&d1=pressroom&d2=pr_021207">...more</A><br>[February 12]<br><br>
+
+                <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/chinadaily_logo.png" alt="China Daily logo" width="67" height="25" border="0"/>
                 </div>
                 Undergraduate VP of multinational company
@@ -280,12 +286,6 @@
                 TopCoder to Present Keynote Address: Future of Virtual Communities as Business; at Gartner CIO Summit
                 2006
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_112906">...more</A><br>[November 29]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/internetnews_logo.gif" width="81" height="11" alt="internetnews.com logo" border="0"/>
-                </div>
-                Who is the Top Coder?
-                <A href="http://www.internetnews.com/dev-news/article.php/3644456">...more</A><br>[November 17]<br><br>
 
             </td>
         </tr>
