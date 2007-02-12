@@ -209,7 +209,7 @@
        	    <include name="com/topcoder/dde/catalog/Category.java"/>
         	<include name="com/topcoder/dde/catalog/ComponentInfo.java"/>
             <include name="com/topcoder/dde/catalog/ComponentVersionInfo.java"/>
-        	<include name="com/topcoder/dde/catalog/ForumsCategory.java"/>
+        	<include name="com/topcoder/dde/catalog/ForumCategory.java"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
