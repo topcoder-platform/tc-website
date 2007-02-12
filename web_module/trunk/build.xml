@@ -999,6 +999,7 @@
         <copy todir="${jboss_conf}" file="${resources}/ApplicationServer.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DBMS.properties"/>
         <copy todir="${jboss_conf}" file="${resources}/DataAccess.properties"/>
+    	<copy todir="${jboss_conf}" file="${resources}/TC.properties"/>
         <copy todir="${jboss_conf}/com/topcoder/security/" file="${resources}/com/topcoder/security/Util.properties"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/object_formatter.jar"/>
