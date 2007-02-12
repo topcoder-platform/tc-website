@@ -1,8 +1,21 @@
-<%@ page import="com.topcoder.web.common.model.Event" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.model.Event,
+                 com.topcoder.web.common.model.Question,
+                 com.topcoder.web.common.tag.AnswerInput,
+                 com.topcoder.web.tc.controller.request.tournament.RegistrationBase,
+                 com.topcoder.web.common.BaseProcessor" %>
+<%@ page import="java.util.Collections,
+                 java.util.Set,
+                 java.util.ArrayList,
+                 java.util.List,
+                 java.util.HashMap" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%String compType = (String) request.getAttribute("ct");
-  Event e = (Event) request.getAttribute("event");%>
+  Event e = (Event) request.getAttribute("event");
+   List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
+   HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
+  %>
 <html>
 <head>
     <title>2007 TopCoder Open - Computer Programming Tournament</title>

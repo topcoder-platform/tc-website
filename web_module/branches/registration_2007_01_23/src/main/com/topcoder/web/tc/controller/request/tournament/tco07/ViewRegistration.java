@@ -26,7 +26,13 @@ public class ViewRegistration extends ViewRegistrationBase {
     
     protected void setNextPage(Event e, User u) {
         log.info("10 - " + "/tournaments/tco07/termssuccess.jsp");
-        setNextPage("/tournaments/tco07/termssuccess.jsp");
+        EventRegistration er = u.getEventRegistration(e);
+        if (er != null) {
+            getRequest().setAttribute("eligible", er.isEligible());
+            setNextPage("/tournaments/tco07/termssuccess.jsp");
+        } else {
+            setNextPage("/tournaments/tco07/terms.jsp");
+        }        
         setIsNextPageInContext(true);
         log.info("11");
     }
