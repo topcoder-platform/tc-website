@@ -31,15 +31,31 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Studio Competition</div></h1>
+                        <h1><div>2007 TopCoder Open – Studio Design Competition</div></h1>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
+                        TopCoder Studio is thrilled to announce its first tournament for graphic and web designers! Competitors will put their design talent to the test during the 8-week Studio Design Competition (SDC) Online Round leading up to the Finals, held at the Mirage in Las Vegas. Eight of the most creative competitors will win a trip to Las Vegas where they will compete in the championship round for the chance to win cash prizes totaling $30,000. 
+                        </p>
+                        
+                        <h2>What is TopCoder Studio?</h2>
+                        <p>
+                        TopCoder Studio challenges top creative minds from around the world to present their best graphic and web design concepts to clients searching for a unique user-based perspective. By tapping into the talent of creative people with multiple specialties, new approaches and innovative concepts rise to the top. During engaging competitions, Studio members have just the right mix of client guidance, TopCoder Studio support, and creative freedom to break down barriers common in traditional client-designer relationships.
+                        </p>
+
+                        <h2>The Competition Process</h2>
+                        <p>
+                        The competition process ignites creativity in both the client and the Studio members. TopCoder determines the needs of the client, presents those needs to the Studio member-base, and administers all aspects of the competition.
                         </p>
                         <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
+                        Contest specifications are posted on Studio and members submit their designs according to those specs. Submissions are then screened against the contest specifications by the Contest Administrator and either passed or failed. Passing submissions are presented to the client. The client can then chose to determine a winner on their own, ask the community to chose a winner through a vote, or enter into a review and revision phase with finalists they select, selecting a winner after the revisions are completed.
                         </p>
                         <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
+                        Learn more about the competition <a href="">studio site?</a>.
+                        </p>
+                        <p>
+                        Read the official <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=rules">rules and regulations</a> for important details.
+                        </p>
+                        <p>
+                        The competition is free and you must be 18 years or older, as well as meet all eligibility criteria, in order to participate.
                         </p>
 
                     </div>

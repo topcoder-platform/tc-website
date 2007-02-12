@@ -31,17 +31,49 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Studio Competition Schedule</div></h1>
+                        <h1><div>Studio Design Competition Schedule</div></h1>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
+                        The Studio competitions will have eight (8) weeks of online competition and one (1) onsite Championship round. Each contestant participating in an online round must submit his/her design submission for any contest by the submission deadline as scheduled. 
                         </p>
-                        <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
-                        </p>
-                        <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
-                        </p>
-
+                        
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="title" colspan="2">Schedule</td>
+                                </tr>
+                                <tr>
+                                       <td class="header">&#160;</td>
+                                       <td class="header">Start Date</td>
+                                       <td class="header">Starte Time</td>
+                                       <td class="header">End Date</td>
+                                       <td class="header">End Time</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr class="light">
+                                       <td class="value">SDC Registration</td>
+                                       <td class="value">Feb 19, 2007</td>
+                                       <td class="value">9:00 AM EST (GMT/UTC -5)</td>
+                                       <td class="value">April 30, 2007</td>
+                                       <td class="value">6:00 PM EDT (GMT/UTC -4)</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">Online Competition</td>
+                                       <td class="value">March 5, 2007</td>
+                                       <td class="value">9:00 AM EST (GMT/UTC -5)</td>
+                                       <td class="value">April 30, 2007</td>
+                                       <td class="value">6:00 PM EDT (GMT/UTC -4)</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Onsite Competition</td>
+                                       <td class="value">June 27, 2007</td>
+                                       <td class="value">8:00 AM PDT (GMT/UTC -4)</td>
+                                       <td class="value">June 28, 2007</td>
+                                       <td class="value">5:00 PM PDT (GMT/UTC -4)</td>
+                                </tr>
+                       </tbody>
+                        </table>
+                     <p></p>
                     </div>
                 </td>
             </tr>

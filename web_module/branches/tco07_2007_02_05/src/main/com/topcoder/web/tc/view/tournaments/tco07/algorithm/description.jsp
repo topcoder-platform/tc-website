@@ -44,10 +44,10 @@
                         </ul>
                         </p>
                         <p>
-                        When is the competition?  See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">schedule</A>.
+                        When is the competition?  See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">schedule</a>.
                         </p>
                         <p>
-                        It is important for you to read the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=rules">official rules and regulations</a> for more details.
+                        It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=rules">rules and regulations</a> for more details.
                         </p>
                         <p>
                         We encourage you to utilize the TopCoder practice rooms in the competition arena prior to competing.

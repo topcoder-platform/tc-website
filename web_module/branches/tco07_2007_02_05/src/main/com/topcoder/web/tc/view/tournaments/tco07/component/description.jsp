@@ -45,6 +45,7 @@
                         </p>
                         <p>
                         <h2>Component Development</h2>
+                        <p>
                         TopCoder Development Competitions require participants to implement a previously designed software component.  Their starting point is the winning design submission that includes UML class, sequence, and use case diagrams, and a component specification document which contains algorithm descriptions, exception handling, and documentation.  They are required to provide a full implementation of the design, as well as a full suite of unit tests for their implementation and documentation.
                         </p>
                         <p>
@@ -57,7 +58,7 @@
                         When is the competition?  See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">schedule</a>.
                         </p>
                         <p>
-                        It is important for you to read the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=rules">official rules and regulations</a> for more details.  
+                        It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=rules">rules and regulations</a> for more details.  
                         </p>
                         <p>
                         The competition is free and you must be 18 years or older, as well as meet all eligibility criteria, in order to participate.
