@@ -982,7 +982,6 @@
     </target>
 
     <target name="deploy-forums-full" depends="">
-    	<antcall target="build-forums"/>
         <antcall target="deploy-forums"/>
 
         <copy todir="${jboss_lib}" file="${jive.dir}/htmlparser.jar"/>
