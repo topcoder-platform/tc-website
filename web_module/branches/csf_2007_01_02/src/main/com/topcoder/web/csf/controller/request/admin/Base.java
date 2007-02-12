@@ -28,7 +28,7 @@ import java.util.Set;
 public abstract class Base extends ShortHibernateProcessor {
     protected static final Integer[] CONTEST_PROPS = {ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT, ContestProperty.MIN_WIDTH,
             ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
-            ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MAX_SUBMISSIONS};
+            ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MAX_SUBMISSIONS}; 
 
 
     protected void loadGeneralEditContestData() throws Exception {
@@ -37,6 +37,7 @@ public abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("fileTypes", CSFDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
 
         getRequest().setAttribute("forums", getForumList());
+        getRequest().setAttribute("projects", getProjectList());
         ArrayList viewSubmissionAnswers = new ArrayList();
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
@@ -49,6 +50,14 @@ public abstract class Base extends ShortHibernateProcessor {
         r.setContentHandle("forum_list");
         DataAccessInt da = new DataAccess(DBMS.CSF_DATASOURCE_NAME);
         return (ResultSetContainer) da.getData(r).get("forum_list");
+
+    }
+
+    protected ResultSetContainer getProjectList() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("project_list");
+        DataAccessInt da = new DataAccess(DBMS.CSF_DATASOURCE_NAME);
+        return (ResultSetContainer) da.getData(r).get("project_list");
 
     }
 

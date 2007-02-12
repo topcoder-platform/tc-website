@@ -36,6 +36,7 @@ public class EditContest extends Base {
         String endTime = getRequest().getParameter(Constants.END_TIME);
         String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
+        String projectId = getRequest().getParameter(Constants.PROJECT_ID_KEY);
         List fileTypes = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
                 Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
         /*if (log.isDebugEnabled()) {
@@ -116,14 +117,22 @@ public class EditContest extends Base {
                     currConfig = contest.getConfig(curr);
                 }
                 String val = getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]);
-/*
-                if (log.isDebugEnabled()) {
-                    log.debug("prop size " + (val == null ? "null" : String.valueOf(val.length())));
-                }
-*/
-
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
+
+
+            curr = dao.find(new Integer(9));  //project id contest prop
+            if (contest.isNew() || contest.getConfig(curr) == null) {
+                currConfig = new ContestConfig();
+                currConfig.setContest(contest);
+                currConfig.setProperty(curr);
+                currConfig.getId().setContest(contest);
+                currConfig.getId().setProperty(curr);
+                contest.addConfig(currConfig);
+            } else {
+                currConfig = contest.getConfig(curr);
+            }
+            currConfig.setValue(projectId);
 
             FileTypeDAO fDao = CSFDAOUtil.getFactory().getFileTypeDAO();
             HashSet fts = new HashSet();
@@ -176,6 +185,7 @@ public class EditContest extends Base {
         String viewableSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMISSIONS);
         String maxSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_SUBMISSIONS);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
+        String projectId = getRequest().getParameter(Constants.PROJECT_ID_KEY);
 
 
         if (log.isDebugEnabled()) {
@@ -265,6 +275,27 @@ public class EditContest extends Base {
                 addError(Constants.FORUM_ID, "Please choose a valid forum");
             }
         }
+
+
+        long pid = 0;
+        if (!"".equals(StringUtils.checkNull(projectId))) {
+            try {
+                pid = Long.parseLong(projectId);
+                ResultSetContainer rsc = getProjectList();
+                boolean found = false;
+                ResultSetContainer.ResultSetRow row;
+                for (Iterator it = rsc.iterator(); it.hasNext() && !found;) {
+                    row = (ResultSetContainer.ResultSetRow) it.next();
+                    found = row.getLongItem("project_id") == pid;
+                }
+                if (!found) {
+                    addError(Constants.PROJECT_ID_KEY, "Please choose a valid project");
+                }
+            } catch (NumberFormatException e) {
+                addError(Constants.PROJECT_ID_KEY, "Please choose a valid project");
+            }
+        }
+
 
     }
 }
