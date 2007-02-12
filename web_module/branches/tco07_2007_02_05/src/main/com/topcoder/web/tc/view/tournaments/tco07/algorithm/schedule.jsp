@@ -67,19 +67,19 @@
                         </thead>
                         <tbody>
                                 <tr class="light">
-                                       <td class="value">Qualification Round #1</td>
+                                       <td class="value" nowrap="nowrap">Qualification Round #1</td>
                                        <td class="value">Thursday, March 29<br>Register: 4:00 - 6:55 AM<br>START: 7:00 AM</td>
                                        <td class="value">All members who have not previously qualified - limited to the first 1,350 participants to register</td>
                                        <td class="value">550</td>
                                 </tr>
                                 <tr class="dark">
-                                       <td class="value">Qualification Round #2</td>
+                                       <td class="value" nowrap="nowrap">Qualification Round #2</td>
                                        <td class="value">Saturday, March 31<br>Register: 10:00 AM - 12:55 PM<br>START: 1:00 PM</td>
                                        <td class="value">All members who have not previously qualified - limited to the first 1,350 participants to register</td>
                                        <td class="value">550</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value">Qualification Round #3</td>
+                                       <td class="value" nowrap="nowrap">Qualification Round #3</td>
                                        <td class="value">Tuesday, April 3<br>Register: 6:00 - 8:55 PM<br>START: 9:00 PM</td>
                                        <td class="value">All members who have not previously qualified - limited to the first 1,350 participants to register</td>
                                        <td class="value">550</td>
