@@ -45,6 +45,8 @@
 <p>
     5.6.4 - 2007.01.xx
     <ul>
+        <li>Add TCHS07 registration page</li>
+        <%--<li>New backend for tournament registration</li>--%>
         <%--<li>RatingTag was taken out since it is no longer in use</li>--%>
         <%--<li>Fixed bug when showing a problem with Matrix2D data type</li>--%>
         <%--<li>TCS Loader: Added filter by elegibility (just open projects)</li>--%>
@@ -53,7 +55,6 @@
             after deploying, the query and command long_contest_find_room can be deleted </li> --%>
         <li>Studio payments shown in My Topcoder Payments</li>
         <li>PACTS bug fix: client didn't appear when updating a payment</li>
-
     </ul>
 </p>
 
