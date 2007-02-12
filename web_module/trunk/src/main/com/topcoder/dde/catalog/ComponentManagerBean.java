@@ -710,14 +710,14 @@ public class ComponentManagerBean
             throw new CatalogException(exception.toString());
         }
 
+      
+        /* 2/12/07: No customer forums
         Forums forumsBean = getForumsBean();
-        long categoryID = -1;
+        long categoryID = -1; 
         if (!ejbContext.getRollbackOnly()) {
 	    	try {
-	    		/*
-	    		 * This should be replaced by a distributed transaction (XA, etc.) that rolls back 
-	    		 * changes on the software and forum servers when an error in the workflow occurs.
-	    		 */
+	    		// This should be replaced by a distributed transaction (XA, etc.) that rolls back 
+	    		// changes on the software and forum servers when an error in the workflow occurs.
 	    		//log.info("******* [ComponentManagerBean] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
 	    		categoryID = forumsBean.createSoftwareComponentForums(comp.getComponentName(), ((Long)comp.getPrimaryKey()).longValue(),
 	    				((Long)newVer.getPrimaryKey()).longValue(), newVer.getPhaseId(), comp.getStatusId(), 
@@ -733,31 +733,7 @@ public class ComponentManagerBean
 	            throw new CatalogException(e.toString());
 	    	}
     	}
-        
-        /*	TODO: remove */
-        try {
-            com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
-            try {
-                forum = forumadminHome.create().createForum(forum,
-                        Long.parseLong(getConfigValue("collab_forum_template")));
-            } catch (ConfigManagerException cme) {
-                log.warn("Encountered a configuration manager exception reading collab_forum_template property");
-                forum = forumadminHome.create().createForum(forum);
-            } catch (NumberFormatException nfe) {
-                log.warn("Failed to parse the collab_forum_template property");
-                forum = forumadminHome.create().createForum(forum);
-            }
-            compforumHome.create(forum.getId(), categoryID, ForumCategory.COLLABORATION, newVer);
-            createForumRoles(forum.getId(), ForumCategory.COLLABORATION, true);
-
-        } catch (ForumException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to create collaboration forum: " + exception.toString());
-        } catch (CreateException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(exception.toString());
-        }
+    	*/
 
         /*
         try {
