@@ -425,19 +425,19 @@ function submit() {
                 <td class="value" nowrap="nowrap">
                         ${candidate.name}
                     <a href="#" target="_blank">
-                        <img src="/i/layout/disk.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
+                        <img src="/i/layout/disk.gif" alt="" align="absmiddle" onMouseOver="popUp(this,'magglassPopup')" onMouseOut="popHide()"/>
                     </a>
                 </td>
                 <td class="valueC">
                     <div style="margin: 2px;" align="center">
-                        <a href="javascript:void(0)" onclick="up(this)" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></a>
+                        <a href="javascript:void(0)" onClick="up(this)" onFocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onMouseOver="this.src = '/i/layout/btnMoveUpOn.png';" onMouseOut="this.src = '/i/layout/btnMoveUp.png';"/></a>
                     </div>
                     <div style="margin: 2px;" align="center">
                         <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
                     </div>
                 </td>
                 <td class="valueC">
-                    <a href="javascript:void(0)" onclick="top(this)" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></a>
+                    <a href="javascript:void(0)" onClick="top(this)" onFocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onMouseOver="this.src = '/i/layout/btnMoveToTopOn.png';" onMouseOut="this.src = '/i/layout/btnMoveToTop.png';"/></a>
                 </td>
                 <td class="valueC">
                     <img src="/i/layout/btnMoveOutNA.png" alt="Remove"/>
@@ -469,7 +469,7 @@ function submit() {
 
 <%-- MAGNIFYING GLASS POPUP --%>
 <div id="magglassPopup" class="popUp">
-    <div>View full submission</div>
+    <div>Download submission</div>
 </div>
 
 <form action="${sessionInfo.servletPath}" method="POST" name="ballotForm">
@@ -481,7 +481,7 @@ function submit() {
     <div align="center" style="margin:20px;">
         Are you done ranking the candidates?
         <div align="center" style="margin-top:10px;">
-            <A href="javascript:void(0)" onclick="submit()" class="button" style="width: 160px;">Submit my vote</A>
+            <A href="javascript:void(0)" onClick="submit()" class="button" style="width: 160px;">Submit my vote</A>
         </div>
     </div>
 </form>

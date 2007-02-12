@@ -60,7 +60,7 @@ crappy looking to save space on the transmission
                 ${submission.originalFileName}
 
             <div id="pop${submission.id}" class="popUp">
-                <div>View submission</div>
+                <div>Download submission</div>
             </div>
             <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
                 <img src="/i/layout/disk.gif" alt="" align="absmiddle" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()" />

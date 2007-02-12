@@ -60,7 +60,7 @@
                 <td class="value" nowrap="nowrap">
                         ${vote.id.candidate.name}
                     <a href="#" target="_blank">
-                        <img src="/i/layout/disk.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
+                        <img src="/i/layout/disk.gif" alt="" align="absmiddle" onMouseOver="popUp(this,'magglassPopup')" onMouseOut="popHide()"/>
                     </a>
                 </td>
             </tr>
@@ -71,7 +71,7 @@
 
 <%-- MAGNIFYING GLASS POPUP --%>
 <div id="magglassPopup" class="popUp">
-    <div>View full submission</div>
+    <div>Download submission</div>
 </div>
 
 </div>

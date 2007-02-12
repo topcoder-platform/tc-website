@@ -162,10 +162,10 @@
                         <c:otherwise>
                             <div align="center">
                                 <div id="pop<%=i%>" class="popUp">
-                                    <div>View submission</div>
+                                    <div>Download submission</div>
                                 </div>
                                 <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
-                                    <img src="/i/layout/disk.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
+                                    <img src="/i/layout/disk.gif" alt="" onMouseOver="popUp(this,'pop<%=i%>')" onMouseOut="popHide()"/>
                                 </A>
                             </div>
                         </c:otherwise>
