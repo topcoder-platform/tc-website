@@ -1,9 +1,12 @@
 <%@ page import="java.util.List"%>
+<%@ page import="java.util.Map"%>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
-<% List questionInfo = (List)request.getAttribute("questionInfo");%>
+<% List questionInfo = (List)request.getAttribute("questionInfo");
+   Map results = (Map)request.getAttribute("results");%>
 <jsp:useBean id="surveyInfo" scope="request" class="com.topcoder.web.tc.model.Survey" />
 
 
@@ -82,7 +85,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
                         <td class="header"><div style="width:100px;">&#160;</div></td>
                      </tr>
                      <% boolean even = false; %>
-                        <rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer">
+                        <rsc:iterator list="<%= (ResultSetContainer) results.get(new Long(question.getId()))%>" id="answer">
                      <tr class="<%=even?"dark":"light"%>">
                         <td class="value" style="padding-bottom: 10px;">
                            <rsc:item row="<%=answer%>" name="answer_text"/>

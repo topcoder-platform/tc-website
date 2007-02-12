@@ -10,6 +10,7 @@ public class Response extends Base {
     private Question question;
     private Answer answer;
     private String text;
+    private User user;
 
 
     public Long getId() {
@@ -42,5 +43,19 @@ public class Response extends Base {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    /**
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(User user) {
+        this.user = user;
     }
 }

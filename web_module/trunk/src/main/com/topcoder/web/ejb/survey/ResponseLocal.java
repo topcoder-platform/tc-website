@@ -15,5 +15,6 @@ public interface ResponseLocal extends EJBLocalObject {
 
     public boolean exists(long userId, long questionId);
 
+    public boolean exists(long responseId);
 
 }

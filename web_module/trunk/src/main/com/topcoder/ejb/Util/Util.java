@@ -9,8 +9,8 @@ public interface Util extends EJBObject {
     public void registerForTourny(int coderId, int contestId)
             throws RemoteException;
 
-    public void addResponse(int coderId, int answerId, int questionId)
-            throws RemoteException;
+//    public void addResponse(int coderId, int answerId, int questionId)
+//            throws RemoteException;
 
     public java.sql.Date getCurrentDate()
             throws RemoteException;

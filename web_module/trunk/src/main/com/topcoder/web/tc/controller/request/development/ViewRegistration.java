@@ -225,7 +225,7 @@ public class ViewRegistration extends Base {
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
             a = new Answer();
-            a.setId(row.getLongItem("comp_reg_answer_id"));
+            a.setId(new Long(row.getLongItem("comp_reg_answer_id")));
             a.setQuestionId(row.getLongItem("comp_reg_question_id"));
             a.setSort(row.getIntItem("sort_order"));
             a.setText(row.getStringItem("answer_text"));
