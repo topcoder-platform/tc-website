@@ -56,7 +56,7 @@
                             <input name="eid" value="1" type="hidden">
                             <p align="center">To complete your registration for the <%=event.getDescription()%> you must <b>read and agree to</b> the terms listed below.</p>
                             <div align="center">
-                                <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
+                                <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco07&d3=termscontent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
                             </div>
 
                             <div align="center">

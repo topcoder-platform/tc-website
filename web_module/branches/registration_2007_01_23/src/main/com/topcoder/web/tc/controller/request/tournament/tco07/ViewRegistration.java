@@ -21,6 +21,7 @@ public class ViewRegistration extends ViewRegistrationBase {
     }
     
     public boolean isEligible(Event e, User u) throws Exception{
+        // every TopCoder user is elegible.
         return true;
     }
     

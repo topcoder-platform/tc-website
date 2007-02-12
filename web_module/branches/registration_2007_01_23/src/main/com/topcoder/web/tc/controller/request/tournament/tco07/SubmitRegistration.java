@@ -57,6 +57,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     }
     
     public boolean isEligible(Event e, User u) throws Exception{
+        // every TopCoder user is elegible.
         return true;
     }
 
