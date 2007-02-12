@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.12.07<br>12:00 NOON</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_021207">Connected Services Sandbox Launches</A>
+        </span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/csflogo.png" width="67" height="45" alt="Connected Services Sandbox Logo" border="0" /></div>
+      TopCoder has announced the launch of the Connected Services Sandbox competition series for Microsoft and BT. TopCoder will manage the competitions to help promote the development of innovative customer solutions that merge traditional telecommunications offerings.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_021207">full story</A> | 
+       <tc-webtag:forumLink forumID="508394" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.08.07<br>5:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -176,28 +192,5 @@ This match had an unusual and tough set of problems written by <tc-webtag:handle
         <A href="/tc?module=Static&d1=match_editorials&d2=srm336">full story</A> | 
         <tc-webtag:forumLink forumID="506226" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.26.07<br>5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_11">Intel&#174; Multi-Threading Competition 11 - Analysis</A>
-        </span><br><br>
-Optimization problems usually get
-harder the larger the data set is. In this problem it is the
-opposite, as the thousands of members provide a large and well
-balanced supply of different skill sets, which allows matching the
-vast majority of them almost optimally.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/battyone_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7504863" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_11">full story</A> | 
-        <tc-webtag:forumLink forumID="506179" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 

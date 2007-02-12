@@ -62,7 +62,7 @@ The initial designs and resulting prototypes will be judged by BT, a panel of Mi
 </p>
 <p>
 Developers can find more information about the Sandbox competitions at: 
-<A href="http://csf.topcoder.com/">http://csf.topcoder.com/</A> or <A href="http://www.networkmashups.co">http://www.networkmashups.com/</A>.
+<A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="csf_press_release"/>">http://csf.topcoder.com/</A> or <A href="<tc-webtag:linkTracking link="http://www.networkmashups.com" refer="csf_press_release"/>">http://www.networkmashups.com/</A>.
 </p>                                                
                         <p>###</p>
                         <p><br /></p>
