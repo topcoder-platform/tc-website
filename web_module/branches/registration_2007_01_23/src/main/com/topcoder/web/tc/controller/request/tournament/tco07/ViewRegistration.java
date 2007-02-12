@@ -1,6 +1,8 @@
 package com.topcoder.web.tc.controller.request.tournament.tco07;
 
+import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
 
 /**
@@ -16,5 +18,9 @@ public class ViewRegistration extends ViewRegistrationBase {
 
     protected void alreadyRegisteredProcessing(EventRegistration er) {
         getRequest().setAttribute("ct", getRequest().getParameter("ct"));
+    }
+    
+    public boolean isEligible(Event e, User u) throws Exception{
+        return true;
     }
 }

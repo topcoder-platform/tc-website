@@ -55,4 +55,9 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     protected void completeRegistration(Event event, User user, Boolean eligible, List responses) {
         getRequest().setAttribute("ct", getRequest().getParameter("ct"));
     }
+    
+    public boolean isEligible(Event e, User u) throws Exception{
+        return true;
+    }
+
 }
