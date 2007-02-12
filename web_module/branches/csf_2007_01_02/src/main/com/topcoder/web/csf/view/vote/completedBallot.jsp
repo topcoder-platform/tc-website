@@ -60,7 +60,7 @@
                 <td class="value" nowrap="nowrap">
                         ${vote.id.candidate.name}
                     <a href="#" target="_blank">
-                        <img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
+                        <img src="/i/layout/disk.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
                     </a>
                 </td>
             </tr>
