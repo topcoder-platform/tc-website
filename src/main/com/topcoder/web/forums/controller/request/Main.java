@@ -39,11 +39,14 @@ public class Main extends ForumsProcessor {
             categoryList.add(category);
         }
         
+        /*  2/12/07: With the addition of the software forums, the forums have become too large to 
+         * 	read track in one shot.
         String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
         if (markRead.equals("t")) {
             forumFactory.getReadTracker().markRead(user, forumFactory.getRootForumCategory());
             super.setUnreadCategories();
         }
+        */
 
         Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
         
