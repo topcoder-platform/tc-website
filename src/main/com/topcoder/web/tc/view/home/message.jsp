@@ -57,42 +57,42 @@
 <% } %>
 
 
-<%-- TCCC06 STARTS HERE
+<%-- TCO07 STARTS HERE 
 <%@ page import="java.util.Calendar,
                  java.util.Date" %>
-<jsp:useBean id="compTerms" class="com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms" scope="request"/>
-<jsp:useBean id="algoTerms" class="com.topcoder.web.tc.controller.request.tournament.tccc06.ViewAlgoRegistration" scope="request"/>
+<jsp:useBean id="compTerms" class="com.topcoder.web.tc.controller.request.util.TCO07ComponentTerms" scope="request"/>
+<jsp:useBean id="algoTerms" class="com.topcoder.web.tc.controller.request.tournament.tco07.ViewAlgoRegistration" scope="request"/>
 <% Calendar now = Calendar.getInstance();
     now.setTime(new Date());
     if ((now.after(compTerms.getBeginning()) && now.before(compTerms.getEnd())) || (now.after(algoTerms.getBeginning()) && now.before(algoTerms.getEnd()))) {
 %>
 
 <style type="text/css">
-    .tccc06Message {
-        color: #FFFFFF;
+    .tco07Message {
+        color: #666666;
         font-size: 11px;
         font-weight: normal;
         padding: 5px;
-        background: #003333 url(/i/tournament/tccc06/message_bg.gif) top center repeat-x;
+        background: #FFFFFF;
     }
 
-    A.tccc06MessageLink:link {
-        color: #A0DA4D;
+    A.tco07MessageLink:link {
+        color: #8B0A50;
         text-decoration: underline;
     }
 
-    A.tccc06MessageLink:visited {
-        color: #269696;
+    A.tco07MessageLink:visited {
+        color: #8B0A50;
         text-decoration: underline;
     }
 
-    A.tccc06MessageLink:hover {
-        color: #C0F377;
+    A.tco07MessageLink:hover {
+        color: #FF0000;
         text-decoration: none;
     }
 
-    A.tccc06MessageLink:active {
-        color: #C0F377;
+    A.tco07MessageLink:active {
+        color: #FF0000;
         text-decoration: underline;
     }
 </style>
@@ -103,31 +103,32 @@
 </table>
 <table cellspacing="0" cellpadding="0" class="messageBoxFrame" style="margin-bottom: 10px;">
     <tr>
-        <td class="tccc06Message" align="center">
-            <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="/i/tournament/tccc06/message.gif" alt="TCCC06" border="0"/></A>
-            <br /><br />
+        <td class="tco07Message" align="center">
+            <div align="center">
+            <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/tournament/tco07/message.png" alt="TCO07" border="0"/></A>
+            </div>
             <% if (algoTerms.isRegistered()) { %>
-            You are registered for the TCCC Algorithm Competition.<br />
+            You are registered for the TCO Algorithm Competition.<br />
             <% } else { %>
             <% if ((now.after(algoTerms.getBeginning()) && now.before(algoTerms.getEnd()))) { %>
             <% if (algoTerms.isEligible()) { %>
-            You are not registered for the <strong>TCCC Algorithm Competition</strong>, click
-            <a href="/tc?module=TCCC06ViewAlgoReg" class="tccc06MessageLink">here</a> to register.<br />
+            You are not registered for the <strong>TCO Algorithm Competition</strong>, click
+            <a href="/tc?module=TCO07ViewAlgoReg" class="tco07MessageLink">here</a> to register.<br />
             <% } else { %>
-            Sorry, you are not eligible to register for the TCCC Algorithm Competition.<br />
+            Sorry, you are not eligible to register for the TCO Algorithm Competition.<br />
             <% }
             }
             }%>
             <% if (compTerms.isRegistered()) { %>
-            You are registered for the TCCC Component Competition.
+            You are registered for the TCO Component Competition.
             <% } else {%>
 
             <% if ((now.after(compTerms.getBeginning()) && now.before(compTerms.getEnd()))) { %>
             <% if (compTerms.isEligible()) { %>
-            You are not registered for the <strong>TCCC Component Competition</strong>, click
-            <a href="/tc?module=TCCC06ComponentTerms" class="tccc06MessageLink">here</a> to register.
+            You are not registered for the <strong>TCO Component Competition</strong>, click
+            <a href="/tc?module=TCO07ComponentTerms" class="tco07MessageLink">here</a> to register.
             <% } else { %>
-            Sorry, you are not eligible to register for the TCCC Component Competition.
+            Sorry, you are not eligible to register for the TCO Component Competition.
             <% }
             }
             } %>
