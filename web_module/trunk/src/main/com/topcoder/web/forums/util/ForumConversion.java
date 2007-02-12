@@ -221,6 +221,7 @@ public class ForumConversion {
                 + " from forum_master m, comp_forum_xref f, comp_versions v, comp_catalog c "
                 + " where m.forum_id = f.forum_id and "
                 + " f.comp_vers_id = v.comp_vers_id and v.component_id = c.component_id and f.forum_type = 2"
+                + " order by m.forum_id"
         );
 
         rs = forumPS.executeQuery();
@@ -280,7 +281,7 @@ public class ForumConversion {
 
             // create a category for topcoder forum
             ForumMaster forum = (ForumMaster) it.next();
-            log.info("Processing forum " + forumNum + "/" + endIdx + " (ID = ." + forum.getId() + "): ");
+            log.info("Processing forum " + forumNum + "/" + endIdx + " (ID = " + forum.getId() + "): ");
             String categoryName = ForumsUtil.getComponentCategoryName(forum.getName(), forum.getVersionText(),
             		forum.getForumType());
             ForumCategory category = root.createCategory(categoryName, forum.getDesc());
