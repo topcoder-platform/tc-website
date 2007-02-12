@@ -1,6 +1,6 @@
 <%@ page language="java"%>
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
-<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="com.topcoder.web.common.WebConstants" %>
 <%@ page import="com.topcoder.web.common.model.NavNode"%>
 <%@ page import="com.topcoder.web.common.model.NavTree"%>
 <%@ taglib uri="nav.tld" prefix="nav" %>
@@ -46,7 +46,7 @@
          nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewActiveContests&ph=112", "Active Contests", "des_compete"));
          nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&ph=112", "Contest Status", "des_contest_status"));
          nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects&ph=112", "Review Opportunities", "des_review"));
-         nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.FORUMS_SERVER_NAME+"/?module=Category&categoryID="+Constants.TCS_FORUMS_ROOT_CATEGORY_ID, "Software Forums", "tcs_forums_des"));
+         nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.FORUMS_SERVER_NAME+"/?module=Category&categoryID="+WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID, "Software Forums", "tcs_forums_des"));
          nav.search("m_des_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit & Review", "des_submit"));
          nav.search("m_des_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_des_stats')", "Statistics", "m_des_stats"));
             nav.search("m_des_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&ph=112", "Past Contests", "des_stats"));
@@ -63,7 +63,7 @@
          nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewActiveContests&ph=113", "Active Contests", "dev_compete"));
          nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ContestStatus&ph=113", "Contest Status", "dev_contest_status"));
          nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReviewProjects&ph=113", "Review Opportunities", "dev_review"));
-         nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.FORUMS_SERVER_NAME+"/?module=Category&categoryID="+Constants.TCS_FORUMS_ROOT_CATEGORY_ID, "Software Forums", "tcs_forums_dev"));
+         nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.FORUMS_SERVER_NAME+"/?module=Category&categoryID="+WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID, "Software Forums", "tcs_forums_dev"));
          nav.search("m_dev_competitions").addChild(new NavNode("http://"+ApplicationServer.SOFTWARE_SERVER_NAME+"/review", "Submit & Review", "dev_submit"));
          nav.search("m_dev_competitions").addChild(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_dev_stats')", "Statistics", "m_dev_stats"));
             nav.search("m_dev_stats").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=CompList&ph=113", "Past Contests", "dev_stats"));

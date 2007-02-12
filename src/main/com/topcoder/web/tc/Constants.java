@@ -324,10 +324,6 @@ public class Constants implements WebConstants {
 
     public static String DEFAULT_SURVEY_SCROLL_SIZE;
     public static final String COLOR = "color";
-    
-    // Software forums
-    public static String FORUMS_ATTACHMENT_DIR; 
-    public static int TCS_FORUMS_ROOT_CATEGORY_ID;
 
     static {
         initialize();

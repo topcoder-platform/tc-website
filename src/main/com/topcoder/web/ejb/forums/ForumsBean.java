@@ -4,12 +4,12 @@ import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCResourceBundle;
 
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumCategory;
@@ -55,9 +55,7 @@ public class ForumsBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(ForumsBean.class);
     private static ForumFactory forumFactory = ForumFactory.getInstance(new TCAuthToken(100129));
-    private static TCResourceBundle bundle = new TCResourceBundle("TC");
-    private static final long TCS_FORUMS_ROOT_CATEGORY_ID = 
-    	Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
+    private static final long TCS_FORUMS_ROOT_CATEGORY_ID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID;
     private static long swAdminID = 305384;
 
     // Creates a new forum in the "Algorithm Matches" category of the forums for the given round.

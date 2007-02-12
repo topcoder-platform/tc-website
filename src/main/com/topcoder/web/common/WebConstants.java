@@ -92,4 +92,5 @@ public interface WebConstants {
     public static final char[] UNACTIVE_STATI = {'2', 'U'};
     public static final char[] ACTIVE_STATI = {'1', 'A'};
 
+    public static final long TCS_FORUMS_ROOT_CATEGORY_ID = 22;
 }

@@ -11,7 +11,7 @@
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+<%@ page import="com.topcoder.web.common.WebConstants" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
@@ -21,8 +21,7 @@
 	String page_name = "error_specification.jsp";
 	String action = request.getParameter("a");	
 	
-	TCResourceBundle bundle = new TCResourceBundle("TC");
-	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
+	long tcsForumsID = WebConstants.TCS_FORUMS_ROOM_CATEGORY_ID;
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"

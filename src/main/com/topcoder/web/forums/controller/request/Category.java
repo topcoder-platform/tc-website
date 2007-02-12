@@ -11,6 +11,7 @@ import com.jivesoftware.forum.action.util.Paginator;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
@@ -59,7 +60,7 @@ public class Category extends ForumsProcessor {
         }
         
         String markRead = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MARK_READ));
-        if (markRead.equals("t") && forumCategory.getID() != 1 && forumCategory.getID() != Constants.TCS_FORUMS_ROOT_CATEGORY_ID) {
+        if (markRead.equals("t") && forumCategory.getID() != 1 && forumCategory.getID() != WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) {
             forumFactory.getReadTracker().markRead(user, forumCategory);
             super.setUnreadCategories();
         }

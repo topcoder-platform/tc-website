@@ -1,8 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.shared.util.TCResourceBundle" %>
+<%@ page import="com.topcoder.web.common.WebConstants" %>
 
-<%	TCResourceBundle bundle = new TCResourceBundle("TC");
-	long tcsForumsID = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id")); %>
+<%	long tcsForumsID = WebConstants.TCS_FORUMS_ROOM_CATEGORY_ID; %>
                 <tr>
                     <td class="bodyText" width="170" height="120"><a href="/components/subscriptions.jsp" target="_top"><img src="/images/promos/home_subscriptions.gif" alt="Component Subscriptions" border="0"></a></td>
                     <td class="bodyText" width="170" height="120"><a href="/catalog/index.jsp" target="_top"><img src="/images/promos/home_catalog.gif" alt="Component Catalog" border="0"></a></td>

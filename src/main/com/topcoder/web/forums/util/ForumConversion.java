@@ -19,8 +19,8 @@ import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumMessage;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
@@ -51,11 +51,6 @@ import javax.activation.MimetypesFileTypeMap;
  */
 public class ForumConversion {	
 	protected static Logger log = Logger.getLogger(ForumConversion.class);
-	
-	/**
-     * The property file holding the configuration values.
-     */
-	private static TCResourceBundle bundle = new TCResourceBundle("TC");
 	
 	/**
      * The directory all the attachments are placed in.
@@ -121,8 +116,8 @@ public class ForumConversion {
     	}
     	
         try {
-            fileDir = bundle.getProperty("forums_attachment_dir");
-            rootCategoryId = Long.parseLong(bundle.getProperty("tcs_forums_root_category_id"));
+            fileDir = "/temp_forum_files";
+            rootCategoryId = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID;
             tcConn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             
             if (!fileDir.endsWith("/")) {
