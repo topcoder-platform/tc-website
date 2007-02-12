@@ -1,10 +1,6 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.security.TCPrincipal;
-import com.topcoder.security.TCSubject;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
@@ -14,14 +10,13 @@ import com.topcoder.web.csf.model.Contest;
 import com.topcoder.web.csf.model.ContestStatus;
 
 import java.util.Date;
-import java.util.Iterator;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 18, 2006
  */
-public class ViewContestDetails extends ShortHibernateProcessor {
+public class ViewContestDetails extends Base {
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         if ("".equals(StringUtils.checkNull(contestId))) {
@@ -66,15 +61,6 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             setIsNextPageInContext(true);
         }
 
-    }
-
-    private boolean isAdmin() throws Exception {
-        TCSubject subject = SecurityHelper.getUserSubject(getUser().getId());
-        boolean found = false;
-        for (Iterator it = subject.getPrincipals().iterator(); it.hasNext() && !found;) {
-            found = ((TCPrincipal) it.next()).getId() == Constants.CONTEST_ADMIN_ROLE_ID;
-        }
-        return found;
     }
 
 

@@ -1,20 +1,8 @@
 package com.topcoder.web.csf.controller.request;
 
-import java.io.FileInputStream;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Set;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-
-import com.topcoder.security.TCPrincipal;
-import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.csf.Constants;
@@ -23,12 +11,19 @@ import com.topcoder.web.csf.model.Contest;
 import com.topcoder.web.csf.model.ContestStatus;
 import com.topcoder.web.csf.model.Document;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Set;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 1, 2006
  */
-public class DownloadDocument extends ShortHibernateProcessor {
+public class DownloadDocument extends Base {
 
     protected void dbProcessing() throws Exception {
         Long documentId;
@@ -82,15 +77,6 @@ public class DownloadDocument extends ShortHibernateProcessor {
         getResponse().setStatus(HttpServletResponse.SC_OK);
         getResponse().flushBuffer();
 
-    }
-
-    private boolean isAdmin() throws Exception {
-        TCSubject subject = SecurityHelper.getUserSubject(getUser().getId());
-        boolean found = false;
-        for (Iterator it = subject.getPrincipals().iterator(); it.hasNext() && !found;) {
-            found = ((TCPrincipal) it.next()).getId() == Constants.CONTEST_ADMIN_ROLE_ID;
-        }
-        return found;
     }
 
 }
