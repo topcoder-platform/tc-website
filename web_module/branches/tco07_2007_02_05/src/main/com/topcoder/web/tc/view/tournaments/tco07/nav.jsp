@@ -145,6 +145,9 @@ function toggleMenu(menuTitle,menuID){
     <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs"><img src="/i/tournament/tco07/navsponsorubs.png" alt="UBS" /></A>
     </div>
     <div>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw"><img src="/i/tournament/tco07/navsponsordrw.png" alt="DRW" /></A>
+    </div>
+    <div>
     <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign"><img src="/i/tournament/tco07/navsponsorverisign.png" alt="VeriSign" /></A>
     </div>
 
