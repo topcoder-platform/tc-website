@@ -30,15 +30,23 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-
+                        <img src="/i/tournament/tco07/aol_logo.png" align="left" alt="AOL" border="0" />
+                        <br clear="all">
+                        <p><br></p>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
+                        AOL is pleased to welcome you, the world’s leading programmers and designers, to the 2007 TopCoder Open. We are proud to again partner with TopCoder, a prestigious organization that exemplifies and shares our commitment to innovation and creativity.
                         </p>
                         <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
+                        AOL is a global Web services company that operates some of the most popular Web destinations and offers a comprehensive suite of free software and services. AOL also provides a range of resources and support for third-party developers. Available at dev.aol.com, the AOL Developer Network provides the developer community with access to AOL’s technology platform, open APIs, and design tools.
                         </p>
                         <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
+                        Do you want millions of people to use your code? AOL is looking for top programming talent. If you are seeking new career opportunities and want to help shape the next generation of Web applications, AOL wants to hear from you. For information on job opportunities go to (Link)
+                        </p>
+                        <p>
+                        AOL and its subsidiaries have operations in the United States, Canada, Europe, and Asia.
+                        </p>
+                        <p>
+                        * The TopCoder Open is sponsored by TopCoder, Inc. AOL LLC is not responsible for any aspect of the tournament.                        
                         </p>
 
                     </div>
