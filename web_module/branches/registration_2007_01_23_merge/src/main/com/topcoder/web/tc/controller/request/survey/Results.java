@@ -1,5 +1,11 @@
 package com.topcoder.web.tc.controller.request.survey;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -8,10 +14,12 @@ import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.voting.*;
+import com.topcoder.web.common.voting.Candidate;
+import com.topcoder.web.common.voting.CondorcetSchulzeElection;
+import com.topcoder.web.common.voting.CondorcetSchulzeResults;
+import com.topcoder.web.common.voting.RankBallot;
+import com.topcoder.web.common.voting.Vote;
 import com.topcoder.web.tc.Constants;
-
-import java.util.*;
 
 public class Results extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
@@ -27,6 +35,7 @@ public class Results extends SurveyData {
                 setNextPage(Constants.SCHULZE_RESULTS);
                 setIsNextPageInContext(true);
             } else {
+                getRequest().setAttribute("results", getQuestionTotals());
                 setNextPage(Constants.SURVEY_RESULTS);
                 setIsNextPageInContext(true);
             }
@@ -37,17 +46,22 @@ public class Results extends SurveyData {
         }
     }
 
-    protected List makeAnswerInfo(long questionId) throws Exception {
-        Request responseRequest = new Request();
-        DataAccessInt dataAccess = getDataAccess();
-        responseRequest.setContentHandle("survey_responses");
-        responseRequest.setProperty("qid", String.valueOf(questionId));
-        if (getUser().isAnonymous()) {
-            responseRequest.setProperty("cr", "-1");
-        } else {
-            responseRequest.setProperty("cr", String.valueOf(getUser().getId()));
-        }
-        return (ResultSetContainer) dataAccess.getData(responseRequest).get("response_info");
+    protected Map getQuestionTotals() throws Exception {
+        Map ret = new HashMap();
+        for (Iterator it = questionInfo.iterator(); it.hasNext();) {
+            Question q = (Question) it.next();
+            Request responseRequest = new Request();
+            DataAccessInt dataAccess = getDataAccess();
+            responseRequest.setContentHandle("survey_responses");
+            responseRequest.setProperty("qid", String.valueOf(q.getId()));
+            if (getUser().isAnonymous()) {
+                responseRequest.setProperty("cr", "-1");
+            } else {
+                responseRequest.setProperty("cr", String.valueOf(getUser().getId()));
+            }
+            ret.put(new Long(q.getId()), (ResultSetContainer) dataAccess.getData(responseRequest).get("response_info"));
+        }        
+        return ret;
     }
 
     protected final List getQuestionInfo(long surveyId) throws Exception {

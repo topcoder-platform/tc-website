@@ -1,20 +1,19 @@
 package com.topcoder.web.tc.controller.request.survey;
 
+import java.util.Date;
+import java.util.Iterator;
+
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.model.Answer;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.tag.AnswerInput;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
 
 public class View extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
@@ -81,36 +80,6 @@ public class View extends SurveyData {
                 log.debug("value: " + "true");
             }
         }
-    }
-
-    protected List makeAnswerInfo(long questionId) throws Exception {
-        if (log.isDebugEnabled()) {
-            log.debug("makeAnswerInfo called: " + questionId);
-        }
-        Request req = new Request();
-        DataAccessInt dataAccess = getDataAccess(true);
-        req.setContentHandle("answers");
-        req.setProperty("qid", String.valueOf(questionId));
-        ResultSetContainer rsc = (ResultSetContainer) dataAccess.getData(req).get("answer_info");
-        List ret = null;
-        if (rsc == null) {
-            ret = new ArrayList(0);
-        } else {
-            ret = new ArrayList(rsc.size());
-            ResultSetContainer.ResultSetRow row = null;
-            Answer a = null;
-            for (Iterator it = rsc.iterator(); it.hasNext();) {
-                row = (ResultSetContainer.ResultSetRow) it.next();
-                a = new Answer();
-                a.setId(row.getLongItem("answer_id"));
-                a.setQuestionId(row.getLongItem("question_id"));
-                a.setSort(row.getIntItem("sort_order"));
-                a.setText(row.getStringItem("answer_text"));
-                ret.add(a);
-            }
-        }
-
-        return ret;
     }
 
     protected final boolean isSRMSurvey() {

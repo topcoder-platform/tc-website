@@ -7,7 +7,7 @@
 
     <class name="QuestionStyle" table="question_style" mutable="false">
         <id name="id" column="question_style_id" access="field"/>
-        <property name="description" column="question_status_desc" access="field"/>
+        <property name="description" column="question_style_desc" access="field"/>
         <property name="active" type="boolean" column="status_id" access="field"/>
     </class>
 
