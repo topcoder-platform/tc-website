@@ -43,12 +43,35 @@
                 <tr><td class="bodyText"><div align="right"><strong>Current News</strong>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=pr_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=art_archive">Articles Archive</A></div></td></tr>
             </table>
             
+<%-- 2007 --%>
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2007</font></td></tr>
+            </table>
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+<%-- MS CSF --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_021207"><img src="/i/pressroom/csflogo.png" alt="Microsoft CSF Logo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_021207">Connected Services Sandbox Launches</A></strong></font><br />
+                        TopCoder has announced the launch of the Connected Services Sandbox competition series for Microsoft and BT. TopCoder will manage the competitions to help promote the development of innovative customer solutions that merge traditional telecommunications offerings. <span class="prHead"> [February 12]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
 <%-- 2006 --%>
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
             </table>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
 
 <%-- HRE Magazine --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
