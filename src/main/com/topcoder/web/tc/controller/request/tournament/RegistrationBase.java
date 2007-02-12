@@ -82,7 +82,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
     }
     
     public boolean alreadyRegistered(Event e, User u) {
-        return u.getEventRegistration(e) == null;
+        return u.getEventRegistration(e) != null;
     }
     
     public Event getEvent() {
