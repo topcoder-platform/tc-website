@@ -61,7 +61,7 @@
                     ${vote.rank}
                 </td>
                 <td class="value" nowrap="nowrap">
-                        ${vote.candidate.name}
+                        ${vote.id.candidate.name}
                     <a href="#" target="_blank">
                         <img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'magglassPopup')" onmouseout="popHide()"/>
                     </a>
