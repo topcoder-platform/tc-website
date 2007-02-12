@@ -66,12 +66,12 @@ public class Main extends ForumsProcessor {
         getRequest().setAttribute("resultFilter", resultFilter);
         getRequest().setAttribute("forumsBean", forumsBean);
 
-        if (markRead.equals("t")) {
-        	setNextPage(getSessionInfo().getServletPath() + "?module=Main");
-        	setIsNextPageInContext(false);
-        } else {
+        //if (markRead.equals("t")) {
+        //	setNextPage(getSessionInfo().getServletPath() + "?module=Main");
+        //	setIsNextPageInContext(false);
+        //} else {
         	setNextPage("/main.jsp");
         	setIsNextPageInContext(true);
-        }
+        //}
 	}
 }

@@ -266,9 +266,7 @@
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
-        <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new
-            postings. <%if (user != null) {%><A href="?module=Main&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
-            all as read)</A><%}%></td>
+        <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new postings.</td>
         <td align="right">
             <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=1"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a>
         </td>
