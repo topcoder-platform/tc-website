@@ -4,6 +4,17 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.12.07<br>3:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">Additional forums maintenance scheduled</span><br><br>
+      Please note: We will again be performing maintenance work on the TopCoder forums beginning on Monday, Feb. 12 at 6:30 PM EST. The work will last for approximately four hours, will cause significant forum outages, and may cause sporadic overall site outages as well.  We apologize for any inconvenience that this may cause.</td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <tc-webtag:forumLink forumID="506277" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.12.07<br>12:00 NOON</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=pressroom&d2=pr_021207">Connected Services Sandbox Launches</A>
@@ -175,22 +186,5 @@ This match was pretty uneven, with standard easy and medium problems and a parti
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm30">full story</A> | 
         <tc-webtag:forumLink forumID="506246" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.29.07<br>11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm336">SRM 336 - Problem Set & Analysis</A></span><br><br>
-This match had an unusual and tough set of problems written by <tc-webtag:handle coderId="159544" context="algorithm"/>. Both medium problems were tricky, with many corner cases that led to an overall accuracy lower than we are used to.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm336">full story</A> | 
-        <tc-webtag:forumLink forumID="506226" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
