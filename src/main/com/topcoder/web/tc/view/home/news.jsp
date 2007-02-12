@@ -15,7 +15,7 @@
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=pressroom&d2=pr_021207">full story</A> | 
        <tc-webtag:forumLink forumID="508394" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
