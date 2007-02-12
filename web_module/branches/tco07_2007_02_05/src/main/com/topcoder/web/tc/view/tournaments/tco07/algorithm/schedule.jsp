@@ -42,7 +42,7 @@
                                 <tr>
                                        <td class="header">Registration</td>
                                        <td class="header">OPENS: Monday, February 19, 2007 9:00 AM EDT<br>
-                                       CLOSES: Tuesday, March 27 2007 5:00 PM EDT </td>
+                                       CLOSES: Tuesday, March 27, 2007 5:00 PM EDT </td>
                                 </tr>
                         </thead>
                         </table>

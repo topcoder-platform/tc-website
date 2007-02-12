@@ -31,15 +31,36 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Component Competition</div></h1>
+                        <h1><div>2007 TopCoder Open - Component Design and Development Competition </div></h1>
                         <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
+                        <h2>Component Design</h2>
+                        <p>
+                        TopCoder Design Competitions require participants to design a software component.  Starting from a requirements specification, they produce a full set of design documentation: UML class, sequence, and use case diagrams, and a component specification document which contains algorithm descriptions, exception handling, and documentation.
                         </p>
                         <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
+                        Each competitor’s submission goes through a review process that includes an initial screening and, if the submission passes screening, a full review by a three person Review Board.  The competitors have a chance to appeal their review scores and once all appeals are answered the winner of the competition is announced.  After the winner fixes any remaining problems with their submission, the competition ends and the design is prepared to become the basis for a future development competition.
                         </p>
                         <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
+                        All design and review work of the TopCoder Open Design Finals will take place online.  At the onsite event, the competitors will first see their review scorecards and the appeals phase will take place.
+                        </p>
+                        <p>
+                        <h2>Component Development</h2>
+                        TopCoder Development Competitions require participants to implement a previously designed software component.  Their starting point is the winning design submission that includes UML class, sequence, and use case diagrams, and a component specification document which contains algorithm descriptions, exception handling, and documentation.  They are required to provide a full implementation of the design, as well as a full suite of unit tests for their implementation and documentation.
+                        </p>
+                        <p>
+                        Each competitor’s submission goes through a review process that includes an initial screening and, if the submission passes screening, a full review by a three person Review Board.  The competitors have a chance to appeal their review scores and once all appeals are answered the winner of the competition is announced.  After the winner fixes any remaining problems with their submission, the competition ends and the implementation becomes a part of the TopCoder software catalog.
+                        </p>
+                        <p>
+                        All implementation and review work of the TopCoder Open Development Finals will take place online.  At the onsite event, the competitors will first see their review scorecards and the appeals phase will take place.
+                        </p>
+                        <p>
+                        When is the competition?  See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">schedule</a>.
+                        </p>
+                        <p>
+                        It is important for you to read the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=rules">official rules and regulations</a> for more details.  
+                        </p>
+                        <p>
+                        The competition is free and you must be 18 years or older, as well as meet all eligibility criteria, in order to participate.
                         </p>
 
                     </div>

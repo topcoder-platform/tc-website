@@ -44,7 +44,7 @@
                         </ul>
                         </p>
                         <p>
-                        When is the competition?  See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteschedule">schedule</A>.
+                        When is the competition?  See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">schedule</A>.
                         </p>
                         <p>
                         It is important for you to read the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=rules">official rules and regulations</a> for more details.

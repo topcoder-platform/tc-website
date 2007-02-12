@@ -32,15 +32,110 @@
                     <div id="pageBody">
 
                         <h1><div>Component Competition Schedule</div></h1>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
-                        </p>
-                        <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
-                        </p>
-                        <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
-                        </p>
+                        <p><br></p>
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="header">Registration</td>
+                                       <td class="header">OPENS: Monday, February 19, 2007 9:00 AM EDT<br>
+                                       CLOSES: Thursday, April 12, 2007 9:00 AM EDT </td>
+                                </tr>
+                        </thead>
+                        </table>
+                        <p></p>
+
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="title" colspan="2">Qualification Rounds</td>
+                                </tr>
+                                <tr>
+                                       <td class="header">Round</td>
+                                       <td class="header">All Projects Posted*</td>
+                                       <td class="header">Registration Perios</td>
+                                       <td class="header">Submission Deadline*</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr class="light">
+                                       <td class="value">Week 1 of Online Qualification Round</td>
+                                       <td class="value">March 15, 2007 9:00AM</td>
+                                       <td class="value">72 Hours</td>
+                                       <td class="value">March 22, 2007 9:00AM</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">Week 2 of Online Qualification Round</td>
+                                       <td class="value">March 22, 2007 9:00AM</td>
+                                       <td class="value">72 Hours</td>
+                                       <td class="value">March 29, 2007 9:00AM</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Week 3 of Online Qualification Round</td>
+                                       <td class="value">March 29, 2007 9:00AM</td>
+                                       <td class="value">72 Hours</td>
+                                       <td class="value">April 5, 2007 9:00AM</td>
+                                </tr>
+                                 <tr class="dark">
+                                       <td class="value">Week 4 of Online Qualification Round</td>
+                                       <td class="value">April 5, 2007 9:00AM</td>
+                                       <td class="value">72 Hours</td>
+                                       <td class="value">April 12, 2007 9:00AM</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Week 5 of Online Qualification Round</td>
+                                       <td class="value">April 12, 2007 9:00AM</td>
+                                       <td class="value">72 Hours</td>
+                                       <td class="value">April 19, 2007 9:00AM</td>
+                                </tr>
+                                   <tr class="dark">
+                                       <td class="value">Championship Round (online portion component 1)</td>
+                                       <td class="value">May 10, 2007 9:00AM</td>
+                                       <td class="value">72 Hours</td>
+                                       <td class="value">May 17, 2007 9:00AM</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Championship Round (online portion component 2)</td>
+                                       <td class="value">May 24, 2007 9:00AM</td>
+                                       <td class="value">72 Hours</td>
+                                       <td class="value">May 31, 2007 9:00AM</td>
+                                </tr>
+                                     <tr class="dark">
+                                       <td class="value">Championship Round (online portion component 3)</td>
+                                       <td class="value">June 7, 2007 9:00AM</td>
+                                       <td class="value">72 Hours</td>
+                                       <td class="value">June 14, 2007 9:00AM</td>
+                                </tr>
+                                <tr class="light">
+                                       <td class="value">Championship Round (onsite portion)</td>
+                                       <td class="value">N/A</td>
+                                       <td class="value">N/A</td>
+                                       <td class="value">N/A</td>
+                                </tr>
+                            <tr class="dark">
+                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179">here</a> for your time zone.</td>
+                                </tr>
+                        </tbody>
+                        </table>
+                        <p><br></p>
+                        
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="title" colspan="2">Important Dates</td>
+                                </tr>
+                                <tr>
+                                       <td class="header">Important Items to Note</td>
+                                       <td class="header">Date and Time (Eastern Daylight Time)</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr class="light">
+                                       <td class="value">Last Day to Request a Visa Letter</td>
+                                       <td class="value">Monday, April 23, 2007 at 5:00 PM</td>
+                                </tr>
+                       </tbody>
+                        </table>
+                       <p><br></p>
 
                     </div>
                 </td>
