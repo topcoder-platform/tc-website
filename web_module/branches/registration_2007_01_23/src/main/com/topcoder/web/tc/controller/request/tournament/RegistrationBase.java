@@ -83,7 +83,9 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
                     alreadyRegisteredProcessing(er);
                     log.info("7");
                 }
+                log.info("8");
                 setNextPage(e, u);
+                log.info("9");
             }
         }
     }
