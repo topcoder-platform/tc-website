@@ -40,9 +40,11 @@
 <ul>
 <li style="border-top: 1px solid rgb(204, 204, 204);"><a href="/" onfocus="this.blur();">Home</a></li>
 <li><a href="/?module=Static&d1=schedule" onfocus="this.blur();">Schedule</a></li>
+<%--
 <li><a href="/?module=Static&d1=rules" onfocus="this.blur();">Rules</a></li>
 <li><a href="/?module=Static&d1=competitions" onfocus="this.blur();">Competitions</a></li>
 <li style="border-bottom: 1px solid rgb(204, 204, 204); background-image: none;"><a href="/forums" onfocus="this.blur();">Discuss the Competitions</a></li>
+--%>
 </ul>
 <a href="http://www.topcoder.com" style="margin-left: 5px;"><img src="/i/pbtc.png" alt="Powered by TopCoder"></a>
 </div>
