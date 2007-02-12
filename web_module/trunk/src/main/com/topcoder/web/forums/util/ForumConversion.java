@@ -13,6 +13,7 @@ import com.jivesoftware.base.User;
 import com.jivesoftware.base.UserManager;
 import com.jivesoftware.base.UserNotFoundException;
 
+import com.jivesoftware.forum.AttachmentException;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumFactory;
@@ -268,14 +269,18 @@ public class ForumConversion {
 
         int forumNum = 0;
         int totalForum = forums.size();
-       	int limit = JiveGlobals.getJiveIntProperty("tc.convert.tcs.forums.limit", totalForum);
-       	log.info("Returning " + limit + " out of " + totalForum + " total forums: ");
+       	int startIdx = JiveGlobals.getJiveIntProperty("tc.convert.tcs.forums.start", 1);
+       	int endIdx = JiveGlobals.getJiveIntProperty("tc.convert.tcs.forums.end", totalForum);
+       	log.info("Returning forums " + startIdx + "-" + endIdx + " out of " + totalForum + " total forums: ");
         
         for (Iterator it = forums.iterator(); it.hasNext();) {
-            forumNum++;
+        	++forumNum;
+        	if (forumNum < startIdx) continue;
+            if (forumNum > endIdx) break;
 
             // create a category for topcoder forum
             ForumMaster forum = (ForumMaster) it.next();
+            log.info("Processing forum " + forumNum + "/" + endIdx + " (ID = ." + forum.getId() + "): ");
             String categoryName = ForumsUtil.getComponentCategoryName(forum.getName(), forum.getVersionText(),
             		forum.getForumType());
             ForumCategory category = root.createCategory(categoryName, forum.getDesc());
@@ -507,12 +512,14 @@ public class ForumConversion {
                             if(ATTACHMENTS_ENABLED) {
 	                            try {
 	                            	msg.createAttachment(att.getName(), fileTypeMap.getContentType(attFile), new FileInputStream(attFile));
-	                            	log.info("***** attachment " + att.getName() + " successfully attached at: " + attFile.getPath());
+	                            	log.info("***** Attachment " + att.getName() + " successfully attached at: " + attFile.getPath());
 	                            } catch (IOException ioe) {
-	                            	log.info("***** attachment " + att.getName() + " not found at: " + attFile.getPath());
+	                            	log.info("***** Attachment " + att.getName() + " not found at: " + attFile.getPath());
+	                            } catch (AttachmentException ae) {
+	                            	log.info("***** Attachment exception for " + att.getName() + ": " + ae.getMessage() + ". Skipped attachment.");
 	                            }
                             } else {
-                            	log.info("***** skipping attaching of: " + att.getName() + " at: " + attFile.getPath());
+                            	log.info("***** Skipping attaching of: " + att.getName() + " at: " + attFile.getPath());
                             }
                         }
 
@@ -555,10 +562,7 @@ public class ForumConversion {
                 }
             }
             
-            log.info(forumNum + " out of " + limit + " forums have been processed.");
-            if (forumNum >= limit) {
-            	break;
-            }
+            log.info(forumNum + " out of " + endIdx + " forums have been processed.");
         }
     }
 
