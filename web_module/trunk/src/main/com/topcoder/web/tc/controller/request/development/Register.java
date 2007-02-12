@@ -368,7 +368,7 @@ public class Register extends ViewRegistration {
             String date = formatter.format(cal);
 
             String key = getUser().getId() % 2 == 1 ? "l96uJ8gb3yeVyljcqJv94kt2XcxPaVPcEBJQfNV3r/qfNTr0l+HHooRklk/J2sxyXw22fyIbN4YMzkr+m7yxi4nykHn4XF504ned5q6B3i5BVTrn8mxDHf5jNdbloaXPd/fsMTrRU3x4ljWuMrZ7IcU5y8Kp4X9UeSQhFxgqlZE" : "IzlKZkULNt8Y9+qZZe+FIajyifIL+7zapP11VZrSSC9NHKKrKTUUG4ATDdo/bubQBDcn25U0EGcBICe5sSJoNprrIPpz8DtVJgBGQrvkbe+HnF6O3vUEdIeH2KARRqKX6bB0vfcEUPfbCjADCIGkotVJllATF696T0CxBg1+ia0";
-            
+
             if (phase == ComponentVersionInfo.SPECIFICATION) {
                 mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
                         "Thank you, for your interest in the " + project + " component. You now have access to the Developer Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
@@ -382,7 +382,7 @@ public class Register extends ViewRegistration {
 
                         key +
                         "\n\n" +
-                        "If you have not downloaded 5.0 yet, please download the software from http://www.gentleware.com?redirect=download\n\n" +
+                        "If you have not downloaded 5.0 yet, please download the software from http://www.gentleware.com/downloadcenter.html\n\n" +
                         "TopCoder Software Team");
 
             } else {
@@ -398,7 +398,7 @@ public class Register extends ViewRegistration {
 
                         key +
                         "\n\n" +
-                        "If you have not downloaded 5.0 yet, please download the software from http://www.gentleware.com?redirect=download\n\n" +
+                        "If you have not downloaded 5.0 yet, please download the software from http://www.gentleware.com/downloadcenter.html\n\n" +
                         "TopCoder Software Team");
             }
             EmailEngine.send(mail);
