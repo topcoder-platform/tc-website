@@ -14,7 +14,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%String compType = (String) request.getAttribute("ct");
-  Event e = (Event) request.getAttribute("event");
+  Event event = (Event) request.getAttribute("event");
    List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
    HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
   %>
@@ -54,9 +54,9 @@
                         <form name="terms" method="post" action="/tc">
                             <input name="module" value="TCO07SubmitRegistration" type="hidden">
                             <input name="eid" value="1" type="hidden">
-                            <p align="center">To complete your registration for the <%=e.getDescription()%> you must <b>read and agree to</b> the terms listed below.</p>
+                            <p align="center">To complete your registration for the <%=event.getDescription()%> you must <b>read and agree to</b> the terms listed below.</p>
                             <div align="center">
-                                <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=e.getTerms().getId()%>"></iframe>
+                                <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
                             </div>
 
                             <div align="center">
