@@ -11,6 +11,7 @@
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.topcoder.web.forums.util.ImageMapper,
+                 com.topcoder.web.tc.Constants,
                  java.util.Iterator"
         %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -291,12 +292,11 @@
     <tr>
         <% if (forumCategory.getID() != 1) { %>
         <td>A forum with a <b>bold title</b> indicates it either has a new thread or has a thread with new
-            postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
+            postings. <%if (user != null && forumCategory.getID() != Constants.TCS_FORUMS_ROOT_CATEGORY_ID) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
             all as read)</A><%}%></td>
         <% } else { %>
         <td>A category with a <b>bold title</b> in the left navigation indicates it has a forum with new
-            postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
-            all as read)</A><%}%></td>
+            postings.</td>
         <% } %>
         <td align="right">
             <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a>

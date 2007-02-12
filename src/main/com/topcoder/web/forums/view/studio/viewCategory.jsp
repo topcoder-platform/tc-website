@@ -268,9 +268,7 @@ A forum with a <b>bold
     title</b> indicates it either has a new thread or has a thread with new postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
     all as read)</A><%}%>
 <% } else { %>
-A category with a <b>bold
-    title</b> in the left navigation indicates it has a forum with new postings. <%if (user != null) {%><A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.MARK_READ%>=t" class="rtbcLink">(Mark
-    all as read)</A><%}%>
+A category with a <b>bold title</b> in the left navigation indicates it has a forum with new postings.
 <% } %>
 </span>
 </div>
