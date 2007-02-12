@@ -32,9 +32,9 @@
                     <div id="pageBody">
 
                         <h1><div>Onsite Schedule</div></h1>
-                        <p><br></p>
                         
-                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <div align="center">
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 450px;">
                         <thead>
                                 <tr>
                                        <td class="title" colspan="2">Schedule of Onsite Events</td>
@@ -143,7 +143,7 @@
                                 </tr>
                         </tbody>
                         </table>
-                        
+                        </div>                        
                         
                     </div>
                 </td>
