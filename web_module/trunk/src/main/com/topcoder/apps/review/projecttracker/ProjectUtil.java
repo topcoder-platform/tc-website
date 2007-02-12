@@ -214,7 +214,10 @@ public class ProjectUtil {
         rs = ps.executeQuery();
 
         if (!rs.next()) {
-            throw new BaseException("Online Review: root_category_id does not exists, projectTypeId: " + projectTypeId + " compVersId: " + compVersId);
+            throw new BaseException("Online Review: root_category_id does not exist, " +
+            		"projectTypeId: " + projectTypeId + " compVersId: " + compVersId +
+            		" (A project must be approved before it can change from the collaboration phase to the " +
+            		"specification phase.)");
         }
 
         long rootCategoryId = rs.getLong(1);
@@ -297,7 +300,7 @@ public class ProjectUtil {
             }
             com.topcoder.project.phases.Project project = template.applyTemplate(templateName);
             if (project == null) {
-                throw new BaseException("Online Review: project template does not exists, templateName: " + templateName + " Please make sure Project_Phase_Template_Config.xml is configured well!");
+                throw new BaseException("Online Review: project template does not exist, templateName: " + templateName + " Please make sure Project_Phase_Template_Config.xml is configured well!");
             }
             com.topcoder.project.phases.Phase[] phases = project.getAllPhases();
             for (int i = 0; i < phases.length; i++) {
