@@ -91,6 +91,7 @@ public abstract class Base extends ShortHibernateProcessor {
         setDefault(Constants.CONTEST_NAME, contest.getName());
         setDefault(Constants.START_TIME, sdf.format(contest.getStartTime()));
         setDefault(Constants.END_TIME, sdf.format(contest.getEndTime()));
+        setDefault(Constants.PROJECT_ID_KEY, contest.getConfig(dao.find(new Integer(9))));//project id config property
 
 
     }
