@@ -38,7 +38,7 @@ public class ViewRegistration extends ViewRegistrationBase {
         EventRegistration er = u.getEventRegistration(e);
         if (er != null) {
             getRequest().setAttribute("eligible", er.isEligible());
-            setNextPage("/tournaments/tco07/termssuccess.jsp");
+            setNextPage("/tournaments/tco07/termsSuccess.jsp");
         } else {
             setNextPage("/tournaments/tco07/terms.jsp");
         }        
