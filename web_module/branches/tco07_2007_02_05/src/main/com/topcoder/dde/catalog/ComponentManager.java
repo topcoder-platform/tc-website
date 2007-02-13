@@ -370,7 +370,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * associated with individual versions.
      *
      * @param type the type of forum to retrieve
-     * @return a <code>Forum</code> object that represents the forum, or
+     * @return a <code>ForumCategory</code> object that represents the forum, or
      * <code>null</code> if there are no forums of the specified type for the
      * active version
      * @throws RemoteException if a system-level failure causes the remote
@@ -379,7 +379,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * type for the active version, or if the forum information cannot be
      * retrieved
      */
-    public Forum getForum(int type)
+    public ForumCategory getForumCategory(int type)
             throws RemoteException, CatalogException;
 
     /**
@@ -391,32 +391,32 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * component, and it should always be associated with the latest version.
      *
      * @param type the type of forum to retrieve
-     * @return a <code>Forum</code> object that represents the forum, or
+     * @return a <code>ForumCategory</code> object that represents the forum, or
      * <code>null</code> if there are no active forums of the specified type
      * @throws RemoteException if a system-level failure causes the remote
      * method call to fail
      * @throws CatalogException if there are multiple active forums of the
      * specified type, or if the forum information cannot be retrieved
      */
-    public Forum getActiveForum(int type)
+    public ForumCategory getActiveForumCategory(int type)
             throws RemoteException, CatalogException;
 
     /**
      * Returns all the closed forums of the specified type that are associated
      * with the component managed by this instance. The type constants are
-     * defined in <code>Forum</code>. Note that this method pertains to the
+     * defined in <code>ForumCategory</code>. Note that this method pertains to the
      * component as a whole, so the closed forums associated with every version
      * of the component are returned. The forums are returned in descending
      * order by the date they were opened.
      *
      * @param type the type of forum to retrieve
-     * @return a <code>Collection</code> of <code>Forum</code> objects that
+     * @return a <code>Collection</code> of <code>ForumCategory</code> objects that
      * represent the closed forums associated with all versions of the component
      * @throws RemoteException if a system-level failure causes the remote
      * method call to fail
      * @throws CatalogException if the forum information cannot be retrieved
      */
-    public Collection getClosedForums(int type)
+    public Collection getClosedForumCategories(int type)
             throws RemoteException, CatalogException;
 
     /**

@@ -4,15 +4,21 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.action.util.Paginator;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.util.ArrayList;
+
+import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -67,9 +73,20 @@ public class Category extends ForumsProcessor {
         
         boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
         
+        InitialContext ctx = null;
+        Forums forumsBean = null;
+        try {
+            ctx = TCContext.getInitial();
+            forumsBean = (Forums)createEJB(ctx, Forums.class);
+        } catch (Exception e) {
+            Log.error(e);
+        } finally {
+            BaseProcessor.close(ctx);
+        }
+        
         ArrayList list = null;
         if (forumCategory.getCategoryCount() > 0) {
-        	list = ForumsUtil.getCategories(forumCategory, resultFilter, excludeEmptyForums);
+        	list = ForumsUtil.getCategories(forumsBean, forumCategory, resultFilter, excludeEmptyForums);
         } else {
         	list = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);   
         }
@@ -89,6 +106,7 @@ public class Category extends ForumsProcessor {
         getRequest().setAttribute("paginator", paginator);
         getRequest().setAttribute("sortField", sortField);
         getRequest().setAttribute("sortOrder", sortOrder);
+        getRequest().setAttribute("forumsBean", forumsBean);
 
         if (markRead.equals("t")) {
         	setNextPage(getSessionInfo().getServletPath() + 

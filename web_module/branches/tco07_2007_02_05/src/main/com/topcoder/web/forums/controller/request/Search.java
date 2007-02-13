@@ -118,7 +118,7 @@ public class Search extends ForumsProcessor {
                 long categoryID = Long.parseLong(searchScope.substring(1));
                 ArrayList forumList = new ArrayList();
                 ForumCategory category = forumFactory.getForumCategory(categoryID);
-                Iterator itCategoryForums = category.getForums(resultFilter);
+                Iterator itCategoryForums = category.getRecursiveForums(resultFilter);
                 while (itCategoryForums.hasNext()) {
                     Forum f = (Forum)itCategoryForums.next();
                     if (!forumList.contains(f)) {
