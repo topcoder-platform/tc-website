@@ -13,7 +13,6 @@ import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.dde.user.RegistrationInfo;
 import com.topcoder.dde.user.UserManagerLocalHome;
 import com.topcoder.file.render.*;
-import com.topcoder.forum.*;
 import com.topcoder.message.email.*;
 import com.topcoder.search.*;
 import com.topcoder.security.GeneralSecurityException;
@@ -24,12 +23,8 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemoteHome;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.util.config.*;
-import com.topcoder.web.ejb.forums.Forums;
-import com.topcoder.web.ejb.forums.ForumsHome;
 import com.topcoder.dde.catalog.Catalog;
 
 import javax.ejb.*;
@@ -102,7 +97,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private LocalDDECompCategoriesHome compcatsHome;
     private LocalDDECompKeywordsHome keywordsHome;
     private LocalDDECompTechnologyHome comptechHome;
-    private LocalDDECompForumXrefHome compforumHome;	// TODO: remove
+    private LocalDDECompForumXrefHome compforumHome;
     private LocalDDECategoriesHome categoriesHome;
     private LocalDDETechnologyTypesHome technologiesHome;
     private LocalDDERolesHome rolesHome;
@@ -111,7 +106,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private LocalDDECompDownloadHome downloadHome;
     private LocalDDEUserRoleHome userroleHome;
     private LocalDDEUserMasterHome userHome;
-    private ForumAdminLocalHome forumadminHome;
     private UserManagerLocalHome usermanHome;
     private PrincipalMgrRemoteHome principalmgrHome;
     private PolicyMgrRemoteHome policymgrHome;
@@ -153,7 +147,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     homeBindings.lookup(LocalDDECompTechnologyHome.EJB_REF_NAME);
             log.debug("blah");
             compforumHome = (LocalDDECompForumXrefHome)
-                    homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);	// TODO: remove
+                    homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
             log.debug("blah");
             categoriesHome = (LocalDDECategoriesHome)
                     homeBindings.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
@@ -178,9 +172,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             log.debug("blah");
             userHome = (LocalDDEUserMasterHome)
                     homeBindings.lookup(LocalDDEUserMasterHome.EJB_REF_NAME);
-            log.debug("blah");
-            forumadminHome = (ForumAdminLocalHome)
-                    homeBindings.lookup(ForumAdminLocalHome.EJB_REF_NAME);
             log.debug("blah");
             usermanHome = (UserManagerLocalHome)
                     homeBindings.lookup(UserManagerLocalHome.EJB_REF_NAME);
