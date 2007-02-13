@@ -24,6 +24,7 @@
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineSchedule"<% if (tabLev1.equals("onlineSchedule")) {%> class="on"<% } %>>ONLINE SCHEDULE</A>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"<% if (tabLev1.equals("onsiteSchedule")) {%> class="on"<% } %>>ONSITE SCHEDULE</A>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules"<% if (tabLev1.equals("rules")) {%> class="on"<% } %>>RULES</A>
+<A href="/tc?module=TCHS07ViewRegistration"<% if (tabLev1.equals("register")) {%> class="on"<% } %>>REGISTER</A>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=registrants"<% if (tabLev1.equals("registrants")) {%> class="on"<% } %>>REGISTRANTS</A>
 <%--<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=sponsors"<% if (tabLev1.equals("sponsors")) {%> class="on"<% } %>>SPONSORS</A>--%>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=purdue"<% if (tabLev1.equals("purdue")) {%> class="on"<% } %>>PURDUE</A>

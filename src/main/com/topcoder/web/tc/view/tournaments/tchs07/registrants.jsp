@@ -1,8 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% String assignedRegion = (String) request.getAttribute("assignedRegion"); 
-   Boolean eligible = (Boolean) request.getAttribute("eligible"); %>
 <html> 
 <head> 
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/> 
@@ -18,26 +16,56 @@
         <img src="/i/tournament/tchs07/contentN.png" alt="contentN" style="display: block;" />
 
         <jsp:include page="links.jsp" >
-        <jsp:param name="tabLev1" value="register"/>
+        <jsp:param name="tabLev1" value="registrants"/>
         <jsp:param name="tabLev2" value=""/>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
         <div class="contentSpacer">
-          <h2>Registration</h2>
-
-        <div align="center" style="margin:40px;">
-        <%if (eligible.booleanValue()) {%>
-            You have successfully registered for the 2007 TopCoder&#174; High School Tournament.
-            <br><br>
-            You have been assigned to the <strong><%=assignedRegion%> Region</strong>.
-            <br><br>
-            If you have any concerns regarding your assigned region, please email <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
-        <%} else {%>
-            Sorry, you are ineligible for the TCHS07.  If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
-            <br><br>
-        <%}%>
-        </div>
+          <h2>Registrants</h2>
+          
+<div align="center">
+<table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
+<thead>
+    <tr><td class="title" colspan="3">Registrants: 123</td></tr>
+    <tr>
+        <td class="headerC">
+            <A href="sortbyrank">Rank</A>
+        </td>
+        <td class="header" width="100%">
+            <A href="sortbyhandle">Handle</A>
+        </td>
+        <td class="headerR">
+            <A href="sortbyrating">Rating</A>
+        </td>
+    </tr>
+</thead>
+<tbody>
+    <tr class="light">
+        <td class="valueC">
+        1
+        </td>
+        <td class="value">
+        <tc-webtag:handle coderId="12005484" context="hs_algorithm"/>
+        </td>
+        <td class="valueR">
+        1234
+        </td>
+    </tr>
+    <tr class="dark">
+        <td class="valueC">
+        2
+        </td>
+        <td class="value">
+        <tc-webtag:handle coderId="12005484" context="hs_algorithm"/>
+        </td>
+        <td class="valueR">
+        1234
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
 
 
         </div>
