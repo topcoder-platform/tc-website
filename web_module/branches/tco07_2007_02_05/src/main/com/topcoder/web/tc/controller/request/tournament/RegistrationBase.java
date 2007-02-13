@@ -36,6 +36,15 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         YES_NO_ANSWERS.add(new ListSelectTag.Option(String.valueOf(false), "No"));
     }
 
+    public static final List TCO_COMPETITION_TYPES;
+
+    static {
+        TCO_COMPETITION_TYPES = new ArrayList();
+        TCO_COMPETITION_TYPES.add("algorithm");
+        TCO_COMPETITION_TYPES.add("component");
+        TCO_COMPETITION_TYPES.add("marathon");
+        TCO_COMPETITION_TYPES.add("studio");
+    }
     protected abstract void regProcessing(Event event, User user);
 
     protected abstract void alreadyRegisteredProcessing(EventRegistration er);
@@ -66,7 +75,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             } else {
                 User u = getActiveUser();
                 EventRegistration er = u.getEventRegistration(e);
-                if (alreadyRegistered(e, u)) {
+                if (!alreadyRegistered(e, u)) {
                     if (isEligible(e, u)) {
                         getRequest().setAttribute("event", e);
                         regProcessing(e, u);
@@ -82,7 +91,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
     }
     
     public boolean alreadyRegistered(Event e, User u) {
-        return u.getEventRegistration(e) == null;
+        return u.getEventRegistration(e) != null;
     }
     
     public Event getEvent() {

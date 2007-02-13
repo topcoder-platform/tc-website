@@ -18,8 +18,10 @@
 </head>
 
 <body class="termsBody" style="margin:5px;">
-
-Bla bla bla
+<c:import url="${sessionInfo.servletPath}">
+    <c:param name="<%=Constants.MODULE_KEY%>" value="Terms"/>
+    <c:param name="<%=Constants.TERMS_OF_USE_ID%>" value="<%=request.getParameter(Constants.TERMS_OF_USE_ID)%>"/>
+</c:import>
 
 </body>
 
