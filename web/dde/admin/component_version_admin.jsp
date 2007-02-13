@@ -652,13 +652,13 @@ if (action != null) {
         ver.setComments(comments);
         ver.setPrice(Double.parseDouble(price));
 
-		com.topcoder.dde.catalog.ForumCategory activeCollab = null;
+//		com.topcoder.dde.catalog.ForumCategory activeCollab = null;
 		com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-            activeCollab = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
-            if (activeCollab != null) {
-            	forums.updateComponentVersion(activeCollab.getId(), versionLabel);
-            }
+//            activeCollab = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
+//            if (activeCollab != null) {
+//            	forums.updateComponentVersion(activeCollab.getId(), versionLabel);
+//            }
             activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
             if (activeSpec != null) {
             	forums.updateComponentVersion(activeSpec.getId(), versionLabel);
