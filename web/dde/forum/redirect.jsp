@@ -21,9 +21,7 @@
     <title>Software Components form the basis of the applications built by TopCoder Software</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
-<%--
     <meta http-equiv="REFRESH" content="1;url=http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">
---%>
 </head>
 
 <body class="body">
