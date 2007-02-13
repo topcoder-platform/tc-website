@@ -69,15 +69,32 @@
 
 
                             <tc:questionIterator list="<%=questionInfo%>" id="question">
-                            <p align="center">
-	                        <span class="bigRed">
-	                        <tc-webtag:errorIterator id="err"
-	                            name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
-	                        </tc-webtag:errorIterator>
-	                        </span>&nbsp;<br>
-                            <jsp:getProperty name="question" property="text"/> 
-	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
-	                        </p>
+                        	<% if (question.getKeyword().equals(RegistrationBase.AGE)) { %>
+                                    <p align="center">
+        	                        <span class="bigRed">
+        	                        <tc-webtag:errorIterator id="err"
+        	                            name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
+        	                        </tc-webtag:errorIterator>
+        	                        </span>&nbsp;<br>
+                                    <jsp:getProperty name="question" property="text"/> 
+        	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
+        	                        </p>
+                        	<% } else { %>
+                                    <p align="center">
+        	                        <span class="bigRed">
+        	                        <tc-webtag:errorIterator id="err"
+        	                            name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
+        	                        </tc-webtag:errorIterator>
+        	                        </span>&nbsp;<br>
+                                    <jsp:getProperty name="question" property="text"/> 
+                                    <br/>
+        			                  <tc:answerInput id="answerInput" question="<%=question%>">
+        			                         <%=answerInput%>
+        			                         <%=answerText%>&nbsp;&nbsp;&nbsp;
+        			                  </tc:answerInput>
+        	                        </p>
+                        	<% }%>
+
                             </tc:questionIterator>
 
                             <div align="center">
