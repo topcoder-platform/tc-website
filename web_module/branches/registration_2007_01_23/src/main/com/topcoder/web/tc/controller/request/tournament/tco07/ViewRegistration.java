@@ -22,6 +22,10 @@ public class ViewRegistration extends ViewRegistrationBase {
         getRequest().setAttribute("ct", getRequest().getParameter("ct"));
     }
     
+    protected void regProcessing(Event e, User u) {
+        getRequest().setAttribute("ct", getRequest().getParameter("ct"));
+    }
+    
     public boolean isEligible(Event e, User u) throws Exception{
         // every TopCoder user is elegible.
         return true;

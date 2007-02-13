@@ -6,12 +6,12 @@ import java.util.List;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.survey.Helper;
 import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
 
@@ -21,6 +21,10 @@ import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
  *          Create Date: Jan 16, 2007
  */
 public class SubmitRegistration extends SubmitRegistrationBase {    
+    
+    protected void alreadyRegisteredProcessing(EventRegistration er) {
+        getRequest().setAttribute("ct", getRequest().getParameter("ct"));
+    }
     
     protected final String getEventShortDesc() {
         return "tco07" + getRequest().getParameter("ct");
