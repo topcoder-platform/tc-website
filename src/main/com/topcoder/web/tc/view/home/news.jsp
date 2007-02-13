@@ -4,6 +4,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.13.07<br>4:50 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm32">TCHS SRM 32 - Problem Set & Analysis</A></span><br><br>
+    HS SRM 32 may have been a departure from other HS SRMs, in that the problems 
+    didn't require any specific knowledge of algorithms.
+      </td>
+      <td class="newsPhoto"><%--<img src="/i/m/_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="343655" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm32">full story</A> | 
+        <tc-webtag:forumLink forumID="506248" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.13.07<br>12:00 NOON</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=pressroom&d2=pr_021307">Registration Opens for First TCHS Tournament</A>
@@ -168,21 +186,5 @@ to an entertaining challenge phase.
         <A href="/tc?module=Static&d1=match_editorials&d2=srm337">full story</A> | 
         <tc-webtag:forumLink forumID="506227" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.02.07<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=020207">TopCoder @ Work: Not Another Vista Article</A></span><br><br>
-       The TopCoder @ Work writers tackle Microsoft's new operating system and try to answer the question: should you or shouldn't you upgrade?</td>
-      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg"  alt="" width="55" height="61"/><img src="/i/m/rhudson_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=020207">full story</A> | 
-         <tc-webtag:forumLink forumID="506273" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
