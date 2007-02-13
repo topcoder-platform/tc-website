@@ -14,7 +14,7 @@
    </tr>
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=pressroom&d2=pr_021307">press release</A> | 
-       <tc-webtag:forumLink forumID="506193" message="discuss this" /> | 
+       <tc-webtag:forumLink forumID="514294" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
