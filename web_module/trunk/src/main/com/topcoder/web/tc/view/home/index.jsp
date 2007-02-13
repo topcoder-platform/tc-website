@@ -256,6 +256,12 @@
             <td class="homeText"><br>
 
                 <div style="float: right; padding-left: 5px;">
+                    <img src="/i/pressroom/tchs07.png" width="67" height="36" alt="TCHS07" border="0" />
+                </div>
+                Registration Opens for First TCHS Tournament
+                <A href="/tc?module=Static&d1=pressroom&d2=pr_021307">...more</A><br>[February 13]<br><br>
+
+                <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/csflogo.png" alt="Connected Services Sandbox Logo" width="67" height="45" border="0"/>
                 </div>
                 Connected Services Sandbox Launches
@@ -282,10 +288,6 @@
 
                 AOL and TopCoder Announce Web AIM Mashup Competition
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_113006">...more</A><br>[November 30]<br><br>
-
-                TopCoder to Present Keynote Address: Future of Virtual Communities as Business; at Gartner CIO Summit
-                2006
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_112906">...more</A><br>[November 29]<br><br>
 
             </td>
         </tr>
