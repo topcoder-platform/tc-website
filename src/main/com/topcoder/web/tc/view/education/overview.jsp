@@ -39,6 +39,8 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<%--<li><A href="/tc?module=Static&d1=features&d2=021307"><strong>An Introduction to Code Coverage</strong></A>, by <tc-webtag:handle coderId="10211498" /><br>
+Well-written unit tests can ensure that components function correctly, but how can you be sure you're actually testing everything you need to? One answer is code coverage.</li>--%>
 <li><A href="/tc?module=Static&d1=features&d2=020807"><strong>Beginning TopCoder Competition with C++</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
 This article is aimed at programmers who are thinking of using C++ as a programming language for TopCoder algorithm matches &mdash; either because they are new to TopCoder, or because they want to switch languages.</li>
 <li><A href="/tc?module=Static&d1=features&d2=020607"><strong>Marathon Man: An interview with battyone</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
