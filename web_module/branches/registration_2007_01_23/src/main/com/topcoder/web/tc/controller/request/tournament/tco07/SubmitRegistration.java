@@ -22,10 +22,6 @@ import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
  */
 public class SubmitRegistration extends SubmitRegistrationBase {    
     
-    protected void alreadyRegisteredProcessing(EventRegistration er) {
-        getRequest().setAttribute("ct", getRequest().getParameter("ct"));
-    }
-    
     protected final String getEventShortDesc() {
         return "tco07" + getRequest().getParameter("ct");
     }
@@ -65,7 +61,6 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     }
     
     protected void completeRegistration(Event event, User user, Boolean eligible, List responses) {
-        getRequest().setAttribute("ct", getRequest().getParameter("ct"));
     }
     
     public boolean isEligible(Event e, User u) throws Exception{
@@ -74,6 +69,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     }
 
     protected void setNextPage(Event e, User u) {
+        getRequest().setAttribute("ct", getRequest().getParameter("ct"));
         if (hasErrors()) {
             setNextPage("/tournaments/tco07/terms.jsp");
         } else {

@@ -19,11 +19,6 @@ public class ViewRegistration extends ViewRegistrationBase {
     }
 
     protected void alreadyRegisteredProcessing(EventRegistration er) {
-        getRequest().setAttribute("ct", getRequest().getParameter("ct"));
-    }
-    
-    protected void regProcessing(Event e, User u) {
-        getRequest().setAttribute("ct", getRequest().getParameter("ct"));
     }
     
     public boolean isEligible(Event e, User u) throws Exception{
@@ -39,7 +34,7 @@ public class ViewRegistration extends ViewRegistrationBase {
     }    
     
     protected void setNextPage(Event e, User u) {
-        log.info("10 - " + "/tournaments/tco07/termssuccess.jsp");
+        getRequest().setAttribute("ct", getRequest().getParameter("ct"));
         EventRegistration er = u.getEventRegistration(e);
         if (er != null) {
             getRequest().setAttribute("eligible", er.isEligible());
@@ -48,6 +43,5 @@ public class ViewRegistration extends ViewRegistrationBase {
             setNextPage("/tournaments/tco07/terms.jsp");
         }        
         setIsNextPageInContext(true);
-        log.info("11");
     }
 }
