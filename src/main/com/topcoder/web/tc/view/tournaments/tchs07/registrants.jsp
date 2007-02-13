@@ -64,10 +64,10 @@
             <A href="sortbyrank">Rank</A>
         </td>
         <td class="header" width="100%">
-            <a href="/tc?module=TCHS07Registrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+            <a href="/tc?module=TCHS07ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
         </td>
         <td class="headerR">
-            <a href="/tc?module=TCHS07Registrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+            <a href="/tc?module=TCHS07ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
         </td>
     </tr>
 </thead>
