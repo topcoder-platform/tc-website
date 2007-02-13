@@ -32,12 +32,12 @@
                     <div id="pageBody">
                         <div style="margin-bottom: 20px;"><img src="/i/tournament/tco07/drwlogo.png" alt="DRW" border="0" /></div>
                         
-                        <h2>Think you’re the best?</h2> 
+                        <h2>Think you're the best?</h2> 
                         <p>
-                        Prove your coding skills in the world’s biggest, most lucrative competition: the global financial markets.
+                        Prove your coding skills in the world's biggest, most lucrative competition: the global financial markets.
                         </p>
                         <p>
-                        DRW is seeking top-tier coders to engineer algorithmic black-box trading systems. We’ll give you state-of-the-art technology and funding. You’ll give us high-performance, computationally intensive code to beat Wall Street in the world’s highest stakes game.
+                        DRW is seeking top-tier coders to engineer algorithmic black-box trading systems. We'll give you state-of-the-art technology and funding. You'll give us high-performance, computationally intensive code to beat Wall Street in the world's highest stakes game.
                         </p>
                         <p>
                         <b>Show us you have what it takes.</b>

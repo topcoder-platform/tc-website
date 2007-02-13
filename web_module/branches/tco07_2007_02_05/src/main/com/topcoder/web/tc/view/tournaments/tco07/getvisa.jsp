@@ -47,7 +47,7 @@
                         
                        <h2> What is involved in applying for a visa?</h2>
                         <p>
-                        The visa application process is an interview at the US Embassy explaining your trip to the United States.  You should apply for a travel/tourist visa and be sure to let them know that you are only staying in the United States for a short time.  It’s a good idea to have the following information available at your interview: 
+                        The visa application process is an interview at the US Embassy explaining your trip to the United States.  You should apply for a travel/tourist visa and be sure to let them know that you are only staying in the United States for a short time.  It's a good idea to have the following information available at your interview: 
                         <ul>
                         <li>An official letter of invitation from TopCoder (please see below)</li>
                         <li>Proof of residency in your home country </li>
@@ -78,7 +78,7 @@
                         Begin by visiting: <A href="/?t=sponsor&c=link&link=http://www.unitedstatesvisas.gov/obtainingvisa/index.html" target="_blank">www.unitedstatesvisas.gov/obtainingvisa/index.html</a> or find your nearest U.S. Embassy or Consulate: <a href="/?t=sponsor&c=link&link=http://usembassy.state.gov" target="_blank">http://usembassy.state.gov</a> 
                         </p>
                         <p>
-                        <b>Remember, if you become a finalist in any competition, you MUST show proof of your visa and/or passport by the finalist deadline before TopCoder will book a flight for you.  If you do not have your visa and/or passport by the appropriate date, you will be disqualified as a finalist.   Please revisit the tournament rules for more information or email <A href="mailto:jdamato@topcoder.com">Jessie D’Amato Ford</A>.</b>
+                        <b>Remember, if you become a finalist in any competition, you MUST show proof of your visa and/or passport by the finalist deadline before TopCoder will book a flight for you.  If you do not have your visa and/or passport by the appropriate date, you will be disqualified as a finalist.   Please revisit the tournament rules for more information or email <A href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</A>.</b>
                 </td>
             </tr>
         </table>

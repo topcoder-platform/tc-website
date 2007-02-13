@@ -41,7 +41,7 @@ This is your chance to compete in one of the most prestigious competitions on ea
 </p>
 <h2>How do you get a chance at the glory, cash and trip?</h2>
 <ol>
-<li><A href="">Register</A> as a TopCoder Competitor.</li>
+<li><A href="/reg/">Register</A> as a TopCoder Competitor.</li>
 <li>Make sure you're eligible.  All registered TopCoder members over the age of 18 may compete.  See the complete rules for each competition to get the full details.</li>
 <li>Pick your competition and read the rules:
     <ul>

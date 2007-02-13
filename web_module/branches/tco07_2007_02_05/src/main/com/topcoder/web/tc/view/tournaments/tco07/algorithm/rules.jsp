@@ -69,8 +69,9 @@ In the event that a competitor is disqualified from any round, no other competit
 
 <a name="registration"></a>
 <h2>Registration</h2>
-
+<p>
 Registration for the 2007 TopCoder Open Algorithm Competition will open at 9:00AM EDT on Monday, February 19, 2007, and will close at 6:00 PM EDT on Tuesday, March 27, 2007. In order to be eligible to compete in the Algorithm Competition of the TCO, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the tournament; however each individual may only register once. 
+</p>
 
 <a name="qualification"></a>
 <h2>Qualification Rounds</h2>
@@ -258,7 +259,7 @@ At the end of each Online Round #1, TopCoder will issue visa invitation letters 
 </p>
 <p>
 <b>Travel Details</b><br>
-TopCoder will provide air travel arrangements for each competitor. The flight reserved by and paid for by TopCoder is for arrival on June 26, 2007 and departure on June 30, 2007 (or July 1, 2007 if the cost is significantly less to fly out a day later).  TopCoder will pay for each competitor’s airfare up to $1,500, though we may make exceptions based on individual circumstances (e.g., if the most reasonably convenient ticket itinerary is a little more than $1,500, TopCoder will pay for the entire cost).  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCO prize money won. 
+TopCoder will provide air travel arrangements for each competitor. The flight reserved by and paid for by TopCoder is for arrival on June 26, 2007 and departure on June 30, 2007 (or July 1, 2007 if the cost is significantly less to fly out a day later).  TopCoder will pay for each competitor's airfare up to $1,500, though we may make exceptions based on individual circumstances (e.g., if the most reasonably convenient ticket itinerary is a little more than $1,500, TopCoder will pay for the entire cost).  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCO prize money won. 
 </p>
 <p>
 TopCoder will also provide ground transportation to and from McCarran International Airport in Las Vegas, as well as hotel accommodations and certain meals for each contestant. All other expenses are the responsibility of the contestant. TopCoder will not provide travel or lodging accommodations for competitor guests at the 2007 TCO. 
@@ -410,7 +411,7 @@ Prizewinners will be notified via e-mail within 10 days of the completion of eac
 <p>
 All contestants who advance to the onsite tournament rounds must complete the following items and submit them to TopCoder by 5:00 PM EDT on Friday, May 11, 2007: 
 <ul>
-<li>Confirmation of attendance/proof of travel documents – Please email <a href="mailto:jford@topcoder.com">Jessie D’Amato Ford</a> to confirm your attendance onsite.  If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
+<li>Confirmation of attendance/proof of travel documents – Please email <a href="mailto:jford@topcoder.com">Jessie D'Amato Ford</a> to confirm your attendance onsite.  If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
 <li>Please submit a head shot by emailing <a href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if we do not have one on file for you.</li>
 <li>Please ensure your most up-to-date information is listed in your TopCoder profile in the event we need to mail your plane tickets or contact you via telephone.</li>
 <li>Competitor Questionnaire - the questions and responses may be published in the 2007 TopCoder Open program</li>

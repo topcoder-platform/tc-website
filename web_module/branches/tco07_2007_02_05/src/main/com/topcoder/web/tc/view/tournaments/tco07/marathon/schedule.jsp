@@ -128,6 +128,7 @@
             **Times listed in Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will start the following day at the same time.
         </td>
     </tr>
+</tbody>
 </table>
 
     <p><br></p>

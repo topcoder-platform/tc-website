@@ -34,13 +34,13 @@
 
                         <h2>Where Intelligence Goes to Work</h2>
                         <p>
-                        Everyday, the National Security Agency is faced with new threats to our nation’s security. Our adversaries do their best to keep their plans a secret. We work to uncover those secrets, and keep our own secrets safe. That is why it is vital for NSA to employ the most intelligent people in the country.
+                        Everyday, the National Security Agency is faced with new threats to our nation's security. Our adversaries do their best to keep their plans a secret. We work to uncover those secrets, and keep our own secrets safe. That is why it is vital for NSA to employ the most intelligent people in the country.
                         </p>
                         <p>
-                        At the nation’s top cryptologic organization, you can work with the best and the brightest, using your intelligence to solve some of the nation’s most difficult challenges. Your solutions can play a major role in shaping the course of world history.
+                        At the nation's top cryptologic organization, you can work with the best and the brightest, using your intelligence to solve some of the nation's most difficult challenges. Your solutions can play a major role in shaping the course of world history.
                         </p>
                         <p>
-                        NSA has exciting career opportunities available in Computer/Electrical Engineering, Computer Science, Mathematics, Foreign Language, Intelligence Analysis, Cryptanalysis, and Signals Analysis. You’ll enjoy an incredible benefits package, competitive pay, and the satisfaction of making the world a safer place.
+                        NSA has exciting career opportunities available in Computer/Electrical Engineering, Computer Science, Mathematics, Foreign Language, Intelligence Analysis, Cryptanalysis, and Signals Analysis. You'll enjoy an incredible benefits package, competitive pay, and the satisfaction of making the world a safer place.
                         </p>
                         <p>
                         For more information about the career opportunities available at NSA, apply now. U.S. citizenship is required. NSA is an Equal Opportunity Employer.

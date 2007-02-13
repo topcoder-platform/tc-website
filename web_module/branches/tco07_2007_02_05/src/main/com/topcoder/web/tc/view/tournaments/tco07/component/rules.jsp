@@ -44,7 +44,7 @@
                         <span class="bigRed">No purchase necessary to enter or win. Void where prohibited.</span>
 
 <h2>Overview of the Tournament</h2>
-<p>The 2007 TopCoder Open (“TCO”) Component Design and Development Competition ("CDDC") will take place between February 26, 2007 and June 29, 2007. It will consist of two competitions - the design competition and the development competition. Each competition will consist of five (5) weeks of online competition and one (1) onsite final round, being the Championship round. The prize purse for this tournament is $100,000 in cash, with $60,000 being awarded for the design competition and $40,000 for the development competition. The eight (8) competitors in each competition with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at the Mirage in Las Vegas, Nevada, USA on –June 26 - 29, 2007. </p>
+<p>The 2007 TopCoder Open ("TCO") Component Design and Development Competition ("CDDC") will take place between February 26, 2007 and June 29, 2007. It will consist of two competitions - the design competition and the development competition. Each competition will consist of five (5) weeks of online competition and one (1) onsite final round, being the Championship round. The prize purse for this tournament is $100,000 in cash, with $60,000 being awarded for the design competition and $40,000 for the development competition. The eight (8) competitors in each competition with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at the Mirage in Las Vegas, Nevada, USA on –June 26 - 29, 2007. </p>
 
 <a name="eligibility"></a>
 <%--<a href="#top"><img src="/i/tournament/tco07/back_to_top.png" alt="back to top" border="0" align="right"></a>--%>
@@ -236,7 +236,7 @@ TopCoder will issue visa invitation letters at the request of international comp
 </p>
 <p>
 <b>Travel Details</b><br>
-TopCoder will provide air travel arrangements for each competitor. The flight reserved by and paid for by TopCoder is for arrival on June 26, 2007 and departure on June 30, 2007 (or July 1, 2007 if the cost is significantly less to fly out a day later).  TopCoder will pay for each competitor’s airfare up to $1,500, however we will do what we believe is reasonable given each individual circumstance (e.g., if the most reasonably convenient ticket itinerary is a little more than $1,500, TopCoder will pay for the entire cost).  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCO prize money won. 
+TopCoder will provide air travel arrangements for each competitor. The flight reserved by and paid for by TopCoder is for arrival on June 26, 2007 and departure on June 30, 2007 (or July 1, 2007 if the cost is significantly less to fly out a day later).  TopCoder will pay for each competitor's airfare up to $1,500, however we will do what we believe is reasonable given each individual circumstance (e.g., if the most reasonably convenient ticket itinerary is a little more than $1,500, TopCoder will pay for the entire cost).  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCO prize money won. 
 </p>
 <p>
 TopCoder will also provide ground transportation to and from the McCarran International Airport in Las Vegas, as well as hotel accommodations and meals for each contestant. All other expenses are the responsibility of the contestant. 
@@ -411,7 +411,7 @@ As a condition of participation in the tournament, all information provided by y
 <p>
 Contestants who advance to the onsite Championship Round must complete the following items and submit them to TopCoder by 5:00 PM EDT on Friday, May 4, 2007: 
 <ul>
-<li>Confirmation of attendance/proof of travel documents – Please email <a href="mailto:jford@topcoder.com">Jessie D’Amato Ford</a> to confirm your attendance onsite.  If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
+<li>Confirmation of attendance/proof of travel documents – Please email <a href="mailto:jford@topcoder.com">Jessie D'Amato Ford</a> to confirm your attendance onsite.  If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
 <li>Please submit a head shot by emailing <a href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if we do not have one on file for you.</li>
 <li>Please ensure your most up-to-date information is listed in your TopCoder profile in the event we need to mail your plane tickets or contact you via telephone.</li>
 <li>Competitor Questionnaire - the questions and responses may be published in the 2007 TopCoder Open program</li>
