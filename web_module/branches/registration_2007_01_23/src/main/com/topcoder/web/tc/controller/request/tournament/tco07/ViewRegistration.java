@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.request.tournament.tco07;
 
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
@@ -24,6 +26,13 @@ public class ViewRegistration extends ViewRegistrationBase {
         // every TopCoder user is elegible.
         return true;
     }
+
+    protected void dbProcessing() throws Exception {
+        if (!TCO_COMPETITION_TYPES.contains(StringUtils.checkNull(getRequest().getParameter("ct")))) {
+            throw new TCWebException("invalid ct parameter.");
+        }
+        super.dbProcessing();
+    }    
     
     protected void setNextPage(Event e, User u) {
         log.info("10 - " + "/tournaments/tco07/termssuccess.jsp");

@@ -4,12 +4,14 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.survey.Helper;
 import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
 
@@ -50,7 +52,13 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         
         return (new Boolean (age >= 18));
     }
-    
+
+    protected void dbProcessing() throws Exception {
+        if (!TCO_COMPETITION_TYPES.contains(StringUtils.checkNull(getRequest().getParameter("ct")))) {
+            throw new TCWebException("invalid ct parameter.");
+        }
+        super.dbProcessing();
+    }
     
     protected void completeRegistration(Event event, User user, Boolean eligible, List responses) {
         getRequest().setAttribute("ct", getRequest().getParameter("ct"));
