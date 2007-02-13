@@ -8,7 +8,7 @@
     <div id="pageBodyN">&nbsp;</div>
     <div style="margin: 4px 10px 4px 10px;">
         <div style="float: right;">
-            <tc-webtag:format object="<%new Date()%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+            <tc-webtag:format object="<%=new Date()%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
             <tc-webtag:handle coderId='14882871'/>
             Monday, February 5, 2007
         </div>
