@@ -45,10 +45,10 @@ This is your chance to compete in one of the most prestigious competitions on ea
 <li>Make sure you're eligible.  All registered TopCoder members over the age of 18 may compete.  See the complete rules for each competition to get the full details.</li>
 <li>Pick your competition and read the rules:
     <ul>
-    <li><A href="">Algorithm Competition</A></li>
-    <li><A href="">Component Design Competition and Development Competition</A></li>
-    <li><A href="">Marathon Match Competition</A></li>
-    <li><A href="">Studio Design Competition</A></li>
+    <li><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=description">Algorithm Competition</A></li>
+    <li><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=description">Component Design Competition and Development Competition</A></li>
+    <li><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=description">Marathon Match Competition</A></li>
+    <li><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=description">Studio Design Competition</A></li>
     </ul>
 </li>
 <li>Have fun and best of luck in the competition arena!</li>

@@ -31,15 +31,128 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Marathon Matches Schedule</div></h1>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
-                        </p>
-                        <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
-                        </p>
-                        <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
+                        <h1><div>Marathon Match Schedule</div></h1>
+
+    <p><br></p>
+
+<table cellpadding="0" cellspacing="0" class="stat" width="100%">
+<thead>
+    <tr>
+        <td class="header">Round of Competition</td>
+        <td class="header">Start Date and Time</td>
+        <td class="header">End Date and Time</td>
+        <td class="header">Participants</td>
+        <td class="headerC">Advancers</td>
+    </tr>
+</thead>
+<tbody>
+    <tr class="light">
+        <td style="value" nowrap="nowrap">
+            Online Round #1
+        </td>
+        <td style="value">
+            Wednesday, March 7<br>
+            Noon*
+        </td>
+        <td style="value">
+            Wednesday, March 14
+            Noon**
+        </td>
+        <td style="value">
+            All Registered Participants
+        </td>
+        <td style="valueC">
+            500
+        </td>
+    </tr>
+    <tr class="dark">
+        <td style="value" nowrap="nowrap">
+            Online Round #2
+        </td>
+        <td style="value">
+            Wednesday, March 21<br>
+            Noon**
+        </td>
+        <td style="value">
+            Wednesday, March 28
+            Noon**
+        </td>
+        <td style="value">
+            up to 500
+        </td>
+        <td style="valueC">
+            200
+        </td>
+    </tr>
+    <tr class="light">
+        <td style="value" nowrap="nowrap">
+            Online Round #3
+        </td>
+        <td style="value">
+            Wednesday, April 4<br>
+            Noon**
+        </td>
+        <td style="value">
+            Wednesday, April 11
+            Noon**
+        </td>
+        <td style="value">
+            up to 200
+        </td>
+        <td style="valueC">
+            50
+        </td>
+    </tr>
+    <tr class="dark">
+        <td style="value" nowrap="nowrap">
+            Online Round #4
+        </td>
+        <td style="value">
+            Wednesday, April 18<br>
+            Noon**
+        </td>
+        <td style="value">
+            Wednesday, May 2
+            Noon**
+        </td>
+        <td style="value">
+            up to 50
+        </td>
+        <td style="valueC">
+            8
+        </td>
+    </tr>
+    <tr class="light">
+        <td class="value" colspan="5">
+            *Time listed in Eastern Standard Time (UTC/GMT -5). In the event that a round must be cancelled for any reason, the round will start the following day at the same time.<br>
+            **Times listed in Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will start the following day at the same time.
+        </td>
+    </tr>
+</table>
+
+    <p><br></p>
+
+    <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+    <thead>
+            <tr>
+                   <td class="title" colspan="2">Important Dates</td>
+            </tr>
+            <tr>
+                   <td class="header">Important Items to Note</td>
+                   <td class="header">Date and Time (Eastern Daylight Time)</td>
+            </tr>
+    </thead>
+    <tbody>
+            <tr class="light">
+                   <td class="value">Last Day to Request a Visa Letter</td>
+                   <td class="value">Monday, April 23, 2007 at 5:00 PM</td>
+            </tr>
+            <tr class="dark">
+                   <td class="value">Finalist Documents Due</td>
+                   <td class="value">Friday, May 11, 2007 at 5:00 PM</td>
+            </tr>
+   </tbody>
+    </table>
                         </p>
 
                     </div>
