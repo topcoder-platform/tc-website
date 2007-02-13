@@ -35,6 +35,9 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         String pref1 = "";
         String pref2 = "";
         String pref3 = "";
+        String pref1Key = "";
+        String pref2Key = "";
+        String pref3Key = "";
         for (Iterator it = survey.getQuestions().iterator(); it.hasNext(); ) {
             Question q = (Question) it.next();
             Response response = (new Helper()).findResponse(responses, q.getId());
@@ -44,34 +47,38 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                     ageKey = AnswerInput.PREFIX + q.getId();
                 } else if (q.getKeyword().equals("pref1")) {
                     pref1 = StringUtils.checkNull(response.getAnswer().getText());
+                    pref1Key = AnswerInput.PREFIX + q.getId();
                 } else if (q.getKeyword().equals("pref2")) {
                     pref2 = StringUtils.checkNull(response.getAnswer().getText());
+                    pref2Key = AnswerInput.PREFIX + q.getId();
                 } else if (q.getKeyword().equals("pref3")) {
                     pref3 = StringUtils.checkNull(response.getAnswer().getText());
+                    pref3Key = AnswerInput.PREFIX + q.getId();
                 }
             }
         }
-        if (pref1.equals(pref2) && pref2.equals(pref3)) {
-            addError("pref1", "You can't select the same section more than once.");
-            addError("pref2", "You can't select the same section more than once.");
-            addError("pref3", "You can't select the same section more than once.");
-        }
-        
-        if (pref1.equals(pref2)) {
-            addError("pref1", "You can't select the same section more than once.");
-            addError("pref2", "You can't select the same section more than once.");
-        }
-        
-        if (pref1.equals(pref3)) {
-            addError("pref1", "You can't select the same section more than once.");
-            addError("pref3", "You can't select the same section more than once.");
-        }
-        
-        if (pref2.equals(pref3)) {
-            addError("pref2", "You can't select the same section more than once.");
-            addError("pref3", "You can't select the same section more than once.");
-        }
-        
+        if (getEventShortDesc().equals("tco07algorithm") {
+            if (pref1.equals(pref2) && pref2.equals(pref3)) {
+                addError(pref1Key, "You can't select the same section more than once.");
+                addError(pref2Key, "You can't select the same section more than once.");
+                addError(pref3Key, "You can't select the same section more than once.");
+            }
+            
+            if (pref1.equals(pref2)) {
+                addError(pref1Key, "You can't select the same section more than once.");
+                addError(pref2Key, "You can't select the same section more than once.");
+            }
+            
+            if (pref1.equals(pref3)) {
+                addError(pref1Key, "You can't select the same section more than once.");
+                addError(pref3Key, "You can't select the same section more than once.");
+            }
+            
+            if (pref2.equals(pref3)) {
+                addError(pref2Key, "You can't select the same section more than once.");
+                addError(pref3Key, "You can't select the same section more than once.");
+            }
+        }    
         
         if (log.isDebugEnabled()) {
             log.debug("ageInput " + ageInput);
