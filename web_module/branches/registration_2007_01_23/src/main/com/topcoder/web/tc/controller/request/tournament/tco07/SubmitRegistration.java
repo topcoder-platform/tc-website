@@ -5,9 +5,12 @@ import java.util.List;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.RegionType;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.model.User;
@@ -61,6 +64,16 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     }
     
     protected void completeRegistration(Event event, User user, Boolean eligible, List responses) {
+        UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
+        user.addEventRegistration(event, responses, eligible);
+        userDAO.saveOrUpdate(user);
+        refreshCache(event);
+        
+        RegionType rt = new RegionType();
+        rt.setId(HIGH_SCHOOL_REGION_TYPE);
+        
+        getRequest().setAttribute("assignedRegion", user.getHomeAddress().getCountry().getRegionByType(rt).getName());
+        getRequest().setAttribute("eligible", eligible);
     }
     
     public boolean isEligible(Event e, User u) throws Exception{
