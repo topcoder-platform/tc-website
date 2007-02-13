@@ -11,6 +11,10 @@
 <img src="/i/tournament/tchs07/tchs07.png" alt="TCHS07" usemap="#tchslogo" />
 </div>
 
+<div class="headline">
+<A href="/tc?module=TCHS07ViewRegistration"><img src="/i/tournament/tchs07/registernow.png" alt="Register Now" /></A>
+</div>
+
 <div class="topcoderLogo">
 <A href="/"><img src="/i/tournament/tchs07/topcoder.png" alt="TopCoder" /></A>
 </div>
