@@ -13,7 +13,7 @@
     String page_name = "s_definition.jsp";
     String action = request.getParameter("a");
     
-    long tcsForumsID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID;
+//    long tcsForumsID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID;
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
