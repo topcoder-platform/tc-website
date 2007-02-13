@@ -9,18 +9,18 @@ import java.io.Serializable;
  */
 public class EventRegistration extends Base {
 
-    private Identifier id;
-    private boolean eligible;
+    private Identifier id = new Identifier();
+    private Boolean eligible;
 
     public Identifier getId() {
         return id;
     }
 
-    public boolean isEligible() {
+    public Boolean isEligible() {
         return eligible;
     }
 
-    public void setEligible(boolean eligible) {
+    public void setEligible(Boolean eligible) {
         this.eligible = eligible;
     }
 
@@ -65,8 +65,8 @@ public class EventRegistration extends Base {
             }
             try {
                 Identifier up = (Identifier) o;
-                return (up.getEvent().equals(getEvent()) &&
-                        up.getUser().equals(getUser()));
+                return (up.getEvent().getId().equals(getEvent().getId()) &&
+                        up.getUser().getId().equals(getUser().getId()));
             } catch (ClassCastException e) {
                 return false;
             }

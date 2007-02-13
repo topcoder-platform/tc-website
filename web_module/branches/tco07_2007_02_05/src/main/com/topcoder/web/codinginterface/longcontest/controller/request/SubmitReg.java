@@ -105,11 +105,7 @@ public class SubmitReg extends ViewReg {
                     }
 
                     // register user for round
-                    Request r = new Request();
-                    r.setContentHandle("long_contest_find_room");
-                    r.setProperty("rd", String.valueOf(roundID));
-                    registerUser(userID, Long.parseLong(roundID),
-                            ((ResultSetContainer) getDataAccess().getData(r).get("long_contest_find_room")).getLongItem(0, "room_id"));
+                    registerUser(userID, Long.parseLong(roundID));                            
 
                     tm.commit();
                 } catch (Exception e) {
@@ -145,7 +141,7 @@ public class SubmitReg extends ViewReg {
      * @param roundID The round's ID
      * @throws Exception
      */
-    protected void registerUser(long userID, long roundID, long roomID) throws Exception {
+    protected void registerUser(long userID, long roundID) throws Exception {
         try {
             RoundRegistration reg = (RoundRegistration) createEJB(getInitialContext(), RoundRegistration.class);
             LongCompResultLocal longCompResult = (LongCompResultLocal) createLocalEJB(getInitialContext(), LongCompResult.class);
@@ -289,7 +285,7 @@ public class SubmitReg extends ViewReg {
         boolean found = false;
         for (Iterator it = question.getAnswerInfo().iterator(); it.hasNext() && !found;) {
             a = (Answer) it.next();
-            found = (a.getId() == answerId);
+            found = a.getId().equals(new Long(answerId));
         }
         return found ? a : null;
     }

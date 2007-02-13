@@ -66,7 +66,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             } else {
                 User u = getActiveUser();
                 EventRegistration er = u.getEventRegistration(e);
-                if (!alreadyRegistered(e, u)) {
+                if (alreadyRegistered(e, u)) {
                     if (isEligible(e, u)) {
                         getRequest().setAttribute("event", e);
                         regProcessing(e, u);
@@ -82,7 +82,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
     }
     
     public boolean alreadyRegistered(Event e, User u) {
-        return u.getEventRegistration(e) != null;
+        return u.getEventRegistration(e) == null;
     }
     
     public Event getEvent() {

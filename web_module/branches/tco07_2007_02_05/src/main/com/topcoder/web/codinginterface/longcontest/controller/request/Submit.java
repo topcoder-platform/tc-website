@@ -80,12 +80,17 @@ public class Submit extends Base {
             r.setProperty(Constants.CODER_ID, String.valueOf(uid));
             r.setProperty(Constants.COMPONENT_ID, String.valueOf(cid));
             r.setProperty(Constants.ROUND_ID, String.valueOf(rid));
+            r.setProperty(Constants.CONTEST_ID, String.valueOf(cd));
 
             // Data source
             DataAccessInt dataAccess = getDataAccess(false);
 
             // Fetch request
             Map m = dataAccess.getData(r);
+
+            if (((ResultSetContainer) m.get("long_contest_check_ids")).getRowCount() == 0) {
+                throw new NavigationException("Invalid ids provided");
+            }
 
             ResultSetContainer info = getRoundInfo(rid);
 

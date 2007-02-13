@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
@@ -17,8 +18,6 @@ public abstract class SurveyData extends Base {
 
     protected List questionInfo;
     protected Survey survey;
-
-    protected abstract List makeAnswerInfo(long questionId) throws Exception;
 
     protected abstract void surveyProcessing() throws Exception;
 
@@ -110,4 +109,33 @@ public abstract class SurveyData extends Base {
         return q;
     }
 
+    protected List makeAnswerInfo(long questionId) throws Exception {
+        if (log.isDebugEnabled()) {
+            log.debug("makeAnswerInfo called: " + questionId);
+        }
+        Request req = new Request();
+        DataAccessInt dataAccess = getDataAccess(true);
+        req.setContentHandle("answers");
+        req.setProperty("qid", String.valueOf(questionId));
+        ResultSetContainer rsc = (ResultSetContainer) dataAccess.getData(req).get("answer_info");
+        List ret = null;
+        if (rsc == null) {
+            ret = new ArrayList(0);
+        } else {
+            ret = new ArrayList(rsc.size());
+            ResultSetContainer.ResultSetRow row = null;
+            Answer a = null;
+            for (Iterator it = rsc.iterator(); it.hasNext();) {
+                row = (ResultSetContainer.ResultSetRow) it.next();
+                a = new Answer();
+                a.setId(new Long(row.getLongItem("answer_id")));
+                a.setQuestionId(row.getLongItem("question_id"));
+                a.setSort(row.getIntItem("sort_order"));
+                a.setText(row.getStringItem("answer_text"));
+                ret.add(a);
+            }
+        }
+
+        return ret;
+    }
 }

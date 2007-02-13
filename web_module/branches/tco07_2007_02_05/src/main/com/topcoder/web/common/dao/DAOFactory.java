@@ -60,6 +60,12 @@ public interface DAOFactory {
 
     TermsOfUseDAO getTermsOfUse();
 
+    EventTypeDAO getEventTypeDAO();
+
+    QuestionTypeDAO getQuestionTypeDAO();
+
+    QuestionStyleDAO getQuestionStyleDAO();
+
     TimeZoneDAO getTimeZoneDAO();
 
     UserDAO getUserDAO();
