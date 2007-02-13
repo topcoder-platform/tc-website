@@ -77,6 +77,7 @@
                         TopCoder is tackling, and what we've learned by applying our methods 
                         to a wide range of industries.
                         </p>
+
                     </div>
                 </td>
             </tr>
