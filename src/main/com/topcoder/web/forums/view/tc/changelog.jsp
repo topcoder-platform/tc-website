@@ -53,6 +53,16 @@
 <!-- Links to versions -->
 
 <p>
+    <b>2.0 - 2007.02.12</b>
+    <ul>
+		<li>Migrated software forums into TopCoder forums. Browse all forums from one place with the latest features!</li>
+	    <li>Integrated software registration and administration processes with TC/TCS sites and online review.</li>
+	    <li>Enabled software forum moderators to create or edit forums.</li>
+	    <li>Added watches for software categories. Members can modify, delete, or unsubscribe from software-related email notifications.</li>
+    </ul>
+</p>
+
+<p>
     <b>1.3.0 - 2007.01.17</b>
     <ul>
 		<li>Updated category view to display categories with subcategories.</li>
