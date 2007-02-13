@@ -32,6 +32,9 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     protected Boolean validateSurvey(Survey survey, List responses) {
         String ageInput = "";
         String ageKey = "";
+        String pref1 = "";
+        String pref2 = "";
+        String pref3 = "";
         for (Iterator it = survey.getQuestions().iterator(); it.hasNext(); ) {
             Question q = (Question) it.next();
             Response response = (new Helper()).findResponse(responses, q.getId());
@@ -39,9 +42,36 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                 if (q.getKeyword().equals(AGE)) {
                     ageInput = StringUtils.checkNull(response.getText());
                     ageKey = AnswerInput.PREFIX + q.getId();
+                } else if (q.getKeyword().equals("pref1")) {
+                    pref1 = StringUtils.checkNull(response.getAnswer().getText());
+                } else if (q.getKeyword().equals("pref2")) {
+                    pref2 = StringUtils.checkNull(response.getAnswer().getText());
+                } else if (q.getKeyword().equals("pref3")) {
+                    pref3 = StringUtils.checkNull(response.getAnswer().getText());
                 }
             }
         }
+        if (pref1.equals(pref2) && pref2.equals(pref3)) {
+            addError("pref1", "You can't select the same section more than once.");
+            addError("pref2", "You can't select the same section more than once.");
+            addError("pref3", "You can't select the same section more than once.");
+        }
+        
+        if (pref1.equals(pref2)) {
+            addError("pref1", "You can't select the same section more than once.");
+            addError("pref2", "You can't select the same section more than once.");
+        }
+        
+        if (pref1.equals(pref3)) {
+            addError("pref1", "You can't select the same section more than once.");
+            addError("pref3", "You can't select the same section more than once.");
+        }
+        
+        if (pref2.equals(pref3)) {
+            addError("pref2", "You can't select the same section more than once.");
+            addError("pref3", "You can't select the same section more than once.");
+        }
+        
         
         if (log.isDebugEnabled()) {
             log.debug("ageInput " + ageInput);
