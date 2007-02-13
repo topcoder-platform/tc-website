@@ -216,13 +216,13 @@ public class Submit extends BaseSubmissionDataProcessor {
         call.setOperationName(new QName("urn:UploadService", "uploadSubmission"));
         call.addParameter("projectId", org.apache.axis.Constants.XSD_LONG, javax.xml.rpc.ParameterMode.IN);
         call.addParameter("ownerId", org.apache.axis.Constants.XSD_LONG, javax.xml.rpc.ParameterMode.IN);
-        call.addParameter("submission", qnameAttachment, ParameterMode.IN); // Add the file.
-        call.setReturnType(org.apache.axis.Constants.XSD_STRING);
+        call.addParameter("filename", org.apache.axis.Constants.XSD_STRING, javax.xml.rpc.ParameterMode.IN);
+        call.addParameter("submissionDH", qnameAttachment, ParameterMode.IN); // Add the file.
+        call.setReturnType(org.apache.axis.Constants.XSD_INT);
         // call.
         call.invoke(new Object[]{
                 new Long(contest.getConfig(CSFDAOUtil.getFactory().getContestPropertyDAO().find(new Integer(9))).getValue()),
-                new Long(getUser().getId()), dhSource});
-
+                new Long(getUser().getId()), fileName, dhSource});
 
     }
 
