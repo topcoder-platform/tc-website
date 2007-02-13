@@ -43,12 +43,12 @@
 </jsp:include>
 
 <p>
-    5.6.4 - 2007.01.xx
+    5.6.4 - 2007.02.12
     <ul>
         <li>Add TCHS07 registration page</li>
         <%--<li>New backend for tournament registration</li>--%>
         <%--<li>RatingTag was taken out since it is no longer in use</li>--%>
-        <%--<li>Fixed bug when showing a problem with Matrix2D data type</li>--%>
+        <li>Fixed bug when showing a problem with Matrix2D data type</li>
         <%--<li>TCS Loader: Added filter by elegibility (just open projects)</li>--%>
         <li>When submiting a long contest, if the round id, contest id and component id are not consistent, throw an exception</li>
         <%--<li>When registering for a long round, the room_id is not looked up anymore, it wasn't needed.
@@ -110,7 +110,7 @@
 </p>
 
 <p>
-    5.5.16 - 2007.01.11
+    5.5.16 - 2007.01.1
     <ul>
         <li>PACTS: when a tax form is added for a user, their payments are updated.</li>
         <li>PACTS: if an affidavit is affirmed, the status of its payment doesn't change from on hold if the user
