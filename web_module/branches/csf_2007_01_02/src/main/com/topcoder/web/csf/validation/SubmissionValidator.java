@@ -1,5 +1,7 @@
 package com.topcoder.web.csf.validation;
 
+import com.topcoder.servlet.request.FileDoesNotExistException;
+import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.web.common.validation.BasicResult;
 import com.topcoder.web.common.validation.ValidationInput;
@@ -43,10 +45,16 @@ public class SubmissionValidator implements Validator {
         }
 
         int ret = 0;
-        arr = new byte[(int) submission.getSize()];
         try {
+            arr = new byte[(int) submission.getSize()];
             ret = submission.getInputStream().read(arr);
         } catch (IOException e) {
+            e.printStackTrace();
+            return new BasicResult(false, "Communication error when receiving submission.");
+        } catch (FileDoesNotExistException e) {
+            e.printStackTrace();
+            return new BasicResult(false, "Communication error when receiving submission.");
+        } catch (PersistenceException e) {
             e.printStackTrace();
             return new BasicResult(false, "Communication error when receiving submission.");
         }
