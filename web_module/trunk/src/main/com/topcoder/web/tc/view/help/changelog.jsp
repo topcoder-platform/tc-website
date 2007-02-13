@@ -43,6 +43,13 @@
 </jsp:include>
 
 <p>
+    5.6.5 - 2007.02.xx
+    <ul>
+        <li>Add TCHS07 registrants page</li>
+    </ul>
+</p>
+
+<p>
     5.6.4 - 2007.02.12
     <ul>
         <li>Add TCHS07 registration page</li>
