@@ -39,7 +39,7 @@ public class ViewRegistrants extends Base {
 
         getRequest().setAttribute("list", rsc);
 
-        setNextPage("/tournaments/tchso7/registrants.jsp");
+        setNextPage("/tournaments/tchs07/registrants.jsp");
         setIsNextPageInContext(true);
     }
 }
