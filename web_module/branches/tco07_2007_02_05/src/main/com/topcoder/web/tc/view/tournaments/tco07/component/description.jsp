@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>2007 TopCoder Open - Component Design and Development Competition </div></h1>
+                        <h1><div>Component Design and Development Competition</div></h1>
                         <p>
                         <h2>Component Design</h2>
                         <p>

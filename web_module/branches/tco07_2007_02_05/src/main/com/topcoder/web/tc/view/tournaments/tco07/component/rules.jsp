@@ -78,22 +78,14 @@ Those members who are eligible to compete in any of the four tournament competit
 <p>
 Scoring in the CDDC is determined based on the placement for each submission. Placement is determined based on the score awarded for a particular component. For example, if 3 submissions were received for a component and the scores were 93, 89, and 71, the member receiving the score of 93 would be in 1st place and would receive 10 points. Note that only those registered for the tournament are considered when determining place and placement points. In order to receive placement points, a submission must pass the minimum component score of 75. Placement scoring is as follows: 
 </p>
-                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
-                        <thead>
-                                <tr>
-                                       <td class="header"><div align="center">
-                                       1st Place - 10 Points<br>
-                                       2nd Place - 7 Points<br>
-                                       3rd Place - 5 points<br>
-                                       4th Place - 4 Points<br>
-                                       5th Place (and lower) - 0 Points 
-                                       </div>
-                                        </td>
-                                </tr>
-                        </thead>
-                        </table>
-                        <p></p>
 
+<div align="center" style="margin-bottom: 10px;"><strong>
+1st Place - 10 Points<br>
+2nd Place - 7 Points<br>
+3rd Place - 5 points<br>
+4th Place - 4 Points<br>
+5th Place (and lower) - 0 Points 
+</strong></div>
 
 <p>
 The placement points outlined are for both Level One and Level Two components. 
@@ -263,9 +255,9 @@ Each competitor will be given one hundred (100) points to spread across all thre
                         <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
                         <thead>
                                 <tr>
-                                       <td class="header">Placement</td>
-                                       <td class="header">Points Wagered</td>
-                                       <td class="header">Points Awarded</td>
+                                       <td class="headerC">Placement</td>
+                                       <td class="headerC">Points Wagered</td>
+                                       <td class="headerC">Points Awarded</td>
                                 </tr>
                         </thead>
                         <tbody>

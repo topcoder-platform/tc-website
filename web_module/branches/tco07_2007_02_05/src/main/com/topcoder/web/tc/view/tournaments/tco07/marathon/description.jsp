@@ -31,16 +31,39 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Marathon Matches</div></h1>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
-                        </p>
-                        <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
-                        </p>
-                        <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
-                        </p>
+                        <h1><div>Marathon Match Competition</div></h1>
+<p>
+As part of the 2007 TopCoder Open, the Marathon Match Competition provides a more flexible format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder algorithm round.  Competitors may submit code in the following languages:  Java, C++, C#, VB.NET and Python.
+</p>
+<p>
+After four rounds of elimination, we will narrow the field down to the top eight finalists from all around the world to attend the Championship Round in Las Vegas, Nevada, USA on June 26 - June 29, 2007.
+</p>
+<h2>How does it work?</h2>
+<p>
+Every eligible participant that registers for the competition will be able to open the problem statement at the same time.  Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. In Marathon Matches, the scoring mechanism may be different for each problem. A description of the scoring mechanism will be provided in the problem statement. Competitors will have to understand the scoring mechanism in order to effectively compete.
+</p>
+<p>
+Clicking the Submit link will take you to a page that will allow you to paste in a solution, select the proper language and either submit (for compilation and testing) or save your code. When the Submit button is selected, the code will be immediately compiled. Any compilation messages or errors will be shown in the Messages Area. If the compilation was successful, the submission will then be placed on a queue for automated testing. Example test cases will not be tested. When your submission has been processed, you will receive an email indicating such and your place in the standings will be adjusted accordingly. 
+</p>
+<p>
+Clicking the Test Examples button will immediately compile and place your submission on a queue for automated testing of just the example test cases. Detailed feedback will be made available when the tests are complete, including processing time, score, and any output from the program. Competitors may submit test examples once every 30 minutes. The competitor's rank and overall score will not be updated.
+</p>
+<p>
+Competitors are encouraged to improve solutions and resubmit throughout the submission phase.  The most recent submission is the one that will always count towards the standings.  
+</p>
+<h2>System Testing</h2>
+<p>
+Once time is up for submitting, each submission will be run against a larger set of test cases and be issued a final score.  This final score will determine the rankings of the match and the advancers of the round.
+</p>
+<p>
+When is the competition?  See the <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">schedule</A>.
+</p>
+<p>
+It is important for you to read the official <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=rules">rules and regulations</A> for more details.  
+</p>
+<p>
+The competition is free and you must be 18 years or older, as well as meet all eligibility criteria, in order to participate.
+</p>
 
                     </div>
                 </td>
