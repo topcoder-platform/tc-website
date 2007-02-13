@@ -33,7 +33,6 @@ public class Submit extends BaseSubmissionDataProcessor {
     private File f = null;
 
     protected void dbProcessing() throws Exception {
-        //todo take user submitted rank and use that for this new submission
         if (userLoggedIn()) {
             Long contestId;
 
