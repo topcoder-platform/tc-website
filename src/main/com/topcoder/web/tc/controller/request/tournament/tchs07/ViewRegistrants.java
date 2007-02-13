@@ -18,7 +18,7 @@ import com.topcoder.web.tc.controller.request.Base;
 public class ViewRegistrants extends Base {
     public void businessProcessing() throws Exception {
         Request r = new Request();
-        r.setContentHandle("tch07_registrants");
+        r.setContentHandle("tchs07_registrants");
 
         //this gets refreshed when people sign up.
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
