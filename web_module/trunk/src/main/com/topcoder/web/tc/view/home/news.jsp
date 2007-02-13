@@ -2,6 +2,25 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%-------------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.13.07<br>5:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=021307">An Introduction to Code Coverage</A></span><br><br>
+       Well-written unit tests can ensure that components function correctly,
+but how can you be sure you're actually testing everything you need to?
+One answer is code coverage. </td>
+      <td class="newsPhoto"><img src="/i/m/shalinmangar_big4.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="10211498" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=021307">full story</A> | 
+         <tc-webtag:forumLink forumID="514295" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+-------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.13.07<br>4:50 PM</td>
