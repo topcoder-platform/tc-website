@@ -57,7 +57,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                 }
             }
         }
-        if (getEventShortDesc().equals("tco07algorithm") {
+        if (getEventShortDesc().equals("tco07algorithm")) {
             if (pref1.equals(pref2) && pref2.equals(pref3)) {
                 addError(pref1Key, "You can't select the same section more than once.");
                 addError(pref2Key, "You can't select the same section more than once.");
