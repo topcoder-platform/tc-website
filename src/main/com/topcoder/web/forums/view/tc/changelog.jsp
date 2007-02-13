@@ -182,23 +182,12 @@
 </p>
 
 <p>
-<<<<<<< changelog.jsp
-    <b>1.1.06 - 2005.09.14</b>
-    <ul>
-        <li>Updated main page such that each forum can display its N most recent posts, or posts made within the last N
-            days.
-        </li>
-        <li>Displayed day of week in message headers.</li>
-        <li>Added "Mark watched threads as read" option in user settings.</li>
-    </ul>
-=======
     <b>1.1.6 - 2005.09.14</b>
     <ul>    
 		<li>Updated main page such that each forum can display its N most recent posts, or posts made within the last N days.</li>
 		<li>Displayed day of week in message headers.</li>
 		<li>Added "Mark watched threads as read" option in user settings.</li>
     </ul> 
->>>>>>> 1.3.20.4
 </p>
 
 <p>
@@ -261,11 +250,7 @@
 </p>
 
 <p>
-<<<<<<< changelog.jsp
-    <b>1.1.00 - 2005.07.18</b>
-=======
 	<b>1.1 - 2005.07.18</b>
->>>>>>> 1.3.20.4
     <ul>
         <li>Deployed the current version of TopCoder Forums.</li>
         <li>Stripped HTML from message subjects.</li>
