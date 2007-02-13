@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>02.13.07<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=22">Software Forums integrated into TopCoder Forums</A>
+        </span><br><br>
+      The "Software Forums" are now part of the full Forums section for your convenience.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=22">view</A> | 
+        <tc-webtag:forumLink forumID="514293" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.12.07<br>3:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">Additional forums maintenance scheduled</span><br><br>
       Please note: We will again be performing maintenance work on the TopCoder forums beginning on Monday, Feb. 12 at 6:30 PM EST. The work will last for approximately four hours, will cause significant forum outages, and may cause sporadic overall site outages as well.  We apologize for any inconvenience that this may cause.</td>
@@ -169,22 +184,5 @@ to an entertaining challenge phase.
          <A href="/tc?module=Static&d1=features&d2=013107">full story</A> | 
          <tc-webtag:forumLink forumID="506264" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>01.30.07<br>1:40 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm30">TCHS SRM 30 - Problem Set & Analysis</A></span><br><br>
-This match was pretty uneven, with standard easy and medium problems and a particularly tough hard that only 2 coders were able to solve.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm30">full story</A> | 
-        <tc-webtag:forumLink forumID="506246" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
