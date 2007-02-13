@@ -23,7 +23,7 @@ public class ViewRegistrants extends Base {
         //this gets refreshed when people sign up.
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
 
-        ResultSetContainer rsc = (ResultSetContainer) m.get("tch07_registrants");
+        ResultSetContainer rsc = (ResultSetContainer) m.get("tchs07_registrants");
 
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
