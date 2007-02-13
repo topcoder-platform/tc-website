@@ -8,7 +8,7 @@
                  com.jivesoftware.forum.action.util.Page,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.StringUtils,
-                 com.topcoder.web.common.WebConstants;
+                 com.topcoder.web.common.WebConstants,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.topcoder.web.forums.util.ImageMapper,
