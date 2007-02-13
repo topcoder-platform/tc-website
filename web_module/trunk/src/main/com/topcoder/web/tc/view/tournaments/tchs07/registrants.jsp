@@ -1,5 +1,8 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html> 
