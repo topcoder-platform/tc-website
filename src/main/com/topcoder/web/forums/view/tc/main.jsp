@@ -130,7 +130,7 @@
 	            if (((Forum) itForums.next()).getMessageCount() > 0) numActiveForums++;
 	        }
         }
-        if (numActiveCategories > 0 && false) { %>
+        if (numActiveCategories > 0) { %>
     <br>
     <table cellpadding="0" cellspacing="0" class="rtTable">
         <tr>
