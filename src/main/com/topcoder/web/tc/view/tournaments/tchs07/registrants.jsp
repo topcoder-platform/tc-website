@@ -31,41 +31,11 @@
           <h2>Registrants</h2>
           
 <div align="center">
-    
-                    <table class="formFrame" border="0" cellpadding="6" cellspacing="0" width="300">
-                    <tbody><tr>
-                        <td class="advTitle" colspan="3" width="100%">Registrants (<%=rsc.size()%>)</td>
-                    </tr>
-                        <tr class="advHeader">
-                            <td align="left">
-                                <a href="/tc?module=TCCC06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</a>
-                            </td>
-                            <td align="left" width="100%">
-                                <a href="/tc?module=TCCC06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
-                            </td>
-                            <td align="right">
-                                <a href="/tc?module=TCCC06AlgRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
-                            </td>
-                        </tr>
-                        <%boolean even = false;%>
-<rsc:iterator list='<%=rsc%>' id="resultRow"><tr><td class="<%=(even ? "advanceDk" : "advanceLt")%>">
-<rsc:item name="rank" row='<%=resultRow%>'/></td>
-<td class="<%=(even ? "advanceDk" : "advanceLt")%>">
-<tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm" darkBG="true"/></td>
-<td class="<%=(even ? "advanceDk" : "advanceLt")%>" align="right">
-<rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>'/></td>
-</tr><%even = !even;%></rsc:iterator>
-                </table>
-
-
 
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
 <thead>
     <tr><td class="title" colspan="3">Registrants: <%=rsc.size()%></td></tr>
     <tr>
-        <td class="headerC">
-            <A href="sortbyrank">Rank</A>
-        </td>
         <td class="header" width="100%">
             <a href="/tc?module=TCHS07ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
         </td>
