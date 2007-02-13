@@ -48,7 +48,7 @@
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/bfograph.jar"/>
-    	<pathelement location="${jars.dir}/activation.jar"/>
+        <pathelement location="${jars.dir}/activation.jar"/>
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -68,7 +68,7 @@
         <pathelement location="${jars.dir}/tcs/alerts_wrapper/1.0/java_alerts_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/object_factory/2.0.1/object_factory.jar"/>
-        
+
 
         <!-- TCS Components -->
         <!--
@@ -80,7 +80,7 @@
         <!-- need this still cuz the new version doesn't work for everything we need -->
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
-        <pathelement location="${jars.dir}/upload.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_upload/2.0/upload.jar"/>
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
@@ -205,7 +205,7 @@
             <include name="com/topcoder/web/tc/*.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
-       	    <include name="com/topcoder/dde/catalog/Category.java"/>
+            <include name="com/topcoder/dde/catalog/Category.java"/>
             <include name="com/topcoder/dde/catalog/ComponentVersionInfo.java"/>
         </javac>
         <antcall target="jar_common"/>
@@ -953,7 +953,7 @@
                                 <include name="com/topcoder/web/common/**/*.class"/>
                 -->
                 <include name="com/topcoder/web/forums/**/*.class"/>
-            	<include name="com/topcoder/dde/catalog/**/*.class"/>
+                <include name="com/topcoder/dde/catalog/**/*.class"/>
                 <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
@@ -1175,9 +1175,9 @@
     <target name="run_loader_tests" depends="compile_tests" description="run junit tests">
         <junit printsummary="${junitsummary}" fork="yes">
             <classpath>
-<!--
-                <pathelement location="resources/studio/"/>
--->
+                <!--
+                                <pathelement location="resources/studio/"/>
+                -->
                 <pathelement path="${class.path}"/>
             </classpath>
             <formatter type="xml"/>
