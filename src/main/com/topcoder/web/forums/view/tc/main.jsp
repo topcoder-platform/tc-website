@@ -104,10 +104,10 @@
             } else {
                 //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
                 if (category.getCategoryCount() > 0) {
-                	//ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true);
-                	//ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                	//itCategories = pageList.iterator();
-                	//itCategoriesCopy = pageList.iterator();
+                	ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true);
+                	ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                	itCategories = pageList.iterator();
+                	itCategoriesCopy = pageList.iterator();
                 } else {
                 	ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
                 	ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
@@ -120,11 +120,11 @@
             itForums = category.getForums(resultFilter);
             itForumsCopy = category.getForums(resultFilter);
         }
-        //if (itCategories != null) {
-        //	while (itCategories.hasNext()) {
-        //		if (((ForumCategory) itCategories.next()).getMessageCount() > 0) numActiveCategories++;
-        //	}
-        //}
+        if (itCategories != null) {
+        	while (itCategories.hasNext()) {
+        		if (((ForumCategory) itCategories.next()).getMessageCount() > 0) numActiveCategories++;
+        	}
+        }
   		if (itForums != null) {
 	        while (itForums.hasNext()) {
 	            if (((Forum) itForums.next()).getMessageCount() > 0) numActiveForums++;
