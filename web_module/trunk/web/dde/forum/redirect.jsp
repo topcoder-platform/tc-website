@@ -1,8 +1,6 @@
-<%--
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.common.WebConstants" %>
 
---%>
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="/includes/session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
@@ -13,7 +11,7 @@
     String page_name = "s_definition.jsp";
     String action = request.getParameter("a");
     
-//    long tcsForumsID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID;
+    long tcsForumsID = WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID;
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -57,13 +55,10 @@
         <td width="99%">
 
 <div style="margin: 60px 20px 100px 20px;" align="center">
-<%--
 The Component Forums have moved <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>">here</a>.
 <br><br>
 You will be redirected there momentarily.
---%>
 
-    The component forums will be back up in a few hours.
 </div>
 
 
