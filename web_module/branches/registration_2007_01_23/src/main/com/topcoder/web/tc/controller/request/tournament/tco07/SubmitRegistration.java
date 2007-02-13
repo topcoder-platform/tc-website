@@ -73,7 +73,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         if (hasErrors()) {
             setNextPage("/tournaments/tco07/terms.jsp");
         } else {
-            setNextPage("/tournaments/tco07/termsSuccess.jsp");
+            setNextPage("/tournaments/tco07/termssuccess.jsp");
         }
         setIsNextPageInContext(true);
     }
