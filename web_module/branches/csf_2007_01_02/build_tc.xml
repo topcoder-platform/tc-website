@@ -72,7 +72,7 @@
         <!-- need this still cuz the new version doesn't work for everything we need -->
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
-        <pathelement location="${jars.dir}/upload.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
         <!--required for aol alerts only -->
@@ -125,7 +125,7 @@
                 deprecation="${deprecation}"
                 debug="${debug}"
                 source="1.5"
-                target="1.5" 
+                target="1.5"
                 >
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
@@ -237,7 +237,7 @@
             <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
         </jar>
     </target>
-    
+
     <target name="package-EJB-PactsClientServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/PactsClientServices.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*Payment.class"/>
@@ -926,9 +926,12 @@
 
     <target name="run_voting_tests" depends="compile_tests" description="run junit tests">
         <junit printsummary="${junitsummary}" fork="yes">
-            <classpath refid="class.path"/>
+            <classpath>
+                <pathelement path="${class.path}"/>
+                <pathelement location="resources/reg/"/>
+            </classpath>
             <formatter type="xml"/>
-            <test name="com.topcoder.web.common.voting.CondorcetSchulzeTestCase" todir="${testclasses}"/>        
+            <test name="com.topcoder.web.common.voting.VotingTests" todir="${testclasses}"/>
         </junit>
 
         <junitreport todir="${testclasses}">
