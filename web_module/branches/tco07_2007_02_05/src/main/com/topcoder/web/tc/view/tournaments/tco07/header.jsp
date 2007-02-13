@@ -9,7 +9,6 @@
     <div style="margin: 4px 10px 4px 10px;">
         <div style="float: right;">
             <tc-webtag:format object="<%=new Date()%>" format="EEEE, MMMM d, yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
-            Monday, February 5, 2007
         </div>
         &nbsp;
     </div>
