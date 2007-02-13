@@ -168,6 +168,7 @@
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
                 <include name="lib/jars/jive/**"/>
+            	<include name="lib/jars/upload.jar"/>
                 <include name="build/ears/security.ear"/>
             </fileset>
         </jar>
