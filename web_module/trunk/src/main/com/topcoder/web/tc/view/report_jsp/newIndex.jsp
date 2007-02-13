@@ -111,6 +111,7 @@ Software
         <a href="<%=baseTCSDWURL+"cost_by_catalog&days=3600"%>">all?</A></LI>
     <LI><A HREF="<%=baseTCSDWURL+"posted_components"%>">New components by year, month and week</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"predictor"%>">Component Submission Predictor</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"software_forums"%>">Software Forums</a></LI>
 </UL>
 <br/>
 Payment Reports
