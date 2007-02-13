@@ -21,6 +21,7 @@ import java.text.FieldPosition;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
+import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
@@ -32,7 +33,9 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.util.idgenerator.IDGenerator;
 import com.topcoder.util.idgenerator.IDGeneratorFactory;
@@ -40,6 +43,8 @@ import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsHome;
 
 import com.topcoder.shared.util.logging.Logger;
 
@@ -65,10 +70,16 @@ import com.topcoder.shared.util.logging.Logger;
  * Submitter role is disabled for the registering reviewer.
  * </li>
  * </ol>
+ * Version 1.0.4 Change notes:
+ * <ol>
+ * <li>
+ * Modified code to set user permissions for new software forums.
+ * </li>
+ * </ol>
  * </p>
  *
  * @author dok, pulky
- * @version 1.0.3
+ * @version 1.0.4
  */
 public class RBoardApplicationBean extends BaseEJB {
     private static final int INTERNAL_ADMIN_USER = 100129;
@@ -118,41 +129,6 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     /**
-     * Cache for the roles obtained by the expensive PrincipalMgr getRoles method.
-     */
-    private static Map rolesCache = Collections.synchronizedMap(new HashMap());
-
-    /**
-     * Get the security manager role principal corresponding to a role name.
-     *
-     * @param principalMgr the principal manager to use
-     * @param roleName the role name
-     * @param requestor the user making the request
-     *
-     * @return the role principal
-     *
-     * @exception Exception remoting and EJB related
-     */
-    private RolePrincipal getRolePrincipal(PrincipalMgrRemote principalMgr, String roleName, TCSubject requestor) throws Exception {
-        RolePrincipal result = (RolePrincipal) rolesCache.get(roleName);
-        if (result == null) {
-            for (Iterator it = principalMgr.getRoles(requestor).iterator(); it.hasNext();) {
-                RolePrincipal rolePrincipal = (RolePrincipal) it.next();
-                rolesCache.put(rolePrincipal.getName(), rolePrincipal);
-            }
-            result = (RolePrincipal) rolesCache.get(roleName);
-            if (result == null) {
-                log.debug("Role cache contents:");
-                for (Iterator it = rolesCache.keySet().iterator(); it.hasNext();) {
-                    System.err.println((String) it.next());
-                }
-                throw new GeneralSecurityException("Cannot find role " + roleName);
-            }
-        }
-        return result;
-    }
-
-    /**
      * Creates Principal Manager EJB
      *
      * @return PrincipalMgrRemote the ejb instance
@@ -177,28 +153,6 @@ public class RBoardApplicationBean extends BaseEJB {
     }
 
     /**
-     * Creates a specific permission for a specific user
-     *
-     * @param idGen the idGenerator for the ids
-     * @param permissionName the permission name to create
-     * @param prefix the prefix of the permission
-     * @param userId the user id to assign permission
-     */
-    private void createPermission(String dataSource, IdGen idGen, String permissionName,
-        String prefix, long userId) {
-
-        try {
-            PrincipalMgrRemote principalMgr = createPrincipalMgr();
-
-            UserPrincipal userPrincipal = principalMgr.getUser(userId);
-            RolePrincipal rolePrincipal = getRolePrincipal(principalMgr, prefix + permissionName, new TCSubject(INTERNAL_ADMIN_USER));
-            principalMgr.assignRole(userPrincipal, rolePrincipal, new TCSubject(INTERNAL_ADMIN_USER), dataSource);
-        } catch (Exception e) {
-            throw (new EJBException("Permission creation failed", e));
-        }
-    }
-
-    /**
      * Gets specific project information
      *
      * @param projectId the project id being inquired
@@ -215,7 +169,7 @@ public class RBoardApplicationBean extends BaseEJB {
         ResultSet rs = null;
         try {
             ps = conn.prepareStatement("select p.project_id, pi_cn.value as component_name, pi_vt.value as version_text, "
-                + "pt.name as project_type_name, cfx.forum_id, cfx.forum_type from project p "
+                + "pt.name as project_type_name, cfx.jive_category_id, cfx.forum_type from project p "
                 + ",project_category_lu pt "
                 + ",project_info pi_cn "
         		+ ",project_info pi_vt "
@@ -237,7 +191,7 @@ public class RBoardApplicationBean extends BaseEJB {
                 returnMap.put("projectName", rs.getString("component_name"));
                 returnMap.put("projectVersion", rs.getString("version_text").trim());
                 returnMap.put("projectType", rs.getString("project_type_name"));
-                returnMap.put("forumId", rs.getString("forum_id"));                
+                returnMap.put("jiveCategoryId", rs.getString("jive_category_id"));                
             } else {
                 throw (new EJBException("Couldn't find project info for pid: " + projectId));
             }
@@ -493,9 +447,12 @@ public class RBoardApplicationBean extends BaseEJB {
                 insertUserRole(conn, nextId(RESOURCE_ID_SEQ), roleId, projectId, pid, userId);
             }
 
-            // create permissions.
-            createPermission(dataSource, idGen, "ForumUser "
-                + String.valueOf(projectInfo.get("forumId")), "", userId);
+            // Create forum permission
+            Forums forumsBean = null;
+            Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
+        	ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+        	forumsBean = forumsHome.create();
+        	forumsBean.assignRole(userId, "Software_Users_" + projectInfo.get("jiveCategoryId"));
 
             conn.commit();
             log.debug("Registration for project " + projectId + " completed in " + (System.currentTimeMillis() - start) + " milliseconds");
