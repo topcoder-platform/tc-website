@@ -2,6 +2,7 @@ package com.topcoder.web.csf.controller.request;
 
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -19,9 +20,21 @@ import com.topcoder.web.csf.dao.CSFDAOUtil;
 import com.topcoder.web.csf.dao.SubmissionDAO;
 import com.topcoder.web.csf.model.*;
 import com.topcoder.web.csf.validation.SubmissionValidator;
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+import org.apache.axis.encoding.ser.JAFDataHandlerDeserializerFactory;
+import org.apache.axis.encoding.ser.JAFDataHandlerSerializerFactory;
 
+import javax.activation.DataHandler;
+import javax.activation.FileDataSource;
+import javax.xml.namespace.QName;
+import javax.xml.rpc.ParameterMode;
+import javax.xml.rpc.ServiceException;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.rmi.RemoteException;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -34,7 +47,6 @@ public class Submit extends BaseSubmissionDataProcessor {
     private File f = null;
 
     protected void dbProcessing() throws Exception {
-        //todo take user submitted rank and use that for this new submission
         if (userLoggedIn()) {
             Long contestId;
 
@@ -139,6 +151,9 @@ public class Submit extends BaseSubmissionDataProcessor {
                     fos.write(fileBytes);
                     fos.close();
 
+                    log.debug(f.getAbsolutePath());
+                    uploadToOR(f.getAbsolutePath(), c);
+
                     Integer maxRank = dao.getMaxRank(c, u);
                     Integer one = new Integer(1);
                     getRequest().setAttribute("maxRank", maxRank);
@@ -175,6 +190,42 @@ public class Submit extends BaseSubmissionDataProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
     }
+
+    private String DEV_END_POINT = "http://63.118.154.181:8880/review/services/UploadService";
+    private String PROD_END_POINT = "http://192.168.12.73:8280/review/services/UploadService";
+
+    protected void uploadToOR(String fileName, Contest contest) throws RemoteException, ServiceException, MalformedURLException {
+
+        DataHandler dhSource = new DataHandler(new FileDataSource(fileName));
+
+        Service service = new Service();
+        Call call = (Call) service.createCall();
+
+        StringBuffer endPoint = new StringBuffer(100);
+        if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
+            endPoint.append(PROD_END_POINT);
+        } else {
+            endPoint.append(DEV_END_POINT);
+        }
+        call.setTargetEndpointAddress(new URL(endPoint.toString()));
+        QName qnameAttachment = new QName("urn:EchoAttachmentsService", "DataHandler");
+
+        call.registerTypeMapping(dhSource.getClass(), // Add serializer for attachment.
+                qnameAttachment, JAFDataHandlerSerializerFactory.class, JAFDataHandlerDeserializerFactory.class);
+
+        call.setOperationName(new QName("urn:UploadService", "uploadSubmission"));
+        call.addParameter("projectId", org.apache.axis.Constants.XSD_LONG, javax.xml.rpc.ParameterMode.IN);
+        call.addParameter("ownerId", org.apache.axis.Constants.XSD_LONG, javax.xml.rpc.ParameterMode.IN);
+        call.addParameter("submission", qnameAttachment, ParameterMode.IN); // Add the file.
+        call.setReturnType(org.apache.axis.Constants.XSD_STRING);
+        // call.
+        call.invoke(new Object[]{
+                new Long(contest.getConfig(CSFDAOUtil.getFactory().getContestPropertyDAO().find(new Integer(9))).getValue()),
+                new Long(getUser().getId()), dhSource});
+
+
+    }
+
 
     protected void exceptionCallBack() {
         if (f != null) {
