@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.13.07<br>12:00 NOON</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_021307">Registration Opens for First TCHS Tournament</A>
+        </span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/tchs07.png" width="67" height="36" alt="TCHS07" border="0" /></div>
+      The TopCoder High School Tournament follows in the full tradition of the company's flagship TopCoder Open and TopCoder Collegiate Challenge professional and collegiate events by providing a world class platform for high school students.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_021307">press release</A> | 
+       <tc-webtag:forumLink forumID="506193" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>02.13.07<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=22">Software Forums integrated into TopCoder Forums</A>
@@ -167,22 +183,6 @@ to an entertaining challenge phase.
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=features&d2=020207">full story</A> | 
          <tc-webtag:forumLink forumID="506273" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>01.31.07<br>1:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=013107">Five Things You Didn't Know About C++, Part 2</A></span><br><br>
-       This article focuses on some of the more obscure aspects of C++ that deal with initialisation, constructors, destructors and memory management.</td>
-      <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=013107">full story</A> | 
-         <tc-webtag:forumLink forumID="506264" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
