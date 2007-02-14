@@ -45,7 +45,7 @@
 
 <h2>Overview of the Tournament</h2>
 <p>
-The 2007 TopCoder Open ("TCO") Marathon Match Competition will take place between March 7 and June 29, 2007. It will consist of four (4) online elimination rounds and one (1) onsite final round. The prize purse for this competition is $30,000 in cash. Up to 8 competitors will win a cash prize, and for competing in Online Round #2, up to 500 competitors will receive a limited edition 2007 TopCoder Open t-shirt. The top 8 finishers in the online rounds will advance to the onsite Championship round, being held at the Mirage in Las Vegas, Nevada, USA on June 27, 2007.
+The 2007 TopCoder Open ("TCO") Marathon Match Competition will take place between February 19 and June 29, 2007. It will consist of four (4) online elimination rounds and one (1) onsite final round. The prize purse for this competition is $30,000 in cash. Up to 8 competitors will win a cash prize, and for competing in Online Round #2, up to 500 competitors will win a participatory prize. The top 8 finishers in the online rounds will advance to the onsite Championship round, being held at the Mirage in Las Vegas, Nevada, USA on June 27, 2007.
 </p>
 <a name="eligibility"></a>
 <h2>Eligibility</h2>
@@ -80,7 +80,7 @@ Registration for the 2007 TopCoder Open Marathon Match Competition will open at 
 Everyone who competes in an online round must register for each round on the TopCoder web site. TopCoder members from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Standard Time (UTC/GMT -5) or Eastern Daylight Time (UTC/GMT -4), as appropriate, so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
 </p>
 <p>
-Coders will be assigned a tournament seed prior to online round 1 based on their current rating. 
+Coders will be assigned a tournament seed prior to Online Round #1 based on their current rating.
 </p>
 <p>
 The dates and times of the online rounds of competition are as follows: 
@@ -213,7 +213,7 @@ The Coding Phase is a timed event where all contestants are presented with the s
 The System Testing Phase is applied to the most recent full submission for each competitor.   During system testing each submission is run against a large number of hidden cases, then scored according to the criteria specified in the problem statement.  Once the system tests are finished, competitors will be ranked by their score on the system test cases.  Only these scores will count in determining advancement.
 </p>
 <p>
-<h2>Onsite Semifinal and Championship Rounds</h2>
+<h2>Onsite Championship Round</h2>
 </p>
 <h2>Important Information</h2>
 <p><strong>Travel Confirmation</strong></p>
@@ -234,6 +234,7 @@ TopCoder will provide air travel arrangements for each competitor. The flight re
 <p>
 TopCoder will also provide ground transportation to and from the McCarran International Airport in Las Vegas, as well as hotel accommodations and meals for each contestant. All other expenses are the responsibility of the contestant. TopCoder will not provide travel or lodging accommodations for competitor guests at the 2007 TCO. 
 </p>
+<p><strong>Championship Round</strong></p>
 <p>
 The Championship Round will be a single round of eight (8) coders. Placement in the Championship Round is determined by comparing the total points of each coder. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order): 
 </p>

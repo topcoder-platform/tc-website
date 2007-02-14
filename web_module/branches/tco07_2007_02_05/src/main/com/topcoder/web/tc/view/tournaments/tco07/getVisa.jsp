@@ -37,7 +37,7 @@
                         All travelers entering the United States must present either a passport or a visa. If you do NOT have a passport, or you are from a country that does NOT participate in the Visa Waiver Program, you must apply for a visa.
                         </p>
                         <p>
-                        The following countries DO NOT require a visa to enter the United States:<br>
+                        The following countries DO NOT require a visa to enter the United States: <br>
                         <a href="/?t=sponsor&c=link&link=http://travel.state.gov/visa/temp/without/without_1990.html#countries" target="_blank">http://travel.state.gov/visa/temp/without/without_1990.html#countries</a>
 
                         <h2>Why should I get it early?</h2>
@@ -58,19 +58,19 @@
                         
                         <h2>How do I get an official invitation letter from TopCoder?</h2>
                         <p>
-                        <b>As stated in the rules, all competitors may request a visa invitation letter up until 5:00 PM EDT (GMT/UTC -4) on Monday, April 23, 2007.</b>
+                        <b>As stated in the rules, all competitors must request a visa invitation letter by 5:00 PM EDT (GMT/UTC -4) on Monday, April 23, 2007.</b>
                         </p>
                         <p>
-                        <b>Algorithm Competitors:</b>  All competitors that advance to Online Round 1, will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, their letter will be shipped out by FedEx International Priority mail.
+                        <b>Algorithm Competitors:</b>  All competitors who advance to Online Round 1 will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, the letter will be shipped out by FedEx International Priority mail.
                         </p>
                         <p>
-                        <b>Component Competitors:</b>  All competitors that pass submission on at least one component will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, their letter will be shipped out by FedEx International Priority mail. 
+                        <b>Component Competitors:</b>  All competitors who pass submission on at least one component will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, the letter will be shipped out by FedEx International Priority mail. 
                         </p>
                         <p>
-                        <b>Marathon Match Competitors:</b>  All competitors that advance to Online Round 4, will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, their letter will be shipped out by FedEx International Priority mail. 
+                        <b>Marathon Match Competitors:</b>  All competitors who advance to Online Round 4 will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, the letter will be shipped out by FedEx International Priority mail. 
                         </p>
                         <p>
-                        <b>Studio Design Competitors:</b>  All competitors that pass screening on at least 2 designs will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, their letter will be shipped out by FedEx International Priority mail. 
+                        <b>Studio Design Competitors:</b>  All competitors who pass screening on at least 2 designs will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, the letter will be shipped out by FedEx International Priority mail. 
                         </p>
                         <p>
                        <h2>How do I apply for a visa?</h2>
