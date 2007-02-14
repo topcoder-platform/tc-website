@@ -427,7 +427,7 @@ function submit() {
                         ${candidate.name}Microsoft and British Telecom, in association...
                     </span>
                     <div id="${candidate.name}Blurb" class="popUp">
-                        <div style="width: 400px; white-space: normal;">
+                        <div style="width: 400px;">
                         <strong>Full description:</strong><br><br>Microsoft and British Telecom, in association with TopCoder, will run a series of Connected Services Sandbox Mashup Service Design and Assembly competitions. In these competitions, developers from Sandbox member organizations, as well as freelance application developers, can collaborate and compete to generate new mashup service designs and then build functional prototypes of those designs.<br><br>Through this series of competitions, Sandbox members can take advantage of a "no-shore" pool of creative talent to design and assemble working prototypes of services which could result in commercialized deployments in service provider networks.
                         </div>
                     </div>
