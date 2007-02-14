@@ -34,10 +34,13 @@
 
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
 <thead>
-    <tr><td class="title" colspan="3">Registrants: <%=rsc.size()%></td></tr>
+    <tr><td class="title" colspan="4">Registrants: <%=rsc.size()%></td></tr>
     <tr>
-        <td class="header" width="100%">
+        <td class="header" width="60%">
             <a href="/tc?module=TCHS07ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+        </td>
+        <td class="header" width="40%">
+            <a href="">Region</a>
         </td>
         <td class="headerR">
             <a href="/tc?module=TCHS07ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
@@ -50,6 +53,9 @@
             <tr class="<%=(even ? "dark" : "light")%>">
                 <td class="value">
                     <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="hs_algorithm" darkBG="true"/>
+                </td>
+                <td class="value">
+                    Alpha
                 </td>
                 <td class="valueR">
                     <rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>'/>
