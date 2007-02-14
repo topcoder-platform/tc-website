@@ -6,6 +6,13 @@ package com.topcoder.web.common.model;
  *          Create Date: Jan 18, 2007
  */
 public class EventType extends Base {
+
+    public static final Integer COMPONENT_TOURNAMENT_ID = new Integer(5);
+    public static final Integer ALGORITHM_TOURNAMENT_ID = new Integer(6);
+    public static final Integer STUDIO_TOURNAMENT_ID = new Integer(7);
+    public static final Integer HIGH_SCHOOL_TOURNAMENT_ID = new Integer(8);
+    public static final Integer MARATHON_TOURNAMENT_ID = new Integer(9);
+
     protected EventType() {
 
     }
