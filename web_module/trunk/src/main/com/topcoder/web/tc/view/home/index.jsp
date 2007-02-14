@@ -256,6 +256,12 @@
             <td class="homeText"><br>
 
                 <div style="float: right; padding-left: 5px;">
+                    <img src="/i/pressroom/computerworld.gif" alt="ComputerWorld" width="67" height="18" border="0"/>
+                </div>
+                Microsoft launches 'mashup' competition for developers
+                <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">...more</A><br>[February 14]<br><br>
+
+                <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/tchs07.png" width="67" height="36" alt="TCHS07" border="0" />
                 </div>
                 Registration Opens for First TCHS Tournament
@@ -286,8 +292,6 @@
                 Maverick Rules for Success [PDF]
                 <A href="/pdfs/press_room/success200612.pdf">...more</A><br>[November]<br><br>
 
-                AOL and TopCoder Announce Web AIM Mashup Competition
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_113006">...more</A><br>[November 30]<br><br>
 
             </td>
         </tr>

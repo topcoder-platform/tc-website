@@ -36,6 +36,10 @@
                 <tr><td class="bodyText"><div align="right"><A href="/tc?module=Static&d1=pressroom&d2=index">Current News</A>&#160;&#160;|&#160;&#160;<A href="/tc?module=Static&d1=pressroom&d2=pr_archive">Press Releases Archive</A>&#160;&#160;|&#160;&#160;<strong>Articles Archive</strong></div></td></tr>
             </table>
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
+<!-- 2007  --> 
+<tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2007</font></td></tr>
+<tr><td class="newsText"><A href="<A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">Microsoft launches 'mashup' competition for developers</A> [February 14 - Computerworld]<br/></td></tr>
+<tr><td ><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
 <!-- 2006  --> 
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2006</font></td></tr>
 <tr><td class="newsText"><A href="<tc-webtag:linkTracking link="/pdfs/press_room/hre_article_20061213.pdf"/>" refer="art_archive"/>And the Winner Is&#8230;</A> [PDF] [December 13 - Human Resource Executive Magazine]<br/></td></tr>
