@@ -42,13 +42,25 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+
+<p>
+    5.6.x - 2007.xx.xx
+    <ul>
+        <li>Include icon on active contests pages for tournament component projects</li>
+        <li>Prompt user if they are not registered for tco07 and are registering for a component</li>
+    </ul>
+</p>
+
+
 <p>
     5.6.4 - 2007.01.xx
     <ul>
         <%--<li>RatingTag was taken out since it is no longer in use</li>--%>
         <%--<li>Fixed bug when showing a problem with Matrix2D data type</li>--%>
         <%--<li>TCS Loader: Added filter by elegibility (just open projects)</li>--%>
-        <li>When submiting a long contest, if the round id, contest id and component id are not consistent, throw an exception</li>
+        <li>When submiting a long contest, if the round id, contest id and component id are not consistent, throw an
+            exception
+        </li>
         <%--<li>When registering for a long round, the room_id is not looked up anymore, it wasn't needed.
             after deploying, the query and command long_contest_find_room can be deleted </li> --%>
         <li>Studio payments shown in My Topcoder Payments</li>
