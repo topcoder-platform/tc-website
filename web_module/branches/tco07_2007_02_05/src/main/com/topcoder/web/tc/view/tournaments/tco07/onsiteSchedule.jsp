@@ -56,7 +56,7 @@
                                        <td class="value">Algorithm Semifinal Room 1</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value">9:00am – 6:00pm</td>
+                                       <td class="value">9:00am - 6:00pm</td>
                                        <td class="value">Marathon Match Finals</td>
                                 </tr>
                                 <tr class="dark">
@@ -68,11 +68,11 @@
                                        <td class="value">Lunch</td>
                                 </tr>
                                 <tr class="dark">
-                                       <td class="value">1:00pm - 2:30pm  </td>
+                                       <td class="value">1:00pm - 2:30pm</td>
                                        <td class="value">Component Design & Development 1</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value">3:00pm – 4:00pm</td>
+                                       <td class="value">3:00pm - 4:00pm</td>
                                        <td class="value">NSA Presentation</td>
                                 </tr>
                                 <tr class="dark">
@@ -80,8 +80,8 @@
                                        <td class="value">Algorithm Semifinal Room 2</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value">4:00pm – 10:00pm</td>
-                                       <td class="value">Competitor Game Room</td>
+                                       <td class="value">6:30pm - 10:00pm</td>
+                                       <td class="value">TopCoder Evening Event</td>
                                 </tr>
                                 <tr>
                                        <td class="header" colspan="2">Thursday, June 28, 2007</td>
@@ -91,7 +91,7 @@
                                        <td class="value">Algorithm Semifinal Room 3</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value">9:00am – 6:00pm</td>
+                                       <td class="value">9:00am - 6:00pm</td>
                                        <td class="value">Studio Graphic Design Finals</td>
                                 </tr>
                                 <tr class="dark">
@@ -107,7 +107,7 @@
                                        <td class="value">Component Design & Development 2</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value">4:00pm – 6:00pm</td>
+                                       <td class="value">4:00pm - 6:00pm</td>
                                        <td class="value">Algorithm Wildcard Round</td>
                                 </tr>
                                 <tr class="dark">
@@ -135,11 +135,11 @@
                                 </tr>
                                 <tr class="light">
                                        <td class="value">3:30pm - 4:30pm</td>
-                                       <td class="value">All Champion Announcements</td>
+                                       <td class="value">Champion Announcements and Awards Ceremony</td>
                                 </tr>
                                 <tr class="dark">
-                                       <td class="value">7:00pm - 10:00pm</td>
-                                       <td class="value">Awards Reception</td>
+                                       <td class="value">7:00pm - 9:00pm</td>
+                                       <td class="value">Closing Reception</td>
                                 </tr>
                         </tbody>
                         </table>

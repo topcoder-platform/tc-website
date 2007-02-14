@@ -182,9 +182,9 @@ The Studio competitions will have eight (8) weeks of online competition and one 
                                 <tr class="light">
                                        <td class="value">Onsite Competition</td>
                                        <td class="value">June 27, 2007</td>
-                                       <td class="value">8:00 AM PDT (GMT/UTC -4)</td>
+                                       <td class="value">9:00 AM PDT (GMT/UTC -4)</td>
                                        <td class="value">June 28, 2007</td>
-                                       <td class="value">5:00 PM PDT (GMT/UTC -4)</td>
+                                       <td class="value">6:00 PM PDT (GMT/UTC -4)</td>
                                 </tr>
                        </tbody>
                         </table>
