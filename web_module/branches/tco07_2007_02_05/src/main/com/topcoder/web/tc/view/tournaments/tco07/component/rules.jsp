@@ -44,7 +44,7 @@
                         <span class="bigRed">No purchase necessary to enter or win. Void where prohibited.</span>
 
 <h2>Overview of the Tournament</h2>
-<p>The 2007 TopCoder Open ("TCO") Component Design and Development Competition ("CDDC") will take place between February 26, 2007 and June 29, 2007. It will consist of two competitions - the design competition and the development competition. Each competition will consist of five (5) weeks of online competition and one (1) onsite final round, being the Championship round. The prize purse for this tournament is $100,000 in cash, with $60,000 being awarded for the design competition and $40,000 for the development competition. The eight (8) competitors in each competition with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at the Mirage in Las Vegas, Nevada, USA on –June 26 - 29, 2007. </p>
+<p>The 2007 TopCoder Open ("TCO") Component Design and Development Competition ("CDDC") will take place between February 19, 2007 and June 29, 2007. It will consist of two competitions - the design competition and the development competition. Each competition will consist of five (5) weeks of online qualifying competitions, three (3) weeks of online Championship rounds and one (1) onsite Championship round. The prize purse for this tournament is $100,000 in cash, with $60,000 being awarded for the design competition and $40,000 for the development competition. The eight (8) competitors in each competition with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at the Mirage in Las Vegas, Nevada, USA on June 26 - 29, 2007. </p>
 
 <a name="eligibility"></a>
 <%--<a href="#top"><img src="/i/tournament/tco07/back_to_top.png" alt="back to top" border="0" align="right"></a>--%>
@@ -76,7 +76,7 @@ Those members who are eligible to compete in any of the four tournament competit
 Scoring in the CDDC is determined based on the placement for each submission. Placement is determined based on the score awarded for a particular component. For example, if 3 submissions were received for a component and the scores were 93, 89, and 71, the member receiving the score of 93 would be in 1st place and would receive 10 points. Note that only those registered for the tournament are considered when determining place and placement points. In order to receive placement points, a submission must pass the minimum component score of 75. Placement scoring is as follows: 
 </p>
 
-<div align="center" style="margin-bottom: 10px;"><strong>
+<div align="left" style="margin-bottom: 10px; margin-left: 300px;"><strong>
 1st Place - 10 Points<br>
 2nd Place - 7 Points<br>
 3rd Place - 5 points<br>
@@ -100,12 +100,12 @@ Both the design and development competitions will have five (5) weeks of online 
                         <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
                         <thead>
                                 <tr>
-                                       <td class="title" colspan="4">Qualification Rounds</td>
+                                       <td class="title" colspan="2">Qualification Rounds</td>
                                 </tr>
                                 <tr>
                                        <td class="header">Round</td>
                                        <td class="header">All Projects Posted*</td>
-                                       <td class="header">Registration Perios</td>
+                                       <td class="header">Registration Period</td>
                                        <td class="header">Submission Deadline*</td>
                                 </tr>
                         </thead>
@@ -140,31 +140,51 @@ Both the design and development competitions will have five (5) weeks of online 
                                        <td class="value">72 Hours</td>
                                        <td class="value">April 19, 2007 9:00AM</td>
                                 </tr>
-                                   <tr class="dark">
+                                <tr class="dark">
+                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
+                                </tr>
+                        </tbody>
+                        </table>
+                        <p><br></p>
+
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="title" colspan="2">Championship Rounds</td>
+                                </tr>
+                                <tr>
+                                       <td class="header">Round</td>
+                                       <td class="header">All Projects Posted*</td>
+                                       <td class="header">Registration Period</td>
+                                       <td class="header">Submission Deadline*</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                   <tr class="light">
                                        <td class="value">Championship Round (online portion component 1)</td>
                                        <td class="value">May 10, 2007 9:00AM</td>
                                        <td class="value">72 Hours</td>
                                        <td class="value">May 17, 2007 9:00AM</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">Championship Round (online portion component 2)</td>
                                        <td class="value">May 24, 2007 9:00AM</td>
                                        <td class="value">72 Hours</td>
                                        <td class="value">May 31, 2007 9:00AM</td>
                                 </tr>
-                                     <tr class="dark">
+                                     <tr class="light">
                                        <td class="value">Championship Round (online portion component 3)</td>
                                        <td class="value">June 7, 2007 9:00AM</td>
                                        <td class="value">72 Hours</td>
                                        <td class="value">June 14, 2007 9:00AM</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">Championship Round (onsite portion)</td>
                                        <td class="value">N/A</td>
                                        <td class="value">N/A</td>
                                        <td class="value">N/A</td>
                                 </tr>
-                            <tr class="dark">
+                                <tr class="light">
                                        <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
                                 </tr>
                         </tbody>
@@ -339,7 +359,7 @@ All contestants who submit components that pass screening during at least one we
                                 <tr class="light">
                                        <td class="value"><b>1st place finisher* in the Championship Round</b></td>
                                        <td class="value"><b>$25,000</b></td>
-                                       <td class="value"><b>$25,000</b></td>
+                                       <td class="value"><b>$15,000</b></td>
                                 </tr>
                                 <tr class="dark">
                                        <td class="value">2nd place finisher* in the Championship Round</td>
@@ -423,7 +443,7 @@ Contestants who advance to the onsite Championship Round must complete the follo
 </ul>
 </p>
 <p>
-Failure to submit the above items on time will result in a forfeiture of advancement as an onsite finalist. In that case, the next highest scorer from Online Round #4 will advance. 
+Failure to submit the above items on time will result in a forfeiture of advancement as an onsite finalist. In that case, the competitor with the next highest cumulative placement points will advance.
 </p>
 <p>
 All prizes (cash prizes and participatory prizes) will be sent within 60 days of the Championship Round. Unclaimed or undeliverable prizes will be forfeited. Competitors who do not submit the required information listed above by the applicable deadlines will forfeit their prizes. 
