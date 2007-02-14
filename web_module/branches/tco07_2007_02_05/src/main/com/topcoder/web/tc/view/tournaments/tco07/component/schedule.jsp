@@ -112,7 +112,7 @@
                                        <td class="value">N/A</td>
                                 </tr>
                             <tr class="dark">
-                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179">here</a> for your time zone.</td>
+                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
                                 </tr>
                         </tbody>
                         </table>
@@ -133,7 +133,11 @@
                                        <td class="value">Last Day to Request a Visa Letter</td>
                                        <td class="value">Monday, April 23, 2007 at 5:00 PM</td>
                                 </tr>
-                       </tbody>
+                                 <tr class="dark">
+                                       <td class="value">Finalist Documents Due</td>
+                                       <td class="value">Friday, May 4, 2007 at 5:00 PM</td>
+                                </tr>
+                      </tbody>
                         </table>
                        <p><br></p>
 

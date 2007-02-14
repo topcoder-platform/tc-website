@@ -38,7 +38,7 @@
                         AOL is a global Web services company that operates some of the most popular Web destinations and offers a comprehensive suite of free software and services. AOL also provides a range of resources and support for third-party developers. Available at dev.aol.com, the AOL Developer Network provides the developer community with access to AOL's technology platform, open APIs, and design tools.
                         </p>
                         <p>
-                        Do you want millions of people to use your code? AOL is looking for top programming talent. If you are seeking new career opportunities and want to help shape the next generation of Web applications, AOL wants to hear from you. For information on job opportunities go to (Link)
+                        Do you want millions of people to use your code? AOL is looking for top programming talent. If you are seeking new career opportunities and want to help shape the next generation of Web applications, AOL wants to hear from you. For information on job opportunities: <a href="">Apply Now</a>.
                         </p>
                         <p>
                         AOL and its subsidiaries have operations in the United States, Canada, Europe, and Asia.

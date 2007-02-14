@@ -45,7 +45,7 @@
 
 <h2>Overview</h2>
 <p>
-The 2007 TopCoder Open Studio Design Competition ("SDC") will take place between March 5, 2007 and June 29, 2007. It will consist of eight (8) weeks of online competition and one (1) onsite final round, being the Championship round. The prize purse for this tournament is $30,000 in cash. The eight (8) competitors with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at The Mirage in Las Vegas, Nevada, USA on June 26 - 29, 2007.
+The 2007 TopCoder Open Studio Design Competition ("SDC") will take place between March 5, 2007 and June 29, 2007. It will consist of eight (8) weeks of online competition and one (1) onsite final round, being the Championship round. The prize purse for this tournament is $30,000 in cash. The eight (8) competitors with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at The Mirage in Las Vegas, Nevada, USA on June 28, 2007.
 </p>
 
 <a name="eligibility"></a>
@@ -54,15 +54,12 @@ The 2007 TopCoder Open Studio Design Competition ("SDC") will take place between
 <p>
 TopCoder Studio members meeting the following eligibility criteria are eligible to compete in the SDC:  
 <ul>
-<li>Must be at least 18 years of age as of March 15, 2007; AND </li>
+<li>Must be at least 18 years of age as of March 5, 2007; AND </li>
 <li>If not a US resident, must be living in, and participating from, your country of residence; AND </li>
 <li>Must currently be eligible for participation in TopCoder Studio projects (i.e. not suspended from TopCoder).</li>
 </ul>
 <p>
 TopCoder Studio members who are 18 years of age or older as of March 5, 2007 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada, and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria. 
-</p>
-<p>
-TopCoder members who are 18 years of age or older as of February 19, 2007 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
 </p>
 <p>
 Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. If a competitor's employer signs up as an official sponsor of the tournament on or after February 19, 2007, then that competitor will be disqualified from participating further in the tournament. TopCoder members who are performing internships for any official tournament sponsor between February 19 and June 29, 2007 are also ineligible to compete. 
@@ -244,13 +241,13 @@ Winner Announced: May 11, 2007
 <h3>Important Information</h3>
 <p>
 <b>Travel Confirmation</b><br>
-Up to eight (8) advancers from the eight (8) weeks of online competition will travel to the Mirage on Tuesday, June 26, 2007 to compete in the final competitive stage of the tournament being held on Thursday, June 28, 2007. All contestants must arrive at the Mirage no later than 4:00 PM PST on Tuesday, June 26, 2007.
+Up to eight (8) advancers from the eight (8) weeks of online competition will travel to the Mirage on Tuesday, June 26, 2007 to compete in the final competitive stage of the tournament being held on Thursday, June 28, 2007. All contestants must arrive at the Mirage no later than 4:00 PM PDT on Tuesday, June 26, 2007.
 </p>
 <p>
 All contestants must confirm their attendance at the onsite rounds no later than 5:00 PM EDT (UTC/GMT -4) on Friday, May 11, 2007. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the U.S. by that date and time.  In order for a finalist to confirm attendance for the onsite finals, it is necessary to show proof of visa and/or passport by the deadline (5:00 PM EDT (UTC/GMT -4) on Friday, May 11, 2007) if the finalist is required to travel from outside the United States. Finalists may do this by emailing a copy of their documents to Jessie D'Amato Ford at jford@topcoder.com. Competitors who fail to meet this requirement by the deadline will not be able to attend the onsite finals and will be replaced as an onsite finalist. 
 </p>
 <b>Visa Assistance</b><br>
-TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors that pass screening on at least one component, will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, their letter will be shipped out by FedEx International Priority mail.  Competitors have until 5:00 PM EDT (GMT/UTC -4) on Friday, Monday, April 23, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If you fail to request a visa invitation letter by the date above, TopCoder will not assist you in the process of obtaining a travel visa. See more information about travel visas here .  </p>
+TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors who pass screening on at least two designs will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, their letter will be shipped out by FedEx International Priority mail.  Competitors have until 5:00 PM EDT (GMT/UTC -4) on Monday, April 23, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If you fail to request a visa invitation letter by the date above, TopCoder will not assist you in the process of obtaining a travel visa. See more information about travel visas here .  </p>
 <p>
 <b>Travel Details</b><br>
 TopCoder will provide air travel arrangements for each competitor. The flight reserved by and paid for by TopCoder is for arrival on June 26, 2007 and departure on June 30, 2007 (or July 1, 2007 if the cost is significantly less to fly out a day later).  TopCoder will pay for each competitor's airfare up to $1,500, however we will do what we believe is reasonable given each individual circumstance (e.g., if the most reasonably convenient ticket itinerary is a little more than $1,500, TopCoder will pay for the entire cost).  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCO prize money won. 

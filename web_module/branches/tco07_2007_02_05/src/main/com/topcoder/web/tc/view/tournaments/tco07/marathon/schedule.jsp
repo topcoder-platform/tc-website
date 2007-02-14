@@ -34,9 +34,22 @@
                         <h1><div>Marathon Match Schedule</div></h1>
 
     <p><br></p>
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="header">Registration</td>
+                                       <td class="header">OPENS: Monday, February 19, 2007 9:00 AM EDT<br>
+                                       CLOSES: Tuesday, March 6, 2007 6:00 PM EDT </td>
+                                </tr>
+                        </thead>
+                        </table>
+                        <p></p>
 
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
 <thead>
+            <tr>
+                   <td class="title" colspan="5">Online and Onsite Schedule</td>
+            </tr>
     <tr>
         <td class="header">Round of Competition</td>
         <td class="header">Start Date and Time</td>
@@ -123,6 +136,25 @@
         </td>
     </tr>
     <tr class="light">
+        <td style="value" nowrap="nowrap">
+            Onsite Finals
+        </td>
+        <td style="value">
+            Wednesday, June 27<br>
+            9:00am
+        </td>
+        <td style="value">
+            Wednesday, June 27<br>
+            6:00pm
+        </td>
+        <td style="value">
+            8
+        </td>
+        <td style="valueC">
+            Champion
+        </td>
+    </tr>
+    <tr class="dark">
         <td class="value" colspan="5">
             *Time listed in Eastern Standard Time (UTC/GMT -5). In the event that a round must be cancelled for any reason, the round will start the following day at the same time.<br>
             **Times listed in Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will start the following day at the same time.

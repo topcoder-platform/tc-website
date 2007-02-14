@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>2007 TopCoder Open – Studio Design Competition</div></h1>
+                        <h1><div>Studio Design Competition</div></h1>
                         <p>
                         TopCoder Studio is thrilled to announce its first tournament for graphic and web designers! Competitors will put their design talent to the test during the 8-week Studio Design Competition (SDC) Online Round leading up to the Finals, held at the Mirage in Las Vegas. Eight of the most creative competitors will win a trip to Las Vegas where they will compete in the championship round for the chance to win cash prizes totaling $30,000. 
                         </p>
@@ -49,7 +49,7 @@
                         Contest specifications are posted on Studio and members submit their designs according to those specs. Submissions are then screened against the contest specifications by the Contest Administrator and either passed or failed. Passing submissions are presented to the client. The client can then chose to determine a winner on their own, ask the community to chose a winner through a vote, or enter into a review and revision phase with finalists they select, selecting a winner after the revisions are completed.
                         </p>
                         <p>
-                        Learn more about the competition <a href="">studio site?</a>.
+                        Learn more about the competition <a href="http://studio.topcoder.com/">here</a>.
                         </p>
                         <p>
                         Read the official <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=rules">rules and regulations</a> for important details.
@@ -57,7 +57,17 @@
                         <p>
                         The competition is free and you must be 18 years or older, as well as meet all eligibility criteria, in order to participate.
                         </p>
-
+<h2>How to Register for the Studio Design Competition</h2>
+<p>
+<strong>Already a TopCoder Member?</strong><br>
+Click <A href="">here</A> to register for the TCO07 Studio Design Competition.
+</p>
+<p>
+<strong>Not Yet a TopCoder Member?</strong><br>
+Click <A href="/reg/">here</A> to register as a TopCoder member.<br>
+Check your email and activate your new TopCoder account.<br>
+Click <A href="">here</A> to register for the TCO07 Studio Design Competition
+</p>
                     </div>
                 </td>
             </tr>

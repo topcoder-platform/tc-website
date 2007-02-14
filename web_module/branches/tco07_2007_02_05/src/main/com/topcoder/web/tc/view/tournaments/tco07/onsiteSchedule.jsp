@@ -32,7 +32,7 @@
                     <div id="pageBody">
 
                         <h1><div>Onsite Schedule</div></h1>
-                        
+                           
                         <div align="center">
                         <table cellspacing="0" cellpadding="0" class="stat" style="width: 450px;">
                         <thead>
@@ -68,7 +68,7 @@
                                        <td class="value">Lunch</td>
                                 </tr>
                                 <tr class="dark">
-                                       <td class="value">1:00pm - 2:00pm</td>
+                                       <td class="value">1:00pm - 2:30pm  </td>
                                        <td class="value">Component Design & Development 1</td>
                                 </tr>
                                 <tr class="light">
@@ -103,7 +103,7 @@
                                        <td class="value">Lunch</td>
                                 </tr>
                                 <tr class="dark">
-                                       <td class="value">1:00pm - 2:00pm</td>
+                                       <td class="value">1:00pm - 2:30pm</td>
                                        <td class="value">Component Design & Development 2</td>
                                 </tr>
                                 <tr class="light">
@@ -118,7 +118,7 @@
                                        <td class="header" colspan="2">Friday, June 29, 2007</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value">9:00am - 10:00am</td>
+                                       <td class="value">9:00am - 10:30am</td>
                                        <td class="value">Component Design & Development Appeals Final</td>
                                 </tr>
                                 <tr class="dark">
@@ -143,7 +143,8 @@
                                 </tr>
                         </tbody>
                         </table>
-                        </div>                        
+                        <p>* Schedule subject to change with or without notice.</p>
+                        </div>
                         
                     </div>
                 </td>

@@ -55,10 +55,10 @@ TopCoder members meeting the following criteria are eligible to compete in the A
 <li>Must be at least 18 years of age (as of March 29, 2007)</li>
 </ul>
 <p>
-TopCoder members who are 18 years of age or older as of February 19, 2007 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
+TopCoder members who are 18 years of age or older as of March 29, 2007 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.
 </p>
 <p>
-Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of their immediate families (parent, child, sibling, and spouse of each) and/or persons living in the same household as such persons, are ineligible to enter the tournament. If a competitor's employer signs on as an official sponsor of the tournament after March 28, 2007, then that competitor will be removed from further participation in the tournament. TopCoder members who are performing internships for any official tournament sponsor between February 19 and June 29, 2007 are also ineligible to compete.
+Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of their immediate families (parent, child, sibling, and spouse of each) and/or persons living in the same household as such persons, are ineligible to enter the tournament. If a competitor's employer signs on as an official sponsor of the tournament after February 19, 2007, then that competitor will be removed from further participation in the tournament. TopCoder members who are performing internships for any official tournament sponsor between February 19 and June 29, 2007 are also ineligible to compete.
 </p>
 <p>
 Those members who are eligible to compete in any of the four tournament competitions will be permitted to participate in any/all of them online.  However, in the event a member becomes a finalist in more than one competition and the onsite competition times overlap, the member must choose only one competition in which to participate as a finalist by May 11, 2007.
@@ -80,7 +80,7 @@ Registration for the 2007 TopCoder Open Algorithm Competition will open at 9:00A
 <ul>
 <li>Competed in a TopCoder rated event between October 27, 2006 and March 27, 2007; and </li>
 <li>Competed in a total of at least three (3) TopCoder rated events; and </li>
-<li>Registered for the 2007 TCO by Wednesday, March 27 at 12:00 PM (noon) (GMT/UTC -4); and </li>
+<li>Registered for the 2007 TCO Algorithm Competition; and </li>
 <li>Met all other tournament eligibility criteria.</li>
 </ul>
 </p>
@@ -255,7 +255,7 @@ All contestants must confirm their attendance at the onsite rounds no later than
 </p>
 <p>
 <b>Visa Assistance</b><br>
-At the end of each Online Round #1, TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors that advance to Online Round 1 will receive a request form to fill out if they require a letter.  Competitors will have until 5:00 PM EDT (GMT/UTC -4) on Monday, April 23, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If you fail to request a visa invitation letter by the above date, TopCoder will not assist you in the process of obtaining a travel visa. See more information about travel visas here .  
+At the end of each Online Round #1, TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors that advance to Online Round 1 will receive a request form to fill out if they require a letter.  Competitors will have until 5:00 PM EDT (GMT/UTC -4) on Monday, April 23, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If you fail to request a visa invitation letter by the above date, TopCoder will not assist you in the process of obtaining a travel visa. See more information about travel visas <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=getvisa">here</a>.  
 </p>
 <p>
 <b>Travel Details</b><br>

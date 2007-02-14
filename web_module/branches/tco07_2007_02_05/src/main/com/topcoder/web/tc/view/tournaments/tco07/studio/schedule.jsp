@@ -73,7 +73,31 @@
                                 </tr>
                        </tbody>
                         </table>
-                     <p></p>
+
+    <p><br></p>
+
+    <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+    <thead>
+            <tr>
+                   <td class="title" colspan="2">Important Dates</td>
+            </tr>
+            <tr>
+                   <td class="header">Important Items to Note</td>
+                   <td class="header">Date and Time (Eastern Daylight Time)</td>
+            </tr>
+    </thead>
+    <tbody>
+            <tr class="light">
+                   <td class="value">Last Day to Request a Visa Letter</td>
+                   <td class="value">Monday, April 23, 2007 at 5:00 PM</td>
+            </tr>
+            <tr class="dark">
+                   <td class="value">Finalist Documents Due</td>
+                   <td class="value">Friday, May 11, 2007 at 5:00 PM</td>
+            </tr>
+   </tbody>
+    </table>
+                         <p></p>
                     </div>
                 </td>
             </tr>

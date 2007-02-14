@@ -32,12 +32,13 @@
                     <img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />
                     <div id="pageBody">
 
-<h1><div>2007 TopCoder Open</div></h1>
+<h1><div>2007 TopCoder Open Sponsored by AOL</div></h1>
+<h2>Welcome to the 2007 TopCoder Open</h2>
 <p>
 It's the ultimate TopCoder experience!  Four competitions, professional and collegiate programmers and designers from all over the world, 80 finalists, and one grand finale at The Mirage in Las Vegas, Nevada, June 26 - 29, 2007; the 2007 TopCoder Open has arrived!
 </p>
 <p>
-This is your chance to compete in one of the most prestigious competitions on earth.  If you have programming talent and/or graphic design talent, you don't want to miss this tournament.  We're handing out $250,000 in prize money and 80 all expense-paid trips to Las Vegas, Nevada!
+This is your chance to compete in one of the most prestigious competitions on earth.  If you have programming talent and/or graphic design talent, you don't want to miss this tournament.  We're handing out $260,000 in prize money and 80 all expense-paid trips to Las Vegas, Nevada!
 </p>
 <h2>How do you get a chance at the glory, cash and trip?</h2>
 <ol>

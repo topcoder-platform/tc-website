@@ -64,7 +64,17 @@ It is important for you to read the official <A href="/tc?module=Static&d1=tourn
 <p>
 The competition is free and you must be 18 years or older, as well as meet all eligibility criteria, in order to participate.
 </p>
-
+<h2>How to Register for the Marathon Match Competition</h2>
+<p>
+<strong>Already a TopCoder Member?</strong><br>
+Click <A href="">here</A> to register for the TCO07 Marathon Match Competition.
+</p>
+<p>
+<strong>Not Yet a TopCoder Member?</strong><br>
+Click <A href="/reg/">here</A> to register as a TopCoder member.<br>
+Check your email and activate your new TopCoder account.<br>
+Click <A href="">here</A> to register for the TCO07 Marathon Match Competition
+</p>
                     </div>
                 </td>
             </tr>

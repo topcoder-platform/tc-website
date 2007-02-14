@@ -210,11 +210,11 @@
 Below is a list of start times for the various rounds. Click the time that corresponds to the round you are interested in to see what time coding begins in your time zone. 
 </p>
 <p>
-<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=29&year=2007&hour=7&min=0&sec=0&p1=179">7:00 AM</A>&#160;
-<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=29&year=2007&hour=9&min=0&sec=0&p1=179">9:00 AM</A>&#160;
-<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=31&year=2007&hour=13&min=0&sec=0&p1=179">1:00 PM</A>&#160;
-<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=27&year=2007&hour=17&min=0&sec=0&p1=179">5:00 PM</A>&#160;
-<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=4&day=3&year=2007&hour=21&min=0&sec=0&p1=179">9:00 PM</A>
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=29&year=2007&hour=7&min=0&sec=0&p1=179" target="_blank">7:00 AM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=29&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">9:00 AM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=31&year=2007&hour=13&min=0&sec=0&p1=179" target="_blank">1:00 PM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=27&year=2007&hour=17&min=0&sec=0&p1=179" target="_blank">5:00 PM</A>&#160;
+<A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=4&day=3&year=2007&hour=21&min=0&sec=0&p1=179" target="_blank">9:00 PM</A>
 </p>
 
                     </div>

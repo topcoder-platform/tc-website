@@ -33,7 +33,7 @@
 
                         <h1><div>How to get to the TCO07</div></h1>
 <p>
-<A href="http://www.mirage.com/" target="_blank">Mirage</A><br>
+<A href="/?t=sponsor&c=link&link=http://www.mirage.com/" target="_blank">Mirage</A><br>
 3400 S. Las Vegas Blvd.<br>
 Las Vegas, NV 89109<br>
 </p>
@@ -54,15 +54,15 @@ From San Francisco:<br>
 San Francisco to Las Vegas is about 580 miles (930 km). Take I-80 East to Reno, Nevada, then follow U.S. 95 South to Las Vegas.
 </p>
 <p>
-For driving directions from other areas:  <A href="http://www.mapquest.com/" target="_blank">www.mapquest.com</A>
+For driving directions from other areas:  <A href="/?t=sponsor&c=link&link=http://www.mapquest.com/" target="_blank">www.mapquest.com</A>
 </p>
 <p>
 <strong>Flying to Vegas:</strong>
-The McCarran International Airport is located 8 minutes from the Mirage.  It offers a variety of airlines and ground transportation to the Strip.  See here for more details:  <A href="http://www.mccarran.com/" target="_blank">http://www.mccarran.com/</A>
+The McCarran International Airport is located 8 minutes from the Mirage.  It offers a variety of airlines and ground transportation to the Strip.  See here for more details:  <A href="/?t=sponsor&c=link&link=http://www.mccarran.com/" target="_blank">http://www.mccarran.com/</A>
 </p>
 <p>
 <strong>Bussing to Vegas:</strong>
-Go to the <A href="http://www.greyhound.com/" target="_blank">Greyhound web site</A> to get to Las Vegas, NV.
+Go to the <A href="/?t=sponsor&c=link&link=http://www.greyhound.com/" target="_blank">Greyhound web site</A> to get to Las Vegas, NV.
 </p>
 
                     </div>

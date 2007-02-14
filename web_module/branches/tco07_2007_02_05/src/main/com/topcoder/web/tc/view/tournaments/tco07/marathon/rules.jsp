@@ -45,7 +45,7 @@
 
 <h2>Overview of the Tournament</h2>
 <p>
-The 2007 TopCoder Open ("TCO") Marathon Match Competition will take place between March 7 and June 29, 2007. It will consist of four (4) online elimination rounds and one (1) onsite final round. The prize purse for this competition is $30,000 in cash. Up to 8 competitors will win a cash prize, and for competing in Online Round #2, up to 500 competitors will receive a limited edition 2007 TopCoder Open t-shirt. The top 8 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds, being held at the Mirage in Las Vegas, Nevada, USA on June 27, 28 and 29, 2007. 
+The 2007 TopCoder Open ("TCO") Marathon Match Competition will take place between March 7 and June 29, 2007. It will consist of four (4) online elimination rounds and one (1) onsite final round. The prize purse for this competition is $30,000 in cash. Up to 8 competitors will win a cash prize, and for competing in Online Round #2, up to 500 competitors will receive a limited edition 2007 TopCoder Open t-shirt. The top 8 finishers in the online rounds will advance to the onsite Championship round, being held at the Mirage in Las Vegas, Nevada, USA on June 27, 2007.
 </p>
 <a name="eligibility"></a>
 <h2>Eligibility</h2>
@@ -53,10 +53,10 @@ The 2007 TopCoder Open ("TCO") Marathon Match Competition will take place betwee
 TopCoder members meeting the following criteria are eligible to compete in the Marathon Match Competition: 
 </p>
 <ul>
-<li>Must be at least 18 years of age (as of February 19, 2007) </li>
+<li>Must be at least 18 years of age (as of March 7, 2007) </li>
 </ul>
 <p>
-TopCoder members who are 18 years of age or older as of February 19, 2007 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria. 
+TopCoder members who are 18 years of age or older as of March 7, 2007 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria. 
 </p>
 <p>
 Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families (parent, child, sibling, and spouse of each) and/or persons living in the same household as such persons, are ineligible to enter the tournament. If a competitor's employer signs on as an official sponsor of the tournament after February 19, 2007, then that competitor will be removed from further participation in the tournament. TopCoder members who are performing internships for any official tournament sponsor between February 19 and June 29, 2007 are also ineligible to compete. 
