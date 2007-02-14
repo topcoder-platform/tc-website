@@ -19,6 +19,7 @@ public class ViewRegistration extends ViewRegistrationBase {
     }
 
     protected void alreadyRegisteredProcessing(EventRegistration er) {
+        getRequest().setAttribute("eligible", er.isEligible());
     }
     
     public boolean isEligible(Event e, User u) throws Exception{

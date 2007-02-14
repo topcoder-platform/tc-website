@@ -2,7 +2,8 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%String compType = (String) request.getAttribute("ct");
-  Event e = (Event) request.getAttribute("event");%>
+  Event e = (Event) request.getAttribute("event");
+  Boolean eligible = (Boolean) request.getAttribute("eligible"); %>
 <html>
 <head>
     <title>2007 TopCoder Open - Computer Programming Tournament</title>
@@ -34,10 +35,22 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Registration Successful</div></h1>
+                    <h1><div>
+                    <%if (eligible.booleanValue()) {%>
+                        Registration Successful
+                    <%} else {%>
+                        Registration Failed
+                    <%}%>
+                    </div></h1>
+
 
                     <div align="center" style="margin:40px;">
-                    You have successfully registered for the<br><strong><%=e.getDescription()%></strong>.
+                        <%if (eligible.booleanValue()) {%>
+                            You have successfully registered for the<br><strong><%=e.getDescription()%></strong>.
+                        <%} else {%>
+                            Sorry, you are ineligible for the <strong><%=e.getDescription()%></strong>.  If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
+                        <%}%>
+                    
                     </div>
 
                     </div>
