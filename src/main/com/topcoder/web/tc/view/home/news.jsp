@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.14.07<br>1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_10">Marathon Match 10 - Analysis</A></span><br><br>
+In this game of PacMan, your program controls the PacMan on a 10,000x10,000
+grid while he tries to eat a wandering piece of fruit and not get eaten by
+the four ghosts that are following predetermined strategies to chase him.
+      </td>
+      <td class="newsPhoto"><img src="/i/m/jdmetz_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7459326" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_10">full story</A> | 
+        <tc-webtag:forumLink forumID="506256" message="discuss this" /> | 
+        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.14.07<br>10:45 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -172,21 +191,5 @@ problem proved too hard, and none of the 30 submitted programs passed.
    <tr><td class="newsLinksCell">
         <tc-webtag:forumLink forumID="506277" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.06.07<br>5:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=020607">Marathon Man: An interview with battyone</A></span><br><br>
-       On December 27, 2006, TopCoder wrapped up the Intel Multi-Threading Competition Series. Over the course of the 12 Intel competitions, an average of 836 TopCoder members registered for each match, with an average of 206 members submitting at least one solution in each.</td>
-      <td class="newsPhoto"><img src="/i/m/d000hg_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21464956" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=020607">full story</A> | 
-         <tc-webtag:forumLink forumID="506274" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
