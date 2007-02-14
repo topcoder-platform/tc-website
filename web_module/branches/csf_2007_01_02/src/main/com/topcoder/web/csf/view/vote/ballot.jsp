@@ -422,10 +422,17 @@ function submit() {
                 <td class="valueC">
                     not ranked
                 </td>
-                <td class="value" nowrap="nowrap">
-                        ${candidate.name}
+                <td class="value">
+                    <span style="cursor: default; white-space: nowrap;" onMouseOver="blurbUp(this, '${candidate.name}Blurb')" onMouseOut="popHide('${candidate.name}Blurb')">
+                        ${candidate.name}Microsoft and British Telecom, in association...
+                    </span>
+                    <div id="${candidate.name}Blurb" class="popUp">
+                        <div style="width: 400px; white-space: normal;">
+                        <strong>Full description:</strong><br><br>Microsoft and British Telecom, in association with TopCoder, will run a series of Connected Services Sandbox Mashup Service Design and Assembly competitions. In these competitions, developers from Sandbox member organizations, as well as freelance application developers, can collaborate and compete to generate new mashup service designs and then build functional prototypes of those designs.<br><br>Through this series of competitions, Sandbox members can take advantage of a "no-shore" pool of creative talent to design and assemble working prototypes of services which could result in commercialized deployments in service provider networks.
+                        </div>
+                    </div>
                     <a href="#" target="_blank">
-                        <img src="/i/layout/disk.gif" alt="" align="absmiddle" onMouseOver="popUp(this,'magglassPopup')" onMouseOut="popHide()"/>
+                        <img src="/i/layout/disk.gif" alt="" align="absmiddle" onMouseOver="popUp(this,'diskPopup')" onMouseOut="popHide()"/>
                     </a>
                 </td>
                 <td class="valueC">
@@ -467,8 +474,8 @@ function submit() {
     </tfoot>
 </table>
 
-<%-- MAGNIFYING GLASS POPUP --%>
-<div id="magglassPopup" class="popUp">
+<%-- DISK POPUP --%>
+<div id="diskPopup" class="popUp">
     <div>Download submission</div>
 </div>
 
