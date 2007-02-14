@@ -45,7 +45,7 @@
 
 <h2>Overview</h2>
 <p>
-The 2007 TopCoder Open Studio Design Competition ("SDC") will take place between March 5, 2007 and June 29, 2007. It will consist of eight (8) weeks of online competition and one (1) onsite final round, being the Championship round. The prize purse for this tournament is $30,000 in cash. The eight (8) competitors with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at The Mirage in Las Vegas, Nevada, USA on June 28, 2007.
+The 2007 TopCoder Open Studio Design Competition ("SDC") will take place between February 19, 2007 and June 29, 2007. It will consist of eight (8) weeks of online competition and one (1) onsite final round, being the Championship round. The prize purse for this tournament is $30,000 in cash. The eight (8) competitors with the highest cumulative placement scores after the online rounds of competition will advance to the onsite Championship round, being held at The Mirage in Las Vegas, Nevada, USA on June 28, 2007.
 </p>
 
 <a name="eligibility"></a>
@@ -89,21 +89,15 @@ Studio contests that are eligible for points towards the tournament will be iden
 <p>
 You must be registered for the SDC to be eligible for tournament placement points. Placement scoring is as follows: 
 </p>
-                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
-                        <thead>
-                                <tr>
-                                       <td class="header"><div align="center">
-                                       1st Place - 10 Points<br>
-                                       2nd Place - 7 Points<br>
-                                       3rd Place - 5 points<br>
-                                       4th Place - 4 Points<br>
-                                       Below 4th Place - 0 Points 
-                                       </div>
-                                        </td>
-                                </tr>
-                        </thead>
-                        </table>
-                        <p></p>
+
+<div align="left" style="margin-bottom: 10px; margin-left: 300px;"><strong>
+1st Place - 10 Points<br>
+2nd Place - 7 Points<br>
+3rd Place - 5 points<br>
+4th Place - 4 Points<br>
+Below 4th Place - 0 Points 
+</strong>
+</div>
 
 
 <p>
@@ -247,7 +241,8 @@ Up to eight (8) advancers from the eight (8) weeks of online competition will tr
 All contestants must confirm their attendance at the onsite rounds no later than 5:00 PM EDT (UTC/GMT -4) on Friday, May 11, 2007. That is, contestants must have acquired any necessary travel visas and know for certain that they can travel to the U.S. by that date and time.  In order for a finalist to confirm attendance for the onsite finals, it is necessary to show proof of visa and/or passport by the deadline (5:00 PM EDT (UTC/GMT -4) on Friday, May 11, 2007) if the finalist is required to travel from outside the United States. Finalists may do this by emailing a copy of their documents to Jessie D'Amato Ford at jford@topcoder.com. Competitors who fail to meet this requirement by the deadline will not be able to attend the onsite finals and will be replaced as an onsite finalist. 
 </p>
 <b>Visa Assistance</b><br>
-TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors who pass screening on at least two designs will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, their letter will be shipped out by FedEx International Priority mail.  Competitors have until 5:00 PM EDT (GMT/UTC -4) on Monday, April 23, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If you fail to request a visa invitation letter by the date above, TopCoder will not assist you in the process of obtaining a travel visa. See more information about travel visas here .  </p>
+TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors who pass screening on at least two designs will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, their letter will be shipped out by FedEx International Priority mail.  Competitors have until 5:00 PM EDT (GMT/UTC -4) on Monday, April 23, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If you fail to request a visa invitation letter by the date above, TopCoder will not assist you in the process of obtaining a travel visa. See more information about <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=getvisa">travel visas</A>.  
+</p>
 <p>
 <b>Travel Details</b><br>
 TopCoder will provide air travel arrangements for each competitor. The flight reserved by and paid for by TopCoder is for arrival on June 26, 2007 and departure on June 30, 2007 (or July 1, 2007 if the cost is significantly less to fly out a day later).  TopCoder will pay for each competitor's airfare up to $1,500, however we will do what we believe is reasonable given each individual circumstance (e.g., if the most reasonably convenient ticket itinerary is a little more than $1,500, TopCoder will pay for the entire cost).  Extended flights and/or hotel room nights requested by a competitor that result in additional costs will be the responsibility of the competitor and will be deducted from the competitor's total TCO prize money won. 
@@ -255,9 +250,12 @@ TopCoder will provide air travel arrangements for each competitor. The flight re
 <p>
 TopCoder will also provide ground transportation to and from the McCarran International Airport in Las Vegas, as well as hotel accommodations and meals for each contestant. All other expenses are the responsibility of the contestant. 
 </p>
-<h2>Online portion of Championship Round: </h2>
 <p>
-Each finalist will compete on the same design challenge, which will be announced on Tuesday, June 26, 2007 during the Welcome Reception. Finalists will receive an overview packet at the Welcome Reception describing their challenge, which begins Thursday, June 28, 2007 at 8:00 AM PDT in the Competition Arena.
+TopCoder will not provide travel or lodging accommodations for competitor guests at the 2007 TCO.
+</p>
+<h2>Onsite Championship Round</h2>
+<p>
+Each finalist will compete on the same design challenge, which will be announced on Tuesday, June 26, 2007 during the Welcome Reception. Finalists will receive an overview packet at the Welcome Reception describing their challenge, which begins Thursday, June 28, 2007 at 9:00 AM PDT in the Competition Arena.
 </p>
 <p>
 Finalists will have one (1) day to compete and submit their final design. During the competition, finalists will also have a brief public feedback period with the judges. Judges will give the finalists their initial impressions of each design. Finalists will have time to incorporate this feedback into their design as they work toward finalizing their submission.
@@ -350,7 +348,7 @@ All contestants who submit designs that pass screening for at least two (2) TCO 
                         </table>
 <p></p>
 <p>
-In order for onsite finalists to receive their onsite cash prize, they must first complete all TCO-related work for all online rounds and the Championship Round, including final fixes. 
+In order for onsite finalists to receive their onsite cash prize, they must first complete all TCO-related work for all online rounds and the Championship Round. 
 </p>
 
 <a name="conditions"></a>

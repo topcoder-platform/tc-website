@@ -58,7 +58,7 @@
                                        <td class="value">6:00 PM EDT (GMT/UTC -4)</td>
                                 </tr>
                                 <tr class="dark">
-                                       <td class="value">Online Competition</td>
+                                       <td class="value">Online Competition*</td>
                                        <td class="value">March 5, 2007</td>
                                        <td class="value">9:00 AM EST (GMT/UTC -5)</td>
                                        <td class="value">April 30, 2007</td>
@@ -67,9 +67,12 @@
                                 <tr class="light">
                                        <td class="value">Onsite Competition</td>
                                        <td class="value">June 27, 2007</td>
-                                       <td class="value">8:00 AM PDT (GMT/UTC -4)</td>
+                                       <td class="value">9:00 AM PDT (GMT/UTC -4)</td>
                                        <td class="value">June 28, 2007</td>
-                                       <td class="value">5:00 PM PDT (GMT/UTC -4)</td>
+                                       <td class="value">6:00 PM PDT (GMT/UTC -4)</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value" colspan="5">* New contests will be available each Tuesday, so keep an eye on the <a href="http://studio.topcoder.com/?module=ViewActiveContests">Active Contests</a>.</td>
                                 </tr>
                        </tbody>
                         </table>
