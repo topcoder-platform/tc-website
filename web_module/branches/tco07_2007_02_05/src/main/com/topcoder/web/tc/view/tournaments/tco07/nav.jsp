@@ -23,7 +23,9 @@ function toggleMenu(menuTitle,menuID){
         <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("joinus")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Join Us Onsite</div></a>
             <ul>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("onsiteschedule")) {%> class="navHighlight"<% } %>><div>Schedule</div></a></li>
+            <%--
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=devForums"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("devforums")) {%> class="navHighlight"<% } %>><div>Developer Forums</div></a></li>
+            --%>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=getVisa"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("getvisa")) {%> class="navHighlight"<% } %>><div>Getting a Visa</div></a></li>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=transportation"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("transportation")) {%> class="navHighlight"<% } %>><div>Transportation</div></a></li>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=hotels"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("hotels")) {%> class="navHighlight"<% } %>><div>Hotels</div></a></li>
