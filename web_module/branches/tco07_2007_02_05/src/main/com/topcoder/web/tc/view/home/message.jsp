@@ -1,5 +1,73 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>    
-                              
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+
+
+m
+
+
+<%-- TCO07 STARTS HERE --%>        
+<% ResultSetContainer rscTco07 = (ResultSetContainer) request.getAttribute("tco07_info");
+    if (rscTco07 != null && !rscTco07.isEmpty()) {
+%>
+
+<style type="text/css">
+    .tco07Message {
+        color: #666666;
+        font-size: 11px;
+        font-weight: normal;
+        padding: 5px;
+        background: #FFFFFF;
+    }
+
+    A.tco07MessageLink:link {
+        color: #8B0A50;
+        text-decoration: underline;
+    }
+
+    A.tco07MessageLink:visited {
+        color: #8B0A50;
+        text-decoration: underline;
+    }
+
+    A.tco07MessageLink:hover {
+        color: #FF0000;
+        text-decoration: none;
+    }
+
+    A.tco07MessageLink:active {
+        color: #FF0000;
+        text-decoration: underline;
+    }
+</style>
+
+<table border="0" cellspacing="0" cellpadding="0" width="180">
+    <tr><td><img src="/i/messageBoxTop.gif" width="180" height="11" border="0"/></td></tr>
+    <tr><td><img src="/i/important_message.gif" width="180" height="20" border="0"/></td></tr>
+</table>
+<table cellspacing="0" cellpadding="0" class="messageBoxFrame" style="margin-bottom: 10px;">
+    <tr>
+        <td class="tco07Message" align="center">
+            <div align="center">
+            <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/tournament/tco07/message.png" alt="TCO07" border="0"/></A>
+            </div>
+            <rsc:iterator list='<%=rscTco07%>' id="resultRow">
+                <% if (resultRow.getIntItem("registered")== 0) { %>
+                	Sorry, you are ineligible for the <strong><rsc:item name="event_desc" row='<%=resultRow%>'/></strong>.<br><br>If this is a mistake, contact <A href="mailto:service@topcoder.com" class="tco07MessageLink">service@topcoder.com</A>.
+                <% } else if (rscTco07.getIntItem(0, "registered")== 1) { %>
+                	You are registered for the <strong><rsc:item name="event_desc" row='<%=resultRow%>'/></strong>.
+                <% } else { %>
+                	You are not registered for the <strong><rsc:item name="event_desc" row='<%=resultRow%>'/></strong>, click
+                <a href="/tc?module=TCO07ViewRegistration&ct=<rsc:item name="ct" row='<%=resultRow%>'/>" class="tco07MessageLink">here</a> to register.
+                <% } %>
+                <br />
+            </rsc:iterator>
+        </td>
+    </tr>
+</table>
+<% } %>
+
+
+<%-- TCHS07 STARTS HERE --%>        
 <% ResultSetContainer rscTch07 = (ResultSetContainer) request.getAttribute("tchs07_info");
     if (rscTch07 != null && !rscTch07.isEmpty() && rscTch07.getIntItem(0, "open") == 1) {
 %>
