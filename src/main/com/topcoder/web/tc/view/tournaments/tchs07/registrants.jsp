@@ -40,7 +40,7 @@
             <a href="/tc?module=TCHS07ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
         </td>
         <td class="header" width="40%">
-            <a href="">Region</a>
+            <a href="/tc?module=TCHS07ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("region_name")%>"/>">Region</a>
         </td>
         <td class="headerR">
             <a href="/tc?module=TCHS07ViewRegistrants<tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
@@ -55,7 +55,7 @@
                     <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="hs_algorithm" darkBG="true"/>
                 </td>
                 <td class="value">
-                    Alpha
+                    <rsc:item name="region_name" row='<%=resultRow%>'/>
                 </td>
                 <td class="valueR">
                     <rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>'/>
