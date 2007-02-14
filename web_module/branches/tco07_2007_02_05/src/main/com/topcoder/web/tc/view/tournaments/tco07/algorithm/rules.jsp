@@ -70,7 +70,7 @@ In the event that a competitor is disqualified from any round, no other competit
 <a name="registration"></a>
 <h2>Registration</h2>
 <p>
-Registration for the 2007 TopCoder Open Algorithm Competition will open at 9:00AM EDT on Monday, February 19, 2007, and will close at 6:00 PM EDT on Tuesday, March 27, 2007. In order to be eligible to compete in the Algorithm Competition of the TCO, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the tournament; however each individual may only register once. 
+Registration for the 2007 TopCoder Open Algorithm Competition will open at 9:00AM EDT on Monday, February 19, 2007, and will close at 5:00 PM EDT on Tuesday, March 27, 2007. In order to be eligible to compete in the Algorithm Competition of the TCO, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the tournament; however each individual may only register once. 
 </p>
 
 <a name="qualification"></a>
@@ -204,7 +204,7 @@ The dates and times of the online rounds of competition are as follows:
                                        <td class="value">48</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value" colspan="4">* NOTE: All times are Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will be the following day at the same time.<br>
+                                       <td class="value" colspan="4">* NOTE: All times are Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.<br>
                                        ** If less than 1,800 competitors qualify to compete in Online Round #1, the maximum number of competitors that will be assigned into any section will be 40% of the actual number of qualifiers, rounded up.</td>
                                 </tr>
                         </tbody>
@@ -265,6 +265,7 @@ TopCoder will provide air travel arrangements for each competitor. The flight re
 TopCoder will also provide ground transportation to and from McCarran International Airport in Las Vegas, as well as hotel accommodations and certain meals for each contestant. All other expenses are the responsibility of the contestant. TopCoder will not provide travel or lodging accommodations for competitor guests at the 2007 TCO. 
 </p>
 <p>
+<b>Room Assignment</b><br>
 TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in the following manner:
 </p>
 <p>
@@ -401,7 +402,7 @@ If a contestant is eliminated for cheating after he/she is confirmed as a finali
 All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects. 
 </p>
 <p>
-Prizewinners will be notified via e-mail within 10 days of the completion of each round that they have won a prize. Cash prize winners from Online Rounds #1, #2, and #3 must complete the following documents within 60 days of the date of the online round during which a cash prize was awarded: 
+Prizewinners will be notified via e-mail within 10 days of the completion of each round that they have won a prize. Cash prize winners from Online Rounds #2, and #3 must complete the following documents within 60 days of the date of the online round during which a cash prize was awarded: 
 <ul>
 <li>Affidavit of Eligibility and Liability and Publicity Release (must be notarized unless a notarized affidavit is already on file with TopCoder)</li>
 <li>Applicable tax form (unless one is already on file with TopCoder)</li>
