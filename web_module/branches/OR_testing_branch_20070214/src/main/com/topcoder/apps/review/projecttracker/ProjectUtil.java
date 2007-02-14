@@ -342,6 +342,7 @@ public class ProjectUtil {
                     // Create scorecard id
                     // 1, 'Scorecard ID'
                     createPhaseCriteria(conn, phaseId, 1, String.valueOf(reviewTemplateId), modUserId);
+                    createPhaseCriteria(conn, phaseId, 6, "3", modUserId);
                 }
 
                 if (phases[i].getPhaseType().getId() == PHASE_TYPE_APPEAL) {
