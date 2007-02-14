@@ -14,7 +14,8 @@ public class DAOTests extends TCHibernateTestCase {
         final TestSuite suite = new TestSuite();
 
         suite.addTest(new TestSuite(EventDAOTestCase.class));
-/*
+        suite.addTest(new TestSuite(EventRegistrationDAOTestCase.class));
+        suite.addTest(new TestSuite(UserDAOTestCase.class));
         suite.addTest(new TestSuite(CoderTypeDAOTestCase.class));
         suite.addTest(new TestSuite(NotificationDAOTestCase.class));
         suite.addTest(new TestSuite(StateDAOTestCase.class));
@@ -25,7 +26,6 @@ public class DAOTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(TeamTypeDAOTestCase.class));
         suite.addTest(new TestSuite(DemographicAssignmentDAOTestCase.class));
         suite.addTest(new TestSuite(CountryDAOTestCase.class));
-        suite.addTest(new TestSuite(UserDAOTestCase.class));
         suite.addTest(new TestSuite(TermsOfUseDAOTestCase.class));
         suite.addTest(new TestSuite(CoderDAOTestCase.class));
         suite.addTest(new TestSuite(ReferralDAOTestCase.class));
@@ -45,7 +45,6 @@ public class DAOTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(CompanyDAOTestCase.class));
         suite.addTest(new TestSuite(SchoolTypeDAOTestCase.class));
         suite.addTest(new TestSuite(DemographicAnswerDAOTestCase.class));
-*/
 
         return suite;
     }
