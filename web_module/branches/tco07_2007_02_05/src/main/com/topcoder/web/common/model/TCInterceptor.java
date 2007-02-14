@@ -25,7 +25,7 @@ public class TCInterceptor extends EmptyInterceptor {
     }
 
     public String onPrepareStatement(String string) {
-        log.debug("sql: " + string);
+        //log.debug("sql: " + string);
         return super.onPrepareStatement(string);
     }
 
@@ -51,7 +51,6 @@ public class TCInterceptor extends EmptyInterceptor {
         }
         return false;
     }
-
 
 /*
     public Boolean isTransient(Object entity) {
@@ -85,8 +84,6 @@ public class TCInterceptor extends EmptyInterceptor {
         return false;
     }
 */
-
-
 
 
 }
