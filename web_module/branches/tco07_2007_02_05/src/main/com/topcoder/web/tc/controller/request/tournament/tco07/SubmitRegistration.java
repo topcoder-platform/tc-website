@@ -8,7 +8,6 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.RegionType;
 import com.topcoder.web.common.model.Response;
@@ -62,21 +61,21 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                 addError(pref1Key, "You can't select the same section more than once.");
                 addError(pref2Key, "You can't select the same section more than once.");
                 addError(pref3Key, "You can't select the same section more than once.");
-            }
-            
-            if (pref1.equals(pref2)) {
-                addError(pref1Key, "You can't select the same section more than once.");
-                addError(pref2Key, "You can't select the same section more than once.");
-            }
-            
-            if (pref1.equals(pref3)) {
-                addError(pref1Key, "You can't select the same section more than once.");
-                addError(pref3Key, "You can't select the same section more than once.");
-            }
-            
-            if (pref2.equals(pref3)) {
-                addError(pref2Key, "You can't select the same section more than once.");
-                addError(pref3Key, "You can't select the same section more than once.");
+            } else {
+                if (pref1.equals(pref2)) {
+                    addError(pref1Key, "You can't select the same section more than once.");
+                    addError(pref2Key, "You can't select the same section more than once.");
+                }
+                
+                if (pref1.equals(pref3)) {
+                    addError(pref1Key, "You can't select the same section more than once.");
+                    addError(pref3Key, "You can't select the same section more than once.");
+                }
+                
+                if (pref2.equals(pref3)) {
+                    addError(pref2Key, "You can't select the same section more than once.");
+                    addError(pref3Key, "You can't select the same section more than once.");
+                }
             }
         }    
         
@@ -101,6 +100,13 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     }
     
     protected void completeRegistration(Event event, User user, Boolean eligible, List responses) {
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            Response r = (Response) it.next();
+            log.info("r.getAnswer().getId() :" + r.getAnswer().getId());
+            log.info("r.getQuestion().getId() :" + r.getQuestion().getId());
+            log.info("r.getText() :" + r.getText());
+        }
+        
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
         user.addEventRegistration(event, responses, eligible);
         userDAO.saveOrUpdate(user);
