@@ -100,13 +100,6 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     }
     
     protected void completeRegistration(Event event, User user, Boolean eligible, List responses) {
-        for (Iterator it = responses.iterator(); it.hasNext();) {
-            Response r = (Response) it.next();
-            log.info("r.getAnswer().getId() :" + r.getAnswer().getId());
-            log.info("r.getQuestion().getId() :" + r.getQuestion().getId());
-            log.info("r.getText() :" + r.getText());
-        }
-        
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
         user.addEventRegistration(event, responses, eligible);
         userDAO.saveOrUpdate(user);
