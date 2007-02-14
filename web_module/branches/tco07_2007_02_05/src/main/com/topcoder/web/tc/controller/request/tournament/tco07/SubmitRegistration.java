@@ -8,6 +8,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.RegionType;
 import com.topcoder.web.common.model.Response;
@@ -110,6 +111,10 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         
         getRequest().setAttribute("assignedRegion", user.getHomeAddress().getCountry().getRegionByType(rt).getName());
         getRequest().setAttribute("eligible", eligible);
+    }
+    
+    protected void alreadyRegisteredProcessing(EventRegistration er) {
+        getRequest().setAttribute("eligible", er.isEligible());
     }
     
     public boolean isEligible(Event e, User u) throws Exception{
