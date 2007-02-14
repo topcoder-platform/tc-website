@@ -7,22 +7,20 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
-import com.topcoder.web.common.model.Answer;
-import com.topcoder.web.common.model.CoderSessionInfo;
-import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
-import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseLocal;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author dok
@@ -133,6 +131,7 @@ public class ViewRegistration extends Base {
         }
         //just adding the date check to hold off on the db hit when we don't need it
 
+/*
         if (isTournamentTime()) {
             if (log.isDebugEnabled()) {
                 log.debug("tourny time");
@@ -143,18 +142,29 @@ public class ViewRegistration extends Base {
                 if (log.isDebugEnabled()) {
                     log.debug("yes, they're a student");
                 }
-                if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
-                    getRequest().setAttribute("notRegistered", "true");
-                }
+*/
+        if (isTournamentProject(projectId) && !isRegisteredForTournament()) {
+            getRequest().setAttribute("notRegistered", "true");
+        }
+/*
             }
         }
+*/
     }
 
     protected boolean isTournamentTime() {
-        TCCC06ComponentTerms t = new TCCC06ComponentTerms();
-        Calendar now = Calendar.getInstance();
-        now.setTime(new Date());
-        return now.before(t.getEnd()) && now.after(t.getBeginning());
+        List l = DAOUtil.getFactory().getEventDAO().getEvents();
+        Event curr;
+        EventType et = DAOUtil.getFactory().getEventTypeDAO().find(EventType.COMPONENT_TOURNAMENT_ID);
+        Date now = new Date();
+        boolean ret = false;
+        for (Iterator it = l.iterator(); it.hasNext();) {
+            curr = (Event) it.next();
+            if (curr.getType().equals(et) && curr.getRegistrationStart().before(now) && curr.getRegistrationEnd().after(now)) {
+                ret = true;
+            }
+        }
+        return ret;
     }
 
     protected boolean isTournamentProject(long projectId) throws Exception {
@@ -169,14 +179,9 @@ public class ViewRegistration extends Base {
     }
 
     protected boolean isRegisteredForTournament() throws Exception {
-        boolean ret = false;
-        UserTermsOfUse userTerms = (UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class);
-        ret = userTerms.hasTermsOfUse(getUser().getId(), Constants.TCCC06_COMPONENT_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
-        log.debug("they " + (ret ? "are" : "are not") + " registered");
-        return ret;
+        return DAOUtil.getFactory().getEventRegistrationDAO().find(new Long(getUser().getId()),
+                Event.TCO07_COMPONENT_ID) != null;
     }
-
-//long userId, long componentId, long projectId, int rating, String comment, boolean agreedToTerms, int phase, int version
 
     protected ComponentRegistrationServicesLocal getRegEJB() throws Exception {
         if (regServices == null) {
