@@ -43,13 +43,11 @@
                <td class="bodyText"><b>Title</b></td>
                <td class="bodyText"><b>Date</b></td>
             </tr>
-            <%--
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="10211498" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=021307"><strong>An Introduction to Code Coverage</strong></A></td>
-               <td class="bodyText" nowrap=nowrap>Feb 13, 2007</td> 
+               <td class="bodyText" nowrap=nowrap>Feb 14, 2007</td> 
             </tr>
-            --%>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="251074" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=020807"><strong>Beginning TopCoder Competition with C++</strong></A></td>
