@@ -48,11 +48,11 @@
             </div>
             <rsc:iterator list='<%=rscTco07%>' id="resultRow">
                 <% if (resultRow.getIntItem("registered")== 0) { %>
-                	Sorry, you are ineligible for the <strong><rsc:item name="event_desc" row='<%=resultRow%>'/></strong>.<br/>If this is a mistake, contact <A href="mailto:service@topcoder.com" class="tco07MessageLink">service@topcoder.com</A>.
+                	Sorry, you are ineligible for the <strong><%=resultRow.getStringItem("event_desc")%></strong>.<br/>If this is a mistake, contact <A href="mailto:service@topcoder.com" class="tco07MessageLink">service@topcoder.com</A>.
                 <% } else if (resultRow.getIntItem("registered")== 1) { %>
-                	You are registered for the <strong><%=resultRow.getStringItem("event_desc")%>'/></strong>.
+                	You are registered for the <strong><%=resultRow.getStringItem("event_desc")%></strong>.
                 <% } else { %>
-                	You are not registered for the <strong><rsc:item name="event_desc" row='<%=resultRow%>'/></strong>, click
+                	You are not registered for the <strong><%=resultRow.getStringItem("event_desc")%></strong>, click
                 <a href="/tc?module=TCO07ViewRegistration&ct=<rsc:item name="ct" row='<%=resultRow%>'/>" class="tco07MessageLink">here</a> to register.
                 <% } %>
                 <br/><br/>
