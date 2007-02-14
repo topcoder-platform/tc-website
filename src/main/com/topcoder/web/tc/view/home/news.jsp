@@ -2,6 +2,26 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.14.07<br>9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">Microsoft launches 'mashup' competition for developers</A>
+        </span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/computerworld.gif" alt="ComputerWorld logo" border="0" /></div>
+      Microsoft Corp. and BT Group PLC today launched a competition to
+encourage developers to create "network mashups" that merge
+telecommunications features such as voice and text messaging with Web
+2.0 applications like mapping and search... TopCoder Inc., which runs
+several competitions for programmers, will manage the Microsoft/BT
+event.  </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">full story</A> | 
+       <tc-webtag:forumLink forumID="514296" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+
 <%-------------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.13.07<br>5:30 PM</td>
