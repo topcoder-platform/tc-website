@@ -37,7 +37,7 @@
 <div align="center">
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
 <thead>
-    <tr><td class="title" colspan="4">Registrants: 1234</td></tr>
+    <tr><td class="title" colspan="3">Registrants: 1234</td></tr>
     <tr>
         <td class="headerC">
             <a href="sortrank">Rank</a>
