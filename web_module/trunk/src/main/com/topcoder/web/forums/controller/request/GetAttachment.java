@@ -40,7 +40,8 @@ public class GetAttachment extends ForumsProcessor {
 	        // Set the headers.
 	        getHttpResponse().setContentType("application/x-download");
 	        getHttpResponse().setHeader("Content-Disposition", "attachment; filename=" + attachment.getName());
-	
+	        getHttpResponse().setHeader("Content-Length", String.valueOf(attachment.getSize()));
+	        
 	        // Send the file.
 	        byte[] buffer = new byte[1024];
 	        int read;
