@@ -48,6 +48,14 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new EventDAOHibernate();
     }
 
+    public EventRegistrationDAO getEventRegistrationDAO() {
+        return new EventRegistrationDAOHibernate();
+    }
+
+    public EventTypeDAO getEventTypeDAO() {
+        return new EventTypeDAOHibernate();
+    }
+
     public FileTypeDAO getFileTypeDAO() {
         return new FileTypeDAOHibernate();
     }
@@ -115,10 +123,6 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     public TermsOfUseDAO getTermsOfUse() {
         return new TermsOfUseDAOHibernate();
-    }
-
-    public EventTypeDAO getEventTypeDAO() {
-        return new EventTypeDAOHibernate();
     }
 
     public QuestionTypeDAO getQuestionTypeDAO() {
