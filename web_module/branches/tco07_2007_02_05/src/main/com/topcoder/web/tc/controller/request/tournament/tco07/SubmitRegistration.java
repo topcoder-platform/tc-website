@@ -89,7 +89,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
             addError(ageKey, "Please enter a valid number for your age.");
         }
         
-        return (new Boolean (age >= 18));
+        return (new Boolean (age >= 18 && age <= 130));
     }
 
     protected void dbProcessing() throws Exception {

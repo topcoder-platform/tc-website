@@ -1,10 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>    
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
-
-m
-
-
 <%-- TCO07 STARTS HERE --%>        
 <% ResultSetContainer rscTco07 = (ResultSetContainer) request.getAttribute("tco07_info");
     if (rscTco07 != null && !rscTco07.isEmpty()) {
