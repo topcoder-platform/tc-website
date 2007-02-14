@@ -2,9 +2,9 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%-------------------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.13.07<br>5:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.14.07<br>10:45 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=021307">An Introduction to Code Coverage</A></span><br><br>
@@ -19,7 +19,6 @@ One answer is code coverage. </td>
          <tc-webtag:forumLink forumID="514295" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
--------------%>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -189,41 +188,5 @@ problem proved too hard, and none of the 30 submitted programs passed.
          <A href="/tc?module=Static&d1=features&d2=020607">full story</A> | 
          <tc-webtag:forumLink forumID="506274" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.06.07<br>5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm31">TCHS SRM 31 - Problem Set & Analysis</A></span><br><br>
-As HS SRM 31 kicked off, 243 young competitors fought their way through traffic in order to complete this problem set.  An exciting battle ensued, as the coders fought for victory in the penultimate SRM of the first season.
-      </td>
-      <td class="newsPhoto"><%--<img src="/i/m/_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm31">full story</A> | 
-        <tc-webtag:forumLink forumID="506247" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.06.07<br>4:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm337">SRM 337 - Problem Set & Analysis</A></span><br><br>
-This match was a mix of some classical but tough hard problems with a couple of ad-hoc
-and tricky (but less difficult) easy and medium problems. The trickyness, however, led
-to an entertaining challenge phase.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/soul-net_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15231364" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm337">full story</A> | 
-        <tc-webtag:forumLink forumID="506227" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
