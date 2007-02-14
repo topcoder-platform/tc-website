@@ -52,7 +52,7 @@
                                 <tr>
                                        <td class="header">Round</td>
                                        <td class="header">All Projects Posted*</td>
-                                       <td class="header">Registration Perios</td>
+                                       <td class="header">Registration Period</td>
                                        <td class="header">Submission Deadline*</td>
                                 </tr>
                         </thead>
@@ -87,31 +87,51 @@
                                        <td class="value">72 Hours</td>
                                        <td class="value">April 19, 2007 9:00AM</td>
                                 </tr>
-                                   <tr class="dark">
+                                <tr class="dark">
+                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
+                                </tr>
+                        </tbody>
+                        </table>
+                        <p><br></p>
+
+                        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+                        <thead>
+                                <tr>
+                                       <td class="title" colspan="2">Championship Rounds</td>
+                                </tr>
+                                <tr>
+                                       <td class="header">Round</td>
+                                       <td class="header">All Projects Posted*</td>
+                                       <td class="header">Registration Period</td>
+                                       <td class="header">Submission Deadline*</td>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                   <tr class="light">
                                        <td class="value">Championship Round (online portion component 1)</td>
                                        <td class="value">May 10, 2007 9:00AM</td>
                                        <td class="value">72 Hours</td>
                                        <td class="value">May 17, 2007 9:00AM</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">Championship Round (online portion component 2)</td>
                                        <td class="value">May 24, 2007 9:00AM</td>
                                        <td class="value">72 Hours</td>
                                        <td class="value">May 31, 2007 9:00AM</td>
                                 </tr>
-                                     <tr class="dark">
+                                     <tr class="light">
                                        <td class="value">Championship Round (online portion component 3)</td>
                                        <td class="value">June 7, 2007 9:00AM</td>
                                        <td class="value">72 Hours</td>
                                        <td class="value">June 14, 2007 9:00AM</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">Championship Round (onsite portion)</td>
                                        <td class="value">N/A</td>
                                        <td class="value">N/A</td>
                                        <td class="value">N/A</td>
                                 </tr>
-                            <tr class="dark">
+                                <tr class="light">
                                        <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
                                 </tr>
                         </tbody>
