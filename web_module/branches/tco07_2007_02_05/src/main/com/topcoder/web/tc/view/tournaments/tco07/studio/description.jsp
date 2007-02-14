@@ -49,7 +49,7 @@
                         Contest specifications are posted on Studio and members submit their designs according to those specs. Submissions are then screened against the contest specifications by the Contest Administrator and either passed or failed. Passing submissions are presented to the client. The client can then chose to determine a winner on their own, ask the community to chose a winner through a vote, or enter into a review and revision phase with finalists they select, selecting a winner after the revisions are completed.
                         </p>
                         <p>
-                        Learn more about the competition <a href="http://studio.topcoder.com/">here</a>.
+                        Learn more about the <a href="http://studio.topcoder.com/">competition</a>.
                         </p>
                         <p>
                         When is the competition?  See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=schedule">schedule</a>.
