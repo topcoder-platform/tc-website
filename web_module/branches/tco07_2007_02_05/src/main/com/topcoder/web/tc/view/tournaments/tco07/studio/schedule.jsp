@@ -44,7 +44,7 @@
                                 <tr>
                                        <td class="header">&#160;</td>
                                        <td class="header">Start Date</td>
-                                       <td class="header">Starte Time</td>
+                                       <td class="header">Start Time</td>
                                        <td class="header">End Date</td>
                                        <td class="header">End Time</td>
                                 </tr>

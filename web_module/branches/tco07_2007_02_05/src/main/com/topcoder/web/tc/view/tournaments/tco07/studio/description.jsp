@@ -52,6 +52,9 @@
                         Learn more about the competition <a href="http://studio.topcoder.com/">here</a>.
                         </p>
                         <p>
+                        When is the competition?  See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=schedule">schedule</a>.
+                        </p>
+                        <p>
                         Read the official <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=rules">rules and regulations</a> for important details.
                         </p>
                         <p>
