@@ -30,7 +30,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><img src="/i/tournament/tco07/drwlogo.png" alt="DRW" border="0" /></div>
+                        <div style="margin-bottom: 20px;"><a href="/?t=sponsor&c=link&link=http://www.drwtrading.com/" target="_blank"><img src="/i/tournament/tco07/drwlogo.png" alt="DRW" border="0" /></a></div>
                         
                         <h2>Think you're the best?</h2> 
                         <p>

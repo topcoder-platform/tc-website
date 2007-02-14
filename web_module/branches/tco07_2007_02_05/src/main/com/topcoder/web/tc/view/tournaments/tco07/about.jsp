@@ -52,7 +52,7 @@ This is your chance to compete in one of the most prestigious competitions on ea
     <li><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=description">Studio Design Competition</A></li>
     </ul>
 </li>
-<li>Have fun and best of luck in the competition arena!</li>
+<li>Have fun and best of luck in your chosen competition!</li>
 </ol>
 
 <p align="center" style="margin-top: 40px;">

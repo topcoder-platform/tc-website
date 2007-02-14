@@ -47,7 +47,7 @@ Los Angeles to Las Vegas is approximately 270 miles (430 km). Leaving Los Angele
 </p>
 <p>
 From Phoenix:<br>
-Phoenix to Las Vegas is about 290 miles (300 km). Take U.S. 93 North out of Phoenix, and follow it right into Las Vegas.
+Phoenix to Las Vegas is about 290 miles (465 km). Take U.S. 93 North out of Phoenix, and follow it right into Las Vegas.
 </p>
 <p>
 From San Francisco:<br>

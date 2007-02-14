@@ -30,7 +30,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><img src="/i/tournament/tco07/nsa_logo.png" alt="NSA" border="0" /></div>
+                        <div style="margin-bottom: 20px;"><a href="/?t=sponsor&c=link&link=http://www.nsa.gov/" target="_blank"><img src="/i/tournament/tco07/nsa_logo.png" alt="NSA" border="0" /></a></div>
 
                         <h2>Where Intelligence Goes to Work</h2>
                         <p>

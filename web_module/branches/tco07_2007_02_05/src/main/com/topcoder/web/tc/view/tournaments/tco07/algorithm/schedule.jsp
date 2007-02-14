@@ -34,7 +34,7 @@
                         <h1><div>Algorithm Competition Schedule *</div></h1>
                         <h2>Registration</h2>
                         <p>
-                        Registration for the 2007 TopCoder Open Algorithm Competition will open at 9:00 AM EDT on Monday, March 12, and will close at 7:00 AM EDT on Wednesday, March 28 2007. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.
+                        Registration for the 2007 TopCoder Open Algorithm Competition will open at 9:00 AM EDT on Monday, February 19, and will close at 5:00 PM EDT on Tuesday, March 27, 2007. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.
                         </p>
                         
                         <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
@@ -50,7 +50,7 @@
                         
                         <h2>Qualification Round</h2>
                         <p>
-                        There will be three Qualification Rounds available for those registered for the TCO. A maximum of 450 competitors will advance to Online Round #1 from each Qualification Round, plus the 150 top rated members who automatically advance without competing in the Qualification Round. 
+                        There will be three Qualification Rounds available for those registered for the TCO. A maximum of 550 competitors will advance to Online Round #1 from each Qualification Round, plus the 150 top rated members who automatically advance without competing in the Qualification Round. 
                         </p>
                         
                         <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
@@ -141,7 +141,7 @@
                                        <td class="value">48</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value" colspan="4">* NOTE: All times are Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will be the following day at the same time.<br>
+                                       <td class="value" colspan="4">* NOTE: All times are Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.<br>
                                        ** If less than 1,800 competitors qualify to compete in Online Round #1, the maximum number of competitors that will be assigned into any section will be 40% of the actual number of qualifiers, rounded up.</td>
                                 </tr>
                         </tbody>
