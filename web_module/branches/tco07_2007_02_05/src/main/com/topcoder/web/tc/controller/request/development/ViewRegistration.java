@@ -161,7 +161,7 @@ public class ViewRegistration extends Base {
         for (Iterator it = l.iterator(); it.hasNext();) {
             curr = (Event) it.next();
             if (log.isDebugEnabled()) {
-                log.debug(curr.getDescription() + " " + curr.getType().getDescription())
+                log.debug(curr.getDescription() + " " + curr.getType().getDescription());
             }
             if (curr.getType().equals(et) && curr.getRegistrationStart().before(now) && curr.getRegistrationEnd().after(now)) {
                 ret = true;
