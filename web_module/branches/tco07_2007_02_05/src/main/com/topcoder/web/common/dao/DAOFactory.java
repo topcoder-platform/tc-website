@@ -26,6 +26,10 @@ public interface DAOFactory {
 
     EventDAO getEventDAO();
 
+    EventRegistrationDAO getEventRegistrationDAO();
+
+    EventTypeDAO getEventTypeDAO();
+
     FileTypeDAO getFileTypeDAO();
 
     MemberContactMessageDAO getMemberContactMessageDAO();
@@ -60,7 +64,6 @@ public interface DAOFactory {
 
     TermsOfUseDAO getTermsOfUse();
 
-    EventTypeDAO getEventTypeDAO();
 
     QuestionTypeDAO getQuestionTypeDAO();
 
