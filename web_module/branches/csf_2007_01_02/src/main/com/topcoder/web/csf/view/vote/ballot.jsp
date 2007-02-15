@@ -230,7 +230,7 @@ function remove(element) {
 
 
 var styles = ["valueC", "value", "valueC", "valueC", "valueC"];
-var nowraps = [null, "nowrap", null, null, null];
+var nowraps = [null, null, null, null, null];
 /**
  * refresh presentation after data/structure changes
  */
