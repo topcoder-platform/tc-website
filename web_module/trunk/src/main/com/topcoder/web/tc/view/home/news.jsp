@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.15.07<br>4:40 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=021507">An Introduction to Marathon Matches</A></span><br><br>
+       You face a number of different issues in a marathon match than you do in an SRM, from time management and organization to figuring out how the matches actually work. This article can help you understand the unique structure of a marathon match and what it takes to create, test and submit your entries.</td>
+      <td class="newsPhoto"><img src="/i/m/d000hg_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21464956" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=021507">full story</A> | 
+         <tc-webtag:forumLink forumID="514346" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.14.07<br>1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -181,15 +197,3 @@ problem proved too hard, and none of the 30 submitted programs passed.
         <A href="http://studio.topcoder.com/forums?module=ThreadList&forumID=30">discuss</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.07.07<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">Forums maintenance scheduled</span><br><br>
-      Please note: We will be performing maintenance work on the TopCoder forums beginning on Thursday, Feb. 8 at 9:00 PM EST. The work will last for approximately four hours, will cause signicant forum outages, and may cause site outages as well.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <tc-webtag:forumLink forumID="506277" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
