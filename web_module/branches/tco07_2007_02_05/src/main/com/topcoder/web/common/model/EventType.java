@@ -7,6 +7,10 @@ package com.topcoder.web.common.model;
  */
 public class EventType extends Base {
 
+    public static final Integer CONTEST_ID = new Integer(1);
+    public static final Integer INVITATIONAL_ID = new Integer(2);
+    public static final Integer ROUND_ID = new Integer(3);
+    public static final Integer TOURNAMENT_ID = new Integer(4);
     public static final Integer COMPONENT_TOURNAMENT_ID = new Integer(5);
     public static final Integer ALGORITHM_TOURNAMENT_ID = new Integer(6);
     public static final Integer STUDIO_TOURNAMENT_ID = new Integer(7);
