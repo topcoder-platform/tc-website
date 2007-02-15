@@ -5,13 +5,16 @@ package com.topcoder.web.forums.controller;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.ForumFactory;
+import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.error.RequestRateExceededException;
@@ -19,9 +22,12 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.StudioForumsAuthentication;
 import com.topcoder.web.common.security.TCForumsAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsHome;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.tc.controller.request.authentication.Login;
 
+import javax.naming.Context;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +49,27 @@ public class ForumsServlet extends BaseServlet {
     public synchronized void init(ServletConfig config) throws ServletException {
         super.init(config);
         AUTHENTICATION_IMPLEMENTATION = config.getInitParameter("authentication_implementation");
+        
+        // Delete orphaned attachments daily
+        Thread tOrphaned = new Thread() {
+            public void run() {
+                while (true) {
+                    try {
+                        log.info("Deleting orphaned attachments...");
+                        Forums forumsBean = getForumsBean();
+                        if (forumsBean != null) {
+                        	forumsBean.deleteOrphanedAttachments();
+                        } else {
+                        	log.error("Could not delete orphaned attachments: forumsBean is null");
+                        }
+                        sleep(86400000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        tOrphaned.start();
     }
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
@@ -70,9 +97,7 @@ public class ForumsServlet extends BaseServlet {
                 }
 
                 TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-
                 TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-
 
                 if (throttleEnabled) {
                     if (throttle.throttle(request.getSession().getId())) {
@@ -81,8 +106,6 @@ public class ForumsServlet extends BaseServlet {
                                 authentication.getActiveUser().getUserName());
                     }
                 }
-
-
 
                 //set up security objects and session info
                 authentication = createAuthentication(tcRequest, tcResponse);
@@ -247,5 +270,15 @@ public class ForumsServlet extends BaseServlet {
                 new Object[]{new SessionPersistor(request.getSession()), request, response});
     }
 
-
+    private Forums getForumsBean() throws CatalogException {
+    	Forums forumsBean = null;
+        try {
+            Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
+    		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+    		forumsBean = forumsHome.create();
+    	} catch (Exception e) { 
+    		Log.error(e);
+    	}
+        return forumsBean;
+    }
 }
