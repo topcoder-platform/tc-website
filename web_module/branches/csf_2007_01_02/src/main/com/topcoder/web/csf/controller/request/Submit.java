@@ -191,8 +191,6 @@ public class Submit extends BaseSubmissionDataProcessor {
         }
     }
 
-    private String DEV_END_POINT = "http://63.118.154.181:8880/review/services/UploadService";
-    private String PROD_END_POINT = "http://192.168.12.73:8280/review/services/UploadService";
 
     protected void uploadToOR(String fileName, Contest contest) throws RemoteException, ServiceException, MalformedURLException {
 
@@ -203,7 +201,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 
         StringBuffer endPoint = new StringBuffer(100);
         if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
-            endPoint.append(PROD_END_POINT);
+            endPoint.append(Base.PROD_END_POINT);
         } else {
             endPoint.append(DEV_END_POINT);
         }
@@ -221,7 +219,7 @@ public class Submit extends BaseSubmissionDataProcessor {
         call.setReturnType(org.apache.axis.Constants.XSD_INT);
         // call.
         call.invoke(new Object[]{
-                new Long(contest.getConfig(CSFDAOUtil.getFactory().getContestPropertyDAO().find(new Integer(9))).getValue()),
+                new Long(contest.getConfig(CSFDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PROJECT_ID)).getValue()),
                 new Long(getUser().getId()), fileName, dhSource});
 
     }

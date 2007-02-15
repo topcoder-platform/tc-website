@@ -1,9 +1,9 @@
 package com.topcoder.web.csf.controller.request;
 
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
@@ -11,14 +11,24 @@ import com.topcoder.web.csf.Constants;
 import com.topcoder.web.csf.dao.CSFDAOFactory;
 import com.topcoder.web.csf.dao.CSFDAOUtil;
 import com.topcoder.web.csf.model.Contest;
+import com.topcoder.web.csf.model.ContestConfig;
+import com.topcoder.web.csf.model.ContestProperty;
 import com.topcoder.web.csf.model.ContestRegistration;
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+
+import javax.xml.namespace.QName;
+import javax.xml.rpc.ServiceException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.rmi.RemoteException;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class Register extends ShortHibernateProcessor {
+public class Register extends Base {
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
             if ("POST".equals(getRequest().getMethod())) {
@@ -45,6 +55,12 @@ public class Register extends ShortHibernateProcessor {
                         cr.getId().setContest(c);
                         cr.getId().setUser(u);
 
+                        ContestProperty p = cFactory.getContestPropertyDAO().find(ContestProperty.PROJECT_ID);
+                        ContestConfig cc = c.getConfig(p);
+                        if (cc != null && cc.getValue() != null) {
+                            addSubmitterToOR(cc.getValue());
+                        }
+
                         cFactory.getContestRegistrationDAO().saveOrUpdate(cr);
 
                         markForCommit();
@@ -65,7 +81,7 @@ public class Register extends ShortHibernateProcessor {
                     buf.append(Constants.CONTEST_ID + "=").append(contestId);
                     setNextPage(buf.toString());
                     setIsNextPageInContext(false);
-                    
+
                 }
 
             } else {
@@ -77,4 +93,29 @@ public class Register extends ShortHibernateProcessor {
         }
 
     }
+
+
+    private void addSubmitterToOR(String projectId) throws RemoteException, MalformedURLException, ServiceException {
+
+        Service service = new Service();
+        Call call = (Call) service.createCall();
+
+        StringBuffer endPoint = new StringBuffer(100);
+        if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
+            endPoint.append(Base.PROD_END_POINT);
+        } else {
+            endPoint.append(DEV_END_POINT);
+        }
+        call.setTargetEndpointAddress(new URL(endPoint.toString()));
+
+        call.setOperationName(new QName("urn:UsersService", "addSubmitter"));
+        call.addParameter("projectId", org.apache.axis.Constants.XSD_LONG, javax.xml.rpc.ParameterMode.IN);
+        call.addParameter("ownerId", org.apache.axis.Constants.XSD_LONG, javax.xml.rpc.ParameterMode.IN);
+        call.setReturnType(org.apache.axis.Constants.XSD_INT);
+        // call.
+        call.invoke(new Object[]{new Long(projectId), new Long(getUser().getId())});
+
+    }
+
+
 }

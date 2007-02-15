@@ -1,10 +1,10 @@
 package com.topcoder.web.csf.controller.request;
 
-import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.csf.Constants;
-import com.topcoder.security.TCSubject;
 import com.topcoder.security.TCPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.csf.Constants;
 
 import java.util.Iterator;
 
@@ -14,6 +14,10 @@ import java.util.Iterator;
  *          Create Date: Feb 9, 2007
  */
 public abstract class Base extends ShortHibernateProcessor {
+
+    protected static final String DEV_END_POINT = "http://63.118.154.181:8880/review/services/UploadService";
+    protected static final String PROD_END_POINT = "http://192.168.12.73:8280/review/services/UploadService";
+
 
     protected boolean isAdmin() throws Exception {
         TCSubject subject = SecurityHelper.getUserSubject(getUser().getId());
