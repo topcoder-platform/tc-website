@@ -178,6 +178,8 @@ public class Login extends ShortHibernateProcessor {
             u = new User();
             u.setHandle(user.value.getUserId());
             u.setPassword("");
+            u.setFirstName("");
+            u.setLastName("");
             Email a = new Email();
             a.setPrimary(Boolean.TRUE);
             a.setEmailTypeId(Email.TYPE_ID_PRIMARY);
@@ -195,7 +197,7 @@ public class Login extends ShortHibernateProcessor {
             closeConversation();
             beginCommunication();
         } else {
-            if (email!=null && !email.equals(u.getPrimaryEmailAddress().getAddress())) {
+            if (email != null && !email.equals(u.getPrimaryEmailAddress().getAddress())) {
                 u.getPrimaryEmailAddress().setAddress(email);
             }
         }
