@@ -5,16 +5,10 @@ package com.topcoder.web.forums.util;
 
 import java.rmi.RemoteException;
 
-import javax.naming.InitialContext;
-
 import com.topcoder.dde.catalog.Catalog;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.forums.Forums;
-import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.ForumCategory;
 
 /**

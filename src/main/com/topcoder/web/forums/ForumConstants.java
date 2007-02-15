@@ -5,8 +5,6 @@ package com.topcoder.web.forums;
 
 import com.jivesoftware.base.JiveGlobals;
 import com.jivesoftware.forum.ForumPermissions;
-import com.topcoder.dde.catalog.Catalog;
-import com.topcoder.dde.catalog.ComponentVersionInfo;
 
 /**
  * @author mtong

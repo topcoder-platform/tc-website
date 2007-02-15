@@ -8,7 +8,6 @@ import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.ForumFactory;
-import com.topcoder.dde.catalog.CatalogException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.security.Resource;
@@ -270,7 +269,7 @@ public class ForumsServlet extends BaseServlet {
                 new Object[]{new SessionPersistor(request.getSession()), request, response});
     }
 
-    private Forums getForumsBean() throws CatalogException {
+    private Forums getForumsBean() {
     	Forums forumsBean = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);

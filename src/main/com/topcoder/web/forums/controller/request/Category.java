@@ -74,17 +74,7 @@ public class Category extends ForumsProcessor {
         }
         
         boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
-        
-        InitialContext ctx = null;
-        Forums forumsBean = null;
-        try {
-            ctx = TCContext.getInitial();
-            forumsBean = (Forums)createEJB(ctx, Forums.class);
-        } catch (Exception e) {
-            Log.error(e);
-        } finally {
-            BaseProcessor.close(ctx);
-        }
+        Forums forumsBean = getForumsBean();
         
         ArrayList list = null;
         if (forumCategory.getCategoryCount() > 0) {
