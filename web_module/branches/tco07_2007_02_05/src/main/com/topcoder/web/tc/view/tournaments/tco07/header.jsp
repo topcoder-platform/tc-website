@@ -4,6 +4,9 @@
 <div id="tourneyLogo">
     <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/tournament/tco07/tco07aollogo.png" alt="2007 TopCoder Open Sponsored by AOL&#174;" /></a>
 </div>
+<div style="position: absolute; left: 480px; top: 50px;">
+    <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=registerNow"><img src="/i/tournament/tco07/registerNow.png" alt="Register Now for the TCO07" /></a>
+</div>
 <div id="redbar">
     <div id="pageBodyN">&nbsp;</div>
     <div style="margin: 4px 10px 4px 10px;">
