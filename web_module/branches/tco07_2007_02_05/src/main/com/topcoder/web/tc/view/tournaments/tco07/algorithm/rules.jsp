@@ -52,7 +52,8 @@
 <p>
 TopCoder members meeting the following criteria are eligible to compete in the Algorithm Competition: 
 <ul>
-<li>Must be at least 18 years of age (as of March 29, 2007)</li>
+<li>Must be at least 18 years of age (as of March 29, 2007); AND</li>
+<li>Must currently be eligible for participation in TopCoder projects (i.e. not suspended from TopCoder).</li>
 </ul>
 <p>
 TopCoder members who are 18 years of age or older as of March 29, 2007 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria.

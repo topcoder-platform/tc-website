@@ -231,7 +231,7 @@ Voting Phase: May 7 - May 11, 2007<br>
 Winner Announced: May 11, 2007
 </p>
 
-<h2>Onsite Semifinal and Championship Rounds</h2>
+<h2>Onsite Championship Round</h2>
 <h3>Important Information</h3>
 <p>
 <b>Travel Confirmation</b><br>

@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Marathon Matches Official Rules and Regulations</div></h1>
+                        <h1><div>Marathon Match Official Rules and Regulations</div></h1>
                         <p>
 <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#registration">Registration</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -53,7 +53,8 @@ The 2007 TopCoder Open ("TCO") Marathon Match Competition will take place betwee
 TopCoder members meeting the following criteria are eligible to compete in the Marathon Match Competition: 
 </p>
 <ul>
-<li>Must be at least 18 years of age (as of March 7, 2007) </li>
+<li>Must be at least 18 years of age (as of March 7, 2007); AND </li>
+<li>Must currently be eligible for participation in TopCoder projects (i.e. not suspended from TopCoder).</li>
 </ul>
 <p>
 TopCoder members who are 18 years of age or older as of March 7, 2007 are eligible to win cash prizes, unless otherwise prohibited. The TopCoder Open is void in the Quebec province of Canada and elsewhere where prohibited by applicable law. Cash prizes will not be paid to residents of Cuba, Iran, Iraq, Libya, North Korea, Sudan, or Syria. 
