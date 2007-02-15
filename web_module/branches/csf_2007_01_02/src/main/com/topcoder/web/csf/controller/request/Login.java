@@ -178,8 +178,8 @@ public class Login extends ShortHibernateProcessor {
             u = new User();
             u.setHandle(user.value.getUserId());
             u.setPassword("");
-            u.setFirstName("");
-            u.setLastName("");
+            u.setFirstName(username);
+            u.setLastName(username);
             Email a = new Email();
             a.setPrimary(Boolean.TRUE);
             a.setEmailTypeId(Email.TYPE_ID_PRIMARY);
