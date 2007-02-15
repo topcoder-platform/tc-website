@@ -1,6 +1,7 @@
 package com.topcoder.web.studio.model;
 
 import com.topcoder.web.common.model.Base;
+import com.topcoder.web.common.model.Event;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 
 import java.sql.Timestamp;
@@ -27,6 +28,7 @@ public class Contest extends Base {
     private Set submissions = new HashSet();
     private Set fileTypes = new HashSet();
     private Set results = new TreeSet();
+    private Event event;
 
     public Long getId() {
         return id;
@@ -171,4 +173,12 @@ public class Contest extends Base {
         this.results = results;
     }
 
+
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
 }
