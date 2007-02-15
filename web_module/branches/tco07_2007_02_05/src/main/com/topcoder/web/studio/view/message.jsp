@@ -1,4 +1,10 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>    
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+
+<% ResultSetContainer rscTco07 = (ResultSetContainer) request.getAttribute("tco07studio_info");
+    if (rscTco07 != null && !rscTco07.isEmpty()) {
+%>
 
 <style type="text/css">
     #message {
@@ -26,13 +32,14 @@
     <div style="margin-bottom: 10px;">
         <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco07/message.png" alt="TCO07"/></A>
     </div>
-    You are not registered for the <strong>TCO07 Studio Competition</strong>.
-    <br>Would you like to <strong><a href="" class="tco07MessageLink">register</a></strong>?
-    <%--
-        You are registered for the TCO07 Studio Competition.
-    --%>
-    <%--
-        Sorry, you are ineligible for the <strong>TCO07 Studio Competition</strong>.
-        <br>If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
-    --%>
+        <% if (rscTco07.getIntItem(0, "registered")== 0) { %>
+            Sorry, you are ineligible for the <strong><%=rscTco07.getStringItem(0, "event_desc")%></strong>.
+            <br>If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
+        <% } else if (rscTco07.getIntItem(0, "registered")== 1) { %>
+        	You are registered for the <strong><%=rscTco07.getStringItem(0, "event_desc")%></strong>.
+        <% } else { %>
+        	You are not registered for the <strong><%=rscTco07.getStringItem(0, "event_desc")%></strong>.
+            <br>Would you like to <strong><a href="/tc?module=TCO07ViewRegistration&ct=<rsc:item name="ct" row='<%=rscTco07%>'/>" class="tco07MessageLink">register</a></strong>?
+        <% } %>
+        <br/><br/>
 </div>
