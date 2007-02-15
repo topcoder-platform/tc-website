@@ -189,6 +189,8 @@
         <jar jarfile="${ejb_jars}/forums.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
+            <!-- todo get rid of this crap -->
+            <zipfileset dir="${classes}" includes="com/topcoder/dde/catalog/ForumCategory.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
         </jar>
     </target>
