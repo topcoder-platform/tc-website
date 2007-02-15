@@ -31,13 +31,13 @@
 <jsp:include page="../top.jsp"/>
 
 <jsp:include page="../primaryNav.jsp">
-<jsp:param name="selectedTab" value="competitions"/>
+    <jsp:param name="selectedTab" value="competitions"/>
 </jsp:include>
 
 <div id="main">
-    <div class="pageHeader">
-        <span class="pageName">Edit Contest Details</span>
-    </div>
+<div class="pageHeader">
+    <span class="pageName">Edit Contest Details</span>
+</div>
 
 <div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">back to
     Contests</A></div>
@@ -126,24 +126,25 @@
     </td>
 </tr>
 
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.PROJECT_ID%>" var="projectId"/>
+
 <tr>
     <td colspan="2">
-                <tc-webtag:errorIterator id="err" name="<%=Constants.PROJECT_ID_KEY%>"><span class="bigRed">${err}</span>
-                    <br></tc-webtag:errorIterator>
+        <tc-webtag:errorIterator id="err" name="${projectId}"><span class="bigRed">${err}</span>
+            <br></tc-webtag:errorIterator>
     </td>
 </tr>
+
 <tr>
     <td class="name">
         Project:
     </td>
     <td class="value">
-        <tc-webtag:rscSelect name="<%=Constants.PROJECT_ID_KEY%>"
+        <tc-webtag:rscSelect name="${projectId}"
                              list="<%=(ResultSetContainer)request.getAttribute("projects")%>" fieldText="project_name"
                              fieldValue="project_id"/>
     </td>
 </tr>
-
-
 
 
 <c:set value="<%=Constants.FILE_TYPE%>" var="fileType"/>
@@ -267,16 +268,16 @@
 
 
 <script language="javascript" type="text/javascript">
-            Calendar.setup(
-            {
-                inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
-                ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
-                button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
-                showsTime   : true,
-                singleClick  : false,
-                cache       : true
-            }
-                    );
+    Calendar.setup(
+    {
+        inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
+        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+        button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
+        showsTime   : true,
+        singleClick  : false,
+        cache       : true
+    }
+            );
     Calendar.setup(
     {
         inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
@@ -464,7 +465,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
 
 </div>
-    
+
 <jsp:include page="../foot.jsp"/>
 </div>
 </div>
