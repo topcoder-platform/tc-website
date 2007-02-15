@@ -7,7 +7,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
@@ -17,11 +17,11 @@ import java.util.Map;
 
 /**
  * Added some code to make project related controllers more generic.
- * 
+ *
  * @author dok, pulky
  *         Date: Feb 10, 2004
  */
-public abstract class Base extends BaseProcessor {
+public abstract class Base extends ShortHibernateProcessor {
     protected Logger log = Logger.getLogger(Base.class);
 
     public static final int COMPONENT_DESIGN_PROJECT_TYPE = 1;
@@ -32,7 +32,7 @@ public abstract class Base extends BaseProcessor {
         ProjectLocal pl = (ProjectLocal) createLocalEJB(getInitialContext(), Project.class);
         return pl.getProjectTypeId(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
     }
-    
+
     public static final String getProjectDetailPage(int projectTypeId) {
         switch (projectTypeId) {
             case COMPONENT_DESIGN_PROJECT_TYPE:
@@ -45,7 +45,7 @@ public abstract class Base extends BaseProcessor {
                 return "";
         }
     }
-    
+
     public static final String getRegistrantsCommandName(int projectTypeId) {
         switch (projectTypeId) {
             case COMPONENT_DESIGN_PROJECT_TYPE:
@@ -57,8 +57,8 @@ public abstract class Base extends BaseProcessor {
                 return "";
         }
     }
-    
-    final protected void businessProcessing() throws TCWebException {
+
+    protected void dbProcessing() throws TCWebException {
         //get the data for the right side
         /*try {
 
