@@ -125,6 +125,8 @@
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
             <include name="com/topcoder/web/forums/**"/>
             <include name="com/topcoder/web/studio/**"/>
+            <!--todo this is crap, remove this dependency asap-->
+            <include name="com/topcoder/dde/catalog/ForumCategory.java"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
