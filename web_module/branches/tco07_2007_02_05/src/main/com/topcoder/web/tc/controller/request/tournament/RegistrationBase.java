@@ -56,7 +56,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
     protected abstract String getEventShortDesc();
 
     protected void dbProcessing() throws Exception {
-        if (getUser().isAnonymous()) {
+        if (!userLoggedIn() ) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
             Event e = getEvent();
