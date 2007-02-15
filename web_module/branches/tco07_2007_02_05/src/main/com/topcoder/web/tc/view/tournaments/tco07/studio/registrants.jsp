@@ -1,4 +1,9 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -10,6 +15,9 @@
     <jsp:include page="../../script.jsp" />
 </head>
 <body>
+
+<% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list"));
+String compType = (String) request.getAttribute("ct"); %>
 
 <div align="center" style="background: transparent;">
     <div id="content">
@@ -36,10 +44,10 @@
 <div align="center">
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
 <thead>
-    <tr><td class="title">Registrants: 1234</td></tr>
+    <tr><td class="title">Registrants: <%=rsc.size()%></td></tr>
     <tr>
         <td class="header">
-            <a href="sorthandle">Handle</a>
+            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
         </td>
     </tr>
 </thead>
@@ -47,7 +55,7 @@
         <%boolean even = false;%>
             <tr class="<%=(even ? "dark" : "light")%>">
                 <td class="value">
-                    <strong>myHandle</strong>
+                    <strong><rsc:item name="handle" row='<%=resultRow%>'/></strong>
                 </td>
             </tr>
         <%even = !even;%>
