@@ -120,20 +120,6 @@ public class EditContest extends Base {
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
 
-
-            curr = dao.find(new Integer(9));  //project id contest prop
-            if (contest.isNew() || contest.getConfig(curr) == null) {
-                currConfig = new ContestConfig();
-                currConfig.setContest(contest);
-                currConfig.setProperty(curr);
-                currConfig.getId().setContest(contest);
-                currConfig.getId().setProperty(curr);
-                contest.addConfig(currConfig);
-            } else {
-                currConfig = contest.getConfig(curr);
-            }
-            currConfig.setValue(projectId);
-
             FileTypeDAO fDao = CSFDAOUtil.getFactory().getFileTypeDAO();
             HashSet fts = new HashSet();
             for (Iterator it = fileTypes.iterator(); it.hasNext();) {

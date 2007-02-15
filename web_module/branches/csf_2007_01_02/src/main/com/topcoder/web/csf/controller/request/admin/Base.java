@@ -10,10 +10,10 @@ import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.csf.Constants;
 import com.topcoder.web.csf.dao.CSFDAOUtil;
 import com.topcoder.web.csf.dao.ContestPropertyDAO;
+import com.topcoder.web.csf.model.CSFFileType;
 import com.topcoder.web.csf.model.Contest;
 import com.topcoder.web.csf.model.ContestConfig;
 import com.topcoder.web.csf.model.ContestProperty;
-import com.topcoder.web.csf.model.CSFFileType;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -28,8 +28,7 @@ import java.util.Set;
 public abstract class Base extends ShortHibernateProcessor {
     protected static final Integer[] CONTEST_PROPS = {ContestProperty.MIN_HEIGHT, ContestProperty.MAX_HEIGHT, ContestProperty.MIN_WIDTH,
             ContestProperty.MAX_WIDTH, ContestProperty.CONTEST_OVERVIEW_TEXT, ContestProperty.PRIZE_DESCRIPTION,
-            ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MAX_SUBMISSIONS}; 
-
+            ContestProperty.VIEWABLE_SUBMISSIONS, ContestProperty.MAX_SUBMISSIONS, ContestProperty.PROJECT_ID};
 
     protected void loadGeneralEditContestData() throws Exception {
         getRequest().setAttribute("docTypes", CSFDAOUtil.getFactory().getDocumentTypeDAO().getDocumentTypes());
@@ -78,8 +77,8 @@ public abstract class Base extends ShortHibernateProcessor {
                 setDefault(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i], temp.getValue());
             }
         }
-        temp = contest.getConfig(dao.find(new Integer(9)));
-        if (temp!=null) {
+        temp = contest.getConfig(dao.find(ContestProperty.PROJECT_ID));
+        if (temp != null) {
             setDefault(Constants.PROJECT_ID_KEY, temp.getValue());//project id config property
         }
 
