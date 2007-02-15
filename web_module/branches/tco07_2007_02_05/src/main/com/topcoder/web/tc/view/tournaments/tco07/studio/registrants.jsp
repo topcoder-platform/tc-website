@@ -53,12 +53,14 @@ String compType = (String) request.getAttribute("ct"); %>
 </thead>
 <tbody>
         <%boolean even = false;%>
+        <rsc:iterator list='<%=rsc%>' id="resultRow">
             <tr class="<%=(even ? "dark" : "light")%>">
                 <td class="value">
                     <strong><rsc:item name="handle" row='<%=resultRow%>'/></strong>
                 </td>
             </tr>
         <%even = !even;%>
+        </rsc:iterator>
 </tbody>
 </table>
 </div>
