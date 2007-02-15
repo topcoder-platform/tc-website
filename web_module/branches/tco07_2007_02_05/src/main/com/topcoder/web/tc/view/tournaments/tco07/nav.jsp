@@ -63,7 +63,7 @@ function toggleMenu(menuTitle,menuID){
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule"<% if (tabLev1.equals("algorithm") && tabLev2.equals("schedule")) {%> class="navHighlight"<% } %>><div>Schedule</div></a></li>
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=rules"<% if (tabLev1.equals("algorithm") && tabLev2.equals("rules")) {%> class="navHighlight"<% } %>><div>Rules</div></a></li>
         <li class="stop"><a href="/tc?module=TCO07ViewRegistration&ct=algorithm"<% if (tabLev1.equals("algorithm") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>><div>Register</div></a></li>
-        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=registrants"<% if (tabLev1.equals("algorithm") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>
+        <li class="stop"><a href="/tc?module=TCO07ViewRegistrants&ct=algorithm"<% if (tabLev1.equals("algorithm") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>
 <%--
         <li class="<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Advancers</div></a>
             <ul>
@@ -92,7 +92,7 @@ function toggleMenu(menuTitle,menuID){
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule"<% if (tabLev1.equals("component") && tabLev2.equals("schedule")) {%> class="navHighlight"<% } %>><div>Schedule</div></a></li>
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=rules"<% if (tabLev1.equals("component") && tabLev2.equals("rules")) {%> class="navHighlight"<% } %>><div>Rules</div></a></li>
         <li class="stop"><a href="/tc?module=TCO07ViewRegistration&ct=component"<% if (tabLev1.equals("component") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>><div>Register</div></a></li>
-        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=registrants"<% if (tabLev1.equals("component") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>
+        <li class="stop"><a href="/tc?module=TCO07ViewRegistrants&ct=component"<% if (tabLev1.equals("component") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>
 
 <%--
         <li class="<% if (tabLev1.equals("component") && tabLev2.equals("design")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Design</div></a>
@@ -121,7 +121,7 @@ function toggleMenu(menuTitle,menuID){
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule"<% if (tabLev1.equals("marathon") && tabLev2.equals("schedule")) {%> class="navHighlight"<% } %>><div>Schedule</div></a></li>
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=rules"<% if (tabLev1.equals("marathon") && tabLev2.equals("rules")) {%> class="navHighlight"<% } %>><div>Rules</div></a></li>
         <li class="stop"><a href="/tc?module=TCO07ViewRegistration&ct=marathon"<% if (tabLev1.equals("marathon") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>><div>Register</div></a></li>
-        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=registrants"<% if (tabLev1.equals("marathon") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>
+        <li class="stop"><a href="/tc?module=TCO07ViewRegistrants&ct=marathon"<% if (tabLev1.equals("marathon") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>
         </ul>
     </li>
 <%--------------STUDIO---------------%>
@@ -131,7 +131,7 @@ function toggleMenu(menuTitle,menuID){
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=schedule"<% if (tabLev1.equals("studio") && tabLev2.equals("schedule")) {%> class="navHighlight"<% } %>><div>Schedule</div></a></li>
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=rules"<% if (tabLev1.equals("studio") && tabLev2.equals("rules")) {%> class="navHighlight"<% } %>><div>Rules</div></a></li>
         <li class="stop"><a href="/tc?module=TCO07ViewRegistration&ct=studio"<% if (tabLev1.equals("studio") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>><div>Register</div></a></li>
-        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=registrants"<% if (tabLev1.equals("studio") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>
+        <li class="stop"><a href="/tc?module=TCO07ViewRegistrants&ct=studio"<% if (tabLev1.equals("studio") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>
         </ul>
     </li>
     </ul>
