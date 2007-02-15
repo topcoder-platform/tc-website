@@ -1,5 +1,9 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -11,6 +15,9 @@
     <jsp:include page="../../script.jsp" />
 </head>
 <body>
+
+<% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list"));
+String compType = (String) request.getAttribute("ct"); %>
 
 <div align="center" style="background: transparent;">
     <div id="content">
@@ -40,30 +47,32 @@
     <tr><td class="title" colspan="4">Registrants: 1234</td></tr>
     <tr>
         <td class="header" width="100%">
-            <a href="sorthandle">Handle</a>
+            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
         </td>
         <td class="headerR" nowrap="nowrap">
-            <a href="sortrating">Design Rating</a>
+            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("des_rating")%>"/>">Design Rating</a>
         </td>
         <td class="headerR" nowrap="nowrap">
-            <a href="sortrating">Development Rating</a>
+            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("dev_rating")%>"/>">Development Rating</a>
         </td>
     </tr>
 </thead>
 <tbody>
         <%boolean even = false;%>
+        <rsc:iterator list='<%=rsc%>' id="resultRow">
             <tr class="<%=(even ? "dark" : "light")%>">
                 <td class="value">
-                    <tc-webtag:handle coderId='251184' context="component" />
+                    <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="component"/>
                 </td>
                 <td class="valueR">
-                    1234
+                    <rsc:item format="###0" ifNull="Unrated" name="des_rating" row='<%=resultRow%>'/>
                 </td>
                 <td class="valueR">
-                    1234
+                    <rsc:item format="###0" ifNull="Unrated" name="dev_rating" row='<%=resultRow%>'/>
                 </td>
             </tr>
         <%even = !even;%>
+        </rsc:iterator>
 </tbody>
 </table>
 </div>
