@@ -61,11 +61,10 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
     }
     
     protected void refreshCache(Event e) {
-        log.info("removing " + e.getShortDescription() + "_registrants" + " from cache. ???");
         try {
             CacheClient cc = CacheClientFactory.createCacheClient();
             Request r = new Request();
-            log.info("removing " + e.getShortDescription() + "_registrants" + " from cache.");
+            log.debug("removing " + e.getShortDescription() + "_registrants" + " from cache.");
             r.setContentHandle(e.getShortDescription() + "_registrants");
             cc.remove(r.getCacheKey());
         } catch (Exception ignore) {

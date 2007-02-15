@@ -101,12 +101,10 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     }
     
     protected void completeRegistration(Event event, User user, Boolean eligible, List responses) {
-        log.info("complete registration 0");
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
         user.addEventRegistration(event, responses, eligible);
         userDAO.saveOrUpdate(user);
         
-        log.info("complete registration 1");
         refreshCache(event);
         
         RegionType rt = new RegionType();
