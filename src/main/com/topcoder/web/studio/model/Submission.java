@@ -22,7 +22,10 @@ public class Submission extends Base {
     private SubmissionReview review;
     private ContestResult result;
     private Integer rank;
+    //todo remove this and use create date, but modify mapping so that create date is not persisted
     private Timestamp submissionDate;
+    private Integer height;
+    private Integer width;
 
     public Long getId() {
         return id;
@@ -120,5 +123,22 @@ public class Submission extends Base {
 
     public void setSubmissionDate(Timestamp submissionDate) {
         this.submissionDate = submissionDate;
+    }
+
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public void setWidth(Integer width) {
+        this.width = width;
     }
 }
