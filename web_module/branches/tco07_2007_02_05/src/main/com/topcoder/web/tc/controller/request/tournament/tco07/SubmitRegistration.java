@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request.tournament.tco07;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -9,8 +10,10 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.RegionType;
+import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
 import com.topcoder.web.common.model.User;
@@ -119,8 +122,24 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     }
     
     public boolean isEligible(Event e, User u) throws Exception{
-        // every TopCoder user is elegible.
-        return true;
+        Set regTypes = u.getRegistrationTypes();
+        boolean eligible = false;
+        for (Iterator it = regTypes.iterator(); it.hasNext() && !eligible;) {
+            RegistrationType rt = (RegistrationType) it.next();
+            if (e.getType().getId().equals(EventType.ALGORITHM_TOURNAMENT_ID) ||
+                    e.getType().getId().equals(EventType.COMPONENT_TOURNAMENT_ID) ||
+                    e.getType().getId().equals(EventType.MARATHON_TOURNAMENT_ID)) {
+                    if (rt.getId().equals(RegistrationType.COMPETITION_ID)) {
+                        eligible = true;
+                    }
+                }
+            if (e.getType().getId().equals(EventType.STUDIO_TOURNAMENT_ID)) {
+                if (rt.getId().equals(RegistrationType.STUDIO_ID)) {
+                    eligible = true;
+                }
+            }
+        }
+        return eligible;
     }
 
     protected void setNextPage(Event e, User u) {

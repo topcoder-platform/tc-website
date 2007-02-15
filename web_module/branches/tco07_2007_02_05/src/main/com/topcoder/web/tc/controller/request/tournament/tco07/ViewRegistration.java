@@ -1,9 +1,14 @@
 package com.topcoder.web.tc.controller.request.tournament.tco07;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.EventType;
+import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
 
@@ -23,8 +28,24 @@ public class ViewRegistration extends ViewRegistrationBase {
     }
     
     public boolean isEligible(Event e, User u) throws Exception{
-        // every TopCoder user is elegible.
-        return true;
+        Set regTypes = u.getRegistrationTypes();
+        boolean eligible = false;
+        for (Iterator it = regTypes.iterator(); it.hasNext() && !eligible;) {
+            RegistrationType rt = (RegistrationType) it.next();
+            if (e.getType().getId().equals(EventType.ALGORITHM_TOURNAMENT_ID) ||
+                    e.getType().getId().equals(EventType.COMPONENT_TOURNAMENT_ID) ||
+                    e.getType().getId().equals(EventType.MARATHON_TOURNAMENT_ID)) {
+                    if (rt.getId().equals(RegistrationType.COMPETITION_ID)) {
+                        eligible = true;
+                    }
+                }
+            if (e.getType().getId().equals(EventType.STUDIO_TOURNAMENT_ID)) {
+                if (rt.getId().equals(RegistrationType.STUDIO_ID)) {
+                    eligible = true;
+                }
+            }
+        }
+        return eligible;
     }
 
     protected void dbProcessing() throws Exception {
