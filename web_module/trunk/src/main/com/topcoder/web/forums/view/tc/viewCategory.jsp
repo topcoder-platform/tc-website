@@ -148,8 +148,11 @@
                     <%=category.getName()%>
                     <% } %>
                 </tc-webtag:iterator>
-                <%	if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
-                	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)
+                <%	if (ForumsUtil.isSoftwareSubcategory(forumCategory)) {
+                		String technologyText = ImageMapper.getTechnologyText(forumsBean, forumCategory);
+                		if (technologyText.indexOf("Custom") == -1) { %>
+                			(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)
+                	<%	} %>	
 				<%	} %>
             </b></td>
                 <% Page[] pages; %>

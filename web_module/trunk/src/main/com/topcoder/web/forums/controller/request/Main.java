@@ -49,17 +49,7 @@ public class Main extends ForumsProcessor {
         */
 
         Iterator itForums = forumFactory.getRootForumCategory().getForums(resultFilter);
-        
-		InitialContext ctx = null;
-        Forums forumsBean = null;
-        try {
-            ctx = TCContext.getInitial();
-            forumsBean = (Forums)createEJB(ctx, Forums.class);
-        } catch (Exception e) {
-            Log.error(e);
-        } finally {
-            BaseProcessor.close(ctx);
-        }
+        Forums forumsBean = getForumsBean();
 
         getRequest().setAttribute("forums", itForums);
         getRequest().setAttribute("categories", categoryList);

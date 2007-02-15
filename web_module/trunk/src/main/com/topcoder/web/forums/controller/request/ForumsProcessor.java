@@ -4,6 +4,7 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.AuthToken;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.User;
 import com.jivesoftware.forum.*;
@@ -11,9 +12,12 @@ import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 
+import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Iterator;
@@ -85,6 +89,20 @@ public abstract class ForumsProcessor extends BaseProcessor {
             }
             getRequest().setAttribute("unreadCategories", "");
         }
+    }
+    
+    protected Forums getForumsBean() {
+    	InitialContext ctx = null;
+        Forums forumsBean = null;
+        try {
+            ctx = TCContext.getInitial();
+            forumsBean = (Forums)createEJB(ctx, Forums.class);
+        } catch (Exception e) {
+            Log.error(e);
+        } finally {
+            BaseProcessor.close(ctx);
+        }
+        return forumsBean;
     }
 
     public HttpServletRequest getHttpRequest() {
