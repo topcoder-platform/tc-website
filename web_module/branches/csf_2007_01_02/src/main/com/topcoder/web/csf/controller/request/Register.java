@@ -111,11 +111,6 @@ public class Register extends Base {
         call.setOperationName(new QName("urn:UsersService", "addSubmitter"));
         call.addParameter("projectId", org.apache.axis.Constants.XSD_LONG, javax.xml.rpc.ParameterMode.IN);
         call.addParameter("ownerId", org.apache.axis.Constants.XSD_LONG, javax.xml.rpc.ParameterMode.IN);
-        call.setReturnType(org.apache.axis.Constants.XSD_INT);
-        // call.
         call.invoke(new Object[]{new Long(projectId), new Long(getUser().getId())});
-
     }
-
-
 }
