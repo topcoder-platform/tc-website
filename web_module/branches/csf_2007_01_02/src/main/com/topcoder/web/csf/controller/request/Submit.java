@@ -205,6 +205,7 @@ public class Submit extends BaseSubmissionDataProcessor {
         } else {
             endPoint.append(DEV_END_POINT);
         }
+        endPoint.append("UploadService");
         call.setTargetEndpointAddress(new URL(endPoint.toString()));
         QName qnameAttachment = new QName("urn:EchoAttachmentsService", "DataHandler");
 

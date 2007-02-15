@@ -106,6 +106,7 @@ public class Register extends Base {
         } else {
             endPoint.append(DEV_END_POINT);
         }
+        endPoint.append("UsersService");
         call.setTargetEndpointAddress(new URL(endPoint.toString()));
 
         call.setOperationName(new QName("urn:UsersService", "addSubmitter"));
