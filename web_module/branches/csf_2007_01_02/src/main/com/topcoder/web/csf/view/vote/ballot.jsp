@@ -425,6 +425,7 @@ function submit() {
                 </td>
                 <td class="value">
                     <span style="cursor: default; white-space: nowrap;" onMouseOver="blurbUp(this, '${candidate.name}Blurb')" onMouseOut="popHide('${candidate.name}Blurb')">
+                        <%-- 50 characters then ellipsis --%>
                         ${candidate.name}0000000000000000000000000000000000000000000&#133;
                     </span>
 
