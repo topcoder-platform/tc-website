@@ -220,7 +220,6 @@ public void testFindWithImage() {
         assertFalse("did not load tomek's school", dok.getCoder().getCurrentSchool() == null);
     }
 
-
     public void testEventRegistration() {
         User pulky = DAOUtil.getFactory().getUserDAO().find("pulky", true);
         assertFalse("did not load pulky user", pulky == null);
@@ -292,15 +291,34 @@ public void testFindWithImage() {
         assertTrue("Event terms not found", foundTerms);
 
         // check responses
+                
         Set responses = pulky2.getResponses();
         for (Iterator it = responses.iterator(); it.hasNext();) {
             Response r = (Response) it.next();
-            if (r.getQuestion().isFreeForm()) {
-                assertTrue("Response not found (1)", r.getText().equals("test response"));
-            } else {
-                assertFalse("Response not found (2)", r.getAnswer() == null);
+            
+/*            log.info("r.getQuestion().getId() : " + r.getQuestion().getId());
+            log.info("r.getText() : " + r.getText());
+            log.info("r.getAnswer().getId() : " + (r.getAnswer() == null ? new Long(0) : r.getAnswer().getId()));
+            log.info("r.getQuestion().isFreeForm() : " + r.getQuestion().isFreeForm());*/
+            
+            if (findQuestion(latestEvent.getSurvey().getQuestions(), r.getQuestion().getId()) != null) {
+                if (r.getQuestion().isFreeForm()) {
+                    assertTrue("Response not found (1)", r.getText().equals("test response"));
+                } else {
+                    assertFalse("Response not found (2)", r.getAnswer() == null);
+                }
             }
         }
+    }
+
+    private Question findQuestion(Set questions, long questionId) {
+        Question q = null;
+        boolean found = false;
+        for (Iterator it = questions.iterator(); it.hasNext() && !found;) {
+            q = (Question) it.next();
+            found = (q.getId() == questionId);
+        }
+        return found ? q : null;
     }
 
     private List createResponses(Set questions, User u) {

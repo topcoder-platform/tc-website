@@ -106,6 +106,24 @@ public class Home extends Base {
             getRequest().setAttribute("tchs07_info",
                     tchs07Dai.getData(tchs07Request).get("tchs07_eligibility"));
             
+
+            DataAccess tchs07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Request tchs07Request = new Request();
+            tchs07Request.setProperty("cr", String.valueOf(getUser().getId()));
+            
+            tchs07Request.setContentHandle("tchs07_eligibility");
+            getRequest().setAttribute("tchs07_info",
+                    tchs07Dai.getData(tchs07Request).get("tchs07_eligibility"));
+            
+            DataAccess tco07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Request tco07Request = new Request();
+            tco07Request.setProperty("cr", String.valueOf(getUser().getId()));
+            
+            tco07Request.setContentHandle("tco07_info");
+            getRequest().setAttribute("tco07_info",
+                    tco07Dai.getData(tco07Request).get("tco07_info"));
+            
+
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

@@ -42,9 +42,13 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+
 <p>
     5.6.6 - 2007.02.xx
     <ul>
+        <%--<li>Add TCO07 registration backend</li>--%>
+        <li>Include icon on active contests pages for tournament component projects</li>
+        <li>Prompt user if they are not registered for tco07 and are registering for a component</li>
         <li>Add region column to TCHS07 registrants page</li>
     </ul>
 </p>
@@ -69,6 +73,21 @@
             after deploying, the query and command long_contest_find_room can be deleted </li> --%>
         <li>Studio payments shown in My Topcoder Payments</li>
         <li>PACTS bug fix: client didn't appear when updating a payment</li>
+=======
+    5.6.4 - 2007.01.xx
+    <ul>
+        <%--<li>RatingTag was taken out since it is no longer in use</li>--%>
+        <%--<li>Fixed bug when showing a problem with Matrix2D data type</li>--%>
+        <%--<li>TCS Loader: Added filter by elegibility (just open projects)</li>--%>
+        <li>When submiting a long contest, if the round id, contest id and component id are not consistent, throw an
+            exception
+        </li>
+        <%--<li>When registering for a long round, the room_id is not looked up anymore, it wasn't needed.
+            after deploying, the query and command long_contest_find_room can be deleted </li> --%>
+        <li>Studio payments shown in My Topcoder Payments</li>
+        <li>PACTS bug fix: client didn't appear when updating a payment</li>
+
+>>>>>>> 1.289.2.2
     </ul>
 </p>
 
