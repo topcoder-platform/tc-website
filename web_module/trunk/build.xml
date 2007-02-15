@@ -206,7 +206,6 @@
             <include name="com/topcoder/web/tc/*.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
-       	    <include name="com/topcoder/dde/catalog/Category.java"/>
         	<include name="com/topcoder/dde/catalog/ComponentInfo.java"/>
             <include name="com/topcoder/dde/catalog/ComponentVersionInfo.java"/>
         	<include name="com/topcoder/dde/catalog/ForumCategory.java"/>
