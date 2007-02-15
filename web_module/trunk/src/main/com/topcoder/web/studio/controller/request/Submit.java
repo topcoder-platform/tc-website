@@ -19,6 +19,10 @@ import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.*;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Timestamp;
@@ -137,6 +141,13 @@ public class Submit extends BaseSubmissionDataProcessor {
                     fos.write(fileBytes);
                     fos.close();
 
+                    if (mt.getFileType().isImageFile()) {
+                        ImageInputStream iis = ImageIO.createImageInputStream(new ByteArrayInputStream(fileBytes));
+                        BufferedImage image = ImageIO.read(iis);
+                        s.setWidth(new Integer(image.getWidth()));
+                        s.setHeight(new Integer(image.getHeight()));
+                    }
+
                     Integer maxRank = dao.getMaxRank(c, u);
                     Integer one = new Integer(1);
                     getRequest().setAttribute("maxRank", maxRank);
@@ -145,10 +156,10 @@ public class Submit extends BaseSubmissionDataProcessor {
                         dao.saveOrUpdate(s);
                     } else {
                         Integer newRank = new Integer(rank);
-                        if (newRank.compareTo(maxRank)>0) {
-                            s.setRank(new Integer(maxRank.intValue()+1));
+                        if (newRank.compareTo(maxRank) > 0) {
+                            s.setRank(new Integer(maxRank.intValue() + 1));
                             dao.saveOrUpdate(s);
-                        } else if (newRank.compareTo(one)<0) {
+                        } else if (newRank.compareTo(one) < 0) {
                             dao.changeRank(one, s);
                         } else {
                             dao.changeRank(newRank, s);
