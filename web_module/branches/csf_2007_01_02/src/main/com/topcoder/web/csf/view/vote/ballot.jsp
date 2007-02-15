@@ -239,7 +239,8 @@ function refreshRanked(body) {
 
     for (var i = 0; i < body.rows.length; i++) {
         tr = body.rows[i];
-        tr.setAttribute("class", i % 2 == 0 ? "light" : "dark");
+        //have to do it this way because of non standard IE when using setAttribute
+        tr.className = i % 2 == 0 ? "light" : "dark";
         if (tr.cells.length == 2) {
             tdUpDown = tr.insertCell(tr.cells.length);
             tdTop = tr.insertCell(tr.cells.length);
@@ -270,7 +271,7 @@ function refreshRanked(body) {
                 td.innerHTML = i + 1;
             }
             if (styles[j]) {
-                td.setAttribute("class", styles[j]);
+                td.className = styles[j];
             }
             if (nowraps[j]) {
                 td.setAttribute("nowrap", nowraps[j]);
@@ -286,7 +287,7 @@ function refreshUnRanked(body) {
     var tr, td, tdUpDown,tdTop,tdRemove;
     for (var i = 0; i < body.rows.length; i++) {
         tr = body.rows[i];
-        tr.setAttribute("class", "disabled");
+        tr.className = "disabled";
         if (tr.cells.length == 2) {
             tdUpDown = tr.insertCell(tr.cells.length);
             tdTop = tr.insertCell(tr.cells.length);
@@ -303,7 +304,7 @@ function refreshUnRanked(body) {
         for (var j = 0; j < tr.cells.length; j++) {
             td = tr.cells[j];
             if (styles[j]) {
-                td.setAttribute("class", styles[j]);
+                td.className = styles[j];
             }
             if (nowraps[j]) {
                 td.setAttribute("nowrap", nowraps[j]);
@@ -426,9 +427,17 @@ function submit() {
                     <span style="cursor: default; white-space: nowrap;" onMouseOver="blurbUp(this, '${candidate.name}Blurb')" onMouseOut="popHide('${candidate.name}Blurb')">
                         ${candidate.name}Microsoft and British Telecom, in association...
                     </span>
+
                     <div id="${candidate.name}Blurb" class="popUp">
                         <div style="width: 400px;">
-                        <strong>Full description:</strong><br><br>Microsoft and British Telecom, in association with TopCoder, will run a series of Connected Services Sandbox Mashup Service Design and Assembly competitions. In these competitions, developers from Sandbox member organizations, as well as freelance application developers, can collaborate and compete to generate new mashup service designs and then build functional prototypes of those designs.<br><br>Through this series of competitions, Sandbox members can take advantage of a "no-shore" pool of creative talent to design and assemble working prototypes of services which could result in commercialized deployments in service provider networks.
+                            <strong>Full description:</strong><br><br>Microsoft and British Telecom, in association with
+                            TopCoder, will run a series of Connected Services Sandbox Mashup Service Design and Assembly
+                            competitions. In these competitions, developers from Sandbox member organizations, as well
+                            as freelance application developers, can collaborate and compete to generate new mashup
+                            service designs and then build functional prototypes of those designs.<br><br>Through this
+                            series of competitions, Sandbox members can take advantage of a "no-shore" pool of creative
+                            talent to design and assemble working prototypes of services which could result in
+                            commercialized deployments in service provider networks.
                         </div>
                     </div>
                     <a href="#" target="_blank">
