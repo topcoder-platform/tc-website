@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Survey;
@@ -160,8 +161,9 @@ public class Helper {
                 }
                 Response response = new Response();
                 response.setQuestion(question);
-                response.setAnswer(question.findAnswer(answerId));
-                response.setText(StringUtils.checkNull(values[i]));
+                Answer a = question.findAnswer(answerId);
+                response.setAnswer(a);
+                response.setText(a == null ? StringUtils.checkNull(values[i]) : null);
                 ret.add(response);
             }
         }

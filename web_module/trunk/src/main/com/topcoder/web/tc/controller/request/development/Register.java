@@ -58,7 +58,7 @@ public class Register extends ViewRegistration {
             boolean agreed = "on".equals(getRequest().getParameter(Constants.TERMS_AGREE));
             List responses = validateSurvey();
             Coder c = (Coder) createEJB(getInitialContext(), Coder.class);
-            boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
+            //boolean isStudent = c.getCoderTypeId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME) == 1;
             if (agreed && !hasErrors()) {
                 if (log.isDebugEnabled()) {
                     log.debug("they agree to terms and there are no errors");
@@ -69,7 +69,10 @@ public class Register extends ViewRegistration {
                     if (log.isDebugEnabled()) {
                         log.debug("they are eligible");
                     }
+/*
                     if (isTournamentTime() && isStudent) {
+*/
+                    if (isTournamentTime()) {
                         if (log.isDebugEnabled()) {
                             log.debug("it's tournament time and they are as student");
                         }

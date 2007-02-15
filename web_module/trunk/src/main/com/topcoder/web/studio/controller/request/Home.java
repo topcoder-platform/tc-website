@@ -1,6 +1,7 @@
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
@@ -20,6 +21,17 @@ public class Home extends BaseProcessor {
         DataAccessInt dai = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
         getRequest().setAttribute(r.getContentHandle(), dai.getData(r));
 
+        if (userLoggedIn()) {
+            DataAccess tco07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            Request tco07Request = new Request();
+            log.info("getUser().getId() : " + getUser().getId());
+            tco07Request.setProperty("cr", String.valueOf(getUser().getId()));
+            
+            tco07Request.setContentHandle("tco07studio_info");
+            getRequest().setAttribute("tco07studio_info",
+                    tco07Dai.getData(tco07Request).get("tco07studio_info"));
+        }
+        
         setNextPage("/home.jsp");
         setIsNextPageInContext(true);
     }

@@ -28,6 +28,23 @@ public class EventRegistration extends Base {
         this.id = id;
     }
 
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        } else {
+            try {
+                EventRegistration oa = (EventRegistration) o;
+                return getId().equals(oa.getId()) && eligible.equals(oa.isEligible());
+            } catch (ClassCastException e) {
+                return false;
+            }
+        }
+    }
+
+    public int hashCode() {
+        return id.hashCode();
+    }
+
 
     public static class Identifier implements Serializable {
         private User user = null;
