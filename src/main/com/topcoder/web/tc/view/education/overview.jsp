@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><A href="/tc?module=Static&d1=features&d2=021507"><strong>An Introduction to Marathon Matches</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
+You face a number of different issues in a marathon match than you do in an SRM, from time management and organization to figuring out how the matches actually work. This article can help you understand the unique structure of a marathon match and what it takes to create, test and submit your entries.</li>
 <li><A href="/tc?module=Static&d1=features&d2=021307"><strong>An Introduction to Code Coverage</strong></A>, by <tc-webtag:handle coderId="10211498" /><br>
 Well-written unit tests can ensure that components function correctly, but how can you be sure you're actually testing everything you need to? One answer is code coverage.</li>
 <li><A href="/tc?module=Static&d1=features&d2=020807"><strong>Beginning TopCoder Competition with C++</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
 This article is aimed at programmers who are thinking of using C++ as a programming language for TopCoder algorithm matches &mdash; either because they are new to TopCoder, or because they want to switch languages.</li>
-<li><A href="/tc?module=Static&d1=features&d2=020607"><strong>Marathon Man: An interview with battyone</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
-Over the course of 11 Intel competitions, <tc-webtag:handle coderId="7504863" context="algorithm"/> finished at #1 six times, and finished in the top 5 in three more. With the Intel series now behind us, I asked <tc-webtag:handle coderId="7504863" context="algorithm"/> for his advice and insights on marathon matches.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
