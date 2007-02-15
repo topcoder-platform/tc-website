@@ -382,7 +382,7 @@ function submit() {
     When you're done, click the <strong>Submit my vote</strong> button on bottom.
 </div>
 
-<p>
+<p align="center">
     <tc-webtag:errorIterator id="err" name="<%=Constants.CANDIDATE_IDS%>">
         <span class="bigRed">${err}</span>
         <br></tc-webtag:errorIterator>
@@ -425,12 +425,13 @@ function submit() {
                 </td>
                 <td class="value">
                     <span style="cursor: default; white-space: nowrap;" onMouseOver="blurbUp(this, '${candidate.name}Blurb')" onMouseOut="popHide('${candidate.name}Blurb')">
-                        ${candidate.name}Microsoft and British Telecom, in association...
+                        ${candidate.name}0000000000000000000000000000000000000000000&#133;
                     </span>
 
                     <div id="${candidate.name}Blurb" class="popUp">
                         <div style="width: 400px;">
-                            <strong>Full description:</strong><br><br>Microsoft and British Telecom, in association with
+                            <strong>Full description:</strong><br><br>
+                            Microsoft and British Telecom, in association with
                             TopCoder, will run a series of Connected Services Sandbox Mashup Service Design and Assembly
                             competitions. In these competitions, developers from Sandbox member organizations, as well
                             as freelance application developers, can collaborate and compete to generate new mashup
