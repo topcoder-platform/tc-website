@@ -41,6 +41,7 @@
             <one-to-many class="ContestResult"/>
         </set>
         <many-to-one name="status" column="contest_status_id" class="ContestStatus" access="field"/>
+        <many-to-one name="event" column="event_id" class="com.topcoder.web.common.model.Event" access="field"/>
 
     </class>
 </hibernate-mapping>
