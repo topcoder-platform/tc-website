@@ -636,6 +636,29 @@ public class ForumsBean extends BaseEJB {
     */
     // Software Forums - End
     
+    public void deleteOrphanedAttachments() {
+    	Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+    	
+    	try {
+	    	conn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+			ps = conn.prepareStatement(
+					"delete from jiveattachment where objectid is null");
+			rs = ps.executeQuery();	
+			log.info("Successfully deleted orphaned attachments.");
+    	} catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+			close(rs);
+			close(ps);
+			close(conn);
+    	}
+    }
+    
     private void logException(Exception e, String msg) {
     	log.info("*** " + msg + ": " + e);
     	StackTraceElement[] ste = e.getStackTrace();

@@ -1,5 +1,6 @@
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.ForumMessage,
                  com.jivesoftware.forum.stats.ViewCountManager,
                  com.topcoder.web.forums.ForumConstants,
                  java.util.Iterator"
@@ -65,6 +66,7 @@
             list.
             To prevent any watch from being automatically deleted, toggle the "Save" option.<br><br>
             
+            <%	if (watchManager.getTotalWatchCount(user, JiveConstants.THREAD) > 0) { %>
             <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
                 <tc-webtag:hiddenInput name="module" value="Watches"/>
                 <tc-webtag:hiddenInput name="<%=ForumConstants.WATCH_TYPE%>" value="<%=String.valueOf(JiveConstants.THREAD)%>"/>
@@ -113,6 +115,7 @@
                     <input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
                 </div>
             </form>
+            <%	} %>
 
 			<%	if (watchManager.getTotalWatchCount(user, JiveConstants.FORUM_CATEGORY) > 0) { %>
 			<form name="form2" method="post" action="<%=sessionInfo.getServletPath()%>">
@@ -130,18 +133,18 @@
                         <td class="rtHeader">Delete</td>
                     </tr>
                     <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
-                        <tc-webtag:useBean id="latestMessage" name="thread" type="com.jivesoftware.forum.ForumMessage" toScope="page" property="latestMessage"/>
+                        <%	ForumMessage latestMessage = category.getLatestMessage(); %>
                         <tr>
-                            <% String trackerClass = (user == null || readTracker.getReadStatus(user, latestMessage) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
+                            <% String trackerClass = (user == null || latestMessage == null || readTracker.getReadStatus(user, latestMessage) == ReadTracker.READ) ? "rtLinkOld" : "rtLinkBold"; %>
                             <td class="rtThreadCellWrap">
                                 <a href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="<%=trackerClass%>"><%=category.getName()%></a>
                             </td>
                             <td class="rtThreadCell" align="right"><%=category.getThreadCount()%></td>
                             <td class="rtThreadCell" align="right"><%=category.getMessageCount()%></td>
-                            <td class="rtThreadCell"><b>
-                                <tc-webtag:format object="${category.modificationDate}" format="MMM d, yyyy h:mm a z" timeZone="${sessionInfo.timezone}"/></b>
+                            <td class="rtThreadCell"><b><%if (latestMessage != null) {%>
+                                <tc-webtag:format object="${category.modificationDate}" format="MMM d, yyyy h:mm a z" timeZone="${sessionInfo.timezone}"/></b><%}%>
                             </td>
-                            <td class="rtThreadCell"><%if (latestMessage.getUser() != null) {%>
+                            <td class="rtThreadCell"><%if (latestMessage != null && latestMessage.getUser() != null) {%>
                                 <tc-webtag:handle coderId="<%=latestMessage.getUser().getID()%>"/><%}%>
                             </td>
                             <td class="rtThreadCell" align="center">
