@@ -44,7 +44,7 @@ String compType = (String) request.getAttribute("ct"); %>
 <div align="center">
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
 <thead>
-    <tr><td class="title" colspan="4">Registrants: 1234</td></tr>
+    <tr><td class="title" colspan="4">Registrants: <%=rsc.size()%></td></tr>
     <tr>
         <td class="header" width="100%">
             <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
