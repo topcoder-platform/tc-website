@@ -42,12 +42,12 @@
                         At UBS, you'll have access to the resources and expertise of a global firm while enjoying the flexibility and autonomy of a start-up. The technology we build is responsible for trading over 400 million shares daily in the US alone, managing trillions of dollars in assets, and trading across nearly every product and region around the globe.
                         </p>
                         <p>
-                        Become part of our exciting future at UBS. There are positions for extraordinary coders in our offices all over the world. <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubsConfirm">Apply Now</a>.
+                        Become part of our exciting future at UBS. There are positions for extraordinary coders in our offices all over the world. 
                         </p>
                         <p>
                        You and Us. UBS.
                         </p>
-
+                        <p><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubsConfirm" class="button" style="width: 70px;">Apply Now</a></p>                       
                     </div>
                 </td>
             </tr>

@@ -43,8 +43,7 @@
                         <p>
                         <b>Show us you have what it takes.</b>
                         </p>
-                        <p><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drwConfirm">Apply Now</a>.</p>
-
+                        <p><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drwConfirm" class="button" style="width: 70px;">Apply Now</a></p>
                     </div>
                 </td>
             </tr>
