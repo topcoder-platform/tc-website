@@ -39,6 +39,9 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<%--
+<tr class="bodyText"><td nowrap="nowrap">02.19.07 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">The 2007 TopCoder Open is here</A></td></tr>
+--%>
 <tr class="bodyText"><td nowrap="nowrap">01.26.07 2:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=16270">dogsoldier39 is the TCO07 Web Site Design Contest Winner!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.22.07 2:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=16270">Vote for your favorite TCO'07 web design</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.12.07 2:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=11144">maxsense is the TCO07 Logo Contest Winner!</A></td></tr>

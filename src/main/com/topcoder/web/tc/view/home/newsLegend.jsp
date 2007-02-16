@@ -134,14 +134,16 @@ OR
 
 <%-----------------TOURNY NEWS---------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>10.04.05<br>5:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">Sun chat session scheduled for SRM 267</A></span><br><br>
-      One hour prior to SRM 267 on October 5th, Joe Nuxoll from Sun Microsystems&#174; will be in arena to chat about JSF components and Java Studio Creator. The chat starts at 8:00PM EDT.
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>02.19.07<br>9:00 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">The 2007 TopCoder Open is here</A>
+        </span><br><br>
+      Made of 100% REAL competition!  And be sure to try new Marathon Match and Studio flavors!  Their delicious!
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=sun_chat_100505">details</A> | 
-         <tc-webtag:forumLink forumID="505806" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">details</A> | 
+         <tc-webtag:forumLink forumID="514380" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
