@@ -219,8 +219,6 @@ TopCoder makes it possible for you to submit a solution for any past marathon ma
 <br><br>
 As an example, here's the practice room for MM2 (<a href="/longcontest/?module=ViewStandings&rd=10084">Mastermind</a>). One bonus of the practice rooms is that you can view the code each person has submitted.
 <br><br>
-Note that during an active contest, practice submissions will normally not get processed, or will be given lower priority in the queue than submissions for the active contest.
-<br><br>
 <span class="bodySubtitle">Conclusion</span><br>
 We've covered the mechanics of marathon contests - you should understand how the contests work and the process for creating &amp; submitting a solution. Designing and developing that solution is down to you, but I'll leave you with a few tips:
  
