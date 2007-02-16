@@ -44,7 +44,7 @@
                         NSA has exciting career opportunities available in Computer/Electrical Engineering, Computer Science, Mathematics, Foreign Language, Intelligence Analysis, Cryptanalysis, and Signals Analysis. You'll enjoy an incredible benefits package, competitive pay, and the satisfaction of making the world a safer place.
                         </p>
                         <p>
-                        For more information about the career opportunities available at NSA, <a href="">Apply Now</a>. U.S. citizenship is required. NSA is an Equal Opportunity Employer.
+                        For more information about the career opportunities available at NSA, <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsaConfirm">Apply Now</a>. U.S. citizenship is required. NSA is an Equal Opportunity Employer.
                         </p>
 
                     </div>
