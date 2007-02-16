@@ -29,12 +29,54 @@
 
                 </td>
                 <td id="bodySpacer" width="100%">
-                    <img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />
                     <div id="pageBody">
 
 <h1><div>Register Now!</div></h1>
-<p>
+<div align="center" style="margin: 10px 40px 40px 40px;">
+<img src="/i/tournament/tco07/forWhichCompetition.png" alt="For which competition would you like to register?" />
+</div>
+
+<%--
+--%>
+<p align="center" style="margin-bottom: 40px;">
+<strong><A href="/tc?module=TCO07ViewRegistration&ct=algorithm">Algorithm Competition</A></strong>
 </p>
+<%--
+<p class="grayedOut" align="center" style="margin-bottom: 40px;">
+<strong>Algorithm Competition</strong>
+<br>Sorry, registration for this competition has closed.
+</p>
+--%>
+
+<p align="center" style="margin-bottom: 40px;">
+<strong><A href="/tc?module=TCO07ViewRegistration&ct=component">Component Design & Development Competition</A></strong>
+</p>
+<%--
+<p class="grayedOut" align="center" style="margin-bottom: 40px;">
+<strong>Algorithm Competition</strong>
+<br>Sorry, registration for this competition has closed.
+</p>
+--%>
+
+<p align="center" style="margin-bottom: 40px;">
+<strong><A href="/tc?module=TCO07ViewRegistration&ct=marathon">Marathon Matches Competition</A></strong>
+</p>
+<%--
+<p class="grayedOut" align="center" style="margin-bottom: 40px;">
+<strong>Algorithm Competition</strong>
+<br>Sorry, registration for this competition has closed.
+</p>
+--%>
+
+<p align="center" style="margin-bottom: 40px;">
+<strong><A href="/tc?module=TCO07ViewRegistration&ct=studio">Studio Competition</A></strong>
+</p>
+<%--
+<p class="grayedOut" align="center" style="margin-bottom: 40px;">
+<strong>Algorithm Competition</strong>
+<br>Sorry, registration for this competition has closed.
+</p>
+--%>
 
 
                     </div>
