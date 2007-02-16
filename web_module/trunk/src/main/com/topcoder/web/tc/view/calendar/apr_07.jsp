@@ -60,22 +60,24 @@
       <td class="value">2
       </td>
       <td class="value">3
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Qual Round 2</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Qual Round 2</A></strong><br>
          9:00 PM 
-         </div>--%>
+         </div>
       </td>
       <td class="value">4
-        <%-- <div class="long">
+         <div class="long">
          <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 8</A></strong><br>
          12:00 NOON
-         </div>--%>
+         </div>
       </td>
       <td class="value">5
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Qual Round 3</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Qual Round 3</A></strong><br>
          7:00 AM 
-         </div>--%>
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -97,14 +99,16 @@
       <td class="value">11
       </td>
       <td class="value">12
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Round 1A</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Round 1A</A></strong><br>
          7:00 AM 
-         </div>--%>
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO CDDC Registration Closes</A></strong><br>
+         </div>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO CDDC Registration Closes</A></strong><br>
          9:00 AM 
-         </div>--%>
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -113,10 +117,11 @@
       <td class="value">13
       </td>
       <td class="value">14
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Round 1B</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Round 1B</A></strong><br>
          1:00 PM 
-         </div>--%>
+         </div>
       </td>
    </tr>
 
@@ -133,10 +138,11 @@
          $5,000<br>
          11:00 AM
          </div>
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Round 1C</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Round 1C</A></strong><br>
          9:00 PM 
-         </div>--%>
+         </div>
       </td>
       <td class="value">19
          <div class="des_dev">
@@ -164,10 +170,11 @@
       <td class="value">25
       </td>
       <td class="value">26
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Round 2A</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Round 2A</A></strong><br>
          7:00 AM 
-         </div>--%>
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -176,10 +183,11 @@
       <td class="value">27
       </td>
       <td class="value">28
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Round 2B</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Round 2B</A></strong><br>
          1:00 PM 
-         </div>--%>
+         </div>
       </td>
    </tr>
    
