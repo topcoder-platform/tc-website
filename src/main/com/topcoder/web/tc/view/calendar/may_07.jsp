@@ -68,10 +68,11 @@
          <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 8</A></strong><br>
          12:00 NOON
          </div>--%>
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Round 2C</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Round 2C</A></strong><br>
          9:00 PM 
-         </div>--%>
+         </div>
       </td>
       <td class="value">3
          <div class="des_dev">
@@ -82,10 +83,11 @@
       <td class="value">4
       </td>
       <td class="value">5
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Round 3 - All</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Round 3 - All</A></strong><br>
          1:00 PM 
-         </div>--%>
+         </div>
       </td>
    </tr>
 

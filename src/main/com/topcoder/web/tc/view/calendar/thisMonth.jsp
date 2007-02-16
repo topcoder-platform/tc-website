@@ -189,10 +189,11 @@
          </div>
       </td>
       <td class="value">26
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO CDDC Registration Opens</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO CDDC Registration Opens</A></strong><br>
          9:00 AM 
-         </div>--%>
+         </div>
          <div class="tchs07">
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">TCHS07 Gamma Round 1</A></strong><br>
          10:00 AM

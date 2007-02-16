@@ -129,10 +129,11 @@
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">TCHS07 Beta Round 2</A></strong><br>
          2:00 PM
          </div>
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Algo Registration Opens</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Algo Registration Opens</A></strong><br>
          9:00 AM 
-         </div>--%>
+         </div>
       </td>
       <td class="value">13
       </td>
@@ -217,10 +218,11 @@
       <td class="value">30
       </td>
       <td class="value">31
-      <%--   <div class="tco07">
-         <strong><A href=""><img src="/i/interface/emblem/tco07.gif" alt="TCO07" border="0"/><br>TCO Qual Round 1</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="">TCO Qual Round 1</A></strong><br>
          1:00 PM 
-         </div>--%>
+         </div>
       </td>
    </tr>
 
