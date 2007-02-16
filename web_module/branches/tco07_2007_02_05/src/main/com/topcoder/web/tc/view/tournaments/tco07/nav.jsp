@@ -115,7 +115,7 @@ function toggleMenu(menuTitle,menuID){
         </ul>
     </li>
 <%--------------MARATHON---------------%>
-    <li class="<% if (tabLev1.equals("marathon")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Marathon Matches</div></a>
+    <li class="<% if (tabLev1.equals("marathon")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Marathon Match</div></a>
         <ul>
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=description"<% if (tabLev1.equals("marathon") && tabLev2.equals("description")) {%> class="navHighlight"<% } %>><div>Description</div></a></li>
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule"<% if (tabLev1.equals("marathon") && tabLev2.equals("schedule")) {%> class="navHighlight"<% } %>><div>Schedule</div></a></li>
