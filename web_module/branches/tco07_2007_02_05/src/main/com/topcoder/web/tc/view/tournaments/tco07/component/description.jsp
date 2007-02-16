@@ -66,13 +66,13 @@
                         <h2>How to Register for the Component Competition</h2>
                         <p>
                         <strong>Already a TopCoder Member?</strong><br>
-                        Click <A href="">here</A> to register for the TCO07 Component Competition.
+                        Click <A href="/tc?module=TCO07ViewRegistration&ct=component">here</A> to register for the TCO07 Component Competition.
                         </p>
                         <p>
                         <strong>Not Yet a TopCoder Member?</strong><br>
                         Click <A href="/reg/">here</A> to register as a TopCoder member.<br>
                         Check your email and activate your new TopCoder account.<br>
-                        Click <A href="">here</A> to register for the TCO07 Component Competition
+                        Click <A href="/tc?module=TCO07ViewRegistration&ct=component">here</A> to register for the TCO07 Component Competition
                         </p>
                     </div>
                 </td>

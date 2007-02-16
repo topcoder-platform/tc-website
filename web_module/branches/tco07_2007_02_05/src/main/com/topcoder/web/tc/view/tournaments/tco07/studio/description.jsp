@@ -63,13 +63,13 @@
 <h2>How to Register for the Studio Design Competition</h2>
 <p>
 <strong>Already a TopCoder Member?</strong><br>
-Click <A href="">here</A> to register for the TCO07 Studio Design Competition.
+Click <A href="/tc?module=TCO07ViewRegistration&ct=studio">here</A> to register for the TCO07 Studio Design Competition.
 </p>
 <p>
 <strong>Not Yet a TopCoder Member?</strong><br>
 Click <A href="/reg/">here</A> to register as a TopCoder member.<br>
 Check your email and activate your new TopCoder account.<br>
-Click <A href="">here</A> to register for the TCO07 Studio Design Competition
+Click <A href="/tc?module=TCO07ViewRegistration&ct=studio">here</A> to register for the TCO07 Studio Design Competition
 </p>
                     </div>
                 </td>
