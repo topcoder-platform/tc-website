@@ -24,7 +24,6 @@
 <%@ page import="com.topcoder.dde.catalog.*" %>
 <%@ page import="com.topcoder.dde.forum.*" %>
 <%@ page import="com.topcoder.web.ejb.forums.*" %>
-<%@ page import="com.topcoder.web.forums.ForumConstants" %>
 <%@ page import="com.topcoder.util.config.*" %>
 <%@ page import="com.topcoder.servlet.request.*" %>
 <%@ page import="com.topcoder.shared.util.TCContext" %>
@@ -959,7 +958,7 @@ if (action != null) {
 		if (activeSpec != null) {
 			try {
 	     		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
-	     		String groupName = ForumConstants.GROUP_SOFTWARE_USERS_PREFIX+activeSpec.getId();
+	     		String groupName = "Software_Users_"+activeSpec.getId();
 	    		forums.assignRole(userID, groupName);
 	    		strMessage += txtUsername + " successfully added as developer forum user.";
 	    	} catch (Exception e) {
@@ -982,7 +981,7 @@ if (action != null) {
 		if (activeSpec != null) {
 	       	try {
 	     		long userID = PRINCIPAL_MANAGER.getUser(txtUsername).getId();
-	     		String groupName = ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX+activeSpec.getId();
+	     		String groupName = "Software_Moderators_"+activeSpec.getId();
 	    		forums.assignRole(userID, groupName);
 	    		strMessage += txtUsername + " successfully added as developer forum moderator.";
 	    	} catch (Exception e) {
