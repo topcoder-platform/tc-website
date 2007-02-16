@@ -41,6 +41,7 @@
         <mapping resource="com/topcoder/web/common/model/Address.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/AlgoRating.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/AlgoRatingType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Answer.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Coder.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/CoderImage.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/CoderReferral.hbm.xml"/>
