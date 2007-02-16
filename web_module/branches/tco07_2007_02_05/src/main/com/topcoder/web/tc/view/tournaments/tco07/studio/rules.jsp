@@ -49,7 +49,6 @@ The 2007 TopCoder Open Studio Design Competition ("SDC") will take place between
 </p>
 
 <a name="eligibility"></a>
-<%--<a href="#top"><img src="/i/tournament/tco07/back_to_top.png" alt="back to top" border="0" align="right"></a>--%>
 <h2>Eligibility</h2>
 <p>
 TopCoder Studio members meeting the following eligibility criteria are eligible to compete in the SDC:  

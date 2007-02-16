@@ -47,7 +47,6 @@
 <p>The 2007 TopCoder Open ("TCO") Algorithm Competition will take place between February 19 and June 29, 2007. It will consist of three (3) online qualification rounds, four (4) online elimination rounds and three (3) onsite final rounds: the Semifinal, Wildcard and Championship rounds. The prize purse for this competition is $100,000 in cash. Up to 450 competitors will win a cash prize and, for competing in Online Round #1, up to 1,800 competitors will receive a participatory prize. The top 48 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds, held at The Mirage in Las Vegas, Nevada, USA on June 27, 28 and 29, 2007.</p>
 
 <a name="eligibility"></a>
-<%--<a href="#top"><img src="/i/tournament/tco07/back_to_top.png" alt="back to top" border="0" align="right"></a>--%>
 <h2>Eligibility</h2>
 <p>
 TopCoder members meeting the following criteria are eligible to compete in the Algorithm Competition: 
@@ -413,7 +412,7 @@ Prizewinners will be notified via e-mail within 10 days of the completion of eac
 <p>
 All contestants who advance to the onsite tournament rounds must complete the following items and submit them to TopCoder by 5:00 PM EDT on Friday, May 11, 2007: 
 <ul>
-<li>Confirmation of attendance/proof of travel documents – Please email <a href="mailto:jford@topcoder.com">Jessie D'Amato Ford</a> to confirm your attendance onsite.  If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
+<li>Confirmation of attendance/proof of travel documents - Please email <a href="mailto:jford@topcoder.com">Jessie D'Amato Ford</a> to confirm your attendance onsite.  If you require a passport and/or visa to visit the United States, you must show proof of your documents via a scanned copy of the necessary documents.</li>
 <li>Please submit a head shot by emailing <a href="mailto:memberphotos@topcoder.com">memberphotos@topcoder.com</a>, if we do not have one on file for you.</li>
 <li>Please ensure your most up-to-date information is listed in your TopCoder profile in the event we need to mail your plane tickets or contact you via telephone.</li>
 <li>Competitor Questionnaire - the questions and responses may be published in the 2007 TopCoder Open program</li>
