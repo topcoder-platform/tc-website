@@ -7,13 +7,23 @@
     <jsp:include page="/script.jsp"/>
 
     <title>2007 TopCoder Open</title>
-    <link type="text/css" rel="stylesheet" href="/css/tco07.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <STYLE TYPE="text/css">
         html.termsHTML, body.termsBody {
             color: #333333;
             background: #FFFFFF;
         }
+        h1 {
+            color: #666666;
+            background: none;
+            position: static;
+            width: auto;
+        }
+        h1 div {
+            margin: 0px 0px 20px 0px;
+        }
+
     </STYLE>
 </head>
 

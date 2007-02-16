@@ -59,7 +59,7 @@
 --%>
 
 <p align="center" style="margin-bottom: 40px;">
-<strong><A href="/tc?module=TCO07ViewRegistration&ct=marathon">Marathon Matches Competition</A></strong>
+<strong><A href="/tc?module=TCO07ViewRegistration&ct=marathon">Marathon Match Competition</A></strong>
 </p>
 <%--
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">
