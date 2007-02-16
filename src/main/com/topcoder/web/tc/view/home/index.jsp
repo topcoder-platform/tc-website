@@ -233,14 +233,19 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- AOL Mashups 
-                <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2048"><img src="/i/home/aolmashups20070104_sm.jpg" alt="AOL Mashups" border="0" style="display:block;"/></A>
-                --%>
                 <%-- WSJ
                 <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
                 --%>
                 <%-- AOL webcast team --%>
                 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcast20060108.jpg" alt="TCCC Webcast" border="0" style="display:block;"/></A>
+                
+                <%-- SRM SPONSOR 
+                <map name="srm">
+                <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10664" />
+                <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" />
+                </map>
+                <img src="/i/home/aol_srm340.png" alt="SRM 340 sponsored by AOL" border="0" style="display:block;" usemap="#srm"/>
+                --%>
             </td>
         </tr>
     </table>
