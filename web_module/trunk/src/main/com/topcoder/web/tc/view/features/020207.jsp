@@ -47,7 +47,7 @@
     <A href="/tc?module=Static&d1=features&d2=archive">Archive</A><br>
     <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
-    <tc-webtag:forumLink forumID="506196" message="Discuss this article" />
+    <tc-webtag:forumLink forumID="506273" message="Discuss this article" />
 </div>
 
 <span class="bigTitle">TopCoder @ Work: Not Another Vista Article</span>

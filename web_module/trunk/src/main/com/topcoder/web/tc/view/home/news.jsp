@@ -9,7 +9,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=021507">An Introduction to Marathon Matches</A></span><br><br>
        You face a number of different issues in a marathon match than you do in an SRM, from time management and organization to figuring out how the matches actually work. This article can help you understand the unique structure of a marathon match and what it takes to create, test and submit your entries.</td>
-      <td class="newsPhoto"><img src="/i/m/d000hg_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21464956" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/d000hg_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21464956" context="marathon_match"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
