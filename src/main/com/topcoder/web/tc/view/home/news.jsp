@@ -8,7 +8,7 @@
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">The 2007 TopCoder Open is here</A>
         </span><br><br>
-      Made of 100% REAL competition!  And be sure to try new Marathon Match and Studio flavors!  Their delicious!
+      Made of 100% REAL competition!  And be sure to try our new Marathon Match and Studio flavors!  Their delicious!
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -17,6 +17,23 @@
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 ---------------------------%>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.16.07<br>6:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm339">SRM 339 - Problem Set & Analysis</A></span><br><br>
+Almost 1000 contestants from all around the world, with 6 targets among them, celebrated Valentine's Day by taking part in this SRM.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8593420" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm339">full story</A> | 
+        <tc-webtag:forumLink forumID="506229" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -201,15 +218,3 @@ problem proved too hard, and none of the 30 submitted programs passed.
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.08.07<br>9:20 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2056">Now open: Registration Tool Design Contest</A></span><br><br>
-        The Registration Tool Wireframe Design contest, now open at TopCoder Studio, is your chance to help design a new user-friendly way to register for TopCoder competitions. The contest offers cash prizes totaling $2,750.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2056">details</A> | 
-        <A href="http://studio.topcoder.com/forums?module=ThreadList&forumID=30">discuss</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
