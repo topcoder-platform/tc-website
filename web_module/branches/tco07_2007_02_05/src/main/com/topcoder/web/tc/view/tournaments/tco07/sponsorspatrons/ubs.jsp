@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -30,7 +31,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="/?t=sponsor&c=link&link=http://www.ubs.com/" target="_blank"><img src="/i/tournament/tco07/ubs_logo.png" alt="UBS" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.ubs.com/"/>" target="_blank" refer="ubs"/><img src="/i/tournament/tco07/ubs_logo.png" alt="UBS" border="0" /></a></div>
                         <p>
                         UBS is pleased to once again sponsor the TopCoder Open. UBS, one of the largest financial services firms in the world, is a leader in equities, corporate finance, M&A advisory and financing, financial structuring, fixed income issuance and trading, foreign exchange, derivatives and risk management.
                         </p>
@@ -41,7 +42,7 @@
                         At UBS, you'll have access to the resources and expertise of a global firm while enjoying the flexibility and autonomy of a start-up. The technology we build is responsible for trading over 400 million shares daily in the US alone, managing trillions of dollars in assets, and trading across nearly every product and region around the globe.
                         </p>
                         <p>
-                        Become part of our exciting future at UBS. There are positions for extraordinary coders in our offices all over the world. <a href="">Apply Now</a>.
+                        Become part of our exciting future at UBS. There are positions for extraordinary coders in our offices all over the world. <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubsConfirm">Apply Now</a>.
                         </p>
                         <p>
                        You and Us. UBS.

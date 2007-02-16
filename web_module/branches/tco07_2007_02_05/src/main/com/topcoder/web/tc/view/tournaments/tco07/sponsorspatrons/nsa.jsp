@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -30,7 +31,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="/?t=sponsor&c=link&link=http://www.nsa.gov/" target="_blank"><img src="/i/tournament/tco07/nsa_logo.png" alt="NSA" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.nsa.gov"/>" target="_blank" refer="nsa"/><img src="/i/tournament/tco07/nsa_logo.png" alt="NSA" border="0" /></a></div>
 
                         <h2>Where Intelligence Goes to Work</h2>
                         <p>

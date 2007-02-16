@@ -34,15 +34,15 @@
                         <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.aol.com/"/>" target="_blank" refer="aolOpps"/><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
 <h2>~ Ready?</h2>
 <p>
-<b>Lead Innovation with an audience of millions</b><br>
+<b>Lead innovation with an audience of millions</b><br>
 Inspire the world's largest online community that is millions of customers strong, including every AOL employee. 
 </p>
 <p>
-<b>Challenge the Boundaries of Technology</b><br>
+<b>Challenge the boundaries of technology</b><br>
 Your ability to envision and apply creative solutions and work on applications connecting millions of people will directly impact AOL's future technology. 
 </p>
 <h2>~ Get Set…</h2>
-<b>Are you ready to take your place on our Team?</b><br>
+<b>Are you ready to take your place on our team?</b><br>
 Our work requires ideas and daily innovation from almost every discipline, including most technology backgrounds. Whether you're right out of school, or an experienced professional, we are looking for you!! 
 </p>
 <p>
@@ -126,7 +126,7 @@ Advertising.com, Inc., founded in 1998, is a leading provider of results-based i
 <b>Projects:</b> Optimization of internet advertising, Data mining, behavioral targeting of internet advertising, large scale ad serving, high performance technical computing, vary large scale data management, information retrieval algorithm design, numerical analysis 
 </p>
 <p>
-<a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorpatrons&d4=aolConfirm">Apply Now</a>.
+<a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolConfirm">Apply Now</a>.
 </p>
                     </div>
                 </td>

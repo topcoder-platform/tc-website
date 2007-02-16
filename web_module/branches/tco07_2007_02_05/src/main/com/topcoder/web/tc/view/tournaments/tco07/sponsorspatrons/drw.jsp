@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -30,7 +31,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="/?t=sponsor&c=link&link=http://www.drwtrading.com/" target="_blank"><img src="/i/tournament/tco07/drwlogo.png" alt="DRW" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.drwtrading.com/"/>" target="_blank" refer="drw"/><img src="/i/tournament/tco07/drwlogo.png" alt="DRW" border="0" /></a></div>
                         
                         <h2>Think you're the best?</h2> 
                         <p>
@@ -42,7 +43,7 @@
                         <p>
                         <b>Show us you have what it takes.</b>
                         </p>
-                        <p><a href="">Apply Now</a>.</p>
+                        <p><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drwConfirm">Apply Now</a>.</p>
 
                     </div>
                 </td>

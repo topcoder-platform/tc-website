@@ -25,21 +25,20 @@
                     <jsp:include page="../nav.jsp" >
                     <jsp:param name="tabLev1" value="overview"/>
                     <jsp:param name="tabLev2" value="sponsors"/>
-                    <jsp:param name="tabLev3" value="aol"/>
+                    <jsp:param name="tabLev3" value="ubs"/>
                     </jsp:include>
 
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.aol.com/"/>" target="_blank" refer="aolConfirm"/><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.ubs.com/"/>" target="_blank" refer="ubsConfirm"/><img src="/i/tournament/tco07/ubs_logo.png" alt="UBS" border="0" /></a></div>
 <p>
-By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to AOL and you will be giving AOL permission to contact you about their current job opportunities.
+By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to UBS and you will be giving UBS permission to contact you about their current job opportunities.
 </p>
 <p>
-<A href="/tc?module=JobHit&jid=378&jt=1">Submit</A>
+<A href="/tc?module=JobHit&jid=377&jt=1">Submit</A>
 <br><br><br><br><br><br>
 </p>
-
                     </div>
                 </td>
             </tr>

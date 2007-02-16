@@ -24,22 +24,21 @@
 
                     <jsp:include page="../nav.jsp" >
                     <jsp:param name="tabLev1" value="overview"/>
-                    <jsp:param name="tabLev2" value="sponsors"/>
-                    <jsp:param name="tabLev3" value="aol"/>
+                    <jsp:param name="tabLev2" value="eventpatrons"/>
+                    <jsp:param name="tabLev3" value="nsa"/>
                     </jsp:include>
 
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.aol.com/"/>" target="_blank" refer="aolConfirm"/><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
-<p>
-By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to AOL and you will be giving AOL permission to contact you about their current job opportunities.
+                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.nsa.gov"/>" target="_blank" refer="nsaSuccess"/><img src="/i/tournament/tco07/nsa_logo.png" alt="NSA" border="0" /></a></div>
+                        <p>
+Your application has been received.
 </p>
 <p>
-<A href="/tc?module=JobHit&jid=378&jt=1">Submit</A>
+You will be contacted by a TopCoder Recruiter if you meet NSA's requirements. Thank you.
 <br><br><br><br><br><br>
-</p>
-
+                        </p>
                     </div>
                 </td>
             </tr>
