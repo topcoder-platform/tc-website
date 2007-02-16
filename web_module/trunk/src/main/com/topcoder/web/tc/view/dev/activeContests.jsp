@@ -19,6 +19,7 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 <body>
@@ -128,6 +129,8 @@
                 <div align="center">
                     <a href='/tc?module=Static&d1=digital_run&d2=description'><img class="emblem" src="/i/tournament/tco07/emblem.png" alt="" border="0" onmouseover="popUp(this,'popUp<rsc:item name="project_id" row="<%=resultRow%>"/>')" onmouseout="popHide()"/></a>
                 </div>
+                <% } else { %>
+                &nbsp;
                 <% } %>
             </td>
             <td class="valueC">
