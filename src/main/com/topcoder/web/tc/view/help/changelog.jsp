@@ -44,6 +44,13 @@
 
 
 <p>
+    5.7.1 - 2007.02.19
+    <ul>
+        <li>Fixed bug on TCO07 registrants page</li>
+    </ul>
+</p>
+
+<p>
     5.7.0 - 2007.02.15
     <ul>
         <%--<li>Add TCO07 registration backend</li>--%>
