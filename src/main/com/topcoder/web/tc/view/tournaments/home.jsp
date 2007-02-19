@@ -42,7 +42,7 @@
       <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/tournament/tco07current.png" alt="2007 TopCoder Open" border="0" /></A><br></td>
          <td width="100%">
-         <span class="bodySubtitle">2007 TopCoder&#174; Open</span>
+         <span class="bodySubtitle">2007 TopCoder&#174; Open Sponsored by AOL</span>
          <br><br>
          June 26-29<br>
          The Mirage <br>
