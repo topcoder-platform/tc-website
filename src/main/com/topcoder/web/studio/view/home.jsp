@@ -65,6 +65,8 @@
                      <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
                  </div>
 --%>
+                <jsp:include page="message.jsp"/>
+
                 Welcome to TopCoder Studio - the best place on the web for showing off your creative
                 skills in a competitive environment and getting paid for being the best!
                 <br><br>
