@@ -160,10 +160,21 @@
       <td class="value">18
       </td>
       <td class="value">19
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong>TCO07 Registration Opens</strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">Algo</A>, </strong>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC</A>, </strong>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">MM</A>, </strong>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=schedule">SDC</A></strong><br>
+         9:00 AM 
+         </div>
       </td>
       <td class="value">20
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10664">SRM 340</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL</A><br>
+         $5,000<br>
          11:00 AM
          </div>
       </td>
@@ -189,11 +200,6 @@
          </div>
       </td>
       <td class="value">26
-         <div class="tco07">
-         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="">TCO CDDC Registration Opens</A></strong><br>
-         9:00 AM 
-         </div>
          <div class="tchs07">
          <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineschedule">TCHS07 Gamma Round 1</A></strong><br>
          10:00 AM
