@@ -259,6 +259,12 @@
             <td class="homeText"><br>
 
                 <div style="float: right; padding-left: 5px;">
+                    <img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" width="67" height="15" border="0"/>
+                </div>
+                Ideagora, a Marketplace for Minds
+                <A target="_blank" href="http://www.businessweek.com/innovate/content/feb2007/id20070215_251519.htm?chan=innovation_innovation+%2B+design_insight">...more</A><br>[February 15]<br><br>
+
+                <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/computerworld.gif" alt="ComputerWorld" width="67" height="18" border="0"/>
                 </div>
                 Microsoft launches 'mashup' competition for developers
@@ -288,12 +294,6 @@
                 </div>
                 Programming Contests Show Impressive Growth [PDF]
                 <A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">...more</A><br>[December 6]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/success_logo.png" width="67" height="21" alt="Success Magazine" border="0"/>
-                </div>
-                Maverick Rules for Success [PDF]
-                <A href="/pdfs/press_room/success200612.pdf">...more</A><br>[November]<br><br>
 
 
             </td>
