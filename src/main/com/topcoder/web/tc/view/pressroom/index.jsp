@@ -54,10 +54,10 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A target="_blank" href="http://www.businessweek.com/innovate/content/feb2007/id20070215_251519.htm?chan=innovation_innovation+%2B+design_insight"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></A></td>
+                    <td width="274"><A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A target="_blank" href="http://www.businessweek.com/innovate/content/feb2007/id20070215_251519.htm?chan=innovation_innovation+%2B+design_insight">Ideagora, a Marketplace for Minds</A></strong></font><br />
+                        <p><font size="3"><strong><A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">Ideagora, a Marketplace for Minds</A></strong></font><br />
                         Companies seeking solutions to seemingly insoluble problems can tap the insights of hundreds of thousands of enterprising scientists without having to employ everybody full-time. This shift is rippling through Corporate America and changing the way companies invent and develop products and services. <span class="prHead"> [February 15]</span></p>
                     </td>
                 </tr>

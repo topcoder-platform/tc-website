@@ -262,7 +262,7 @@
                     <img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" width="67" height="15" border="0"/>
                 </div>
                 Ideagora, a Marketplace for Minds
-                <A target="_blank" href="http://www.businessweek.com/innovate/content/feb2007/id20070215_251519.htm?chan=innovation_innovation+%2B+design_insight">...more</A><br>[February 15]<br><br>
+                <A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">...more</A><br>[February 15]<br><br>
 
                 <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/computerworld.gif" alt="ComputerWorld" width="67" height="18" border="0"/>

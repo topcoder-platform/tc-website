@@ -38,7 +38,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2007  --> 
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2007</font></td></tr>
-<tr><td class="newsText"><A target="_blank" href="http://www.businessweek.com/innovate/content/feb2007/id20070215_251519.htm?chan=innovation_innovation+%2B+design_insight">Ideagora, a Marketplace for Minds</A> [February 15 - BusinessWeek]<br/></td></tr>
+<tr><td class="newsText"><A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">Ideagora, a Marketplace for Minds</A> [February 15 - BusinessWeek]<br/></td></tr>
 <tr><td class="newsText"><A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">Microsoft launches 'mashup' competition for developers</A> [February 14 - Computerworld]<br/></td></tr>
 <tr><td ><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
 <!-- 2006  --> 
