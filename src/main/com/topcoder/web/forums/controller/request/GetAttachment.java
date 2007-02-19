@@ -39,7 +39,7 @@ public class GetAttachment extends ForumsProcessor {
         try {
 	        // Set the headers.
 	        getHttpResponse().setContentType("application/x-download");
-	        getHttpResponse().setHeader("Content-Disposition", "attachment; filename=" + attachment.getName());
+	        getHttpResponse().setHeader("Content-Disposition", "attachment; filename=\"" + attachment.getName() + "\"");
 	        getHttpResponse().setHeader("Content-Length", String.valueOf(attachment.getSize()));
 	        
 	        // Send the file.
