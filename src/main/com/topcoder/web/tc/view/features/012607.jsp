@@ -53,11 +53,13 @@
     <jsp:param name="title" value="&#160;"/>
 </jsp:include>
 
-<div style="float: right; text-align:right;">
-<tc-webtag:forumLink forumID="506264" message="Discuss this article" />
-<div id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A></div>
-<div id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A></div>
+<div class="linkBox">
+    <A href="/tc?module=Static&d1=features&d2=archive">Archive</A><br>
+    <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
+    <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
+    <tc-webtag:forumLink forumID="506264" message="Discuss this article" />
 </div>
+
 <span class="bigTitle">Five Things You Didn't Know About C++</span>
 <br /><br />
 
