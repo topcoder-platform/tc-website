@@ -60,7 +60,7 @@
     <tc-webtag:forumLink forumID="506264" message="Discuss this article" />
 </div>
 
-<span class="bigTitle">Five things you didn't know about C++ - and never need to</span>
+<span class="bigTitle">Five things you didn't know about C++, Part 3</span>
 <br /><br />
 
 <div class="authorPhoto">
@@ -78,14 +78,14 @@
         of features of C++ which are not well known, but are
         nevertheless useful for some tasks. By popular demand, I'm
         concluding with a list of another five features, this time
-        ones that you're almost certain not to use in your code. Amaze
+        featuring ones that you're almost certain never to use in your code. Amaze
         your friends, confuse your teachers, enter the <a href="<tc-webtag:linkTracking link="http://www.ioccc.org/"/>" target="_blank" refer="feature021907"/>IOCCC</a> 
         and ask yourself how on Earth these features ended up in the standard.</p>
 
         <span class="bodySubtitle">Returning void</span>
         <!-- {{{ -->
         <p>I'll start with the one feature on this list that is used
-        in practice, although very seldom. In a
+        in practice, although very rarely. In a
         void function, the return statement can usually only be used
         without an argument. However, it is legal to return an
         expression of void type, for example
@@ -103,7 +103,7 @@
         the STL. In the <a href="/tc?module=Static&d1=features&d2=012607">first
         article</a>, I referred to <tt>mem_fun</tt>, which wraps a
         pointer to member function as a function object.  An
-        abbreviate version of this might look like this:</p>
+        abbreviated version of this might look like this:</p>
         
 <pre class="code">
 template&lt;typename Result, typename X&gt;
@@ -113,14 +113,14 @@ struct wrapper
     Result operator()(X *x) { return (x-&gt;*ptmf)(); }
 };
 </pre>
-        <p>Without this feature, it would be necessary to specialise
+        <p>Without this feature, it would be necessary to specialize
         this class for a void return type.</p>
         <!-- }}} -->
 
         <span class="bodySubtitle">Trigraphs</span>
         <!-- {{{ -->
         <p>See if you can guess what the following program will
-        produce, if compiled with an C++98 conforming compiler (you
+        produce, if compiled with a C++98 conforming compiler (you
         can use GCC with the <kbd>-std=c++98</kbd> switch).</p>
         
 <pre class="code">
@@ -156,7 +156,7 @@ int main()
         <p>and have the compiler figure out the correct type for
         <tt>i</tt>. However, the keyword already exists in C++
         today (the language designers like to recycle keywords in
-        order to minimise the chance of a new keyword conflicting with
+        order to minimize the chance of a new keyword conflicting with
         identifiers in old code). It can be applied to a local
         variable to indicate that it has automatic storage duration
         &mdash; which is the default, so it has no actual effect.</p>

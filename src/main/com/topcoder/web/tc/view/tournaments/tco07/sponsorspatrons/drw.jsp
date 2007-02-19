@@ -40,7 +40,7 @@
                         DRW employs over two hundred people worldwide with offices in Chicago, New York and London.
                         </p>
 <p>
-We have a culture of meritocracy. Employees are rewarded financially and intellectually -- measured by not by tenure, but by contribution.  The structure of the organization is flat and open, with no red tape or bureaucracy.
+We have a culture of meritocracy. Employees are rewarded financially and intellectually -- measured not by tenure, but by contribution.  The structure of the organization is flat and open, with no red tape or bureaucracy.
 </p>
 <p>
 The trading world is in the midst of a technology arms race.  Grid computing, low-latency/high throughput networks, computational intelligence: these are the weapons in our arsenal.

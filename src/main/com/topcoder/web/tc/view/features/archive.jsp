@@ -45,7 +45,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="251074" /></td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=021907"><strong>Five things you didn't know about C++ - and never need to</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=021907"><strong>Five things you didn't know about C++, Part 3</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Feb 19, 2007</td> 
             </tr>
             <tr valign="top">

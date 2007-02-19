@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.19.07<br>2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=021907">Five Things You Didn't Know About C++, Part 3</A></span><br><br>
+       By popular demand, I'm concluding with a list of another five features, this time featuring ones that you're almost certain never to use in your code. Amaze your friends, confuse your teachers, enter the IOCCC and ask yourself how on Earth these features ended up in the standard.</td>
+      <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=021907">full story</A> | 
+         <tc-webtag:forumLink forumID="506264" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>02.19.07<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">The 2007 TopCoder Open is here</A>
@@ -184,20 +200,3 @@ event.  </td>
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.08.07<br>5:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm338">SRM 338 - Problem Set & Analysis</A></span><br><br>
-Division 2 saw a very tough hard problem, worth 1100 points. Ultimately the
-problem proved too hard, and none of the 30 submitted programs passed.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm338">full story</A> | 
-        <tc-webtag:forumLink forumID="506228" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
