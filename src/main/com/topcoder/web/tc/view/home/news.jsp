@@ -8,7 +8,7 @@
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">The 2007 TopCoder Open is here</A>
         </span><br><br>
-      Made of 100% REAL competition!  And be sure to try our new Marathon Match and Studio flavors!  Their delicious!
+      Made of 100% REAL competition!  And be sure to try our new Marathon Match and Studio flavors!  They're delicious!
       </td>
    </tr>
    <tr><td class="newsLinksCell">
