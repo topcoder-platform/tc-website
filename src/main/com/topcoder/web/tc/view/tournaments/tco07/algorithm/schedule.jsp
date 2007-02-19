@@ -161,23 +161,23 @@
                         <tbody>
                                 <tr class="light">
                                        <td class="value">Semifinal Room #1</td>
-                                       <td class="value">Wednesday, June 26, 9:00 AM</td>
+                                       <td class="value">Wednesday, June 27, 9:00 AM</td>
                                 </tr>
                                 <tr class="dark">
                                        <td class="value">Semifinal Room #2</td>
-                                       <td class="value">Wednesday, June 26, 4:00 PM</td>
+                                       <td class="value">Wednesday, June 27, 4:00 PM</td>
                                 </tr>
                                 <tr class="light">
                                        <td class="value">Semifinal Room #3</td>
-                                       <td class="value">Thursday, June 27, 9:00 AM</td>
+                                       <td class="value">Thursday, June 28, 9:00 AM</td>
                                 </tr>
                                  <tr class="dark">
                                        <td class="value">Wildcard Round</td>
-                                       <td class="value">Thursday, June 27, 4:00 PM</td>
+                                       <td class="value">Thursday, June 28, 4:00 PM</td>
                                 </tr>
                                 <tr class="light">
                                        <td class="value">Championship Round</td>
-                                       <td class="value">Friday, June 28, 1:30 PM</td>
+                                       <td class="value">Friday, June 29, 1:30 PM</td>
                                 </tr>
                        </tbody>
                         </table>
