@@ -62,21 +62,28 @@
       <td class="value">3
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="">TCO Qual Round 2</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">Algo Qual Round 3</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL</A><br>
          9:00 PM 
          </div>
       </td>
       <td class="value">4
-         <div class="long">
-         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 8</A></strong><br>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">Marathon Match #3</A></strong><br>
+         <%--<A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign">VeriSign</A><br>--%>
          12:00 NOON
          </div>
+         <%--<div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 8</A></strong><br>
+         12:00 NOON
+         </div>--%>
       </td>
       <td class="value">5
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="">TCO Qual Round 3</A></strong><br>
-         7:00 AM 
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC Week 4 Projects Posted</A></strong><br>
+         9:00 AM 
          </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
@@ -86,6 +93,12 @@
       <td class="value">6
       </td>
       <td class="value">7
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">Algo Round 1A</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">UBS</A><br>
+         1:00 PM 
+         </div>
       </td>
    </tr>
 
@@ -95,18 +108,30 @@
       <td class="value">9
       </td>
       <td class="value">10
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">Algo Round 1B</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
+         9:00 PM 
+         </div>
       </td>
       <td class="value">11
       </td>
       <td class="value">12
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="">TCO Round 1A</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">Algo Round 1C</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw">DRW</A><br>
          7:00 AM 
          </div>
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="">TCO CDDC Registration Closes</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC Registration Closes</A></strong><br>
+         9:00 AM 
+         </div>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC Week 5 Projects Posted</A></strong><br>
          9:00 AM 
          </div>
          <div class="des_dev">
@@ -119,7 +144,8 @@
       <td class="value">14
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="">TCO Round 1B</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">Algo Round 2</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">UBS</A><br>
          1:00 PM 
          </div>
       </td>
@@ -135,13 +161,15 @@
       <td class="value">18
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10669">SRM 345</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL</A><br>
          $5,000<br>
          11:00 AM
          </div>
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="">TCO Round 1C</A></strong><br>
-         9:00 PM 
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">Marathon Match #4</A></strong><br>
+         <%--<A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign">VeriSign</A><br>--%>
+         12:00 NOON
          </div>
       </td>
       <td class="value">19
@@ -153,6 +181,12 @@
       <td class="value">20
       </td>
       <td class="value">21
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">Algo Round 3</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
+         1:00 PM 
+         </div>
       </td>
    </tr>
 
@@ -164,17 +198,13 @@
       <td class="value">24
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10670">SRM 346</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
          9:00 PM
          </div>
       </td>
       <td class="value">25
       </td>
       <td class="value">26
-         <div class="tco07">
-         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="">TCO Round 2A</A></strong><br>
-         7:00 AM 
-         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
@@ -185,7 +215,8 @@
       <td class="value">28
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="">TCO Round 2B</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">Algo Round 4</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw">DRW</A><br>
          1:00 PM 
          </div>
       </td>
@@ -195,6 +226,11 @@
       <td class="value">29
       </td>
       <td class="value">30
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=schedule">SDC Registration Closes</A></strong><br>
+         6:00 PM 
+         </div>
       </td>
       <td class="empty">&#160;<br><br><br><br><br></td>
       <td class="empty">&#160;<br><br><br><br><br></td>
