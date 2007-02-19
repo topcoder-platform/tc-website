@@ -2,7 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%--------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>02.19.07<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -13,10 +13,26 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=aol">details</A> | 
-         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
+         <tc-webtag:forumLink forumID="514388" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-------------------------------%>
+
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.19.07<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A target="_blank" href="http://www.businessweek.com/innovate/content/feb2007/id20070215_251519.htm?chan=innovation_innovation+%2B+design_insight">Ideagora, a Marketplace for Minds</A>
+        </span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek logo" border="0" width="67" height="15" /></div>
+        Companies seeking solutions to seemingly insoluble problems can tap the insights of hundreds of thousands of enterprising scientists without having to employ everybody full-time. This shift is rippling through Corporate America and changing the way companies invent and develop products and services.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A target="_blank" href="http://www.businessweek.com/innovate/content/feb2007/id20070215_251519.htm?chan=innovation_innovation+%2B+design_insight">full story</A> | 
+       <tc-webtag:forumLink forumID="514296" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
 
 <%--------------------------------------------------------%>
    <tr>
@@ -198,21 +214,5 @@ event.  </td>
    <tr><td class="newsLinksCell">
         <tc-webtag:forumLink forumID="506277" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.12.07<br>12:00 NOON</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=pressroom&d2=pr_021207">Connected Services Sandbox Launches</A>
-        </span><br><br>
-        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/csflogo.png" width="67" height="45" alt="Connected Services Sandbox Logo" border="0" /></div>
-      TopCoder has announced the launch of the Connected Services Sandbox competition series for Microsoft and BT. TopCoder will manage the competitions to help promote the development of innovative customer solutions that merge traditional telecommunications offerings.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_021207">full story</A> | 
-       <tc-webtag:forumLink forumID="508394" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
