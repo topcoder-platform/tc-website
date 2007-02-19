@@ -103,20 +103,12 @@
                 <%-- DIGITAL RUN --%>
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
 
-                <%-- bloomberg
-                <map name="bbg_srm">
-                <area shape="rect" alt="" coords="88,2,265,92" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=bloomberg" />
-                <area shape="rect" alt="" coords="12,10,80,84" href="/tc?module=MatchDetails&rd=9997" />
-                <area shape="rect" alt="" coords="17,108,63,128" href="/tc?module=MatchDetails&rd=9997" />
-                </map>
-                <img src="/i/home/bloomberg_srm317.gif" alt="Bloomberg TCCC Sponsor of SRM 317" border="0" style="display:block;" usemap="#bbg_srm"/>
-                --%>
                 <%-- SPONSORS
                 <map name="srm">
-                <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10006" />
-                <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=nsa" />
+                <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10664" />
+                <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" />
                 </map>
-                <img src="/i/home/srm326_nsa.png" alt="SRM 326 brought to you by NSA" border="0" style="display:block;" usemap="#srm"/>
+                <img src="/i/home/srm340_nsa.png" alt="SRM 340 brought to you by AOL" border="0" style="display:block;" usemap="#srm"/>
                 --%>
                 <%-- AOL mashups
                 <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123"><img src="/i/home/aol_mashups.gif" alt="AOL mashups" border="0" style="display:block;"/></A>
@@ -243,15 +235,15 @@
                 <%-- WSJ
                 <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
                 --%>
-                <%-- AOL webcast team --%>
+                <%-- AOL webcast team 
                 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcast20060108.jpg" alt="TCCC Webcast" border="0" style="display:block;"/></A>
-                <%-- SRM SPONSOR 
+                --%>
+                <%-- SRM SPONSOR --%>
                 <map name="srm">
                 <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10664" />
                 <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" />
                 </map>
-                <img src="/i/home/aol_srm340.png" alt="SRM 340 sponsored by AOL" border="0" style="display:block;" usemap="#srm"/>
-                --%>
+                <img src="/i/home/srm340_aol.png" alt="SRM 340 sponsored by AOL" border="0" style="display:block;" usemap="#srm"/>
             </td>
         </tr>
     </table>

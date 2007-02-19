@@ -40,6 +40,24 @@
 
    <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
       <tr valign="top">
+         <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/tournament/tco07current.png" alt="2007 TopCoder Open" border="0" /></A><br></td>
+         <td width="100%">
+         <span class="bodySubtitle">2007 TopCoder&#174; Open</span>
+         <br><br>
+         June 26-29<br>
+         The Mirage <br>
+         Las Vegas, NV, USA<br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">Details</A>
+         <br>
+         <A href="http://studio.topcoder.com/?module=ViewSubmissions&ct=2047">Logo Contest</A>
+         </td>
+      </tr>
+   </table>
+
+   <hr width="100%" size="1" noshade="noshade" />
+
+   <table cellpadding="0" cellspacing="0" style="padding-bottom: 5px;">
+      <tr valign="top">
          <td style="padding-right: 8px;"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"><img src="/i/tournament/tchs07_narrow.png" alt="2006 TopCoder Hish School Tournament" border="0" /></A><br></td>
          <td width="100%">
          <span class="bodySubtitle">2007 TopCoder&#174; High School Tournament</span>
@@ -49,7 +67,7 @@
          West Lafayette, IN, USA<br>
          <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">Details</A>
          <br>
-         <A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2030">Logo Contest</A>
+         <A href="http://studio.topcoder.com/?module=ViewSubmissions&ct=2030">Logo Contest</A>
          </td>
       </tr>
    </table>
