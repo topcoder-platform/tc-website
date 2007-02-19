@@ -4,6 +4,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -119,6 +122,19 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     
     protected void alreadyRegisteredProcessing(EventRegistration er) {
         getRequest().setAttribute("eligible", er.isEligible());
+    }
+    
+    protected void refreshCache(Event e) {
+        try {
+            CacheClient cc = CacheClientFactory.createCacheClient();
+            Request r = new Request();
+            log.debug("removing " + e.getShortDescription() + "_registrants" + " from cache.");
+            r.setContentHandle(e.getShortDescription() + "_registrants");
+            r.setProperty("eid", String.valueOf(e.getId().intValue()));
+            cc.remove(r.getCacheKey());
+        } catch (Exception ignore) {
+            ignore.printStackTrace();
+        }
     }
     
     public boolean isEligible(Event e, User u) throws Exception{
