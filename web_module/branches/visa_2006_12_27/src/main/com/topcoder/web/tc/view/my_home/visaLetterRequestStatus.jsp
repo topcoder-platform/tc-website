@@ -35,15 +35,21 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" align="left" class="bodyColumn">
+        <td width="100%" align="center" class="bodyColumn">
+            <div class="fixedWidthBody">
+
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="visa"/>
+    <jsp:param name="title" value="&nbsp;"/>
+</jsp:include>
 
 <c:choose>
 <c:when test="${not empty requestScope.tooEarly}">
-	<h2>Visa Letter Request for <c:out value="${requestScope.event_name}"/></h2>
+    <h2>Visa Letter Request for <c:out value="${requestScope.event_name}"/></h2>
 You can't request a Visa letter for this event yet.
 </c:when>
 <c:when test="${not empty requestScope.tooLate}">
-	<h2>Visa Letter Request for <c:out value="${requestScope.event_name}"/></h2>
+    <h2>Visa Letter Request for <c:out value="${requestScope.event_name}"/></h2>
 You are not able to request for a Visa letter for this event anymore.
 </c:when>
 
@@ -51,27 +57,32 @@ You are not able to request for a Visa letter for this event anymore.
 You don't have any Visa Letter requested.
 </c:when>
 <c:otherwise>
-	<h2>Visa Letter Request for <c:out value="${req.event.name}"/></h2>
-		
-		Requested on: <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy" /><br>
-	<c:choose>
-	<c:when test="${not empty req.sentDate}">
-		Sent on: <fmt:formatDate value="${req.sentDate}"  pattern="MM/dd/yyyy" /><br>
-		<a href="/tc?module=VisaLetterRequest&eid=${req.event.id }&fr=true">Request again</a><br>
-	</c:when>
-	<c:when test="${req.denied }">
-		TopCoder has denied to send you a Visa Letter.
-	</c:when>
-	<c:otherwise>
-		The Visa Letter was not yet sent.
-		<a href="/tc?module=VisaLetterRequest&eid=${req.event.id }&fr=true">Request again</a><br>
-	</c:otherwise>
-	</c:choose>
+    <span class="bodySubtitle">Visa Letter Request for <c:out value="${req.event.name}"/></span><br>
+    <strong>Requested on:</strong> <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy" /><br>
+    <strong>Status:</strong>
+    <c:choose>
+    <c:when test="${not empty req.sentDate}">
+            Your Visa request has been <span class="bigGreen">approved</span>.<br>The letter was sent to you on: 
+            <strong><fmt:formatDate value="${req.sentDate}"  pattern="MM/dd/yyyy" /></strong><br>
+            <div align="center" style="margin: 20px;">
+                <a href="/tc?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request again</a>
+            </div>
+    </c:when>
+    <c:when test="${req.denied }">
+        We're sorry, TopCoder has <span class="bigRed">denied</span> to send you a Visa Letter.
+    </c:when>
+    <c:otherwise>
+        Your Visa Letter request is <strong>pending</strong> approval.  Please check again soon.
+            <div style="margin: 20px 0px 100px 0px;">
+                <a href="/tc?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request again</a><br>
+            </div>
+    </c:otherwise>
+    </c:choose>
 </c:otherwise>
 </c:choose>
 
-</td>
-
+            </div>
+        </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->

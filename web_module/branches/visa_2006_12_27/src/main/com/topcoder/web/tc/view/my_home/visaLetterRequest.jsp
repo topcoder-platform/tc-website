@@ -21,46 +21,46 @@
 
 <script language="javascript" type="text/javascript">
 function copyAddr() {
-	 document.f.<%= VisaLetterRequest.SHIPPING_ADDRESS %>.value = document.f.<%= VisaLetterRequest.ADDRESS %>.value;
-	 return false;
+     document.f.<%= VisaLetterRequest.SHIPPING_ADDRESS %>.value = document.f.<%= VisaLetterRequest.ADDRESS %>.value;
+     return false;
 }
 
 function regToAddr() {
-	document.f.<%=Constants.ADDRESS1%>.value ='<c:out value="${address.address1}"/>';
-	document.f.<%=Constants.ADDRESS2%>.value = '<c:out value="${address.address2}"/>';
-	document.f.<%=Constants.ADDRESS3%>.value = '<c:out value="${address.address3}"/>';
-	document.f.<%=Constants.CITY%>.value = '<c:out value="${address.city}"/>';
-	document.f.<%=Constants.POSTAL_CODE%>.value = '<c:out value="${address.postalCode}"/>';
-	document.f.<%=Constants.STATE_CODE%>.value = '<c:out value="${address.state.code}"/>';
-	document.f.<%=Constants.PROVINCE%>.value = '<c:out value="${address.province}"/>';
-	document.f.<%=Constants.COUNTRY_CODE%>.value = '<c:out value="${address.country.code}"/>';
+    document.f.<%=Constants.ADDRESS1%>.value ='<c:out value="${address.address1}"/>';
+    document.f.<%=Constants.ADDRESS2%>.value = '<c:out value="${address.address2}"/>';
+    document.f.<%=Constants.ADDRESS3%>.value = '<c:out value="${address.address3}"/>';
+    document.f.<%=Constants.CITY%>.value = '<c:out value="${address.city}"/>';
+    document.f.<%=Constants.POSTAL_CODE%>.value = '<c:out value="${address.postalCode}"/>';
+    document.f.<%=Constants.STATE_CODE%>.value = '<c:out value="${address.state.code}"/>';
+    document.f.<%=Constants.PROVINCE%>.value = '<c:out value="${address.province}"/>';
+    document.f.<%=Constants.COUNTRY_CODE%>.value = '<c:out value="${address.country.code}"/>';
 }
 
 function regToShippingAddr() {
-	document.f.s_<%=Constants.ADDRESS1%>.value ='<c:out value="${address.address1}"/>';
-	document.f.s_<%=Constants.ADDRESS2%>.value = '<c:out value="${address.address2}"/>';
-	document.f.s_<%=Constants.ADDRESS3%>.value = '<c:out value="${address.address3}"/>';
-	document.f.s_<%=Constants.CITY%>.value = '<c:out value="${address.city}"/>';
-	document.f.s_<%=Constants.POSTAL_CODE%>.value = '<c:out value="${address.postalCode}"/>';
-	document.f.s_<%=Constants.STATE_CODE%>.value = '<c:out value="${address.state.code}"/>';
-	document.f.s_<%=Constants.PROVINCE%>.value = '<c:out value="${address.province}"/>';
-	document.f.s_<%=Constants.COUNTRY_CODE%>.value = '<c:out value="${address.country.code}"/>';
+    document.f.s_<%=Constants.ADDRESS1%>.value ='<c:out value="${address.address1}"/>';
+    document.f.s_<%=Constants.ADDRESS2%>.value = '<c:out value="${address.address2}"/>';
+    document.f.s_<%=Constants.ADDRESS3%>.value = '<c:out value="${address.address3}"/>';
+    document.f.s_<%=Constants.CITY%>.value = '<c:out value="${address.city}"/>';
+    document.f.s_<%=Constants.POSTAL_CODE%>.value = '<c:out value="${address.postalCode}"/>';
+    document.f.s_<%=Constants.STATE_CODE%>.value = '<c:out value="${address.state.code}"/>';
+    document.f.s_<%=Constants.PROVINCE%>.value = '<c:out value="${address.province}"/>';
+    document.f.s_<%=Constants.COUNTRY_CODE%>.value = '<c:out value="${address.country.code}"/>';
 }
 
 function addrToShippingAddr() {
-	document.f.s_<%=Constants.ADDRESS1%>.value = document.f.<%=Constants.ADDRESS1%>.value;
-	document.f.s_<%=Constants.ADDRESS2%>.value =  document.f.<%=Constants.ADDRESS2%>.value;
-	document.f.s_<%=Constants.ADDRESS3%>.value = document.f.<%=Constants.ADDRESS3%>.value;
-	document.f.s_<%=Constants.CITY%>.value = document.f.<%=Constants.CITY%>.value;
-	document.f.s_<%=Constants.POSTAL_CODE%>.value = document.f.<%=Constants.POSTAL_CODE%>.value;
-	document.f.s_<%=Constants.STATE_CODE%>.value = document.f.<%=Constants.STATE_CODE%>.value;
-	document.f.s_<%=Constants.PROVINCE%>.value = document.f.<%=Constants.PROVINCE%>.value;
-	document.f.s_<%=Constants.COUNTRY_CODE%>.value = document.f.<%=Constants.COUNTRY_CODE%>.value;
+    document.f.s_<%=Constants.ADDRESS1%>.value = document.f.<%=Constants.ADDRESS1%>.value;
+    document.f.s_<%=Constants.ADDRESS2%>.value =  document.f.<%=Constants.ADDRESS2%>.value;
+    document.f.s_<%=Constants.ADDRESS3%>.value = document.f.<%=Constants.ADDRESS3%>.value;
+    document.f.s_<%=Constants.CITY%>.value = document.f.<%=Constants.CITY%>.value;
+    document.f.s_<%=Constants.POSTAL_CODE%>.value = document.f.<%=Constants.POSTAL_CODE%>.value;
+    document.f.s_<%=Constants.STATE_CODE%>.value = document.f.<%=Constants.STATE_CODE%>.value;
+    document.f.s_<%=Constants.PROVINCE%>.value = document.f.<%=Constants.PROVINCE%>.value;
+    document.f.s_<%=Constants.COUNTRY_CODE%>.value = document.f.<%=Constants.COUNTRY_CODE%>.value;
 }
 
 function init() {
-	regToAddr();
-	regToShippingAddr();
+    regToAddr();
+    regToShippingAddr();
 }
  </script>
 </head>
@@ -83,219 +83,226 @@ function init() {
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td width="100%" align="left" class="bodyColumn">
+        <td width="100%" align="center" class="bodyColumn">
+            <div class="fixedWidthBody">
 
 
-<h2>Visa Letter Request for <c:out value="${event.name}"/></h2>
+<jsp:include page="/page_title.jsp">
+    <jsp:param name="image" value="visa"/>
+    <jsp:param name="title" value="&nbsp;"/>
+</jsp:include>
 
 <form name="f" action="/tc?module=VisaLetterRequest" method="post">
 <input type="hidden" name="eid" value="${event.id}">
-<table>
- <tr>
-     <td colspan="3"><span class="bigRed">
+<table cellpadding="0" cellspacing="0" class="stat" width="100%">
+    <tr>
+        <td class="title" colspan="2">Request a Visa letter for <c:out value="${event.name}"/></td>
+    </tr>
+ <tr class="light">
+     <td colspan="2"><span class="bigRed">
                  <tc-webtag:errorIterator id="err" name="error">${err}
                      <br></tc-webtag:errorIterator></span>
      </td>
  </tr>
  
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%=VisaLetterRequest.FULL_NAME%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td colspan="2">Full Name (as stated on passport)</td>
-	<td><tc-webtag:textInput name="<%= VisaLetterRequest.FULL_NAME %>" size="30" maxlength="50" editable="true"/></td>	
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>Full Name:</strong><br>(as stated on passport)</td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%= VisaLetterRequest.FULL_NAME %>" size="30" maxlength="50" editable="true"/></td>    
 </tr>
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%=VisaLetterRequest.PHONE_NUMBER%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td colspan="2">Phone Number:</td>
-	<td><tc-webtag:textInput name="<%= VisaLetterRequest.PHONE_NUMBER %>" size="15" maxlength="30" editable="true"/></td>	
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>Phone Number:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%= VisaLetterRequest.PHONE_NUMBER %>" size="15" maxlength="30" editable="true"/></td>    
 </tr>
-<tr>
-	<td rowspan="17" valign="top">Address (as stated on passport)</td>
-	<td colspan="2">
-		<!--  <input type="button" value="Use registration address" onClick="regToAddr()"> -->
-	</td>
+<tr class="light">
+    <td class="valueC" colspan="2" style="border: none;"><strong>Address</strong><br>(as stated on passport)</td>
 </tr>
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS1%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>*Address1:</td>
-	<td><tc-webtag:textInput name="<%=Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>*Address1:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%=Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>    
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS2%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>Address2:</td>
-	<td><tc-webtag:textInput name="<%=Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>Address2:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%=Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>    
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS3%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>Address3:</td>
-	<td><tc-webtag:textInput name="<%=Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>Address3:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%=Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>    
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%=Constants.CITY%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>*City:</td>
-	<td><tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/></td>
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>*City:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%=Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/></td>
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%=Constants.STATE_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>State (US only):</td>
-	<td><tc-webtag:textInput name="<%=Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/></td>
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>State:</strong><br>(US only):</td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%=Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/></td>
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%=Constants.POSTAL_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>Postal Code:</td>
-	<td><tc-webtag:textInput name="<%=Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/></td>
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>Postal Code:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%=Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/></td>
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%=Constants.PROVINCE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>Province:</td>
-	<td><tc-webtag:textInput name="<%=Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/></td>
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>Province:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%=Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/></td>
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>*Country:</td>
-	<td><tc-webtag:objectSelect name="<%=Constants.COUNTRY_CODE%>" list="${countries}" valueField="code" textField="name"/></td>
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>*Country:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:objectSelect name="<%=Constants.COUNTRY_CODE%>" list="${countries}" valueField="code" textField="name"/></td>
 </tr>
-
-<tr>
-	<td rowspan="17" valign="top">Address (for shipping the Visa letter)</td>
-
-	<td colspan="2">
-	 <!-- 	<input type="button" value="Use registration address" onClick="regToShippingAddr()">  -->
-		<input type="button" value="Use same as above" onClick="addrToShippingAddr()">
-	</td>
+<tr class="light">
+    <td class="valueC" colspan="2" style="border: none;"><strong>Address</strong><br>(for shipping the Visa letter)</td>
 </tr>
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td class="valueC" colspan="2" style="border: none;">
+        <input type="button" value="Use same as above" onClick="addrToShippingAddr()">
+    </td>
+</tr>
+<tr class="light">
+    <td colspan="2" style="border: none;"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%= "s_" +Constants.ADDRESS1%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>*Address1:</td>
-	<td><tc-webtag:textInput name="<%= "s_" + Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>*Address1:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%= "s_" + Constants.ADDRESS1%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>    
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%= "s_" + Constants.ADDRESS2%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>Address2:</td>
-	<td><tc-webtag:textInput name="<%= "s_" + Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>Address2:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%= "s_" + Constants.ADDRESS2%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>    
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%= "s_" + Constants.ADDRESS3%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>Address3:</td>
-	<td><tc-webtag:textInput name="<%= "s_" + Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>	
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>Address3:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%= "s_" + Constants.ADDRESS3%>" size="15" maxlength="<%=Constants.MAX_ADDRESS_LENGTH%>" editable="true"/></td>    
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%= "s_" + Constants.CITY%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>*City:</td>
-	<td><tc-webtag:textInput name="<%= "s_" + Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/></td>
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>*City:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%= "s_" + Constants.CITY%>" size="15" maxlength="<%=Constants.MAX_CITY_LENGTH%>" editable="true"/></td>
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%= "s_" + Constants.STATE_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>State (US only):</td>
-	<td><tc-webtag:textInput name="<%= "s_" + Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/></td>
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>State (US only):</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%= "s_" + Constants.STATE_CODE%>" size="2" maxlength="2" editable="true"/></td>
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%= "s_" + Constants.POSTAL_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>Postal Code:</td>
-	<td><tc-webtag:textInput name="<%= "s_" + Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/></td>
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>Postal Code:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%= "s_" + Constants.POSTAL_CODE%>" size="15" maxlength="<%=Constants.MAX_POSTAL_CODE_LENGTH%>" editable="true"/></td>
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%= "s_" + Constants.PROVINCE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>Province:</td>
-	<td><tc-webtag:textInput name="<%= "s_" + Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/></td>
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>Province:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:textInput name="<%= "s_" + Constants.PROVINCE%>" size="15" maxlength="<%=Constants.MAX_PROVINCE_LENGTH%>" editable="true"/></td>
 </tr>
 
-<tr>
-    <td colspan="3"><span class="bigRed">
+<tr class="light">
+    <td colspan="2"><span class="bigRed">
     <tc-webtag:errorIterator id="err" name="<%= "s_" + Constants.COUNTRY_CODE%>"><%=err%><br></tc-webtag:errorIterator></span>
     </td>
 </tr>
-<tr>
-	<td>*Country:</td>
-	<td><tc-webtag:objectSelect name="<%= "s_" + Constants.COUNTRY_CODE%>" list="${countries}" valueField="code" textField="name"/></td>
+<tr class="light">
+    <td class="valueR" style="border: none;"><strong>*Country:</strong></td>
+    <td class="value" style="border: none;"><tc-webtag:objectSelect name="<%= "s_" + Constants.COUNTRY_CODE%>" list="${countries}" valueField="code" textField="name"/></td>
 </tr>
 
 </table>
 
-<input type="submit" value="Request Letter">
+<div align="center" style="margin: 20px;">
+    <input type="submit" value="Request Letter">
+</div>
 </form>
 
-</td>
+
+            </div>
+        </td>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
