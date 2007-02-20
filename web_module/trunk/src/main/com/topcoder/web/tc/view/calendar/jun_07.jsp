@@ -64,7 +64,7 @@
       </td>
       <td class="value">2
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10671">SRM 352</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10709">SRM 352</A></strong><br>
          <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
          12:00 NOON
          </div>
@@ -91,7 +91,7 @@
          9:00 AM
          </div>
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 353</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10710">SRM 353</A></strong><br>
          <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">UBS</A><br>
          $5,000<br>
          11:00 AM
@@ -114,7 +114,7 @@
       </td>
       <td class="value">14
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10673">SRM 354</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10711">SRM 354</A></strong><br>
          7:00 AM
          </div>
          <div class="des_dev">
@@ -137,7 +137,7 @@
       </td>
       <td class="value">20
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10674">SRM 355</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10712">SRM 355</A></strong><br>
          <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL</A><br>
          $5,000<br>
          9:00 PM
