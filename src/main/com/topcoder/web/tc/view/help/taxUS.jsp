@@ -51,7 +51,7 @@ Form W-9 should be completed by all U.S. citizens, including U.S resident aliens
 <li><A href="/contest/iw9.pdf">Click here for Form W-9 Instructions</A></li>
 </ul>
 <strong>Why do you need to complete Form W-9?</strong><br>
-TopCoder must receive your correct tax identification number (TIN), also known as your social security number, to report to the IRS income paid to you. If you provide TopCoder with your correct TIN, make the proper certifications, and report all your taxable interest and dividends on your tax return, payments you receive from TopCoder will not be subject to backup withholding (currently at a rate of 29%).
+TopCoder must receive your correct tax identification number (TIN), also known as your social security number, to report to the IRS income paid to you. If you provide TopCoder with your correct TIN, make the proper certifications, and report all your taxable interest and dividends on your tax return, payments you receive from TopCoder will not be subject to backup withholding (currently at a rate of 30%).
 <br><br>
 Payments you receive from TopCoder will be subject to backup withholding if certain circumstances exist. (See Form W-9 for the list of circumstances that would require TopCoder to withhold taxes on your earnings and/or winnings.) 
 <br><br>
