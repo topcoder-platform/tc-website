@@ -50,7 +50,7 @@ Form W-8BEN should be completed by all foreign persons, including non-resident a
 <li><A href="/contest/fw8ben.pdf">Click here for Form W-8BEN</A></li>
 <li><A href="/contest/iw8ben.pdf">Click here for Form W-8BEN Instructions</A></li>
 </ul>
-TopCoder will withhold taxes (currently at a rate of 29%) for payments made to foreign persons who perform work in the U.S., unless such person claims a treaty benefit.
+TopCoder will withhold taxes (currently at a rate of 30%) for payments made to foreign persons who perform work in the U.S., unless such person claims a treaty benefit.
 <br><br>
 <strong>Claiming Tax Treaty Benefits</strong><br>
 Members claiming a reduction of or exemption from income tax withholding must provide a valid U.S. tax identification number and complete the following:
