@@ -11,7 +11,7 @@
 </jsp:include>
 
     <% String node = request.getParameter(WebConstants.LEFT_NAV_KEY);
-        if (node!=null&&!(node.equals("algo_get_paid")||node.equals("des_get_paid")||node.equals("dev_get_paid"))) {
+        if (node!=null&&!(node.equals("algo_get_paid")||node.equals("des_get_paid")||node.equals("dev_get_paid")||node.equals("assem_get_paid"))) {
             node = null;
         }
     %>
