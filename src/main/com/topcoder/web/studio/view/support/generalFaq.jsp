@@ -81,6 +81,115 @@
                 <br><br>
 
                 <h3>How do I get paid if I win?</h3>
+TopCoder begins the payment process for Studio contests one business day after each contest is concluded.  This will happen by 5:00 PM Eastern Time on the business day following the selection of a winner (for a successful project) or when all submissions have failed screening.
+<br><br>
+<strong>Timing</strong><br>
+Payments of $25.00 or more are distributed on or before the 15th day of the following month. For example: payments earned between November 1 and November 30 will be sent out on or before December 15.
+<br><br>
+Payments will be issued on the following dates for 2007:
+<br><br>
+
+<div align="center">
+<table class="stat" border="0" cellpadding="0" cellspacing="0" width="400">
+<tbody>
+    <tr>
+        <td class="NW">&nbsp;</td>
+        <td class="title" colspan="2">
+        2007 Payment Schedule
+        </td>
+        <td class="NE">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="headerW"><div>&nbsp;</div></td>
+        <td class="header" width="50%"><strong>Earned</strong></td>
+        <td class="header" width="50%"><strong>Paid **</strong></td>
+        <td class="headerE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">January 1-30</td>
+        <td class="value">February 15, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">February 1-28</td>
+        <td class="value">March 15, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">March 1-31</td>
+        <td class="value">April 16, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">April 1-30</td>
+        <td class="value">May 15, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">May 1-31</td>
+        <td class="value">June 15, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">June 1-30</td>
+        <td class="value">July 16, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">July 1-31</td>
+        <td class="value">August 15, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">August 1-31</td>
+        <td class="value">September 14, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">September 1-30</td>
+        <td class="value">October 15, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">October 1-31</td>
+        <td class="value">November 15, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">November 1-30</td>
+        <td class="value">December 14, 2007</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value">December 1-31</td>
+        <td class="value">January 15, 2008</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr class="light">
+        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="value" colspan="2">** Note: The date when you actually receive your payment will depend on the payment method you select.</td>
+        <td class="valueE"><div>&nbsp;</div></td>
+    </tr>
+    <tr>
+        <td class="SW" colspan="3">&nbsp;</td>
+        <td class="SE">&nbsp;</td>
+    </tr>
+ </table>
+</div>
+<br><br>
+
                 There are two steps to getting paid:
                 <ol>
                     <li>Submit the deliverables listed under the "Final Deliverables for Winner" heading on the contest
