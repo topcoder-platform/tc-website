@@ -136,8 +136,8 @@
 
 <p>
 Please use 
-<a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=19">these</a>
-forums to form your team.
+<a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=19">these forums</a>
+to form your team.
 </p>
 
 <br>
