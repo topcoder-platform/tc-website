@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">02.20.07 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolChat20070220">AOL chat session transcript from SRM 340</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.19.07 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session scheduled for SRM 340</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.19.07 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">The 2007 TopCoder Open is here</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.26.07 2:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=16270">dogsoldier39 is the TCO07 Web Site Design Contest Winner!</A></td></tr>

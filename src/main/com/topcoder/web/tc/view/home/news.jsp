@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>02.21.07<br>5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolChat20070220">AOL chat session transcript from SRM 340</A>
+        </span><br><br>
+      AOL was recently in the arena just prior to SRM 340 to discuss Web 3.0 and working at AOL.  Here's what they had to say.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolChat20070220">details</A> | 
+         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>02.19.07<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session scheduled for SRM 340</A>
@@ -203,16 +218,5 @@ event.  </td>
          <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=22">view</A> | 
         <tc-webtag:forumLink forumID="514293" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.12.07<br>3:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">Additional forums maintenance scheduled</span><br><br>
-      Please note: We will again be performing maintenance work on the TopCoder forums beginning on Monday, Feb. 12 at 6:30 PM EST. The work will last for approximately four hours, will cause significant forum outages, and may cause sporadic overall site outages as well.  We apologize for any inconvenience that this may cause.</td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <tc-webtag:forumLink forumID="506277" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
