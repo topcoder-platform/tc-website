@@ -134,6 +134,12 @@
     after you successfully register for this competition.
 </p>
 
+<p>
+Please use 
+<a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=19">these</a>
+forums to form your team.
+</p>
+
 <br>
 <span class="bigRed">NOTE: Please see the eligibility requirements below. Competitors must sign a non-disclosure agreement before being admitted into this competition.   If you have previously completed these documents, no further action is needed.</span>
 
