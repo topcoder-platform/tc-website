@@ -124,10 +124,11 @@
 <%-- Documentation --%>
 <p><strong>Documentation</strong><br>
     Documentation available in the
-    <% if (projectDetail.getItem(0, "forum_id").getResultData() == null) { %>
+
+    <% if (projectDetail.getItem(0, "jive_category_id").getResultData() == null) { %>
     discussion forums
     <% } else { %>
-    <a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/forum/c_forum.jsp?f=<rsc:item set="<%=projectDetail%>" name="forum_id"/>">discussion
+    <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<rsc:item set="<%=projectDetail%>" name="jive_category_id"/>">component
         forums</a>
     <% } %>
     after you successfully register for this competition.
