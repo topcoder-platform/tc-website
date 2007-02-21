@@ -44,7 +44,7 @@
 
 
 <p>
-    5.7.2 - 2007.02.xx
+    5.7.2 - 2007.02.21
     <ul>
         <li>Assembly registration pages updated to use the new forums</li>
         <li>New automated assembly registration pages go live</li>
