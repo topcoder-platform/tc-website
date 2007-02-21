@@ -1,14 +1,30 @@
 package com.topcoder.web.tc.controller.request.development.assembly;
 
+import java.rmi.RemoteException;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Map;
+import java.util.TimeZone;
+
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
+
 import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentManagerHome;
-import com.topcoder.dde.catalog.ForumCategory;
+import com.topcoder.dde.catalog.Forum;
 import com.topcoder.dde.user.UserManagerRemote;
 import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.PermissionException;
@@ -20,17 +36,8 @@ import com.topcoder.web.ejb.project.Project;
 import com.topcoder.web.ejb.project.ProjectLocal;
 import com.topcoder.web.tc.Constants;
 
-import javax.ejb.CreateException;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.transaction.Status;
-import javax.transaction.TransactionManager;
-import java.rmi.RemoteException;
-import java.sql.Timestamp;
-import java.util.*;
-
 /**
- * @author dok
+ * @author dok, pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 6, 2006
  */
@@ -99,7 +106,7 @@ public class Register extends ViewRegistration {
                     (ComponentManagerHome) PortableRemoteObject.narrow(objComponentManager, ComponentManagerHome.class);
             ComponentManager componentManager = componentManagerHome.create(componentId);
             String project = componentManager.getComponentInfo().getName() + " Assembly Project";
-            long activeForumId = componentManager.getActiveForumCategory(ForumCategory.SPECIFICATION).getId();
+            long activeForumCategoryId = componentManager.getActiveForumCategory(Forum.SPECIFICATION).getId();
 
             if (log.isDebugEnabled()) {
                 log.debug("creating user: " + UserManagerRemoteHome.EJB_REF_NAME);
@@ -145,8 +152,10 @@ public class Register extends ViewRegistration {
             String date = formatter.format(cal);
           
             mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
-                    "Thank you, for your interest in the " + project + ". You now have access to the Discussion Forum ( http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/forum/c_forum.jsp?f=" + activeForumId + " ) which can be used to obtain documentation, as well as to ask questions regarding the project. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
+                    "Thank you, for your interest in the " + project + ". You now have access to the Discussion Forum ( http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=" + activeForumCategoryId + " ) which can be used to obtain documentation, as well as to ask questions regarding the project. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early!\n\n" +
                     "The deadline for submitting a solution is " + date + ". Please upload your submission using the project page found here: http://" + ApplicationServer.SOFTWARE_SERVER_NAME + "/review.  If you encounter any problems, please contact us at service@topcodersoftware.com.  All late submissions will be ignored.\n\n" +
+                    "Please use these forums to form your team:\n" + 
+                    "http://" + ApplicationServer.FORUMS_SERVER_NAME + "/?module=Category&categoryID=19.\n\n" +
                     "If you have any questions please contact service@topcodersoftware.com\n\n" +
                     "TopCoder Software Team");
 
