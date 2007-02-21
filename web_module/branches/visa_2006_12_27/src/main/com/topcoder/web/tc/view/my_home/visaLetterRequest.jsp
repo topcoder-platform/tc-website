@@ -77,7 +77,7 @@ function init() {
 <!-- Left Column Begins-->
         <td width="180">
             <jsp:include page="/includes/global_left.jsp">
-                <jsp:param name="node" value=""/>
+                <jsp:param name="node" value="visa"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
