@@ -41,8 +41,8 @@
 			<td><b>Type:</b></td>
 			<td>
 				<SELECT CLASS="dropdown" NAME="assignment_document_type_id">
-				    <c:forEach items="${typeList}" var="type">
-				        <OPTION value='${typeList.id}'>${typeList.description}</OPTION>
+				    <c:forEach items="${typeList}" var="typeItem">
+				        <OPTION value='${typeItem.id}'>${typeItem.description}</OPTION>
 					</c:forEach>
 				</SELECT>
 			</td>
