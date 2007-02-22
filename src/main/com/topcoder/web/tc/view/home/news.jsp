@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.22.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=022207">Beginning TopCoder Competition with C#.Net</A></span><br><br>
+       C# is an object oriented, programming language, with a C-based syntax much like C++ or Java. Since its release, its popularity as a coding language for TopCoder competitions has increased each year.</td>
+      <td class="newsPhoto"><img src="/i/m/ali_raza_shaikh_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="20641048" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=022207">full story</A> | 
+         <tc-webtag:forumLink forumID="514446" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.22.07<br>11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</A>
@@ -185,23 +201,5 @@ event.  </td>
        <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">full story</A> | 
        <tc-webtag:forumLink forumID="514296" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.13.07<br>4:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm32">TCHS SRM 32 - Problem Set & Analysis</A></span><br><br>
-    HS SRM 32 may have been a departure from other HS SRMs, in that the problems 
-    didn't require any specific knowledge of algorithms.
-      </td>
-      <td class="newsPhoto"><%--<img src="/i/m/_big.jpg" alt="" width="55" height="61"/><br>--%>by <tc-webtag:handle coderId="343655" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=hs_srm32">full story</A> | 
-        <tc-webtag:forumLink forumID="506248" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
