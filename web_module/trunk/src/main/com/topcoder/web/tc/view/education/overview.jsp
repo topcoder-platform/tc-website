@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><A href="/tc?module=Static&d1=features&d2=022207"><strong>Beginning TopCoder Competition with C#.Net</strong></A>, by <tc-webtag:handle coderId="20641048" /><br>
+C# is an object oriented, programming language, with a C-based syntax much like C++ or Java. Since its release, its popularity as a coding language for TopCoder competitions has increased each year.</li>
+<li><A href="/tc?module=Static&d1=features&d2=021907"><strong>Five things you didn't know about C++, Part 3</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
+By popular demand, I'm concluding with a list of another five features, this time featuring ones that you're almost certain never to use in your code. Amaze your friends, confuse your teachers, enter the IOCCC and ask yourself how on Earth these features ended up in the standard.</li>
 <li><A href="/tc?module=Static&d1=features&d2=021507"><strong>An Introduction to Marathon Matches</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
 You face a number of different issues in a marathon match than you do in an SRM, from time management and organization to figuring out how the matches actually work. This article can help you understand the unique structure of a marathon match and what it takes to create, test and submit your entries.</li>
-<li><A href="/tc?module=Static&d1=features&d2=021307"><strong>An Introduction to Code Coverage</strong></A>, by <tc-webtag:handle coderId="10211498" /><br>
-Well-written unit tests can ensure that components function correctly, but how can you be sure you're actually testing everything you need to? One answer is code coverage.</li>
-<li><A href="/tc?module=Static&d1=features&d2=020807"><strong>Beginning TopCoder Competition with C++</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
-This article is aimed at programmers who are thinking of using C++ as a programming language for TopCoder algorithm matches &mdash; either because they are new to TopCoder, or because they want to switch languages.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
