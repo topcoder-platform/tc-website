@@ -6,6 +6,7 @@ package com.topcoder.web.forums.controller.request;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
@@ -35,35 +36,46 @@ public class Main extends ForumsProcessor {
             ForumCategory category = (ForumCategory)itCategories.next();
             categoryList.add(category);
             
-            if (category.getCategoryCount() > 0) {
-                ArrayList categoriesList = ForumsUtil.getCategories(category, resultFilter, true);
-                ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                getRequest().setAttribute("categoriesPageList_"+category.getID(), pageList);
-                
-                // create image data for software components
-                if (category.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) {
-                    Hashtable imageDataTable = new Hashtable();
-                    long[] compVersIDs = new long[pageList.size()];
-                    long[] compIDs = new long[pageList.size()];
-                    for (int i=0; i<pageList.size(); i++) {
-                        ForumCategory subcategory = (ForumCategory)pageList.get(i);
-                        compVersIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
-                        compIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+            getRequest().setAttribute("numActiveForums_"+category.getID(), new Long(0));
+            getRequest().setAttribute("numActiveCategories_"+category.getID(), new Long(0));
+            String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
+            if (!"".equals(limit)) {
+                if (category.getCategoryCount() > 0) {
+                    ArrayList categoriesList = ForumsUtil.getCategories(category, resultFilter, true);
+                    ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                    getRequest().setAttribute("categoriesPageList_"+category.getID(), pageList);
+                    getRequest().setAttribute("numActiveCategories_"+category.getID(), new Long(pageList.size()));
+                    
+                    // create image data for software components
+                    if (category.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) {
+                        Hashtable imageDataTable = new Hashtable();
+                        long[] compVersIDs = new long[pageList.size()];
+                        long[] compIDs = new long[pageList.size()];
+                        for (int i=0; i<pageList.size(); i++) {
+                            ForumCategory subcategory = (ForumCategory)pageList.get(i);
+                            compVersIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+                            compIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+                        }
+                        Hashtable compVersPhasesTable = forumsBean.getComponentVersionPhases(compVersIDs);
+                        Hashtable rootCategoriesTable = forumsBean.getComponentRootCategories(compIDs);
+                        for (int i=0; i<pageList.size(); i++) {
+                            ForumCategory subcategory = (ForumCategory)pageList.get(i);
+                            long compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(subcategory.getID())));
+                            long rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(subcategory.getID())));
+                            imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
+                        }
+                        getRequest().setAttribute("imageDataTable_"+category.getID(), imageDataTable);
                     }
-                    Hashtable compVersPhasesTable = forumsBean.getComponentVersionPhases(compVersIDs);
-                    Hashtable rootCategoriesTable = forumsBean.getComponentRootCategories(compIDs);
-                    for (int i=0; i<pageList.size(); i++) {
-                        ForumCategory subcategory = (ForumCategory)pageList.get(i);
-                        long compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(subcategory.getID())));
-                        long rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(subcategory.getID())));
-                        imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
-                    }
-                    getRequest().setAttribute("imageDataTable_"+category.getID(), imageDataTable);
+                } else {
+                    ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
+                    ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
+                    getRequest().setAttribute("forumsPageList_"+category.getID(), pageList);
+                    getRequest().setAttribute("numActiveForums_"+category.getID(), new Long(pageList.size()));
                 }
             } else {
-                ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
-                ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                getRequest().setAttribute("forumsPageList_"+category.getID(), pageList);
+                resultFilter.setNumResults(ResultFilter.NULL_INT);
+                getRequest().setAttribute("forumsPageList_"+category.getID(), category.getForums(resultFilter));
+                getRequest().setAttribute("numActiveForums_"+category.getID(), new Long(category.getForumCount(resultFilter)));
             }
         }
         
