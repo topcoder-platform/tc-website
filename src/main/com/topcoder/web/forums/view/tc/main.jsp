@@ -89,36 +89,12 @@
 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
     <% String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
        if (!"0".equals(limit)) {
-       	Iterator itForums = null, itForumsCopy = null;
-       	Iterator itCategories = null, itCategoriesCopy = null;
-        int numActiveForums = 0, numActiveCategories = 0;
-        if (!"".equals(limit)) {
-            if (category.getCategoryCount() > 0) {
-            	ArrayList pageList = (ArrayList) request.getAttribute("categoriesPageList_"+category.getID());
-            	itCategories = pageList.iterator();
-            	itCategoriesCopy = pageList.iterator();
-            } else {
-            	ArrayList pageList = (ArrayList) request.getAttribute("forumsPageList_"+category.getID());
-            	itForums = pageList.iterator();
-            	itForumsCopy = pageList.iterator();
-            }
-        } else {
-            resultFilter.setNumResults(ResultFilter.NULL_INT);
-            itForums = category.getForums(resultFilter);
-            itForumsCopy = category.getForums(resultFilter);
-        }
-        if (itCategories != null) {
-        	while (itCategories.hasNext()) {
-        		if (((ForumCategory) itCategories.next()).getMessageCount() > 0) numActiveCategories++;
-        	}
-        }
-  		if (itForums != null) {
-	        while (itForums.hasNext()) {
-	            if (((Forum) itForums.next()).getMessageCount() > 0) numActiveForums++;
-	        }
-        }
+        Iterator itCategories = (Iterator)request.getAttribute("categoriesPageList_"+category.getID());
+       	Iterator itForums = (Iterator)request.getAttribute("forumsPageList_"+category.getID());
+       	long numActiveCategories = ((Long)request.getAttribute("numActiveCategories_"+category.getID())).longValue();
+        long numActiveForums = ((Long)request.getAttribute("numActiveForums_"+category.getID())).longValue();
         if (numActiveCategories > 0) { 
-        	Hashtable imageDataTable = (Hashtable) request.getAttribute("imageDataTable_"+category.getID()); %>
+        	Hashtable imageDataTable = (Hashtable)request.getAttribute("imageDataTable_"+category.getID()); %>
     <br>
     <table cellpadding="0" cellspacing="0" class="rtTable">
         <tr>
