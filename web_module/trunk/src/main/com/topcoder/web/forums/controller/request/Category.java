@@ -72,7 +72,7 @@ public class Category extends ForumsProcessor {
         
         ArrayList list = null;
         if (forumCategory.getCategoryCount() > 0) {
-        	list = ForumsUtil.getCategories(forumCategory, resultFilter, excludeEmptyForums);
+        	list = ForumsUtil.getCategories(forumsBean, forumCategory, resultFilter, excludeEmptyForums);
         } else {
         	list = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);   
         }

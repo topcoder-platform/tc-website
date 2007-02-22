@@ -1664,24 +1664,6 @@ public class ComponentManagerBean
         	} catch (RemoteException exception) {
                 throw new EJBException(exception.toString());
             }
-        	/* TODO: remove
-            long forumId = ((LocalDDECompForumXref)
-                    forumIterator.next()).getForumId();
-            com.topcoder.forum.Forum forum = null;
-            try {
-                forum = forumadminHome.create().getForum(forumId);
-            } catch (ForumException exception) {
-                throw new CatalogException(exception.toString());
-            } catch (CreateException exception) {
-                throw new CatalogException(exception.toString());
-            }
-            forums.add(new Forum(
-                    forum.getId(),
-                    forum.getCreateTime(),
-                    forum.getStatus(),
-                    version,
-                    info.getVersionLabel()));
-            */
         }
 
         if (categories.size() > 1) {
