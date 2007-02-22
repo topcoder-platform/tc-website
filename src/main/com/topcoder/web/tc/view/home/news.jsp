@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.20.07<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm340">SRM 340 - Problem Set & Analysis</A></span><br><br>
+Due to some technical problems with the room assignments, the match started four minutes later than planned, but once things settled down all 1135 contestants were able to start on this SRM.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/krijgertje_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="9906197" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm340">full story</A> | 
+        <tc-webtag:forumLink forumID="506230" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.22.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -181,25 +198,5 @@ One answer is code coverage. </td>
          <A href="/tc?module=Static&d1=features&d2=021307">full story</A> | 
          <tc-webtag:forumLink forumID="514295" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.14.07<br>10:15 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">Microsoft launches 'mashup' competition for developers</A>
-        </span><br><br>
-        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/computerworld.gif" alt="ComputerWorld logo" border="0" /></div>
-      Microsoft Corp. and BT Group PLC launched a competition to
-encourage developers to create "network mashups" that merge
-telecommunications features such as voice and text messaging with Web
-2.0 applications like mapping and search... TopCoder Inc., which runs
-several competitions for programmers, will manage the Microsoft/BT
-event.  </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">full story</A> | 
-       <tc-webtag:forumLink forumID="514296" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
 
