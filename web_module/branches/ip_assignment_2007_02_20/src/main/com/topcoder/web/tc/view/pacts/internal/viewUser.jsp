@@ -159,6 +159,12 @@
 
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
         out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.LIST_TASK + "&");
+        out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.ASSIGNMENT_DOCUMENT_CMD + "&");
+        out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
+        out.println("\">Search for User's Assignment Documents</a><br>");
+
+        out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
+        out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.LIST_TASK + "&");
         out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.USER_TAX_FORM_CMD + "&");
         out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
         out.println("\">Search for User's Tax Forms</a><br>");
@@ -190,7 +196,12 @@
         out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.CONTRACT_CMD + "&");
         out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
         out.println("\">Add Contract</a><br>");
+        %>            
 
+        <a href="${pacts:addAssignmentDocument(user.header.id)}">Add Assignment Document</a>
+        <br/>
+
+<%
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
         out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.ADD_TASK + "&");
         out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.USER_TAX_FORM_CMD + "&");

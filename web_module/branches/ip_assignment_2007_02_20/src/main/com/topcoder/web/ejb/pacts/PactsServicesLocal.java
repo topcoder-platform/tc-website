@@ -73,6 +73,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     // Type listings and other miscellaneous retrieval
     Map getAffidavitTypes() throws  SQLException;
 
+    List getAssignmentDocumentTypes() throws  SQLException;
+
     Map getContractTypes() throws  SQLException;
 
     Map getNoteTypes() throws  SQLException;

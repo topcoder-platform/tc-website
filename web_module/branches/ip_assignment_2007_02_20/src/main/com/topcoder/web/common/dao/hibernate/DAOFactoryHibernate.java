@@ -141,6 +141,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new UserDAOHibernate();
     }
 
+    public AssignmentDocumentTypeDAO getAssignmentDocumentTypeDAO() {
+        return new AssignmentDocumentTypeDAOHibernate();
+    }
+
     public UserPreferenceDAO getUserPreferenceDAO() {
         return new UserPreferenceDAOHibernate();
     }

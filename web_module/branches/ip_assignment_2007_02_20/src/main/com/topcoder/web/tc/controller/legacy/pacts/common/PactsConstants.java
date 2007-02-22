@@ -162,6 +162,7 @@ public interface PactsConstants extends Constants {
     public static final String USER_TAX_FORM_HEADER_LIST = "user_tax_form_header_list";
     public static final String USER_TAX_FORM_DETAIL = "user_tax_form_detail";
     // Code lookups
+    public static final String ASSIGNMENT_DOCUMENT_TYPE_LIST = "assignment_document_type_list";
     public static final String AFFIDAVIT_TYPE_LIST = "affidavit_type_list";
     public static final String CONTRACT_TYPE_LIST = "contract_type_list";
     public static final String MODIFICATION_RATIONALE_LIST = "modification_rationale_list";
@@ -391,6 +392,7 @@ public interface PactsConstants extends Constants {
     public static final String NOTE_CMD = "note";
     public static final String AFFIDAVIT_CMD = "affidavit";
     public static final String CONTRACT_CMD = "contract";
+    public static final String ASSIGNMENT_DOCUMENT_CMD = "assignment_document";
     public static final String PAYMENT_CMD = "payment";
     public static final String PAYMENT_AUDIT_TRAIL_CMD = "payment_audit_trail";
     public static final String USER_CMD = "user";
@@ -455,6 +457,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_CONTRACT_JSP = INTERNAL_JSP_DIR + "/viewContract.jsp";
     public static final String INTERNAL_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewTaxForm.jsp";
     public static final String INTERNAL_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewUserTaxForm.jsp";
+    public static final String INTERNAL_ADD_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/addAssignmentDocument.jsp";
     public static final String INTERNAL_ADD_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/addAffidavit.jsp";
     public static final String INTERNAL_ADD_CONTRACT_JSP = INTERNAL_JSP_DIR + "/addContract.jsp";
     public static final String INTERNAL_ADD_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/addTaxForm.jsp";

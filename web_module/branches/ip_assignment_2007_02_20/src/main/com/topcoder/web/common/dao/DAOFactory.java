@@ -71,6 +71,8 @@ public interface DAOFactory {
     TimeZoneDAO getTimeZoneDAO();
 
     UserDAO getUserDAO();
-
+    
+    AssignmentDocumentTypeDAO getAssignmentDocumentTypeDAO();
+    
     UserPreferenceDAO getUserPreferenceDAO();
 }

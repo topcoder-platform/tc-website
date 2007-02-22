@@ -16,6 +16,13 @@
     <uri>pacts.tld</uri>
 
     <function>
+        <name>addAssignmentDocument</name>
+        <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
+        <function-signature>
+            String addAssignmentDocument(long)
+        </function-signature>
+    </function>
+    <function>
         <name>addAffidavit</name>
         <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
         <function-signature>

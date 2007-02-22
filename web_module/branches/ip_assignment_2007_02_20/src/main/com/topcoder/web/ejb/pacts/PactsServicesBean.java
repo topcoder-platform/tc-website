@@ -36,6 +36,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
@@ -1225,6 +1226,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         HashMap hm = new HashMap();
         hm.put(AFFIDAVIT_TYPE_LIST, rsc);
         return hm;
+    }
+
+    /**
+     * Returns the list of all assignment document types.
+     *
+     * @return The list of assignment document types
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentTypes() throws SQLException {
+        List assignmentDocumentTypes =  DAOUtil.getFactory().getAssignmentDocumentTypeDAO().findAll();
+        return assignmentDocumentTypes;
     }
 
     /**

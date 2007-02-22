@@ -28,6 +28,11 @@ Searches<br>
 
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
+   out.print(PactsConstants.CMD_STRING+"="+PactsConstants.ASSIGNMENT_DOCUMENT_CMD+"\">");
+   out.print("Assignment Documents</a> | ");
+
+   out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
+   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.TAX_FORM_CMD+"\">");
    out.print("General Tax Forms</a> | ");
 
