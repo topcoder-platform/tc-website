@@ -24,12 +24,10 @@ import com.jivesoftware.forum.database.DbForumFactory;
 import com.jivesoftware.forum.database.DbForumMessage;
 import com.jivesoftware.util.StringUtils;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.forums.ForumsLocal;
-import com.topcoder.web.ejb.forums.ForumsLocalHome;
 import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
@@ -42,8 +40,6 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.ArrayList;
-
-import javax.naming.Context;
 
 /**
  * @author mtong
@@ -265,7 +261,7 @@ public class ForumsUtil {
     
     // Returns subcategories within a category, with empty/inactive/unapproved categories omitted or placed at 
     // the list's end. Only forums for approved software components are displayed.
-    public static ArrayList getCategories(ForumCategory forumCategory, ResultFilter resultFilter,
+    public static ArrayList getCategories(ForumsLocal forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories) throws RemoteException {
     	Iterator itCategories = forumCategory.getCategories();
         ArrayList categoriesList = new ArrayList();
@@ -294,7 +290,6 @@ public class ForumsUtil {
         	}
         }
 
-        ForumsLocal forumsBean = getForumsBean();
         HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
         for (int i=categoriesList.size()-1; i>=0; i--) {
         	ForumCategory c = (ForumCategory)categoriesList.get(i);
@@ -608,18 +603,6 @@ public class ForumsUtil {
     	ForumCategory parentCategory = category.getParentCategory();
     	if (parentCategory == null) return false;
     	return (parentCategory.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID);
-    }
-    
-    public static ForumsLocal getForumsBean() {
-        ForumsLocal forumsBean = null;
-        try {
-            Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-            ForumsLocalHome forumsLocalHome = (ForumsLocalHome) context.lookup(ForumsLocalHome.EJB_REF_NAME);
-            forumsBean = forumsLocalHome.create();
-        } catch (Exception e) { 
-            Log.error(e);
-        }
-        return forumsBean;
     }
 }
 
