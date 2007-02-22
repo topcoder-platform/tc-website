@@ -4,23 +4,18 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.action.util.Paginator;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.model.ImageData;
 import com.topcoder.web.forums.model.Paging;
 import com.topcoder.web.forums.controller.ForumsUtil;
-import com.topcoder.web.tc.Constants;
 
 import java.util.ArrayList;
-
-import javax.naming.InitialContext;
+import java.util.Hashtable;
 
 /**
  * @author mtong
@@ -74,11 +69,10 @@ public class Category extends ForumsProcessor {
         }
         
         boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
-        Forums forumsBean = getForumsBean();
         
         ArrayList list = null;
         if (forumCategory.getCategoryCount() > 0) {
-        	list = ForumsUtil.getCategories(forumsBean, forumCategory, resultFilter, excludeEmptyForums);
+        	list = ForumsUtil.getCategories(forumCategory, resultFilter, excludeEmptyForums);
         } else {
         	list = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);   
         }
@@ -88,8 +82,42 @@ public class Category extends ForumsProcessor {
         Paging paging = new Paging(resultFilter, list.size());
         Paginator paginator = new Paginator(paging);
         
+        // determine if component is custom
+        if (ForumsUtil.isSoftwareSubcategory(forumCategory)) {
+            long compVersID = Long.parseLong(forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+            long compID = Long.parseLong(forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+            long compVersPhase = forumsBean.getComponentVersionPhase(compVersID);
+            long rootCategoryID = forumsBean.getComponentRootCategory(compID);
+            ImageData imageData = new ImageData(compVersPhase, rootCategoryID);
+            String technologyText = imageData.getTechnologyText();
+            if (technologyText.indexOf("Custom") == -1) { 
+                getRequest().setAttribute("isCustomComponent", "true");
+            }     
+        }
+        
         if (forumCategory.getCategoryCount() > 0) {
         	getRequest().setAttribute("categories", pageList.iterator());
+            
+            // create image data for software components
+            if (forumCategory.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) {
+                Hashtable imageDataTable = new Hashtable();
+                long[] compVersIDs = new long[pageList.size()];
+                long[] compIDs = new long[pageList.size()];
+                for (int i=0; i<pageList.size(); i++) {
+                    ForumCategory subcategory = (ForumCategory)pageList.get(i);
+                    compVersIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+                    compIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+                }
+                Hashtable compVersPhasesTable = forumsBean.getComponentVersionPhases(compVersIDs);
+                Hashtable rootCategoriesTable = forumsBean.getComponentRootCategories(compIDs);
+                for (int i=0; i<pageList.size(); i++) {
+                    ForumCategory subcategory = (ForumCategory)pageList.get(i);
+                    long compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(subcategory.getID())));
+                    long rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(subcategory.getID())));
+                    imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
+                }
+                getRequest().setAttribute("imageDataTable", imageDataTable);
+            }
         } else {
         	getRequest().setAttribute("forums", pageList.iterator());
         }
@@ -98,7 +126,6 @@ public class Category extends ForumsProcessor {
         getRequest().setAttribute("paginator", paginator);
         getRequest().setAttribute("sortField", sortField);
         getRequest().setAttribute("sortOrder", sortOrder);
-        getRequest().setAttribute("forumsBean", forumsBean);
 
         if (markRead.equals("t")) {
         	setNextPage(getSessionInfo().getServletPath() + 

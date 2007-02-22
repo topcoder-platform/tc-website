@@ -11,7 +11,6 @@
                  com.topcoder.web.common.WebConstants,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 com.topcoder.web.forums.util.ImageMapper,
                  java.util.Iterator"
         %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -21,7 +20,6 @@
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
-<tc-webtag:useBean id="forumsBean" name="forumsBean" type="com.topcoder.web.ejb.forums.Forums" toScope="request"/>
 
 <%	User user = (User) request.getAttribute("user");
     ResultFilter resultFilter = (ResultFilter) request.getAttribute("resultFilter");
@@ -148,11 +146,9 @@
                     <%=category.getName()%>
                     <% } %>
                 </tc-webtag:iterator>
-                <%	if (ForumsUtil.isSoftwareSubcategory(forumCategory)) {
-                		String technologyText = ImageMapper.getTechnologyText(forumsBean, forumCategory);
-                		if (technologyText.indexOf("Custom") == -1) { %>
-                			(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)
-                	<%	} %>	
+                <%	boolean isCustomComponent = "true".equals((String)request.getAttribute("isCustomComponent"));
+                	if (isCustomComponent) { %>
+                		(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
 				<%	} %>
             </b></td>
                 <% Page[] pages; %>
@@ -228,7 +224,8 @@
         </tr>
     </tc-webtag:iterator>
 </table>
-<% } else if (forumCategory.getCategoryCount() > 0) { %>
+<% } else if (forumCategory.getCategoryCount() > 0) { 
+	Hashtable imageDataTable = (Hashtable) request.getAttribute("imageDataTable"); %>
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
         <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Category</a></td>
@@ -247,16 +244,13 @@
         } %>
         <tr>
             <td class="rtThreadCellWrap">
-            	<%	String phaseIcon = ImageMapper.getPhaseIcon(forumsBean, category);
-  					String phaseText = ImageMapper.getPhaseText(forumsBean, category);
-  					String technologyIcon = ImageMapper.getTechnologyIcon(forumsBean, category);
-  					String technologyText = ImageMapper.getTechnologyText(forumsBean, category); %>
-            	<%	if ("software".equals(forumCategory.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
-            		<%	if (!"".equals(StringUtils.checkNull(phaseIcon))) { %>
-                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=phaseIcon%>" alt="<%=phaseText%>" width="25" height="17" border="0">
+            	<%	if (forumCategory.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) { %>
+            	    <%	ImageData imageData = (ImageData)imageDataTable.get(category.getID()); %>
+            		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
 					<%	} %>
-					<%	if (!"".equals(StringUtils.checkNull(technologyIcon))) { %>
-						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=technologyIcon%>" alt="<%=technologyText%>" border="0"/>
+					<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+						<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
 					<%	} %>
 					&#160;
 				<%	} %>

@@ -21,8 +21,8 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.StudioForumsAuthentication;
 import com.topcoder.web.common.security.TCForumsAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.ejb.forums.Forums;
-import com.topcoder.web.ejb.forums.ForumsHome;
+import com.topcoder.web.ejb.forums.ForumsLocal;
+import com.topcoder.web.ejb.forums.ForumsLocalHome;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
 import com.topcoder.web.tc.controller.request.authentication.Login;
 
@@ -55,11 +55,11 @@ public class ForumsServlet extends BaseServlet {
                 while (true) {
                     try {
                         log.info("Deleting orphaned attachments...");
-                        Forums forumsBean = getForumsBean();
+                        ForumsLocal forumsBean = getForumsBean();
                         if (forumsBean != null) {
-                        	forumsBean.deleteOrphanedAttachments();
+                            forumsBean.deleteOrphanedAttachments();
                         } else {
-                        	log.error("Could not delete orphaned attachments: forumsBean is null");
+                            log.error("Could not delete orphaned attachments: forumsBean is null");
                         }
                         sleep(86400000);
                     } catch (Exception e) {
@@ -269,12 +269,12 @@ public class ForumsServlet extends BaseServlet {
                 new Object[]{new SessionPersistor(request.getSession()), request, response});
     }
 
-    private Forums getForumsBean() {
-    	Forums forumsBean = null;
+    private ForumsLocal getForumsBean() {
+    	ForumsLocal forumsBean = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-    		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
-    		forumsBean = forumsHome.create();
+    		ForumsLocalHome forumsLocalHome = (ForumsLocalHome) context.lookup(ForumsLocalHome.EJB_REF_NAME);
+    		forumsBean = forumsLocalHome.create();
     	} catch (Exception e) { 
     		Log.error(e);
     	}
