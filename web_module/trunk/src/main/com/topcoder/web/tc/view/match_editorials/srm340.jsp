@@ -119,17 +119,17 @@ This is just a 'do what it says'-problem. It can help if you are familiar with t
 
 <pre>
 string getCamelized(string cssPropertyName) {
-	string ret; int i=0;
-	while(i&lt;(int)cssPropertyName.size()) {
-		if(cssPropertyName[i]=='-') {
-			ret+=toupper(cssPropertyName[i+1]);
-			i+=2;
-		} else {
-			ret+=cssPropertyName[i+1];
-			++i;
-		}
-	}
-	return ret;
+    string ret; int i=0;
+    while(i&lt;(int)cssPropertyName.size()) {
+        if(cssPropertyName[i]=='-') {
+            ret+=toupper(cssPropertyName[i+1]);
+            i+=2;
+        } else {
+            ret+=cssPropertyName[i+1];
+            ++i;
+        }
+    }
+    return ret;
 </pre>
 </p>
 
@@ -236,15 +236,15 @@ All this gives us the following algorithm:
 <pre>
 int calc(int x) { return (x+1)/2; }
 int minNumber(vector &lt;int&gt; pleasantness, int variety) {
-	int ret=pleasantness.size();
-	for(int i=0;i&lt;(int)pleasantness.size();++i) {
-		for(int j=i+1;j&lt;(int)pleasantness.size();++j) {
-			if(abs(pleasantness[i]-pleasantness[j])&gt;=variety) {
-				ret=min(ret,1+calc(i-0)+calc(j-i));
-			}
-		}
-	}
-	return ret;
+    int ret=pleasantness.size();
+    for(int i=0;i&lt;(int)pleasantness.size();++i) {
+        for(int j=i+1;j&lt;(int)pleasantness.size();++j) {
+            if(abs(pleasantness[i]-pleasantness[j])&gt;=variety) {
+                ret=min(ret,1+calc(i-0)+calc(j-i));
+            }
+        }
+    }
+    return ret;
 }
 </pre>
 
@@ -369,33 +369,34 @@ For the memoization approach, we need two functions. One is a recursive function
 
 <pre>
 int dp(int curtheoretical,int curpractical,int curmonth) {
-	if(curtheoretical&gt;=skillBound&&curpractical&gt;=skillBound) return 0;
-	if(curmonth&gt;=(int)theoreticalValue.size()) return INF;
-	if(done[curtheoretical][curpractical][curmonth]) return cache[curtheoretical][curpractical][curmonth]; else done[curtheoretical][curpractical][curmonth]=true;
+    if(curtheoretical&gt;=skillBound&&curpractical&gt;=skillBound) return 0;
+    if(curmonth&gt;=(int)theoreticalValue.size()) return INF;
+    if(done[curtheoretical][curpractical][curmonth]) return cache[curtheoretical][curpractical][curmonth]; 
+    else done[curtheoretical][curpractical][curmonth]=true;
 
-	int ret=INF;
-	for(int i=0;i&lt;(int)theoreticalValue.size();++i)
-		if(curtheoretical&gt;=theoreticalValue[i]-1&&curpractical&gt;=practicalValue[i]-1&&curmonth&lt;expire[i]) {
-			int cur=dp(max(curtheoretical,theoreticalValue[i]),max(curpractical,practicalValue[i]),curmonth+1)+1;
-			if(cur&lt;ret) {
-				ret=cur;
-				bestcourse[curtheoretical][curpractical][curmonth]=i;
-			}
-		}
-	return cache[curtheoretical][curpractical][curmonth]=ret;
+    int ret=INF;
+    for(int i=0;i&lt;(int)theoreticalValue.size();++i)
+        if(curtheoretical&gt;=theoreticalValue[i]-1&&curpractical&gt;=practicalValue[i]-1&&curmonth&lt;expire[i]) {
+            int cur=dp(max(curtheoretical,theoreticalValue[i]),max(curpractical,practicalValue[i]),curmonth+1)+1;
+            if(cur&lt;ret) {
+                ret=cur;
+                bestcourse[curtheoretical][curpractical][curmonth]=i;
+            }
+        }
+    return cache[curtheoretical][curpractical][curmonth]=ret;
 }
 
 vector&lt;int&gt; construct() {
-	vector&lt;int&gt; ret;
-	int curtheoretical=0,curpractical=0,curmonth=0;
-	while(curtheoretical&lt;skillBound||curpractical&lt;skillBound) {
-		int course=bestcourse[curtheoretical][curpractical][curmonth];
-		ret.push_back(course);
-		curtheoretical=max(curtheoretical,theoreticalValue[course]);
-		curpractical=max(curpractical,practicalValue[course]);
-		++curmonth;
-	}
-	return ret;
+    vector&lt;int&gt; ret;
+    int curtheoretical=0,curpractical=0,curmonth=0;
+    while(curtheoretical&lt;skillBound||curpractical&lt;skillBound) {
+        int course=bestcourse[curtheoretical][curpractical][curmonth];
+        ret.push_back(course);
+        curtheoretical=max(curtheoretical,theoreticalValue[course]);
+        curpractical=max(curpractical,practicalValue[course]);
+        ++curmonth;
+    }
+    return ret;
 }
 </pre>
 </p>
@@ -456,37 +457,37 @@ In this case we can do something very similar: we make a path through the garden
 
 <pre>
 vector &lt;int&gt; getMinDistances(vector &lt;string&gt; garden) {
-	int h=(int)garden.size(),w=(int)garden[0].size();
-	
-	int nrcare=0,nrwant=0,cant=0;
-	for(int i=0;i&lt;h;++i) for(int j=0;j&lt;w;++j) if(garden[i][j]=='I') { garden[i][j]='0'+nrcare; ++nrwant; ++nrcare; }
-	for(int i=0;i&lt;h;++i) for(int j=0;j&lt;w;++j) if(garden[i][j]=='X') { garden[i][j]='0'+nrcare; cant|=1&lt;&lt;nrcare; ++nrcare; }
-	
-	for(int j=0;j&lt;w;++j) {
-		under[h][j]=0;
-		for(int i=h-1;i&gt;=0;--i) under[i][j]=under[i+1][j]|(isdigit(garden[i][j])?1&lt;&lt;(garden[i][j]-'0'):0);
-	}
+    int h=(int)garden.size(),w=(int)garden[0].size();
+    
+    int nrcare=0,nrwant=0,cant=0;
+    for(int i=0;i&lt;h;++i) for(int j=0;j&lt;w;++j) if(garden[i][j]=='I') { garden[i][j]='0'+nrcare; ++nrwant; ++nrcare; }
+    for(int i=0;i&lt;h;++i) for(int j=0;j&lt;w;++j) if(garden[i][j]=='X') { garden[i][j]='0'+nrcare; cant|=1&lt;&lt;nrcare; ++nrcare; }
+    
+    for(int j=0;j&lt;w;++j) {
+        under[h][j]=0;
+        for(int i=h-1;i&gt;=0;--i) under[i][j]=under[i+1][j]|(isdigit(garden[i][j])?1&lt;&lt;(garden[i][j]-'0'):0);
+    }
 
-	int DX[]={-1,0,1,0,0};
-	int DY[]={0,1,0,-1,0};
-	
-	for(int i=0;i&lt;=h;++i) for(int j=0;j&lt;=w;++j) for(int k=0;k&lt;(1&lt;&lt;nrcare);++k) best[i][j][k]=INF;
-	queue&lt;State&gt; q;
-	best[0][0][0]=0; q.push(State(0,0,0));
-	
-	while(!q.empty()) {
-		int x=q.front().x,y=q.front().y,z=q.front().z; q.pop();
-		for(int k=0;k&lt;4;++k) {
-			int nx=x+DX[k],ny=y+DY[k];
-			if(nx&lt;0||nx&gt;h||ny&lt;0||ny&gt;w) continue;
-			int nz=z; if(DY[k]==+1) nz^=under[x][y]; else if(DY[k]==-1) nz^=under[nx][ny];
-			if(best[x][y][z]+1&lt;best[nx][ny][nz]) { best[nx][ny][nz]=best[x][y][z]+1; q.push(State(nx,ny,nz)); }
-		}
-	}
+    int DX[]={-1,0,1,0,0};
+    int DY[]={0,1,0,-1,0};
+    
+    for(int i=0;i&lt;=h;++i) for(int j=0;j&lt;=w;++j) for(int k=0;k&lt;(1&lt;&lt;nrcare);++k) best[i][j][k]=INF;
+    queue&lt;State&gt; q;
+    best[0][0][0]=0; q.push(State(0,0,0));
+    
+    while(!q.empty()) {
+        int x=q.front().x,y=q.front().y,z=q.front().z; q.pop();
+        for(int k=0;k&lt;4;++k) {
+            int nx=x+DX[k],ny=y+DY[k];
+            if(nx&lt;0||nx&gt;h||ny&lt;0||ny&gt;w) continue;
+            int nz=z; if(DY[k]==+1) nz^=under[x][y]; else if(DY[k]==-1) nz^=under[nx][ny];
+            if(best[x][y][z]+1&lt;best[nx][ny][nz]) { best[nx][ny][nz]=best[x][y][z]+1; q.push(State(nx,ny,nz)); }
+        }
+    }
 
-	vector&lt;int&gt; ret(nrwant,INF);
-	for(int i=1;i&lt;(1&lt;&lt;nrcare);++i) if((i&cant)==0) ret[bitcount[i]-1]&lt;?=best[0][0][i];
-	return ret;
+    vector&lt;int&gt; ret(nrwant,INF);
+    for(int i=1;i&lt;(1&lt;&lt;nrcare);++i) if((i&cant)==0) ret[bitcount[i]-1]&lt;?=best[0][0][i];
+    return ret;
 }
 </pre>
 </p>
