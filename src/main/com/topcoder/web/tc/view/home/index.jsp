@@ -253,6 +253,12 @@
             <td class="homeText"><br>
 
                 <div style="float: right; padding-left: 5px;">
+                    <img src="/i/pressroom/tco07_logo.png" alt="TCO07" width="88" height="41" border="0"/>
+                </div>
+                TopCoder Announces TopCoder Open 2007 Sponsored by AOL
+                <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">...more</A><br>[February 22]<br><br>
+
+                <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" width="67" height="15" border="0"/>
                 </div>
                 Ideagora, a Marketplace for Minds
@@ -280,15 +286,7 @@
                     <img src="/i/pressroom/chinadaily_logo.png" alt="China Daily logo" width="67" height="25" border="0"/>
                 </div>
                 Undergraduate VP of multinational company
-                <A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">...more</A><br>[December
-                8]<br><br>
-
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/ieeesoftware_logo.png" width="67" height="25" alt="IEEE Software" border="0"/>
-                </div>
-                Programming Contests Show Impressive Growth [PDF]
-                <A href="/pdfs/press_room/ieeeSoftware_20061206.pdf">...more</A><br>[December 6]<br><br>
-
+                <A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">...more</A><br>[December 8]<br><br>
 
             </td>
         </tr>

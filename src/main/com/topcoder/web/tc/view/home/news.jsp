@@ -4,12 +4,12 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.22.07<br>10:30 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.22.07<br>11:30 AM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</A>
         </span><br><br>
         <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/tco07_logo.png" width="88" height="41" alt="TCO07" border="0" /></div>
-      Top 80 Programmers from Around the World to Compete for $260,000 in Prizes June 27th through 29th at The Mirage, Las Vegas.
+      Top 80 Programmers from Around the World to Compete for $260,000 in Prizes at The Mirage, Las Vegas.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
