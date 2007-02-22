@@ -40,8 +40,11 @@
 		<tr>		
 			<td><b>Type:</b></td>
 			<td>
-			    <tc-webtag:listSelect name="assignment_document_type_id" size="$(typeList.size)" useTopValue="true" 
-			    	multiple="true" list='${typeList}'/>            	
+				<SELECT CLASS="dropdown" NAME="assignment_document_type_id">
+				    <c:forEach items="${typeList}" var="type">
+				        <OPTION value='${typeList.id}'>${typeList.description}</OPTION>
+					</c:forEach>
+				</SELECT>
 			</td>
 		</tr>
         <tr>
