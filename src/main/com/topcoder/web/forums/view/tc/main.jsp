@@ -6,9 +6,10 @@
                  com.jivesoftware.forum.WatchManager,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.StringUtils,
+                 com.topcoder.web.common.WebConstants,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 com.topcoder.web.forums.util.ImageMapper,
+                 com.topcoder.web.forums.model.ImageData,
                  java.util.*"
         %>
 
@@ -18,7 +19,6 @@
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
-<tc-webtag:useBean id="forumsBean" name="forumsBean" type="com.topcoder.web.ejb.forums.Forums" toScope="request"/>
 
 <% 	User user = (User) request.getAttribute("user");
     ResultFilter resultFilter = (ResultFilter) request.getAttribute("resultFilter");
@@ -93,27 +93,14 @@
        	Iterator itCategories = null, itCategoriesCopy = null;
         int numActiveForums = 0, numActiveCategories = 0;
         if (!"".equals(limit)) {
-            if (limit.endsWith("d")) {
-                int numDays = Integer.parseInt(limit.substring(0, limit.length() - 1));
-                calendar.add(Calendar.DATE, numDays * -1);
-                resultFilter.setModificationDateRangeMin(calendar.getTime());
-                calendar.add(Calendar.DATE, numDays);
-                resultFilter.setNumResults(ForumConstants.MAX_DISPLAYED_FORUMS_PER_CATEGORY);
-                itForums = category.getForums(resultFilter);
-                itForumsCopy = category.getForums(resultFilter);
+            if (category.getCategoryCount() > 0) {
+            	ArrayList pageList = (ArrayList) request.getAttribute("categoriesPageList_"+category.getID());
+            	itCategories = pageList.iterator();
+            	itCategoriesCopy = pageList.iterator();
             } else {
-                //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
-                if (category.getCategoryCount() > 0) {
-                	ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true);
-                	ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                	itCategories = pageList.iterator();
-                	itCategoriesCopy = pageList.iterator();
-                } else {
-                	ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
-                	ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                	itForums = pageList.iterator();
-                	itForumsCopy = pageList.iterator();
-                }
+            	ArrayList pageList = (ArrayList) request.getAttribute("forumsPageList_"+category.getID());
+            	itForums = pageList.iterator();
+            	itForumsCopy = pageList.iterator();
             }
         } else {
             resultFilter.setNumResults(ResultFilter.NULL_INT);
@@ -130,7 +117,8 @@
 	            if (((Forum) itForums.next()).getMessageCount() > 0) numActiveForums++;
 	        }
         }
-        if (numActiveCategories > 0) { %>
+        if (numActiveCategories > 0) { 
+        	Hashtable imageDataTable = (Hashtable) request.getAttribute("imageDataTable_"+category.getID()); %>
     <br>
     <table cellpadding="0" cellspacing="0" class="rtTable">
         <tr>
@@ -146,16 +134,13 @@
             <% if (subcategory.getMessageCount() > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
             <tr>
                 <td class="rtThreadCellWrap">
-  					<%	String phaseIcon = ImageMapper.getPhaseIcon(forumsBean, subcategory);
-  						String phaseText = ImageMapper.getPhaseText(forumsBean, subcategory);
-  						String technologyIcon = ImageMapper.getTechnologyIcon(forumsBean, subcategory);
-  						String technologyText = ImageMapper.getTechnologyText(forumsBean, subcategory); %>
-                	<%	if ("software".equals(category.getProperty(ForumConstants.PROPERTY_LEFT_NAV_NAME))) { %>
-                		<%	if (!"".equals(StringUtils.checkNull(phaseIcon))) { %>
-                			<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=phaseIcon%>" alt="<%=phaseText%>" width="25" height="17" border="0">
+                	<%	if (category.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) { %>
+                	  	<%	ImageData imageData = (ImageData)imageDataTable.get(subcategory.getID()); %>
+                		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+                			<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
                 		<%	} %>
-                		<%	if (!"".equals(StringUtils.checkNull(technologyIcon))) { %>
-							<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=technologyIcon%>" alt="<%=technologyText%>" border="0"/>
+                		<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+							<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
 						<%	} %>
 						&#160;
 					<%	} %>

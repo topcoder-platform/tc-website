@@ -14,7 +14,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.ForumConstants;
 
 import javax.naming.InitialContext;
@@ -33,6 +33,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected AuthToken authToken;
     protected ForumFactory forumFactory;
     protected User user;
+    protected ForumsLocal forumsBean;
 
     /* TODO there is redundant code stuff that seems to break the design.  hopefully this can be cleaned */
 
@@ -46,6 +47,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
         getRequest().setAttribute("forumFactory", forumFactory);
 
         setUnreadCategories();
+        createForumsBean();
     }
 
     //  Determine categories with unread forums
@@ -91,18 +93,16 @@ public abstract class ForumsProcessor extends BaseProcessor {
         }
     }
     
-    protected Forums getForumsBean() {
+    private void createForumsBean() {
     	InitialContext ctx = null;
-        Forums forumsBean = null;
         try {
             ctx = TCContext.getInitial();
-            forumsBean = (Forums)createEJB(ctx, Forums.class);
+            forumsBean = (ForumsLocal)createLocalEJB(ctx, ForumsLocal.class);
         } catch (Exception e) {
             Log.error(e);
         } finally {
             BaseProcessor.close(ctx);
         }
-        return forumsBean;
     }
 
     public HttpServletRequest getHttpRequest() {

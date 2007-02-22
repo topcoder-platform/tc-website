@@ -9,6 +9,8 @@
             <ejb-name>Forums</ejb-name>
             <home>com.topcoder.web.ejb.forums.ForumsHome</home>
             <remote>com.topcoder.web.ejb.forums.Forums</remote>
+            <local-home>com.topcoder.web.ejb.forums.ForumsLocalHome</local-home>
+            <local>com.topcoder.web.ejb.forums.ForumsLocal</local>
             <ejb-class>com.topcoder.web.ejb.forums.ForumsBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
@@ -18,7 +20,6 @@
         <container-transaction>
             <method>
                 <ejb-name>Forums</ejb-name>
-                <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>

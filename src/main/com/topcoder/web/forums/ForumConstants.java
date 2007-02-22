@@ -77,10 +77,10 @@ public interface ForumConstants {
     
     /* Some of the following software-related properties are now retrieved directly from the TCS database */
     
-    /* See Catalog.JAVA_CATALOG, etc. Determines technology icon displayed by the ImageMapper. */
+    /* See Catalog.JAVA_CATALOG, etc. Determines technology icon displayed by the ImageData. */
     //public final static String PROPERTY_COMPONENT_ROOT_CATEGORY_ID = "compRootCategoryId";
     
-    /* See ComponentVersionInfo.COLLABORATION, etc. Determines phase icon displayed by the ImageMapper. */
+    /* See ComponentVersionInfo.COLLABORATION, etc. Determines phase icon displayed by the ImageData. */
     //public final static String PROPERTY_COMPONENT_PHASE = "componentPhase";		
     
     /* See ComponentInfo.APPROVED, etc. Only approved components are displayed. */

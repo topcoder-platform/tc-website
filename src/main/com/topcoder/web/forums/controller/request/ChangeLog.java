@@ -24,7 +24,7 @@ public class ChangeLog extends ForumsProcessor {
         }
 
         if (!ForumsUtil.isAdmin(user)) {
-            setNextPage("?module=ForumList");
+            setNextPage("?module=Main");
             setIsNextPageInContext(false);
             return;
         }

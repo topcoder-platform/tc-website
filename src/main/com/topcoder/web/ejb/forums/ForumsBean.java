@@ -461,6 +461,44 @@ public class ForumsBean extends BaseEJB {
             close(conn);
         }
     }
+    
+    public Hashtable getComponentVersionPhases(long[] compVersIDs) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            StringBuffer psStrBuf = new StringBuffer(
+                    "select comp_vers_id, phase_id from comp_versions v " +
+                            "where c.comp_vers_id IN (");
+            for (int i = 0; i < compVersIDs.length - 1; i++) {
+                psStrBuf.append(compVersIDs[i]);
+                psStrBuf.append(',');
+            }
+            if (compVersIDs.length > 0) {
+                psStrBuf.append(compVersIDs[compVersIDs.length - 1]);
+            }
+            psStrBuf.append(")");
+            ps = conn.prepareStatement(psStrBuf.toString());
+            rs = ps.executeQuery();
+
+            Hashtable h = new Hashtable();
+            while (rs.next()) {
+                h.put(rs.getString("comp_vers_id"), rs.getString("phase_id"));
+            }
+            return h;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
 
     public String getComponentVersionText(long compVersID) {
         Connection conn = null;
@@ -514,6 +552,44 @@ public class ForumsBean extends BaseEJB {
                 throw new RowNotFoundException("no row found for " + ps.toString());
             }
             return rootCategory;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+    
+    public Hashtable getComponentRootCategories(long[] compIDs) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            StringBuffer psStrBuf = new StringBuffer(
+                    "select component_id, root_category_id from comp_catalog c " +
+                            "where c.component_id IN (");
+            for (int i = 0; i < compIDs.length - 1; i++) {
+                psStrBuf.append(compIDs[i]);
+                psStrBuf.append(',');
+            }
+            if (compIDs.length > 0) {
+                psStrBuf.append(compIDs[compIDs.length - 1]);
+            }
+            psStrBuf.append(")");
+            ps = conn.prepareStatement(psStrBuf.toString());
+            rs = ps.executeQuery();
+
+            Hashtable h = new Hashtable();
+            while (rs.next()) {
+                h.put(rs.getString("component_id"), rs.getString("root_category_id"));
+            }
+            return h;
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw new EJBException(e.getMessage());
