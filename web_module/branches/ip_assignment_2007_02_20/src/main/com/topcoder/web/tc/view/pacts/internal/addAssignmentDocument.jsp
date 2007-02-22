@@ -40,9 +40,8 @@
 		<tr>		
 			<td><b>Type:</b></td>
 			<td>
-            	<tc-webtag:rscSelect name="assignment_document_type_id" list='${typeList}' fieldText="description" 
-            		fieldValue="id" useTopValue="true" topValue="-1" topText="Select Type"/>
-            	
+			    <tc-webtag:listSelect name="assignment_document_type_id" size="$(typeList.size)" useTopValue="true" 
+			    	multiple="true" list='${typeList}'/>            	
 			</td>
 		</tr>
         <tr>
