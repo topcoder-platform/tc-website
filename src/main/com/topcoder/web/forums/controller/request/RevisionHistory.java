@@ -12,7 +12,6 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.jivesoftware.base.JiveGlobals;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.ForumMessage;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class RevisionHistory extends ForumsProcessor {
             ctx = TCContext.getInitial();
             historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
         } catch (Exception e) {
-            Log.error(e);
+            log.error(e);
         } finally {
             BaseProcessor.close(ctx);
         }

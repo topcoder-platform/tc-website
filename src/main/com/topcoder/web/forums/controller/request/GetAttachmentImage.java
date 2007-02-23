@@ -19,7 +19,6 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletOutputStream;
 
-import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.AttachmentManager;
 import com.jivesoftware.forum.database.DbAttachmentManager;
 import com.topcoder.web.forums.ForumConstants;
@@ -57,7 +56,7 @@ public class GetAttachmentImage extends ForumsProcessor {
                 image = getThumbnail(attachmentID, maxSize, preserveRatio);
             }
             catch (Exception e) {
-                Log.error(e);
+                log.error(e);
             }
             if (image != null) {
                 outputType = "image/x-png";
@@ -94,7 +93,7 @@ public class GetAttachmentImage extends ForumsProcessor {
             }
         }
         catch (IOException ioe) {
-            Log.error("Error displaying attachment image: " + ioe.getMessage(), ioe);
+            log.error("Error displaying attachment image: " + ioe.getMessage(), ioe);
         }
         finally {
             try { in.close(); } catch (Exception ignored) {}

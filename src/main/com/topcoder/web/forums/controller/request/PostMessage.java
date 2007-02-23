@@ -6,7 +6,6 @@ package com.topcoder.web.forums.controller.request;
 import javax.naming.InitialContext;
 
 import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumMessage;
@@ -137,7 +136,7 @@ public class PostMessage extends ForumsProcessor {
                 historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
                 historyBean.addEdit(message.getID(), histSubject, histBody, histModificationDate, DBMS.FORUMS_DATASOURCE_NAME);
             } catch (Exception e) {
-                Log.error(e);
+                log.error(e);
             } finally {
                 BaseProcessor.close(ctx);
             }

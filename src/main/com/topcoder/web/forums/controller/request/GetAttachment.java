@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.database.DbAttachment;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
@@ -58,14 +57,14 @@ public class GetAttachment extends ForumsProcessor {
         		try {
         			attachmentFileStream.close();
         		} catch (Exception e) {
-        			Log.error(e.getMessage());
+        			log.error(e.getMessage());
         		}
         	}
         	if (outputStream != null) {
         		try {
         			outputStream.close();
         		} catch (Exception e) {
-        			Log.error(e.getMessage());
+        			log.error(e.getMessage());
         		}
         	}
         }

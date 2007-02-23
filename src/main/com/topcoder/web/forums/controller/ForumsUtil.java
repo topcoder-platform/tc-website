@@ -7,7 +7,6 @@ import com.jivesoftware.base.Filter;
 import com.jivesoftware.base.FilterManager;
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.base.Permissions;
 import com.jivesoftware.base.User;
 import com.jivesoftware.base.filter.Profanity;
@@ -27,7 +26,6 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
@@ -134,7 +132,7 @@ public class ForumsUtil {
                 }
             }
             catch (Exception e) {
-                Log.error(e);
+                log.error(e);
             }
 
             return subject;
@@ -221,7 +219,7 @@ public class ForumsUtil {
                 }
             }
             catch (Exception e) {
-                Log.error(e);
+                log.error(e);
             }
 
             return body;

@@ -5,7 +5,6 @@ package com.topcoder.web.forums.controller;
 
 import com.jivesoftware.base.AuthFactory;
 import com.jivesoftware.base.AuthToken;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.ForumFactory;
 import com.topcoder.security.TCSubject;
@@ -273,10 +272,10 @@ public class ForumsServlet extends BaseServlet {
     	ForumsLocal forumsBean = null;
         try {
             Context context = TCContext.getInitial();
-    		ForumsLocalHome forumsLocalHome = (ForumsLocalHome) context.lookup("java:/com.topcoder.web.ejb.forums.ForumsLocalHome");
+    		ForumsLocalHome forumsLocalHome = (ForumsLocalHome) context.lookup(ForumsLocalHome.EJB_REF_NAME);
     		forumsBean = forumsLocalHome.create();
     	} catch (Exception e) { 
-    		Log.error(e);
+    		log.error(e);
     	}
         return forumsBean;
     }

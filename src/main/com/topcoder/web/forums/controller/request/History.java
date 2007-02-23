@@ -4,7 +4,6 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.base.User;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
@@ -79,7 +78,7 @@ public class History extends ForumsProcessor {
             ctx = TCContext.getInitial();
             historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
         } catch (Exception e) {
-            Log.error(e);
+            log.error(e);
         } finally {
             BaseProcessor.close(ctx);
         }

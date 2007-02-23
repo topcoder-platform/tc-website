@@ -9,7 +9,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.AttachmentException;
 import com.jivesoftware.forum.ForumMessage;
@@ -172,7 +171,7 @@ public class Attach extends ForumsProcessor {
     		    try {
     		    	uploadedFileBIS.close();
     		    } catch (IOException e) {
-    		    	Log.error(e);
+    		    	log.error(e);
     		    }
     		}
         }
