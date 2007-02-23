@@ -1,4 +1,7 @@
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,
+				 com.topcoder.web.common.BaseProcessor,
+				 java.util.HashMap" %>
+
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -17,6 +20,8 @@
 <c:set var="user" value="${requestScope.user}"/>
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_TYPE_LIST) %>" />
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_STATUS_LIST) %>" />
+<c:set var="defaultTypeId" value="<%= (Long) ((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_type_id") %>" />
+<c:set var="defaultStatusId" value="<%= new Long(2) %>" />
 
 
 <h1>PACTS</h1>
@@ -43,7 +48,9 @@
 			<td>
 				<SELECT CLASS="dropdown" NAME="assignment_document_type_id">
 				    <c:forEach items="${typeList}" var="typeItem">
-				        <OPTION value='${typeItem.id}'>${typeItem.description}</OPTION>
+				        <OPTION value='${typeItem.id}' <c:if test="${typeItem.id == defaultTypeId}">selected</c:if>>
+				        	${typeItem.description}
+				        </OPTION>
 					</c:forEach>
 				</SELECT>
 			</td>
@@ -53,7 +60,7 @@
 			<td>
 				<SELECT CLASS="dropdown" NAME="assignment_document_status_id">
 				    <c:forEach items="${statusList}" var="statusItem">
-				        <OPTION value='${statusItem.id}' <c:if test="${statusItem.id == AssignmentDocumentStatus.PENDING_STATUS_ID}">selected</c:if>>
+				        <OPTION value='${statusItem.id}' <c:if test="${statusItem.id == defaultStatusId}">selected</c:if>>
 				        	${statusItem.description}
 				        </OPTION>
 					</c:forEach>
