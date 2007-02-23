@@ -38,7 +38,7 @@ public class Category extends ForumsProcessor {
 
         ForumsLocal forumsBean = null;
         try {
-            forumsBean = (ForumsLocal)createEJB(getInitialContext(), Forums.class);
+            forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
         } catch (Exception e) {
             log.error(e);
         }
