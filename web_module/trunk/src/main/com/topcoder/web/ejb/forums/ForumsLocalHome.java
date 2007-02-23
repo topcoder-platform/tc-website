@@ -8,5 +8,7 @@ import javax.ejb.EJBLocalHome;
  */
 public interface ForumsLocalHome extends EJBLocalHome {
     
+    public static final String EJB_REF_NAME = "com.topcoder.web.ejb.forums.ForumsLocalHome";
+    
     public ForumsLocal create() throws CreateException;
 }
