@@ -67,7 +67,7 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
             } else {
                 setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
                 setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.DELETED_STATUS_ID));
-                log.info("assignment_document_text: " + findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate())
+                log.info("assignment_document_text: " + findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate());
                 setDefault("assignment_document_text", findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate());
             }
 
