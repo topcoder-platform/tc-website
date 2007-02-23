@@ -11,7 +11,8 @@
                  com.topcoder.web.common.WebConstants,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 java.util.Iterator"
+                 com.topcoder.web.forums.model.ImageData,
+                 java.util.*"
         %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>

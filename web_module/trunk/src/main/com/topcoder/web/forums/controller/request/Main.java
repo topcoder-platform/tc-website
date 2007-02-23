@@ -84,6 +84,7 @@ public class Main extends ForumsProcessor {
                             if (rootCategoriesTable.contains(String.valueOf(subcategory.getID()))) {
                                 rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(subcategory.getID())));
                             }
+                            log.info("putting: ID = " + subcategory.getID() + " | compVersPhase = " + compVersPhase + " | rootCategoryID = " + rootCategoryID);
                             imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
                         }
                         getRequest().setAttribute("imageDataTable_"+category.getID(), imageDataTable);
