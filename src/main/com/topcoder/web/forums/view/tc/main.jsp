@@ -89,15 +89,15 @@
 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
     <% String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
        if (!"0".equals(limit)) {
-        Iterator itCategories = (Iterator)request.getAttribute("categoriesPageList_"+category.getID());
-       	Iterator itForums = (Iterator)request.getAttribute("forumsPageList_"+category.getID());
+        Iterator itCategories = (Iterator)request.getAttribute("categoriesIterator_"+category.getID());
+        Iterator itForums = (Iterator)request.getAttribute("forumsIterator_"+category.getID());
        	long numActiveCategories = ((Long)request.getAttribute("numActiveCategories_"+category.getID())).longValue();
         long numActiveForums = ((Long)request.getAttribute("numActiveForums_"+category.getID())).longValue();
         if (numActiveCategories > 0) { 
         	Hashtable imageDataTable = (Hashtable)request.getAttribute("imageDataTable_"+category.getID()); %>
     <br>
     <table cellpadding="0" cellspacing="0" class="rtTable">
-        <tr>
+        <tr>9
             <td class="rtHeader" width="100%">
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
             </td>

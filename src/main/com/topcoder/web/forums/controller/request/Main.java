@@ -60,7 +60,7 @@ public class Main extends ForumsProcessor {
                 if (category.getCategoryCount() > 0) {
                     ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true);
                     ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                    getRequest().setAttribute("categoriesPageList_"+category.getID(), pageList);
+                    getRequest().setAttribute("categoriesIterator_"+category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveCategories_"+category.getID(), new Long(pageList.size()));
                     
                     // create image data for software components
@@ -91,12 +91,12 @@ public class Main extends ForumsProcessor {
                 } else {
                     ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
                     ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                    getRequest().setAttribute("forumsPageList_"+category.getID(), pageList);
+                    getRequest().setAttribute("forumsIterator_"+category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveForums_"+category.getID(), new Long(pageList.size()));
                 }
             } else {
                 resultFilter.setNumResults(ResultFilter.NULL_INT);
-                getRequest().setAttribute("forumsPageList_"+category.getID(), category.getForums(resultFilter));
+                getRequest().setAttribute("forumsIterator_"+category.getID(), category.getForums(resultFilter));
                 getRequest().setAttribute("numActiveForums_"+category.getID(), new Long(category.getForumCount(resultFilter)));
             }
         }
