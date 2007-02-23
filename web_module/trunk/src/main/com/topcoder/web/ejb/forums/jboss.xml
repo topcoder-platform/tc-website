@@ -4,7 +4,7 @@
     <session>
       <ejb-name>Forums</ejb-name>
       <jndi-name>com.topcoder.web.ejb.forums.ForumsHome</jndi-name>
-      <local-jndi-name>com.topcoder.web.ejb.forums.ForumsLocalHome</local-jndi-name>
+      <local-jndi-name>java:/com.topcoder.web.ejb.forums.ForumsLocalHome</local-jndi-name>
     </session>
   </enterprise-beans>
 </jboss>

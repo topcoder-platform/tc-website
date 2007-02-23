@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.forums;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import java.util.HashSet;
+import java.util.Hashtable;
 
 import javax.ejb.EJBException;
 
@@ -56,9 +57,13 @@ public interface Forums extends EJBObject {
     		long templateID, boolean isPublic)
     	throws EJBException, RemoteException, Exception;
     
+    public Hashtable getComponentVersionPhases(long[] compVersIDs) throws EJBException, RemoteException;
+    
     public long getComponentVersionPhase(long compVersID) throws EJBException, RemoteException;
     
     public String getComponentVersionText(long compVersID) throws EJBException, RemoteException;
+    
+    public Hashtable getComponentRootCategories(long[] compIDs) throws EJBException, RemoteException;
     
     public long getComponentRootCategory(long compID) throws EJBException, RemoteException;
     
