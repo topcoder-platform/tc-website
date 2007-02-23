@@ -129,8 +129,13 @@ public class Category extends ForumsProcessor {
                 Hashtable rootCategoriesTable = forumsBean.getComponentRootCategories(compIDs);
                 for (int i=0; i<pageList.size(); i++) {
                     ForumCategory subcategory = (ForumCategory)pageList.get(i);
-                    long compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(subcategory.getID())));
-                    long rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(subcategory.getID())));
+                    long compVersPhase = -1, rootCategoryID = -1;
+                    if (compVersPhasesTable.contains(String.valueOf(subcategory.getID()))) {
+                        compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(subcategory.getID())));
+                    }
+                    if (rootCategoriesTable.contains(String.valueOf(subcategory.getID()))) {
+                        rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(subcategory.getID())));
+                    }
                     imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
                 }
                 getRequest().setAttribute("imageDataTable", imageDataTable);
