@@ -257,17 +257,19 @@ This is one of the things you'll face more often than not during competitions: t
 </p>
 
 <pre class="code">
-public static int GetCode(string CityNameAndCode,string CityName)
+public static int GetCode(string CityNameAndCode, string CityName)
 {
-     // Iterate through the City Names and then return the City Code
-     for (int i = 0; i < CityNameAndCode.Length; i+=2)
-     {
-         if (CityNameAndCode.Split()[i] == CityName)
-            return Convert.ToInt32(CityNameAndCode.Split()[i + 1]);
-     }
-   
-   // If City is not found return -1
-   return -1;
+      int Length=CityNameAndCode.Split().Length;
+
+      // Iterate through the City Names and then return the City Code
+      for (int i = 0; i < Length; i += 2)
+      {
+          if (CityNameAndCode.Split()[i] == CityName)
+                return Convert.ToInt32(CityNameAndCode.Split()[i + 1]);
+      }
+
+       // If City is not found return -1
+       return -1;
 }
 </pre>
 
