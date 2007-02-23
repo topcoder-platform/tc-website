@@ -40,6 +40,26 @@ function doSearch(text, mustSearch, firstLoad) {
  doSearch(false, false, false)
 }
  
+ function initialize() {
+    toggleDiv("loading", 0);
+ }
+ 
+ function toggleDiv(divId, state) 
+{
+    if(document.layers)   
+    {
+       document.layers[divId].visibility = state ? "show" : "hide";
+    }
+    else if(document.getElementById)
+    {
+        document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
+    }
+    else if(document.all)
+    {
+        document.all[divId].style.visibility = state ? "visible" : "hidden";
+    }
+}
+
  function loading() {
     toggleDiv("loading", 1);
 }
@@ -52,7 +72,7 @@ function loaded() {
  </script>
     
 </head>
-<body>
+<body onLoad="initialize()">
 <div id="loading">
 <p align="right">
 <b><font color="#FF0000" size="+1">Loading...</font></b>

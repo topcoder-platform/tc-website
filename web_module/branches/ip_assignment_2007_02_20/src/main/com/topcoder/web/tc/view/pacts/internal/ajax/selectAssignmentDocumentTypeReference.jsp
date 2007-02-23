@@ -14,7 +14,7 @@
 	        <td><b>Reference:</b></td>      
 	        <td><c:out value="${reference_description}" />
 	        <input type="text" name="searchInput"/>
-            <input type="button" value="search" onClick="search()" />
+            <input type="button" value="search" onClick="doSearch(false, false, false)" />
 	        </td>
          </tr>
      </taconite-replace>   
