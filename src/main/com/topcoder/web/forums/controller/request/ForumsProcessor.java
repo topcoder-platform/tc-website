@@ -98,7 +98,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     	InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            forumsBean = (Forums)createLocalEJB(ctx, Forums.class);
+            forumsBean = (Forums)createEJB(ctx, Forums.class);
         } catch (Exception e) {
             Log.error(e);
         } finally {
