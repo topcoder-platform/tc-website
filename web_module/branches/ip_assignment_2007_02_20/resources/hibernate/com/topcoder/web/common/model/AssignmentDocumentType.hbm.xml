@@ -5,8 +5,9 @@
 
 <hibernate-mapping package="com.topcoder.web.common.model">
 
-    <class name="AssignmentDocumentStatus" table="assignment_document_status_lu" mutable="false">
-        <id name="id" column="assignment_document_status_id" access="field"/>
-        <property name="description" column="assignment_document_status_desc" access="field"/>
+    <class name="AssignmentDocumentType" table="assignment_document_type_lu" mutable="false">
+        <id name="id" column="assignment_document_type_id" access="field"/>
+        <property name="description" column="assignment_document_type_desc" access="field"/>
+        <property name="template" column="assignment_document_type_template" access="field"/>
     </class>
 </hibernate-mapping>
