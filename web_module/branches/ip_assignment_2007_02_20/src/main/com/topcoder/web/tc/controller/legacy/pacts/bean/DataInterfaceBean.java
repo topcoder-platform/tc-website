@@ -420,7 +420,7 @@ public class DataInterfaceBean implements PactsConstants {
      */
     public List getAssignmentDocumentStatus() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.getAssignmentDocumentTypes();
+        return ps.getAssignmentDocumentStatus();
     }
 
     /**

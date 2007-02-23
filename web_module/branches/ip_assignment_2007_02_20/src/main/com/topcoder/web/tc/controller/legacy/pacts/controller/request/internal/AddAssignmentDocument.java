@@ -66,7 +66,7 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
             List assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
             getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TYPE_LIST, assignmentDocumentTypes);
 
-            // Give the JSP the list of assignment document Types
+            // Give the JSP the list of assignment document status
             List assignmentDocumentStatus = dib.getAssignmentDocumentStatus();
             getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
 
