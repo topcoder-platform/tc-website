@@ -1,10 +1,12 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.util.Iterator;
 import java.util.List;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentType;
+import com.topcoder.web.common.model.Response;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
@@ -22,7 +24,14 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
-            Payment payment = null;
+            // Give the JSP the list of assignment document Types
+            List assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
+            getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TYPE_LIST, assignmentDocumentTypes);
+
+            // Give the JSP the list of assignment document status
+            List assignmentDocumentStatus = dib.getAssignmentDocumentStatus();
+            getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
+
             if (getRequest().getParameter("assignment_document_text") != null) {
 //                String desc = (String) getRequest().getParameter("affidavit_desc");
 //                int typeId = Integer.parseInt(getRequest().getParameter("affidavit_type_id"));
@@ -57,18 +66,12 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
 //                }
             } else {
                 setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
-                setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
+                setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.DELETED_STATUS_ID));
+                log.info("assignment_document_text: " + findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate())
+                setDefault("assignment_document_text", findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate());
             }
 
             getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(userId)));
-
-            // Give the JSP the list of assignment document Types
-            List assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
-            getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TYPE_LIST, assignmentDocumentTypes);
-
-            // Give the JSP the list of assignment document status
-            List assignmentDocumentStatus = dib.getAssignmentDocumentStatus();
-            getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
 
             setNextPage(INTERNAL_ADD_ASSIGNMENT_DOCUMENT_JSP);
             setIsNextPageInContext(true);
@@ -77,5 +80,14 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
         }
     }
 
+    private AssignmentDocumentType findAssignmentDocumentTypeById(List assignmentDocumentTypes, Long typeId) {
+        AssignmentDocumentType adt = null;
+        boolean found = false;
+        for (Iterator it = assignmentDocumentTypes.iterator(); it.hasNext() && !found;) {
+            adt = (AssignmentDocumentType) it.next();
+            found = (adt.getId() == typeId);
+        }
+        return found ? adt : null;
+    }
 }
 
