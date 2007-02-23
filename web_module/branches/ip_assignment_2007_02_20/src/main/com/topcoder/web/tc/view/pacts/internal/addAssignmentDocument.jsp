@@ -95,7 +95,6 @@
 </table>
 
 <script language="javascript" type="text/javascript">
-    <!--
 Calendar.setup(
 {
  inputField  : "due_date",  
@@ -106,7 +105,6 @@ Calendar.setup(
                     cache       : true
 }
 );
-                -->
 </script>
 
 <input type="submit" value="Save Assignment Document">

@@ -69,6 +69,7 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
                 String expireDate = "";
                 Calendar date = Calendar.getInstance();
                 date.setTime(new Date());
+                log.info("ASSIGNMENT_DOCUMENT_DEFAULT_EXPIRATION_PERIOD" + ASSIGNMENT_DOCUMENT_DEFAULT_EXPIRATION_PERIOD.intValue());
                 date.add(Calendar.DAY_OF_YEAR, ASSIGNMENT_DOCUMENT_DEFAULT_EXPIRATION_PERIOD.intValue());
                 expireDate = new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime());
 

@@ -162,6 +162,8 @@ public interface PactsConstants extends Constants {
     public static final String USER_TAX_FORM_HEADER_LIST = "user_tax_form_header_list";
     public static final String USER_TAX_FORM_DETAIL = "user_tax_form_detail";
     // Code lookups
+    public static final Integer ASSIGNMENT_DOCUMENT_DEFAULT_EXPIRATION_PERIOD = new Integer(7);
+
     public static final String ASSIGNMENT_DOCUMENT_TYPE_LIST = "assignment_document_type_list";
     public static final String ASSIGNMENT_DOCUMENT_STATUS_LIST = "assignment_document_status_list";
     public static final String AFFIDAVIT_TYPE_LIST = "affidavit_type_list";
