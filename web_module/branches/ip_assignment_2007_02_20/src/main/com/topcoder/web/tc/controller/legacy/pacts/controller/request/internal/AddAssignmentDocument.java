@@ -1,15 +1,16 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentType;
-import com.topcoder.web.common.model.Response;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 /**
@@ -65,11 +66,15 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
 //                    return;
 //                }
             } else {
+                String expireDate = "";
+                Calendar date = Calendar.getInstance();
+                date.setTime(new Date());
+                date.add(Calendar.DAY_OF_YEAR, ASSIGNMENT_DOCUMENT_DEFAULT_EXPIRATION_PERIOD.intValue());
+                expireDate = new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime());
+
+                setDefault("expire_date", expireDate);
                 setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
-                setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.DELETED_STATUS_ID));
-                log.info("looking for text");
-                log.info("assignment_document: " + findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).toString());
-                log.info("assignment_document_text: " + findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate());
+                setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
                 setDefault("assignment_document_text", findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate());
             }
 
@@ -87,7 +92,6 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
         boolean found = false;
         for (Iterator it = assignmentDocumentTypes.iterator(); it.hasNext() && !found;) {
             adt = (AssignmentDocumentType) it.next();
-            log.info("found: " + adt.getId() + " - " + adt.getDescription() + " - " + adt.getTemplate());
             found = (adt.getId().equals(typeId));
         }
         return found ? adt : null;
