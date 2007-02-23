@@ -4,7 +4,6 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveGlobals;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumThread;
@@ -78,7 +77,7 @@ public class Thread extends ForumsProcessor {
             ctx = TCContext.getInitial();
             historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
         } catch (Exception e) {
-            Log.error(e);
+            log.error(e);
         } finally {
             BaseProcessor.close(ctx);
         }

@@ -3,7 +3,6 @@
  */
 package com.topcoder.web.forums.controller.request;
 
-import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumMessage;
@@ -89,7 +88,7 @@ public class Admin extends ForumsProcessor {
                 int matchID = Integer.parseInt(match);
                 forums.createMatchForum(matchID);
             } catch (Exception e) {
-                Log.error(e);
+                log.error(e);
             } finally {
                 BaseProcessor.close(ctx);
             }

@@ -5,7 +5,6 @@ package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.base.JiveGlobals;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.action.UserSettingsAction;
 import com.jivesoftware.util.CronTimer;
 import com.topcoder.shared.security.ClassResource;
@@ -138,7 +137,7 @@ public class Settings extends ForumsProcessor {
         }
         else {
             // unknown
-            Log.warn("Unknown watch frequency for user " + user.getUsername() +
+            log.warn("Unknown watch frequency for user " + user.getUsername() +
                     ": " + timer.getCronExpression());
             return UserSettingsAction.FREQUENCY_IMMEDIATELY;
         }
@@ -169,7 +168,7 @@ public class Settings extends ForumsProcessor {
             }
         }
         catch (ParseException e) {
-            Log.error(e);
+            log.error(e);
         }
         return null;
     }

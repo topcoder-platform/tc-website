@@ -4,12 +4,9 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.action.util.Paginator;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.forums.Forums;
@@ -21,8 +18,6 @@ import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
-
-import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -43,9 +38,9 @@ public class Category extends ForumsProcessor {
 
         ForumsLocal forumsBean = null;
         try {
-            forumsBean = (ForumsLocal)createEJB(getInitialContext(), ForumsLocal.class);
+            forumsBean = (ForumsLocal)createEJB(getInitialContext(), Forums.class);
         } catch (Exception e) {
-            Log.error(e);
+            log.error(e);
         }
         
         int startIdx = 0;
