@@ -20,7 +20,7 @@
 <c:set var="user" value="${requestScope.user}"/>
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_TYPE_LIST) %>" />
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_STATUS_LIST) %>" />
-<c:set var="defaultTypeId" value="<%= Long.parseLong((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_type_id")) %>" />
+<c:set var="defaultTypeId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_type_id")) %>" />
 <c:set var="defaultStatusId" value="<%= new Long(2) %>" />
 
 
