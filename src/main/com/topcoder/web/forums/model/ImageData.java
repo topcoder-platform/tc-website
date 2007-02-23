@@ -52,10 +52,10 @@ public class ImageData {
          TECH_FLASH_TEXT, TECH_APPLICATION_TEXT}
     };
     
-    private String phaseIcon;
-    private String phaseText;
-    private String technologyIcon;
-    private String technologyText;
+    private String phaseIcon = "";
+    private String phaseText = "";
+    private String technologyIcon = "";
+    private String technologyText = "";
     
     public String getPhaseIcon() {
         return phaseIcon;
@@ -71,7 +71,6 @@ public class ImageData {
     }
     
     public ImageData(long componentPhase, long rootCategoryID) {
-        phaseIcon = phaseText = technologyIcon = technologyText = "";
         for (int i=0; i<PHASE_IDS.length; i++) {
             if (componentPhase == PHASE_IDS[i]) {
                 phaseIcon = PHASE_PROPERTIES[0][i];

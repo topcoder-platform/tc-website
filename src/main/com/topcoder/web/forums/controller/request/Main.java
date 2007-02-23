@@ -78,13 +78,12 @@ public class Main extends ForumsProcessor {
                         for (int i=0; i<pageList.size(); i++) {
                             ForumCategory subcategory = (ForumCategory)pageList.get(i);
                             long compVersPhase = -1, rootCategoryID = -1;
-                            if (compVersPhasesTable.contains(String.valueOf(subcategory.getID()))) {
+                            if (compVersPhasesTable.containsKey(String.valueOf(subcategory.getID()))) {
                                 compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(subcategory.getID())));
                             }
-                            if (rootCategoriesTable.contains(String.valueOf(subcategory.getID()))) {
+                            if (rootCategoriesTable.containsKey(String.valueOf(subcategory.getID()))) {
                                 rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(subcategory.getID())));
                             }
-                            log.info("putting: ID = " + subcategory.getID() + " | compVersPhase = " + compVersPhase + " | rootCategoryID = " + rootCategoryID);
                             imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
                         }
                         getRequest().setAttribute("imageDataTable_"+category.getID(), imageDataTable);
