@@ -4,10 +4,14 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.model.ImageData;
@@ -15,6 +19,8 @@ import com.topcoder.web.forums.model.ImageData;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.ArrayList;
+
+import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -31,6 +37,17 @@ public class Main extends ForumsProcessor {
 
         Iterator itCategories = forumFactory.getRootForumCategory().getCategories();
         ArrayList categoryList = new ArrayList();   // forums diplayed on main page
+        
+        Forums forumsBean = null;
+        InitialContext ctx = null;
+        try {
+            ctx = TCContext.getInitial();
+            forumsBean = (Forums)createEJB(ctx, Forums.class);
+        } catch (Exception e) {
+            Log.error(e);
+        } finally {
+            BaseProcessor.close(ctx);
+        }
         
         while (itCategories.hasNext()) {
             ForumCategory category = (ForumCategory)itCategories.next();

@@ -4,11 +4,15 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.base.Log;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.action.util.Paginator;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.ImageData;
 import com.topcoder.web.forums.model.Paging;
@@ -16,6 +20,8 @@ import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
+
+import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -33,6 +39,17 @@ public class Category extends ForumsProcessor {
             return;
         }
         ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
+
+        Forums forumsBean = null;
+        InitialContext ctx = null;
+        try {
+            ctx = TCContext.getInitial();
+            forumsBean = (Forums)createEJB(ctx, Forums.class);
+        } catch (Exception e) {
+            Log.error(e);
+        } finally {
+            BaseProcessor.close(ctx);
+        }
         
         int startIdx = 0;
         if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {

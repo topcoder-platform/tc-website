@@ -21,6 +21,8 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.StudioForumsAuthentication;
 import com.topcoder.web.common.security.TCForumsAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsHome;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.ejb.forums.ForumsLocalHome;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
@@ -55,7 +57,7 @@ public class ForumsServlet extends BaseServlet {
                 while (true) {
                     try {
                         log.info("Deleting orphaned attachments...");
-                        ForumsLocal forumsBean = getForumsBean();
+                        Forums forumsBean = getForumsBean();
                         if (forumsBean != null) {
                             forumsBean.deleteOrphanedAttachments();
                         } else {
@@ -269,12 +271,12 @@ public class ForumsServlet extends BaseServlet {
                 new Object[]{new SessionPersistor(request.getSession()), request, response});
     }
 
-    private ForumsLocal getForumsBean() {
-    	ForumsLocal forumsBean = null;
+    private Forums getForumsBean() {
+    	Forums forumsBean = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-    		ForumsLocalHome forumsLocalHome = (ForumsLocalHome) context.lookup(ForumsLocalHome.EJB_REF_NAME);
-    		forumsBean = forumsLocalHome.create();
+    		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
+    		forumsBean = forumsHome.create();
     	} catch (Exception e) { 
     		Log.error(e);
     	}
