@@ -12,6 +12,7 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.model.ImageData;
@@ -38,11 +39,11 @@ public class Main extends ForumsProcessor {
         Iterator itCategories = forumFactory.getRootForumCategory().getCategories();
         ArrayList categoryList = new ArrayList();   // forums diplayed on main page
         
-        Forums forumsBean = null;
+        ForumsLocal forumsBean = null;
         InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            forumsBean = (Forums)createEJB(ctx, Forums.class);
+            forumsBean = (ForumsLocal)createLocalEJB(ctx, ForumsLocal.class);
         } catch (Exception e) {
             Log.error(e);
         } finally {
