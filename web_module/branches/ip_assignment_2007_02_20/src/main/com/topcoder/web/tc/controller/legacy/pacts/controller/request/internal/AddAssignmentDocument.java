@@ -77,6 +77,8 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
                 setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
                 setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
                 setDefault("assignment_document_text", findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate());
+
+                getRequest().setAttribute("reference_description", "Enter search text for component name:");
             }
 
             getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(userId)));

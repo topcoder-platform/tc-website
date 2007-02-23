@@ -14,7 +14,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Add Assignment Document</title>
     
-        <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
@@ -22,10 +22,39 @@
          
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
+<script type="text/javascript">
+function doSearch(text, mustSearch, firstLoad) {
+	var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectAssignmentDocumentTypeReference');
+    
+//    document.f.search_text.value = text;
+       
+    ajaxRequest.addNamedFormElements("assignment_document_type_id");
+    
+//    ajaxRequest.addNamedFormElements("reference_id");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);    
+    ajaxRequest.sendRequest();
+}
+ 
+ function loading() {
+    toggleDiv("loading", 1);
+}
 
+function loaded() {
+    toggleDiv("loading", 0);
+}
+
+ 
+ </script>
     
 </head>
 <body>
+<div id="loading">
+<p align="right">
+<b><font color="#FF0000" size="+1">Loading...</font></b>
+</p>
+</div>
+
 
 
 <c:set var="user" value="${requestScope.user}"/>
@@ -33,6 +62,7 @@
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_STATUS_LIST) %>" />
 <c:set var="defaultTypeId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_type_id")) %>" />
 <c:set var="defaultStatusId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_status_id")) %>" />
+<c:set var="reference_description" value='<%= request.getAttribute("reference_description") %>' />
 
 
 <h1>PACTS</h1>
@@ -57,7 +87,7 @@
 		<tr>		
 			<td><b>Type:</b></td>
 			<td>
-				<SELECT CLASS="dropdown" NAME="assignment_document_type_id">
+				<SELECT CLASS="dropdown" NAME="assignment_document_type_id" onChange="typeChanged()">
 				    <c:forEach items="${typeList}" var="typeItem">
 				        <OPTION value='${typeItem.id}' <c:if test="${typeItem.id == defaultTypeId}">selected</c:if>>
 				        	${typeItem.description}
@@ -66,6 +96,13 @@
 				</SELECT>
 			</td>
 		</tr>
+        <tr id="selectReference">
+	        <td><b>Reference:</b></td>      
+	        <td><c:out value="${reference_description}" />
+	        <input type="text" name="searchInput"/>
+            <input type="button" value="search" onClick="doSearch(false, false, false)" />
+	        </td>
+        </tr>
 		<tr>		
 			<td><b>Status:</b></td>
 			<td>
@@ -87,7 +124,7 @@
 			</td>
 		</tr>
         <tr>
-	        <td><b>Expire Due:</b></td><td>
+	        <td><b>Expiration Date:</b></td><td>
 	        <tc-webtag:textInput name="expire_date" id="expire_date" size="12" editable="true" /> 
 	            <button id="trigger_expire_date">Set</button>       
 	        </td>            
