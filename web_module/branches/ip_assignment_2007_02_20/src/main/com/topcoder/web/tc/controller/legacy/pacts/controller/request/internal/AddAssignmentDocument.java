@@ -67,6 +67,8 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
             } else {
                 setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
                 setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.DELETED_STATUS_ID));
+                log.info("looking for text");
+                log.info("assignment_document: " + findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).toString());
                 log.info("assignment_document_text: " + findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate());
                 setDefault("assignment_document_text", findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate());
             }
@@ -85,7 +87,8 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
         boolean found = false;
         for (Iterator it = assignmentDocumentTypes.iterator(); it.hasNext() && !found;) {
             adt = (AssignmentDocumentType) it.next();
-            found = (adt.getId() == typeId);
+            log.info("found: " + adt.getId() + " - " + adt.getDescription() + " - " + adt.getTemplate());
+            found = (adt.getId().equals(typeId));
         }
         return found ? adt : null;
     }
