@@ -21,8 +21,6 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.StudioForumsAuthentication;
 import com.topcoder.web.common.security.TCForumsAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.ejb.forums.Forums;
-import com.topcoder.web.ejb.forums.ForumsHome;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.ejb.forums.ForumsLocalHome;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;

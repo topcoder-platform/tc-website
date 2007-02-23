@@ -262,7 +262,7 @@ public class ForumsUtil {
     
     // Returns subcategories within a category, with empty/inactive/unapproved categories omitted or placed at 
     // the list's end. Only forums for approved software components are displayed.
-    public static ArrayList getCategories(Forums forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
+    public static ArrayList getCategories(ForumsLocal forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories) throws RemoteException {
     	Iterator itCategories = forumCategory.getCategories();
         ArrayList categoriesList = new ArrayList();
