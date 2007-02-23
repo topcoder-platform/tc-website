@@ -35,6 +35,10 @@ function doSearch(text, mustSearch, firstLoad) {
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
 }
+
+ function typeChanged() {
+ doSearch(false, false, false)
+}
  
  function loading() {
     toggleDiv("loading", 1);
