@@ -57,7 +57,7 @@ public class ForumsServlet extends BaseServlet {
                 while (true) {
                     try {
                         log.info("Deleting orphaned attachments...");
-                        Forums forumsBean = getForumsBean();
+                        ForumsLocal forumsBean = getForumsBean();
                         if (forumsBean != null) {
                             forumsBean.deleteOrphanedAttachments();
                         } else {
@@ -271,12 +271,12 @@ public class ForumsServlet extends BaseServlet {
                 new Object[]{new SessionPersistor(request.getSession()), request, response});
     }
 
-    private Forums getForumsBean() {
-    	Forums forumsBean = null;
+    private ForumsLocal getForumsBean() {
+    	ForumsLocal forumsBean = null;
         try {
             Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-    		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
-    		forumsBean = forumsHome.create();
+    		ForumsLocalHome forumsLocalHome = (ForumsLocalHome) context.lookup(ForumsLocalHome.EJB_REF_NAME);
+    		forumsBean = forumsLocalHome.create();
     	} catch (Exception e) { 
     		Log.error(e);
     	}
