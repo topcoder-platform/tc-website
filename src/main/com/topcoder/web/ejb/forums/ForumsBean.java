@@ -471,7 +471,7 @@ public class ForumsBean extends BaseEJB {
             conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             StringBuffer psStrBuf = new StringBuffer(
                     "select comp_vers_id, phase_id from comp_versions v " +
-                            "where c.comp_vers_id IN (");
+                            "where v.comp_vers_id IN (");
             for (int i = 0; i < compVersIDs.length - 1; i++) {
                 psStrBuf.append(compVersIDs[i]);
                 psStrBuf.append(',');
