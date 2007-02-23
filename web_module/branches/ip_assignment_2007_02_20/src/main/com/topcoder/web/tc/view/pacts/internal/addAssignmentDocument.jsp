@@ -53,7 +53,7 @@
 			<td>
 				<SELECT CLASS="dropdown" NAME="assignment_document_status_id">
 				    <c:forEach items="${statusList}" var="statusItem">
-				        <OPTION value='${statusItem.id}' <c:if test="${statusItem.id.equals(AssignmentDocumentStatus.PENDING_STATUS_ID}">selected</c:if>>
+				        <OPTION value='${statusItem.id}' <c:if test="${statusItem.id == AssignmentDocumentStatus.PENDING_STATUS_ID}">selected</c:if>>
 				        	${statusItem.description}
 				        </OPTION>
 					</c:forEach>
