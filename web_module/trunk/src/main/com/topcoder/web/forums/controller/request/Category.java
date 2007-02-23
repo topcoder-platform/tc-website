@@ -130,11 +130,11 @@ public class Category extends ForumsProcessor {
                 for (int i=0; i<pageList.size(); i++) {
                     ForumCategory subcategory = (ForumCategory)pageList.get(i);
                     long compVersPhase = -1, rootCategoryID = -1;
-                    if (compVersPhasesTable.containsKey(String.valueOf(subcategory.getID()))) {
-                        compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(subcategory.getID())));
+                    if (compVersPhasesTable.containsKey(String.valueOf(compVersIDs[i]))) {
+                        compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(compVersIDs[i])));
                     }
-                    if (rootCategoriesTable.containsKey(String.valueOf(subcategory.getID()))) {
-                        rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(subcategory.getID())));
+                    if (rootCategoriesTable.containsKey(String.valueOf(compIDs[i]))) {
+                        rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(compIDs[i])));
                     }
                     imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
                 }
