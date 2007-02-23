@@ -272,8 +272,8 @@ public class ForumsServlet extends BaseServlet {
     private ForumsLocal getForumsBean() {
     	ForumsLocal forumsBean = null;
         try {
-            Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-    		ForumsLocalHome forumsLocalHome = (ForumsLocalHome) context.lookup(ForumsLocalHome.EJB_REF_NAME);
+            Context context = TCContext.getInitial();
+    		ForumsLocalHome forumsLocalHome = (ForumsLocalHome) context.lookup("java:/com.topcoder.web.ejb.forums.ForumsLocalHome");
     		forumsBean = forumsLocalHome.create();
     	} catch (Exception e) { 
     		Log.error(e);

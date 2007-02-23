@@ -40,14 +40,15 @@ public class Main extends ForumsProcessor {
         ArrayList categoryList = new ArrayList();   // forums diplayed on main page
         
         ForumsLocal forumsBean = null;
-        InitialContext ctx = null;
         try {
-            ctx = TCContext.getInitial();
-            forumsBean = (ForumsLocal)createLocalEJB(ctx, ForumsLocal.class);
+            forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), ForumsLocal.class);
+            if (forumsBean == null) {
+                log.info("forumsbean is null");
+            } else {
+                log.info("forumsbean is not null");
+            }
         } catch (Exception e) {
             Log.error(e);
-        } finally {
-            BaseProcessor.close(ctx);
         }
         
         while (itCategories.hasNext()) {

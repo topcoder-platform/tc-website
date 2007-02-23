@@ -42,14 +42,10 @@ public class Category extends ForumsProcessor {
         ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
 
         ForumsLocal forumsBean = null;
-        InitialContext ctx = null;
         try {
-            ctx = TCContext.getInitial();
-            forumsBean = (ForumsLocal)createEJB(ctx, ForumsLocal.class);
+            forumsBean = (ForumsLocal)createEJB(getInitialContext(), ForumsLocal.class);
         } catch (Exception e) {
             Log.error(e);
-        } finally {
-            BaseProcessor.close(ctx);
         }
         
         int startIdx = 0;
