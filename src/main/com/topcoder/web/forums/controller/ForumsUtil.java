@@ -27,6 +27,7 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
@@ -261,7 +262,7 @@ public class ForumsUtil {
     
     // Returns subcategories within a category, with empty/inactive/unapproved categories omitted or placed at 
     // the list's end. Only forums for approved software components are displayed.
-    public static ArrayList getCategories(ForumsLocal forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
+    public static ArrayList getCategories(Forums forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories) throws RemoteException {
     	Iterator itCategories = forumCategory.getCategories();
         ArrayList categoriesList = new ArrayList();

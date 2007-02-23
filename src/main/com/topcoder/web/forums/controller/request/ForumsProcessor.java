@@ -14,6 +14,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.ForumConstants;
 
@@ -33,7 +34,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected AuthToken authToken;
     protected ForumFactory forumFactory;
     protected User user;
-    protected ForumsLocal forumsBean;
+    protected Forums forumsBean;
 
     /* TODO there is redundant code stuff that seems to break the design.  hopefully this can be cleaned */
 
@@ -97,7 +98,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     	InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial();
-            forumsBean = (ForumsLocal)createLocalEJB(ctx, ForumsLocal.class);
+            forumsBean = (Forums)createLocalEJB(ctx, Forums.class);
         } catch (Exception e) {
             Log.error(e);
         } finally {
