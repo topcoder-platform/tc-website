@@ -53,7 +53,9 @@
 			<td>
 				<SELECT CLASS="dropdown" NAME="assignment_document_status_id">
 				    <c:forEach items="${statusList}" var="statusItem">
-				        <OPTION value='${statusItem.id}'>${statusItem.description}</OPTION>
+				        <OPTION value='${statusItem.id}' <c:if test="${statusItem.id.equals(AssignmentDocumentStatus.PENDING_STATUS_ID}">selected</c:if>>
+				        	${statusItem.description}
+				        </OPTION>
 					</c:forEach>
 				</SELECT>
 			</td>
@@ -64,7 +66,7 @@
 	        <td>        
 		        If empty, it will be figured out from the type chosen.
 		        <br/>
-				<tc-webtag:textArea name="text" rows="10" cols="70"/>
+				<tc-webtag:textArea name="assignment_document_text" rows="10" cols="70"/>
 			</td>
 		</tr>
 		
