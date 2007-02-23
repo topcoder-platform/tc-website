@@ -111,7 +111,7 @@
             <tr>
                 <td class="rtThreadCellWrap">
                 	<%	if (category.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) { %>
-                	  	<%	ImageData imageData = (ImageData)imageDataTable.get(subcategory.getID()); %>
+                	  	<%	ImageData imageData = (ImageData)imageDataTable.get(String.valueOf(subcategory.getID())); %>
                 		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
                 			<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
                 		<%	} %>
