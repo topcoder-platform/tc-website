@@ -16,6 +16,7 @@
 
 <c:set var="user" value="${requestScope.user}"/>
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_TYPE_LIST) %>" />
+<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_STATUS_LIST) %>" />
 
 
 <h1>PACTS</h1>
@@ -43,6 +44,16 @@
 				<SELECT CLASS="dropdown" NAME="assignment_document_type_id">
 				    <c:forEach items="${typeList}" var="typeItem">
 				        <OPTION value='${typeItem.id}'>${typeItem.description}</OPTION>
+					</c:forEach>
+				</SELECT>
+			</td>
+		</tr>
+		<tr>		
+			<td><b>Status:</b></td>
+			<td>
+				<SELECT CLASS="dropdown" NAME="assignment_document_status_id">
+				    <c:forEach items="${statusList}" var="statusItem">
+				        <OPTION value='${statusItem.id}'>${statusItem.description}</OPTION>
 					</c:forEach>
 				</SELECT>
 			</td>

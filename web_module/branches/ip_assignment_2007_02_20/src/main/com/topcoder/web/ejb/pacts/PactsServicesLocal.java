@@ -75,6 +75,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     List getAssignmentDocumentTypes() throws  SQLException;
 
+    List getAssignmentDocumentStatus() throws  SQLException;
+
     Map getContractTypes() throws  SQLException;
 
     Map getNoteTypes() throws  SQLException;

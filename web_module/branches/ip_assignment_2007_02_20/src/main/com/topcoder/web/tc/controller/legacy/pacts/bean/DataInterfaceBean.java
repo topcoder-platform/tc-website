@@ -412,6 +412,18 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
     /**
+     * Returns the list of all assignment document status.
+     *
+     * @return  The list of assignment document status
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentStatus() throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentTypes();
+    }
+
+    /**
      * Returns the list of all contract types.
      *
      * @return  The list of contract types

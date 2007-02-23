@@ -1,9 +1,9 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.util.List;
-import java.util.Map;
 
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentType;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -57,15 +57,19 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
 //                }
             } else {
                 setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
+                setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
             }
 
             getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(userId)));
 
-            // Give the JSP the list of Affidavit Types
+            // Give the JSP the list of assignment document Types
             List assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
             getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TYPE_LIST, assignmentDocumentTypes);
 
-            ///TODO: pulky - add the page
+            // Give the JSP the list of assignment document Types
+            List assignmentDocumentStatus = dib.getAssignmentDocumentTypes();
+            getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
+
             setNextPage(INTERNAL_ADD_ASSIGNMENT_DOCUMENT_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {

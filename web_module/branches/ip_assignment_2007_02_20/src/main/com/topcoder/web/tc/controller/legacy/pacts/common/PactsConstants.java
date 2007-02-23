@@ -163,6 +163,7 @@ public interface PactsConstants extends Constants {
     public static final String USER_TAX_FORM_DETAIL = "user_tax_form_detail";
     // Code lookups
     public static final String ASSIGNMENT_DOCUMENT_TYPE_LIST = "assignment_document_type_list";
+    public static final String ASSIGNMENT_DOCUMENT_STATUS_LIST = "assignment_document_status_list";
     public static final String AFFIDAVIT_TYPE_LIST = "affidavit_type_list";
     public static final String CONTRACT_TYPE_LIST = "contract_type_list";
     public static final String MODIFICATION_RATIONALE_LIST = "modification_rationale_list";

@@ -74,5 +74,7 @@ public interface DAOFactory {
     
     AssignmentDocumentTypeDAO getAssignmentDocumentTypeDAO();
     
+    AssignmentDocumentStatusDAO getAssignmentDocumentStatusDAO();
+    
     UserPreferenceDAO getUserPreferenceDAO();
 }
