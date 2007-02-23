@@ -13,6 +13,18 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Add Assignment Document</title>
+    
+        <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
+    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
+    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
+    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
+    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+         
+<script type="text/javascript" src="/js/taconite-client.js"></script>
+<script type="text/javascript" src="/js/taconite-parser.js"></script>
+<script type="text/javascript">
+
+    
 </head>
 <body>
 
@@ -22,7 +34,6 @@
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_STATUS_LIST) %>" />
 <c:set var="defaultTypeId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_type_id")) %>" />
 <c:set var="defaultStatusId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_status_id")) %>" />
-<c:set var="defaultText" value="<%= (String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_text") %>" />
 
 
 <h1>PACTS</h1>
@@ -70,16 +81,34 @@
 		</tr>
         <tr>
 	        <td><b>Text:</b>
-	        ${defaultText}
 	        </td>
 	        <td>        
-		        If empty, it will be figured out from the type chosen.
 		        <br/>
 				<tc-webtag:textArea name="assignment_document_text" rows="10" cols="70"/>
 			</td>
 		</tr>
-		
+        <tr>
+	        <td><b>Expire Due:</b></td><td>
+	        <tc-webtag:textInput name="expire_date" id="expire_date" size="12" editable="true" /> 
+	            <button id="trigger_expire_date">Set</button>       
+	        </td>            
+		</tr>		
 </table>
+
+<script language="javascript" type="text/javascript">
+    <!--
+Calendar.setup(
+{
+ inputField  : "due_date",  
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                    button      : "trigger_due_date",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+                -->
+</script>
 
 <input type="submit" value="Save Assignment Document">
 </form>
