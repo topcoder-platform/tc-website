@@ -97,9 +97,9 @@
 <script language="javascript" type="text/javascript">
 Calendar.setup(
 {
- inputField  : "due_date",  
+ inputField  : "expire_date",  
                     ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
-                    button      : "trigger_due_date",     
+                    button      : "trigger_expire_date",     
                     showsTime   : false,
                     singleClick  : false,
                     cache       : true
