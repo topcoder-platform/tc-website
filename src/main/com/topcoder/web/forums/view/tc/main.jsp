@@ -97,7 +97,7 @@
         	Hashtable imageDataTable = (Hashtable)request.getAttribute("imageDataTable_"+category.getID()); %>
     <br>
     <table cellpadding="0" cellspacing="0" class="rtTable">
-        <tr>9
+        <tr>
             <td class="rtHeader" width="100%">
                 <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
             </td>
