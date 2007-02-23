@@ -52,10 +52,10 @@ public class ImageData {
          TECH_FLASH_TEXT, TECH_APPLICATION_TEXT}
     };
     
-    private String phaseIcon;
-    private String phaseText;
-    private String technologyIcon;
-    private String technologyText;
+    private String phaseIcon = "";
+    private String phaseText = "";
+    private String technologyIcon = "";
+    private String technologyText = "";
     
     public String getPhaseIcon() {
         return phaseIcon;
