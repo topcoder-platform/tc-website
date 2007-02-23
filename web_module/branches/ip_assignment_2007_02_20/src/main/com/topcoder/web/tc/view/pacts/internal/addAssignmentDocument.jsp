@@ -22,7 +22,6 @@
          
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
-<script type="text/javascript">
 
     
 </head>
