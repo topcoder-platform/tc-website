@@ -18,7 +18,7 @@ public class Links implements PactsConstants {
     }
 
     public static String addAssignmentDocument(long userId) {
-        return createLink("addAssignmentDocument", USER_ID, userId + "");
+        return createLink("AddAssignmentDocument", USER_ID, userId + "");
     }
 
     public static String addAffidavitForPayment(long userId, long paymentId) {
