@@ -144,7 +144,7 @@ Teams |
                 </div>
 
                 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-                    <tr><td class="title" colspan="3">Top Ranked > High School Teams</td></tr>
+                    <tr><td class="title" colspan="4">Top Ranked > High School Teams</td></tr>
                     <tr>
                         <td class="header">&#160;</td>
                         <td class="header"><A href="javascript:clickColumn(0)">Team</A></td>
