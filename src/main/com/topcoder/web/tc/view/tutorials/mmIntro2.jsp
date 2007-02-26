@@ -227,7 +227,7 @@ There are all kinds of extra columns and tables you might want to add. However y
 </p>
 <p>
 <span class="bodySubtitle">Conclusion</span><br>
-Start off with an organized approach, spend more time thinking than you do coding, and keep track of your work Ð it all sounds reasonable, but it isn't always so easy to stay calm in the heat of a match. Over time, though, I hope that you will be able to integrate some of these practices into your marathon matches, and I hope that they help make your marathon experiences both more productive and more enjoyable. Good luck!
+Start off with an organized approach, spend more time thinking than you do coding, and keep track of your work - it all sounds reasonable, but it isn't always so easy to stay calm in the heat of a match. Over time, though, I hope that you will be able to integrate some of these practices into your marathon matches, and I hope that they help make your marathon experiences both more productive and more enjoyable. Good luck!
 </p>
         <br><br>
         </td>
