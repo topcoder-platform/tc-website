@@ -327,7 +327,7 @@ public class ProjectUtil {
 
                 if (phases[i].getPhaseType().getId() == PHASE_TYPE_SUBMISSION) {
                     // Submission Number
-                    createPhaseCriteria(conn, phaseId, 3, "1", modUserId);
+                    createPhaseCriteria(conn, phaseId, 3, "0", modUserId);
                 }
                 // 5, 'Manual Screening'
                 createPhaseCriteria(conn, phaseId, 5, "No", modUserId);
@@ -347,9 +347,8 @@ public class ProjectUtil {
 
                 if (phases[i].getPhaseType().getId() == PHASE_TYPE_APPEAL) {
                     // View Response During Appeal
-                    // createPhaseCriteria(conn, phaseId, 4, "No", modUserId);
+                    createPhaseCriteria(conn, phaseId, 4, "No", modUserId);
                 }
-
 
                 phaseIds.put(phases[i], String.valueOf(phaseId));
                 dependencies.addAll(Arrays.asList(phases[i].getAllDependencies()));
