@@ -35,7 +35,7 @@ public class EditContest extends Base {
         String endTime = getRequest().getParameter(Constants.END_TIME);
         String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
-        String eventId = getRequest().getParameter(Constants.FORUM_ID);
+        String eventId = getRequest().getParameter(Constants.EVENT_ID);
         List fileTypes = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
                 Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
 
