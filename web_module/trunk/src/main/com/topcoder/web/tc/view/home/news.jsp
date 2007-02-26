@@ -180,17 +180,17 @@ Almost 1000 contestants from all around the world, with 6 targets among them, ce
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.15.07<br>4:40 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>02.15.07<br>4:40 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=021507">An Introduction to Marathon Matches</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=mmIntro">An Introduction to Marathon Matches</A></span><br><br>
        You face a number of different issues in a marathon match than you do in an SRM, from time management and organization to figuring out how the matches actually work. This article can help you understand the unique structure of a marathon match and what it takes to create, test and submit your entries.</td>
       <td class="newsPhoto"><img src="/i/m/d000hg_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21464956" context="marathon_match"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=021507">full story</A> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=mmIntro">full story</A> | 
          <tc-webtag:forumLink forumID="514346" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+         <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
    </td></tr>
 
