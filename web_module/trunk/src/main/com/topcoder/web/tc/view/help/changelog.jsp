@@ -46,6 +46,7 @@
     5.7.3 - 2007.02.xx
     <ul>
         <li>Add Visa Letter Request</li>
+        <li>Re-add column team points in HS teams statistics (it was commented out because the values were incorrect)</li>
         <%--<li>Project load was fixed to get those project that weren't modified but have related rows 
             modified in at least one of these tables: resource, submission, upload, project_result.</li>--%>
     </ul>
