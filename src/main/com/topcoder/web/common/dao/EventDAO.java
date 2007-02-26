@@ -1,8 +1,9 @@
 package com.topcoder.web.common.dao;
 
-import java.util.List;
-
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventType;
+
+import java.util.List;
 
 /**
  * @author dok
@@ -16,6 +17,10 @@ public interface EventDAO {
     Event find(String shortDescription);
 
     List getEvents();
-        
+
+    List getEvents(EventType et);
+
+    List getEvents(Integer eventTypeId);
+
     void saveOrUpdate(Event e);
 }
