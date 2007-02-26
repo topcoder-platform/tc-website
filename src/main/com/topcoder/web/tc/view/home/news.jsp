@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>02.26.07<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=mmIntro2">An Introduction to Marathon Matches, Part 2</A></span><br><br>
+       In part I, we looked at the basic mechanics of how Marathon Matches work. In this article, we'll look at how you can approach marathons in a more organized and efficient manner.</td>
+      <td class="newsPhoto"><img src="/i/m/d000hg_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21464956" context="marathon_match"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tutorials&d2=mmIntro2">full story</A> | 
+         <tc-webtag:forumLink forumID="514346" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>02.22.07<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">TCHS 07 registration closes this weekend</A>
@@ -176,24 +192,5 @@ Almost 1000 contestants from all around the world, with 6 targets among them, ce
          <A href="/tc?module=Static&d1=features&d2=021507">full story</A> | 
          <tc-webtag:forumLink forumID="514346" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.14.07<br>1:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_10">Marathon Match 10 - Analysis</A></span><br><br>
-In this game of PacMan, your program controls the PacMan on a 10,000x10,000
-grid while he tries to eat a wandering piece of fruit and not get eaten by
-the four ghosts that are following predetermined strategies to chase him.
-      </td>
-      <td class="newsPhoto"><img src="/i/m/jdmetz_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7459326" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_10">full story</A> | 
-        <tc-webtag:forumLink forumID="506256" message="discuss this" /> | 
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
