@@ -34,78 +34,79 @@
 
 <!-- Center Column Begins -->
 <td width="100%" align="left" class="bodyText">
-<jsp:include page="../../page_title.jsp">
-    <jsp:param name="image" value="comp_development"/>
-    <jsp:param name="title" value="Data Feeds"/>
-</jsp:include>
+    <jsp:include page="../../page_title.jsp">
+        <jsp:param name="image" value="comp_development"/>
+        <jsp:param name="title" value="Data Feeds"/>
+    </jsp:include>
 
-<h2>Data Feeds</h2>
+    <h2>Data Feeds</h2>
 
-<p>
-    TopCoder provides access to some of it's data in the form of XML. Below you will find a
-    listing of the available feeds. Please keep in mind that none of the feeds provide ordered data.
-</p>
+    <p>
+        TopCoder provides access to some of it's data in the form of XML. Below you will find a
+        listing of the available feeds. Please keep in mind that none of the feeds provide ordered data.
+    </p>
 
-<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Coder List</span><br/>
-    This feed provides a list of coders who have competed in Algorithm, Development or Design competitions.
-    It includes the following fields:
-    <ul>
-        <li>user id</li>
-        <li>handle</li>
-        <li>algorithm rating</li>
-        <li>algorithm volatility</li>
-        <li>number of rated algorithm events</li>
-        <li>design rating</li>
-        <li>design volatility</li>
-        <li>number of rated design events</li>
-        <li>development rating</li>
-        <li>development volatility</li>
-        <li>number of rated development events</li>
-    </ul>
+    <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Coder List</span><br/>
+        This feed provides a list of coders who have competed in Algorithm, Development or Design competitions.
+        It includes the following fields:
+        <ul>
+            <li>user id</li>
+            <li>handle</li>
+            <li>algorithm rating</li>
+            <li>algorithm volatility</li>
+            <li>number of rated algorithm events</li>
+            <li>design rating</li>
+            <li>design volatility</li>
+            <li>number of rated design events</li>
+            <li>development rating</li>
+            <li>development volatility</li>
+            <li>number of rated development events</li>
+        </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
-</p>
+        <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_coder_list</strong>
+    </p>
 
-<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Active Developer List</span><br/>
-    This feed provides a list of coders who have been rated in development within the last 180 days.
-    It includes the following fields:
-    <ul>
-        <li>user id</li>
-        <li>handle</li>
-        <li>development rating</li>
-        <li>development volatility</li>
-        <li>number of rated development events</li>
-    </ul>
+    <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Active Developer List</span><br/>
+        This feed provides a list of coders who have been rated in development within the last 180 days.
+        It includes the following fields:
+        <ul>
+            <li>user id</li>
+            <li>handle</li>
+            <li>development rating</li>
+            <li>development volatility</li>
+            <li>number of rated development events</li>
+        </ul>
 
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_active_developer_list</strong>
-</p>
+        <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>
+            /tc?module=BasicData&amp;c=dd_active_developer_list</strong>
+    </p>
 
-<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Development Rating History</span><br/>
-    This feed provides data about the development rating history for a particular competitor.
-    It includes the following fields:
-    <ul>
-        <li>handle</li>
-        <li>user id</li>
-        <li>project id</li>
-        <li>component name</li>
-        <li>catalog</li>
-        <li>posting date</li>
-        <li>submit by date</li>
-        <li>final score</li>
-        <li>submit date</li>
-        <li>payment</li>
-        <li>placed</li>
-        <li>old rating</li>
-        <li>new rating</li>
-        <li>rating date</li>
-    </ul>
-    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_development_rating_history&amp;cr=CODER_ID</strong>
-    <br/>
-    NOTE: You will need to replace "USER_ID" in the query string to get data about a particular competitor.
-</p>
+    <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Development Rating History</span><br/>
+        This feed provides data about the development rating history for a particular competitor.
+        It includes the following fields:
+        <ul>
+            <li>handle</li>
+            <li>user id</li>
+            <li>project id</li>
+            <li>component name</li>
+            <li>catalog</li>
+            <li>posting date</li>
+            <li>submit by date</li>
+            <li>final score</li>
+            <li>submit date</li>
+            <li>payment</li>
+            <li>placed</li>
+            <li>old rating</li>
+            <li>new rating</li>
+            <li>rating date</li>
+        </ul>
+        <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_development_rating_history&amp;cr=USER_ID</strong>
+        <br/>
+        NOTE: You will need to replace "USER_ID" in the query string to get data about a particular competitor.
+    </p>
 
 
-<p><br/></p>
+    <p><br/></p>
 </td>
 <!-- Center Column Ends -->
 
