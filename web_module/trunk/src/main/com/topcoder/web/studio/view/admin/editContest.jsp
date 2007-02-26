@@ -138,7 +138,7 @@
         Event:
     </td>
     <td class="value">
-        <tc-webtag:objectSelect name="<%=Constants.EVENT_ID%>" list="${events}" valueField="id" textField="description"/>
+        <tc-webtag:objectSelect name="<%=Constants.EVENT_ID%>" list="${events}" valueField="id" textField="description" selectedValue="${contest.event.id}"/>
     </td>
 </tr>
 
