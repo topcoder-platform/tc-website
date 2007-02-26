@@ -1,14 +1,15 @@
 package com.topcoder.web.tc.controller.request.data;
 
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.datafeed.AllColumns;
 import com.topcoder.web.common.datafeed.Column;
 import com.topcoder.web.common.datafeed.CommandRunner;
 import com.topcoder.web.common.datafeed.DataFeeder;
 import com.topcoder.web.common.datafeed.RSCDataFeed;
+import com.topcoder.web.common.datafeed.RSCParamDataFeed;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
@@ -29,7 +30,8 @@ public class ComponentProjectResultFeed extends Base {
 
         DataResource resource = new DataResource(r.getContentHandle());
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
-            CommandRunner cmd = new CommandRunner(getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true), r);
+            DataAccessInt da = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
+            CommandRunner cmd = new CommandRunner(da, r);
 
             DataFeeder df = new DataFeeder("project_details");
 
@@ -56,13 +58,22 @@ public class ComponentProjectResultFeed extends Base {
             RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_submissions");
             ac = new AllColumns();
             ac.replace(new Column("coder", "coder", "id", "user_id"));
-            ac.replace(new Column("score1", "score1", "review_resp_id", "score1_review_resp_id"));
+/*            ac.replace(new Column("score1", "score1", "review_resp_id", "score1_review_resp_id"));
             ac.replace(new Column("score2", "score2", "review_resp_id", "score2_review_resp_id"));
             ac.replace(new Column("score3", "score3", "review_resp_id", "score3_review_resp_id"));
-
+*/
             submissions.add(ac);
-            df.add(submissions);
+          
+            Request reqReview = new Request();
+            reqReview.setContentHandle("dd_project_review");
+            reqReview.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
 
+            RSCParamDataFeed reviews = new RSCParamDataFeed("reviews", "review", da, reqReview, "dd_project_review");
+            reviews.addParam("cr", "user_id");
+
+            submissions.addChild(reviews);
+            df.add(submissions);
+            
             getResponse().setContentType("text/xml");
 
             df.writeXML(getResponse().getOutputStream());
