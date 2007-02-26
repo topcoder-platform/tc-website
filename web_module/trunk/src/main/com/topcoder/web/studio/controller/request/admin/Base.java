@@ -6,6 +6,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.tag.ListSelectTag;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.ContestPropertyDAO;
@@ -37,6 +39,7 @@ public abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("fileTypes", StudioDAOUtil.getFactory().getFileTypeDAO().getFileTypes());
 
         getRequest().setAttribute("forums", getForumList());
+        getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.STUDIO_TOURNAMENT_ID));
         ArrayList viewSubmissionAnswers = new ArrayList();
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));

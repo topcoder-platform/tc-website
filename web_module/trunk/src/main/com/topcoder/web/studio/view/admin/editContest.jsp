@@ -127,6 +127,22 @@
     </td>
 </tr>
 
+<tr>
+    <td colspan="2">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.EVENT_ID%>"><span class="bigRed">${err}</span>
+            <br></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Event:
+    </td>
+    <td class="value">
+        <tc-webtag:objectSelect name="<%=Constants.EVENT_ID%>" list="${events}" valueField="id" textField="description"/>
+    </td>
+</tr>
+
+
 <c:set value="<%=Constants.FILE_TYPE%>" var="fileType"/>
 
 <tr>
@@ -248,28 +264,29 @@
 
 
 <script language="javascript" type="text/javascript">
-    <!--
-Calendar.setup(
-{
- inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
-                    ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
-                    button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
-                    showsTime   : true,
-                    singleClick  : false,
-                    cache       : true
-                }
-                        );
-                Calendar.setup(
-                {
-                    inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
-                    ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
-                    button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
-                    showsTime    : true,
-                    singleClick  : false,
-                    cache       : true
-                }
-                        );
-                -->
+    <
+    !--
+            Calendar.setup(
+            {
+                inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
+                ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+                button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
+                showsTime   : true,
+                singleClick  : false,
+                cache       : true
+            }
+                    );
+    Calendar.setup(
+    {
+        inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
+        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+        button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
+        showsTime    : true,
+        singleClick  : false,
+        cache       : true
+    }
+            );
+    -- >
 </script>
 
 

@@ -1,8 +1,8 @@
 package com.topcoder.web.studio.controller.request.admin;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
@@ -15,7 +15,6 @@ import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.validation.*;
-import org.hibernate.metadata.ClassMetadata;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
@@ -36,13 +35,9 @@ public class EditContest extends Base {
         String endTime = getRequest().getParameter(Constants.END_TIME);
         String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
+        String eventId = getRequest().getParameter(Constants.FORUM_ID);
         List fileTypes = getRequest().getParameterValues(Constants.FILE_TYPE) == null ?
                 Collections.EMPTY_LIST : Arrays.asList(getRequest().getParameterValues(Constants.FILE_TYPE));
-        /*if (log.isDebugEnabled()) {
-            for (Iterator it = fileTypes.iterator(); it.hasNext();) {
-                log.debug("filetype: " + it.next());
-            }
-        }*/
 
         inputValidation();
 
@@ -85,10 +80,10 @@ public class EditContest extends Base {
         } else {
             Contest contest;
             if (!"".equals(StringUtils.checkNull(contestId))) {
-                //log.debug("existing contest");
+                log.debug("existing contest");
                 contest = StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId));
             } else {
-                //log.debug("new contest");
+                log.debug("new contest");
                 contest = new Contest();
             }
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
@@ -116,33 +111,18 @@ public class EditContest extends Base {
                     currConfig = contest.getConfig(curr);
                 }
                 String val = getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]);
-/*
-                if (log.isDebugEnabled()) {
-                    log.debug("prop size " + (val == null ? "null" : String.valueOf(val.length())));
-                }
-*/
-
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
 
             FileTypeDAO fDao = StudioDAOUtil.getFactory().getFileTypeDAO();
             HashSet fts = new HashSet();
             for (Iterator it = fileTypes.iterator(); it.hasNext();) {
-                //log.debug("add a file type");
                 fts.add(fDao.find(new Integer((String) it.next())));
             }
             contest.setFileTypes(fts);
-
-            if (log.isDebugEnabled()) {
-                log.debug("overview size " + (contest.getOverview().getValue() == null ? "null" : "" + contest.getOverview().getValue().length()));
+            if (!"".equals(StringUtils.checkNull(eventId))) {
+                contest.setEvent(DAOUtil.getFactory().getEventDAO().find(new Long(eventId)));
             }
-
-            ClassMetadata cmd = HibernateUtils.getFactory().getClassMetadata(Contest.class);
-
-            for (int i = 0; i < cmd.getPropertyNames().length; i++) {
-                log.debug("stuff: " + cmd.getPropertyType(cmd.getPropertyNames()[i]));
-            }
-
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
             markForCommit();
@@ -176,6 +156,7 @@ public class EditContest extends Base {
         String viewableSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMISSIONS);
         String maxSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_SUBMISSIONS);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
+        String eventId = getRequest().getParameter(Constants.EVENT_ID);
 
 
         if (log.isDebugEnabled()) {
@@ -266,5 +247,14 @@ public class EditContest extends Base {
             }
         }
 
+        if (!"".equals(StringUtils.checkNull(eventId))) {
+            try {
+                if (DAOUtil.getFactory().getEventDAO().find(new Long(eventId)) == null) {
+                    addError(Constants.EVENT_ID, "Please choose a valid event");
+                }
+            } catch (NumberFormatException e) {
+                addError(Constants.EVENT_ID, "Please choose a valid event");
+            }
+        }
     }
 }
