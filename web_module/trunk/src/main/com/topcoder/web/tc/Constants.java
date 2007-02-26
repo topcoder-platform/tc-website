@@ -163,7 +163,11 @@ public class Constants implements WebConstants {
     public static String MEMBER_PROFILE;
 
     public static String MEMBER_CONTACT;
+    
+    public static String VISA_LETTER_REQUEST;
+    public static String VISA_LETTER_REQUEST_STATUS;
 
+    
     public static String MEMBER_CONTACT_ENABLE_SUCCEEDED;
     public static String MEMBER_CONTACT_ENABLE;
 
