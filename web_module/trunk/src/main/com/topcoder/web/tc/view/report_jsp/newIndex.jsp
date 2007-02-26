@@ -112,6 +112,10 @@ Software
     <LI><A HREF="<%=baseTCSDWURL+"posted_components"%>">New components by year, month and week</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"predictor"%>">Component Submission Predictor</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"software_forums"%>">Software Forums</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"project_timeline_report"%>">Project Timelines</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"stuck_component_report"%>">Stuck Components</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"catalog_backlog_report"%>">Catalog Backlog</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"application_report"%>">Application Report</a></LI>
 </UL>
 <br/>
 Payment Reports
