@@ -1,12 +1,8 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
-import java.util.Map;
-
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.AssignmentDocumentType;
-import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**

@@ -153,6 +153,12 @@ function loaded() {
 	            <button id="trigger_expire_date">Set</button>       
 	        </td>            
 		</tr>		
+        <tr>
+	        <td><b>Affirmed Date:</b></td><td>
+	        <tc-webtag:textInput name="affirmed_date" id="affirmed_date" size="12" editable="true" /> 
+	            <button id="trigger_affirmed_date">Set</button>       
+	        </td>            
+		</tr>		
 </table>
 
 <script language="javascript" type="text/javascript">
@@ -161,6 +167,16 @@ Calendar.setup(
  inputField  : "expire_date",  
                     ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
                     button      : "trigger_expire_date",     
+                    showsTime   : false,
+                    singleClick  : false,
+                    cache       : true
+}
+);
+Calendar.setup(
+{
+ inputField  : "affirmed_date",  
+                    ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                    button      : "trigger_affirmed_date",     
                     showsTime   : false,
                     singleClick  : false,
                     cache       : true
