@@ -422,7 +422,7 @@ public class SchoolBean extends BaseEJB {
 
             if (needsAddress && canUpdateAddress) {
             	log.info("Destination school doesn't have an address_id");
-            	ps = connOltp.prepareStatement("select address_id from school where school_id=?");
+            	ps = connOltp.prepareStatement("select address_id from school where school_id=? and not address_id is null");
             	ps.setLong(1, idSrc);
             	rs = ps.executeQuery();
             	if (rs.next()) {
