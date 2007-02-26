@@ -144,4 +144,13 @@ public class DAOFactoryHibernate implements DAOFactory {
     public UserPreferenceDAO getUserPreferenceDAO() {
         return new UserPreferenceDAOHibernate();
     }
+
+    public VisaLetterRequestDAO getVisaLetterRequestDAO() {
+        return new VisaLetterRequestDAOHibernate();
+    }
+
+    public VisaLetterEventDAO getVisaLetterEventDAO() {
+        return new VisaLetterEventDAOHibernate();
+    }
+
 }

@@ -14,6 +14,8 @@ public class Address extends Base {
     public static final Integer OFFICE_TYPE_ID = new Integer(1);
     public static final Integer HOME_TYPE_ID = new Integer(2);
     public static final Integer BILLING_TYPE_ID = new Integer(3);
+    public static final Integer PASSPORT_TYPE_ID = new Integer(4);
+    public static final Integer VISA_LETTER_TYPE_ID = new Integer(5);
 
     private Long id;
     private Integer addressTypeId;
