@@ -15,7 +15,7 @@
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
-	<property name="jive.dir" value="lib/jars/jive"/>
+    <property name="jive.dir" value="lib/jars/jive"/>
     <property name="resources.dir" value="resources"/>
     <property name="web.dir" value="web"/>
     <property name="src.dir" value="src"/>
@@ -53,11 +53,11 @@
 
         <pathelement location="${jars.dir}/idgenerator.jar"/>
 
-    	<pathelement location="${jive.dir}/jivebase.jar"/>
+        <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
-      	<pathelement location="${jive.dir}/xwork.jar"/>
+        <pathelement location="${jive.dir}/xwork.jar"/>
         <pathelement location="${jive.dir}/htmlparser.jar"/>
-	
+
         <!-- tcs components -->
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
         <pathelement location="${jars.dir}/tcs/id_generator/3.0/id_generator.jar"/>
@@ -87,9 +87,9 @@
         <pathelement location="${jars.dir}/tcs/magic_numbers/1.0/magic_numbers.jar"/>
         <!--pathelement location="${jars.dir}/tcs/xmi_parser/1.0/xmi_parser.jar"/-->
         <pathelement location="${jars.dir}/tcs/xmi_parser/1.1/xmi_parser.jar"/>
-<!--remove with new OR
-        <pathelement location="${jars.dir}/tcs/application_screening/1.0/application_screening.jar"/>
--->
+        <!--remove with new OR
+                <pathelement location="${jars.dir}/tcs/application_screening/1.0/application_screening.jar"/>
+        -->
         <pathelement location="${jars.dir}/tcs/executable_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/project_phases/2.0/project_phases.jar"/>
         <pathelement location="${jars.dir}/tcs/object_factory/2.0/object_factory.jar"/>
@@ -99,6 +99,9 @@
 
         <!-- can't figure out how to not compile the dependencie, so i'm putting this in the classpath-->
         <pathelement location="${jars.dir}/hibernate-3.1/hibernate3.jar"/>
+
+        <!-- just to get ForumConversion to compile -->
+        <pathelement location="${jars.dir}/activation.jar"/>
     </path>
 
     <target name="init">
@@ -152,8 +155,8 @@
             <exclude name="com/topcoder/apps/screening/**"/>
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/web/common/**"/>
-        	<include name="com/topcoder/web/forums/**"/>
-        	<include name="com/topcoder/web/ejb/forums/**"/>
+            <include name="com/topcoder/web/forums/**"/>
+            <include name="com/topcoder/web/ejb/forums/**"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
@@ -167,7 +170,7 @@
         </jar>
     </target>
 
-    
+
     <target name="compile_onsite" depends="init,jar_shared">
         <javac
                 srcdir="${java.dir}"
@@ -183,7 +186,7 @@
         </javac>
     </target>
 
-<!--remove with new OR
+    <!--remove with new OR
  <target name="war-or" depends="compile">
         <war warfile="${war.dir}/review.war" webxml="${resources.dir}/or/web.xml">
             <fileset dir="${web.dir}/online_review" excludes="${web.dir}/online_review/images"/>
@@ -269,10 +272,10 @@
         <jar jarfile="${ejb.jars.dir}/forums.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/forums/*.class"/>
-        	<zipfileset dir="${classes.dir}" includes="com/topcoder/dde/catalog/ForumCategory.class"/>
+            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/catalog/ForumCategory.class"/>
             <metainf dir="${java.dir}/com/topcoder/web/ejb/forums" includes="*.xml"/>
         </jar>
-    	
+
         <jar jarfile="${ejb.jars.dir}/notification.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/notification/**, com/topcoder/apps/review/ConfigHelper.class, com/topcoder/apps/review/EJBHelper.class, com/topcoder/apps/review/persistence/Common.class"/>
             <metainf dir="${java.dir}/com/topcoder/dde/notification" includes="*.xml"/>
@@ -304,26 +307,26 @@
         </jar>
 
         <antcall target="package-EJB-RBoard"/>
-<!--remove with new OR
-        <antcall target="package-EJB-Specification"/>
--->
+        <!--remove with new OR
+                <antcall target="package-EJB-Specification"/>
+        -->
 
     </target>
 
-<!--remove with new OR
-    <target name="package-EJB-Specification" depends="compile">
-        <jar jarfile="${ejb.jars.dir}/Specification.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
+    <!--remove with new OR
+        <target name="package-EJB-Specification" depends="compile">
+            <jar jarfile="${ejb.jars.dir}/Specification.jar">
+                <zipfileset dir="${classes.dir}" includes="com/topcoder/web/common/RowNotFoundException.class"/>
 
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/DBMS.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/Logger.class"/>
-            <zipfileset dir="${classes.dir}"
-                        includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/screening/application/*.class"/>
-            <metainf dir="${java.dir}/com/topcoder/apps/screening/application" includes="*.xml"/>
-        </jar>
-    </target>
--->
+                <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/DBMS.class"/>
+                <zipfileset dir="${classes.dir}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+                <zipfileset dir="${classes.dir}"
+                            includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+                <zipfileset dir="${classes.dir}" includes="com/topcoder/apps/screening/application/*.class"/>
+                <metainf dir="${java.dir}/com/topcoder/apps/screening/application" includes="*.xml"/>
+            </jar>
+        </target>
+    -->
 
 
     <target name="package-EJB-RBoard" depends="compile">
@@ -337,28 +340,28 @@
         </jar>
     </target>
 
-<!--remove with new OR
-    <target name="build-sars" depends="compile">
-        <jar jarfile="${sar.dir}/cache_refresher.sar" basedir="${classes.dir}"
-             includes="com/topcoder/apps/review/cacherefresher/**">
-            <metainf dir="${java.dir}/com/topcoder/apps/review/cacherefresher" includes="*.xml"/>
-        </jar>
+    <!--remove with new OR
+        <target name="build-sars" depends="compile">
+            <jar jarfile="${sar.dir}/cache_refresher.sar" basedir="${classes.dir}"
+                 includes="com/topcoder/apps/review/cacherefresher/**">
+                <metainf dir="${java.dir}/com/topcoder/apps/review/cacherefresher" includes="*.xml"/>
+            </jar>
 
-        <jar jarfile="${sar.dir}/auto_pilot_timer.sar" basedir="${classes.dir}" includes="com/topcoder/apps/review/autopilottimer/**,
-                        com/topcoder/apps/review/document/**,
-                        com/topcoder/apps/review/*,
-                        com/topcoder/apps/review/projecttracker/**">
-            <metainf dir="${java.dir}/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
-        </jar>
+            <jar jarfile="${sar.dir}/auto_pilot_timer.sar" basedir="${classes.dir}" includes="com/topcoder/apps/review/autopilottimer/**,
+                            com/topcoder/apps/review/document/**,
+                            com/topcoder/apps/review/*,
+                            com/topcoder/apps/review/projecttracker/**">
+                <metainf dir="${java.dir}/com/topcoder/apps/review/autopilottimer" includes="*.xml"/>
+            </jar>
 
-    </target>
--->
+        </target>
+    -->
 
-<!--remove with new OR
-    <target name="build-screening" depends="compile">
-        <jar jarfile="${bin.dir}/screening.jar" basedir="${classes.dir}" includes="com/topcoder/apps/screening/**"/>
-    </target>
--->
+    <!--remove with new OR
+        <target name="build-screening" depends="compile">
+            <jar jarfile="${bin.dir}/screening.jar" basedir="${classes.dir}" includes="com/topcoder/apps/screening/**"/>
+        </target>
+    -->
 
     <target name="copy-conf">
         <copy todir="${jboss.conf.dir}">
@@ -384,7 +387,7 @@
                 <include name="com/topcoder/util/IDGenerator.xml"/>
                 <include name="mail_templates/*.xsl"/>
                 <include name="template/*.xml"/>
-		<include name="template/*.xsd"/>
+                <include name="template/*.xsd"/>
             </fileset>
             <fileset dir="${resources.dir}">
                 <include name="ApplicationServer.properties"/>
@@ -406,14 +409,14 @@
                 <include name="security.jar"/>
             </fileset>
         </copy>
-    	<copy todir="${jboss.lib.dir}">
+        <copy todir="${jboss.lib.dir}">
             <fileset dir="${jive.dir}">
                 <include name="htmlparser.jar"/>
-            	<include name="jivebase.jar"/>
+                <include name="jivebase.jar"/>
                 <include name="jiveforums.jar"/>
-            	<include name="velocity-dep.jar"/>
-            	<include name="xwork.jar"/>
-            	<include name="webwork.jar"/>
+                <include name="velocity-dep.jar"/>
+                <include name="xwork.jar"/>
+                <include name="webwork.jar"/>
             </fileset>
         </copy>
         <copy todir="${jboss.lib.dir}">
@@ -497,13 +500,13 @@
                 <include name="xmi_parser.jar"/>
             </fileset>
         </copy>
-<!--remove with new OR
-        <copy todir="${jboss.lib.dir}">
-            <fileset dir="${jars.dir}/tcs/application_screening/1.0">
-                <include name="application_screening.jar"/>
-            </fileset>
-        </copy>
--->
+        <!--remove with new OR
+                <copy todir="${jboss.lib.dir}">
+                    <fileset dir="${jars.dir}/tcs/application_screening/1.0">
+                        <include name="application_screening.jar"/>
+                    </fileset>
+                </copy>
+        -->
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${jars.dir}/tcs/data_validation/1.0">
                 <include name="data_validation.jar"/>
@@ -544,13 +547,13 @@
                 <include name="id_generator.jar"/>
             </fileset>
         </copy>
-<!--
-        <copy todir="${jboss.lib.dir}">
-            <fileset dir="${bin.dir}">
-                <include name="screening.jar"/>
-            </fileset>
-        </copy>
--->
+        <!--
+                <copy todir="${jboss.lib.dir}">
+                    <fileset dir="${bin.dir}">
+                        <include name="screening.jar"/>
+                    </fileset>
+                </copy>
+        -->
         <copy todir="${jboss.lib.dir}">
             <fileset dir="${bin.dir}">
                 <include name="shared.jar"/>
@@ -564,23 +567,23 @@
         <antcall target="build-onsite"/>
     </target>
 
-<!--remove with new OR
-    <target name="build-ear" depends="war-dde,war-or,build-ejbs,build-sars">
--->
+    <!--remove with new OR
+        <target name="build-ear" depends="war-dde,war-or,build-ejbs,build-sars">
+    -->
     <target name="build-ear" depends="war-dde,build-ejbs">
         <ear earfile="${ear.dir}/dde.ear" appxml="${resources.dir}/dde/application.xml">
-<!-- remove with new OR
-            <fileset dir="${sar.dir}">
-                <include name="*.sar"/>
-            </fileset>
--->
+            <!-- remove with new OR
+                        <fileset dir="${sar.dir}">
+                            <include name="*.sar"/>
+                        </fileset>
+            -->
             <fileset dir="${ejb.jars.dir}">
                 <include name="*.jar"/>
                 <exclude name="Project.jar"/>
                 <exclude name="RBoard.jar"/>
-<!--remove with new OR
-                <exclude name="Specification.jar"/>
--->
+                <!--remove with new OR
+                                <exclude name="Specification.jar"/>
+                -->
             </fileset>
             <fileset dir="${jars.dir}">
                 <include name="idgenerator.jar"/>
@@ -590,7 +593,7 @@
             </fileset>
         </ear>
     </target>
-	
+
     <target name="explode">
         <mkdir dir="${jboss.deploy.dir}/dde.ear"/>
         <unjar src="${ear.dir}/dde.ear" dest="${jboss.deploy.dir}/dde.ear" overwrite="yes"/>
@@ -598,19 +601,19 @@
         <unwar src="${war.dir}/dde.war" dest="${jboss.deploy.dir}/dde.ear/dde.war/" overwrite="yes"/>
         <delete dir="${jboss.deploy.dir}/dde.ear/dde.war/META-INF"/>
 
-<!--remove with new OR
-        <unwar src="${war.dir}/review.war" dest="${jboss.deploy.dir}/dde.ear/review.war/" overwrite="yes"/>
-        <delete dir="${jboss.deploy.dir}/dde.ear/review.war/META-INF"/>
--->
+        <!--remove with new OR
+                <unwar src="${war.dir}/review.war" dest="${jboss.deploy.dir}/dde.ear/review.war/" overwrite="yes"/>
+                <delete dir="${jboss.deploy.dir}/dde.ear/review.war/META-INF"/>
+        -->
 
         <copy todir="${jboss.deploy.dir}">
             <fileset dir="${ejb.jars.dir}">
                 <include name="Project.jar"/>
                 <include name="RBoard.jar"/>
-            	<include name="forums.jar"/>
-<!--remove with new OR
-                <include name="Specification.jar"/>
--->
+                <include name="forums.jar"/>
+                <!--remove with new OR
+                                <include name="Specification.jar"/>
+                -->
             </fileset>
         </copy>
 
@@ -622,9 +625,9 @@
 
     </target>
 
-<!-- remove with new OR
-    <target name="deploy" depends="build-ear,build-screening,build-onsite">
--->
+    <!-- remove with new OR
+        <target name="deploy" depends="build-ear,build-screening,build-onsite">
+    -->
     <target name="deploy" depends="build-ear,build-onsite">
         <antcall target="explode"/>
     </target>
@@ -665,7 +668,7 @@
                 <include name="shared.jar"/>
                 <include name="tcwebcommon.jar"/>
             </lib>
-            
+
         </war>
     </target>
 
