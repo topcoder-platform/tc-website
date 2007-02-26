@@ -27,6 +27,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.forums.ForumsLocal;
+import com.topcoder.web.forums.model.ImageData;
 import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
@@ -602,6 +603,20 @@ public class ForumsUtil {
     	ForumCategory parentCategory = category.getParentCategory();
     	if (parentCategory == null) return false;
     	return (parentCategory.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID);
+    }
+    
+    // Determines if a (Component) link should be displayed on software component category, forum, and thread pages.
+    public static boolean showComponentLink(ForumsLocal forumsBean, ForumCategory category) {
+        if (ForumsUtil.isSoftwareSubcategory(category)) {
+            long compVersID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+            long compID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+            long compVersPhase = forumsBean.getComponentVersionPhase(compVersID);
+            long rootCategoryID = forumsBean.getComponentRootCategory(compID);
+            ImageData imageData = new ImageData(compVersPhase, rootCategoryID);
+            String technologyText = imageData.getTechnologyText();
+            return (technologyText.indexOf("Custom") == -1);
+        }
+        return false;
     }
 }
 

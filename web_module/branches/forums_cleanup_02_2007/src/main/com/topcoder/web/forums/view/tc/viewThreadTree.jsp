@@ -193,11 +193,12 @@ function displayVotes(messageID, posVotes, negVotes) {
 </tr>
 
 <tr><td colspan="3" style="padding-bottom:3px;"><b>
-   <%	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
+   <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
+   		Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
     	while (itCategories.hasNext()) {
     		ForumCategory category = (ForumCategory)itCategories.next(); %>
 	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-	<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+	<%      if (!itCategories.hasNext() && showComponentLink) { %>
 	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
 		<%	} %>
 			<img src="/i/interface/exp_w.gif" align="absmiddle"/>

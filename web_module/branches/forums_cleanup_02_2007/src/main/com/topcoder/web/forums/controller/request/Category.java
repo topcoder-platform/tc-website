@@ -35,13 +35,7 @@ public class Category extends ForumsProcessor {
             return;
         }
         ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
-
-        ForumsLocal forumsBean = null;
-        try {
-            forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
-        } catch (Exception e) {
-            log.error(e);
-        }
+        ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
         
         int startIdx = 0;
         if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {
@@ -91,19 +85,6 @@ public class Category extends ForumsProcessor {
         Paging paging = new Paging(resultFilter, list.size());
         Paginator paginator = new Paginator(paging);
         
-        // determine if component is custom
-        if (ForumsUtil.isSoftwareSubcategory(forumCategory)) {
-            long compVersID = Long.parseLong(forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
-            long compID = Long.parseLong(forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
-            long compVersPhase = forumsBean.getComponentVersionPhase(compVersID);
-            long rootCategoryID = forumsBean.getComponentRootCategory(compID);
-            ImageData imageData = new ImageData(compVersPhase, rootCategoryID);
-            String technologyText = imageData.getTechnologyText();
-            if (technologyText.indexOf("Custom") == -1) { 
-                getRequest().setAttribute("isCustomComponent", "true");
-            }     
-        }
-        
         if (forumCategory.getCategoryCount() > 0) {
         	getRequest().setAttribute("categories", pageList.iterator());
             
@@ -140,6 +121,8 @@ public class Category extends ForumsProcessor {
         getRequest().setAttribute("paginator", paginator);
         getRequest().setAttribute("sortField", sortField);
         getRequest().setAttribute("sortOrder", sortOrder);
+        getRequest().setAttribute("showComponentLink", 
+                String.valueOf(ForumsUtil.showComponentLink(forumsBean, forumCategory)));
 
         if (markRead.equals("t")) {
         	setNextPage(getSessionInfo().getServletPath() + 

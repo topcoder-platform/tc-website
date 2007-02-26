@@ -147,8 +147,8 @@
                     <%=category.getName()%>
                     <% } %>
                 </tc-webtag:iterator>
-                <%	boolean isCustomComponent = "true".equals((String)request.getAttribute("isCustomComponent"));
-                	if (isCustomComponent) { %>
+                <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
+                	if (showComponentLink) { %>
                 		(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
 				<%	} %>
             </b></td>

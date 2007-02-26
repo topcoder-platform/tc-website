@@ -134,23 +134,21 @@
     <tr>
     	<%	int colspan = (paginator.getNumPages () > 1) ? 2 : 3; %>
     	<td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
-        <%	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
-        	while (itCategories.hasNext()) {
-        		ForumCategory category = (ForumCategory)itCategories.next(); %>
-		        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-		<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
-		        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)
-			<%	} %>
-			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
-        <%	} %>
-        <%=forum.getName()%>
-        <%
-        String linkStr = ForumsUtil.createLinkString(forum);
-                 if (!linkStr.equals("()")) {
-        %>
-        <%=linkStr%>
-        <% 	} %>
-    </td>
+	        <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
+	        	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
+	        	while (itCategories.hasNext()) {
+	        		ForumCategory category = (ForumCategory)itCategories.next(); %>
+			        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+			<%      
+					if (!itCategories.hasNext() && showComponentLink) { %>
+			        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)
+				<%	} %>
+				<img src="/i/interface/exp_w.gif" align="absmiddle"/>
+	        <%	} %>
+	        <%=forum.getName()%>
+	        <%	String linkStr = ForumsUtil.createLinkString(forum);
+	            if (!linkStr.equals("()")) { %><%=linkStr%><% } %>
+    	</td>
         <% Page[] pages; %>
         <% if (paginator.getNumPages() > 1) { %>
         <td class="rtbc" align="right" style="padding-bottom:3px;"><b>

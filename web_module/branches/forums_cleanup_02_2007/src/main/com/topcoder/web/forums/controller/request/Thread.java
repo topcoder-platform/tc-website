@@ -16,6 +16,8 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
@@ -86,6 +88,12 @@ public class Thread extends ForumsProcessor {
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("paginator", paginator);
         getRequest().setAttribute("historyBean", historyBean);
+        
+        if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) {
+            ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
+            getRequest().setAttribute("showComponentLink", 
+                    String.valueOf(ForumsUtil.showComponentLink(forumsBean, forum.getForumCategory())));
+        }
         
         ReadTracker readTracker = forumFactory.getReadTracker();
         if (user != null && !authToken.isAnonymous()) {

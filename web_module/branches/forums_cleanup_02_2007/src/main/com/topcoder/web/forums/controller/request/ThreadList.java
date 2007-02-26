@@ -12,7 +12,10 @@ import com.jivesoftware.forum.ForumThreadIterator;
 import com.jivesoftware.forum.stats.ViewCountManager;
 import com.jivesoftware.forum.AnnouncementManager;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.model.Paging;
 
 import java.util.Iterator;
@@ -78,6 +81,12 @@ public class ThreadList extends ForumsProcessor {
         getRequest().setAttribute("sortOrder", sortOrder);
         getRequest().setAttribute("startIdx", String.valueOf(startIdx));
         getRequest().setAttribute("announcements", itAnnounce);
+        
+        if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) {
+            ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
+            getRequest().setAttribute("showComponentLink", 
+                    String.valueOf(ForumsUtil.showComponentLink(forumsBean, forum.getForumCategory())));
+        }
 
         if (markRead.equals("t")) {
             setNextPage(getSessionInfo().getServletPath()
