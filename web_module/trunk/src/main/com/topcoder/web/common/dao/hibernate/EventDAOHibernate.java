@@ -1,12 +1,12 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import java.util.List;
-
+import com.topcoder.web.common.dao.EventDAO;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventType;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import com.topcoder.web.common.dao.EventDAO;
-import com.topcoder.web.common.model.Event;
+import java.util.List;
 
 
 /**
@@ -18,11 +18,11 @@ public class EventDAOHibernate extends Base implements EventDAO {
     public EventDAOHibernate() {
         super();
     }
-    
+
     public EventDAOHibernate(Session session) {
         super(session);
     }
-    
+
     public Event find(Long id) {
         return (Event) super.find(Event.class, id);
     }
@@ -39,7 +39,20 @@ public class EventDAOHibernate extends Base implements EventDAO {
     public List getEvents() {
         return findAll(Event.class);
     }
-    
+
+    public List getEvents(EventType et) {
+        return getEvents(et.getId());
+    }
+
+    public List getEvents(Integer eventTypeId) {
+        StringBuffer query = new StringBuffer(100);
+        query.append("from Event");
+        query.append(" where type.id = ?");
+        Query q = session.createQuery(query.toString());
+        q.setInteger(0, eventTypeId.intValue());
+        return q.list();
+    }
+
     public void saveOrUpdate(Event e) {
         super.saveOrUpdate(e);
     }
