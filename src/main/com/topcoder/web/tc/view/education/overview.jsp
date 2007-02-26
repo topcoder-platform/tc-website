@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=mmIntro2"><strong>An Introduction to Marathon Matches, Part 2</strong></a>, by <tc-webtag:handle coderId="21464956" /><br>
+In part I, we looked at the basic mechanics of how Marathon Matches work. In this article, we'll look at how you can approach marathons in a more organized and efficient manner.</li>
 <li><A href="/tc?module=Static&d1=features&d2=022207"><strong>Beginning TopCoder Competition with C#.Net</strong></A>, by <tc-webtag:handle coderId="20641048" /><br>
 C# is an object oriented, programming language, with a C-based syntax much like C++ or Java. Since its release, its popularity as a coding language for TopCoder competitions has increased each year.</li>
 <li><A href="/tc?module=Static&d1=features&d2=021907"><strong>Five things you didn't know about C++, Part 3</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
 By popular demand, I'm concluding with a list of another five features, this time featuring ones that you're almost certain never to use in your code. Amaze your friends, confuse your teachers, enter the IOCCC and ask yourself how on Earth these features ended up in the standard.</li>
-<li><A href="/tc?module=Static&d1=features&d2=021507"><strong>An Introduction to Marathon Matches</strong></A>, by <tc-webtag:handle coderId="21464956" /><br>
-You face a number of different issues in a marathon match than you do in an SRM, from time management and organization to figuring out how the matches actually work. This article can help you understand the unique structure of a marathon match and what it takes to create, test and submit your entries.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
