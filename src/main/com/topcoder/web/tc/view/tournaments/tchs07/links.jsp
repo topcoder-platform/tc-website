@@ -11,9 +11,11 @@
 <img src="/i/tournament/tchs07/tchs07.png" alt="TCHS07" usemap="#tchslogo" />
 </div>
 
+<%--
 <div class="headline">
 <A href="/tc?module=TCHS07ViewRegistration"><img src="/i/tournament/tchs07/registernow.png" alt="Register Now" /></A>
 </div>
+--%>
 
 <div class="topcoderLogo">
 <A href="/"><img src="/i/tournament/tchs07/topcoder.png" alt="TopCoder" /></A>
@@ -25,8 +27,12 @@
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"<% if (tabLev1.equals("onsiteSchedule")) {%> class="on"<% } %>>ONSITE SCHEDULE</A>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules"<% if (tabLev1.equals("rules")) {%> class="on"<% } %>>RULES</A>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=getVisa"<% if (tabLev1.equals("getVisa")) {%> class="on"<% } %>>GETTING A VISA</A>
+<%--
 <A href="/tc?module=TCHS07ViewRegistration"<% if (tabLev1.equals("register")) {%> class="on"<% } %>>REGISTER</A>
+--%>
 <A href="/tc?module=TCHS07ViewRegistrants"<% if (tabLev1.equals("registrants")) {%> class="on"<% } %>>REGISTRANTS</A>
-<%--<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=sponsors"<% if (tabLev1.equals("sponsors")) {%> class="on"<% } %>>SPONSORS</A>--%>
+<%--
+<A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=sponsors"<% if (tabLev1.equals("sponsors")) {%> class="on"<% } %>>SPONSORS</A>
+--%>
 <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=purdue"<% if (tabLev1.equals("purdue")) {%> class="on"<% } %>>PURDUE</A>
 </div>
