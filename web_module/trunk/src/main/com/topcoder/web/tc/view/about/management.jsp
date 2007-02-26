@@ -80,7 +80,7 @@ margin-top: 10px;
         </jsp:include>
 
 <p style="text-align: justify; margin-bottom: 40px;">
-TopCoder's accomplished management team includes some of the most successful professionals in the software industry. Together they have an unparalleled record of successful projects, an unrivalled roster of industry-leading clients, and more than 125 years of experience.
+TopCoder's accomplished management team includes some of the most successful professionals in the software industry. Together they have an unparalleled record of successful projects, an unrivalled roster of industry-leading clients, and more than 125 years of combined experience.
 </p>
 
 <div class="bioOdd">
