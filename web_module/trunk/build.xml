@@ -991,7 +991,7 @@
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
-        <copy todir="${jboss_lib}" file="${jars.dir}/upload.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
 
         <copy todir="${jboss_conf}" file="${resources}/forums/tc/jive_init.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
