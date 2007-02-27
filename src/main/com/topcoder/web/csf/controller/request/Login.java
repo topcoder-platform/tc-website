@@ -193,7 +193,7 @@ public class Login extends ShortHibernateProcessor {
             closeConversation();
             beginCommunication();
         } else {
-            if (email != null && u.getPrimaryEmailAddress() != null && !email.equals(u.getPrimaryEmailAddress().getAddress())) {
+            if (email != null && (u.getPrimaryEmailAddress() == null || !email.equals(u.getPrimaryEmailAddress().getAddress()))) {
                 u.getPrimaryEmailAddress().setAddress(email);
             }
         }
