@@ -56,7 +56,7 @@ public class ComponentProjectResultFeed extends Base {
 
             // Add submission information
             RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_submissions"); 
-            ac = new AllColumns();
+            ac = new AllColumns("N/A");
             ac.replace(new Column("coder", "coder", "id", "user_id"));
            
             submissions.add(ac);
