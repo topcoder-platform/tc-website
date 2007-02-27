@@ -12,11 +12,13 @@ import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.stats.ViewCountManager;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
+import com.topcoder.web.ejb.messagehistory.MessageHistoryLocal;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 import com.topcoder.web.forums.controller.ForumsUtil;
@@ -70,12 +72,12 @@ public class Thread extends ForumsProcessor {
         Paginator paginator = new Paginator(paging);
         Iterator itMessages = null;
 
-        MessageHistory historyBean = (MessageHistory)createEJB(getInitialContext(), MessageHistory.class);
+        MessageHistoryLocal historyBean = (MessageHistoryLocal)createLocalEJB(getInitialContext(), MessageHistory.class);
+        getRequest().setAttribute("editCountTable", historyBean.getMessageEditCounts(thread.getID(), DBMS.FORUMS_DATASOURCE_NAME));
         
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("paginator", paginator);
-        getRequest().setAttribute("historyBean", historyBean);
         
         if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) {
             ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);

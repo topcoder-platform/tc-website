@@ -4,6 +4,7 @@
     <session>
       <ejb-name>MessageHistory</ejb-name>
       <jndi-name>com.topcoder.web.ejb.messagehistory.MessageHistoryHome</jndi-name>
+      <local-jndi-name>java:/com.topcoder.web.ejb.messagehistory.MessageHistoryLocalHome</local-jndi-name>
     </session>
   </enterprise-beans>
 </jboss>

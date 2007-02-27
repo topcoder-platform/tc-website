@@ -7,6 +7,7 @@ import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Revision;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
+import com.topcoder.web.ejb.messagehistory.MessageHistoryLocal;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.jivesoftware.base.JiveGlobals;
@@ -26,7 +27,7 @@ public class RevisionHistory extends ForumsProcessor {
 
         long messageID = Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         ForumMessage message = forumFactory.getMessage(messageID);
-        MessageHistory historyBean = (MessageHistory)createEJB(getInitialContext(), MessageHistory.class);
+        MessageHistoryLocal historyBean = (MessageHistoryLocal)createLocalEJB(getInitialContext(), MessageHistory.class);
 
         // useful if revision history needs to be paged in the future
         int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 

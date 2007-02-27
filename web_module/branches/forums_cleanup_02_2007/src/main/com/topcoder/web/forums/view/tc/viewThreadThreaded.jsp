@@ -17,8 +17,7 @@
                 com.jivesoftware.forum.RatingManager,
                 com.jivesoftware.forum.Attachment,
                 com.jivesoftware.forum.database.DbAttachmentManager,
-                java.util.*,
-                com.topcoder.shared.util.DBMS"
+                java.util.*"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -28,7 +27,6 @@
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
-<tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
@@ -224,7 +222,8 @@ function displayVotes(messageID, posVotes, negVotes) {
                 int posRatings = -1; 
                 int negRatings = -1; %> 
             <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
-                  <%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
+                  <%  int editCount = editCountTable.containsKey(String.valueOf(message.getID())) ? 
+            			Integer.parseInt((String)editCountTable.get(String.valueOf(message.getID()))) : 0;
                   if (editCount > 0) { %> 
                       <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink" title="Last updated <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>"><%=ForumsUtil.display(editCount, "edit")%></a> | 
                   <%  } %>
