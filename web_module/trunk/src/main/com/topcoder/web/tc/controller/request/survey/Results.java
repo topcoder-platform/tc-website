@@ -136,6 +136,7 @@ public class Results extends SurveyData {
                         election.getBallots().add(ballot);
                     }
                     ballot = new RankBallot();
+                    ballot.setElection(election);
                     u = new User();
                     u.setId(new Long(curr.getLongItem("user_id")));
                     ballot.setUser(u);
