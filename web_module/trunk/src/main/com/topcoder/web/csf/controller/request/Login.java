@@ -1,8 +1,5 @@
 package com.topcoder.web.csf.controller.request;
 
-import Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Locator;
-import Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
-import Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.holders.SandboxUserHolder;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -16,12 +13,9 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
 
 import javax.naming.Context;
-import javax.xml.rpc.holders.BooleanHolder;
-import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -153,7 +147,25 @@ public class Login extends ShortHibernateProcessor {
         }
     }*/
 
+    private void loginUser(String username, String password) throws LoginException, TCWebException {
+        UserDAO dao = DAOUtil.getFactory().getUserDAO();
+        User u = dao.find(username, false);
+        if (u == null) {
+            throw new LoginException("Unknown user");
+        }
+        String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+        if (nextPage != null && !nextPage.equals("")) {
+            setNextPage(nextPage);
+            setIsNextPageInContext(false);
+        } else {
+            setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
+            setIsNextPageInContext(false);
+        }
+        log.debug("on successful login, going to " + getNextPage());
+        getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
+    }
 
+/*
     private void loginUser(String username, String password) throws LoginException, TCWebException {
         BooleanHolder res = new BooleanHolder();
         SandboxUserHolder user = new SandboxUserHolder();
@@ -215,74 +227,6 @@ public class Login extends ShortHibernateProcessor {
         }
         log.debug("on successful login, going to " + getNextPage());
         getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
-    }
-
-/*
-    private void loginAdmin(String username, String password) throws Exception {
-        TCSubject sub = null;
-        //we need to check if they got the right user name and password before we check anything else
-        try {
-            LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
-            sub = login.login(username, password, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            log.debug("correct user name and password");
-        } catch (Exception e) {
-            throw new LoginException("Handle or password incorrect.");
-        }
-        char status = getStatus(sub.getUserId());
-        log.debug("status: " + status);
-        if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, status) >= 0) {
-            //check if they have an active email address
-            if (getEmailStatus(sub.getUserId()) != EmailActivate.ACTIVE_STATUS) {
-                getAuthentication().logout();
-                log.debug("inactive email");
-                setNextPage("http://" + ApplicationServer.SERVER_NAME + "/tc?module=Static&d1=authentication&d2=emailActivate");
-                setIsNextPageInContext(false);
-            } else {
-                log.debug("user active");
-                String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
-                if (nextPage != null && !nextPage.equals("")) {
-                    setNextPage(nextPage);
-                    setIsNextPageInContext(false);
-                } else {
-                    setNextPage(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getAbsoluteServletPath());
-                    setIsNextPageInContext(false);
-                }
-                log.debug("on successful login, going to " + getNextPage());
-                getAuthentication().login(new SimpleUser(0, username, password), false);
-            }
-        } else {
-            getAuthentication().logout();
-            if (Arrays.binarySearch(WebConstants.INACTIVE_STATI, status) >= 0) {
-                log.debug("user inactive");
-                throw new LoginException("Sorry, your account is not active.  " +
-                        "If you believe this is an error, please contact TopCoder.");
-            } else if (Arrays.binarySearch(WebConstants.UNACTIVE_STATI, status) >= 0) {
-                log.debug("user unactive");
-                getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  " +
-                        "Please review the activation email that was sent to you after registration.");
-            } else {
-                throw new NavigationException("Invalid account status");
-            }
-        }
-
-    }
-*/
-
-    /**
-     * shouldn't use ejb slooooooooow
-     *
-     * @param userId
-     * @return
-     * @throws Exception if user doesn't exist or some other ejb problem
-     */
-/*
-    private char getStatus(long userId) throws Exception {
-        return new UserDAOHibernate().find(new Long(userId)).getStatus().charValue();
-
-    }
-
-    private int getEmailStatus(long userId) throws Exception {
-        return new UserDAOHibernate().find(new Long(userId)).getPrimaryEmailAddress().getStatusId().intValue();
     }
 */
 
