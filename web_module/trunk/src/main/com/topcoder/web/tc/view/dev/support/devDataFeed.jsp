@@ -107,7 +107,7 @@
 
 
 <p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Project Results</span><br/>
-    This feed provides data about the results of a design project.
+    This feed provides data about the results of a development project.
     It includes the following fields:
     <ul>
         <li>project information
@@ -131,7 +131,7 @@
 		        <li>digital run stage</li>
 		     </ul>	        
         </li>
-        <li>Reviewers
+        <li>reviewers
         	<ul>
         		<li>reviewer id</li>
         		<li>reviewer name</li>
@@ -139,7 +139,7 @@
         		<li>role name</li>        		
         	</ul>
         </li>
-        <li>Submissions
+        <li>submissions
         	<ul>
         		<li>coder</li>
         		<li>placed</li>
