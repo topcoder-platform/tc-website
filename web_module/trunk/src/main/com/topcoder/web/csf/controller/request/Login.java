@@ -194,9 +194,19 @@ public class Login extends ShortHibernateProcessor {
             beginCommunication();
         } else {
             if (email != null) {
-                if (u.getPrimaryEmailAddress() == null || !email.equals(u.getPrimaryEmailAddress().getAddress())) {
+                if (u.getPrimaryEmailAddress() == null) {
+                    Email a = new Email();
+                    a.setPrimary(Boolean.TRUE);
+                    a.setEmailTypeId(Email.TYPE_ID_PRIMARY);
+                    a.setStatusId(Email.STATUS_ID_UNACTIVE);
+                    a.setAddress(email);
+                    a.setUser(u);
+                    u.addEmailAddress(a);
+                } else {
                     u.getPrimaryEmailAddress().setAddress(email);
                 }
+                dao.saveOrUpdate(u);
+                markForCommit();
             }
         }
         String nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
