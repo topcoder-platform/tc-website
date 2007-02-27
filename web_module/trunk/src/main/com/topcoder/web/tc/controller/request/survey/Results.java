@@ -113,6 +113,10 @@ public class Results extends SurveyData {
             }
 
             CondorcetSchulzeElection election = new CondorcetSchulzeElection();
+            for (int i = 0; i < candidates.length; i++) {
+                election.getCandidates().add(candidates[i]);
+            }
+
             ResultSetContainer.ResultSetRow curr;
             long lastUserId = -1;
             RankBallot ballot = null;
