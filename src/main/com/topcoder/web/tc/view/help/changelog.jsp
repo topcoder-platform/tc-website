@@ -48,6 +48,7 @@
         <li>Add Visa Letter Request</li>
         <li>Re-add column team points in HS teams statistics (it was commented out because the values were incorrect)
         </li>
+        <li>Project registration code was updated so assembly projets won't interfere with component reliability.</li>
         <%--<li>Project load was fixed to get those project that weren't modified but have related rows 
             modified in at least one of these tables: resource, submission, upload, project_result.</li>--%>
     </ul>

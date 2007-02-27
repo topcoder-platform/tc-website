@@ -53,6 +53,13 @@
                         <H3>TopCoder Software Web Site Change Log</H3>
 
                         <p>
+                            2.0.5 - 2007.02.xx
+                            <ul>
+                                <li>Project registration code was updated so assembly projets won't interfere with component reliability.</li>
+                            </ul>
+                        </p>
+
+                        <p>
                             2.0.4 - 2007.01.15
                             <ul>
                                 <li>Project registration code was fixed to work with assembly projects.</li>
