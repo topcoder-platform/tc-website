@@ -102,10 +102,15 @@ public class Matrix implements Serializable {
      * helper method to give a given candidates index in the matrix.
      *
      * @param c the candidate whose index we will return
-     * @return int the index of the candidate in this matrix
+     * @return int the index of the candidate in this matrix or -1 if it doesn't exist
      */
     public int getIndex(Candidate c) {
-        return ((Integer) candidateIndex.get(c)).intValue();
+        Integer ret = (Integer) candidateIndex.get(c);
+        if (ret != null) {
+            return ret.intValue();
+        } else {
+            return -1;
+        }
     }
 
     /**
