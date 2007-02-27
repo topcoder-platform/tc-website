@@ -69,7 +69,7 @@ public class History extends ForumsProcessor {
         Paginator paginator = new Paginator(paging);
         Iterator itMessages = forumFactory.getUserMessages(historyUser, resultFilter);
         
-        MessageHistoryLocal historyBean = (MessageHistoryLocal)createEJB(getInitialContext(), MessageHistory.class);
+        MessageHistoryLocal historyBean = (MessageHistoryLocal)createLocalEJB(getInitialContext(), MessageHistory.class);
 
         getRequest().setAttribute("historyUser", historyUser);
         getRequest().setAttribute("messages", itMessages);
