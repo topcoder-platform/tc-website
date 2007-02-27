@@ -106,6 +106,77 @@
 </p>
 
 
+<p style="border-top: 1px solid #999999;"><span class="bodySubtitle">Project Results</span><br/>
+    This feed provides data about the results of a design project.
+    It includes the following fields:
+    <ul>
+        <li>Project Information
+        	<ul>
+        		<li>project id</li>
+        		<li>component id</li>
+        		<li>component name</li>
+        		<li>component version</li>
+        		<li>status</li>
+        		<li>phase</li>
+        		<li>category</li>
+		        <li>posting date</li>
+		        <li>submit by date</li>
+		        <li>complete date</li>
+		        <li>rating date</li>
+		        <li>number of registrations</li>
+		        <li>number of submissions</li>		        
+		        <li>number of valid submissions</li>		        
+		        <li>number of submissions that passed review</li>	
+		        <li>winner</li>
+		        <li>Digital Run Stage</li>
+		     </ul>	        
+        </li>
+        <li>Reviewers
+        	<ul>
+        		<li>reviewer id</li>
+        		<li>reviewer name</li>
+        		<li>role id</li>
+        		<li>role name</li>        		
+        	</ul>
+        </li>
+        <li>Submissions
+        	<ul>
+        		<li>coder</li>
+        		<li>placed</li>
+        		<li>old rating</li>
+        		<li>new rating</li>
+        		<li>old reliability</li>
+        		<li>new reliability</li>
+        		<li>total number of appeals</li>
+        		<li>total number of successful appeals</li>
+        		<li>inquire timestamp</li>
+        		<li>submit timestamp</li>
+        		<li>screening score</li>
+        		<li>passed screening indicator</li>
+        		<li>raw score</li>
+        		<li>final score</li>
+        		<li>Digital Run points</li>
+        		<li>Review Information
+        			<ul>
+		        		<li>reviewer id</li>
+		        		<li>reviewer name</li>
+		        		<li>role id</li>
+		        		<li>role name</li>        		
+		        		<li>number of appeals</li>
+		        		<li>number of successful appeals</li>		        		
+		        		<li>raw score</li>
+		        		<li>final score</li>
+        			</ul>
+        		</li>
+        	</ul>
+        </li>
+    </ul>
+
+    <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ComponentProjectResultFeed&amp;pj=PROJECT_ID</strong>
+    <br/>
+    NOTE: You will need to replace "PROJECT_ID" in the query string to get data about a particular project.
+</p>
+
 <p><br/></p>
 </td>
 <!-- Center Column Ends -->
