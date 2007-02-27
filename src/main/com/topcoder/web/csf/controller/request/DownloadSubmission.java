@@ -31,6 +31,8 @@ public class DownloadSubmission extends Base {
 
         Submission s = CSFDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
 
+        boolean isOwner = s.getSubmitter().getId().longValue() == getUser().getId();
+
         boolean isWinner = false;
         ContestResult curr;
         for (Iterator it = s.getContest().getResults().iterator(); it.hasNext() && !isWinner;) {
@@ -40,11 +42,11 @@ public class DownloadSubmission extends Base {
 
         boolean isOver = new Date().after(s.getContest().getEndTime());
 
-        if (!isOver) {
+        if (!isOver && !isOwner) {
             throw new NavigationException("Submissions are not available until the contest is over.");
         }
 
-        if (isWinner || "true".equals(s.getContest().getViewableSubmissions().getValue())) {
+        if (isWinner || "true".equals(s.getContest().getViewableSubmissions().getValue()) || isOwner) {
             //create the file input stream first so that if there is a problem, we'll get the error and be able to go
             //to an error page.  if we work with the output stream, we won't be able to do that.
 
