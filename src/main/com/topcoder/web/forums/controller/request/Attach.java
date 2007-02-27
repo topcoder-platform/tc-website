@@ -9,8 +9,6 @@ import com.jivesoftware.forum.AttachmentException;
 import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumPermissions;
-import com.topcoder.servlet.request.FileDoesNotExistException;
-import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.BaseServlet;
@@ -161,22 +159,10 @@ public class Attach extends ForumsProcessor {
         } catch (UnauthorizedException e) {
             e.printStackTrace();
             addError(ForumConstants.ATTACHMENT_ERROR, "Sorry, you do not have permission to attach files.");
-        } catch (FileDoesNotExistException e) {
-            e.printStackTrace();
-            addError(ForumConstants.ATTACHMENT_ERROR, e.getMessage());
-        } catch (PersistenceException e) {
-            e.printStackTrace();
-            addError(ForumConstants.ATTACHMENT_ERROR, e.getMessage());
         } finally {
             if (errors.size() > 0) {
-                try {
-                    log.info("Errors encountered when attaching file: " + fileName +
-                            " (" + uploadedFile.getSize() + " bytes)");
-                } catch (PersistenceException e) {
-                    e.printStackTrace();
-                } catch (FileDoesNotExistException e) {
-                    e.printStackTrace();
-                }
+                log.info("Errors encountered when attaching file: " + fileName +
+                        " (" + uploadedFile.getSize() + " bytes)");
                 ArrayList errorsList = (ArrayList) errors.get(ForumConstants.ATTACHMENT_ERROR);
                 for (int i = 0; i < errorsList.size(); i++) {
                     log.info("\t" + (String) errorsList.get(i));
