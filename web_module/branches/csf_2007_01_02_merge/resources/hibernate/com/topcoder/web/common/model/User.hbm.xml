@@ -63,6 +63,10 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="Response"/>
         </set>
+                <set name="ballots" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.voting.RankBallot"/>
+        </set>
     </class>
 
 

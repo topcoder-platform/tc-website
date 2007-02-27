@@ -2,11 +2,8 @@ package com.topcoder.web.common.voting;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.HashSet;
 import java.io.Serializable;
+import java.util.*;
 
 /**
  * @author dok
@@ -16,39 +13,35 @@ import java.io.Serializable;
 public class Matrix implements Serializable {
 
     private static final Logger log = Logger.getLogger(Matrix.class);
-    private Candidate[] candidates = null;
-    private Map candidateIndex = null;
-    private int[][] matrix = null;
+    private List candidates;
+    private Map candidateIndex;
+    private int[][] matrix;
+
 
     /**
      * create a matrix using the given <code>candidates</code>
-     * and <code>matrix</code> of voting information.
+     * and <code>matrix</code> of voting information.  in general
+     * that order should be alphabetical since that's how
+     * the contructor that takes a ballot will organize things.
      *
-     * @param candidates
-     * @param matrix
+     * @param candidates - the candidates for this matrix.  the indexes in the list must match the indexes of the matrix
+     * @param matrix     - the actual data for this matrix
      */
-    public Matrix(Candidate[] candidates, int[][] matrix) {
-        this.candidates = candidates;
-        this.matrix = matrix;
-        candidateIndex = new HashMap();
-        for (int i = 0; i < candidates.length; i++) {
-            candidateIndex.put(candidates[i], new Integer(i));
-        }
+    public Matrix(List candidates, int[][] matrix) {
+        init(candidates, matrix);
     }
 
     /**
      * create a matrix using the given <code>ballot</code>
      *
-     * @param ballot
+     * @param ballot - a ballot we want to represent in a matrix
      */
     public Matrix(RankBallot ballot) {
-        candidateIndex = new HashMap();
-        candidates = ballot.getCandidates();
-        for (int i = 0; i < candidates.length; i++) {
-            candidateIndex.put(candidates[i], new Integer(i));
-        }
+        ArrayList a = new ArrayList(ballot.getElection().getCandidates());
+        Collections.sort(a, new Candidate.IDComparator());
+        init(a, null);
 
-        matrix = new int[candidates.length][candidates.length];
+        matrix = new int[candidates.size()][candidates.size()];
         for (int i = 0; i < matrix.length; i++) {
             Arrays.fill(matrix[i], 0);
         }
@@ -57,7 +50,7 @@ public class Matrix implements Serializable {
             matrix[i][i] = -1;
         }
 
-        Vote[] votes = ballot.getVotes();
+        Vote[] votes = (Vote[]) ballot.getVotes().toArray(new Vote[]{});
 
         //build up an index of all the candidates that where actually
         //included in the votes contained in this ballot.  we'll need
@@ -65,55 +58,71 @@ public class Matrix implements Serializable {
         //than those that did
         HashSet voteIndex = new HashSet();
         for (int i = 0; i < votes.length; i++) {
-            voteIndex.add(votes[i].getCandidate());
+            voteIndex.add(votes[i].getId().getCandidate());
         }
         log.debug(voteIndex.toString());
 
+        Candidate c;
         for (int i = 0; i < votes.length; i++) {
             for (int j = 0; j < votes.length; j++) {
                 if (i != j) {
                     //mark that i beat j if i was preferred to j
-                    if (votes[i].compareTo(votes[j]) > 0) {
-                        matrix[getIndex(votes[i].getCandidate())][getIndex(votes[j].getCandidate())] = 1;
+                    if (votes[i].getRank().compareTo(votes[j].getRank()) > 0) {
+                        matrix[getIndex(votes[i].getId().getCandidate())][getIndex(votes[j].getId().getCandidate())] = 1;
                     }
                 }
             }
-            //mark that i beat j either if j wasn't present in the ballot
-            for (int j = 0; j < candidates.length; j++) {
-                if (!voteIndex.contains(candidates[j])) {
-                    matrix[getIndex(votes[i].getCandidate())][getIndex(candidates[j])] = 1;
+            //mark that i beat j if j wasn't present in the ballot
+            for (Iterator it = candidates.iterator(); it.hasNext();) {
+                c = (Candidate) it.next();
+                if (!voteIndex.contains(c)) {
+                    matrix[getIndex(votes[i].getId().getCandidate())][getIndex(c)] = 1;
                 }
             }
         }
         log.debug(this.toString());
     }
 
+    private void init(List candidates, int[][] matrix) {
+        this.candidates = candidates;
+        this.matrix = matrix;
+        candidateIndex = new HashMap();
+        int i = 0;
+        Candidate c;
+        Integer idx;
+        for (Iterator it = candidates.iterator(); it.hasNext(); i++) {
+            c = (Candidate) it.next();
+            idx = new Integer(i);
+            candidateIndex.put(c, idx);
+        }
+
+    }
 
     /**
      * helper method to give a given candidates index in the matrix.
      *
-     * @param c
-     * @return int
+     * @param c the candidate whose index we will return
+     * @return int the index of the candidate in this matrix
      */
     public int getIndex(Candidate c) {
         return ((Integer) candidateIndex.get(c)).intValue();
     }
 
     /**
-     * add two matrixes together
+     * addVote two matrixes together
      *
-     * @param m1
-     * @param m2
+     * @param m1 the first of two matrixes to addVote
+     * @param m2 the second of two matrixes to addVote
      * @return Matrix
      */
     public static Matrix add(Matrix m1, Matrix m2) {
-        int size = m1.candidates.length;
-        if (size != m2.candidates.length) {
+        int size = m1.candidates.size();
+        if (size != m2.candidates.size()) {
             throw new IllegalArgumentException("m1 and m2 must be the same size, they were " +
-                    m1.candidates.length + " and " + m2.candidates.length + " respectively");
+                    m1.candidates.size() + " and " + m2.candidates.size() + " respectively");
         }
         for (int i = 0; i < size; i++) {
-            if (!m1.candidates[i].equals(m2.candidates[i])) {
+            if (!m1.candidates.get(i).equals(m2.candidates.get(i))) {
                 throw new IllegalArgumentException("m1 and m2 must have the same candidates");
             }
         }
@@ -140,11 +149,11 @@ public class Matrix implements Serializable {
     public String toString() {
         StringBuffer buf = new StringBuffer(matrix.length * 3);
         for (int i = 0; i < matrix.length; i++) {
-            buf.append(candidates[i].getName()).append(",");
+            buf.append(((Candidate) candidates.get(i)).getName()).append(",");
         }
         buf.append("\n");
         for (int i = 0; i < matrix.length; i++) {
-            buf.append(candidates[i].getName()).append(" ");
+            buf.append(((Candidate) candidates.get(i)).getName()).append(" ");
             for (int j = 0; j < matrix[i].length; j++) {
                 buf.append(matrix[i][j]).append(" ");
             }
@@ -154,8 +163,8 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * @param a
-     * @param b
+     * @param a the first candidate
+     * @param b the second candidate
      * @return true if <code>a</code> beat <code>b</code>, false otherwise
      */
     public boolean beat(Candidate a, Candidate b) {
@@ -163,8 +172,8 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * @param a
-     * @param b
+     * @param a the index of the first candidate
+     * @param b the index of the second candidate
      * @return true if the candidate at index <code>a</code> beat
      *         the candidate at indx <code>b</code>, false otherwise
      */
@@ -173,8 +182,8 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * @param a
-     * @param b
+     * @param a the first candidate
+     * @param b the second candidate
      * @return true of <code>a</code> tied <code>b</code>, false otherwise
      */
     public boolean tie(Candidate a, Candidate b) {
@@ -182,8 +191,8 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * @param a
-     * @param b
+     * @param a the index of the first candidate
+     * @param b the index of the second candidate
      * @return true of the candidate at index <code>a</code>
      *         tied the candidate at index <code>b</code>, false otherwise
      */
@@ -196,7 +205,7 @@ public class Matrix implements Serializable {
      * two matrices are equal if all the vote counts match up.
      * and the candidates are the same
      *
-     * @param o
+     * @param o the other object
      * @return boolean
      */
     public boolean equals(Object o) {
@@ -206,7 +215,7 @@ public class Matrix implements Serializable {
                 return false;
             }
             for (int i = 0; i < matrix.length; i++) {
-                if (!this.candidates[i].equals(other.candidates[i])) {
+                if (!candidates.get(i).equals(other.candidates.get(i))) {
                     return false;
                 }
             }
@@ -224,18 +233,17 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * Return the candidates in this matrix.  This is safe because
-     * candidates are immutable.
+     * Return the candidates in this matrix.
      *
-     * @return Candidate[]
+     * @return Set of candidates
      */
-    public Candidate[] getCandidates() {
-        return candidates;
+    public List getCandidates() {
+        return Collections.unmodifiableList(candidates);
     }
 
     /**
-     * @param a
-     * @param b
+     * @param a the first candidate
+     * @param b the second candidate
      * @return the number of votes ranking <code>a</code> above <code>b</code>
      */
     public int getValue(Candidate a, Candidate b) {
@@ -243,13 +251,21 @@ public class Matrix implements Serializable {
     }
 
     /**
-     * @param a
-     * @param b
+     * @param a the index of the first candidate
+     * @param b the index of the second candidate
      * @return the the number of votes ranking the candidate with index
      *         <code>a</code> above the candidate with index <code>b</code>
      */
     public int getValue(int a, int b) {
         return matrix[a][b];
+    }
+
+    public Candidate getCandidate(int idx) {
+        return (Candidate) candidates.get(idx);
+    }
+
+    public Candidate getCandidate(Integer idx) {
+        return getCandidate(idx.intValue());
     }
 
 }

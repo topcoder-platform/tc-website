@@ -45,9 +45,6 @@ public class TCO06LogoSubmit extends Base {
                 if (submissionCount >= MAX_SUBMISSIONS) {
                     throw new NavigationException("Sorry, you can not submit again, you have already submitted " + MAX_SUBMISSIONS + " times.");
                 } else if (file != null) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("got file " + file.getFile());
-                    }
                     StringBuffer fileName = new StringBuffer(100);
                     fileName.append(getUser().getId()).append("_");
                     Calendar cal = Calendar.getInstance();

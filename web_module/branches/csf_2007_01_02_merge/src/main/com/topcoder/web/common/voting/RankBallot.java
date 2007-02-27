@@ -1,80 +1,66 @@
 package com.topcoder.web.common.voting;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import com.topcoder.web.common.model.Base;
+import com.topcoder.web.common.model.User;
+
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
-import java.io.Serializable;
+import java.util.Set;
 
 /**
  * @author dok
  * @version $Revision$ $Date$
  *          Create Date: Sep 2, 2005
  */
-public class RankBallot implements Serializable {
-    private Candidate[] candidates = null;
-    private Voter voter = null;
-    private List votes = null;
+public class RankBallot extends Base {
 
-    /**
-     * create a rank balot with the given <code>candidates</code>.
-     */
-    public RankBallot(Candidate[] candidates) {
-        this(Voter.ANONYMOUS_VOTER, candidates);
+    private User user;
+    private Long id;
+    private CondorcetSchulzeElection election;
+    private Set votes;
+
+    public RankBallot() {
+
     }
 
-    public RankBallot(List candidates) {
-        this(Voter.ANONYMOUS_VOTER, (Candidate[]) candidates.toArray(new Candidate[candidates.size()]));
+    public RankBallot(CondorcetSchulzeElection election, User user) {
+        this.election = election;
+        this.user = user;
+        this.votes = new HashSet();
     }
 
-    /**
-     * Create a rank balot for the given <code>voter</code> for the
-     * given <code>candidates</code>.
-     *
-     * @param voter
-     */
-    public RankBallot(Voter voter, Candidate[] candidates) {
-        this.candidates = candidates;
-        Arrays.sort(this.candidates);
-        this.voter = voter;
-        this.votes = new ArrayList(candidates.length);
+
+    public User getUser() {
+        return user;
     }
 
-    /**
-     * Adds a vote for a candidate.
-     *
-     * @param vote
-     * @throws IllegalArgumentException if this balot already includes a vote for
-     *                                  the candidate specified in <code>vote</code>.
-     */
-    public void add(Vote vote) {
-        if (vote == null) {
-            throw new NullPointerException("vote was null");
-        }
-        Vote temp;
-        for (Iterator it = votes.iterator(); it.hasNext();) {
-            temp = (Vote) it.next();
-            if (temp.getCandidate().equals(vote.getCandidate())) {
-                throw new IllegalArgumentException("Vote already cast for " + vote.getCandidate().getName() + " on this balot");
-            }
-        }
-        votes.add(vote);
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    /**
-     * provide a read only versin of the list of the candidates for this balot
-     *
-     * @return List
-     */
-    public Candidate[] getCandidates() {
-        return candidates;
+    public Long getId() {
+        return id;
     }
 
-    /**
-     * @return List
-     */
-    public Vote[] getVotes() {
-        return (Vote[]) votes.toArray(new Vote[votes.size()]);
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public CondorcetSchulzeElection getElection() {
+        return election;
+    }
+
+    public void setElection(CondorcetSchulzeElection election) {
+        this.election = election;
+    }
+
+
+    public Set getVotes() {
+        return votes;
+    }
+
+    public void setVotes(Set votes) {
+        this.votes = votes;
     }
 
     /**
@@ -84,7 +70,7 @@ public class RankBallot implements Serializable {
      */
     public String toString() {
         StringBuffer buf = new StringBuffer(votes.size() * 20);
-        buf.append(voter.toString()).append(":");
+        buf.append(user.getId()).append(":").append(user.getHandle());
         for (Iterator it = votes.iterator(); it.hasNext();) {
             buf.append(it.next().toString());
         }

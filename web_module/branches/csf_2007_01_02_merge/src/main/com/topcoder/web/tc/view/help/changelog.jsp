@@ -206,6 +206,12 @@
 </p>
 
 <p>
+    5.x.x - 2007.02.xx
+    <ul>
+        <li>Upgrade to file upload version 2.0</li>
+    </ul>
+</p>
+<p>
     5.5.13 - 2006.12.21
     <ul>
         <%--

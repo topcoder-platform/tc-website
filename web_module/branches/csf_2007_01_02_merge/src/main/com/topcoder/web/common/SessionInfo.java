@@ -27,7 +27,7 @@ public class SessionInfo implements Serializable {
     private boolean isLoggedIn = false;
     private int memberCount = -1;
     private boolean knownUser = false;
-    private String timezone = null;
+    protected String timezone = null;
 
     /**
      * group may be:

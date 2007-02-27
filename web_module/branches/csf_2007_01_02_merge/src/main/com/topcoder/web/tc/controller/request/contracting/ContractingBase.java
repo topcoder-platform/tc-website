@@ -6,6 +6,8 @@
 
 package com.topcoder.web.tc.controller.request.contracting;
 
+import com.topcoder.servlet.request.FileDoesNotExistException;
+import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -111,8 +113,7 @@ abstract public class ContractingBase extends BaseProcessor {
             //preference underneath it
             boolean good = false;
             if (info.getPreference(String.valueOf(Constants.PREFERENCE_CONTRACTING)) != null &&
-                    info.getPreference(String.valueOf(Constants.PREFERENCE_CONTRACTING)).equals(String.valueOf(Constants.PREFERENCE_CONTRACTING_TRUE)))
-            {
+                    info.getPreference(String.valueOf(Constants.PREFERENCE_CONTRACTING)).equals(String.valueOf(Constants.PREFERENCE_CONTRACTING_TRUE))) {
                 good = true;
                 //ids to check are 3,4,5,6
                 for (int i = 0; i < contractingPreferences.length; i++) {
@@ -123,8 +124,7 @@ abstract public class ContractingBase extends BaseProcessor {
             }
 
             if (info.getPreference(String.valueOf(Constants.PREFERENCE_PERMANENT)) != null &&
-                    info.getPreference(String.valueOf(Constants.PREFERENCE_PERMANENT)).equals(String.valueOf(Constants.PREFERENCE_PERMANENT_TRUE)))
-            {
+                    info.getPreference(String.valueOf(Constants.PREFERENCE_PERMANENT)).equals(String.valueOf(Constants.PREFERENCE_PERMANENT_TRUE))) {
                 good = true;
                 //ids to check are 3,4,5,6
                 for (int i = 0; i < permanentPreferences.length; i++) {
@@ -146,8 +146,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
             try {
                 ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                if ((!resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) && (info.getResume() == null))
-                {
+                if ((!resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) && (info.getResume() == null)) {
                     addError("Resume", "A resume is required.");
                 }
             } catch (Exception e) {
@@ -264,7 +263,7 @@ abstract public class ContractingBase extends BaseProcessor {
 
     protected abstract void setNextPage();
 
-    protected ContractingInfo updateContractingInfo(ContractingInfo info) throws IOException {
+    protected ContractingInfo updateContractingInfo(ContractingInfo info) throws IOException, FileDoesNotExistException, PersistenceException {
         if (getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("preferences")) {
             if (log.isDebugEnabled()) {
                 log.debug("LOADING DATA FROM REQUEST");

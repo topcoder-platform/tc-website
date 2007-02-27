@@ -80,7 +80,7 @@
         <!-- need this still cuz the new version doesn't work for everything we need -->
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
-        <pathelement location="${jars.dir}/upload.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
@@ -207,6 +207,7 @@
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
         	<include name="com/topcoder/dde/catalog/ComponentInfo.java"/>
+            <include name="com/topcoder/dde/catalog/Category.java"/>
             <include name="com/topcoder/dde/catalog/ComponentVersionInfo.java"/>
         	<include name="com/topcoder/dde/catalog/ForumCategory.java"/>
         </javac>
@@ -731,7 +732,7 @@
                 <include name="ifxjdbc.jar"/>
                 <include name="bfograph.jar"/>
                 <include name="object_formatter.jar"/>
-                <include name="upload.jar"/>
+                <include name="file_upload.jar"/>
                 <include name="tcsUtil.jar"/>
                 <include name="fileconvert.jar"/>
                 <include name="idgenerator.jar"/>
@@ -1239,7 +1240,6 @@
     </target>
 
 </project>
-
 
 
 

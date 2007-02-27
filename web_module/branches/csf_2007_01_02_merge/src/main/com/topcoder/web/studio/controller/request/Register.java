@@ -59,10 +59,13 @@ public class Register extends ShortHibernateProcessor {
                     setNextPage("/contestReg.jsp");
                     setIsNextPageInContext(true);
                 } else {
-                    setDefault(Constants.CONTEST_ID, contestId.toString());
-                    getRequest().setAttribute("contest", c);
-                    setNextPage("/submit.jsp");
-                    setIsNextPageInContext(true);
+                    StringBuffer buf = new StringBuffer(50);
+                    buf.append(getSessionInfo().getServletPath());
+                    buf.append("?" + Constants.MODULE_KEY + "=ViewContestDetails&");
+                    buf.append(Constants.CONTEST_ID + "=").append(contestId);
+                    setNextPage(buf.toString());
+                    setIsNextPageInContext(false);
+                    
                 }
 
             } else {

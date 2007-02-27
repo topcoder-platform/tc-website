@@ -25,7 +25,7 @@ public class RankedResult implements Serializable {
     }
 
     public String toString() {
-        return candidate.getName()+":"+rank;
+        return candidate.getName() + ":" + rank;
     }
 }
 
