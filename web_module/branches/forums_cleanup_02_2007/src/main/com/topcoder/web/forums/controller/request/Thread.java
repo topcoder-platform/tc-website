@@ -72,8 +72,10 @@ public class Thread extends ForumsProcessor {
         Paginator paginator = new Paginator(paging);
         Iterator itMessages = null;
 
+        log.info("*** start history EJB");
         MessageHistoryLocal historyBean = (MessageHistoryLocal)createLocalEJB(getInitialContext(), MessageHistory.class);
         getRequest().setAttribute("editCountTable", historyBean.getMessageEditCounts(thread.getID(), DBMS.FORUMS_DATASOURCE_NAME));
+        log.info("*** end history EJB");
         
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);

@@ -31,6 +31,7 @@
     boolean showPrevNextThreads = !(user != null && "false".equals(user.getProperty("jiveShowPrevNextThreads")));
     String prevTrackerClass = "", nextTrackerClass = "";
     ForumMessage prevPost = null, nextPost = null;
+    Hashtable editCountTable = (Hashtable)request.getAttribute("editCountTable");
 
     String cmd = "";
     String watchMessage = "";
