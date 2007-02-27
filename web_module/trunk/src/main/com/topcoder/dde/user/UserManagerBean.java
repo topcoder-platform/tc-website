@@ -1014,6 +1014,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
             ps = conn.prepareStatement(componentInfo);
             ps.setLong(1, projectId);
+            ps.setLong(2, projectId);
             rs = ps.executeQuery();
 
             if (rs.next()) {
