@@ -88,6 +88,8 @@ public class Candidate extends Base {
     public int hashCode() {
         if (id == null) {
             return this.name.hashCode();
+        } else if (this.name == null) {
+            return this.id.hashCode();
         } else {
             return (this.name + this.id).hashCode();
         }
