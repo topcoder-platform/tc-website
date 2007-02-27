@@ -39,9 +39,6 @@ public class TCO05LogoSubmit extends Base {
                 MultipartRequest request = (MultipartRequest) getRequest();
                 UploadedFile file = request.getUploadedFile(Constants.LOGO);
                 if (file != null) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("got file " + file.getFile());
-                    }
                     StringBuffer fileName = new StringBuffer(100);
                     fileName.append(getUser().getId()).append("_");
                     Calendar cal = Calendar.getInstance();

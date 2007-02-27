@@ -9,8 +9,8 @@
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_OLTP</property>
-        <!-- for testing-->
         <!--
+<<<<<<< hibernate.cfg.xml
     <session-factory>
         <property name="connection.username">coder</property>
         <property name="connection.password">altec</property>
@@ -19,6 +19,13 @@
         </property>
         <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
 
+=======
+            <session-factory>
+                        <property name="connection.username">coder</property>
+                        <property name="connection.password">altec</property>
+                        <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/csf_oltp:INFORMIXSERVER=devinformix10_shm</property>
+                        <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+>>>>>>> 1.5.90.2
         -->
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
@@ -34,17 +41,15 @@
 
 
         <!-- Echo all executed SQL to stdout -->
-        <!--
-                <property name="show_sql">true</property>
-                <property name="format_sql">true</property>
-        -->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
         <mapping resource="com/topcoder/web/common/model/Address.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/AlgoRating.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/AlgoRatingType.hbm.xml"/>
 
-                <mapping resource="com/topcoder/web/common/model/Answer.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Answer.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/Coder.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/CoderImage.hbm.xml"/>
@@ -60,9 +65,9 @@
         <mapping resource="com/topcoder/web/common/model/DemographicResponse.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Email.hbm.xml"/>
 
-                <mapping resource="com/topcoder/web/common/model/Event.hbm.xml"/>
-                <mapping resource="com/topcoder/web/common/model/EventRegistration.hbm.xml"/>
-                <mapping resource="com/topcoder/web/common/model/EventType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Event.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/EventRegistration.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/EventType.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/FileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Image.hbm.xml"/>
@@ -77,18 +82,18 @@
         <mapping resource="com/topcoder/web/common/model/PreferenceType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/PreferenceValue.hbm.xml"/>
 
-                <mapping resource="com/topcoder/web/common/model/Question.hbm.xml"/>
-                <mapping resource="com/topcoder/web/common/model/QuestionStyle.hbm.xml"/>
-                <mapping resource="com/topcoder/web/common/model/QuestionType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Question.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/QuestionStyle.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/QuestionType.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/RegistrationType.hbm.xml"/>
 
-                <mapping resource="com/topcoder/web/common/model/Region.hbm.xml"/>
-                <mapping resource="com/topcoder/web/common/model/RegionType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Region.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/RegionType.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/Referral.hbm.xml"/>
 
-                <mapping resource="com/topcoder/web/common/model/Response.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Response.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/Resume.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/SecretQuestion.hbm.xml"/>
@@ -97,7 +102,7 @@
         <mapping resource="com/topcoder/web/common/model/SecurityGroup.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/State.hbm.xml"/>
 
-                <mapping resource="com/topcoder/web/common/model/Survey.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/Survey.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/Team.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/TeamType.hbm.xml"/>
@@ -110,7 +115,15 @@
         <mapping resource="com/topcoder/web/common/model/VisaLetterRequest.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/tc/model/AOLAlertInfo.hbm.xml"/>
-        
+
+        <mapping resource="com/topcoder/web/common/voting/Candidate.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/CandidateProperty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/CondorcetSchulzeElection.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/ElectionStatus.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/RankBallot.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/voting/Vote.hbm.xml"/>
+
     </session-factory>
 
 </hibernate-configuration>

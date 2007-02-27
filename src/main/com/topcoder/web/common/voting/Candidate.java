@@ -1,73 +1,119 @@
 package com.topcoder.web.common.voting;
 
-import java.io.Serializable;
+import com.topcoder.web.common.model.Base;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author dok
  * @version $Revision$ $Date$
  *          Create Date: Aug 31, 2005
  */
-public class Candidate implements Comparable, Serializable {
+public class Candidate extends Base {
 
-    private String name = null;
-    private long id = 0;
+    private String name;
+    private Long id;
+    private CondorcetSchulzeElection election;
+    private Set info;
+    private Set votes;
+
+    public Candidate() {
+        info = new HashSet();
+        votes = new HashSet();
+    }
+
 
     public Candidate(String name) {
+        this();
         this.name = name;
     }
 
-    public Candidate(String name, long id) {
-        if (name == null) {
-            throw new NullPointerException("name was null");
-        }
-        this.name = name;
-        this.id = id;
+    public Set getInfo() {
+        return info;
+    }
+
+    public void setInfo(Set info) {
+        this.info = info;
+    }
+
+    public CondorcetSchulzeElection getElection() {
+        return election;
+    }
+
+    public void setElection(CondorcetSchulzeElection election) {
+        this.election = election;
     }
 
     public String getName() {
         return name;
     }
 
-    public long getId() {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public boolean equals(Object o) {
         try {
-            Candidate other = (Candidate) o;
-            if (this.getId() < 1 || other.getId() < 1) {
-                return this.getName().equals(other.getName());
+            if (o == null) {
+                return false;
             } else {
-                return this.getId() == other.getId() && this.getName().equals(other.getName());
+                Candidate other = (Candidate) o;
+                if (this.getId() == null || other.getId() == null) {
+                    return this.getName().equals(other.getName());
+                } else {
+                    return this.getId().equals(other.getId()) && this.getName().equals(other.getName());
+                }
             }
-
         } catch (ClassCastException e) {
             return false;
         }
     }
 
-    public int compareTo(Object o) {
-        if (this.equals(o)) {
-            return 0;
-        } else {
-            if (this.getId() > 0 && ((Candidate) o).getId() > 0) {
-                return new Long(this.getId()).compareTo(new Long(((Candidate) o).getId()));
-            } else {
-                return this.getName().compareTo(((Candidate) o).getName());
-            }
-        }
-    }
 
     public String toString() {
-        if (id > 0) {
-            return this.name + ":" + this.id;
-        } else {
-            return this.name;
-        }
+        return this.name + ":" + this.id;
     }
 
     public int hashCode() {
-        return (this.name + this.id).hashCode();
+        if (id == null) {
+            return this.name.hashCode();
+        } else {
+            return (this.name + this.id).hashCode();
+        }
     }
+
+    /**
+     * @return an unmodifiable set of votes for this candidate
+     */
+    public Set getVotes() {
+        return Collections.unmodifiableSet(votes);
+    }
+
+
+    /**
+     * class to sort candidates alphabetically by name, and if two are named the same,
+     * then by id.  undefined if both name and id are the same.
+     */
+    public static class IDComparator implements Comparator {
+
+        public int compare(Object o1, Object o2) {
+            Candidate c1 = (Candidate) o1;
+            Candidate c2 = (Candidate) o2;
+            int ret = c1.getName().compareTo(c2.getName());
+            return ret == 0 ? c1.getId().compareTo(c2.getId()) : ret;
+        }
+    }
+
 
 }

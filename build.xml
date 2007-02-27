@@ -80,7 +80,7 @@
         <!-- need this still cuz the new version doesn't work for everything we need -->
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
-        <pathelement location="${jars.dir}/upload.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <!--        <pathelement location="${jars.dir}/tcsUtil.jar"/>-->
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
@@ -181,7 +181,7 @@
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/utilities/**"/>
             <include name="com/topcoder/web/**"/>
-        	<include name="com/topcoder/dde/catalog/ForumCategory.java"/>
+            <include name="com/topcoder/dde/catalog/ForumCategory.java"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
@@ -206,9 +206,10 @@
             <include name="com/topcoder/web/tc/*.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
-        	<include name="com/topcoder/dde/catalog/ComponentInfo.java"/>
+            <include name="com/topcoder/dde/catalog/ComponentInfo.java"/>
+            <include name="com/topcoder/dde/catalog/Category.java"/>
             <include name="com/topcoder/dde/catalog/ComponentVersionInfo.java"/>
-        	<include name="com/topcoder/dde/catalog/ForumCategory.java"/>
+            <include name="com/topcoder/dde/catalog/ForumCategory.java"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
@@ -639,7 +640,7 @@
         <jar jarfile="${ejb_jars}/forums.jar">
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/forums/*.class"/>
-        	<zipfileset dir="${classes}" includes="com/topcoder/dde/catalog/ForumCategory.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/dde/catalog/ForumCategory.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/forums" includes="*.xml"/>
         </jar>
     </target>
@@ -731,7 +732,7 @@
                 <include name="ifxjdbc.jar"/>
                 <include name="bfograph.jar"/>
                 <include name="object_formatter.jar"/>
-                <include name="upload.jar"/>
+                <include name="file_upload.jar"/>
                 <include name="tcsUtil.jar"/>
                 <include name="fileconvert.jar"/>
                 <include name="idgenerator.jar"/>
@@ -916,7 +917,7 @@
 
     <target name="build-forums" depends="">
         <antcall target="war-forums"/>
-    	<antcall target="build-security"/>
+        <antcall target="build-security"/>
         <antcall target="package-TCJive"/>
         <antcall target="package-EJB-MessageHistoryBean"/>
         <antcall target="package-EJB-ForumsBean"/>
@@ -990,7 +991,7 @@
         <copy todir="${jboss_lib}" file="${jive.dir}/xwork.jar"/>
 
         <copy todir="${jboss_lib}" file="${jars.dir}/ifxjdbc.jar"/>
-    	<copy todir="${jboss_lib}" file="${jars.dir}/upload.jar"/>
+        <copy todir="${jboss_lib}" file="${jars.dir}/upload.jar"/>
 
         <copy todir="${jboss_conf}" file="${resources}/forums/tc/jive_init.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
@@ -1239,7 +1240,6 @@
     </target>
 
 </project>
-
 
 
 

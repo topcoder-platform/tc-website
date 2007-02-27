@@ -1,7 +1,6 @@
 package com.topcoder.web.common;
 
-import com.topcoder.servlet.request.FileUpload;
-import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.servlet.request.*;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +13,7 @@ import java.util.*;
  */
 public class MultipartRequest extends SimpleRequest {
 
-    private FileUpload file = null;
+    private FileUploadResult file = null;
     private static Logger log = Logger.getLogger(MultipartRequest.class);
 
     public MultipartRequest(HttpServletRequest request) throws IOException {
@@ -23,7 +22,19 @@ public class MultipartRequest extends SimpleRequest {
             log.debug("create file upload object");
         }
 
-        file = new FileUpload(request, false);
+        try {
+            FileUpload fu = new LocalFileUpload("com.topcoder.servlet.request.FileUpload");
+            file = fu.uploadFiles(request);
+
+        } catch (ConfigurationException e) {
+            throw new RuntimeException(e);
+        } catch (DisallowedDirectoryException e) {
+            throw new RuntimeException(e);
+        } catch (RequestParsingException e) {
+            throw new RuntimeException(e);
+        } catch (PersistenceException e) {
+            throw new RuntimeException(e);
+        }
 
         if (log.isDebugEnabled()) {
             log.debug("created file upload object");
@@ -63,43 +74,27 @@ public class MultipartRequest extends SimpleRequest {
     }
 
     public String[] getParameterValues(String name) {
-        ArrayList al = new ArrayList();
-        Iterator it = file.getParameters(name);
-        while (it.hasNext()) {
-            al.add(it.next());
-        }
-
-        String[] ret = new String[al.size()];
-        for (int i = 0; i < ret.length; i++) {
+        String[] sarr = file.getParameterValues(name);
+        for (int i = 0; i < sarr.length; i++) {
             try {
-                ret[i] = new String(((String) al.get(i)).getBytes(), request.getCharacterEncoding());
+                sarr[i] = new String(sarr[i].getBytes(), request.getCharacterEncoding());
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                ret[i] = (String) al.get(i);
+                e.printStackTrace();
             }
         }
-
-        return ret;
+        return sarr;
     }
 
     public String[] getFormFileNames() {
-        ArrayList al = new ArrayList();
-        Iterator it = file.getFormFileNames();
-        while (it.hasNext()) {
-            al.add(it.next());
-        }
-
-        String[] ret = new String[al.size()];
-        for (int i = 0; i < ret.length; i++) {
+        String[] sarr = file.getFormFileNames();
+        for (int i = 0; i < sarr.length; i++) {
             try {
-                ret[i] = new String(((String) al.get(i)).getBytes(), request.getCharacterEncoding());
+                sarr[i] = new String(sarr[i].getBytes(), request.getCharacterEncoding());
             } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-                ret[i] = (String) al.get(i);
+                e.printStackTrace();
             }
         }
-
-        return ret;
+        return sarr;
     }
 
     public UploadedFile getUploadedFile(String formFileName) {
@@ -107,40 +102,18 @@ public class MultipartRequest extends SimpleRequest {
     }
 
     public UploadedFile[] getUploadedFiles(String formFileName) {
-        ArrayList al = new ArrayList();
-        Iterator it = file.getUploadedFiles(formFileName);
-        while (it.hasNext()) {
-            al.add(it.next());
-        }
-
-        UploadedFile[] ret = new UploadedFile[al.size()];
-        for (int i = 0; i < ret.length; i++) {
-            ret[i] = (UploadedFile) al.get(i);
-        }
-
-        return ret;
+        return file.getUploadedFiles(formFileName);
     }
 
     public UploadedFile[] getAllUploadedFiles() {
-        ArrayList al = new ArrayList();
-        Iterator it = file.getAllUploadedFiles();
-        while (it.hasNext()) {
-            al.add(it.next());
-        }
-
-        UploadedFile[] ret = new UploadedFile[al.size()];
-        for (int i = 0; i < ret.length; i++) {
-            ret[i] = (UploadedFile) al.get(i);
-        }
-
-        return ret;
+        return file.getAllUploadedFiles();
     }
 
     private final class ParameterEnums implements Enumeration {
         private Iterator it;
 
-        public ParameterEnums(Iterator it) {
-            this.it = it;
+        public ParameterEnums(String[] params) {
+            this.it = Arrays.asList(params).iterator();
         }
 
         public boolean hasMoreElements() {

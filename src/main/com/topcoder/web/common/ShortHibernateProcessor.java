@@ -46,7 +46,13 @@ public abstract class ShortHibernateProcessor extends LongHibernateProcessor {
 
     public void postProcessing() throws Exception {
         log.debug("post processing called");
-        closeConversation();
+        try {
+            closeConversation();
+        } catch (Throwable e) {
+            handleException(e);
+            throw new Exception(e);
+        }
+
     }
 
 }

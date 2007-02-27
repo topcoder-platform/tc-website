@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.csf.model">
+
+    <class name="Contest" table="contest">
+        <id name="id" column="contest_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">CSF_CONTEST_SEQ</param>
+            </generator>
+        </id>
+        <property name="name" access="field"/>
+        <property name="startTime" column="start_time" access="field"/>
+        <property name="endTime" column="end_time" access="field"/>
+        <property name="forumId" column="forum_id" access="field"/>
+        <set name="config" cascade="save-update" inverse="true" access="field" outer-join="true">
+            <key column="contest_id" not-null="true"/>
+            <one-to-many class="ContestConfig"/>
+        </set>
+        <!--temp fix, order by document id ,perhaps we add a sort field to document at some point-->
+        <set name="documents" table="contest_document_xref" cascade="all" access="field" order-by="document_id">
+            <key column="contest_id" not-null="true"/>
+            <many-to-many column="document_id" class="Document"/>
+        </set>
+        <set name="prizes" table="contest_prize_xref" cascade="all" access="field" sort="natural">
+            <key column="contest_id" not-null="true"/>
+            <many-to-many column="prize_id" class="Prize"/>
+        </set>
+        <set name="fileTypes" table="contest_file_type_xref" cascade="all" access="field">
+            <key column="contest_id" not-null="true"/>
+            <many-to-many column="file_type_id" class="CSFFileType"/>
+        </set>
+        <set name="submissions" inverse="true" access="field">
+            <key column="contest_id" not-null="true"/>
+            <one-to-many class="Submission"/>
+        </set>
+        <set name="results" cascade="all" inverse="true" access="field" sort="natural">
+            <key column="contest_id" not-null="true"/>
+            <one-to-many class="ContestResult"/>
+        </set>
+        <many-to-one name="status" column="contest_status_id" class="ContestStatus" access="field"/>
+        <set name="elections" table="contest_election_xref" cascade="save-update" access="field">
+            <key column="contest_id" not-null="true"/>
+            <many-to-many column="election_id" class="com.topcoder.web.common.voting.CondorcetSchulzeElection"/>
+        </set>
+
+
+    </class>
+</hibernate-mapping>

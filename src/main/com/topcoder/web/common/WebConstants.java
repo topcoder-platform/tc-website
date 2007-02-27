@@ -16,7 +16,7 @@ public interface WebConstants {
     public static final String COMPONENT_ID = "cd";
     public static final String CONTEST_ID = "ct";
     public static final String MODULE_KEY = "module";
-    public static final String PROJECT_ID_KEY = "project_id";
+    public static final String PROJECT_ID_KEY = "pj";
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
 

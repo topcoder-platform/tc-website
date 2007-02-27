@@ -43,21 +43,14 @@ public class ViewSubmission extends BaseSubmissionDataProcessor {
             User u = factory.getUserDAO().find(new Long(getUser().getId()));
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
-                //not registered
-                StringBuffer buf = new StringBuffer(50);
-                buf.append(getSessionInfo().getServletPath());
-                buf.append("?" + Constants.MODULE_KEY + "=ViewRegistration&");
-                buf.append(Constants.CONTEST_ID + "=").append(contestId);
-                setNextPage(buf.toString());
-                setIsNextPageInContext(false);
-            } else {
-                //registered
-                setDefault(Constants.CONTEST_ID, contestId.toString());
-                setDefault(Constants.SUBMISSION_RANK, "1");
-                loadSubmissionData(u, c, cFactory.getSubmissionDAO());
-                setNextPage("/submit.jsp");
-                setIsNextPageInContext(true);
+                throw new NavigationException("User not registered for the contest");
             }
+
+            setDefault(Constants.CONTEST_ID, contestId.toString());
+            setDefault(Constants.SUBMISSION_RANK, "1");
+            loadSubmissionData(u, c, cFactory.getSubmissionDAO());
+            setNextPage("/submit.jsp");
+            setIsNextPageInContext(true);
 
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));

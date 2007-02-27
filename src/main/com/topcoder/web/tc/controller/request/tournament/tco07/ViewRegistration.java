@@ -1,16 +1,12 @@
 package com.topcoder.web.tc.controller.request.tournament.tco07;
 
-import java.util.Iterator;
-import java.util.Set;
-
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
-import com.topcoder.web.common.model.EventType;
-import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
+
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author dok, pulky
@@ -18,7 +14,7 @@ import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
  *          Create Date: Jan 16, 2007
  */
 public class ViewRegistration extends ViewRegistrationBase {
-    
+
     protected final String getEventShortDesc() {
         return "tco07" + getRequest().getParameter("ct");
     }
@@ -26,8 +22,8 @@ public class ViewRegistration extends ViewRegistrationBase {
     protected void alreadyRegisteredProcessing(EventRegistration er) {
         getRequest().setAttribute("eligible", er.isEligible());
     }
-    
-    public boolean isEligible(Event e, User u) throws Exception{
+
+    public boolean isEligible(Event e, User u) throws Exception {
         Set regTypes = u.getRegistrationTypes();
         boolean eligible = false;
         for (Iterator it = regTypes.iterator(); it.hasNext() && !eligible;) {
@@ -35,10 +31,10 @@ public class ViewRegistration extends ViewRegistrationBase {
             if (e.getType().getId().equals(EventType.ALGORITHM_TOURNAMENT_ID) ||
                     e.getType().getId().equals(EventType.COMPONENT_TOURNAMENT_ID) ||
                     e.getType().getId().equals(EventType.MARATHON_TOURNAMENT_ID)) {
-                    if (rt.getId().equals(RegistrationType.COMPETITION_ID)) {
-                        eligible = true;
-                    }
+                if (rt.getId().equals(RegistrationType.COMPETITION_ID)) {
+                    eligible = true;
                 }
+            }
             if (e.getType().getId().equals(EventType.STUDIO_TOURNAMENT_ID)) {
                 if (rt.getId().equals(RegistrationType.STUDIO_ID)) {
                     eligible = true;
@@ -53,8 +49,8 @@ public class ViewRegistration extends ViewRegistrationBase {
             throw new TCWebException("invalid ct parameter.");
         }
         super.dbProcessing();
-    }    
-    
+    }
+
     protected void setNextPage(Event e, User u) {
         getRequest().setAttribute("ct", getRequest().getParameter("ct"));
         EventRegistration er = u.getEventRegistration(e);
@@ -63,7 +59,7 @@ public class ViewRegistration extends ViewRegistrationBase {
             setNextPage("/tournaments/tco07/termsSuccess.jsp");
         } else {
             setNextPage("/tournaments/tco07/terms.jsp");
-        }        
+        }
         setIsNextPageInContext(true);
     }
 }

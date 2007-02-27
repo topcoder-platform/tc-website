@@ -1,5 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.servlet.request.FileDoesNotExistException;
+import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.MultipartRequest;
@@ -370,16 +372,20 @@ abstract class Base extends LongHibernateProcessor {
 
             if (file != null && file.getContentType() != null) {
                 log.debug("FOUND RESUME");
-                byte[] fileBytes = new byte[(int) file.getSize()];
                 try {
+                    byte[] fileBytes = new byte[(int) file.getSize()];
                     file.getInputStream().read(fileBytes);
+                    ret.put(Constants.FILE, fileBytes);
+                    ret.put(Constants.FILE_TYPE, file.getContentType());
+                    ret.put(Constants.FILE_NAME, file.getRemoteFileName());
                 } catch (IOException e) {
+                    throw new RuntimeException("Problem while reading file from user " + getRegUser().getId());
+                } catch (PersistenceException e) {
+                    throw new RuntimeException("Problem while reading file from user " + getRegUser().getId());
+                } catch (FileDoesNotExistException e) {
                     throw new RuntimeException("Problem while reading file from user " + getRegUser().getId());
                 }
 
-                ret.put(Constants.FILE, fileBytes);
-                ret.put(Constants.FILE_TYPE, file.getContentType());
-                ret.put(Constants.FILE_NAME, file.getRemoteFileName());
 
             }
         }

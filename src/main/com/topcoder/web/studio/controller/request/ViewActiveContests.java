@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.model.SortInfo;
 
 /**
@@ -29,6 +30,9 @@ public class ViewActiveContests extends BaseProcessor {
             r.setProperty(DataAccessConstants.SORT_QUERY, "active_contests");
         }
 
+        if (userLoggedIn()) {
+            r.setProperty(WebConstants.USER_ID, getUser().getId() + "");
+        }
         getRequest().setAttribute("contests", da.getData(r).get("active_contests"));
 
         SortInfo s = new SortInfo();

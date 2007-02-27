@@ -58,9 +58,6 @@ abstract class BaseLogoSubmit extends Base {
                 if (submissionCount >= getMaxSubmissions()) {
                     throw new NavigationException("Sorry, you can not submit again, you have already submitted " + getMaxSubmissions() + " times.");
                 } else if (file != null) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("got file " + file.getFile());
-                    }
                     StringBuffer fileName = new StringBuffer(100);
                     fileName.append(getUser().getId()).append("_");
                     Calendar cal = Calendar.getInstance();

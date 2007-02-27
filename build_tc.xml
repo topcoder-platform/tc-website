@@ -72,7 +72,7 @@
         <!-- need this still cuz the new version doesn't work for everything we need -->
         <pathelement location="${jars.dir}/idgenerator.jar"/>
         <pathelement location="${jars.dir}/tcs/db_connection_factory/1.0/db_connection_factory.jar"/>
-        <pathelement location="${jars.dir}/upload.jar"/>
+        <pathelement location="${jars.dir}/tcs/file_upload/2.0/file_upload.jar"/>
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
         <!--required for aol alerts only -->
@@ -146,6 +146,7 @@
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/utilities/**"/>
             <include name="com/topcoder/web/**"/>
+            <exclude name="com/topcoder/web/csf/**"/>
         </javac>
         <antcall target="jar_common"/>
     </target>
@@ -881,6 +882,7 @@
                classpathref="class.path"
                deprecation="${deprecation}"
                debug="${debug}">
+            <exclude name="com/topcoder/web/csf/**"/>
         </javac>
     </target>
 
@@ -921,14 +923,14 @@
         </junitreport>
     </target>
 
-    <target name="run_dao_tests" depends="compile_tests" description="run junit tests">
+    <target name="run_voting_tests" depends="compile_tests" description="run junit tests">
         <junit printsummary="${junitsummary}" fork="yes">
             <classpath>
                 <pathelement path="${class.path}"/>
                 <pathelement location="resources/reg/"/>
             </classpath>
             <formatter type="xml"/>
-            <test name="com.topcoder.web.common.dao.DAOTests" todir="${testclasses}"/>
+            <test name="com.topcoder.web.common.voting.VotingTests" todir="${testclasses}"/>
         </junit>
 
         <junitreport todir="${testclasses}">
@@ -938,7 +940,6 @@
             <report format="frames" todir="${testclasses}/html"/>
         </junitreport>
     </target>
-
 
     <target name="deploy-admin" depends="compile">
         <jar jarfile="${ejb_jars}/ContestAdminServices.jar">
@@ -1324,7 +1325,6 @@
 
 
 </project>
-
 
 
 
