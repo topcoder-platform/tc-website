@@ -51,7 +51,7 @@ public interface LocalDDEComponentInquiry extends EJBLocalObject {
      *
      * @return  the component's phase at time of inquiry
      */
-    long getPhase();
+    Long getPhase();
 
     /**
      * Gets the component's version at time of inquiry
