@@ -9,6 +9,8 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.ObjectInput;
@@ -218,10 +220,63 @@ public class Submit extends BaseSubmissionDataProcessor {
         call.addParameter("filename", org.apache.axis.Constants.XSD_STRING, javax.xml.rpc.ParameterMode.IN);
         call.addParameter("submissionDH", qnameAttachment, ParameterMode.IN); // Add the file.
         call.setReturnType(org.apache.axis.Constants.XSD_INT);
-        // call.
-        call.invoke(new Object[]{
-                new Long(contest.getConfig(CSFDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PROJECT_ID)).getValue()),
-                new Long(getUser().getId()), fileName, dhSource});
+        String projectId = contest.getConfig(CSFDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PROJECT_ID)).getValue();
+        User u = addSubmitterToOR(projectId, contest);
+        call.invoke(new Object[]{new Long(projectId), u.getId(), fileName, dhSource});
+
+    }
+
+    private User addSubmitterToOR(String projectId, Contest contest) throws RemoteException, MalformedURLException, ServiceException {
+
+        Service service = new Service();
+        Call call = (Call) service.createCall();
+
+        StringBuffer endPoint = new StringBuffer(100);
+        if (ApplicationServer.ENVIRONMENT == ApplicationServer.PROD) {
+            endPoint.append(Base.PROD_END_POINT);
+        } else {
+            endPoint.append(DEV_END_POINT);
+        }
+        endPoint.append("UsersService");
+        call.setTargetEndpointAddress(new URL(endPoint.toString()));
+
+        call.setOperationName(new QName("urn:UsersService", "addSubmitter"));
+        call.addParameter("projectId", org.apache.axis.Constants.XSD_LONG, javax.xml.rpc.ParameterMode.IN);
+        call.addParameter("ownerId", org.apache.axis.Constants.XSD_LONG, javax.xml.rpc.ParameterMode.IN);
+        User ret = createNewSubmitter(contest);
+        call.invoke(new Object[]{new Long(projectId), ret.getId()});
+        return ret;
+    }
+
+
+    private User createNewSubmitter(Contest c) {
+
+        CSFDAOFactory cFactory = CSFDAOUtil.getFactory();
+
+
+        UserDAO dao = DAOUtil.getFactory().getUserDAO();
+        User curr = dao.find(new Long(getUser().getId()));
+        User u = new User();
+        u.setHandle(curr.getHandle() + cFactory.getSubmissionDAO().getSubmissions(curr, c).size() + 1);
+
+        u.setPassword("");
+        u.setFirstName(curr.getFirstName());
+        u.setLastName(curr.getLastName());
+        Email a = new Email();
+        a.setPrimary(Boolean.TRUE);
+        a.setEmailTypeId(Email.TYPE_ID_PRIMARY);
+        a.setStatusId(Email.STATUS_ID_UNACTIVE);
+        a.setAddress(curr.getPrimaryEmailAddress().getAddress());
+        a.setUser(u);
+        u.addEmailAddress(a);
+        dao.saveOrUpdate(u);
+        markForCommit();
+
+        closeConversation();
+        beginCommunication();
+
+        return u;
+
 
     }
 
