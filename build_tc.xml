@@ -595,7 +595,6 @@
                 <include name="ifxjdbc.jar"/>
                 <include name="bfograph.jar"/>
                 <include name="object_formatter.jar"/>
-                <include name="upload.jar"/>
                 <include name="tcsUtil.jar"/>
                 <include name="fileconvert.jar"/>
                 <include name="idgenerator.jar"/>
@@ -613,6 +612,9 @@
             </fileset>
             <fileset dir="${jars.dir}/tcs/object_factory/2.0.1">
                 <include name="object_factory.jar"/>
+            </fileset>
+            <fileset dir="${jars.dir}/tcs/file_upload/2.0">
+                <include name="file_upload.jar"/>
             </fileset>
             <fileset dir="${jars.dir}/tcs">
                 <include name="logging_wrapper.jar"/>
