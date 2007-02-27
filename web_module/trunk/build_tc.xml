@@ -48,7 +48,7 @@
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/bfograph.jar"/>
-    	<pathelement location="${jars.dir}/activation.jar"/>
+        <pathelement location="${jars.dir}/activation.jar"/>
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -140,7 +140,7 @@
                 deprecation="${deprecation}"
                 debug="${debug}"
                 source="1.5"
-                target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">    
+                target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/ejb/**"/>
             <include name="com/topcoder/security/**"/>
@@ -921,6 +921,24 @@
         </junitreport>
     </target>
 
+    <target name="run_dao_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath>
+                <pathelement path="${class.path}"/>
+                <pathelement location="resources/reg/"/>
+            </classpath>
+            <formatter type="xml"/>
+            <test name="com.topcoder.web.common.dao.DAOTests" todir="${testclasses}"/>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
+
 
     <target name="deploy-admin" depends="compile">
         <jar jarfile="${ejb_jars}/ContestAdminServices.jar">
@@ -945,7 +963,7 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
-            </lib>            
+            </lib>
         </war>
         <antcall target="expand-admin"/>
     </target>
