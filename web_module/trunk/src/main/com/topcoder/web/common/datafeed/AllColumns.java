@@ -20,10 +20,16 @@ public class AllColumns implements RSCElement {
 
     private Set skip;
     private Map replace;
+    private String nullString = null;
     
     public AllColumns() {
+        this(null);
+    }
+
+    public AllColumns(String nullString) { 
         skip = new HashSet();
         replace = new HashMap();
+        this.nullString = nullString;
     }
 
     /**
@@ -59,6 +65,15 @@ public class AllColumns implements RSCElement {
     }
 
     /**
+     * Set the string that will be used in case a field is null.
+     * 
+     * @param nullString tring that will be used in case a field is null.
+     */
+    public void setNullString(String nullString) {
+        this.nullString = nullString;
+    }
+    
+    /**
      * Write the xml for all columns, doing the replacement and skipping of the specified columns
      */
     public void writeXML(TransformerHandler hd, ResultSetContainer rsc, ResultSetContainer.ResultSetRow row) throws Exception {
@@ -80,6 +95,8 @@ public class AllColumns implements RSCElement {
             
             if (value != null) {
                 hd.characters(value.toCharArray(), 0, value.length());
+            } else if (nullString != null) {
+                hd.characters(nullString.toCharArray(), 0, nullString.length());
             }
             
             hd.endElement("", "", name);            

@@ -36,42 +36,44 @@ public class ComponentProjectResultFeed extends Base {
             DataFeeder df = new DataFeeder("project_details");
 
             // Add general project information
-            RSCDataFeed projectInfo = new RSCDataFeed(null, "project_info", cmd, "dd_project_info");
-            AllColumns ac = new AllColumns();
+            RSCDataFeed projectInfo = new RSCDataFeed(null, "project_info", cmd, "dd_project_info"); 
+            AllColumns ac = new AllColumns("N/A");
             ac.replace(new Column("component", "component_name", "id", "component_id"));
             ac.replace(new Column("winner", "winner", "id", "winner_id"));
             ac.replace(new Column("stage", "stage", "id", "stage_id"));
             projectInfo.add(ac);
 
             df.add(projectInfo);
-
+            
             // Add reviewer information
-            RSCDataFeed reviewers = new RSCDataFeed("reviewers", "reviewer", cmd, "dd_reviewers_for_project");
-            ac = new AllColumns();
+            RSCDataFeed reviewers = new RSCDataFeed("reviewers", "reviewer", cmd, "dd_reviewers_for_project"); 
+            ac = new AllColumns("N/A");
             ac.replace(new Column("reviewer", "reviewer", "id", "reviewer_id"));
             ac.replace(new Column("review_resp", "review_resp_desc", "id", "review_resp_id"));
             reviewers.add(ac);
-
+            
             df.add(reviewers);
 
             // Add submission information
-            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_submissions");
+            RSCDataFeed submissions = new RSCDataFeed("submissions", "submission", cmd, "dd_submissions"); 
             ac = new AllColumns();
             ac.replace(new Column("coder", "coder", "id", "user_id"));
-/*            ac.replace(new Column("score1", "score1", "review_resp_id", "score1_review_resp_id"));
-            ac.replace(new Column("score2", "score2", "review_resp_id", "score2_review_resp_id"));
-            ac.replace(new Column("score3", "score3", "review_resp_id", "score3_review_resp_id"));
-*/
+           
             submissions.add(ac);
-          
+            
             Request reqReview = new Request();
             reqReview.setContentHandle("dd_project_review");
-            reqReview.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
+            reqReview.setProperty(Constants.PROJECT_ID,  "22539555");
 
             RSCParamDataFeed reviews = new RSCParamDataFeed("reviews", "review", da, reqReview, "dd_project_review");
             reviews.addParam("cr", "user_id");
 
+            ac = new AllColumns("N/A");           
+            ac.replace(new Column("reviewer", "reviewer_handle", "id", "reviewer_id"));
+            ac.replace(new Column("reviewer_role", "review_resp_desc", "id", "review_resp_id"));
+            reviews.add(ac);
             submissions.addChild(reviews);
+
             df.add(submissions);
             
             getResponse().setContentType("text/xml");
@@ -85,39 +87,4 @@ public class ComponentProjectResultFeed extends Base {
             throw new PermissionException(getUser(), resource);
         }
     }
-
-//project
-    //project_id
-    //component name
-    //phase desc
-    //category desc
-    //posting date
-    //submit by date
-    //complete date
-    //rating date
-    //status desc
-    //version text
-    //num submissions passed review
-    //num registrations
-    //num submissions
-    //num_valid submissions
-    //winner id
-    //winner handle
-    //stage
-    //digital run?
-
-    //submission
-    //handle
-    //user id
-    //
-    //review
-    //reviewer
-    //user id
-    //num appeals
-    //num successful appeals
-    //final score
-    //raw score
-    //reviewer responsibility
-
-
 }
