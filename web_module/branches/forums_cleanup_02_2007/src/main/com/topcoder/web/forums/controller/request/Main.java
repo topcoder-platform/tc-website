@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class Main extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
         super.businessProcessing();
-        
+        log.info("*** start Main");
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
@@ -34,12 +34,7 @@ public class Main extends ForumsProcessor {
         Iterator itCategories = forumFactory.getRootForumCategory().getCategories();
         ArrayList categoryList = new ArrayList();   // forums diplayed on main page
         
-        ForumsLocal forumsBean = null;
-        try {
-            forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
-        } catch (Exception e) {
-            log.error(e);
-        }
+        ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
         
         while (itCategories.hasNext()) {
             ForumCategory category = (ForumCategory)itCategories.next();
@@ -115,5 +110,6 @@ public class Main extends ForumsProcessor {
         	setNextPage("/main.jsp");
         	setIsNextPageInContext(true);
         //}
+            log.info("*** end Main");
 	}
 }

@@ -12,8 +12,6 @@ import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.stats.ViewCountManager;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.forums.Forums;
@@ -24,7 +22,6 @@ import com.topcoder.web.forums.model.Paging;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.util.Iterator;
-import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -73,16 +70,7 @@ public class Thread extends ForumsProcessor {
         Paginator paginator = new Paginator(paging);
         Iterator itMessages = null;
 
-        MessageHistory historyBean = null;
-        InitialContext ctx = null;
-        try {
-            ctx = TCContext.getInitial();
-            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
-        } catch (Exception e) {
-            log.error(e);
-        } finally {
-            BaseProcessor.close(ctx);
-        }
+        MessageHistory historyBean = (MessageHistory)createEJB(getInitialContext(), MessageHistory.class);
         
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
