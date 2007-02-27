@@ -59,7 +59,7 @@ public class Vote extends Base {
      * @return String
      */
     public String toString() {
-        if (id.getCandidate() == null) {
+        if (id.getCandidate() != null) {
             return "[" + id.getCandidate().getId() + " " + id.getCandidate().getName() + " : " + rank + "]";
         } else {
             return "[unknown candidate: " + rank + "]";
