@@ -5,7 +5,7 @@
                 The "default" property refers to a configured connection.
             -->
             <Property name="default">
-                <Value>TestingConnection</Value>
+                <Value>DefaultJNDI</Value>
             </Property>
 
             <!--
@@ -13,27 +13,29 @@
                 from a JDBC URL
             -->
             <!-- for testing -->
-            <Property name="TestingConnection">
-                <Property name="producer">
-                    <Value>com.topcoder.db.connectionfactory.producers.JDBCConnectionProducer</Value>
-                </Property>
-                <Property name="parameters">
-                    <Property name="jdbc_driver">
-                        <Value>com.informix.jdbc.IfxDriver</Value>
-                    </Property>
-                    <Property name="jdbc_url">
-                        <Value>
-                            jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm
-                        </Value>
-                    </Property>
-                    <Property name="user">
-                        <Value>coder</Value>
-                    </Property>
-                    <Property name="password">
-                        <Value>altec</Value>
-                    </Property>
-                </Property>
-            </Property>
+            <!--
+                        <Property name="TestingConnection">
+                            <Property name="producer">
+                                <Value>com.topcoder.db.connectionfactory.producers.JDBCConnectionProducer</Value>
+                            </Property>
+                            <Property name="parameters">
+                                <Property name="jdbc_driver">
+                                    <Value>com.informix.jdbc.IfxDriver</Value>
+                                </Property>
+                                <Property name="jdbc_url">
+                                    <Value>
+                                        jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm
+                                    </Value>
+                                </Property>
+                                <Property name="user">
+                                    <Value>coder</Value>
+                                </Property>
+                                <Property name="password">
+                                    <Value>altec</Value>
+                                </Property>
+                            </Property>
+                        </Property>
+            -->
 
             <!--
                 The following property configures the ConnectionProducer obtaining the Connections
@@ -74,7 +76,7 @@
                 object located through JNDI. This producer is provided only with a JNDI name to be used to lookup for the
                 DataSource. Therefore a default JNDI context is used to locate the DataSource.
             -->
-            <!--        <Property name="DefaultJNDI">
+            <Property name="DefaultJNDI">
                 <Property name="producer">
                     <Value>com.topcoder.db.connectionfactory.producers.JNDIConnectionProducer</Value>
                 </Property>
@@ -83,7 +85,7 @@
                         <Value>java:OLTP</Value>
                     </Property>
                 </Property>
-            </Property>-->
+            </Property>
 
             <!--
                 The following property configures the ConnectionProducer obtaining the Connections from a DataSource
