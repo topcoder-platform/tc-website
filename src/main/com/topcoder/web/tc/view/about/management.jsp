@@ -134,7 +134,7 @@ TopCoder's accomplished management team includes some of the most successful pro
 <div class="bioEven">
     <div class="photo"><img src="/i/about/management/mmorris.jpg" alt="" /></div>
     <h2>Michael Morris</h2>
-    <h3><i>Vice President of Software Development</i></h3>
+    <h3><i>Senior Vice President</i></h3>
     
     <p>
     Joining TopCoder Software in 2002 as the Vice President of Software Development, Michael P. Morris brings a decade of technology experience, across vertical markets, to drive the company's technology vision, product development and virtual project teams. Morris' commitment to the proper design and development of software applications has elevated him to "guru" status among programmers, managers and chief technology officers alike. His specialties - Component Based Development and Web services - have earned him published articles, industry recognition and speaking engagements at acclaimed institutions, such as Java One and Harvard University. 
@@ -170,7 +170,7 @@ TopCoder's accomplished management team includes some of the most successful pro
 <div class="bioOdd">
     <div class="photo"><img src="/i/about/management/gtsipolitis.jpg" alt="" /></div>
     <h2>George Tsipolitis</h2>
-    <h3><i>Vice President of Software Development, Events and Employment Services</i></h3>
+    <h3><i>Senior Vice President</i></h3>
     
     <p>
     George Tsipolitis manages TopCoder's Software Development, Events, and Employment Services divisions which use competition to build software applications for companies and to match the brightest software engineers in the world with companies looking to market to and attract top talent. 
