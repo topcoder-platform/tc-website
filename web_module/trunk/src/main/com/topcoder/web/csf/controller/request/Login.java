@@ -1,5 +1,8 @@
 package com.topcoder.web.csf.controller.request;
 
+import Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Locator;
+import Microsoft.ConnectedServicesSandbox._2006._11.SandboxApi.Sandbox10Soap;
+import Microsoft.ConnectedServicesSandbox._2006._11.UserProfileManager.holders.SandboxUserHolder;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -13,9 +16,12 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
 
 import javax.naming.Context;
+import javax.xml.rpc.holders.BooleanHolder;
+import java.rmi.RemoteException;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -121,32 +127,7 @@ public class Login extends ShortHibernateProcessor {
 
     }
 
-/*    private boolean isAdmin(String handle) throws NamingException, CreateException, RemoteException, GeneralSecurityException {
-        Context ctx = null;
-        try {
-            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote pmr = pmrh.create();
-            log.debug("create the security user");
-            UserPrincipal up = pmr.getUser(handle, DBMS.CSF_DATASOURCE_NAME);
-            TCSubject sub = pmr.getUserSubject(up.getId(), DBMS.CSF_DATASOURCE_NAME);
-            Set roles = sub.getPrincipals();
-            RolePrincipal rp;
-            for (Iterator it = roles.iterator(); it.hasNext();) {
-                rp = (RolePrincipal) it.next();
-                log.debug(rp.getName());
-                if ("CSF Contest Administrator".equals(rp.getName())) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (NoSuchUserException e) {
-            return false;
-        } finally {
-            close(ctx);
-        }
-    }*/
-
+    /*
     private void loginUser(String username, String password) throws LoginException, TCWebException {
         UserDAO dao = DAOUtil.getFactory().getUserDAO();
         User u = dao.find(username, false);
@@ -163,9 +144,8 @@ public class Login extends ShortHibernateProcessor {
         }
         log.debug("on successful login, going to " + getNextPage());
         getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
-    }
+    }*/
 
-/*
     private void loginUser(String username, String password) throws LoginException, TCWebException {
         BooleanHolder res = new BooleanHolder();
         SandboxUserHolder user = new SandboxUserHolder();
@@ -228,6 +208,5 @@ public class Login extends ShortHibernateProcessor {
         log.debug("on successful login, going to " + getNextPage());
         getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
     }
-*/
 
 }
