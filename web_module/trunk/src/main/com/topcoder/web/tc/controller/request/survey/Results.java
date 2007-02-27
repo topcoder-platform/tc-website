@@ -118,6 +118,9 @@ public class Results extends SurveyData {
             Vote v;
             //create the ballots/votes and add them to the election
             for (Iterator it = rsc.iterator(); it.hasNext();) {
+                if (log.isDebugEnabled()) {
+                    log.debug("user : " + lastUserId);
+                }
                 curr = (ResultSetContainer.ResultSetRow) it.next();
                 if (lastUserId != curr.getLongItem("user_id")) {
                     if (ballot != null) {
