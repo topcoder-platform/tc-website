@@ -8,6 +8,7 @@ import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.voting.*;
 import com.topcoder.web.tc.Constants;
 
@@ -116,6 +117,7 @@ public class Results extends SurveyData {
             long lastUserId = -1;
             RankBallot ballot = null;
             Vote v;
+            User u;
             //create the ballots/votes and add them to the election
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 curr = (ResultSetContainer.ResultSetRow) it.next();
@@ -130,6 +132,9 @@ public class Results extends SurveyData {
                         election.getBallots().add(ballot);
                     }
                     ballot = new RankBallot();
+                    u = new User();
+                    u.setId(new Long(curr.getLongItem("user_id")));
+                    ballot.setUser(u);
                 }
                 v = new Vote();
                 v.getId().setCandidate((Candidate) map.get(new Long(curr.getLongItem("question_id"))));
