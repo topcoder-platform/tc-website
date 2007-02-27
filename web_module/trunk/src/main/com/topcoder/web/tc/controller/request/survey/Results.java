@@ -1,11 +1,5 @@
 package com.topcoder.web.tc.controller.request.survey;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -14,12 +8,10 @@ import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.voting.Candidate;
-import com.topcoder.web.common.voting.CondorcetSchulzeElection;
-import com.topcoder.web.common.voting.CondorcetSchulzeResults;
-import com.topcoder.web.common.voting.RankBallot;
-import com.topcoder.web.common.voting.Vote;
+import com.topcoder.web.common.voting.*;
 import com.topcoder.web.tc.Constants;
+
+import java.util.*;
 
 public class Results extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
@@ -60,7 +52,7 @@ public class Results extends SurveyData {
                 responseRequest.setProperty("cr", String.valueOf(getUser().getId()));
             }
             ret.put(new Long(q.getId()), (ResultSetContainer) dataAccess.getData(responseRequest).get("response_info"));
-        }        
+        }
         return ret;
     }
 
@@ -116,13 +108,14 @@ public class Results extends SurveyData {
             //bunch of Candidates objects when we create the votes
             HashMap map = new HashMap();
             for (int i = 0; i < candidates.length; i++) {
-                map.put(new Long(candidates[i].getId()), candidates[i]);
+                map.put(candidates[i].getId(), candidates[i]);
             }
 
             CondorcetSchulzeElection election = new CondorcetSchulzeElection();
             ResultSetContainer.ResultSetRow curr;
             long lastUserId = 0;
             RankBallot ballot = null;
+            Vote v;
             //create the ballots/votes and add them to the election
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 curr = (ResultSetContainer.ResultSetRow) it.next();
@@ -131,19 +124,22 @@ public class Results extends SurveyData {
                         if (log.isDebugEnabled()) {
                             log.debug("add balot: " + ballot.toString());
                         }
-                        election.addBalot(ballot);
+                        election.getBallots().add(ballot);
                     }
-                    ballot = new RankBallot(candidates);
+                    ballot = new RankBallot();
                 }
-                ballot.add(new Vote((Candidate) map.get(new Long(curr.getLongItem("question_id"))),
-                        Integer.parseInt(curr.getStringItem("answer_text"))));
+                v = new Vote();
+                v.getId().setCandidate((Candidate) map.get(new Long(curr.getLongItem("question_id"))));
+                v.setRank(new Integer(curr.getStringItem("answer_text")));
+                v.getId().setBallot(ballot);
+                ballot.getVotes().add(v);
                 lastUserId = curr.getLongItem("user_id");
             }
             if (ballot != null) {
                 if (log.isDebugEnabled()) {
                     log.debug("add balot: " + ballot.toString());
                 }
-                election.addBalot(ballot);
+                election.getBallots().add(ballot);
             }
             if (log.isDebugEnabled()) {
                 log.debug("election: " + election.getSumMatrix().toString());
@@ -166,7 +162,7 @@ public class Results extends SurveyData {
         Question q;
         for (int i = 0; i < questionInfo.size(); i++) {
             q = (Question) questionInfo.get(i);
-            ret[i] = new Candidate(q.getText(), q.getId());
+            ret[i] = new Candidate(q.getText());
         }
         return ret;
     }
