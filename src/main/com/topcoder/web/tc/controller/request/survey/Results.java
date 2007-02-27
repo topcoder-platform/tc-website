@@ -114,6 +114,9 @@ public class Results extends SurveyData {
 
             CondorcetSchulzeElection election = new CondorcetSchulzeElection();
             for (int i = 0; i < candidates.length; i++) {
+                if (log.isDebugEnabled()) {
+                    log.debug("i " + i + " " + candidates[i].toString());
+                }
                 election.getCandidates().add(candidates[i]);
             }
 
@@ -131,7 +134,7 @@ public class Results extends SurveyData {
                 if (lastUserId != curr.getLongItem("user_id")) {
                     if (ballot != null) {
                         if (log.isDebugEnabled()) {
-                            log.debug("add balot: " + ballot.toString());
+                            log.debug("add ballot: " + ballot.toString());
                         }
                         election.getBallots().add(ballot);
                     }
@@ -176,6 +179,7 @@ public class Results extends SurveyData {
         for (int i = 0; i < questionInfo.size(); i++) {
             q = (Question) questionInfo.get(i);
             ret[i] = new Candidate(q.getText());
+            ret[i].setId(new Long(q.getId()));
         }
         return ret;
     }
