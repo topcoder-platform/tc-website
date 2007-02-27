@@ -312,8 +312,10 @@
         <copy todir="${jboss_conf}/com/topcoder/db/connectionfactory/"
               file="${resources}/com/topcoder/db/connectionfactory/DBConnectionFactoryImpl.xml"/>
         <copy todir="${jboss_conf}/com/topcoder/security/" file="${resources}/com/topcoder/security/Util.properties"/>
-        <copy todir="${jboss_conf}/com/topcoder/util/config/"
-              file="${resources}/com/topcoder/util/config/ConfigManager.properties" overwrite="false"/>
+        <!--
+                <copy todir="${jboss_conf}/com/topcoder/util/config/"
+                      file="${resources}/com/topcoder/util/config/ConfigManager.properties" overwrite="false"/>
+        -->
         <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
               file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
 
