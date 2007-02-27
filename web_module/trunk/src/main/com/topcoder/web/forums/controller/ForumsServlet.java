@@ -16,10 +16,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.error.RequestRateExceededException;
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.security.StudioForumsAuthentication;
-import com.topcoder.web.common.security.TCForumsAuthentication;
-import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.*;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.ejb.forums.ForumsLocalHome;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
@@ -47,7 +44,7 @@ public class ForumsServlet extends BaseServlet {
     public synchronized void init(ServletConfig config) throws ServletException {
         super.init(config);
         AUTHENTICATION_IMPLEMENTATION = config.getInitParameter("authentication_implementation");
-        
+
         // Delete orphaned attachments daily
         Thread tOrphaned = new Thread() {
             public void run() {
@@ -178,6 +175,8 @@ public class ForumsServlet extends BaseServlet {
                             handleLogin(request, response, info, ApplicationServer.SERVER_NAME);
                         } else if (authentication instanceof StudioForumsAuthentication) {
                             handleLogin(request, response, info, request.getServerName());
+                        } else if (authentication instanceof CSFForumsAuthentication) {
+                            handleLogin(request, response, info, request.getServerName());
                         }
                         return;
                     } else {
@@ -269,14 +268,14 @@ public class ForumsServlet extends BaseServlet {
     }
 
     private ForumsLocal getForumsBean() {
-    	ForumsLocal forumsBean = null;
+        ForumsLocal forumsBean = null;
         try {
             Context context = TCContext.getInitial();
-    		ForumsLocalHome forumsLocalHome = (ForumsLocalHome) context.lookup(ForumsLocalHome.EJB_REF_NAME);
-    		forumsBean = forumsLocalHome.create();
-    	} catch (Exception e) { 
-    		log.error(e);
-    	}
+            ForumsLocalHome forumsLocalHome = (ForumsLocalHome) context.lookup(ForumsLocalHome.EJB_REF_NAME);
+            forumsBean = forumsLocalHome.create();
+        } catch (Exception e) {
+            log.error(e);
+        }
         return forumsBean;
     }
 }

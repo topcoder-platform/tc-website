@@ -168,7 +168,7 @@
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
                 <include name="lib/jars/jive/**"/>
-            	<include name="lib/jars/upload.jar"/>
+                <include name="lib/jars/upload.jar"/>
                 <include name="build/ears/security.ear"/>
             </fileset>
         </jar>
@@ -248,6 +248,41 @@
         </jar>
 
     </target>
+
+    <target name="package-csf" depends="">
+
+        <delete dir="build"/>
+        <delete file="csf.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_csf.xml"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP src"/>
+        </exec>
+
+        <ant antfile="build_csf.xml" target="deploy-csf"/>
+        <ant antfile="build_csf.xml" target="build-security"/>
+
+        <jar destfile="csf.jar" update="true">
+            <fileset dir=".">
+                <include name="build/ejb_jars/*.jar"/>
+                <include name="build/wars/*.war"/>
+                <include name="build/ears/*.ear"/>
+                <include name="resources/csf/**"/>
+                <include name="resources/forums/filter/**"/>
+                <include name="resources/forums/csf/**"/>
+                <include name="resources/CSF.properties"/>
+                <include name="move.xml"/>
+                <include name="build_csf.xml"/>
+                <include name="lib/bin/*.jar"/>
+            </fileset>
+        </jar>
+
+    </target>
+
 
     <target name="deploy-techassess" depends="">
         <!-- create backup -->
