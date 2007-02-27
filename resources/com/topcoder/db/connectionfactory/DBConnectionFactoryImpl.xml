@@ -1,4 +1,4 @@
-<CMConfig>
+<CMConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\tcs\Components\Configuration Manager\web\doc\CM v2 Schema.xsd" version="v2">
     <Config name="com.topcoder.db.connectionfactory.DBConnectionFactoryImpl">
         <Property name="connections">
             <!--
@@ -23,7 +23,8 @@
                     </Property>
                     <Property name="jdbc_url">
                         <Value>
-                            jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</Value>
+                            jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm
+                        </Value>
                     </Property>
                     <Property name="user">
                         <Value>coder</Value>
