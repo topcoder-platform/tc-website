@@ -70,7 +70,11 @@ public class RankBallot extends Base {
      */
     public String toString() {
         StringBuffer buf = new StringBuffer(votes.size() * 20);
-        buf.append(user.getId()).append(":").append(user.getHandle());
+        if (user != null) {
+            buf.append(user.getId()).append(":").append(user.getHandle());
+        } else {
+            buf.append("unknown user");
+        }
         for (Iterator it = votes.iterator(); it.hasNext();) {
             buf.append(it.next().toString());
         }
