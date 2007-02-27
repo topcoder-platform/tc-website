@@ -20,13 +20,13 @@ public class RankBallot extends Base {
     private Set votes;
 
     public RankBallot() {
-
+        this.votes = new HashSet();
     }
 
     public RankBallot(CondorcetSchulzeElection election, User user) {
+        this();
         this.election = election;
         this.user = user;
-        this.votes = new HashSet();
     }
 
 
