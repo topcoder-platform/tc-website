@@ -1035,7 +1035,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             } else {
                 rating = 0;
             }
-            if (rs.getLong(3) == 14) {
+
             registerInquiry(userId, componentId, rating, userId, comments, true, projectCategory == 14 ? null : new Long(phase), version, projectId);
 
 
