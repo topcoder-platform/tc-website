@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.common.voting.Candidate" %>
 <%@ page import="com.topcoder.web.common.voting.CondorcetSchulzeResults" %>
 <%@ page import="java.util.StringTokenizer" %>
 <%@ page language="java" %>
@@ -82,78 +83,89 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 
-<div class="maxWidthBody">
+    <div class="maxWidthBody">
 
-            <jsp:include page="../page_title.jsp" >
+        <jsp:include page="../page_title.jsp">
             <jsp:param name="image" value="surveys"/>
             <jsp:param name="title" value="Results"/>
-            </jsp:include>
+        </jsp:include>
 
-            <div align="right"><a href="/tc?module=SurveyList" class="bcLink">Archive</a></div>
+        <div align="right"><a href="/tc?module=SurveyList" class="bcLink">Archive</a></div>
 
-            <% if (surveyInfo.getText() != null) { %>
-            <h3 align="left" class="bodyTitle"><jsp:getProperty name="surveyInfo" property="text"/></h3>
-            <% } %>
+        <% if (surveyInfo.getText() != null) { %>
+        <h3 align="left" class="bodyTitle">
+            <jsp:getProperty name="surveyInfo" property="text"/>
+        </h3>
+        <% } %>
 
-            <br><br>
+        <br><br>
 
-            <table border="0" cellpadding="0" cellspacing="0" class="bodyText" align="center">
-                <tr>
-                    <td style="padding-right: 10px;"><b>Rank</b></td>
-                    <td><b>Candidate</b></td>
-                </tr>
-                <tc-webtag:listIterator list="<%=results.getResults()%>" id="result"
-                                        type="com.topcoder.web.common.voting.RankedResult">
-                    <tr>
-                        <td valign="top">
-                            <jsp:getProperty name="result" property="rank"/>
-                        </td>
-                        <tc-webtag:useBean id="candidate" name="result" type="com.topcoder.web.common.voting.Candidate"
-                                           toScope="page" property="candidate"/>
-                        <td valign="top" align="left">
-                                    ${candidate.name}
-                                    <%--
-                                                                    <img src="${candidate.name}" alt="" class="logoSmall" id="popper${candidate.id}"
-                                                                         onmouseover="popUp(this.id,'pop${candidate.id}')" onmouseout="popHide()"/>
-
-                                                                    <div id="pop${candidate.id}" class="popUp"><img src="${candidate.name}"/></div>
-                                    --%>
-                        </td>
-                    </tr>
-                </tc-webtag:listIterator>
-            </table>
-            <br><br>
-
-            <p>
-                When calculating the winner in this type of election, one can organize the data into a matrix.
-                You can see that matrix here. Each cell (row,col) indicates how many times row was preferred over col.
-                If row beat col, the cell will be red.
-            </p>
-            <table border="0" cellpadding="0" cellspacing="0" class="formFrame" align="center">
-                <% int size = results.getSumMatrix().getCandidates().length;
-                %> <tr><td></td> <%
-                for (int i = 0; i < size; i++) {
-            %><td valign="top" style="padding:6px;"><%=trimPopup(results.getSumMatrix().getCandidates()[i].getName())%></td><%
-                } %>
+        <table border="0" cellpadding="0" cellspacing="0" class="bodyText" align="center">
+            <tr>
+                <td style="padding-right: 10px;"><b>Rank</b></td>
+                <td><b>Candidate</b></td>
             </tr>
-                <% for (int i = 0; i < size; i++) {%>
-                <tr><tr><td valign="top" style="padding:6px;"><%=trimPopup(results.getSumMatrix().getCandidates()[i].getName())%></td>
-                    <%for (int j = 0; j < size; j++) {%>
-                    <td class="bodyText" align="center">
-                        <%if (results.getSumMatrix().getValue(i, j) >= 0) {%>
-                        <% if (results.getSumMatrix().getValue(i, j) > results.getSumMatrix().getValue(j, i)) { %>
-                        <span class="bigRed"><%=results.getSumMatrix().getValue(i, j)%></span>
-                        <% } else { %>
-                        <%=results.getSumMatrix().getValue(i, j)%>
-                        <% } %>
-                        <%}%>
+            <tc-webtag:listIterator list="<%=results.getResults()%>" id="result"
+                                    type="com.topcoder.web.common.voting.RankedResult">
+                <tr>
+                    <td valign="top">
+                        <jsp:getProperty name="result" property="rank"/>
                     </td>
-                    <% } %>
-                </tr>
-                <% } %>
-            </table>
+                    <tc-webtag:useBean id="candidate" name="result" type="com.topcoder.web.common.voting.Candidate"
+                                       toScope="page" property="candidate"/>
+                    <td valign="top" align="left">
+                            ${candidate.name}
+                            <%--
+                                                            <img src="${candidate.name}" alt="" class="logoSmall" id="popper${candidate.id}"
+                                                                 onmouseover="popUp(this.id,'pop${candidate.id}')" onmouseout="popHide()"/>
 
-</div>
+                                                            <div id="pop${candidate.id}" class="popUp"><img src="${candidate.name}"/></div>
+                            --%>
+                    </td>
+                </tr>
+            </tc-webtag:listIterator>
+        </table>
+        <br><br>
+
+        <p>
+            When calculating the winner in this type of election, one can organize the data into a matrix.
+            You can see that matrix here. Each cell (row,col) indicates how many times row was preferred over col.
+            If row beat col, the cell will be red.
+        </p>
+        <table border="0" cellpadding="0" cellspacing="0" class="formFrame" align="center">
+            <% int size = results.getSumMatrix().getCandidates().size();
+            %>
+            <tr>
+                <td></td>
+                <%
+                    for (int i = 0; i < size; i++) {
+                %>
+                <td valign="top" style="padding:6px;"><%=trimPopup(((Candidate) results.getSumMatrix().getCandidates().get(i)).getName())%>
+                </td>
+                <%
+                    } %>
+            </tr>
+            <% for (int i = 0; i < size; i++) {%>
+            <tr>
+            <tr>
+                <td valign="top" style="padding:6px;"><%=trimPopup(((Candidate) results.getSumMatrix().getCandidates().get(i)).getName())%>
+                </td>
+                <%for (int j = 0; j < size; j++) {%>
+                <td class="bodyText" align="center">
+                    <%if (results.getSumMatrix().getValue(i, j) >= 0) {%>
+                    <% if (results.getSumMatrix().getValue(i, j) > results.getSumMatrix().getValue(j, i)) { %>
+                    <span class="bigRed"><%=results.getSumMatrix().getValue(i, j)%></span>
+                    <% } else { %>
+                    <%=results.getSumMatrix().getValue(i, j)%>
+                    <% } %>
+                    <%}%>
+                </td>
+                <% } %>
+            </tr>
+            <% } %>
+        </table>
+
+    </div>
 </td>
 <!-- Center Column Ends -->
 
