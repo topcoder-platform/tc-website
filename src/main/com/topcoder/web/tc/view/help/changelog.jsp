@@ -51,6 +51,7 @@
         <li>Project registration code was updated so assembly projets won't interfere with component reliability.</li>
         <%--<li>Project load was fixed to get those project that weren't modified but have related rows 
             modified in at least one of these tables: resource, submission, upload, project_result.</li>--%>
+        <li>Add a data feed for component project results</li>
     </ul>
 </p>
 
