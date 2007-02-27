@@ -49,7 +49,7 @@ public class ComponentProjectResultFeed extends Base {
             RSCDataFeed reviewers = new RSCDataFeed("reviewers", "reviewer", cmd, "dd_reviewers_for_project"); 
             ac = new AllColumns("N/A");
             ac.replace(new Column("reviewer", "reviewer", "id", "reviewer_id"));
-            ac.replace(new Column("review_resp", "review_resp_desc", "id", "review_resp_id"));
+            ac.replace(new Column("reviewer_role", "review_resp_desc", "id", "review_resp_id"));
             reviewers.add(ac);
             
             df.add(reviewers);
@@ -63,7 +63,7 @@ public class ComponentProjectResultFeed extends Base {
             
             Request reqReview = new Request();
             reqReview.setContentHandle("dd_project_review");
-            reqReview.setProperty(Constants.PROJECT_ID,  "22539555");
+            reqReview.setProperty(Constants.PROJECT_ID, getRequest().getParameter(Constants.PROJECT_ID));
 
             RSCParamDataFeed reviews = new RSCParamDataFeed("reviews", "review", da, reqReview, "dd_project_review");
             reviews.addParam("cr", "user_id");
