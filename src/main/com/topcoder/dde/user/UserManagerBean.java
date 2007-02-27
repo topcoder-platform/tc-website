@@ -982,7 +982,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
 
     private static final String componentInfo =
-            "select cv.component_id , cv.phase_id , cv.version " +
+            "select cv.component_id , cv.phase_id , cv.version, (select project_category_id from project where project_id = ?) as project_category_id " +
               " from project_info pi_vi, " +
               "	comp_versions cv " +
               "	where project_info_type_id = 2 " +
@@ -999,6 +999,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
         int rating = 0;
         int phase = 0;
         int version = 0;
+        int projectCategory = 0;
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1019,6 +1020,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
                 componentId = rs.getLong("component_id");
                 phase = rs.getInt("phase_id");
                 version = rs.getInt("version");
+                projectCategory = rs.getInt("project_category_id");
             } else {
                 throw new EJBException("Invalid project id specified: " + projectId);
             }
@@ -1033,8 +1035,8 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             } else {
                 rating = 0;
             }
-
-            registerInquiry(userId, componentId, rating, userId, comments, true, phase, version, projectId);
+            if (rs.getLong(3) == 14) {
+            registerInquiry(userId, componentId, rating, userId, comments, true, projectCategory == 14 ? null : new Long(phase), version, projectId);
 
 
             Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
@@ -1075,7 +1077,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
 
     public void registerInquiry(long userId, long componentId, long rating, long tcUserId,
-                                String comments, boolean agreeToTerms, long phase, long version, long projectId)
+                                String comments, boolean agreeToTerms, Long phase, long version, long projectId)
             throws DDEException, NoSuchUserException, EJBException {
         try {
             Context context = new InitialContext();

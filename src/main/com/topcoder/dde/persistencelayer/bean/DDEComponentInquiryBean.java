@@ -112,14 +112,14 @@ public abstract class DDEComponentInquiryBean extends DDEBaseEntityBean {
      *
      * @return  the component's phase at time of inquiry
      */
-    public abstract long getPhase();
+    public abstract Long getPhase();
 
     /**
      * Sets the component's phase at time of inquiry
      *
      * @param phase the component's phase at time of inquiry
      */
-    public abstract void setPhase(long phase);
+    public abstract void setPhase(Long phase);
 
     /**
      * Gets the component's version at time of inquiry
@@ -150,7 +150,7 @@ public abstract class DDEComponentInquiryBean extends DDEBaseEntityBean {
      * @return the entity bean's primary key (should be null for CMP bean implementations).
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    public Long ejbCreate(long componentId, long userId, long rating, String comments, boolean agreedToTerms, long phase, long tcUserId, long version, long projectId) throws CreateException {
+    public Long ejbCreate(long componentId, long userId, long rating, String comments, boolean agreedToTerms, Long phase, long tcUserId, long version, long projectId) throws CreateException {
         setPrimaryKey();
         setComponentId(componentId);
         setUserId(userId);
@@ -177,7 +177,7 @@ public abstract class DDEComponentInquiryBean extends DDEBaseEntityBean {
      * @param version         the component's version at time of inquiry
      *
      */
-    public void ejbPostCreate(long componentId, long userId, long rating, String comments, boolean agreedToTerms, long phase, long tcUserId, long version, long projectId) {
+    public void ejbPostCreate(long componentId, long userId, long rating, String comments, boolean agreedToTerms, Long phase, long tcUserId, long version, long projectId) {
     }
 
 }

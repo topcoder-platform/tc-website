@@ -41,7 +41,7 @@ public interface LocalDDEComponentInquiryHome extends EJBLocalHome {
      *
      * @return  the component's phase at time of inquiry
      */
-    LocalDDEComponentInquiry create(long componentId, long userId, long rating, String comments, boolean agreedToTerms, long phase, long tcUserId, long version, long projectId) throws CreateException;
+    LocalDDEComponentInquiry create(long componentId, long userId, long rating, String comments, boolean agreedToTerms, Long phase, long tcUserId, long version, long projectId) throws CreateException;
 
 
 }
