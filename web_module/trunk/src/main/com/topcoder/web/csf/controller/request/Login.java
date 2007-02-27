@@ -166,7 +166,11 @@ public class Login extends ShortHibernateProcessor {
         } catch (javax.xml.rpc.ServiceException e) {
             throw new TCWebException(e);
         } catch (RemoteException e) {
-            log.warn("Login failed " + e);
+            if (log.isDebugEnabled()) {
+                log.warn("Login failed ", e);
+            } else {
+                log.warn("Login failed " + e);
+            }
             throw new LoginException("Handle or password incorrect.");
         }
 
