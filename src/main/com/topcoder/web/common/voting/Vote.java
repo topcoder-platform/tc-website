@@ -59,7 +59,11 @@ public class Vote extends Base {
      * @return String
      */
     public String toString() {
-        return "[" + id.getCandidate().getName() + ": " + rank + "]";
+        if (id.getCandidate() == null) {
+            return "[" + id.getCandidate().getId() + " " + id.getCandidate().getName() + " : " + rank + "]";
+        } else {
+            return "[unknown candidate: " + rank + "]";
+        }
     }
 
     public static class Identifier implements Serializable, Cloneable {
