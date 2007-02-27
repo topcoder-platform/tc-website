@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class Main extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
         super.businessProcessing();
-        log.info("*** start Main");
+
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
@@ -110,6 +110,5 @@ public class Main extends ForumsProcessor {
         	setNextPage("/main.jsp");
         	setIsNextPageInContext(true);
         //}
-            log.info("*** end Main");
 	}
 }
