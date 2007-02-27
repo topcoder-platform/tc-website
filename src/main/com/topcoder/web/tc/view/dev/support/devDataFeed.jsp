@@ -110,7 +110,7 @@
     This feed provides data about the results of a design project.
     It includes the following fields:
     <ul>
-        <li>Project Information
+        <li>project information
         	<ul>
         		<li>project id</li>
         		<li>component id</li>
@@ -128,7 +128,7 @@
 		        <li>number of valid submissions</li>		        
 		        <li>number of submissions that passed review</li>	
 		        <li>winner</li>
-		        <li>Digital Run Stage</li>
+		        <li>digital run stage</li>
 		     </ul>	        
         </li>
         <li>Reviewers
@@ -149,14 +149,14 @@
         		<li>new reliability</li>
         		<li>total number of appeals</li>
         		<li>total number of successful appeals</li>
-        		<li>inquire timestamp</li>
-        		<li>submit timestamp</li>
+        		<li>inquire date</li>
+        		<li>submit date</li>
         		<li>screening score</li>
         		<li>passed screening indicator</li>
         		<li>raw score</li>
         		<li>final score</li>
-        		<li>Digital Run points</li>
-        		<li>Review Information
+        		<li>digital run points</li>
+        		<li>review information
         			<ul>
 		        		<li>reviewer id</li>
 		        		<li>reviewer name</li>
