@@ -104,19 +104,16 @@ public class Results extends SurveyData {
             ResultSetContainer rsc = (ResultSetContainer) dai.getData(r).get("condorcet_schulze_results");
 
             Candidate[] candidates = getCandidates();
+            CondorcetSchulzeElection election = new CondorcetSchulzeElection();
 
             //build a mapping for candidates so that we don't have to create a
             //bunch of Candidates objects when we create the votes
             HashMap map = new HashMap();
             for (int i = 0; i < candidates.length; i++) {
-                map.put(candidates[i].getId(), candidates[i]);
-            }
-
-            CondorcetSchulzeElection election = new CondorcetSchulzeElection();
-            for (int i = 0; i < candidates.length; i++) {
                 if (log.isDebugEnabled()) {
-                    log.debug("i " + i + " " + candidates[i].toString());
+                    log.debug("candidate : " + candidates[i].toString());
                 }
+                map.put(candidates[i].getId(), candidates[i]);
                 election.getCandidates().add(candidates[i]);
             }
 
@@ -128,9 +125,6 @@ public class Results extends SurveyData {
             //create the ballots/votes and add them to the election
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 curr = (ResultSetContainer.ResultSetRow) it.next();
-                if (log.isDebugEnabled()) {
-                    log.debug("user : " + lastUserId + " curr " + curr.getLongItem("user_id"));
-                }
                 if (lastUserId != curr.getLongItem("user_id")) {
                     if (ballot != null) {
                         if (log.isDebugEnabled()) {
