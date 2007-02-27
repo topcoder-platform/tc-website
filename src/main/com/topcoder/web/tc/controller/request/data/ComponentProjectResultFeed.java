@@ -30,7 +30,7 @@ public class ComponentProjectResultFeed extends Base {
 
         DataResource resource = new DataResource(r.getContentHandle());
         if (new TCSAuthorization(getUser()).hasPermission(resource)) {
-            DataAccessInt da = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, true);
+            DataAccessInt da = getDataAccess(DBMS.TCS_DW_DATASOURCE_NAME, false);
             CommandRunner cmd = new CommandRunner(da, r);
 
             DataFeeder df = new DataFeeder("project_details");
