@@ -52,6 +52,7 @@
         <%--<li>Project load was fixed to get those project that weren't modified but have related rows 
             modified in at least one of these tables: resource, submission, upload, project_result.</li>--%>
         <li>Add a data feed for component project results</li>
+        <li>Upgrade to Config manager 2.1.5 and File Upload 2.0</li>
     </ul>
 </p>
 
