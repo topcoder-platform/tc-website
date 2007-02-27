@@ -113,7 +113,7 @@ public class Results extends SurveyData {
 
             CondorcetSchulzeElection election = new CondorcetSchulzeElection();
             ResultSetContainer.ResultSetRow curr;
-            long lastUserId = 0;
+            long lastUserId = -1;
             RankBallot ballot = null;
             Vote v;
             //create the ballots/votes and add them to the election
