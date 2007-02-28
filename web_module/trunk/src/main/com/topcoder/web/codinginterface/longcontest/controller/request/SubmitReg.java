@@ -87,6 +87,14 @@ public class SubmitReg extends ViewReg {
             // Checks to make sure the user responed to all required questions
             checkRequiredQuestions(responses);
 
+            if (requiresInvitation(round, dai) && !isInvited(getUser().getId(), round, dai)) {
+                throw new NavigationException("Sorry, this round is by invitation only.");
+            }
+
+            if (isParallelRound(getUser().getId(), round, dai)) {
+                throw new NavigationException("Sorry, you can not register for this round, you must compete in the version of this round that you were invited to.");
+            }
+
             if (!hasErrors()) { // If the user responded to all the questions, let's go...
 
                 TransactionManager tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
@@ -105,7 +113,7 @@ public class SubmitReg extends ViewReg {
                     }
 
                     // register user for round
-                    registerUser(userID, Long.parseLong(roundID));                            
+                    registerUser(userID, Long.parseLong(roundID));
 
                     tm.commit();
                 } catch (Exception e) {
@@ -133,6 +141,36 @@ public class SubmitReg extends ViewReg {
             throw new TCWebException(e);
         }
     }
+
+
+    //check if the round requires an invitation
+    private boolean requiresInvitation(long roundId, DataAccessInt dai) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_round_information");
+        r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
+        return ((ResultSetContainer) dai.getData(r).get("long_contest_round_information")).getIntItem(0, "invitational") == 1;
+    }
+
+    //if so, check if the user is invited
+    private boolean isInvited(long userId, long roundId, DataAccessInt dai) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_check_invite_list");
+        r.setProperty(Constants.CODER_ID, String.valueOf(userId));
+        r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
+        return !((ResultSetContainer) dai.getData(r).get("long_contest_check_invite_list")).isEmpty();
+    }
+
+    //check if the round is running in parallel with a tournament version of the round
+    //and if the user is invited to the tournament round, don't let them register
+    //for this one
+    private boolean isParallelRound(long userId, long roundId, DataAccessInt dai) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("long_contest_check_parallel_round");
+        r.setProperty(Constants.CODER_ID, String.valueOf(userId));
+        r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
+        return !((ResultSetContainer) dai.getData(r).get("long_contest_check_parallel_round")).isEmpty();
+    }
+
 
     /**
      * Registers user for round
