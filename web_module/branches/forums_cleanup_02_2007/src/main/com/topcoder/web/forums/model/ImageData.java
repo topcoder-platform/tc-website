@@ -1,7 +1,6 @@
 package com.topcoder.web.forums.model;
 
-import com.topcoder.dde.catalog.Catalog;
-import com.topcoder.dde.catalog.ComponentVersionInfo;
+import com.topcoder.web.common.WebConstants;
 
 /**
  * @author mtong
@@ -34,16 +33,16 @@ public class ImageData {
     private static final String TECH_APPLICATION_TEXT = "Application";
     
     public static final long PHASE_IDS[] = {
-        ComponentVersionInfo.COLLABORATION, ComponentVersionInfo.SPECIFICATION,
-            ComponentVersionInfo.DEVELOPMENT, ComponentVersionInfo.COMPLETED
+        WebConstants.PHASE_COLLABORATION, WebConstants.PHASE_DESIGN,
+            WebConstants.PHASE_DEVELOPMENT, WebConstants.PHASE_COMPLETED
     };
     public static final String[][] PHASE_PROPERTIES = {
         {PHASE_COLLAB_ICON, PHASE_SPEC_ICON, PHASE_DEV_ICON, PHASE_COMPLETE_ICON},
         {PHASE_COLLAB_TEXT, PHASE_SPEC_TEXT, PHASE_DEV_TEXT, PHASE_COMPLETE_TEXT}
     };
     public static final long TECH_IDS[] = {
-        Catalog.JAVA_CATALOG, Catalog.JAVA_CUSTOM_CATALOG, Catalog.NET_CATALOG, Catalog.NET_CUSTOM_CATALOG,
-        Catalog.FLASH_CATALOG, Catalog.APPLICATION_CATALOG
+        WebConstants.JAVA_CATALOG, WebConstants.JAVA_CUSTOM_CATALOG, WebConstants.NET_CATALOG, 
+        WebConstants.NET_CUSTOM_CATALOG, WebConstants.FLASH_CATALOG, WebConstants.APPLICATION_CATALOG
     };
     public static final String[][] TECH_PROPERTIES = {
         {TECH_JAVA_ICON, TECH_JAVA_CUSTOM_ICON, TECH_NET_ICON, TECH_NET_CUSTOM_ICON,

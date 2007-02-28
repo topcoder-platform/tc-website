@@ -35,6 +35,9 @@ public class PreviewMessage extends ForumsProcessor {
         ForumMessage message = null;
         ForumThread thread = null;
         
+        log.info("*** subject: " + getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
+        log.info("*** body: " + getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim());
+        
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
