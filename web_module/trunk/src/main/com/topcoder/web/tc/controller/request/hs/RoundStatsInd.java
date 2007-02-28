@@ -19,7 +19,7 @@ public class RoundStatsInd extends Base {
      */
     private static String columnNames[] = {"handle", "division_placed",
          "submission_points", "total_challenge_points", "system_test_points", "final_points", 
-         "old_rating", "rating_change", "new_rating"};
+         "old_rating", "rating_change", "new_rating", "advanced"};
 
     protected void businessProcessing() throws TCWebException {
         try {

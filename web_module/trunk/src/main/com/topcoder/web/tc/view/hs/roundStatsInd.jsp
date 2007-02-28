@@ -179,7 +179,7 @@
 </div>
 
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-    <tr><td class="title" colspan="17">
+    <tr><td class="title" colspan="18">
         <div style="float:right;">
             <% if (!groupByRoom) { %>
             <a href="/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>">Group by
@@ -200,8 +200,9 @@
         <td class="headerR" rowspan="2"><A href="javascript:clickColumn(4)">System<br>Tests</td>
         <td class="headerR" rowspan="2">=</td>
 
-        <td class="headerR" rowspan="2" style="border-right:1px solid #999999;"><A href="javascript:clickColumn(5)">Point
+        <td class="headerR" rowspan="2"><A href="javascript:clickColumn(5)">Point
             <br>Total</td>
+        <td class="headerR" rowspan="1" style="border-right:1px solid #999999;"><A href="javascript:clickColumn(9)">Advanced</td>
         <td class="headerC" colspan="6">Rating</td>
     </tr>
     <tr>
@@ -222,7 +223,7 @@
             even = !even;
             if (groupByRoom && (lastRoom != resultRow.getIntItem("room_id"))) {
         %>
-        <tr><td class="title" colspan="17" style="border-top:1px solid #999999;">
+        <tr><td class="title" colspan="18" style="border-top:1px solid #999999;">
             <A href='/tc?module=HSRoomStats&rm=<%=resultRow.getIntItem("room_id")%>&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>'>
                 <rsc:item name="name" row="<%=resultRow%>"/></A></td></tr>
         <%
@@ -258,6 +259,9 @@
             </td>
             <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
                 <rsc:item name="final_points" row="<%=resultRow%>" format="0.00"/>
+            </td>
+            <td class="valueR">
+                <rsc:item name="advanced" row="<%=resultRow%>"/>
             </td>
             <td class="valueR">
                 <rsc:item name="old_rating" row="<%=resultRow%>"/>
