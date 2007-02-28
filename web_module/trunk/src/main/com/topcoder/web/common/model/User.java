@@ -420,8 +420,14 @@ public class User extends Base {
         er.setEligible(eligible);
 
         addEventRegistration(er);
-        addTerms(event.getTerms());
-        addResponse(responses);
+        
+        if (event.getTerms() != null) {
+            addTerms(event.getTerms());        
+        }
+        
+        if (responses != null) {
+            addResponse(responses);
+        }
     }
 
     public Set getBallots() {

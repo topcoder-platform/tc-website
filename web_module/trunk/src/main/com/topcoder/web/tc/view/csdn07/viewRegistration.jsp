@@ -5,11 +5,8 @@
 
 <html>
 <c:choose>
-	<c:when test="${not empty notElegible}">
-		You're not elegible for CSDN 07
-	</c:when>
 	<c:when test="${not empty registered}">
-		You're already registered for CSDN 07	
+		You're registered for CSDN 07	
 	</c:when>
 	<c:otherwise>
 		<a href="/tc?module=CSDN07SubmitRegistration">Click here to register in CSDN 07</a>
