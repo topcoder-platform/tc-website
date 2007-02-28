@@ -58,6 +58,22 @@
             <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
             <img src="/images/headCustomers.gif" alt="Customers" width="545" height="32" border="0" /><br>
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Featured Customer</td></tr></table>
+<!-- AOL begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/aol_logo.png" alt="AOL" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">AOL and its subsidiaries operate a leading network of Web brands and the largest Internet access subscription service in the United States. Web brands include the AOL.com&#174; website, AIM&#174;, MapQuest&#174; and Netscape&#174;. AOL offers a range of digital services in the areas of education, safety and security, communications and music. The company also has operations in Europe and Canada. AOL LLC is a majority-owned subsidiary of Time Warner Inc. and is based in Dulles, Virginia.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://developer.aol.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- AOL ends -->
+
+             <hr width="100%" size="1px" noshade>
+            <br><br>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Case Studies</td></tr></table>
+
 <!-- ABB begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
@@ -72,8 +88,7 @@
 <!-- ABB ends -->
 
              <hr width="100%" size="1px" noshade>
-            <br><br>
-            <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Case Studies</td></tr></table>
+			
 <!-- financial institution begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
@@ -136,20 +151,6 @@
             <br><br>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Other Customers</td></tr></table>
-<!-- AOL begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/aol_logo.png" alt="AOL" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">AOL and its subsidiaries operate a leading network of Web brands and the largest Internet access subscription service in the United States. Web brands include the AOL.com&#174; website, AIM&#174;, MapQuest&#174; and Netscape&#174;. AOL offers a range of digital services in the areas of education, safety and security, communications and music. The company also has operations in Europe and Canada. AOL LLC is a majority-owned subsidiary of Time Warner Inc. and is based in Dulles, Virginia.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://developer.aol.com/" refer="customer_index"/>" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- AOL ends -->
-
-             <hr width="100%" size="1px" noshade>
-
 <!-- Borders begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
@@ -273,6 +274,20 @@ ESPN ends
                 </tr>
             </table>
 <!-- Gentiva ends -->
+
+             <hr width="100%" size="1px" noshade>
+
+<!--IMS Health begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/ims_logo.gif" alt="IMS Health" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">IMS is the global source for pharmaceutical market intelligence, providing critical information, analysis and services that drive decisions and shape strategies. Just about every major pharmaceutical and biotech company in the world is a customer of IMS. The company's unique mix of experience and expertise makes it the right choice for help in optimizing portfolios, ensuring successful launches, managing brands, and improving the effectiveness of sales teams. A key component of the company's market intelligence is its ability to capture and analyze detailed information on prescriptions. TopCoder is working with IMS to build an automated application that improves this process.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.imshealth.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- IMS Health ends -->
 
              <hr width="100%" size="1px" noshade>
 
