@@ -145,10 +145,7 @@ public class SubmitReg extends ViewReg {
 
     //check if the round requires an invitation
     private boolean requiresInvitation(long roundId, DataAccessInt dai) throws Exception {
-        Request r = new Request();
-        r.setContentHandle("long_contest_round_information");
-        r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
-        return ((ResultSetContainer) dai.getData(r).get("long_contest_round_information")).getIntItem(0, "invitational") == 1;
+        return getRoundInfo(roundId).getIntItem(0, "invitational") == 1;
     }
 
     //if so, check if the user is invited
