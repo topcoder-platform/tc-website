@@ -93,6 +93,22 @@ public interface WebConstants {
     public static final char[] UNACTIVE_STATI = {'2', 'U'};
     public static final char[] ACTIVE_STATI = {'1', 'A'};
     public static final int EMAIL_ACTIVE_STATUS = 1;
+    
+    /** The constant used to indicate a version is in the collaboration phase */
+    public static final long PHASE_COLLABORATION = 111;
+    /** The constant used to indicate a version is in the specification phase */
+    public static final long PHASE_DESIGN = 112;
+    /** The constant used to indicate a version is in the development phase */
+    public static final long PHASE_DEVELOPMENT = 113;
+    /** The constant used to indicate a version is complete */
+    public static final long PHASE_COMPLETED = 114;
+    
+    public static final long NET_CATALOG = 5801777;
+    public static final long JAVA_CATALOG = 5801776;
+    public static final long FLASH_CATALOG = 8459260;
+    public static final long NET_CUSTOM_CATALOG = 5801779;
+    public static final long JAVA_CUSTOM_CATALOG = 5801778;
+    public static final long APPLICATION_CATALOG = 9926572;
 
     public static final long TCS_FORUMS_ROOT_CATEGORY_ID = 22;
 }

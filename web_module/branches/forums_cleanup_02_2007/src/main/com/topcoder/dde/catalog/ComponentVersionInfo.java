@@ -12,6 +12,8 @@ package com.topcoder.dde.catalog;
 
 import java.util.Date;
 
+import com.topcoder.web.common.WebConstants;
+
 /**
  * An object that holds the attributes of a component version that are returned
  * by the component catalog. The client may modify the attributes using the
@@ -27,16 +29,16 @@ public class ComponentVersionInfo implements java.io.Serializable {
 
 
     /** The constant used to indicate a version is in the collaboration phase */
-    public static final long COLLABORATION = 111;
+    public static final long COLLABORATION = WebConstants.PHASE_COLLABORATION;
 
     /** The constant used to indicate a version is in the specification phase */
-    public static final long SPECIFICATION = 112;
+    public static final long SPECIFICATION = WebConstants.PHASE_DESIGN;
 
     /** The constant used to indicate a version is in the development phase */
-    public static final long DEVELOPMENT = 113;
+    public static final long DEVELOPMENT = WebConstants.PHASE_DEVELOPMENT;
 
     /** The constant used to indicate a version is complete */
-    public static final long COMPLETED = 114;
+    public static final long COMPLETED = WebConstants.PHASE_COMPLETED;
 
     private long versionId;
     private long version;
