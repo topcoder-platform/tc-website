@@ -40,7 +40,6 @@ import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -1315,9 +1314,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ad.setType(new AssignmentDocumentType(new Long(rsc.getLongItem(0, "assignment_document_type_id"))));
         ad.setStatus(new AssignmentDocumentStatus(new Long(rsc.getLongItem(0, "assignment_document_status_id"))));
         ad.setComponentProjectId(new Long(rsc.getLongItem(0, "component_project_id")));
-        Contest c = new Contest();
-        c.setId(new Long(rsc.getLongItem(0, "studio_contest_id")));
-        ad.setStudioContest(c);
+        ad.setStudioContestId(new Long(rsc.getLongItem(0, "studio_contest_id")));
 
         return ad;
     }
@@ -1352,7 +1349,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID) && 
-            ad.getStudioContest() == null) {
+            ad.getStudioContestId() == null) {
             throw new IllegalArgumentException("Assignment Document's studio contest cannot be null");
         }
 
@@ -1399,7 +1396,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(3, ad.getStatus().getId().longValue());
             ps.setString(4, ad.getText());
             ps.setLong(5, ad.getUser().getId().longValue());
-            ps.setLong(6, ad.getStudioContest().getId().longValue());
+            ps.setLong(6, ad.getStudioContestId().longValue());
             ps.setLong(7, ad.getComponentProjectId().longValue());
             ps.setTimestamp(8, ad.getAffirmedDate());
             ps.setTimestamp(9, ad.getExpireDate());

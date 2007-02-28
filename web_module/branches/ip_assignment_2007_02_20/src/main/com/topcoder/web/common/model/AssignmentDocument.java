@@ -13,7 +13,7 @@ public class AssignmentDocument extends Base {
     private AssignmentDocumentStatus status;
     private String text;
     private User user;
-    private Contest studioContest;
+    private Long studioContestId;
     private Long componentProjectId;
     private Timestamp affirmedDate;
     private Timestamp expireDate;
@@ -138,15 +138,15 @@ public class AssignmentDocument extends Base {
     /**
      * @return the studioContest
      */
-    public Contest getStudioContest() {
-        return studioContest;
+    public Long getStudioContestId() {
+        return studioContestId;
     }
 
     /**
      * @param studioContest the studioContest to set
      */
-    public void setStudioContest(Contest studioContest) {
-        this.studioContest = studioContest;
+    public void setStudioContestId(Long studioContestId) {
+        this.studioContestId = studioContestId;
     }
 
 }

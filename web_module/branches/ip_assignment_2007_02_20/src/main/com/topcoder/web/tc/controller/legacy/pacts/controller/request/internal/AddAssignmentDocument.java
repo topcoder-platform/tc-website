@@ -47,9 +47,7 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
                     ad.setType(new AssignmentDocumentType(new Long(getRequest().getParameter("assignment_document_type_id"))));
                     ad.setStatus(new AssignmentDocumentStatus(new Long(getRequest().getParameter("assignment_document_status_id"))));
                     ad.setComponentProjectId(new Long(1));
-                    Contest c = new Contest();
-                    c.setId(new Long(1));
-                    ad.setStudioContest(c);
+                    ad.setStudioContestId(new Long(1));
                     
                     ad = dib.addAssignmentDocument(ad);
                     log.info("add succeded: " + ad.getId());
