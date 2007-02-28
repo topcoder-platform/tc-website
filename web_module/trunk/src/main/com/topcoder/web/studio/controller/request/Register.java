@@ -38,16 +38,40 @@ public class Register extends ShortHibernateProcessor {
                 if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                     if ("on".equals(getRequest().getParameter(Constants.TERMS_AGREE))) {
 
-                        ContestRegistration cr = new ContestRegistration();
-                        cr.setContest(c);
-                        cr.setUser(u);
-                        cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(Constants.CONTEST_TERMS_OF_USE_ID)));
-                        cr.getId().setContest(c);
-                        cr.getId().setUser(u);
+                        //if contest is part of an event, and user is registered for the event, and
+                        //they are overriding the warning then allow them to register
 
-                        StudioDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
+                        boolean isApproved = false;
 
-                        markForCommit();
+                        if (c.getEvent() != null) {
+                            if (factory.getEventRegistrationDAO().find(new Long(getUser().getId()), c.getEvent().getId()) == null) {
+                                if (String.valueOf(true).equals(getRequest().getParameter(Constants.REG_CONFIRM))) {
+                                    isApproved = true;
+                                }
+                            } else {
+                                isApproved = true;
+                            }
+                        } else {
+                            isApproved = true;
+                        }
+
+                        if (isApproved) {
+                            ContestRegistration cr = new ContestRegistration();
+                            cr.setContest(c);
+                            cr.setUser(u);
+                            cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(Constants.CONTEST_TERMS_OF_USE_ID)));
+                            cr.getId().setContest(c);
+                            cr.getId().setUser(u);
+
+                            StudioDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
+
+                            markForCommit();
+                        } else {
+                            setDefault(Constants.CONTEST_ID, c.getId());
+                            setDefault(Constants.REG_CONFIRM, String.valueOf(true));
+                            setNextPage("/eventConfirm.jsp");
+                            setIsNextPageInContext(true);
+                        }
                     } else {
                         addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
                     }
