@@ -92,7 +92,7 @@
             </div>
         </td>
 <c:choose>
-<c:when test="${registered}">
+<c:when test="${registered || currentTime>contest.endTime}">
         <td style="padding: 10px 5px 10px 20px;" align="right">
         <div class="buttonIsOff" style="width: 60px;">Register</a>
         </td>
