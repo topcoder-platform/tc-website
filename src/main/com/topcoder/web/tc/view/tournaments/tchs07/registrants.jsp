@@ -52,7 +52,7 @@
         <rsc:iterator list='<%=rsc%>' id="resultRow">
             <tr class="<%=(even ? "dark" : "light")%>">
                 <td class="value">
-                    <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="hs_algorithm" darkBG="true"/>
+                    <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="hs_algorithm" />
                 </td>
                 <td class="value">
                     <rsc:item name="region_name" row='<%=resultRow%>'/>
