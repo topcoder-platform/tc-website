@@ -40,18 +40,19 @@
         <tr>
             <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
 
-<%-- 
                 <div>
-                    <A href="/?module=ViewContestDetails&ct=2048"><img src="/i/home/aolMashups20061102.png" alt="AOL Mashups"/></A>
+                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&sid=16491"><img src="/i/home/badgeVote.png" alt="Vote for Studio badges"/></A>
                 </div>
---%>
+
                 <div>
                      <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
                 </div>
 
+<%-- 
                 <div>
                     <A href="/?module=Static&amp;d1=support&amp;d2=getStarted"><img src="/i/home/need_help.gif" alt="Need help?"/></A>
                 </div>
+--%>
 
                 <div>
                     <A href="/?module=Static&amp;d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project"/></A>
