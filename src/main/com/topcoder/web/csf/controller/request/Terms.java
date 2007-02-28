@@ -14,18 +14,11 @@ import com.topcoder.web.csf.Constants;
 public class Terms extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws Exception {
-        log.debug("start");
         Integer termsId = new Integer(StringUtils.checkNull(getRequest().getParameter(Constants.TERMS_OF_USE_ID)));
-        log.debug("1");
         TermsOfUse terms = DAOUtil.getFactory().getTermsOfUse().find(termsId);
-        log.debug("2");
         getResponse().setStatus(200);
-        log.debug("3");
         getResponse().setContentType("text/html");
-        log.debug("4");
         getResponse().getWriter().print(terms.getText());
-        log.debug("5");
         getResponse().flushBuffer();
-        log.debug("6");
     }
 }
