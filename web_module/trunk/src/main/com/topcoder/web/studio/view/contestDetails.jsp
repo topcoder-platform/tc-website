@@ -133,7 +133,7 @@
 ${contest.overview.value}
 <br><br>
 
-<c:if test="${registered}">
+<c:if test="${registered || currentTime>contest.endTime}">
     <c:if test="${fn:length(contest.documents)>0}">
         <strong>Documentation</strong><br>
         <%--
