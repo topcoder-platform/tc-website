@@ -9,6 +9,7 @@ import javax.ejb.EJBLocalObject;
 import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -265,5 +266,12 @@ public interface PactsServicesLocal extends EJBLocalObject {
     void deletePayment(BasePayment payment) throws  SQLException;
 
     BasePayment fillPaymentData(BasePayment payment) throws  SQLException;
+
+    AssignmentDocument getAssignmentDocument(long assignmentDocumentId);
+
+    void deleteAssignmentDocument(AssignmentDocument ad);
+
+    AssignmentDocument addAssignmentDocument(AssignmentDocument ad);
+
 }
 

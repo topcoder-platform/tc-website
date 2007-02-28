@@ -9,6 +9,7 @@ import javax.ejb.EJBObject;
 import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -259,5 +260,9 @@ public interface PactsServices extends EJBObject {
     void deletePayment(BasePayment payment) throws RemoteException, Exception;
 
     BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
+
+    void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException;
+
+    AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException;
 }
 

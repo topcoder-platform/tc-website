@@ -15,6 +15,10 @@ public class AssignmentDocumentType extends Base {
     public AssignmentDocumentType() {
     }
 
+    public AssignmentDocumentType(Long id) {
+        setId(id);
+    }
+
     /**
      * @return the description
      */

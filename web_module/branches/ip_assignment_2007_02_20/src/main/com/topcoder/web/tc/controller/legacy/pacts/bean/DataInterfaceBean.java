@@ -19,6 +19,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
@@ -412,6 +413,38 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
     /**
+     * Returns the requested assignment document.
+     *
+     * @return  The requested assignment document
+     * @throws  RemoteException If there is some communication problem with the EJB
+     */
+    public AssignmentDocument getAssignmentDocument(long assignmentDocumentId) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocument(assignmentDocumentId);
+    }
+
+    /**
+     * deletes the provided assignment document
+     *
+     * @throws  RemoteException If there is some communication problem with the EJB
+     */
+    public void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        ps.deleteAssignmentDocument(ad);
+    }
+
+    /**
+     * adds the provided assignment document
+     *
+     * @return  The added assignment document
+     * @throws  RemoteException If there is some communication problem with the EJB
+     */
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.addAssignmentDocument(ad);
+    }
+
+    /**
      * Returns the list of all assignment document status.
      *
      * @return  The list of assignment document status
@@ -422,7 +455,7 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getAssignmentDocumentStatus();
     }
-
+    
     /**
      * Returns the list of all contract types.
      *

@@ -7,8 +7,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentType;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
@@ -33,7 +36,28 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
             List assignmentDocumentStatus = dib.getAssignmentDocumentStatus();
             getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
 
-            if (getRequest().getParameter("assignment_document_text") != null) {
+            String assignmentDocumentText = getRequest().getParameter("assignment_document_text");
+            if (assignmentDocumentText != null) {
+                try {
+                    AssignmentDocument ad = new AssignmentDocument();
+                    User u = new User();
+                    u.setId(new Long(userId));
+                    ad.setUser(u);
+                    ad.setText(assignmentDocumentText);
+                    ad.setType(new AssignmentDocumentType(new Long(getRequest().getParameter("assignment_document_type_id"))));
+                    ad.setStatus(new AssignmentDocumentStatus(new Long(getRequest().getParameter("assignment_document_status_id"))));
+                    ad.setComponentProjectId(new Long(1));
+                    Contest c = new Contest();
+                    c.setId(new Long(1));
+                    ad.setStudioContest(c);
+                    
+                    ad = dib.addAssignmentDocument(ad);
+                    log.info("add succeded: " + ad.getId());
+                } catch (Exception e) {
+                    log.info("error while adding assignment document");
+                    e.printStackTrace();
+                }
+                
 //                String desc = (String) getRequest().getParameter("affidavit_desc");
 //                int typeId = Integer.parseInt(getRequest().getParameter("affidavit_type_id"));
 //

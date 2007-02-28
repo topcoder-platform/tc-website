@@ -15,6 +15,10 @@ public class AssignmentDocumentStatus extends Base {
     public AssignmentDocumentStatus() {
     }
 
+    public AssignmentDocumentStatus(Long id) {
+        setId(id);
+    }
+
     /**
      * @return the description
      */

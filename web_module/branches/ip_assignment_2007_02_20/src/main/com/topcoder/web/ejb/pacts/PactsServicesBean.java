@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.pacts;
 
-import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,7 +26,6 @@ import java.util.TreeSet;
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
 
-import com.topcoder.apps.review.projecttracker.ProjectStatus;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.util.ApplicationServer;
@@ -37,7 +35,12 @@ import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentStatus;
+import com.topcoder.web.common.model.AssignmentDocumentType;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -1248,6 +1251,230 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public List getAssignmentDocumentStatus() throws SQLException {
         List assignmentDocumentStatus =  DAOUtil.getFactory().getAssignmentDocumentStatusDAO().findAll();
         return assignmentDocumentStatus;
+    }
+    
+    /**
+     * Returns the list of all assignment document status.
+     *
+     * @return The list of assignment document status
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public AssignmentDocument getAssignmentDocument(long assignmentDocumentId) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetContainer rsc = null;
+
+        try {
+            conn = DBMS.getConnection();
+
+            log.debug("get the assignment document from the db");
+            
+            StringBuffer getAssignmentDocument = new StringBuffer(300);
+            getAssignmentDocument.append("select ");
+            getAssignmentDocument.append("assignment_document_id , ");
+            getAssignmentDocument.append("assignment_document_type_id , ");
+            getAssignmentDocument.append("assignment_document_status_id , ");
+            getAssignmentDocument.append("assignment_document_text , ");
+            getAssignmentDocument.append("user_id , ");
+            getAssignmentDocument.append("studio_contest_id , ");
+            getAssignmentDocument.append("component_project_id , ");
+            getAssignmentDocument.append("affirmed_date , ");
+            getAssignmentDocument.append("expire_date , ");
+            getAssignmentDocument.append("from 'informix'.assignment_document ");
+            getAssignmentDocument.append("where assignment_document_id = ? ");
+            ps = conn.prepareStatement(getAssignmentDocument.toString());
+
+            ps.setLong(1, assignmentDocumentId);
+            rs = ps.executeQuery();
+            rsc =  new ResultSetContainer(rs, false);
+
+            if (rsc.isEmpty()) {
+                throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentId);
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+        
+        AssignmentDocument ad = new AssignmentDocument();
+        ad.setId(new Long(rsc.getLongItem(0, "assignment_document_id")));
+        ad.setAffirmedDate(rsc.getTimestampItem(0, "affirmed_date"));
+        ad.setExpireDate(rsc.getTimestampItem(0, "expire_date"));
+
+        User u = new User();
+        u.setId(new Long(rsc.getLongItem(0, "assignment_document_id")));
+        ad.setUser(u);
+        ad.setText(rsc.getStringItem(0, "assignment_document_text"));
+        ad.setType(new AssignmentDocumentType(new Long(rsc.getLongItem(0, "assignment_document_type_id"))));
+        ad.setStatus(new AssignmentDocumentStatus(new Long(rsc.getLongItem(0, "assignment_document_status_id"))));
+        ad.setComponentProjectId(new Long(rsc.getLongItem(0, "component_project_id")));
+        Contest c = new Contest();
+        c.setId(new Long(rsc.getLongItem(0, "studio_contest_id")));
+        ad.setStudioContest(c);
+
+        return ad;
+    }
+    
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // validate
+        if (ad.getType() == null) {
+            throw new IllegalArgumentException("Assignment Document's type cannot be null");
+        }
+        
+        if (ad.getStatus() == null) {
+            throw new IllegalArgumentException("Assignment Document's status cannot be null");
+        }
+        
+        if (ad.getExpireDate() == null) {
+            Calendar dueDateCal = Calendar.getInstance();
+            dueDateCal.add(Calendar.DAY_OF_YEAR, ASSIGNMENT_DOCUMENT_EXPIRATION_PERIOD);
+            ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
+        }
+        
+        if (ad.getUser() == null) {
+            throw new IllegalArgumentException("Assignment Document's user cannot be null");
+        }
+        
+        if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID) && 
+            ad.getComponentProjectId() == null) {
+            throw new IllegalArgumentException("Assignment Document's component project cannot be null");
+        }
+
+        if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID) && 
+            ad.getStudioContest() == null) {
+            throw new IllegalArgumentException("Assignment Document's studio contest cannot be null");
+        }
+
+        // store
+        try {
+            conn = DBMS.getConnection();
+
+            if (ad.getText() == null) {
+                log.debug("get the assignment document text from the db");
+                StringBuffer getAssignmentDocumentText = new StringBuffer(300);
+                getAssignmentDocumentText.append("SELECT att.text ");
+                getAssignmentDocumentText.append("FROM assignment_document_template asd");
+                getAssignmentDocumentText.append("WHERE asd.cur_version = 1 ");
+                getAssignmentDocumentText.append(" and asd.assignment_document_type_id = ? ");
+                ps = conn.prepareStatement(getAssignmentDocumentText.toString());
+                ps.setLong(1, ad.getType().getId().longValue());
+                rs = ps.executeQuery();
+                ResultSetContainer rsc =  new ResultSetContainer(rs, false);
+
+                if (rsc.isEmpty()) {
+                    throw new IllegalUpdateException("Couldn't find an assigment document for type: " + ad.getType().getId());
+                }
+                ad.setText(rsc.getStringItem(0, "text"));
+            }
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("insert into 'informix'.assignment_document( ");
+            query.append("assignment_document_id , ");
+            query.append("assignment_document_type_id , ");
+            query.append("assignment_document_status_id , ");
+            query.append("assignment_document_text , ");
+            query.append("user_id , ");
+            query.append("studio_contest_id , ");
+            query.append("component_project_id , ");
+            query.append("affirmed_date , ");
+            query.append("expire_date , ");
+            query.append("modify_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, current)");
+
+            long assignmentDocumentId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_SEQ");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, assignmentDocumentId);
+            ps.setLong(2, ad.getType().getId().longValue());
+            ps.setLong(3, ad.getStatus().getId().longValue());
+            ps.setString(4, ad.getText());
+            ps.setLong(5, ad.getUser().getId().longValue());
+            ps.setLong(6, ad.getStudioContest().getId().longValue());
+            ps.setLong(7, ad.getComponentProjectId().longValue());
+            ps.setTimestamp(8, ad.getAffirmedDate());
+            ps.setTimestamp(9, ad.getExpireDate());
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in 'addAssignmentDocument'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+            
+            return ad;
+        } catch (IDGenerationException e) {
+            throw new EJBException(e);
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+    
+    public void deleteAssignmentDocument(AssignmentDocument ad) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        // validate
+        if (ad.getId() == null) {
+            throw new IllegalArgumentException("Assignment Document's id cannot be null");
+        }
+
+        try {
+            ad = getAssignmentDocument(ad.getId().longValue());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Assignment document does not exists");
+        }
+        
+        // deny the operation if the assignment document is affirmed.
+        
+        if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)) {
+            throw new IllegalArgumentException("Cannot delete an affirmed Assignment Document");            
+        }
+        
+        // mark as deleted
+        try {
+            conn = DBMS.getConnection();
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("update 'informix'.assignment_document set ");
+            query.append("assignment_document_status_id = ? ");
+            query.append("date_modified = current ");
+            query.append("where assignment_document_id = ? ");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, AssignmentDocumentStatus.DELETED_STATUS_ID.longValue());
+            ps.setLong(2, ad.getId().longValue());
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in 'deleteAssignmentDocument'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+            
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(ps);
+            close(conn);
+        }
     }
 
     /**
