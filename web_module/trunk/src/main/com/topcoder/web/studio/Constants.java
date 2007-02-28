@@ -39,6 +39,7 @@ public class Constants implements WebConstants {
     public static final long CONTEST_ADMIN_ROLE_ID = 2040;
     public static final String FILE_TYPE = "ft_";
     public static final String SUBMISSION_RANK = "srank";
+    public static final String REG_CONFIRM = "rconfirm";
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
