@@ -43,9 +43,9 @@
 </jsp:include>
 
 <p>
-    5.7.3 - 2007.02.xx
+    5.8.0 - 2007.02.27
     <ul>
-        <li>Add Visa Letter Request</li>
+        <li>Add Visa Letter Request system</li>
         <li>Re-add column team points in HS teams statistics (it was commented out because the values were incorrect)
         </li>
         <li>Project registration code was updated so assembly projets won't interfere with component reliability.</li>
