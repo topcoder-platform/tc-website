@@ -202,7 +202,7 @@
 
         <td class="headerR" rowspan="2"><A href="javascript:clickColumn(5)">Point
             <br>Total</td>
-        <td class="headerR" rowspan="2" style="border-right:1px solid #999999;"><A href="javascript:clickColumn(9)">Advanced</td>
+        <td class="headerR" rowspan="2" style="border-right:1px solid #999999;">Advanced
         <td class="headerC" colspan="6">Rating</td>
     </tr>
     <tr>
