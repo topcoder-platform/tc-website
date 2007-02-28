@@ -52,6 +52,7 @@
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
                         <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                         <tc-webtag:hiddenInput name="<%=Constants.REG_CONFIRM%>"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.TERMS_AGREE%>" value="on"/>
 
 
                         <br><br>

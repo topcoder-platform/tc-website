@@ -72,6 +72,7 @@ public class Register extends ShortHibernateProcessor {
 
                             markForCommit();
                         } else {
+                            addError(Constants.REG_CONFIRM, "");
                             setDefault(Constants.CONTEST_ID, c.getId());
                             setDefault(Constants.REG_CONFIRM, String.valueOf(true));
                             setNextPage("/eventConfirm.jsp");
@@ -79,15 +80,14 @@ public class Register extends ShortHibernateProcessor {
                         }
                     } else {
                         addError(Constants.TERMS_AGREE, "You must agree to the terms in order to continue.");
+                        setDefault(Constants.CONTEST_ID, contestId.toString());
+                        getRequest().setAttribute("contest", c);
+                        setNextPage("/contestReg.jsp");
+                        setIsNextPageInContext(true);
                     }
                 }
 
-                if (hasErrors()) {
-                    setDefault(Constants.CONTEST_ID, contestId.toString());
-                    getRequest().setAttribute("contest", c);
-                    setNextPage("/contestReg.jsp");
-                    setIsNextPageInContext(true);
-                } else {
+                if (!hasErrors()) {
                     StringBuffer buf = new StringBuffer(50);
                     buf.append(getSessionInfo().getServletPath());
                     buf.append("?" + Constants.MODULE_KEY + "=ViewContestDetails&");
