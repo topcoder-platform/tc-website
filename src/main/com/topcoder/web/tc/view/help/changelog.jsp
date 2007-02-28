@@ -42,6 +42,20 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+
+<p>
+    5.8.1 - 2007.02.xx
+    <ul>
+        <li>Added registration for CSDN 07</li>
+        <li>Added an Advanced column to HS round result</li>
+        <li>Added registration restrictions to Marathon Match registration for invitation only rounds</li>
+        <li>Added registration logic to Marathon Match so that tournament competitors can not register for the non
+            tournament version of their round
+        </li>
+    </ul>
+</p>
+
+
 <p>
     5.8.0 - 2007.02.27
     <ul>
@@ -53,8 +67,6 @@
             modified in at least one of these tables: resource, submission, upload, project_result.</li>--%>
         <li>Add a data feed for component project results</li>
         <li>Upgrade to Config manager 2.1.5 and File Upload 2.0</li>
-        <li>Added an Advanced column to HS round result</li>
-        <li>Added registration for CSDN 07</li>
     </ul>
 </p>
 
