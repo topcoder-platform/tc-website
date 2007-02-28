@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
@@ -46,10 +47,12 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
                 // validate reference
                 
                 if (hasErrors()) {
-                    setDefault("expire_date", expireDate);
-                    setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
-                    setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
-                    setDefault("assignment_document_text", findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate());
+                    setDefault("reference_id", StringUtils.htmlEncode(getRequest().getParameter("reference_id")));
+                    setDefault("expire_date", StringUtils.htmlEncode(getRequest().getParameter("expire_date")));
+                    setDefault("affirmed_date", StringUtils.htmlEncode(getRequest().getParameter("affirmed_date")));
+                    setDefault("assignment_document_type_id", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_type_id")));
+                    setDefault("assignment_document_status_id", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_status_id")));
+                    setDefault("assignment_document_text", StringUtils.htmlEncode(getRequest().getParameter("assignment_document_text")));
 
                     getRequest().setAttribute("reference_description", "Enter search text for component name:");
                 } else {
