@@ -156,6 +156,8 @@ public class Submit extends BaseSubmissionDataProcessor {
                     log.debug(f.getAbsolutePath());
                     uploadToOR(f.getAbsolutePath(), c);
 
+                    //we have to rebuild the dao because we are into a new session after the call to uploadToOR
+                    dao = cFactory.getSubmissionDAO();
                     Integer maxRank = dao.getMaxRank(c, u);
                     Integer one = new Integer(1);
                     getRequest().setAttribute("maxRank", maxRank);
