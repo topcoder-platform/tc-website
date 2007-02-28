@@ -859,7 +859,7 @@
                 <include name="hibernate.cfg.xml"/>
             </classes>
             <classes dir="${resources}/hibernate">
-                <include name="com/topcoder/web/common/model/**/*.xml"/>
+                <include name="com/topcoder/web/common/**/*.xml"/>
                 <include name="com/topcoder/web/tc/model/**/*.xml"/>
             </classes>
             <lib dir="${jars.dir}">
