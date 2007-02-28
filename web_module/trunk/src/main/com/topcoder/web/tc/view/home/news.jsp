@@ -2,6 +2,22 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%----------------------------2pm----------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.28.07<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=16491">Vote for the new member badges</A>
+        </span><br><br>
+        We recently ran a competition over at the Studio to redesign the <A href="/tc?module=Static&d1=card&d2=description">member badges</A> and now it's your turn to vote on the finalists.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=16491">vote</A> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=31">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>02.26.07<br>3:30 PM</td>
