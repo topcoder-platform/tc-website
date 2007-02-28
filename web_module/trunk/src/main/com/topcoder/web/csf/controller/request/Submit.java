@@ -259,7 +259,7 @@ public class Submit extends BaseSubmissionDataProcessor {
         UserDAO dao = DAOUtil.getFactory().getUserDAO();
         User curr = dao.find(new Long(getUser().getId()));
         User u = new User();
-        u.setHandle(curr.getHandle() + "_" + cFactory.getSubmissionDAO().getSubmissions(curr, c).size() + 1 + "_" + System.currentTimeMillis());
+        u.setHandle(curr.getHandle() + "_" + (cFactory.getSubmissionDAO().getSubmissions(curr, c).size() + 1) + "_" + System.currentTimeMillis());
 
         u.setPassword("");
         u.setFirstName(curr.getFirstName());
