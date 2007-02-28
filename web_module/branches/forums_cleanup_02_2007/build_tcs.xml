@@ -152,7 +152,6 @@
             <exclude name="com/topcoder/apps/screening/**"/>
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/web/common/**"/>
-        	<include name="com/topcoder/web/forums/**"/>
         	<include name="com/topcoder/web/ejb/forums/**"/>
         </javac>
         <antcall target="jar_common"/>
