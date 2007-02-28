@@ -181,6 +181,10 @@ TopCoder's accomplished management team includes some of the most successful pro
     <p>
     Prior to joining TopCoder, Tsipolitis was Senior Project Manager with Tallán, Inc., an Internet professional services firm that creates technically advanced Internet and e-Business solutions for clients. 
     </p>
+    <p>
+    Tsipolitis holds a business degree from the University of Connecticut where his focus was on Information Systems.
+    </p>
+
 </div>
 
 <div class="bioEven">
