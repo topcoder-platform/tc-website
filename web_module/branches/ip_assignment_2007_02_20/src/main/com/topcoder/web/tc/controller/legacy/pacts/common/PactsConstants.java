@@ -270,6 +270,7 @@ public interface PactsConstants extends Constants {
     public static final String PAYMENT_ID = "payment_id";
     public static final String CONTRACT_ID = "contract_id";
     public static final String AFFIDAVIT_ID = "affidavit_id";
+    public static final String ASSIGNMENT_DOCUMENT_ID = "assignment_document_id";
     public static final String TAX_FORM_ID = "tax_form_id";
     public static final String NOTE_ID = "note_id";
     public static final String HANDLE = "handle";

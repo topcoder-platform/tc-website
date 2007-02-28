@@ -33,6 +33,10 @@ public class Links implements PactsConstants {
         return PactsConstants.INTERNAL_SERVLET_URL + "?t=view&c=affidavit&" + AFFIDAVIT_ID + "=" + affidavitId;
     }
 
+    public static String viewAssignmentDocument(long assignmentDocuumentId) {
+        return createLink("ViewAssignmentDocument", ASSIGNMENT_DOCUMENT_ID, assignmentDocuumentId + "");
+    }
+
     public static String viewUser(long userId) {
         return PactsConstants.INTERNAL_SERVLET_URL + "?t=view&c=user&" + USER_ID + "=" + userId;
     }

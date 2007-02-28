@@ -1390,6 +1390,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             long assignmentDocumentId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_SEQ");
 
+            ad.setId(new Long(assignmentDocumentId));
+            
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, assignmentDocumentId);
             ps.setLong(2, ad.getType().getId().longValue());

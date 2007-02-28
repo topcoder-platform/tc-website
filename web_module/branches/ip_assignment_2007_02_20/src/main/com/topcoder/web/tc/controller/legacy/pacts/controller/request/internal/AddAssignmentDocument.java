@@ -13,6 +13,7 @@ import com.topcoder.web.common.model.AssignmentDocumentType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
@@ -38,55 +39,41 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
 
             String assignmentDocumentText = getRequest().getParameter("assignment_document_text");
             if (assignmentDocumentText != null) {
-                try {
-                    AssignmentDocument ad = new AssignmentDocument();
-                    User u = new User();
-                    u.setId(new Long(userId));
-                    ad.setUser(u);
-                    ad.setText(assignmentDocumentText);
-                    ad.setType(new AssignmentDocumentType(new Long(getRequest().getParameter("assignment_document_type_id"))));
-                    ad.setStatus(new AssignmentDocumentStatus(new Long(getRequest().getParameter("assignment_document_status_id"))));
-                    ad.setComponentProjectId(new Long(1));
-                    ad.setStudioContestId(new Long(1));
-                    
-                    ad = dib.addAssignmentDocument(ad);
-                    log.info("add succeded: " + ad.getId());
-                } catch (Exception e) {
-                    log.info("error while adding assignment document");
-                    e.printStackTrace();
+                if (assignmentDocumentText.trim().length() == 0) {
+                    addError("error", "Please enter a text for the assignment document.");
                 }
                 
-//                String desc = (String) getRequest().getParameter("affidavit_desc");
-//                int typeId = Integer.parseInt(getRequest().getParameter("affidavit_type_id"));
-//
-//                if (desc.trim().length() == 0) {
-//                    addError("error", "Please enter a description for the affidavit.");
-//                }
-//                if (typeId < 0) {
-//                    addError("error", "Please select a type");
-//                }
-//
-//                if (hasErrors()) {
-//                    setDefault("affidavit_desc", desc);
-//                    setDefault("affidavit_type_id", typeId + "");
-//                    setDefault("text", getRequest().getParameter("text"));
-//                } else {
-//                    long roundId = getOptionalLongParameter(ROUND_ID);
-//
-//                    // Save the Affidavit
-//                    Affidavit a = new Affidavit(
-//                            roundId < 0 ? null : new Long(roundId),
-//                            userId, AFFIDAVIT_STATUS_PENDING, desc, typeId, false, false);
-//
-//                    if (payment != null) {
-//                        a.setPayment(payment.getHeader());
-//                    }
-//                    String text = "".equals(StringUtils.checkNull(getRequest().getParameter("text"))) ? null : getRequest().getParameter("text");
-//                    long affidavitId = dib.addAffidavit(a, text, null);
-//                    setNextPage(Links.viewAffidavit(affidavitId));
-//                    setIsNextPageInContext(false);
-//                    return;
-//                }
+                // validate reference
+                
+                if (hasErrors()) {
+                    setDefault("expire_date", expireDate);
+                    setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
+                    setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
+                    setDefault("assignment_document_text", findAssignmentDocumentTypeById(assignmentDocumentTypes, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID).getTemplate());
+
+                    getRequest().setAttribute("reference_description", "Enter search text for component name:");
+                } else {
+                    try {
+                        AssignmentDocument ad = new AssignmentDocument();
+                        User u = new User();
+                        u.setId(new Long(userId));
+                        ad.setUser(u);
+                        ad.setText(assignmentDocumentText);
+                        ad.setType(new AssignmentDocumentType(new Long(getRequest().getParameter("assignment_document_type_id"))));
+                        ad.setStatus(new AssignmentDocumentStatus(new Long(getRequest().getParameter("assignment_document_status_id"))));
+                        ad.setComponentProjectId(new Long(1));
+                        ad.setStudioContestId(new Long(1));
+                        
+                        ad = dib.addAssignmentDocument(ad);
+                        log.info("add succeded: " + ad.getId());
+                        setNextPage(Links.viewAssignmentDocument(ad.getId().longValue()));
+                        setIsNextPageInContext(false);
+                        return;
+                    } catch (Exception e) {
+                        log.info("error while adding assignment document");
+                        e.printStackTrace();
+                    }
+                }
             } else {
                 String expireDate = "";
                 Calendar date = Calendar.getInstance();
