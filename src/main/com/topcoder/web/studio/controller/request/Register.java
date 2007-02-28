@@ -44,14 +44,19 @@ public class Register extends ShortHibernateProcessor {
                         boolean isApproved = false;
 
                         if (c.getEvent() != null) {
+                            log.debug("event not null");
                             if (factory.getEventRegistrationDAO().find(new Long(getUser().getId()), c.getEvent().getId()) == null) {
+                                log.debug("user not registered");
                                 if (String.valueOf(true).equals(getRequest().getParameter(Constants.REG_CONFIRM))) {
+                                    log.debug("user confirmed");
                                     isApproved = true;
                                 }
                             } else {
+                                log.debug("user registered");
                                 isApproved = true;
                             }
                         } else {
+                            log.debug("no event");
                             isApproved = true;
                         }
 
