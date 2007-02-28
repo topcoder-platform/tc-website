@@ -202,7 +202,7 @@
 
         <td class="headerR" rowspan="2"><A href="javascript:clickColumn(5)">Point
             <br>Total</td>
-        <td class="headerR" rowspan="1" style="border-right:1px solid #999999;"><A href="javascript:clickColumn(9)">Advanced</td>
+        <td class="headerR" rowspan="2" style="border-right:1px solid #999999;"><A href="javascript:clickColumn(9)">Advanced</td>
         <td class="headerC" colspan="6">Rating</td>
     </tr>
     <tr>
@@ -257,10 +257,10 @@
             <td class="valueR" colspan="2">
                 <rsc:item name="system_test_points" row="<%=resultRow%>" format="0.00" />
             </td>
-            <td class="valueR" colspan="2" style="border-right:1px solid #999999;">
+            <td class="valueR" colspan="2">
                 <rsc:item name="final_points" row="<%=resultRow%>" format="0.00"/>
             </td>
-            <td class="valueR">
+            <td class="valueR" style="border-right:1px solid #999999;">
                 <rsc:item name="advanced" row="<%=resultRow%>"/>
             </td>
             <td class="valueR">
