@@ -200,10 +200,6 @@
             <include name="com/topcoder/web/common/**"/>
             <include name="com/topcoder/security/**"/>
             <include name="com/topcoder/common/web/data/**"/>
-            <include name="com/topcoder/web/tc/controller/request/authentication/**"/>
-            <include name="com/topcoder/web/tc/controller/request/*.java"/>
-            <include name="com/topcoder/web/tc/controller/*.java"/>
-            <include name="com/topcoder/web/tc/*.java"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
             <include name="com/topcoder/web/ejb/messagehistory/**"/>
         	<include name="com/topcoder/dde/catalog/ComponentInfo.java"/>
@@ -943,21 +939,8 @@
                 <include name="includes/modules/simpleSearch.jsp"/>
             </fileset>
             <classes dir="${classes}">
-                <!--
-                                <include name="com/topcoder/common/web/util/Conversion.class"/>
-                                <include name="com/topcoder/common/web/error/TCException.class"/>
-                                <include name="com/topcoder/common/web/data/Navigation.class"/>
-                                <include name="com/topcoder/common/web/data/User.class"/>
-                                <include name="com/topcoder/common/web/data/SecureObject.class"/>
-                                <include name="com/topcoder/common/web/data/PermissionAssignee.class"/>
-                                <include name="com/topcoder/common/web/data/UserType.class"/>
-                                <include name="com/topcoder/common/web/data/Browser.class"/>
-                                <include name="com/topcoder/common/web/data/Round.class"/>
-                                <include name="com/topcoder/web/common/**/*.class"/>
-                -->
                 <include name="com/topcoder/web/forums/**/*.class"/>
                 <include name="com/topcoder/dde/catalog/**/*.class"/>
-                <include name="com/topcoder/web/tc/controller.request.authentication.Login.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>

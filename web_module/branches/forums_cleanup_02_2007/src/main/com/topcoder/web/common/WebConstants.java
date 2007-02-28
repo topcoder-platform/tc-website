@@ -87,10 +87,12 @@ public interface WebConstants {
     public static final int HS_ALGO_RATING_TYPE_ID = 2;
     public static final int TC_ALGO_RATING_TYPE_ID = 1;
 
-
+    public static final String STATUS = "status";
+    public static final String STATUS_START = "start";
     public static final char[] INACTIVE_STATI = {'0', '9', '6', '5', '4', 'I'};
     public static final char[] UNACTIVE_STATI = {'2', 'U'};
     public static final char[] ACTIVE_STATI = {'1', 'A'};
+    public static final int EMAIL_ACTIVE_STATUS = 1;
 
     public static final long TCS_FORUMS_ROOT_CATEGORY_ID = 22;
 }

@@ -2,8 +2,6 @@ package com.topcoder.web.ejb.forums;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import java.util.HashSet;
-import java.util.Hashtable;
 
 import javax.ejb.EJBException;
 
@@ -12,12 +10,6 @@ import com.jivesoftware.base.UserNotFoundException;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
 
 public interface Forums extends EJBObject {
-    
-    public void createMatchForum(int roundID) throws EJBException, RemoteException;
-
-    public String[] getCategoryNames() throws EJBException, RemoteException;
-    
-    public int getThreadMessageCount(int threadID) throws EJBException, RemoteException;
     
     public void assignRole(long userID, long groupID) throws EJBException, RemoteException;
     
@@ -57,21 +49,7 @@ public interface Forums extends EJBObject {
     		long templateID, boolean isPublic)
     	throws EJBException, RemoteException, Exception;
     
-    public Hashtable getComponentVersionPhases(long[] compVersIDs) throws EJBException, RemoteException;
-    
-    public long getComponentVersionPhase(long compVersID) throws EJBException, RemoteException;
-    
-    public String getComponentVersionText(long compVersID) throws EJBException, RemoteException;
-    
-    public Hashtable getComponentRootCategories(long[] compIDs) throws EJBException, RemoteException;
-    
-    public long getComponentRootCategory(long compID) throws EJBException, RemoteException;
-    
-    public HashSet getApprovedComponents(long[] compIDs) throws EJBException, RemoteException;
-    
     public void updateComponentVersion(long categoryID, String versionText) throws EJBException, RemoteException, Exception;
     
     //public long getSoftwareComponentID(ForumCategory category) throws EJBException, RemoteException, SQLException;
-    
-    public void deleteOrphanedAttachments() throws EJBException, RemoteException;
 }
