@@ -35,6 +35,8 @@ public class PreviewMessage extends ForumsProcessor {
         ForumMessage message = null;
         ForumThread thread = null;
         
+        getHttpRequest().setCharacterEncoding("ISO-8859-1");
+        
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
