@@ -31,9 +31,9 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.aol.com/"/>" target="_blank" refer="aolSuccess"/><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://dev.aol.com/"/>" target="_blank" refer="aolSuccess"/><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
                         <p>
-Your application has been received.
+Your application has been received.   
 </p>
 <p>
 You will be contacted by a TopCoder Recruiter if you meet AOL's requirements. Thank you.
