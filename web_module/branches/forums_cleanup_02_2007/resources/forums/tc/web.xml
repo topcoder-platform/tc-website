@@ -49,12 +49,27 @@
         <filter-name>GZIPResponse</filter-name>
         <filter-class>com.topcoder.web.common.GZIPResponseFilter</filter-class>
     </filter>
+    <filter>
+        <filter-name>Set Request Character Encoding</filter-name>
+        <filter-class>com.jivesoftware.util.SetRequestCharacterEncodingFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>Set Response Character Encoding</filter-name>
+        <filter-class>com.jivesoftware.util.SetResponseCharacterEncodingFilter</filter-class>
+    </filter>
 
     <filter-mapping>
         <filter-name>GZIPResponse</filter-name>
         <servlet-name>forums</servlet-name>
     </filter-mapping>
-
+	<filter-mapping>
+        <filter-name>Set Request Character Encoding</filter-name>
+        <servlet-name>forums</servlet-name>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>Set Response Character Encoding</filter-name>
+        <servlet-name>forums</servlet-name>
+    </filter-mapping>
 
     <servlet-mapping>
         <servlet-name>forums</servlet-name>
