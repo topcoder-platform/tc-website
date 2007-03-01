@@ -49,7 +49,7 @@ public class TeamResults extends Base {
                 round.setRoundId(getMostRecentRound(tmid, round.getSeasonId()));
             }
 
-            ListInfo li = new ListInfo(getRequest(), 1, "ASC", columnNames);
+            ListInfo li = new ListInfo(getRequest(), 1, "ASC");
             
             
             Request r = new Request();

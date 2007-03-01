@@ -21,7 +21,7 @@ public class TeamRankings extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {            
-            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "ASC", columnNames);
+            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "ASC");
             RoundInfo round = getSeasonId(getRequest());
             
             Request r = new Request();
