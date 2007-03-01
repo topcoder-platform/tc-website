@@ -202,7 +202,7 @@
 	        </A>
 		</td>
 
-        <td class="headerR" rowspan="2"><A href="javascript:clickColumn(2)">e</td>
+        <td class="headerR" rowspan="2">
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsInd<tc-webtag:sort column="<%=result.getColumnIndex("submission_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
 	            Coding<br>Phase
 	        </A>
@@ -261,7 +261,7 @@
 
 
             <td class="valueR">
-                <rsc:item name="division_placed" row="<%=resultRow%>"/>
+                <rsc:item name="team_points" row="<%=resultRow%>"/>
             </td>
             <td class="valueR">
                 <rsc:item name="submission_points" row="<%=resultRow%>" format="0.00"/>
