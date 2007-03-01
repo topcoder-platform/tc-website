@@ -33,7 +33,13 @@
 
             <%----------------------------------------------------------------------------------------%>
 
-            <table id="ranked" class="stat" style="width: 100%; margin-bottom: 0px;" cellpadding="0" cellspacing="0">
+<p align="center">
+<strong>You have already submitted a ballot for this vote.</strong>
+</p>
+<p align="center">
+Here is your ballot:
+</p>
+            <table id="ranked" class="list" style="width: 100%; margin-bottom: 0px;" cellpadding="0" cellspacing="0">
                 <thead>
                     <tr>
                         <td class="title" colspan="2"><span class="title">My Vote</span></td>
@@ -41,7 +47,7 @@
 
 
                     <tr>
-                        <td class="headerC">
+                        <td class="headerC" style="padding-left: 0px;">
                             <div style="width: 45px;">Rank</div>
                         </td>
                         <td class="header" width="100%">
@@ -54,7 +60,7 @@
                     <c:forEach items="${votes}" var="vote">
 
                         <tr class="<%=even?"light":"dark"%>">
-                            <td class="valueC">
+                            <td class="valueC" style="padding-left: 0px;">
                                     ${vote.rank}
                             </td>
                             <td class="value" nowrap="nowrap">
