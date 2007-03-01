@@ -331,14 +331,14 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 </table></blockquote> 
 
 First of all, consider the function 
-<img src="fofx.gif" alt="f(x)=a/x+bx">,
+<img src="/i/srm/tchs07rd1gamma/fofx.gif" alt="f(x)=a/x+bx">,
 where a &gt; 0, b &gt; 0. 
 Let us find the value of x that minimizes f. Transform f in the following way:
-<img src="transformation.gif" alt="f(x)=a/x+bx = (\sqrt{a/x})^2 + (\sqrt{bx})^2 = (\sqrt{a/x} - \sqrt{bx})^2 + 2\sqrt{ab}">.
+<img src="/i/srm/tchs07rd1gamma/transformation.gif" alt="f(x)=a/x+bx = (\sqrt{a/x})^2 + (\sqrt{bx})^2 = (\sqrt{a/x} - \sqrt{bx})^2 + 2\sqrt{ab}">.
 Since the square of a real number is non-negative, this value is at least 
-<img src="2sqrtamulb.gif" alt="2\sqrt{ab}">
+<img src="/i/srm/tchs07rd1gamma/2sqrtamulb.gif" alt="2\sqrt{ab}">
 and is minimized when 
-<img src="xissqrtadivb.gif" alt="x = \sqrt{a/b}">.
+<img src="/i/srm/tchs07rd1gamma/xissqrtadivb.gif" alt="x = \sqrt{a/b}">.
 <br /><br />
 
 Now let us get back to our problem. Let the function <tt>relax(int n)</tt> calculate
@@ -353,12 +353,12 @@ best known needed time as t0 + tp.
 
 Following the considerations from the first paragraph,
 we deduce that the time needed to execute the parallelizable part of the task on several 
-processors descends until n - 1 is approximately <img src="sqrttpdivts.gif" alt="\sqrt{tp/ts}">
+processors descends until n - 1 is approximately <img src="/i/srm/tchs07rd1gamma/sqrttpdivts.gif" alt="\sqrt{tp/ts}">
 and grows after that. Therefore it is clearly irrelevant to use
-more than <img src="sqrttpdivts.gif" alt="\sqrt{tp/ts}"> rounded up additional
+more than <img src="/i/srm/tchs07rd1gamma/sqrttpdivts.gif" alt="\sqrt{tp/ts}"> rounded up additional
 processors. Since tp doesn't exceed 10<sup>9</sup>, this value doesn't exceed
 31623. So we can check n from 1 to 
-<img src="ceiltptsplus1.gif" alt="\left\lceil\sqrt{tp/ts}\right\rceil + 1">
+<img src="/i/srm/tchs07rd1gamma/ceiltptsplus1.gif" alt="\left\lceil\sqrt{tp/ts}\right\rceil + 1">
 and call <tt>relax(n)</tt> for all of these values. Code follows:
 
 <pre>
