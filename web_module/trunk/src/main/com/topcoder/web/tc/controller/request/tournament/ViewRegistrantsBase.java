@@ -29,7 +29,7 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
         getRequest().setAttribute("event", e);
         Request r = new Request();
         r.setContentHandle(e.getShortDescription() + "_registrants");
-        r.setProperty("eid", String.valueOf(e.getId().intValue()));
+        r.setProperty(Constants.EVENT_ID, String.valueOf(e.getId().intValue()));
 
         //this gets refreshed when people sign up.
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
