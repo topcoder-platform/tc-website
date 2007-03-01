@@ -40,8 +40,8 @@ public class PreviewMessage extends ForumsProcessor {
         String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
-                getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
-        String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
+                new String(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).getBytes("ISO-8859-1"), "UTF-8").trim());
+        String body = new String(getRequest().getParameter(ForumConstants.MESSAGE_BODY).getBytes("ISO-8859-1"), "UTF-8").trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
         
         if (postMode.equals("New")) {
@@ -66,7 +66,7 @@ public class PreviewMessage extends ForumsProcessor {
         setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         setDefault(ForumConstants.POST_MODE, postMode);
         setDefault(ForumConstants.MESSAGE_SUBJECT, subject);
-        setDefault(ForumConstants.MESSAGE_BODY, body);
+        setDefault(ForumConstants.MESSAGE_BODY, textareaBody);
         
         if (message != null && thread != null) {
             getRequest().setAttribute("thread", thread);
