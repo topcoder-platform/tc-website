@@ -7,7 +7,7 @@ import com.topcoder.web.common.model.User;
 public class CSDN07ViewRegistration extends CSDN07RegistrationBase {
 
     protected void alreadyRegisteredProcessing(EventRegistration er) {
-        getRequest().setAttribute("registered", Boolean.TRUE);
+        setAlreadyRegistered(true);
     }
 
     protected void regProcessing(Event event, User user) {
