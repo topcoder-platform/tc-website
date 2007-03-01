@@ -9,6 +9,7 @@
                  java.util.Map" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -175,18 +176,62 @@
     </tr>
     <tr>
         <td class="header" width="1%">&#160;</td>
-        <td class="header" width="16%" colspan="2"><A href="javascript:clickColumn(0)">Coders</A></td>
-        <td class="headerR" width="16%"><A href="javascript:clickColumn(1)">Qnty</A></td>
-        <td class="headerR"><A href="javascript:clickColumn(2)">Points</A></td>
-        <td class="headerR" width="16%"><A href="javascript:clickColumn(3)">Qnty</A></td>
-        <td class="headerR"><A href="javascript:clickColumn(4)">Points</A></td>
-        <td class="headerR" width="16%"><A href="javascript:clickColumn(5)">Qnty</A></td>
-        <td class="headerR"><A href="javascript:clickColumn(6)">Points</A></td>
-        <td class="headerR" width="16%"><A href="javascript:clickColumn(7)">System<br>Tests</A></td>
-        <td class="headerR" width="16%" style="border-right:1px solid #999999;"><A href="javascript:clickColumn(8)">Point
-            <br>Total</A></td>
-        <td class="headerR"><A href="javascript:clickColumn(9)">Old</A></td>
-        <td class="headerR"><A href="javascript:clickColumn(10)">New</A></td>
+        <td class="header" width="16%" colspan="2">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("handle")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Coders
+	        </A>
+	    </td>   
+        
+        <td class="headerR" width="16%">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("problems_submitted")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Qnty
+	        </A>
+
+        <td class="headerR">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("submission_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Points
+	        </A>
+
+        <td class="headerR" width="16%">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("challenge_attempts_received")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Qnty
+	        </A>
+
+        <td class="headerR">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("defense_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Points
+	        </A>
+
+        <td class="headerR" width="16%">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("challenge_attempts_made")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Qnty
+	        </A>
+
+        <td class="headerR">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("challenge_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Points
+	        </A>
+
+        <td class="headerR" width="16%">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("system_test_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            System<br>Test
+	        </A>
+
+        <td class="headerR" width="16%" style="border-right:1px solid #999999;">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("final_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Point<br>Total
+	        </A>
+
+        <td class="headerR">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("old_rating")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Old
+	        </A>
+	        
+        <td class="headerR">
+	   		<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoomStats<tc-webtag:sort column="<%=roomResult.getColumnIndex("new_rating")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            New
+	        </A>
+        
         <td class="headerR">&#160;</td>
     </tr>
 
