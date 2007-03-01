@@ -28,13 +28,13 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
         Event e = getEvent();
         getRequest().setAttribute("event", e);
         Request r = new Request();
-        r.setContentHandle(e.getShortDescription() + "_registrants");
+        r.setContentHandle(getEventShortDesc() + "_registrants");
         r.setProperty(Constants.EVENT_ID, String.valueOf(e.getId().intValue()));
 
         //this gets refreshed when people sign up.
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
 
-        ResultSetContainer rsc = (ResultSetContainer) m.get(e.getShortDescription() + "_registrants");
+        ResultSetContainer rsc = (ResultSetContainer) m.get(getEventShortDesc() + "_registrants");
 
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
