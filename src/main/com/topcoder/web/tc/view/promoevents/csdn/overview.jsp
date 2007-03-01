@@ -35,7 +35,7 @@
 				本次竞赛将于2007年3月16日（周五）晚上9点举行，面向所有目前居住在中国的TopCoder会员。如果你现在还不是TopCoder会员，请在这里注册：<A href="/reg/">www.topcoder.com/reg</A>
 				</p>
 				<p>
-				请点击这里注册参加TopCoder/CSDN竞赛：<br>
+				请点击这里注册参加TopCoder/CSDN竞赛：<a href="/tc?module=CSDN07SubmitRegistration">www.topcoder.com/tc?module=CSDN07SubmitRegistration</a><br>
 				在线竞赛注册将于2007年3月15日（周四）晚上11点59分截止。
 				</p>
 			</div>
