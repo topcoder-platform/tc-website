@@ -37,7 +37,6 @@ public abstract class ForumsProcessor extends BaseProcessor {
      * Subclasses should do their work by implementing this method.
      */
     protected void businessProcessing() throws Exception {
-        getHttpRequest().setCharacterEncoding("ISO-8859-1");
         getResponse().setContentType("text/html; charset=ISO-8859-1");
         getHttpResponse().setContentType("text/html; charset=ISO-8859-1");
         
