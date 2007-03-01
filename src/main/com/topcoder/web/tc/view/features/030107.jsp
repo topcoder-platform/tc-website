@@ -49,9 +49,9 @@
 <span class="bigTitle">Test Drive: Code Coverage Tools</span>
 <br /><br />
 
-<%--<div class="authorPhoto">
-    <img src="/i/m/ali_raza_shaikh_big2.jpg" alt="Author" />
-</div>--%>
+<div class="authorPhoto">
+    <img src="/i/m/zmij_big.jpg" alt="Author" />
+</div>
 <div class="authorText">
   By&#160;<tc-webtag:handle coderId="22630158" /><br />
       <em>TopCoder Member</em>
