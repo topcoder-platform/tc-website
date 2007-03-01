@@ -39,8 +39,8 @@ public class PreviewMessage extends ForumsProcessor {
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
-        String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
-                getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
+        String subject = getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim();
+        String displaySubject = com.jivesoftware.util.StringUtils.escapeHTMLTags(subject);
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
         
@@ -102,7 +102,7 @@ public class PreviewMessage extends ForumsProcessor {
         if (previewMessage == null) {
         	previewMessage = forum.createMessage(user);
         }
-		previewMessage.setSubject(subject);
+		previewMessage.setSubject(displaySubject);
         previewMessage.setBody(body);
         if (postMode.equals("Edit")) {
 	        Iterator itAttachments = message.getAttachments();
