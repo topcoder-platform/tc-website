@@ -1,11 +1,6 @@
-<%@ page import="com.topcoder.web.common.model.Event" %>
 <%@ page contentType="text/html;charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%
-    String compType = (String) request.getAttribute("ct");
-    Event e = (Event) request.getAttribute("event");
-    Boolean eligible = (Boolean) request.getAttribute("eligible");
-%>
 <html>
 <head>
     <title>2007 TopCoder Open - Computer Programming Tournament</title>
@@ -28,7 +23,7 @@
                     <td id="navSpacer">
 
                         <jsp:include page="nav.jsp">
-                            <jsp:param name="tabLev1" value="<%=compType%>"/>
+                            <jsp:param name="tabLev1" value="alogrithm"/>
                             <jsp:param name="tabLev2" value="register"/>
                             <jsp:param name="tabLev3" value=""/>
                         </jsp:include>
@@ -39,26 +34,30 @@
 
                             <h1>
                                 <div>
-                                    <%if (eligible.booleanValue()) {%>
-                                    Registration Successful
-                                    <%} else {%>
-                                    Registration Failed
-                                    <%}%>
+                                    <c:choose>
+                                        <c:when test="${eligible}">
+                                            Registration Successful
+                                        </c:when>
+                                        <c:otherwise>
+                                            Registration Failed
+                                        </c:otherwise>
+                                    </c:choose>
                                 </div>
                             </h1>
 
 
                             <div align="center" style="margin:40px;">
-                                <%if (eligible.booleanValue()) {%>
-                                You have successfully registered for the<br><strong><%=e.getDescription()%>
-                            </strong>.
-                                <%} else {%>
-                                Sorry, you are ineligible for the <strong><%=e.getDescription()%>
-                            </strong>. If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
-                                <%}%>
-
+                                <c:choose>
+                                    <c:when test="${eligible}">
+                                        You have successfully registered for the<br><strong>${event.description}
+                                        </strong>.
+                                    </c:when>
+                                    <c:otherwise>
+                                        Sorry, you are ineligible for the <strong>${event.description}
+                                    </strong>. If this is a mistake, contact <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
+                                    </c:otherwise>
+                                </c:choose>
                             </div>
-
                         </div>
                     </td>
                 </tr>
