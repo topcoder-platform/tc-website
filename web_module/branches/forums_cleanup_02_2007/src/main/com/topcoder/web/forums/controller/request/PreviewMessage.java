@@ -36,21 +36,23 @@ public class PreviewMessage extends ForumsProcessor {
         ForumThread thread = null;
         
         getHttpRequest().setCharacterEncoding("utf-8");
-        log.info("*** subject: " + getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
-        log.info("*** body: " + getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim());
+        //log.info("*** subject: " + getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
+        //log.info("*** body: " + getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim());
         
-        byte [] hibytes = ((String)
-                getRequest().getParameter(ForumConstants.MESSAGE_BODY)).getBytes("utf-8");
-        String pram = new String(hibytes, "Big5");
-        log.info("*** pram: " + pram);
+        byte[] hibytes = ((String)getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT)).getBytes("utf-8");
+        String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
+                new String(hibytes, "Big5").trim());
+        hibytes = ((String)getRequest().getParameter(ForumConstants.MESSAGE_BODY)).getBytes("utf-8");
+        String body = com.jivesoftware.util.StringUtils.escapeHTMLTags(
+                new String(hibytes, "Big5").trim());
         
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
-        String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
-                getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
-        String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
+        //String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
+        //        getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
+        //String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
         
         if (postMode.equals("New")) {
