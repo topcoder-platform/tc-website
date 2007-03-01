@@ -41,7 +41,7 @@
                                 <A href="/?module=ViewActiveContests"><img src="/i/layout/btnCreative.png" alt=""/></A>
                             </td>
                             <td style="padding-left: 20px;">
-                                <A href=""><img src="/i/layout/btnAssembly.png" alt=""/></A>
+                                <img src="/i/layout/btnAssemblyNA.png" alt=""/>
                             </td>
                         </tr>
                     </tbody>
