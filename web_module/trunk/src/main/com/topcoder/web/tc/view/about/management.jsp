@@ -201,7 +201,7 @@ TopCoder's accomplished management team includes some of the most successful pro
 </div>
 
 <div class="bioOdd">
-<%--    <div class="photo"><img src="/i/about/management/mluce.jpg" alt="" /></div>--%>
+    <div class="photo"><img src="/i/about/management/mluce.jpg" alt="" /></div>
     <h2>MaryBeth Luce</h2>
     <h3>Vice President, Operations</h3>
     
