@@ -52,6 +52,9 @@
         <li>Added registration logic to Marathon Match so that tournament competitors can not register for the non
             tournament version of their round
         </li>
+        <li>added sponsor track registration for tco</li>
+        <li>added tco component results site</li>
+
     </ul>
 </p>
 
