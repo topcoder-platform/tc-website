@@ -78,23 +78,6 @@
     }
 
 
-    function clickColumn(n)
-    {
-        if (n == <%= li.getSortColumn() %>) {
-            if ("asc" == "<%= li.getSortDirection() %>") {
-                document.sortForm.sd.value = "desc";
-            }
-            else {
-                document.sortForm.sd.value = "asc";
-            }
-        } else {
-            document.sortForm.sd.value = "asc";
-            document.sortForm.sc.value = n;
-        }
-        document.sortForm.submit();
-
-    }
-
     function goTo(selection) {
         sel = selection.options[selection.selectedIndex].value;
         if (sel && sel != '#') {

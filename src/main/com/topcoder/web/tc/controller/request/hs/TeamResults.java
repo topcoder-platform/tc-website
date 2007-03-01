@@ -49,7 +49,7 @@ public class TeamResults extends Base {
                 round.setRoundId(getMostRecentRound(tmid, round.getSeasonId()));
             }
 
-            ListInfo li = new ListInfo(getRequest(), 1, "ASC");
+            ListInfo li = new ListInfo(getRequest(), 3, "ASC");
             
             
             Request r = new Request();
@@ -62,7 +62,7 @@ public class TeamResults extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             
-            fillRoundAndSeasonNames (round, result, "seasons_for_team", "rounds_for_season_and_team");
+            fillRoundAndSeasonNames(round, result, "seasons_for_team", "rounds_for_season_and_team");
 
             sortAndCrop(result, "hs_ind_result_for_team", li);                        
             getRequest().setAttribute("listInfo", li);
