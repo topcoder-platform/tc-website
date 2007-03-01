@@ -66,10 +66,10 @@
 <p><span class="bodySubtitle">1. Code Coverage</span><br>
 What is code coverage after all? Let's try defining an outline for the process:
 <ul>
-	<li>run a code coverage tool (analyzer) to find out the areas of your code not covered by a set of test cases</li>
-	<li>determine a quantitative measure, which is an indirect measure of quality</li>
-	<li>create additional tests to increase coverage and reach a certain threshold, at which you can consider your code "well tested"</li>
-	<li>identify redundant test cases</li>
+    <li>run a code coverage tool (analyzer) to find out the areas of your code not covered by a set of test cases</li>
+    <li>determine a quantitative measure, which is an indirect measure of quality</li>
+    <li>create additional tests to increase coverage and reach a certain threshold, at which you can consider your code "well tested"</li>
+    <li>identify redundant test cases</li>
 </ul>
 </p>
 <p><i>Code coverage analysis</i> a.k.a. <i>test coverage analysis</i> is all about how thoroughly your tests exercise your code base and, as mentioned above, can be considered an indirect measure of quality - indirect because it gauges the degree to which the tests cover the code, rather than directly measuring the quality of the code itself. Code coverage can be viewed as white-box or structural testing, because the "assertions" are made against the internals of classes, not against the system's interfaces or contracts. It helps to identify paths in your program that are not being tested, and is most useful and powerful when testing logic-intensive applications.</p>
@@ -77,24 +77,24 @@ What is code coverage after all? Let's try defining an outline for the process:
 
 <ul>
 <li>Basic measures
-	<ul>
-		<li>statement coverage (line coverage)</li>
-		<li>basic block coverage</li>
-		<li>decision coverage (branch coverage)</li>
-		<li>multiple condition coverage</li>
-		<li>path coverage</li>
-	</ul>
+    <ul>
+        <li>statement coverage (line coverage)</li>
+        <li>basic block coverage</li>
+        <li>decision coverage (branch coverage)</li>
+        <li>multiple condition coverage</li>
+        <li>path coverage</li>
+    </ul>
 </li>
 <li>Other measures
-	<ul>
-		<li>function coverage (method coverage)</li>
-		<li>call coverage</li>
-		<li>data flow coverage</li>
-		<li>loop coverage</li>
-		<li>race coverage</li>
-		<li>relational operator coverage</li>
-		<li>table coverage</li>
-	</ul>
+    <ul>
+        <li>function coverage (method coverage)</li>
+        <li>call coverage</li>
+        <li>data flow coverage</li>
+        <li>loop coverage</li>
+        <li>race coverage</li>
+        <li>relational operator coverage</li>
+        <li>table coverage</li>
+    </ul>
 </li>
 </ul>
 </p>
@@ -108,63 +108,63 @@ For TopCoder Java component development we  reviewed Vlad Roubtsov's EMMA and Ma
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
 <thead>
     <tr>
-		<td class="header">TopCoder Expectations</td>
-		<td class="header">EMMA</td>
-		<td class="header">Cobertura</td>
-	</tr>
+        <td class="header">TopCoder Expectations</td>
+        <td class="header">EMMA</td>
+        <td class="header">Cobertura</td>
+    </tr>
 </thead>
 <tbody>
     <tr class="light">
-		<td class="value">JDK 1.4 support</td>
-		<td class="value">Yes</td>
-		<td class="value">Yes</td>
-	</tr>
+        <td class="value">JDK 1.4 support</td>
+        <td class="value">Yes</td>
+        <td class="value">Yes</td>
+    </tr>
     <tr class="dark">
-		<td class="value">JDK 1.5 support</td>
-		<td class="value">Yes</td>
-		<td class="value">Yes</td>
-	</tr>
+        <td class="value">JDK 1.5 support</td>
+        <td class="value">Yes</td>
+        <td class="value">Yes</td>
+    </tr>
     <tr class="light">
-		<td class="value">Partial line coverage (i.e. corner case if entire method code will be put on single-line, <br>will it still show valuable coverage details)</td>
-		<td class="value">Yes</td>
-		<td class="value">Yes(to some extent)</td>
-	</tr>
+        <td class="value">Partial line coverage (i.e. corner case if entire method code will be put on single-line, <br>will it still show valuable coverage details)</td>
+        <td class="value">Yes</td>
+        <td class="value">Yes(to some extent)</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Support for Ant (i.e. how hard will it be to integrate into Ant: exec vs. custom task )</td>
-		<td class="value">Yes(custom ant task)</td>
-		<td class="value">Yes(custom ant task)</td>
-	</tr>
+        <td class="value">Support for Ant (i.e. how hard will it be to integrate into Ant: exec vs. custom task )</td>
+        <td class="value">Yes(custom ant task)</td>
+        <td class="value">Yes(custom ant task)</td>
+    </tr>
     <tr class="light">
-		<td class="value">Support for JUnit integration (i.e. will it be able to execute JUnit tests and give some details <br>about test-cases hitting method vs. % or lines of code covered by each test case)</td>
-		<td class="value">Yes(framework agnostic)</td>
-		<td class="value">Yes(framework agnostic)</td>
-	</tr>
+        <td class="value">Support for JUnit integration (i.e. will it be able to execute JUnit tests and give some details <br>about test-cases hitting method vs. % or lines of code covered by each test case)</td>
+        <td class="value">Yes(framework agnostic)</td>
+        <td class="value">Yes(framework agnostic)</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Support for programming access to coverage reports (i.e. XML or some other API to read coverage files <br>in order to create combined report across several submissions)</td>
-		<td class="value">Yes(XML)</td>
-		<td class="value">Yes(XML)</td>
-	</tr>
+        <td class="value">Support for programming access to coverage reports (i.e. XML or some other API to read coverage files <br>in order to create combined report across several submissions)</td>
+        <td class="value">Yes(XML)</td>
+        <td class="value">Yes(XML)</td>
+    </tr>
     <tr class="light">
-		<td class="value">TXT reports (nice to have as current scorecards do not allow HTML and copying-pasting<br> from HTML reports can mess up formatting)</td>
-		<td class="value">Yes</td>
-		<td class="value">No</td>
-	</tr>
+        <td class="value">TXT reports (nice to have as current scorecards do not allow HTML and copying-pasting<br> from HTML reports can mess up formatting)</td>
+        <td class="value">Yes</td>
+        <td class="value">No</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Licensing and pricing</td>
-		<td class="value">Free (Common Public License)</td>
-		<td class="value">Free (GPL; most of it)</td>
-	</tr>
+        <td class="value">Licensing and pricing</td>
+        <td class="value">Free (Common Public License)</td>
+        <td class="value">Free (GPL; most of it)</td>
+    </tr>
     <tr class="light">
-		<td class="value">Command Line Launch</td>
-		<td class="value">Yes</td>
-		<td class="value">Yes</td>
-	</tr>
+        <td class="value">Command Line Launch</td>
+        <td class="value">Yes</td>
+        <td class="value">Yes</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Ease of use</td>
-		<td class="value">Quite easy</td>
-		<td class="value">Quite easy</td>
-	</tr>
-</tbody>	
+        <td class="value">Ease of use</td>
+        <td class="value">Quite easy</td>
+        <td class="value">Quite easy</td>
+    </tr>
+</tbody>    
 </table>
 </p>
 
@@ -189,105 +189,105 @@ For TopCoder Java component development we  reviewed Vlad Roubtsov's EMMA and Ma
 
 <p>
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
-	<thead>
-		<tr nowrap="nowrap">
-		<td class="header">&#160;</td> <td class="header">&#160;</td> <td colspan="2" class="headerC">Class</td> <td colspan="2" class="headerC">Method</td> <td colspan="2" class="headerC">Block</td> <td colspan="2" class="headerC">Line</td>
-	</tr>
-	<tr nowrap="nowrap">
-		<td class="header">Component</td>
-		<td class="headerC">Version</td>
-		<td class="headerC">Tested</td>
-		<td class="headerC">Total</td>
-		<td class="headerC">Tested</td>
-		<td class="headerC">Total</td>
-		<td class="headerC">Tested</td>
-		<td class="headerC">Total</td>
-		<td class="headerC">Tested</td> 
-		<td class="headerC">Total</td>
-	</tr>
-	</thead>
+    <thead>
+        <tr nowrap="nowrap">
+        <td class="header">&#160;</td> <td class="header">&#160;</td> <td colspan="2" class="headerC">Class</td> <td colspan="2" class="headerC">Method</td> <td colspan="2" class="headerC">Block</td> <td colspan="2" class="headerC">Line</td>
+    </tr>
+    <tr nowrap="nowrap">
+        <td class="header">Component</td>
+        <td class="headerC">Version</td>
+        <td class="headerC">Tested</td>
+        <td class="headerC">Total</td>
+        <td class="headerC">Tested</td>
+        <td class="headerC">Total</td>
+        <td class="headerC">Tested</td>
+        <td class="headerC">Total</td>
+        <td class="headerC">Tested</td> 
+        <td class="headerC">Total</td>
+    </tr>
+    </thead>
 <tbody>
     <tr class="light">
-		<td class="value">Auditor</td> <td class="valueC">1.0.0</td> <td class="valueC">8</td> <td class="valueC">8</td> <td class="valueC">24</td> <td class="valueC">41</td> <td class="valueC">272</td> <td class="valueC">974</td> <td class="valueC">76.9</td> <td class="valueC">239</td>
-	</tr>
-	<tr class="dark">
-		<td class="value">Bloom Filter</td> <td class="valueC">1.1.0</td> <td class="valueC">9</td> <td class="valueC">10</td> <td class="valueC">68</td> <td class="valueC">78</td> <td class="valueC">1,624</td> <td class="valueC">1,912</td> <td class="valueC">356.0</td> <td class="valueC">417</td>
-	</tr>
-	<tr class="light">
-		<td class="value">Configuration Manager</td> <td class="valueC">2.1.5</td> <td class="valueC">15</td> <td class="valueC">15</td> <td class="valueC">144</td> <td class="valueC">145</td> <td class="valueC">4,654</td> <td class="valueC">5,328</td> <td class="valueC">1,080.2</td> <td class="valueC">1,226</td>
-	</tr>
-	<tr class="dark">
-		<td class="value">Data Validation</td> <td class="valueC">1.0.0</td> <td class="valueC">41</td> <td class="valueC">43</td> <td class="valueC">207</td> <td class="valueC">220</td> <td class="valueC">2,606</td> <td class="valueC">2,941</td> <td class="valueC"></td> <td class="valueC"></td>
-	</tr>
-	<tr class="light">
-		<td class="value">Event eMail Processor</td> <td class="valueC">1.0.0</td> <td class="valueC">14</td> <td class="valueC">15</td> <td class="valueC">77</td> <td class="valueC">93</td> <td class="valueC">1246</td> <td class="valueC">2110</td> <td class="valueC">287.8</td> <td class="valueC">497</td>
-	</tr>
-	<tr class="dark">
-		<td class="value">POP3 Client</td> <td class="valueC">1.0.0</td> <td class="valueC">27</td> <td class="valueC">27</td> <td class="valueC">125</td> <td class="valueC">132</td> <td class="valueC">2,537</td> <td class="valueC">3,078</td> <td class="valueC">664.9</td> <td class="valueC">779</td>
-	</tr>
-	<tr class="light">
-		<td class="value">SAML Schema</td> <td class="valueC">1.1.0</td> <td class="valueC">48</td> <td class="valueC">50</td> <td class="valueC">351</td> <td class="valueC">448</td> <td class="valueC">9,437</td> <td class="valueC">14,976</td> <td class="valueC">2,099.1</td> <td class="valueC">3,189</td>
-	</tr>
-	<tr class="dark">
-		<td class="value">Simple Cache</td> <td class="valueC">2.0.0</td> <td class="valueC">17</td> <td class="valueC">17</td> <td class="valueC">86</td> <td class="valueC">96</td> <td class="valueC">2,482</td> <td class="valueC">3,025</td> <td class="valueC">648.2</td> <td class="valueC">790</td>
-	</tr>
-	<tr class="light">
-		<td class="value">Unit Test Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">11</td> <td class="valueC">11</td> <td class="valueC">49</td> <td class="valueC">65</td> <td class="valueC">1,620</td> <td class="valueC">2,457</td> <td class="valueC"></td> <td class="valueC"></td>
-	</tr>
-	<tr class="dark">
-		<td class="value">XML 2 SQL</td> <td class="valueC">2.0.0</td> <td class="valueC">11</td> <td class="valueC">11</td> <td class="valueC">47</td> <td class="valueC">77</td> <td class="valueC">853</td> <td class="valueC">2,641</td> <td class="valueC">226.3</td> <td class="valueC">612</td>
-	</tr>
-	<tr class="light">
-		<td class="value">XSL Engine</td> <td class="valueC">1.0.1</td> <td class="valueC">10</td> <td class="valueC">10</td> <td class="valueC">63</td> <td class="valueC">63</td> <td class="valueC">1,486</td> <td class="valueC">1,594</td> <td class="valueC">354.0</td> <td class="valueC">383</td>
-	</tr>
+        <td class="value">Auditor</td> <td class="valueC">1.0.0</td> <td class="valueC">8</td> <td class="valueC">8</td> <td class="valueC">24</td> <td class="valueC">41</td> <td class="valueC">272</td> <td class="valueC">974</td> <td class="valueC">76.9</td> <td class="valueC">239</td>
+    </tr>
+    <tr class="dark">
+        <td class="value">Bloom Filter</td> <td class="valueC">1.1.0</td> <td class="valueC">9</td> <td class="valueC">10</td> <td class="valueC">68</td> <td class="valueC">78</td> <td class="valueC">1,624</td> <td class="valueC">1,912</td> <td class="valueC">356.0</td> <td class="valueC">417</td>
+    </tr>
+    <tr class="light">
+        <td class="value">Configuration Manager</td> <td class="valueC">2.1.5</td> <td class="valueC">15</td> <td class="valueC">15</td> <td class="valueC">144</td> <td class="valueC">145</td> <td class="valueC">4,654</td> <td class="valueC">5,328</td> <td class="valueC">1,080.2</td> <td class="valueC">1,226</td>
+    </tr>
+    <tr class="dark">
+        <td class="value">Data Validation</td> <td class="valueC">1.0.0</td> <td class="valueC">41</td> <td class="valueC">43</td> <td class="valueC">207</td> <td class="valueC">220</td> <td class="valueC">2,606</td> <td class="valueC">2,941</td> <td class="valueC"></td> <td class="valueC"></td>
+    </tr>
+    <tr class="light">
+        <td class="value">Event eMail Processor</td> <td class="valueC">1.0.0</td> <td class="valueC">14</td> <td class="valueC">15</td> <td class="valueC">77</td> <td class="valueC">93</td> <td class="valueC">1246</td> <td class="valueC">2110</td> <td class="valueC">287.8</td> <td class="valueC">497</td>
+    </tr>
+    <tr class="dark">
+        <td class="value">POP3 Client</td> <td class="valueC">1.0.0</td> <td class="valueC">27</td> <td class="valueC">27</td> <td class="valueC">125</td> <td class="valueC">132</td> <td class="valueC">2,537</td> <td class="valueC">3,078</td> <td class="valueC">664.9</td> <td class="valueC">779</td>
+    </tr>
+    <tr class="light">
+        <td class="value">SAML Schema</td> <td class="valueC">1.1.0</td> <td class="valueC">48</td> <td class="valueC">50</td> <td class="valueC">351</td> <td class="valueC">448</td> <td class="valueC">9,437</td> <td class="valueC">14,976</td> <td class="valueC">2,099.1</td> <td class="valueC">3,189</td>
+    </tr>
+    <tr class="dark">
+        <td class="value">Simple Cache</td> <td class="valueC">2.0.0</td> <td class="valueC">17</td> <td class="valueC">17</td> <td class="valueC">86</td> <td class="valueC">96</td> <td class="valueC">2,482</td> <td class="valueC">3,025</td> <td class="valueC">648.2</td> <td class="valueC">790</td>
+    </tr>
+    <tr class="light">
+        <td class="value">Unit Test Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">11</td> <td class="valueC">11</td> <td class="valueC">49</td> <td class="valueC">65</td> <td class="valueC">1,620</td> <td class="valueC">2,457</td> <td class="valueC"></td> <td class="valueC"></td>
+    </tr>
+    <tr class="dark">
+        <td class="value">XML 2 SQL</td> <td class="valueC">2.0.0</td> <td class="valueC">11</td> <td class="valueC">11</td> <td class="valueC">47</td> <td class="valueC">77</td> <td class="valueC">853</td> <td class="valueC">2,641</td> <td class="valueC">226.3</td> <td class="valueC">612</td>
+    </tr>
+    <tr class="light">
+        <td class="value">XSL Engine</td> <td class="valueC">1.0.1</td> <td class="valueC">10</td> <td class="valueC">10</td> <td class="valueC">63</td> <td class="valueC">63</td> <td class="valueC">1,486</td> <td class="valueC">1,594</td> <td class="valueC">354.0</td> <td class="valueC">383</td>
+    </tr>
 </tbody>
 </table>
 </p>
 <p><b>Cobertura:</b></p>
 <p>
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
-<thead>	
-	<tr nowrap="nowrap">
-		<td class="header">&#160;</td> <td class="header">&#160;</td> <td class="headerC" colspan="2">Class</td> <td class="headerC" colspan="2">Line</td> <td class="headerC" colspan="2">Branch</td> <td class="headerC">Complexity</td>
-	</tr>
-	<tr nowrap="nowrap">
-		<td class="header">Component</td> <td class="headerC">Version</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC"></td>
-	</tr>
+<thead>    
+    <tr nowrap="nowrap">
+        <td class="header">&#160;</td> <td class="header">&#160;</td> <td class="headerC" colspan="2">Class</td> <td class="headerC" colspan="2">Line</td> <td class="headerC" colspan="2">Branch</td> <td class="headerC">Complexity</td>
+    </tr>
+    <tr nowrap="nowrap">
+        <td class="header">Component</td> <td class="headerC">Version</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC"></td>
+    </tr>
 </thead>
-<tbody>	
-	<tr class="light">
-		<td class="value">Auditor</td> <td class="valueC">1.0.0</td> <td class="valueC">8</td> <td class="valueC">11</td> <td class="valueC">163</td> <td class="valueC">240</td> <td class="valueC">36</td> <td class="valueC">38</td> <td class="valueC">2.950</td>
-	</tr>
-	<tr class="dark">
-		<td class="value">Bloom Filter</td> <td class="valueC">1.1.0</td> <td class="valueC">10</td> <td class="valueC">13</td> <td class="valueC">358</td> <td class="valueC">419</td> <td class="valueC">68</td> <td class="valueC">76</td> <td class="valueC">2.854</td>
-	</tr>
-	<tr class="light">
-		<td class="value">Configuration Manager</td> <td class="valueC">2.1.5</td> <td class="valueC">15</td> <td class="valueC">17</td> <td class="valueC">1,121</td> <td class="valueC">1,270</td> <td class="valueC">315</td> <td class="valueC">323</td> <td class="valueC">4.000</td>
-	</tr>
-	<tr class="dark">
-		<td class="value">Data Validation</td> <td class="valueC">1.0.0</td> <td class="valueC">17(43)</td> <td class="valueC">18(44)</td> <td class="valueC">598</td> <td class="valueC">659</td> <td class="valueC">174</td> <td class="valueC">194</td> <td class="valueC">2.248</td>
-	</tr>
-	<tr class="light">
-		<td class="value">Event eMail Processor</td> <td class="valueC">1.0.0</td> <td class="valueC">13(15)</td> <td class="valueC">17(19)</td> <td class="valueC">308</td> <td class="valueC">505</td> <td class="valueC">42</td> <td class="valueC">60</td> <td class="valueC">2.212</td>
-	</tr>
-	<tr class="dark">
-		<td class="value">POP3 Client</td> <td class="valueC">1.0.0</td> <td class="valueC">27</td> <td class="valueC">33</td> <td class="valueC">684</td> <td class="valueC">788</td> <td class="valueC">142</td> <td class="valueC">146</td> <td class="valueC">2.755</td>
-	</tr>
-	<tr class="light">
-		<td class="value">SAML Schema</td> <td class="valueC">1.1.0</td> <td class="valueC">49</td> <td class="valueC">51</td> <td class="valueC">2,752</td> <td class="valueC">3,264</td> <td class="valueC">605</td> <td class="valueC">663</td> <td class="valueC">3.462</td>
-	</tr>
-	<tr class="dark">
-		<td class="value">Simple Cache</td> <td class="valueC">2.0.0</td> <td class="valueC">14(17)</td> <td class="valueC">19(22)</td> <td class="valueC">695</td> <td class="valueC">807</td> <td class="valueC">136</td> <td class="valueC">143</td> <td class="valueC">3.200</td>
-	</tr>
-	<tr class="light">
-		<td class="value">Unit Test Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">7(11)</td> <td class="valueC">8(12)</td> <td class="valueC">309</td> <td class="valueC">463</td> <td class="valueC">55</td> <td class="valueC">84</td> <td class="valueC">3.509</td>
-	</tr>
-	<tr class="dark">
-		<td class="value">XML 2 SQL</td> <td class="valueC">2.0.0</td> <td class="valueC">11</td> <td class="valueC">14</td> <td class="valueC">246</td> <td class="valueC">620</td> <td class="valueC">40</td> <td class="valueC">101</td> <td class="valueC">3.471</td>
-	</tr>
-	<tr class="light">
-		<td class="value">XSL Engine</td> <td class="valueC">1.0.1</td> <td class="valueC">10</td> <td class="valueC">11</td> <td class="valueC">358</td> <td class="valueC">388</td> <td class="valueC">78</td> <td class="valueC">78</td> <td class="valueC">3.734</td>
-	</tr>
+<tbody>    
+    <tr class="light">
+        <td class="value">Auditor</td> <td class="valueC">1.0.0</td> <td class="valueC">8</td> <td class="valueC">11</td> <td class="valueC">163</td> <td class="valueC">240</td> <td class="valueC">36</td> <td class="valueC">38</td> <td class="valueC">2.950</td>
+    </tr>
+    <tr class="dark">
+        <td class="value">Bloom Filter</td> <td class="valueC">1.1.0</td> <td class="valueC">10</td> <td class="valueC">13</td> <td class="valueC">358</td> <td class="valueC">419</td> <td class="valueC">68</td> <td class="valueC">76</td> <td class="valueC">2.854</td>
+    </tr>
+    <tr class="light">
+        <td class="value">Configuration Manager</td> <td class="valueC">2.1.5</td> <td class="valueC">15</td> <td class="valueC">17</td> <td class="valueC">1,121</td> <td class="valueC">1,270</td> <td class="valueC">315</td> <td class="valueC">323</td> <td class="valueC">4.000</td>
+    </tr>
+    <tr class="dark">
+        <td class="value">Data Validation</td> <td class="valueC">1.0.0</td> <td class="valueC">17(43)</td> <td class="valueC">18(44)</td> <td class="valueC">598</td> <td class="valueC">659</td> <td class="valueC">174</td> <td class="valueC">194</td> <td class="valueC">2.248</td>
+    </tr>
+    <tr class="light">
+        <td class="value">Event eMail Processor</td> <td class="valueC">1.0.0</td> <td class="valueC">13(15)</td> <td class="valueC">17(19)</td> <td class="valueC">308</td> <td class="valueC">505</td> <td class="valueC">42</td> <td class="valueC">60</td> <td class="valueC">2.212</td>
+    </tr>
+    <tr class="dark">
+        <td class="value">POP3 Client</td> <td class="valueC">1.0.0</td> <td class="valueC">27</td> <td class="valueC">33</td> <td class="valueC">684</td> <td class="valueC">788</td> <td class="valueC">142</td> <td class="valueC">146</td> <td class="valueC">2.755</td>
+    </tr>
+    <tr class="light">
+        <td class="value">SAML Schema</td> <td class="valueC">1.1.0</td> <td class="valueC">49</td> <td class="valueC">51</td> <td class="valueC">2,752</td> <td class="valueC">3,264</td> <td class="valueC">605</td> <td class="valueC">663</td> <td class="valueC">3.462</td>
+    </tr>
+    <tr class="dark">
+        <td class="value">Simple Cache</td> <td class="valueC">2.0.0</td> <td class="valueC">14(17)</td> <td class="valueC">19(22)</td> <td class="valueC">695</td> <td class="valueC">807</td> <td class="valueC">136</td> <td class="valueC">143</td> <td class="valueC">3.200</td>
+    </tr>
+    <tr class="light">
+        <td class="value">Unit Test Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">7(11)</td> <td class="valueC">8(12)</td> <td class="valueC">309</td> <td class="valueC">463</td> <td class="valueC">55</td> <td class="valueC">84</td> <td class="valueC">3.509</td>
+    </tr>
+    <tr class="dark">
+        <td class="value">XML 2 SQL</td> <td class="valueC">2.0.0</td> <td class="valueC">11</td> <td class="valueC">14</td> <td class="valueC">246</td> <td class="valueC">620</td> <td class="valueC">40</td> <td class="valueC">101</td> <td class="valueC">3.471</td>
+    </tr>
+    <tr class="light">
+        <td class="value">XSL Engine</td> <td class="valueC">1.0.1</td> <td class="valueC">10</td> <td class="valueC">11</td> <td class="valueC">358</td> <td class="valueC">388</td> <td class="valueC">78</td> <td class="valueC">78</td> <td class="valueC">3.734</td>
+    </tr>
 </tbody>
 </table>
 </p>
@@ -301,48 +301,48 @@ For .NET C# component development TopCoder reviewed Peter Waldschmidt's NCover a
 <p>
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
 <thead>
-	<tr>
-		<td class="header">TopCoder Expectations</td> <td class="headerC">NCover</td> <td class="headerC">TeamCoverage</td>
-	</tr>
+    <tr>
+        <td class="header">TopCoder Expectations</td> <td class="headerC">NCover</td> <td class="headerC">TeamCoverage</td>
+    </tr>
 </thead>
 <tbody>
     <tr class="light">
-		<td class="value">.NET 2.0 support</td>
-		<td class="valueC">Yes</td>
-		<td class="valueC">Yes</td>
-	</tr>
+        <td class="value">.NET 2.0 support</td>
+        <td class="valueC">Yes</td>
+        <td class="valueC">Yes</td>
+    </tr>
     <tr class="dark">
-		<td class="value">.NET 1.1. support</td>
-		<td class="valueC">Yes</td>
-		<td class="valueC">Yes</td>
-	</tr>
+        <td class="value">.NET 1.1. support</td>
+        <td class="valueC">Yes</td>
+        <td class="valueC">Yes</td>
+    </tr>
     <tr class="light">
-		<td class="value">C# support</td>
-		<td class="valueC">Yes</td>
-		<td class="valueC">Yes</td>
-	</tr>
+        <td class="value">C# support</td>
+        <td class="valueC">Yes</td>
+        <td class="valueC">Yes</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Partial line coverage</td> <td class="valueC">Yes</td> <td class="valueC">Yes</td>
-	</tr>
+        <td class="value">Partial line coverage</td> <td class="valueC">Yes</td> <td class="valueC">Yes</td>
+    </tr>
     <tr class="light">
-		<td class="value">Support for nant</td> <td class="valueC">Yes</td> <td class="valueC">No</td>
-	</tr>
+        <td class="value">Support for nant</td> <td class="valueC">Yes</td> <td class="valueC">No</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Support for programming access to coverage reports.</td> <td class="valueC">Yes</td> <td class="valueC">Yes</td>
-	</tr>
+        <td class="value">Support for programming access to coverage reports.</td> <td class="valueC">Yes</td> <td class="valueC">Yes</td>
+    </tr>
     <tr class="light">
-		<td class="value">Text reports.</td> <td class="valueC">No</td> <td class="valueC">No</td>
-	</tr>
+        <td class="value">Text reports.</td> <td class="valueC">No</td> <td class="valueC">No</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Licensing and pricing issues.</td> <td class="valueC">GPL</td> <td class="valueC">Yes</td>
-	</tr>
+        <td class="value">Licensing and pricing issues.</td> <td class="valueC">GPL</td> <td class="valueC">Yes</td>
+    </tr>
     <tr class="light">
-		<td class="value">Support for command line launch.</td> <td class="valueC">Yes</td> <td class="valueC">Yes</td>
-	</tr>
+        <td class="value">Support for command line launch.</td> <td class="valueC">Yes</td> <td class="valueC">Yes</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Ease of use</td> <td class="valueC">Yes</td> <td class="valueC">No</td>
-	</tr>
-</tbody>	
+        <td class="value">Ease of use</td> <td class="valueC">Yes</td> <td class="valueC">No</td>
+    </tr>
+</tbody>    
 </table>
 </p>
 
@@ -367,84 +367,84 @@ For .NET C# component development TopCoder reviewed Peter Waldschmidt's NCover a
 <p>
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
 <thead>
-	<tr>
-		<td class="header">&#160;</td> <td class="header">&#160;</td> <td class="headerC" colspan="2">Block</td> <td class="headerC" colspan="2">Line</td>
-	</tr>
-	<tr>
-		<td class="headerC">Component</td> <td class="headerC">Version</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td>
-	</tr>
+    <tr>
+        <td class="header">&#160;</td> <td class="header">&#160;</td> <td class="headerC" colspan="2">Block</td> <td class="headerC" colspan="2">Line</td>
+    </tr>
+    <tr>
+        <td class="headerC">Component</td> <td class="headerC">Version</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td>
+    </tr>
 </thead>
 <tbody>
     <tr class="light">
-		<td class="value">BCP Output Sink</td> <td class="valueC">1.0.0</td> <td class="valueC">94.81%</td> <td class="valueC">925</td> <td class="valueC">93.31%</td> <td class="valueC">883</td>
-	</tr>
+        <td class="value">BCP Output Sink</td> <td class="valueC">1.0.0</td> <td class="valueC">94.81%</td> <td class="valueC">925</td> <td class="valueC">93.31%</td> <td class="valueC">883</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Bloom Filter</td> <td class="valueC">1.0.0</td> <td class="valueC">97.81%</td> <td class="valueC">457</td> <td class="valueC">99.06%</td> <td class="valueC">426</td>
-	</tr>
+        <td class="value">Bloom Filter</td> <td class="valueC">1.0.0</td> <td class="valueC">97.81%</td> <td class="valueC">457</td> <td class="valueC">99.06%</td> <td class="valueC">426</td>
+    </tr>
     <tr class="light">
-		<td class="value">Configuration Manager</td> <td class="valueC">2.0.0</td> <td class="valueC">87.56%</td> <td class="valueC">1,214</td> <td class="valueC">83.44%</td> <td class="valueC">1,055</td>
-	</tr>
+        <td class="value">Configuration Manager</td> <td class="valueC">2.0.0</td> <td class="valueC">87.56%</td> <td class="valueC">1,214</td> <td class="valueC">83.44%</td> <td class="valueC">1,055</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Data Migration Manager</td> <td class="valueC">1.0.0</td> <td class="valueC">92.25%</td> <td class="valueC">1,316</td> <td class="valueC">92.40%</td> <td class="valueC">1,288</td>
-	</tr>
+        <td class="value">Data Migration Manager</td> <td class="valueC">1.0.0</td> <td class="valueC">92.25%</td> <td class="valueC">1,316</td> <td class="valueC">92.40%</td> <td class="valueC">1,288</td>
+    </tr>
     <tr class="light">
-		<td class="value">Date Picker Control</td> <td class="valueC">1.0.0</td> <td class="valueC">80.81%</td> <td class="valueC">271</td> <td class="valueC">85.29%</td> <td class="valueC">305</td>
-	</tr>
+        <td class="value">Date Picker Control</td> <td class="valueC">1.0.0</td> <td class="valueC">80.81%</td> <td class="valueC">271</td> <td class="valueC">85.29%</td> <td class="valueC">305</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Date Utility</td> <td class="valueC">2.1.0</td> <td class="valueC">90.04%</td> <td class="valueC">1,847</td> <td class="valueC">87.25%</td> <td class="valueC">1,717</td>
-	</tr>
+        <td class="value">Date Utility</td> <td class="valueC">2.1.0</td> <td class="valueC">90.04%</td> <td class="valueC">1,847</td> <td class="valueC">87.25%</td> <td class="valueC">1,717</td>
+    </tr>
     <tr class="light">
-		<td class="value">Distributed Simple Cache</td> <td class="valueC">1.0.0</td> <td class="valueC">62.07%</td> <td class="valueC">1,147</td> <td class="valueC">63.58%</td> <td class="valueC">974</td>
-	</tr>
+        <td class="value">Distributed Simple Cache</td> <td class="valueC">1.0.0</td> <td class="valueC">62.07%</td> <td class="valueC">1,147</td> <td class="valueC">63.58%</td> <td class="valueC">974</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Global Distance Calculator</td> <td class="valueC">1.0.0</td> <td class="valueC">99.34%</td> <td class="valueC">303</td> <td class="valueC">99.24%</td> <td class="valueC">263</td>
-	</tr>
+        <td class="value">Global Distance Calculator</td> <td class="valueC">1.0.0</td> <td class="valueC">99.34%</td> <td class="valueC">303</td> <td class="valueC">99.24%</td> <td class="valueC">263</td>
+    </tr>
     <tr class="light">
-		<td class="value">Graph Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">95.50%</td> <td class="valueC">333</td> <td class="valueC">97.00%</td> <td class="valueC">298</td>
-	</tr>
+        <td class="value">Graph Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">95.50%</td> <td class="valueC">333</td> <td class="valueC">97.00%</td> <td class="valueC">298</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Hashing Utility</td> <td class="valueC">1.0.0</td> <td class="valueC">97.42%</td> <td class="valueC">233</td> <td class="valueC">96.67%</td> <td class="valueC">239</td>
-	</tr>
+        <td class="value">Hashing Utility</td> <td class="valueC">1.0.0</td> <td class="valueC">97.42%</td> <td class="valueC">233</td> <td class="valueC">96.67%</td> <td class="valueC">239</td>
+    </tr>
     <tr class="light">
-		<td class="value">Image Manipulation</td> <td class="valueC">1.0.0</td> <td class="valueC">90.73%</td> <td class="valueC">755</td> <td class="valueC">91.71%</td> <td class="valueC">865</td>
-	</tr>
+        <td class="value">Image Manipulation</td> <td class="valueC">1.0.0</td> <td class="valueC">90.73%</td> <td class="valueC">755</td> <td class="valueC">91.71%</td> <td class="valueC">865</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Instant Messaging Framework</td> <td class="valueC">1.0.0</td> <td class="valueC">92.00%</td> <td class="valueC">888</td> <td class="valueC">93.97%</td> <td class="valueC">846</td>
-	</tr>
+        <td class="value">Instant Messaging Framework</td> <td class="valueC">1.0.0</td> <td class="valueC">92.00%</td> <td class="valueC">888</td> <td class="valueC">93.97%</td> <td class="valueC">846</td>
+    </tr>
     <tr class="light">
-		<td class="value">Line Graph</td> <td class="valueC">1.1.0</td> <td class="valueC">94.60%</td> <td class="valueC">352</td> <td class="valueC">94.10%</td> <td class="valueC">372</td>
-	</tr>
+        <td class="value">Line Graph</td> <td class="valueC">1.1.0</td> <td class="valueC">94.60%</td> <td class="valueC">352</td> <td class="valueC">94.10%</td> <td class="valueC">372</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Object Pool</td> <td class="valueC">1.0.0</td> <td class="valueC">90.39%</td> <td class="valueC">333</td> <td class="valueC">86.76%</td> <td class="valueC">339</td>
-	</tr>
+        <td class="value">Object Pool</td> <td class="valueC">1.0.0</td> <td class="valueC">90.39%</td> <td class="valueC">333</td> <td class="valueC">86.76%</td> <td class="valueC">339</td>
+    </tr>
     <tr class="light">
-		<td class="value">PDF Form Control</td> <td class="valueC">1.0.0</td> <td class="valueC">57.22%</td> <td class="valueC">2,370</td> <td class="valueC">59.43%</td> <td class="valueC">2,149</td>
-	</tr>
+        <td class="value">PDF Form Control</td> <td class="valueC">1.0.0</td> <td class="valueC">57.22%</td> <td class="valueC">2,370</td> <td class="valueC">59.43%</td> <td class="valueC">2,149</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Random String Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">100.00%</td> <td class="valueC">67</td> <td class="valueC">100.00%</td> <td class="valueC">87</td>
-	</tr>
+        <td class="value">Random String Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">100.00%</td> <td class="valueC">67</td> <td class="valueC">100.00%</td> <td class="valueC">87</td>
+    </tr>
     <tr class="light">
-		<td class="value">Reference Collection</td> <td class="valueC">1.0.0</td> <td class="valueC">91.75%</td> <td class="valueC">424</td> <td class="valueC">91.28%</td> <td class="valueC">446</td>
-	</tr>
+        <td class="value">Reference Collection</td> <td class="valueC">1.0.0</td> <td class="valueC">91.75%</td> <td class="valueC">424</td> <td class="valueC">91.28%</td> <td class="valueC">446</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Report Data</td> <td class="valueC">1.0.0</td> <td class="valueC">91.59%</td> <td class="valueC">690</td> <td class="valueC">91.72%</td> <td class="valueC">478</td>
-	</tr>
+        <td class="value">Report Data</td> <td class="valueC">1.0.0</td> <td class="valueC">91.59%</td> <td class="valueC">690</td> <td class="valueC">91.72%</td> <td class="valueC">478</td>
+    </tr>
     <tr class="light">
-		<td class="value">Rounding Factory</td> <td class="valueC">1.0.0</td> <td class="valueC">98.04%</td> <td class="valueC">663</td> <td class="valueC">97.91%</td> <td class="valueC">621</td>
-	</tr>
+        <td class="value">Rounding Factory</td> <td class="valueC">1.0.0</td> <td class="valueC">98.04%</td> <td class="valueC">663</td> <td class="valueC">97.91%</td> <td class="valueC">621</td>
+    </tr>
     <tr class="dark">
-		<td class="value">RSS Library</td> <td class="valueC">1.0.0</td> <td class="valueC">87.46%</td> <td class="valueC">3,956</td> <td class="valueC">86.92%</td> <td class="valueC">3,628</td>
-	</tr>
+        <td class="value">RSS Library</td> <td class="valueC">1.0.0</td> <td class="valueC">87.46%</td> <td class="valueC">3,956</td> <td class="valueC">86.92%</td> <td class="valueC">3,628</td>
+    </tr>
     <tr class="light">
-		<td class="value">Serial Number Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">78.72%</td> <td class="valueC">1,043</td> <td class="valueC">78.79%</td> <td class="valueC">1,075</td>
-	</tr>
+        <td class="value">Serial Number Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">78.72%</td> <td class="valueC">1,043</td> <td class="valueC">78.79%</td> <td class="valueC">1,075</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Simple XSL Transformer</td> <td class="valueC">1.0.0</td> <td class="valueC">91.64%</td> <td class="valueC">299</td> <td class="valueC">85.59%</td> <td class="valueC">339</td>
-	</tr>
+        <td class="value">Simple XSL Transformer</td> <td class="valueC">1.0.0</td> <td class="valueC">91.64%</td> <td class="valueC">299</td> <td class="valueC">85.59%</td> <td class="valueC">339</td>
+    </tr>
     <tr class="light">
-		<td class="value">Stream Filter</td> <td class="valueC">1.0.0</td> <td class="valueC">96.68%</td> <td class="valueC">422</td> <td class="valueC">97.62%</td> <td class="valueC">376</td>
-	</tr>
-</tbody>	
+        <td class="value">Stream Filter</td> <td class="valueC">1.0.0</td> <td class="valueC">96.68%</td> <td class="valueC">422</td> <td class="valueC">97.62%</td> <td class="valueC">376</td>
+    </tr>
+</tbody>    
 </table>
 </p>
 
@@ -453,89 +453,89 @@ For .NET C# component development TopCoder reviewed Peter Waldschmidt's NCover a
 <p>
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
 <thead>
-	<tr>
-		<td class="header">&#160;</td> <td class="header">&#160;</td> <td class="headerC" colspan="2">Class</td> <td class="headerC" colspan="2">Method</td> <td class="headerC" colspan="2">Block</td> <td class="headerC" colspan="2">Line</td>
-	</tr>
-	<tr>
-		<td class="header">Component</td> <td class="headerC">Version</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td>
-	</tr>
+    <tr>
+        <td class="header">&#160;</td> <td class="header">&#160;</td> <td class="headerC" colspan="2">Class</td> <td class="headerC" colspan="2">Method</td> <td class="headerC" colspan="2">Block</td> <td class="headerC" colspan="2">Line</td>
+    </tr>
+    <tr>
+        <td class="header">Component</td> <td class="headerC">Version</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td> <td class="headerC">Tested</td> <td class="headerC">Total</td>
+    </tr>
 </thead>
 <tbody>
     <tr class="light">
-		<td class="value">BCP Output Sink</td> <td class="valueC">1.0.0</td> <td class="valueC">11</td> <td class="valueC">11</td> <td class="valueC">237</td> <td class="valueC">388</td> <td class="valueC">1,084</td> <td class="valueC">1,406</td> <td class="valueC">1,245</td> <td class="valueC">1,570</td>
-	</tr>
+        <td class="value">BCP Output Sink</td> <td class="valueC">1.0.0</td> <td class="valueC">11</td> <td class="valueC">11</td> <td class="valueC">237</td> <td class="valueC">388</td> <td class="valueC">1,084</td> <td class="valueC">1,406</td> <td class="valueC">1,245</td> <td class="valueC">1,570</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Bloom Filter</td> <td class="valueC">1.0.0</td> <td class="valueC">25</td> <td class="valueC">25</td> <td class="valueC">367</td> <td>371</td> <td class="valueC">1,537</td> <td class="valueC">1,731</td> <td class="valueC">1,622</td> <td class="valueC">1,622</td>
-	</tr>
+        <td class="value">Bloom Filter</td> <td class="valueC">1.0.0</td> <td class="valueC">25</td> <td class="valueC">25</td> <td class="valueC">367</td> <td class="valueC">371</td> <td class="valueC">1,537</td> <td class="valueC">1,731</td> <td class="valueC">1,622</td> <td class="valueC">1,622</td>
+    </tr>
     <tr class="light">
-		<td class="value">Configuration Manager</td> <td class="valueC">2.0.0</td> <td class="valueC">60</td> <td class="valueC">60</td> <td class="valueC">446</td> <td class="valueC">467</td> <td class="valueC">2,232</td> <td class="valueC">2,552</td> <td class="valueC">2,302</td> <td class="valueC">2,519</td>
-	</tr>
+        <td class="value">Configuration Manager</td> <td class="valueC">2.0.0</td> <td class="valueC">60</td> <td class="valueC">60</td> <td class="valueC">446</td> <td class="valueC">467</td> <td class="valueC">2,232</td> <td class="valueC">2,552</td> <td class="valueC">2,302</td> <td class="valueC">2,519</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Currency Factory</td> <td class="valueC">1.0.0</td> <td class="valueC">30</td> <td class="valueC">30</td> <td class="valueC">101</td> <td class="valueC">291</td> <td class="valueC">330</td> <td class="valueC">456</td> <td class="valueC">374</td> <td class="valueC">495</td>
-	</tr>
+        <td class="value">Currency Factory</td> <td class="valueC">1.0.0</td> <td class="valueC">30</td> <td class="valueC">30</td> <td class="valueC">101</td> <td class="valueC">291</td> <td class="valueC">330</td> <td class="valueC">456</td> <td class="valueC">374</td> <td class="valueC">495</td>
+    </tr>
     <tr class="light">
-		<td class="value">Data Migration Manager</td> <td class="valueC">1.0.0</td> <td class="valueC">47</td> <td class="valueC">47</td> <td class="valueC">574</td> <td class="valueC">589</td> <td class="valueC">2,409</td> <td class="valueC">2,716</td> <td class="valueC">2,593</td> <td class="valueC">2,834</td>
-	</tr>
+        <td class="value">Data Migration Manager</td> <td class="valueC">1.0.0</td> <td class="valueC">47</td> <td class="valueC">47</td> <td class="valueC">574</td> <td class="valueC">589</td> <td class="valueC">2,409</td> <td class="valueC">2,716</td> <td class="valueC">2,593</td> <td class="valueC">2,834</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Date Picker Control</td> <td class="valueC">1.0.0</td> <td class="valueC">19</td> <td class="valueC">19</td> <td class="valueC">226</td> <td class="valueC">231</td> <td class="valueC">549</td> <td class="valueC">658</td> <td class="valueC">585</td> <td class="valueC">688</td>
-	</tr>
+        <td class="value">Date Picker Control</td> <td class="valueC">1.0.0</td> <td class="valueC">19</td> <td class="valueC">19</td> <td class="valueC">226</td> <td class="valueC">231</td> <td class="valueC">549</td> <td class="valueC">658</td> <td class="valueC">585</td> <td class="valueC">688</td>
+    </tr>
     <tr class="light">
-		<td class="value">Date Utility</td> <td class="valueC">2.0.0</td> <td class="valueC">59</td> <td class="valueC">59</td> <td class="valueC">577</td> <td class="valueC">589</td> <td class="valueC">1,960</td> <td class="valueC">2,424</td> <td class="valueC">2,227</td> <td class="valueC">2,694</td>
-	</tr>
+        <td class="value">Date Utility</td> <td class="valueC">2.0.0</td> <td class="valueC">59</td> <td class="valueC">59</td> <td class="valueC">577</td> <td class="valueC">589</td> <td class="valueC">1,960</td> <td class="valueC">2,424</td> <td class="valueC">2,227</td> <td class="valueC">2,694</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Distributed Simple Cache</td> <td class="valueC">1.0.0</td> <td class="valueC">36</td> <td class="valueC">36</td> <td class="valueC">114</td> <td class="valueC">224</td> <td class="valueC">278</td> <td class="valueC">657</td> <td class="valueC">282</td> <td class="valueC">599</td>
-	</tr>
+        <td class="value">Distributed Simple Cache</td> <td class="valueC">1.0.0</td> <td class="valueC">36</td> <td class="valueC">36</td> <td class="valueC">114</td> <td class="valueC">224</td> <td class="valueC">278</td> <td class="valueC">657</td> <td class="valueC">282</td> <td class="valueC">599</td>
+    </tr>
     <tr class="light">
-		<td class="value">Global Distance Calculator</td> <td class="valueC">1.0.0</td> <td class="valueC">29</td> <td class="valueC">29</td> <td class="valueC">264</td> <td class="valueC">269</td> <td class="valueC">792</td> <td class="valueC">885</td> <td class="valueC">1,125</td> <td class="valueC">1,170</td>
-	</tr>
+        <td class="value">Global Distance Calculator</td> <td class="valueC">1.0.0</td> <td class="valueC">29</td> <td class="valueC">29</td> <td class="valueC">264</td> <td class="valueC">269</td> <td class="valueC">792</td> <td class="valueC">885</td> <td class="valueC">1,125</td> <td class="valueC">1,170</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Graph Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">37</td> <td class="valueC">37</td> <td class="valueC">292</td> <td class="valueC">305</td> <td class="valueC">1,133</td> <td class="valueC">1,247</td> <td class="valueC">1,333</td> <td class="valueC">1,346</td>
-	</tr>
+        <td class="value">Graph Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">37</td> <td class="valueC">37</td> <td class="valueC">292</td> <td class="valueC">305</td> <td class="valueC">1,133</td> <td class="valueC">1,247</td> <td class="valueC">1,333</td> <td class="valueC">1,346</td>
+    </tr>
     <tr class="light">
-		<td class="value">Hashing Utility</td> <td class="valueC">1.0.0</td> <td class="valueC">30</td> <td class="valueC">30</td> <td class="valueC">296</td> <td class="valueC">298</td> <td class="valueC">1,239</td> <td class="valueC">1,330</td> <td class="valueC">1,384</td> <td class="valueC">1,452</td>
-	</tr>
+        <td class="value">Hashing Utility</td> <td class="valueC">1.0.0</td> <td class="valueC">30</td> <td class="valueC">30</td> <td class="valueC">296</td> <td class="valueC">298</td> <td class="valueC">1,239</td> <td class="valueC">1,330</td> <td class="valueC">1,384</td> <td class="valueC">1,452</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Image Manipulation</td> <td class="valueC">1.0.0</td> <td class="valueC">96</td> <td class="valueC">96</td> <td class="valueC">631</td> <td class="valueC">640</td> <td class="valueC">2,564</td> <td class="valueC">2,759</td> <td class="valueC">2,958</td> <td class="valueC">3,047</td>
-	</tr>
+        <td class="value">Image Manipulation</td> <td class="valueC">1.0.0</td> <td class="valueC">96</td> <td class="valueC">96</td> <td class="valueC">631</td> <td class="valueC">640</td> <td class="valueC">2,564</td> <td class="valueC">2,759</td> <td class="valueC">2,958</td> <td class="valueC">3,047</td>
+    </tr>
     <tr class="light">
-		<td class="value">Instant Messaging Framework</td> <td class="valueC">1.0.0</td> <td class="valueC">74</td> <td class="valueC">74</td> <td class="valueC">678</td> <td>686</td> <td>2,844</td> <td class="valueC">3,086</td> <td class="valueC">2,874</td> <td class="valueC">3,062</td>
-	</tr>
+        <td class="value">Instant Messaging Framework</td> <td class="valueC">1.0.0</td> <td class="valueC">74</td> <td class="valueC">74</td> <td class="valueC">678</td> <td class="valueC">686</td> <td class="valueC">2,844</td> <td class="valueC">3,086</td> <td class="valueC">2,874</td> <td class="valueC">3,062</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Line Graph</td> <td class="valueC">1.1.0</td> <td class="valueC">41</td> <td class="valueC">41</td> <td class="valueC">461</td> <td class="valueC">466</td> <td class="valueC">1,935</td> <td class="valueC">2,104</td> <td class="valueC">2,126</td> <td class="valueC">2,245</td>
-	</tr>
+        <td class="value">Line Graph</td> <td class="valueC">1.1.0</td> <td class="valueC">41</td> <td class="valueC">41</td> <td class="valueC">461</td> <td class="valueC">466</td> <td class="valueC">1,935</td> <td class="valueC">2,104</td> <td class="valueC">2,126</td> <td class="valueC">2,245</td>
+    </tr>
     <tr class="light">
-		<td class="value">Magic Numbers</td> <td class="valueC">1.0.1</td> <td class="valueC">41</td> <td class="valueC">41</td> <td class="valueC">433</td> <td class="valueC">435</td> <td class="valueC">1,787</td> <td class="valueC">2,009</td> <td class="valueC">1,887</td> <td class="valueC">2,043</td>
-	</tr>
+        <td class="value">Magic Numbers</td> <td class="valueC">1.0.1</td> <td class="valueC">41</td> <td class="valueC">41</td> <td class="valueC">433</td> <td class="valueC">435</td> <td class="valueC">1,787</td> <td class="valueC">2,009</td> <td class="valueC">1,887</td> <td class="valueC">2,043</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Object Pool</td> <td class="valueC">1.0.0</td> <td class="valueC">18</td> <td class="valueC">18</td> <td class="valueC">98</td> <td class="valueC">174</td> <td class="valueC">481</td> <td class="valueC">548</td> <td class="valueC">498</td> <td class="valueC">541</td>
-	</tr>
+        <td class="value">Object Pool</td> <td class="valueC">1.0.0</td> <td class="valueC">18</td> <td class="valueC">18</td> <td class="valueC">98</td> <td class="valueC">174</td> <td class="valueC">481</td> <td class="valueC">548</td> <td class="valueC">498</td> <td class="valueC">541</td>
+    </tr>
     <tr class="light">
-		<td class="value">PDF Form Control</td> <td class="valueC">1.0.0</td> <td class="valueC">78</td> <td class="valueC">78</td> <td class="valueC">544</td> <td class="valueC">558</td> <td class="valueC">2,746</td> <td class="valueC">3,125</td> <td class="valueC">2,868</td> <td class="valueC">3,128</td>
-	</tr>
+        <td class="value">PDF Form Control</td> <td class="valueC">1.0.0</td> <td class="valueC">78</td> <td class="valueC">78</td> <td class="valueC">544</td> <td class="valueC">558</td> <td class="valueC">2,746</td> <td class="valueC">3,125</td> <td class="valueC">2,868</td> <td class="valueC">3,128</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Random String Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">6</td> <td class="valueC">6</td> <td class="valueC">97</td> <td class="valueC">97</td> <td class="valueC">498</td> <td class="valueC">530</td> <td class="valueC">464</td> <td class="valueC">498</td>
-	</tr>
+        <td class="value">Random String Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">6</td> <td class="valueC">6</td> <td class="valueC">97</td> <td class="valueC">97</td> <td class="valueC">498</td> <td class="valueC">530</td> <td class="valueC">464</td> <td class="valueC">498</td>
+    </tr>
     <tr class="light">
-		<td class="value">Reference Collection</td> <td class="valueC">1.0.0</td> <td class="valueC">44</td> <td class="valueC">44</td> <td class="valueC">391</td> <td class="valueC">400</td> <td class="valueC">2,150</td> <td class="valueC">2,252</td> <td class="valueC">2,118</td> <td class="valueC">2,301</td>
-	</tr>
+        <td class="value">Reference Collection</td> <td class="valueC">1.0.0</td> <td class="valueC">44</td> <td class="valueC">44</td> <td class="valueC">391</td> <td class="valueC">400</td> <td class="valueC">2,150</td> <td class="valueC">2,252</td> <td class="valueC">2,118</td> <td class="valueC">2,301</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Report Data</td> <td class="valueC">1.0.0</td> <td class="valueC">15</td> <td class="valueC">15</td> <td class="valueC">166</td> <td class="valueC">169</td> <td class="valueC">1,107</td> <td class="valueC">1,175</td> <td class="valueC">1,153</td> <td class="valueC">1,175</td>
-	</tr>
+        <td class="value">Report Data</td> <td class="valueC">1.0.0</td> <td class="valueC">15</td> <td class="valueC">15</td> <td class="valueC">166</td> <td class="valueC">169</td> <td class="valueC">1,107</td> <td class="valueC">1,175</td> <td class="valueC">1,153</td> <td class="valueC">1,175</td>
+    </tr>
     <tr class="light">
-		<td class="value">Rounding Factory</td> <td class="valueC">1.0.0</td> <td class="valueC">45</td> <td class="valueC">45</td> <td class="valueC">469</td> <td class="valueC">469</td> <td class="valueC">1,711</td> <td class="valueC">2,635</td> <td class="valueC">1,738</td> <td class="valueC">2,642</td>
-	</tr>
+        <td class="value">Rounding Factory</td> <td class="valueC">1.0.0</td> <td class="valueC">45</td> <td class="valueC">45</td> <td class="valueC">469</td> <td class="valueC">469</td> <td class="valueC">1,711</td> <td class="valueC">2,635</td> <td class="valueC">1,738</td> <td class="valueC">2,642</td>
+    </tr>
     <tr class="dark">
-		<td class="value">RSS Library</td> <td class="valueC">1.0.0</td> <td class="valueC">121</td> <td class="valueC">121</td> <td class="valueC">2,010</td> <td class="valueC">2,075</td> <td class="valueC">9,581</td> <td class="valueC">10,964</td> <td class="valueC">10,882</td> <td class="valueC">11,840</td>
-	</tr>
+        <td class="value">RSS Library</td> <td class="valueC">1.0.0</td> <td class="valueC">121</td> <td class="valueC">121</td> <td class="valueC">2,010</td> <td class="valueC">2,075</td> <td class="valueC">9,581</td> <td class="valueC">10,964</td> <td class="valueC">10,882</td> <td class="valueC">11,840</td>
+    </tr>
     <tr class="light">
-		<td class="value">Serial Number Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">76</td> <td class="valueC">76</td> <td class="valueC">692</td> <td class="valueC">713</td> <td class="valueC">2,765</td> <td class="valueC">2,966</td> <td class="valueC">3,052</td> <td class="valueC">3,112</td>
-	</tr>
+        <td class="value">Serial Number Generator</td> <td class="valueC">1.0.0</td> <td class="valueC">76</td> <td class="valueC">76</td> <td class="valueC">692</td> <td class="valueC">713</td> <td class="valueC">2,765</td> <td class="valueC">2,966</td> <td class="valueC">3,052</td> <td class="valueC">3,112</td>
+    </tr>
     <tr class="dark">
-		<td class="value">Simple XSL Transformer</td> <td class="valueC">1.0.0</td> <td class="valueC">29</td> <td class="valueC">29</td> <td class="valueC">432</td> <td class="valueC">435</td> <td class="valueC">1,316</td> <td class="valueC">1,663</td> <td class="valueC">1,594</td> <td class="valueC">1,946</td>
-	</tr>
+        <td class="value">Simple XSL Transformer</td> <td class="valueC">1.0.0</td> <td class="valueC">29</td> <td class="valueC">29</td> <td class="valueC">432</td> <td class="valueC">435</td> <td class="valueC">1,316</td> <td class="valueC">1,663</td> <td class="valueC">1,594</td> <td class="valueC">1,946</td>
+    </tr>
     <tr class="light">
-		<td class="value">Stream Filter</td> <td class="valueC">1.0.0</td> <td class="valueC">36</td> <td class="valueC">36</td> <td class="valueC">333</td> <td class="valueC">335</td> <td class="valueC">1,410</td> <td class="valueC">1,527</td> <td class="valueC">1,421</td> <td class="valueC">1,467</td>
-	</tr>
+        <td class="value">Stream Filter</td> <td class="valueC">1.0.0</td> <td class="valueC">36</td> <td class="valueC">36</td> <td class="valueC">333</td> <td class="valueC">335</td> <td class="valueC">1,410</td> <td class="valueC">1,527</td> <td class="valueC">1,421</td> <td class="valueC">1,467</td>
+    </tr>
 </table>
 </p>
 
