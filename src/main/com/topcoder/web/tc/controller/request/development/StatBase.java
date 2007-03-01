@@ -6,22 +6,22 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
-import java.util.Map;
-import java.util.Iterator;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author rfairfax
  */
 public abstract class StatBase extends Base {
 
-    abstract String getDataSourceName() throws TCWebException;
+    protected abstract String getDataSourceName() throws TCWebException;
 
-    abstract String getCommandName() throws TCWebException;
+    protected abstract String getCommandName() throws TCWebException;
 
-    abstract String getPageName() throws TCWebException;
+    protected abstract String getPageName() throws TCWebException;
 
-    abstract void statProcessing() throws TCWebException;
+    protected abstract void statProcessing() throws TCWebException;
 
     protected void developmentProcessing() throws TCWebException {
 
@@ -30,9 +30,9 @@ public abstract class StatBase extends Base {
         HashMap filteredMap = new HashMap();
         Map.Entry me = null;
         for (Iterator it = map.entrySet().iterator(); it.hasNext();) {
-            me = (Map.Entry)it.next();
-            if (!me.getKey().equals(Constants.MODULE_KEY)&&
-                    !me.getKey().equals(DataAccessConstants.SORT_COLUMN)&&
+            me = (Map.Entry) it.next();
+            if (!me.getKey().equals(Constants.MODULE_KEY) &&
+                    !me.getKey().equals(DataAccessConstants.SORT_COLUMN) &&
                     !me.getKey().equals(DataAccessConstants.SORT_DIRECTION)) {
                 filteredMap.put(me.getKey(), me.getValue());
             }

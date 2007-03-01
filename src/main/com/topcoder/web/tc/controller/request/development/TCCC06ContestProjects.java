@@ -9,19 +9,19 @@ import com.topcoder.shared.util.DBMS;
  */
 public class TCCC06ContestProjects extends StatBase {
 
-    String getCommandName() {
+    public String getCommandName() {
         return "tccc06_contest_projects";
     }
 
-    String getDataSourceName() {
+    public String getDataSourceName() {
         return DBMS.TCS_OLTP_DATASOURCE_NAME;
     }
 
-    String getPageName() {
+    public String getPageName() {
         return "/tournaments/tccc06/contest_projects.jsp";
     }
 
-    void statProcessing() throws com.topcoder.web.common.TCWebException {
+    public void statProcessing() throws com.topcoder.web.common.TCWebException {
     }
 
 }

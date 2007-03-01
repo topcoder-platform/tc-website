@@ -9,23 +9,22 @@ package com.topcoder.web.tc.controller.request.development;
 import com.topcoder.shared.util.DBMS;
 
 /**
- *
  * @author rfairfax
  */
 public class TCCC05Results extends StatBase {
 
-    String getCommandName() {
+    public String getCommandName() {
         return "tccc05_results";
     }
 
-    String getDataSourceName() {
+    public String getDataSourceName() {
         return DBMS.TCS_OLTP_DATASOURCE_NAME;
     }
 
-    String getPageName() {
+    public String getPageName() {
         return "/tournaments/tccc05/comp_results.jsp";
     }
 
-    void statProcessing() throws com.topcoder.web.common.TCWebException {
+    public void statProcessing() throws com.topcoder.web.common.TCWebException {
     }
 }

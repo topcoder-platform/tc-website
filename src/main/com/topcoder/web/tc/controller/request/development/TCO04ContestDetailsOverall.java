@@ -20,25 +20,24 @@ import java.util.Comparator;
 import java.util.Map;
 
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 public class TCO04ContestDetailsOverall extends StatBase {
 
 
-    String getCommandName() {
+    public String getCommandName() {
         return "tco04_contest_details_overall";
     }
 
-    String getDataSourceName() {
+    public String getDataSourceName() {
         return DBMS.TCS_OLTP_DATASOURCE_NAME;
     }
 
-    String getPageName() {
+    public String getPageName() {
         return "/tournaments/tco04/contest_det_overall.jsp";
     }
 
-    void statProcessing() throws TCWebException {
+    public void statProcessing() throws TCWebException {
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
         ResultSetContainer rsc = (ResultSetContainer) result2.get("tco04_contest_results_overall");

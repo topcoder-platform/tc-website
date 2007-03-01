@@ -1,17 +1,17 @@
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.model.UserContestDetail;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Collections;
 import java.util.Comparator;
-import java.text.DecimalFormat;
+import java.util.Map;
 
 /**
  * @author dok
@@ -20,15 +20,15 @@ import java.text.DecimalFormat;
  */
 public class TCO06ContestDetails extends StatBase {
 
-    String getCommandName() {
+    public String getCommandName() {
         return "tco06_contest_projects";
     }
 
-    String getDataSourceName() {
+    public String getDataSourceName() {
         return DBMS.TCS_OLTP_DATASOURCE_NAME;
     }
 
-    String getPageName() {
+    public String getPageName() {
         return "/tournaments/tco06/contest_det.jsp";
     }
 
@@ -38,7 +38,7 @@ public class TCO06ContestDetails extends StatBase {
         return 4;
     }
 
-    void statProcessing() throws com.topcoder.web.common.TCWebException {
+    public void statProcessing() throws com.topcoder.web.common.TCWebException {
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
         ResultSetContainer rsc = (ResultSetContainer) result2.get("contest_projects");
@@ -82,7 +82,7 @@ public class TCO06ContestDetails extends StatBase {
                 }
 
                 addPoints(rscDetails.getStringItem(j, "handle"), rscDetails.getIntItem(j, "user_id"), pts,
-                        isComplete, rscDetails.getIntItem(j, "submit_ind")==1);
+                        isComplete, rscDetails.getIntItem(j, "submit_ind") == 1);
             }
         }
 
@@ -146,7 +146,7 @@ public class TCO06ContestDetails extends StatBase {
             user.setIncomplete(user.getIncomplete() + 1);
         }
         if (isSubmitted) {
-            user.setSubmissionCount(user.getSubmissionCount()+1);
+            user.setSubmissionCount(user.getSubmissionCount() + 1);
         }
 
     }
