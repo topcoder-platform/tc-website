@@ -2,6 +2,26 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.01.07<br>4:40 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Alpha">TCHS07 Round 1 Alpha</A></span><br><br>
+Forty-eight contestants from the United States, Canada, Mexico and Poland were registered for this round.
+<tc-webtag:handle coderId="8384426" context="hs_algorithm"/> was the first to submit a correct solution for the 250-point problem, and the first to advance to the next round.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/VitalyGoldstein_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="19721111" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Alpha">full story</A> | 
+        <tc-webtag:forumLink forumID="514493" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>03.01.07<br>3:00 PM</td>
@@ -179,21 +199,5 @@ Due to some technical problems with the room assignments, the match started four
        <A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">full story</A> | 
        <tc-webtag:forumLink forumID="514388" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.19.07<br>2:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=021907">Five Things You Didn't Know About C++, Part 3</A></span><br><br>
-       By popular demand, I'm concluding with a list of another five features, this time featuring ones that you're almost certain never to use in your code. Amaze your friends, confuse your teachers, enter the IOCCC and ask yourself how on Earth these features ended up in the standard.</td>
-      <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=021907">full story</A> | 
-         <tc-webtag:forumLink forumID="506264" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
