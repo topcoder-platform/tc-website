@@ -1,5 +1,7 @@
 package com.topcoder.web.studio.controller.request.admin;
 
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.util.format.ObjectFormatter;
@@ -12,10 +14,13 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ReviewStatus;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionReview;
 
+import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -78,6 +83,7 @@ public class SubmitReview extends Base {
 
             Long submitterId = s.getSubmitter().getId();
 
+
             markForCommit();
 
             closeConversation();
@@ -87,9 +93,12 @@ public class SubmitReview extends Base {
 
             User submitter = DAOUtil.getFactory().getUserDAO().find(submitterId);
 
-            if (!"".equals(response) && submitter.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE))
-            {
+            if (!"".equals(response) && submitter.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
                 sendEmail(submitter, response, s.getOriginalFileName(), rs, reviewer);
+            }
+
+            if (sr.getStatus().getId().equals(ReviewStatus.PASSED) && sr.getSubmission().getContest().getEndTime().before(new Timestamp(System.currentTimeMillis()))) {
+                refreshCache(s.getContest());
             }
 
             StringBuffer buf = new StringBuffer(50);
@@ -150,6 +159,25 @@ public class SubmitReview extends Base {
 
         mail.setFromAddress("studioadmin@topcoder.com", "TopCoder Studio Admin");
         EmailEngine.send(mail);
+    }
+
+
+    private void refreshCache(Contest c) {
+        try {
+            log.debug("refreshing cache");
+            CacheClient cc = CacheClientFactory.createCacheClient();
+            String tempKey;
+            String key = Constants.CONTEST_ID + "=" + c.getId();
+            ArrayList list = cc.getKeys();
+            for (int i = 0; i < list.size(); i++) {
+                tempKey = (String) list.get(i);
+                if (tempKey.indexOf(key) > -1) {
+                    cc.remove(tempKey);
+                }
+            }
+        } catch (Exception ignore) {
+            ignore.printStackTrace();
+        }
     }
 
 }
