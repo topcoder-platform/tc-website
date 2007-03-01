@@ -97,6 +97,7 @@ public class SubmitReview extends Base {
                 sendEmail(submitter, response, s.getOriginalFileName(), rs, reviewer);
             }
 
+            sr = StudioDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId);
             if (sr.getStatus().getId().equals(ReviewStatus.PASSED) && sr.getSubmission().getContest().getEndTime().before(new Timestamp(System.currentTimeMillis()))) {
                 refreshCache(s.getContest());
             }
