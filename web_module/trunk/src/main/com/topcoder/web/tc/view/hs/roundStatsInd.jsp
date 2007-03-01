@@ -206,27 +206,47 @@
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsInd<tc-webtag:sort column="<%=result.getColumnIndex("submission_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
 	            Coding<br>Phase
 	        </A>
+		</td>       
+        <td class="headerR" rowspan="2">+</td>
+        <td class="headerR" rowspan="2">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsInd<tc-webtag:sort column="<%=result.getColumnIndex("total_challenge_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Challenge<br>Phase
+	        </A>
 		</td>
-        
-
         <td class="headerR" rowspan="2">+</td>
-        <td class="headerR" rowspan="2"><A href="javascript:clickColumn(3)">Challenge<br>Phase</td>
-        <td class="headerR" rowspan="2">+</td>
-        <td class="headerR" rowspan="2"><A href="javascript:clickColumn(4)">System<br>Tests</td>
+        <td class="headerR" rowspan="2">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsInd<tc-webtag:sort column="<%=result.getColumnIndex("system_test_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            System<br>Tests
+	        </A>
+		</td>
         <td class="headerR" rowspan="2">=</td>
 
-        <td class="headerR" rowspan="2"><A href="javascript:clickColumn(5)">Point
-            <br>Total</td>
+        <td class="headerR" rowspan="2">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsInd<tc-webtag:sort column="<%=result.getColumnIndex("final_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Point<br>Total
+	        </A>
+		</td>
         <td class="headerR" rowspan="2" style="border-right:1px solid #999999;">Advanced
         <td class="headerC" colspan="6">Rating</td>
     </tr>
     <tr>
-        <td class="headerR"><A href="javascript:clickColumn(6)">Old</A></td>
+        <td class="headerR">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsInd<tc-webtag:sort column="<%=result.getColumnIndex("old_rating")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Old
+	        </A>        
+		</td>
         <td class="headerR">+</td>
 
-        <td class="headerR"><A href="javascript:clickColumn(7)">&#916;</A></td>
+        <td class="headerR">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsInd<tc-webtag:sort column="<%=result.getColumnIndex("rating_change")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            &#916;
+	        </A>                
         <td class="headerR">=</td>
-        <td class="headerR"><A href="javascript:clickColumn(8)">New</A></td>
+        <td class="headerR">
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsInd<tc-webtag:sort column="<%=result.getColumnIndex("new_rating")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            New
+	        </A>                
+        </td>
         <td class="headerR">&#160;</td>
     </tr>
 
