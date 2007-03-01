@@ -22,7 +22,7 @@ import com.topcoder.web.forums.ForumConstants;
  */
 public class PreviewMessage extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
-		super.businessProcessing();
+        super.businessProcessing();
 		if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
@@ -39,8 +39,8 @@ public class PreviewMessage extends ForumsProcessor {
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
-        String subject = getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim();
-        String displaySubject = com.jivesoftware.util.StringUtils.escapeHTMLTags(subject);
+        String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
+                getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
         
@@ -102,7 +102,7 @@ public class PreviewMessage extends ForumsProcessor {
         if (previewMessage == null) {
         	previewMessage = forum.createMessage(user);
         }
-		previewMessage.setSubject(displaySubject);
+		previewMessage.setSubject(subject);
         previewMessage.setBody(body);
         if (postMode.equals("Edit")) {
 	        Iterator itAttachments = message.getAttachments();
