@@ -292,26 +292,37 @@
         </tr>
         <tr>
             <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">February
+            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">March
                 Events:</A></td>
         </tr>
         <tr>
             <td class="homeArrow">&#160; </td>
             <td class="homeText"><br>
-                <b>02.03</b> - SRM 337 - 12 NOON<br><br>
-                <b>02.05</b> - TCHS SRM 31 - 10 AM<br><br>
-                <b>02.07</b> - SRM 338 - 7 AM<br><br>
-                <b>02.10</b> - SRM STRESS TEST - 12 Noon<br><br>
-                <b>02.12</b> - TCHS SRM 32 - 6 AM<br><br>
-                <b>02.13</b> - TCHS07 Registration Opens - 9 AM<br><br>
-                <b>02.14</b> - Marathon Match 12 - 12 NOON<br><br>
-                <b>02.14</b> - SRM 339 - 9 PM<br><br>
+                <b>03.06</b> - TCHS Delta Round 1 - 6 AM<br><br>
+                <b>03.06</b> - TCHS Beta Round 1 - 2 PM<br><br>
+                <b>03.06</b> - TCO07 Marathon Registration Closes - 6 PM<br><br>
+                <b>03.07</b> - TCO07 Marathon Match #1 - 12 NOON<br><br>
+                <b>03.08</b> - TCHS07 Gamma Round 2 - 10 AM<br><br>
+                <b>03.08</b> - TCHS07 Alpha Round 2 - 9 PM<br><br>
+                <b>03.10</b> - SRM 341 - NSA - 12 NOON<br><br>
+                <b>03.12</b> - TCHS Delta Round 2 - 6 AM<br><br>
+                <b>03.12</b> - TCHS Beta Round 2 - 2 PM<br><br>
+                <b>03.14</b> - SRM 342 - AOL - 9 PM<br><br>
+                <b>03.15</b> - CDDC Week 1 Projects Posted - 9 AM<br><br>
+                <b>03.19</b> - TCHS07 Gamma Round 3 - 10 AM<br><br>
+                <b>03.19</b> - TCHS07 Alpha Round 3 - 9 PM<br><br>
+                <b>03.21</b> - TCO07 Marathon Match #2 - 12 NOON<br><br>
+                <b>03.22</b> - SRM 343 - 7 AM<br><br>
+                <b>03.22</b> - CDDC Week 2 Projects Posted - 9 AM<br><br>
+                <b>03.26</b> - TCHS Delta Round 3 - 6 AM<br><br>
+                <b>03.26</b> - TCHS Beta Round 3 - 2 PM<br><br>
+                <b>03.27</b> - TCO07 Algo Registration Closes - 5 PM<br><br>
+                <b>03.28</b> - SRM 344 - DRW - 11AM<br><br>
+                <b>03.29</b> - TCO07 Algo Qual Round 1 - AOL - 7:00 AM<br><br>
+                <b>03.29</b> - CDDC Week 3 Projects Posted - 9 AM<br><br>
+                <b>03.31</b> - TCO07 Algo Qual Round 2 - AOL - 1:00 PM<br><br>
                 <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
-                <b>02.20</b> - SRM 340 - 11 AM<br><br>
-                <b>02.25</b> - TCHS07 Registration Closes - 6 PM<br><br>
-                <b>02.26</b> - TCHS07 Gamma Round 1 - 10 AM<br><br>
-                <b>02.26</b> - TCHS07 Alpha Round 1 - 9 PM<br><br>
-          </td>
+         </td>
         </tr>
 
     </table>
