@@ -21,7 +21,7 @@ public class CountryRankings extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {            
-            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "DESC", columnNames);
+            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "DESC");
             RoundInfo round = getSeasonId(getRequest());
             
             Request r = new Request();

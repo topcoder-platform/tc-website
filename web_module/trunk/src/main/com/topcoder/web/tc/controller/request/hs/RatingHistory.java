@@ -21,7 +21,7 @@ public class RatingHistory extends Base {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            ListInfo li = new ListInfo(getRequest(), 1, 50, 1, "DESC", columnNames);
+            ListInfo li = new ListInfo(getRequest(), 1, 50, 1, "DESC");
             
             if (!hasParameter("cr") || !hasParameter("ratid")) {
                 throw new IllegalArgumentException("Parameters cr and ratid expected"); 

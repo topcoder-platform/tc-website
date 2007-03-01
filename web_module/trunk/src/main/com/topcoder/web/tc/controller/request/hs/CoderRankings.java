@@ -14,14 +14,10 @@ import com.topcoder.web.tc.Constants;
  */
 public class CoderRankings extends Base { 
 
-    /**
-     * Column names used for sorting. 
-     */
-    private static String columnNames[] = {"handle", "name", "rating"};
 
     protected void businessProcessing() throws TCWebException {
         try {            
-            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "DESC", columnNames);
+            ListInfo li = new ListInfo(getRequest(), 1, 50, 1, "DESC");
             RoundInfo round = getSeasonId(getRequest());
             
             Request r = new Request();

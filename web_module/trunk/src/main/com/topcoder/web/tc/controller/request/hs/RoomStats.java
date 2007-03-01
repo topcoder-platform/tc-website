@@ -46,7 +46,7 @@ public class RoomStats extends Base {
             }
 
             RoundInfo round = getRoundAndSeasonIds(getRequest());
-            ListInfo li = new ListInfo(getRequest(), 9, "DESC", columnNames);
+            ListInfo li = new ListInfo(getRequest(), 9, "DESC");
 
             int cr = -1;
             if (hasParameter("cr")) {

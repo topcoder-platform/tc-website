@@ -26,7 +26,7 @@ public class RoundStatsTeam extends Base {
         try {
             RoundInfo round = getRoundAndSeasonIds(getRequest());
             
-            ListInfo li = new ListInfo(getRequest(), 1, 50, 1, "ASC", columnNames);
+            ListInfo li = new ListInfo(getRequest(), 1, 50, 1, "ASC");
 
             Request r = new Request();
             r.setContentHandle("hs_round_stats_team");

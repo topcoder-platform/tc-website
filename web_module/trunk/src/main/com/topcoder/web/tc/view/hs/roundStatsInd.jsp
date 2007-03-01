@@ -64,25 +64,6 @@
         window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=" + selection.options[selection.selectedIndex].value;
     }
 
-
-    function clickColumn(n)
-    {
-        var sd = "asc";
-
-        if (n == <%= li.getSortColumn() %>) {
-            if ("asc" == "<%= li.getSortDirection() %>") {
-                sd = "desc";
-            }
-        }
-
-        window.location = "/tc?module=HSRoundStatsInd&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>&sc=" + n +
-                          "&sd=" + sd;
-
-
-    }
-
-
-
     function showRows(sr, nr, adjust)
     {
 
