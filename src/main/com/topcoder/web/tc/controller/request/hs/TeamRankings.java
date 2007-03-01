@@ -14,11 +14,6 @@ import com.topcoder.web.tc.Constants;
  */
 public class TeamRankings extends Base { 
 
-    /**
-     * Column names used for sorting. 
-     */
-    private static String columnNames[] = {"name", "member_count", "team_points"};
-
     protected void businessProcessing() throws TCWebException {
         try {            
             ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "ASC");
