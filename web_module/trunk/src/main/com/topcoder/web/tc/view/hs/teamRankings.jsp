@@ -3,9 +3,12 @@
          import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.tc.controller.request.hs.ListInfo,
                  com.topcoder.web.tc.controller.request.hs.RoundInfo,
+                 com.topcoder.web.tc.Constants,                                  
                  java.util.Map" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -37,20 +40,6 @@
         {
             window.location = "/tc?module=HSTeamRank&snid=" + selection.options[selection.selectedIndex].value;
         }
-
-        function clickColumn(n)
-        {
-            var sd = "asc";
-
-            if (n == <%= li.getSortColumn() %>) {
-                if ("asc" == "<%= li.getSortDirection() %>") {
-                    sd = "desc";
-                }
-            }
-
-            window.location = "/tc?module=HSTeamRank&snid=<%= round.getSeasonId() %>&sc=" + n + "&sd=" + sd;
-        }
-
 
         function showRows(sr, nr, adjust)
         {
@@ -147,9 +136,21 @@ Teams |
                     <tr><td class="title" colspan="4">Top Ranked > High School Teams</td></tr>
                     <tr>
                         <td class="header">&#160;</td>
-                        <td class="header"><A href="javascript:clickColumn(0)">Team</A></td>
-                        <td class="header"><A href="javascript:clickColumn(1)">Member Count</A></td>
-                        <td class="header"><A href="javascript:clickColumn(2)">Team Points</A></td>
+                        <td class="header">
+                        	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSTeamRank<tc-webtag:sort column="<%=result.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+					            Team
+					        </A>                        
+						</td>
+                        <td class="header">
+                        	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSTeamRank<tc-webtag:sort column="<%=result.getColumnIndex("member_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+					            Member Count
+					        </A>                                                
+						</td>
+                        <td class="header">
+                        	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSTeamRank<tc-webtag:sort column="<%=result.getColumnIndex("team_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+					            Team Points
+					        </A>                                                                        
+						</td>
                     </tr>
                     <% boolean even = true; %>
                     <rsc:iterator list="<%= result%>" id="resultRow">

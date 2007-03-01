@@ -3,9 +3,12 @@
          import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.tc.controller.request.hs.ListInfo,
                  com.topcoder.web.tc.controller.request.hs.RoundInfo,
+                 com.topcoder.web.tc.Constants,                 
                  java.util.Map" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -36,32 +39,6 @@
         function selectSeason(selection)
         {
             window.location = "/tc?module=HSCountryRank&snid=" + selection.options[selection.selectedIndex].value;
-        }
-
-        function clickColumn(n)
-        {
-            var sd = "asc";
-
-            if (n == <%= li.getSortColumn() %>) {
-                if ("asc" == "<%= li.getSortDirection() %>") {
-                    sd = "desc";
-                }
-            }
-
-            window.location = "/tc?module=HSCountryRank&snid=<%= round.getSeasonId() %>&sc=" + n + "&sd=" + sd;
-        }
-
-
-
-        function clickColumn(n)
-        {
-            var sd = "asc";
-            if ((n == <%= li.getSortColumn() %>) && ("asc" == "<%= li.getSortDirection() %>")) {
-                sd = "desc";
-            }
-            window.location = "/tc?module=HSCountryRank&snid=<%= round.getSeasonId() %>&rd=<%= round.getRoundId() %>" +
-                              "&sc=" + n + "&sd=" + sd;
-
         }
 
         // -->
@@ -114,9 +91,20 @@ Countries
                     <tr><td class="title" colspan="4">Top Ranked > High School Countries</td></tr>
                     <tr>
                         <td class="header">&#160;</td>
-                        <td class="header"><A href="javascript:clickColumn(0)">Country</A></td>
-                        <td class="header"><A href="javascript:clickColumn(1)">Member Count</A></td>
-                        <td class="header"><A href="javascript:clickColumn(2)">Rating</A></td>
+                        <td class="header">            
+                        	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSCountryRank<tc-webtag:sort column="<%=result.getColumnIndex("country_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+					            Country
+					        </A>
+						</td>
+                        <td class="header">
+                        	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSCountryRank<tc-webtag:sort column="<%=result.getColumnIndex("member_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+					            Member Count
+					        </A>
+                        <td class="header">
+                        	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSCountryRank<tc-webtag:sort column="<%=result.getColumnIndex("rating")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+					            Rating
+					        </A>
+						</td>
                     </tr>
                     <% boolean even = true; %>
                     <rsc:iterator list="<%= result%>" id="resultRow">
