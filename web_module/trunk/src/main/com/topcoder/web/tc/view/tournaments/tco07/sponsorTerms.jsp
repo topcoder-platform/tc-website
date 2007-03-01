@@ -43,8 +43,8 @@
                                 <div>Registration</div>
                             </h1>
 
-                            <form name="terms" method="post" action="/tc">
-                                <input name="module" value="TCO07SubmitRegistration" type="hidden">
+                            <form name="terms" method="post" action="${sessionInfo.servletPath}">
+                                <input name="module" value="TCO07SubmitSponsorRegistration" type="hidden">
 
                                 <p align="center">To complete your registration for the ${event.description} you must
                                     <b>read and agree to</b> the terms listed below.</p>
