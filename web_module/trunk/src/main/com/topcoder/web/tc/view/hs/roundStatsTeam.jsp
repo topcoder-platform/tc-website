@@ -8,6 +8,7 @@
                  java.util.Map" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -136,22 +137,6 @@
         document.pageForm.submit();
     }
 
-    function clickColumn(n)
-    {
-        if (n == <%= li.getSortColumn() %>) {
-            if ("asc" == "<%= li.getSortDirection() %>") {
-                document.pageForm.sd.value = "desc";
-            }
-            else {
-                document.pageForm.sd.value = "asc";
-            }
-        } else {
-            document.pageForm.sd.value = "asc";
-            document.pageForm.sc.value = n;
-        }
-        document.pageForm.submit();
-
-    }
     // -->
 </script>
 
@@ -200,15 +185,45 @@
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr><td class="title" colspan="17">Match Results - Team</td></tr>
     <tr>
-        <td class="header"><A href="javascript:clickColumn(0)">Team</A></td>
-        <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(1)">Team<br>Points</td>
-        <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(2)">Coding<br>Phase</td>
+        <td class="header">
+			<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsTeam<tc-webtag:sort column="<%=teamResult.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Team
+	        </A>
+		</td>
+		        
+        <td class="headerR" nowrap="nowrap">
+			<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsTeam<tc-webtag:sort column="<%=teamResult.getColumnIndex("team_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Team<br>Points
+	        </A>
+		</td>
+		        
+        <td class="headerR" nowrap="nowrap">
+			<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsTeam<tc-webtag:sort column="<%=teamResult.getColumnIndex("submission_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Coding<br>Phase
+	        </A>
+		</td>
+		        
         <td class="headerR">+</td>
-        <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(3)">Challenge<br>Phase</td>
+        <td class="headerR" nowrap="nowrap">
+			<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsTeam<tc-webtag:sort column="<%=teamResult.getColumnIndex("total_challenge_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Challenge<br>Phase
+	        </A>
+		</td>
+		        
         <td class="headerR">+</td>
-        <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(4)">System<br>Tests</td>
+        <td class="headerR" nowrap="nowrap">
+			<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsTeam<tc-webtag:sort column="<%=teamResult.getColumnIndex("system_test_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            System<br>Tests
+	        </A>
+		</td>
+		        
         <td class="headerR">=</td>
-        <td class="headerR" nowrap="nowrap"><A href="javascript:clickColumn(5)">Point<br>Total</td>
+        <td class="headerR" nowrap="nowrap">
+			<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRoundStatsTeam<tc-webtag:sort column="<%=teamResult.getColumnIndex("final_points")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+	            Point<br>Total
+	        </A>
+		</td>
+		        
     </tr>
     <% boolean even = true; %>
     <rsc:iterator list="<%= teamResult %>" id="resultRow">

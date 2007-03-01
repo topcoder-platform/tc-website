@@ -14,19 +14,12 @@ import com.topcoder.web.tc.Constants;
  */
 public class RoundStatsTeam extends Base {
 
-
-    /**
-     * Column names used for sorting. 
-     */
-    private static String columnNames[] = {"name", "team_points", "submission_points",
-                "total_challenge_points", "system_test_points", "final_points" };
-
-    
+      
     protected void businessProcessing() throws TCWebException {
         try {
             RoundInfo round = getRoundAndSeasonIds(getRequest());
             
-            ListInfo li = new ListInfo(getRequest(), 1, 50, 1, "ASC");
+            ListInfo li = new ListInfo(getRequest(), 1, 50, 2, "ASC");
 
             Request r = new Request();
             r.setContentHandle("hs_round_stats_team");

@@ -32,13 +32,7 @@ public class RoomStats extends Base {
 
     }
 
-    /**
-     * Column names used for sorting.
-     */
-    private static String columnNames[] = {"handle", "problems_submitted", "submission_points",
-        "challenge_attempts_received", "defense_points", "challenge_attempts_made",
-        "challenge_points", "system_test_points", "final_points", "old_rating", "new_rating"};
-
+    
     protected void businessProcessing() throws TCWebException {
         try {
             if (!userIdentified()) {
@@ -46,7 +40,7 @@ public class RoomStats extends Base {
             }
 
             RoundInfo round = getRoundAndSeasonIds(getRequest());
-            ListInfo li = new ListInfo(getRequest(), 9, "DESC");
+            ListInfo li = new ListInfo(getRequest(), 4, "ASC");
 
             int cr = -1;
             if (hasParameter("cr")) {
