@@ -6,6 +6,8 @@ import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.tc.controller.request.tournament.ViewRegistrationBase;
 
+import java.util.ArrayList;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -31,6 +33,7 @@ public class ViewSponsorRegistration extends ViewRegistrationBase {
             getRequest().setAttribute("eligible", er.isEligible());
             setNextPage("/tournaments/tco07/sponsorTermsSuccess.jsp");
         } else {
+            getRequest().setAttribute("questions", new ArrayList(e.getSurvey().getQuestions()));
             setNextPage("/tournaments/tco07/sponsorTerms.jsp");
         }
         setIsNextPageInContext(true);
