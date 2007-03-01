@@ -44,7 +44,8 @@
                             </h1>
 
                             <form name="terms" method="post" action="${sessionInfo.servletPath}">
-                                <input name="module" value="TCO07SubmitSponsorRegistration" type="hidden">
+                                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO07SubmitSponsorRegistration"/>
+                                <tc-webtag:hiddenInput name="<%=Constants.EVENT_ID%>" value="${event.id}"/>
 
                                 <p align="center">To complete your registration for the ${event.description} you must
                                     <b>read and agree to</b> the terms listed below.</p>
