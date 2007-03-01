@@ -1,20 +1,18 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.ListSelectTag;
+import com.topcoder.web.tc.Constants;
+
+import java.util.*;
 
 /**
  * @author dok, pulky
@@ -45,6 +43,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
         TCO_COMPETITION_TYPES.add("marathon");
         TCO_COMPETITION_TYPES.add("studio");
     }
+
     protected abstract void regProcessing(Event event, User user);
 
     protected abstract void alreadyRegisteredProcessing(EventRegistration er);
@@ -56,7 +55,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
     protected abstract String getEventShortDesc();
 
     protected void dbProcessing() throws Exception {
-        if (!userLoggedIn() ) {
+        if (!userLoggedIn()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
             Event e = getEvent();
@@ -67,7 +66,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             regStart.setTime(e.getRegistrationStart());
             Calendar regEnd = new GregorianCalendar();
             regEnd.setTime(e.getRegistrationEnd());
-            
+
             if (now.after(regEnd)) {
                 throw new NavigationException("The registration period for the " + e.getDescription() + " is over.");
             } else if (now.before(regStart)) {
@@ -89,16 +88,22 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
             }
         }
     }
-    
+
     public boolean alreadyRegistered(Event e, User u) {
         return u.getEventRegistration(e) != null;
     }
-    
+
     public Event getEvent() {
-        return DAOUtil.getFactory().getEventDAO().find(getEventShortDesc());
-    }   
+        String eventId = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_ID));
+        if ("".equals(eventId)) {
+            log.warn("event id missing, attempting to use short description");
+            return DAOUtil.getFactory().getEventDAO().find(getEventShortDesc());
+        } else {
+            return DAOUtil.getFactory().getEventDAO().find(new Long(eventId));
+        }
+    }
 
     public User getActiveUser() {
         return getUser().isAnonymous() ? null : DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-    }   
+    }
 }
