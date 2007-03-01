@@ -32,7 +32,7 @@ Forty-eight contestants from the United States, Canada, Mexico and Poland were r
 component development process. In this article, we'll compare four of
 the more popular coverage tools and look at how they work, their key
 features, and how they perform in a test on sample TopCoder components.</td>
-      <td class="newsPhoto"><%--<img src="/i/m/d000hg_big.jpg" alt="" width="55" height="61" /><br>--%>by <tc-webtag:handle coderId="22630158" /></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/zmij_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="22630158" /></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
