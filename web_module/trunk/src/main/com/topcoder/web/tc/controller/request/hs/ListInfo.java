@@ -23,12 +23,7 @@ public class ListInfo {
      * Position of the sorting column
      */
     private int sortColumn;
-    
-    /**
-     * The name of the sorting column.
-     */
-    private String sortColumnName;
-    
+        
     /**
      * Sort direction: ASC or DESC
      */
@@ -89,7 +84,6 @@ public class ListInfo {
         
         String sd = req.getParameter(DataAccessConstants.SORT_DIRECTION);
         sortDirection = sd == null? defaultSortDirection : sd;
-        sortColumnName = sortColumnNames[sortColumn];
         cropped = true;
     }
 
@@ -108,7 +102,6 @@ public class ListInfo {
         
         String sd = req.getParameter(DataAccessConstants.SORT_DIRECTION);
         sortDirection = sd == null? defaultSortDirection : sd;
-        sortColumnName = sortColumnNames[sortColumn];
         cropped = false;
     }
 
@@ -132,9 +125,5 @@ public class ListInfo {
     }
     public boolean isCropped() {
         return cropped;
-    }
-    public String getSortColumnName() {
-        return sortColumnName;
-    }
- 
+    } 
 }

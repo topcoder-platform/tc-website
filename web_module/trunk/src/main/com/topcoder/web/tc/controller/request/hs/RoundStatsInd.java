@@ -27,7 +27,7 @@ public class RoundStatsInd extends Base {
             
             boolean groupByRoom = !hasParameter("sc");
             
-            ListInfo li = new ListInfo(getRequest(), 1, groupByRoom? 10 : 50, 2, "ASC", columnNames);
+            ListInfo li = new ListInfo(getRequest(), 1, groupByRoom? 10 : 50, 0, "ASC", columnNames);
             
             Request r = new Request();
             r.setContentHandle("hs_round_stats_ind");
@@ -38,7 +38,7 @@ public class RoundStatsInd extends Base {
             DataAccessInt dai = getDataAccess(true);
             Map result = dai.getData(r);
             
-            fillRoundAndSeasonNames (round, result);
+            fillRoundAndSeasonNames(round, result);
                                   
             if (!groupByRoom) {
                 getRequest().setAttribute("totalRows", ((ResultSetContainer) result.get("hs_ind_result")).getRowCount() + "");
