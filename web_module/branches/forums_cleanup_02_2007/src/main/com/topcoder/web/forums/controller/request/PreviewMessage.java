@@ -35,8 +35,14 @@ public class PreviewMessage extends ForumsProcessor {
         ForumMessage message = null;
         ForumThread thread = null;
         
+        log.info("*** character encoding: " + getHttpRequest().getCharacterEncoding());
         log.info("*** subject: " + getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         log.info("*** body: " + getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim());
+        
+        byte [] hibytes = ((String)
+                getRequest().getParameter(ForumConstants.MESSAGE_BODY)).getBytes("iso-8859-1");
+        String pram = new String(hibytes, "Big5");
+        log.info("*** pram: " + pram);
         
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
