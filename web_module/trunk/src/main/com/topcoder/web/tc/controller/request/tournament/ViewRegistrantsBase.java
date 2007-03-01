@@ -1,18 +1,15 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import java.util.Map;
-
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.tc.Constants;
+
+import java.util.Map;
 
 /**
  * @author dok, pulky
@@ -21,7 +18,9 @@ import com.topcoder.web.common.model.Event;
  */
 public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
 
-    protected abstract String getEventShortDesc();
+    protected String getEventShortDesc() {
+        return getEvent().getShortDescription();
+    }
 
     protected abstract void setSortInfo(ResultSetContainer rsc);
 
@@ -31,7 +30,7 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
         Request r = new Request();
         r.setContentHandle(e.getShortDescription() + "_registrants");
         r.setProperty("eid", String.valueOf(e.getId().intValue()));
-        
+
         //this gets refreshed when people sign up.
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
 
@@ -51,15 +50,21 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
         setNextPage(e);
     }
 
-    protected Event getEvent() {
-        return DAOUtil.getFactory().getEventDAO().find(getEventShortDesc());
-    }   
+    public Event getEvent() {
+        String eventId = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_ID));
+        if ("".equals(eventId)) {
+            log.warn("event id missing, attempting to use short description");
+            return DAOUtil.getFactory().getEventDAO().find(getEventShortDesc());
+        } else {
+            return DAOUtil.getFactory().getEventDAO().find(new Long(eventId));
+        }
+    }
 
     protected void setNextPage(Event e) {
         setNextPage("/tournaments/" + e.getShortDescription() + "/registrants.jsp");
         setIsNextPageInContext(true);
     }
-    
+
     protected DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
         if (datasource == null) return null;
         DataAccessInt dAccess = null;

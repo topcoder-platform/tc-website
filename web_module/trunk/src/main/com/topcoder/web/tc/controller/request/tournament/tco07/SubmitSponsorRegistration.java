@@ -23,10 +23,6 @@ import java.util.List;
  */
 public class SubmitSponsorRegistration extends SubmitRegistrationBase {
 
-    protected final String getEventShortDesc() {
-        return getEvent().getShortDescription();
-    }
-
     protected Boolean validateSurvey(Survey survey, List responses) {
         String ageInput = "";
         String ageKey = "";
