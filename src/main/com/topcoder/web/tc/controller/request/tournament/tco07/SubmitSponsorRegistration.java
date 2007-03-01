@@ -12,6 +12,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.survey.Helper;
 import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -91,6 +92,7 @@ public class SubmitSponsorRegistration extends SubmitRegistrationBase {
 
     protected void setNextPage(Event e, User u) {
         if (hasErrors()) {
+            getRequest().setAttribute("questions", new ArrayList(e.getSurvey().getQuestions()));
             setNextPage("/tournaments/tco07/sponsorTerms.jsp");
         } else {
             setNextPage("/tournaments/tco07/sponsorTermsSuccess.jsp");
