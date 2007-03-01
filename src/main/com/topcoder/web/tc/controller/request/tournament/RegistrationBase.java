@@ -52,7 +52,9 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
 
     public abstract boolean isEligible(Event event, User user) throws Exception;
 
-    protected abstract String getEventShortDesc();
+    protected String getEventShortDesc() {
+        return getEvent().getShortDescription();
+    }
 
     protected void dbProcessing() throws Exception {
         if (!userLoggedIn()) {

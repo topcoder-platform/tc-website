@@ -15,10 +15,6 @@ import java.util.ArrayList;
  */
 public class ViewSponsorRegistration extends ViewRegistrationBase {
 
-    protected final String getEventShortDesc() {
-        return getEvent().getShortDescription();
-    }
-
     protected void alreadyRegisteredProcessing(EventRegistration er) {
         getRequest().setAttribute("eligible", er.isEligible());
     }

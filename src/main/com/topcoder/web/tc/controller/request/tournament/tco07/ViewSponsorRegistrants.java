@@ -12,7 +12,9 @@ import com.topcoder.web.tc.controller.request.tournament.ViewRegistrantsBase;
  */
 public class ViewSponsorRegistrants extends ViewRegistrantsBase {
     protected final String getEventShortDesc() {
-        return getEvent().getShortDescription();
+        //this is just used to figure out what command to run.  it's the same as algo, just a different event id,
+        //so we can reuse the algo query.
+        return "tco07algorithm";
     }
 
     protected void setSortInfo(ResultSetContainer rsc) {
