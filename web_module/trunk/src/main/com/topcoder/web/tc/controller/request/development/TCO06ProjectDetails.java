@@ -1,13 +1,13 @@
 package com.topcoder.web.tc.controller.request.development;
 
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.model.ProjectDetail;
 
-import java.util.*;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author dok
@@ -16,19 +16,19 @@ import java.text.SimpleDateFormat;
  */
 public class TCO06ProjectDetails extends StatBase {
 
-    String getCommandName() {
+    public String getCommandName() {
         return "tco06_project_details";
     }
 
-    String getDataSourceName() {
+    public String getDataSourceName() {
         return DBMS.DW_DATASOURCE_NAME;
     }
 
-    String getPageName() {
+    public String getPageName() {
         return "/tournaments/tco06/project_det.jsp";
     }
 
-    void statProcessing() throws TCWebException {
+    public void statProcessing() throws TCWebException {
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
         ResultSetContainer rsc = (ResultSetContainer) result2.get("tco06_project_results");

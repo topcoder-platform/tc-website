@@ -17,21 +17,21 @@ import java.util.*;
  */
 public class TCO06MemberResults extends StatBase {
 
-    String getCommandName() {
+    public String getCommandName() {
         return "tco06_member_projects";
     }
 
-    String getDataSourceName() {
+    public String getDataSourceName() {
         return DBMS.DW_DATASOURCE_NAME;
     }
 
-    String getPageName() {
+    public String getPageName() {
         return "/tournaments/tco06/member_results.jsp";
     }
 
     private ArrayList arr = new ArrayList();
 
-    void statProcessing() throws com.topcoder.web.common.TCWebException {
+    public void statProcessing() throws com.topcoder.web.common.TCWebException {
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
         int userId = Integer.parseInt(getRequest().getParameter("cr"));

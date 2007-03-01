@@ -16,19 +16,19 @@ import java.util.*;
  */
 public class TCCC06ProjectDetails extends StatBase {
 
-    String getCommandName() {
+    public String getCommandName() {
         return "tccc06_project_details";
     }
 
-    String getDataSourceName() {
+    public String getDataSourceName() {
         return DBMS.TCS_DW_DATASOURCE_NAME;
     }
 
-    String getPageName() {
+    public String getPageName() {
         return "/tournaments/tccc06/project_det.jsp";
     }
 
-    void statProcessing() throws TCWebException {
+    public void statProcessing() throws TCWebException {
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
         ResultSetContainer rsc = (ResultSetContainer) result2.get("tccc06_project_results");

@@ -20,15 +20,15 @@ import java.util.Map;
  */
 public class TCCC06ContestDetails extends StatBase {
 
-    String getCommandName() {
+    public String getCommandName() {
         return "tccc06_contest_projects";
     }
 
-    String getDataSourceName() {
+    public String getDataSourceName() {
         return DBMS.TCS_OLTP_DATASOURCE_NAME;
     }
 
-    String getPageName() {
+    public String getPageName() {
         return "/tournaments/tccc06/contest_det.jsp";
     }
 
@@ -38,7 +38,7 @@ public class TCCC06ContestDetails extends StatBase {
         return 4;
     }
 
-    void statProcessing() throws com.topcoder.web.common.TCWebException {
+    public void statProcessing() throws com.topcoder.web.common.TCWebException {
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
         ResultSetContainer rsc = (ResultSetContainer) result2.get("contest_projects");

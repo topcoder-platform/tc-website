@@ -9,24 +9,23 @@ package com.topcoder.web.tc.controller.request.development;
 import com.topcoder.shared.util.DBMS;
 
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 public class USDCResults extends StatBase {
 
-    String getCommandName() {
+    public String getCommandName() {
         return "usdc_results";
     }
 
-    String getDataSourceName() {
+    public String getDataSourceName() {
         return DBMS.TCS_OLTP_DATASOURCE_NAME;
     }
 
-    String getPageName() {
+    public String getPageName() {
         return "/dev/usdc_results.jsp";
     }
 
-    void statProcessing() throws com.topcoder.web.common.TCWebException {
+    public void statProcessing() throws com.topcoder.web.common.TCWebException {
     }
 
 }

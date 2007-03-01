@@ -14,13 +14,12 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
-import java.util.Map;
-import java.util.Iterator;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 public class USDCContestDetails extends StatBase {
 
@@ -35,8 +34,8 @@ public class USDCContestDetails extends StatBase {
         Map map = new HashMap();
         Map.Entry me = null;
         for (Iterator it = paramMap.entrySet().iterator(); it.hasNext();) {
-            me = (Map.Entry)it.next();
-            if (!me.getKey().equals(Constants.MODULE_KEY)&&!me.getKey().equals(DataAccessConstants.SORT_COLUMN)&&
+            me = (Map.Entry) it.next();
+            if (!me.getKey().equals(Constants.MODULE_KEY) && !me.getKey().equals(DataAccessConstants.SORT_COLUMN) &&
                     !me.getKey().equals(DataAccessConstants.SORT_DIRECTION)) {
                 map.put(me.getKey(), me.getValue());
             }
@@ -59,7 +58,7 @@ public class USDCContestDetails extends StatBase {
         }
     }
 
-    String getCommandName() throws TCWebException {
+    public String getCommandName() throws TCWebException {
         getType();
 
         if (type == 1) {
@@ -73,7 +72,7 @@ public class USDCContestDetails extends StatBase {
         }
     }
 
-    String getDataSourceName() throws TCWebException {
+    public String getDataSourceName() throws TCWebException {
         getType();
 
         if (type == 5 || type == 6) {
@@ -84,7 +83,7 @@ public class USDCContestDetails extends StatBase {
 
     }
 
-    String getPageName() throws TCWebException {
+    public String getPageName() throws TCWebException {
         getType();
 
         if (type == 4) {
@@ -96,7 +95,7 @@ public class USDCContestDetails extends StatBase {
         }
     }
 
-    void statProcessing() throws com.topcoder.web.common.TCWebException {
+    public void statProcessing() throws com.topcoder.web.common.TCWebException {
 
         getType();
 

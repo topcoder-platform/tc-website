@@ -16,24 +16,23 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- *
  * @author rfairfax
  */
 public class TCO05ProjectDetails extends StatBase {
 
-    String getCommandName() {
+    public String getCommandName() {
         return "tco05_project_details";
     }
 
-    String getDataSourceName() {
+    public String getDataSourceName() {
         return DBMS.DW_DATASOURCE_NAME;
     }
 
-    String getPageName() {
+    public String getPageName() {
         return "/tournaments/tco05/project_det.jsp";
     }
 
-    void statProcessing() throws TCWebException {
+    public void statProcessing() throws TCWebException {
         Map result2 = (Map) getRequest().getAttribute("resultMap");
 
         ResultSetContainer rsc = (ResultSetContainer) result2.get("tco05_project_results");
