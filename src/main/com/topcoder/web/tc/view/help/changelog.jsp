@@ -44,7 +44,7 @@
 
 
 <p>
-    5.8.1 - 2007.02.xx
+    5.8.1 - 2007.03.01
     <ul>
         <li>Added registration for CSDN 07</li>
         <li>Added an Advanced column to HS round result</li>
