@@ -10,12 +10,12 @@
         <li<% if (selectedTab.equals("schedule")) {%> class="on"<% } %>>
             <A href="/?module=Static&amp;d1=schedule" onfocus="this.blur();">Schedule</A></li>
         <%--
-        --%>
         <li<% if (selectedTab.equals("rules")) {%> class="on"<% } %>><A href="" onfocus="this.blur();">Rules</A></li>
         <li<% if (selectedTab.equals("competitions")) {%> class="on"<% } %>>
             <A href="/?module=Static&amp;d1=competitions" onfocus="this.blur();">Competitions</A></li>
         <li<% if (selectedTab.equals("discuss")) {%> class="on"<% } %> style="background-image: none; border-bottom: 1px solid #CCCCCC;">
             <A href="/forums" onfocus="this.blur();">Discuss the Competitions</A></li>
+        --%>
     </ul>
     <A href="<tc-webtag:linkTracking link="http://www.topcoder.com" refer="csf_site_tc_logo"/>" style="margin-left: 5px;"><img src="/i/pbtc.png" alt="Powered by TopCoder"/></A>
 </div>
