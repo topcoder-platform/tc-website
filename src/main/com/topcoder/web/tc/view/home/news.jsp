@@ -2,6 +2,23 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.28.07<br>7:20 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Gamma">TCHS07 Round 1 Gamma</A></span><br><br>
+On Monday, February 26, high school students entered the first round of the ultimate battle for the onsite spots of the 2007 TopCoder High School Tournament. The students from Gamma region were given a chance to compete first.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/andrewzta_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="11829284" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Gamma">full story</A> | 
+        <tc-webtag:forumLink forumID="514493" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
 <%----------------------------2pm----------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.28.07<br>2:00 PM</td>
@@ -192,21 +209,5 @@ Almost 1000 contestants from all around the world, with 6 targets among them, ce
         <A href="/tc?module=Static&d1=match_editorials&d2=srm339">full story</A> | 
         <tc-webtag:forumLink forumID="506229" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>02.15.07<br>4:40 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=mmIntro">An Introduction to Marathon Matches</A></span><br><br>
-       You face a number of different issues in a marathon match than you do in an SRM, from time management and organization to figuring out how the matches actually work. This article can help you understand the unique structure of a marathon match and what it takes to create, test and submit your entries.</td>
-      <td class="newsPhoto"><img src="/i/m/d000hg_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21464956" context="marathon_match"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=mmIntro">full story</A> | 
-         <tc-webtag:forumLink forumID="514346" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
    </td></tr>
 
