@@ -10,6 +10,8 @@ import com.topcoder.web.tc.controller.request.tournament.RegistrationBase;
 
 public abstract class CSDN07RegistrationBase extends RegistrationBase {
 
+    private boolean isAlreadyRegistered = false;
+    
     protected String getEventShortDesc() {
         return "csdn07";
     }
@@ -26,8 +28,17 @@ public abstract class CSDN07RegistrationBase extends RegistrationBase {
         return !rsc.isEmpty();
     }
 
+    protected void setAlreadyRegistered(boolean reg) {
+        isAlreadyRegistered = reg;
+    }
+    
     protected void setNextPage(Event event, User user) {
-        setNextPage("/csdn07/viewRegistration.jsp");
+        if (isAlreadyRegistered) {
+            setNextPage("/promoevents/csdn/overview.jsp");
+        } else {
+            setNextPage("/promoevents/csdn/success.jsp");
+        }
+    
         setIsNextPageInContext(true);
     }
 
