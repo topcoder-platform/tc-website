@@ -1,8 +1,12 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java"
-         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.web.tc.controller.request.hs.ListInfo, java.util.Map" %>
+         import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,com.topcoder.web.tc.controller.request.hs.ListInfo,
+         		com.topcoder.web.tc.Constants,                          
+         	 java.util.Map" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
+
 <%@ page language="java" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -35,19 +39,6 @@
 <body>
 <script language="JavaScript">
     <!--
-
-    function clickColumn(n)
-    {
-        var sd = "asc";
-
-        if (n == <%= li.getSortColumn() %>) {
-            if ("asc" == "<%= li.getSortDirection() %>") {
-                sd = "desc";
-            }
-        }
-
-        window.location = "/tc?module=HSRatingHistory&cr=<%= cr %>&ratid=<%= ratid %>&sc=" + n + "&sd=" + sd;
-    }
 
 
     function showRows(sr, nr, adjust)
@@ -130,15 +121,43 @@
             <table class="stat" cellpadding="0" cellspacing="0" width="100%">
                 <tr><td class="title" colspan="7"><%= algoType %> Competition History</td></tr>
                 <tr>
-                    <td class="headerC" width="1%"><A href="javascript:clickColumn(0)">Date</A></td>
+                    <td class="headerC" width="1%">
+                       	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRatingHistory<tc-webtag:sort column="<%=history.getColumnIndex("date")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+				            Date
+				        </A>                    
+                    </td>
                     <% if (isHighSchool) { %>
-                    <td class="header"><A href="javascript:clickColumn(1)">Season</A></td>
+                    <td class="header">
+                       	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRatingHistory<tc-webtag:sort column="<%=history.getColumnIndex("season_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+				            Season
+				        </A>                    
+                    </td>
                     <% } %>
-                    <td class="header"><A href="javascript:clickColumn(2)">Contest</A></td>
-                    <td class="header"><A href="javascript:clickColumn(3)">Round</A></td>
-                    <td class="headerR"><A href="javascript:clickColumn(4)">Rating</A></td>
-                    <td class="headerR"><A href="javascript:clickColumn(5)">Volatility</A></td>
-                    <td class="headerR"><A href="javascript:clickColumn(6)">Rank</A></td>
+                    <td class="header">
+                       	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRatingHistory<tc-webtag:sort column="<%=history.getColumnIndex("contest_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+				            Contest
+				        </A>                    
+                    </td>
+                    <td class="header">
+                       	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRatingHistory<tc-webtag:sort column="<%=history.getColumnIndex("round_name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+				            Round
+				        </A>                    
+                    </td>
+                    <td class="headerR">
+                       	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRatingHistory<tc-webtag:sort column="<%=history.getColumnIndex("new_rating")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+				            Rating
+				        </A>                    
+                    </td>
+                    <td class="headerR">
+                       	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRatingHistory<tc-webtag:sort column="<%=history.getColumnIndex("vol")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+				            Volatility
+				        </A>                    
+                    </td>
+                    <td class="headerR">
+                       	<A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE_KEY%>=HSRatingHistory<tc-webtag:sort column="<%=history.getColumnIndex("rank")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">
+				            Rank
+				        </A>                    
+                    </td>
                 </tr>
                 <% boolean even = true; %>
                 <rsc:iterator list="<%= history %>" id="resultRow">

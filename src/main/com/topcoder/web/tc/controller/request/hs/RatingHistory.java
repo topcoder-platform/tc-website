@@ -14,14 +14,9 @@ import com.topcoder.web.tc.Constants;
  */
 public class RatingHistory extends Base { 
 
-    /**
-     * Column names used for sorting. 
-     */
-    private static String columnNames[] = {"date", "season_name", "contest_name", "round_name", "new_rating", "vol", "rank"};
-
     protected void businessProcessing() throws TCWebException {
         try {
-            ListInfo li = new ListInfo(getRequest(), 1, 50, 1, "DESC");
+            ListInfo li = new ListInfo(getRequest(), 1, 50, 3, "DESC");
             
             if (!hasParameter("cr") || !hasParameter("ratid")) {
                 throw new IllegalArgumentException("Parameters cr and ratid expected"); 
