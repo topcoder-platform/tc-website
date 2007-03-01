@@ -38,7 +38,7 @@
                         </strong>
                         </div>
 
-                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.aol.com/"/>" target="_blank" refer="aol_tco07_site"/><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://dev.aol.com/"/>" target="_blank" refer="aol_tco07_site"/><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
                         <p>
                         AOL is pleased to welcome you, the world's leading programmers and designers, to the 2007 TopCoder Open. We are proud to again partner with TopCoder, a prestigious organization that exemplifies and shares our commitment to innovation and creativity.
                         </p>
@@ -52,7 +52,7 @@
                         AOL and its subsidiaries have operations in the United States, Canada, Europe, and Asia.
                         </p>
                         <p>
-                        * The TopCoder Open is sponsored by TopCoder, Inc. AOL LLC is not responsible for any aspect of the tournament.                        
+                        * The TopCoder Open is sponsored by TopCoder, Inc. AOL LLC is not responsible for any aspect of the tournament.                           
                         </p>
                     </div>
                 </td>
