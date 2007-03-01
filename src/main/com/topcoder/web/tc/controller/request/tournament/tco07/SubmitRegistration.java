@@ -1,9 +1,5 @@
 package com.topcoder.web.tc.controller.request.tournament.tco07;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
@@ -11,30 +7,27 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
-import com.topcoder.web.common.model.EventType;
-import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.model.RegionType;
-import com.topcoder.web.common.model.RegistrationType;
-import com.topcoder.web.common.model.Response;
-import com.topcoder.web.common.model.Survey;
-import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.survey.Helper;
 import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok, pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 16, 2007
  */
-public class SubmitRegistration extends SubmitRegistrationBase {    
-    
+public class SubmitRegistration extends SubmitRegistrationBase {
+
     protected final String getEventShortDesc() {
         return "tco07" + getRequest().getParameter("ct");
     }
-    
+
     protected Boolean validateSurvey(Survey survey, List responses) {
         String ageInput = "";
         String ageKey = "";
@@ -44,7 +37,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         String pref1Key = "";
         String pref2Key = "";
         String pref3Key = "";
-        for (Iterator it = survey.getQuestions().iterator(); it.hasNext(); ) {
+        for (Iterator it = survey.getQuestions().iterator(); it.hasNext();) {
             Question q = (Question) it.next();
             Response response = (new Helper()).findResponse(responses, q.getId());
             if (response != null) {
@@ -73,19 +66,19 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                     addError(pref1Key, "You can't select the same section more than once.");
                     addError(pref2Key, "You can't select the same section more than once.");
                 }
-                
+
                 if (pref1.equals(pref3)) {
                     addError(pref1Key, "You can't select the same section more than once.");
                     addError(pref3Key, "You can't select the same section more than once.");
                 }
-                
+
                 if (pref2.equals(pref3)) {
                     addError(pref2Key, "You can't select the same section more than once.");
                     addError(pref3Key, "You can't select the same section more than once.");
                 }
             }
-        }    
-        
+        }
+
         if (log.isDebugEnabled()) {
             log.debug("ageInput " + ageInput);
         }
@@ -95,8 +88,8 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         } catch (NumberFormatException e) {
             addError(ageKey, "Please enter a valid number for your age.");
         }
-        
-        return (new Boolean (age >= 18 && age <= 130));
+
+        return (new Boolean(age >= 18 && age <= 130));
     }
 
     protected void dbProcessing() throws Exception {
@@ -105,39 +98,39 @@ public class SubmitRegistration extends SubmitRegistrationBase {
         }
         super.dbProcessing();
     }
-    
+
     protected void completeRegistration(Event event, User user, Boolean eligible, List responses) {
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
         user.addEventRegistration(event, responses, eligible);
         userDAO.saveOrUpdate(user);
-        
+
         refreshCache(event);
-        
+
         RegionType rt = new RegionType();
         rt.setId(HIGH_SCHOOL_REGION_TYPE);
-        
+
         getRequest().setAttribute("assignedRegion", user.getHomeAddress().getCountry().getRegionByType(rt).getName());
         getRequest().setAttribute("eligible", eligible);
     }
-    
+
     protected void alreadyRegisteredProcessing(EventRegistration er) {
         getRequest().setAttribute("eligible", er.isEligible());
     }
-    
+
     protected void refreshCache(Event e) {
         try {
             CacheClient cc = CacheClientFactory.createCacheClient();
             Request r = new Request();
             log.debug("removing " + e.getShortDescription() + "_registrants" + " from cache.");
             r.setContentHandle(e.getShortDescription() + "_registrants");
-            r.setProperty("eid", String.valueOf(e.getId().intValue()));
+            r.setProperty(Constants.EVENT_ID, String.valueOf(e.getId().intValue()));
             cc.remove(r.getCacheKey());
         } catch (Exception ignore) {
             ignore.printStackTrace();
         }
     }
-    
-    public boolean isEligible(Event e, User u) throws Exception{
+
+    public boolean isEligible(Event e, User u) throws Exception {
         Set regTypes = u.getRegistrationTypes();
         boolean eligible = false;
         for (Iterator it = regTypes.iterator(); it.hasNext() && !eligible;) {
@@ -145,10 +138,10 @@ public class SubmitRegistration extends SubmitRegistrationBase {
             if (e.getType().getId().equals(EventType.ALGORITHM_TOURNAMENT_ID) ||
                     e.getType().getId().equals(EventType.COMPONENT_TOURNAMENT_ID) ||
                     e.getType().getId().equals(EventType.MARATHON_TOURNAMENT_ID)) {
-                    if (rt.getId().equals(RegistrationType.COMPETITION_ID)) {
-                        eligible = true;
-                    }
+                if (rt.getId().equals(RegistrationType.COMPETITION_ID)) {
+                    eligible = true;
                 }
+            }
             if (e.getType().getId().equals(EventType.STUDIO_TOURNAMENT_ID)) {
                 if (rt.getId().equals(RegistrationType.STUDIO_ID)) {
                     eligible = true;

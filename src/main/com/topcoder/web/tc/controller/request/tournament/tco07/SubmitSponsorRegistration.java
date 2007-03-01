@@ -74,7 +74,7 @@ public class SubmitSponsorRegistration extends SubmitRegistrationBase {
             Request r = new Request();
             log.debug("removing " + e.getShortDescription() + "_registrants" + " from cache.");
             r.setContentHandle(e.getShortDescription() + "_registrants");
-            r.setProperty("eid", String.valueOf(e.getId().intValue()));
+            r.setProperty(Constants.EVENT_ID, String.valueOf(e.getId().intValue()));
             cc.remove(r.getCacheKey());
         } catch (Exception ignore) {
             ignore.printStackTrace();
