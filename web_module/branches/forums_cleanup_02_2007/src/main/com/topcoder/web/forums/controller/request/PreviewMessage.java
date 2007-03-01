@@ -35,12 +35,12 @@ public class PreviewMessage extends ForumsProcessor {
         ForumMessage message = null;
         ForumThread thread = null;
         
-        log.info("*** character encoding: " + getHttpRequest().getCharacterEncoding());
+        getHttpRequest().setCharacterEncoding("utf-8");
         log.info("*** subject: " + getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
         log.info("*** body: " + getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim());
         
         byte [] hibytes = ((String)
-                getRequest().getParameter(ForumConstants.MESSAGE_BODY)).getBytes("iso-8859-1");
+                getRequest().getParameter(ForumConstants.MESSAGE_BODY)).getBytes("utf-8");
         String pram = new String(hibytes, "Big5");
         log.info("*** pram: " + pram);
         
