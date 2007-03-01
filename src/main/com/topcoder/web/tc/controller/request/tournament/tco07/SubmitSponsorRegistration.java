@@ -90,7 +90,6 @@ public class SubmitSponsorRegistration extends SubmitRegistrationBase {
 
 
     protected void setNextPage(Event e, User u) {
-        getRequest().setAttribute("ct", getRequest().getParameter("ct"));
         if (hasErrors()) {
             setNextPage("/tournaments/tco07/sponsorTerms.jsp");
         } else {
