@@ -34,9 +34,9 @@ public abstract class CSDN07RegistrationBase extends RegistrationBase {
     
     protected void setNextPage(Event event, User user) {
         if (isAlreadyRegistered) {
-            setNextPage("/promoevents/csdn/overview.jsp");
-        } else {
             setNextPage("/promoevents/csdn/success.jsp");
+        } else {
+            setNextPage("/promoevents/csdn/overview.jsp");
         }
     
         setIsNextPageInContext(true);
