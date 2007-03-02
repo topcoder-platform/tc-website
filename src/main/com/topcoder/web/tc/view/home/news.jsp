@@ -2,13 +2,31 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Announcing the Digital Run: Stage 3 Winners" border="0" /><br>03.02.07<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners">Digital Run: Stage 3 Winners</A></span><br><br>
+Stage 3 of the Digital Run concluded on February 1, 2007, and the scores and final fixes are all wrapped up. Congratulations to <tc-webtag:handle coderId="287614" context="design"/> and <tc-webtag:handle coderId="14926554" context="development"/>!
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners">full story</A> | 
+        <tc-webtag:forumLink forumID="514532" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+
 
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.01.07<br>4:40 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Alpha">TCHS07 Round 1 Alpha</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Alpha">TCHS07 Round 1 Alpha - Problem Set & Analysis</A></span><br><br>
 Forty-eight contestants from the United States, Canada, Mexico and Poland were registered for this round.
 <tc-webtag:handle coderId="8384426" context="hs_algorithm"/> was the first to submit a correct solution for the 250-point problem, and the first to advance to the next round.
         </td>
@@ -46,7 +64,7 @@ features, and how they perform in a test on sample TopCoder components.</td>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.28.07<br>7:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Gamma">TCHS07 Round 1 Gamma</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Gamma">TCHS07 Round 1 Gamma - Problem Set & Analysis</A></span><br><br>
 On Monday, February 26, high school students entered the first round of the ultimate battle for the onsite spots of the 2007 TopCoder High School Tournament. The students from Gamma region were given a chance to compete first.
         </td>
       <td class="newsPhoto"><img src="/i/m/andrewzta_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="11829284" context="algorithm"/></td></tr></table>
@@ -184,20 +202,4 @@ Due to some technical problems with the room assignments, the match started four
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.19.07<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">Ideagora, a Marketplace for Minds</A>
-        </span><br><br>
-        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek logo" border="0" width="67" height="15" /></div>
-        Companies seeking solutions to seemingly insoluble problems can tap the insights of hundreds of thousands of enterprising scientists without having to employ everybody full-time. This shift is rippling through Corporate America and changing the way companies invent and develop products and services.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">full story</A> | 
-       <tc-webtag:forumLink forumID="514388" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
-   </td></tr>
 
