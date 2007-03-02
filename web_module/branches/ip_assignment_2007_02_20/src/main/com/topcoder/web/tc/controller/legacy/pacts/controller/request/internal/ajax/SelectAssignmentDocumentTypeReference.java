@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.
 import java.util.Map;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.AssignmentDocumentType;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
@@ -42,6 +43,10 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
                     getRequest().setAttribute("reference_description", "Enter search text for studio contest name:");
                 }
             }
+            if (hasParameter("search_list")) {
+                getRequest().setAttribute("", StringUtils.htmlEncode(getRequest().getParameter("search_list")));
+            }
+            
             setNextPage(INTERNAL_AJAX_SELECT_ASSIGNMENT_DOCUMENT_TYPE_REFERENCE);
             setIsNextPageInContext(true);
         } catch (Exception e) {

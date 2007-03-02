@@ -29,10 +29,10 @@ function doSearch(mustSearch, firstLoad) {
     
     if (mustSearch) {
         ajaxRequest.addNamedFormElements("searchInput");
+        ajaxRequest.addNamedFormElements("search_list");
     }
     ajaxRequest.addNamedFormElements("assignment_document_type_id");
     
-//    ajaxRequest.addNamedFormElements("reference_id");
     ajaxRequest.setPostRequest(loaded);
     ajaxRequest.setPreRequest(loading);    
     ajaxRequest.sendRequest();
