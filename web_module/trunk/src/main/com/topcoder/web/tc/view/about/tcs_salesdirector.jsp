@@ -88,7 +88,7 @@
 
 
                         <p>
-                        <a href="/tc?module=JobHit&jid=317&jt=4">Apply for this job.<a/>
+                        <A href="mailto:jobs@topcoder.com?subject=Salesperson">Apply for this job.<a/>
                         </p>
                         <p><br /></p>
                     </td>

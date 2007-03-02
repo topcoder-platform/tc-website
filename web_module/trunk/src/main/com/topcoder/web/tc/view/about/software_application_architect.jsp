@@ -111,7 +111,7 @@
 <li>Ability to perform detailed and critical reviews of work product.</li>
 </ul>
                                                     <p>
-                        <a href="/tc?module=JobHit&jid=321&jt=4">Apply for this job.<a/>
+                        <A href="mailto:jobs@topcoder.com?subject=Software Application Architect">Apply for this job.<a/>
                         </p>
                         <p><br /></p>
                     </td>

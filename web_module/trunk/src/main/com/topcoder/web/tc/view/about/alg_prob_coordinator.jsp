@@ -59,7 +59,7 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"><br/>
 <p>
-This job opening is no longer available.  Please <A href="/tc?module=Static&d1=contracting&d2=index">click here</A> to see what Employment Opportunities are currently posted.
+This job opening is no longer available.  Please <A href="/tc?module=Static&d1=about&d2=jobs">click here</A> to see what TopCoder jobs are currently available.
 <br/><br/>
 </p>
 

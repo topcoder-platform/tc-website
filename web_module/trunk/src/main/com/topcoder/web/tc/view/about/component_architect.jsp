@@ -105,7 +105,7 @@
 </ul>
 
                                                     <p>
-                        <a href="/tc?module=JobHit&jid=321&jt=4">Apply for this job.<a/>
+                        <A href="mailto:jobs@topcoder.com?subject=Component Architect">Apply for this job.<a/>
                         </p>
                         <p><br /></p>
                     </td>
