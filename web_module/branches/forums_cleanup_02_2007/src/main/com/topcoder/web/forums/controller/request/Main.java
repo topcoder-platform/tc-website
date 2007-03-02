@@ -76,7 +76,8 @@ public class Main extends ForumsProcessor {
                         getRequest().setAttribute("imageDataTable_"+category.getID(), imageDataTable);
                     }
                 } else {
-                    ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
+                    boolean excludeEmptyForums = !("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)));
+                    ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, excludeEmptyForums);
                     ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                     getRequest().setAttribute("forumsIterator_"+category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveForums_"+category.getID(), new Long(pageList.size()));
