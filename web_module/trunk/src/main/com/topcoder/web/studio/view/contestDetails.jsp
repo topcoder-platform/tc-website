@@ -119,7 +119,7 @@
                 </tr>
                 <tr>
                     <td colspan="3" style="padding-top: 10px;" align="center">
-                        Register to get info necessary to submit a solution<br>
+                        Register to get info necessary to submit your design.<br>
                     </td>
                     </c:otherwise>
                     </c:choose>
