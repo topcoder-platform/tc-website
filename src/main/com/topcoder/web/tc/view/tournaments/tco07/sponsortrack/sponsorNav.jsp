@@ -67,6 +67,7 @@ function toggleMenu(menuTitle,menuID){
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=rules"<% if (tabLev1.equals("sponsortrack") && tabLev2.equals("rules")) {%> class="navHighlight"<% } %>><div>Rules</div></a></li>
         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=instructions"<% if (tabLev1.equals("sponsortrack") && tabLev2.equals("instructions")) {%> class="navHighlight"<% } %>><div>Instructions</div></a></li>
         <li class="stop"><a href="/tc?module=TCO07ViewRegistration&ct=sponsortrack"<% if (tabLev1.equals("sponsortrack") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>><div>Register</div></a></li>
-<%--       <li class="stop"><a href="/tc?module=TCO07ViewRegistrants&ct=sponsortrack"<% if (tabLev1.equals("algorithm") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>--%>
+<%--      <li class="stop"><a href="/tc?module=TCO07ViewRegistrants&ct=sponsortrack"<% if (tabLev1.equals("algorithm") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>><div>Registrants</div></a></li>--%>
+        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=arena"<% if (tabLev1.equals("sponsortrack") && tabLev2.equals("arena")) {%> class="navHighlight"<% } %>><div>Competition Arena</div></a></li>
         </ul>
 </div>
