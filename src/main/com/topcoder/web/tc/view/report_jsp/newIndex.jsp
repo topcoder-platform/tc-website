@@ -34,14 +34,29 @@
 
 <br/>
 
+New Software Reports
+<UL>
+    <% String baseTCSDWURL = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.NEW_REPORT_KEY + "&" + Constants.DB_KEY + "=" + DBMS.TCS_DW_DATASOURCE_NAME + "&" + DataAccessConstants.COMMAND + "=";%>
+    <% String baseTCSUrl = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.NEW_REPORT_KEY + "&" + Constants.DB_KEY + "=" + DBMS.TCS_OLTP_DATASOURCE_NAME + "&" + DataAccessConstants.COMMAND + "=";%>
+
+    <LI><A HREF="<%=baseTCSUrl+"application_report"%>">Application Report</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"predictor"%>">Component Submission Predictor</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"software_forums"%>">Software Forums</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"project_timeline_report"%>">Project Timelines</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"catalog_backlog_report"%>">Catalog Backlog</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"stuck_component_report"%>">Stuck Components</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"stuck_component_report"%>">Stuck Components</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"LateTCSReviews"%>">Late Reviews</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"recently_completed_projects"%>">Recently Completed Projects</a></LI>
+</UL>
+<br/>
+
+
 Software
 <UL>
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=ComponentPricing&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Pricing
             Report</A></LI>
-    <%--
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=component_subscriptions"%>">Subscriptions</A></LI>
-    --%>
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=inquiry_trend_report&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">TCS
             Inquiry Trend Report</A></LI>
@@ -54,9 +69,6 @@ Software
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Catalog_Totals&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Catalog
             Totals</A></LI>
-    <%--
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=component_status&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Status</A></LI>
-    --%>
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Component_Downloads&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component
             Downloads by Member</A></LI>
@@ -75,17 +87,10 @@ Software
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=Component%20Downloads%20by%20Month%20-%20Component&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component
             Downloads Summary by Month / Component</A></LI>
-    <%--
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=ComponentPricing&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Component Pricing</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=ready_components&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Ready Components</A></LI>
-            <LI><A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reviewer_activity&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Reviewer Activity</A></LI>
-    --%>
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reviewers&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Reviewer
             List</A></LI>
     <br/>
-    <% String baseTCSDWURL = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.NEW_REPORT_KEY + "&" + Constants.DB_KEY + "=" + DBMS.TCS_DW_DATASOURCE_NAME + "&" + DataAccessConstants.COMMAND + "=";%>
-    <% String baseTCSUrl = Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.NEW_REPORT_KEY + "&" + Constants.DB_KEY + "=" + DBMS.TCS_OLTP_DATASOURCE_NAME + "&" + DataAccessConstants.COMMAND + "=";%>
     <LI>Fulfillment rate: Projects posted in last <a href="<%=baseTCSDWURL+"fulfillment_rate&days=90"%>">3 months?</a>
         <a href="<%=baseTCSDWURL+"fulfillment_rate&days=180"%>">6 months?</a>
         <a href="<%=baseTCSDWURL+"fulfillment_rate&days=3600"%>">all?</a></LI>
@@ -110,19 +115,13 @@ Software
         <a href="<%=baseTCSDWURL+"cost_by_catalog&days=180"%>">6 months?</a>
         <a href="<%=baseTCSDWURL+"cost_by_catalog&days=3600"%>">all?</A></LI>
     <LI><A HREF="<%=baseTCSDWURL+"posted_components"%>">New components by year, month and week</a></LI>
-    <LI><A HREF="<%=baseTCSUrl+"predictor"%>">Component Submission Predictor</a></LI>
-    <LI><A HREF="<%=baseTCSUrl+"software_forums"%>">Software Forums</a></LI>
-    <LI><A HREF="<%=baseTCSUrl+"project_timeline_report"%>">Project Timelines</a></LI>
-    <LI><A HREF="<%=baseTCSUrl+"stuck_component_report"%>">Stuck Components</a></LI>
-    <LI><A HREF="<%=baseTCSUrl+"catalog_backlog_report"%>">Catalog Backlog</a></LI>
-    <LI><A HREF="<%=baseTCSUrl+"application_report"%>">Application Report</a></LI>
+
 </UL>
 <br/>
+
+
 Payment Reports
 <UL>
-    <LI>
-        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=recently_completed_projects&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Recently
-            Completed Projects</A></LI>
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=components_added_to_catalog&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Components
             Added to the Catalog</A></LI>
@@ -139,9 +138,6 @@ Submission Reports
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=AverageCompTime&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Average
             Time by Phase</A></LI>
-    <LI>
-        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=LateTCSReviews&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Late
-            Reviews</A></LI>
 
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=repeat_phases&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Repeat
@@ -193,6 +189,9 @@ Private Label Reports
 
 Other
 <UL>
+    <LI>
+        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=tco07_reg&"+Constants.DB_KEY+"="+DBMS.OLTP_DATASOURCE_NAME%>">TCO
+            07 Reg Info</A></LI>
     <LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=tccc06_reg&"+Constants.DB_KEY+"="+DBMS.OLTP_DATASOURCE_NAME%>">TCCC
             06 Reg Info</A></LI>
