@@ -41,7 +41,7 @@
 <h2>Please read all instructions carefully before proceeding.</h2>
 
 
-<h2>Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on on Friday, May 11,
+<h2>Travel Information - must be submitted by 5:00 PM EDT (GMT/UTC -4) on on Friday, May 18,
     2007 (we appreciate a quick response)</h2>
 
 <p>
@@ -69,7 +69,7 @@
 
 <p>
     As soon as you send in this form, TopCoder will secure airline reservations based upon your registration
-    information and will email a travel itinerary to you by Wednesday, June 20, 2007. Please be advised that
+    information and will email a travel itinerary to you by Wednesday, June 20, 2006. Please be advised that
     once airlines tickets are confirmed, any changes are subject to penalty fees at your own expense. TopCoder
     will provide air travel arrangements for each competitor. The flight reserved by and paid for by TopCoder
     is for arrival on June 26, 2007 and departure on June 30, 2007 (or Sunday, July 1, 2007 if ticket cost is
@@ -89,7 +89,7 @@
 
 <div align="center"><span class="bigTitle">Travel Form</span></div>
 <form name="questForm" method="POST" action="${sessionInfo.secureAbsoluteServletPath}">
-<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO07TravelInfoSubmit"/>
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCCC06TravelInfoSubmit"/>
 <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
 <tr>
     <td class="sidebarText" colspan="2"><U><B>COMPETITOR INFORMATION:</B></U><br/></td>
