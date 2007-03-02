@@ -1398,8 +1398,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(3, ad.getStatus().getId().longValue());
             ps.setString(4, ad.getText());
             ps.setLong(5, ad.getUser().getId().longValue());
-            ps.setLong(6, ad.getStudioContestId().longValue());
-            ps.setLong(7, ad.getComponentProjectId().longValue());
+            ps.setObject(6, ad.getStudioContestId());
+            ps.setObject(7, ad.getComponentProjectId());
             ps.setTimestamp(8, ad.getAffirmedDate());
             ps.setTimestamp(9, ad.getExpireDate());
 
