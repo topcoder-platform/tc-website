@@ -48,6 +48,7 @@ New Software Reports
     <LI><A HREF="<%=baseTCSUrl+"stuck_component_report"%>">Stuck Components</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"LateTCSReviews"%>">Late Reviews</a></LI>
     <LI><A HREF="<%=baseTCSUrl+"recently_completed_projects"%>">Recently Completed Projects</a></LI>
+    <LI><A HREF="<%=baseTCSUrl+"open_reviewer_positions"%>">Open Review Positions</a></LI>
 </UL>
 <br/>
 
