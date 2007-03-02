@@ -33,7 +33,7 @@
                     <div id="pageBody">
                         <h1><div>Competition Arena</div></h1>
 
-<p>Click <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=quick_launch','comp',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tccc06&d3=spon_quick_launch','comp',300,275);">Java Applet</A>.</p>
+<p>Click <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=quickLaunch','comp',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tccc06&d3=spon_quick_launch','comp',300,275);">Java Applet</A>.</p>
 <p>Click <a href="/contest/arena/ContestAppletSponsor.jnlp" target="_blank">here</a> to run the Competition Arena as a <a href="/contest/arena/ContestAppletSponsor.jnlp" target="_blank">Java Web Start Application</A>.</p>
 
 <p>Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.  </p>
