@@ -40,6 +40,8 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
 
             String assignmentDocumentText = getRequest().getParameter("assignment_document_text");
             if (assignmentDocumentText != null) {
+                log.info("assignmentDocumentText: " + assignmentDocumentText);
+
                 if (assignmentDocumentText.trim().length() == 0) {
                     addError("error", "Please enter a text for the assignment document.");
                 }
@@ -48,8 +50,12 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
                     addError("error", "Please enter a reference for the assignment document.");
                 }
                 Long referenceId = new Long(getRequest().getParameter("search_list"));
+                log.info("referenceId: " + referenceId);
 
                 if (hasErrors()) {
+                    log.info("hasErrors ");
+                    log.info("StringUtils.htmlEncode(getRequest().getParameter('assignment_document_type_id')) " + StringUtils.htmlEncode(getRequest().getParameter("assignment_document_type_id")));
+                    
                     setDefault("reference_id", StringUtils.htmlEncode(getRequest().getParameter("reference_id")));
                     setDefault("expire_date", StringUtils.htmlEncode(getRequest().getParameter("expire_date")));
                     setDefault("affirmed_date", StringUtils.htmlEncode(getRequest().getParameter("affirmed_date")));
