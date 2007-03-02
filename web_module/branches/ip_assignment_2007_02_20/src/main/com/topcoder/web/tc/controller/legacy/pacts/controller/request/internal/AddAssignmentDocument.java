@@ -43,9 +43,12 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
                 if (assignmentDocumentText.trim().length() == 0) {
                     addError("error", "Please enter a text for the assignment document.");
                 }
-                
-                // validate reference
-                
+
+                if (!hasParameter("search_list")) {
+                    addError("error", "Please enter a reference for the assignment document.");
+                }
+                Long referenceId = new Long(getRequest().getParameter("search_list"));
+
                 if (hasErrors()) {
                     setDefault("reference_id", StringUtils.htmlEncode(getRequest().getParameter("reference_id")));
                     setDefault("expire_date", StringUtils.htmlEncode(getRequest().getParameter("expire_date")));
@@ -64,8 +67,8 @@ public class AddAssignmentDocument extends PactsHibernateBaseProcessor implement
                         ad.setText(assignmentDocumentText);
                         ad.setType(new AssignmentDocumentType(new Long(getRequest().getParameter("assignment_document_type_id"))));
                         ad.setStatus(new AssignmentDocumentStatus(new Long(getRequest().getParameter("assignment_document_status_id"))));
-                        ad.setComponentProjectId(new Long(1));
-                        ad.setStudioContestId(new Long(1));
+                        ad.setComponentProjectId(ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID) ? referenceId : null);
+                        ad.setStudioContestId(ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID) ? referenceId : null);
                         
                         ad = dib.addAssignmentDocument(ad);
                         log.info("add succeded: " + ad.getId());

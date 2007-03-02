@@ -459,6 +459,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_FOOTER_JSP = INTERNAL_JSP_DIR + "/InternalFooter.jsp";
     public static final String INTERNAL_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/viewAffidavit.jsp";
     public static final String INTERNAL_PAYMENT_JSP = INTERNAL_JSP_DIR + "/viewPayment.jsp";
+    public static final String INTERNAL_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/viewAssignmentDocument.jsp";
     public static final String INTERNAL_PAYMENT_AUDIT_TRAIL_JSP = INTERNAL_JSP_DIR + "/viewPaymentAuditTrail.jsp";
     public static final String INTERNAL_CONTRACT_JSP = INTERNAL_JSP_DIR + "/viewContract.jsp";
     public static final String INTERNAL_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewTaxForm.jsp";
