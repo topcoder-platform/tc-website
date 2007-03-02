@@ -24,7 +24,6 @@ public class Home extends BaseProcessor {
         if (userIdentified()) {
             DataAccess tco07Dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Request tco07Request = new Request();
-            log.info("getUser().getId() : " + getUser().getId());
             tco07Request.setProperty("cr", String.valueOf(getUser().getId()));
 
             tco07Request.setContentHandle("tco07studio_info");
