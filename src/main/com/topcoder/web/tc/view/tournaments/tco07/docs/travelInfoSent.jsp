@@ -1,47 +1,51 @@
-<%@ page language="java" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <title>2006 TopCoder Collegiate Challenge- Computer Programming Tournament</title>
-    <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
+    <title>2007 TopCoder Open - Computer Programming Tournament</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+    <jsp:include page="../../script.jsp" />
 </head>
-
 <body>
+<%ResultSetContainer info = (ResultSetContainer) ((Map) request.getAttribute("info")).get("Affidavit_Info");%>
 
-<!-- Tab barlinks-->
-<jsp:include page="../links.jsp">
-    <jsp:param name="tabLev1" value="overview"/>
-    <jsp:param name="tabLev2" value="details"/>
-    <jsp:param name="tabLev3" value=""/>
-</jsp:include>
+<div align="center" style="background: transparent;">
+    <div id="content">
 
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
-    <!-- Body-->
-    <tr valign=top>
-        <td valign=top align=center>
-            <div class=bodySpacer>
+        <jsp:include page="../header.jsp" />
 
-                <p class=bigTitle>Your information has been sent.</p>
+        <table cellpadding="0" cellspacing="0" id="spacer">
+        <tbody>
+            <tr>
+                <td id="navSpacer">
 
+                    <jsp:include page="../nav.jsp" >
+                    <jsp:param name="tabLev1" value="algorithm"/>
+                    <jsp:param name="tabLev2" value="description"/>
+                    <jsp:param name="tabLev3" value=""/>
+                    </jsp:include>
 
-            </div>
-        </td>
+                </td>
+                <td id="bodySpacer" width="100%">
+                    <div id="pageBody">
 
+<p class=bigTitle>Your information has been sent.</p>
 
-        <!-- Right Column-->
-        <td width=170 align=right>
-            <jsp:include page="../right.jsp">
-                <jsp:param name="level1" value="all"/>
-            </jsp:include>
-        </td>
-
-    </tr>
-
-</table>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
 
-<jsp:include page="../../../foot.jsp"/>
+        <jsp:include page="../footer.jsp" />
+    </div>
+</div>
 
 </body>
 
 </html>
+
