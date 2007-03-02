@@ -1279,7 +1279,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getAssignmentDocument.append("studio_contest_id , ");
             getAssignmentDocument.append("component_project_id , ");
             getAssignmentDocument.append("affirmed_date , ");
-            getAssignmentDocument.append("expire_date , ");
+            getAssignmentDocument.append("expire_date ");
             getAssignmentDocument.append("from 'informix'.assignment_document ");
             getAssignmentDocument.append("where assignment_document_id = ? ");
             ps = conn.prepareStatement(getAssignmentDocument.toString());
