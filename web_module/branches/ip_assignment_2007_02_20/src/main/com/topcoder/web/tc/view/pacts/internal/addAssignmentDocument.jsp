@@ -28,7 +28,7 @@ function doSearch(mustSearch, firstLoad) {
 	var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectAssignmentDocumentTypeReference');
     
     if (mustSearch) {
-        ajaxRequest.addNamedFormElements("searchInput");
+        ajaxRequest.addNamedFormElements("search_text");
         ajaxRequest.addNamedFormElements("search_list");
     }
     ajaxRequest.addNamedFormElements("assignment_document_type_id");
@@ -125,7 +125,7 @@ function loaded() {
         <tr id="selectReference">
 	        <td><b>Reference:</b></td>      
 	        <td><c:out value="${reference_description}" />
-	        <input type="text" name="searchInput"/>
+	        <input type="text" name="search_text"/>
             <input type="button" value="search" onClick="doSearch(true, false)" />
 	        </td>
         </tr>
