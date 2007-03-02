@@ -11,7 +11,6 @@
     <jsp:include page="../../script.jsp" />
 </head>
 <body>
-<%ResultSetContainer info = (ResultSetContainer) ((Map) request.getAttribute("info")).get("Affidavit_Info");%>
 
 <div align="center" style="background: transparent;">
     <div id="content">
