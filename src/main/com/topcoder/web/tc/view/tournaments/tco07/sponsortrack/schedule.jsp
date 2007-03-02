@@ -29,7 +29,7 @@
 
                 </td>
                 <td id="bodySpacer" width="100%">
-                    <img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />
+                    <%--<img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />--%>
                     <div id="pageBody">
 
                         <h1><div>Schedule of Online Competitions</div></h1>
