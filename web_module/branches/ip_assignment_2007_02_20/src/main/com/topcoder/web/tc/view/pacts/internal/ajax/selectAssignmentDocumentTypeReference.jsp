@@ -19,7 +19,9 @@
             <tr id="selectReference">
                 <td><b>Reference:</b></td>      
                 <td><c:out value="${reference_description}" />
-                     ${field_text} ${field_valule}${reference_id}                                             
+                     <tc-webtag:rscSelect name="search_list" list="${search_values}" 
+                         fieldText="${field_text}" fieldValue="${field_value}" selectedValue="${reference_id}"                                             
+                         useTopValue="false" />
                      <input type="button" value="do another search" onClick="typeChanged()" />
                 </td>
             </tr>
