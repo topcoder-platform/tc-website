@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -84,8 +85,7 @@
 
 <div align="center"><span class="bigTitle">Travel Form</span></div>
 <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
-<form name="questForm" method="POST"
-      action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>">
+<form name="questForm" method="POST"  action="${sessionInfo.secureAbsoluteServletPath}"/>">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCCC06TravelInfoSubmit"/>
 <tr>
     <td class="sidebarText" colspan="2"><U><B>COMPETITOR INFORMATION:</B></U><br/></td>
