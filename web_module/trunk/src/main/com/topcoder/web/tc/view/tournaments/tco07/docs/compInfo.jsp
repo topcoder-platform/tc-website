@@ -5,50 +5,60 @@
 <html>
 <head>
     <title>2007 TopCoder Open - Computer Programming Tournament</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+    <jsp:include page="../../script.jsp" />
 </head>
 <%ResultSetContainer info = (ResultSetContainer) ((Map) request.getAttribute("info")).get("Affidavit_Info");%>
 
-<body>
+<div align="center" style="background: transparent;">
+    <div id="content">
 
-<!-- Tab barlinks-->
-<jsp:include page="../../nav.jsp">
-    <jsp:param name="tabLev1" value="overview"/>
-    <jsp:param name="tabLev2" value="details"/>
-    <jsp:param name="tabLev3" value=""/>
-</jsp:include>
+        <jsp:include page="../header.jsp" />
 
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
-<!-- Body-->
-<tr valign=top>
-<td valign=top align=center>
-<div class=bodySpacer>
+        <table cellpadding="0" cellspacing="0" id="spacer">
+        <tbody>
+            <tr>
+                <td id="navSpacer">
 
-<p class=bigTitle>Important Information Needed</p>
-<span class=bodySubtitle>Please read all instructions carefully before proceeding.</span><br/>
+                    <jsp:include page="../nav.jsp" >
+                    <jsp:param name="tabLev1" value="algorithm"/>
+                    <jsp:param name="tabLev2" value="description"/>
+                    <jsp:param name="tabLev3" value=""/>
+                    </jsp:include>
+
+                </td>
+                <td id="bodySpacer" width="100%">
+                    <div id="pageBody">
+
+                        <h1><div>Important Information Needed</div></h1>
+
+<h2>Please read all instructions carefully before proceeding.</h2>
 
 <p>
     Congratulations on your performance in the 2007 TopCoder&#174; Open, Sponsored by AOL&#174;.
 </p>
 
-<p><span class=bodySubtitle>To be completed by 5:00PM EDT (GMT/UTC -4) Friday, May 11, 2007:</span></p>
+<p><strong>To be completed by 5:00PM EDT (GMT/UTC -4) Friday, May 11, 2007:</strong></p>
 
 <ol>
     <li>
-        <p><span class=bodySubtitle>UPDATE YOUR MEMBER PROFILE</span> - your member profile <u>must be accurate
+        <p><strong>UPDATE YOUR MEMBER PROFILE</strong> - your member profile <u>must be accurate
             and complete</u>. You will not receive any cash or prizes or a t-shirt unless your profile is complete.
 
         </p>
     </li>
     <li>
-        <p><span class=bodySubtitle>Confirmation of attendance/proof of travel documents</span> – Please email <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>
+        <p><strong>Confirmation of attendance/proof of travel documents</strong> – Please email <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>
             to confirm your attendance onsite.  For anyone that has advanced as a finalist in more than one competition,
             please note which competition you will compete for onsite. If you require a passport and/or visa to visit the
             United States, you must show proof of your documents via a scanned copy of the necessary documents.</p>
     </li>
     <li>
         <p>
-            <span class=bodySubtitle>QUESTIONNAIRE</span> - View the <a href="/tc?module=ViewSurvey&amp;sid=16610">2007
+            <strong>QUESTIONNAIRE</strong> - View the <a href="/tc?module=ViewSurvey&amp;sid=16610">2007
             TopCoder Open Questionnaire</a>. NOTE: All questions are mandatory. The answers to
             1-5 may be included in the 2007 TCO Program or
             used in onsite introductions, at TopCoder's sole discretion. The answers to questions 6 - 15 will
@@ -57,7 +67,7 @@
     </li>
     <li>
         <p>
-            <span class=bodySubtitle>AFFIDAVIT</span> - must be affirmed online or notarized
+            <strong>AFFIDAVIT</strong> - must be affirmed online or notarized
             and postmarked on or before Friday, May 11. Documents that are sent must arrive at
             TopCoder by June 3, 2007. See <a href="/PactsMemberServlet?module=AffidavitHistory">Affidavits
             page</a>
@@ -67,7 +77,7 @@
 
     <li>
         <% if (info.getIntItem(0, "has_tax_form") == 0) {%>
-        <p><span class=bodySubtitle>TAX FORM</span> - must be faxed (to 860.657.4276), scanned and
+        <p><strong>TAX FORM</strong> - must be faxed (to 860.657.4276), scanned and
             sent via email (<a href="mailto:payments@topcoder.com">payments@topcoder.com</a>), or
             postmarked on or before Friday, May 11. If sent by mail,
             it must be received at TopCoder by June 3, 2007.</p>
@@ -84,20 +94,20 @@
             Form W-9 <a href="/contest/fw9.pdf">here (W9)</a><br/>
             Form W-8BEN <a href="/contest/fw8ben.pdf">here (W8)</a></p>
         <% } else { %>
-        <p><span class=bodySubtitle>TAX FORM</span>
+        <p><strong>TAX FORM</strong>
             We already have your tax form on file. You do NOT need to complete and return another form.</p>
         <% }%>
     </li>
     <li>
         <p>
-            <span class=bodySubtitle>TRAVEL FORM</span> - View the
+            <strong>TRAVEL FORM</strong> - View the
             <a href="${sessionInfo.secureAbsoluteServletPath}?module=TourneyInfo&amp;d1=tournaments&amp;d2=tco07&d3=docs&amp;d4=compTravelInfo">Travel
                 Information Page.</a>
         </p>
     </li>
 
     <li>
-        <p><span class=bodySubtitle>MEMBER PHOTO</span></p>
+        <p><strong>MEMBER PHOTO</strong></p>
 
         <p>
             <% if (info.getIntItem(0, "has_image") == 0) {%>
@@ -117,32 +127,21 @@
 </ol>
 
 <p>
-                            <span class=bodySubtitle>Reminder, you will not advance as an onsite finalist unless all above
-                            items are completed by 5:00 PM EDT on Friday, May 11, 2007.</span>
+                            <strong>Reminder, you will not advance as an onsite finalist unless all above
+                            items are completed by 5:00 PM EDT on Friday, May 11, 2007.</strong>
 </p>
 
 <p>If you have questions, please contact <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>.</p>
 
-<p><br/></p>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
 
+        <jsp:include page="../footer.jsp" />
+    </div>
 </div>
-</td>
-
-
-<!-- Right Column-->
-<td width=170 align=right>
-    <jsp:include page="../right.jsp">
-        <jsp:param name="level1" value="all"/>
-    </jsp:include>
-</td>
-
-</tr>
-
-</table>
-
-
-<jsp:include page="../../../foot.jsp"/>
 
 </body>
 
