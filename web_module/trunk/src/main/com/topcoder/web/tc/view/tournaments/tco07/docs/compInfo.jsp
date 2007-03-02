@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>2007 TopCoder Open - Computer Programming Tournament</title>
-    <link type="text/css" rel="stylesheet" href="/css/TCO07style.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
 </head>
 <%ResultSetContainer info = (ResultSetContainer) ((Map) request.getAttribute("info")).get("Affidavit_Info");%>
 
