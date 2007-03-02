@@ -34,7 +34,7 @@
 
                         <h1><div>Schedule of Online Competitions</div></h1>
 <p><b>Registration</b><br>
-Eligible employees must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition; however each individual may only register once.  Registration will open at 9:00AM EDT (GMT/UTC -4) on Monday, March 12, and will close at 6:00PM EDT (GMT/UTC -4) on Tuesday, March 27, 2007.</p>
+Eligible employees must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition; however each individual may only register once.  Registration will open at 9:00AM EDT (GMT/UTC -4) on Monday, March 12, and will close at 6:00PM EDT (GMT/UTC -4) on Tuesday, March 27, 2007.   </p>
 
                         <div align="center">
                         <table cellspacing="0" cellpadding="0" class="stat" style="width: 450px;">
