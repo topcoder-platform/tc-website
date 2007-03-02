@@ -5,9 +5,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="search_list" value="${requestScope.search_list}"/>
-<c:set var="search_list" value="${requestScope.reference_description}"/>
-<c:set var="search_list" value="${requestScope.field_text}"/>
-<c:set var="search_list" value="${requestScope.field_valule}"/>
+<c:set var="reference_description" value="${requestScope.reference_description}"/>
+<c:set var="field_text" value="${requestScope.field_text}"/>
+<c:set var="field_valule" value="${requestScope.field_valule}"/>
 <c:set var="reference_id" value="${requestScope.reference_id}"/>
 
 <taconite-root xml:space="preserve">
