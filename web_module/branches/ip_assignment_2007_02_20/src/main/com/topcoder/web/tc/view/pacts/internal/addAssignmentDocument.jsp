@@ -23,11 +23,13 @@
 <script type="text/javascript" src="/js/taconite-client.js"></script>
 <script type="text/javascript" src="/js/taconite-parser.js"></script>
 <script type="text/javascript">
-function doSearch(text, mustSearch, firstLoad) {
+
+function doSearch(mustSearch, firstLoad) {
 	var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectAssignmentDocumentTypeReference');
     
-//    document.f.search_text.value = text;
-       
+    if (mustSearch) {
+        ajaxRequest.addNamedFormElements("searchInput");
+    }
     ajaxRequest.addNamedFormElements("assignment_document_type_id");
     
 //    ajaxRequest.addNamedFormElements("reference_id");
@@ -37,7 +39,7 @@ function doSearch(text, mustSearch, firstLoad) {
 }
 
  function typeChanged() {
- doSearch(false, false, false)
+ doSearch(false, false)
 }
  
  function initialize() {
@@ -124,7 +126,7 @@ function loaded() {
 	        <td><b>Reference:</b></td>      
 	        <td><c:out value="${reference_description}" />
 	        <input type="text" name="searchInput"/>
-            <input type="button" value="search" onClick="doSearch(false, false, false)" />
+            <input type="button" value="search" onClick="doSearch(true, false)" />
 	        </td>
         </tr>
 		<tr>		
