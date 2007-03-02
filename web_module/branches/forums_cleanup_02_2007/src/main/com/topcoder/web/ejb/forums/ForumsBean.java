@@ -2,7 +2,6 @@ package com.topcoder.web.ejb.forums;
 
 import com.jivesoftware.base.*;
 import com.jivesoftware.forum.*;
-import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RowNotFoundException;
@@ -213,11 +212,15 @@ public class ForumsBean extends BaseEJB {
         }
     }
 
-    // Software Forums
-    public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) throws ForumCategoryNotFoundException {
+    /*********************************************/
+    /* Software Forums                           */
+    /*********************************************/
+    public ArrayList getSoftwareForumCategoryData(long categoryID) throws ForumCategoryNotFoundException {
         ForumCategory category = forumFactory.getForumCategory(categoryID);
-        return new com.topcoder.dde.catalog.ForumCategory(categoryID, category.getCreationDate(),
-                Long.parseLong(category.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS)), version, versionLabel);
+        ArrayList data = new ArrayList();
+        data.add(category.getCreationDate());
+        data.add(category.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS));
+        return data;
     }
 
     public String[][] getSoftwareCategoriesData() {
@@ -611,7 +614,7 @@ public class ForumsBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             StringBuffer psStrBuf = new StringBuffer(
-                    "select c.component_id from comp_catalog c where status_id = " + ComponentInfo.APPROVED + " " +
+                    "select c.component_id from comp_catalog c where status_id = " + WebConstants.STATUS_APPROVED + " " +
                             "and c.component_id IN (");
             for (int i = 0; i < compIDs.length - 1; i++) {
                 psStrBuf.append(compIDs[i]);
@@ -673,7 +676,7 @@ public class ForumsBean extends BaseEJB {
 				"select c.component_id" +
 		        " from comp_catalog c" +
 		        " join comp_versions v on (c.component_id = v.component_id)" +
-		        " where c.status_id = " + com.topcoder.dde.catalog.ComponentInfo.APPROVED +
+		        " where c.status_id = " + WebConstants.STATUS_APPROVED +
 		        " and v.comp_vers_id = ?");
 		forumsPS.setLong(1, compVersID);
 		ResultSet rs = forumsPS.executeQuery();
@@ -687,7 +690,9 @@ public class ForumsBean extends BaseEJB {
 		return componentID;
     }
     */
-    // Software Forums - End
+    /*********************************************/
+    /* Software Forums - End                     */
+    /*********************************************/
 
     public void deleteOrphanedAttachments() {
         Connection conn = null;

@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.forums;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Hashtable;
 
@@ -43,8 +44,7 @@ public interface ForumsLocal extends EJBLocalObject {
     
     public void deleteCategoryWatch(long userID, long categoryID) throws EJBException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
     
-    public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) 
-        throws EJBException, ForumCategoryNotFoundException; 
+    public ArrayList getSoftwareForumCategory(long categoryID) throws EJBException, ForumCategoryNotFoundException; 
     
     public String[][] getSoftwareCategoriesData() throws EJBException;
     

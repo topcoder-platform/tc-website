@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.forums;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 import javax.ejb.EJBException;
 
@@ -33,8 +34,7 @@ public interface Forums extends EJBObject {
     
     public void deleteCategoryWatch(long userID, long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
     
-    public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) 
-    	throws EJBException, RemoteException, ForumCategoryNotFoundException; 
+    public ArrayList getSoftwareForumCategoryData(long categoryID) throws EJBException, RemoteException, ForumCategoryNotFoundException; 
     
     public String[][] getSoftwareCategoriesData() throws EJBException, RemoteException;
     

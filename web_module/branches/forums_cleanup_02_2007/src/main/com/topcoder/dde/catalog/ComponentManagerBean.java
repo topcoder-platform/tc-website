@@ -1658,7 +1658,10 @@ public class ComponentManagerBean
         	long categoryId = ((LocalDDECompForumXref)
                     categoryIterator.next()).getCategoryId();
         	try {
-        		categories.add(forumsBean.getSoftwareForumCategory(categoryId, version, info.getVersionLabel()));
+                ArrayList data = forumsBean.getSoftwareForumCategoryData(categoryId);
+                Date startDate = (Date)data.get(0);
+                long status = Long.parseLong((String)data.get(1));
+        		categories.add(new ForumCategory(categoryId, startDate, status, version, info.getVersionLabel()));
         	} catch (ForumCategoryNotFoundException fe) {
         		throw new CatalogException("Forum category not found: " + fe.toString());
         	} catch (RemoteException exception) {
@@ -1693,8 +1696,11 @@ public class ComponentManagerBean
                 long categoryId = ((LocalDDECompForumXref)
                         categoryIterator.next()).getCategoryId();
                 try {
-                	ForumCategory forumCategory = forumsBean.getSoftwareForumCategory(categoryId, info.getVersion(), info.getVersionLabel());
-            		if (forumCategory.getStatus() == ForumCategory.ACTIVE) {
+                    ArrayList data = forumsBean.getSoftwareForumCategoryData(categoryId);
+                    Date startDate = (Date)data.get(0);
+                    long status = Long.parseLong((String)data.get(1));
+                    ForumCategory forumCategory = new ForumCategory(categoryId, startDate, status, info.getVersion(), info.getVersionLabel());
+                    if (forumCategory.getStatus() == ForumCategory.ACTIVE) {
             			categories.add(forumCategory);
             		}
             	} catch (ForumCategoryNotFoundException fe) {
@@ -1702,28 +1708,6 @@ public class ComponentManagerBean
             	} catch (RemoteException exception) {
                     throw new EJBException(exception.toString());
                 }
-                
-                /* TODO: remove
-                long forumId = ((LocalDDECompForumXref)
-                        categoryIterator.next()).getForumId();
-                com.topcoder.forum.Forum forum = null;
-                try {
-                    forum = forumadminHome.create().getForum(forumId);
-                } catch (ForumException exception) {
-                    throw new CatalogException(exception.toString());
-                } catch (CreateException exception) {
-                    throw new CatalogException(exception.toString());
-                }
-                if (forum.getStatus() == Forum.ACTIVE) {
-                    forums.add(new Forum(
-                            forum.getId(),
-                            forum.getCreateTime(),
-                            forum.getCloseTime(),
-                            forum.getStatus(),
-                            info.getVersion(),
-                            info.getVersionLabel()));
-                }
-                */
             }
         }
         if (categories.size() > 1) {
@@ -1753,7 +1737,10 @@ public class ComponentManagerBean
                 long categoryId = ((LocalDDECompForumXref)
                         categoryIterator.next()).getCategoryId();
                 try {
-                	ForumCategory forumCategory = forumsBean.getSoftwareForumCategory(categoryId, info.getVersion(), info.getVersionLabel());
+                    ArrayList data = forumsBean.getSoftwareForumCategoryData(categoryId);
+                    Date startDate = (Date)data.get(0);
+                    long status = Long.parseLong((String)data.get(1));
+                    ForumCategory forumCategory = new ForumCategory(categoryId, startDate, status, info.getVersion(), info.getVersionLabel());
             		if (forumCategory.getStatus() == ForumCategory.CLOSED) {
             			categories.add(forumCategory);
             		}
@@ -1762,26 +1749,6 @@ public class ComponentManagerBean
             	} catch (RemoteException exception) {
                     throw new EJBException(exception.toString());
                 }
-                 
-                /* TODO: remove
-                com.topcoder.forum.Forum forum = null;
-                try {
-                    forum = forumadminHome.create().getForum(forumId);
-                } catch (ForumException exception) {
-                    throw new CatalogException(exception.toString());
-                } catch (CreateException exception) {
-                    throw new CatalogException(exception.toString());
-                }
-                if (forum.getStatus() == Forum.CLOSED) {
-                    forums.add(new Forum(
-                            forum.getId(),
-                            forum.getCreateTime(),
-                            forum.getCloseTime(),
-                            forum.getStatus(),
-                            info.getVersion(),
-                            info.getVersionLabel()));
-                }
-                */
             }
         }
         Collections.sort(categories, new Comparators.ForumCategorySorter());

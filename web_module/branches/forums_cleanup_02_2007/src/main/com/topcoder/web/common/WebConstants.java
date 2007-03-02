@@ -103,6 +103,20 @@ public interface WebConstants {
     /** The constant used to indicate a version is complete */
     public static final long PHASE_COMPLETED = 114;
     
+    /** The status constant used to indicate a component has been deleted */
+    public static final long STATUS_DELETED = 0;
+    /** The status constant used to indicate a component has been requested */
+    public static final long STATUS_REQUESTED = 101;
+    /** The status constant used to indicate a component has been approved */
+    public static final long STATUS_APPROVED = 102;
+    /**
+     * The status constant used to indicate a component has been declined
+     * because it is a duplicate of another existing component
+     */
+    public static final long STATUS_DUPLICATE = 103;
+    /** The status constant used to indicate a component has been declined */
+    public static final long STATUS_DECLINED = 104;
+    
     public static final long NET_CATALOG = 5801777;
     public static final long JAVA_CATALOG = 5801776;
     public static final long FLASH_CATALOG = 8459260;
