@@ -4,17 +4,11 @@
 <%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<c:set var="search_values" value="${requestScope.search_values}"/>
-<c:set var="reference_description" value="${requestScope.reference_description}"/>
-<c:set var="field_text" value="${requestScope.field_text}"/>
-<c:set var="field_valule" value="${requestScope.field_valule}"/>
-<c:set var="reference_id" value="${requestScope.search_list}"/>
-
 <taconite-root xml:space="preserve">
     <taconite-replace contextNodeID="selectReference" parseInBrowser="true">
         <c:if test="${empty search_values}">           
             <tr id="selectReference">
-                <td><b>Reference:</b></td>      
+                <td><b>Reference:</b>${reference_description}</td>      
                 <td><c:out value="${reference_description}" />
                     <input type="text" name="searchInput"/>
                     <input type="button" value="search" onClick="doSearch(false, false)" />

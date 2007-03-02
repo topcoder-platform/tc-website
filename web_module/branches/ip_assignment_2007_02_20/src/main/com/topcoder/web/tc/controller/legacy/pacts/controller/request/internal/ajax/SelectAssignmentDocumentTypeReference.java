@@ -19,7 +19,7 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
 
         Map map = null;
         try {
-            Integer type = new Integer(getRequest().getParameter("assignment_document_type_id"));
+            Long type = new Long(getRequest().getParameter("assignment_document_type_id"));
             String search = getRequest().getParameter("search_text");
             log.info("type: " + type);
             log.info("search: " + search);
