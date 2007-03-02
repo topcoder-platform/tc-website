@@ -44,7 +44,7 @@ public interface ForumsLocal extends EJBLocalObject {
     
     public void deleteCategoryWatch(long userID, long categoryID) throws EJBException, ForumCategoryNotFoundException, UnauthorizedException, UserNotFoundException;
     
-    public ArrayList getSoftwareForumCategory(long categoryID) throws EJBException, ForumCategoryNotFoundException; 
+    public ArrayList getSoftwareForumCategoryData(long categoryID) throws EJBException, ForumCategoryNotFoundException; 
     
     public String[][] getSoftwareCategoriesData() throws EJBException;
     
