@@ -62,45 +62,45 @@
                        <h3>TopCoder Software Project Manager</h3>
 
 
-						<b>Job Description:</b>
-						<ul>
-						<li>Work closely with TopCoder Software customers to identify business needs.</li>
-						<li>Manage all phases of the TopCoder Software Application Development Methodology to deliver high quality software applications that add significant business value to our customers.</li>
-						<li>Complete the Specification phase of the TopCoder Software Application Development Methodology with the aid of the customer and Creative resources. This entails creating:</li>							<ul>
-						    <li>Use Cases</li>
-						    <li>Activity Diagrams</li>
-						    <li>Requirements Specifications</li>
-						    <li>Quality Assurance Plans</li>
-						    <li>User Interface Prototypes (HTML, CSS, Javascript)</li>
-						    <li>Project Plans</li>
-							</ul>
-						<li>Verify the quality of the software application and the adherence to the specification deliverables, including the execution of the test plan.</li>
-						<li>Manage and ensure the successful deployment of the application for the customer.</li>
-						<li>Manage project timelines and budgets.</li>
-						</ul>
+                        <b>Job Description:</b>
+                        <ul>
+                        <li>Work closely with TopCoder Software customers to identify business needs.</li>
+                        <li>Manage all phases of the TopCoder Software Application Development Methodology to deliver high quality software applications that add significant business value to our customers.</li>
+                        <li>Complete the Specification phase of the TopCoder Software Application Development Methodology with the aid of the customer and Creative resources. This entails creating:</li>                            <ul>
+                            <li>Use Cases</li>
+                            <li>Activity Diagrams</li>
+                            <li>Requirements Specifications</li>
+                            <li>Quality Assurance Plans</li>
+                            <li>User Interface Prototypes (HTML, CSS, Javascript)</li>
+                            <li>Project Plans</li>
+                            </ul>
+                        <li>Verify the quality of the software application and the adherence to the specification deliverables, including the execution of the test plan.</li>
+                        <li>Manage and ensure the successful deployment of the application for the customer.</li>
+                        <li>Manage project timelines and budgets.</li>
+                        </ul>
 
-						<b>Additional Responsibilities:</b>
-						<ul>
-						<li>May work with multiple customers simultaneously.</li>
-						<li>Must be willing to travel.</li>
-						</ul>
+                        <b>Additional Responsibilities:</b>
+                        <ul>
+                        <li>May work with multiple customers simultaneously.</li>
+                        <li>Must be willing to travel.</li>
+                        </ul>
 
-						<b>Technical Skills:</b>
-						<ul>
-						<li>Experience managing software development projects.</li>
-						<li>Working knowledge of Object Oriented design principles and component based software development.</li>
-						<li>Demonstrated experience in UML modeling, project scope development, and requirements gathering techniques.</li>
-						</ul>
+                        <b>Technical Skills:</b>
+                        <ul>
+                        <li>Experience managing software development projects.</li>
+                        <li>Working knowledge of Object Oriented design principles and component based software development.</li>
+                        <li>Demonstrated experience in UML modeling, project scope development, and requirements gathering techniques.</li>
+                        </ul>
 
-						<b>Professional Skills:</b>
-						<ul>
-						<li>Excellent communication skills.</li>
-						<li>Proven leadership experience.</li>
-						<li>Team player.</li>
-						<li>Ability to effectively meet timelines and manage budgets.</li>
-						</ul>
+                        <b>Professional Skills:</b>
+                        <ul>
+                        <li>Excellent communication skills.</li>
+                        <li>Proven leadership experience.</li>
+                        <li>Team player.</li>
+                        <li>Ability to effectively meet timelines and manage budgets.</li>
+                        </ul>
                         <p>
-                        <a href="/tc?module=JobHit&jid=318&jt=4">Apply for this job.<a/>
+                        <A href="mailto:jobs@topcoder.com?subject=Software Project Manager">Apply for this job.<a/>
                         </p>
                         <p><br /></p>
                     </td>

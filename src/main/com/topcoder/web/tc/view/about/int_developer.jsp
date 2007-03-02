@@ -88,7 +88,7 @@ TopCoder is looking to hire a full-time software developer to design and impleme
 </ul>
 
                         <p>
-                        <a href="/tc?module=JobHit&jid=320&jt=4">Apply for this job.<a/>
+                        <A href="mailto:jobs@topcoder.com?subject=Internal Developer">Apply for this job.<a/>
                         </p>
                         <p><br /></p>
 

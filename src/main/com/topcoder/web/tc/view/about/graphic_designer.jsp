@@ -95,7 +95,7 @@ The Graphic Designer will work closely with TopCoder Project Managers and Inform
 <li>Able to work from home.</li>
 </ul>
                         <p>
-                        <A href="mailto:jobs@topcoder.com?subject=Graphic Designer Position">Apply for this job.</A><br>
+                        <A href="mailto:jobs@topcoder.com?subject=Graphic Designer">Apply for this job.</A><br>
                         <b>Please include your TopCoder handle and an attached resume, if possible.</b>
                         </p>
                         <p><br /></p>

@@ -61,7 +61,6 @@
                         to excellence.  We expect the same commitment and drive from our current and future employees.</p>
                        <h3>Currently available positions:</h3>
                         <ul>
-                            <li><a href="/tc?module=Static&d1=about&d2=web_designer">Web Designer</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=deployment_engineer">Deployment Engineer</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=project_manager">TopCoder Software Project Manager</a></li>
                             <li><a href="/tc?module=Static&d1=about&d2=software_application_architect">TopCoder Software Application Architect</a></li>

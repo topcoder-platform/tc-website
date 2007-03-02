@@ -102,7 +102,7 @@
    </ul>
 
                         <p>
-                        <a href="/tc?module=JobHit&jid=319&jt=4">Apply for this job.<a/>
+                        <A href="mailto:jobs@topcoder.com?subject=Internal Project Manager">Apply for this job.<a/>
                         </p>
                         <p><br /></p>
                     </td>
