@@ -21,25 +21,32 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
         try {
             Integer type = new Integer(getRequest().getParameter("assignment_document_type_id"));
             String search = getRequest().getParameter("search_text");
-
+            log.info("type: " + type);
+            log.info("search: " + search);
             if (type.equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+                log.info("component");
                 if (search != null) {
+                    log.info("search");
                     map = dib.findProjects("%" + search + "%");
                     getRequest().setAttribute("search_values", map.get(COMPONENT_PROJECT_LIST));
                     getRequest().setAttribute("reference_description", "Please select a component project from the list:");
                     getRequest().setAttribute("field_text", "project_desc");
                     getRequest().setAttribute("field_value", "project_id");
                 } else {
+                    log.info("no search");
                     getRequest().setAttribute("reference_description", "Enter search text for component name:");
                 }
             } else if (type.equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
+                log.info("studio");
                 if (search != null) {
+                    log.info("search");
                     map = dib.findStudioContests("%" + search + "%");
                     getRequest().setAttribute("search_values", map.get(STUDIO_CONTEST_LIST));
                     getRequest().setAttribute("reference_description", "Please select a studio contest from the list:");
                     getRequest().setAttribute("field_text", "name");
                     getRequest().setAttribute("field_value", "contest_id");
                 } else {
+                    log.info("no search");
                     getRequest().setAttribute("reference_description", "Enter search text for studio contest name:");
                 }
             }
