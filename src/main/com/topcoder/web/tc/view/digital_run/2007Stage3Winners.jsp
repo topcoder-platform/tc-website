@@ -55,18 +55,18 @@
 </table>
 </div>
 <br><br>
-<span class="subtitle">Announcing the Digital Run: Stage 3 winners</span><br>
+<span class="subtitle">Announcing the Digital Run: Stage 3 Winners</span><br>
 Stage 3 of the Digital Run concluded on February 1, 2007. Here are the winners: 
 <br><br>
 <strong>Design Cup:</strong><br>
 With a dozen more designers joining the fray in Stage 3, a total of 75 competitors earned a combined 72,980 placement points. Thanks to a four-way tie for 37th place, 40 designers wound up finishing in the top half and claiming part of the $150,000 prize pool. After a record-setting finish in Stage 2, <tc-webtag:handle coderId="287614" context="design"/> again claimed the top spot in Stage 3 with another commanding performance. With 11,015 points, <tc-webtag:handle coderId="287614" context="design"/> again claimed more than 15% of all the total points available during the stage and eclipsed his own record of 10,570 points. He also set the new record for winnings, netting total prizes of more than $50,000. 
 <br><br>
-Check out the final <A href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=2&nr=50&sr=1">Design Cup: Stage 3 leaderboard</A>.
+Check out the final <A href="/tc?module=LeaderBoard&ph=112&sc=&sd=&staid=3&nr=50&sr=1">Design Cup: Stage 3 leaderboard</A>.
 <br><br>
 <strong>Development Cup:</strong><br>
 In Stage 3, 146 developers earned a total of 75,400 in placement points. Seventy-four of them ended up in the money, sharing $37,500 in total prizes. <tc-webtag:handle coderId="14926554" context="development"/> wound up in first place with a very strong 8,915 points, almost doubling <tc-webtag:handle coderId="10526732" context="development"/>'s previous record of 4,980 points from Stage 2. <tc-webtag:handle coderId="14926554" context="development"/> set a new record for earnings as well, with total prizes of $14,299. <tc-webtag:handle coderId="14926554" context="development"/>'s victory capped another strong stage for Chinese coders, with 8 of the 10 top spots going to developers from China.
 <br><br>
-Check out the final <A href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=2&nr=50&sr=1">Development Cup: Stage 3 leaderboard</A>.
+Check out the final <A href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=3&nr=50&sr=">Development Cup: Stage 3 leaderboard</A>.
 <br><br>
 </div>
 </td>
