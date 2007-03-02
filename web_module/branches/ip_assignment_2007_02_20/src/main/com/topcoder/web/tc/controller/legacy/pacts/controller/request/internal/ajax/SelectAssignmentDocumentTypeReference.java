@@ -25,7 +25,7 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
             if (type.equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
                 if (search != null) {
                     map = dib.findProjects("%" + search + "%");
-                    getRequest().setAttribute("search_list", map.get(COMPONENT_PROJECT_LIST));
+                    getRequest().setAttribute("search_values", map.get(COMPONENT_PROJECT_LIST));
                     getRequest().setAttribute("reference_description", "Please select a component project from the list:");
                     getRequest().setAttribute("field_text", "project_desc");
                     getRequest().setAttribute("field_value", "project_id");
@@ -35,7 +35,7 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
             } else if (type.equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
                 if (search != null) {
                     map = dib.findStudioContests("%" + search + "%");
-                    getRequest().setAttribute(STUDIO_CONTEST_LIST, map.get(STUDIO_CONTEST_LIST));
+                    getRequest().setAttribute("search_values", map.get(STUDIO_CONTEST_LIST));
                     getRequest().setAttribute("reference_description", "Please select a studio contest from the list:");
                     getRequest().setAttribute("field_text", "name");
                     getRequest().setAttribute("field_value", "contest_id");
@@ -44,7 +44,7 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
                 }
             }
             if (hasParameter("search_list")) {
-                getRequest().setAttribute("", StringUtils.htmlEncode(getRequest().getParameter("search_list")));
+                getRequest().setAttribute("search_list", StringUtils.htmlEncode(getRequest().getParameter("search_list")));
             }
             
             setNextPage(INTERNAL_AJAX_SELECT_ASSIGNMENT_DOCUMENT_TYPE_REFERENCE);
