@@ -154,7 +154,8 @@ public class Login extends ShortHibernateProcessor {
             Sandbox10Locator api = new Sandbox10Locator();
             Sandbox10Soap sandBox = api.getSandbox10Soap();
             sandBox.authenticate(username, password, res, user);
-            email = sandBox.getSharedUserProfile(user.value.getUserId()).getEmailId();
+//            email = sandBox.getSharedUserProfile(user.value.getUserId()).getEmailId();
+            email = user.value.getEmailAddress();
         } catch (javax.xml.rpc.ServiceException e) {
             throw new TCWebException(e);
         } catch (RemoteException e) {
