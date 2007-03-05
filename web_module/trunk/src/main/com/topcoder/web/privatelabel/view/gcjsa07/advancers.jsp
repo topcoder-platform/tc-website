@@ -82,7 +82,6 @@
                                 <a href="/pl/?&module=Static&d1=gcjsa07&d2=advRd2">50</a>
                             </td>
                         </tr>
-                        <%--
                         <tr valign="top">
                             <td class="advancersRound">
                                 <a href="/pl/?&module=Static&d1=gcjsa07&d2=advWinners" class="topLink">Championship
@@ -90,9 +89,6 @@
                             <td class="boxText" align="right"><a href="/pl/?&module=Static&d1=gcjsa07&d2=advWinners">Winners</a>
                             </td>
                         </tr>
-                        --%>
-                        <%--
-                        --%>
                     </table>
 
 
