@@ -4,6 +4,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Prime Numbers, Factorization and Euler Function" border="0" /><br>03.05.07<br>4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=primeNumbers">Prime Numbers, Factorization and Euler Function</A></span><br><br>
+Prime numbers were extensively studied by the ancient Greek mathematicians. Thousands of years later, we use the properties that they discovered to solve problems. In this article we’ll review some definitions, well-known theorems, and number properties, as well as some problems associated with them.
+		</td>
+      <td class="newsPhoto"><img src="/i/m/medv_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="269207" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=primeNumbers">full story</A> | 
+        <tc-webtag:forumLink forumID="514543" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="TopCoder Web Video contest now open at Studio" border="0" /><br>03.05.07<br>11:20 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -186,20 +204,5 @@ Due to some technical problems with the room assignments, the match started four
        <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">press release</A> | 
        <tc-webtag:forumLink forumID="514445" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>02.21.07<br>5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolChat20070220">AOL chat session transcript from SRM 340</A>
-        </span><br><br>
-      AOL was recently in the arena just prior to SRM 340 to discuss Web 3.0 and working at AOL.  Here's what they had to say.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolChat20070220">details</A> | 
-         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 

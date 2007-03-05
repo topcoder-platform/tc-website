@@ -1,19 +1,19 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Prime Numbers, Factorization and Euler Function</title>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:include page="/script.jsp"/>
+<title>Algorithm Tutorials</title>
+
+<jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_main"/>
+  <jsp:param name="key" value="tc_main"/>
 </jsp:include>
-<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 <style type="text/css">
-.code
+.codeBox
 {
-   width: 500;
+   width: 600;
    padding: 10px;
    margin: 20px;
    color: #333;
@@ -24,46 +24,37 @@
    border: 1px solid #999;
 }
 </style>
-
 </head>
 
 <body>
 
-<div id="onTop">
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
-</div>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180" id="onLeft">
+        <td width="180">
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="algo_tutorials"/>
          </jsp:include>
-        </td>
+</td>
 <!-- Left Column Ends -->
 
-
 <!-- Center Column Begins -->
-<td width="100%" align="left" class="bodyColumn">
+         <td width="100%" align="center">
 
+         <div class="tutorBodyFull">
 
-
-
-
-<table cellspacing="0" cellpadding="0" class="pageTitleTable">
-    <tr>
-        <td width="100%" class="pageTitle"><img border="0" src="/i/header_features.gif" alt="features"/></td>
-        <td align=right class="pageSubtitle">&#160;&#160;</td>
-    </tr>
-</table>
-
+<jsp:include page="../page_title.jsp" >
+   <jsp:param name="image" value="alg_tut"/>
+   <jsp:param name="title" value="&#160;"/>
+</jsp:include>
 
 
 <div class="linkBox">
-    <A href="/tc?module=Static&d1=features&d2=archive">Archive</A><br>
+    <A href="/tc?module=Static&d1=tutorials&d2=alg_index">Archive</A><br>
 
     <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
@@ -105,7 +96,7 @@
 
 <p><strong>Exercise 1.</strong> Sequence <em>a<sub>n</sub></em> is defined recursively: </p>
 
-<p><img src="i/education/prime-eq1.jpg" width="214" height="48"></p>
+<p><img src="i/education/prime-eq1.jpg"></p>
 
 <p>Prove that <em>a</em><sub><em>i</em></sub> and <em>a</em><sub><em>j</em></sub>, <em>i</em> <FONT FACE="Symbol">&#185;</FONT> <em>j</em> are relatively prime. </p>
 
@@ -113,7 +104,7 @@
 
 <p><strong>Exercise 2.</strong> Ferma numbers F<sub><em>n</em></sub> (<em>n</em> &ge; 0) are positive integers of the form </p>
 
-<p><img src="i/education/prime-eq2.jpg" width="193" height="40"></p>
+<p><img src="i/education/prime-eq2.jpg" height="30px"></p>
 
 <p>Prove that F<em><sub>i</sub></em> and F<em><sub>j</sub></em>, <em>i</em> &ne; <em>j</em> are relatively prime. </p>
 
@@ -156,7 +147,7 @@
 
 <p>The procedure of finding prime numbers <em>gen_primes </em>will use an array primes[MAX] as a list of integers. The elements of this array will be filled so that </p>
 
-<p><img src="i/education/prime-eq3.jpg" width="229" height="65"></p>
+<p><img src="i/education/prime-eq3.jpg"></p>
 
 <p>At the beginning we mark all numbers as prime. Then for each prime number <em>i</em> (<em>i</em> &ge; 2), not greater than &radic;MAX, we mark all numbers <em>i</em>*<em>i</em>, <em>i</em>*(<em>i</em> + 1), &hellip; as composite. </p>
 
@@ -245,7 +236,7 @@ For any integer <em>n</em> (<em>n</em> &ge; 4) there exist two prime numbers <em
 <ol>
   <li> If <em>p</em> is prime, then &phi; (<em>p</em>) = <em>p</em> &ndash; 1 and &phi; (<i>p<sup>a</sup></i>) = <em>p</em><em> a</em> * (1 &ndash; 1/<em>p</em>) for any <em>a</em>. </li>
   <li> If <em>m</em> and <em>n</em> are coprime, then &phi; (<em>m</em> * <em>n</em>) = &phi; (<em>m</em>) * &phi; (<em>n</em>). </li>
-  <li> If <em>n</em> = <img src="i/education/prime-eq4.jpg" width="86" height="25">, then Euler function can be found using formula: </li>
+  <li> If <em>n</em> = <img src="i/education/prime-eq4.jpg">, then Euler function can be found using formula: </li>
 </ol>
 
 <p>&phi; (<em>n</em>) = <em>n</em> * (1 &ndash; 1/<em>p</em> 1) * (1 &ndash; 1/<em>p</em> 2) * ... * (1 &ndash; 1/<em>p k</em>) </p>
@@ -300,11 +291,11 @@ If <em>p</em> is a prime number, then for any integer <em>a</em> that is coprime
 <p>Fermat&rsquo;s little theorem is a special case of Euler&rsquo;s totient theorem when <em>n</em> is prime. </p>
 
 <p><strong>The number of divisors:<br />
-</strong> If <em>n</em> = <img src="i/education/prime-eq4.jpg" width="86" height="25">, then the number of its positive divisors equals to </p>
+</strong> If <em>n</em> = <img src="i/education/prime-eq4.jpg">, then the number of its positive divisors equals to </p>
 
 <p>(<em>a</em><sub>1</sub> + 1) * (<em>a</em><sub>2</sub> + 1) * &hellip; * (<em>a</em><sub><em>k</em></sub> + 1) </p>
 
-<p> For a proof, let A<em> i</em> be the set of divisors <img src="i/education/prime-eq5.jpg" width="199" height="22">. Any divisor of number <em>n</em> can be represented as a product <em>x</em><sub>1</sub> * <em>x</em><sub>2</sub> * &hellip; * <em>x</em> <sub><em>k</em></sub> , where <em>x</em><sub><em>i</em></sub> <FONT FACE="Symbol">&#206;</FONT> A<sub><em>i</em></sub>. As |A<sub><em>i</em></sub>| = <em>a</em><sub><em>i</em></sub> + 1, we have </p>
+<p> For a proof, let A<em> i</em> be the set of divisors <img src="i/education/prime-eq5.jpg">. Any divisor of number <em>n</em> can be represented as a product <em>x</em><sub>1</sub> * <em>x</em><sub>2</sub> * &hellip; * <em>x</em> <sub><em>k</em></sub> , where <em>x</em><sub><em>i</em></sub> <FONT FACE="Symbol">&#206;</FONT> A<sub><em>i</em></sub>. As |A<sub><em>i</em></sub>| = <em>a</em><sub><em>i</em></sub> + 1, we have </p>
 
 <p>(<em>a</em><sub>1</sub> + 1) * (<em>a</em><sub>2</sub> + 1) * &hellip; * (<em>a</em><sub><em>k</em></sub> + 1) </p>
 
@@ -314,7 +305,7 @@ If <em>p</em> is a prime number, then for any integer <em>a</em> that is coprime
 
 <p>Here's another problem to think about: For a given positive integer <em>n</em> (0 &lt; <em>n</em> &lt; 2<sup>31</sup>) we need to find the number of such <em>m</em> that 1 &le; <em>m</em> &le; <em>n</em>, GCD(<em>m</em>, <em>n</em>) &ne; 1 and GCD(<em>m</em>, <em>n</em>) &ne;<em> m</em>. For example, for <em>n</em> = 6 we have only one such number <em>m</em> = 4. </p>
 
-<p>The solution is to subtract from <em>n</em> the amount of numbers, coprime with it (its amount equals to &phi;(<em>n</em>)) and the amount of its divisors. But the number 1 simultaneously is coprime with <em>n</em> and is a divisor of <em>n</em>. So to obtain the difference we must add 1. If <em>n</em> = <img src="prime-eq4.jpg" width="86" height="25"> is a factorization of <em>n</em>, the number <em>n</em> has (<em>a</em><sub>1</sub> + 1) * (<em>a</em><sub>2</sub> + 1) * &hellip; * (<em>a</em><sub><em>k</em></sub> + 1) divisors. So the answer to the problem for a given <em>n</em> equals to </p>
+<p>The solution is to subtract from <em>n</em> the amount of numbers, coprime with it (its amount equals to &phi;(<em>n</em>)) and the amount of its divisors. But the number 1 simultaneously is coprime with <em>n</em> and is a divisor of <em>n</em>. So to obtain the difference we must add 1. If <em>n</em> = <img src="i/education/prime-eq4.jpg"> is a factorization of <em>n</em>, the number <em>n</em> has (<em>a</em><sub>1</sub> + 1) * (<em>a</em><sub>2</sub> + 1) * &hellip; * (<em>a</em><sub><em>k</em></sub> + 1) divisors. So the answer to the problem for a given <em>n</em> equals to </p>
 
 <p><em>n</em> &ndash; &phi;(<em>n</em>) &ndash; (<em>a</em><sub>1</sub> + 1) * (<em>a</em><sub>2</sub> + 1) * &hellip; * (<em>a</em><sub><em>k</em></sub> + 1) + 1 </p>
 
