@@ -44,7 +44,6 @@ function doSearch(mustSearch, firstLoad) {
         ajaxRequest.addNamedFormElements("search_list");
         ajaxRequest.addNamedFormElements("assignment_document_text");
         
-        ajaxRequest.setPostRequest(afterRequest);
         ajaxRequest.sendRequest();
     }
 
@@ -52,17 +51,6 @@ function doSearch(mustSearch, firstLoad) {
         if (validateLocal()) {
             validateRemote()
         }
-    }
-
-    function afterRequest()
-    {
-        if (valid) {
-            document.f.submit();
-        }
-    }
-
-    function doNothing()
-    {
     }
 
     function validateLocal()

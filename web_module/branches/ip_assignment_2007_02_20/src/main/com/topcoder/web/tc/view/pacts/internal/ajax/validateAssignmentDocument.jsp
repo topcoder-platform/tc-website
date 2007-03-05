@@ -16,5 +16,12 @@
         	</td>
         </tr>
      </taconite-replace>
+    <c:when test="${handleValidation.valid}">
+        <taconite-execute-javascript parseInBrowser="true">
+            <script type="text/javascript">
+            	document.f.submit();
+            </script>
+        </taconite-execute-javascript>
+    </c:when>
  </taconite-root>
  
