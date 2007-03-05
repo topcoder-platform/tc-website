@@ -112,7 +112,7 @@
                         </A>
                     </td>
                     <td class="value">
-                        <% if (resultRow.getLongItem("event_id") == 2040) { %>
+                        <% if ("2040".equals(resultRow.getStringItem("event_id"))) { %>
                         <img src="/i/tournament/tco07/emblem.png" alt="" onmouseover="popUp(this,'popTCO07')" onmouseout="popHide()" style="display: block; margin: 4px;">
                         <% } else { %>
                         &nbsp;
