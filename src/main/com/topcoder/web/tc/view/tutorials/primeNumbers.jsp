@@ -104,7 +104,7 @@
 
 <p><strong>Exercise 2.</strong> Ferma numbers F<sub><em>n</em></sub> (<em>n</em> &ge; 0) are positive integers of the form </p>
 
-<p><img src="i/education/prime-eq2.jpg" height="30px"></p>
+<p><img src="i/education/prime-eq2.jpg"></p>
 
 <p>Prove that F<em><sub>i</sub></em> and F<em><sub>j</sub></em>, <em>i</em> &ne; <em>j</em> are relatively prime. </p>
 
