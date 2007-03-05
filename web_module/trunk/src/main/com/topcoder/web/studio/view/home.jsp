@@ -41,7 +41,7 @@
             <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
 
                 <div>
-                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&sid=16491"><img src="/i/home/badgeVote.jpg" alt="Vote for Studio badges"/></A>
+                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&sid=16380"><img src="/i/home/badgeVote.jpg" alt="Vote for Studio badges"/></A>
                 </div>
 
                 <div>
