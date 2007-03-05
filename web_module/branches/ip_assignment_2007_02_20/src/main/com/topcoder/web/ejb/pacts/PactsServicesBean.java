@@ -53,6 +53,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 
 /**
@@ -1285,25 +1286,35 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return assignmentDocumentStatus;
     }
     
-    private AssignmentDocument createAssignmentDocumentBean(ResultSetRow rsr) {
+    private AssignmentDocument createAssignmentDocumentBean(Connection conn, ResultSetRow rsr) throws SQLException {
         AssignmentDocument ad = new AssignmentDocument();
-        ad.setId(new Long(rsr.getLongItem("assignment_document_id")));
-        ad.setAffirmedDate(rsr.getTimestampItem("affirmed_date"));
-        ad.setExpireDate(rsr.getTimestampItem("expire_date"));
+        ad.setId(new Long(rsr.getLongItem("ad.assignment_document_id")));
+        ad.setAffirmedDate(rsr.getTimestampItem("ad.affirmed_date"));
+        ad.setExpireDate(rsr.getTimestampItem("ad.expire_date"));
     
+        UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rsr.getLongItem("ad.assignment_document_id")));
         User u = new User();
-        u.setId(new Long(rsr.getLongItem("assignment_document_id")));
+        u.setId(new Long(user.getId()));
+        u.setHandle(user.getHandle());
         ad.setUser(u);
-        ad.setText(rsr.getStringItem("assignment_document_text"));
-        ad.setType(new AssignmentDocumentType(new Long(rsr.getLongItem("assignment_document_type_id"))));
-        ad.setStatus(new AssignmentDocumentStatus(new Long(rsr.getLongItem("assignment_document_status_id"))));
         
-        // handle the case some of this columns are null.
-        if (rsr.getItem("component_project_id").getResultData() != null) {
-            ad.setComponentProjectId(new Long(rsr.getLongItem("component_project_id")));
+        ad.setText(rsr.getStringItem("ad.assignment_document_text"));
+
+        AssignmentDocumentType adt = new AssignmentDocumentType();
+        adt.setId(new Long(rsr.getLongItem("adt.assignment_document_types_id")));
+        adt.setDescription(rsr.getStringItem("adt.assignment_document_types_desc"));
+        ad.setType(adt);
+        
+        AssignmentDocumentStatus ads = new AssignmentDocumentStatus();
+        ads.setId(new Long(rsr.getLongItem("ads.assignment_document_status_id")));
+        ads.setDescription(rsr.getStringItem("adt.assignment_document_status_desc"));
+        ad.setStatus(ads);
+        
+        if (rsr.getItem("ad.component_project_id").getResultData() != null) {
+            ad.setComponentProjectId(new Long(rsr.getLongItem("ad.component_project_id")));
         }
-        if (rsr.getItem("studio_contest_id").getResultData() != null) {
-            ad.setStudioContestId(new Long(rsr.getLongItem("studio_contest_id")));
+        if (rsr.getItem("ad.studio_contest_id").getResultData() != null) {
+            ad.setStudioContestId(new Long(rsr.getLongItem("ad.studio_contest_id")));
         }
     
         return ad;
@@ -1312,16 +1323,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private StringBuffer getAssignmentDocumentSelect() {
         StringBuffer sb = new StringBuffer(100);
         sb.append("select ");
-        sb.append("assignment_document_id , ");
-        sb.append("assignment_document_type_id , ");
-        sb.append("assignment_document_status_id , ");
-        sb.append("assignment_document_text , ");
-        sb.append("user_id , ");
-        sb.append("studio_contest_id , ");
-        sb.append("component_project_id , ");
-        sb.append("affirmed_date , ");
-        sb.append("expire_date ");
-        sb.append("from 'informix'.assignment_document ");
+        sb.append("ad.assignment_document_id , ");
+        sb.append("ad.assignment_document_type_id , ");
+        sb.append("adt.assignment_document_type_desc , ");
+        sb.append("ad.assignment_document_status_id , ");
+        sb.append("ads.assignment_document_status_desc , ");
+        sb.append("ad.assignment_document_text , ");
+        sb.append("ad.user_id , ");
+        sb.append("ad.studio_contest_id , ");
+        sb.append("ad.component_project_id , ");
+        sb.append("ad.affirmed_date , ");
+        sb.append("ad.expire_date ");
+        sb.append("from 'informix'.assignment_document ad, 'informix'.assignment_document_type_lu adt, 'informix'.assignment_document_status_lu ads ");
+        sb.append("where ad.assignment_document_type_id = adt.assignment_document_type_id ");
+        sb.append("and ad.assignment_document_type_id = adt.assignment_document_type_id ");
         return sb;
     }
 
@@ -1342,7 +1357,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             log.debug("get the assignment document from the db");
             
-            StringBuffer getAssignmentDocument = getAssignmentDocumentSelect().append("where component_project_id = ? ");
+            StringBuffer getAssignmentDocument = getAssignmentDocumentSelect().append("and ad.component_project_id = ? ");
             ps = conn.prepareStatement(getAssignmentDocument.toString());
 
             ps.setLong(1, projectId);
@@ -1357,7 +1372,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             for (Iterator it = rsc.iterator(); it.hasNext(); ) {
                 ResultSetRow rsr = (ResultSetRow) it.next();
                 
-                AssignmentDocument ad = createAssignmentDocumentBean(rsr);
+                AssignmentDocument ad = createAssignmentDocumentBean(conn, rsr);
                 l.add(ad);
             }
             return l;
@@ -1390,7 +1405,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             log.debug("get the assignment document from the db");
             
-            StringBuffer getAssignmentDocument = getAssignmentDocumentSelect().append("where assignment_document_id = ? ");
+            StringBuffer getAssignmentDocument = getAssignmentDocumentSelect().append("and ad.assignment_document_id = ? ");
             ps = conn.prepareStatement(getAssignmentDocument.toString());
 
             ps.setLong(1, assignmentDocumentId);
@@ -1400,6 +1415,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (rsc.isEmpty()) {
                 throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentId);
             }
+        
+            AssignmentDocument ad = createAssignmentDocumentBean(conn, rsc.getRow(0));
+            return ad;
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw(new EJBException(e.getMessage()));
@@ -1410,10 +1428,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             close(ps);
             close(conn);
         }
-
-        AssignmentDocument ad = createAssignmentDocumentBean(rsc.getRow(0));
-
-        return ad;
     }
     
     public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) {

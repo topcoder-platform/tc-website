@@ -24,7 +24,7 @@
 		</tr>
 		<tr>
 			<td><b>User</b></td>
-			<td><a href="${pacts:viewUser(assignment_document.user.id)}">assignment_document.user.handle}</a></td>
+			<td><a href="${pacts:viewUser(assignment_document.user.id)}">${assignment_document.user.handle}</a></td>
 		</tr>
 		<tr>		
 			<td><b>Type:</b></td>
@@ -52,11 +52,11 @@
         </c:if>
         <tr>        
             <td><b>Affirmed Date:</b></td>
-            <td><c:out value="${assignment_document.affirmedDate}" /></td>
+            <td><fmt:formatNumber value="${assignment_document.affirmedDate}" pattern="MM/dd/yyyy"/></td>
         </tr>        
         <tr>        
             <td><b>Expire Date:</b></td>
-            <td><c:out value="${assignment_document.expireDate}" /></td>
+            <td><fmt:formatNumber value="${assignment_document.expireDate}" pattern="MM/dd/yyyy"/></td>
         </tr>
    
 </table>
