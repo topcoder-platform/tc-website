@@ -1288,33 +1288,33 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
     private AssignmentDocument createAssignmentDocumentBean(Connection conn, ResultSetRow rsr) throws SQLException {
         AssignmentDocument ad = new AssignmentDocument();
-        ad.setId(new Long(rsr.getLongItem("ad.assignment_document_id")));
-        ad.setAffirmedDate(rsr.getTimestampItem("ad.affirmed_date"));
-        ad.setExpireDate(rsr.getTimestampItem("ad.expire_date"));
+        ad.setId(new Long(rsr.getLongItem("assignment_document_id")));
+        ad.setAffirmedDate(rsr.getTimestampItem("affirmed_date"));
+        ad.setExpireDate(rsr.getTimestampItem("expire_date"));
     
-        UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rsr.getLongItem("ad.assignment_document_id")));
+        UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rsr.getLongItem("assignment_document_id")));
         User u = new User();
         u.setId(new Long(user.getId()));
         u.setHandle(user.getHandle());
         ad.setUser(u);
         
-        ad.setText(rsr.getStringItem("ad.assignment_document_text"));
+        ad.setText(rsr.getStringItem("assignment_document_text"));
 
         AssignmentDocumentType adt = new AssignmentDocumentType();
-        adt.setId(new Long(rsr.getLongItem("adt.assignment_document_types_id")));
-        adt.setDescription(rsr.getStringItem("adt.assignment_document_types_desc"));
+        adt.setId(new Long(rsr.getLongItem("assignment_document_type_id")));
+        adt.setDescription(rsr.getStringItem("assignment_document_type_desc"));
         ad.setType(adt);
         
         AssignmentDocumentStatus ads = new AssignmentDocumentStatus();
-        ads.setId(new Long(rsr.getLongItem("ads.assignment_document_status_id")));
-        ads.setDescription(rsr.getStringItem("adt.assignment_document_status_desc"));
+        ads.setId(new Long(rsr.getLongItem("assignment_document_status_id")));
+        ads.setDescription(rsr.getStringItem("assignment_document_status_desc"));
         ad.setStatus(ads);
         
-        if (rsr.getItem("ad.component_project_id").getResultData() != null) {
-            ad.setComponentProjectId(new Long(rsr.getLongItem("ad.component_project_id")));
+        if (rsr.getItem("component_project_id").getResultData() != null) {
+            ad.setComponentProjectId(new Long(rsr.getLongItem("component_project_id")));
         }
-        if (rsr.getItem("ad.studio_contest_id").getResultData() != null) {
-            ad.setStudioContestId(new Long(rsr.getLongItem("ad.studio_contest_id")));
+        if (rsr.getItem("studio_contest_id").getResultData() != null) {
+            ad.setStudioContestId(new Long(rsr.getLongItem("studio_contest_id")));
         }
     
         return ad;
