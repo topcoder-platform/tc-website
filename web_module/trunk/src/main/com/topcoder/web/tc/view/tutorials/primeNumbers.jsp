@@ -10,6 +10,8 @@
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_main"/>
 </jsp:include>
+
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 <style type="text/css">
 .codeBox
 {
