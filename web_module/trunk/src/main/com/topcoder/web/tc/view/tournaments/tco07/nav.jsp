@@ -44,9 +44,7 @@ function toggleMenu(menuTitle,menuID){
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol"<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors") && tabLev3.equals("aol")) {%> class="navHighlight"<% } %>><div>AOL</div></a></li>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw"<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors") && tabLev3.equals("drw")) {%> class="navHighlight"<% } %>><div>DRW</div></a></li>
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs"<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors") && tabLev3.equals("ubs")) {%> class="navHighlight"<% } %>><div>UBS</div></a></li>
-            <%--
             <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign"<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors") && tabLev3.equals("verisign")) {%> class="navHighlight"<% } %>><div>VeriSign</div></a></li>
-            --%>
             </ul>
         </li>
         <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("eventpatrons")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><div>Event Patrons</div></a>
@@ -139,22 +137,47 @@ function toggleMenu(menuTitle,menuID){
 
 <div id="navSponsors">
 
+<% if (tabLev3.equals("aol")) {%>
     <div>
     <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol"><img src="/i/tournament/tco07/navsponsoraol.png" alt="AOL" /></A>
     </div>
+<% } else if (tabLev3.equals("nsa")) { %>
     <div>
     <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa"><img src="/i/tournament/tco07/navsponsornsa.png" alt="NSA" /></A>
     </div>
+<% } else if (tabLev3.equals("ubs")) { %>
     <div>
     <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs"><img src="/i/tournament/tco07/navsponsorubs.png" alt="UBS" /></A>
     </div>
+<% } else if (tabLev3.equals("drw")) { %>
     <div>
     <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw"><img src="/i/tournament/tco07/navsponsordrw.png" alt="DRW" /></A>
     </div>
-    <%--
+<% } else if (tabLev3.equals("verisign")) { %>
     <div>
     <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign"><img src="/i/tournament/tco07/navsponsorverisign.png" alt="VeriSign" /></A>
     </div>
-    --%>
+<% } else { %>
 
+    <div>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol"><img src="/i/tournament/tco07/navsponsoraol.png" alt="AOL" /></A>
+    </div>
+
+    <div>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa"><img src="/i/tournament/tco07/navsponsornsa.png" alt="NSA" /></A>
+    </div>
+
+    <div>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs"><img src="/i/tournament/tco07/navsponsorubs.png" alt="UBS" /></A>
+    </div>
+
+    <div>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw"><img src="/i/tournament/tco07/navsponsordrw.png" alt="DRW" /></A>
+    </div>
+
+    <div>
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign"><img src="/i/tournament/tco07/navsponsorverisign.png" alt="VeriSign" /></A>
+    </div>
+
+<% } %>
 </div>

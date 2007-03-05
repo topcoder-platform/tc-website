@@ -54,6 +54,7 @@
                         <p>
                         * The TopCoder Open is sponsored by TopCoder, Inc. AOL LLC is not responsible for any aspect of the tournament.                           
                         </p>
+                        <p><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolOpps" class="button" style="width: 120px;">Current Opportunities</a></p>
                     </div>
                 </td>
             </tr>

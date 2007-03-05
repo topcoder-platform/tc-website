@@ -31,19 +31,64 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
                         <div style="margin-bottom: 20px;"><a href="/?t=sponsor&c=link&link=http://www.verisign.com/" target="_blank"><img src="/i/tournament/tco07/verisign_logo.png" alt="VeriSign" border="0" /></a></div>
-                        <p>
-                        *** NEED CONTENT *** 
-                        <br><br>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
-                        </p>
-                        <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
-                        </p>
-                        <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
-                        </p>
-                        <p><a href="">Apply Now</a>.</p>
-
+<p>
+At VeriSign, we want everyone to reap the benefits of the ongoing revolution in digital commerce and communications. It is towards that goal that we focus our company, our technology, our services, and our people.
+</p>
+<p>
+VeriSign Inc (NASDAQ: VRSN) operates intelligent infrastructure services that enable and protect billions of interactions every day across the world's voice and data networks.  Every day, we process as many as 21 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 700,000 Web servers to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.
+</p>
+<p>
+As next-generation networks emerge, VeriSign will be there, deploying the intelligent infrastructure services necessary for everything from RFID supply chains, to inter-enterprise voice over Internet Protocol (VoIP) to the seamless delivery of mobile content.  Whether you're a carrier looking to rapidly deploy new services, a Fortune 500 enterprise needing comprehensive, proactive security services, or an organization looking to evolve its trading-partner network, we can help. 
+</p>
+<div align="center" style="margin-top: 20px;">
+<p>
+<strong>Products and Services include the following:</strong>
+</p>
+<table cellpadding="0" cellspacing="0">
+<tbody>
+    <tr>
+        <td rowspan="2" style="background: #d2d5c8; padding: 10px;">
+<h3 style="color: #990000;">Security Services</h3>
+<ul>
+<li>SSL Certificates</li>
+<li>Managed Security Services</li>
+<li>VeriSign iDefense Security Intelligence Service</li>
+<li>Unified Authentication</li>
+<li>VeriSign Identity Protection</li>
+<li>Global Security Consulting</li>
+<li>Managed PKI Services</li>
+<li>Code Signing</li>
+<li>VeriSign SecuredTM Seal Program</li>
+<li>Digital IDs for Secure Email</li>
+<li>Online Payment Processing</li>
+</ul>
+        </td>
+        <td style="background: #bfcad9; padding: 10px;">
+<h3 style="color: #990000;">Communications Services</h3>
+<ul>
+<li>Connectivity and Interoperability Services</li>
+<li>Intelligent Database Services</li>
+<li>Digital Content Services</li>
+<li>Billing and OSS</li>
+<li>Mobile Commerce Services</li>
+<li>Self Care & Analytics</li>
+</ul>
+        </td>
+    </tr>
+    <tr>
+        <td style="background: #e7e6e6; padding: 10px;">
+<h3 style="color: #990000;">Information Services</h3>
+<ul>
+<li>VeriSign Intelligent Supply Chain Services</li>
+<li>Digital Brand Management Services</li>
+<li>VeriSign Real-Time Publisher Services</li>
+<li>Naming Services</li>
+</ul>
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
                     </div>
                 </td>
             </tr>
