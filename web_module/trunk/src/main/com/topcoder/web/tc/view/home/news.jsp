@@ -4,7 +4,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Prime Numbers, Factorization and Euler Function" border="0" /><br>03.05.07<br>4:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Prime Numbers, Factorization and Euler Function" border="0" /><br>03.05.07<br>6:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=primeNumbers">Prime Numbers, Factorization and Euler Function</A></span><br><br>

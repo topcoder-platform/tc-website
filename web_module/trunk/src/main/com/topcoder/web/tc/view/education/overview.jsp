@@ -39,6 +39,8 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=primeNumbers"><strong>Prime Numbers, Factorization and Euler Function</strong></a>, by <tc-webtag:handle coderId="269207" /><br>
+Prime numbers were extensively studied by the ancient Greek mathematicians. Thousands of years later, we use the properties that they discovered to solve problems. In this article we’ll review some definitions, well-known theorems, and number properties, as well as some problems associated with them.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=mmIntro2"><strong>An Introduction to Marathon Matches, Part 2</strong></a>, by <tc-webtag:handle coderId="21464956" /><br>
 In part I, we looked at the basic mechanics of how Marathon Matches work. In this article, we'll look at how you can approach marathons in a more organized and efficient manner.</li>
 <li><A href="/tc?module=Static&d1=features&d2=022207"><strong>Beginning TopCoder Competition with C#.Net</strong></A>, by <tc-webtag:handle coderId="20641048" /><br>
