@@ -114,6 +114,7 @@ function loaded() {
 
 
 <c:set var="user" value="${requestScope.user}"/>
+<c:set var="assignmentDocumentId" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_TYPE_LIST) %>" />
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_TYPE_LIST) %>" />
 <c:set var="statusList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_STATUS_LIST) %>" />
 <c:set var="defaultTypeId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_type_id")) %>" />
@@ -126,6 +127,7 @@ function loaded() {
 
 <form name='f' action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
+  <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignmentDocumentId}"/>
   <input type="hidden" name="module" value="AddAssignmentDocument"/>
 
 		<table cellpadding="5" cellspacing="5" border="0">
@@ -153,11 +155,18 @@ function loaded() {
 			</td>
 		</tr>
         <tr id="selectReference">
-	        <td><b>Reference:</b></td>      
-	        <td><c:out value="${reference_description}" />
-	        <input type="text" name="search_text"/>
-            <input type="button" value="search" onClick="doSearch(true, false)" />
-	        </td>
+            <td><b>Reference:</b></td>      
+            <td><c:out value="${reference_description}" />
+            <c:choose>
+                <c:when test="${assignmentDocumentId > 0}">
+                    <input type="button" value="change" onClick="typeChanged()" />
+                </c:when>
+                <c:otherwise>
+        	        <input type="text" name="search_text"/>
+                    <input type="button" value="search" onClick="doSearch(true, false)" />
+                </c:otherwise>
+            </c:choose>
+            </td>
         </tr>
 		<tr>		
 			<td><b>Status:</b></td>

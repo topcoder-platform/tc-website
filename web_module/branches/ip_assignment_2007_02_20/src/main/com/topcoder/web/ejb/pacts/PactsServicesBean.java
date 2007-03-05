@@ -1292,7 +1292,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ad.setAffirmedDate(rsr.getTimestampItem("affirmed_date"));
         ad.setExpireDate(rsr.getTimestampItem("expire_date"));
     
-        UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rsr.getLongItem("assignment_document_id")));
+        UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rsr.getLongItem("user_id")));
         User u = new User();
         u.setId(new Long(user.getId()));
         u.setHandle(user.getHandle());
