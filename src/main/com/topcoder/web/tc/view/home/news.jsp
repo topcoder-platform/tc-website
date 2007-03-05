@@ -4,7 +4,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="TopCoder Web Video contest now open at Studio" border="0" /><br>03.05.07<br>11:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="TopCoder Web Video contest now open at Studio" border="0" /><br>03.05.07<br>11:20 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2063">TopCoder Web Video contest now open at Studio</A></span><br><br>
