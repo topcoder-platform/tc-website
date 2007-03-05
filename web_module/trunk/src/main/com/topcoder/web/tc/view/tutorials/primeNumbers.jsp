@@ -58,7 +58,7 @@
 
     <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
-    <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=514543">Discuss this article</A>
+	<tc-webtag:forumLink forumID="514543" message="Discuss this article" />
 </div>
 
 <span class="bigTitle">Prime Numbers, Factorization and Euler Function</span>
