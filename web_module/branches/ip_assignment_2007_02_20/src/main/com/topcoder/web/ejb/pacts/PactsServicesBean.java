@@ -1285,6 +1285,94 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return assignmentDocumentStatus;
     }
     
+    private AssignmentDocument createAssignmentDocumentBean(ResultSetRow rsr) {
+        AssignmentDocument ad = new AssignmentDocument();
+        ad.setId(new Long(rsr.getLongItem("assignment_document_id")));
+        ad.setAffirmedDate(rsr.getTimestampItem("affirmed_date"));
+        ad.setExpireDate(rsr.getTimestampItem("expire_date"));
+    
+        User u = new User();
+        u.setId(new Long(rsr.getLongItem("assignment_document_id")));
+        ad.setUser(u);
+        ad.setText(rsr.getStringItem("assignment_document_text"));
+        ad.setType(new AssignmentDocumentType(new Long(rsr.getLongItem("assignment_document_type_id"))));
+        ad.setStatus(new AssignmentDocumentStatus(new Long(rsr.getLongItem("assignment_document_status_id"))));
+        
+        // handle the case some of this columns are null.
+        if (rsr.getItem("component_project_id").getResultData() != null) {
+            ad.setComponentProjectId(new Long(rsr.getLongItem("component_project_id")));
+        }
+        if (rsr.getItem("studio_contest_id").getResultData() != null) {
+            ad.setStudioContestId(new Long(rsr.getLongItem("studio_contest_id")));
+        }
+    
+        return ad;
+    }
+
+    private StringBuffer getAssignmentDocumentSelect() {
+        StringBuffer sb = new StringBuffer(100);
+        sb.append("select ");
+        sb.append("assignment_document_id , ");
+        sb.append("assignment_document_type_id , ");
+        sb.append("assignment_document_status_id , ");
+        sb.append("assignment_document_text , ");
+        sb.append("user_id , ");
+        sb.append("studio_contest_id , ");
+        sb.append("component_project_id , ");
+        sb.append("affirmed_date , ");
+        sb.append("expire_date ");
+        sb.append("from 'informix'.assignment_document ");
+        return sb;
+    }
+
+    /**
+     * Returns the list of all assignment document status.
+     *
+     * @return The list of assignment document status
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentByProjectId(long projectId) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetContainer rsc = null;
+
+        try {
+            conn = DBMS.getConnection();
+
+            log.debug("get the assignment document from the db");
+            
+            StringBuffer getAssignmentDocument = getAssignmentDocumentSelect().append("where component_project_id = ? ");
+            ps = conn.prepareStatement(getAssignmentDocument.toString());
+
+            ps.setLong(1, projectId);
+            rs = ps.executeQuery();
+            rsc =  new ResultSetContainer(rs, false);
+
+            if (rsc.isEmpty()) {
+                throw new IllegalUpdateException("Couldn't find assigment documents for id: " + projectId);
+            }
+            
+            List l = new ArrayList();
+            for (Iterator it = rsc.iterator(); it.hasNext(); ) {
+                ResultSetRow rsr = (ResultSetRow) it.next();
+                
+                AssignmentDocument ad = createAssignmentDocumentBean(rsr);
+                l.add(ad);
+            }
+            return l;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+    
     /**
      * Returns the list of all assignment document status.
      *
@@ -1302,19 +1390,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             log.debug("get the assignment document from the db");
             
-            StringBuffer getAssignmentDocument = new StringBuffer(300);
-            getAssignmentDocument.append("select ");
-            getAssignmentDocument.append("assignment_document_id , ");
-            getAssignmentDocument.append("assignment_document_type_id , ");
-            getAssignmentDocument.append("assignment_document_status_id , ");
-            getAssignmentDocument.append("assignment_document_text , ");
-            getAssignmentDocument.append("user_id , ");
-            getAssignmentDocument.append("studio_contest_id , ");
-            getAssignmentDocument.append("component_project_id , ");
-            getAssignmentDocument.append("affirmed_date , ");
-            getAssignmentDocument.append("expire_date ");
-            getAssignmentDocument.append("from 'informix'.assignment_document ");
-            getAssignmentDocument.append("where assignment_document_id = ? ");
+            StringBuffer getAssignmentDocument = getAssignmentDocumentSelect().append("where assignment_document_id = ? ");
             ps = conn.prepareStatement(getAssignmentDocument.toString());
 
             ps.setLong(1, assignmentDocumentId);
@@ -1334,22 +1410,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             close(ps);
             close(conn);
         }
-        
-        AssignmentDocument ad = new AssignmentDocument();
-        ad.setId(new Long(rsc.getLongItem(0, "assignment_document_id")));
-        ad.setAffirmedDate(rsc.getTimestampItem(0, "affirmed_date"));
-        ad.setExpireDate(rsc.getTimestampItem(0, "expire_date"));
 
-        User u = new User();
-        u.setId(new Long(rsc.getLongItem(0, "assignment_document_id")));
-        ad.setUser(u);
-        ad.setText(rsc.getStringItem(0, "assignment_document_text"));
-        ad.setType(new AssignmentDocumentType(new Long(rsc.getLongItem(0, "assignment_document_type_id"))));
-        ad.setStatus(new AssignmentDocumentStatus(new Long(rsc.getLongItem(0, "assignment_document_status_id"))));
-        
-        // handle the case some of this columns are null.
-        ad.setComponentProjectId(new Long(rsc.getLongItem(0, "component_project_id")));
-        ad.setStudioContestId(new Long(rsc.getLongItem(0, "studio_contest_id")));
+        AssignmentDocument ad = createAssignmentDocumentBean(rsc.getRow(0));
 
         return ad;
     }

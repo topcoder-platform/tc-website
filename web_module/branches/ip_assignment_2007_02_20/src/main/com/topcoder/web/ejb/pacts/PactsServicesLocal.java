@@ -269,6 +269,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     AssignmentDocument getAssignmentDocument(long assignmentDocumentId);
 
+    List getAssignmentDocumentByProjectId(long projectId);
+
     void deleteAssignmentDocument(AssignmentDocument ad);
 
     AssignmentDocument addAssignmentDocument(AssignmentDocument ad);

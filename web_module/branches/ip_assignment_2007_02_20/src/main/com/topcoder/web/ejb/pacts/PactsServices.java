@@ -264,5 +264,7 @@ public interface PactsServices extends EJBObject {
     void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException;
 
     AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException;
+
+    List getAssignmentDocumentByProjectId(long projectId);
 }
 
