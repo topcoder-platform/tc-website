@@ -7,7 +7,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-    <jsp:include page="../../script.jsp"/>
+    <jsp:include page="/script.jsp"/>
 </head>
 <body>
 
