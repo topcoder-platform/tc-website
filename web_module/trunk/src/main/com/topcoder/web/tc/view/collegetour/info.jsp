@@ -71,6 +71,7 @@
                 TopCoder supports four languages: Java, C++, C# and VB.NET <br/>
                 You can find out more about language support here:
                 <A href="/tc?module=Static&d1=help&d2=codingWindow#language" target="blank">Choosing a Language</A>
+                <br><br>
 
                 <h3>Phases</h3>
                 TopCoder competitions consist of three phases:
@@ -79,10 +80,11 @@
                     <li>Coding </li>
                     <li>Challenge </li>
                     <li>System-test</li>
-                </ul><br/>
+                </ul>
 
                 You can find out more information about each of the phases here:
                 <A href="/tc?module=Static&d1=help&d2=ratedEvent" target="_blank">The Phases of a Rated Event</A>
+                <br><br>
 
                 <h3>Competition Arena</h3>
                 The competition takes place in what is called in the Arena. The Arena can be run as an applet from
@@ -90,6 +92,7 @@
                 web browser or as a stand alone Java Web Start application (recommended). In order to compete, you
                 will need to have Java installed on your computer (<A href="http://java.sun.com/" target="_blank">Sun
                 Java</A>). You can find links to start the Arena on <A href="/tc" target="_blank">TopCoder</A>.
+                <br><br>
 
                 <h3>Practice Arena</h3>
                 It is highly recommended that all new members visit the practice rooms prior to competing in an
