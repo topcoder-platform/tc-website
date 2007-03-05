@@ -16,11 +16,7 @@
         </tr>
      </taconite-replace>
      <c:if test="${validationResult.valid}">
-        <taconite-execute-javascript parseInBrowser="true">
-            <script type="text/javascript">
-            	document.f.submit();
-            </script>
-        </taconite-execute-javascript>
+        <taconite-redirect parseInBrowser="true" targetUrl="http://taconite.sf.net/" />
     </c:if>
  </taconite-root>
  
