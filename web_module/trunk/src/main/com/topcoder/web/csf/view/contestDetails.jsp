@@ -61,7 +61,7 @@
             <tbody>
                 <tr>
                     <td width="100%">
-                        <div class="bigRed" style="border-top: 1px solid rgb(153, 153, 153); border-bottom: 1px solid rgb(153, 153, 153);">
+                        <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
                             <c:choose>
                                 <c:when test="${fn:length(contest.prizes)==1}">
                                     <c:forEach items="${contest.prizes}" var="prize">
