@@ -97,7 +97,7 @@
                     <c:choose>
                     <c:when test="${registered}">
                     <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <div class="buttonIsOff" style="width: 60px;">Register</a>
+                        <div class="buttonIsOff" style="width: 60px;">Register</div>
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
                         <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="btn_submit">
@@ -114,7 +114,7 @@
                         <a class="button" style="width: 60px;" href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Register</a>
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <div class="buttonIsOff" style="width: 60px;">Submit</a>
+                        <div class="buttonIsOff" style="width: 60px;">Submit</div>
                     </td>
                 </tr>
                 <tr>
