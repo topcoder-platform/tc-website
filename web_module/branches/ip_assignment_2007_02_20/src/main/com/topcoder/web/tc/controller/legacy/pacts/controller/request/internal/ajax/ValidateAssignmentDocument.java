@@ -15,6 +15,8 @@ public class ValidateAssignmentDocument extends ShortHibernateProcessor implemen
     protected void dbProcessing() throws Exception {
         clearErrors();
         
+        Boolean valid = Boolean.TRUE;
+        
         if (!hasParameter("assignment_document_text") || getRequest().getParameter("assignment_document_text").trim().length() == 0) {
             addError("error", "Please enter a text for the assignment document.");
         }
@@ -23,7 +25,11 @@ public class ValidateAssignmentDocument extends ShortHibernateProcessor implemen
             addError("error", "Please enter a reference for the assignment document.");
         }
 
-        getRequest().setAttribute("validationResult", new BasicResult(false, "Invalid Assignment Document"));
+        if (hasErrors()) {
+            valid = Boolean.FALSE;
+        }
+        
+        getRequest().setAttribute("validationResult", new BasicResult(valid.booleanValue(), ""));
 
         setNextPage(INTERNAL_AJAX_VALIDATE_ASSIGNMENT_DOCUMENT);
         setIsNextPageInContext(true);

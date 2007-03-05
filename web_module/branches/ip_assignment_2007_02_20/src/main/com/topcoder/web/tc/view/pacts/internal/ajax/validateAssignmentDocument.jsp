@@ -15,12 +15,12 @@
         	</td>
         </tr>
      </taconite-replace>
-    <c:when test="${validationResult.valid}">
+     <c:if test="${validationResult.valid}">
         <taconite-execute-javascript parseInBrowser="true">
             <script type="text/javascript">
             	document.f.submit();
             </script>
         </taconite-execute-javascript>
-    </c:when>
+    </c:if>
  </taconite-root>
  
