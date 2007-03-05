@@ -7,7 +7,6 @@
 
 <taconite-root xml:space="preserve">
     <taconite-replace contextNodeID="errorsTr" parseInBrowser="true">
-        <c:set var="valid" value="${handleValidation.valid}"/>
 		<tr id="errorsTr">
 	        <td colspan="2">
     	    	<tc-webtag:errorIterator id="err" name="error">
@@ -16,7 +15,7 @@
         	</td>
         </tr>
      </taconite-replace>
-    <c:when test="${handleValidation.valid}">
+    <c:when test="${validationResult.valid}">
         <taconite-execute-javascript parseInBrowser="true">
             <script type="text/javascript">
             	document.f.submit();
