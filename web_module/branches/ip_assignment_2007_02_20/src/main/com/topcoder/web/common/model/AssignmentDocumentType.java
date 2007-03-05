@@ -10,6 +10,8 @@ public class AssignmentDocumentType extends Base {
 
     private Long id;
     private String description;
+
+    // TODO: pulky take out template
     private String template;
     
     public AssignmentDocumentType() {

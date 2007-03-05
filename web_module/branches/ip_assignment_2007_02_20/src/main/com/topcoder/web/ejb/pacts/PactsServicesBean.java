@@ -27,6 +27,7 @@ import javax.ejb.EJBException;
 import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
@@ -1237,7 +1238,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List getAssignmentDocumentTypes() throws SQLException {
-        List assignmentDocumentTypes =  DAOUtil.getFactory().getAssignmentDocumentTypeDAO().findAll();
+        //List assignmentDocumentTypes = DAOUtil.getFactory().getAssignmentDocumentTypesDAO().findAll();
+        List assignmentDocumentTypes = new ArrayList();
+        StringBuffer sb = new StringBuffer(300);
+        sb.append("SELECT assignment_document_type_id, assignment_document_type_desc FROM assignment_document_type_lu ORDER BY 2");
+
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            
+            AssignmentDocumentType adt = new AssignmentDocumentType();
+            adt.setId(new Long(rsr.getLongItem("assignment_document_type_id")));
+            adt.setDescription(rsr.getStringItem("assignment_document_type_desc"));
+            
+            assignmentDocumentTypes.add(adt);
+        }
+
         return assignmentDocumentTypes;
     }
 
@@ -1248,7 +1265,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List getAssignmentDocumentStatus() throws SQLException {
-        List assignmentDocumentStatus =  DAOUtil.getFactory().getAssignmentDocumentStatusDAO().findAll();
+        //List assignmentDocumentStatus =  DAOUtil.getFactory().getAssignmentDocumentStatusDAO().findAll();
+        List assignmentDocumentStatus = new ArrayList();
+        StringBuffer sb = new StringBuffer(300);
+        sb.append("SELECT assignment_document_status_id, assignment_document_status_desc FROM assignment_document_status_lu ORDER BY 2");
+
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            
+            AssignmentDocumentType adt = new AssignmentDocumentType();
+            adt.setId(new Long(rsr.getLongItem("assignment_document_status_id")));
+            adt.setDescription(rsr.getStringItem("assignment_document_status_desc"));
+            
+            assignmentDocumentStatus.add(adt);
+        }
+
         return assignmentDocumentStatus;
     }
     
@@ -1313,6 +1346,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ad.setText(rsc.getStringItem(0, "assignment_document_text"));
         ad.setType(new AssignmentDocumentType(new Long(rsc.getLongItem(0, "assignment_document_type_id"))));
         ad.setStatus(new AssignmentDocumentStatus(new Long(rsc.getLongItem(0, "assignment_document_status_id"))));
+        
+        // handle the case some of this columns are null.
         ad.setComponentProjectId(new Long(rsc.getLongItem(0, "component_project_id")));
         ad.setStudioContestId(new Long(rsc.getLongItem(0, "studio_contest_id")));
 

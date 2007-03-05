@@ -485,6 +485,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_CREATE_AFFIDAVIT = INTERNAL_JSP_DIR + "/createAffidavitTemplate.jsp";
     public static final String INTERNAL_AJAX_SELECT_PAYMENT_TYPE_REFERENCE = INTERNAL_AJAX_JSP_DIR + "/selectPaymentTypeReference.jsp";
     public static final String INTERNAL_AJAX_SELECT_ASSIGNMENT_DOCUMENT_TYPE_REFERENCE = INTERNAL_AJAX_JSP_DIR + "/selectAssignmentDocumentTypeReference.jsp";
+    public static final String INTERNAL_AJAX_VALIDATE_ASSIGNMENT_DOCUMENT = INTERNAL_AJAX_JSP_DIR + "/validateAssignmentDocument.jsp";
     public static final String INTERNAL_AJAX_FILL_PAYMENT_DATA = INTERNAL_AJAX_JSP_DIR + "/fillPaymentData.jsp";
     public static final String INTERNAL_AJAX_DISPLAY_AMOUNTS = INTERNAL_AJAX_JSP_DIR + "/displayAmounts.jsp";
 

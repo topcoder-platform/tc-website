@@ -22,9 +22,9 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  *
  * @author  pulky
  */
-public class AddAssignmentDocument extends PactsHibernateBaseProcessor implements PactsConstants {
+public class AddAssignmentDocument extends PactsBaseProcessor implements PactsConstants {
 
-    protected void dbProcessing() throws TCWebException {
+    protected void businessProcessing() throws TCWebException {
         try {
             long userId = getLongParameter(USER_ID);
 

@@ -38,6 +38,39 @@ function doSearch(mustSearch, firstLoad) {
     ajaxRequest.sendRequest();
 }
 
+
+    function validateRemote() {
+        var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=ValidateAssignmentDocument');
+        ajaxRequest.addNamedFormElements("search_list");
+        ajaxRequest.addNamedFormElements("assignment_document_text");
+        
+        ajaxRequest.setPostRequest(afterRequest);
+        ajaxRequest.sendRequest();
+    }
+
+    function send() {
+        if (validateLocal()) {
+            validateRemote()
+        }
+    }
+
+    function afterRequest()
+    {
+        if (valid) {
+            document.f.submit();
+        }
+    }
+
+    function doNothing()
+    {
+    }
+
+    function validateLocal()
+    {
+        return true;
+    }
+
+
  function typeChanged() {
  doSearch(false, false)
 }
@@ -94,12 +127,12 @@ function loaded() {
 <h1>PACTS</h1>
 <h2>Add Assignment Document</h2>
 
-<form action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+<form name='f' action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
   <input type="hidden" name="module" value="AddAssignmentDocument"/>
 
 		<table cellpadding="5" cellspacing="5" border="0">
-		<tr>
+		<tr id="errorsTr">
 	        <td colspan="2">
     	    	<tc-webtag:errorIterator id="err" name="error">
     	    		<font color="#FF0000"><%=err%></font><br/>
@@ -186,7 +219,8 @@ Calendar.setup(
 );
 </script>
 
-<input type="submit" value="Save Assignment Document">
+<input type="button" value="Save Assignment Document" OnClick="send()">
+
 </form>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
