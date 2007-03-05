@@ -41,10 +41,6 @@
 
          <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>
-            <tr valign=top><td class="bodyText">
-               <tc-webtag:handle coderId="269207" context="algorithm"/>
-               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=primeNumbers"><strong>Prime Numbers, Factorization and Euler Function</strong></a>
-            </td></tr>
 			<tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="159052" context="algorithm"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=importance_of_algorithms"><strong>The Importance of Algorithms</strong></a>
@@ -146,6 +142,10 @@
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="21749340" context="algorithm"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=standardTemplateLibrary2"><strong>Power up C++ with the Standard Template Library: Part II: Advanced Uses</strong></a>
+            </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="269207" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=primeNumbers"><strong>Prime Numbers, Factorization and Euler Function</strong></a>
             </td></tr>
             <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
