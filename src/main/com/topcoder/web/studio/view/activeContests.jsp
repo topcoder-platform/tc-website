@@ -17,6 +17,7 @@
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
+    <script type="text/javascript" src="/js/popup.js"></script>
 </head>
 
 <body>
@@ -54,14 +55,14 @@
     <tbody>
         <tr>
             <td class="NW">&nbsp;</td>
-            <td class="title" colspan="6">Active Contests</td>
+            <td class="title" colspan="7">Active Contests</td>
             <td class="NE">&nbsp;</td>
         </tr>
         <tr>
             <td class="headerW">
                 <div>&nbsp;</div>
             </td>
-            <td class="header">
+            <td class="header" colspan="2">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
             </td>
             <td class="headerC">
@@ -108,7 +109,17 @@
                         <td class="value">
                             <A href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                                 <rsc:item name="name" row="<%=resultRow%>"/>
-                            </A></td>
+                            </A>
+                        </td>
+<%-- do this for tco --%>
+                        <td class="value">
+                            <img src="/i/tournament/tco07/emblem.png" alt="" onmouseover="popUp(this,'popTCO07')" onmouseout="popHide()" style="display: block; margin: 4px;">
+                        </td>
+<%-- do this for non-tco
+                        <td class="value">
+                            &nbsp;
+                        </td>
+--%>
                         <td class="valueC">
                             <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
                         </td>
@@ -140,10 +151,11 @@
             </c:otherwise>
         </c:choose>
         <tr>
-            <td class="SW" colspan="7">&nbsp;</td>
+            <td class="SW" colspan="8">&nbsp;</td>
             <td class="SE">&nbsp;</td>
         </tr>
     </tbody>
+    <div id="popTCO07" class="popUp"><div>Eligible for the TCO07 SDC</div></div>
 </table>
 
 
