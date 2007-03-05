@@ -39,7 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">03.05.07 11:20 AM - </td><td width="100%"><A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2063">TopCoder Web Video contest now open at Studio</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">03.05.07 11:20 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2063">TopCoder Web Video contest now open at Studio</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.22.07 4:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">TCHS 07 registration closes this weekend</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.21.07 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session scheduled for SRM 340</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.19.07 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">The 2007 TopCoder Open is here</A></td></tr>
