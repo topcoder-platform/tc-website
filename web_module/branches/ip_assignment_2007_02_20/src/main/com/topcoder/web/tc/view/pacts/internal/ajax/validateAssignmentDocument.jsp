@@ -16,6 +16,11 @@
         </tr>
      </taconite-replace>
      <c:if test="${validationResult.valid}">
+        <tac:replaceChildren contextNodeID="runJS" parseOnServer="true">
+            <div>
+                <input type="hidden" id="doSend" name="doSend" value="true"/>
+            </div>
+        </tac:replaceChildren>
         <taconite-redirect parseInBrowser="true" targetUrl="http://taconite.sf.net/" />
     </c:if>
  </taconite-root>

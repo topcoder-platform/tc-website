@@ -43,6 +43,8 @@ function doSearch(mustSearch, firstLoad) {
         var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=ValidateAssignmentDocument');
         ajaxRequest.addNamedFormElements("search_list");
         ajaxRequest.addNamedFormElements("assignment_document_text");
+
+        ajaxRequest.setPostRequest(afterRequest);
         
         ajaxRequest.sendRequest();
     }
@@ -50,6 +52,13 @@ function doSearch(mustSearch, firstLoad) {
     function send() {
         if (validateLocal()) {
             validateRemote()
+        }
+    }
+
+    function afterRequest()
+    {
+        if (document.f.doSend.value == "true") {
+            document.f.submit();
         }
     }
 
@@ -208,6 +217,10 @@ Calendar.setup(
 </script>
 
 <input type="button" value="Save Assignment Document" OnClick="send()">
+
+<div id="runJS">
+    <input type="hidden" id="doSend" name="doSend" value="false"/>
+</div>
 
 </form>
 
