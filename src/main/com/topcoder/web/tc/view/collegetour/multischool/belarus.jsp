@@ -57,8 +57,8 @@
     <h3>The Event</h3>
     TopCoder is sponsoring an onsite programming competition for all Belarus colleges
     on
-    04.26.2007
-    . <br><br>
+    04.26.2007.
+    <br><br>
 
     <span class="bigRed">Registration for this event ends on 04.25.2007 at 11:59 PM EEST.</span><br>
 
@@ -92,8 +92,8 @@
         
     </ul>
 
-    All competitors will receive a TopCoder t-shirt. Placement in the SRM will be determined by the
-    total number of points at the conclusion of the SRM. The competitor with the highest total positive
+    All competitors will receive a TopCoder t-shirt. Placement in the event will be determined by the
+    total number of points at the conclusion of the event. The competitor with the highest total positive
     (i.e., greater than zero) points will finish in 1st place. The overall winner will receive the 1st
     place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher
     will receive the 3rd place prize.
@@ -123,14 +123,6 @@
         </li>
     </ul>
 
-<%--
-    <strong>Brian Flood
-    </strong>, a TopCoder representative, will be present to explain the TopCoder
-    algorithm, design and development competitions, TopCoder Employment Services, and other aspects of
-    TopCoder.
---%>
-
-    
             </div>
         </td>
 <%-- Center Column Ends --%>
