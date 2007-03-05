@@ -265,6 +265,6 @@ public interface PactsServices extends EJBObject {
 
     AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException;
 
-    List getAssignmentDocumentByProjectId(long projectId);
+    List getAssignmentDocumentByProjectId(long projectId) throws RemoteException;
 }
 
