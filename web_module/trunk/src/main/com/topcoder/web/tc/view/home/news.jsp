@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="TopCoder Web Video contest now open at Studio" border="0" /><br>03.05.07<br>11:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2063">TopCoder Web Video contest now open at Studio</A></span><br><br>
+TopCoder is building a new portal for broadcasting webcasts and showing videos - but first we need a name for it. There's a contest at Studio now to name the interface, and build the new name into a logo. This is also the first contest to qualify competitors for the Studio track of the TCO.</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://studio.topcoder.com/?module=ViewContestDetails&ct=2063">full story</A> | 
+        <a href="http://studio.topcoder.com/forums?module=ThreadList&forumID=36">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Announcing the Digital Run: Stage 3 Winners" border="0" /><br>03.02.07<br>3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -18,7 +35,6 @@ Stage 3 of the Digital Run concluded on February 1, 2007, and the scores and fin
         <tc-webtag:forumLink forumID="514532" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
-
 
 
 <%--------------------------------------------------------%>
@@ -186,20 +202,4 @@ Due to some technical problems with the room assignments, the match started four
          <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>02.19.07<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session scheduled for SRM 340</A>
-        </span><br><br>
-      AOL will be in the arena at 10 AM on 2/20, just prior to SRM 340, to discuss Web 3.0.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">details</A> | 
-         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
 
