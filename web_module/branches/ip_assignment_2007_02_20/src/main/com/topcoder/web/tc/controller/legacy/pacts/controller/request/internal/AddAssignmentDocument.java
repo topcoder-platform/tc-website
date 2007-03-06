@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,6 +27,8 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
         try {
             long userId = 0;
             long assignmentDocumentId = 0;
+            Date expireDate = null;
+            Date affirmedDate = null;
             
             try {
                 assignmentDocumentId = getLongParameter(ASSIGNMENT_DOCUMENT_ID);
@@ -41,6 +44,14 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                 throw new IllegalArgumentException("Missing parameter " + USER_ID + " or " + ASSIGNMENT_DOCUMENT_ID);
             }
             
+            if (getRequest().getParameter("expire_date").trim().length() != 0) {
+                expireDate = checkDate("expire_date", "Please enter a valid expire date");
+            }
+
+            if (getRequest().getParameter("affirmed_date").trim().length() != 0) {
+                affirmedDate = checkDate("affirmed_date", "Please enter a valid affirmed date");
+            }
+
             DataInterfaceBean dib = new DataInterfaceBean();
 
             // Give the JSP the list of assignment document Types
@@ -86,7 +97,12 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                         ad.setStatus(new AssignmentDocumentStatus(new Long(getRequest().getParameter("assignment_document_status_id"))));
                         ad.setComponentProjectId(ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID) ? referenceId : null);
                         ad.setStudioContestId(ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID) ? referenceId : null);
-                        
+                        if (expireDate != null) {
+                            ad.setExpireDate(new Timestamp(expireDate.getTime()));
+                        }
+                        if (affirmedDate != null) {
+                            ad.setAffirmedDate(new Timestamp(affirmedDate.getTime()));
+                        }
                         ad = dib.addAssignmentDocument(ad);
                         setNextPage(Links.viewAssignmentDocument(ad.getId().longValue()));
                         setIsNextPageInContext(false);
@@ -101,9 +117,8 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     Calendar date = Calendar.getInstance();
                     date.setTime(new Date());
                     date.add(Calendar.DAY_OF_YEAR, ASSIGNMENT_DOCUMENT_DEFAULT_EXPIRATION_PERIOD.intValue());
-                    String expireDate = new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime());
 
-                    setDefault("expire_date", expireDate);
+                    setDefault("expire_date", new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime()));
                     setDefault("affirmed_date", "");
                     setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
                     setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
