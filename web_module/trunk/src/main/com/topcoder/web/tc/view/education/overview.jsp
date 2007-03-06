@@ -41,17 +41,15 @@
 <ul>
 <li><a href="/tc?module=Static&d1=tutorials&d2=primeNumbers"><strong>Prime Numbers, Factorization and Euler Function</strong></a>, by <tc-webtag:handle coderId="269207" /><br>
 Prime numbers were extensively studied by the ancient Greek mathematicians. Thousands of years later, we use the properties that they discovered to solve problems. In this article we’ll review some definitions, well-known theorems, and number properties, as well as some problems associated with them.</li>
+<li><a href="/tc?module=Static&d1=features&d2=030107"><strong>Test Drive: Code Coverage Tools</strong></a>, by <tc-webtag:handle coderId="22630158" /><br>
+As of today, TopCoder is requiring the use of code coverage tools in the component development process. In this article, we'll compare four of the more popular coverage tools and look at how they work, their key features, and how they perform in a test on sample TopCoder components.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=mmIntro2"><strong>An Introduction to Marathon Matches, Part 2</strong></a>, by <tc-webtag:handle coderId="21464956" /><br>
 In part I, we looked at the basic mechanics of how Marathon Matches work. In this article, we'll look at how you can approach marathons in a more organized and efficient manner.</li>
-<li><A href="/tc?module=Static&d1=features&d2=022207"><strong>Beginning TopCoder Competition with C#.Net</strong></A>, by <tc-webtag:handle coderId="20641048" /><br>
-C# is an object oriented, programming language, with a C-based syntax much like C++ or Java. Since its release, its popularity as a coding language for TopCoder competitions has increased each year.</li>
-<li><A href="/tc?module=Static&d1=features&d2=021907"><strong>Five things you didn't know about C++, Part 3</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
-By popular demand, I'm concluding with a list of another five features, this time featuring ones that you're almost certain never to use in your code. Amaze your friends, confuse your teachers, enter the IOCCC and ask yourself how on Earth these features ended up in the standard.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
-<li><A href="/tc?module=Static&d1=features&d2=022006"><strong>GCC Hacks: Abusing C++ Extensions for Fun and Profit</strong></A>, by <tc-webtag:handle coderId="251074" /><br>
-GCC provides a number of extensions to the C++ language and standard library&#8230; Several of these extensions can be put to use in a TopCoder round. Some will make your program faster; others will save you typing.</ul>
+<li><A href="/tc?module=Static&d1=features&d2=092806"><strong>Writing Code That Writes Code</strong></A>, by <tc-webtag:handle coderId="10584406" /><br>
+Writing code that writes code can be a powerful technique for developers. In an effort to be more productive, developers want to be able to accomplish tasks with fewer keystrokes, bugs, and headaches. While writing a code generator can take longer than simply writing the code, the time you can save in the future will more than make up for the initial effort.</ul>
 <br>
 <span class="bodySubtitle">Tell us what you'd like to learn!</span><br>
 Got ideas for educational content you'd like to see? Post your idea in <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505803">the forum</A> for members to discuss, or send an email with your idea to <A href="mailto:editorial@topcoder.com">editorial@topcoder.com</A>.
