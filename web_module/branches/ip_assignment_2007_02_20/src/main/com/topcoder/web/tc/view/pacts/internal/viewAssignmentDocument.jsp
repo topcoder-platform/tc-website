@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,
+                 com.topcoder.web.common.model.AssignmentDocumentType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -38,16 +39,16 @@
             <td><b>Text:</b></td>
             <td><c:out value="${assignment_document.text}" /></td>
         </tr>
-        <c:if test="${assignment_document.studioContestId > 0}">
+        <c:if test="${assignment_document.type.id == AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID}">
                 <tr>
-                    <td><b>Studio Contest ID:</b></td>
-                    <td><c:out value="${assignment_document.studioContestId}" /></td>
+                    <td><b>Studio Contest referenced:</b></td>
+                    <td><c:out value="${assignment_document.studioContest.name}" /></td>
                 </tr>
         </c:if>
-        <c:if test="${assignment_document.componentProjectId > 0}">
+        <c:if test="${assignment_document.type.id == AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID}">
                 <tr>
-                    <td><b>Component Project ID:</b></td>
-                    <td><c:out value="${assignment_document.componentProjectId}" /></td>
+                    <td><b>Component Project referenced:</b></td>
+                    <td><c:out value="${assignment_document.componentProject.description}" /></td>
                 </tr>
         </c:if>
         <tr>        
