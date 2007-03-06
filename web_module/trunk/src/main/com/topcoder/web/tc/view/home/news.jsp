@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.06.07<br>3:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=16491">The votes are in for the new Member Badges</A>
+        </span><br><br>
+        It's a tie!  No no, not the results.  The winner is a necktie.  Congratulations to <tc-webtag:handle coderId="22665210" /> on a great design.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=16491">vote results</A> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=31">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Payments for algorithm problems increased" border="0" /><br>03.06.07<br>10:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -26,7 +41,7 @@ With a full problem set now paying $750, now is a great time to write your first
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=primeNumbers">Prime Numbers, Factorization and Euler Function</A></span><br><br>
 Prime numbers were extensively studied by the ancient Greek mathematicians. Thousands of years later, we use the properties that they discovered to solve problems. In this article we’ll review some definitions, well-known theorems, and number properties, as well as some problems associated with them.
-		</td>
+        </td>
       <td class="newsPhoto"><img src="/i/m/medv_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="269207" context="algorithm"/></td></tr></table>
       </td>
    </tr>
@@ -189,21 +204,5 @@ Due to some technical problems with the room assignments, the match started four
         <A href="/tc?module=Static&d1=match_editorials&d2=srm340">full story</A> | 
         <tc-webtag:forumLink forumID="506230" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature" border="0" /><br>02.22.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=022207">Beginning TopCoder Competition with C#.Net</A></span><br><br>
-       C# is an object oriented, programming language, with a C-based syntax much like C++ or Java. Since its release, its popularity as a coding language for TopCoder competitions has increased each year.</td>
-      <td class="newsPhoto"><img src="/i/m/ali_raza_shaikh_big2.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="20641048" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=022207">full story</A> | 
-         <tc-webtag:forumLink forumID="514446" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
