@@ -106,14 +106,23 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                 } else {
                     // update
                     AssignmentDocument ad = dib.getAssignmentDocument(assignmentDocumentId);
+                    log.info("1");
                     setDefault("expire_date", new SimpleDateFormat(DATE_FORMAT_STRING).format(ad.getExpireDate()));
+                    log.info("2");
                     setDefault("affirmed_date", new SimpleDateFormat(DATE_FORMAT_STRING).format(ad.getAffirmedDate()));
+                    log.info("3");
                     setDefault("assignment_document_type_id", String.valueOf(ad.getType().getId()));
+                    log.info("4");
                     setDefault("assignment_document_status_id", String.valueOf(ad.getStatus().getId()));
+                    log.info("5");
                     setDefault("assignment_document_text", ad.getText());
+                    log.info("6");
                     getRequest().setAttribute("reference_description", "GET project/studio desc");
+                    log.info("7");
                     getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(ad.getUser().getId().longValue())));
+                    log.info("8");
                     getRequest().setAttribute(ASSIGNMENT_DOCUMENT_ID, ad.getId().toString());
+                    log.info("9");
                 }
             }
 
