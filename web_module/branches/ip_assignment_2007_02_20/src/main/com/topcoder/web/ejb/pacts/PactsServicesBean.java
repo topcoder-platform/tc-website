@@ -1435,39 +1435,48 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
+        log.info("1");
         // validate
         if (ad.getType() == null) {
             throw new IllegalArgumentException("Assignment Document's type cannot be null");
         }
         
+        log.info("2");
         if (ad.getStatus() == null) {
             throw new IllegalArgumentException("Assignment Document's status cannot be null");
         }
         
+        log.info("3");
         if (ad.getExpireDate() == null) {
             Calendar dueDateCal = Calendar.getInstance();
             dueDateCal.add(Calendar.DAY_OF_YEAR, ASSIGNMENT_DOCUMENT_EXPIRATION_PERIOD);
             ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
         }
         
+        log.info("4");
         if (ad.getUser() == null) {
             throw new IllegalArgumentException("Assignment Document's user cannot be null");
         }
         
+        log.info("5");
         if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID) && 
             ad.getComponentProjectId() == null) {
             throw new IllegalArgumentException("Assignment Document's component project cannot be null");
         }
 
+        log.info("6");
         if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID) && 
             ad.getStudioContestId() == null) {
             throw new IllegalArgumentException("Assignment Document's studio contest cannot be null");
         }
 
+        log.info("7");
         if (ad.getId() != null) {
             // update
+            log.info("8");
             AssignmentDocument oldAssignmentDocumentInstance = getAssignmentDocument(ad.getId().longValue());
             
+            log.info("9");
             if (oldAssignmentDocumentInstance.getStatus().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
                 (ad.getStatus().equals(AssignmentDocumentStatus.DELETED_STATUS_ID) ||
                     ad.getStatus().equals(AssignmentDocumentStatus.REJECTED_STATUS_ID))) {
@@ -1480,6 +1489,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             conn = DBMS.getConnection();
 
             if (ad.getText() == null) {
+                log.info("10");
                 log.debug("get the assignment document text from the db");
                 StringBuffer getAssignmentDocumentText = new StringBuffer(300);
                 getAssignmentDocumentText.append("SELECT att.text ");
@@ -1496,9 +1506,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
                 ad.setText(rsc.getStringItem(0, "text"));
             }
+            log.info("11");
 
             StringBuffer query = new StringBuffer(1024);
             if (ad.getId() == null) {
+                log.info("12");
                 // add
                 query.append("insert into 'informix'.assignment_document( ");
                 query.append("assignment_document_id , ");
@@ -1515,6 +1527,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 long assignmentDocumentId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_SEQ");
                 ad.setId(new Long(assignmentDocumentId));
             } else {
+                log.info("13");
                 // update
                 query.append("update 'informix'.assignment_document set ");
                 query.append("assignment_document_id = ?, ");
@@ -1528,26 +1541,40 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 query.append("expire_date = ?, ");
                 query.append("modify_date = current ");
                 query.append("where assignment_document_id = ? ");
+                log.info("14");
                 ps.setLong(10, ad.getId().longValue());
             }
+            log.info("15");
             
             ps = conn.prepareStatement(query.toString());
+            log.info("16");
             ps.setLong(1, ad.getId().longValue());
+            log.info("17");
             ps.setLong(2, ad.getType().getId().longValue());
+            log.info("18");
             ps.setLong(3, ad.getStatus().getId().longValue());
+            log.info("19");
             ps.setString(4, ad.getText());
+            log.info("20");
             ps.setLong(5, ad.getUser().getId().longValue());
+            log.info("21");
             ps.setObject(6, ad.getStudioContestId());
+            log.info("22");
             ps.setObject(7, ad.getComponentProjectId());
+            log.info("23");
             ps.setTimestamp(8, ad.getAffirmedDate());
+            log.info("24");
             ps.setTimestamp(9, ad.getExpireDate());
+            log.info("25");
 
             int rc = ps.executeUpdate();
+            log.info("26");
             if (rc != 1) {
                 throw(new EJBException("Wrong number of rows updated in 'addAssignmentDocument'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
             
+            log.info("27");
             return ad;
         } catch (IDGenerationException e) {
             throw new EJBException(e);
