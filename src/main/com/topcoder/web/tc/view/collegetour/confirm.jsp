@@ -46,8 +46,17 @@
                 <c:set value="<%=Constants.SCHOOL_NAME%>" var="schoolName"/>
                 <!-- college tour site subnav -->
                 <p align="center">
-                    <A href="/tc?module=CollegeTourOverview&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Overview</A>&#160;&#160;|&#160;&#160;
-                    <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
+                    <c:choose>
+                        <c:when test="${cteid==41}">
+                            <A href="/tc?module=Static&d1=collegetour&d2=multischool&d3=belarus">Overview</A> |
+                            <A href="/tc?module=Static&d1=collegetour&d2=multischool&d3=belarusInstructions">Instructions</A>
+                            |
+                        </c:when>
+                        <c:otherwise>
+                            <A href="/tc?module=CollegeTourOverview&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Overview</A>&#160;&#160;|&#160;&#160;
+                            <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
+                        </c:otherwise>
+                    </c:choose>
                     Registration&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourRegistrants&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>&#160;&#160;|&#160;&#160;
                     <% if (request.getAttribute(Constants.FORUM_ID) != null) {%>
