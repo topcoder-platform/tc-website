@@ -1435,6 +1435,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
+        boolean addOperation = false;
+        if (ad.getId() == null) {
+            addOperation = true;
+        }
+        
         log.info("1");
         // validate
         if (ad.getType() == null) {
@@ -1509,8 +1514,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.info("11");
 
             StringBuffer query = new StringBuffer(1024);
-            if (ad.getId() == null) {
-                log.info("12");
+            if (addOperation) {
                 // add
                 query.append("insert into 'informix'.assignment_document( ");
                 query.append("assignment_document_id , ");
@@ -1542,7 +1546,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 query.append("modify_date = current ");
                 query.append("where assignment_document_id = ? ");
                 log.info("14");
-                ps.setLong(10, ad.getId().longValue());
             }
             log.info("15");
             
@@ -1566,7 +1569,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.info("24");
             ps.setTimestamp(9, ad.getExpireDate());
             log.info("25");
-
+            if (!addOperation) {
+                ps.setLong(10, ad.getId().longValue());
+            }
             int rc = ps.executeUpdate();
             log.info("26");
             if (rc != 1) {
