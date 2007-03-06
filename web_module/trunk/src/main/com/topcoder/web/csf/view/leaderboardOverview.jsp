@@ -30,7 +30,7 @@
 
         <div id="main">
             <div class="pageHeader">
-                <span class="pageName">Rules</span>
+                <span class="pageName">Leaderboard</span>
             </div>
 
 <h3>Placement Points</h3>
