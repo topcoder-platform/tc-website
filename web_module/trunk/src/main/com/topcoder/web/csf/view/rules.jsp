@@ -101,7 +101,7 @@ All federal, state and local laws and regulations apply. Void where prohibited.
 <h3>HOW TO ENTER</h3>
 
 <p>
-For purpose of this Contest Series, each original design for an application that you create and submit will be called an "entry".  To submit an entry, you must first be a member of the Microsoft Connected Services Sandbox community for which you may register at <A target="_blank" href="http://www.networkmashups.com/signup.aspx">www.networkmashups.com/signup.aspx</A>. Once registered, you must submit your entry(ies) using the submission functionality at <A href="/">http://csf.topcoder.com</A>.  Your entry(ies) must be uploaded by the End Date specified for the Contest on the Contest Details Page.  If your entry(ies) is received after the End Date or by any other method; it will be disqualified. 
+For purpose of this Contest Series, each original design for an application that you create and submit will be called an "entry".  To submit an entry, you must first be a member of the Microsoft Connected Services Sandbox community for which you may register at <A target="_blank" href="http://www.networkmashups.com/signup.aspx">www.networkmashups.com/signup.aspx</A>. Once registered, you must submit your entry(ies) using the submission functionality at <A target="_blank" href="/">http://csf.topcoder.com</A>.  Your entry(ies) must be uploaded by the End Date specified for the Contest on the Contest Details Page.  If your entry(ies) is received after the End Date or by any other method; it will be disqualified. 
 </p>
 
 <h3>ENTRY LIMITATIONS</h3>
@@ -192,7 +192,7 @@ If you are a winner and you (i) do not reply to such notification or the notific
 </p>
 
 <p>
-Winners will be announced on <A href="/">http://csf.topcoder.com</A>.
+Winners will be announced on <A target="_blank" href="/">http://csf.topcoder.com</A>.
 </p>
 
 <h3>CONTACTS</h3>
