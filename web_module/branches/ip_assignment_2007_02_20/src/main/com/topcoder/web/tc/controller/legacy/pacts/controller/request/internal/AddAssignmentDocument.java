@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentType;
@@ -23,8 +22,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
  */
 public class AddAssignmentDocument extends PactsBaseProcessor implements PactsConstants {
 
-    protected void businessProcessing() throws TCWebException {
-        try {
+    protected void businessProcessing() throws Exception {
+//        try {
             long userId = 0;
             long assignmentDocumentId = 0;
             Date expireDate = null;
@@ -43,12 +42,12 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
             if (userId + assignmentDocumentId == 0) {
                 throw new IllegalArgumentException("Missing parameter " + USER_ID + " or " + ASSIGNMENT_DOCUMENT_ID);
             }
-            
-            if (getRequest().getParameter("expire_date").trim().length() != 0) {
+            log.info("1");
+            if (hasParameter("expire_date") && getRequest().getParameter("expire_date").trim().length() != 0) {
                 expireDate = checkDate("expire_date", "Please enter a valid expire date");
             }
-
-            if (getRequest().getParameter("affirmed_date").trim().length() != 0) {
+            log.info("2");
+            if (hasParameter("affirmed_date") && getRequest().getParameter("affirmed_date").trim().length() != 0) {
                 affirmedDate = checkDate("affirmed_date", "Please enter a valid affirmed date");
             }
 
@@ -112,6 +111,8 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     }
                 }
             } else {
+                log.info("3");
+
                 if (assignmentDocumentId == 0) {
                     // add
                     Calendar date = Calendar.getInstance();
@@ -128,22 +129,32 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     getRequest().setAttribute(ASSIGNMENT_DOCUMENT_ID, "0");
                 } else {
                     // update
+                    log.info("4");
                     AssignmentDocument ad = dib.getAssignmentDocument(assignmentDocumentId);
+                    log.info("5");
                     setDefault("expire_date", ad.getExpireDate() == null ? "" : new SimpleDateFormat(DATE_FORMAT_STRING).format(ad.getExpireDate()));
+                    log.info("6");
                     setDefault("affirmed_date", ad.getAffirmedDate() == null ? "" : new SimpleDateFormat(DATE_FORMAT_STRING).format(ad.getAffirmedDate()));
+                    log.info("7");
                     setDefault("assignment_document_type_id", String.valueOf(ad.getType().getId()));
+                    log.info("8");
                     setDefault("assignment_document_status_id", String.valueOf(ad.getStatus().getId()));
+                    log.info("9");
                     setDefault("assignment_document_text", ad.getText());
+                    log.info("10");
                     getRequest().setAttribute("reference_description", "GET project/studio desc");
+                    log.info("11");
                     getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(ad.getUser().getId().longValue())));
+                    log.info("12");
                     getRequest().setAttribute(ASSIGNMENT_DOCUMENT_ID, ad.getId().toString());
+                    log.info("13");
                 }
             }
 
             setNextPage(INTERNAL_ADD_ASSIGNMENT_DOCUMENT_JSP);
             setIsNextPageInContext(true);
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
+//        } catch (Exception e) {
+//            throw new TCWebException(e);
+//        }
     }
 }
