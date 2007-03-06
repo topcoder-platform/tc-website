@@ -133,6 +133,8 @@ public class Thread extends ForumsProcessor {
             }
             itMessages = thread.getTreeWalker().getRecursiveMessages();
             setNextPage("/viewThreadTree.jsp");
+        } else {
+            setNextPage("/viewThreadFlat.jsp");
         }
         
         getRequest().setAttribute("resultFilter", resultFilter);
