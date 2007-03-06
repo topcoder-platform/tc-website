@@ -134,6 +134,7 @@ public class Thread extends ForumsProcessor {
             itMessages = thread.getTreeWalker().getRecursiveMessages();
             setNextPage("/viewThreadTree.jsp");
         } else {
+            itMessages = thread.getMessages(resultFilter);
             setNextPage("/viewThreadFlat.jsp");
         }
         
