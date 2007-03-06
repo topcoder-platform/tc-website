@@ -30,10 +30,8 @@
     <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=rules"<% if (tabLev1.equals("rules")) {%> class="on"<% } %>>RULES</A>
     <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=getVisa"<% if (tabLev1.equals("getVisa")) {%> class="on"<% } %>>GETTING
         A VISA</A>
-    <%--
-    <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=resultsInd"<% if (tabLev1.equals("resultsInd")) {%> class="on"<% } %>>INDIVIDUAL RESULTS</A>
+    <A href="/tc?module=SimpleStats&c=tchs07_alg_adv_overview&d1=tournaments&d2=tchs07&d3=resultsInd"<% if (tabLev1.equals("resultsInd")) {%> class="on"<% } %>>INDIVIDUAL RESULTS</A>
     <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=resultsTeam"<% if (tabLev1.equals("resultsTeam")) {%> class="on"<% } %>>TEAM RESULTS</A>
-    --%>
     <%--
     <A href="/tc?module=TCHS07ViewRegistration"<% if (tabLev1.equals("register")) {%> class="on"<% } %>>REGISTER</A>
     --%>
