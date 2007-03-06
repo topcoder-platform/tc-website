@@ -1,13 +1,5 @@
 package com.topcoder.web.studio.controller.request;
 
-import java.io.FileInputStream;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Set;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-
 import com.topcoder.security.TCPrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
@@ -22,6 +14,13 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Document;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * @author dok
@@ -68,7 +67,7 @@ public class DownloadDocument extends ShortHibernateProcessor {
         }
 
         //stream it out via the response
-        getResponse().addHeader("content-disposition", "inline; filename=" + d.getOriginalFileName());
+        getResponse().addHeader("content-disposition", "inline; filename=\"" + d.getOriginalFileName() + "\"");
         getResponse().setContentType(d.getMimeType().getDescription());
         ServletOutputStream sos = getResponse().getOutputStream();
 

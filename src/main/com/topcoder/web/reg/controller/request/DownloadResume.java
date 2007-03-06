@@ -34,7 +34,7 @@ public class DownloadResume extends ShortHibernateProcessor {
                     //for more than one resume per coder, but the schema allows for more
                     Resume r = (Resume) resumes.iterator().next();
 
-                    getResponse().addHeader("content-disposition", "inline; filename=" + r.getFileName());
+                    getResponse().addHeader("content-disposition", "inline; filename=\"" + r.getFileName() + "\"");
                     getResponse().setContentType(r.getFileType().getMimeType());
                     ServletOutputStream sos = getResponse().getOutputStream();
                     sos.write(r.getFile());

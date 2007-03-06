@@ -54,7 +54,7 @@ public class ResumeDownloadTask extends BaseTask {
                     + "does not belong to uid=" + String.valueOf(getUserId()));
         }
 
-        getResponse().addHeader("content-disposition", "inline; filename=" + resume.getFileName());
+        getResponse().addHeader("content-disposition", "inline; filename=\"" + resume.getFileName() + "\"");
         getResponse().setContentType(resume.getMimeType());
         ServletOutputStream sos = getResponse().getOutputStream();
         sos.write(resume.getFile());
@@ -65,7 +65,6 @@ public class ResumeDownloadTask extends BaseTask {
         sos.flush();
         sos.close();
     }
-
 
 
     public long getUserId() {
