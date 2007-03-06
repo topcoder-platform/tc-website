@@ -70,6 +70,14 @@ public class Candidate extends Base {
         return null;
     }
 
+    public Map getInfoMap() {
+        HashMap m = new HashMap();
+        for (Iterator it = info.iterator(); it.hasNext();) {
+            CandidateInfo ci = (CandidateInfo) it.next();
+            m.put(ci.getId().getProperty().getId(), ci.getValue());
+        }
+        return m;
+    }
 
     public boolean equals(Object o) {
         try {
