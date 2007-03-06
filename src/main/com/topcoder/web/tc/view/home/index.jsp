@@ -48,15 +48,6 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-
-<%-- TCHS  
-<map name="tchs07">
-<area shape="rect" alt="" coords="1,1,285,149" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview" />
-<area shape="rect" alt="" coords="286,1,499,90" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview" />
-<area shape="rect" alt="" coords="286,95,499,149" href="/tc?module=TCHS07ViewRegistration" />
-</map>
-<img src="/i/home/tchs07registration.png" alt="TCHS07" border="0" style="display:block;" usemap="#tchs07"/>
---%>
 <%-- TCO  --%>
 <map name="tco07">
 <area shape="rect" alt="" coords="1,1,499,129" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" />
@@ -97,16 +88,18 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- INTEL MTCS
-                <A href="/longcontest/?module=Static&d1=intel_overview"><img src="/i/home/intel_multi_threading_sm.gif" alt="Intel Multi-Threading Competition Series" border="0" style="display:block;"/></A>
-                --%>
-                <%-- DIGITAL RUN --%>
+                <%-- DIGITAL RUN 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-
+                --%>
                 <%-- AOL mashups
                 <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123"><img src="/i/home/aol_mashups.gif" alt="AOL mashups" border="0" style="display:block;"/></A>
                 --%>
-
+                <%-- Marathon Match Sponsor --%>
+                <map name="mm">
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign" />
+                </map>
+                <img src="/i/home/mmtco1_verisign.png" alt="TCO07 Marathon Match 1 brough to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
             </td>
         </tr>
     </table>
