@@ -423,7 +423,8 @@ function submit() {
                 <td class="valueC">
                     not ranked
                 </td>
-                <c:set value="<%=candidate.getInfo(Constants.SUBMISSION_DESCRIPTION)%>" var="description"/>
+                <c:set value="<%=candidate.getInfo(Constants.SUBMISSION_DESCRIPTION_PROPERTY)%>" var="description"/>
+                <c:set value="<%=candidate.getInfo(Constants.SUBMISSION_ID_PROPERTY)%>" var="submissionId"/>
                 <td class="value">
                     <span style="cursor: default; white-space: nowrap;" onMouseOver="blurbUp(this, '${candidate.id}Blurb')" onMouseOut="popHide('${candidate.id}Blurb')">
                         <%-- 50 characters then ellipsis --%>
@@ -443,7 +444,8 @@ function submit() {
                                 ${description}
                         </div>
                     </div>
-                    <a href="#" target="_blank">
+
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submissionId}" target="_blank">
                         <img src="/i/layout/disk.gif" alt="" align="absmiddle" onMouseOver="popUp(this,'diskPopup')" onMouseOut="popHide()"/>
                     </a>
                 </td>
