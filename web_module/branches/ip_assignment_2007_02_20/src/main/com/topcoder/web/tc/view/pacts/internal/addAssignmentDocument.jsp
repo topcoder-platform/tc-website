@@ -167,7 +167,7 @@ function loaded() {
             <td><c:out value="${reference_description}" />
             <c:choose>
                 <c:when test="${assignmentDocumentId > 0}">
-                    <input type="hidden" name="search_list" value="${referenceId}"/>
+                    <input type="hidden" name="search_list" value="${reference_id}"/>
                     <input type="button" value="change" onClick="typeChanged()" />
                 </c:when>
                 <c:otherwise>
