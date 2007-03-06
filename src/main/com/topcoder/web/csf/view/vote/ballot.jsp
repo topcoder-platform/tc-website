@@ -431,8 +431,8 @@ function submit() {
                 <td class="value">
                     <span style="cursor: default; white-space: nowrap;" onMouseOver="blurbUp(this, '${candidate.id}Blurb')" onMouseOut="popHide('${candidate.id}Blurb')">
                         <c:choose>
-                            <c:when test="${fn:length(description)>50}">&#133;
-                                ${fn:substring(description, 0, 50)}
+                            <c:when test="${fn:length(description)>50}">
+                                ${fn:substring(description, 0, 50)}&#133;
                             </c:when>
                             <c:otherwise>
                                 ${description}
