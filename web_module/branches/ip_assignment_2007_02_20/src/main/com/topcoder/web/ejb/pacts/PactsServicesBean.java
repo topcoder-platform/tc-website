@@ -1464,6 +1464,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalArgumentException("Assignment Document's studio contest cannot be null");
         }
 
+        if (ad.getId() != null) {
+            // update
+            AssignmentDocument oldAssignmentDocumentInstance = getAssignmentDocument(ad.getId().longValue());
+            
+            if (oldAssignmentDocumentInstance.getStatus().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
+                (ad.getStatus().equals(AssignmentDocumentStatus.DELETED_STATUS_ID) ||
+                    ad.getStatus().equals(AssignmentDocumentStatus.REJECTED_STATUS_ID))) {
+                throw new IllegalArgumentException("Assignment Document cannot be deleted or rejected since it was affirmed");
+            }
+        }
+        
         // store
         try {
             conn = DBMS.getConnection();
@@ -1487,24 +1498,41 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             StringBuffer query = new StringBuffer(1024);
-            query.append("insert into 'informix'.assignment_document( ");
-            query.append("assignment_document_id , ");
-            query.append("assignment_document_type_id , ");
-            query.append("assignment_document_status_id , ");
-            query.append("assignment_document_text , ");
-            query.append("user_id , ");
-            query.append("studio_contest_id , ");
-            query.append("component_project_id , ");
-            query.append("affirmed_date , ");
-            query.append("expire_date , ");
-            query.append("modify_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, current)");
-
-            long assignmentDocumentId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_SEQ");
-
-            ad.setId(new Long(assignmentDocumentId));
+            if (ad.getId() == null) {
+                // add
+                query.append("insert into 'informix'.assignment_document( ");
+                query.append("assignment_document_id , ");
+                query.append("assignment_document_type_id , ");
+                query.append("assignment_document_status_id , ");
+                query.append("assignment_document_text , ");
+                query.append("user_id , ");
+                query.append("studio_contest_id , ");
+                query.append("component_project_id , ");
+                query.append("affirmed_date , ");
+                query.append("expire_date , ");
+                query.append("modify_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, current)");
+    
+                long assignmentDocumentId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_SEQ");
+                ad.setId(new Long(assignmentDocumentId));
+            } else {
+                // update
+                query.append("update 'informix'.assignment_document set ");
+                query.append("assignment_document_id = ?, ");
+                query.append("assignment_document_type_id = ?, ");
+                query.append("assignment_document_status_id = ?, ");
+                query.append("assignment_document_text = ?, ");
+                query.append("user_id = ?, ");
+                query.append("studio_contest_id = ?, ");
+                query.append("component_project_id = ?, ");
+                query.append("affirmed_date = ?, ");
+                query.append("expire_date = ?, ");
+                query.append("modify_date = current ");
+                query.append("where assignment_document_id = ? ");
+                ps.setLong(10, ad.getId().longValue());
+            }
             
             ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, assignmentDocumentId);
+            ps.setLong(1, ad.getId().longValue());
             ps.setLong(2, ad.getType().getId().longValue());
             ps.setLong(3, ad.getStatus().getId().longValue());
             ps.setString(4, ad.getText());
