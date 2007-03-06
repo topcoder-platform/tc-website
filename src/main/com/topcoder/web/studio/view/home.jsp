@@ -45,11 +45,11 @@
                     <A href="http://csf.topcoder.com/"><img src="/i/home/csf.gif" alt="Microsoft CSF, Powered by TopCoder"/></A>
                 </div>
 
-<%-- BADGE VOTE
+<%-- BADGE VOTE --%>
                 <div>
-                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&sid=16380"><img src="/i/home/badgeVote.jpg" alt="Vote for Studio badges"/></A>
+                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SurveyResults&sid=16380"><img src="/i/home/badgeWinner.jpg" alt="Vote for Studio badges"/></A>
                 </div>
---%>
+
                 <div>
                      <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
                 </div>
@@ -60,9 +60,11 @@
                 </div>
 --%>
 
+<%-- POST A PROJECT
                 <div>
                     <A href="/?module=Static&amp;d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project"/></A>
                 </div>
+--%>
             </td>
             <td valign="top" style="padding-left: 10px;">
 

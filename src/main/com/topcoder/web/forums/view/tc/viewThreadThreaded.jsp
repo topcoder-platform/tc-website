@@ -190,20 +190,20 @@ function displayVotes(messageID, posVotes, negVotes) {
 </tr>
 
 <tr><td colspan="3" style="padding-bottom:3px;"><b>
-    <%	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
-    	while (itCategories.hasNext()) {
-    		ForumCategory category = (ForumCategory)itCategories.next(); %>
-	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-	<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
-	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
-		<%	} %>
-			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
-   <%	} %>
+    <%    Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
+        while (itCategories.hasNext()) {
+            ForumCategory category = (ForumCategory)itCategories.next(); %>
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+    <%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+                (<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)    
+        <%    } %>
+            <img src="/i/interface/exp_w.gif" align="absmiddle"/>
+   <%    } %>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
-   <%	String linkStr = ForumsUtil.createLinkString(forum);
-   		if (!linkStr.equals("()")) { %>
-   			<%=linkStr%>
-   <% 	} %>
+   <%    String linkStr = ForumsUtil.createLinkString(forum);
+           if (!linkStr.equals("()")) { %>
+               <%=linkStr%>
+   <%     } %>
    <img src="/i/interface/exp_w.gif" align="absmiddle"/> <%=thread.getName()%></b>
    </td>
 </tr>
@@ -253,18 +253,18 @@ function displayVotes(messageID, posVotes, negVotes) {
           </td>
       </tr>
       <% if (message.getAttachmentCount() > 0) { %>
-		<tr>
-			<td class="rtHeader" colspan="2">
-				Attachments:
-				<%	Iterator attachments = message.getAttachments();
-					while(attachments.hasNext()) {
-						Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
-						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
-						<A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
-				<% 	} %>
-			</td>
-	 	</tr>
-	  <% } %>
+        <tr>
+            <td class="rtHeader" colspan="2">
+                Attachments:
+                <%    Iterator attachments = message.getAttachments();
+                    while(attachments.hasNext()) {
+                        Attachment attachment = (Attachment)attachments.next(); %>&nbsp;
+                        <A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>"><img align="absmiddle" src="/i/roundTables/icons/<%=DbAttachmentManager.getThumbnailImage(attachment.getContentType())%>" border="0" alt="Attachment" /></A>
+                        <A href="?module=GetAttachment&<%=ForumConstants.ATTACHMENT_ID%>=<%=attachment.getID()%>" class="rtbcLink"><%=attachment.getName()%></A> (<%=ForumsUtil.getFileSizeStr(attachment.getSize())%>)&nbsp;&nbsp;
+                <%     } %>
+            </td>
+         </tr>
+      <% } %>
       <%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);
            String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
       %>
@@ -284,8 +284,8 @@ function displayVotes(messageID, posVotes, negVotes) {
       <%   } %>
       </tr>
       <tr>
-	      <td></td>
-	      <td width="100%"></td>
+          <td></td>
+          <td width="100%"></td>
       </tr>
 </table>
 </div>
@@ -294,20 +294,20 @@ function displayVotes(messageID, posVotes, negVotes) {
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr><td><b>
-   <%	itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
-    	while (itCategories.hasNext()) {
-    		ForumCategory category = (ForumCategory)itCategories.next(); %>
-	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-	<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
-	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
-		<%	} %>
-			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
-   <%	} %>
+   <%    itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
+        while (itCategories.hasNext()) {
+            ForumCategory category = (ForumCategory)itCategories.next(); %>
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+    <%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+                (<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)    
+        <%    } %>
+            <img src="/i/interface/exp_w.gif" align="absmiddle"/>
+   <%    } %>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
-   <%	linkStr = ForumsUtil.createLinkString(forum);
-   		if (!linkStr.equals("()")) { %>
-   			<%=linkStr%>
-   <% 	} %>
+   <%    linkStr = ForumsUtil.createLinkString(forum);
+           if (!linkStr.equals("()")) { %>
+               <%=linkStr%>
+   <%     } %>
    <img src="/i/interface/exp_w.gif" align="absmiddle"/> <%=thread.getName()%></b>
    <%   if (showPrevNextThreads && (nextThread != null || prevThread != null)) { %><br>
         <% if (prevThread != null) { %>
