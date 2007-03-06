@@ -5,8 +5,8 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.*;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.model.Resume;
 import com.topcoder.web.tc.controller.request.Base;
+import com.topcoder.web.tc.model.Resume;
 
 import javax.servlet.ServletOutputStream;
 
@@ -25,7 +25,7 @@ public class DownloadResume extends Base {
                 ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
                 Resume resume = resumeServices.getResume(uid, DBMS.OLTP_DATASOURCE_NAME);
 
-                getResponse().addHeader("content-disposition", "inline; filename=" + resume.getFileName());
+                getResponse().addHeader("content-disposition", "inline; filename=\"" + resume.getFileName() + "\"");
                 getResponse().setContentType(resume.getMimeType());
                 ServletOutputStream sos = getResponse().getOutputStream();
                 sos.write(resume.getFile());

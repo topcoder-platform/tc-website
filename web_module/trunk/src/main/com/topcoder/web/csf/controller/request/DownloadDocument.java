@@ -64,7 +64,7 @@ public class DownloadDocument extends Base {
         }
 
         //stream it out via the response
-        getResponse().addHeader("content-disposition", "inline; filename=" + d.getOriginalFileName());
+        getResponse().addHeader("content-disposition", "inline; filename=\"" + d.getOriginalFileName() + "\"");
         getResponse().setContentType(d.getMimeType().getDescription());
         ServletOutputStream sos = getResponse().getOutputStream();
 

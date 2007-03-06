@@ -1,12 +1,5 @@
 package com.topcoder.web.tc.controller.request.compstats;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.util.Map;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -17,6 +10,12 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
 import com.topcoder.web.tc.Constants;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.util.Map;
 
 /**
  * Download a submission.
@@ -43,10 +42,10 @@ public class DownloadSubmission extends Base {
                 r.setProperty(Constants.CODER_ID, coderId);
                 r.setProperty(Constants.SUBMISSION_TYPE, "1"); // just initiall submissions
 
-				// When selecting the submission row, it filters by status to be sure that the selected
-				// project is completed and avoid a user hacking a url to download a submission that
-				// shouldn't be available.
-				// If that's the case, the query won't return any rows and an exception will be thrown.
+                // When selecting the submission row, it filters by status to be sure that the selected
+                // project is completed and avoid a user hacking a url to download a submission that
+                // shouldn't be available.
+                // If that's the case, the query won't return any rows and an exception will be thrown.
                 DataAccessInt dai = getDataAccess(true);
                 Map result = dai.getData(r);
                 ResultSetContainer rsc = (ResultSetContainer) result.get("get_submission_url");
@@ -88,11 +87,11 @@ public class DownloadSubmission extends Base {
      * Downloads the specified file.
      *
      * @param systemName The actual file name stored in the server.
-     * @param name the name of the file to retrieve.
+     * @param name       the name of the file to retrieve.
      * @throws Exception
      */
     private void downloadFile(String systemName, String name) throws Exception {
-        getResponse().addHeader("content-disposition", "inline; filename=" + name);
+        getResponse().addHeader("content-disposition", "inline; filename=\"" + name + "\"");
         getResponse().setContentType(getContentType(name));
 
         BufferedInputStream is = null;
@@ -120,10 +119,10 @@ public class DownloadSubmission extends Base {
     /**
      * Create an appropiate filename.
      *
-     * @param url used to get the extension
+     * @param url    used to get the extension
      * @param handle coder that submitted
-     * @param comp name of the component
-     * @param vers version of the component
+     * @param comp   name of the component
+     * @param vers   version of the component
      * @return a file name
      */
     private String createFileName(String url, String handle, String comp, String vers) {
@@ -148,8 +147,6 @@ public class DownloadSubmission extends Base {
         UserTermsOfUseLocal userTerms = (UserTermsOfUseLocal) createLocalEJB(getInitialContext(), UserTermsOfUse.class);
         return userTerms.hasTermsOfUse(id, Constants.DOWNLOAD_SUBMISSION_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
     }
-
-
 
 
 }

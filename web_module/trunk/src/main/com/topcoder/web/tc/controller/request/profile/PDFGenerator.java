@@ -84,7 +84,7 @@ public class PDFGenerator extends BaseProcessor {
             Document doc = new Document(PageSize.A4, 35, 35, 35, 35);
 
             getResponse().setContentType("application/pdf");
-            getResponse().addHeader("content-disposition", "inline; filename=" + info.getHandle() + ".pdf");
+            getResponse().addHeader("content-disposition", "inline; filename=\"" + info.getHandle() + ".pdf\"");
 
             PdfWriter writer = PdfWriter.getInstance(doc, getResponse().getOutputStream());
 

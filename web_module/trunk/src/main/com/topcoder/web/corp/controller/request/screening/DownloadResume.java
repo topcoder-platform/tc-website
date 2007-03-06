@@ -15,12 +15,13 @@ import com.topcoder.web.tc.model.Resume;
 import javax.servlet.ServletOutputStream;
 
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 public class DownloadResume extends BaseScreeningProcessor {
 
-    /** Creates a new instance of DownloadResume */
+    /**
+     * Creates a new instance of DownloadResume
+     */
 
     protected void screeningProcessing() throws com.topcoder.web.common.TCWebException {
 
@@ -30,7 +31,7 @@ public class DownloadResume extends BaseScreeningProcessor {
             ResumeServices resumeServices = (ResumeServices) BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             Resume resume = resumeServices.getResume(uid, Constants.DATA_SOURCE);
 
-            getResponse().addHeader("content-disposition", "inline; filename=" + resume.getFileName());
+            getResponse().addHeader("content-disposition", "inline; filename=\"" + resume.getFileName() + "\"");
             getResponse().setContentType(resume.getMimeType());
             ServletOutputStream sos = getResponse().getOutputStream();
             sos.write(resume.getFile());

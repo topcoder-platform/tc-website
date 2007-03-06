@@ -4,24 +4,22 @@
 
 package com.topcoder.dde.request;
 
-import java.io.FileInputStream;
-import java.sql.Connection;
-import java.util.Arrays;
-
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletResponse;
-
 import com.topcoder.apps.review.persistence.Common;
 import com.topcoder.apps.screening.EJBHelper;
 import com.topcoder.apps.screening.PermissionHelper;
 import com.topcoder.apps.screening.application.AppSpecification;
 import com.topcoder.apps.screening.application.ApplicationSpecification;
+import com.topcoder.dde.util.Constants;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.dde.util.Constants;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
+import java.sql.Connection;
 
 
 /**
@@ -66,9 +64,8 @@ public class DownloadApplicationSpecification extends BaseProcessor {
 
                 ApplicationSpecification appSpec = appSpecification.getSpecification(conn, specId);
 
-
                 //stream it out via the response
-                getResponse().addHeader("content-disposition", "inline; filename=" + appSpec.getRemoteFilename());
+                getResponse().addHeader("content-disposition", "inline; filename=\"" + appSpec.getRemoteFilename() + "\"");
                 ServletOutputStream sos = getResponse().getOutputStream();
 
                 fis = new FileInputStream(appSpec.getSpecificationUrl().getFile());
