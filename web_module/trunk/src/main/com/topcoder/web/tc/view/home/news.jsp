@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Payments for algorithm problems increased" border="0" /><br>03.06.07<br>10:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=help&d2=problemWriter&node=algo_write">Payments for algorithm problems increased</A></span><br><br>
+With a full problem set now paying $750, now is a great time to write your first TopCoder algorithm problems -- and if you're 18+, have competed 20+ times, and have an algorithm ranking above 1500 you're already qualified.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=help&d2=problemWriter&node=algo_write">full story</A> | 
+        <tc-webtag:forumLink forumID="514548" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Prime Numbers, Factorization and Euler Function" border="0" /><br>03.05.07<br>6:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -188,21 +205,5 @@ Due to some technical problems with the room assignments, the match started four
          <A href="/tc?module=Static&d1=features&d2=022207">full story</A> | 
          <tc-webtag:forumLink forumID="514446" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>02.22.07<br>11:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</A>
-        </span><br><br>
-        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/tco07_logo.png" width="88" height="41" alt="TCO07" border="0" /></div>
-      Top 80 Programmers from Around the World to Compete for $260,000 in Prizes at The Mirage, Las Vegas.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">press release</A> | 
-       <tc-webtag:forumLink forumID="514445" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
