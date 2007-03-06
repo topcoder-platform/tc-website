@@ -40,15 +40,21 @@
         <tr>
             <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
 
+<%-- CSF --%>
+                <div>
+                    <A href="http://csf.topcoder.com/"><img src="/i/home/csf.gif" alt="Microsoft CSF, Powered by TopCoder"/></A>
+                </div>
+
+<%-- BADGE VOTE
                 <div>
                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&sid=16380"><img src="/i/home/badgeVote.jpg" alt="Vote for Studio badges"/></A>
                 </div>
-
+--%>
                 <div>
                      <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
                 </div>
 
-<%-- 
+<%-- NEED HELP?
                 <div>
                     <A href="/?module=Static&amp;d1=support&amp;d2=getStarted"><img src="/i/home/need_help.gif" alt="Need help?"/></A>
                 </div>
