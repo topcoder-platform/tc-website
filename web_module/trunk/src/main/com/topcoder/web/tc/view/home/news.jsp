@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>03.06.07<br>4:00 PM</td>
+       <td class="newsTextCell"><span class="newsTitle">
+         <A href="http://csf.topcoder.com/">First Connected Services Sandbox Contest Launches</A>
+         </span><br><br>
+        The first CSF competition has launched.  Take a look.
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://csf.topcoder.com/">CSF site</A> | 
+        <tc-webtag:forumLink forumID="508394" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.06.07<br>3:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=16491">The votes are in for the new Member Badges</A>
