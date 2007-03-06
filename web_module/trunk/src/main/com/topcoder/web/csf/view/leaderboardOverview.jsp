@@ -38,21 +38,68 @@
 Each mashup posted during the Connected Services Framework Competition Series Creative Mashup Design Competitions will carry a point value of up to 500 placement points. Placement Points will be awarded as follows:
 </p>
  
-
-1st = 235
-
-2nd = 130
-
-3rd = 75
-
-4th = 30
-
-5th = 15
-
-6th = 10
-
-7th = 5
-
+<div align="center" style="margin-bottom: 10px;">
+<table cellpadding="2" cellspacing="0">
+<tbody>
+    <tr>
+        <td align="right" width="50%">
+            <strong>1st</strong>
+        </td>
+        <td width="50%">
+            235
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <strong>2nd</strong>
+        </td>
+        <td>
+            130
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <strong>3rd</strong>
+        </td>
+        <td>
+            75
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <strong>4th</strong>
+        </td>
+        <td>
+            30
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <strong>5th</strong>
+        </td>
+        <td>
+            15
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <strong>6th</strong>
+        </td>
+        <td>
+            10
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <strong>7th</strong>
+        </td>
+        <td>
+            5
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
  
 <p>
 If more than seven (7) submissions pass screening, the competitors who place in 8th position or below will not receive any placement points.
@@ -63,12 +110,57 @@ If more than seven (7) submissions pass screening, the competitors who place in 
 During the competition series, competitors will accumulate placement points according to the points table above. In addition to the individual competition earnings, the top five (5) finishers in the series will win cash prizes. A total of $40,000 will be awarded in additional prizes for the Connected Services Framework Competition Series Creative Mashup Design Competitions and will be distributed as follows: 
 </p> 
 
-Top Five Series Prizes
-1st - $20,000
-2nd - $10,000
-3rd - $5,000
-4th - $3,000
-5th - $2,000 
+<div align="center" style="margin-bottom: 10px;">
+<table cellpadding="2" cellspacing="0">
+<tbody>
+    <tr>
+        <td align="center" colspan="2">
+            <strong>Top Five Series Prizes</strong>
+        </td>
+    </tr>
+    <tr>
+        <td align="right" width="40%">
+            <strong>1st</strong>
+        </td>
+        <td width="60%">
+            $20,000
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <strong>2nd</strong>
+        </td>
+        <td>
+            $10,000
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <strong>3rd</strong>
+        </td>
+        <td>
+            $5,000
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <strong>4th</strong>
+        </td>
+        <td>
+            $3,000
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <strong>5th</strong>
+        </td>
+        <td>
+            $2,000
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
 
 <p>
 If there is a tie for a position among the top 5 finishers, the tie will be resolved in the following manner (in order): 
