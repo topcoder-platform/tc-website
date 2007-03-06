@@ -2,10 +2,7 @@ package com.topcoder.web.common.voting;
 
 import com.topcoder.web.common.model.Base;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -62,6 +59,17 @@ public class Candidate extends Base {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public CandidateInfo getInfo(Integer propertyId) {
+        for (Iterator it = info.iterator(); it.hasNext();) {
+            CandidateInfo ci = (CandidateInfo) it.next();
+            if (ci.getId().getProperty().getId().equals(propertyId)) {
+                return ci;
+            }
+        }
+        return null;
+    }
+
 
     public boolean equals(Object o) {
         try {
