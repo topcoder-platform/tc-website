@@ -8,7 +8,7 @@
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=16491">The votes are in for the new Member Badges</A>
         </span><br><br>
-        It's a tie!  No no, not the results.  The winner is a necktie.  Congratulations to <tc-webtag:handle coderId="22665210" /> on a great design.
+        It's a tie!  No no, not the results.  The winner, it's a necktie.  Congratulations to <tc-webtag:handle coderId="22665210" /> on a great design.
         </td>
    </tr>
    <tr><td class="newsLinksCell">

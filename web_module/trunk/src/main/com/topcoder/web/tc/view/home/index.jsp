@@ -221,9 +221,13 @@
                 <%-- WSJ
                 <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
                 --%>
-                <%-- AOL webcast team --%>
+                <%-- AOL webcast team 
                 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcast20060108.jpg" alt="TCCC Webcast" border="0" style="display:block;"/></A>
+                --%>
 
+                <%-- CSF --%>
+                <A href="http://csf.topcoder.com/"><img src="/i/home/csf.gif" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
+                
                 <%-- SRM SPONSOR 
                 <map name="srm">
                 <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10664" />
