@@ -234,6 +234,7 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/model/AssignmentDocument*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/common/model/User.class"/>
+        	<zipfileset dir="${classes}" includes="com/topcoder/web/studio/model/Contest.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
         </jar>
     </target>
