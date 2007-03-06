@@ -11,8 +11,8 @@ import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentType;
 import com.topcoder.web.common.model.ComponentProject;
+import com.topcoder.web.common.model.StudioContest;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -103,7 +103,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                             ad.setComponentProject(cp);
                         }
                         if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
-                            Contest c = new Contest();
+                            StudioContest c = new StudioContest();
                             c.setId(referenceId);
                             ad.setStudioContest(c);
                         }

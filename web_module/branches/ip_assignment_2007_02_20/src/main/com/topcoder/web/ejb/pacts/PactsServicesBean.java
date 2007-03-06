@@ -39,9 +39,9 @@ import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentType;
 import com.topcoder.web.common.model.ComponentProject;
+import com.topcoder.web.common.model.StudioContest;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -1316,7 +1316,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ad.setComponentProject(cp);
         }
         if (rsr.getItem("studio_contest_id").getResultData() != null) {
-            Contest c = findStudioContestsById(rsr.getLongItem("studio_contest_id"));
+            StudioContest c = findStudioContestsById(rsr.getLongItem("studio_contest_id"));
             ad.setStudioContest(c);
         }
     
@@ -5649,7 +5649,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
-    private Contest findStudioContestsById(long contestId) throws SQLException {
+    private StudioContest findStudioContestsById(long contestId) throws SQLException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -5673,7 +5673,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw new IllegalUpdateException("Couldn't find studio contest for id: " + contestId);
             }
             
-            Contest c = new Contest();
+            StudioContest c = new StudioContest();
             
             c.setId(new Long(rsc.getLongItem(0, "contest_id")));
             c.setName(rsc.getStringItem(0, "name"));

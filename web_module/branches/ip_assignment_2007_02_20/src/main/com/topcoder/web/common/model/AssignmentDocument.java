@@ -2,8 +2,6 @@ package com.topcoder.web.common.model;
 
 import java.sql.Timestamp;
 
-import com.topcoder.web.studio.model.Contest;
-
 /**
  * @author pulky
  */
@@ -13,7 +11,7 @@ public class AssignmentDocument extends Base {
     private AssignmentDocumentStatus status;
     private String text;
     private User user;
-    private Contest studioContest;
+    private StudioContest studioContest;
     private ComponentProject componentProject;
     private Timestamp affirmedDate;
     private Timestamp expireDate;
@@ -138,14 +136,14 @@ public class AssignmentDocument extends Base {
     /**
      * @return the studioContest
      */
-    public Contest getStudioContest() {
+    public StudioContest getStudioContest() {
         return studioContest;
     }
 
     /**
      * @param studioContest the studioContest to set
      */
-    public void setStudioContest(Contest studioContest) {
+    public void setStudioContest(StudioContest studioContest) {
         this.studioContest = studioContest;
     }
 
