@@ -40,11 +40,11 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                     
-<!-- <div align="right"><tc-webtag:forumLink forumID="514445" message="Discuss this press release" /></div> -->
+<div align="right"><tc-webtag:forumLink forumID="514576" message="Discuss this press release" /></div>
                         
 <div align="center">
 <p><span class="bodyTitle">UBS, DRW, and NSA Announced as Sponsors/Patrons of 2007 TopCoder Open</span><br>
-<span class="bodySubTitle"><em>UBS and National Security Agency Continue Involvement with Leading Collegiate Computer Programming Contest<br>DRW Joins at Premier Level</em></span></p>
+<span class="bodySubTitle"><em>UBS and National Security Agency Continue Involvement with Leading Collegiate Computer Programming Contest, DRW Joins at Premier Level</em></span></p>
 </div>
       
 <p>
