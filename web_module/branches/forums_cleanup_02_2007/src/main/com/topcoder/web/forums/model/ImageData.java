@@ -68,6 +68,11 @@ public class ImageData {
     public String getTechnologyText() {
         return technologyText;
     }
+    public boolean hasComponentLink() {
+        return (technologyText.equals(TECH_JAVA_TEXT) || 
+            technologyText.equals(TECH_NET_TEXT) ||
+            technologyText.equals(TECH_FLASH_TEXT));
+    }
     
     public ImageData(long componentPhase, long rootCategoryID) {
         for (int i=0; i<PHASE_IDS.length; i++) {

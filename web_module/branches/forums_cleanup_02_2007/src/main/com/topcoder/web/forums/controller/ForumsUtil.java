@@ -613,8 +613,7 @@ public class ForumsUtil {
             long compVersPhase = forumsBean.getComponentVersionPhase(compVersID);
             long rootCategoryID = forumsBean.getComponentRootCategory(compID);
             ImageData imageData = new ImageData(compVersPhase, rootCategoryID);
-            String technologyText = imageData.getTechnologyText();
-            return (technologyText.indexOf("Custom") == -1);
+            return imageData.hasComponentLink();
         }
         return false;
     }
