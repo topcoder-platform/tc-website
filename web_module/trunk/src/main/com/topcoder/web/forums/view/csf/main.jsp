@@ -116,10 +116,10 @@
                 </A>
             </td>
             <td class="rtHeader">
-                <div style="width:80px;">T./M.</div>
+                <div style="width:60px;">T./M.</div>
             </td>
             <td class="rtHeader" align="center" colspan="2">
-                <div style="width:300px;">Last Post</div>
+                <div style="width:280px;">Last Post</div>
             </td>
         </tr>
         <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=itForumsCopy%>'>
