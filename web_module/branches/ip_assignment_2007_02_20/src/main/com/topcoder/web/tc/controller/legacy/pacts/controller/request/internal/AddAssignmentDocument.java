@@ -107,9 +107,9 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     // update
                     AssignmentDocument ad = dib.getAssignmentDocument(assignmentDocumentId);
                     log.info("1");
-                    setDefault("expire_date", new SimpleDateFormat(DATE_FORMAT_STRING).format(ad.getExpireDate()));
+                    setDefault("expire_date", ad.getExpireDate() == null ? "" : new SimpleDateFormat(DATE_FORMAT_STRING).format(ad.getExpireDate()));
                     log.info("2");
-                    setDefault("affirmed_date", new SimpleDateFormat(DATE_FORMAT_STRING).format(ad.getAffirmedDate()));
+                    setDefault("affirmed_date", ad.getAffirmedDate() == null ? "" : new SimpleDateFormat(DATE_FORMAT_STRING).format(ad.getAffirmedDate()));
                     log.info("3");
                     setDefault("assignment_document_type_id", String.valueOf(ad.getType().getId()));
                     log.info("4");
