@@ -42,6 +42,8 @@ public class Constants implements WebConstants {
     public static final String SUBMISSION_IDS = "sids";
     public static final String ELECTION_ID = "elid";
     public static final String CANDIDATE_IDS = "cids";
+    public static final Integer SUBMISSION_DESCRIPTION_PROPERTY = new Integer(1);
+    public static final Integer SUBMISSION_ID_PROPERTY = new Integer(2);
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
