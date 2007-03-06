@@ -423,23 +423,24 @@ function submit() {
                 <td class="valueC">
                     not ranked
                 </td>
+                <c:set value="<%=candidate.getInfo(Constants.SUBMISSION_DESCRIPTION)%>" var="description"/>
                 <td class="value">
-                    <span style="cursor: default; white-space: nowrap;" onMouseOver="blurbUp(this, '${candidate.name}Blurb')" onMouseOut="popHide('${candidate.name}Blurb')">
+                    <span style="cursor: default; white-space: nowrap;" onMouseOver="blurbUp(this, '${candidate.id}Blurb')" onMouseOut="popHide('${candidate.id}Blurb')">
                         <%-- 50 characters then ellipsis --%>
-                        ${candidate.name}0000000000000000000000000000000000000000000&#133;
+                        <c:choose>
+                            <c:when test="${fn:length(description)>50}">&#133;
+                                ${fn:substring(description, 0, 50)}
+                            </c:when>
+                            <c:otherwise>
+                                ${description}
+                            </c:otherwise>
+                        </c:choose>
                     </span>
 
-                    <div id="${candidate.name}Blurb" class="popUp">
+                    <div id="${candidate.id}Blurb" class="popUp">
                         <div style="width: 400px;">
                             <strong>Full description:</strong><br><br>
-                            Microsoft and British Telecom, in association with
-                            TopCoder, will run a series of Connected Services Sandbox Mashup Service Design and Assembly
-                            competitions. In these competitions, developers from Sandbox member organizations, as well
-                            as freelance application developers, can collaborate and compete to generate new mashup
-                            service designs and then build functional prototypes of those designs.<br><br>Through this
-                            series of competitions, Sandbox members can take advantage of a "no-shore" pool of creative
-                            talent to design and assemble working prototypes of services which could result in
-                            commercialized deployments in service provider networks.
+                                ${description}
                         </div>
                     </div>
                     <a href="#" target="_blank">
