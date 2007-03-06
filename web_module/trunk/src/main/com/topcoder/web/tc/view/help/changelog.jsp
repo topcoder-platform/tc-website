@@ -42,7 +42,12 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
-
+<p>
+    5.8.2 - 2007.03.xx
+    <ul>
+        <li>Member Contact not rated member message changed to not specify the competition.</li>
+    </ul>
+</p>
 <p>
     5.8.1 - 2007.03.01
     <ul>
