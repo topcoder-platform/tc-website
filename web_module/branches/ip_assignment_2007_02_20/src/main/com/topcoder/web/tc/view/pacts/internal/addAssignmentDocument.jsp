@@ -120,7 +120,7 @@ function loaded() {
 <c:set var="defaultTypeId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_type_id")) %>" />
 <c:set var="defaultStatusId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_status_id")) %>" />
 <c:set var="reference_description" value='<%= request.getAttribute("reference_description") %>' />
-<c:set var="reference_id" value='<%= request.getAttribute("reference_id") %>' />
+<c:set var="reference_id" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("reference_id")) %>" />
 
 
 <h1>PACTS</h1>
