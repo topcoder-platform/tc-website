@@ -120,6 +120,7 @@ function loaded() {
 <c:set var="defaultTypeId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_type_id")) %>" />
 <c:set var="defaultStatusId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_status_id")) %>" />
 <c:set var="reference_description" value='<%= request.getAttribute("reference_description") %>' />
+<c:set var="reference_id" value='<%= request.getAttribute("reference_id") %>' />
 
 
 <h1>PACTS</h1>
@@ -197,15 +198,15 @@ function loaded() {
 			</td>
 		</tr>
         <tr>
-	        <td><b>Expiration Date:</b> (set to current date + 7 days if left empty)</td><td>
+	        <td><b>Expiration Date:</b></td><td>
 	        <tc-webtag:textInput name="expire_date" id="expire_date" size="12" editable="true" /> 
-	            <button id="trigger_expire_date">Set</button>       
+	            <button id="trigger_expire_date">Set</button> (set to current date + 7 days if left empty)
 	        </td>            
 		</tr>		
         <tr>
-	        <td><b>Affirmed Date:</b> (set to current date if left empty and status is affirmed)</td><td>
+	        <td><b>Affirmed Date:</b></td><td>
 	        <tc-webtag:textInput name="affirmed_date" id="affirmed_date" size="12" editable="true" /> 
-	            <button id="trigger_affirmed_date">Set</button>       
+	            <button id="trigger_affirmed_date">Set</button> (set to current date if left empty and status is affirmed)
 	        </td>            
 		</tr>		
 </table>
