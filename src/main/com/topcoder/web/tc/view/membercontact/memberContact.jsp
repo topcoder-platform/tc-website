@@ -157,7 +157,7 @@
         <c:choose>
             <c:when test="${cf:containsMapKey(requestScope, notRated)}">
         <span class="bigRed">
-           You must be a rated member (in either algorithm or component competitions) to contact other members.
+           You must be a rated member to contact other members.
         </span>
             </c:when>
             <c:when test="${cf:containsMapKey(requestScope, banned)}">
