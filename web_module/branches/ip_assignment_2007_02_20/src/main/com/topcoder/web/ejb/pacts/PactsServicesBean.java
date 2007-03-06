@@ -35,12 +35,13 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentType;
+import com.topcoder.web.common.model.ComponentProject;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -1311,10 +1312,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ad.setStatus(ads);
         
         if (rsr.getItem("component_project_id").getResultData() != null) {
-            ad.setComponentProjectId(new Long(rsr.getLongItem("component_project_id")));
+            ComponentProject cp = findComponentProjectById(rsr.getLongItem("component_project_id"));
+            ad.setComponentProject(cp);
         }
         if (rsr.getItem("studio_contest_id").getResultData() != null) {
-            ad.setStudioContestId(new Long(rsr.getLongItem("studio_contest_id")));
+            Contest c = findStudioContestsById(rsr.getLongItem("studio_contest_id"));
+            ad.setStudioContest(c);
         }
     
         return ad;
@@ -1455,17 +1458,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
         }
         
+        if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) && ad.getAffirmedDate() == null) {
+            Calendar dueDateCal = Calendar.getInstance();
+            ad.setAffirmedDate(new Timestamp(dueDateCal.getTimeInMillis()));
+        }
+        
         if (ad.getUser() == null) {
             throw new IllegalArgumentException("Assignment Document's user cannot be null");
         }
         
         if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID) && 
-            ad.getComponentProjectId() == null) {
+            ad.getComponentProject() == null) {
             throw new IllegalArgumentException("Assignment Document's component project cannot be null");
         }
 
         if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID) && 
-            ad.getStudioContestId() == null) {
+            ad.getStudioContest() == null) {
             throw new IllegalArgumentException("Assignment Document's studio contest cannot be null");
         }
 
@@ -1473,9 +1481,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // update
             AssignmentDocument oldAssignmentDocumentInstance = getAssignmentDocument(ad.getId().longValue());
             
-            if (oldAssignmentDocumentInstance.getStatus().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
-                (ad.getStatus().equals(AssignmentDocumentStatus.DELETED_STATUS_ID) ||
-                    ad.getStatus().equals(AssignmentDocumentStatus.REJECTED_STATUS_ID))) {
+            if (oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
+                (ad.getStatus().getId().equals(AssignmentDocumentStatus.DELETED_STATUS_ID) ||
+                    ad.getStatus().getId().equals(AssignmentDocumentStatus.REJECTED_STATUS_ID))) {
                 throw new IllegalArgumentException("Assignment Document cannot be deleted or rejected since it was affirmed");
             }
         }
@@ -1541,8 +1549,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(3, ad.getStatus().getId().longValue());
             ps.setString(4, ad.getText());
             ps.setLong(5, ad.getUser().getId().longValue());
-            ps.setObject(6, ad.getStudioContestId());
-            ps.setObject(7, ad.getComponentProjectId());
+            ps.setObject(6, ad.getStudioContest().getId());
+            ps.setObject(7, ad.getComponentProject().getId());
             ps.setTimestamp(8, ad.getAffirmedDate());
             ps.setTimestamp(9, ad.getExpireDate());
             if (!addOperation) {
@@ -5641,7 +5649,102 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
+    private Contest findStudioContestsById(long contestId) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetContainer rsc = null;
 
+        try {
+            conn = DBMS.getConnection(DBMS.STUDIO_DATASOURCE_NAME);
+
+            StringBuffer query = new StringBuffer(1000);
+
+            query.append(" select contest_id, name");
+            query.append(" from contest");
+            query.append(" where contest_id = ?");
+            ps = conn.prepareStatement(query.toString());
+
+            ps.setLong(1, contestId);
+            rs = ps.executeQuery();
+            rsc =  new ResultSetContainer(rs, false);
+
+            if (rsc.isEmpty()) {
+                throw new IllegalUpdateException("Couldn't find studio contest for id: " + contestId);
+            }
+            
+            Contest c = new Contest();
+            
+            c.setId(new Long(rsc.getLongItem(0, "contest_id")));
+            c.setName(rsc.getStringItem(0, "name"));
+            
+            return c;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+
+    private ComponentProject findComponentProjectById(long projectId) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetContainer rsc = null;
+
+        try {
+            conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+            StringBuffer query = new StringBuffer(1000);
+
+            query.append(" select p.project_id,  ");
+            query.append(" component_name || ' '  || ");
+            query.append(" pc.name || ");
+            query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNWON')  || ')' as project_desc ");
+            query.append(" from project p, ");
+            query.append(" comp_catalog c, ");
+            query.append(" project_category_lu pc, ");
+            query.append(" project_info pi_comp, ");
+            query.append(" OUTER project_info pi_rated ");
+            query.append(" where pi_comp.value = c.component_id ");
+            query.append(" and p.project_category_id = pc.project_category_id ");
+            query.append(" and pi_rated.project_info_type_id = 22 ");
+            query.append(" and pi_rated.project_id = p.project_id ");
+            query.append(" and pi_comp.project_info_type_id = 2 ");
+            query.append(" and pi_comp.project_id = p.project_id ");
+            query.append(" and p.project_id = ?");
+            ps = conn.prepareStatement(query.toString());
+
+            ps.setLong(1, projectId);
+            rs = ps.executeQuery();
+            rsc =  new ResultSetContainer(rs, false);
+
+            if (rsc.isEmpty()) {
+                throw new IllegalUpdateException("Couldn't find project for id: " + projectId);
+            }
+            
+            ComponentProject cp = new ComponentProject();
+            
+            cp.setId(new Long(rsc.getLongItem(0, "project_id")));
+            cp.setDescription(rsc.getStringItem(0, "project_desc"));
+            
+            return cp;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
 
     public Map findRounds(String search, int[] roundTypes) throws SQLException {
         StringBuffer types = new StringBuffer(100);

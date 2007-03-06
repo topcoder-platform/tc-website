@@ -123,7 +123,14 @@ function loaded() {
 
 
 <h1>PACTS</h1>
-<h2>Add Assignment Document</h2>
+<c:choose>
+    <c:when test="${assignmentDocumentId > 0}">
+        <h2>Update Assignment Document</h2>
+    </c:when>
+    <c:otherwise>
+        <h2>Add Assignment Document</h2>
+    </c:otherwise>
+</c:choose>
 
 <form name='f' action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
@@ -159,7 +166,7 @@ function loaded() {
             <td><c:out value="${reference_description}" />
             <c:choose>
                 <c:when test="${assignmentDocumentId > 0}">
-                    <input type="hidden" name="search_list" value="${assignmentDocumentId}"/>
+                    <input type="hidden" name="search_list" value="${referenceId}"/>
                     <input type="button" value="change" onClick="typeChanged()" />
                 </c:when>
                 <c:otherwise>
@@ -190,13 +197,13 @@ function loaded() {
 			</td>
 		</tr>
         <tr>
-	        <td><b>Expiration Date:</b></td><td>
+	        <td><b>Expiration Date:</b> (set to current date + 7 days if left empty)</td><td>
 	        <tc-webtag:textInput name="expire_date" id="expire_date" size="12" editable="true" /> 
 	            <button id="trigger_expire_date">Set</button>       
 	        </td>            
 		</tr>		
         <tr>
-	        <td><b>Affirmed Date:</b></td><td>
+	        <td><b>Affirmed Date:</b> (set to current date if left empty and status is affirmed)</td><td>
 	        <tc-webtag:textInput name="affirmed_date" id="affirmed_date" size="12" editable="true" /> 
 	            <button id="trigger_affirmed_date">Set</button>       
 	        </td>            

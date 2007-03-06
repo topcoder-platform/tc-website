@@ -51,13 +51,13 @@
                 </tr>
         </c:if>
         <tr>        
-            <td><b>Affirmed Date:</b></td>
-            <td><fmt:formatDate value="${assignment_document.affirmedDate}" pattern="MM/dd/yyyy"/></td>
-        </tr>        
-        <tr>        
             <td><b>Expire Date:</b></td>
             <td><fmt:formatDate value="${assignment_document.expireDate}" pattern="MM/dd/yyyy"/></td>
         </tr>
+        <tr>        
+            <td><b>Affirmed Date:</b></td>
+            <td><fmt:formatDate value="${assignment_document.affirmedDate}" pattern="MM/dd/yyyy"/></td>
+        </tr>        
    
 </table>
 

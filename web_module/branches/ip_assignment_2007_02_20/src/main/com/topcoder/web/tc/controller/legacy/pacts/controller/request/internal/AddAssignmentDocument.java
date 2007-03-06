@@ -10,7 +10,9 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentType;
+import com.topcoder.web.common.model.ComponentProject;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -94,8 +96,18 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                         ad.setText(assignmentDocumentText);
                         ad.setType(new AssignmentDocumentType(new Long(getRequest().getParameter("assignment_document_type_id"))));
                         ad.setStatus(new AssignmentDocumentStatus(new Long(getRequest().getParameter("assignment_document_status_id"))));
-                        ad.setComponentProjectId(ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID) ? referenceId : null);
-                        ad.setStudioContestId(ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID) ? referenceId : null);
+
+                        if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+                            ComponentProject cp = new ComponentProject();
+                            cp.setId(referenceId);
+                            ad.setComponentProject(cp);
+                        }
+                        if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
+                            Contest c = new Contest();
+                            c.setId(referenceId);
+                            ad.setStudioContest(c);
+                        }
+                        
                         if (expireDate != null) {
                             ad.setExpireDate(new Timestamp(expireDate.getTime()));
                         }
@@ -142,7 +154,13 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     log.info("9");
                     setDefault("assignment_document_text", ad.getText());
                     log.info("10");
-                    getRequest().setAttribute("reference_description", "GET project/studio desc");
+                    if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+                        setDefault("reference_id", ad.getComponentProject().getId().toString());
+                        getRequest().setAttribute("reference_description", ad.getComponentProject().getDescription());
+                    } else {
+                        setDefault("reference_id", ad.getStudioContest().getId().toString());
+                        getRequest().setAttribute("reference_description", ad.getStudioContest().getName());
+                    }
                     log.info("11");
                     getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(ad.getUser().getId().longValue())));
                     log.info("12");
