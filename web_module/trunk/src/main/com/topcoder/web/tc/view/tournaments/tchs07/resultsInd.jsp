@@ -67,54 +67,54 @@
         <tbody>
             <%boolean even = false;%>
             <rsc:iterator list="<%=rsc%>" id="resultRow">
-                <tr class="<%=even?"dark":"light"%>">
-                    <td class="value">
-                        <tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="<%=HandleTag.HS_ALGORITHM%>"/>
-                    </td>
-                    <td class="value">
-                        <rsc:item name="team_name" row="<%=resultRow%>"/>
-                    </td>
-                    <td class="valueC">
-                        <rsc:item name="region_name" row="<%=resultRow%>"/>
-                    </td>
-                    <td class="valueC">
-                        <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
-                        <span class="bigRed"><rsc:item name="round1" row="<%=resultRow%>"/></span>
-                        <% } else { %>
-                        <rsc:item name="round1" row="<%=resultRow%>"/>
-                        <% } %>
-                    </td>
-                    <td class="valueC">
-                        <% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
-                        <span class="bigRed"><rsc:item name="round2" row="<%=resultRow%>"/></span>
-                        <% } else { %>
-                        <rsc:item name="round2" row="<%=resultRow%>"/>
-                        <% } %>
-                    </td>
-                    <td class="valueC">
-                        <% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
-                        <span class="bigRed"><rsc:item name="round3" row="<%=resultRow%>"/></span>
-                        <% } else { %>
-                        <rsc:item name="round3" row="<%=resultRow%>"/>
-                        <% } %>
-                    </td>
-                    <td class="valueC">
-                        <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
-                        <span class="bigRed"><rsc:item name="semi" row="<%=resultRow%>"/></span>
-                        <% } else { %>
-                        <rsc:item name="semi" row="<%=resultRow%>"/>
-                        <% } %>
-                    </td>
-                    <td class="valueC">
-                        <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
-                        <span class="bigRed"><rsc:item name="final" row="<%=resultRow%>"/></span>
-                        <% } else { %>
-                        <rsc:item name="final" row="<%=resultRow%>"/>
-                        <% } %>
-                    </td>
-                </tr>
-                <%even = !even;%>
-            </rsc:iterator>
+<tr class="<%=even?"dark":"light"%>">
+<td class="value">
+<tc-webtag:handle coderId='<%=resultRow.getLongItem("coder_id")%>' context="<%=HandleTag.HS_ALGORITHM%>"/>
+</td>
+<td class="value">
+<rsc:item name="team_name" row="<%=resultRow%>"/>
+</td>
+<td class="valueC">
+<rsc:item name="region_name" row="<%=resultRow%>"/>
+</td>
+<td class="valueC">
+<% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
+<span class="bigRed"><rsc:item name="round1" row="<%=resultRow%>"/></span>
+<% } else { %>
+<rsc:item name="round1" row="<%=resultRow%>"/>
+<% } %>
+</td>
+<td class="valueC">
+<% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
+<span class="bigRed"><rsc:item name="round2" row="<%=resultRow%>"/></span>
+<% } else { %>
+<rsc:item name="round2" row="<%=resultRow%>"/>
+<% } %>
+</td>
+<td class="valueC">
+<% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
+<span class="bigRed"><rsc:item name="round3" row="<%=resultRow%>"/></span>
+<% } else { %>
+<rsc:item name="round3" row="<%=resultRow%>"/>
+<% } %>
+</td>
+<td class="valueC">
+<% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
+<span class="bigRed"><rsc:item name="semi" row="<%=resultRow%>"/></span>
+<% } else { %>
+<rsc:item name="semi" row="<%=resultRow%>"/>
+<% } %>
+</td>
+<td class="valueC">
+<% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
+<span class="bigRed"><rsc:item name="final" row="<%=resultRow%>"/></span>
+<% } else { %>
+<rsc:item name="final" row="<%=resultRow%>"/>
+<% } %>
+</td>
+</tr>
+<%even = !even;%>
+</rsc:iterator>
         </tbody>
     </table>
 
