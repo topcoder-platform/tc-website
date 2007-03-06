@@ -424,11 +424,12 @@ function submit() {
                 <td class="valueC">
                     not ranked
                 </td>
-                <c:set value="<%=candidate.getInfo(Constants.SUBMISSION_DESCRIPTION_PROPERTY)%>" var="description"/>
-                <c:set value="<%=candidate.getInfo(Constants.SUBMISSION_ID_PROPERTY)%>" var="submissionId"/>
+                <c:set value="<%=Constants.SUBMISSION_DESCRIPTION_PROPERTY%>" var="descriptionKey"/>
+                <c:set value="<%=Constants.SUBMISSION_ID_PROPERTY%>" var="submissionIdKey"/>
+                <c:set value="${candidate.infoMap[descriptionKey]}" var="description"/>
+                <c:set value="${candidate.infoMap[submissionIdKey]}" var="submissionId"/>
                 <td class="value">
                     <span style="cursor: default; white-space: nowrap;" onMouseOver="blurbUp(this, '${candidate.id}Blurb')" onMouseOut="popHide('${candidate.id}Blurb')">
-                        <%-- 50 characters then ellipsis --%>
                         <c:choose>
                             <c:when test="${fn:length(description)>50}">&#133;
                                 ${fn:substring(description, 0, 50)}
