@@ -28,15 +28,19 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
             long assignmentDocumentId = 0;
             
             try {
-                userId = getLongParameter(USER_ID);
+                assignmentDocumentId = getLongParameter(ASSIGNMENT_DOCUMENT_ID);
             } catch (IllegalArgumentException iae) {
-                try {
-                    assignmentDocumentId = getLongParameter(ASSIGNMENT_DOCUMENT_ID);
-                } catch (IllegalArgumentException iae2) {
-                    throw new IllegalArgumentException("Missing parameter " + USER_ID + " or " + ASSIGNMENT_DOCUMENT_ID);
-                }            
             }
 
+            try {
+                userId = getLongParameter(USER_ID);
+            } catch (IllegalArgumentException iae2) {
+            }            
+
+            if (userId + assignmentDocumentId == 0) {
+                throw new IllegalArgumentException("Missing parameter " + USER_ID + " or " + ASSIGNMENT_DOCUMENT_ID);
+            }
+            
             DataInterfaceBean dib = new DataInterfaceBean();
 
             // Give the JSP the list of assignment document Types
@@ -92,7 +96,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     }
                 }
             } else {
-                if (userId > 0) {
+                if (assignmentDocumentId == 0) {
                     // add
                     Calendar date = Calendar.getInstance();
                     date.setTime(new Date());
