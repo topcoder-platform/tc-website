@@ -28,7 +28,6 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-<%-- algo_get_paid or des_getting_paid or dev_get_paid --%>
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="<%=node==null?"":node%>"/>
          </jsp:include>
@@ -38,6 +37,7 @@
 <!-- Center Column Begins -->
 <td width="100%" align="center" class="bodyColumn">
 <div class="fixedWidthBody">
+
 <jsp:include page="/page_title.jsp" >
    <jsp:param name="image" value="support"/>
    <jsp:param name="title" value="How to Get Paid"/>
