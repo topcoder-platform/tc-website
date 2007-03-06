@@ -14,6 +14,8 @@
 <body>
 
 <c:set var="assignment_document" value="<%= request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT) %>"/>
+<c:set var="STUDIO_CONTEST_TYPE_ID" value="<%= AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID + "" %>" />
+<c:set var="COMPONENT_COMPETITION_TYPE_ID" value="<%= AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID + "" %>" />
 
 <h1>PACTS</h1>
 <h2>View Assignment Document</h2>
@@ -39,13 +41,13 @@
             <td><b>Text:</b></td>
             <td><c:out value="${assignment_document.text}" /></td>
         </tr>
-        <c:if test="${assignment_document.type.id == AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID}">
+        <c:if test="${assignment_document.type.id == STUDIO_CONTEST_TYPE_ID}">
                 <tr>
                     <td><b>Studio Contest referenced:</b></td>
                     <td><c:out value="${assignment_document.studioContest.name}" /></td>
                 </tr>
         </c:if>
-        <c:if test="${assignment_document.type.id == AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID}">
+        <c:if test="${assignment_document.type.id == COMPONENT_COMPETITION_TYPE_ID}">
                 <tr>
                     <td><b>Component Project referenced:</b></td>
                     <td><c:out value="${assignment_document.componentProject.description}" /></td>
