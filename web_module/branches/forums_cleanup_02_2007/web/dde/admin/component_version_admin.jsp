@@ -1025,20 +1025,18 @@ if (action != null) {
         } else {
             try {
                 log.debug("Locating the user for handle '" + strUsername + "' ...");
-                User user = USER_MANAGER.getUser(strUsername);
+                long userID = PRINCIPAL_MANAGER.getUser(strUsername).getId();
 
 				long forumCategoryId = componentManager.getForumCategory(ForumCategory.SPECIFICATION).getId();
-				boolean canReadCategory = forums.canReadCategory(user.getId(), forumCategoryId);
+				boolean canReadCategory = forums.canReadCategory(userID, forumCategoryId);
 				if (!canReadCategory) {
 					strError = "User " + strUsername + " must have permission to read this component's forums before this watch can be assigned.";
 				} else {
 	                // Assign watch
-	                forums.createCategoryWatch(user.getId(), forumCategoryId);
-	                log.info("Assigning watch on category " + forumCategoryId + " to user " + user.getId());
+	                forums.createCategoryWatch(userID, forumCategoryId);
+	                log.info("Assigning watch on category " + forumCategoryId + " to user " + userID);
 					strMessage += "User " + strUsername + " is now watching developer forums for this component. ";
 				}
-            } catch (com.topcoder.dde.user.NoSuchUserException nsue) {
-                strError = "User '" + strUsername + "' was not found.";
             } catch (Exception e) {
                 log.error("An error occurred while assigning watch to user", e);
                 strError = "An error occurred while assigning watch to user : " + e;
