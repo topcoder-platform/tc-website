@@ -133,7 +133,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
 
                     setDefault("expire_date", new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime()));
                     setDefault("affirmed_date", "");
-                    setDefault("reference_id", "");
+                    setDefault("reference_id", "0");
                     setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
                     setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
                     setDefault("assignment_document_text", "TODO: use template");
