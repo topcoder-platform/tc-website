@@ -53,27 +53,27 @@
 </p>
 <%--
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">
-<strong>Algorithm Competition</strong>
+<strong>Component Design & Development Competition</strong>
 <br>Sorry, registration for this competition has closed.
 </p>
 --%>
 
+<%--
 <p align="center" style="margin-bottom: 40px;">
 <strong><A href="/tc?module=TCO07ViewRegistration&ct=marathon">Marathon Match Competition</A></strong>
 </p>
-<%--
+--%>
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">
-<strong>Algorithm Competition</strong>
+<strong>Marathon Match Competition</strong>
 <br>Sorry, registration for this competition has closed.
 </p>
---%>
 
 <p align="center" style="margin-bottom: 40px;">
 <strong><A href="/tc?module=TCO07ViewRegistration&ct=studio">Studio Competition</A></strong>
 </p>
 <%--
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">
-<strong>Algorithm Competition</strong>
+<strong>Studio Competition</strong>
 <br>Sorry, registration for this competition has closed.
 </p>
 --%>
