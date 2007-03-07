@@ -35,7 +35,6 @@
             Fat.fade_element('fade3');
             Fat.fade_element('fade4');
             Fat.fade_element('fade5');
-            Fat.fade_element('fade6');
         }
         function batchUpdate() {
             var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}');
