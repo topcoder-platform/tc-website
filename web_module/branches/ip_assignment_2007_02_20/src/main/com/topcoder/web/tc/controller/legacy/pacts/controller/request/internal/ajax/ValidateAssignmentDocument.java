@@ -1,6 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.ajax;
 
-import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.validation.BasicResult;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
@@ -10,9 +10,9 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  *
  * @author pulky
  */
-public class ValidateAssignmentDocument extends ShortHibernateProcessor implements PactsConstants {
+public class ValidateAssignmentDocument extends BaseProcessor implements PactsConstants {
 
-    protected void dbProcessing() throws Exception {
+    protected void businessProcessing() throws Exception {
         clearErrors();
         
         Boolean valid = Boolean.TRUE;
