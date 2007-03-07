@@ -25,7 +25,7 @@ public class ViewSponsorRegistrants extends ViewRegistrantsBase {
     }
 
     protected void setNextPage(Event e) {
-        setNextPage("/tournaments/tco07/algorithm/sponsorRegistrants.jsp");
+        setNextPage("/tournaments/tco07/sponsortrack/registrants.jsp");
         setIsNextPageInContext(true);
     }
 }
