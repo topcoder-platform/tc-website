@@ -43,9 +43,11 @@
 </jsp:include>
 
 <p>
-    5.8.2 - 2007.03.xx
+    5.8.2 - 2007.03.07
     <ul>
         <li>Member Contact not rated member message changed to not specify the competition.</li>
+        <li>Final changes to tco 07 sponsor track site</li>
+        <li>Add code for marathon match tournament round.</li>
     </ul>
 </p>
 <p>
