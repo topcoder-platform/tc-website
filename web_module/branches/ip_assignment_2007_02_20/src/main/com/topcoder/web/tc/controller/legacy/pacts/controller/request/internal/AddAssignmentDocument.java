@@ -67,9 +67,10 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
 
             String assignmentDocumentText = getRequest().getParameter("assignment_document_text");
             if (assignmentDocumentText != null) {
-                /*if (assignmentDocumentText.trim().length() == 0) {
-                    addError("error", "Please enter a text for the assignment document.");
-                }*/
+                String submissionTitle = getRequest().getParameter("submission_title");
+                if (submissionTitle.trim().length() == 0) {
+                    addError("error", "Please enter a text for the submission title.");
+                }
 
                 if (!hasParameter("search_list")) {
                     addError("error", "Please enter a reference for the assignment document.");
@@ -98,6 +99,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                         ad.setUser(u);
                         log.info("6");
                         ad.setText(assignmentDocumentText);
+                        ad.setSubmissionTitle(submissionTitle);
                         log.info("7");
                         ad.setType(new AssignmentDocumentType(new Long(getRequest().getParameter("assignment_document_type_id"))));
                         ad.setStatus(new AssignmentDocumentStatus(new Long(getRequest().getParameter("assignment_document_status_id"))));
@@ -112,7 +114,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                             c.setId(referenceId);
                             ad.setStudioContest(c);
                         }
-                        
+
                         if (expireDate != null) {
                             ad.setExpireDate(new Timestamp(expireDate.getTime()));
                         }
@@ -144,6 +146,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
                     setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
                     setDefault("assignment_document_text", "");
+                    setDefault("submission_title", "");
                     getRequest().setAttribute("reference_description", "Enter search text for component name:");
                     getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(userId)));
                     getRequest().setAttribute(ASSIGNMENT_DOCUMENT_ID, "0");
@@ -161,6 +164,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     setDefault("assignment_document_status_id", String.valueOf(ad.getStatus().getId()));
                     log.info("9b");
                     setDefault("assignment_document_text", ad.getText());
+                    setDefault("submission_title", ad.getSubmissionTitle());
                     log.info("10b");
                     log.info(ad.getComponentProject().getId().toString());
                     if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {

@@ -17,9 +17,9 @@ public class ValidateAssignmentDocument extends BaseProcessor implements PactsCo
         
         Boolean valid = Boolean.TRUE;
         
-/*        if (!hasParameter("assignment_document_text") || getRequest().getParameter("assignment_document_text").trim().length() == 0) {
-            addError("error", "Please enter a text for the assignment document.");
-        }*/
+        if (!hasParameter("submission_title") || getRequest().getParameter("submission_title").trim().length() == 0) {
+            addError("error", "Please enter a text for the submission title.");
+        }
 
         if (!hasParameter("search_list")) {
             addError("error", "Please enter a reference for the assignment document.");

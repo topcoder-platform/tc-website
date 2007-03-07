@@ -2,6 +2,9 @@ package com.topcoder.web.common.model;
 
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
@@ -88,6 +91,10 @@ public class AssignmentDocumentTemplate extends Base {
             a.addTag(new ValueTag("work_phone", profile.getWorkPhone()));
             a.addTag(new ValueTag("handle", profile.getHeader().getHandle()));
             a.addTag(new ValueTag("coder_type_desc", profile.getCoderTypeDesc()));
+
+            Calendar date = Calendar.getInstance();
+            date.setTime(new Date());
+            a.addTag(new ValueTag("current_date", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime())));
     
             tc.addTag(a);
     

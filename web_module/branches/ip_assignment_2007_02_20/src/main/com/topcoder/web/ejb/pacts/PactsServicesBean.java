@@ -1301,6 +1301,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ad.setUser(u);
         
         ad.setText(rsr.getStringItem("assignment_document_text"));
+        ad.setSubmissionTitle(rsr.getStringItem("assignment_document_submission_title"));
 
         AssignmentDocumentType adt = new AssignmentDocumentType();
         adt.setId(new Long(rsr.getLongItem("assignment_document_type_id")));
@@ -1333,6 +1334,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("ad.assignment_document_status_id , ");
         sb.append("ads.assignment_document_status_desc , ");
         sb.append("ad.assignment_document_text , ");
+        sb.append("ad.assignment_document_submission_title , ");
         sb.append("ad.user_id , ");
         sb.append("ad.studio_contest_id , ");
         sb.append("ad.component_project_id , ");
@@ -1506,6 +1508,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
         
         // validate
+        if (ad.getSubmissionTitle() == null || ad.getSubmissionTitle().trim().length() == 0) {
+            throw new IllegalArgumentException("Assignment Document's submission title cannot be null or empty");
+        }
+        
         if (ad.getType() == null) {
             throw new IllegalArgumentException("Assignment Document's type cannot be null");
         }
@@ -1568,12 +1574,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 query.append("assignment_document_type_id , ");
                 query.append("assignment_document_status_id , ");
                 query.append("assignment_document_text , ");
+                query.append("assignment_document_submission_title , ");
                 query.append("user_id , ");
                 query.append("studio_contest_id , ");
                 query.append("component_project_id , ");
                 query.append("affirmed_date , ");
                 query.append("expire_date , ");
-                query.append("modify_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, current)");
+                query.append("modify_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current)");
     
                 long assignmentDocumentId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_SEQ");
                 ad.setId(new Long(assignmentDocumentId));
@@ -1584,6 +1591,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 query.append("assignment_document_type_id = ?, ");
                 query.append("assignment_document_status_id = ?, ");
                 query.append("assignment_document_text = ?, ");
+                query.append("assignment_document_submission_title = ?, ");
                 query.append("user_id = ?, ");
                 query.append("studio_contest_id = ?, ");
                 query.append("component_project_id = ?, ");
@@ -1598,13 +1606,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(2, ad.getType().getId().longValue());
             ps.setLong(3, ad.getStatus().getId().longValue());
             ps.setString(4, ad.getText());
-            ps.setLong(5, ad.getUser().getId().longValue());
-            ps.setObject(6, ad.getStudioContest() == null ? null : ad.getStudioContest().getId());
-            ps.setObject(7, ad.getComponentProject() == null ? null : ad.getComponentProject().getId());
-            ps.setTimestamp(8, ad.getAffirmedDate());
-            ps.setTimestamp(9, ad.getExpireDate());
+            ps.setString(5, ad.getSubmissionTitle());
+            ps.setLong(6, ad.getUser().getId().longValue());
+            ps.setObject(7, ad.getStudioContest() == null ? null : ad.getStudioContest().getId());
+            ps.setObject(8, ad.getComponentProject() == null ? null : ad.getComponentProject().getId());
+            ps.setTimestamp(9, ad.getAffirmedDate());
+            ps.setTimestamp(10, ad.getExpireDate());
             if (!addOperation) {
-                ps.setLong(10, ad.getId().longValue());
+                ps.setLong(11, ad.getId().longValue());
             }
             int rc = ps.executeUpdate();
             if (rc != 1) {

@@ -9,8 +9,7 @@ public class AssignmentDocument extends Base {
     private Long id;
     private AssignmentDocumentType type;
     private AssignmentDocumentStatus status;
-    
-    // TODO: pulky change column to TEXT
+    private String submissionTitle;
     private String text;
     private User user;
     private StudioContest studioContest;
@@ -105,6 +104,20 @@ public class AssignmentDocument extends Base {
      */
     public void setText(String text) {
         this.text = text;
+    }
+
+    /**
+     * @return the submissionTitle
+     */
+    public String getSubmissionTitle() {
+        return submissionTitle;
+    }
+
+    /**
+     * @param submissionTitle the submissionTitle to set
+     */
+    public void setSubmissionTitle(String submissionTitle) {
+        this.submissionTitle = submissionTitle;
     }
 
     /**

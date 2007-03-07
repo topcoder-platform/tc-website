@@ -42,7 +42,7 @@ function doSearch(mustSearch, firstLoad) {
     function validateRemote() {
         var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=ValidateAssignmentDocument');
         ajaxRequest.addNamedFormElements("search_list");
-        ajaxRequest.addNamedFormElements("assignment_document_text");
+        ajaxRequest.addNamedFormElements("submission_title");
 
         ajaxRequest.setPostRequest(afterRequest);
         
@@ -175,6 +175,12 @@ function loaded() {
                     <input type="button" value="search" onClick="doSearch(true, false)" />
                 </c:otherwise>
             </c:choose>
+            </td>
+        </tr>
+        <tr>        
+            <td><b>Submission title:</b></td>
+            <td>
+    	        <tc-webtag:textInput name="submission_title" id="submission_title" editable="true" /> 
             </td>
         </tr>
 		<tr>		
