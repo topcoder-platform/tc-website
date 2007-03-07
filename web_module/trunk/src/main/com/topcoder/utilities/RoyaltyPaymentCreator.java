@@ -2,6 +2,7 @@ package com.topcoder.utilities;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.sql.InformixSimpleDataSource;
@@ -11,6 +12,7 @@ import com.topcoder.web.ejb.pacts.NoReferencePayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 
 import javax.naming.NamingException;
+import javax.naming.InitialContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,14 +36,15 @@ public class RoyaltyPaymentCreator {
     }
 
     private void doit() throws Exception {
-        PactsClientServices pcs = createEJB();
         StringBuffer query = new StringBuffer(200);
         query.append("select user_id, amount, description, royalty_date ");
         query.append("from royalty_temp");
 
         Connection conn = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("INFORMIX_CONNECT_STRING")).getConnection();
-
+log.debug("got connection");
         PreparedStatement psSelRoyalties = conn.prepareStatement(query.toString());
+
+		PactsClientServices pcs = createEJB();
 
         log.debug("Processing royalties:");
 
@@ -70,7 +73,11 @@ public class RoyaltyPaymentCreator {
 
 
     public static PactsClientServices createEJB() throws NamingException, Exception {
-        return (PactsClientServices) BaseProcessor.createEJB(TCContext.getInitial(), PactsClientServices.class);
+		InitialContext ctx = null;
+		try {
+			ctx = TCContext.getInitial();
+		log.debug(ctx.toString());
+        return (PactsClientServices) BaseProcessor.createEJB(ctx, PactsClientServices.class);
 /*
         Context initial = new InitialContext();
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
@@ -79,6 +86,9 @@ public class RoyaltyPaymentCreator {
 
         return(home.create());
 */
+		} finally {
+			ApplicationServer.close(ctx);
+		}
     }
 
 }
