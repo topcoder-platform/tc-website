@@ -10,19 +10,20 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  *
  * @author  pulky
  */
-public class ViewAssignmentDocument extends BaseProcessor implements PactsConstants {
+public class ViewAssignmentDocumentText extends BaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
+
         long assignment_document_id = Long.parseLong(getRequest().getParameter(ASSIGNMENT_DOCUMENT_ID));
 
         try {
             DataInterfaceBean bean = new DataInterfaceBean();
 
             AssignmentDocument ad = bean.getAssignmentDocument(assignment_document_id);
-            getRequest().setAttribute(PACTS_INTERNAL_RESULT, ad);
-
-            setNextPage(INTERNAL_ASSIGNMENT_DOCUMENT_JSP);
-            setIsNextPageInContext(true);
+            getResponse().setStatus(200);
+            getResponse().setContentType("text/html");
+            getResponse().getWriter().print(ad.getText());
+            getResponse().flushBuffer();
         } catch (Exception e) {
             throw new TCWebException(e);
         }
