@@ -21,7 +21,7 @@
             <tr>
                 <td id="navSpacer">
 
-                    <jsp:include page="sponsorNav.jsp" >
+                    <jsp:include page="nav.jsp" >
                     <jsp:param name="tabLev1" value="sponsortrack"/>
                     <jsp:param name="tabLev2" value="rules"/>
                     <jsp:param name="tabLev3" value=""/>
@@ -45,18 +45,18 @@
 
 <h2>Overview of the Tournament</h2>
 
-<p>The 2007 TopCoder Open (“TCO”) Sponsor Track Competition will take place between March 12 and April 28, 2007.  It will consist of one online qualification round, three online elimination rounds and one online championship round.</p>
+<p>The 2007 TopCoder Open ("TCO") Sponsor Track Competition will take place between March 12 and April 28, 2007.  It will consist of one online qualification round, three online elimination rounds and one online championship round.</p>
 
 <a name="eligibility"></a>
 <h2>Eligibility</h2>
-<p>The Sponsor Track Algorithm Competition is open to all employees and interns of the sponsors of the TCO, who are at least 18 years of age as of April 3, 2007 and who are TopCoder members.  TCO sponsor employees and interns may register to become a TopCoder member by navigating to <a href="http://www.topcoder.com/">www.topcoder.com</a> and clicking on “Register” in the upper right corner of the screen.</p>
+<p>The Sponsor Track Algorithm Competition is open to all employees and interns of the sponsors of the TCO, who are at least 18 years of age as of April 3, 2007 and who are TopCoder members.  TCO sponsor employees and interns may register to become a TopCoder member by navigating to <a href="http://www.topcoder.com/">www.topcoder.com</a> and clicking on "Register" in the upper right corner of the screen.</p>
 
 <a name="registration"></a>
 <h2>Registration</h2>
 <p>Eligible employees must register separately for the Sponsor Track Competition.  There is no limit to the number of registrants in the competition; however each individual may only register once.  Registration will open at 9:00AM EDT (GMT/UTC -4) on Monday, March 12, and will close at 6:00PM EDT (GMT/UTC -4) on Tuesday, March 27, 2007.</p>
 
 <a name="qualification"></a>
-<h2>Qualification Round — 9 PM EDT Tuesday, April 3, 2007</h2>
+<h2>Qualification Round - 9 PM EDT Tuesday, April 3, 2007</h2>
 <p>The format for each Qualification Round will be the same as all other tournament rounds, which is outlined in the <i>Competition Round Structure</i> section. </p>
 
 <p><b>NOTE:</b> In the event of a tie for any advancing position during the Qualification Round, the tie will be resolved in the following manner: </p>

@@ -21,7 +21,7 @@
                 <tr>
                     <td id="navSpacer">
 
-                        <jsp:include page="sponsorNav.jsp">
+                        <jsp:include page="nav.jsp">
                             <jsp:param name="tabLev1" value="sponsortrack"/>
                             <jsp:param name="tabLev2" value="arena"/>
                             <jsp:param name="tabLev3" value=""/>
@@ -57,7 +57,7 @@
                             <p>See the official
                                 <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=rules">rules and
                                     regulations</A> for more details.
-                                <br><br><br><br><br><br><br><br><br><br><br><br></p>
+                            </p>
                         </div>
                     </td>
                 </tr>
