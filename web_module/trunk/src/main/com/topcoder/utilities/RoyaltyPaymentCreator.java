@@ -56,7 +56,7 @@ public class RoyaltyPaymentCreator {
                         rs.getDouble("amount"),
                         rs.getString("description"),
                         rs.getDate("royalty_date")));
-                if (i % 100 == 0) {
+                if (i % 10 == 0) {
                     log.debug(i + "...");
                 }
             }
