@@ -22,7 +22,6 @@
 <%@ page import="javax.naming.Context" %>
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
-<%@ page import="com.topcoder.dde.forum.*" %>
 <%@ page import="com.topcoder.web.ejb.forums.*" %>
 <%@ page import="com.topcoder.util.config.*" %>
 <%@ page import="com.topcoder.servlet.request.*" %>

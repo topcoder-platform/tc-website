@@ -974,9 +974,6 @@
                 <field-name>id</field-name>
             </cmp-field>
             <cmp-field>
-                <field-name>forumId</field-name>
-            </cmp-field>
-            <cmp-field>
                 <field-name>categoryId</field-name>
             </cmp-field>
             <cmp-field>
@@ -1010,15 +1007,6 @@
             </query>
             <query>
                 <query-method>
-                    <method-name>findByForumId</method-name>
-                    <method-params>
-                        <method-param>long</method-param>
-                    </method-params>
-                </query-method>
-                <ejb-ql>SELECT OBJECT(c) FROM DDECompForumXref c WHERE c.forumId = ?1</ejb-ql>
-            </query>
-            <query>
-                <query-method>
                     <method-name>findByCompVersIdAndType</method-name>
                     <method-params>
                         <method-param>long</method-param>
@@ -1036,16 +1024,6 @@
                     </method-params>
                 </query-method>
                 <ejb-ql>SELECT OBJECT(c) FROM DDECompForumXref c WHERE c.compVersions.id = ?1 AND c.categoryId = ?2</ejb-ql>
-            </query>
-            <query>
-                <query-method>
-                    <method-name>findByCompVersIdAndForumId</method-name>
-                    <method-params>
-                        <method-param>long</method-param>
-                        <method-param>long</method-param>
-                    </method-params>
-                </query-method>
-                <ejb-ql>SELECT OBJECT(c) FROM DDECompForumXref c WHERE c.compVersions.id = ?1 AND c.forumId = ?2</ejb-ql>
             </query>
         </entity>
         <entity>

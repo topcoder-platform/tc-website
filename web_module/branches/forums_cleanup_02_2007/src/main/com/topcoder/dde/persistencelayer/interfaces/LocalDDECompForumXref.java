@@ -23,13 +23,6 @@ public interface LocalDDECompForumXref extends EJBLocalObject {
      * @return compVersions.
      */
     LocalDDECompVersions getCompVersions();
-
-    /**
-     * Gets the forum id.
-     *
-     * @return forum id.
-     */
-    long getForumId();
     
     /**
      * Gets the category id.

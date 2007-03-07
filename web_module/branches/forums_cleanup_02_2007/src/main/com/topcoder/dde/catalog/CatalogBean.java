@@ -7,8 +7,6 @@ package com.topcoder.dde.catalog;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.dde.DDEException;
-import com.topcoder.dde.forum.ForumModeratePermission;
-import com.topcoder.dde.forum.ForumPostPermission;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.dde.user.RegistrationInfo;
 import com.topcoder.dde.user.UserManagerLocalHome;
@@ -97,7 +95,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private LocalDDECompCategoriesHome compcatsHome;
     private LocalDDECompKeywordsHome keywordsHome;
     private LocalDDECompTechnologyHome comptechHome;
-    private LocalDDECompForumXrefHome compforumHome;
+    //private LocalDDECompForumXrefHome compforumHome;
     private LocalDDECategoriesHome categoriesHome;
     private LocalDDETechnologyTypesHome technologiesHome;
     private LocalDDERolesHome rolesHome;
@@ -146,9 +144,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             comptechHome = (LocalDDECompTechnologyHome)
                     homeBindings.lookup(LocalDDECompTechnologyHome.EJB_REF_NAME);
             log.debug("blah");
-            compforumHome = (LocalDDECompForumXrefHome)
-                    homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
-            log.debug("blah");
+            //compforumHome = (LocalDDECompForumXrefHome)
+            //        homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
+            //log.debug("blah");
             categoriesHome = (LocalDDECategoriesHome)
                     homeBindings.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
             log.debug("blah");
@@ -1631,67 +1629,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             ejbContext.setRollbackOnly();
             throw new CatalogException(
                     "Failed to create security role for component: "
-                    + exception.toString());
-        } catch (RemoteException exception) {
-            throw new EJBException(exception.toString());
-        }
-    }
-
-    private void createForumRoles(long forumId, long forumType)
-            throws CatalogException {
-        /*
-         * This is a convenience method to create the security roles for forums.
-         * Currently, it has to call createRoles with null for the requestor.
-         * This only works because createRoles has not implemented permission
-         * checking yet. This functionality does not really belong in the
-         * component catalog.
-         */
-        PermissionCollection perms = null;
-        RolePrincipal role = null;
-        RolePrincipal adminRole = null;
-        RolePrincipal collabModeratorRole = null;
-        RolePrincipal specUserRole = null;
-        RolePrincipal specModeratorRole = null;
-        try {
-            PrincipalMgrRemote principalManager = principalmgrHome.create();
-            PolicyMgrRemote policyManager = policymgrHome.create();
-
-            adminRole = principalManager.getRole(Long.parseLong(getConfigValue("administrator_role")));
-            collabModeratorRole = principalManager.getRole(Long.parseLong(getConfigValue("collaboration_moderator_role")));
-            specUserRole = principalManager.getRole(Long.parseLong(getConfigValue("specification_user_role")));
-            specModeratorRole = principalManager.getRole(Long.parseLong(getConfigValue("specification_moderator_role")));
-            if (forumType == ForumCategory.SPECIFICATION) {
-                role = principalManager.createRole("ForumUser " + forumId, null);
-                perms = new PermissionCollection();
-                perms.addPermission(new ForumPostPermission(forumId));
-                policyManager.addPermissions(role, perms, null);
-                policyManager.addPermissions(adminRole, perms, null);
-                policyManager.addPermissions(specUserRole, perms, null);
-            }
-
-            role = principalManager.createRole("ForumModerator " + forumId, null);	// the problem is here
-            perms = new PermissionCollection();
-            perms.addPermission(new ForumModeratePermission(forumId));
-            policyManager.addPermissions(role, perms, null);
-            policyManager.addPermissions(adminRole, perms, null);
-            if (forumType == ForumCategory.SPECIFICATION) {
-                policyManager.addPermissions(specModeratorRole, perms, null);
-            } else {
-                policyManager.addPermissions(collabModeratorRole, perms, null);
-            }
-
-        } catch (ConfigManagerException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to obtain configuration data: " + exception.toString());
-        } catch (CreateException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to create security roles for forum: "
-                    + exception.toString());
-        } catch (GeneralSecurityException exception) {
-            throw new CatalogException(
-                    "Failed to create security roles for forum: "
                     + exception.toString());
         } catch (RemoteException exception) {
             throw new EJBException(exception.toString());

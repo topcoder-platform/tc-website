@@ -66,7 +66,6 @@
         <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
         <pathelement location="${jars.dir}/tcs/file_class/1.0/file_class.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload.jar"/>
-        <pathelement location="${jars.dir}/tcs/forum.jar"/>
         <pathelement location="${jars.dir}/tcs/job_scheduling.jar"/>
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/math_matrix.jar"/>
@@ -248,11 +247,6 @@
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/catalog/**"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/DDEException.class"/>
             <metainf dir="${java.dir}/com/topcoder/dde/catalog" includes="*.xml"/>
-        </jar>
-
-        <jar jarfile="${ejb.jars.dir}/ddeforum.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/forum/**"/>
-            <metainf dir="${java.dir}/com/topcoder/dde/forum" includes="*.xml"/>
         </jar>
 
         <jar jarfile="${ejb.jars.dir}/ddePersistenceLayer.jar">
@@ -582,9 +576,6 @@
             </fileset>
             <fileset dir="${jars.dir}">
                 <include name="idgenerator.jar"/>
-            </fileset>
-            <fileset dir="${jars.dir}/tcs">
-                <include name="forum.jar"/>
             </fileset>
         </ear>
     </target>
