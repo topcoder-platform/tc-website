@@ -1550,7 +1550,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             conn = DBMS.getConnection();
 
-            if (ad.getText() == null) {
+            if (ad.getText() == null || ad.getText().trim().length() == 0) {
                 log.debug("get the assignment document text from the db");
                 AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(conn, ad.getType().getId().longValue());
                 ad.setText(adt.transformTemplate(ad));

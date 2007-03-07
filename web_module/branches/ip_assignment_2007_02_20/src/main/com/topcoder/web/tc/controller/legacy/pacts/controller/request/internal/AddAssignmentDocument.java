@@ -97,7 +97,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                         u.setId(new Long(userId));
                         ad.setUser(u);
                         log.info("6");
-                        ad.setText(assignmentDocumentText.trim());
+                        ad.setText(assignmentDocumentText);
                         log.info("7");
                         ad.setType(new AssignmentDocumentType(new Long(getRequest().getParameter("assignment_document_type_id"))));
                         ad.setStatus(new AssignmentDocumentStatus(new Long(getRequest().getParameter("assignment_document_status_id"))));
@@ -143,7 +143,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     setDefault("reference_id", "0");
                     setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
                     setDefault("assignment_document_status_id", String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
-                    setDefault("assignment_document_text", "TODO: use template");
+                    setDefault("assignment_document_text", "");
                     getRequest().setAttribute("reference_description", "Enter search text for component name:");
                     getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(userId)));
                     getRequest().setAttribute(ASSIGNMENT_DOCUMENT_ID, "0");
