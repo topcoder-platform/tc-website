@@ -27,10 +27,10 @@ public class ViewSponsorRegistration extends ViewRegistrationBase {
         EventRegistration er = u.getEventRegistration(e);
         if (er != null) {
             getRequest().setAttribute("eligible", er.isEligible());
-            setNextPage("/tournaments/tco07/sponsorTermsSuccess.jsp");
+            setNextPage("/tournaments/tco07/sponsortrack/termsSuccess.jsp");
         } else {
             getRequest().setAttribute("questions", new ArrayList(e.getSurvey().getQuestions()));
-            setNextPage("/tournaments/tco07/sponsorTerms.jsp");
+            setNextPage("/tournaments/tco07/sponsortrack/terms.jsp");
         }
         setIsNextPageInContext(true);
     }

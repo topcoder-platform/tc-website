@@ -89,9 +89,9 @@ public class SubmitSponsorRegistration extends SubmitRegistrationBase {
     protected void setNextPage(Event e, User u) {
         if (hasErrors()) {
             getRequest().setAttribute("questions", new ArrayList(e.getSurvey().getQuestions()));
-            setNextPage("/tournaments/tco07/sponsorTerms.jsp");
+            setNextPage("/tournaments/tco07/sponsortrack/terms.jsp");
         } else {
-            setNextPage("/tournaments/tco07/sponsorTermsSuccess.jsp");
+            setNextPage("/tournaments/tco07/sponsortrack/termsSuccess.jsp");
         }
         setIsNextPageInContext(true);
     }
