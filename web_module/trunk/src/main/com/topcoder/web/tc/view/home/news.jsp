@@ -6,12 +6,12 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.07.07<br>11:30 AM</td>
        <td class="newsTextCell"><span class="newsTitle">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">TCO07 Marathon Match Online Round #1 starts today</A>
+         <A href="/longcontest/?module=ViewActiveContests">TCO07 Marathon Match Online Round #1 starts today</A>
          </span><br><br>
         The first round of the 2007 TopCoder Open Marathon Match competition, brought to you by VeriSign, starts today at Noon EST. Good luck!
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">full story</A> | 
+        <A href="/longcontest/?module=ViewActiveContests">details</A> | 
         <tc-webtag:forumLink forumID="514578" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
