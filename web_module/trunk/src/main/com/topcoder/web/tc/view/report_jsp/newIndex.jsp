@@ -190,6 +190,9 @@ Private Label Reports
 Other
 <UL>
     <LI>
+        <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=event_registration&"+Constants.DB_KEY+"="+DBMS.OLTP_DATASOURCE_NAME%>">General Event Registration</A></LI>
+
+	<LI>
         <A HREF="<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=tco07_reg&"+Constants.DB_KEY+"="+DBMS.OLTP_DATASOURCE_NAME%>">TCO
             07 Reg Info</A></LI>
     <LI>
