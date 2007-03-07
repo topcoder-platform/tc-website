@@ -57,6 +57,7 @@ public class Constants implements CodingInterfaceConstants {
     public static String DEFAULT_SYSTEM_TEST_RESULTS_ROW_COUNT;
     public static int LONG_PRACTICE_ROUND_TYPE_ID;
     public static int LONG_ROUND_TYPE_ID;
+    public static int LONG_ROUND_TOURNAMENT_TYPE_ID;
     public static int INTEL_LONG_PRACTICE_ROUND_TYPE_ID;
     public static int INTEL_LONG_ROUND_TYPE_ID;
 
