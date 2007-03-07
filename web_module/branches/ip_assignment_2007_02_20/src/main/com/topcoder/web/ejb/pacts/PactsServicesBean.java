@@ -1445,12 +1445,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public AssignmentDocumentTemplate getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTypeId) {
+        boolean closeConnection = false;
         PreparedStatement ps = null;
         ResultSet rs = null;
         ResultSetContainer rsc = null;
 
         try {
             if (conn == null) {
+                closeConnection = true;
                 conn = DBMS.getConnection();
             }
 
@@ -1487,7 +1489,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } finally {
             close(rs);
             close(ps);
-            close(conn);
+            if (closeConnection) {
+                close(conn);
+            }
         }
     }
     
