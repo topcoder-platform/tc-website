@@ -96,7 +96,7 @@
                     <c:choose>
                     <c:when test="${registered}">
                     <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <div class="buttonIsOff" style="width: 60px;">Register</a>
+                        <div class="buttonIsOff" style="width: 60px;">Register</div>
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
                         <a class="button" style="width: 60px;" href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Submit</a>
@@ -112,7 +112,7 @@
                         <a class="button" style="width: 60px;" href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Register</a>
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <div class="buttonIsOff" style="width: 60px;">Submit</a>
+                        <div class="buttonIsOff" style="width: 60px;">Submit</div>
                     </td>
                 </tr>
                 <tr>
@@ -172,29 +172,34 @@ ${contest.prizeDescription.value}
 
 <h2>Eligibility</h2>
 
-<p>You must be a Microsoft Connected Services Sandbox (<a href="http://www.networkmashups.com" target="blank">www.networkmashups.com</a>)
-    member, at least 18 years of age, meeting all of the membership requirements.
-    In addition, you must fit into one of the following categories.
+
+<p>You are eligible to enter and may sign-up and compete in this Contest Series or any individual Contest if you satisfy
+    all of the following requirements:
+    <ul>
+        <li>You are 18 years or older at the time of entry; and</li>
+        <li>You are a registered member of the Microsoft Connected Services Sandbox community in good standing. Those
+            wishing to learn more about the Microsoft Connected Services Sandbox community can find more information at
+            <a href="http://www.networkmashups.com" target="blank">www.networkmashups.com</a>.
+        </li>
+    </ul>
+</p>
+<p>
+    You are not eligible to enter this Contest Series or any individual Contest if you are:
+    <ul>
+        <li>Employed by TopCoder, Microsoft, or the applicable Sponsor or any of their respective parent companies,
+            affiliates, subsidiaries, participating vendors or advertising or promotion agencies, or anyone working
+            directly on this program, product and promotion;
+        </li>
+        <li>An immediate family member of (i.e., parent, sibling, spouse, child), or living in the same household as,
+            any person described in the group described above at the time of entry; or
+        </li>
+        <li>A resident of the Province of Quebec, Canada, or any of the following countries: Cuba, Iran, Iraq, North
+            Korea, Sudan, and Syria.
+        </li>
+    </ul>
 </p>
 
-<p>If you reside in the United States, you must be either:</p>
-<ul>
-    <li>A US Citizen</li>
-    <li>A Lawful Permanent Resident of the US</li>
-    <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
-        permitting unrestricted employment in the U.S.
-    </li>
-</ul>
-<p>If you do not reside in the United States:</p>
-<ul>
-    <li>You must be authorized to perform work in your country of residence.</li>
-</ul>
-
-
-<p>Employees of Microsoft Corporation ("Microsoft"), British Telecom ("BT") and TopCoder, Inc. ("TopCoder"), their
-    affiliated
-    companies, advertising and promotion agencies and immediate family members of each are not eligible. All federal,
-    state and local laws and regulations apply. Void where prohibited.</p>
+<p>All federal, state and local laws and regulations apply. Void where prohibited.</p>
 
 
 <h2>Timeline</h2>
