@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.07.07<br>11:30 AM</td>
+       <td class="newsTextCell"><span class="newsTitle">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">TCO07 Marathon Match Online Round #1 starts today</A>
+         </span><br><br>
+        The first round of the 2007 TopCoder Open Marathon Match competition, brought to you by VeriSign, starts today at Noon EST. Good luck!
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">full story</A> | 
+        <tc-webtag:forumLink forumID="514578" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>03.06.07<br>4:00 PM</td>
        <td class="newsTextCell"><span class="newsTitle">
          <A href="http://csf.topcoder.com/">First Connected Services Sandbox Contest Launches</A>
@@ -33,7 +47,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Payments for algorithm problems increased" border="0" /><br>03.06.07<br>10:30 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>03.06.07<br>10:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=help&d2=problemWriter&node=algo_write">Payments for algorithm problems increased</A></span><br><br>
@@ -50,7 +64,7 @@ With a full problem set now paying $750, now is a great time to write your first
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Prime Numbers, Factorization and Euler Function" border="0" /><br>03.05.07<br>6:15 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial News" border="0" /><br>03.05.07<br>6:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=primeNumbers">Prime Numbers, Factorization and Euler Function</A></span><br><br>
@@ -68,7 +82,7 @@ Prime numbers were extensively studied by the ancient Greek mathematicians. Thou
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="TopCoder Web Video contest now open at Studio" border="0" /><br>03.05.07<br>11:20 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.05.07<br>11:20 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2063">TopCoder Web Video contest now open at Studio</A></span><br><br>
@@ -85,7 +99,7 @@ TopCoder is building a new portal for broadcasting webcasts and showing videos -
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Announcing the Digital Run: Stage 3 Winners" border="0" /><br>03.02.07<br>3:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>03.02.07<br>3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners">Digital Run: Stage 3 Winners</A></span><br><br>
@@ -201,22 +215,5 @@ On Monday, February 26, high school students entered the first round of the ulti
          <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">details</A> | 
          <tc-webtag:forumLink forumID="506199" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.20.07<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm340">SRM 340 - Problem Set & Analysis</A></span><br><br>
-Due to some technical problems with the room assignments, the match started four minutes later than planned, but once things settled down all 1135 contestants were able to start on this SRM.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/krijgertje_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="9906197" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm340">full story</A> | 
-        <tc-webtag:forumLink forumID="506230" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
