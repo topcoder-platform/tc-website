@@ -1371,7 +1371,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             rsc =  new ResultSetContainer(rs, false);
 
             if (rsc.isEmpty()) {
-                throw new IllegalUpdateException("Couldn't find assigment documents for id: " + projectId);
+                return new ArrayList();
             }
             
             List l = new ArrayList();
