@@ -5553,6 +5553,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setInt(1, assignmentdocumentTypeId);
             
             ps.executeUpdate();
+            ps.close();
             
             StringBuffer query = new StringBuffer(1024);
             query.append("insert into assignment_document_template (assignment_document_template_id, assignment_document_type_id, assignment_document_template_text, cur_version)");
