@@ -35,7 +35,7 @@
             <tr>
                 <td id="navSpacer">
 
-                    <jsp:include page="sponsorNav.jsp" >
+                    <jsp:include page="nav.jsp" >
                     <jsp:param name="tabLev1" value="sponsortrack"/>
                     <jsp:param name="tabLev2" value="advancers"/>
                     <jsp:param name="tabLev3" value=""/>
