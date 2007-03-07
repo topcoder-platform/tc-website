@@ -13,7 +13,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-    <jsp:include page="../../script.jsp"/>
+    <jsp:include page="../../../script.jsp"/>
 </head>
 <body>
 
@@ -22,16 +22,16 @@
 <div align="center" style="background: transparent;">
     <div id="content">
 
-        <jsp:include page="../header.jsp"/>
+        <jsp:include page="header.jsp"/>
 
         <table cellpadding="0" cellspacing="0" id="spacer">
             <tbody>
                 <tr>
                     <td id="navSpacer">
 
-                        <jsp:include page="../nav.jsp">
-                            <jsp:param name="tabLev1" value="algorithm"/>
-                            <jsp:param name="tabLev2" value="registrants"/>
+                        <jsp:include page="nav.jsp">
+                            <jsp:param name="tabLev1" value="registrants"/>
+                            <jsp:param name="tabLev2" value=""/>
                             <jsp:param name="tabLev3" value=""/>
                         </jsp:include>
 
@@ -47,14 +47,11 @@
                                 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
                                     <thead>
                                         <tr>
-                                            <td class="title" colspan="3">Registrants: <%=rsc.size()%>
+                                            <td class="title" colspan="2">Registrants: <%=rsc.size()%>
                                             </td>
                                         </tr>
                                         <c:set var="eventId" value="<%=Constants.EVENT_ID%>"/>
                                         <tr>
-                                            <td class="headerC">
-                                                <a href="/tc?module=TCO07ViewRegistrants&${eventId}=${param[eventId]}<tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</a>
-                                            </td>
                                             <td class="header" width="100%">
                                                 <a href="/tc?module=TCO07ViewRegistrants&${eventId}=${param[eventId]}<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
                                             </td>
@@ -67,9 +64,6 @@
                                         <%boolean even = false;%>
                                         <rsc:iterator list='<%=rsc%>' id="resultRow">
                                             <tr class="<%=(even ? "dark" : "light")%>">
-                                                <td class="valueC">
-                                                    <rsc:item name="rank" row='<%=resultRow%>'/>
-                                                </td>
                                                 <td class="value">
                                                     <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/>
                                                 </td>

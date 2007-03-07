@@ -38,8 +38,8 @@
                 <td id="navSpacer">
 
                     <jsp:include page="nav.jsp" >
-                    <jsp:param name="tabLev1" value="sponsortrack"/>
-                    <jsp:param name="tabLev2" value="instructions"/>
+                    <jsp:param name="tabLev1" value="instructions"/>
+                    <jsp:param name="tabLev2" value=""/>
                     <jsp:param name="tabLev3" value=""/>
                     </jsp:include>
 
