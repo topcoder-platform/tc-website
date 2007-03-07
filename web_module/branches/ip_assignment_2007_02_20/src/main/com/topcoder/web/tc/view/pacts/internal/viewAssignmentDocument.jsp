@@ -40,7 +40,7 @@
         </tr>
         <tr>        
             <td><b>Text:</b></td>
-            <td><iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=pacts&d2=internal&d3=viewAssignmentDocument&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe></td>
+            <td><iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=pacts&d2=internal&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe></td>
         </tr>
         <tr>        
             <td><b>Submission title:</b></td>
