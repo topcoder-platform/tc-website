@@ -55,6 +55,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
+            log.info("3");
             // Give the JSP the list of assignment document Types
             List assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
             getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TYPE_LIST, assignmentDocumentTypes);
@@ -62,8 +63,9 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
             // Give the JSP the list of assignment document status
             List assignmentDocumentStatus = dib.getAssignmentDocumentStatus();
             getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
+            log.info("4");
 
-            String assignmentDocumentText = getRequest().getParameter("assignment_document_text").trim();
+            String assignmentDocumentText = getRequest().getParameter("assignment_document_text");
             if (assignmentDocumentText != null) {
                 /*if (assignmentDocumentText.trim().length() == 0) {
                     addError("error", "Please enter a text for the assignment document.");
@@ -73,6 +75,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     addError("error", "Please enter a reference for the assignment document.");
                 }
                 Long referenceId = new Long(getRequest().getParameter("search_list"));
+                log.info("5");
 
                 if (hasErrors()) {
                     setDefault("reference_id", StringUtils.htmlEncode(getRequest().getParameter("reference_id")));
@@ -93,7 +96,9 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                         User u = new User();
                         u.setId(new Long(userId));
                         ad.setUser(u);
-                        ad.setText(assignmentDocumentText);
+                        log.info("6");
+                        ad.setText(assignmentDocumentText.trim());
+                        log.info("7");
                         ad.setType(new AssignmentDocumentType(new Long(getRequest().getParameter("assignment_document_type_id"))));
                         ad.setStatus(new AssignmentDocumentStatus(new Long(getRequest().getParameter("assignment_document_status_id"))));
 
@@ -114,7 +119,9 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                         if (affirmedDate != null) {
                             ad.setAffirmedDate(new Timestamp(affirmedDate.getTime()));
                         }
+                        log.info("8");
                         ad = dib.addAssignmentDocument(ad);
+                        log.info("9");
                         setNextPage(Links.viewAssignmentDocument(ad.getId().longValue()));
                         setIsNextPageInContext(false);
                         return;
@@ -123,7 +130,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     }
                 }
             } else {
-                log.info("3");
+                log.info("3b");
 
                 if (assignmentDocumentId == 0) {
                     // add
@@ -142,19 +149,19 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                     getRequest().setAttribute(ASSIGNMENT_DOCUMENT_ID, "0");
                 } else {
                     // update
-                    log.info("4");
+                    log.info("4b");
                     AssignmentDocument ad = dib.getAssignmentDocument(assignmentDocumentId);
-                    log.info("5");
+                    log.info("5b");
                     setDefault("expire_date", ad.getExpireDate() == null ? "" : new SimpleDateFormat(DATE_FORMAT_STRING).format(ad.getExpireDate()));
-                    log.info("6");
+                    log.info("6b");
                     setDefault("affirmed_date", ad.getAffirmedDate() == null ? "" : new SimpleDateFormat(DATE_FORMAT_STRING).format(ad.getAffirmedDate()));
-                    log.info("7");
+                    log.info("7b");
                     setDefault("assignment_document_type_id", String.valueOf(ad.getType().getId()));
-                    log.info("8");
+                    log.info("8b");
                     setDefault("assignment_document_status_id", String.valueOf(ad.getStatus().getId()));
-                    log.info("9");
+                    log.info("9b");
                     setDefault("assignment_document_text", ad.getText());
-                    log.info("10");
+                    log.info("10b");
                     log.info(ad.getComponentProject().getId().toString());
                     if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
                         setDefault("reference_id", String.valueOf(ad.getComponentProject().getId()));
@@ -163,11 +170,11 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                         setDefault("reference_id", String.valueOf(ad.getStudioContest().getId()));
                         getRequest().setAttribute("reference_description", ad.getStudioContest().getName());
                     }
-                    log.info("11");
+                    log.info("11b");
                     getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(ad.getUser().getId().longValue())));
-                    log.info("12");
+                    log.info("12b");
                     getRequest().setAttribute(ASSIGNMENT_DOCUMENT_ID, ad.getId().toString());
-                    log.info("13");
+                    log.info("13b");
                 }
             }
 
