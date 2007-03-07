@@ -66,6 +66,15 @@
     <td class="valueC">&nbsp;</td>
 </tr>
 <tr class="dark">
+    <td class="value">Midlothian High School</td>
+    <td class="valueC">Alpha</td>
+    <td class="valueC">Advanced</td>
+    <td class="valueC">&nbsp;</td>
+    <td class="valueC">&nbsp;</td>
+    <td class="valueC">&nbsp;</td>
+    <td class="valueC">&nbsp;</td>
+</tr>
+<tr class="dark">
     <td class="value">TJHSST</td>
     <td class="valueC">Alpha</td>
     <td class="valueC">Advanced</td>
