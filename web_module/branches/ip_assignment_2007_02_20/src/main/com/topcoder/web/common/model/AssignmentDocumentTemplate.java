@@ -99,6 +99,8 @@ public class AssignmentDocumentTemplate extends Base {
     
             tc.addTag(a);
     
+            log.info("changed!!!!");
+            log.info("ad.getSubmissionTitle().toString(): " + ad.getSubmissionTitle().toString());
             log.info(tc.getXML(false, 2));
 
             TransformerFactory tFactory = TransformerFactory.newInstance();
