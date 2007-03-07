@@ -5535,6 +5535,56 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+
+            conn = DBMS.getConnection();
+            conn.setAutoCommit(false);
+            setLockTimeout(conn);
+
+            StringBuffer update = new StringBuffer(1024);
+            update.append("update assignment_document_template set cur_version = 0 ");
+            update.append("where assignment_document_type_id = ?");
+
+            ps = conn.prepareStatement(update.toString());
+            ps.setInt(1, assignmentdocumentTypeId);
+            
+            ps.executeUpdate();
+            
+            StringBuffer query = new StringBuffer(1024);
+            query.append("insert into assignment_document_template (assignment_document_template_id, assignment_document_type_id, assignment_document_template_text, cur_version)");
+            query.append("values (?, ?, ?, 1)");
+
+            long assignmentDocumentTemplateId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_TEMPLATE_SEQ");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, assignmentDocumentTemplateId);
+            ps.setInt(2, assignmentdocumentTypeId);
+            ps.setBytes(3, text.getBytes());
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in 'assignment_document_template'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+            conn.commit();
+        } catch (IDGenerationException e) {
+            rollback(conn);
+            throw new EJBException(e);
+        } catch (SQLException e) {
+            rollback(conn);
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            setAutoCommit(conn, true);
+            close(ps);
+            close(conn);
+        }
+    }
+
 
     public Payment getEmptyPayment(long userId) throws SQLException {
         log.debug("getemptypayment called...");

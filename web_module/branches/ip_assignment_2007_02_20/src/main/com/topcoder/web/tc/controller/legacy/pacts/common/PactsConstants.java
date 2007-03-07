@@ -343,6 +343,8 @@ public interface PactsConstants extends Constants {
     public static final String MODULE_KEY = "module";
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
     public static final String AFFIDAVIT_TEXT = "atxt";
+    public static final String ASSIGNMENT_DOCUMENT_TEMPLATE_TEXT = "adtxt";
+    
     public static final String PROJECT_TERMINATION_STATUS = "projts";
 
     // affidavit member jsps
@@ -483,6 +485,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_GENERATE_PAYMENTS = INTERNAL_JSP_DIR + "/generatePayments.jsp";
     public static final String INTERNAL_GENERATE_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/generateComponentPayments.jsp";
     public static final String INTERNAL_CREATE_AFFIDAVIT = INTERNAL_JSP_DIR + "/createAffidavitTemplate.jsp";
+    public static final String INTERNAL_CREATE_ASSIGNMENT_DOCUMENT_TEMPLATE = INTERNAL_JSP_DIR + "/createAssignmentDocumentTemplate.jsp";
     public static final String INTERNAL_AJAX_SELECT_PAYMENT_TYPE_REFERENCE = INTERNAL_AJAX_JSP_DIR + "/selectPaymentTypeReference.jsp";
     public static final String INTERNAL_AJAX_SELECT_ASSIGNMENT_DOCUMENT_TYPE_REFERENCE = INTERNAL_AJAX_JSP_DIR + "/selectAssignmentDocumentTypeReference.jsp";
     public static final String INTERNAL_AJAX_VALIDATE_ASSIGNMENT_DOCUMENT = INTERNAL_AJAX_JSP_DIR + "/validateAssignmentDocument.jsp";

@@ -1647,6 +1647,12 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         ps.createAffidavitTemplate(affidavitTypeId, text);
     }
+    
+    public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        ps.createAssignmentDocumentTemplate(assignmentdocumentTypeId, text);
+    }
+
 
     public Payment getEmptyPayment(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
