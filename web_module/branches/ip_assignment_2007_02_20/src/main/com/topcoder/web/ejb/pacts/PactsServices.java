@@ -261,7 +261,7 @@ public interface PactsServices extends EJBObject {
 
     BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
 
-    void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException;
+    void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException;
 
     AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException;
 

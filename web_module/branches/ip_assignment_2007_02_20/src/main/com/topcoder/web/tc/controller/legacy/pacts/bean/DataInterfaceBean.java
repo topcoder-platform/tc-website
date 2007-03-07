@@ -21,6 +21,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
 import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
 import com.topcoder.web.ejb.pacts.PactsServicesLocal;
@@ -428,7 +429,7 @@ public class DataInterfaceBean implements PactsConstants {
      *
      * @throws  RemoteException If there is some communication problem with the EJB
      */
-    public void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException {
+    public void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException {
         PactsServicesLocal ps = getEjbHandle();
         ps.deleteAssignmentDocument(ad);
     }

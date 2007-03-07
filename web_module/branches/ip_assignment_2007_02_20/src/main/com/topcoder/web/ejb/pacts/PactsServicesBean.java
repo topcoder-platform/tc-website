@@ -1636,7 +1636,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
-    public void deleteAssignmentDocument(AssignmentDocument ad) {
+    public void deleteAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
         Connection conn = null;
         PreparedStatement ps = null;
 
@@ -1654,7 +1654,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // deny the operation if the assignment document is affirmed.
         
         if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)) {
-            throw new IllegalArgumentException("Cannot delete an affirmed Assignment Document");            
+            throw new DeleteAffirmedAssignmentDocumentException("Cannot delete an affirmed Assignment Document");            
         }
         
         // mark as deleted
