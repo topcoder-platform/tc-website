@@ -49,7 +49,7 @@
 
 <a name="eligibility"></a>
 <h2>Eligibility</h2>
-<p>The Sponsor Track Algorithm Competition is open to all employees and interns of the sponsors of the TCO, who are at least 18 years of age as of April 3, 2007 and who are TopCoder members.  TCO sponsor employees and interns may register to become a TopCoder member by navigating to <a href="http://www.topcoder.com/">www.topcoder.com</a> and clicking on "Register" in the upper right corner of the screen.</p>
+<p>The Sponsor Track Algorithm Competition is open to all employees and interns of the sponsors of the TCO, who are at least 18 years of age as of April 3, 2007 and who are TopCoder members.  TCO sponsor employees and interns may register to become a TopCoder member by navigating to <a target="_blank" href="http://www.topcoder.com/">www.topcoder.com</a> and clicking on "Register" in the upper right corner of the screen.</p>
 
 <a name="registration"></a>
 <h2>Registration</h2>
@@ -174,8 +174,8 @@ The Championship Round is the final round of the Sponsor Track Competition.  Up 
 <h2>Other</h2>
 
 <p>The tournament is void in whole or in part where prohibited by law.</p>
-<p>A list of tournament winners by coder handles will be available on the web site at <a href="http://www.topcoder.com/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the tournament.</p>
-<p>This tournament is brought to you by <a href="http://www.topcoder.com/">TopCoder, Inc.</a> 703 Hebron Avenue, Glastonbury, CT 06033.</p>
+<p>A list of tournament winners by coder handles will be available on the web site at <a target="_blank" href="http://www.topcoder.com/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the tournament.</p>
+<p>This tournament is brought to you by <a target="_blank" href="http://www.topcoder.com/">TopCoder, Inc.</a> 703 Hebron Avenue, Glastonbury, CT 06033.</p>
                    </div>
                 </td>
             </tr>
