@@ -11,9 +11,6 @@ public class AssignmentDocumentType extends Base {
     private Long id;
     private String description;
 
-    // TODO: pulky take out template
-    private String template;
-    
     public AssignmentDocumentType() {
     }
 
@@ -48,19 +45,4 @@ public class AssignmentDocumentType extends Base {
     public void setId(Long id) {
         this.id = id;
     }
-
-    /**
-     * @return the template
-     */
-    public String getTemplate() {
-        return template;
-    }
-
-    /**
-     * @param template the template to set
-     */
-    public void setTemplate(String template) {
-        this.template = template;
-    }
-
 }

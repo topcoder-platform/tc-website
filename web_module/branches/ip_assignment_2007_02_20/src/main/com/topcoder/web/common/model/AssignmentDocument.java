@@ -9,6 +9,8 @@ public class AssignmentDocument extends Base {
     private Long id;
     private AssignmentDocumentType type;
     private AssignmentDocumentStatus status;
+    
+    // TODO: pulky change column to TEXT
     private String text;
     private User user;
     private StudioContest studioContest;

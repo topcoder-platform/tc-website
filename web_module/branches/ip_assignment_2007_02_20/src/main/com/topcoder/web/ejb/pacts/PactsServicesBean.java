@@ -37,6 +37,7 @@ import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
+import com.topcoder.web.common.model.AssignmentDocumentTemplate;
 import com.topcoder.web.common.model.AssignmentDocumentType;
 import com.topcoder.web.common.model.ComponentProject;
 import com.topcoder.web.common.model.StudioContest;
@@ -1433,6 +1434,63 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(long assignmentDocumentTypeId) {
+        return getAssignmentDocumentTemplate(null, assignmentDocumentTypeId);
+    }
+    
+    /**
+     * Returns the list of all assignment document status.
+     *
+     * @return The list of assignment document status
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTypeId) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetContainer rsc = null;
+
+        try {
+            if (conn == null) {
+                conn = DBMS.getConnection();
+            }
+
+            log.debug("get the assignment document template from the db");
+            
+            StringBuffer sb = new StringBuffer(100);
+            sb.append("select ");
+            sb.append("assignment_document_template_id, ");
+            sb.append("assignment_document_template_text ");
+            sb.append("from 'informix'.assignment_document_template ");
+            sb.append("where assignment_document_type_id = ? ");
+            sb.append("and cur_version = 1 ");
+            
+            ps = conn.prepareStatement(sb.toString());
+
+            ps.setLong(1, assignmentDocumentTypeId);
+            rs = ps.executeQuery();
+            rsc =  new ResultSetContainer(rs, false);
+
+            if (rsc.isEmpty()) {
+                throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentTypeId);
+            }
+        
+            AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
+            adt.setId(new Long(rsc.getLongItem(0, "assignment_document_template_id")));
+            adt.setText(rsc.getStringItem(0, "assignment_document_template_text"));
+
+            return adt;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+    
     public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1494,20 +1552,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             if (ad.getText() == null) {
                 log.debug("get the assignment document text from the db");
-                StringBuffer getAssignmentDocumentText = new StringBuffer(300);
-                getAssignmentDocumentText.append("SELECT att.text ");
-                getAssignmentDocumentText.append("FROM assignment_document_template asd");
-                getAssignmentDocumentText.append("WHERE asd.cur_version = 1 ");
-                getAssignmentDocumentText.append(" and asd.assignment_document_type_id = ? ");
-                ps = conn.prepareStatement(getAssignmentDocumentText.toString());
-                ps.setLong(1, ad.getType().getId().longValue());
-                rs = ps.executeQuery();
-                ResultSetContainer rsc =  new ResultSetContainer(rs, false);
-
-                if (rsc.isEmpty()) {
-                    throw new IllegalUpdateException("Couldn't find an assigment document for type: " + ad.getType().getId());
-                }
-                ad.setText(rsc.getStringItem(0, "text"));
+                AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(conn, ad.getType().getId().longValue());
+                ad.setText(adt.transformTemplate(ad));
             }
 
             StringBuffer query = new StringBuffer(1024);
