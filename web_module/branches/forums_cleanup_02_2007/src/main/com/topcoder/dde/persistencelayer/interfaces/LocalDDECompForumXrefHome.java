@@ -6,7 +6,7 @@ import javax.ejb.FinderException;
 import java.util.Collection;
 
 /**
- * The local home interface representing the CMP bean for the comp_forum_xref table.
+ * The local home interface representing the CMP bean for the comp_jive_category_xref table.
  *
  * @version     1.0
  * @author      Timur Zambalayev

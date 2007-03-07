@@ -197,7 +197,7 @@ public class ProjectUtil {
         close(ps);
     }
 
-    static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumId) throws SQLException, BaseException {
+    static long createProject(Connection conn, String projectVersion, long compVersId, long projectTypeId, long modUserId, long forumCategoryId) throws SQLException, BaseException {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -271,7 +271,7 @@ public class ProjectUtil {
         ps.executeUpdate();
         close(ps);
 
-        prepareProjectInfo(conn, compVersId, projectId, modUserId, forumId);
+        prepareProjectInfo(conn, compVersId, projectId, modUserId, forumCategoryId);
 
         // Prepare project_audit the modify reason is Created
         ps = conn.prepareStatement("INSERT INTO project_audit " +
@@ -494,13 +494,13 @@ public class ProjectUtil {
         }
     }
 
-    private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId, long forumId) throws SQLException {
+    private static void prepareProjectInfo(Connection conn, long compVersId, long projectId, long modUserId, long forumCategoryId) throws SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         long componentId = -1;
         int version = -1;
         String versionText = "";
-        long rootCatagoryId = -1;
+        long rootCategoryId = -1;
         String componentName = "";
         float price = (float) 0.0;
         int phaseId = -1;
@@ -520,13 +520,13 @@ public class ProjectUtil {
         close(rs);
         close(ps);
 
-        // forum id
-        if (forumId == -1) {
-            ps = conn.prepareStatement("SELECT * FROM comp_forum_xref where comp_vers_id = ?  and forum_type = 2");
+        // forum category id
+        if (forumCategoryId == -1) {
+            ps = conn.prepareStatement("SELECT * FROM comp_jive_category_xref where comp_vers_id = ? and forum_type = 2");
             ps.setLong(1, compVersId);
             rs = ps.executeQuery();
             if (rs.next()) {
-                forumId = rs.getLong("forum_id");
+                forumCategoryId = rs.getLong("jive_category_id");
             }
             close(rs);
             close(ps);
@@ -537,7 +537,7 @@ public class ProjectUtil {
         ps.setLong(1, componentId);
         rs = ps.executeQuery();
         if (rs.next()) {
-            rootCatagoryId = rs.getLong("root_category_id");
+            rootCategoryId = rs.getLong("root_category_id");
             componentName = rs.getString("component_name");
         }
 
@@ -545,12 +545,12 @@ public class ProjectUtil {
         close(ps);
 
         // check if it's aol
-        if (rootCatagoryId == 5801776) {
+        if (rootCategoryId == 5801776) {
             ps = conn.prepareStatement("select category_id from comp_categories where component_id = ? and category_id = 22774808");
             ps.setLong(1, componentId);
             rs = ps.executeQuery();
             if (rs.next()) {
-                rootCatagoryId = 22774808;
+                rootCategoryId = 22774808;
             }
             close(rs);
             close(ps);
@@ -583,10 +583,10 @@ public class ProjectUtil {
         createProjectInfo(ps, projectId, 3, String.valueOf(version), modUserId);
 
         // forum id
-        createProjectInfo(ps, projectId, 4, String.valueOf(forumId), modUserId);
+        createProjectInfo(ps, projectId, 4, String.valueOf(forumCategoryId), modUserId);
 
-        // rootCatagoryId
-        createProjectInfo(ps, projectId, 5, String.valueOf(rootCatagoryId), modUserId);
+        // rootCategoryId
+        createProjectInfo(ps, projectId, 5, String.valueOf(rootCategoryId), modUserId);
 
         // component name
         createProjectInfo(ps, projectId, 6, componentName, modUserId);

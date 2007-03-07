@@ -807,7 +807,6 @@ public class ComponentManagerBean
             }
         }
 
-        long newForum = -1;
         long categoryID = -1;
 
         // If the version is changing to specification or development
@@ -956,7 +955,7 @@ public class ComponentManagerBean
                         null,
                         requestor,
                         levelId,
-                        newForum);
+                        categoryID);
 
 
                 if (categoryID >= 0) {

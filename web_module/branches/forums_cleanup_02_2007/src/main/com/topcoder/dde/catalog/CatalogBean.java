@@ -1090,7 +1090,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append("  FROM ");
             query.append(forumDbName).append(":jivecategory cat, ");
             query.append(forumDbName).append(":jivecategoryprop p, ");
-            query.append("		 comp_versions v, comp_forum_xref x, comp_catalog c ");
+            query.append("		 comp_versions v, comp_jive_category_xref x, comp_catalog c ");
             query.append(" WHERE x.jive_category_id = cat.categoryid      ");
             query.append("   AND x.comp_vers_id = v.comp_vers_id           ");
             query.append("   AND c.component_id = ?                        ");
