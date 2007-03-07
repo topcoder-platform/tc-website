@@ -249,22 +249,22 @@ public class Submit extends Base {
                 }
                 try {
                     lock();
-                    
+
                     LongCompileResponse res = null;
                     try {
                         //Tell the user that the code is compiling...
                         showProcessingPage();
-                        
+
                         res = TestServicesLocator.getService().submitLong(lcr);
                     } catch (ServerException e) {
                         if (e.getCause() != null) {
                             throw (Exception) e.getCause();
                         }
                         throw e;
-                    } finally { 
+                    } finally {
                         unlock();
                     }
-    
+
                     // Records errors and other info
                     if (res.getCompileStatus()) { // everything went ok! :)
                         closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
@@ -383,8 +383,7 @@ public class Submit extends Base {
         DBServices dbs = DBServicesLocator.getService();
 
 
-        if (!dbs.isLongComponentOpened((int) uid, (int) rid, (int) cid))
-        { // Is there a record of the user opening the problem?
+        if (!dbs.isLongComponentOpened((int) uid, (int) rid, (int) cid)) { // Is there a record of the user opening the problem?
             dbs.coderOpenLongComponent((int) uid, (int) cd, (int) rid, (int) cid);
         }
 
@@ -420,7 +419,8 @@ public class Submit extends Base {
         ret.add(CPPLanguage.CPP_LANGUAGE);
         ret.add(VBLanguage.VB_LANGUAGE);
         ret.add(CSharpLanguage.CSHARP_LANGUAGE);
-        if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID || roundType == Constants.LONG_ROUND_TYPE_ID) {
+        if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID || roundType == Constants.LONG_ROUND_TYPE_ID
+                || roundType == Constants.LONG_ROUND_TOURNAMENT_TYPE_ID) {
             ret.add(PythonLanguage.PYTHON_LANGUAGE);
         }
         return ret;

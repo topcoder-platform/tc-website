@@ -52,6 +52,7 @@ public abstract class Base extends BaseProcessor {
                 int type = rsc.getIntItem(0, "round_type_id");
                 if (!(type == Constants.LONG_ROUND_TYPE_ID ||
                         type == Constants.LONG_PRACTICE_ROUND_TYPE_ID ||
+                        type == Constants.LONG_ROUND_TOURNAMENT_TYPE_ID ||
                         type == Constants.INTEL_LONG_ROUND_TYPE_ID ||
                         type == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID)) {
                     throw new NavigationException("Invalid round specified, wrong type");
