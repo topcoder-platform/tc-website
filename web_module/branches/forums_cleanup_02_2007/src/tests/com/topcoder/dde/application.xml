@@ -37,12 +37,6 @@
         <ejb>admin.jar</ejb>
     </module>
     <module>
-        <ejb>ddeforum.jar</ejb>
-    </module>
-    <module>
-        <ejb>forum.jar</ejb>
-    </module>
-    <module>
         <java>upload.jar</java>
     </module>
     <module>

@@ -105,7 +105,6 @@
 
         <!--
                 <pathelement location="${jars.dir}/render.jar"/>
-                <pathelement location="${jars.dir}/tcs/forum.jar"/>
                 <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
                 <pathelement location="${jars.dir}/tcs/simple_cache.jar"/>
                 <pathelement location="${jars.dir}/tcs/refreshable_cache.jar"/>

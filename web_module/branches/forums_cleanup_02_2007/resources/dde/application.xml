@@ -19,16 +19,10 @@
         <ejb>catalog.jar</ejb>
     </module>
     <module>
-        <ejb>ddeforum.jar</ejb>
-    </module>
-    <module>
         <ejb>ddePersistenceLayer.jar</ejb>
     </module>
     <module>
         <ejb>ddesubmission.jar</ejb>
-    </module>
-    <module>
-        <ejb>forum.jar</ejb>
     </module>
     <module>
         <ejb>forums.jar</ejb>
