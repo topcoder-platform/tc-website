@@ -52,12 +52,13 @@ crappy looking to save space on the transmission
 </td>
 <td class="value" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
 ${submission.originalFileName}
+<%--
 </td>
 <td class="value" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
-
+--%>
 <div id="pop${submission.id}" class="popUp"><div>View submission</div></div>
 <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-<img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()" />
+<img src="/i/layout/magnify.gif" alt="" align="absmiddle" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()" />
 </A>
 
 </td>
@@ -132,9 +133,6 @@ Pending
 </td>
 </c:otherwise>
 </c:choose>
-<td class="valueE" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
-<div>&#160;</div>
-</td>
 </tr>
 <% even = !even;%>
 </c:forEach>
