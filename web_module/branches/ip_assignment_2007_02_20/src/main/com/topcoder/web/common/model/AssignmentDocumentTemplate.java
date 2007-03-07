@@ -95,7 +95,7 @@ public class AssignmentDocumentTemplate extends Base {
             Calendar date = Calendar.getInstance();
             date.setTime(new Date());
             a.addTag(new ValueTag("current_date", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime())));
-            a.addTag(new ValueTag("submission_title", ad.getSubmissionTitle()));
+            a.addTag(new ValueTag("submission_title", ad.getSubmissionTitle().toString()));
     
             tc.addTag(a);
     
