@@ -46,9 +46,14 @@ String compType = (String) request.getAttribute("ct"); %>
 <thead>
     <tr><td class="title" colspan="3">Registrants: <%=rsc.size()%></td></tr>
     <tr>
-        <td class="headerC">
-            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</a>
+        <td class="headerC" nowrap="nowrap">
+            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">TCO Rank</a>
         </td>
+<%-- show after seeds are assigned
+        <td class="headerC">
+            <a href="">Seed</a>
+        </td>
+--%>
         <td class="header" width="100%">
             <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
         </td>
@@ -64,6 +69,11 @@ String compType = (String) request.getAttribute("ct"); %>
                 <td class="valueC">
                     <rsc:item name="rank" row='<%=resultRow%>'/>
                 </td>
+<%--
+                <td class="valueC">
+                    1234
+                </td>
+--%>
                 <td class="value">
                     <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/>
                 </td>
