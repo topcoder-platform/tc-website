@@ -27,8 +27,7 @@ Searches<br>
    out.print("Contracts</a> | ");
 
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
-   out.print(PactsConstants.CMD_STRING+"="+PactsConstants.ASSIGNMENT_DOCUMENT_CMD+"\">");
+   out.print(PactsConstants.MODULE_KEY+"=SearchAssignmentDocument\">");
    out.print("Assignment Documents</a> | ");
 
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");

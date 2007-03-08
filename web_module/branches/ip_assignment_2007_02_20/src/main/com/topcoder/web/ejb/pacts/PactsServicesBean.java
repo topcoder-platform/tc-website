@@ -1497,7 +1497,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
-    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) {
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -1552,7 +1552,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
                 (ad.getStatus().getId().equals(AssignmentDocumentStatus.DELETED_STATUS_ID) ||
                     ad.getStatus().getId().equals(AssignmentDocumentStatus.REJECTED_STATUS_ID))) {
-                throw new IllegalArgumentException("Assignment Document cannot be deleted or rejected since it was affirmed");
+                throw new DeleteAffirmedAssignmentDocumentException("Assignment Document cannot be deleted or rejected since it was affirmed");
             }
         }
         

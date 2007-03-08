@@ -85,13 +85,6 @@ public class AssignmentDocumentTemplate extends Base {
             a.addTag(new ValueTag("province", profile.getProvince()));
             a.addTag(new ValueTag("country_name", profile.getCountry()));
 
-            // now fill in the holes with the user profile
-            a.addTag(new ValueTag("email", profile.getEmail()));
-            a.addTag(new ValueTag("home_phone", profile.getHomePhone()));
-            a.addTag(new ValueTag("work_phone", profile.getWorkPhone()));
-            a.addTag(new ValueTag("handle", profile.getHeader().getHandle()));
-            a.addTag(new ValueTag("coder_type_desc", profile.getCoderTypeDesc()));
-
             Calendar date = Calendar.getInstance();
             date.setTime(new Date());
             a.addTag(new ValueTag("current_date", new SimpleDateFormat("MM/dd/yyyy").format(date.getTime())));
