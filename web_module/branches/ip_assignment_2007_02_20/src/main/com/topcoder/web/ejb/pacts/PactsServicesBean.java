@@ -1340,37 +1340,63 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
     private AssignmentDocument createAssignmentDocumentBean(Connection conn, ResultSetRow rsr) throws SQLException {
         AssignmentDocument ad = new AssignmentDocument();
+        log.debug("a1");
         ad.setId(new Long(rsr.getLongItem("assignment_document_id")));
+        log.debug("a2");
         ad.setAffirmedDate(rsr.getTimestampItem("affirmed_date"));
+        log.debug("a3");
         ad.setExpireDate(rsr.getTimestampItem("expire_date"));
+        log.debug("a4");
     
         UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rsr.getLongItem("user_id")));
+        log.debug("a5");
         User u = new User();
+        log.debug("a6");
         u.setId(new Long(user.getId()));
+        log.debug("a7");
         u.setHandle(user.getHandle());
+        log.debug("a8");
         ad.setUser(u);
+        log.debug("a9");
         
         ad.setText(rsr.getStringItem("assignment_document_text"));
+        log.debug("a10");
         ad.setSubmissionTitle(rsr.getStringItem("assignment_document_submission_title"));
+        log.debug("a11");
 
         AssignmentDocumentType adt = new AssignmentDocumentType();
+        log.debug("a12");
         adt.setId(new Long(rsr.getLongItem("assignment_document_type_id")));
+        log.debug("a13");
         adt.setDescription(rsr.getStringItem("assignment_document_type_desc"));
+        log.debug("a14");
         ad.setType(adt);
+        log.debug("a15");
         
         AssignmentDocumentStatus ads = new AssignmentDocumentStatus();
+        log.debug("a16");
         ads.setId(new Long(rsr.getLongItem("assignment_document_status_id")));
+        log.debug("a17");
         ads.setDescription(rsr.getStringItem("assignment_document_status_desc"));
+        log.debug("a18");
         ad.setStatus(ads);
+        log.debug("a19");
         
         if (rsr.getItem("component_project_id").getResultData() != null) {
+            log.debug("a20");
             ComponentProject cp = findComponentProjectById(rsr.getLongItem("component_project_id"));
+            log.debug("a21");
             ad.setComponentProject(cp);
         }
+        log.debug("a22");
         if (rsr.getItem("studio_contest_id").getResultData() != null) {
+            log.debug("a23");
             StudioContest c = findStudioContestsById(rsr.getLongItem("studio_contest_id"));
+            log.debug("a24");
             ad.setStudioContest(c);
+            log.debug("a25");
         }
+        log.debug("a26");
     
         return ad;
     }
