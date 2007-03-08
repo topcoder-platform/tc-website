@@ -285,12 +285,6 @@
                 Connected Services Sandbox Launches
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_021207">...more</A><br>[February 12]<br><br>
 
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/chinadaily_logo.png" alt="China Daily logo" width="67" height="25" border="0"/>
-                </div>
-                Undergraduate VP of multinational company
-                <A href="http://www.chinadaily.com.cn/china/2006-12/08/content_754200.htm">...more</A><br>[December 8]<br><br>
-
             </td>
         </tr>
         <tr>
