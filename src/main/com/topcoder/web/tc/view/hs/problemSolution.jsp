@@ -116,7 +116,8 @@
     <jsp:param name="title" value="Problem Solution"/>
 </jsp:include>
 
-<span class="subtitle"><%=sSeason%> > <A href="<%= roundOverviewLink %>" class="bcLink"><%=sMatch%></A> > <A href="<%=roomStatsLink%>" class="bcLink"><%= sRoomName %></A></span>
+<span class="subtitle"><%=sSeason%> > <A href="<%= roundOverviewLink %>" class="bcLink"><%=sMatch%></A> > <A href="<%=roomStatsLink%>" class="bcLink"><%= sRoomName %></A> >                <tc-webtag:handle coderId='<%= sCoderId %>' context='<%=context%>'/>
+ </span>
 <br>
 <br><br>
 <%--
