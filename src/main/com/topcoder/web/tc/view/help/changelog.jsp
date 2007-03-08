@@ -45,7 +45,8 @@
 <p>
     5.8.3 - 2007.03.xx
     <ul>
-        <li>Fix but in link tracking system where it didn't track the referrer</li>
+        <li>Fix bug in link tracking system where it didn't track the referrer</li>
+        <li>Fix link to room in HS problem solution page</li>
     </ul>
 </p>
 <p>
