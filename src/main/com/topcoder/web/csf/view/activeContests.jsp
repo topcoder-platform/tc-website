@@ -55,7 +55,7 @@
 <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
     <thead>
         <tr>
-            <td class="title" colspan="6"><span class="title">Competitions</span></td>
+            <td class="title" colspan="7"><span class="title">Competitions</span></td>
         </tr>
         <tr>
             <td class="header" width="100%">
@@ -71,6 +71,9 @@
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("amount")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Payment</a>
             </td>
             <td class="headerR">
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
+            </td>
+            <td class="headerR">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
             </td>
             <td class="header">&nbsp;</td>
@@ -78,7 +81,7 @@
         <c:choose>
             <c:when test="${fn:length(contests)==0}">
                 <tr class="light">
-                    <td class="valueC" colspan="6">
+                    <td class="valueC" colspan="7">
                         <div align="center" style="margin: 40px 0px 40px 0px;">
                             There are currently no active contests, but check back soon.
                         </div>
@@ -102,6 +105,9 @@
                         </td>
                         <td class="valueR" nowrap="nowrap">
                             <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
+                        </td>
+                        <td class="valueR">
+                            <rsc:item name="registrants" row="<%=resultRow%>"/>
                         </td>
                         <td class="valueR">
                             <rsc:item name="submission_count" row="<%=resultRow%>"/>
