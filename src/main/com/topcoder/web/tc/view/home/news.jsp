@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>03.08.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=030807">Test Drive: OpenLaszlo</A></span><br><br>
+       With the advent of Web 2.0, it became clear that better tools were needed to develop interactive applications. Before too long, there were a flurry of new AJAX toolkits, including GWT, Dojo, ATLAS and more. OpenLaszlo is a recent, open-source addition to this group.</td>
+      <td class="newsPhoto"><img src="/i/m/mindboggler_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="16067996" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=030807">full story</A> | 
+         <tc-webtag:forumLink forumID="514662" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.07.07<br>11:30 AM</td>
        <td class="newsTextCell"><span class="newsTitle">
          <A href="/longcontest/?module=ViewActiveContests">TCO07 Marathon Match Online Round #1 starts today</A>
@@ -200,20 +216,5 @@ On Monday, February 26, high school students entered the first round of the ulti
          <A href="/tc?module=Static&d1=tutorials&d2=mmIntro2">full story</A> | 
          <tc-webtag:forumLink forumID="514346" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>02.22.07<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">TCHS 07 registration closes this weekend</A>
-        </span><br><br>
-      Just a friendly reminder for anyone interested in registering for the TopCoder High School tournament that registration closes Sunday, February 25, 2007 at 6:00 PM EST.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">details</A> | 
-         <tc-webtag:forumLink forumID="506199" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 

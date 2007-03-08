@@ -43,7 +43,7 @@
     <A href="/tc?module=Static&d1=features&d2=archive">Archive</A><br>
     <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
-    <tc-webtag:forumLink forumID="514506" message="Discuss this article" />
+    <tc-webtag:forumLink forumID="514662" message="Discuss this article" />
 </div>
 
 <span class="bigTitle">Test Drive: OpenLaszlo</span>
@@ -63,7 +63,7 @@
 
 <p>With hypertext the World Wide Web was born, but the technology that the hypertext revolution brought into existence was far too powerful to be limited to just storing and retrieving documents. Technologists and geeks around the world began to break the limitations and came up with far more interesting things to do with the Web. What began as &ldquo;Remote Scripting&rdquo; (coined by Microsoft in 1998) and Rich Internet Application (coined by Macromedia in 2002) became all the rage with AJAX.</p>
 
-<p>The World Wide Web had evolved from a medium for sharing documents into a medium for distributing networked applications, or Web 2.0 (coined by, well, everybody). Through all this, it became clear that there was a need for better tools to develop more interactive applications. Before too long, there were a flurry of new AJAX toolkits around, including GWT, Dojo, ATLAS, echo and so forth. OpenLaszlo is a recent, open-source addition to this group. </p>
+<p>The World Wide Web had evolved from a medium for sharing documents into a medium for distributing networked applications, or Web 2.0 (coined by, well, everybody). Through all this, it became clear that there was a need for better tools to develop more interactive applications. Before too long, there were a flurry of new AJAX toolkits around, including GWT, Dojo, ATLAS, echo and so forth. <a href="http://www.openlaszlo.org/" target="_blank">OpenLaszlo</a> is a recent, open-source addition to this group. </p>
 
 <p>I stumbled upon OpenLaszlo through my work on a project called Cached Web Application. The vision of this project is to gradually step towards the &quot;Global Internet Brain&quot; described in the paper &ldquo;<a href="<tc-webtag:linkTracking link="http://www.santafe.edu/~gmk/Pubs/InfoSoc/"/>" target="_blank" refer="feature 030807"/>The Global Brain As An Emergent Structure From The Worldwide Computing Network, And Its Implications For Modeling</a>,&quot; by G. Mayer-Kress and C. Barczys. This paper proposes an Internet in which all the information stored on the various servers is acted upon by user agents in ways beyond the creator&rsquo;s imagination. </p>
 
@@ -215,12 +215,12 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
 	<thead>
 		<tr nowrap="nowrap">
-    <td></td>
+    <td class="headerC"></td>
     <td class="headerC">OpenLaszlo</td>
-    <td  class="headerC">GWT</td>
-    <td  class="headerC">Dojo</td>
-    <td  class="headerC">Atlas</td>
-    <td  class="headerC">Yahoo UI Library</td>
+    <td class="headerC">GWT</td>
+    <td class="headerC">Dojo</td>
+    <td class="headerC">Atlas</td>
+    <td class="headerC">Yahoo UI Library</td>
   </tr>
    </thead>
    <tbody>
