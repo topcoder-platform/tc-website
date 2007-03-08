@@ -12,8 +12,8 @@
         </id>
         <property name="contestId" column="contest_id" access="field"/>
         <property name="name" column="event_name" access="field"/>
-        <property name="startDate" type="date" column="request_start_date" access="field"/>
-        <property name="endDate" type="date" column="request_end_date" access="field"/>
+        <property name="startDate" type="timestamp" column="request_start_date" access="field"/>
+        <property name="endDate" type="timestamp" column="request_end_date" access="field"/>
     </class>
 </hibernate-mapping>
 
