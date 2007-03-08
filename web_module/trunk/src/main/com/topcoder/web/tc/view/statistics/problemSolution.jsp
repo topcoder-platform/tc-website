@@ -52,10 +52,12 @@
 
     ResultSetContainer.ResultSetRow resultRowHdr = rscHdr.isValidRow(0) ? rscHdr.getRow(0) : null;
 
-    String sHeader = "";
+    String sMatch = "";
+    String sRoomName = "";
 
     if (resultRowHdr != null) {
-        sHeader = resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(2).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(3).toString();
+        sMatch = resultRowHdr.getItem(0).toString() + "&nbsp;&gt;&nbsp;" + resultRowHdr.getItem(1).toString();
+        sRoomName = resultRowHdr.getItem(2).toString();
     }
 
 //get the Problem Name info
@@ -67,6 +69,10 @@
     ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Submission");
     ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0) ? rsc.getRow(0) : null;
     String sSolutionText = resultRow_0 != null ? resultRow_0.getItem("submission_text").toString() : "";
+    
+    String roundOverviewLink = "/stat?c=round_overview&rd=" + sRoundId;
+    String roomStatsLink = "/stat?c=room_stats&rd=" + sRoundId + "&rm=" + sRoomId;
+
 %>
 <%!
     private String addSpace(String text) {
@@ -127,7 +133,7 @@
     </TR>
     <TR>
         <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="8" HEIGHT="18">&#160;Problem Statistics for
-            <%= sHeader %>
+            <A href="<%= roundOverviewLink %>" class="bcLink"><%=sMatch%></A> > <A href="<%=roomStatsLink%>" class="bcLink"><%= sRoomName %></A> > 
         </TD>
     </TR>
     <TR>
