@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -38,7 +39,7 @@
                         </p>
                         <p>
                         The following countries DO NOT require a visa to enter the United States: <br>
-                        <a href="/?t=sponsor&c=link&link=http://travel.state.gov/visa/temp/without/without_1990.html#countries" target="_blank">http://travel.state.gov/visa/temp/without/without_1990.html#countries</a>
+                        <a target="_blank" href="<tc-webtag:linkTracking link='http://travel.state.gov/visa/temp/without/without_1990.html#countries' refer='TCO07_VISA_PAGE' />">http://travel.state.gov/visa/temp/without/without_1990.html#countries</a>
 
                         <h2>Why should I get it early?</h2>
                         <p>

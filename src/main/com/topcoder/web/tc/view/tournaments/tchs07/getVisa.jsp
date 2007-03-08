@@ -30,7 +30,7 @@ All travelers entering the United States must present either a passport or a vis
 </p>
 <p>
 The following countries DO NOT require a visa to enter the United States:<br>
-<a href="<tc-webtag:linkTracking link="http://travel.state.gov/visa/temp/without/without_1990.html#countries"/>" target="_blank" refer="tchs07"/>http://travel.state.gov/visa/temp/without/without_1990.html#countries</a>
+<a href="<tc-webtag:linkTracking link='http://travel.state.gov/visa/temp/without/without_1990.html#countries]' refer='TCHS07_VISA' />">http://travel.state.gov/visa/temp/without/without_1990.html#countries</a>
 </p>
 <h3>Why Should I Get it Early?</h3>
 <p>
@@ -52,7 +52,8 @@ After Online Round 2 of each region, competitors advancing to Round 3 will recei
 </p>
 <h3>How do I apply for a visa?</h3>
 <p>
-Begin by visiting: <a href="<tc-webtag:linkTracking link="http://www.unitedstatesvisas.gov/obtainingvisa/index.html"/>" target="_blank" refer="tchs07"/>www.unitedstatesvisas.gov/obtainingvisa/index.html</a> or find your nearest U.S. Embassy or Consulate: <a href="<tc-webtag:linkTracking link="http://usembassy.state.gov"/>" target="_blank" refer="tchs07"/>http://usembassy.state.gov</a> 
+Begin by visiting: 
+<a href="<tc-webtag:linkTracking link='http://www.unitedstatesvisas.gov/obtainingvisa/index.html' refer='TCHS07_VISA' />">www.unitedstatesvisas.gov/obtainingvisa/index.html</a> or find your nearest U.S. Embassy or Consulate: <a href="<tc-webtag:linkTracking link='http://usembassy.state.gov' refer='TCHS07_VISA' />">http://usembassy.state.gov</a> 
 </p>
 <p><b>Remember, if you become a finalist, you MUST show proof of your visa and/or passport before TopCoder will book a flight for you.  If you do not have your visa and/or passport by Monday, April 23, 2007, you will be disqualified as a finalist.   Please revisit the tournament rules for more information or email <a href="mailto:jdamato@topcoder.com">Jessie D’Amato Ford</a>.</b></p>
         </div>
