@@ -43,6 +43,12 @@
 </jsp:include>
 
 <p>
+    5.8.3 - 2007.03.xx
+    <ul>
+        <li>Fix but in link tracking system where it didn't track the referrer</li>
+    </ul>
+</p>
+<p>
     5.8.2 - 2007.03.07
     <ul>
         <li>Member Contact not rated member message changed to not specify the competition.</li>
