@@ -226,7 +226,7 @@
                 --%>
 
                 <%-- CSF --%>
-                <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="homepage" />"><img src="/i/home/csf.gif" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
+                <a href="<tc-webtag:linkTracking link='http://csf.topcoder.com' refer='HOMEPAGE' />"><img src="/i/home/csf.gif" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
                 
                 <%-- SRM SPONSOR 
                 <map name="srm">
@@ -254,8 +254,8 @@
                 </div>
                 UBS, DRW, and NSA Join TCO 07
                 <A href="/tc?module=Static&d1=pressroom&d2=pr_030507">...more</A><br>[March 5]<br><br>
-				
-				<div style="float: right; padding-left: 5px;">
+                
+                <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/tco07_logo.png" alt="TCO07" width="88" height="41" border="0"/>
                 </div>
                 TopCoder Announces TopCoder Open 2007 Sponsored by AOL
