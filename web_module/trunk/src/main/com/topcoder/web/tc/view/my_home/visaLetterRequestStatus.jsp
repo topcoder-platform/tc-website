@@ -1,5 +1,4 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page language="java"
           %>
 <%@ taglib uri="common-functions" prefix="cf" %>
@@ -75,7 +74,7 @@ You have no pending Visa letter requests.
                 Your Visa request has been <span class="bigGreen">APPROVED</span>.<br>The letter was sent to you on: 
                 <strong><fmt:formatDate value="${req.sentDate}"  pattern="MM/dd/yyyy" /></strong><br>
                 <div align="center" style="margin: 20px;">
-                    <a href="https://<%=ApplicationServer.SERVER_NAME%>/tc?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request again</a>
+                    <a href="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request again</a>
                 </div>
     </c:when>
     <c:when test="${req.denied }">
@@ -84,7 +83,7 @@ You have no pending Visa letter requests.
     <c:otherwise>
         Your Visa letter request is <strong>PENDING</strong> approval.<br>Please check again soon.
             <div style="margin: 20px 0px 100px 0px;">
-                <a href="https://<%=ApplicationServer.SERVER_NAME%>/tc?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request again</a><br>
+                <a href="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request again</a><br>
             </div>
     </c:otherwise>
     </c:choose>
