@@ -267,10 +267,13 @@ function loaded() {
         );
         </script>
         
-        <input type="Submit" value="Submit">
-        <input type="reset" value="Reset" OnClick="typeChanged()">
-        
+        <input type="Submit" value="Submit">        
         </form>
+        <form name='f2' action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+            <input type="hidden" name="module" value="SearchAssignmentDocument"/>
+            <input type="Submit" value="Submit">
+        </form>
+        
     </td>
   </tr>
 </table>
