@@ -72,7 +72,7 @@
         <%  String[] commandNames = { "Change angle brackets in old messages to HTML equivalents",
                 "Add test forums", "Delete test forums", "Create algorithm forums", 
                 "Delete empty algorithm forums", "Create forum from EJB", "Enable ratings",
-                "Convert TCS forums"};
+                "Convert TCS forums", "Convert TCS forum permissions"};
             String[] commandValues = { ForumConstants.ADMIN_COMMAND_HTML_ESCAPE,
                 "Add test forums", "Delete test forums", ForumConstants.ADMIN_COMMAND_CREATE_FORUMS_ALGO,
                 ForumConstants.ADMIN_COMMAND_DELETE_FORUMS_ALGO, ForumConstants.ADMIN_CREATE_FORUM_FROM_EJB, 
