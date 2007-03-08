@@ -67,7 +67,7 @@
 
 <h2>Online Elimination Rounds</h2>
 
-<p>Everyone who competes in an online round must login to the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. Sponsor employees and interns from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Daylight Time (GMT -4), so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
+<p>Everyone who competes in an online round must login to the TopCoder Competition Arena no later than five (5) minutes prior to the start of the online round. Sponsor employees and interns from around the world may be participating in the online rounds, but all start times will be communicated as Eastern Daylight Time (UTC/GMT -4), so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
 <p>All Sponsor Track competitors who have qualified for an online round will be assigned to one specific room for each round of the competition.</p>
 <p>The dates and times of the online rounds of competition are as follows:</p>
                         
