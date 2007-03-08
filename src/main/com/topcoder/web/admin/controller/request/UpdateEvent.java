@@ -27,6 +27,7 @@ public class UpdateEvent extends ShortHibernateProcessor {
             addError("error", "Please enter the event name");
         }
 
+        log.debug("startDate=" + getRequest().getParameter(EditEvent.START_DATE));
         Date startDate = null;
         try {
             startDate = sdf.parse(getRequest().getParameter(EditEvent.START_DATE));
@@ -34,6 +35,9 @@ public class UpdateEvent extends ShortHibernateProcessor {
             addError("error", "Please insert a valid start date");
         }
 
+        log.debug("startDate parsed " + startDate);
+        log.debug("startDate parsed2 " + sdf.format(startDate));
+        
         Date endDate = null;
         try {
             endDate = sdf.parse(getRequest().getParameter(EditEvent.END_DATE));
@@ -41,7 +45,7 @@ public class UpdateEvent extends ShortHibernateProcessor {
             addError("error", "Please insert a valid end date");
         }
 
-        if (!endDate.after(startDate)) {
+        if (endDate != null && startDate !=null && !endDate.after(startDate)) {
             addError("error", "End date must be after start date.");
         }
 
