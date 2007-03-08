@@ -1,5 +1,4 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 java.util.Map" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,java.util.Map" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -8,43 +7,35 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/tchs07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-    <jsp:include page="../../script.jsp" />
+    <title>TopCoder High School 2007</title> 
 </head>
 <body>
 
 <div align="center" style="background: transparent;">
-    <div id="content">
+    <div class="content">
+        <img src="/i/tournament/tchs07/contentN.png" alt="contentN" style="display: block;" />
 
-        <jsp:include page="../header.jsp" />
+        <jsp:include page="../links.jsp" >
+        <jsp:param name="tabLev1" value=""/>
+        <jsp:param name="tabLev2" value=""/>
+        <jsp:param name="tabLev3" value=""/>
+        </jsp:include>
 
-        <table cellpadding="0" cellspacing="0" id="spacer">
-        <tbody>
-            <tr>
-                <td id="navSpacer">
+        <div class="contentSpacer">
+            <h2>2007 TopCoder&#174; High School Tournament</h2>
 
-                    <jsp:include page="../nav.jsp" >
-                    <jsp:param name="tabLev1" value="algorithm"/>
-                    <jsp:param name="tabLev2" value="description"/>
-                    <jsp:param name="tabLev3" value=""/>
-                    </jsp:include>
-
-                </td>
-                <td id="bodySpacer" width="100%">
-                    <div id="pageBody">
-
-<p class=bigTitle>Your information has been sent.</p>
-
-                    </div>
-                </td>
-            </tr>
-        </table>
+            <h3 align="center" style="margin: 100px 0px 200px 0px;">Your information has been sent.</h3>
 
 
-        <jsp:include page="../footer.jsp" />
+
+        </div>
+        <div class="footer">
+            Copyright &#169; 2000-2006, TopCoder, Inc. All rights reserved.
+        </div>
+        <img src="/i/tournament/tchs07/contentS.png" alt="contentS" style="display: block;"/>
     </div>
 </div>
 
-</body>
-
+</body> 
 </html>
 
