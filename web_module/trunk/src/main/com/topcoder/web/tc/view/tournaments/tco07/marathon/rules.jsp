@@ -199,7 +199,7 @@ After each Online Round, the highest scorers will be identified and will advance
 <strong>NOTE:</strong> In the event of a tie for any advancing position during the online rounds, the tie will be resolved in the following manner:
 </p>
 <ul>
-<li>Total points acquired (higher is better) during the previous rounds of the tournament.</li>
+<li>Total points acquired during the previous round of the tournament.  If a tie still exists this will continue to the next previous round until resolved or the Round 1 score is tied.</li>
 <li>If a tie still remains, then by tournament seed.</li>
 <li>If a tie still remains, all tied coders will advance to the next round.</li>
 </ul>
@@ -240,7 +240,7 @@ TopCoder will also provide ground transportation to and from the McCarran Intern
 The Championship Round will be a single round of eight (8) coders. Placement in the Championship Round is determined by comparing the total points of each coder. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order): 
 </p>
 <ul>
-<li>Total points acquired (higher is better) during Online Rounds #1, #2, #3 and #4 of the 2007 TopCoder Open Marathon Match Competition</li>
+<li>Total points acquired during the previous round of the tournament.  If a tie still exists this will continue to the next previous round until resolved or the Round 1 score is tied.</li>
 <li>If a tie still remains, then by rating (higher is better) following Online Round #4</li>
 <li>If a tie still remains, then the prize money will be distributed equally among the tied coders</li>
 </ul>
