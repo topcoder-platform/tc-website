@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.request.util;
 import java.util.Date;
 
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
@@ -139,7 +140,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 
                 reqDAO.saveOrUpdate(req);
 
-                setNextPage("/tc?module=VisaLetterRequest&eid=" + event.getId());
+                setNextPage("https://" + ApplicationServer.SERVER_NAME + "/tc?module=VisaLetterRequest&eid=" + event.getId());
                 setIsNextPageInContext(false);
                 return;
             }
