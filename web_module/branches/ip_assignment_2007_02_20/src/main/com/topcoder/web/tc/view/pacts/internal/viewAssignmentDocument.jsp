@@ -24,7 +24,7 @@
 		<table border="0" cellpadding="2" cellspacing="2">
 		<tr>
 			<td><b>ID:</b></td>
-			<td><c:out value="${assignment_document.id}" /></td>
+			<td><c:out value="${assignment_document.id}"/></td>
 		</tr>
 		<tr>
 			<td><b>User</b></td>
@@ -32,11 +32,11 @@
 		</tr>
 		<tr>		
 			<td><b>Type:</b></td>
-			<td><c:out value="${assignment_document.type.description}" /></td>
+			<td><c:out value="${assignment_document.type.description}"/></td>
 		</tr>
         <tr>        
             <td><b>Status:</b></td>
-            <td><c:out value="${assignment_document.status.description}" /></td>
+            <td><c:out value="${assignment_document.status.description}"/></td>
         </tr>
         <tr>        
             <td><b>Text:</b></td>
@@ -44,12 +44,12 @@
         </tr>
         <tr>        
             <td><b>Submission title:</b></td>
-            <td><c:out value="${assignment_document.submissionTitle}" /></td>
+            <td><c:out value="${assignment_document.submissionTitle}"/></td>
         </tr>
         <c:if test="${assignment_document.type.id == STUDIO_CONTEST_TYPE_ID}">
                 <tr>
                     <td><b>Studio Contest referenced:</b></td>
-                    <td><c:out value="${assignment_document.studioContest.name}" /></td>
+                    <td><c:out value="${assignment_document.studioContest.name}"/></td>
                 </tr>
         </c:if>
         <c:if test="${assignment_document.type.id == COMPONENT_COMPETITION_TYPE_ID}">

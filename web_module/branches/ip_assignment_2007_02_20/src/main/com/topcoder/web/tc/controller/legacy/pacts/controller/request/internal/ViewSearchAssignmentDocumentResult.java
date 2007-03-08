@@ -1,7 +1,10 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.topcoder.web.common.model.AssignmentDocumentType;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
@@ -12,22 +15,74 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 public class ViewSearchAssignmentDocumentResult extends PactsBaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws Exception {
-            DataInterfaceBean dib = new DataInterfaceBean();
+        DataInterfaceBean dib = new DataInterfaceBean();
 
-            log.info("3");
-            // Give the JSP the list of assignment document Types
-            List assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
-            getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TYPE_LIST, assignmentDocumentTypes);
+        Map searchCriteria = new HashMap();
+        String param;
+       
+        param = getRequest().getParameter("user_handle");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(HANDLE, param);
+        }
+        param = getRequest().getParameter("submission_title");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(SUBMISSION_TITLE, param);
+        }
+        param = getRequest().getParameter("assignment_document_type_id");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(TYPE, param);
 
-            // Give the JSP the list of assignment document status
-            List assignmentDocumentStatus = dib.getAssignmentDocumentStatus();
-            getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
-            log.info("4");
+            String param2 = getRequest().getParameter("search_list");
+            if (param2 != null && !param2.equals("")) {
+                if (param.equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID.toString())) {
+                    searchCriteria.put(COMPONENT_PROJECT, param);
+                } else if (param.equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID.toString())) {
+                    searchCriteria.put(STUDIO_CONTEST, param);
+                }
+            }
+        }
+        param = getRequest().getParameter("assignment_document_status_id");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(STATUS, param);
+        }
+        param = getRequest().getParameter("create_date_from");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(EARLIEST_CREATION_DATE, param);
+        }
+        param = getRequest().getParameter("create_date_to");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(LATEST_CREATION_DATE, param);
+        }
+        param = getRequest().getParameter("modify_date_from");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(EARLIEST_MODIFICATION_DATE, param);
+        }
+        param = getRequest().getParameter("modify_date_to");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(LATEST_MODIFICATION_DATE, param);
+        }
+        param = getRequest().getParameter("expire_date_from");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(EARLIEST_EXPIRE_DATE, param);
+        }
+        param = getRequest().getParameter("expire_date_to");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(LATEST_EXPIRE_DATE, param);
+        }
+        param = getRequest().getParameter("affirmed_date_from");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(EARLIEST_AFFIRM_DATE, param);
+        }
+        param = getRequest().getParameter("affirmed_date_to");
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(LATEST_AFFIRM_DATE, param);
+        }
+        
+        List result = dib.findAssignmentDocument(searchCriteria);
 
-            setDefault("reference_id", "0");
-            getRequest().setAttribute("reference_description", "Enter search text for reference:");
+        getRequest().setAttribute("result", result);
 
-            setNextPage(INTERNAL_ADD_ASSIGNMENT_DOCUMENT_JSP);
-            setIsNextPageInContext(true);
+        setNextPage(INTERNAL_LIST_ASSIGNMENT_DOCUMENT_JSP);
+        setIsNextPageInContext(true);
     }
 }

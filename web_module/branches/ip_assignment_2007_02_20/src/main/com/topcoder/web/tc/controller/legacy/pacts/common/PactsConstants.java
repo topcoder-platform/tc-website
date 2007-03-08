@@ -276,6 +276,15 @@ public interface PactsConstants extends Constants {
     public static final String HANDLE = "handle";
     public static final String PROJECT_ID = "project_id";
     public static final String PROJECT_CLIENT = "client";
+    public static final String SUBMISSION_TITLE = "submission_title";
+    public static final String TYPE = "type";
+    public static final String STATUS = "status";
+    public static final String COMPONENT_PROJECT = "component_project";
+    public static final String STUDIO_CONTEST = "studio_contest";
+    public static final String EARLIEST_EXPIRE_DATE = "earliest_expire_date";
+    public static final String LATEST_EXPIRE_DATE = "latest_expire_date";
+    public static final String EARLIEST_AFFIRM_DATE = "earliest_affirm_date";
+    public static final String LATEST_AFFIRM_DATE = "latest_affirm_date";
 
     // Payment searches
     public static final String EARLIEST_DUE_DATE = "earliest_due_date";
@@ -468,6 +477,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewUserTaxForm.jsp";
     public static final String INTERNAL_ADD_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/addAssignmentDocument.jsp";
     public static final String INTERNAL_SEARCH_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/searchAssignmentDocument.jsp";
+    public static final String INTERNAL_LIST_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/assignmentDocumentList.jsp";
     public static final String INTERNAL_ADD_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/addAffidavit.jsp";
     public static final String INTERNAL_ADD_CONTRACT_JSP = INTERNAL_JSP_DIR + "/addContract.jsp";
     public static final String INTERNAL_ADD_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/addTaxForm.jsp";

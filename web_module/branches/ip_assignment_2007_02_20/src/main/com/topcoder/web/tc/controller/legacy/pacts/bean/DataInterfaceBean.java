@@ -1730,6 +1730,11 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.findPayments(paymentTypeId, referenceId);
     }
 
+    public List findAssignmentDocument(Map searchCriteria) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.findAssignmentDocument(searchCriteria);
+    }
+
 
 }
 

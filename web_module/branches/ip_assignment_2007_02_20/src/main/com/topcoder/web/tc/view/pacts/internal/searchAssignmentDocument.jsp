@@ -97,13 +97,6 @@ function loaded() {
         <form name='f' action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
           <input type="hidden" name="module" value="ViewSearchAssignmentDocumentResult"/>
         		<table cellpadding="5" cellspacing="5" border="0">
-        		<tr id="errorsTr">
-        	        <td colspan="2">
-            	    	<tc-webtag:errorIterator id="err" name="error">
-            	    		<font color="#FF0000"><%=err%></font><br/>
-            	    	</tc-webtag:errorIterator>
-                	</td>
-                </tr>
         		<tr>
         			<td><b>Handle</b></td>
         			<td><tc-webtag:textInput name="user_handle" id="user_handle" editable="true" /></td>			
@@ -173,6 +166,22 @@ function loaded() {
                         <button id="trigger_affirmed_date_to">Set</button> 
         	        </td>            
         		</tr>		
+                <tr>
+                    <td><b>Create Date:</b></td><td>
+                    Between <tc-webtag:textInput name="create_date_from" id="create_date_from" size="12" editable="true" /> 
+                        <button id="trigger_create_date_from">Set</button> and 
+                        <tc-webtag:textInput name="create_date_to" id="create_date_to" size="12" editable="true" /> 
+                        <button id="trigger_create_date_to">Set</button>
+                    </td>            
+                </tr>       
+                <tr>
+                    <td><b>Modify Date:</b></td><td>
+                    Between <tc-webtag:textInput name="modify_date_from" id="modify_date_from" size="12" editable="true" /> 
+                        <button id="trigger_modify_date_from">Set</button>  and 
+                        <tc-webtag:textInput name="modify_date_to" id="modify_date_to" size="12" editable="true" /> 
+                        <button id="trigger_modify_date_to">Set</button> 
+                    </td>            
+                </tr>
         </table>
         
         <script language="javascript" type="text/javascript">
@@ -211,6 +220,46 @@ function loaded() {
          inputField  : "affirmed_date_to",  
                             ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
                             button      : "trigger_affirmed_date_to",     
+                            showsTime   : false,
+                            singleClick  : false,
+                            cache       : true
+        }
+        );
+        Calendar.setup(
+        {
+         inputField  : "create_date_from",  
+                            ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                            button      : "trigger_create_date_from",     
+                            showsTime   : false,
+                            singleClick  : false,
+                            cache       : true
+        }
+        );
+        Calendar.setup(
+        {
+         inputField  : "modify_date_from",  
+                            ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                            button      : "trigger_modify_date_from",     
+                            showsTime   : false,
+                            singleClick  : false,
+                            cache       : true
+        }
+        );
+        Calendar.setup(
+        {
+         inputField  : "create_date_to",  
+                            ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                            button      : "trigger_create_date_to",     
+                            showsTime   : false,
+                            singleClick  : false,
+                            cache       : true
+        }
+        );
+        Calendar.setup(
+        {
+         inputField  : "modify_date_to",  
+                            ifFormat    : "<%= PactsConstants.JS_DATE_FORMAT_STRING %>",    
+                            button      : "trigger_modify_date_to",     
                             showsTime   : false,
                             singleClick  : false,
                             cache       : true

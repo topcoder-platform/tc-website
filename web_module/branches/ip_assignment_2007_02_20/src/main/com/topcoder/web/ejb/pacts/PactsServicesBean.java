@@ -299,6 +299,54 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    private ResultSetContainer runSearchQuery(Connection c, String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            if (setLockTimeout)
+                setLockTimeout(c);
+            ps = c.prepareStatement(query);
+            for (int i = 0; i < objects.size(); i++) {
+                Object o = objects.get(i);
+                if (o instanceof Timestamp)
+                    ps.setTimestamp(i + 1, (Timestamp) o);
+                else if (o instanceof String)
+                    ps.setString(i + 1, (String) o);
+            }
+            rs = ps.executeQuery();
+            ResultSetContainer rsc = new ResultSetContainer(rs, false);
+            rs.close();
+            rs = null;
+            ps.close();
+            ps = null;
+
+            return rsc;
+        } catch (Exception e) {
+            printException(e);
+            StringBuffer sb = new StringBuffer(300);
+            sb.append("----- Query:\n");
+            sb.append(query + "\n");
+            sb.append("----- Objects:\n");
+            for (int i = 0; i < objects.size(); i++)
+                sb.append(objects.get(i).toString());
+            log.error(sb.toString());
+
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            rs = null;
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            ps = null;
+            throw new SQLException(e.getMessage());
+        }
+    }
+
     private Timestamp makeTimestamp(String dateString, boolean allowNulls, boolean endOfDay)
             throws Exception {
         log.debug("makeTimestamp: " + dateString + " " + allowNulls + " " + endOfDay);
@@ -1394,6 +1442,92 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+
+    /**
+     * Returns the list of all assignment document status.
+     *
+     * @return The list of assignment document status
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List findAssignmentDocument(Map searchCriteria) {
+        Connection conn = null;
+        ResultSetContainer rsc = null;
+        List l = new ArrayList();
+
+        try {
+            conn = DBMS.getConnection();
+
+            StringBuffer getAssignmentDocument = getAssignmentDocumentSelect();
+            
+            ArrayList objects = new ArrayList();
+            Iterator i = searchCriteria.keySet().iterator();
+            while (i.hasNext()) {
+                String key = (String) i.next();
+                String value = ((String) searchCriteria.get(key)).toUpperCase();
+                if (key.equals(HANDLE)) {
+                    getAssignmentDocument.append("and ad.user_id in (select user_id from user where handle_lower like '%?%') ");
+                    objects.add(value);
+                } else if (key.equals(SUBMISSION_TITLE)) {
+                    getAssignmentDocument.append("and ad.assignment_document_submission_title like '%?%' ");
+                    objects.add(value);
+                } else if (key.equals(TYPE)) {
+                    getAssignmentDocument.append("and ad.assignment_document_type_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(STATUS)) {
+                    getAssignmentDocument.append("and ad.assignment_document_status_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(COMPONENT_PROJECT)) {
+                    getAssignmentDocument.append("and ad.component_project_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(STUDIO_CONTEST)) {
+                    getAssignmentDocument.append("and ad.studio_contest_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(EARLIEST_CREATION_DATE)) {
+                    getAssignmentDocument.append(" AND ad.create_date >= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(LATEST_CREATION_DATE)) {
+                    getAssignmentDocument.append(" AND ad.create_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(EARLIEST_MODIFICATION_DATE)) {
+                    getAssignmentDocument.append(" AND ad.modify_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(LATEST_MODIFICATION_DATE)) {
+                    getAssignmentDocument.append(" AND ad.modify_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(EARLIEST_EXPIRE_DATE)) {
+                    getAssignmentDocument.append(" AND ad.expire_date >= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(LATEST_EXPIRE_DATE)) {
+                    getAssignmentDocument.append(" AND ad.expire_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(EARLIEST_AFFIRM_DATE)) {
+                    getAssignmentDocument.append(" AND ad.affirm_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(LATEST_AFFIRM_DATE)) {
+                    getAssignmentDocument.append(" AND ad.affirm_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                }
+            }
+
+            rsc = runSearchQuery(conn, getAssignmentDocument.toString(), objects, true);
+
+            for (Iterator it = rsc.iterator(); it.hasNext(); ) {
+                ResultSetRow rsr = (ResultSetRow) it.next();
+                
+                AssignmentDocument ad = createAssignmentDocumentBean(conn, rsr);
+                l.add(ad);
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(conn);
+        }
+        return l;
+    }
+
     /**
      * Returns the list of all assignment document status.
      *

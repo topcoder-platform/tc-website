@@ -277,5 +277,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException;
 
+    List findAssignmentDocument(Map searchCriteria);
+
 }
 
