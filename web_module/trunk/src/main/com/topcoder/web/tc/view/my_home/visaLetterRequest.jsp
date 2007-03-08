@@ -93,7 +93,7 @@ function init() {
     <jsp:param name="title" value="&nbsp;"/>
 </jsp:include>
 
-<form name="f" action="https://<%=ApplicationServer.SERVER_NAME%>/tc?module=VisaLetterRequest" method="post">
+<form name="f" action="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest" method="post">
 <input type="hidden" name="eid" value="${event.id}">
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
     <tr>
