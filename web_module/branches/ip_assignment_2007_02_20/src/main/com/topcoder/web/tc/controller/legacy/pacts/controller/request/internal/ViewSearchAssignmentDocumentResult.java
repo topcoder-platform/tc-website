@@ -22,11 +22,11 @@ public class ViewSearchAssignmentDocumentResult extends PactsBaseProcessor imple
        
         param = getRequest().getParameter("user_handle");
         if (param != null && !param.equals("")) {
-            searchCriteria.put(HANDLE, param);
+            searchCriteria.put(HANDLE, "%" + param + "%");
         }
         param = getRequest().getParameter("submission_title");
         if (param != null && !param.equals("")) {
-            searchCriteria.put(SUBMISSION_TITLE, param);
+            searchCriteria.put(SUBMISSION_TITLE, "%" + param + "%");
         }
         param = getRequest().getParameter("assignment_document_type_id");
         if (param != null && !param.equals("") && !param.equals("0")) {
