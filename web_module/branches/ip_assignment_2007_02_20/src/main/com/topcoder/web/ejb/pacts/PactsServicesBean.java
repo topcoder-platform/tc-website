@@ -1554,7 +1554,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 
                 AssignmentDocument ad = createAssignmentDocumentBean(conn, rsr);
 
-                log.debug("AD: " + ad.getSubmissionTitle().toString() + " (" + ad.getId().toString() + ")");
+                log.debug("AD: " + ad.getSubmissionTitle() + " (" + ad.getId() + ")");
 
                 l.add(ad);
             }
