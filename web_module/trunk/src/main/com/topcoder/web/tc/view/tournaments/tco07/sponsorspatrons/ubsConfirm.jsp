@@ -31,7 +31,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.ubs.com/"/>" target="_blank" refer="ubsConfirm"/><img src="/i/tournament/tco07/ubs_logo.png" alt="UBS" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.ubs.com' refer='TCO07_UBS_PAGES' />"><img src="/i/tournament/tco07/ubs_logo.png" alt="UBS" border="0" /></a></div>
 <p>
 By clicking "Submit" below you will be releasing your TopCoder contact and statistical information to UBS and you will be giving UBS permission to contact you about their current job opportunities.
 </p>

@@ -30,7 +30,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="/?t=sponsor&c=link&link=http://www.verisign.com/" target="_blank"><img src="/i/tournament/tco07/verisign_logo.png" alt="VeriSign" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.verisign.com' refer='TCO07_VERISIGN_PAGES' />"><img src="/i/tournament/tco07/verisign_logo.png" alt="VeriSign" border="0" /></a></div>
 <p>
 At VeriSign, we want everyone to reap the benefits of the ongoing revolution in digital commerce and communications. It is towards that goal that we focus our company, our technology, our services, and our people.
 </p>

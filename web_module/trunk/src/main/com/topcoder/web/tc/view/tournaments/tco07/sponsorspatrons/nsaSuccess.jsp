@@ -31,7 +31,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://www.nsa.gov"/>" target="_blank" refer="nsaSuccess"/><img src="/i/tournament/tco07/nsa_logo.png" alt="NSA" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.nsa.gov' refer='TCO07_NSA_PAGES' />"><img src="/i/tournament/tco07/nsa_logo.png" alt="NSA" border="0" /></a></div>
                         <p>
 Your application has been received.
 </p>
