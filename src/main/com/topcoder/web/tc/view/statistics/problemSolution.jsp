@@ -10,6 +10,7 @@
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <HTML>
 <HEAD>
@@ -71,7 +72,7 @@
     String sSolutionText = resultRow_0 != null ? resultRow_0.getItem("submission_text").toString() : "";
     
     String roundOverviewLink = "/stat?c=round_overview&rd=" + sRoundId;
-    String roomStatsLink = "/stat?c=room_stats&rd=" + sRoundId + "&rm=" + sRoomId;
+    String roomStatsLink = "/stat?c=coder_room_stats&cr=" + sCoderId + "&rd=" + sRoundId;
 
 %>
 <%!
@@ -133,7 +134,7 @@
     </TR>
     <TR>
         <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="8" HEIGHT="18">&#160;Problem Statistics for
-            <A href="<%= roundOverviewLink %>" class="statText"><%=sMatch%></A> > <A href="<%=roomStatsLink%>" class="statText"><%= sRoomName %></A> > 
+            <A href="<%= roundOverviewLink %>" class="statText"><%=sMatch%></A> > <A href="<%=roomStatsLink%>" class="statText"><%= sRoomName %></A> > <tc-webtag:handle coderId="<%= sCoderId %>" context='algorithm' />
         </TD>
     </TR>
     <TR>
