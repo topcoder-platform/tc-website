@@ -225,7 +225,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
    </thead>
    <tbody>
   <tr class="light">
-    <td class="header">Overview</td>
+    <td class="value"><strong>Overview</strong></td>
     <td class="value">OpenSource, community developed and maintained by OpenLaszlo Foundation. AJAX and Rich Internet Application development toolkit.</td>
     <td class="value">Created by Google. Now open source and hosted at code.google.com</td>
     <td class="value">Started by Alex Russell, currently maintained by Dojo Foundation. Licensed under both BSD and Academic Free License</td>
@@ -233,7 +233,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">Created and maintained by Yahoo.</td>
   </tr>
   <tr class="dark">
-    <td class="header">Programming Language</td>
+    <td class="value"><strong>Programming Language</strong></td>
     <td class="value">LZX Programming Language</td>
     <td class="value">Java</td>
     <td class="value">Javascript</td>
@@ -241,7 +241,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">Javascript</td>
   </tr>
   <tr class="light">
-    <td class="header">Runtime</td>
+    <td class="value"><strong>Runtime</strong></td>
     <td class="value">Two deployment modes -- : SOLO and Proxied &ndash; that are distinguished by the presence of the LPS server. Flash is the rendering engine regardless of mode.</td>
     <td class="value">GWT compiler compiles to HTML and Javascript</td>
     <td class="value">HTML</td>
@@ -249,7 +249,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">HTML</td>
   </tr>
   <tr class="dark">
-    <td class="header">Layout</td>
+    <td class="value"><strong>Layout</strong></td>
     <td class="value">XML</td>
     <td class="value">Java</td>
     <td class="value">HTML</td>
@@ -257,7 +257,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">HTML</td>
   </tr>
   <tr class="light">
-    <td class="header">DataAccess</td>
+    <td class="value"><strong>DataAccess</strong></td>
     <td class="value">Through DataSet abstraction</td>
     <td class="value">Asynchronous request made through a wrapper class</td>
     <td class="value">Asynchronous request made through a wrapper class</td>
@@ -265,7 +265,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">Asynchronous request made through a wrapper class</td>
   </tr>
   <tr class="dark">
-    <td class="header">Environment</td>
+    <td class="value"><strong>Environment</strong></td>
     <td class="value">Client-side coding through LZX. Server-side is bound through Laszlo Presentation Server, which is responsible for interface compilation, handling data management requests and persistence management. Optionally the server side can be skipped altogether.</td>
     <td class="value">Enables end to end coding in Java.</td>
     <td class="value">Essentially only client-side. There is no binding to any form of server-side technology</td>
@@ -273,7 +273,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">Essentially only client-side. There is no binding of any sort to any server-side technology</td>
   </tr>
   <tr class="light">
-    <td class="header">Testing/Debugging</td>
+    <td class="value"><strong>Testing/Debugging</strong></td>
     <td class="value">Built-in testing and debugging unit.</td>
     <td class="value">Integration with JUnit. During coding, all the compiled code runs in the JVM, hence all the Java Language features are available.</td>
     <td class="value">Has library called Dojo Infrastructure that provides profiling, logging and reflection capabilities.</td>
@@ -281,7 +281,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">Has built-in logger.</td>
   </tr>
   <tr class="dark">
-    <td class="header">License</td>
+    <td class="value"><strong>License</strong></td>
     <td class="value">Open source</td>
     <td class="value">Open source</td>
     <td class="value">BSD and Academic Free License</td>
@@ -289,7 +289,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">BSD License</td>
   </tr>
   <tr class="light">
-    <td class="header">CSS Support</td>
+    <td class="value"><strong>CSS Support</strong></td>
     <td class="value">No</td>
     <td class="value">Yes</td>
     <td class="value">Yes</td>
@@ -297,7 +297,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">Yes</td>
   </tr>
   <tr class="dark">
-    <td class="header">DOM Support</td>
+    <td class="value"><strong>DOM Support</strong></td>
     <td class="value">No</td>
     <td class="value">Yes</td>
     <td class="value">Yes</td>
@@ -305,7 +305,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">Yes</td>
   </tr>
   <tr class="light">
-    <td class="header">Back Button Support</td>
+    <td class="value"><strong>Back Button Support</strong></td>
     <td class="value">No</td>
     <td class="value">Yes</td>
     <td class="value">Yes</td>
@@ -313,7 +313,7 @@ So, how does OpenLaszlo stand up to the competition? The following table compare
     <td class="value">Yes</td>
   </tr>
   <tr class="dark">
-    <td class="header">Animation Support</td>
+    <td class="value"><strong>Animation Support</strong></td>
     <td class="value">Yes</td>
     <td class="value">No</td>
     <td class="value">No</td>
