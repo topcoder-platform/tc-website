@@ -25,7 +25,7 @@ public class SearchAssignmentDocument extends PactsBaseProcessor implements Pact
             log.info("4");
 
             setDefault("reference_id", "0");
-            getRequest().setAttribute("reference_description", "Enter search text for reference:");
+            getRequest().setAttribute("reference_description", "");
 
             setNextPage(INTERNAL_SEARCH_ASSIGNMENT_DOCUMENT_JSP);
             setIsNextPageInContext(true);
