@@ -98,10 +98,10 @@
                                 <rsc:item name="name" row="<%=resultRow%>"/>
                             </A></td>
                         <td class="valueC" nowrap="nowrap">
-                            <rsc:item name="start_time" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                            <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                         </td>
                         <td class="valueC" nowrap="nowrap">
-                            <rsc:item name="end_time" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                            <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                         </td>
                         <td class="valueR" nowrap="nowrap">
                             <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
