@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ page language="java" import="com.topcoder.web.tc.controller.request.util.VisaLetterRequest"   %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -92,7 +93,7 @@ function init() {
     <jsp:param name="title" value="&nbsp;"/>
 </jsp:include>
 
-<form name="f" action="/tc?module=VisaLetterRequest" method="post">
+<form name="f" action="https://<%=ApplicationServer.SERVER_NAME%>/tc?module=VisaLetterRequest" method="post">
 <input type="hidden" name="eid" value="${event.id}">
 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
     <tr>
