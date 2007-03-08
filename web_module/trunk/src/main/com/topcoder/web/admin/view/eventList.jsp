@@ -49,8 +49,8 @@
 	<td>
 		<fmt:formatDate value="${event.endDate}" pattern="MM/dd/yyyy HH:mm" /></td>
 	</td>
-	<td><a href="http://www.topcoder.com/tc?module=VisaLetterRequest&eid=<c:out value="${event.id}" />">
-		http://www.topcoder.com/tc?module=VisaLetterRequest&amp;eid=<c:out value="${event.id}" />
+	<td><a href="https://www.topcoder.com/tc?module=VisaLetterRequest&eid=<c:out value="${event.id}" />">
+		https://www.topcoder.com/tc?module=VisaLetterRequest&amp;eid=<c:out value="${event.id}" />
 		</a>
 	</td>
 </tr>
