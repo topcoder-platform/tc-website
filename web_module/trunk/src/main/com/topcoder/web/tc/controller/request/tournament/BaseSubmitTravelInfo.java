@@ -164,12 +164,14 @@ public abstract class BaseSubmitTravelInfo extends Base {
 
             agentMail.setBody(travelAgentEmail.toString());
             String[] agentRecipients = getTravelAgentRecipients();
-            for (int i = 0; i < agentRecipients.length; i++) {
-                agentMail.addToAddress(agentRecipients[i], TCSEmailMessage.TO);
-            }
 
-            agentMail.setFromAddress(emailAddress);
-            EmailEngine.send(agentMail);
+            if (agentRecipients.length>0) {
+                for (int i = 0; i < agentRecipients.length; i++) {
+                    agentMail.addToAddress(agentRecipients[i], TCSEmailMessage.TO);
+                }
+                agentMail.setFromAddress(emailAddress);
+                EmailEngine.send(agentMail);
+            }
 
 
             setNextPage(getSuccessPage());
