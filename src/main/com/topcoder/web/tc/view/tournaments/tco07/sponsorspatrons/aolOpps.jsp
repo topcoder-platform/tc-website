@@ -31,7 +31,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://dev.aol.com/"/>" target="_blank" refer="aolOpps"/><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='TCO07_AOL_PAGES' />"><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
 <h2>~ Ready?</h2>
 <p>
 <b>Lead innovation with an audience of millions</b><br>
@@ -41,7 +41,7 @@ Inspire the world's largest online community that is millions of customers stron
 <b>Challenge the boundaries of technology</b><br>
 Your ability to envision and apply creative solutions and work on applications connecting millions of people will directly impact AOL's future technology. 
 </p>
-<h2>~ Get Set…</h2>
+<h2>~ Get Set...</h2>
 <b>Are you ready to take your place on our team?</b><br>
 Our work requires ideas and daily innovation from almost every discipline, including most technology backgrounds. Whether you're right out of school, or an experienced professional, we are looking for you!! 
 </p>
@@ -69,35 +69,35 @@ Lead the race with AOL and take your place on one of AOL's many technology teams
 
 <h3>Dulles, VA</h3>
 <p>
-<b>Projects:</b> text classification and entity linking, content/user targeting system, syndication framework, profile system, and search. AOL's new Open Services initiative enables developers to build customized third-party applications, plug-ins and mashups based on AOL's leading products and services. More information on AOL's range of developer resources and open APIs, including Open AIM®, AOL® Music Now Web Services and MapQuest® OpenAPI, can be found at <a href="<tc-webtag:linkTracking link="http://developer.aol.com"/>" target="_blank" refer="aolOpps"/>http://developer.aol.com/</a>. 
+<b>Projects:</b> text classification and entity linking, content/user targeting system, syndication framework, profile system, and search. AOL's new Open Services initiative enables developers to build customized third-party applications, plug-ins and mashups based on AOL's leading products and services. More information on AOL's range of developer resources and open APIs, including Open AIM®, AOL® Music Now Web Services and MapQuest® OpenAPI, can be found at <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.aol.com' refer='TCO07_AOL_PAGES' />">http://developer.aol.com/</a>. 
 </p>
  
 <h3>Mountain View, CA and Dulles, VA</h3>
 <p>
-<a href="<tc-webtag:linkTracking link="http://developer.aol.com"/>" target="_blank" refer="aolOpps"/>http://developer.aol.com/</a><br>
-<b>Mission:</b> To build a global medium as central to people's lives as the telephone or television.…and even more valuable. We have a wide variety of projects, nearly all focused on building the size of AOL's audience on the web. Our goal is to move AOL into a new era, focused on free, standards-based web products and technologies. AOL has the largest and most-engaged audience in the online world. Our innovation and development of products are some of the most visible products on the market today. 
+<a target="_blank" href="<tc-webtag:linkTracking link='http://developer.aol.com' refer='TCO07_AOL_PAGES' />">http://developer.aol.com/</a><br>
+<b>Mission:</b> To build a global medium as central to people's lives as the telephone or television....and even more valuable. We have a wide variety of projects, nearly all focused on building the size of AOL's audience on the web. Our goal is to move AOL into a new era, focused on free, standards-based web products and technologies. AOL has the largest and most-engaged audience in the online world. Our innovation and development of products are some of the most visible products on the market today. 
 </p>
 <p>
 <b>Projects:</b> AOL's flagship set of web applications (Mail, Address Book, Calendar and Instant Messaging) - delivering the next generation of Web based communication for millions of AOL and AIM users every day. AOL Pictures is designing and implementing major subsystems using Java server technologies on Unix (Linux/Solaris) in support of new, improved functionality in the very competitive area of online digital picture management and sharing. AIM Pages is an exciting new way for you to create and share your own personalized web page. AIM Pages are made of modules - small web pages that can be embedded easily into other web pages. 
 </p>
 <p>
-Here are a few of the products we own or work on in Mountain View. …and in case you didn't know, all of these and more are free for AIM members.<br>
+Here are a few of the products we own or work on in Mountain View. ...and in case you didn't know, all of these and more are free for AIM members.<br>
 <ul>
-   <li>Webmail with 2 gigabytes of storage, calendar and address book for AIM and unlimited mail storage for AOL users. Check out the highly acclaimed Web Suite at <a href="<tc-webtag:linkTracking link="http://mail.aol.com"/>" target="_blank" refer="aolOpps"/>http://mail.aol.com</a></li>
-   <li>Connect with buddies, find friends, meet people and create a profile on <a href="<tc-webtag:linkTracking link="http://www.aimpages.com"/>" target="_blank" refer="aolOpps"/>http://www.aimpages.com</a></li>
-   <li>AOL Pictures, which lets you share photo albums with anyone with unlimited storage. Get creative at <a href="<tc-webtag:linkTracking link="http://pictures.aol.com"/>" target="_blank" refer="aolOpps"/>http://pictures.aol.com</a></li>
-   <li>AOL Journals, our blogging product for AIM and AOL users. Create a public or private blog at <a href="<tc-webtag:linkTracking link="http://journals.aol.com"/>" target="_blank" refer="aolOpps"/>http://journals.aol.com<a/></li>
-   <li>Alerts & Reminders - choose from hundreds of alerts and receive them via SMS, online or email, or set reminders for those important events. Give it a go at <a href="<tc-webtag:linkTracking link="http://alerts.aol.com"/>" target="_blank" refer="aolOpps"/>http://alerts.aol.com</a></li>
-   <li>Uncut Video - upload that crazy video you've been wanting to share, and have a blast checking out videos from others. Let it roll at <a href="<tc-webtag:linkTracking link="http://communityvideo.aol.com"/>" target="_blank" refer="aolOpps"/>http://communityvideo.aol.com</a></li>
-   <li>AIMPages Modules - we make a bunch of them, and you can too. Learn how at <a href="<tc-webtag:linkTracking link="http://developer.iamalpha.com"/>" target="_blank" refer="aolOpps"/>http://developer.iamalpha.com</a></li>
-   <li>Take your favorite bookmarks with you with Favorites Plus! We'll even help you organize and associate RSS feeds with them. You can take it with you at <a href="<tc-webtag:linkTracking link="http://favorites.aol.com"/>" target="_blank" refer="aolOpps"/>http://favorites.aol.com</a></li>
-   <li>Did we mention dogs and a <a href="<tc-webtag:linkTracking link="http://journals.aol.com/fishcammv/AOLMVFishCam"/>" target="_blank" refer="aolOpps"/>fishcam</a>? We've got those too. </li>
-   <li>…and more on the way! Come talk to us and we'll fill you in! </li>
+   <li>Webmail with 2 gigabytes of storage, calendar and address book for AIM and unlimited mail storage for AOL users. Check out the highly acclaimed Web Suite at <a target="_blank" href="<tc-webtag:linkTracking link='http://mail.aol.com' refer='TCO07_AOL_PAGES' />">http://mail.aol.com</a></li>
+   <li>Connect with buddies, find friends, meet people and create a profile on <a target="_blank" href="<tc-webtag:linkTracking link='http://www.aimpages.com' refer='TCO07_AOL_PAGES' />">http://www.aimpages.com</a></li>
+   <li>AOL Pictures, which lets you share photo albums with anyone with unlimited storage. Get creative at <a target="_blank" href="<tc-webtag:linkTracking link='http://pictures.aol.com' refer='TCO07_AOL_PAGES' />">http://pictures.aol.com</a></li>
+   <li>AOL Journals, our blogging product for AIM and AOL users. Create a public or private blog at <a target="_blank" href="<tc-webtag:linkTracking link='http://journals.aol.com' refer='TCO07_AOL_PAGES' />">http://journals.aol.com<a/></li>
+   <li>Alerts & Reminders - choose from hundreds of alerts and receive them via SMS, online or email, or set reminders for those important events. Give it a go at <a target="_blank" href="<tc-webtag:linkTracking link='http://alerts.aol.com' refer='TCO07_AOL_PAGES' />">http://alerts.aol.com</a></li>
+   <li>Uncut Video - upload that crazy video you've been wanting to share, and have a blast checking out videos from others. Let it roll at <a target="_blank" href="<tc-webtag:linkTracking link='http://communityvideo.aol.com' refer='TCO07_AOL_PAGES' />">http://communityvideo.aol.com</a></li>
+   <li>AIMPages Modules - we make a bunch of them, and you can too. Learn how at <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.iamalpha.com' refer='TCO07_AOL_PAGES' />">http://developer.iamalpha.com</a></li>
+   <li>Take your favorite bookmarks with you with Favorites Plus! We'll even help you organize and associate RSS feeds with them. You can take it with you at <a target="_blank" href="<tc-webtag:linkTracking link='http://favorites.aol.com' refer='TCO07_AOL_PAGES' />">http://favorites.aol.com</a></li>
+   <li>Did we mention dogs and a <a target="_blank" href="<tc-webtag:linkTracking link='http://journals.aol.com/fishcammv/AOLMVFishCam' refer='TCO07_AOL_PAGES' />">fishcam</a>? We've got those too. </li>
+   <li>...and more on the way! Come talk to us and we'll fill you in! </li>
 </ul>
 </p>
 <h3>Seattle, WA</h3>
 <p>
-<a href="<tc-webtag:linkTracking link="http://www.tegic.com/about/"/>" target="_blank" refer="aolOpps"/>www.tegic.com/about/</a><br>
+<a target="_blank" href="<tc-webtag:linkTracking link='http://www.tegic.com/about' refer='TCO07_AOL_PAGES' />">www.tegic.com/about/</a><br>
 <b>Projects:</b> The AOL Seattle office is 100% dedicated to wireless development, and we're working on cutting-edge wireless data solutions that will change the way people use their cell phones and hand held devices. We are building a unique startup-oriented team dedicated to creating a digital wireless infrastructure to connect consumers to information and content in an easy and user-friendly manner. As a solid team of just over 100, we can preserve the small-company atmosphere while still benefiting from the many corporate assets of AOL: a world-class technology infrastructure, extensive user base, the many AOL services such as AIM, AOL Music, etc., and the media assets of TimeWarner. 
 </p>
  

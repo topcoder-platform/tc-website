@@ -31,7 +31,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="<tc-webtag:linkTracking link="http://dev.aol.com/"/>" target="_blank" refer="aolSuccess"/><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='TCO07_AOL_PAGES' />"><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
                         <p>
 Your application has been received.   
 </p>
