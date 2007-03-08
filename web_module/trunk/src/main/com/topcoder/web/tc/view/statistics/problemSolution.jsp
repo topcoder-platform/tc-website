@@ -133,7 +133,7 @@
     </TR>
     <TR>
         <TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" COLSPAN="8" HEIGHT="18">&#160;Problem Statistics for
-            <A href="<%= roundOverviewLink %>" class="bcLink"><%=sMatch%></A> > <A href="<%=roomStatsLink%>" class="bcLink"><%= sRoomName %></A> > 
+            <A href="<%= roundOverviewLink %>" class="statText"><%=sMatch%></A> > <A href="<%=roomStatsLink%>" class="statText"><%= sRoomName %></A> > 
         </TD>
     </TR>
     <TR>
