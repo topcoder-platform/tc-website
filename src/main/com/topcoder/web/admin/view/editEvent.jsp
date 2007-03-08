@@ -71,13 +71,13 @@
 	</tr>
 	<tr>
 		<td>Start Date:</td>
-		<td><tc-webtag:textInput name="<%= EditEvent.START_DATE %>" id="<%= EditEvent.START_DATE %>" size="12" format="MM/dd/yyyy" editable="true" />  
+		<td><tc-webtag:textInput name="<%= EditEvent.START_DATE %>" id="<%= EditEvent.START_DATE %>" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 			<button id="<%="trigger_" + EditEvent.START_DATE %>">Set</button>     
 		</td>
 	</tr>
 	<tr>
 		<td>End Date:</td>
-		<td><tc-webtag:textInput name="<%= EditEvent.END_DATE %>" id="<%= EditEvent.END_DATE %>" size="12" format="MM/dd/yyyy" editable="true" />  
+		<td><tc-webtag:textInput name="<%= EditEvent.END_DATE %>" id="<%= EditEvent.END_DATE %>" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 			<button id="<%="trigger_" + EditEvent.END_DATE %>">Set</button>
 		</td>
 	</tr>
@@ -88,9 +88,9 @@
 Calendar.setup(
 {
  inputField  : "<%= EditEvent.START_DATE %>",  
-                    ifFormat    : "%m/%d/%Y",  
+                    ifFormat    : "%m/%d/%Y %H/%M",  
                     button      : "trigger_<%= EditEvent.START_DATE %>",     
-                    showsTime   : false,
+                    showsTime   : true,
                     singleClick  : false,
                     cache       : true
 }
@@ -99,9 +99,9 @@ Calendar.setup(
 Calendar.setup(
 {
  inputField  : "<%= EditEvent.END_DATE %>",  
-                    ifFormat    : "%m/%d/%Y",    
+                    ifFormat    : "%m/%d/%Y %H/%M",    
                     button      : "trigger_<%= EditEvent.END_DATE %>",     
-                    showsTime   : false,
+                    showsTime   : true,
                     singleClick  : false,
                     cache       : true
 }
