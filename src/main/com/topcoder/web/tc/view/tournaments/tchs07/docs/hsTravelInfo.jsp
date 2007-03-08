@@ -7,7 +7,7 @@
     <title>2007 TopCoder High School - Computer Programming Tournament</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/tournaments/tchs07.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/tchs07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <jsp:include page="../../script.jsp"/>
 </head>
