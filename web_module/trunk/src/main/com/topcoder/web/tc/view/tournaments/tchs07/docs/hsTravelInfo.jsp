@@ -64,7 +64,7 @@
 
 <h3 align="center">Travel Form</h3>
 <form name="questForm" method="POST" action="${sessionInfo.secureAbsoluteServletPath}">
-<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO07TravelInfoSubmit"/>
+<input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCHS07TravelInfoSubmit"/>
 
 <table cellspacing="0" cellpadding="0" class="stat">
 <tr class="light">
