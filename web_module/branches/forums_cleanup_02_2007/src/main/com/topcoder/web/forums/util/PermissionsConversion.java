@@ -130,7 +130,7 @@ public class PermissionsConversion {
         Iterator itCategories = root.getCategories();
         while (itCategories.hasNext()) {
             ForumCategory category = (ForumCategory)itCategories.next();
-            log.info("Examining category: " + category.getID() + " (" + category.getName() + ")");
+            log.info("Examining category " + category.getID() + " (" + category.getName() + "):");
             try {
                 groupManager.getGroup(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX + category.getID());
                 groupManager.getGroup(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX + category.getID());
