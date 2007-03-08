@@ -62,7 +62,7 @@
             <tbody>
                 <tr>
                     <td width="100%">
-                        <div class="bigRed" style="border-top: 1px solid rgb(153, 153, 153); border-bottom: 1px solid rgb(153, 153, 153);">
+                        <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
                             <c:choose>
                                 <c:when test="${fn:length(contest.prizes)==1}">
                                     <c:forEach items="${contest.prizes}" var="prize">
@@ -97,7 +97,7 @@
                     <c:choose>
                     <c:when test="${registered}">
                     <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <div class="buttonIsOff" style="width: 60px;">Register</div>
+                        <img src="/i/layout/btnRegisterNA.png" alt="Register" />
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
                         <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" class="btn_submit">
@@ -111,10 +111,10 @@
                     </c:when>
                     <c:otherwise>
                     <td style="padding: 10px 5px 10px 20px;" align="right">
-                        <a class="button" style="width: 60px;" href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Register</a>
+                        <a href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=${contest.id}"><img src="/i/layout/btnRegister.png" alt="Register" onmouseover="this.src = '/i/layout/btnRegisterOn.png';" onmouseout="this.src = '/i/layout/btnRegister.png';" style="margin: 6px 0px 6px 0px;"/></a>
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <div class="buttonIsOff" style="width: 60px;">Submit</div>
+                        <img src="/i/layout/btnSubmitNA.png" alt="Submit" />
                     </td>
                 </tr>
                 <tr>

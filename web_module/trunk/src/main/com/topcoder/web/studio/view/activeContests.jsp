@@ -62,17 +62,21 @@
         <td class="headerW">
             <div>&nbsp;</div>
         </td>
-        <td class="header" colspan="2">
+        <td class="header" colspan="2" width="100%">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
         </td>
         <td class="headerC">
+            <div style="width: 120px;">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start
-                Date</a></td>
+                Date</a></div></td>
         <td class="headerC">
+            <div style="width: 120px;">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End
-                Date</a></td>
+                Date</a></div></td>
         <td class="headerR">
+            <div style="width: 75px;">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("amount")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Payment</a>
+            </div>
         </td>
         <td class="headerR">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
@@ -131,11 +135,11 @@
                         <rsc:item name="submission_count" row="<%=resultRow%>"/>
                     </td>
 
-                    <td class="valueR" nowrap="nowrap">
+                    <td class="valueC" nowrap="nowrap">
                         <% if (resultRow.getIntItem("is_user_registered") == 1) { %>
-                        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnSubmitOrganize.png" alt="Move up" onmouseover="this.src = '/i/layout/btnSubmitOrganizeOn.png';" onmouseout="this.src = '/i/layout/btnSubmitOrganize.png';" style="margin: 6px 0px 6px 0px;"/></A>
+                        <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnSubmitOrganize.png" alt="Submit & Organize" onmouseover="this.src = '/i/layout/btnSubmitOrganizeOn.png';" onmouseout="this.src = '/i/layout/btnSubmitOrganize.png';" style="margin: 6px 0px 6px 0px;"/></A>
                         <% } else { %>
-                        <A href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" class="button" style="margin: 4px;">Register</A>
+                        <A href="${sessionInfo.servletPath}?module=ViewRegistration&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>" onfocus="this.blur();"><img src="/i/layout/btnRegister.png" alt="Register" onmouseover="this.src = '/i/layout/btnRegisterOn.png';" onmouseout="this.src = '/i/layout/btnRegister.png';" style="margin: 6px 0px 6px 0px;"/></A>
                         <% } %>
 
                     </td>
