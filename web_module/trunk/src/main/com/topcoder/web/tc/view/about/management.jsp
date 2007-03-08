@@ -84,7 +84,7 @@ TopCoder's accomplished management team includes some of the most successful pro
 </p>
 
 <div class="bioOdd">
-    <div class="photo"><img src="/i/about/management/jhughes.jpg" alt="" /></div>
+    <%--<div class="photo"><img src="/i/about/management/jhughes.jpg" alt="" /></div>--%>
     <h2>Jack Hughes</h2>
     <h3><i>Founder and Chairman</i></h3>
     
