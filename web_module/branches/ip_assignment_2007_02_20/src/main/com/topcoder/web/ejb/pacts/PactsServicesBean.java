@@ -238,7 +238,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private ResultSetContainer runSearchQuery(String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
-        return runSearchQuery(null, query, objects, setLockTimeout);
+        return runSearchQuery((String) null, query, objects, setLockTimeout);
     }
 
     private ResultSetContainer runSearchQuery(String connection, String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
