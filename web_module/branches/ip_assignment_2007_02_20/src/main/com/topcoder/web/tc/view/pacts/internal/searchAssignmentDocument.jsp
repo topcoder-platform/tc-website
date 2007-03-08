@@ -271,7 +271,7 @@ function loaded() {
         </form>
         <form name='f2' action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
             <input type="hidden" name="module" value="SearchAssignmentDocument"/>
-            <input type="Submit" value="Submit">
+            <input type="Submit" value="Reset">
         </form>
         
     </td>
