@@ -30,7 +30,7 @@ All travelers entering the United States must present either a passport or a vis
 </p>
 <p>
 The following countries DO NOT require a visa to enter the United States:<br>
-<a href="<tc-webtag:linkTracking link='http://travel.state.gov/visa/temp/without/without_1990.html#countries]' refer='TCHS07_VISA' />">http://travel.state.gov/visa/temp/without/without_1990.html#countries</a>
+<a href="<tc-webtag:linkTracking link='http://travel.state.gov/visa/temp/without/without_1990.html' refer='TCHS07_VISA' />">http://travel.state.gov/visa/temp/without/without_1990.html#countries</a>
 </p>
 <h3>Why Should I Get it Early?</h3>
 <p>
