@@ -58,11 +58,10 @@
     </li>
     <li>
         <p>
-            <strong>QUESTIONNAIRE</strong> - View the <a href="/tc?module=ViewSurvey&amp;sid=16610">2007
+            <strong>QUESTIONNAIRE</strong> - View the <a href="/tc?module=ViewSurvey&amp;sid=16630">2007
             TopCoder Open Questionnaire</a>. NOTE: All questions are mandatory. The answers to
-            1-5 may be included in the 2007 TCO Program or
-            used in onsite introductions, at TopCoder's sole discretion. The answers to questions 6 - 15 will
-            be provided to AOL.
+            1-6 may be included in the 2007 TCO Program or
+            used in onsite introductions, at TopCoder's sole discretion. 
         </p>
     </li>
     <li>
