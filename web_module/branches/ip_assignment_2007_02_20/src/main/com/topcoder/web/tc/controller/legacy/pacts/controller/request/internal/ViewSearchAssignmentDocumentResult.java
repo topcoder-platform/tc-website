@@ -35,9 +35,9 @@ public class ViewSearchAssignmentDocumentResult extends PactsBaseProcessor imple
             String param2 = getRequest().getParameter("search_list");
             if (param2 != null && !param2.equals("") && !param.equals("0")) {
                 if (param.equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID.toString())) {
-                    searchCriteria.put(COMPONENT_PROJECT, param);
+                    searchCriteria.put(COMPONENT_PROJECT, param2);
                 } else if (param.equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID.toString())) {
-                    searchCriteria.put(STUDIO_CONTEST, param);
+                    searchCriteria.put(STUDIO_CONTEST, param2);
                 }
             }
         }
