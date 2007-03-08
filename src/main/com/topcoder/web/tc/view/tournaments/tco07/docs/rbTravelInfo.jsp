@@ -25,8 +25,8 @@
 <td id="navSpacer">
 
     <jsp:include page="../nav.jsp">
-        <jsp:param name="tabLev1" value="algorithm"/>
-        <jsp:param name="tabLev2" value="description"/>
+        <jsp:param name="tabLev1" value="overview"/>
+        <jsp:param name="tabLev2" value="joinus"/>
         <jsp:param name="tabLev3" value=""/>
     </jsp:include>
 
@@ -77,7 +77,7 @@ As soon as you send in this form, TopCoder will secure airline reservations base
     where to board upon your arrival at the airport will be indicated on your agenda</p>
 
 
-<div align="center"><span class="bigTitle">Travel Form</span></div>
+<h2 align="center">Travel Form</h2>
 <form name="questForm" method="POST" action="${sessionInfo.secureAbsoluteServletPath}">
 <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO07TravelInfoSubmit"/>
 <table border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
