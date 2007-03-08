@@ -268,12 +268,11 @@ function loaded() {
         </script>
         
         <input type="Submit" value="Submit">        
+        <input type="button" value="Reset" OnClick="document.f2.submit();">
         </form>
         <form name='f2' action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
             <input type="hidden" name="module" value="SearchAssignmentDocument"/>
-            <input type="Submit" value="Reset">
         </form>
-        
     </td>
   </tr>
 </table>
