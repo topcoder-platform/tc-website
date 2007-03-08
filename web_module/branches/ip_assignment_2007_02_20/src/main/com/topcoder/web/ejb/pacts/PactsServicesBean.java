@@ -326,9 +326,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer sb = new StringBuffer(300);
             sb.append("----- Query:\n");
             sb.append(query + "\n");
-            sb.append("----- Objects:\n");
+            sb.append("----- Objects: (size:");
+            sb.append(objects.size());
+            sb.append(")\n");
             for (int i = 0; i < objects.size(); i++)
-                sb.append(objects.get(i).toString());
+                sb.append(objects.get(i).toString() + "\n");
             log.error(sb.toString());
 
             try {
