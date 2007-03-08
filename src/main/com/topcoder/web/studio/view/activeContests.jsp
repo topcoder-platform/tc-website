@@ -55,7 +55,7 @@
 <tbody>
     <tr>
         <td class="NW">&nbsp;</td>
-        <td class="title" colspan="7">Active Contests</td>
+        <td class="title" colspan="8">Active Contests</td>
         <td class="NE">&nbsp;</td>
     </tr>
     <tr>
@@ -79,6 +79,9 @@
             </div>
         </td>
         <td class="headerR">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
+        </td>
+        <td class="headerR">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
         </td>
         <td class="header">&nbsp;</td>
@@ -92,7 +95,7 @@
                 <td class="valueW">
                     <div>&nbsp;</div>
                 </td>
-                <td class="valueC" colspan="6">
+                <td class="valueC" colspan="8">
                     <div align="center" style="margin: 40px 0px 40px 0px;">
                         There are currently no active contests, but check back soon.
                     </div>
@@ -132,6 +135,9 @@
                         <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00" ifNull="&nbsp;"/>
                     </td>
                     <td class="valueR">
+                        <rsc:item name="registrants" row="<%=resultRow%>"/>
+                    </td>
+                    <td class="valueR">
                         <rsc:item name="submission_count" row="<%=resultRow%>"/>
                     </td>
 
@@ -153,7 +159,7 @@
         </c:otherwise>
     </c:choose>
     <tr>
-        <td class="SW" colspan="8">&nbsp;</td>
+        <td class="SW" colspan="9">&nbsp;</td>
         <td class="SE">&nbsp;</td>
     </tr>
 </tbody>
