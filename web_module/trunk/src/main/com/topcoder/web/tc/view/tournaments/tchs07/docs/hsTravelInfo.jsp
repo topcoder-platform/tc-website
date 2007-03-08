@@ -80,10 +80,10 @@
 </tr>
 --%>
 
-<tr class="light">
+<!--<tr class="light">
     <td class="valueR" ><input type="hidden" name="q33" value="Date of Birth"/>Date of Birth:</td>
     <td class="value"><input type="text" name="a33" size="10"/></td>
-</tr>
+</tr>-->
 
 <%--
 <tr class="light">
