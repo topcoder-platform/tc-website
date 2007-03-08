@@ -29,11 +29,11 @@ public class ViewSearchAssignmentDocumentResult extends PactsBaseProcessor imple
             searchCriteria.put(SUBMISSION_TITLE, param);
         }
         param = getRequest().getParameter("assignment_document_type_id");
-        if (param != null && !param.equals("")) {
+        if (param != null && !param.equals("") && !param.equals("0")) {
             searchCriteria.put(TYPE, param);
 
             String param2 = getRequest().getParameter("search_list");
-            if (param2 != null && !param2.equals("")) {
+            if (param2 != null && !param2.equals("") && !param.equals("0")) {
                 if (param.equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID.toString())) {
                     searchCriteria.put(COMPONENT_PROJECT, param);
                 } else if (param.equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID.toString())) {
@@ -42,7 +42,7 @@ public class ViewSearchAssignmentDocumentResult extends PactsBaseProcessor imple
             }
         }
         param = getRequest().getParameter("assignment_document_status_id");
-        if (param != null && !param.equals("")) {
+        if (param != null && !param.equals("") && !param.equals("0")) {
             searchCriteria.put(STATUS, param);
         }
         param = getRequest().getParameter("create_date_from");

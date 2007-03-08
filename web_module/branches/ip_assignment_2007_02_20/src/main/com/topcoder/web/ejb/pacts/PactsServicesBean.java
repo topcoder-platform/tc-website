@@ -1467,10 +1467,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String key = (String) i.next();
                 String value = ((String) searchCriteria.get(key)).toUpperCase();
                 if (key.equals(HANDLE)) {
-                    getAssignmentDocument.append("and ad.user_id in (select user_id from user where handle_lower like '%?%') ");
+                    getAssignmentDocument.append("and ad.user_id in (select user_id from user where UPPER(handle_lower) like ?) ");
                     objects.add(value);
                 } else if (key.equals(SUBMISSION_TITLE)) {
-                    getAssignmentDocument.append("and ad.assignment_document_submission_title like '%?%' ");
+                    getAssignmentDocument.append("and UPPER(ad.assignment_document_submission_title) like ? ");
                     objects.add(value);
                 } else if (key.equals(TYPE)) {
                     getAssignmentDocument.append("and ad.assignment_document_type_id = ? ");
@@ -1511,12 +1511,25 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
+            log.debug("----- Query:\n");
+            log.debug(getAssignmentDocument.toString() + "\n");
+            log.debug("----- Objects: (size:");
+            log.debug("" + objects.size());
+            log.debug(")\n");
+            for (int j = 0; j < objects.size(); j++)
+                log.debug(objects.get(j).toString() + "\n");
+
             rsc = runSearchQuery(conn, getAssignmentDocument.toString(), objects, true);
+
+            log.debug("Returned: " + rsc.size());
 
             for (Iterator it = rsc.iterator(); it.hasNext(); ) {
                 ResultSetRow rsr = (ResultSetRow) it.next();
                 
                 AssignmentDocument ad = createAssignmentDocumentBean(conn, rsr);
+
+                log.debug("AD: " + ad.getSubmissionTitle().toString() + " (" + ad.getId().toString() + ")");
+
                 l.add(ad);
             }
         } catch (SQLException e) {
