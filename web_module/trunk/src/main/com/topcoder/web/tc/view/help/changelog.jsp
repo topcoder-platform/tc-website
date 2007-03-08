@@ -47,6 +47,7 @@
     <ul>
         <li>Fix bug in link tracking system where it didn't track the referrer</li>
         <li>Fix link to room in HS problem solution page</li>
+        <li>Add links in the brad crumb for problem solution page</li>
     </ul>
 </p>
 <p>
