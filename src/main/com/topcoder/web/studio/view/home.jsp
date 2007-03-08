@@ -7,6 +7,7 @@
 <% ResultSetContainer recentWinners = (ResultSetContainer) ((Map) request.getAttribute("studio_home_data")).get("recent_winners");%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -42,7 +43,7 @@
 
 <%-- CSF --%>
                 <div>
-                    <A href="http://csf.topcoder.com/"><img src="/i/home/csf.gif" alt="Microsoft CSF, Powered by TopCoder"/></A>
+                    <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="homepage" />"><img src="/i/home/csf.gif" alt="Microsoft CSF, Powered by TopCoder"/></A>
                 </div>
 
 <%-- BADGE VOTE --%>
