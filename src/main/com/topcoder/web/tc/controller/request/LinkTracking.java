@@ -24,7 +24,7 @@ public class LinkTracking extends BaseProcessor {
                 link = StringUtils.checkNull(getRequest().getParameter("link"));
             }
             refer = StringUtils.checkNull((String) getRequest().getAttribute("refer"));
-            if ("".equals(link)) {
+            if ("".equals(refer)) {
                 refer = StringUtils.checkNull(getRequest().getParameter("refer"));
             }
             String ip = getRequest().getRemoteHost();
