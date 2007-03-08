@@ -44,10 +44,10 @@
 	</td>
 	<td><c:out value="${event.name}" /></td>
 	<td>
-		<fmt:formatDate value="${event.startDate}" pattern="MM/dd/yyyy" /></td>
+		<fmt:formatDate value="${event.startDate}" pattern="MM/dd/yyyy hh:mm" /></td>
 	</td>
 	<td>
-		<fmt:formatDate value="${event.endDate}" pattern="MM/dd/yyyy" /></td>
+		<fmt:formatDate value="${event.endDate}" pattern="MM/dd/yyyy hh:mm" /></td>
 	</td>
 	<td><a href="http://www.topcoder.com/tc?module=VisaLetterRequest&eid=<c:out value="${event.id}" />">
 		http://www.topcoder.com/tc?module=VisaLetterRequest&amp;eid=<c:out value="${event.id}" />
