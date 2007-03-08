@@ -91,11 +91,13 @@
 </tr>
 --%>
 
+<!--
 <tr>
     <td class="sidebarText" align="right"><input type="hidden" name="q33" value="Date of Birth"/>Date of Birth:</td>
     <td class="sidebarText" align="left"><input type="text" name="a33" size="10"/></td>
     <td class="sidebarText"></td>
 </tr>
+-->
 
 <%--
 <tr>
