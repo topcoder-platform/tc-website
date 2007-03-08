@@ -59,7 +59,7 @@
     in your agenda.   If you have any special requests, please indicate them on the travel form below. </p>
 
 <p>
-    <b><b>At the TCHS, you will be sharing a hotel room with another competitor or with your team.</b> Please 
+    <b>At the TCHS, you will be sharing a hotel room with another competitor or with your team.</b> Please 
         fill in the appropriate space with your roommate preference if you have one. We will do our
         best to accommodate your request</p>
 
