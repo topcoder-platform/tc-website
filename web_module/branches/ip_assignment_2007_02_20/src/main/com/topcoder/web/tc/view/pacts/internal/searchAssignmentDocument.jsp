@@ -268,7 +268,7 @@ function loaded() {
         </script>
         
         <input type="Submit" value="Submit">
-        <input type="reset" value="Reset">
+        <input type="reset" value="Reset" OnClick="typeChanged()">
         
         </form>
     </td>
