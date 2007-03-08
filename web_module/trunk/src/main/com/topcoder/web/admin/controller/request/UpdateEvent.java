@@ -20,7 +20,7 @@ public class UpdateEvent extends ShortHibernateProcessor {
 
     protected void dbProcessing() throws  Exception {
         VisaLetterEventDAO eventDAO =  DAOUtil.getFactory().getVisaLetterEventDAO();
-        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 
         String name = getRequest().getParameter(EditEvent.NAME);
         if (name == null || name.trim().length() == 0) {
