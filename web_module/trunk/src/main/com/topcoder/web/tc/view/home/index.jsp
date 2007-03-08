@@ -88,18 +88,19 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN 
+                <%-- DIGITAL RUN --%>
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                --%>
+                
                 <%-- AOL mashups
                 <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123"><img src="/i/home/aol_mashups.gif" alt="AOL mashups" border="0" style="display:block;"/></A>
                 --%>
-                <%-- Marathon Match Sponsor --%>
+                <%-- Marathon Match Sponsor 
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/longcontest/?module=ViewActiveContests" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign" />
                 </map>
                 <img src="/i/home/mmtco1_verisign.png" alt="TCO07 Marathon Match 1 brough to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
+                --%>
             </td>
         </tr>
     </table>
@@ -226,7 +227,7 @@
                 --%>
 
                 <%-- CSF --%>
-                <a href="<tc-webtag:linkTracking link='http://csf.topcoder.com' refer='HOMEPAGE' />"><img src="/i/home/csf.gif" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
+                <a href="<tc-webtag:linkTracking link='http://csf.topcoder.com' refer='HOMEPAGE' />"><img src="/i/home/csf.png" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
                 
                 <%-- SRM SPONSOR 
                 <map name="srm">
