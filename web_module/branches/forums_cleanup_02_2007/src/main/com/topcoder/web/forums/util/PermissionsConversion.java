@@ -54,7 +54,7 @@ public class PermissionsConversion {
     private static PreparedStatement adminPS = null;	// determines admin privileges for SW forums
     private static PreparedStatement publicPS = null;	// determine public SW forums
     
-    public static void convertForums(ForumFactory forumFactory) {       
+    public static void convertPermissions(ForumFactory forumFactory) {       
     	if (!JiveGlobals.getJiveBooleanProperty("tc.convert.tcs.forumPerms")) {
     		log.info("Forum conversion canceled.");
     		return;

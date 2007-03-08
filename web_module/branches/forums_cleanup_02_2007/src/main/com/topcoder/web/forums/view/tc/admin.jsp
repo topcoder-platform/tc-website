@@ -76,7 +76,8 @@
             String[] commandValues = { ForumConstants.ADMIN_COMMAND_HTML_ESCAPE,
                 "Add test forums", "Delete test forums", ForumConstants.ADMIN_COMMAND_CREATE_FORUMS_ALGO,
                 ForumConstants.ADMIN_COMMAND_DELETE_FORUMS_ALGO, ForumConstants.ADMIN_CREATE_FORUM_FROM_EJB, 
-                ForumConstants.ADMIN_ENABLE_RATINGS, ForumConstants.ADMIN_CONVERT_TCS_FORUMS};
+                ForumConstants.ADMIN_ENABLE_RATINGS, ForumConstants.ADMIN_CONVERT_TCS_FORUMS,
+                ForumConstants.ADMIN_CONVERT_TCS_FORUM_PERMS};
             for (int i=0; i<commandNames.length; i++) { %>
                 <option value="<%=commandValues[i]%>"><%=commandNames[i]%></option>
         <%  } %>

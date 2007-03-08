@@ -22,6 +22,7 @@ import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.util.ForumConversion;
+import com.topcoder.web.forums.util.PermissionsConversion;
 import com.topcoder.common.web.data.Round;
 
 import java.util.ArrayList;
@@ -99,6 +100,9 @@ public class Admin extends ForumsProcessor {
         } else if (command.equals(ForumConstants.ADMIN_CONVERT_TCS_FORUMS)) {
         	log.info("Converting TCS forums... ");
         	ForumConversion.convertForums(forumFactory);
+        } else if (command.equals(ForumConstants.ADMIN_CONVERT_TCS_FORUM_PERMS)) {
+            log.info("Converting TCS forum permissions... ");
+            PermissionsConversion.convertPermissions(forumFactory);
         }
         /*
         else if (command.equals("Add test forums")) {

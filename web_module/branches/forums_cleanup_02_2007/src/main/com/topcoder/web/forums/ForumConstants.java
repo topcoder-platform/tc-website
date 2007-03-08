@@ -106,6 +106,7 @@ public interface ForumConstants {
     public final static String ADMIN_ENABLE_RATINGS = "enableRatings";
     public final static String ADMIN_CREATE_FORUM_FROM_EJB = "createForumFromEJB";
     public final static String ADMIN_CONVERT_TCS_FORUMS = "convertTCSForums";
+    public final static String ADMIN_CONVERT_TCS_FORUM_PERMS = "convertTCSForumPerms";
 
     public final static String ADMIN_MATCH = "match";
 
