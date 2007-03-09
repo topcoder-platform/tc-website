@@ -1501,6 +1501,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 if (key.equals(HANDLE)) {
                     getAssignmentDocument.append("and ad.user_id in (select user_id from user where UPPER(handle_lower) like ?) ");
                     objects.add(value);
+                } else if (key.equals(USER_ID)) {
+                    getAssignmentDocument.append("and ad.user_id = ? ");
+                    objects.add(value);
                 } else if (key.equals(SUBMISSION_TITLE)) {
                     getAssignmentDocument.append("and UPPER(ad.assignment_document_submission_title) like ? ");
                     objects.add(value);

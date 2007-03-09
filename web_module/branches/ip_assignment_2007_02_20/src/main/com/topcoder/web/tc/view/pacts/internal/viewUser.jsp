@@ -158,11 +158,10 @@
         out.println("\">Search for User's Contracts</a><br>");
 
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
-        out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.LIST_TASK + "&");
-        out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.ASSIGNMENT_DOCUMENT_CMD + "&");
+        out.print(PactsConstants.MODULE_KEY+"=SearchAssignmentDocument&");
         out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
         out.println("\">Search for User's Assignment Documents</a><br>");
-
+        
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
         out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.LIST_TASK + "&");
         out.println(PactsConstants.CMD_STRING + "=" + PactsConstants.USER_TAX_FORM_CMD + "&");

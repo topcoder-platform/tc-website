@@ -20,6 +20,10 @@ public class ViewSearchAssignmentDocumentResult extends PactsBaseProcessor imple
         Map searchCriteria = new HashMap();
         String param;
        
+        param = getRequest().getParameter(USER_ID);
+        if (param != null && !param.equals("")) {
+            searchCriteria.put(USER_ID, param);
+        }
         param = getRequest().getParameter("user_handle");
         if (param != null && !param.equals("")) {
             searchCriteria.put(HANDLE, "%" + param + "%");
