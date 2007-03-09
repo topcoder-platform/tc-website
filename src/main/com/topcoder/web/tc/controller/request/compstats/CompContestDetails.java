@@ -115,10 +115,10 @@ public class CompContestDetails extends Base {
 
             }
 
-            // check if there is a completed version of the component
+            // check if there is a completed or suspended version of the component
             boolean isComplete = false;
             for (int i=0; i < dates.size() && !isComplete; i++) {
-                if (dates.getIntItem(i,"status_id") == 7) {
+                if (dates.getIntItem(i,"status_id") == 7 || dates.getIntItem(i,"suspended_ind") == 1) {
                     isComplete = true;
                 }
             }
