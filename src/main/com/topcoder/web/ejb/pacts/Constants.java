@@ -67,34 +67,41 @@ public interface Constants {
      */
     //public static final int PRINTED_STATUS = 52;
 
-    /* We get a "paid" status once the checks are in the mail.  A TC rep.
+    /**
+     *  We get a "paid" status once the checks are in the mail.  A TC rep.
      * marks payments as having been paid
      */
     public static final int PAID_STATUS = 53;
 
-    /* We get a "ready to print" status when a TC rep decides the payments are ready to print */
+    /** 
+     * We get a "ready to print" status when a TC rep decides the payments are ready to print */
     public static final int READY_TO_PRINT_STATUS = 54;
 
-    /* We get an "on hold" status when the payment is going to someone who doesn't have a
+    /** 
+     * We get an "on hold" status when the payment is going to someone who doesn't have a
      * tax form on file at the time of the generation of the payment, or the person
      * is not active at the time of printing
      */
     public static final int PAYMENT_ON_HOLD_STATUS = 55;
 
-    /* We get an "owed" status after the associated affidavit is affirmed, or if it's a referral
+    /** 
+     * We get an "owed" status after the associated affidavit is affirmed, or if it's a referral
      * payment.  In either case, it means we should pay them...
      */
     public static final int PAYMENT_OWED_STATUS = 56;
 
-    /* We get a "pending" status if they have a tax form on file at the time
+    /** 
+     * We get a "pending" status if they have a tax form on file at the time
      * of the generation of the payment
      */
     public static final int PAYMENT_PENDING_STATUS = 64;
 
-    /* We get a "canceled" status when old affidavits expire */
+    /** 
+     * We get a "canceled" status when old affidavits expire */
     public static final int PAYMENT_CANCELED_STATUS = 65;
 
-    /* We get an "expired" status when algorithm payments lapse 60 days without
+    /** 
+     * We get an "expired" status when algorithm payments lapse 60 days without
      * receiving the necessary paperwork
      */
     public static final int PAYMENT_EXPIRED_STATUS = 68;
