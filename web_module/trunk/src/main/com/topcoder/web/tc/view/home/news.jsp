@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.09.07<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA chat session scheduled for SRM 341</A>
+        </span><br><br>
+      NSA will be in the arena at 11 AM on 3/10, just prior to SRM 341, to discuss working at NSA.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">details</A> | 
+         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Survey News" border="0" /><br>03.09.07<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=16640">Survey: Technology news and resources in Europe</A></span><br><br>
         We invite all European members to provide us some information about the ways in which you stay in touch with the latest technology trends.  Please take the time to participate in our quick survey.
