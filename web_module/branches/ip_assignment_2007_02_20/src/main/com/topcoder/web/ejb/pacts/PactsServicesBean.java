@@ -1347,6 +1347,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         log.debug("a3");
         ad.setExpireDate(rsr.getTimestampItem("expire_date"));
         log.debug("a4");
+        ad.setCreateDate(rsr.getTimestampItem("create_date"));
+        log.debug("a4a");
+        ad.setModifyDate(rsr.getTimestampItem("modify_date"));
+        log.debug("a4b");
     
         UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rsr.getLongItem("user_id")));
         log.debug("a5");
@@ -1416,6 +1420,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("ad.component_project_id , ");
         sb.append("ad.affirmed_date , ");
         sb.append("ad.expire_date ");
+        sb.append("ad.create_date , ");
+        sb.append("ad.modify_date ");
         sb.append("from 'informix'.assignment_document ad, 'informix'.assignment_document_type_lu adt, 'informix'.assignment_document_status_lu ads ");
         sb.append("where ad.assignment_document_type_id = adt.assignment_document_type_id ");
         sb.append("and ad.assignment_document_status_id = ads.assignment_document_status_id ");
@@ -1710,14 +1716,28 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalArgumentException("Assignment Document's user cannot be null");
         }
         
-        if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID) && 
-            ad.getComponentProject() == null) {
-            throw new IllegalArgumentException("Assignment Document's component project cannot be null");
+        if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+            if (ad.getComponentProject() == null) {
+                throw new IllegalArgumentException("Assignment Document's component project cannot be null");
+            } else {
+                try {
+                    findComponentProjectById(ad.getComponentProject().getId().longValue());
+                } catch (Exception e) {
+                    throw new IllegalArgumentException("Assignment Document's component project doesn't exists");
+                }
+            }
         }
 
-        if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID) && 
-            ad.getStudioContest() == null) {
-            throw new IllegalArgumentException("Assignment Document's studio contest cannot be null");
+        if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
+            if (ad.getStudioContest() == null) {
+                throw new IllegalArgumentException("Assignment Document's studio contest cannot be null");
+            } else {
+                try {
+                    findStudioContestsById(ad.getStudioContest().getId().longValue());
+                } catch (Exception e) {
+                    throw new IllegalArgumentException("Assignment Document's studio contest doesn't exists");
+                }
+            }
         }
 
         if (ad.getId() != null) {

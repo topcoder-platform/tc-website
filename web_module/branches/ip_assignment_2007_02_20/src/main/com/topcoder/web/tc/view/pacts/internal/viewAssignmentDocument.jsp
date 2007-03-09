@@ -66,6 +66,14 @@
             <td><b>Affirmed Date:</b></td>
             <td><fmt:formatDate value="${assignment_document.affirmedDate}" pattern="MM/dd/yyyy"/></td>
         </tr>        
+        <tr>        
+            <td><b>Create Date:</b></td>
+            <td><fmt:formatDate value="${assignment_document.createDate}" pattern="MM/dd/yyyy"/></td>
+        </tr>
+        <tr>        
+            <td><b>Modify Date:</b></td>
+            <td><fmt:formatDate value="${assignment_document.modifyDate}" pattern="MM/dd/yyyy"/></td>
+        </tr>        
    
 </table>
 

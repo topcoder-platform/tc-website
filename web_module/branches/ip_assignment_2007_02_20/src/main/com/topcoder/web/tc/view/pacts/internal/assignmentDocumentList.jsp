@@ -47,8 +47,8 @@
                 <td><c:out value="${ad.status.description}"/></td>
                 <td><fmt:formatDate value="${ad.expireDate}" pattern="MM/dd/yyyy"/></td>
                 <td><fmt:formatDate value="${ad.affirmedDate}" pattern="MM/dd/yyyy"/></td>
-                <td>*TODO*</td>
-                <td>*TODO*</td>
+                <td><fmt:formatDate value="${ad.createDate}" pattern="MM/dd/yyyy"/></td>
+                <td><fmt:formatDate value="${ad.modifyDate}" pattern="MM/dd/yyyy"/></td>
                 </tr>
             </c:forEach>
         </table>

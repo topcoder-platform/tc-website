@@ -16,6 +16,8 @@ public class AssignmentDocument extends Base {
     private ComponentProject componentProject;
     private Timestamp affirmedDate;
     private Timestamp expireDate;
+    private Timestamp createDate;
+    private Timestamp modifyDate;
 
     public AssignmentDocument() {
         type = new AssignmentDocumentType();
@@ -160,6 +162,34 @@ public class AssignmentDocument extends Base {
      */
     public void setStudioContest(StudioContest studioContest) {
         this.studioContest = studioContest;
+    }
+
+    /**
+     * @return the createDate
+     */
+    public Timestamp getCreateDate() {
+        return createDate;
+    }
+
+    /**
+     * @param createDate the createDate to set
+     */
+    public void setCreateDate(Timestamp createDate) {
+        this.createDate = createDate;
+    }
+
+    /**
+     * @return the modifyDate
+     */
+    public Timestamp getModifyDate() {
+        return modifyDate;
+    }
+
+    /**
+     * @param modifyDate the modifyDate to set
+     */
+    public void setModifyDate(Timestamp modifyDate) {
+        this.modifyDate = modifyDate;
     }
 
 }
