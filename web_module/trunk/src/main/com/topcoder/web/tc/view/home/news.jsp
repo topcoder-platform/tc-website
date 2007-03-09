@@ -8,7 +8,7 @@
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA chat session scheduled for SRM 341</A>
         </span><br><br>
-      NSA will be in the arena at 11 AM on 3/10, just prior to SRM 341, to discuss working at NSA.
+      NSA will be in the Arena at 11 AM EST on March 10, just prior to SRM 341, to discuss working at NSA.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
