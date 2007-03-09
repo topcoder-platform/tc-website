@@ -88,9 +88,9 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN --%>
+                <%-- DIGITAL RUN 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                
+                --%>
                 <%-- AOL mashups
                 <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123"><img src="/i/home/aol_mashups.gif" alt="AOL mashups" border="0" style="display:block;"/></A>
                 --%>
@@ -101,6 +101,14 @@
                 </map>
                 <img src="/i/home/mmtco1_verisign.png" alt="TCO07 Marathon Match 1 brough to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
                 --%>
+
+                <%-- SRM SPONSOR --%>
+                <map name="srm">
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10665" />
+                <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa" />
+                </map>
+                <img src="/i/home/srm341_nsa.png" alt="SRM 341 brought to you by NSA" border="0" style="display:block;" usemap="#srm"/>
+                
             </td>
         </tr>
     </table>
@@ -231,10 +239,10 @@
                 
                 <%-- SRM SPONSOR 
                 <map name="srm">
-                <area shape="rect" alt="" coords="1,1,264,85" href="/tc?module=MatchDetails&rd=10664" />
-                <area shape="rect" alt="" coords="1,96,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10665" />
+                <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa" />
                 </map>
-                <img src="/i/home/srm340_aol.png" alt="SRM 340 sponsored by AOL" border="0" style="display:block;" usemap="#srm"/>
+                <img src="/i/home/srm341_nsa.png" alt="SRM 341 brought to you by NSA" border="0" style="display:block;" usemap="#srm"/>
                 --%>
             </td>
         </tr>

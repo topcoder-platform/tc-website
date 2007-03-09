@@ -118,7 +118,8 @@
             <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
             <c:if test="${isOver}">
                 <td class="header">
-                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
+                    <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
+                    Handle</a>
                 </td>
             </c:if>
             <td class="header" nowrap="nowrap">
@@ -126,8 +127,8 @@
                     Submission ID</a>
             </td>
             <td class="headerC" nowrap="nowrap">
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit
-                    Date</a>
+                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
+                    Submitted</a>
             </td>
             <td class="headerC" width="100%">
                 Submission
@@ -148,7 +149,7 @@
                     <rsc:item name="submission_id" row="<%=resultRow%>"/>
                 </td>
                 <td class="valueC" nowrap="nowrap">
-                    <rsc:item name="create_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    <rsc:item name="create_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
                 <td class="valueC">
 
