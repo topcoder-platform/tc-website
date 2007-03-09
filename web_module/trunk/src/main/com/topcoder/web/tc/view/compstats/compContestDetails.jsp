@@ -1,12 +1,15 @@
 <%@ page language="java"
          import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.util.ApplicationServer,
+			     com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.common.SessionInfo,
                  com.topcoder.web.tc.Constants" %>
 
 <%@ page import="java.util.Map" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -27,8 +30,7 @@
     ResultSetContainer reviewers = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("reviewers_for_project");
     ResultSetContainer projectInfo = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("project_info");
     ResultSetContainer submissions = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("submissions");
-    //ResultSetContainer hasUnknownRSC = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("has_unknwon");
-    //boolean hasUnknown = hasUnknownRSC.getIntItem(0, "has_unknown") > 0;
+    SessionInfo sessionInfo = (SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
 
     long projectId = ((Long) request.getAttribute("pid")).longValue();
     boolean first = true;
@@ -47,9 +49,11 @@
         imgName = "/i/development/smNetCustom.gif";
     }
 
-    boolean canDownloadSubm = ((Boolean) request.getAttribute("isComplete")).booleanValue();
+    boolean isComplete = ((Boolean) request.getAttribute("isComplete")).booleanValue() || sessionInfo.isAdmin();
     boolean isDev = "113".equals(projectInfo.getStringItem(0, "phase_id"));
 
+    long userId = sessionInfo.isAnonymous()? -1 : sessionInfo.getUserId();
+    boolean isReviewer = false;
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -189,7 +193,7 @@
 <td width="75%" valign="top">
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="stat" style="border: none;">
 <tr>
-    <td class="title" colspan="<%= canDownloadSubm? 12 : 11 %>">
+    <td class="title" colspan="12">
         Competitors
     </td>
 </tr>
@@ -210,9 +214,7 @@
     <TD CLASS="headerC">&nbsp;</TD>
     <TD CLASS="headerC">Reviewers</TD>
     <TD CLASS="headerC">&nbsp;</TD>
-    <% if (canDownloadSubm) { %>
     <TD CLASS="headerC" rowspan="2">&nbsp;</TD>
-    <% } %>
 </tr>
 <tr>
     <%
@@ -223,6 +225,9 @@
     <TD CLASS="headerC" colspan="2">unknown*</TD>
     <% } else {
         for (int k = 0; k < 3; k++) {
+             if (reviewers.getLongItem(k, "reviewer_id") == userId) {
+                 isReviewer = true;
+             }
     %>
     <TD CLASS="headerC">
         <% if (reviewers.size() < k + 1) { %>
@@ -280,10 +285,13 @@
             <% if (resultRow.getItem("screening_score").getResultData() == null) { %>
             <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>
             <% } else { %>
-            <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>'
-               class="bcLink">
-                <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>
-            </A>
+            	<% if(isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) { %>
+	            	<A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>' class="bcLink">	            
+		                <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>	
+        		    </A>
+        		<% } else { %>
+		                <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>	
+        		<% } %>
             <% } %>
         </TD>
         <TD class="value">
@@ -317,22 +325,26 @@
         <%
         } else { %>
         <TD class="valueC">
+        <% if (isComplete || userId == reviewers.getLongItem(k, "reviewer_id") || userId == resultRow.getLongItem("user_id")) { %>
             <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>&rid=<%=reviewers.getLongItem(k, "reviewer_id")%>' class="bcLink">
                 <rsc:item row="<%=resultRow%>" name="<%="score"+(k+1)%>" format="0.00"/>
             </A>
+            <% } else { %>
+                <rsc:item row="<%=resultRow%>" name="<%="score"+(k+1)%>" format="0.00"/>
+            <% } %>
         </TD>
         <% }
         %>
         <% } %>
-        <% if (canDownloadSubm) { %>
         <TD class="valueC" nowrap="nowrap">
+    	    <% if (isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) { %>
             <div id="pop<%=i%>" class="popUp">
                 <div>Download submission</div>
             </div>
             <a href='/tc?module=DownloadSubmission&cr=<%= resultRow.getLongItem("user_id") %>&pj=<%= projectId %>&st=1&ph=<%= projectInfo.getStringItem(0, "phase_id") %>'>
                 <img src="/i/interface/emblem/disk.gif" alt="Download submission" border="0" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/></a>
+	        <% } %>
         </TD>
-        <% } %>
 
 
         <% } else { %>
