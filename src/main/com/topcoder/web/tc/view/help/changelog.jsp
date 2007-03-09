@@ -43,11 +43,17 @@
 </jsp:include>
 
 <p>
+    5.8.4 - 2007.03.xx
+    <ul>
+        <li>Add the suspended flag for component versions - cucu</li>
+        <li>In submission download and scorecard views, added granular permissions for viewing incomplete projects - cucu</li>
+	</ul>
+	
     5.8.3 - 2007.03.08
     <ul>
         <li>Fix bug in link tracking system where it didn't track the referrer - dok</li>
-        <li>Fix link to room in HS problem solution page</li>
-        <li>Add links in the brad crumb for problem solution page</li>
+        <li>Fix link to room in HS problem solution page - cucu</li>
+        <li>Add links in the brad crumb for problem solution page - cucu</li>
     </ul>
 </p>
 <p>
