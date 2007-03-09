@@ -5,7 +5,9 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.web.ejb.user.UserTermsOfUseLocal;
@@ -42,10 +44,6 @@ public class DownloadSubmission extends Base {
                 r.setProperty(Constants.CODER_ID, coderId);
                 r.setProperty(Constants.SUBMISSION_TYPE, "1"); // just initiall submissions
 
-                // When selecting the submission row, it filters by status to be sure that the selected
-                // project is completed and avoid a user hacking a url to download a submission that
-                // shouldn't be available.
-                // If that's the case, the query won't return any rows and an exception will be thrown.
                 DataAccessInt dai = getDataAccess(true);
                 Map result = dai.getData(r);
                 ResultSetContainer rsc = (ResultSetContainer) result.get("get_submission_url");
@@ -53,6 +51,12 @@ public class DownloadSubmission extends Base {
                     throw new TCWebException("Not exactly one sumbission url found.  Instead, found " + rsc.getRowCount());
                 }
 
+                if (rsc.getIntItem(0, "status_id") != 7) {
+                    if (!(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin() || canDownload(projId, coderId))) {
+                        throw new TCWebException("You don't have permission to download the submission.");                        
+                    }
+                }
+                
                 String url = rsc.getStringItem(0, "submission_url");
                 String fname = createFileName(url, rsc.getStringItem(0, "handle"),
                         rsc.getStringItem(0, "component_name"), rsc.getStringItem(0, "version_text"));
@@ -71,6 +75,63 @@ public class DownloadSubmission extends Base {
             throw new TCWebException(e);
         }
     }
+
+    
+    private ResultSetContainer findProjects(String compId, String versId, String phaseId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("find_projects");
+
+        // Find all the projects that match with the component id, version and phase
+        r.setProperty("compid", compId);
+        r.setProperty("vr", versId);
+        r.setProperty(Constants.PHASE_ID, phaseId);
+
+        DataAccessInt dai = getDataAccess(true);
+        Map result = dai.getData(r);
+        return (ResultSetContainer) result.get("find_projects");
+    }
+
+    private boolean canDownload(String projId, String coderId) throws Exception {
+        
+        long userId = getUser().getId();
+        
+        // you can always download your own submission
+        if (coderId.equals("" + userId)) {
+            return true;
+        }
+            
+        Request r = new Request();
+        r.setContentHandle("comp_contest_details");
+
+        r.setProperty("pj", projId);
+
+        DataAccessInt dai = getDataAccess(true);
+        Map result = dai.getData(r);
+
+        ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
+        ResultSetContainer dates = findProjects(projectInfo.getStringItem(0, "component_id"),
+                                                projectInfo.getStringItem(0, "version_id"),
+                                                projectInfo.getStringItem(0, "phase_id"));
+        
+        // check if there is a completed or suspended version of the component, if there is it can be downloaded
+        for (int i=0; i < dates.size(); i++) {
+            if (dates.getIntItem(i,"status_id") == 7 || dates.getIntItem(i,"suspended_ind") == 1) {
+                return true;
+            }
+        }
+        
+        // if it is a reviewer for the project, he can download any submission
+        ResultSetContainer reviewers = (ResultSetContainer) result.get("reviewers_for_project");
+        for (int i = 0; i < reviewers.size(); i++) {
+            if (reviewers.getLongItem(i, "reviewer_id") == userId) {
+                return true;
+            }
+        }
+        
+
+        return false;
+    }
+    
 
     private String getContentType(String filename) {
         String ext = "";

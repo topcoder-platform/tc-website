@@ -10,11 +10,15 @@
 
 package com.topcoder.web.tc.controller.request.compstats;
 
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
 
@@ -70,6 +74,13 @@ public class ScorecardDetails extends Base {
 
             }
 
+            if (projectInfo.getIntItem(0, "status_id") != 7) {
+                if (!(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin() || isAuthorized(projectId, userId,  getRequest().getParameter("rid")))) {
+                    throw new TCWebException("You don't have permission to view the scorecard.");                        
+                }
+            }
+            
+
             getRequest().setAttribute("resultMap", result);
             getRequest().setAttribute("rid", reviewerId);
             getRequest().setAttribute("uid", userId);
@@ -82,6 +93,71 @@ public class ScorecardDetails extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+    
+    private ResultSetContainer findProjects(String compId, String versId, String phaseId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("find_projects");
+
+        // Find all the projects that match with the component id, version and phase
+        r.setProperty("compid", compId);
+        r.setProperty("vr", versId);
+        r.setProperty(Constants.PHASE_ID, phaseId);
+
+        DataAccessInt dai = getDataAccess(true);
+        Map result = dai.getData(r);
+        return (ResultSetContainer) result.get("find_projects");
+    }
+    
+    
+    private boolean isAuthorized(String projId, String coderId, String reviewerId) throws Exception {
+        long userId = getUser().getId();
+        
+        // you can always view your own scorecard
+        if (coderId.equals("" + userId)) {
+            return true;
+        }
+        
+        // reviewers can view what they reviewed
+        if (reviewerId != null && reviewerId.equals("" + userId)) {
+            return true;
+        }
+            
+        Request r = new Request();
+        r.setContentHandle("comp_contest_details");
+
+        r.setProperty("pj", projId);
+
+        DataAccessInt dai = getDataAccess(true);
+        Map result = dai.getData(r);
+
+        ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
+        ResultSetContainer dates = findProjects(projectInfo.getStringItem(0, "component_id"),
+                                                projectInfo.getStringItem(0, "version_id"),
+                                                projectInfo.getStringItem(0, "phase_id"));
+        
+        // check if there is a completed or suspended version of the component
+        for (int i=0; i < dates.size(); i++) {
+            if (dates.getIntItem(i,"status_id") == 7 || dates.getIntItem(i,"suspended_ind") == 1) {
+                return true;
+            }
+        }
+        
+        // if trying to view a screening scorecard
+        if (reviewerId == null) {
+            
+            // if he is a reviewer for the project, he can view screenings
+            ResultSetContainer reviewers = (ResultSetContainer) result.get("reviewers_for_project");
+            for (int i = 0; i < reviewers.size(); i++) {
+                if (reviewers.getLongItem(i, "reviewer_id") == userId) {
+                    return true;
+                }
+            }
+        }
+        
+
+        return false;        
+        
     }
 
 }
