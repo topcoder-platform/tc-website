@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Survey News" border="0" /><br>03.09.07<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=16640">Survey: Technology news and resources in Europe</A></span><br><br>
+        We invite all European members to provide us some information about the ways in which you stay in touch with the latest technology trends.  Please take the time to participate in our quick survey.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=16640">full story</A> | 
+        <tc-webtag:forumLink forumID="514700" message="discuss this" /> |
+        <A href="/tc?&module=SurveyList">archive</A>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.09.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -202,20 +216,4 @@ On Monday, February 26, high school students entered the first round of the ulti
         <tc-webtag:forumLink forumID="514493" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
-
-<%----------------------------2pm----------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>02.28.07<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=16491">Vote for the new member badges</A>
-        </span><br><br>
-        We recently ran a competition over at the Studio to redesign the <A href="/tc?module=Static&d1=card&d2=description">member badges</A> and now it's your turn to vote on the finalists.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=16491">vote</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=31">discuss this</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
 
