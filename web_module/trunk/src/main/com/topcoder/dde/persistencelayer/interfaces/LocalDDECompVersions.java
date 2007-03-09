@@ -102,4 +102,18 @@ public interface LocalDDECompVersions extends EJBLocalObject {
      */
     void setVersionText(String versionText);
 
+    /**
+     * Gets whether the project was suspended.
+     *
+     * @return cwhether the project was suspended.
+     */
+     boolean getSuspended();
+
+    /**
+     * Sets whether the project was suspended.
+     *
+     * @param whether the project was suspended.
+     */
+    void setSuspended(boolean suspended);
+
 }

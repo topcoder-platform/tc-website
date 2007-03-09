@@ -55,7 +55,7 @@ public interface LocalDDECompVersionsHome extends EJBLocalHome {
      * @throws CreateException      an application level error occurred during the create operation.
      */
     LocalDDECompVersions create(long version, Timestamp createTime, long phaseId, Timestamp phaseTime, double price,
-                                String comments, LocalDDECompCatalog compCatalog, String versionText) throws CreateException;
+                                String comments, LocalDDECompCatalog compCatalog, String versionText, boolean suspended) throws CreateException;
 
     /**
      * Returns a instance of LocalDDECompVersions with the given component id and version.

@@ -402,7 +402,7 @@ public class ComponentManagerBean
                 ((Long) bean.getPrimaryKey()).longValue(),
                 bean.getVersion(), bean.getVersionText().trim(),
                 bean.getComments(), bean.getPhaseId(),
-                new Date(bean.getPhaseTime().getTime()), bean.getPrice());
+                new Date(bean.getPhaseTime().getTime()), bean.getPrice(), bean.getSuspended());
         
         Forums forums = null;
         try {
@@ -685,7 +685,8 @@ public class ComponentManagerBean
                     0.0, // price
                     request.getComments(), // version comments
                     comp, // component bean reference
-                    request.getVersionLabel() // version label
+                    request.getVersionLabel(), // version label
+                    false       // suspended
             );
         } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
@@ -1219,6 +1220,7 @@ public class ComponentManagerBean
         versionBean.setPhaseTime(
                 new Timestamp(info.getPhaseDate().getTime()));
         versionBean.setPrice(info.getPrice());
+        versionBean.setSuspended(info.getSuspended());
     }
 
 
