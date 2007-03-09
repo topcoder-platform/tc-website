@@ -30,7 +30,7 @@
 <div class="contentSpacer">
     <h2>Individual Results</h2>
 
-    <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+    <table cellspacing="0" cellpadding="0" class="stat" style="width: 625px;">
         <thead>
             <tr>
                 <td class="title" colspan="8">

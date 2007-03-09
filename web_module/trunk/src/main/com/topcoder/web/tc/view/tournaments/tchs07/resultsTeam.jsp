@@ -24,7 +24,7 @@
 <div class="contentSpacer">
 <h2>Team Results</h2>
 
-<table cellspacing="0" cellpadding="0" class="stat" style="width: 100%; margin-bottom: 100px;">
+<table cellspacing="0" cellpadding="0" class="stat" style="width: 625px; margin-bottom: 100px;">
 <thead>
     <tr>
         <td class="title" colspan="7">
