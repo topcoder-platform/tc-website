@@ -43,6 +43,11 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="3">
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2">
+    <strong>March</strong></td></tr>
+   <tr><td class="bodyText">03.06.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Beta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Beta">Problem Set & Analysis</a></td></tr>
+
+   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+   <tr><td valign="middle" class="bodyText" colspan="2">
     <strong>February</strong></td></tr>
    <tr><td class="bodyText">02.26.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Alpha - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Alpha">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">02.26.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Gamma - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Gamma">Problem Set & Analysis</a></td></tr>

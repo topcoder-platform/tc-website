@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.09.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Beta">TCHS07 Round 1 Beta - Problem Set & Analysis</A></span><br><br>
+The last region to compete in Round 1 was also the one with most contestants. One hundred and eleven high school competitors, mostly from Europe, competed to get a positive score. At the end, all but two got their ticket to Round 2.</td>
+      <td class="newsPhoto"><img src="/i/m/tywok_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8510917" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Beta">full story</A> | 
+        <tc-webtag:forumLink forumID="514493" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>03.08.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -201,20 +218,4 @@ On Monday, February 26, high school students entered the first round of the ulti
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>02.26.07<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=mmIntro2">An Introduction to Marathon Matches, Part 2</A></span><br><br>
-       In part I, we looked at the basic mechanics of how Marathon Matches work. In this article, we'll look at how you can approach marathons in a more organized and efficient manner.</td>
-      <td class="newsPhoto"><img src="/i/m/d000hg_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="21464956" context="marathon_match"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tutorials&d2=mmIntro2">full story</A> | 
-         <tc-webtag:forumLink forumID="514346" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=tutorials&d2=mm_index">archive</A>
-   </td></tr>
 

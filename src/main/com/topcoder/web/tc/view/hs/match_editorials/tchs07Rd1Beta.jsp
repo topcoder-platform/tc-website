@@ -84,7 +84,7 @@ The Problems
 
 <A href="Javascript:openProblemRating(7342)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 
-<A HREF="/?module=ThreadList&forumID=514493" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=514493" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
 <br> 
 
@@ -186,7 +186,7 @@ summing them all and then dividing by the number of students.
 
 <A href="Javascript:openProblemRating(7515)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 
-<A HREF="/?module=ThreadList&forumID=514493" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=514493" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
 <br> 
 
@@ -301,7 +301,7 @@ such an algorithm. Other solutions use an O(n^2) algorithm -- for an example, se
 
 <A href="Javascript:openProblemRating(7514)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
 
-<A HREF="/?module=ThreadList&forumID=514493" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=514493" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
 
 <br> 
 
