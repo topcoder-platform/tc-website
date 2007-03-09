@@ -6,22 +6,9 @@
  */
 package com.topcoder.apps.review.persistence;
 
-import com.topcoder.apps.review.projecttracker.*;
-import com.topcoder.apps.review.security.AdminPermission;
-import com.topcoder.project.phases.template.ConfigurationException;
-import com.topcoder.project.phases.template.DefaultPhaseTemplate;
-import com.topcoder.project.phases.template.PhaseTemplate;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.policy.PolicyRemote;
-import com.topcoder.security.policy.PolicyRemoteHome;
-import com.topcoder.util.cache.refreshable.RefreshException;
-import com.topcoder.util.cache.refreshable.RefreshManager;
-import com.topcoder.util.cache.refreshable.Refreshable;
-import com.topcoder.util.cache.refreshable.RefreshableCache;
-import com.topcoder.util.log.Level;
-import com.topcoder.util.log.Log;
-import com.topcoder.util.log.LogException;
-import com.topcoder.util.log.LogFactory;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;
@@ -29,9 +16,23 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
+import com.topcoder.apps.review.projecttracker.Project;
+import com.topcoder.apps.review.projecttracker.User;
+import com.topcoder.apps.review.projecttracker.UserManagerLocal;
+import com.topcoder.apps.review.projecttracker.UserManagerLocalHome;
+import com.topcoder.apps.review.projecttracker.UserRole;
+import com.topcoder.apps.review.security.AdminPermission;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.policy.PolicyRemote;
+import com.topcoder.security.policy.PolicyRemoteHome;
+import com.topcoder.util.cache.refreshable.RefreshManager;
+import com.topcoder.util.cache.refreshable.Refreshable;
+import com.topcoder.util.cache.refreshable.RefreshableCache;
+import com.topcoder.util.log.Level;
+import com.topcoder.util.log.Log;
+import com.topcoder.util.log.LogException;
+import com.topcoder.util.log.LogFactory;
 
 
 /**
