@@ -8,12 +8,6 @@
     <head>
         <title>PACTS</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
-
-        <script type="text/javascript">
-             function typeChanged() {
-             doSearch(false, false)
-            }
-        </script>
     </head>
     <body>
 
@@ -29,7 +23,7 @@
                     <tr><td><tc-webtag:errorIterator id="err" name="error"><%=err%></tc-webtag:errorIterator></td></tr>
                     <tr>
                         <td align="center">
-                            <SELECT CLASS="dropdown" NAME="assignment_document_type_id" onChange="typeChanged()">
+                            <SELECT CLASS="dropdown" NAME="assignment_document_type_id"">
                                 <c:forEach items="${typeList}" var="typeItem">
                                     <OPTION value='${typeItem.id}' <c:if test="${typeItem.id == defaultTypeId}">selected</c:if>>
                                         ${typeItem.description}
