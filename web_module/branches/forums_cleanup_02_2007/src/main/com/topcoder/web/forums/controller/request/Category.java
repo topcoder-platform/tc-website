@@ -71,12 +71,13 @@ public class Category extends ForumsProcessor {
             resultFilter.setSortOrder(Integer.parseInt(sortOrder));
         }
         
-        boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
-        
         ArrayList list = null;
         if (forumCategory.getCategoryCount() > 0) {
-        	list = ForumsUtil.getCategories(forumsBean, forumCategory, resultFilter, excludeEmptyForums);
+            boolean excludeEmptyCategories = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_CATEGORIES));
+            boolean mergeEmptyCategories = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_MERGE_EMPTY_CATEGORIES));
+        	list = ForumsUtil.getCategories(forumsBean, forumCategory, resultFilter, excludeEmptyCategories, mergeEmptyCategories);
         } else {
+            boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
         	list = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);   
         }
         ArrayList pageList = ForumsUtil.getPage(list, startIdx, forumRange);

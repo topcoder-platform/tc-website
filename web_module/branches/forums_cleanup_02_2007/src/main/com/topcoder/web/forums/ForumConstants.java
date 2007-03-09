@@ -64,6 +64,8 @@ public interface ForumConstants {
     public final static String GROUP_SOFTWARE_ADMINS = "Software Admins";
     
     // Extended Properties
+    public final static String PROPERTY_HIDE_EMPTY_CATEGORIES = "hideEmptyCategories";
+    public final static String PROPERTY_MERGE_EMPTY_CATEGORIES = "mergeEmptyCategories";    // merge with non-empty categories
     public final static String PROPERTY_HIDE_EMPTY_FORUMS = "hideEmptyForums";
     public final static String PROPERTY_HIDE_SEARCH_FORUMS = "hideSearchForums";
     public final static String PROPERTY_LEFT_NAV_NAME = "leftNavName";

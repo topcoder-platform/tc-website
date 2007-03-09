@@ -45,7 +45,7 @@ public class Main extends ForumsProcessor {
             String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
             if (!"".equals(limit)) {
                 if (category.getCategoryCount() > 0) {
-                    ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true);
+                    ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true, false);
                     ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                     getRequest().setAttribute("categoriesIterator_"+category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveCategories_"+category.getID(), new Long(pageList.size()));

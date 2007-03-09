@@ -369,6 +369,7 @@ public class ForumsBean extends BaseEJB {
             // SW admin posts one introductory message in every category so that it will rise to the top
             // of the list of forums. This should be replaced by a search function that will find category
             // by name, or (possibly better) by not moving empty categories to the end.
+            /*
             try {
                 String swAdminIDStr = JiveGlobals.getJiveProperty("tc.tcs.forums.admin");
                 if (swAdminIDStr != null) {
@@ -391,6 +392,7 @@ public class ForumsBean extends BaseEJB {
             } catch (UserNotFoundException unfe) {
                 com.jivesoftware.base.Log.debug("ForumsBean.createSoftwareComponentForums(): admin not found - will not create initial message");
             }
+            */
 
             // Customer forums are always public
             if (templateID != ForumConstants.CUSTOMER_FORUM) {
