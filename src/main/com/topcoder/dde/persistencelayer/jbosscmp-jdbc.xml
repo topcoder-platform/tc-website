@@ -247,6 +247,10 @@
                 <field-name>phaseTime</field-name>
                 <column-name>phase_time</column-name>
             </cmp-field>
+            <cmp-field>
+                <field-name>suspended</field-name>
+                <column-name>suspended_ind</column-name>
+            </cmp-field>
         </entity>
         <entity>
             <ejb-name>DDECompVersionDatesEJB</ejb-name>

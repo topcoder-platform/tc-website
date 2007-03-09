@@ -132,6 +132,20 @@ public abstract class DDECompVersionsBean extends DDEBaseEntityBean {
     public abstract void setPhaseId(long phaseId);
 
     /**
+     * Gets whether the project was suspended.
+     *
+     * @return cwhether the project was suspended.
+     */
+    public abstract boolean getSuspended();
+
+    /**
+     * Sets whether the project was suspended.
+     *
+     * @param whether the project was suspended.
+     */
+    public abstract void setSuspended(boolean suspended);
+
+    /**
      * Creates an entity object.
      *
      * @param version               version.
@@ -142,11 +156,12 @@ public abstract class DDECompVersionsBean extends DDEBaseEntityBean {
      * @param comments              comments.
      * @param compCatalog           compCatalog.
      * @param versionText           version text.
+     * @param suspended             suspended      
      * @return the entity bean's primary key (should be null for CMP bean implementations).
      * @throws CreateException      an application level error occurred during the create operation.
      */
     public Long ejbCreate(long version, Timestamp createTime, long phaseId, Timestamp phaseTime, double price, String comments,
-                          LocalDDECompCatalog compCatalog, String versionText) throws CreateException {
+                          LocalDDECompCatalog compCatalog, String versionText, boolean suspended) throws CreateException {
         setPrimaryKey();
         setVersion(version);
         setVersionText(versionText);
@@ -155,6 +170,7 @@ public abstract class DDECompVersionsBean extends DDEBaseEntityBean {
         setPhaseTime(phaseTime);
         setPrice(price);
         setComments(comments);
+        setSuspended(suspended);
         return null;
     }
 
@@ -169,9 +185,10 @@ public abstract class DDECompVersionsBean extends DDEBaseEntityBean {
      * @param comments              comments.
      * @param compCatalog           compCatalog.
      * @param versionText           version text.
+     * @param suspended             suspended
      */
     public void ejbPostCreate(long version, Timestamp createTime, long phaseId, Timestamp phaseTime, double price, String comments,
-                              LocalDDECompCatalog compCatalog, String versionText) {
+                              LocalDDECompCatalog compCatalog, String versionText, boolean suspended) {
         setCompCatalog(compCatalog);
     }
 

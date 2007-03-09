@@ -1037,7 +1037,8 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append("       v.comp_vers_id, v.version, v.version_text,      ");
             query.append("       v.phase_id, v.phase_time, v.price, v.comments,  ");
             query.append("       c.root_category_id,                             ");
-            query.append("       (select category_id from comp_categories where component_id = c.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand ");
+            query.append("       (select category_id from comp_categories where component_id = c.component_id and category_id = " + THUNDERBIRD_EXTENSION_CAT_ID + ") as aol_brand, ");
+            query.append("       v.suspended_ind                                 ");
             query.append("  FROM comp_catalog c, comp_versions v                 ");
             query.append(" WHERE v.component_id = c.component_id                 ");
             query.append("   AND c.component_id = ?                              ");
@@ -1065,7 +1066,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                             rs.getLong(6), rs.getLong(14), (rs.getObject(15) != null));
                     versionInfo = new ComponentVersionInfo(rs.getLong(7), rs.getLong(8),
                             rs.getString(9), rs.getString(13), rs.getLong(10),
-                            rs.getDate(11), rs.getDouble(12));
+                            rs.getDate(11), rs.getDouble(12), rs.getBoolean("suspended_ind"));
                 }
 
             } finally {
@@ -1756,7 +1757,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             newVersion = versionsHome.create(1,
                     currentTime, ComponentVersionInfo.COLLABORATION, currentTime,
                     0.00, request.getComments(), newComponent,
-                    request.getVersionLabel());
+                    request.getVersionLabel(), false);
         } catch (CreateException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(

@@ -235,6 +235,9 @@
                 <field-name>phaseTime</field-name>
             </cmp-field>
             <cmp-field>
+                <field-name>suspended</field-name>
+            </cmp-field>
+            <cmp-field>
                 <field-name>price</field-name>
             </cmp-field>
             <cmp-field>

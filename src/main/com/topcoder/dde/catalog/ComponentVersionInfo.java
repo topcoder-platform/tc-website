@@ -46,13 +46,14 @@ public class ComponentVersionInfo implements java.io.Serializable {
     private Date phaseDate;
     private double price;
     private boolean publicForum = false;
+    private boolean suspended = false;
 
     public ComponentVersionInfo() {
         
     }
 
     ComponentVersionInfo(long versionId, long version, String versionLabel,
-                         String comments, long phase, Date phaseDate, double price) {
+                         String comments, long phase, Date phaseDate, double price, boolean suspended) {
         this.versionId = versionId;
         this.version = version;
         this.versionLabel = versionLabel;
@@ -60,6 +61,7 @@ public class ComponentVersionInfo implements java.io.Serializable {
         this.phase = phase;
         this.phaseDate = (Date) phaseDate.clone();
         this.price = price;
+        this.suspended = suspended;
     }
 
     public boolean getPublicForum() {
@@ -68,6 +70,14 @@ public class ComponentVersionInfo implements java.io.Serializable {
 
     public void setPublicForum(boolean publicForum) {
         this.publicForum = publicForum;
+    }
+
+    public boolean getSuspended() {
+        return suspended;
+    }
+
+    public void setSuspended(boolean suspended) {
+        this.suspended = suspended;
     }
 
     /**

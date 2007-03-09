@@ -96,12 +96,14 @@ public abstract class DDECompCatalogBean extends DDEBaseDescStatusBean {
      */
     public abstract Timestamp getCreateTime();
 
+
     /**
      * Sets the create time.
      *
      * @param createTime    create time.
      */
     public abstract void setCreateTime(Timestamp createTime);
+
 
     /**
      * Creates an entity object.
