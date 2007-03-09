@@ -157,43 +157,45 @@ public class PermissionsConversion {
                 oldForumPS.setLong(1, Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID)));
                 oldForumPS.setLong(2, Long.parseLong(category.getProperty(ForumConstants.PROPERTY_FORUM_TYPE)));
                 rs = oldForumPS.executeQuery();
-                rs.next();
-                long oldForumID = rs.getLong(1);
-                rs.close();
-                
-                if (!publicOldForumSet.contains(String.valueOf(oldForumID))) {
-                    for (int i=0; i<ForumConstants.SW_BLOCK_PERMS.length; i++) {
-                        categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);   
-                        categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);
+                boolean hasNext = rs.next();
+                if (hasNext) {
+                    long oldForumID = rs.getLong(1);
+                    rs.close();
+                    
+                    if (!publicOldForumSet.contains(String.valueOf(oldForumID))) {
+                        for (int i=0; i<ForumConstants.SW_BLOCK_PERMS.length; i++) {
+                            categoryPermissionsManager.addAnonymousUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);   
+                            categoryPermissionsManager.addRegisteredUserPermission(PermissionType.NEGATIVE, ForumConstants.SW_BLOCK_PERMS[i]);
+                        }
                     }
-                }
-                
-                // add moderators
-                rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
-                        + "where r.description = 'ForumModerator " + oldForumID + "' and urx.role_id = r.role_id");
-                rs = rolesPS.executeQuery();
-                while (rs.next()) {
-                    try {
-                        long userID = rs.getLong("login_id");
-                        moderatorGroup.addMember(userManager.getUser(userID));
-                    } catch (UserNotFoundException unfe) {
-                        log.info("UserNotFoundException when trying to add member to moderatorGroup: " + unfe.getMessage());
-                        log.info("userID: " + rs.getLong("login_id"));
+                    
+                    // add moderators
+                    rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
+                            + "where r.description = 'ForumModerator " + oldForumID + "' and urx.role_id = r.role_id");
+                    rs = rolesPS.executeQuery();
+                    while (rs.next()) {
+                        try {
+                            long userID = rs.getLong("login_id");
+                            moderatorGroup.addMember(userManager.getUser(userID));
+                        } catch (UserNotFoundException unfe) {
+                            log.info("UserNotFoundException when trying to add member to moderatorGroup: " + unfe.getMessage());
+                            log.info("userID: " + rs.getLong("login_id"));
+                        }
                     }
-                }
-                rs.close();
-                
-                // add users
-                rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
-                        + "where r.description = 'ForumUser " + oldForumID + "' and urx.role_id = r.role_id");
-                rs = rolesPS.executeQuery();
-                while (rs.next()) {
-                    try {
-                        long userID = rs.getLong("login_id");
-                        userGroup.addMember(userManager.getUser(userID));
-                    } catch (UserNotFoundException unfe) {
-                        log.info("UserNotFoundException when trying to add member to userGroup: " + unfe.getMessage());
-                        log.info("userID: " + rs.getLong("login_id"));
+                    rs.close();
+                    
+                    // add users
+                    rolesPS = tcConn.prepareStatement("select urx.login_id from user_role_xref urx, security_roles r "
+                            + "where r.description = 'ForumUser " + oldForumID + "' and urx.role_id = r.role_id");
+                    rs = rolesPS.executeQuery();
+                    while (rs.next()) {
+                        try {
+                            long userID = rs.getLong("login_id");
+                            userGroup.addMember(userManager.getUser(userID));
+                        } catch (UserNotFoundException unfe) {
+                            log.info("UserNotFoundException when trying to add member to userGroup: " + unfe.getMessage());
+                            log.info("userID: " + rs.getLong("login_id"));
+                        }
                     }
                 }
                 rs.close();
