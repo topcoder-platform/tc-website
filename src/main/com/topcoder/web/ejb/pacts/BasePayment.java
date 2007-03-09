@@ -36,13 +36,13 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private final int paymentTypeId;
     private String referenceDescription = null;
     private boolean charity = false;
-    private double totalAmount;    
-    private int installmentNumber;    
+    private double totalAmount;
+    private int installmentNumber;
     private int methodId = Constants.DEFAULT_PAYMENT_METHOD_ID;
-    
+
     // If positive, the payment is for that contract, so a row relating the contact and the payment will be inserted
-    private long contractId = 0; 
-    
+    private long contractId = 0;
+
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
     private Date eventDate  = null;
 
@@ -182,7 +182,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
      * @return an instance of an extending class of BasePayment , depending on the type of payment.
      */
     public static BasePayment createPayment(int paymentTypeId, long coderId, double grossAmount, long referenceId) {
-    	return createPayment(paymentTypeId, coderId, grossAmount, referenceId, 0);
+        return createPayment(paymentTypeId, coderId, grossAmount, referenceId, 0);
     }
 
     /**
@@ -325,45 +325,45 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     }
 
     public boolean isCharity() {
-		return charity;
-	}
+        return charity;
+    }
 
-	public void setCharity(boolean charity) {
-		this.charity = charity;
-	}
-		
+    public void setCharity(boolean charity) {
+        this.charity = charity;
+    }
+
 
     public int getInstallmentNumber() {
-		return installmentNumber;
-	}
+        return installmentNumber;
+    }
 
-	public void setInstallmentNumber(int installmentNumber) {
+    public void setInstallmentNumber(int installmentNumber) {
         fieldChanged(MODIFICATION_GROSS_AMOUNT, installmentNumber != this.installmentNumber);
-		this.installmentNumber = installmentNumber;
-	}
+        this.installmentNumber = installmentNumber;
+    }
 
-	public double getTotalAmount() {
-		return totalAmount;
-	}
+    public double getTotalAmount() {
+        return totalAmount;
+    }
 
-	public void setTotalAmount(double totalAmount) {
-        fieldChanged(MODIFICATION_GROSS_AMOUNT, totalAmount != this.totalAmount);		
-		this.totalAmount = totalAmount;
-	}
+    public void setTotalAmount(double totalAmount) {
+        fieldChanged(MODIFICATION_GROSS_AMOUNT, totalAmount != this.totalAmount);
+        this.totalAmount = totalAmount;
+    }
 
-	public int getMethodId() {
-		return methodId;
-	}
+    public int getMethodId() {
+        return methodId;
+    }
 
-	public void setMethodId(int methodId) {
-		this.methodId = methodId;
-	}
+    public void setMethodId(int methodId) {
+        this.methodId = methodId;
+    }
 
-	public void setModificationRationale(int modificationRationale) {
-		this.modificationRationale = modificationRationale;
-	}
+    public void setModificationRationale(int modificationRationale) {
+        this.modificationRationale = modificationRationale;
+    }
 
-	/**
+    /**
      * Set the status id.
      * If the value changes, statusDesc is set to null, because that value must be looked up from DB.
      *
@@ -379,13 +379,13 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.statusId = statusId;
     }
 
-	public long getContractId() {
-		return contractId;
-	}
+    public long getContractId() {
+        return contractId;
+    }
 
-	public void setContractId(long contractId) {
-		this.contractId = contractId;
-	}
+    public void setContractId(long contractId) {
+        this.contractId = contractId;
+    }
 
 
     /**
@@ -643,20 +643,20 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             if (rsc.getRowCount() != 1) {
                 throw new IllegalArgumentException("Payment type not found: " + paymentTypeId);
             }
-            
+
             Calendar dueDateCal = Calendar.getInstance();
-            
+
             if (rsc.getItem(0, "due_date_interval").getResultData() != null) {
-            	int days = rsc.getIntItem(0, "due_date_interval");
+                int days = rsc.getIntItem(0, "due_date_interval");
                 dueDateCal.setTime(eventDate);
                 dueDateCal.add(Calendar.DAY_OF_YEAR, days);
             } else {
                 dueDateCal.setTime(new Date());
                 dueDateCal.add(Calendar.MONTH, 1);
-                dueDateCal.set(Calendar.DAY_OF_MONTH, rsc.getIntItem(0, "pay_on_day"));            	
+                dueDateCal.set(Calendar.DAY_OF_MONTH, rsc.getIntItem(0, "pay_on_day"));
             }
-            
-            return dueDateCal.getTime(); 
+
+            return dueDateCal.getTime();
         }
 
         /**
