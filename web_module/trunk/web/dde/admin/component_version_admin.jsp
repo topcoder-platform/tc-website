@@ -650,6 +650,7 @@ if (action != null) {
         ver.setVersionLabel(versionLabel);
         ver.setComments(comments);
         ver.setPrice(Double.parseDouble(price));
+        ver.setSuspended(request.getParameter("suspended") != null);
 
 //		com.topcoder.dde.catalog.ForumCategory activeCollab = null;
 		com.topcoder.dde.catalog.ForumCategory activeSpec = null;
@@ -1440,6 +1441,17 @@ if (action != null) {
                                         <option value="400"<%= (levelId == 400L ? " SELECTED" : "") %>>Level 4</option>\
                                         <option value="500"<%= (levelId == 500L ? " SELECTED" : "") %>>Level 5</option>\
                                     </select>
+                                </td>
+                                <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
+                            </tr>
+
+<!-- Suspended -->
+                            <tr valign="middle" ID="date_row">
+                                <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
+                                <td width="1%" class="adminLabel" nowrap>Stop attempting to get this built</td>
+                                <td width="1%" class="adminText">
+                                   <input type="checkbox" name="suspended" value="1" <%= ( ver.getSuspended()? " CHECKED" : "") %> > </input>
+                                   <br />
                                 </td>
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
