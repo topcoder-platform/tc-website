@@ -25,6 +25,17 @@
 
 
 <div class="contentSpacer">
+
+
+<p>
+    1.3.1 - 2007.03.xx
+    <ul>
+        <li>Fix bug in active contests where it did not use the cookie to determine if someone was registered for the
+            contest - dok
+        </li>
+    </ul>
+</p>
+
 <p>
     1.3.0 - 2007.03.01
     <ul>
