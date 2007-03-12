@@ -1857,9 +1857,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new EJBException(e);
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         } catch (Exception e) {
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         } finally {
             close(rs);
             close(ps);
