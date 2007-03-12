@@ -43,37 +43,7 @@
 
 <!-- Center Column Begins -->
         <td width="100%" align="left" class="bodyColumn">
-        
-            <jsp:include page="../../page_title.jsp" >
-            <jsp:param name="image" value="pact_s"/>
-            <jsp:param name="title" value="Assignment Documents"/>
-            </jsp:include>
-    
-    
-                <table>
-                    <tr>
-                        <td class="bodyText">
-                            <form action="/PactsMemberServlet" method="post">
-                                <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
-                                <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
-                                <input type="submit" value="affirm assignment document"/>
-                            </form>
-                        </td>
-                        <td class="bodyText">
-                            <form action="/PactsMemberServlet" method="post">
-                                <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
-                                <input type="hidden" name="module" value="RejectAssignmentDocument"/> 
-                                <input type="submit" value="reject assignment document"/>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/reg/?nrg=false">
-                                <input type="submit" value="Edit Personal Information">
-                            </form>
-                        </td>
-                    </tr>
-                </table>
-            </center>
+        hello
         </TD>
 <!-- Center Column Ends -->
 
