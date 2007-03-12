@@ -8,7 +8,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=recursionPt1">An Introduction to Recursion, Part 1</A></span><br><br>
-Recursion is a wonderful programming tool. It provides a simple, powerful way of approaching a variety of problems. It is often hard, however, to see how a problem can be approached recursively; it can be hard to "think" recursively.
+Recursion is a wonderful programming tool, but it can be hard to see how a problem can be approached recursively. In this article we'll go over the basics of recursion and help you develop, or refine, this important programming skill. 
         </td>
       <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
       </td>
