@@ -1788,9 +1788,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (ad.getText() == null || ad.getText().trim().length() == 0) {
                 // template is transformed if the ad is created with affirmed status 
                 // or the status is updated to affirmed. (and the text is empty)
-                if (oldAssignmentDocumentInstance == null || 
-                   (!oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
-                    ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID))) {
+                if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) && 
+                   (oldAssignmentDocumentInstance == null) || 
+                   (!oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID))) {
                     log.debug("get the assignment document text from the db");
                     AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(conn, ad.getType().getId().longValue());
                     ad.setText(adt.transformTemplate(ad));
