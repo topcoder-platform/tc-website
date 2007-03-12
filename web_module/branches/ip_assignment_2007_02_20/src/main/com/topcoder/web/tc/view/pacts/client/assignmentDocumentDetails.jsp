@@ -2,6 +2,7 @@
 
 <%@ page language="java"%>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <HTML>
 <HEAD>
@@ -16,6 +17,9 @@
 </script>
  </HEAD>
  <BODY>
+ <c:set var="assignment_document" value="<%= request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT) %>"/>
+ <c:set var="ASSIGNMENT_DOCUMENT_ID" value="<%= PactsConstants.ASSIGNMENT_DOCUMENT_ID + "" %>" />
+ 
    <jsp:include page="../../top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" >
      <TR>
