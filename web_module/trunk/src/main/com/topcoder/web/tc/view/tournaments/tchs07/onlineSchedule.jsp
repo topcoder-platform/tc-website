@@ -129,11 +129,6 @@
         <h3>Find start times in your time zone</h3>
         Below is a list of start times for the various rounds. Click the time that corresponds to the round you are interested in to see what time coding begins in your time zone.
         <br><br>
-        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=2&day=26&year=2007&hour=6&min=0&sec=0&p1=179">6:00 AM EST</A>&#160;
-        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=2&day=26&year=2007&hour=10&min=0&sec=0&p1=179">10:00 AM EST</A>&#160;
-        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=2&day=26&year=2007&hour=14&min=0&sec=0&p1=179">2:00 PM EST</A>&#160;
-        <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=2&day=26&year=2007&hour=21&min=0&sec=0&p1=179">9:00 PM EST</A>
-        <br><br>
         <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=19&year=2007&hour=6&min=0&sec=0&p1=179">6:00 AM EDT</A>&#160;
         <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=19&year=2007&hour=10&min=0&sec=0&p1=179">10:00 AM EDT</A>&#160;
         <A href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=19&year=2007&hour=14&min=0&sec=0&p1=179">2:00 PM EDT</A>&#160;
