@@ -19,13 +19,13 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Survey News" border="0" /><br>03.09.07<br>5:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Survey" border="0" /><br>03.09.07<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=16640">Survey: Technology news and resources in Europe</A></span><br><br>
         We invite all European members to provide us some information about the ways in which you stay in touch with the latest technology trends.  Please take the time to participate in our quick survey.
         </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=16640">full story</A> | 
+        <A href="/tc?module=ViewSurvey&sid=16640">vote</A> | 
         <tc-webtag:forumLink forumID="514700" message="discuss this" /> |
         <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
