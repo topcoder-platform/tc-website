@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.12.07 6:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=16651">Vote for the new Press Room design</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.06.07 3:15 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=16491">The votes are in for the new Member Badges</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.28.07 2:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=16491">Vote for the new member badges</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.12.07 3:45 PM - </td><td width="100%">Additional forums maintenance scheduled</td></tr>
