@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.12.07<br>6:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=16651">Vote for the new Press Room design</A>
+        </span><br><br>
+        We recently ran a Studio contest to redesign the <A href="/tc?module=Static&d1=pressroom&d2=index">TopCoder Press Room</A> and now we're holding a community vote to pick the winner.
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="">vote</A> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=33">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial News" border="0" /><br>03.12.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -208,25 +223,6 @@ Stage 3 of the Digital Run concluded on February 1, 2007, and the scores and fin
         <A href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners">full story</A> | 
         <tc-webtag:forumLink forumID="514532" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.01.07<br>4:40 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Alpha">TCHS07 Round 1 Alpha - Problem Set & Analysis</A></span><br><br>
-Forty-eight contestants from the United States, Canada, Mexico and Poland were registered for this round.
-<tc-webtag:handle coderId="8384426" context="hs_algorithm"/> was the first to submit a correct solution for the 250-point problem, and the first to advance to the next round.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/VitalyGoldstein_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="19721111" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Alpha">full story</A> | 
-        <tc-webtag:forumLink forumID="514493" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
 
