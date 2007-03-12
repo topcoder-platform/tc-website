@@ -28,7 +28,7 @@
 </head>
 
 <body class="termsBody" style="margin:5px;">
-<c:import url="<%=PactsConstants.MEMBER_SERVLET_URL%>">
+<c:import url="/PactsMemberServlet">
     <c:param name="<%=Constants.MODULE_KEY%>" value="ViewAssignmentDocumentText"/>
     <c:param name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="<%=request.getParameter(PactsConstants.ASSIGNMENT_DOCUMENT_ID)%>"/>
 </c:import>

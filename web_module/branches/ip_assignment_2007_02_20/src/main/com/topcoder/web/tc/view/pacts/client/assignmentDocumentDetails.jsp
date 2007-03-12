@@ -41,7 +41,7 @@
 
 
 
-<p><a href="">click here for a printer friendly version of the affidavit</a></p>
+<p><a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click here for a printer friendly version of the affidavit</a></p>
 
 <p>
     <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
@@ -49,7 +49,7 @@
 
 <center><table><tr><td class="bodyText">
 
-<form action="PactsMemberServlet" method="post">
+<form action="/PactsMemberServlet" method="post">
   <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignmentDocumentId}"/>
   <input type="hidden" name="module" value="AffirmAssignmentDocument"/>
 
