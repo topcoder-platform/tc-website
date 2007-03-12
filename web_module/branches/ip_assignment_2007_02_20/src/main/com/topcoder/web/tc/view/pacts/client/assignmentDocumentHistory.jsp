@@ -158,7 +158,7 @@
                         </td>
                         <td class="valueC">
                             <strong><a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}">
-                                 <c:out value="${ad.daysToExpire}"/>
+                                 <c:out value="${ad.daysLeftToExpire}"/>
                             </a></strong>            
                         </td>
                     </c:when>

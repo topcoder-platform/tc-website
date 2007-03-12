@@ -1418,8 +1418,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("ad.user_id , ");
         sb.append("ad.studio_contest_id , ");
         sb.append("ad.component_project_id , ");
-        sb.append("date(ad.affirmed_date) as affirmed_date, ");
-        sb.append("date(ad.expire_date) as expire_date, ");
+        sb.append("ad.affirmed_date, ");
+        sb.append("ad.expire_date, ");
         sb.append("ad.create_date , ");
         sb.append("ad.modify_date ");
         sb.append("from 'informix'.assignment_document ad, 'informix'.assignment_document_type_lu adt, 'informix'.assignment_document_status_lu ads ");
