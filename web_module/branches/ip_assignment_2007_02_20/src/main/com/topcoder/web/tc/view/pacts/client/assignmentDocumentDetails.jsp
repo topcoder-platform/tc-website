@@ -11,24 +11,30 @@
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css" />
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-    <jsp:param name="key" value="tc_main" />
+  <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <script language="JavaScript">
 </script>
 </HEAD>
 <BODY>
+
 <c:set var="assignment_document"
     value="<%= request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT) %>" />
 <c:set var="ASSIGNMENT_DOCUMENT_ID"
     value="<%= PactsConstants.ASSIGNMENT_DOCUMENT_ID + "" %>" />
 
-<jsp:include page="../../top.jsp" />
+<jsp:include page="../../top.jsp" >
+    <jsp:param name="level1" value=""/>
+</jsp:include>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
-        <TD WIDTH="170" VALIGN="top"><jsp:include
-            page="/includes/global_left.jsp">
-            <jsp:param name="node" value="assignment_documents" />
-        </jsp:include></TD>
+        <!-- Left Column Begins-->
+        <td width="180">
+             <jsp:include page="/includes/global_left.jsp">
+                    <jsp:param name="node" value="assignment_documents"/>
+             </jsp:include>
+        </td>
+        <!-- Left Column Ends -->
         <td class="assignmentDocumentCell" width="100%" align="center">
 
         <jsp:include page="../../page_title.jsp">
@@ -57,14 +63,14 @@
                         <tr>
                             <td class="bodyText">
                                 <form action="/PactsMemberServlet" method="post">
-                                    <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignmentDocumentId}"/>
+                                    <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
                                     <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
                                     <input type="submit" value="affirm assignment document"/>
                                 </form>
                             </td>
                             <td class="bodyText">
                                 <form action="/PactsMemberServlet" method="post">
-                                    <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignmentDocumentId}"/>
+                                    <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
                                     <input type="hidden" name="module" value="RejectAssignmentDocument"/> 
                                     <input type="submit" value="reject assignment document"/>
                                 </form>
@@ -80,7 +86,8 @@
 
                 </TD>
                 <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif"
-                    ALT="" WIDTH="10" HEIGHT="1" BORDER="0" /></TD>
+                    ALT="" WIDTH="10" HEIGHT="1" BORDER="0" />
+                </TD>
             </TR>
         </TABLE>
         </TD>
