@@ -44,7 +44,7 @@
     
             <p><a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click here for a printer friendly version of the assignment document</a></p>
             <center>
-                <p><iframe  width="90%" height="600" marginWidth="5"
+                <p><iframe height="300" marginWidth="5"
                     src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                 </p>
     

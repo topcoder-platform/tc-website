@@ -94,7 +94,7 @@
         <div class="pagingBox">
             <c:choose>
                 <c:when test="${croppedDataBefore}">
-                    <a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>
+                    <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
                 </c:when>
                 <c:otherwise>
                     &lt;&lt; prev
@@ -103,7 +103,7 @@
             
             <c:choose>
                 <c:when test="${croppedDataBefore}">
-                    <a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>
+                    <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
                 </c:when>
                 <c:otherwise>
                     next &gt;&gt;
@@ -194,7 +194,7 @@
             <div class="pagingBox">
                 <c:choose>
                     <c:when test="${croppedDataBefore}">
-                        <a href=\"Javascript:previous()\" class=\"bcLink\">&lt;&lt; prev</a>
+                        <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
                     </c:when>
                     <c:otherwise>
                         &lt;&lt; prev
@@ -203,7 +203,7 @@
                 
                 <c:choose>
                     <c:when test="${croppedDataBefore}">
-                        <a href=\"Javascript:next()\" class=\"bcLink\">next &gt;&gt;</a>
+                        <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
                     </c:when>
                     <c:otherwise>
                         next &gt;&gt;
