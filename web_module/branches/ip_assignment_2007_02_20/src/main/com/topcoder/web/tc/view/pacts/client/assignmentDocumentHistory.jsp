@@ -144,7 +144,7 @@
                 <c:choose>
                     <c:when test="${ad.status.id == AFFIRMED_STATUS_ID or ad.status.id == REJECTED_STATUS_ID}">
                         <td class="valueC">
-                            <a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}">
+                            <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
                                 Affirmed on<br><fmt:formatDate value="${assignment_document.affirmedDate}" pattern="MM/dd/yyyy"/>
                             </a>                
                         </td>
@@ -152,24 +152,24 @@
                     </c:when>
                     <c:when test="${ad.status.id == PENDING_STATUS_ID}">
                         <td class="valueC">
-                            <strong><a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}">
+                            <strong><a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
                                 Affirm now
                             </a></strong>
                         </td>
                         <td class="valueC">
-                            <strong><a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}">
+                            <strong><a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
                                  <c:out value="${ad.daysLeftToExpire}"/>
                             </a></strong>            
                         </td>
                     </c:when>
                     <c:otherwise>
                         <td class="valueC">
-                            <a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}" class="bigRed">
+                            <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}" class="bigRed">
                                 Expired
                             </a>
                         </td>
                         <td class="valueC">
-                            <a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}" class="bigRed">
+                            <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}" class="bigRed">
                                 Expired
                             </a>                
                         </td>

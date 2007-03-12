@@ -10,7 +10,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  *
  * @author  pulky
  */
-public class AffirmAssignmentDocument extends BaseProcessor implements PactsConstants {
+public class AssignmentDocumentDetails extends BaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
         long assignment_document_id = Long.parseLong(getRequest().getParameter(ASSIGNMENT_DOCUMENT_ID));
@@ -26,12 +26,7 @@ public class AffirmAssignmentDocument extends BaseProcessor implements PactsCons
                 throw new IllegalArgumentException("Affidavit not found");  
             }
             
-            // accept or reject
-            
-            //ad.setStatus(1);
-            bean.addAssignmentDocument(ad);
-            
-            setNextPage(ASSIGNMENT_DOCUMENT_DETAILS_JSP);
+            setNextPage(AFFIRM_ASSIGNMENT_DOCUMENT_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
