@@ -108,7 +108,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             case TIME_LEFT_COL:
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        return ((AssignmentDocument) arg1).getExpireDate().compareTo(((AssignmentDocument) arg0).getExpireDate());
+                        return ((AssignmentDocument) arg1).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg0).getDaysLeftToExpire());
                     }
                 });
             case STATUS_COL:

@@ -139,45 +139,37 @@
         <c:forEach items="${assignment_documents}" var="ad">
             <tr class="<%=even?"light":"dark"%>">
                 <td class="value">
-                    <c:out value="${ad.submissionTitle}"/>
-                    -
-                    <c:out value="${ad.status}"/>
-                    -
-                    <c:out value="${AFFIRMED_STATUS_ID}"/>
-                    -
-                    <c:out value="${REJECTED_STATUS_ID}"/>
-                    -
-                    <c:out value="${PENDING_STATUS_ID}"/>                    
+                    <c:out value="${ad.submissionTitle}"/>                
                 </td>
                 <c:choose>
-                    <c:when test="${ad.status == AFFIRMED_STATUS_ID or ad.status == REJECTED_STATUS_ID}">
+                    <c:when test="${ad.status.id == AFFIRMED_STATUS_ID or ad.status.id == REJECTED_STATUS_ID}">
                         <td class="valueC">
-                            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${ad.id}">
+                            <a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}">
                                 Affirmed on<br><fmt:formatDate value="${assignment_document.affirmedDate}" pattern="MM/dd/yyyy"/>
                             </a>                
                         </td>
                         <td class="valueC">&nbsp;</td>
                     </c:when>
-                    <c:when test="${statusId == PENDING_STATUS_ID}">
+                    <c:when test="${ad.status.id == PENDING_STATUS_ID}">
                         <td class="valueC">
-                            <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${ad.id}">
+                            <strong><a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}">
                                 Affirm now
                             </a></strong>
                         </td>
                         <td class="valueC">
-                            <strong><a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${ad.id}">
-                                 <c:out value="${ad.expireDate}"/>
+                            <strong><a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}">
+                                 <c:out value="${ad.daysToExpire}"/>
                             </a></strong>            
                         </td>
                     </c:when>
                     <c:otherwise>
                         <td class="valueC">
-                            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${ad.id}" class="bigRed">
+                            <a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}" class="bigRed">
                                 Expired
                             </a>
                         </td>
                         <td class="valueC">
-                            <a href="/PactsMemberServlet?t=affidavit&c=affidavit_details&affidavit_id=${ad.id}" class="bigRed">
+                            <a href="/PactsMemberServlet?module=AffirmAssignmentDocument&assignment_document_id=${ad.id}" class="bigRed">
                                 Expired
                             </a>                
                         </td>

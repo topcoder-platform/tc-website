@@ -447,7 +447,9 @@ public interface PactsConstants extends Constants {
     public static final String TAX_FORM_HISTORY_JSP = MEMBER_JSP_DIR + "TaxFormHistory.jsp";
     public static final String TAX_FORM_DETAILS_JSP = MEMBER_JSP_DIR + "TaxFormDetails.jsp";
     public static final String AFFIDAVIT_RENDER_JSP = MEMBER_JSP_DIR + "AffidavitRender.jsp";
-    
+    public static final String AFFIRM_ASSIGNMENT_DOCUMENT_JSP = MEMBER_JSP_DIR + "/affirmAssignmentDocument.jsp";
+    public static final String VIEW_ASSIGNMENT_DOCUMENT_TEXT_JSP = MEMBER_JSP_DIR + "/viewAssignmentDocumentText.jsp";
+
     // internal jsp page names (and loccations)
     public static final String INTERNAL_SEARCH_JSP = INTERNAL_JSP_DIR + "/search.jsp";
     public static final String INTERNAL_SEARCH_USERS_JSP = INTERNAL_JSP_DIR + "/searchUsers.jsp";
