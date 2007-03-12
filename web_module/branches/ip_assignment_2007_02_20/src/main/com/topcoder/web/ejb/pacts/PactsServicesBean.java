@@ -1573,9 +1573,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         } catch (Exception e) {
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         } finally {
             close(conn);
         }
@@ -1605,7 +1605,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             AssignmentDocument ad = (AssignmentDocument) result.get(0);
             return ad;
         } catch (Exception e) {
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         }
     }
     
@@ -1620,7 +1620,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             return findAssignmentDocument(searchCriteria);
         } catch (Exception e) {
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         }
     }
     
@@ -1642,7 +1642,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.debug("e");   
             return findAssignmentDocument(searchCriteria);
         } catch (Exception e) {
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         }
     }
     
@@ -1695,9 +1695,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return adt;
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         } catch (Exception e) {
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         } finally {
             close(rs);
             close(ps);
@@ -1789,8 +1789,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 // template is transformed if the ad is created with affirmed status 
                 // or the status is updated to affirmed. (and the text is empty)
                 if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) && 
-                   (oldAssignmentDocumentInstance == null) || 
-                   (!oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID))) {
+                   (oldAssignmentDocumentInstance == null || 
+                   !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID))) {
                     log.debug("get the assignment document text from the db");
                     AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(conn, ad.getType().getId().longValue());
                     ad.setText(adt.transformTemplate(ad));
@@ -1910,9 +1910,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         } catch (Exception e) {
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         } finally {
             close(ps);
             close(conn);
@@ -5848,7 +5848,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (SQLException e) {
             rollback(conn);
             DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
+            throw(new EJBException(e.getMessage(), e));
         } finally {
             setAutoCommit(conn, true);
             close(ps);
