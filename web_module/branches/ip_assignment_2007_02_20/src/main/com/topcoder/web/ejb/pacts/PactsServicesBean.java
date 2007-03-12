@@ -1425,6 +1425,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("from 'informix'.assignment_document ad, 'informix'.assignment_document_type_lu adt, 'informix'.assignment_document_status_lu ads ");
         sb.append("where ad.assignment_document_type_id = adt.assignment_document_type_id ");
         sb.append("and ad.assignment_document_status_id = ads.assignment_document_status_id ");
+        sb.append("and ad.assignment_document_status_id <> " + AssignmentDocumentStatus.DELETED_STATUS_ID);
         return sb;
     }
 
@@ -1593,7 +1594,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             Map searchCriteria = new HashMap();
            
-            searchCriteria.put(ASSIGNMENT_DOCUMENT_ID, new Long(assignmentDocumentId));
+            searchCriteria.put(ASSIGNMENT_DOCUMENT_ID, String.valueOf(assignmentDocumentId));
 
             List result = findAssignmentDocument(searchCriteria); 
             
@@ -1614,8 +1615,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             Map searchCriteria = new HashMap();
            
-            searchCriteria.put(COMPONENT_PROJECT, new Long(projectId));
-            searchCriteria.put(TYPE, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID);
+            searchCriteria.put(COMPONENT_PROJECT, String.valueOf(projectId));
+            searchCriteria.put(TYPE, String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
 
             return findAssignmentDocument(searchCriteria);
         } catch (Exception e) {
@@ -1629,13 +1630,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             Map searchCriteria = new HashMap();
             log.debug("a");   
-            searchCriteria.put(USER_ID, new Long(userId));
+            searchCriteria.put(USER_ID, String.valueOf(userId));
             log.debug("b");   
-            searchCriteria.put(TYPE, new Long(assignmentDocumentTypeId));
+            searchCriteria.put(TYPE, String.valueOf(assignmentDocumentTypeId));
             log.debug("c");   
             if (onlyPending) {
                 log.debug("d");   
-                searchCriteria.put(STATUS, AssignmentDocumentStatus.PENDING_STATUS_ID);
+                searchCriteria.put(STATUS, String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
             }
 
             log.debug("e");   

@@ -435,7 +435,7 @@ public interface PactsConstants extends Constants {
 
     // member jsp page names
     public static final String AFFIDAVIT_HISTORY_JSP = MEMBER_JSP_DIR + "AffidavitHistory.jsp";
-    public static final String ASSIGNMENT_DOCUMENT_HISTORY_JSP = MEMBER_JSP_DIR + "AssignmentDocumentHistory.jsp";
+    public static final String ASSIGNMENT_DOCUMENT_HISTORY_JSP = MEMBER_JSP_DIR + "assignmentDocumentHistory.jsp";
     public static final String AFFIDAVIT_DETAILS_JSP = MEMBER_JSP_DIR + "AffidavitDetails.jsp";
     public static final String AFFIDAVIT_PAYMENT_DETAILS_JSP = MEMBER_JSP_DIR + "AffidavitPaymentDetails.jsp";
     public static final String CONTRACT_HISTORY_JSP = MEMBER_JSP_DIR + "ContractHistory.jsp";
