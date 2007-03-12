@@ -1,6 +1,8 @@
 package com.topcoder.web.common.model;
 
 import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author pulky
@@ -31,6 +33,11 @@ public class AssignmentDocument extends Base {
         return affirmedDate;
     }
 
+    public Integer getDaysLeftToExpire() {
+        int difInDays = (int) ((getExpireDate().getTime() - Calendar.getInstance().getTimeInMillis())/(1000*60*60*24));
+        return new Integer((difInDays > 0) ? difInDays : 0);
+    }
+    
     /**
      * @param affirmedDate the affirmedDate to set
      */
