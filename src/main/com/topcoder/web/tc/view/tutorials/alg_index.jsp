@@ -147,6 +147,10 @@
                <tc-webtag:handle coderId="269207" context="algorithm"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=primeNumbers"><strong>Prime Numbers, Factorization and Euler Function</strong></a>
             </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="15498334" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=recursionPt1"><strong>An Introduction to Recursion, Part 1</strong></a>
+            </td></tr>
             <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
             </tr>
