@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.12.07<br>12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Gamma">TCHS07 Round 2 Gamma - Problem Set & Analysis</A></span><br><br>
+Completing all three tasks in about 48 minutes, <tc-webtag:handle coderId="21468741" context="hs_algorithm"/> secured the win by a margin of more than 100 points.  At the end of the challenge phase, six coders had solved the hard problem but, by the end of system testing, <tc-webtag:handle coderId="22378820" context="hs_algorithm"/> was the only other to pass system tests on all three problems, earning himself a second place finish.</td>
+      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Gamma">full story</A> | 
+        <tc-webtag:forumLink forumID="514493" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.09.07<br>5:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA chat session scheduled for SRM 341</A>
@@ -213,22 +229,5 @@ features, and how they perform in a test on sample TopCoder components.</td>
          <A href="/tc?module=Static&d1=features&d2=030107">full story</A> | 
          <tc-webtag:forumLink forumID="514506" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>02.28.07<br>7:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Gamma">TCHS07 Round 1 Gamma - Problem Set & Analysis</A></span><br><br>
-On Monday, February 26, high school students entered the first round of the ultimate battle for the onsite spots of the 2007 TopCoder High School Tournament. The students from Gamma region were given a chance to compete first.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/andrewzta_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="11829284" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Gamma">full story</A> | 
-        <tc-webtag:forumLink forumID="514493" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
