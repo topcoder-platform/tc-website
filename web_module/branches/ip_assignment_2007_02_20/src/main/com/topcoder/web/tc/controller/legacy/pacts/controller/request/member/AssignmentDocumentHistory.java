@@ -49,9 +49,11 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             setDefault(DataAccessConstants.START_RANK, startRank);
 
             if ("".equals(endRank)) {
-                endRank = String.valueOf(Integer.parseInt(startRank) + PactsConstants.ASSIGNMENT_DOCUMENT_HISTORY_PAGE_SIZE - 1); 
+                endRank = String.valueOf(Integer.parseInt(startRank) + PactsConstants.ASSIGNMENT_DOCUMENT_HISTORY_PAGE_SIZE - 1);
+                log.debug("endRank1: " + endRank);
             } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
                 endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
+                log.debug("endRank2: " + endRank);
             }
             setDefault(DataAccessConstants.END_RANK, endRank);
 
@@ -62,6 +64,8 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             
             sortResult(result, sortCol, sortAscending);
             
+            log.debug("Integer.parseInt(endRank): " + Integer.parseInt(endRank));
+
             cropResult(result, Integer.parseInt(startRank), Integer.parseInt(endRank));
             
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
