@@ -11,7 +11,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  *
  * @author  pulky
  */
-public class AffirmAssignmentDocument extends BaseProcessor implements PactsConstants {
+public class RejectAssignmentDocument extends BaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
         long assignment_document_id = Long.parseLong(getRequest().getParameter(ASSIGNMENT_DOCUMENT_ID));
@@ -27,7 +27,7 @@ public class AffirmAssignmentDocument extends BaseProcessor implements PactsCons
                 throw new IllegalArgumentException("Affidavit not found");  
             }
             
-            ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
+            ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.REJECTED_STATUS_ID));
             ad.setAffirmedDate(null);
             bean.addAssignmentDocument(ad);
             
