@@ -5,7 +5,6 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 
 <c:set var="assignment_document"
@@ -28,9 +27,10 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="/top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
@@ -43,7 +43,42 @@
 
 <!-- Center Column Begins -->
         <td width="100%" align="left" class="bodyColumn">
-        hello
+        
+            <jsp:include page="../../page_title.jsp" >
+            <jsp:param name="image" value="pact_s"/>
+            <jsp:param name="title" value="Assignment Documents"/>
+            </jsp:include>
+    
+                <p><a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click here for a printer friendly version of the assignment document</a></p>
+            <center>
+                <p><iframe  width="50%" height="300" marginWidth="5"
+                    src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
+                </p>
+    
+                <table>
+                    <tr>
+                        <td class="bodyText">
+                            <form action="/PactsMemberServlet" method="post">
+                                <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
+                                <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
+                                <input type="submit" value="affirm assignment document"/>
+                            </form>
+                        </td>
+                        <td class="bodyText">
+                            <form action="/PactsMemberServlet" method="post">
+                                <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
+                                <input type="hidden" name="module" value="RejectAssignmentDocument"/> 
+                                <input type="submit" value="reject assignment document"/>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/reg/?nrg=false">
+                                <input type="submit" value="Edit Personal Information">
+                            </form>
+                        </td>
+                    </tr>
+                </table>
+            </center>
         </TD>
 <!-- Center Column Ends -->
 
