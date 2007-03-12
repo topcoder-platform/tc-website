@@ -48,7 +48,7 @@
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
     <A href="/tc?module=HSRoundOverview&rd=10718&snid=1&er=5">Match Overview</A><br>
 
-<tc-webtag:forumLink forumID="514493" message="Discuss this match" /></div>
+<tc-webtag:forumLink forumID="514494" message="Discuss this match" /></div>
 <span class="bodySubtitle">TCHS07 Round 2 Gamma</span><br>Thursday, March 8, 2007
 <br><br>
 
