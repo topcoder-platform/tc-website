@@ -4,13 +4,129 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <title>The TopCoder Oracle</title>
-    <script type="text/javascript">
+    <script language="JavaScript" type="text/javascript" src="org/tool-man/core.js"></script>
+    <script language="JavaScript" type="text/javascript" src="org/tool-man/events.js"></script>
+    <script language="JavaScript" type="text/javascript" src="org/tool-man/css.js"></script>
+
+    <script language="JavaScript" type="text/javascript" src="org/tool-man/coordinates.js"></script>
+    <script language="JavaScript" type="text/javascript" src="org/tool-man/drag.js"></script>
+    <script language="JavaScript" type="text/javascript" src="org/tool-man/dragsort.js"></script>
+    <script language="JavaScript" type="text/javascript" src="org/tool-man/cookies.js"></script>
+    <script language="JavaScript" type="text/javascript"><!--
+    var dragsort = ToolMan.dragsort()
+    window.onload = function() {
+        dragsort.makeListSortable(document.getElementById("selectedCandidates"))
+    }
 
 
+    function select(obj) {
+        //move selected item to the right most position in the selected candidates list
+        //if the selected candidates list has reached it's max size, alert user to remove
+        //a candidate first
+        
+    }
+    //-->
     </script>
+
+    <style type="text/css">
+        #selectedCandidates {
+            font-family: Arial, sans-serif;
+            list-style-type: none;
+            margin: 10px;
+            padding: 4px;
+            align: center;
+        }
+
+        #selectedCandidates  li {
+            cursor: move;
+            position: relative;
+            float: left;
+            clear: top;
+            margin: 2px 2px 0px 0px;
+            border: 1px solid #000;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            height: 118;
+            width: 88;
+            background-color: red;
+        }
+
+        #candidateBin li img {
+            max-height: 95;
+        }
+
+        #selectedCandidates {
+            font-family: Arial, sans-serif;
+            list-style-type: none;
+            margin: 10px;
+            padding: 4px;
+            align: center;
+        }
+
+        #candidateBin  li {
+            cursor: move;
+            position: relative;
+            float: left;
+            clear: top;
+            margin: 2px 2px 0px 0px;
+            border: 1px solid #000;
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            height: 118;
+            width: 88;
+            background-color: red;
+        }
+
+        #candidateBin li img {
+            max-height: 95;
+        }
+
+    </style>
+
 </head>
 
 <body>
+
+<div>
+
+    <ul ID="selectedCandidates">
+        <li class="box" title="17086035">A<br><img src="A.png" width="75"></li>
+        <li class="box" title="4977936">B<br><img src="B.png" width="75"></li>
+        <li class="box" title="42553910">C<br><img src="C.png" width="75"></li>
+        <li class="box" title="35486247">D<br><img src="D.png" width="75"></li>
+        <li class="box" title="41198781">E<br><img src="E.png" width="75"></li>
+        <li class="box" title="94007666">F<br><img src="F.png" width="75"></li>
+        <li class="box" title="98160341">G<br><img src="G.png" width="75"></li>
+        <li class="box" title="49029369">H<br><img src="H.png" width="75"></li>
+    </ul>
+
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div>
+
+    <ul ID="candidateBin">
+        <li class="box" title="17086035">I<br><img src="I.png" width="75"></li>
+        <li class="box" title="4977936">J<br><img src="J.png" width="75"></li>
+        <li class="box" title="42553910">K<br><img src="K.png" width="75"></li>
+        <li class="box" title="35486247">L<br><img src="L.png" width="75"></li>
+        <li class="box" title="41198781">M<br><img src="M.png" width="75"></li>
+        <li class="box" title="94007666">N<br><img src="N.png" width="75"></li>
+        <li class="box" title="98160341">O<br><img src="O.png" width="75"></li>
+        <li class="box" title="49029369">P<br><img src="P.png" width="75"></li>
+        <li class="box" title="49029369">Q<br><img src="Q.png" width="75"></li>
+        <li class="box" title="49029369">R<br><img src="R.png" width="75"></li>
+        <li class="box" title="49029369">S<br><img src="S.png" width="75"></li>
+        <li class="box" title="49029369">T<br><img src="T.png" width="75"></li>
+        <li class="box" title="49029369">U<br><img src="U.png" width="75"></li>
+        <li class="box" title="49029369">V<br><img src="V.png" width="75"></li>
+    </ul>
+</div>
 
 
 </body>
