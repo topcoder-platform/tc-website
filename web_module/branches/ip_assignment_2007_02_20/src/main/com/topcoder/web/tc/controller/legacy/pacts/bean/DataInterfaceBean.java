@@ -1644,6 +1644,19 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.expireOldAffidavits();
     }
 
+    /**
+     * Sets the status on all assignment documents older than a specified time
+     * to Expired, and set the status on their associated payment (if any)
+     * to Canceled.
+     *
+     * @return The number of affidavit/payment pairs thus affected.
+     * @throws SQLException If there was some error updating the data.
+     */
+    public int expireOldAssignmentDocuments() throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.expireOldAssignmentDocuments();
+    }
+    
     public void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         ps.createAffidavitTemplate(affidavitTypeId, text);
@@ -1735,6 +1748,10 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.findAssignmentDocument(searchCriteria);
     }
 
+    public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending)  throws RemoteException{
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentByUserId(userId, assignmentDocumentTypeId, onlyPending);
+    }
 
 }
 

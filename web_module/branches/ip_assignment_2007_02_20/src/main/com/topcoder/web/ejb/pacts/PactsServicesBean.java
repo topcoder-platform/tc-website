@@ -1434,7 +1434,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return The list of assignment document status
      * @throws SQLException If there is some problem retrieving the data
      */
-    public List getAssignmentDocumentByProjectId(long projectId) {
+/*    public List getAssignmentDocumentByProjectId(long projectId) {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -1474,7 +1474,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             close(ps);
             close(conn);
         }
-    }
+    }*/
     
 
     /**
@@ -1500,6 +1500,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String value = ((String) searchCriteria.get(key)).toUpperCase();
                 if (key.equals(HANDLE)) {
                     getAssignmentDocument.append("and ad.user_id in (select user_id from user where UPPER(handle_lower) like ?) ");
+                    objects.add(value);
+                } else if (key.equals(ASSIGNMENT_DOCUMENT_ID)) {
+                    getAssignmentDocument.append("and ad.assignment_document_id = ? ");
                     objects.add(value);
                 } else if (key.equals(USER_ID)) {
                     getAssignmentDocument.append("and ad.user_id = ? ");
@@ -1585,38 +1588,56 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public AssignmentDocument getAssignmentDocument(long assignmentDocumentId) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ResultSetContainer rsc = null;
+        log.debug("get the assignment document from the db");
 
         try {
-            conn = DBMS.getConnection();
+            Map searchCriteria = new HashMap();
+           
+            searchCriteria.put(ASSIGNMENT_DOCUMENT_ID, new Long(assignmentDocumentId));
 
-            log.debug("get the assignment document from the db");
+            List result = findAssignmentDocument(searchCriteria); 
             
-            StringBuffer getAssignmentDocument = getAssignmentDocumentSelect().append("and ad.assignment_document_id = ? ");
-            ps = conn.prepareStatement(getAssignmentDocument.toString());
-
-            ps.setLong(1, assignmentDocumentId);
-            rs = ps.executeQuery();
-            rsc =  new ResultSetContainer(rs, false);
-
-            if (rsc.isEmpty()) {
+            if (result.isEmpty()) {
                 throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentId);
             }
         
-            AssignmentDocument ad = createAssignmentDocumentBean(conn, rsc.getRow(0));
+            AssignmentDocument ad = (AssignmentDocument) result.get(0);
             return ad;
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
         } catch (Exception e) {
             throw(new EJBException(e.getMessage()));
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
+        }
+    }
+    
+    public List getAssignmentDocumentByProjectId(long projectId) {
+        log.debug("get the assignment document from the db (project_id)");
+
+        try {
+            Map searchCriteria = new HashMap();
+           
+            searchCriteria.put(COMPONENT_PROJECT, new Long(projectId));
+            searchCriteria.put(TYPE, AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID);
+
+            return findAssignmentDocument(searchCriteria);
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        }
+    }
+    
+    public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) {
+        log.debug("get the assignment document from the db (user_id)");
+
+        try {
+            Map searchCriteria = new HashMap();
+           
+            searchCriteria.put(USER_ID, new Long(userId));
+            searchCriteria.put(TYPE, new Long(assignmentDocumentTypeId));
+            if (onlyPending) {
+                searchCriteria.put(STATUS, AssignmentDocumentStatus.PENDING_STATUS_ID);
+            }
+
+            return findAssignmentDocument(searchCriteria);
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
         }
     }
     
@@ -5696,6 +5717,45 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
+    /**
+     * Sets the status on all assignment documents older than a specified time
+     * to Expired, and set the status on their associated payment (if any)
+     * to Canceled.
+     *
+     * @return The number of affidavit/payment pairs thus affected.
+     * @throws SQLException If there was some error updating the data.
+     */
+    public int expireOldAssignmentDocuments() throws SQLException {
+        Connection c = null;
+
+        try {
+            c = DBMS.getConnection();
+
+            StringBuffer updateAssignmentDocuments = new StringBuffer(300);
+            updateAssignmentDocuments.append("update assignment_document ");
+            updateAssignmentDocuments.append("set assignment_document_status_id = " + AssignmentDocumentStatus.EXPIRED_STATUS_ID);
+            updateAssignmentDocuments.append("modify_date = current ");
+            updateAssignmentDocuments.append("WHERE date(expire_date) <= date(current) ");
+            updateAssignmentDocuments.append("and assignment_document_status_id = " + AssignmentDocumentStatus.PENDING_STATUS_ID);
+
+            int rowsUpdated = runUpdateQuery(c, updateAssignmentDocuments.toString(), false);
+
+            c.close();
+            c = null;
+            return rowsUpdated;
+        } catch (Exception e) {
+            printException(e);
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            c = null;
+            throw new SQLException(e.getMessage());
+        }
+    }
+
+
     public void createAffidavitTemplate(int affidavitTypeId, String text) throws SQLException {
 
         Connection conn = null;
@@ -6844,13 +6904,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append("AND a.user_id = " + userId + " ");
 
         if (pendingOnly) {
-        	query.append(" AND a.status_id = " + PactsConstants.AFFIDAVIT_PENDING_STATUS + " ");
+            query.append(" AND a.status_id = " + PactsConstants.AFFIDAVIT_PENDING_STATUS + " ");
         }
 
         query.append(" ORDER BY " + sortColumn + (sortAscending? " ASC " : " DESC "));
 
         return runSelectQuery(query.toString(), false);
     }
+
 
     class AlgorithmContestPaymentDataRetriever extends AlgorithmContestPayment {
     	private final String roundName;

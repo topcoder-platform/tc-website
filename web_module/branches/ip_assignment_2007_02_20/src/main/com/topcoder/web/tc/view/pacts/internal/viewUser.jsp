@@ -158,7 +158,7 @@
         out.println("\">Search for User's Contracts</a><br>");
 
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
-        out.print(PactsConstants.MODULE_KEY+"=SearchAssignmentDocument&");
+        out.print(PactsConstants.MODULE_KEY+"=ViewSearchAssignmentDocumentResult&");
         out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
         out.println("\">Search for User's Assignment Documents</a><br>");
         
