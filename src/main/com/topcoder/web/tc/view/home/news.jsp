@@ -4,6 +4,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial News" border="0" /><br>03.12.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=recursionPt1">An Introduction to Recursion, Part 1</A></span><br><br>
+Recursion is a wonderful programming tool. It provides a simple, powerful way of approaching a variety of problems. It is often hard, however, to see how a problem can be approached recursively; it can be hard to "think" recursively.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=recursionPt1">full story</A> | 
+        <tc-webtag:forumLink forumID="514702" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.12.07<br>1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -211,23 +229,4 @@ Forty-eight contestants from the United States, Canada, Mexico and Poland were r
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>03.01.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=030107">Test Drive: Code Coverage Tools</A></span><br><br>
-       As of today, TopCoder is requiring the use of code coverage tools in the
-component development process. In this article, we'll compare four of
-the more popular coverage tools and look at how they work, their key
-features, and how they perform in a test on sample TopCoder components.</td>
-      <td class="newsPhoto"><img src="/i/m/zmij_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="22630158" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=030107">full story</A> | 
-         <tc-webtag:forumLink forumID="514506" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
 
