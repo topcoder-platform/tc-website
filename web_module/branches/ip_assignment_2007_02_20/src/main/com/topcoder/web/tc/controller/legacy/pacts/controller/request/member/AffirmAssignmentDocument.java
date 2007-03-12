@@ -31,7 +31,7 @@ public class AffirmAssignmentDocument extends BaseProcessor implements PactsCons
             ad.setAffirmedDate(null);
             bean.addAssignmentDocument(ad);
             
-            setNextPage(ASSIGNMENT_DOCUMENT_DETAILS_JSP);
+            setNextPage(AFFIRM_ASSIGNMENT_DOCUMENT_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
