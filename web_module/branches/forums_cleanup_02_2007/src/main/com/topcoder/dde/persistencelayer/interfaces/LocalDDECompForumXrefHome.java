@@ -31,12 +31,11 @@ public interface LocalDDECompForumXrefHome extends EJBLocalHome {
      * Creates an entity object.
      *
      * @param categoryId            category id.
-     * @param forumType             forum type.
      * @param compVersions          compVersions.
      * @return the local interface of the created entity object.
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    LocalDDECompForumXref create(long categoryId, int forumType, LocalDDECompVersions compVersions) throws CreateException;
+    LocalDDECompForumXref create(long categoryId, LocalDDECompVersions compVersions) throws CreateException;
 
     /**
      * Returns a Collection of LocalDDECompForumXref with the given compVersions id.
@@ -55,16 +54,6 @@ public interface LocalDDECompForumXrefHome extends EJBLocalHome {
      * @throws FinderException      an application level error occurred during the find operation.
      */
     Collection findByCategoryId(long categoryId) throws FinderException;
-
-    /**
-     * Returns a Collection of LocalDDECompForumXref with the given compVersions id and forum type.
-     *
-     * @param compVersId            compVersions id.
-     * @param forumType             forum type.
-     * @return a Collection of local interfaces (LocalDDECompForumXref).
-     * @throws FinderException      an application level error occurred during the find operation.
-     */
-    Collection findByCompVersIdAndType(long compVersId, int forumType) throws FinderException;
 
     /**
      * Returns an instance of LocalDDECompForumXref with the given compVersions id and category id.

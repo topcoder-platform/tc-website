@@ -195,12 +195,7 @@ public class ProjectTrackerBean implements SessionBean {
                 ComponentManager componentManager = null;
                 componentManager = componentManagerHome.create(componentId, compVersId);
 
-                Forum forum = null;
-                if (projectTypeId == ProjectType.ID_DESIGN) {
-                    forum = componentManager.getActiveForumCategory(ForumCategory.COLLABORATION);
-                } else {
-                    forum = componentManager.getActiveForumCategory(ForumCategory.SPECIFICATION);
-                }
+                ForumCategory forumCategory = componentManager.getActiveForumCategory();
                 forumCategoryId = forumCategory.getId();
 */
 
@@ -208,8 +203,7 @@ public class ProjectTrackerBean implements SessionBean {
                 psForumCategory = conn.prepareStatement(
                         "SELECT cjcx.jive_category_id " +
                                 "FROM comp_jive_category_xref cjcx " +
-                                "WHERE cjcx.comp_vers_id = ? AND " +
-                                "cjcx.forum_type = 2"); // TODO Hardcoded specification type
+                                "WHERE cjcx.comp_vers_id = ?");
 
                 psForumCategory.setLong(1, compVersId);
                 rsForumCategory = psForumCategory.executeQuery();

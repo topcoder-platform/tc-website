@@ -976,9 +976,6 @@
             <cmp-field>
                 <field-name>categoryId</field-name>
             </cmp-field>
-            <cmp-field>
-                <field-name>forumType</field-name>
-            </cmp-field>
             <primkey-field>id</primkey-field>
             <ejb-local-ref>
                 <ejb-ref-name>ejb/IdGenEJB</ejb-ref-name>
@@ -1004,16 +1001,6 @@
                     </method-params>
                 </query-method>
                 <ejb-ql>SELECT OBJECT(c) FROM DDECompForumXref c WHERE c.categoryId = ?1</ejb-ql>
-            </query>
-            <query>
-                <query-method>
-                    <method-name>findByCompVersIdAndType</method-name>
-                    <method-params>
-                        <method-param>long</method-param>
-                        <method-param>int</method-param>
-                    </method-params>
-                </query-method>
-                <ejb-ql>SELECT OBJECT(c) FROM DDECompForumXref c WHERE c.compVersions.id = ?1 AND c.forumType = ?2</ejb-ql>
             </query>
             <query>
                 <query-method>

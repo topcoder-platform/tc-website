@@ -339,9 +339,9 @@ public class ForumsBean extends BaseEJB {
     */
     public long createSoftwareComponentForums(String componentName, long componentID,
                                               long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description,
-                                              String versionText, long templateID, boolean isPublic) throws Exception {
+                                              String versionText, boolean isPublic) throws Exception {
         try {
-            String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText, templateID);
+            String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText);
             ForumCategory newCategory = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).createCategory(categoryName, description);
             newCategory.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
             //newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, String.valueOf(phaseID));
@@ -350,14 +350,12 @@ public class ForumsBean extends BaseEJB {
             newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, String.valueOf(componentID));
             newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, String.valueOf(versionID));
             newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, versionText);
-            newCategory.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, String.valueOf(templateID));
             newCategory.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
 
             Connection forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
             PreparedStatement forumsPS = forumsConn.prepareStatement(
                     "select name, description from template_forum t " +
-                            "where t.template_id = ? order by t.display_order, t.template_forum_id");
-            forumsPS.setLong(1, templateID);
+                            "where t.template_id = 2 order by t.display_order, t.template_forum_id");
             ResultSet rs = forumsPS.executeQuery();
             while (rs.next()) {
                 forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
@@ -394,10 +392,7 @@ public class ForumsBean extends BaseEJB {
             }
             */
 
-            // Customer forums are always public
-            if (templateID != ForumConstants.CUSTOMER_FORUM) {
-                createSoftwareComponentPermissions(newCategory, isPublic);
-            }
+            createSoftwareComponentPermissions(newCategory, isPublic);
             return newCategory.getID();
         } catch (Exception e) {
             logException(e, "error in creating software component forums");

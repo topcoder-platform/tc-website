@@ -471,33 +471,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         return new CatalogSearchView(results);
     }
 
-//    public CatalogSearchView searchForums(String searchtext) throws CatalogException, NamingException, SQLException {
-//
-//        if (searchtext == null) {
-//            throw new CatalogException("Null specified for search text");
-//        }
-//
-//        StringBuffer query = new StringBuffer(1000);
-//        query.append("SELECT f.forum_id, f.create_time, f.closed_time, ")
-//
-//        Connection c = null;
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//        ArrayList results = new ArrayList();
-//
-//        try {
-//
-//            c = getConnection();
-//
-//            ps = c.prepareStatement(query.toString());
-//            ps.executeQuery();
-//
-//            while (rs.next()) {
-//                results.add(new Forum(rs.getLong(1), rs.getDate(2), rs.getDate(3), rs.getLong(4), rs.getLong(5), rs.getString(6)));
-//            }
-//        }
-//    }
-
     /**
      * <p>Gets all category names including or not base and visible categories.</p>
      *
@@ -1096,8 +1069,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append("   AND c.component_id = ?                        ");
             query.append("   AND c.component_id = v.component_id           ");
             query.append("	 AND cat.categoryid = p.categoryid			   ");
-            query.append("	 AND p.name = 'forumType'					   ");
-            query.append("   AND ( NOT ( p.propvalue = ? ) )               "); 
+            query.append("	 AND p.name = 'archivalStatus'				   ");
             if (version < 0)
                 query.append("   AND c.current_version = v.version ");
             else
@@ -1107,8 +1079,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
                 ps = c.prepareStatement(query.toString());
                 ps.setLong(1, componentId);
-                ps.setLong(2, ForumCategory.DELETED);
-                if (version >= 0) ps.setLong(3, version);
+                if (version >= 0) ps.setLong(2, version);
                 rs = ps.executeQuery();
 
                 List list = new ArrayList();
@@ -1720,45 +1691,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     "Failed to associate new version with technology: "
                     + exception.toString());
         }
-
-        /* 2/12/07: No customer forums
-        Forums forumsBean = null;
-        try {
-            Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-    		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
-    		forumsBean = forumsHome.create();
-    	} catch (NamingException e) { 
-    		ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to connect to forums server EJB: "
-                    + e.toString());
-        } catch (CreateException e) { 
-    		ejbContext.setRollbackOnly();
-            throw new CatalogException(e.toString());
-        } catch (RemoteException e) { 
-    		ejbContext.setRollbackOnly();
-            throw new CatalogException(e.toString());
-        }
-        
-        long categoryID = -1;
-        if (!ejbContext.getRollbackOnly()) {
-	    	try {
-	    		// This should be replaced by a distributed transaction (XA, etc.) that rolls back 
-	    		// changes on the software and forum servers when an error in the workflow occurs.
-	    		categoryID = forumsBean.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
-	    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), newComponent.getStatusId(), 
-	    				newComponent.getRootCategory(), newComponent.getShortDesc(), newVersion.getVersionText(), 
-	    				ForumCategory.COLLABORATION, false);
-	    		//compforumHome.create(category, Forum.COLLABORATION, newVersion);
-	    	} catch (RemoteException e) {
-	    		ejbContext.setRollbackOnly();
-	            throw new CatalogException(e.toString());
-	    	} catch (Exception e) {
-	    		ejbContext.setRollbackOnly();
-	            throw new CatalogException(e.toString());
-	    	}
-    	}
-    	*/
 
         createComponentRole(((Long) newComponent.getPrimaryKey()).longValue());
 
@@ -2618,8 +2550,3 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         }
     }
 }
-
-
-
-
-

@@ -522,7 +522,7 @@ public class ProjectUtil {
 
         // forum category id
         if (forumCategoryId == -1) {
-            ps = conn.prepareStatement("SELECT * FROM comp_jive_category_xref where comp_vers_id = ? and forum_type = 2");
+            ps = conn.prepareStatement("SELECT * FROM comp_jive_category_xref where comp_vers_id = ?");
             ps.setLong(1, compVersId);
             rs = ps.executeQuery();
             if (rs.next()) {

@@ -650,14 +650,9 @@ if (action != null) {
         ver.setComments(comments);
         ver.setPrice(Double.parseDouble(price));
 
-//		com.topcoder.dde.catalog.ForumCategory activeCollab = null;
 		com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-//            activeCollab = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
-//            if (activeCollab != null) {
-//            	forums.updateComponentVersion(activeCollab.getId(), versionLabel);
-//            }
-            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+            activeSpec = componentManager.getForumCategory();
             if (activeSpec != null) {
             	forums.updateComponentVersion(activeSpec.getId(), versionLabel);
             }
@@ -950,7 +945,7 @@ if (action != null) {
         String txtUsername = request.getParameter("txtHandle");
         com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+            activeSpec = componentManager.getForumCategory();
         } catch (CatalogException ce) {
         }
 
@@ -973,7 +968,7 @@ if (action != null) {
         String txtUsername = request.getParameter("txtHandle");
         com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+            activeSpec = componentManager.getForumCategory();
         } catch (CatalogException ce) {
         }
 
@@ -1026,7 +1021,7 @@ if (action != null) {
                 log.debug("Locating the user for handle '" + strUsername + "' ...");
                 long userID = PRINCIPAL_MANAGER.getUser(strUsername).getId();
 
-				long forumCategoryId = componentManager.getForumCategory(ForumCategory.SPECIFICATION).getId();
+				long forumCategoryId = componentManager.getForumCategory().getId();
 				boolean canReadCategory = forums.canReadCategory(userID, forumCategoryId);
 				if (!canReadCategory) {
 					strError = "User " + strUsername + " must have permission to read this component's forums before this watch can be assigned.";

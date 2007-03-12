@@ -273,8 +273,7 @@ public class ForumsUtil {
         	n++;
         	ForumCategory c = (ForumCategory)itCategories.next();
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
-        	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
-        			ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
+        	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
         	
         	try {
         		componentIDs[n] = Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
@@ -580,7 +579,7 @@ public class ForumsUtil {
     	return masterFactory.getForumCategory(category.getID());
     }
     
-    public static String getComponentCategoryName(String name, String versionText, long forumType) {
+    public static String getComponentCategoryName(String name, String versionText) {
         if (versionText != null && !versionText.trim().equals("")) {
         	boolean wellFormatted = versionText.trim().matches("\\d+(\\.\\d+)*\\w?");    	
         	if (wellFormatted) {
@@ -589,13 +588,6 @@ public class ForumsUtil {
         		name += " (" + versionText.trim() + ")";
         	}
         }
-        /*
-        if (forumType == ForumConstants.CUSTOMER_FORUM) {
-        	name += " - " + "Customer Forum";
-        } else if (forumType == ForumConstants.DEVELOPER_FORUM) {
-        	name += " - " + "Developer Forum";
-        }
-        */
         return name;
     }
     

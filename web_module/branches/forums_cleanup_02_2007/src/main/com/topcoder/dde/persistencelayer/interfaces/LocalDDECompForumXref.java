@@ -11,13 +11,6 @@ import javax.ejb.EJBLocalObject;
 public interface LocalDDECompForumXref extends EJBLocalObject {
 
     /**
-     * Gets the forum type.
-     *
-     * @return forum type.
-     */
-    int getForumType();
-
-    /**
      * Gets compVersions (CMR).
      *
      * @return compVersions.

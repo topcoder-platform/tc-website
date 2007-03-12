@@ -50,10 +50,6 @@ public interface ForumConstants {
     public final static String SORT_FIELD = "sortField";
     public final static String SORT_ORDER = "sortOrder";
     
-    public final static String FORUM_TYPE = "ft";
-    public final static int CUSTOMER_FORUM = 1;
-    public final static int DEVELOPER_FORUM = 2;
-    
     public final static Long FORUM_MODERATE_PERMISSION = new Long(1);
     public final static Long FORUM_POST_PERMISSION = new Long(2);
     public final static Long FORUM_MODERATE_AND_POST_PERMISSION = new Long(3);
@@ -92,12 +88,10 @@ public interface ForumConstants {
     public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";
     public final static String PROPERTY_COMPONENT_VERSION_TEXT = "versionText";
     public final static String PROPERTY_COMPONENT_TECH_TYPES = "compTechTypes";
-    public final static String PROPERTY_FORUM_TYPE = "forumType";
 
     public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
-    public final static String PROPERTY_ARCHIVAL_STATUS_CLOSED = "0";
     public final static String PROPERTY_ARCHIVAL_STATUS_ACTIVE = "1";
-    public final static String PROPERTY_ARCHIVAL_STATUS_ARCHIVED = "2";
+    public final static String PROPERTY_ARCHIVAL_STATUS_CLOSED = "2";
     
     // Admin
     public final static String ADMIN_COMMAND = "cmd";

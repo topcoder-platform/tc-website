@@ -179,7 +179,7 @@
             } else {
                 componentManager.setVersion(versions[i].getVersion());
                 try {
-                    specifications[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+                    specifications[i] = componentManager.getForumCategory();
                 } catch (CatalogException ce) {
                     // getForum returns multiple forums of a type which is not supposed to happen
                     // what to do?
@@ -191,7 +191,7 @@
         }
         componentManager.setVersion(versionInfo.getVersion());
         try {
-            activeSpec = componentManager.getActiveForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+            activeSpec = componentManager.getActiveForumCategory();
         } catch (CatalogException ce) {
         }
     } finally {}

@@ -46,7 +46,7 @@ public interface Forums extends EJBObject {
     
     public long createSoftwareComponentForums(String componentName, long componentID, long versionID,
     		long phaseID, long componentStatusID, long rootCategoryID, String description, String versionText, 
-    		long templateID, boolean isPublic)
+    		boolean isPublic)
     	throws EJBException, RemoteException, Exception;
     
     public void updateComponentVersion(long categoryID, String versionText) throws EJBException, RemoteException, Exception;

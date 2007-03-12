@@ -424,8 +424,7 @@ public class ComponentManagerBean
 
             Iterator forumIterator;
             try {
-                forumIterator = compforumHome.
-                        findByCompVersIdAndType(versionId, ForumCategory.SPECIFICATION).iterator();
+                forumIterator = compforumHome.findByCompVersId(versionId).iterator();
             } catch (FinderException impossible) {
                 throw new CatalogException("Could not find forum: " + impossible.toString());
             }
@@ -607,50 +606,6 @@ public class ComponentManagerBean
             throw new CatalogException(exception.toString());
         }
 
-      
-        /* 2/12/07: No customer forums
-        Forums forumsBean = getForumsBean();
-        long categoryID = -1; 
-        if (!ejbContext.getRollbackOnly()) {
-	    	try {
-	    		// This should be replaced by a distributed transaction (XA, etc.) that rolls back 
-	    		// changes on the software and forum servers when an error in the workflow occurs.
-	    		//log.info("******* [ComponentManagerBean] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-	    		categoryID = forumsBean.createSoftwareComponentForums(comp.getComponentName(), ((Long)comp.getPrimaryKey()).longValue(),
-	    				((Long)newVer.getPrimaryKey()).longValue(), newVer.getPhaseId(), comp.getStatusId(), 
-	    				comp.getRootCategory(), comp.getShortDesc(), newVer.getVersionText(), 
-	    				ForumCategory.COLLABORATION, true);
-	    		//compforumHome.create(category, Forum.COLLABORATION, newVers);
-	    		//log.info("******* [ComponentManagerBean] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-	    	} catch (RemoteException e) {
-	    		ejbContext.setRollbackOnly();
-	            throw new CatalogException(e.toString());
-	    	} catch (Exception e) {
-	    		ejbContext.setRollbackOnly();
-	            throw new CatalogException(e.toString());
-	    	}
-    	}
-    	*/
-
-        /*
-        try {
-            LocalDDEUserMaster user = userHome.findByPrimaryKey(
-                    new Long(request.getUserId()));
-            LocalDDERoles roleBean = rolesHome.findByPrimaryKey(
-                    new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
-            userroleHome.create("", user, newVer, roleBean);
-        } catch (ConfigManagerException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to obtain configuration data: " + exception.toString());
-        } catch (FinderException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(exception.toString());
-        } catch (CreateException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(exception.toString());
-        }*/
-
         return nextVersion;
     }
 
@@ -821,8 +776,7 @@ public class ComponentManagerBean
     	
         Collection forums;
         try {
-            forums = compforumHome.findByCompVersIdAndType(versionId,
-                    ForumCategory.SPECIFICATION);
+            forums = compforumHome.findByCompVersId(versionId);
         } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
@@ -841,8 +795,8 @@ public class ComponentManagerBean
 	    	    		categoryID = forumsBean.createSoftwareComponentForums(compBean.getComponentName(), 
 	    	    				((Long)compBean.getPrimaryKey()).longValue(), ((Long)versionBean.getPrimaryKey()).longValue(), 
 	    	    				versionBean.getPhaseId(), compBean.getStatusId(), compBean.getRootCategory(), 
-	    	    				compBean.getShortDesc(), versionBean.getVersionText(), ForumCategory.SPECIFICATION, info.getPublicForum());
-                        compforumHome.create(categoryID, ForumCategory.SPECIFICATION, versionBean);
+	    	    				compBean.getShortDesc(), versionBean.getVersionText(), info.getPublicForum());
+                        compforumHome.create(categoryID, versionBean);
 	    	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
 	    	    	} catch (RemoteException e) {
 	    	    		ejbContext.setRollbackOnly();
@@ -1430,14 +1384,13 @@ public class ComponentManagerBean
         return reviews;
     }
 
-    public ForumCategory getForumCategory(int type) throws CatalogException {
+    public ForumCategory getForumCategory() throws CatalogException {
     	Forums forumsBean = getForumsBean();
     	ComponentVersionInfo info = getVersionInfo();
         Collection categories = new HashSet();
         Iterator categoryIterator;
         try {
-            categoryIterator = compforumHome.
-                    findByCompVersIdAndType(versionId, type).iterator();
+            categoryIterator = compforumHome.findByCompVersId(versionId).iterator();
         } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
@@ -1465,7 +1418,7 @@ public class ComponentManagerBean
         return (ForumCategory) categories.iterator().next();
     }
 
-    public ForumCategory getActiveForumCategory(int type) throws CatalogException {
+    public ForumCategory getActiveForumCategory() throws CatalogException {
     	Forums forumsBean = getForumsBean();
         Collection categories = new HashSet();
         Iterator versionIterator = getAllVersionInfo().iterator();
@@ -1474,8 +1427,7 @@ public class ComponentManagerBean
                     (ComponentVersionInfo) versionIterator.next();
             Iterator categoryIterator;
             try {
-                categoryIterator = compforumHome.findByCompVersIdAndType(
-                        info.getVersionId(), type).iterator();
+                categoryIterator = compforumHome.findByCompVersId(info.getVersionId()).iterator();
             } catch (FinderException impossible) {
                 throw new CatalogException(impossible.toString());
             }
@@ -1506,7 +1458,7 @@ public class ComponentManagerBean
         return (ForumCategory) categories.iterator().next();
     }
 
-    public Collection getClosedForumCategories(int type) throws CatalogException {
+    public Collection getClosedForumCategories() throws CatalogException {
     	Forums forumsBean = getForumsBean();
     	List categories = new ArrayList();
         Iterator versionIterator = getAllVersionInfo().iterator();
@@ -1515,8 +1467,7 @@ public class ComponentManagerBean
                     (ComponentVersionInfo) versionIterator.next();
             Iterator categoryIterator;
             try {
-                categoryIterator = compforumHome.findByCompVersIdAndType(
-                        info.getVersionId(), type).iterator();
+                categoryIterator = compforumHome.findByCompVersId(info.getVersionId()).iterator();
             } catch (FinderException impossible) {
                 throw new CatalogException(impossible.toString());
             }

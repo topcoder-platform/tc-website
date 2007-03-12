@@ -588,10 +588,6 @@
                 <field-name>categoryId</field-name>
                 <column-name>jive_category_id</column-name>
             </cmp-field>
-            <cmp-field>
-                <field-name>forumType</field-name>
-                <column-name>forum_type</column-name>
-            </cmp-field>
         </entity>
         <entity>
             <ejb-name>DDERolesEJB</ejb-name>

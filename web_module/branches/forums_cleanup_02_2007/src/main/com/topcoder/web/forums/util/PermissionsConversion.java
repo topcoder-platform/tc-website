@@ -125,7 +125,7 @@ public class PermissionsConversion {
         
         // the ps to get the old forum id from comp_forum_xref table
         oldForumPS = tcConn.prepareStatement("select forum_id from comp_forum_xref "
-        		+ " where comp_vers_id = ? and forum_type = ?");
+        		+ " where comp_vers_id = ? and forum_type = 2");
 
         Iterator itCategories = root.getCategories();
         while (itCategories.hasNext()) {
@@ -155,7 +155,6 @@ public class PermissionsConversion {
                 
                 // grant public permissions, if applicable
                 oldForumPS.setLong(1, Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID)));
-                oldForumPS.setLong(2, Long.parseLong(category.getProperty(ForumConstants.PROPERTY_FORUM_TYPE)));
                 rs = oldForumPS.executeQuery();
                 boolean hasNext = rs.next();
                 if (hasNext) {
