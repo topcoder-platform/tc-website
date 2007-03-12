@@ -42,14 +42,14 @@
                     WIDTH="100%"><IMG SRC="/i/clear.gif" ALT=""
                     WIDTH="240" HEIGHT="1" BORDER="0" /><BR />
 
+                <p><a
+                    href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click
+                here for a printer friendly version of the affidavit</a></p>
 
                 <center>
     
-                    <p><a
-                        href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click
-                    here for a printer friendly version of the affidavit</a></p>
     
-                    <p><iframe  width="90%" height="300" marginWidth="5"
+                    <p><iframe  width="90%" height="600" marginWidth="5"
                         src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                     </p>
 
@@ -59,13 +59,19 @@
                                 <form action="/PactsMemberServlet" method="post">
                                     <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignmentDocumentId}"/>
                                     <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
-                                    <input type="submit" value="affirm affidavit"/>
+                                    <input type="submit" value="affirm assignment document"/>
+                                </form>
+                            </td>
+                            <td class="bodyText">
+                                <form action="/PactsMemberServlet" method="post">
+                                    <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignmentDocumentId}"/>
+                                    <input type="hidden" name="module" value="RejectAssignmentDocument"/> 
+                                    <input type="submit" value="reject assignment document"/>
                                 </form>
                             </td>
                             <td>
-                                <form action="/reg/?nrg=false"><input
-                                    type="submit"
-                                    value="Edit Personal Information">"
+                                <form action="/reg/?nrg=false">
+                                    <input type="submit" value="Edit Personal Information">
                                 </form>
                             </td>
                         </tr>
