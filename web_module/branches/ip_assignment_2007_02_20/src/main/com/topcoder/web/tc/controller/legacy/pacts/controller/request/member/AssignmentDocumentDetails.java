@@ -23,7 +23,7 @@ public class AssignmentDocumentDetails extends BaseProcessor implements PactsCon
 
             // check that the assignment document belongs to the logged user.
             if (ad == null || ad.getUser().getId().longValue() != getUser().getId()) {
-                throw new IllegalArgumentException("Affidavit not found");  
+                throw new IllegalArgumentException("Assignment Document not found");  
             }
             
             setNextPage(ASSIGNMENT_DOCUMENT_DETAILS_JSP);

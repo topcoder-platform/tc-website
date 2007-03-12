@@ -44,7 +44,7 @@
 <p><a href="">click here for a printer friendly version of the affidavit</a></p>
 
 <p>
-    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=pacts&d2=internal&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
+    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=pacts&d2=internal&d3=viewAssignmentDocumentTextMember&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
 </p>
 
 <center><table><tr><td class="bodyText">
