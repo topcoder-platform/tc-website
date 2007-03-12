@@ -44,14 +44,14 @@
 <!-- Center Column Begins -->
         <td width="100%" align="left" class="bodyColumn">
         
-            <jsp:include page="../../page_title.jsp" >
+            <jsp:include page="/page_title.jsp" >
             <jsp:param name="image" value="pact_s"/>
             <jsp:param name="title" value="Assignment Documents"/>
             </jsp:include>
     
                 <p><a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click here for a printer friendly version of the assignment document</a></p>
             <center>
-                <p><iframe  width="50%" height="300" marginWidth="5"
+                <p><iframe  width="70%" height="500" marginWidth="5"
                     src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                 </p>
     
@@ -61,14 +61,14 @@
                             <form action="/PactsMemberServlet" method="post">
                                 <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
                                 <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
-                                <input type="submit" value="affirm assignment document"/>
+                                <input type="submit" value="Affirm assignment document"/>
                             </form>
                         </td>
                         <td class="bodyText">
                             <form action="/PactsMemberServlet" method="post">
                                 <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
                                 <input type="hidden" name="module" value="RejectAssignmentDocument"/> 
-                                <input type="submit" value="reject assignment document"/>
+                                <input type="submit" value="Reject assignment document"/>
                             </form>
                         </td>
                         <td>
@@ -84,7 +84,7 @@
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="/public_right.jsp">
                <jsp:param name="level1" value="default"/>
             </jsp:include>
          </td>

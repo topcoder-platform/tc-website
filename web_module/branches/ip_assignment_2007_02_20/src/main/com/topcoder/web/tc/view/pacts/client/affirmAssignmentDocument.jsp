@@ -16,7 +16,7 @@
 </script>
  </HEAD>
  <BODY>
-   <jsp:include page="../../top.jsp" />
+   <jsp:include page="/top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" >
      <TR>
        <TD WIDTH="170" VALIGN="top">
@@ -26,7 +26,7 @@
        </TD>
          <td class="assignmentDocumentCell" width="100%" align="center">
 
-        <jsp:include page="../../page_title.jsp" >
+        <jsp:include page="/page_title.jsp" >
             <jsp:param name="image" value="pact_s"/>
             <jsp:param name="title" value="Affirm Assignment Document"/>
         </jsp:include>
