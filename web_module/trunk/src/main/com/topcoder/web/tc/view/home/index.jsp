@@ -104,7 +104,7 @@
 
                 <%-- SRM SPONSOR --%>
                 <map name="srm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10665" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=digital_run&d2=description" />
                 <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=digital_run&d2=description" />
                 </map>
                 <img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;" usemap="#srm"/>
