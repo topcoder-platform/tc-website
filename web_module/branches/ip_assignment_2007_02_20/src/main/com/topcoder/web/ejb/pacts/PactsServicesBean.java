@@ -1628,13 +1628,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             Map searchCriteria = new HashMap();
-           
+            log.debug("a");   
             searchCriteria.put(USER_ID, new Long(userId));
+            log.debug("b");   
             searchCriteria.put(TYPE, new Long(assignmentDocumentTypeId));
+            log.debug("c");   
             if (onlyPending) {
+                log.debug("d");   
                 searchCriteria.put(STATUS, AssignmentDocumentStatus.PENDING_STATUS_ID);
             }
 
+            log.debug("e");   
             return findAssignmentDocument(searchCriteria);
         } catch (Exception e) {
             throw(new EJBException(e.getMessage()));
