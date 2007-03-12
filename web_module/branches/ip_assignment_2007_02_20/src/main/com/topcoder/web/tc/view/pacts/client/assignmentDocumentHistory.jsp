@@ -142,10 +142,18 @@
                     <c:out value="${ad.submissionTitle}"/>                
                 </td>
                 <c:choose>
-                    <c:when test="${ad.status.id == AFFIRMED_STATUS_ID or ad.status.id == REJECTED_STATUS_ID}">
+                    <c:when test="${ad.status.id == AFFIRMED_STATUS_ID}">
                         <td class="valueC">
                             <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
                                 Affirmed on<br><fmt:formatDate value="${ad.affirmedDate}" pattern="MM/dd/yyyy"/>
+                            </a>                
+                        </td>
+                        <td class="valueC">&nbsp;</td>
+                    </c:when>
+                    <c:when test="${ad.status.id == REJECTED_STATUS_ID}">
+                        <td class="valueC">
+                            <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
+                                Rejected
                             </a>                
                         </td>
                         <td class="valueC">&nbsp;</td>
