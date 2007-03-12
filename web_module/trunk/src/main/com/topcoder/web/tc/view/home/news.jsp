@@ -12,7 +12,7 @@
         </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="">vote</A> | 
+        <A href="/tc?module=ViewSurvey&sid=16651">vote</A> | 
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=33">discuss this</A> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
