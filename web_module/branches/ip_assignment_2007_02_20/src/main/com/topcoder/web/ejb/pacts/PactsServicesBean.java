@@ -1624,7 +1624,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
     
     public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) {
-        log.debug("get the assignment document from the db (user_id)");
+        log.debug("get the assignment document from the db (user_id : " + userId + " / typeId : " + assignmentDocumentTypeId + ")");
 
         try {
             Map searchCriteria = new HashMap();
