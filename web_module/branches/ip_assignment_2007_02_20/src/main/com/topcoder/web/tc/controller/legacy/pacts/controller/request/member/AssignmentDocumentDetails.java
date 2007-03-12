@@ -26,7 +26,7 @@ public class AssignmentDocumentDetails extends BaseProcessor implements PactsCon
                 throw new IllegalArgumentException("Affidavit not found");  
             }
             
-            setNextPage(AFFIRM_ASSIGNMENT_DOCUMENT_JSP);
+            setNextPage(ASSIGNMENT_DOCUMENT_DETAILS_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
