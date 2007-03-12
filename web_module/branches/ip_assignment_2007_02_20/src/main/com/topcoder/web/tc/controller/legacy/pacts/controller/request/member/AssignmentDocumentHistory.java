@@ -91,7 +91,9 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
         getRequest().setAttribute("croppedDataAfter", croppedDataAfter);        
         getRequest().setAttribute("croppedDataBefore", new Boolean(startRank > 1));
         
-        result = result.subList(startRank, endRank + 1);
+        if (result.size() > 0) {
+            result = result.subList(startRank - 1, endRank);
+        }
     }
 
     private void sortResult(List result, int sortCol, boolean sortAscending) {

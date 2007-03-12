@@ -136,7 +136,7 @@
             </td>
         </tr>
     <% boolean even = true;%>
-        <c:forEach items="${result}" var="ad">
+        <c:forEach items="${assignment_documents}" var="ad">
             <tr class="<%=even?"light":"dark"%>">
                 <td class="value">
                     <c:out value="${ad.submissionTitle}"/>
