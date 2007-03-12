@@ -20,6 +20,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentTemplate;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
 import com.topcoder.web.ejb.pacts.PactsServices;
@@ -1751,6 +1752,11 @@ public class DataInterfaceBean implements PactsConstants {
     public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending)  throws RemoteException{
         PactsServicesLocal ps = getEjbHandle();
         return ps.getAssignmentDocumentByUserId(userId, assignmentDocumentTypeId, onlyPending);
+    }
+
+    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(long assignmentDocumentTypeId)  throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentTemplate(long assignmentDocumentTypeId);
     }
 
 }

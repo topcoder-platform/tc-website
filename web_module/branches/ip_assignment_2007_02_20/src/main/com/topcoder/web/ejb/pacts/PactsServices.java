@@ -10,6 +10,7 @@ import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentTemplate;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -266,5 +267,8 @@ public interface PactsServices extends EJBObject {
     AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException;
 
     List getAssignmentDocumentByProjectId(long projectId) throws RemoteException;
+    
+    AssignmentDocumentTemplate getAssignmentDocumentTemplate(long assignmentDocumentTypeId) throws RemoteException;
+
 }
 

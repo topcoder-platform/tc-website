@@ -39,7 +39,7 @@ public class AssignmentDocument extends Base {
         aux.setTimeInMillis(getExpireDate().getTime());
         aux.set(aux.get(Calendar.YEAR), aux.get(Calendar.MONTH), aux.get(Calendar.DATE), 0, 0, 0);
 
-        int difInDays = (int) ((aux.getTimeInMillis() - Calendar.getInstance().getTimeInMillis())/(1000*60*60*24));
+        int difInDays = 1 + (int) ((aux.getTimeInMillis() - Calendar.getInstance().getTimeInMillis())/(1000*60*60*24));
         return new Integer((difInDays > 0) ? difInDays : 0);
     }
     

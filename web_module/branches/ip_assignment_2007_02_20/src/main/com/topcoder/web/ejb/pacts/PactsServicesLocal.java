@@ -10,6 +10,7 @@ import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentTemplate;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -282,6 +283,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
     List findAssignmentDocument(Map searchCriteria);
 
     List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending);
-    
+
+    AssignmentDocumentTemplate getAssignmentDocumentTemplate(long assignmentDocumentTypeId);
 }
 
