@@ -27,11 +27,15 @@ public class RejectAssignmentDocument extends BaseProcessor implements PactsCons
                 throw new IllegalArgumentException("Affidavit not found");  
             }
             
+            if (!ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
+                throw new IllegalArgumentException("Affidavit should be pending");  
+            }
+            
             ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.REJECTED_STATUS_ID));
             ad.setAffirmedDate(null);
             bean.addAssignmentDocument(ad);
             
-            setNextPage(ASSIGNMENT_DOCUMENT_DETAILS_JSP);
+            setNextPage("/PactsMemberServlet?module=AssignmentDocumentHistory");
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);

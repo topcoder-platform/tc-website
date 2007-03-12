@@ -26,12 +26,16 @@ public class AffirmAssignmentDocument extends BaseProcessor implements PactsCons
             if (ad == null || ad.getUser().getId().longValue() != getUser().getId()) {
                 throw new IllegalArgumentException("Affidavit not found");  
             }
-            
+
+            if (!ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
+                throw new IllegalArgumentException("Affidavit should be pending");  
+            }
+
             ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
             ad.setAffirmedDate(null);
             bean.addAssignmentDocument(ad);
             
-            setNextPage(AFFIRM_ASSIGNMENT_DOCUMENT_JSP);
+            setNextPage("/PactsMemberServlet?module=AssignmentDocumentHistory");
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);

@@ -145,7 +145,7 @@
                     <c:when test="${ad.status.id == AFFIRMED_STATUS_ID or ad.status.id == REJECTED_STATUS_ID}">
                         <td class="valueC">
                             <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
-                                Affirmed on<br><fmt:formatDate value="${assignment_document.affirmedDate}" pattern="MM/dd/yyyy"/>
+                                Affirmed on<br><fmt:formatDate value="${ad.affirmedDate}" pattern="MM/dd/yyyy"/>
                             </a>                
                         </td>
                         <td class="valueC">&nbsp;</td>

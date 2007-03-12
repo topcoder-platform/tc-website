@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*"%>
+<%@ page import="com.topcoder.web.common.model.AssignmentDocumentStatus" %>
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -6,7 +7,7 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-
+<c:set var="PENDING_STATUS_ID" value="<%= AssignmentDocumentStatus.PENDING_STATUS_ID + "" %>" />
 <c:set var="assignment_document"
     value="<%= request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT) %>" />
 <c:set var="ASSIGNMENT_DOCUMENT_ID"
@@ -55,29 +56,31 @@
                     src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                 </p>
     
-                <table>
-                    <tr>
-                        <td class="bodyText">
-                            <form action="/PactsMemberServlet" method="post">
-                                <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
-                                <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
-                                <input type="submit" value="Affirm assignment document"/>
-                            </form>
-                        </td>
-                        <td class="bodyText">
-                            <form action="/PactsMemberServlet" method="post">
-                                <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
-                                <input type="hidden" name="module" value="RejectAssignmentDocument"/> 
-                                <input type="submit" value="Reject assignment document"/>
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/reg/?nrg=false">
-                                <input type="submit" value="Edit Personal Information">
-                            </form>
-                        </td>
-                    </tr>
-                </table>
+                <c:if test="${assignment_document.status.id == PENDING_STATUS_ID}">
+                    <table>
+                        <tr>
+                            <td class="bodyText">
+                                <form action="/PactsMemberServlet" method="post">
+                                    <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
+                                    <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
+                                    <input type="submit" value="Affirm assignment document"/>
+                                </form>
+                            </td>
+                            <td class="bodyText">
+                                <form action="/PactsMemberServlet" method="post">
+                                    <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
+                                    <input type="hidden" name="module" value="RejectAssignmentDocument"/> 
+                                    <input type="submit" value="Reject assignment document"/>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/reg/?nrg=false">
+                                    <input type="submit" value="Edit Personal Information">
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </c:if>
             </center>
         </TD>
 <!-- Center Column Ends -->
