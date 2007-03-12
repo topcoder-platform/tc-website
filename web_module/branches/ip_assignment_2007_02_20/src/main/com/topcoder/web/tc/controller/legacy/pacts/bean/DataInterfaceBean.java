@@ -1756,7 +1756,7 @@ public class DataInterfaceBean implements PactsConstants {
 
     public AssignmentDocumentTemplate getAssignmentDocumentTemplate(long assignmentDocumentTypeId)  throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.getAssignmentDocumentTemplate(long assignmentDocumentTypeId);
+        return ps.getAssignmentDocumentTemplate(assignmentDocumentTypeId);
     }
 
 }

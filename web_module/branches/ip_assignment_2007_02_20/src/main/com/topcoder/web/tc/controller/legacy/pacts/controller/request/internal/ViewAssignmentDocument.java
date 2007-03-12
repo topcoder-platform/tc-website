@@ -19,6 +19,16 @@ public class ViewAssignmentDocument extends BaseProcessor implements PactsConsta
             DataInterfaceBean bean = new DataInterfaceBean();
 
             AssignmentDocument ad = bean.getAssignmentDocument(assignment_document_id);
+
+            // check that the assignment document belongs to the logged user.
+            if (ad == null) {
+                throw new IllegalArgumentException("Assignment Document not found");  
+            }
+            
+            if (ad.getUser().getId().longValue() != getUser().getId()) {
+                throw new IllegalArgumentException("This AD doesn't belong to the logged user");  
+            }
+            
             getRequest().setAttribute(PACTS_INTERNAL_RESULT, ad);
 
             setNextPage(INTERNAL_ASSIGNMENT_DOCUMENT_JSP);

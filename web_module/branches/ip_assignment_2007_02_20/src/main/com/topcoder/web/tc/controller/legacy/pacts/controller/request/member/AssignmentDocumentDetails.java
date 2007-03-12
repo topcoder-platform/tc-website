@@ -22,8 +22,12 @@ public class AssignmentDocumentDetails extends BaseProcessor implements PactsCon
             getRequest().setAttribute(PACTS_INTERNAL_RESULT, ad);
 
             // check that the assignment document belongs to the logged user.
-            if (ad == null || ad.getUser().getId().longValue() != getUser().getId()) {
+            if (ad == null) {
                 throw new IllegalArgumentException("Assignment Document not found");  
+            }
+            
+            if (ad.getUser().getId().longValue() != getUser().getId()) {
+                throw new IllegalArgumentException("This AD doesn't belong to the logged user");  
             }
             
             setNextPage(ASSIGNMENT_DOCUMENT_DETAILS_JSP);
