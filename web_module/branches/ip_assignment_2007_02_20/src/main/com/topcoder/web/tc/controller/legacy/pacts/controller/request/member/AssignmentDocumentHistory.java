@@ -67,7 +67,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             log.debug("Integer.parseInt(endRank): " + Integer.parseInt(endRank));
 
             cropResult(result, Integer.parseInt(startRank), Integer.parseInt(endRank));
-            
+                
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
             setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
             
@@ -90,8 +90,8 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
         }
         getRequest().setAttribute("croppedDataAfter", croppedDataAfter);        
         getRequest().setAttribute("croppedDataBefore", new Boolean(startRank > 1));
-
-        result = result.subList(startRank, endRank);
+        
+        result = result.subList(startRank, endRank + 1);
     }
 
     private void sortResult(List result, int sortCol, boolean sortAscending) {
