@@ -121,9 +121,7 @@ function loaded() {
 
 function initialize() {
     toggleDiv("loading", 0);
-<c:if test="${empty requestScope.reference_description}">    
     doSearch(false,false);    
-</c:if> 
 }
 
 <h1>PACTS</h1>
