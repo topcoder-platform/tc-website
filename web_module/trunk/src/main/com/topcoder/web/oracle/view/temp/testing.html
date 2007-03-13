@@ -32,7 +32,7 @@ f the selected candidates list has reached it's max size, alert user to remove
 a candidate first
 */
 function select(obj) {
-    if (document.getElementById("selectedCandidates").getElementsByTagName("li").length==8) {
+    if (document.getElementById("selectedCandidates").getElementsByTagName("li").length == 8) {
         alert("Sorry, you have already selected 8 candidates.  Please remove one before adding another.")
     } else {
         //check if the item is in the candidate bin
@@ -146,16 +146,6 @@ function boot(obj) {
 <div>
 
     <ul ID="selectedCandidates">
-        <!--
-        <li class="box" title="17086035">A<br><img src="A.png" width="75" alt=""/></li>
-        <li class="box" title="4977936">B<br><img src="B.png" width="75" alt=""/></li>
-        <li class="box" title="42553910">C<br><img src="C.png" width="75" alt=""/></li>
-        <li class="box" title="35486247">D<br><img src="D.png" width="75" alt=""/></li>
-        <li class="box" title="41198781">E<br><img src="E.png" width="75" alt=""/></li>
-        <li class="box" title="94007666">F<br><img src="F.png" width="75" alt=""/></li>
-        <li class="box" title="98160341">G<br><img src="G.png" width="75" alt=""/></li>
-                <li class="box" title="49029369">H<br><img src="H.png" width="75" alt=""/></li>
-        -->
     </ul>
 
 </div>
@@ -175,8 +165,16 @@ function boot(obj) {
 <div>
 
     <ul ID="candidateBin">
+        <li class="box" title="17086035">A<br><img src="A.png" width="75" onclick="select(this)" alt=""/></li>
+        <li class="box" title="49377936">B<br><img src="B.png" width="75" onclick="select(this)" alt=""/></li>
+        <li class="box" title="42553910">C<br><img src="C.png" width="75" onclick="select(this)" alt=""/></li>
+        <li class="box" title="35486247">D<br><img src="D.png" width="75" onclick="select(this)" alt=""/></li>
+        <li class="box" title="41198781">E<br><img src="E.png" width="75" onclick="select(this)" alt=""/></li>
+        <li class="box" title="94007666">F<br><img src="F.png" width="75" onclick="select(this)" alt=""/></li>
+        <li class="box" title="98160341">G<br><img src="G.png" width="75" onclick="select(this)" alt=""/></li>
+        <li class="box" title="49029369">H<br><img src="H.png" width="75" onclick="select(this)" alt=""/></li>
         <li class="box" title="17086035">I<br><img src="I.png" width="75" onclick="select(this)" alt=""/></li>
-        <li class="box" title="4977936">J<br><img src="J.png" width="75" onclick="select(this)" alt=""/></li>
+        <li class="box" title="49779436">J<br><img src="J.png" width="75" onclick="select(this)" alt=""/></li>
         <li class="box" title="42553910">K<br><img src="K.png" width="75" onclick="select(this)" alt=""/></li>
         <li class="box" title="35486247">L<br><img src="L.png" width="75" onclick="select(this)" alt=""/></li>
         <li class="box" title="41198781">M<br><img src="M.png" width="75" onclick="select(this)" alt=""/></li>
