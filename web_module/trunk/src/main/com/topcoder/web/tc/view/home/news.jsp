@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>03.13.07<br>7:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">Why Google put a research lab in Poland</A></span><br><br>
+"Last year's TopCoder Collegiate Challenge drew 21000 registrants from around the world, but half of the 48 finalists were from former Soviet bloc nations, including the winner, Petr Mitrichev of Russia, who also won last year's Global Code Jam."</td>
+      <td class="newsPhoto"><img src="/i/pressroom/usatoday_logo.gif" alt="USA Today Logo" width="67" height="25" border="0" /</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">full story</A> | 
+        <tc-webtag:forumLink forumID="514703" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.13.07<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065">Redesign the homepage at TopCoder Studio</A>
@@ -238,23 +254,4 @@ TopCoder is building a new portal for broadcasting webcasts and showing videos -
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=36">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>03.02.07<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners">Digital Run: Stage 3 Winners</A></span><br><br>
-Stage 3 of the Digital Run concluded on February 1, 2007, and the scores and final fixes are all wrapped up. Congratulations to <tc-webtag:handle coderId="287614" context="design"/> and <tc-webtag:handle coderId="14926554" context="development"/>!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners">full story</A> | 
-        <tc-webtag:forumLink forumID="514532" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
 
