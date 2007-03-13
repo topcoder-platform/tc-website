@@ -98,7 +98,6 @@ function loaded() {
 
  function initialize() {
     toggleDiv("loading", 0);
-    doSearch(false,false);    
 }
  
  </script>
@@ -163,10 +162,23 @@ function loaded() {
 				</SELECT>
 			</td>
 		</tr>
-    <tr id="selectReference">
-        <td></td>       
-        <td></td>
-    </tr>
+        <tr id="selectReference">
+            <c:if test="${not empty reference_description}">    
+                <td><b>Reference:</b></td>      
+                <td><c:out value="${reference_description}" />
+                <c:choose>
+                    <c:when test="${assignmentDocumentId > 0}">
+                        <input type="hidden" name="search_list" value="${reference_id}"/>
+                        <input type="button" value="change" onClick="typeChanged()" />
+                    </c:when>
+                    <c:otherwise>
+            	        <input type="text" name="search_text"/>
+                        <input type="button" value="search" onClick="doSearch(true, false)" />
+                    </c:otherwise>
+                </c:choose>
+                </td>
+            </c:if>
+        </tr>
         <tr>        
             <td><b>Submission title:</b></td>
             <td>
