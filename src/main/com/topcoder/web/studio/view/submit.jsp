@@ -46,6 +46,10 @@
         </c:forEach>
             ajaxRequest.sendRequest();
         }
+        function formSubmit() {
+            document.forms['submission'].submit();
+            document.getElementById("submitButton").innerHTML='<img src="//i/layout/processing.gif" alt=""/>';
+        }
 
         // -->
     </script>
@@ -108,8 +112,8 @@
                         <br></tc-webtag:errorIterator>
                     as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
                 </p>
-                <p>
-                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
+                <p id="submitButton">
+                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'" onclick="formSubmit()">
                 </p>
             </form>
         </div>
