@@ -2,12 +2,14 @@ package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.security.TCPrincipal;
 import com.topcoder.security.TCSubject;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
@@ -19,9 +21,9 @@ import java.util.Iterator;
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jul 18, 2006
+ *          Create Date: Mar 13, 2007
  */
-public class ViewContestDetails extends ShortHibernateProcessor {
+public class ViewContestResults extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         if ("".equals(StringUtils.checkNull(contestId))) {
@@ -37,11 +39,13 @@ public class ViewContestDetails extends ShortHibernateProcessor {
 
             if (isAdmin()) {
                 getRequest().setAttribute("contest", contest);
+                loadData(cid);
             } else {
                 if (ContestStatus.ACTIVE.equals(contest.getStatus().getId())) {
                     Date now = new Date();
-                    if (contest.getStartTime().before(now)) {
+                    if (contest.getEndTime().before(now)) {
                         getRequest().setAttribute("contest", contest);
+                        loadData(cid);
                     } else {
                         throw new NavigationException("Inactive contest specified.");
                     }
@@ -49,22 +53,19 @@ public class ViewContestDetails extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid contest specified.");
                 }
             }
-            boolean registered = false;
-            if (userIdentified()) {
-                User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-                if (StudioDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
-                    registered = true;
-                }
-            }
 
-            getRequest().setAttribute("registered", Boolean.valueOf(registered));
-
-            getRequest().setAttribute("currentTime", new Date());
-
-            setNextPage("/contestDetails.jsp");
+            setNextPage("/results.jsp");
             setIsNextPageInContext(true);
         }
 
+    }
+
+    private void loadData(Long cid) throws Exception {
+        DataAccess da = new CachedDataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        Request r = new Request();
+        r.setContentHandle("contest_results");
+        r.setProperty(Constants.CONTEST_ID, cid.toString());
+        getRequest().setAttribute("results", da.getData(r).get("contest_results"));
     }
 
     private boolean isAdmin() throws Exception {
