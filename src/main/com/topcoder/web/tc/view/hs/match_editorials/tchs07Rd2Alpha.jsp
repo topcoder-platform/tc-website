@@ -56,23 +56,13 @@
 
 <h2>Match summary</h2>
 
-As in Round 1, it was clear that any positive score would be enough to advance to the next round.
-Therefore, a lot of coders played it safe and made sure they submitted a correct solution to the 
-easy.
-Most of them managed to qualify for the next round, with <tc-webtag:handle coderId="22658932" context="hs_algorithm"/> being lucky enough to advance
-only because of his challenge points.
+As in Round 1, it was clear that any positive score would be enough to advance to the next round. Therefore, a lot of coders played it safe and made sure they submitted a correct solution to the easy. Most of them managed to qualify for the next round, with <tc-webtag:handle coderId="22658932" context="hs_algorithm"/> being lucky enough to advance only because of his challenge points.
 <br /><br />
 
-At the top of the table, <tc-webtag:handle coderId="14848761" context="hs_algorithm"/>
-won the contest by a tiny margin over 
-<tc-webtag:handle coderId="15117368" context="hs_algorithm"/>. <tc-webtag:handle coderId="22663763" context="hs_algorithm"/> came in third about 100 points behind. 
+At the top of the table, <tc-webtag:handle coderId="14848761" context="hs_algorithm"/> won the contest by a tiny margin over <tc-webtag:handle coderId="15117368" context="hs_algorithm"/>. <tc-webtag:handle coderId="22663763" context="hs_algorithm"/> came in third about 100 points behind.
 <br /><br />
 
-<H1>
-
-The Problems
-
-</H1>
+<H1>The Problems</H1>
 
 </p>
 
@@ -92,85 +82,50 @@ The Problems
 
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
 
-  <tr>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Value</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		250
+	</td>
+</tr>
 
-    <td class="bodyText" style="background: #eee;">
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Submission Rate</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		45 / 45 (100.00%)
+	</td>
+</tr>
 
-      <b>Value</b>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Success Rate</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		42 / 45 (93.33%)
+	</td>
+</tr>
 
-    </td>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>High Score</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		<b>tloinuy</b> for 249.32 points (1 mins 29 secs)
+	</td>
+</tr>
 
-    <td class="bodyText" style="background: #eee;">
-
-      250
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Submission Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      45 / 45 (100.00%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Success Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      42 / 45 (93.33%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>High Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>tloinuy</b> for 249.32 points (1 mins 29 secs)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Average Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      230.85 (for 42 correct submissions)
-
-    </td>
-
-  </tr>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Average Score</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		230.85 (for 42 correct submissions)
+	</td>
+</tr>
 
 </table></blockquote>
 
@@ -194,13 +149,13 @@ By carefully implementing this you get the problem's solution. A short of it ver
 
 <pre>
 public int calculatePrice(int seconds) {
-	int mins = 1 + seconds  / 60;
-	return 5 + 10 * Math.min(mins, 5) + Math.max(0, (mins - 5) * 3);
+int mins = 1 + seconds  / 60;
+return 5 + 10 * Math.min(mins, 5) + Math.max(0, (mins - 5) * 3);
 }
 </pre>
 
 
- 
+
 
 <font size="+2">
 
@@ -216,85 +171,50 @@ public int calculatePrice(int seconds) {
 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 
-  <tr>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Value</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		500
+	</td>
+</tr>
 
-    <td class="bodyText" style="background: #eee;">
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Submission Rate</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		42 / 45 (93.33%)
+	</td>
+</tr>
 
-      <b>Value</b>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Success Rate</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		31 / 42 (73.81%)
+	</td>
+</tr>
 
-    </td>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>High Score</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		<b>Penguincode</b> for 492.49 points (3 mins 31 secs)
+	</td>
+</tr>
 
-    <td class="bodyText" style="background: #eee;">
-
-      500
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Submission Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      42 / 45 (93.33%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Success Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      31 / 42 (73.81%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>High Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Penguincode</b> for 492.49 points (3 mins 31 secs)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Average Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      430.73 (for 31 correct submissions)
-
-    </td>
-
-  </tr>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Average Score</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		430.73 (for 31 correct submissions)
+	</td>
+</tr>
 
 </table></blockquote>
 
@@ -304,9 +224,9 @@ format the number according to the requirements. If you have the number as a str
 
 <pre>
 if (ans.length() == 7)
-	return ans.substring(0, 3) + "-" + ans.substring(3, 5) + "-" + ans.substring(5);
+return ans.substring(0, 3) + "-" + ans.substring(3, 5) + "-" + ans.substring(5);
 else 
-	return "+" + ans;
+return "+" + ans;
 </pre>
 
 Now lets move to the first part of the problem.
@@ -344,18 +264,18 @@ String number = "";
 raw += '*';
 int count = 0;
 for (int i = 0; i < raw.length(); i++) {
-	if (count == 0) {
-		if (raw.charAt(i) == '-')
-			count = 1;
-	} else {
-		if (raw.charAt(i) == '-')
-			count++;
-		else {
-			count = 0;
-			number += (count % 10); // Remember that 10 '-'s represent a '0'.
-		}
-		
-	}
+if (count == 0) {
+    if (raw.charAt(i) == '-')
+        count = 1;
+} else {
+    if (raw.charAt(i) == '-')
+        count++;
+    else {
+        count = 0;
+        number += (count % 10); // Remember that 10 '-'s represent a '0'.
+    }
+    
+}
 }
 </pre>
 
@@ -374,85 +294,50 @@ for (int i = 0; i < raw.length(); i++) {
 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 
-  <tr>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Value</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		1000
+	</td>
+</tr>
 
-    <td class="bodyText" style="background: #eee;">
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Submission Rate</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		32 / 45 (71.11%)
+	</td>
+</tr>
 
-      <b>Value</b>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Success Rate</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		24 / 32 (75.00%)
+	</td>
+</tr>
 
-    </td>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>High Score</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		<b>fhoward</b> for 952.60 points (6 mins 24 secs)
+	</td>
+</tr>
 
-    <td class="bodyText" style="background: #eee;">
-
-      1000
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Submission Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      32 / 45 (71.11%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Success Rate</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      24 / 32 (75.00%)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>High Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>fhoward</b> for 952.60 points (6 mins 24 secs)
-
-    </td>
-
-  </tr>
-
-  <tr>
-
-    <td class="bodyText" style="background: #eee;">
-
-      <b>Average Score</b>
-
-    </td>
-
-    <td class="bodyText" style="background: #eee;">
-
-      771.93 (for 24 correct submissions)
-
-    </td>
-
-  </tr>
+<tr>
+	<td class="bodyText" style="background: #eee;">
+		<b>Average Score</b>
+	</td>
+	<td class="bodyText" style="background: #eee;">
+		771.93 (for 24 correct submissions)
+	</td>
+</tr>
 
 </table></blockquote>
 
