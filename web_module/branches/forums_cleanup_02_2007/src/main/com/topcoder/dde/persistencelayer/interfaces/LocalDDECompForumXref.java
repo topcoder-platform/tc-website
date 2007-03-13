@@ -29,5 +29,5 @@ public interface LocalDDECompForumXref extends EJBLocalObject {
      *
      * @return component version id.
      */
-    long getCompVersionId();
+    long getCompVersId();
 }
