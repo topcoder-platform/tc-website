@@ -1,6 +1,7 @@
 package com.topcoder.dde.persistencelayer.bean;
 
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
+import com.topcoder.dde.persistencelayer.keys.CompForumXrefKey;
 
 import javax.ejb.CreateException;
 
@@ -40,7 +41,7 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @return the entity bean's primary key (should be null for CMP bean implementations).
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    public Long ejbCreate(long categoryId, LocalDDECompVersions compVersions) throws CreateException {
+    public CompForumXrefKey ejbCreate(long categoryId, LocalDDECompVersions compVersions) throws CreateException {
         setPrimaryKey();
         setCategoryId(categoryId);
         return null;
