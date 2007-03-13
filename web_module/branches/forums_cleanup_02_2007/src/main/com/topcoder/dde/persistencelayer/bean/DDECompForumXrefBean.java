@@ -32,6 +32,20 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @param categoryId       category id.
      */
     public abstract void setCategoryId(long categoryId);
+    
+    /**
+     * Gets the component version id.
+     *
+     * @return component version id.
+     */
+    public abstract long getCompVersId();
+
+    /**
+     * Sets the component version id.
+     *
+     * @param compVersId       component version id.
+     */
+    public abstract void setCompVersId(long compVersId);
 
     /**
      * Creates an entity object.
@@ -43,7 +57,7 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      */
     public CompForumXrefKey ejbCreate(long categoryId, LocalDDECompVersions compVersions) throws CreateException {
         setCategoryId(categoryId);
-        setCompVersions(compVersions);
+        setCompVersId(compVersions.getVersion());
         return null;
     }
 
@@ -54,6 +68,7 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @param compVersions          compVersions.
      */
     public void ejbPostCreate(long categoryId, LocalDDECompVersions compVersions) {
+        //setCompVersions(compVersions);
     }
 
 }
