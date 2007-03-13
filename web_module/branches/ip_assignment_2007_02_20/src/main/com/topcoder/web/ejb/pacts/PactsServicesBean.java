@@ -1895,7 +1895,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer query = new StringBuffer(1024);
             query.append("update 'informix'.assignment_document set ");
             query.append("assignment_document_status_id = ?, ");
-            query.append("date_modified = current ");
+            query.append("modify_date = current ");
             query.append("where assignment_document_id = ? ");
 
             ps = conn.prepareStatement(query.toString());
