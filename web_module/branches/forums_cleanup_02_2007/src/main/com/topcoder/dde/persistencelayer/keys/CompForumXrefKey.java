@@ -1,11 +1,13 @@
 package com.topcoder.dde.persistencelayer.keys;
 
+import java.io.Serializable;
+
 /**
  * @version     1.0
  * @author      Mark Tong
  */
 
-public final class CompForumXrefKey
+public final class CompForumXrefKey implements Serializable
 {
    public Long compVersId;
    public Long categoryId;
