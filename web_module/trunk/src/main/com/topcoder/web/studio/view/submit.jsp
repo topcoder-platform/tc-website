@@ -48,7 +48,7 @@
         }
         function formSubmit() {
             document.getElementById("submitButton").innerHTML='<img src="/i/layout/processing.gif" alt=""/>';
-            document.submission.submit();
+            document.submissionForm.submit();
         }
 
         // -->
@@ -98,7 +98,7 @@
 
 
         <div align="center">
-            <form action="${sessionInfo.servletPath}" method="POST" name="submission" enctype="multipart/form-data">
+            <form action="${sessionInfo.servletPath}" method="POST" name="submissionForm" enctype="multipart/form-data">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                 <p>
