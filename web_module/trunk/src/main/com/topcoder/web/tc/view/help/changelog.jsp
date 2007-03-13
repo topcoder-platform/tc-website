@@ -47,6 +47,7 @@
     <ul>
         <li>Add the suspended flag for component versions - cucu</li>
         <li>In submission download and scorecard views, added granular permissions for viewing incomplete projects - cucu</li>
+        <li>Load for record books: fixed srm consecutive appeareances to skip non rated rounds</li>
 	</ul>
 	
     5.8.3 - 2007.03.08
@@ -141,21 +142,6 @@
             after deploying, the query and command long_contest_find_room can be deleted </li> --%>
         <li>Studio payments shown in My Topcoder Payments</li>
         <li>PACTS bug fix: client didn't appear when updating a payment</li>
-        =======
-        5.6.4 - 2007.01.xx
-        <ul>
-            <%--<li>RatingTag was taken out since it is no longer in use</li>--%>
-            <%--<li>Fixed bug when showing a problem with Matrix2D data type</li>--%>
-            <%--<li>TCS Loader: Added filter by elegibility (just open projects)</li>--%>
-            <li>When submiting a long contest, if the round id, contest id and component id are not consistent, throw an
-                exception
-            </li>
-            <%--<li>When registering for a long round, the room_id is not looked up anymore, it wasn't needed.
- after deploying, the query and command long_contest_find_room can be deleted </li> --%>
-            <li>Studio payments shown in My Topcoder Payments</li>
-            <li>PACTS bug fix: client didn't appear when updating a payment</li>
-
-            >>>>>>> 1.289.2.2
         </ul>
 </p>
 
