@@ -50,7 +50,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-<%-- TopCoder Announces TopCoder Open 2007 Sponsored by AOL --%>
+<%-- USA Today --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A target="_blank" href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm"><img src="/i/pressroom/usatoday_logo.gif" alt="USA Today" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A target="_blank" href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">Why Google put a research lab in Poland</A></strong></font><br />
+                        "Last year's TopCoder Collegiate Challenge drew 21000 registrants from around the world, but half of the 48 finalists were from former Soviet bloc nations, including the winner, Petr Mitrichev of Russia, who also won last year's Global Code Jam." <span class="prHead"> [March 13]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+            <%-- TopCoder Announces TopCoder Open 2007 Sponsored by AOL --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
