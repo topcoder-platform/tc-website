@@ -2,6 +2,22 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%------------------------------- 3/13 2PM
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.13.07<br>2:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065">Redesign the homepage at TopCoder Studio</A>
+        </span><br><br>
+        Sorry Old Homepage, we just think we can do better. So we're reaching out to Studio competitors to give us a new look and feel.  You've got 2 weeks, so head over to the Studio and get creative.  If you haven't <A href="/reg/?nrg=false">added Studio registration</A> to your profile, make sure you do.  And Old Homepage, no hard feelings, ok?
+        </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065">details</A> | 
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=38">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+-------------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.12.07<br>6:00 PM</td>
