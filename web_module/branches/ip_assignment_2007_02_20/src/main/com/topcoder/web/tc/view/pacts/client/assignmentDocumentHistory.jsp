@@ -102,7 +102,7 @@
             </c:choose>
             
             <c:choose>
-                <c:when test="${croppedDataBefore}">
+                <c:when test="${croppedDataAfter}">
                     <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
                 </c:when>
                 <c:otherwise>
