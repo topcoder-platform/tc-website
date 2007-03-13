@@ -66,7 +66,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
 
             log.debug("Integer.parseInt(endRank): " + Integer.parseInt(endRank));
 
-            cropResult(result, Integer.parseInt(startRank), Integer.parseInt(endRank));
+            result = cropResult(result, Integer.parseInt(startRank), Integer.parseInt(endRank));
 
             log.debug("new result size after crop: " + result.size());
 
@@ -84,7 +84,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
         }
     }
 
-    private void cropResult(List result, int startRank, int endRank) {
+    private List cropResult(List result, int startRank, int endRank) {
         log.debug("Crop result called: " + result.size() + " / " + startRank + " / " + endRank);
         Boolean croppedDataAfter = Boolean.TRUE;
         if (endRank >= result.size()) {
@@ -97,9 +97,9 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
         log.debug("(2): " + endRank + " / " + new Boolean(startRank > 1) + " / " + croppedDataAfter);
 
         if (result.size() > 0) {
-            result = result.subList(startRank - 1, endRank);
-
-            log.debug("Sublist: " + result.size() + " / " + (startRank - 1) + " / " + endRank);
+            return result.subList(startRank - 1, endRank);
+        } else {
+            return result;
         }
     }
 
