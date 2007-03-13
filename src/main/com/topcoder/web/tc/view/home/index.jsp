@@ -48,19 +48,23 @@
     <tr>
         <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
         <td class="BIGPromoBox" align="center">
-<%-- TCO  --%>
+<%-- TCO  
 <map name="tco07">
 <area shape="rect" alt="" coords="1,1,499,129" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" />
 <area shape="rect" alt="" coords="1,131,499,149" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview" />
 </map>
 <img src="/i/home/tco07announcement.png" alt="2007 TopCoder Open" border="0" style="display:block;" usemap="#tco07"/>
-
+--%>
+<A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt="" /></A>
         </td>
         <td width="50%" align="right" valign="top" style="border-bottom: 1px solid #666666; padding:0px; margin:0px;">
-            <%-- standard studio dogear 
+            <%-- no dogear 
             &nbsp;
             --%>
+            <%-- standard studio dogear 
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>"><img src="/i/home/studioDogEarStandard.png" alt="TopCoder Studio" /></A>
+            --%>
+            <A href="/tco07"><img src="/i/home/dogTCO07.png" alt="2007 TopCoder Open Sponsored by AOL" /></A>
         </td>
     </tr>
 </table>
@@ -104,10 +108,10 @@
 
                 <%-- SRM SPONSOR --%>
                 <map name="srm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=digital_run&d2=description" />
-                <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=digital_run&d2=description" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10666" />
+                <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" />
                 </map>
-                <img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;" usemap="#srm"/>
+                <img src="/i/home/srm342_aol.png" alt="SRM 342 brought to you by AOL" border="0" style="display:block;" usemap="#srm"/>
                 
             </td>
         </tr>
