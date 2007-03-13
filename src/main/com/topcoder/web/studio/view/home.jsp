@@ -41,15 +41,21 @@
         <tr>
             <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
 
+<%-- TC HOMEPAGE --%>
+                <div>
+                    <A href="/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt=""/></A>
+                </div>
+
 <%-- CSF --%>
                 <div>
                     <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="studio_homepage" />"><img src="/i/home/csf.jpg" alt="Microsoft CSF, Powered by TopCoder"/></A>
                 </div>
 
-<%-- BADGE VOTE --%>
+<%-- BADGE VOTE 
                 <div>
                     <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SurveyResults&sid=16380"><img src="/i/home/badgeWinner.jpg" alt="Vote for Studio badges"/></A>
                 </div>
+--%>
 
                 <div>
                      <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
