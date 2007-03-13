@@ -64,11 +64,12 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             
             sortResult(result, sortCol, sortAscending);
 
-            log.debug("new result size after crop: " + result.size());
             log.debug("Integer.parseInt(endRank): " + Integer.parseInt(endRank));
 
             cropResult(result, Integer.parseInt(startRank), Integer.parseInt(endRank));
-                
+
+            log.debug("new result size after crop: " + result.size());
+
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
             setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
             
