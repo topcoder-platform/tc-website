@@ -43,6 +43,7 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      */
     public CompForumXrefKey ejbCreate(long categoryId, LocalDDECompVersions compVersions) throws CreateException {
         setCategoryId(categoryId);
+        setCompVersions(compVersions);
         return null;
     }
 
@@ -53,7 +54,6 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @param compVersions          compVersions.
      */
     public void ejbPostCreate(long categoryId, LocalDDECompVersions compVersions) {
-        setCompVersions(compVersions);
     }
 
 }
