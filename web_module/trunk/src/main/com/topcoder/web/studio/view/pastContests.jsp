@@ -55,7 +55,7 @@
     <tbody>
         <tr>
             <td class="NW">&nbsp;</td>
-            <td class="title" colspan="8">Past Contests</td>
+            <td class="title" colspan="7">Past Contests</td>
             <td class="NE">&nbsp;</td>
         </tr>
         <tr>
@@ -63,8 +63,8 @@
             <td class="header">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
             </td>
-            <td class="header" colspan="2">
-                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Winner</a>
+            <td class="header">
+                Results
             </td>
             <td class="headerR">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
@@ -98,19 +98,6 @@
                     &#160;
                     <% } %>
                 </td>
-                <td class="valueC">
-                    <c:choose>
-                        <c:when test="<%=resultRow.getItem("winning_submission_id").getResultData() != null%>">
-                            <div id="pop<%=i%>" class="popUp"><div>View submission</div></div>
-                            <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="winning_submission_id" row="<%=resultRow%>"/>">
-                            <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()" />
-                            </A>
-                        </c:when>
-                        <c:otherwise>
-                            &#160;
-                        </c:otherwise>
-                    </c:choose>
-                </td>
                 <td class="valueR">
                     <rsc:item name="registrants" row="<%=resultRow%>"/>
                 </td>
@@ -139,7 +126,7 @@
                 i++; %>
         </rsc:iterator>
         <tr>
-            <td class="SW" colspan="9">&nbsp;</td>
+            <td class="SW" colspan="8">&nbsp;</td>
             <td class="SE">&nbsp;</td>
         </tr>
     </tbody>
