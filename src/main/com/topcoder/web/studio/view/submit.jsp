@@ -47,8 +47,8 @@
             ajaxRequest.sendRequest();
         }
         function formSubmit() {
+            document.getElementById("submitButton").innerHTML='<img src="/i/layout/processing.gif" alt=""/>';
             document.forms['submission'].submit();
-            document.getElementById("submitButton").innerHTML='<img src="//i/layout/processing.gif" alt=""/>';
         }
 
         // -->
