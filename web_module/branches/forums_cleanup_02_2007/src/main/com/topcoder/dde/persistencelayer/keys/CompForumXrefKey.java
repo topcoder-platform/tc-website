@@ -9,8 +9,8 @@ import java.io.Serializable;
 
 public final class CompForumXrefKey implements Serializable
 {
-   public Long compVersId;
    public Long categoryId;
+   public Long compVersId;
 
    public CompForumXrefKey() {}
 

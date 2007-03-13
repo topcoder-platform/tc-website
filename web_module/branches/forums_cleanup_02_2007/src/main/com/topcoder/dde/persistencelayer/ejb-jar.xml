@@ -971,9 +971,6 @@
             <reentrant>False</reentrant>
             <abstract-schema-name>DDECompForumXref</abstract-schema-name>
             <cmp-field>
-                <field-name>compVersId</field-name>
-            </cmp-field>
-            <cmp-field>
                 <field-name>categoryId</field-name>
             </cmp-field>
             <ejb-local-ref>

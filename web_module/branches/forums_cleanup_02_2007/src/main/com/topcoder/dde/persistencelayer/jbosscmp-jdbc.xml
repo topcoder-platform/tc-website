@@ -581,10 +581,6 @@
             <ejb-name>DDECompForumXrefEJB</ejb-name>
             <table-name>comp_jive_category_xref</table-name>
             <cmp-field>
-                <field-name>compVersId</field-name>
-                <column-name>comp_vers_id</column-name>
-            </cmp-field>
-            <cmp-field>
                 <field-name>categoryId</field-name>
                 <column-name>jive_category_id</column-name>
             </cmp-field>

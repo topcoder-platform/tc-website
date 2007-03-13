@@ -32,20 +32,6 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @param categoryId       category id.
      */
     public abstract void setCategoryId(long categoryId);
-    
-    /**
-     * Gets the component version id.
-     *
-     * @return component version id.
-     */
-    public abstract long getCompVersId();
-
-    /**
-     * Sets the component version id.
-     *
-     * @param compVersId       component version id.
-     */
-    public abstract void setCompVersId(long compVersId);
 
     /**
      * Creates an entity object.
