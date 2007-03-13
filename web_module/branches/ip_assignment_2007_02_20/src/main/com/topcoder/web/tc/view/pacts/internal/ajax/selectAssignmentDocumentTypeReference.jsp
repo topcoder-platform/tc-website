@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <taconite-root xml:space="preserve">
-    <taconite-replace contextNodeID="selectReference" parseInBrowser="false">
+    <taconite-replace contextNodeID="selectReference" parseInBrowser="true">
         <c:if test="${empty search_values}">           
             <tr id="selectReference">
                 <c:if test="${not empty reference_description}">    
