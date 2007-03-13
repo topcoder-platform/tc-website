@@ -119,7 +119,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
                         log.debug("2: " + ((AssignmentDocument) arg0).getDaysLeftToExpire() + " / " + ((AssignmentDocument) arg1).getDaysLeftToExpire() + " : " + ((AssignmentDocument) arg1).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg0).getDaysLeftToExpire()));
-                        return ((AssignmentDocument) arg1).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg0).getDaysLeftToExpire());
+                        return ((AssignmentDocument) arg0).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg1).getDaysLeftToExpire());
                     }
                 });
                 break;
