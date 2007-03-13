@@ -83,6 +83,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
     }
 
     private void cropResult(List result, int startRank, int endRank) {
+        log.debug("Crop result called: " + result.size() + " / " + startRank + " / " + endRank);
         Boolean croppedDataAfter = Boolean.TRUE;
         if (endRank >= result.size()) {
             endRank = result.size();
@@ -91,8 +92,12 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
         getRequest().setAttribute("croppedDataAfter", croppedDataAfter);        
         getRequest().setAttribute("croppedDataBefore", new Boolean(startRank > 1));
         
+        log.debug("(2): " + endRank + " / " + new Boolean(startRank > 1) + " / " + croppedDataAfter);
+
         if (result.size() > 0) {
             result = result.subList(startRank - 1, endRank);
+
+            log.debug("Sublist: " + result.size() + " / " + (startRank - 1) + " / " + endRank);
         }
     }
 
@@ -115,6 +120,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
                         return ((AssignmentDocument) arg1).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg0).getDaysLeftToExpire());
                     }
                 });
+                break;
             case STATUS_COL:
                 log.debug("Sort results by Status");
                 Collections.sort(result, new Comparator() {
