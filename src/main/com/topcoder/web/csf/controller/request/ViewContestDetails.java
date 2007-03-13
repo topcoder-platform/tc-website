@@ -46,7 +46,7 @@ public class ViewContestDetails extends Base {
             }
 
             boolean registered = false;
-            if (userLoggedIn()) {
+            if (userIdentified()) {
                 User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
                 if (CSFDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
                     registered = true;
