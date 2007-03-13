@@ -42,7 +42,6 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @throws CreateException      an application level error occurred during the create operation.
      */
     public CompForumXrefKey ejbCreate(long categoryId, LocalDDECompVersions compVersions) throws CreateException {
-        setPrimaryKey();
         setCategoryId(categoryId);
         return null;
     }
