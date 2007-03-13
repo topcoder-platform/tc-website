@@ -266,7 +266,7 @@
                     <img src="/i/pressroom/usatoday_logo.gif" alt="USA Today Logo" width="67" height="25" border="0"/>
                 </div>
                 Why Google put a research lab in Poland
-                <A href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">...more</A><br>[March 13]<br><br>
+                <A target="_blank" href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">...more</A><br>[March 13]<br><br>
 
                 <div style="float: right; padding-left: 5px;">
                     <img src="/i/pressroom/tco07_logo.png" alt="TCO07" width="88" height="41" border="0"/>
