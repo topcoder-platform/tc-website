@@ -63,13 +63,10 @@
             <td class="header">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
             </td>
-            <td class="header">
-                Results
-            </td>
-            <td class="headerR">
+            <td class="headerC">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
             </td>
-            <td class="headerR">
+            <td class="headerC">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
             </td>
             <td class="headerR">
@@ -81,6 +78,9 @@
             <td class="headerC">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End
                     Date</a></td>
+            <td class="headerC">
+                &nbsp;
+            </td>
             <td class="headerE"><div>&nbsp;</div></td>
         </tr>
         <% boolean even = true;
@@ -91,17 +91,10 @@
                 <td class="value">
                     <A href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                         <rsc:item name="name" row="<%=resultRow%>"/></A></td>
-                <td class="value">
-                    <% if (resultRow.getBooleanItem("results_available")) { %>
-                    <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">results</a>
-                    <% } else {%>
-                    &#160;
-                    <% } %>
-                </td>
-                <td class="valueR">
+                <td class="valueC">
                     <rsc:item name="registrants" row="<%=resultRow%>"/>
                 </td>
-                <td class="valueR">
+                <td class="valueC">
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("show_submissions")%>">
                             <A href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
@@ -120,10 +113,16 @@
                     <rsc:item name="start_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
                 <td class="valueC">
                     <rsc:item name="end_time" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/></td>
+                <td class="valueC">
+                    <% if (resultRow.getBooleanItem("results_available")) { %>
+                    <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">results</a>
+                    <% } else {%>
+                    &#160;
+                    <% } %>
+                </td>
                 <td class="valueE"><div>&nbsp;</div></td>
             </tr>
-            <% even = !even;
-                i++; %>
+            <% even = !even; i++; %>
         </rsc:iterator>
         <tr>
             <td class="SW" colspan="8">&nbsp;</td>
