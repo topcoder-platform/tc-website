@@ -80,7 +80,7 @@
             <td class="headerC">
                 Submission ID
             </td>
-            <td class="header">
+            <td class="headerC">
                 Submission
             </td>
             <td class="headerE">
@@ -116,7 +116,7 @@
                 <td class="valueC">
                     <rsc:item name="submission_id" row="<%=resultRow%>"/>
                 </td>
-                <td class="value">
+                <td class="valueC">
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
                             <%--THIS IS A CRAPPY WAY TO MAKE THE PAGE MANAGEABLE BEFORE RESIZING THE IMAGE--%>
@@ -142,6 +142,7 @@
                     <div>&nbsp;</div>
                 </td>
             </tr>
+        <% even = !even; i++; %>
         </rsc:iterator>
 
         <tr>
