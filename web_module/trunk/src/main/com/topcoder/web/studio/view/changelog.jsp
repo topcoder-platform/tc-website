@@ -37,6 +37,7 @@
             contest - dok
         </li>
         <li>Add contest results page and link to it from past contests - dok</li>
+        <li>Add processing image during submission - dok</li>
     </ul>
 </p>
 

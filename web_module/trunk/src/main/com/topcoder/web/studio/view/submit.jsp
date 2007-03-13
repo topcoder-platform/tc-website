@@ -46,9 +46,8 @@
         </c:forEach>
             ajaxRequest.sendRequest();
         }
-        function formSubmit() {
+        function showProcessing() {
             document.getElementById("submitButton").innerHTML='<img src="/i/layout/processing.gif" alt=""/>';
-            document.submitForm.submit();
         }
 
         // -->
@@ -98,7 +97,7 @@
 
 
         <div align="center">
-            <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data">
+            <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
                 <p>
@@ -113,7 +112,7 @@
                     as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
                 </p>
                 <p id="submitButton">
-                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'" onclick="formSubmit()">
+                    <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
                 </p>
             </form>
         </div>
