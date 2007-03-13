@@ -469,7 +469,7 @@ To remove a candidate from your list of favorites, <strong>click down</strong> <
             <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
 
-        <jsp:include page="../foot.jsp"/>
+        <%--<jsp:include page="../foot.jsp"/>--%>
 
         <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
