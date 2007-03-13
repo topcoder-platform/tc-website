@@ -3,6 +3,9 @@ package com.topcoder.dde.persistencelayer.interfaces;
 import javax.ejb.CreateException;
 import javax.ejb.EJBLocalHome;
 import javax.ejb.FinderException;
+
+import com.topcoder.dde.persistencelayer.keys.CompForumXrefKey;
+
 import java.util.Collection;
 
 /**
@@ -25,7 +28,7 @@ public interface LocalDDECompForumXrefHome extends EJBLocalHome {
      * @return the local interface that represents an entity object.
      * @throws FinderException      an application level error occurred during the find operation.
      */
-    LocalDDECompForumXref findByPrimaryKey(Long key) throws FinderException;
+    LocalDDECompForumXref findByPrimaryKey(CompForumXrefKey key) throws FinderException;
 
     /**
      * Creates an entity object.

@@ -967,16 +967,15 @@
             <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDECompForumXref</local>
             <ejb-class>com.topcoder.dde.persistencelayer.bean.DDECompForumXrefBean</ejb-class>
             <persistence-type>Container</persistence-type>
-            <prim-key-class>java.lang.Long</prim-key-class>
+            <prim-key-class>com.topcoder.dde.persistencelayer.keys.CompForumXrefKey</prim-key-class>
             <reentrant>False</reentrant>
             <abstract-schema-name>DDECompForumXref</abstract-schema-name>
             <cmp-field>
-                <field-name>id</field-name>
+                <field-name>compVersId</field-name>
             </cmp-field>
             <cmp-field>
                 <field-name>categoryId</field-name>
             </cmp-field>
-            <primkey-field>id</primkey-field>
             <ejb-local-ref>
                 <ejb-ref-name>ejb/IdGenEJB</ejb-ref-name>
                 <ejb-ref-type>Session</ejb-ref-type>
