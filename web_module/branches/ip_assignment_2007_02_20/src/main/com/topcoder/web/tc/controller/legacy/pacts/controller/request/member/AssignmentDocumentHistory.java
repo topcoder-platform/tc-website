@@ -35,7 +35,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             String endRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             
-        	boolean sortAscending= !"desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        	boolean sortAscending= "asc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         	int sortCol = 2;
         	
         	if (sortColStr.trim().length() > 0) {

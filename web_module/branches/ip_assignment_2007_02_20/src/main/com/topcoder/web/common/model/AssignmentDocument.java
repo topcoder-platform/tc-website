@@ -35,11 +35,17 @@ public class AssignmentDocument extends Base {
     }
 
     public Integer getDaysLeftToExpire() {
+        // if not pending return 0
+        if (!status.getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
+            return new Integer(0);
+        }
+        
         Calendar aux = new GregorianCalendar();
         aux.setTimeInMillis(getExpireDate().getTime());
         aux.set(aux.get(Calendar.YEAR), aux.get(Calendar.MONTH), aux.get(Calendar.DATE), 0, 0, 0);
 
         int difInDays = 1 + (int) ((aux.getTimeInMillis() - Calendar.getInstance().getTimeInMillis())/(1000*60*60*24));
+        
         return new Integer((difInDays > 0) ? difInDays : 0);
     }
     
