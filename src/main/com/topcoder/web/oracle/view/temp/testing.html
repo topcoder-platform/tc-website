@@ -32,7 +32,7 @@ f the selected candidates list has reached it's max size, alert user to remove
 a candidate first
 */
 function select(obj) {
-    if (8 == (document.getElementById("selectedCandidates")).getElementsByTagName("li").length) {
+    if (document.getElementById("selectedCandidates").getElementsByTagName("li").length==8) {
         alert("Sorry, you have already selected 8 candidates.  Please remove one before adding another.")
     } else {
         //check if the item is in the candidate bin
