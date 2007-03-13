@@ -1,6 +1,13 @@
-<%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="studio.tld" prefix="studio" %>
+<% ResultSetContainer results = (ResultSetContainer) request.getAttribute("results");%>
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -34,12 +41,12 @@
 <div class="contentSpacer">
 
 <div class="linkBox">
-    <A HREF="http://studio.topcoder.com/forums?module=ThreadList&amp;forumID=37">Discuss this</A>
+    <studio:forumLink forumID="${contest.forumId}"/>
 </div>
 
 <div class="breadcrumb">
-    <A href="">Past Contests</A> &gt;
-    Contest Name
+    <A href="/?<%=Constants.MODULE_KEY%>=ViewPastContests">Past Contests</A> &gt;
+    ${contest.name}
 </div>
 
 <h1>Winners</h1>
@@ -52,91 +59,99 @@
             <td class="NE">&nbsp;</td>
         </tr>
         <tr>
-            <td class="headerW"><div>&nbsp;</div></td>
+            <td class="headerW">
+                <div>&nbsp;</div>
+            </td>
             <td class="headerC" width="1%">
-                <a href="">Place</a>
+                Place
             </td>
             <td class="header">
-                <a href="">Handle</a>
+                Handle
             </td>
             <td class="headerC">
-                <a href="">Prize</a>
+                Prize
             </td>
             <td class="headerC">
-                <a href="">Registered</a>
+                Registered
             </td>
             <td class="headerC">
-                <a href="">Submitted</a>
+                Submitted
             </td>
             <td class="headerC">
-                <a href="">Submission ID</a>
+                Submission ID
             </td>
             <td class="header">
                 Submission
             </td>
-            <td class="headerE"><div>&nbsp;</div></td>
+            <td class="headerE">
+                <div>&nbsp;</div>
+            </td>
         </tr>
-        <tr class="light">
-            <td class="valueW"><div>&nbsp;</div></td>
-            <td class="valueC">
-                1
-            </td>
-            <td class="value">
-                <span class="coderText">geethan</span>
-            </td>
-            <td class="valueC">
-                $1000
-            </td>
-            <td class="valueC">
-                <strong>02.23.2007</strong><br>13:28 EST
-            </td>
-            <td class="valueC">
-                <strong>02.23.2007</strong><br>13:28 EST
-            </td>
-            <td class="valueC">
-                1234
-            </td>
-            <td class="value">
-                &nbsp;
-                <%-- make it like the Submission column on submissions.jsp --%>
-            </td>
-            <td class="valueE"><div>&nbsp;</div></td>
-        </tr>
-        <tr class="dark">
-            <td class="valueW"><div>&nbsp;</div></td>
-            <td class="valueC">
-                2
-            </td>
-            <td class="value">
-                <span class="coderText">geethan</span>
-            </td>
-            <td class="valueC">
-                $500
-            </td>
-            <td class="valueC">
-                <strong>02.23.2007</strong><br>13:28 EST
-            </td>
-            <td class="valueC">
-                <strong>02.23.2007</strong><br>13:28 EST
-            </td>
-            <td class="valueC">
-                1234
-            </td>
-            <td class="value">
-                &nbsp;
-                <%-- make it like the Submission column on submissions.jsp --%>
-            </td>
-            <td class="valueE"><div>&nbsp;</div></td>
-        </tr>
+
+
+        <% boolean even = true;
+            int i = 0; %>
+
+
+        <rsc:iterator list="<%=results%>" id="resultRow">
+            <tr class="<%=even?"light":"dark"%>">
+                <td class="valueW">
+                    <div>&nbsp;</div>
+                </td>
+                <td class="valueC">
+                    <rsc:item name="place" row="<%=resultRow%>"/>
+                </td>
+                <td class="value">
+                    <studio:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
+                </td>
+                <td class="valueC">
+                    <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
+                </td>
+                <td class="valueC">
+                    <rsc:item name="reg_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                </td>
+                <td class="valueC">
+                    <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                </td>
+                <td class="valueC">
+                    <rsc:item name="submission_id" row="<%=resultRow%>"/>
+                </td>
+                <td class="value">
+                    <c:choose>
+                        <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
+                            <%--THIS IS A CRAPPY WAY TO MAKE THE PAGE MANAGEABLE BEFORE RESIZING THE IMAGE--%>
+                            <div align="center">
+                                <div style="overflow: hidden; width: 300px;">
+                                    <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="<%=Constants.SUBMISSION_ID%>" style="display: block;" onload="resizeImage(this);"/></A>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div align="center">
+                                <div id="pop<%=i%>" class="popUp">
+                                    <div>View submission</div>
+                                </div>
+                                <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                    <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
+                                </A>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+                </td>
+                <td class="valueE">
+                    <div>&nbsp;</div>
+                </td>
+            </tr>
+        </rsc:iterator>
+
         <tr>
             <td class="SW">&nbsp;</td>
             <td class="title" colspan="7">
-                <%-- links to submissions page for this contest --%>
-                <a href="" class="small">...view all submissions</a>
+                <a href="/?module=ViewSubmissions&ct=${contest.id}" class="small">...view all submissions</a>
             </td>
             <td class="SE">&nbsp;</td>
         </tr>
-</tbody>
+    </tbody>
 </table>
 
 
