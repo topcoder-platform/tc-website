@@ -32,6 +32,7 @@ public class AssignmentDocumentType extends Base {
         this.description = description;
     }
 
+
     /**
      * @return the id
      */
@@ -44,5 +45,31 @@ public class AssignmentDocumentType extends Base {
      */
     public void setId(Long id) {
         this.id = id;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    public int hashCode() {
+        return id.intValue();
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final AssignmentDocumentType other = (AssignmentDocumentType) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
     }
 }
