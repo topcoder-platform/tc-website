@@ -83,48 +83,48 @@ At the top of the table, <tc-webtag:handle coderId="14848761" context="hs_algori
 Used as: Division One - Level One: <blockquote><table cellspacing="2">
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Value</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		250
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        250
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Submission Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		45 / 45 (100.00%)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        45 / 45 (100.00%)
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Success Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		42 / 45 (93.33%)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        42 / 45 (93.33%)
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>High Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		<b>tloinuy</b> for 249.32 points (1 mins 29 secs)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        <b>tloinuy</b> for 249.32 points (1 mins 29 secs)
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Average Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		230.85 (for 42 correct submissions)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        230.85 (for 42 correct submissions)
+    </td>
 </tr>
 
 </table></blockquote>
@@ -172,48 +172,48 @@ return 5 + 10 * Math.min(mins, 5) + Math.max(0, (mins - 5) * 3);
 Used as: Division One - Level Two: <blockquote><table cellspacing="2">
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Value</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		500
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        500
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Submission Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		42 / 45 (93.33%)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        42 / 45 (93.33%)
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Success Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		31 / 42 (73.81%)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        31 / 42 (73.81%)
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>High Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		<b>Penguincode</b> for 492.49 points (3 mins 31 secs)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Penguincode</b> for 492.49 points (3 mins 31 secs)
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Average Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		430.73 (for 31 correct submissions)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        430.73 (for 31 correct submissions)
+    </td>
 </tr>
 
 </table></blockquote>
@@ -295,48 +295,48 @@ if (count == 0) {
 Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Value</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		1000
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Value</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        1000
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Submission Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		32 / 45 (71.11%)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Submission Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        32 / 45 (71.11%)
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Success Rate</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		24 / 32 (75.00%)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Success Rate</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        24 / 32 (75.00%)
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>High Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		<b>fhoward</b> for 952.60 points (6 mins 24 secs)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>High Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        <b>fhoward</b> for 952.60 points (6 mins 24 secs)
+    </td>
 </tr>
 
 <tr>
-	<td class="bodyText" style="background: #eee;">
-		<b>Average Score</b>
-	</td>
-	<td class="bodyText" style="background: #eee;">
-		771.93 (for 24 correct submissions)
-	</td>
+    <td class="bodyText" style="background: #eee;">
+        <b>Average Score</b>
+    </td>
+    <td class="bodyText" style="background: #eee;">
+        771.93 (for 24 correct submissions)
+    </td>
 </tr>
 
 </table></blockquote>
