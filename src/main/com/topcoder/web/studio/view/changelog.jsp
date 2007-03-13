@@ -33,6 +33,10 @@
         <li>Fix bug in active contests where it did not use the cookie to determine if someone was registered for the
             contest - dok
         </li>
+        <li>Fix bug in contest details where it did not use the cookie to determine if someone was registered for the
+            contest - dok
+        </li>
+        <li>Add contest results page and link to it from past contests - dok</li>
     </ul>
 </p>
 
