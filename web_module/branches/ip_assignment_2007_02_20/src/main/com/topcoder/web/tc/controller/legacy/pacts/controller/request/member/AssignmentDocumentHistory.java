@@ -63,7 +63,8 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
                     AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID.longValue(), !fullList);
             
             sortResult(result, sortCol, sortAscending);
-            
+
+            log.debug("new result size after crop: " + result.size());
             log.debug("Integer.parseInt(endRank): " + Integer.parseInt(endRank));
 
             cropResult(result, Integer.parseInt(startRank), Integer.parseInt(endRank));
