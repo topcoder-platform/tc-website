@@ -46,6 +46,7 @@
         </c:forEach>
             ajaxRequest.sendRequest();
         }
+        new Image().src="/i/layout/processing.gif";
         function showProcessing() {
             document.getElementById("submitButton").innerHTML='<img src="/i/layout/processing.gif" alt=""/>';
         }
