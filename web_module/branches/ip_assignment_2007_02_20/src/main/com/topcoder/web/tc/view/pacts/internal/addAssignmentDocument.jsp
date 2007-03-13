@@ -96,6 +96,10 @@ function loaded() {
     toggleDiv("loading", 0);
 }
 
+ function initialize() {
+    toggleDiv("loading", 0);
+    doSearch(false,false);    
+}
  
  </script>
     
@@ -119,10 +123,6 @@ function loaded() {
 <c:set var="reference_id" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("reference_id")) %>" />
 
 
-function initialize() {
-    toggleDiv("loading", 0);
-    doSearch(false,false);    
-}
 
 <h1>PACTS</h1>
 <c:choose>
