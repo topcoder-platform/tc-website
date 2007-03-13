@@ -36,7 +36,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             String sortColStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
             
         	boolean sortAscending= !"desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        	int sortCol = 3;
+        	int sortCol = 2;
         	
         	if (sortColStr.trim().length() > 0) {
         		sortCol = Integer.parseInt(sortColStr);
@@ -99,22 +99,28 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
     private void sortResult(List result, int sortCol, boolean sortAscending) {
         switch (sortCol) {
             case SUBMISSION_TITLE_COL:
+                log.debug("Sort results by Submission title");
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        return ((AssignmentDocument) arg0).getSubmissionTitle().compareTo(((AssignmentDocument) arg1).getSubmissionTitle());
+                        log.debug("1: " + ((AssignmentDocument) arg0).getSubmissionTitle().toLowerCase() + " / " + ((AssignmentDocument) arg1).getSubmissionTitle().toLowerCase() + " : " + ((AssignmentDocument) arg0).getSubmissionTitle().toLowerCase().compareTo(((AssignmentDocument) arg1).getSubmissionTitle().toLowerCase()));
+                        return ((AssignmentDocument) arg0).getSubmissionTitle().toLowerCase().compareTo(((AssignmentDocument) arg1).getSubmissionTitle().toLowerCase());
                     }
                 });
                 break;
             case TIME_LEFT_COL:
+                log.debug("Sort results by Time left");
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
+                        log.debug("2: " + ((AssignmentDocument) arg0).getDaysLeftToExpire() + " / " + ((AssignmentDocument) arg1).getDaysLeftToExpire() + " : " + ((AssignmentDocument) arg1).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg0).getDaysLeftToExpire()));
                         return ((AssignmentDocument) arg1).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg0).getDaysLeftToExpire());
                     }
                 });
             case STATUS_COL:
+                log.debug("Sort results by Status");
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        return ((AssignmentDocument) arg0).getSubmissionTitle().compareTo(((AssignmentDocument) arg1).getSubmissionTitle());
+                        log.debug("3: " + ((AssignmentDocument) arg0).getStatus().getDescription().toLowerCase() + " / " + ((AssignmentDocument) arg1).getStatus().getDescription().toLowerCase() + " : " + ((AssignmentDocument) arg0).getStatus().getDescription().toLowerCase().compareTo(((AssignmentDocument) arg1).getStatus().getDescription().toLowerCase()));
+                        return ((AssignmentDocument) arg0).getStatus().getDescription().toLowerCase().compareTo(((AssignmentDocument) arg1).getStatus().getDescription().toLowerCase());
                     }
                 });
                 break;
