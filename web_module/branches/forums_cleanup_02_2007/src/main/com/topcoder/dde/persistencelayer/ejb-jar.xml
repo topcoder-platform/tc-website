@@ -1738,6 +1738,26 @@
             </ejb-relationship-role>
         </ejb-relation>
         <ejb-relation>
+            <ejb-relation-name>CompForumXref-CompVersions</ejb-relation-name>
+            <ejb-relationship-role>
+                <ejb-relationship-role-name>CompForumXref-has-CompVersions</ejb-relationship-role-name>
+                <multiplicity>Many</multiplicity>
+                <relationship-role-source>
+                    <ejb-name>DDECompForumXrefEJB</ejb-name>
+                </relationship-role-source>
+                <cmr-field>
+                    <cmr-field-name>compVersions</cmr-field-name>
+                </cmr-field>
+            </ejb-relationship-role>
+            <ejb-relationship-role>
+                <ejb-relationship-role-name>CompVersions-belongs-to-CompForumXref</ejb-relationship-role-name>
+                <multiplicity>One</multiplicity>
+                <relationship-role-source>
+                    <ejb-name>DDECompVersionsEJB</ejb-name>
+                </relationship-role-source>
+            </ejb-relationship-role>
+        </ejb-relation>
+        <ejb-relation>
             <ejb-relation-name>CompReviews-CompVersions</ejb-relation-name>
             <ejb-relationship-role>
                 <ejb-relationship-role-name>CompReviews-has-CompVersions</ejb-relationship-role-name>

@@ -68,7 +68,7 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @param compVersions          compVersions.
      */
     public void ejbPostCreate(long categoryId, LocalDDECompVersions compVersions) {
-        //setCompVersions(compVersions);
+        setCompVersions(compVersions);
     }
 
 }

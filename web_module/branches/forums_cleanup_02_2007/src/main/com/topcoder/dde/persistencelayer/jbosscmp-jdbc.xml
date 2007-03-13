@@ -995,6 +995,23 @@
             </ejb-relationship-role>
         </ejb-relation>
         <ejb-relation>
+            <ejb-relation-name>CompForumXref-CompVersions</ejb-relation-name>
+            <foreign-key-mapping/>
+            <ejb-relationship-role>
+                <ejb-relationship-role-name>CompForumXref-has-CompVersions</ejb-relationship-role-name>
+                <key-fields/>
+            </ejb-relationship-role>
+            <ejb-relationship-role>
+                <ejb-relationship-role-name>CompVersions-belongs-to-CompForumXref</ejb-relationship-role-name>
+                <key-fields>
+                    <key-field>
+                        <field-name>id</field-name>
+                        <column-name>comp_vers_id</column-name>
+                    </key-field>
+                </key-fields>
+            </ejb-relationship-role>
+        </ejb-relation>
+        <ejb-relation>
             <ejb-relation-name>CompReviews-CompVersions</ejb-relation-name>
             <foreign-key-mapping/>
             <ejb-relationship-role>
