@@ -13,8 +13,6 @@ import javax.ejb.CreateException;
  * @author      Timur Zambalayev
  */
 public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
-
-    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(DDECompForumXrefBean.class);
     
     /**
      * Creates a new instance.
@@ -54,15 +52,13 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * Creates an entity object.
      *
      * @param categoryId			category id.
-     * @param compVersions          compVersions.
+     * @param compVersId            component version id.
      * @return the entity bean's primary key (should be null for CMP bean implementations).
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    public CompForumXrefKey ejbCreate(long categoryId, LocalDDECompVersions compVersions) throws CreateException {
-        log.info("**** categoryId: " + categoryId);
+    public CompForumXrefKey ejbCreate(long categoryId, long compVersId) throws CreateException {
         setCategoryId(categoryId);
-        log.info("**** version: " + compVersions.getVersion());
-        setCompVersId(compVersions.getVersion());
+        setCompVersId(compVersId);
         return null;
     }
 
@@ -70,10 +66,9 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * Creates an entity object.
      *
      * @param categoryId			category id.
-     * @param compVersions          compVersions.
+     * @param compVersId            component version id.
      */
-    public void ejbPostCreate(long categoryId, LocalDDECompVersions compVersions) {
-        //setCompVersions(compVersions);
+    public void ejbPostCreate(long categoryId, long compVersId) {
     }
 
 }

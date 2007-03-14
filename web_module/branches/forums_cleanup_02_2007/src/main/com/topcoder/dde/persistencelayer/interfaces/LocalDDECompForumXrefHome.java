@@ -34,11 +34,11 @@ public interface LocalDDECompForumXrefHome extends EJBLocalHome {
      * Creates an entity object.
      *
      * @param categoryId            category id.
-     * @param compVersions          compVersions.
+     * @param compVersId            component version id.
      * @return the local interface of the created entity object.
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    LocalDDECompForumXref create(long categoryId, LocalDDECompVersions compVersions) throws CreateException;
+    LocalDDECompForumXref create(long categoryId, long compVersId) throws CreateException;
 
     /**
      * Returns a Collection of LocalDDECompForumXref with the given compVersions id.
