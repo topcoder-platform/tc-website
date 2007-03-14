@@ -197,9 +197,9 @@
                 <include name="standard.jar"/>
             </lib>
         </war>
-        <delete file="${jboss_home}/server/all/deploy/oracle.war"/>
-        <unwar src="${war.dir}/oracle.war" dest="${jboss_home}/server/all/deploy/oracle.war/" overwrite="yes"/>
-        <delete dir="${jboss_home}/server/all/deploy/oracle.war/META-INF"/>
+        <delete file="${jboss_deploy}/oracle.war"/>
+        <unwar src="${war.dir}/oracle.war" dest="${jboss_deploy}/oracle.war/" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/oracle.war/META-INF"/>
     </target>
 
 <!--
@@ -238,9 +238,9 @@
         <copy todir="${jboss_conf}/com/topcoder/servlet/request/"
               file="${resources}/com/topcoder/servlet/request/FileUpload.xml"/>
 
-        <delete file="${jboss_home}/server/all/deploy/oracle.war"/>
-        <unwar src="${war.dir}/oracle.war" dest="${jboss_home}/server/all/deploy/oracle.war/" overwrite="yes"/>
-        <delete dir="${jboss_home}/server/all/deploy/oracle.war/META-INF"/>
+        <delete file="${jboss_deploy}/oracle.war"/>
+        <unwar src="${war.dir}/oracle.war" dest="${jboss_deploy}/oracle.war/" overwrite="yes"/>
+        <delete dir="${jboss_deploy}/oracle.war/META-INF"/>
         <copy todir="${jboss_conf}">
             <fileset dir="${resources}">
                 <include name="Oracle.properties"/>
