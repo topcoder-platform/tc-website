@@ -160,7 +160,7 @@ No Visa Letter Events defined.
 		</tr>
 		<tr>
 			<td><b>e-mail:</b></td>
-			<td>	<c:out value="${req.user.primaryEmailAddress}" /></td>
+			<td>	<c:out value="${req.user.primaryEmailAddress.address}" /></td>
 		</tr>		
 	</table>
 	<br>
