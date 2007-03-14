@@ -5,7 +5,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.*;
 import com.topcoder.shared.util.TCResourceBundle;
-import com.topcoder.server.util.logging.Logger;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
