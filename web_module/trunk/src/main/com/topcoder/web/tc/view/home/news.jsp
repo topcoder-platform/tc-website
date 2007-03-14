@@ -8,7 +8,7 @@
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session scheduled for SRM 342</A>
         </span><br><br>
-      Join AOL's Edwin Aoki in the Arena at 8 PM EDT on March 14, just prior to SRM 342, to discuss "development in the real world."
+      Join Edwin Aoki, AOL's Chief Architect, in the Arena at 8 PM EDT on March 14, just prior to SRM 342, to discuss "development in the real world."
       </td>
    </tr>
    <tr><td class="newsLinksCell">
