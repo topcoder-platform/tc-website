@@ -47,8 +47,9 @@
     <ul>
         <li>Add the suspended flag for component versions - cucu</li>
         <li>In submission download and scorecard views, added granular permissions for viewing incomplete projects - cucu</li>
-        <li>Load for record books: fixed srm consecutive appeareances to skip non rated rounds</li>
-	</ul>
+        <li>Load for record books: fixed srm consecutive appeareances to skip non rated rounds - cucu</li>
+        <li>Fix bug in admin system where placement profiles could not be generated without a client logo - dok</li>
+    </ul>
 	
     5.8.3 - 2007.03.08
     <ul>
