@@ -48,7 +48,7 @@
 
 <%-- CSF --%>
                 <div>
-                    <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="studio_homepage" />"><img src="/i/home/csf.jpg" alt="Microsoft CSF, Powered by TopCoder"/></A>
+                    <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="studio_homepage" />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder"/></A>
                 </div>
 
 <%-- BADGE VOTE 
