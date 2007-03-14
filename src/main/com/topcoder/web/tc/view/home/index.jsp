@@ -64,7 +64,7 @@
             <%-- standard studio dogear 
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>"><img src="/i/home/studioDogEarStandard.png" alt="TopCoder Studio" /></A>
             --%>
-            <A href="/tco07"><img src="/i/home/dogTCO07.png" alt="2007 TopCoder Open Sponsored by AOL" /></A>
+            <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/dogTCO07.png" alt="2007 TopCoder Open Sponsored by AOL" /></A>
         </td>
     </tr>
 </table>
