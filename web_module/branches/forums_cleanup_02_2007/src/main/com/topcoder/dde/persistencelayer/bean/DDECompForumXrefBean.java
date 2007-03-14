@@ -1,5 +1,6 @@
 package com.topcoder.dde.persistencelayer.bean;
 
+import com.topcoder.dde.catalog.ComponentManagerBean;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
 import com.topcoder.dde.persistencelayer.keys.CompForumXrefKey;
 
@@ -13,6 +14,8 @@ import javax.ejb.CreateException;
  */
 public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
 
+    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(DDECompForumXrefBean.class);
+    
     /**
      * Creates a new instance.
      */
@@ -56,6 +59,10 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @throws CreateException      an application level error occurred during the create operation.
      */
     public CompForumXrefKey ejbCreate(long categoryId, LocalDDECompVersions compVersions) throws CreateException {
+        log.info("**** categoryId: " + categoryId);
+        setCategoryId(categoryId);
+        log.info("**** version: " + compVersions.getVersion());
+        setCompVersId(compVersions.getVersion());
         return null;
     }
 
@@ -66,8 +73,7 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @param compVersions          compVersions.
      */
     public void ejbPostCreate(long categoryId, LocalDDECompVersions compVersions) {
-        setCompVersions(compVersions);
-        setCategoryId(categoryId);
+        //setCompVersions(compVersions);
     }
 
 }
