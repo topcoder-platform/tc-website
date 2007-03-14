@@ -50,6 +50,7 @@
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
+        <pathelement location="${jars.dir}/PactsServices.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
@@ -231,6 +232,7 @@
             <lib dir="${jars.dir}">
                 <include name="jstl.jar"/>
                 <include name="standard.jar"/>
+            	<include name="PactsServices.jar"/>
             </lib>
         </war>
         <delete file="${jboss_home}/server/default/deploy/studio.war"/>
