@@ -36,7 +36,7 @@
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
 <thead>
     <tr>
-        <td class="title" colspan="3">
+        <td class="title" colspan="7">
         Studio Leaderboard
         </td>
     </tr>
