@@ -161,6 +161,9 @@ public class PDFGenerator extends BaseProcessor {
         t.addCell(new Phrase("Presented to:", FontFactory.getFont(FontFactory.HELVETICA, 14, Font.NORMAL, Color.black)));
 
         if (info.getCompanyLogo() != null) {
+            if (log.isDebugEnabled()) {
+                log.debug("logo size is " + info.getCompanyLogo().getSize());
+            }
             byte[] b = new byte[(int) info.getCompanyLogo().getSize()];
             info.getCompanyLogo().getInputStream().read(b);
             Image companyLogo = Image.getInstance(b);
@@ -1318,6 +1321,13 @@ public class PDFGenerator extends BaseProcessor {
         if (getRequest() instanceof MultipartRequest) {
             MultipartRequest request = (MultipartRequest) getRequest();
             config.setCompanyLogo(request.getUploadedFile("logo"));
+            if (log.isDebugEnabled()) {
+                if (config.getCompanyLogo()==null) {
+                    log.debug("company logo is null");
+                } else {
+                    log.debug("company logo is not null");
+                }
+            }
         }
 
         //load skills
