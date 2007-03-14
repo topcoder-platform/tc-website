@@ -239,7 +239,7 @@
                 --%>
 
                 <%-- CSF --%>
-                <a href="<tc-webtag:linkTracking link='http://csf.topcoder.com' refer='HOMEPAGE' />"><img src="/i/home/csf.jpg" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
+                <a href="<tc-webtag:linkTracking link='http://csf.topcoder.com' refer='HOMEPAGE' />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
                 
                 <%-- SRM SPONSOR 
                 <map name="srm">
