@@ -158,6 +158,10 @@ No Visa Letter Events defined.
 			<td><b>Phone Number:</b></td>
 			<td>	<c:out value="${req.phoneNumber}" /></td>
 		</tr>
+		<tr>
+			<td><b>e-mail:</b></td>
+			<td>	<c:out value="${req.user.primaryEmailAddress}" /></td>
+		</tr>		
 	</table>
 	<br>
 	<table border="1">
