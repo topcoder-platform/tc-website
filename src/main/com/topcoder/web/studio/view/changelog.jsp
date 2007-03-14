@@ -28,7 +28,7 @@
 
 
 <p>
-    1.3.1 - 2007.03.xx
+    1.3.1 - 2007.03.14
     <ul>
         <li>Fix bug in active contests where it did not use the cookie to determine if someone was registered for the
             contest - dok
