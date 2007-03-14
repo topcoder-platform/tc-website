@@ -2,8 +2,8 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<!---------------------------
-<%-------------------- AOL Chat --------------------------%>
+<!---------------------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.14.07<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
@@ -17,7 +17,7 @@
          <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
------------------------------>
+---------------------------------------->
 
 <%--------------------------------------------------------%>
    <tr>
@@ -255,4 +255,20 @@ Prime numbers were extensively studied by the ancient Greek mathematicians. Thou
         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
    
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.05.07<br>11:20 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2063">TopCoder Web Video contest now open at Studio</A></span><br><br>
+TopCoder is building a new portal for broadcasting webcasts and showing videos - but first we need a name for it. There's a contest at Studio now to name the interface, and build the new name into a logo. This is also the first contest to qualify competitors for the Studio track of the TCO.</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2063">full story</A> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=36">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
 
