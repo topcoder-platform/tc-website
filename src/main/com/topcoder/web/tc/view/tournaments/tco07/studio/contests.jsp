@@ -36,36 +36,30 @@
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
 <thead>
     <tr>
+<%-- if completed, colspan is 7.  if in progress, colspan is 5 --%>
         <td class="title" colspan="7">
-        Studio Leaderboard
+        <span class="coderText">mirosuaf</span> > Completed <%-- or "In Progress" --%>
         </td>
     </tr>
     <tr>
-        <td class="headerC" rowspan="2" width="1%">
-            <A href="">Rank</A>
-        </td>
-        <td class="header" rowspan="2">
-            <A href="">Handle</A>
-        </td>
-        <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
-            Completed
-        </td>
-        <td class="headerC" colspan="2" nowrap="nowrap">
-            In Progress
-        </td>
-        <td class="headerC" rowspan="2" nowrap="nowrap">
-            <A href="">Potential Total<br>Points</A>
-        </td>
-    </tr>
-    <tr>
-        <td class="headerC">
-            <A href="">Contests</A>
-        </td>
-        <td class="headerC" style="border-right: 1px solid #999999;">
-            <A href="">Points</A>
+        <td class="header">
+            <A href="">Contest</A>
         </td>
         <td class="headerC">
-            <A href="">Contests</A>
+            <A href="">Start Date</A>
+        </td>
+        <td class="headerC">
+            <A href="">End Date</A>
+        </td>
+        <td class="headerC">
+            <A href="">Registrants</A>
+        </td>
+        <td class="headerC">
+            <A href="">Submissions</A>
+        </td>
+<%-- only show the placed and points if viewing completed --%>
+        <td class="headerC">
+            <A href="">Placed</A>
         </td>
         <td class="headerC">
             <A href="">Points</A>
@@ -73,54 +67,30 @@
     </tr>
 </thead>
 <tbody>
-<%-- advancers 1-8, highlight important cols with bigGreen --%>
     <%boolean even = false;%>
     <tr class="<%=(even ? "dark" : "light")%>">
-        <td class="valueC">
-            <span class="bigGreen">1</span>
-        </td>
         <td class="value">
-            <strong>mirosuaf</strong>
+<%-- if completed, link to results.  if in progress, link to contest details --%>
+            <A href="">Contest Name</A>
         </td>
         <td class="valueC">
-            <a href="">5</A>
-        </td>
-        <td class="valueC" style="border-right: 1px solid #999999;">
-            <span class="bigGreen">123</span>
+            <strong>02.20.2007</strong><br>16:55 EST
         </td>
         <td class="valueC">
-            <a href="">5</A>
+            <strong>02.20.2007</strong><br>16:55 EST
         </td>
         <td class="valueC">
-            123
+            10
         </td>
         <td class="valueC">
-            246
+            10
         </td>
-    </tr>
-    <%even = !even;%>
-<%-- cutoff, uses bigRed instead of bigGreen --%>
-    <tr class="<%=(even ? "dark" : "light")%>">
+<%-- only show the placed and points if viewing completed --%>
         <td class="valueC">
-            <span class="bigRed">9</span>
-        </td>
-        <td class="value">
-            <strong>mirosuaf</strong>
+            1
         </td>
         <td class="valueC">
-            <a href="">5</A>
-        </td>
-        <td class="valueC" style="border-right: 1px solid #999999;">
-            <span class="bigRed">123</span>
-        </td>
-        <td class="valueC">
-            <a href="">5</A>
-        </td>
-        <td class="valueC">
-            123
-        </td>
-        <td class="valueC">
-            246
+            10
         </td>
     </tr>
     <%even = !even;%>
