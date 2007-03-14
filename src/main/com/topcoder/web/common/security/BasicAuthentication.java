@@ -49,6 +49,7 @@ public class BasicAuthentication implements WebAuthentication {
     public static final Resource STUDIO_SITE = new SimpleResource("studio");
     public static final Resource PACTS_INTERNAL_SITE = new SimpleResource("pacts");
     public static final Resource CSF_SITE = new SimpleResource("csf");
+    public static final Resource ORACLE_SITE = new SimpleResource("oracle");
 
     /**
      * Construct an authentication instance backed by the given persistor
