@@ -1,0 +1,227 @@
+<%@ page import="com.topcoder.web.studio.controller.request.AssignmentDocumentHistory" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.common.model.AssignmentDocumentStatus" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
+<%@ page contentType="text/html;charset=utf-8" %>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="fullList" value="<%= request.getAttribute(AssignmentDocumentHistory.FULL_LIST) %>"/>
+<c:set var="assignment_documents" value="<%= request.getAttribute(AssignmentDocumentHistory.ASSIGNMENT_DOCUMENTS) %>"/>
+<c:set value="<%=AssignmentDocumentHistory.DEFAULTS_KEY%>" var="defaults"/>
+<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+<c:set value="<%=DataAccessConstants.END_RANK%>" var="endRank"/>
+
+<c:set var="PENDING_STATUS_ID" value="<%= AssignmentDocumentStatus.PENDING_STATUS_ID + "" %>" />
+<c:set var="AFFIRMED_STATUS_ID" value="<%= AssignmentDocumentStatus.AFFIRMED_STATUS_ID + "" %>" />
+<c:set var="REJECTED_STATUS_ID" value="<%= AssignmentDocumentStatus.REJECTED_STATUS_ID + "" %>" />
+
+<html>
+<head>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TopCoder Studio</title>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_studio"/>
+    </jsp:include>
+    <script type="text/javascript" src="/js/popup.js"></script>
+
+<script type="text/javascript">
+        var sr = <c:out value="${requestScope[defaults][startRank]}"/>;
+        var er = <c:out value="${requestScope[defaults][endRank]}"/>;
+
+        function next() {
+            var myForm = document.f;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = er + 1;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = 2 * er - sr + 1;
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.f;
+            myForm.<%=DataAccessConstants.END_RANK%>.value = sr - 1;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = 2 * sr - er - 1;
+            myForm.submit();
+        }
+</script>
+</head>
+
+<body>
+
+<div align="center">
+<div id="contentOut" class="contentOut">
+<jsp:include page="top.jsp"/>
+<jsp:include page="topNav.jsp">
+    <jsp:param name="node" value="contests"/>
+</jsp:include>
+<div id="contentIn" class="contentIn">
+<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+
+<div class="contentSpacer" style="padding-bottom:100px;">
+
+<h1>Assignment Documents</h1>
+
+<h2 align="right">Need help? Learn how to
+    <A href="/?module=Static&amp;d1=support&amp;d2=getStarted">get
+        started</A>.<br>
+    Got <A href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</A>?
+</h2>
+
+<table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
+    <tr>
+        <td width="50%"><A href="/?module=ViewActiveContests" class="statTabLinkOn"><span>View all</span></A>
+        </td>
+        <td width="50%">
+            <A href="/?module=ViewPastContests" class="statTabLinkOff"><span>View pending</span></A>
+        </td>
+    </tr>
+</table>
+
+<table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
+<tbody>
+    <c:if test="${not empty assignment_documents}" >
+        <c:if test="${croppedDataBefore or croppedDataAfter}" >
+            <div class="pagingBox">
+                <c:choose>
+                    <c:when test="${croppedDataBefore}">
+                        <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+                    </c:when>
+                    <c:otherwise>
+                        &lt;&lt; prev
+                    </c:otherwise>
+                </c:choose>
+                
+                <c:choose>
+                    <c:when test="${croppedDataAfter}">
+                        <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+                    </c:when>
+                    <c:otherwise>
+                        next &gt;&gt;
+                    </c:otherwise>
+                </c:choose>
+            </div>
+        </c:if>
+    </c:if>
+    <tr>
+        <td class="NW">&nbsp;</td>
+        <td class="title" colspan="6">Assignment Documents</td>
+        <td class="NE">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="headerW">
+            <div>&nbsp;</div>
+        </td>
+        <td class="header">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="1" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission</a>
+        </td>
+        <td class="headerC">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="3" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Affirmation</a>
+        </td>
+        <td class="headerC">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="2" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Time Left</a>
+	   </td>
+        <td class="headerC">
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="3" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a>
+        </td>
+        <td class="headerE">
+            <div>&nbsp;</div>
+        </td>
+    </tr>
+    <c:choose>
+        <c:when test="${empty assignment_documents}">
+            <tr class="light">
+                <td class="valueW">
+                    <div>&nbsp;</div>
+                </td>
+                <td class="valueC" colspan="6">
+                    <div align="center" style="margin: 40px 0px 40px 0px;">
+                        There are currently no assignment documents.
+                    </div>
+                </td>
+                <td class="valueE">
+                    <div>&nbsp;</div>
+                </td>
+            </tr>
+        </c:when>
+        <c:otherwise>    
+            <% boolean even = true;%>
+            <c:forEach items="${assignment_documents}" var="ad">
+                <tr class="<%=even?"light":"dark"%>">
+                    <td class="valueW">
+                        <div>&nbsp;</div>
+                    </td>
+                    <c:choose>
+                        <c:when test="${ad.status.id == AFFIRMED_STATUS_ID}">
+                            <td class="valueC">
+                                <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
+                                    Affirmed on<br><fmt:formatDate value="${ad.affirmedDate}" pattern="MM/dd/yyyy"/>
+                                </a>                
+                            </td>
+                            <td class="valueC">&nbsp;</td>
+                        </c:when>
+                        <c:when test="${ad.status.id == REJECTED_STATUS_ID}">
+                            <td class="valueC">
+                                <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
+                                    Rejected
+                                </a>                
+                            </td>
+                            <td class="valueC">&nbsp;</td>
+                        </c:when>
+                        <c:when test="${ad.status.id == PENDING_STATUS_ID}">
+                            <td class="valueC">
+                                <strong><a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
+                                    Affirm now
+                                </a></strong>
+                            </td>
+                            <td class="valueC">
+                                <strong><a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
+                                     <c:out value="${ad.daysLeftToExpire}"/>
+                                </a></strong>            
+                            </td>
+                        </c:when>
+                        <c:otherwise>
+                            <td class="valueC">
+                                <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}" class="bigRed">
+                                    Expired
+                                </a>
+                            </td>
+                            <td class="valueC">
+                                <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}" class="bigRed">
+                                    Expired
+                                </a>                
+                            </td>
+                        </c:otherwise>
+                    </c:choose>
+                    <td class="valueC">
+                        <c:out value="${ad.status.description}"/>
+                    </td>
+
+                    <td class="valueE">
+                        <div>&nbsp;</div>
+                    </td>
+                </tr>
+                <% even = !even;%>
+            </c:forEach>
+        </c:otherwise>
+    </c:choose>
+    <tr>
+        <td class="SW" colspan="6">&nbsp;</td>
+        <td class="SE">&nbsp;</td>
+    </tr>
+</tbody>
+</table>
+
+
+</div>
+<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+</div>
+<jsp:include page="foot.jsp"/>
+<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
+</div>
+</div>
+
+</body>
+</html>
