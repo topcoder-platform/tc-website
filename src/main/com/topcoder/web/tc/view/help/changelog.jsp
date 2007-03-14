@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.8.4 - 2007.03.xx
+    5.8.4 - 2007.03.14
     <ul>
         <li>Add the suspended flag for component versions - cucu</li>
         <li>In submission download and scorecard views, added granular permissions for viewing incomplete projects - cucu</li>
