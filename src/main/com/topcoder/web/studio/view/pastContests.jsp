@@ -115,7 +115,7 @@
                 </td>
                 <td class="valueC">
                     <% if (resultRow.getBooleanItem("results_available")) { %>
-                    <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">results</a>
+                    <a href="/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">winners</a>
                     <% } else {%>
                     &#160;
                     <% } %>

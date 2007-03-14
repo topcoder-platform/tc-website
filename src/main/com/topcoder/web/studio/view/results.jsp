@@ -55,7 +55,7 @@
     <tbody>
         <tr>
             <td class="NW">&nbsp;</td>
-            <td class="title" colspan="7">Results</td>
+            <td class="title" colspan="7">Winners</td>
             <td class="NE">&nbsp;</td>
         </tr>
         <tr>
