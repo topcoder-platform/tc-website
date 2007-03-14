@@ -41,7 +41,7 @@
         </td>
     </tr>
     <tr>
-        <td class="headerC" rowspan="2">
+        <td class="headerC" rowspan="2" width="1%">
             <A href="">Rank</A>
         </td>
         <td class="header" rowspan="2">
@@ -77,50 +77,50 @@
     <%boolean even = false;%>
     <tr class="<%=(even ? "dark" : "light")%>">
         <td class="valueC">
-        <span class="bigGreen">1</span>
+            <span class="bigGreen">1</span>
         </td>
         <td class="value">
-        <strong>mirosuaf</strong>
+            <strong>mirosuaf</strong>
         </td>
         <td class="valueC">
-        5
+            5
         </td>
         <td class="valueC" style="border-right: 1px solid #999999;">
-        <span class="bigGreen">123</span>
+            <span class="bigGreen">123</span>
         </td>
         <td class="valueC">
-        5
+            5
         </td>
         <td class="valueC">
-        123
+            123
         </td>
         <td class="valueC">
-        246
+            246
         </td>
     </tr>
     <%even = !even;%>
 <%-- cutoff, uses bigRed instead of bigGreen --%>
     <tr class="<%=(even ? "dark" : "light")%>">
         <td class="valueC">
-        <span class="bigRed">9</span>
+            <span class="bigRed">9</span>
         </td>
         <td class="value">
-        <strong>mirosuaf</strong>
+            <strong>mirosuaf</strong>
         </td>
         <td class="valueC">
-        5
+            5
         </td>
         <td class="valueC" style="border-right: 1px solid #999999;">
-        <span class="bigRed">123</span>
+            <span class="bigRed">123</span>
         </td>
         <td class="valueC">
-        5
+            5
         </td>
         <td class="valueC">
-        123
+            123
         </td>
         <td class="valueC">
-        246
+            246
         </td>
     </tr>
     <%even = !even;%>
