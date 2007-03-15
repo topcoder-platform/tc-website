@@ -281,10 +281,10 @@ Refer to <a href="/tc?module=HSProblemSolution&cr=20812309&rd=10714&pm=6458">ahy
 
 
 <div class="authorPhoto">
-    <img src="/i/m/Olexiy_big2.jpg" alt="Author" />
+    <img src="/i/m/ged_big.jpg" alt="Author" />
 </div>
 <div class="authorText">
-    By&#160;<tc-webtag:handle coderId="303644" context="algorithm"/><br />    <em>TopCoder Member</em>
+    By&#160;<tc-webtag:handle coderId="10505830" context="algorithm"/><br />    <em>TopCoder Member</em>
 </div>
 </div>
 </td>
