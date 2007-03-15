@@ -60,7 +60,7 @@
     <td class="value">Jarvis Collegiate Institute</td>
     <td class="valueC">Alpha</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -69,7 +69,7 @@
     <td class="value">Midlothian High School</td>
     <td class="valueC">Alpha</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -78,7 +78,7 @@
     <td class="value">TJHSST</td>
     <td class="valueC">Alpha</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -87,7 +87,7 @@
     <td class="value">Woburn Collegiate Institute</td>
     <td class="valueC">Alpha</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -96,7 +96,7 @@
     <td class="value">"Liviu Rebreanu" National College Bistrita</td>
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -105,7 +105,7 @@
     <td class="value">Gymnazium Jura Hronca</td>
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC"><span class="bigRed">Eliminated</span></td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -114,7 +114,7 @@
     <td class="value">High School of Natural Science and Mathematics</td>
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -123,7 +123,7 @@
     <td class="value">ICHB</td>
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -132,7 +132,7 @@
     <td class="value">Illyes Gyula High School</td>
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -141,7 +141,7 @@
     <td class="value">MG Varna</td>
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC"><span class="bigRed">Eliminated</span></td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -149,7 +149,7 @@
 <tr class="dark">
     <td class="value">V LO Krakow</td>
     <td class="valueC">Beta</td>
-    <td class="valueC"><span class="bigRed">Elminated</span></td>
+    <td class="valueC"><span class="bigRed">Eliminated</span></td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -159,7 +159,7 @@
     <td class="value">V. Gimnazija</td>
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -168,7 +168,7 @@
     <td class="value">VI LO Bydgoszcz</td>
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -177,7 +177,7 @@
     <td class="value">XV. Gimnazija Zagreb</td>
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -186,7 +186,7 @@
     <td class="value">PS Senior Secondary School</td>
     <td class="valueC">Gamma</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
@@ -195,7 +195,7 @@
     <td class="value">SPb PTHS</td>
     <td class="valueC">Gamma</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
