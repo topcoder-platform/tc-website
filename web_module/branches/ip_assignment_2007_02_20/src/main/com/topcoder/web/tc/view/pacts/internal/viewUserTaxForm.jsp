@@ -56,7 +56,7 @@
 
 <jsp:include page="../../page_title.jsp" >
 <jsp:param name="image" value="pact_s"/>
-<jsp:param name="title" value="Payments"/>
+<jsp:param name="title" value="&nbsp;"/>
 </jsp:include>
 
 <h2>View User Tax Form</h2>
