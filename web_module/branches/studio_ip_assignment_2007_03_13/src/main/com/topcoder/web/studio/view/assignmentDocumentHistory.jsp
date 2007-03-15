@@ -70,14 +70,14 @@
             <td width="50%"><A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOn"><span>View all</span></A>
             </td>
             <td width="50%">
-                <A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOff"><span>View pending</span></A>
+                <A href="/?module=AssignmentDocumentHistory&full_list=false" class="statTabLinkOff"><span>View pending</span></A>
             </td>
         </c:if>
         <c:if test="${not fullList}" >
             <td width="50%"><A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOff"><span>View all</span></A>
             </td>
             <td width="50%">
-                <A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOn"><span>View pending</span></A>
+                <A href="/?module=AssignmentDocumentHistory&full_list=false" class="statTabLinkOn"><span>View pending</span></A>
             </td>
         </c:if>
     </tr>
@@ -110,7 +110,7 @@
     </c:if>
     <tr>
         <td class="NW">&nbsp;</td>
-        <td class="title" colspan="6">Assignment Documents</td>
+        <td class="title" colspan="4">Assignment Documents</td>
         <td class="NE">&nbsp;</td>
     </tr>
     <tr>
@@ -139,7 +139,7 @@
                 <td class="valueW">
                     <div>&nbsp;</div>
                 </td>
-                <td class="valueC" colspan="6">
+                <td class="valueC" colspan="4">
                     <div align="center" style="margin: 40px 0px 40px 0px;">
                         There are currently no assignment documents.
                     </div>
@@ -214,7 +214,7 @@
         </c:otherwise>
     </c:choose>
     <tr>
-        <td class="SW" colspan="6">&nbsp;</td>
+        <td class="SW" colspan="5">&nbsp;</td>
         <td class="SE">&nbsp;</td>
     </tr>
 </tbody>
