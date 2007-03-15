@@ -62,7 +62,7 @@
     
                 <p><a href="/?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click here for a printer friendly version of the assignment document</a></p>
             <center>
-                <p><iframe  width="70%" height="500" marginWidth="5"
+                <p><iframe  width="100%" height="400" marginWidth="5"
                     src="/?module=Static&d1=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                 </p>
     
