@@ -11,7 +11,7 @@ import java.util.Set;
  *          Create Date: Jan 18, 2007
  */
 public class Event extends Base {
-    public static final Long TCO07_COMPONENT_ID = new Long(2020);
+    public static final Long TCO07_COMPONENT_ID = new Long(7);
 
     private Long id;
     private EventType type;
