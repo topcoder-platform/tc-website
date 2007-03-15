@@ -1,19 +1,20 @@
 package com.topcoder.web.common;
 
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.rmi.PortableRemoteObject;
+
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.TCException;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.rmi.PortableRemoteObject;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public abstract class BaseProcessor implements RequestProcessor {
 
@@ -35,6 +36,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     /* return values */
     private String nextPage = "";
     private boolean nextPageInContext = false;
+
 
     public BaseProcessor() {
         //log.debug("constructing " + this.getClass().getName());
@@ -283,6 +285,7 @@ public abstract class BaseProcessor implements RequestProcessor {
                 home.getClass()).getClass().getMethod("create", null);
         return createmethod.invoke(home, null);
     }
+    
 
     public static void close(Context ctx) {
         if (ctx != null) {

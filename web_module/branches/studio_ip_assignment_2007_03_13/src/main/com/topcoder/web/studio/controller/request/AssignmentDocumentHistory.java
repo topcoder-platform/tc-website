@@ -27,14 +27,7 @@ public class AssignmentDocumentHistory extends BaseProcessor {
     public static final int SUBMISSION_TITLE_COL = 1;
     public static final int TIME_LEFT_COL = 2;
     public static final int STATUS_COL = 3;
-    
-
-    /**
-     * Represents the <code>PactsServices</code> instance.
-     */
-    private PactsServices pactsServices = null;
-    
-    
+        
     protected void businessProcessing() throws TCWebException {
         try {
         	boolean fullList = "true".equals(getRequest().getParameter(FULL_LIST));
@@ -65,8 +58,7 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             setDefault(DataAccessConstants.END_RANK, endRank);
 
             
-            PactsServices ps = getPactsServices();
-            List result = ps.getAssignmentDocumentByUserId(getUser().getId(), 
+            List result = PactsServicesLocator.getService().getAssignmentDocumentByUserId(getUser().getId(), 
                     AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID.longValue(), !fullList);
             
             sortResult(result, sortCol, sortAscending);
@@ -91,19 +83,6 @@ public class AssignmentDocumentHistory extends BaseProcessor {
         }
     }
 
-    /**
-     * @return
-     * @throws ServiceLocatorNamingException
-     * @throws ServiceLocatorCreateException
-     * @throws com.cronos.onlinereview.phases.ConfigurationException
-     */
-    private PactsServices getPactsServices() throws ServiceLocatorNamingException, ServiceLocatorCreateException {
-        if (pactsServices == null) {
-            pactsServices = ServiceLocator.getInstance("jnp://63.118.154.181:2099").getPactsServices();
-        }
-        return pactsServices;
-    }
-    
     private List cropResult(List result, int startRank, int endRank) {
         log.debug("Crop result called: " + result.size() + " / " + startRank + " / " + endRank);
         Boolean croppedDataAfter = Boolean.TRUE;

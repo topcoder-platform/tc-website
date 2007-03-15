@@ -72,11 +72,20 @@
 
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
-        <td width="50%"><A href="/?module=ViewActiveContests" class="statTabLinkOn"><span>View all</span></A>
-        </td>
-        <td width="50%">
-            <A href="/?module=ViewPastContests" class="statTabLinkOff"><span>View pending</span></A>
-        </td>
+        <c:if test="${fullList}" >
+            <td width="50%"><A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOn"><span>View all</span></A>
+            </td>
+            <td width="50%">
+                <A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOff"><span>View pending</span></A>
+            </td>
+        </c:if>
+        <c:if test="${not fullList}" >
+            <td width="50%"><A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOff"><span>View all</span></A>
+            </td>
+            <td width="50%">
+                <A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOn"><span>View pending</span></A>
+            </td>
+        </c:if>
     </tr>
 </table>
 

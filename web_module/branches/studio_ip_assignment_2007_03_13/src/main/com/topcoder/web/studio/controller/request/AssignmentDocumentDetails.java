@@ -1,0 +1,45 @@
+package com.topcoder.web.studio.controller.request;
+
+import javax.naming.InitialContext;
+
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.PactsServices;
+import com.topcoder.web.studio.Constants;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.shared.util.TCContext;
+
+/**
+ *
+ * @author  pulky
+ */
+public class AssignmentDocumentDetails extends BaseProcessor {
+    
+    protected void businessProcessing() throws TCWebException {
+        long assignment_document_id = Long.parseLong(getRequest().getParameter(Constants.ASSIGNMENT_DOCUMENT_ID));
+
+        try {
+            AssignmentDocument ad = PactsServicesLocator.getService()
+                .getAssignmentDocument(assignment_document_id);
+            
+            getRequest().setAttribute(Constants.RESULT_KEY, ad);
+
+            // check that the assignment document belongs to the logged user.
+            if (ad == null) {
+                throw new IllegalArgumentException("Assignment Document not found");  
+            }
+            
+            if (ad.getUser().getId().longValue() != getUser().getId()) {
+                throw new IllegalArgumentException("This AD doesn't belong to the logged user");  
+            }
+            
+            setNextPage("/assignmentDocumentDetails.jsp");
+            setIsNextPageInContext(true);
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
+}
+
