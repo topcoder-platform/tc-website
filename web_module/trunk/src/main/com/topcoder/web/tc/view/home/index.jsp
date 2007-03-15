@@ -58,13 +58,12 @@
 <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt="" /></A>
         </td>
         <td width="50%" align="right" valign="top" style="border-bottom: 1px solid #666666; padding:0px; margin:0px;">
-            <%-- no dogear 
+            <%-- no dogear --%>
             &nbsp;
-            --%>
+            
             <%-- standard studio dogear 
             <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>"><img src="/i/home/studioDogEarStandard.png" alt="TopCoder Studio" /></A>
             --%>
-            <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/dogTCO07.png" alt="2007 TopCoder Open Sponsored by AOL" /></A>
         </td>
     </tr>
 </table>
@@ -95,9 +94,10 @@
                 <%-- DIGITAL RUN 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
                 --%>
-                <%-- AOL mashups
-                <A href="http://studio.topcoder.com/forums?module=Thread&threadID=123"><img src="/i/home/aol_mashups.gif" alt="AOL mashups" border="0" style="display:block;"/></A>
-                --%>
+
+                <%-- TCO07 --%>
+                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
+                
                 <%-- Marathon Match Sponsor 
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/longcontest/?module=ViewActiveContests" />
@@ -106,13 +106,14 @@
                 <img src="/i/home/mmtco1_verisign.png" alt="TCO07 Marathon Match 1 brough to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR --%>
+                <%-- SRM SPONSOR 
                 <map name="srm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10666" />
                 <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" />
                 </map>
                 <img src="/i/home/srm342_aol.png" alt="SRM 342 brought to you by AOL" border="0" style="display:block;" usemap="#srm"/>
-                
+                --%>
+
             </td>
         </tr>
     </table>
