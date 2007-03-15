@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants"%>
 <%@ page import="com.topcoder.web.common.model.AssignmentDocumentStatus" %>
 <%@ page language="java"  %>
@@ -84,7 +85,7 @@
                                 </form>
                             </td>
                             <td>
-                                <form action="/reg/?nrg=false">
+                                <form action="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">
                                     <input type="submit" value="Edit Personal Information">
                                 </form>
                             </td>

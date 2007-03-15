@@ -9,6 +9,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <c:set var="fullList" value="<%= request.getAttribute(AssignmentDocumentHistory.FULL_LIST) %>"/>
 <c:set var="assignment_documents" value="<%= request.getAttribute(AssignmentDocumentHistory.ASSIGNMENT_DOCUMENTS) %>"/>
