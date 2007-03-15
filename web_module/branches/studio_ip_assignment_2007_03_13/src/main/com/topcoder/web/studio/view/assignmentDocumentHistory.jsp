@@ -64,12 +64,6 @@
 
 <h1>Assignment Documents</h1>
 
-<h2 align="right">Need help? Learn how to
-    <A href="/?module=Static&amp;d1=support&amp;d2=getStarted">get
-        started</A>.<br>
-    Got <A href="/?module=Static&amp;d1=support&amp;d2=generalFaq">questions</A>?
-</h2>
-
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
         <c:if test="${fullList}" >
@@ -138,9 +132,6 @@
         <td class="headerE">
             <div>&nbsp;</div>
         </td>
-        <td class="headerE">
-            <div>&nbsp;</div>
-        </td>
     </tr>
     <c:choose>
         <c:when test="${empty assignment_documents}">
@@ -165,7 +156,7 @@
                     <td class="valueW">
                         <div>&nbsp;</div>
                     </td>
-                    <td class="valueC">
+                    <td class="value">
                         <c:out value="${ad.submissionTitle}"/>                
                     </td>
                     <c:choose>
@@ -214,9 +205,6 @@
                         <c:out value="${ad.status.description}"/>
                     </td>
 
-                    <td class="valueC">
-                        <div>&nbsp;</div>
-                    </td>
                     <td class="valueE">
                         <div>&nbsp;</div>
                     </td>
