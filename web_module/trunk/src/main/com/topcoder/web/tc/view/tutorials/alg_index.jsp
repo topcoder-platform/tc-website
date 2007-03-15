@@ -41,7 +41,7 @@
 
          <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr valign=top><td class="bodyText"><b>Author</b></td><td class="bodyText" nowrap=nowrap width="100%"><b>Title</b></td></tr>
-			<tr valign=top><td class="bodyText">
+            <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="159052" context="algorithm"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=importance_of_algorithms"><strong>The Importance of Algorithms</strong></a>
             </td></tr>
@@ -150,6 +150,10 @@
             <tr valign=top><td class="bodyText">
                <tc-webtag:handle coderId="15498334" context="algorithm"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=recursionPt1"><strong>An Introduction to Recursion, Part 1</strong></a>
+            </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="15498334" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=recursionPt2"><strong>An Introduction to Recursion, Part 2</strong></a>
             </td></tr>
             <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
