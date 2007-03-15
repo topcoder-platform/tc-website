@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Static;
 
@@ -28,6 +29,17 @@ public class StudioUserContests extends Static {
             rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
 
         getRequest().setAttribute("results", rsc);
+
+        SortInfo s = new SortInfo();
+        s.addDefault(rsc.getColumnIndex("contest_name"), "asc");
+        s.addDefault(rsc.getColumnIndex("start_time"), "desc");
+        s.addDefault(rsc.getColumnIndex("end_time"), "desc");
+        s.addDefault(rsc.getColumnIndex("registrants"), "desc");
+        s.addDefault(rsc.getColumnIndex("submissions"), "desc");
+        s.addDefault(rsc.getColumnIndex("place"), "asc");
+        s.addDefault(rsc.getColumnIndex("points"), "desc");
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+
 
         super.businessProcessing();
 
