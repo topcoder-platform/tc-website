@@ -165,7 +165,7 @@
                     <td class="valueW">
                         <div>&nbsp;</div>
                     </td>
-                    <td class="valueW">
+                    <td class="valueC">
                         <c:out value="${ad.submissionTitle}"/>                
                     </td>
                     <c:choose>
@@ -214,7 +214,7 @@
                         <c:out value="${ad.status.description}"/>
                     </td>
 
-                    <td class="valueE">
+                    <td class="valueC">
                         <div>&nbsp;</div>
                     </td>
                     <td class="valueE">
