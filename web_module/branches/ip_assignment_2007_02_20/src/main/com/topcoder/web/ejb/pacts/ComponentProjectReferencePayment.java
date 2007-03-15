@@ -4,9 +4,13 @@ import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentStatus;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 /**
  * Payment for a component that includes a reference to a project.
@@ -125,7 +129,7 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
     public boolean isDesign() throws SQLException {
     	return "Design".equals(((ComponentProjectReferencePayment.Processor) getProcessor()).getProjectType(projectId));
     }
-
+    
     /**
      * Processor for a payment referencing a project.
      * It provides methods for retrieving the name of the component, the type of project and the date of completion.
@@ -186,7 +190,7 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
             }
             return componentName;
         }
-
+        
         /**
          * Get the type of project.
          *
@@ -252,6 +256,45 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
             projectType = rsc.getStringItem(0, "phase_name");
         }
 
+        /**
+         * Get the status of the payment.
+         * Extends the base functionality.
+         *
+         * If the user/projectId don't have a corresponding affirmed Assignment Document
+         * the status is set to on hold.  
+         *
+         * @return the status of the payment.
+         * @throws SQLException
+         */
+        public int lookupStatus(BasePayment payment) throws SQLException {
+            return (hasTaxForm(payment.getCoderId()) && 
+                hasAffirmedAssignmentDocument(payment.getCoderId(), ((ComponentProjectReferencePayment) payment).getProjectId())) ?
+                    PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS;
+        }
+        
+        /**
+         * Returns whether the user has already affirmed the corresponding Assignment Document
+         *
+         * @param coderId coder to check for Assignment Document
+         * @param projectId project id to check for Assignment Document
+         * @return whether the user has already affirmed the corresponding Assignment Document
+         */
+        protected boolean hasAffirmedAssignmentDocument(long coderId, long projectId) {
+            DataInterfaceBean dib = new DataInterfaceBean();
+            try {
+                List assignmentDocuments = dib.getAssignmentDocumentByUserIdProjectId(coderId, projectId);
+        
+                if (assignmentDocuments.size() == 0) {
+                    return false;
+                }
+                
+                AssignmentDocument ad = (AssignmentDocument) assignmentDocuments.get(0);
+                
+                return (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
+            } catch (Exception e) {
+                return false;
+            }
+        }
     }
 
 }

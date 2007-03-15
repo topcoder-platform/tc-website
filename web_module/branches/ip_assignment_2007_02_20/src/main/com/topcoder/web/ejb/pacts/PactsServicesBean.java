@@ -1647,6 +1647,40 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    public List getAssignmentDocumentByUserIdProjectId(long userId, long projectId) {
+        log.debug("get the assignment document from the db (user_id, project_id)");
+
+        try {
+            Map searchCriteria = new HashMap();
+           
+            searchCriteria.put(COMPONENT_PROJECT, String.valueOf(projectId));
+            searchCriteria.put(TYPE, String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
+            searchCriteria.put(USER_ID, String.valueOf(userId));
+
+            return findAssignmentDocument(searchCriteria);
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        }
+    }
+
+
+    public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) {
+        log.debug("get the assignment document from the db (user_id, studio_contest_id)");
+
+        try {
+            Map searchCriteria = new HashMap();
+           
+            searchCriteria.put(STUDIO_CONTEST, String.valueOf(studioContestId));
+            searchCriteria.put(TYPE, String.valueOf(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID));
+            searchCriteria.put(USER_ID, String.valueOf(userId));
+
+            return findAssignmentDocument(searchCriteria);
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        }
+    }
+
+
     public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) {
         AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(null, assignmentDocumentTypeId);
         

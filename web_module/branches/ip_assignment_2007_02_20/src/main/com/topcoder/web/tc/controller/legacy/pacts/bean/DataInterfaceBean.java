@@ -1759,5 +1759,15 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getAssignmentDocumentTransformedText(assignmentDocumentTypeId, ad);
     }
 
+    public List getAssignmentDocumentByUserIdProjectId(long userId,  long projectId)  throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentByUserIdProjectId(userId, projectId);
+    }
+
+    public List getAssignmentDocumentByUserIdStudioContestId(long studioContestId,  long projectId)  throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentByUserIdStudioContestId(studioContestId, projectId);
+    }
+
 }
 

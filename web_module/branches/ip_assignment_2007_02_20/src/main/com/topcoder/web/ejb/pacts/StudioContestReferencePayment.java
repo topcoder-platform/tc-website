@@ -2,9 +2,13 @@ package com.topcoder.web.ejb.pacts;
 
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentStatus;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 /**
  * Payment that references a studio component contest.
@@ -128,5 +132,45 @@ public abstract class StudioContestReferencePayment extends BasePayment {
             endDate = rsc.getTimestampItem(0, "end_time");
         }
 
+
+        /**
+         * Get the status of the payment.
+         * Extends the base functionality.
+         *
+         * If the user/contestId don't have a corresponding affirmed Assignment Document
+         * the status is set to on hold.  
+         *
+         * @return the status of the payment.
+         * @throws SQLException
+         */
+        public int lookupStatus(BasePayment payment) throws SQLException {
+            return (hasTaxForm(payment.getCoderId()) && 
+                hasAffirmedAssignmentDocument(payment.getCoderId(), ((StudioContestReferencePayment) payment).getContestId())) ?
+                    PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS;
+        }
+        
+        /**
+         * Returns whether the user has already affirmed the corresponding Assignment Document
+         *
+         * @param coderId coder to check for Assignment Document
+         * @param contestId contest id to check for Assignment Document
+         * @return whether the user has already affirmed the corresponding Assignment Document
+         */
+        protected boolean hasAffirmedAssignmentDocument(long coderId, long contestId) {
+            DataInterfaceBean dib = new DataInterfaceBean();
+            try {
+                List assignmentDocuments = dib.getAssignmentDocumentByUserIdProjectId(coderId, contestId);
+        
+                if (assignmentDocuments.size() == 0) {
+                    return false;
+                }
+                
+                AssignmentDocument ad = (AssignmentDocument) assignmentDocuments.get(0);
+                
+                return (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
+            } catch (Exception e) {
+                return false;
+            }
+        }
     }
 }
