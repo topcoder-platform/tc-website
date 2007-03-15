@@ -277,33 +277,39 @@ Now we need to compute all thhe possible crosswords.
 This can be done by brute-forcing over all possible starting positions of all words (taking into account that the words have length of 15 and their starting positions can be more than 15 cells apart):
 <br /><br />
 
-C++ code follows:
+Java code follows:
 
 <pre>
-int crossword(string a, string b, string c, string d) {
-    int ret, top, bottom, left, right, topleft, topright, lefttop, righttop, rightbottom, leftbottom, bottomleft, bottomright;
-    string w[4];
-    ret = 0;
-    w[0] = a; w[1] = b; w[2] = c; w[3] = d;
-    FOR (top,4) FOR (left,4) if (left != top)
-        FOR (topleft,SI(w[top])) FOR (lefttop,SI(w[left])) if (w[top][topleft] == w[left][lefttop])
-            FOR (right,4) if (right != top && right != left)
-                FOR (bottom,4) if (bottom != top && bottom != left && bottom != right)
-                    for (topright = topleft + 2; topright < SI(w[top]); topright++) FOR (righttop,SI(w[right])) if (w[top][topright] == w[right][righttop])
-                        for (leftbottom = lefttop + 2; leftbottom < SI(w[left]); leftbottom++) FOR (bottomleft,SI(w[bottom])) if (w[left][leftbottom] == w[bottom][bottomleft])
-                            if ((bottomright = bottomleft + topright - topleft) < SI(w[bottom])) if ((rightbottom = righttop + leftbottom - lefttop) < SI(w[right]))
-                                if (w[bottom][bottomright] == w[right][rightbottom]) ret++;
-    return ret;
+int go(String[] data) {
+    int ans = 0;
+    for (int c = -15; c < 16; c++)
+        for (int r = 2; r <= 15; r++) {
+            int ri = Math.min(data[0].length(), data[1].length() + c);
+            for (int i = Math.max(c, 0); i < ri; i++) {
+                int cnt = count(data[0], data[1], data[2], r, c, i);
+                for (int j = i + 2; j < ri; j++)
+                    ans += cnt * count(data[0], data[1], data[3], r, c, j);
+            }
+        }
+    return ans;
+}
+
+int count(String a, String b, String w, int r, int c, int c1) {
+    int res = 0;
+    for (int i = r - w.length() + 1; i <= 0; i++)
+        if (w.charAt(-i) == a.charAt(c1) && w.charAt(r - i) == b.charAt(c1 - c))
+            res++;
+    return res;
 }
 </pre>
 
 
 
 <div class="authorPhoto">
-    <img src="/i/m/timmac_big.jpg" alt="Author" />
+    <img src="/i/m/Olexiy_big2.jpg" alt="Author" />
 </div>
 <div class="authorText">
-    By&#160;<tc-webtag:handle coderId="10407399" context="algorithm"/><br />    <em>TopCoder Member</em>
+    By&#160;<tc-webtag:handle coderId="303644" context="algorithm"/><br />    <em>TopCoder Member</em>
 </div>
 </div>
 </td>
