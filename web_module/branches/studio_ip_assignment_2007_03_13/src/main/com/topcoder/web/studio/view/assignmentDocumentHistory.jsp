@@ -138,6 +138,9 @@
         <td class="headerE">
             <div>&nbsp;</div>
         </td>
+        <td class="headerE">
+            <div>&nbsp;</div>
+        </td>
     </tr>
     <c:choose>
         <c:when test="${empty assignment_documents}">
@@ -161,6 +164,9 @@
                 <tr class="<%=even?"light":"dark"%>">
                     <td class="valueW">
                         <div>&nbsp;</div>
+                    </td>
+                    <td class="valueW">
+                        <c:out value="${ad.submissionTitle}"/>                
                     </td>
                     <c:choose>
                         <c:when test="${ad.status.id == AFFIRMED_STATUS_ID}">
@@ -208,6 +214,9 @@
                         <c:out value="${ad.status.description}"/>
                     </td>
 
+                    <td class="valueE">
+                        <div>&nbsp;</div>
+                    </td>
                     <td class="valueE">
                         <div>&nbsp;</div>
                     </td>
