@@ -63,12 +63,8 @@
 
     ul.imageLineup div.remove{
         position: absolute;
-        bottom: -7px;
-        left: 7px;
-        border-top: 1px solid #FFFFFF;
-        border-right: 1px solid #FFFFFF;
-        border-bottom: none;
-        border-left: 1px solid #FFFFFF;
+        bottom: -27px;
+        left: 17px;
     }
 
     #favorites{
@@ -97,12 +93,36 @@
 
 <form>
 <div align="center" style="margin-bottom: 20px;">
-<strong>Drag and drop</strong> candidates to sort them according to your preference<br>
-<strong>Mouse over</strong> candidates to see them at full size<br>
-<strong>click the remove button</strong> <img src="/i/oracle/i/interface/remove.png" alt="" /> on the image to remove a candidate from your list of favorites
-<br><br>
 
-<table cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
+<table cellpadding="0" cellspacing="0" style="width: 100%; text-align: left; margin-bottom: 20px;">
+<tbody>
+    <tr>
+        <td style="padding: 6px;">
+            <img src="/i/oracle/i/interface/step1.png" alt="Step 1"/>
+        </td>
+        <td width="100%">
+            Browse the <strong>Candidate Pool</strong> and <strong>Click</strong> on the items you like most to move them into the <strong>Favorites</strong> list.<br>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 6px;">
+            <img src="/i/oracle/i/interface/step2.png" alt="Step 2" /> 
+        </td>
+        <td>
+            In the <strong>Favorites</strong> section, <strong>drag and drop</strong> candidates to sort them according to your preference.<br>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 6px;">
+            <img src="/i/oracle/i/interface/step3.png" alt="Step 3" /> 
+        </td>
+        <td>
+            <strong>Click the remove button</strong> <img src="/i/oracle/i/interface/remove.png" alt="REMOVE" align="absmiddle" /> under any of your favorites to remove it from the list.
+        </td>
+    </tr>
+</table>
+
+<table cellpadding="0" cellspacing="0" style="margin-bottom: 40px;">
 <tbody>
     <tr>
         <td>
@@ -170,18 +190,10 @@
 </tbody>
 </table>
 
-<div style="margin-bottom: 60px;">
-    <input src="/i/oracle/i/layout/btnSubmit.png" onMouseOver="this.src='/i/oracle/i/layout/btnSubmitOn.png'" onMouseOut="this.src='/i/oracle/i/layout/btnSubmit.png'" type="image">
+<div style="margin-bottom: 40px;">
+    <BUTTON name="submit" value="submit" type="submit" class="button">Submit</BUTTON>
 </div>
 
-<div align="center" style="margin-bottom: 40px;">
-    <div style="width: 600px; margin-bottom: 20px;">
-        Here are <strong>all</strong> the candidates<br>
-        <strong>Mouse over</strong> candidates to see them at full size<br>
-        <strong>Click</strong> on each of your favorites to move them into the list above
-        <br><br>
-    </div>
-    
 <%-- PAGING
     < prev</A>
     | <A href="javascript:void(0)">next ></A>
@@ -201,8 +213,6 @@
     </div>
 --%>
 
-</div>
-
 <table cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
 <tbody>
     <tr>
@@ -210,7 +220,7 @@
 
 <%-- "submissions" is the container <ul> for candidate <li>'s --%>
 
-<ul id="submissions" class="imageLineup" align="center" style="float:left; clear:both; width: 605px;">
+<ul id="submissions" class="imageLineup" align="center" style="float:left; clear:both; width: 100%;">
 <li>
     <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
     <img class="small" src="/i/oracle/i/submissions/01.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
