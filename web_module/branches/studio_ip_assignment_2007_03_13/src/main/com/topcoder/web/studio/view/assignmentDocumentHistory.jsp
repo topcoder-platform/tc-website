@@ -126,16 +126,16 @@
             <div>&nbsp;</div>
         </td>
         <td class="header">
-            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission</a>
+            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Submission</a>
         </td>
         <td class="headerC">
-            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Affirmation</a>
+            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Affirmation</a>
         </td>
         <td class="headerC">
-            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Time Left</a>
+            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Time Left</a>
 	   </td>
         <td class="headerC">
-            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a>
+            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Status</a>
         </td>
         <td class="headerE">
             <div>&nbsp;</div>
@@ -171,7 +171,7 @@
                     <c:choose>
                         <c:when test="${ad.status.id == AFFIRMED_STATUS_ID}">
                             <td class="valueC">
-                                <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
+                                <a href="/?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
                                     Affirmed on<br><fmt:formatDate value="${ad.affirmedDate}" pattern="MM/dd/yyyy"/>
                                 </a>                
                             </td>
@@ -179,7 +179,7 @@
                         </c:when>
                         <c:when test="${ad.status.id == REJECTED_STATUS_ID}">
                             <td class="valueC">
-                                <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
+                                <a href="/?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
                                     Rejected
                                 </a>                
                             </td>
@@ -187,24 +187,24 @@
                         </c:when>
                         <c:when test="${ad.status.id == PENDING_STATUS_ID}">
                             <td class="valueC">
-                                <strong><a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
+                                <strong><a href="/?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
                                     Affirm now
                                 </a></strong>
                             </td>
                             <td class="valueC">
-                                <strong><a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
+                                <strong><a href="/?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
                                      <c:out value="${ad.daysLeftToExpire}"/>
                                 </a></strong>            
                             </td>
                         </c:when>
                         <c:otherwise>
                             <td class="valueC">
-                                <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}" class="bigRed">
+                                <a href="/?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}" class="bigRed">
                                     Expired
                                 </a>
                             </td>
                             <td class="valueC">
-                                <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}" class="bigRed">
+                                <a href="/?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}" class="bigRed">
                                     Expired
                                 </a>                
                             </td>
