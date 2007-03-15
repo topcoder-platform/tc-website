@@ -14,22 +14,33 @@
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
+<html>
 <head>
-<title>TopCoder - PACTs</title>
-
-
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
-</jsp:include>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TopCoder Studio</title>
+    <jsp:include page="style.jsp">
+        <jsp:param name="key" value="tc_studio"/>
+    </jsp:include>
+    <script type="text/javascript" src="/js/popup.js"></script>
 
 </head>
 
 <body>
 
-<jsp:include page="/top.jsp" >
-    <jsp:param name="level1" value=""/>
+
+<div align="center">
+<div id="contentOut" class="contentOut">
+<jsp:include page="top.jsp"/>
+<jsp:include page="topNav.jsp">
+    <jsp:param name="node" value="contests"/>
 </jsp:include>
+<div id="contentIn" class="contentIn">
+<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+
+<div class="contentSpacer" style="padding-bottom:100px;">
+
+<h1>Assignment Documents</h1>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
@@ -98,7 +109,14 @@
     </tr>
 </table>
 
-<jsp:include page="/foot.jsp" />
+
+</div>
+<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+</div>
+<jsp:include page="foot.jsp"/>
+<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
+</div>
+</div>
 
 </body>
 
