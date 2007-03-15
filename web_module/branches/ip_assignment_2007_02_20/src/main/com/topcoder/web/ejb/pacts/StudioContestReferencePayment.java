@@ -144,6 +144,7 @@ public abstract class StudioContestReferencePayment extends BasePayment {
          * @throws SQLException
          */
         public int lookupStatus(BasePayment payment) throws SQLException {
+            System.out.println("lookupStatus (studio) : tax " + hasTaxForm(payment.getCoderId()));
             return (hasTaxForm(payment.getCoderId()) && 
                 hasAffirmedAssignmentDocument(payment.getCoderId(), ((StudioContestReferencePayment) payment).getContestId())) ?
                     PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS;
@@ -157,18 +158,22 @@ public abstract class StudioContestReferencePayment extends BasePayment {
          * @return whether the user has already affirmed the corresponding Assignment Document
          */
         protected boolean hasAffirmedAssignmentDocument(long coderId, long contestId) {
+            System.out.println("hasAffirmedAssignmentDocument (studio) : " + coderId + " / " + contestId);
             DataInterfaceBean dib = new DataInterfaceBean();
             try {
-                List assignmentDocuments = dib.getAssignmentDocumentByUserIdProjectId(coderId, contestId);
+                List assignmentDocuments = dib.getAssignmentDocumentByUserIdStudioContestId(coderId, contestId);
         
                 if (assignmentDocuments.size() == 0) {
+                    System.out.println("false");
                     return false;
                 }
                 
                 AssignmentDocument ad = (AssignmentDocument) assignmentDocuments.get(0);
                 
+                System.out.println(ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
                 return (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
             } catch (Exception e) {
+                System.out.println("false");
                 return false;
             }
         }
