@@ -149,13 +149,15 @@ function countEmployeesUnder(employeeName)
             
             <p>Let's think through what would have to change in order to make it so a person did count as reporting to him or herself.  First off, we'd need to make it so that if there are no people who report to someone we return one instead of zero.  This is simple -- we just change the line "counter = 0" to "counter = 1" at the beginning of the function.  This makes sense, as our function has to return a value 1 higher than it did before.  A call to "countEmployeesUnder('Betty')" will now return 1.</p>
             
-            <p>However, we have to be very careful here.  We've changed our function's mission statement, and when working with recursion that means taking a close look at how we're using the call recursively.  For example, "countEmployeesUnder('Sam')" would now give an incorrect answer of 3.  To see why, follow through the code: First, we'll count Sam as 1 by setting counter to 1. Then when we encounter Betty we'll count her as 1.  Then we'll count the employees who report to Betty -- and that will return 1 now as well.  
+            <p>However, we have to be very careful here.  We've changed our function's mission statement, and when working with recursion that means taking a close look at how we're using the call recursively.  For example, "countEmployeesUnder('Sam')" would now give an incorrect answer of 3.  To see why, follow through the code: First, we'll count Sam as 1 by setting counter to 1. Then when we encounter Betty we'll count her as 1.  Then we'll count the employees who report to Betty -- and that will return 1 now as well.  </p>
             
             <p>It's clear we're double counting Betty; our function's "mission statement" no longer matches how we're using it.  We need to get rid of the line "counter = counter + 1", recognizing that the recursive call will now count Betty as "someone who reports to Betty" (and thus we don't need to count her before the recursive call).</p>
             
             <p>As our functions get more and more complex, problems with ambiguous "mission statements" become more and more apparent.  In order to make recursion work, we must have a very clear specification of what each function call is doing or else we can end up with some very difficult to debug errors.  Even if time is tight it's often worth starting out by writing a comment detailing exactly what the function is supposed to do.  Having a clear "mission statement" means that we can be confident our recursive calls will behave as we expect and the whole picture will come together correctly.</p>
             
-            <p>In <a href="/tc?module=Static&d1=tutorials&d2=recursionPt2">Part 2</a>, we'll look at how recursion works with multiple related decisions, such as navigating a maze, and with explicit recursive relationships.
+            <p>In <a href="/tc?module=Static&d1=tutorials&d2=recursionPt2">Part 2</a>, we'll look at how recursion works with multiple related decisions, such as navigating a maze, and with explicit recursive relationships.</p>
+            
+            <p><a href="/tc?module=Static&d1=tutorials&d2=recursionPt2">... continue to Part 2</a></p>
 
             <p>&nbsp; </p>
             <br>

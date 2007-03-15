@@ -65,13 +65,18 @@
 
             <br clear="all">
 
+            
+            <p><a href="/tc?module=Static&d1=tutorials&d2=recursionPt1">... read Part 1</a></p>
+
             <h3>Scenario #2: Multiple Related Decisions</h3>
 
 <p>When our program only has to make one decision, our approach can be fairly simple.  We loop through each of the options for our decision, evaluate each one, and pick the best.  If we have two decisions, we can have nest one loop inside the other so that we try each possible combination of decisions.  However, if we have a lot of decisions to make (possibly we don't even know how many decisions we'll need to make), this approach doesn't hold up.</p>  
 
 <p>For example, one very common use of recursion is to solve mazes. In a good maze we have multiple options for which way to go.  Each of those options may lead to new choices, which in turn may lead to new choices as the path continues to branch.  In the process of getting from start to finish, we may have to make a number of related decisions on which way to turn.  Instead of making all of these decisions at once, we can instead make just one decision.  For each option we try for the first decision, we then make a recursive call to try each possibility for all of the remaining decisions.  Suppose we have a maze like this:</p>
 
-<img src="/i/education/maze.PNG">
+<div align=center>
+    <img src="/i/education/maze.PNG">
+</div>
 
 <p>For this maze, we want to determine the following: is it possible to get from the 'S' to the 'E' without passing through any '*' characters.  The function call we'll be handling is something like this: "isMazeSolveable(maze[ ][ ])".  Our maze is represented as a 2 dimensional array of characters, looking something like the grid above.  Now naturally we're looking for a recursive solution, and indeed we see our basic "multiple related decision" pattern here.  To solve our maze we'll try each possible initial decision (in this case we start at B3, and can go to B2 or B4), and then use recursion to continue exploring each of those initial paths.  As we keep recursing we'll explore further and further from the start.  If the maze is solveable, at some point we'll reach the 'E' at G7.  That's one of our base cases: if we are asked "can we get from G7 to the end", we'll see that we're already at the end and return true without further recursion.  Alternatively, if we can't get to the end from either B2 or B4, we'll know that we can't get to the end from B3 (our initial starting point) and thus we'll return false.</p>
 
@@ -174,7 +179,9 @@ function fib(n)
 
 <p>The above function returns correct answers, but in practice it is extremely slow.  To see why, look at what happens if we called "fib(5)".  To calculate "fib(5)", we'll need to calculate "fib(4)" and "fib(3)".  Each of these two calls will make two recursive calls each - and they in turn will spawn more calls.  The whole execution tree will look like this:</p>
 
-<img src="/i/education/fib.PNG">
+<div align=center>
+    <img src="/i/education/fib.PNG">
+</div>
 
 <p>The above tree grows exponentially for higher values of <i>n</i> because of the way calls tend to split - and because of the tendency we have to keep re-calculating the same values.  In calculating "fib(5)", we ended up calculating "fib(2)" 3 times.  Naturally, it would be better to only calculate that value once - and then remember that value so that it doesn't need to be calculated again next time it is asked for.  This is the basic idea of memoization.  When we calculate an answer, we'll store it in an array (named <i>memo</i> for this example) so we can reuse that answer later. When the function is called, we'll first check to see if we've already got the answer stored in <i>memo</i>, and if we do we'll return that value immediately instead of recalculating it.</p>
 
