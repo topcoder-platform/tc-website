@@ -126,16 +126,16 @@
             <div>&nbsp;</div>
         </td>
         <td class="header">
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="1" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission</a>
+            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submission</a>
         </td>
         <td class="headerC">
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="3" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Affirmation</a>
+            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Affirmation</a>
         </td>
         <td class="headerC">
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="2" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Time Left</a>
+            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Time Left</a>
 	   </td>
         <td class="headerC">
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewActiveContests<tc-webtag:sort column="3" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a>
+            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a>
         </td>
         <td class="headerE">
             <div>&nbsp;</div>
