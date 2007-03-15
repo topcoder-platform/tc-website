@@ -1,7 +1,9 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
 import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Static;
@@ -17,9 +19,18 @@ public class StudioUserContests extends Static {
         r.setContentHandle("user_event_contests");
         r.setProperty(Constants.EVENT_ID, getRequest().getParameter(Constants.EVENT_ID));
         r.setProperty(Constants.USER_ID, getRequest().getParameter(Constants.USER_ID));
-        getRequest().setAttribute("results",
-                new DataAccess(DBMS.STUDIO_DATASOURCE_NAME).getData(r).get("user_event_contests"));
+        ResultSetContainer rsc = (ResultSetContainer)
+                new DataAccess(DBMS.STUDIO_DATASOURCE_NAME).getData(r).get("user_event_contests");
+
+        String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
+        String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
+        if (sortCol != null && sortDir != null && rsc != null)
+            rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+
+        getRequest().setAttribute("results", rsc);
 
         super.businessProcessing();
+
+
     }
 }
