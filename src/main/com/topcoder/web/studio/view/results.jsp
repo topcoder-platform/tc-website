@@ -68,7 +68,7 @@
             <td class="header">
                 Handle
             </td>
-            <td class="headerC">
+            <td class="headerR">
                 Prize
             </td>
             <td class="headerC">
@@ -104,7 +104,7 @@
                 <td class="value">
                     <studio:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
                 </td>
-                <td class="valueC">
+                <td class="valueR">
                     <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
                 </td>
                 <td class="valueC">
