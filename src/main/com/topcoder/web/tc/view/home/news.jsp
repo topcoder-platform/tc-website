@@ -4,6 +4,38 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.15.07<br>6:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm342">SRM 342 - Problem Set & Analysis</A></span><br><br>
+        This match was coincident with the ACM ICPC World Finals - not just the same week or the same day, but the SRM actually started and ended during the 5 hour event.  As such, several top student competitors were out of this competition.</td>
+      <td class="newsPhoto"><img src="/i/m/Kawigi_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8416646" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm342">full story</A> | 
+        <tc-webtag:forumLink forumID="506232" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.15.07<br>6:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm341">SRM 341 - Problem Set & Analysis</A></span><br><br>
+        In division 1, the easy problem was easier than usual, so most coders solved it quickly. In the coding phase, only ten coders found the solution to the hard problem, but nine of them failed the testing phase.</td>
+      <td class="newsPhoto"><img src="/i/m/radeye_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10596762" context="algorithm"/> &amp; <tc-webtag:handle coderId="277659" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm341">full story</A> | 
+        <tc-webtag:forumLink forumID="506231" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial News" border="0" /><br>03.15.07<br>2:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -161,33 +193,5 @@ Completing all three tasks in about 48 minutes, <tc-webtag:handle coderId="21468
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Gamma">full story</A> | 
         <tc-webtag:forumLink forumID="514493" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.09.07<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA chat session scheduled for SRM 341</A>
-        </span><br><br>
-      NSA will be in the Arena at 11 AM EST on March 10, just prior to SRM 341, to discuss working at NSA.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">details</A> | 
-         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="Survey" border="0" /><br>03.09.07<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=16640">Survey: Technology news and resources in Europe</A></span><br><br>
-        We invite all European members to provide us some information about the ways in which you stay in touch with the latest technology trends.  Please take the time to participate in our quick survey.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=16640">vote</A> | 
-        <tc-webtag:forumLink forumID="514700" message="discuss this" /> |
-        <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
 
