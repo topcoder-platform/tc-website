@@ -340,7 +340,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 
 <%-------------POSTS---------------%>
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
    	<tr>
       	<td class="rtHeader" colspan="2">
       	<%  String msgBodyID = "msgBody" + message.getID(); 

@@ -280,7 +280,7 @@ function displayVotes(messageID, posVotes, negVotes) {
 <%-------------ACTIVE POST ENDS----------%>
 
 <%-------------POSTS---------------%>
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
     <tr>
         <td class="rtHeader" width="100%">Subject</td>
         <td class="rtHeader">Author</td>
