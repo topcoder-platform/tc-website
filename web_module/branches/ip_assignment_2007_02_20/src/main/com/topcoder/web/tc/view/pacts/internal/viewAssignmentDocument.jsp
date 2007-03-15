@@ -46,7 +46,7 @@
                         <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=pacts&d2=internal&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                     </c:when>
                     <c:otherwise>
-                        <i>Text will be populated when the AD is affirmed and the template is transformed</i>
+                        <i>(Text will be populated when the AD is affirmed and the template is transformed)</i>
                     </c:otherwise>
                 </c:choose>
             </td>
