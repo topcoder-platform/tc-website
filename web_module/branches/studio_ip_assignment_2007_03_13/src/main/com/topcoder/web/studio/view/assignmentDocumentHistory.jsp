@@ -85,6 +85,14 @@
 
 <table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
 <tbody>
+        <form name="f" action="/" method="get">
+         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AssignmentDocumentHistory"/>
+         <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+         <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+         <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
+         <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
+         <input type="hidden" name="<%= AssignmentDocumentHistory.FULL_LIST %>" value="<c:out value="${fullList}"/>" />
+
     <c:if test="${not empty assignment_documents}" >
         <c:if test="${croppedDataBefore or croppedDataAfter}" >
             <div class="pagingBox">
@@ -150,6 +158,7 @@
             </tr>
         </c:when>
         <c:otherwise>    
+            <form name="f" action="${sessionInfo.servletPath}" method="get">
             <% boolean even = true;%>
             <c:forEach items="${assignment_documents}" var="ad">
                 <tr class="<%=even?"light":"dark"%>">
@@ -217,6 +226,7 @@
         <td class="SW" colspan="5">&nbsp;</td>
         <td class="SE">&nbsp;</td>
     </tr>
+    </form>            
 </tbody>
 </table>
 
