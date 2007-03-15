@@ -155,7 +155,7 @@ function countEmployeesUnder(employeeName)
             
             <p>As our functions get more and more complex, problems with ambiguous "mission statements" become more and more apparent.  In order to make recursion work, we must have a very clear specification of what each function call is doing or else we can end up with some very difficult to debug errors.  Even if time is tight it's often worth starting out by writing a comment detailing exactly what the function is supposed to do.  Having a clear "mission statement" means that we can be confident our recursive calls will behave as we expect and the whole picture will come together correctly.</p>
             
-            <p>In Part 2, we'll look at how recursion works with multiple related decisions, such as navigating a maze, and with explicit recursive relationships.
+            <p>In <a href="/tc?module=Static&d1=tutorials&d2=recursionPt2">Part 2</a>, we'll look at how recursion works with multiple related decisions, such as navigating a maze, and with explicit recursive relationships.
 
             <p>&nbsp; </p>
             <br>
