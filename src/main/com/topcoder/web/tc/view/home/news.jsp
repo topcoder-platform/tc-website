@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial News" border="0" /><br>03.15.07<br>2:20 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=recursionPt2">An Introduction to Recursion, Part 2</A></span><br><br>
+When our program only has to make one decision, our approach can be fairly simple.  We loop through each of the options for our decision, evaluate each one, and pick the best.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=recursionPt2">full story</A> | 
+        <tc-webtag:forumLink forumID="514702" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.15.07<br>11:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -172,82 +189,5 @@ Completing all three tasks in about 48 minutes, <tc-webtag:handle coderId="21468
         <A href="/tc?module=ViewSurvey&sid=16640">vote</A> | 
         <tc-webtag:forumLink forumID="514700" message="discuss this" /> |
         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.09.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Beta">TCHS07 Round 1 Beta - Problem Set & Analysis</A></span><br><br>
-The last region to compete in Round 1 was also the one with most contestants. One hundred and eleven high school competitors, mostly from Europe, competed to get a positive score. At the end, all but two got their ticket to Round 2.</td>
-      <td class="newsPhoto"><img src="/i/m/tywok_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8510917" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Beta">full story</A> | 
-        <tc-webtag:forumLink forumID="514493" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Educational Content" border="0" /><br>03.08.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=030807">Test Drive: OpenLaszlo</A></span><br><br>
-       With the advent of Web 2.0, it became clear that better tools were needed to develop interactive applications. Before too long, there were a flurry of new AJAX toolkits, including GWT, Dojo, ATLAS and more. OpenLaszlo is a recent, open-source addition to this group.</td>
-      <td class="newsPhoto"><img src="/i/m/mindboggler_big.jpg" alt="" width="55" height="61" /><br>by <tc-webtag:handle coderId="16067996" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=030807">full story</A> | 
-         <tc-webtag:forumLink forumID="514662" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.07.07<br>11:30 AM</td>
-       <td class="newsTextCell"><span class="newsTitle">
-         <A href="/longcontest/?module=ViewActiveContests">TCO07 Marathon Match Online Round #1 starts today</A>
-         </span><br><br>
-        The first round of the 2007 TopCoder Open Marathon Match competition, brought to you by VeriSign, starts today at Noon EST. Good luck!
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=ViewActiveContests">details</A> | 
-        <tc-webtag:forumLink forumID="514578" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>03.06.07<br>4:00 PM</td>
-       <td class="newsTextCell"><span class="newsTitle">
-         <A href="http://csf.topcoder.com/">First Connected Services Sandbox Contest Launches</A>
-         </span><br><br>
-        The first CSF competition has launched.  Take a look.
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://csf.topcoder.com/">CSF site</A> | 
-        <tc-webtag:forumLink forumID="508394" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.06.07<br>3:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=SurveyResults&sid=16491">The votes are in for the new Member Badges</A>
-        </span><br><br>
-        It's a tie!  No no, not the results.  The winner, it's a necktie.  Congratulations to <tc-webtag:handle coderId="22665210" /> on a great design.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SurveyResults&sid=16491">vote results</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=31">discuss this</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
