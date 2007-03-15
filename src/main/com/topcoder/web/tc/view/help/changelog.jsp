@@ -43,14 +43,25 @@
 </jsp:include>
 
 <p>
+    5.8.5 - 2007.03.15
+    <ul>
+        <li>Fix bug in component registration process where everyone gets warned about not being registered (even if
+            they are registered) -dok
+        </li>
+    </ul>
+</p>
+<p>
     5.8.4 - 2007.03.14
     <ul>
         <li>Add the suspended flag for component versions - cucu</li>
-        <li>In submission download and scorecard views, added granular permissions for viewing incomplete projects - cucu</li>
+        <li>In submission download and scorecard views, added granular permissions for viewing incomplete projects -
+            cucu
+        </li>
         <li>Load for record books: fixed srm consecutive appeareances to skip non rated rounds - cucu</li>
         <li>Fix bug in admin system where placement profiles could not be generated without a client logo - dok</li>
     </ul>
-	
+</p>
+<p>
     5.8.3 - 2007.03.08
     <ul>
         <li>Fix bug in link tracking system where it didn't track the referrer - dok</li>
@@ -143,7 +154,7 @@
             after deploying, the query and command long_contest_find_room can be deleted </li> --%>
         <li>Studio payments shown in My Topcoder Payments</li>
         <li>PACTS bug fix: client didn't appear when updating a payment</li>
-        </ul>
+    </ul>
 </p>
 
 <p>
