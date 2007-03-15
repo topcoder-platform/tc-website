@@ -4,6 +4,38 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.15.07<br>11:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Delta">TCHS07 Round 2 Delta - Problem Set & Analysis</A></span><br><br>
+        Delta Round 2 provided plenty of advancing slots for competitors. Just one room was enough for the competition, and the 20 competitors only needed a positive score to advance.</td>
+      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Delta">full story</A> | 
+        <tc-webtag:forumLink forumID="514494" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.15.07<br>11:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Beta">TCHS07 Round 2 Beta - Problem Set & Analysis</A></span><br><br>
+        <tc-webtag:handle coderId="15604398" context="hs_algorithm"/> won the match thank to an amazing 945.38 points on the hard problem.  Two reds rounded out the first three: <tc-webtag:handle coderId="11972352" context="hs_algorithm"/> finished second, and <tc-webtag:handle coderId="14886245" context="hs_algorithm"/> ended up in third.</td>
+      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Beta">full story</A> | 
+        <tc-webtag:forumLink forumID="514494" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.14.07<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session scheduled for SRM 342</A>
@@ -219,37 +251,3 @@ The last region to compete in Round 1 was also the one with most contestants. On
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>03.06.07<br>10:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=help&d2=problemWriter&node=algo_write">Payments for algorithm problems increased</A></span><br><br>
-With a full problem set now paying $750, now is a great time to write your first TopCoder algorithm problems -- and if you're 18+, have competed 20+ times, and have an algorithm ranking above 1500 you're already qualified.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=help&d2=problemWriter&node=algo_write">full story</A> | 
-        <tc-webtag:forumLink forumID="514548" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial News" border="0" /><br>03.05.07<br>6:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=primeNumbers">Prime Numbers, Factorization and Euler Function</A></span><br><br>
-Prime numbers were extensively studied by the ancient Greek mathematicians. Thousands of years later, we use the properties that they discovered to solve problems. In this article we’ll review some definitions, well-known theorems, and number properties, as well as some problems associated with them.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/medv_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="269207" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tutorials&d2=primeNumbers">full story</A> | 
-        <tc-webtag:forumLink forumID="514543" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-   
