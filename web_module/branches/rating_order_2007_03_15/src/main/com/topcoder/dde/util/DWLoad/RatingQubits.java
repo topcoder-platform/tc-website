@@ -347,7 +347,7 @@ public class RatingQubits {
                     rating r = (rating) ratings.get("" + coder);
 
                     //update project_result record with new and old rating
-                    sqlStr.replace(0, sqlStr.length(), "UPDATE project_result SET old_rating = ?, new_rating = ?, rating_order2=? ");
+                    sqlStr.replace(0, sqlStr.length(), "UPDATE project_result SET old_rating = ?, new_rating = ?, rating_order=? ");
                     sqlStr.append(" WHERE project_id = ? and user_id = ? ");
 
                     ps = conn.prepareStatement(sqlStr.toString());
