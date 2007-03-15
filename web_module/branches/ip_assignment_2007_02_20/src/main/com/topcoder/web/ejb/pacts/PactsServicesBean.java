@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -1646,8 +1647,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
-    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(long assignmentDocumentTypeId) {
-        return getAssignmentDocumentTemplate(null, assignmentDocumentTypeId);
+    public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) {
+        AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(null, assignmentDocumentTypeId);
+        
+        return adt.transformTemplate(ad); 
     }
     
     /**

@@ -284,6 +284,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending);
 
-    AssignmentDocumentTemplate getAssignmentDocumentTemplate(long assignmentDocumentTypeId);
+    String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad);
 }
 

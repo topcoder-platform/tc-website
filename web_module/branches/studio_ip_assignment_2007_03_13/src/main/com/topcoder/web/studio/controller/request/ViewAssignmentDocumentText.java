@@ -22,12 +22,8 @@ public class ViewAssignmentDocumentText extends BaseProcessor {
         long assignment_document_id = Long.parseLong(getRequest().getParameter(Constants.ASSIGNMENT_DOCUMENT_ID));
 
         try {
-            // TODO: change url
-            InitialContext ctx = TCContext.getInitial("jnp://63.118.154.181:2099");
-
-            PactsServices ps = (PactsServices) createEJB(ctx, PactsServices.class);
-
-            AssignmentDocument ad = ps.getAssignmentDocument(assignment_document_id);
+            AssignmentDocument ad = PactsServicesLocator.getService()
+                .getAssignmentDocument(assignment_document_id);
 
             // check that the assignment document belongs to the logged user.
             if (ad == null) {
@@ -41,8 +37,9 @@ public class ViewAssignmentDocumentText extends BaseProcessor {
             // if ad status is pending, the stored text is empty and therefore the template needs to be retrieved and transformed.
             if ((ad.getText() == null || ad.getText().trim().length() == 0) && 
                  ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
-                AssignmentDocumentTemplate adt = ps.getAssignmentDocumentTemplate(ad.getType().getId().longValue());
-                ad.setText(adt.transformTemplate(ad));
+                String transformedText = PactsServicesLocator.getService()
+                    .getAssignmentDocumentTransformedText(ad.getType().getId().longValue(), ad);
+                ad.setText(transformedText);
             }
             
             getResponse().setStatus(200);
