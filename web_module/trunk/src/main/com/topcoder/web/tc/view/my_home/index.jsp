@@ -1,36 +1,38 @@
-<%@  page language="java"  %>
+<%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
-<title>TopCoder $HOME</title>
-
-<jsp:include page="/script.jsp"/>
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_main"/>
-</jsp:include>
-
+    <title>TopCoder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../script.jsp" />
+    <jsp:include page="../style.jsp">
+    <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 </head>
-
 <body>
 
 <jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value=""/>
+<jsp:param name="level1" value=""/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
-<!-- Left Column Begins-->
+<tbody>
+    <tr valign="top">
+<%-- Left Column Begins--%>
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="m_my_tc"/>
-         </jsp:include>
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="node" value=""/>
+            </jsp:include>
         </td>
-<!-- Left Column Ends -->
+<%-- Left Column Ends --%>
 
-<!-- Center Column Begins -->
-         <td class="cardCell" width="100%" align="center">
+<%-- Center Column Begins --%>
+        <td width="100%" align="center" class="bodyColumn">
+            <div class="fixedWidthBody">
 
-         <div class="myTCBody">
+<%--
         <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="my_home"/>
             <jsp:param name="title" value="&#160;"/>
@@ -63,38 +65,25 @@
 
             <br/>
 
-<%--
-            <table border="0" cellpadding=5 cellspacing=0 width="100%">
-                <tr>
-                    <td class="bodyText" valign=top width=150><A href="/PactsMemberServlet?t=affidavit&c=affidavit_history"><img src="/i/my_home/affidavits.gif" alt="Affidavits" border="0"/></A></td>
-                    <td class="bodyText" valign=top><A href="/PactsMemberServlet?t=affidavit&c=affidavit_history">affidavits</A></td>
-                </tr>
-            </table>
 --%>
 
-            <br/>
 
-        </div>
-        <p><br/></p>
+            </div>
         </td>
-<!-- Center Column Ends -->
-
-<!-- Right Column Begins -->
-         <td width="170">
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
+        <td width="170">
             <jsp:include page="../public_right.jsp">
-               <jsp:param name="level1" value="privatelabel"/>
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
-         </td>
-<!-- Right Column Ends -->
-
-<!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter Ends -->
+        </td>
+<%-- Right Column Ends --%>
+        
     </tr>
+    </tbody>
 </table>
 
 <jsp:include page="../foot.jsp" />
-
 </body>
-
 </html>
