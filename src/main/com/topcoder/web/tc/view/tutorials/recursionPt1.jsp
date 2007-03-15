@@ -98,21 +98,21 @@ function HelloWorld(count)
             <p><span class="bodySubtitle">Scenario #1: Hierarchies, Networks, or Graphs</span><br />
             In algorithm discussion, when we talk about a graph we're  generally not talking about a chart showing the relationship between variables (like your TopCoder ratings graph, which shows the relationship between time and your rating).  Rather, we're usually talking about a network of things, people, or concepts that are connected to each other in various ways.  For example, a road map could be thought of as a graph that shows cities and how they're connected by roads.  Graphs can be large, complex, and awkward to deal with programatically.  They're also very common in algorithm theory and algorithm competitions.  Luckily, working with graphs can be made much simpler using recursion.  One common type of a graph is a hierarchy, an example of which is a business's organization chart:</p>
             
-            <table cellspacing="0" cellpadding="0" style="width: 100%">
+            <table cellpadding="0" cellspacing="0" style="width: 100%">
                 <tr>
                 <td><img src="/i/education/hierarchy2.PNG"></td>
-                <td>
-                    <table class="stat" width=200>
+                <td style="width:40%">
+                    <table cellpadding="0" cellspacing="0" class="stat" width=200>
                     <tr><td class="headerC">Name</td><td class="headerC">Manager</td></tr>
-                    <tr><td class="valueC">Betty</td><td class="valueC">Sam</td>
-                    <tr><td class="valueC">Bob</td><td class="valueC">Sally</td>
-                    <tr><td class="valueC">Dilbert</td><td class="valueC">Nathan</td>
-                    <tr><td class="valueC">Joseph</td><td class="valueC">Sally</td>
-                    <tr><td class="valueC">Nathan</td><td class="valueC">Veronica</td>
-                    <tr><td class="valueC">Sally</td><td class="valueC">Veronica</td>
-                    <tr><td class="valueC">Sam</td><td class="valueC">Joseph</td>
-                    <tr><td class="valueC">Susan</td><td class="valueC">Bob</td>
-                    <tr><td class="valueC">Veronica</td><td class="valueC">&nbsp;</td>
+                    <tr class="light"><td class="valueC">Betty</td><td class="valueC">Sam</td>
+                    <tr class="light"><td class="valueC">Bob</td><td class="valueC">Sally</td>
+                    <tr class="light"><td class="valueC">Dilbert</td><td class="valueC">Nathan</td>
+                    <tr class="light"><td class="valueC">Joseph</td><td class="valueC">Sally</td>
+                    <tr class="light"><td class="valueC">Nathan</td><td class="valueC">Veronica</td>
+                    <tr class="light"><td class="valueC">Sally</td><td class="valueC">Veronica</td>
+                    <tr class="light"><td class="valueC">Sam</td><td class="valueC">Joseph</td>
+                    <tr class="light"><td class="valueC">Susan</td><td class="valueC">Bob</td>
+                    <tr class="light"><td class="valueC">Veronica</td><td class="valueC">&nbsp;</td>
                     </table>
                 </td></tr>
             </table>
