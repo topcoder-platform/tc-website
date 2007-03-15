@@ -306,10 +306,10 @@ int count(String a, String b, String w, int r, int c, int c1) {
 
 
 <div class="authorPhoto">
-    <img src="/i/m/Olexiy_big2.jpg" alt="Author" />
+    <img src="/i/m/gevak_big2.jpg" alt="Author" />
 </div>
 <div class="authorText">
-    By&#160;<tc-webtag:handle coderId="303644" context="algorithm"/><br />    <em>TopCoder Member</em>
+    By&#160;<tc-webtag:handle coderId="7340263" context="algorithm"/><br />    <em>TopCoder Member</em>
 </div>
 </div>
 </td>

@@ -9,7 +9,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Delta">TCHS07 Round 2 Delta - Problem Set & Analysis</A></span><br><br>
         Delta Round 2 provided plenty of advancing slots for competitors. Just one room was enough for the competition, and the 20 competitors only needed a positive score to advance.</td>
-      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/ged_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10505830" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -25,7 +25,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Beta">TCHS07 Round 2 Beta - Problem Set & Analysis</A></span><br><br>
         <tc-webtag:handle coderId="15604398" context="hs_algorithm"/> won the match thank to an amazing 945.38 points on the hard problem.  Two reds rounded out the first three: <tc-webtag:handle coderId="11972352" context="hs_algorithm"/> finished second, and <tc-webtag:handle coderId="14886245" context="hs_algorithm"/> ended up in third.</td>
-      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
