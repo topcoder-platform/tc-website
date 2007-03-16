@@ -100,7 +100,7 @@
                                             <rsc:item name="submissions" row="<%=resultRow%>"/>
                                         </td>
                                         <td class="valueC">
-                                            <rsc:item name="place" row="<%=resultRow%>"/>
+                                            <rsc:item name="place" row="<%=resultRow%>" ifNull="&nbsp;"/>
                                         </td>
                                         <td class="valueC">
                                             <rsc:item name="points" row="<%=resultRow%>"/>
