@@ -47,13 +47,13 @@ String compType = (String) request.getAttribute("ct"); %>
     <tr><td class="title" colspan="4">Registrants: <%=rsc.size()%></td></tr>
     <tr>
         <td class="header" width="100%">
-            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+            <a href="/tc?module=TCO07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
         </td>
         <td class="headerR" nowrap="nowrap">
-            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("des_rating")%>"/>">Design Rating</a>
+            <a href="/tc?module=TCO07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("des_rating")%>"/>">Design Rating</a>
         </td>
         <td class="headerR" nowrap="nowrap">
-            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("dev_rating")%>"/>">Development Rating</a>
+            <a href="/tc?module=TCO07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("dev_rating")%>"/>">Development Rating</a>
         </td>
     </tr>
 </thead>

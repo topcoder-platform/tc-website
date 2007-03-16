@@ -47,7 +47,7 @@ String compType = (String) request.getAttribute("ct"); %>
     <tr><td class="title" colspan="3">Registrants: <%=rsc.size()%></td></tr>
     <tr>
         <td class="headerC" nowrap="nowrap">
-            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">TCO Rank</a>
+            <a href="/tc?module=TCO07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">TCO Rank</a>
         </td>
 <%-- show after seeds are assigned
         <td class="headerC">
@@ -55,10 +55,10 @@ String compType = (String) request.getAttribute("ct"); %>
         </td>
 --%>
         <td class="header" width="100%">
-            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+            <a href="/tc?module=TCO07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
         </td>
         <td class="headerR">
-            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
+            <a href="/tc?module=TCO07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rating")%>"/>">Rating</a>
         </td>
     </tr>
 </thead>
