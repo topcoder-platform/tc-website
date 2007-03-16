@@ -1,11 +1,11 @@
-<%@ page import="java.util.Date" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="java.util.Date" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <div id="tourneyLogo">
-    <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/tournament/tco07/tco07aollogo.png" alt="2007 TopCoder Open Sponsored by AOL&#174;" /></a>
+    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=about"><img src="/i/tournament/tco07/tco07aollogo.png" alt="2007 TopCoder Open Sponsored by AOL&#174;"/></a>
 </div>
 <div style="position: absolute; left: 480px; top: 50px;">
-    <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=registerNow"><img src="/i/tournament/tco07/registerNow.png" alt="Register Now for the TCO07" /></a>
+    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=registerNow"><img src="/i/tournament/tco07/registerNow.png" alt="Register Now for the TCO07"/></a>
 </div>
 <div id="redbar">
     <div id="pageBodyN">&nbsp;</div>
@@ -16,4 +16,4 @@
         &nbsp;
     </div>
 </div>
-<img src="/i/tournament/tco07/contentN.png" alt="contentN" style="display: block;" />
+<img src="/i/tournament/tco07/contentN.png" alt="contentN" style="display: block;"/>
