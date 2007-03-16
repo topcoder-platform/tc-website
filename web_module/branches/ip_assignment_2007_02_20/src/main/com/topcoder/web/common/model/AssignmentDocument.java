@@ -2,7 +2,6 @@ package com.topcoder.web.common.model;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -29,6 +28,10 @@ public class AssignmentDocument extends Base {
     }
 
     public Boolean isHardCopy() {
+        return hardCopy;
+    }
+
+    public Boolean getHardCopy() {
         return hardCopy;
     }
 
