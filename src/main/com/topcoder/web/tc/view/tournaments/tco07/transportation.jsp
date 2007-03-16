@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <html>
 <head>
     <title>2007 TopCoder Open - Computer Programming Tournament</title>
@@ -33,7 +34,7 @@
 
                         <h1><span>How to get to the TCO07</span></h1>
 <p>
-<A href="/?t=sponsor&c=link&link=http://www.mirage.com/" target="_blank">Mirage</A><br>
+<a href="<tc-webtag:linkTracking link='http://www.mirage.com/' refer='TCO07_TRANSPORTATION' />">Mirage</a>
 3400 S. Las Vegas Blvd.<br>
 Las Vegas, NV 89109<br>
 </p>
@@ -54,15 +55,15 @@ From San Francisco:<br>
 San Francisco to Las Vegas is about 580 miles (930 km). Take I-80 East to Reno, Nevada, then follow U.S. 95 South to Las Vegas.
 </p>
 <p>
-For driving directions from other areas:  <A href="/?t=sponsor&c=link&link=http://www.mapquest.com/" target="_blank">www.mapquest.com</A>
+For driving directions from other areas:  <a href="<tc-webtag:linkTracking link='http://www.mapquest.com/' refer='TCO07_TRANSPORTATION' />">www.mapquest.com</a>
 </p>
 <p>
 <strong>Flying to Vegas:</strong>
-The McCarran International Airport is located 8 minutes from the Mirage.  It offers a variety of airlines and ground transportation to the Strip.  See here for more details:  <A href="/?t=sponsor&c=link&link=http://www.mccarran.com/" target="_blank">http://www.mccarran.com/</A>
+The McCarran International Airport is located 8 minutes from the Mirage.  It offers a variety of airlines and ground transportation to the Strip.  See here for more details:  <a href="<tc-webtag:linkTracking link='http://www.mccarran.com/' refer='TCO07_TRANSPORTATION' />">http://www.mccarran.com/</a>
 </p>
 <p>
 <strong>Bussing to Vegas:</strong>
-Go to the <A href="/?t=sponsor&c=link&link=http://www.greyhound.com/" target="_blank">Greyhound web site</A> to get to Las Vegas, NV.
+Go to the <a href="<tc-webtag:linkTracking link='http://www.greyhound.com/' refer='TCO07_TRANSPORTATION' />">Greyhound web site</a> to get to Las Vegas, NV.
 </p>
 
                     </div>
