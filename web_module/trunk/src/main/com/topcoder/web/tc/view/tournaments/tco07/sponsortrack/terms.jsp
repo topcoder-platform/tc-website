@@ -39,9 +39,7 @@
                     <td id="bodySpacer" width="100%">
                         <div id="pageBody">
 
-                            <h1>
-                                <div>Registration</div>
-                            </h1>
+                            <h1><span>Registration</span></h1>
 
                             <form name="terms" method="post" action="${sessionInfo.servletPath}">
                                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO07SubmitSponsorRegistration"/>
