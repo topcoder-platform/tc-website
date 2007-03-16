@@ -44,7 +44,8 @@
         </h1>
 
         <p><strong>NOTE:</strong> this ranking does not consider the
-            <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=rules#scoring">tiebreaker rules</A>.</p>
+            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=rules#scoring">tiebreaker
+                rules</A>.</p>
 
         <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
             <thead>
