@@ -6,14 +6,13 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>03.16.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_metricReporting">Metric Reporting Testing Competition</A>
+        <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Metric Reporting Testing Competitions</A>
         </span><br><br>
-        There's a new Testing Competition available. The application has already been created. The goal of this competition is to try and break it.
+        There are a couple new Testing Competitions available. The application has already been created. The goal of these competitions is to try and break it.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_metricReporting">details</A> | 
-         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=2041">discuss this</A> | 
+         <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">details</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
