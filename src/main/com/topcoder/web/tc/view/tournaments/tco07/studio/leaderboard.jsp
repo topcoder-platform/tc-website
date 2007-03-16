@@ -5,6 +5,7 @@
 <% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("results"));%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
 <html>
@@ -86,6 +87,8 @@
                 </tr>
             </thead>
             <tbody>
+                <c:set name="eventId" value="<%=Constants.EVENT_ID%>"/>
+                <c:set name="eventId" value="<%=Constants.USER_ID%>"/>
                 <%int i = 0;%>
                 <rsc:iterator list='<%=rsc%>' id="resultRow">
                     <tr class="<%=(i%2==0 ? "dark" : "light")%>">
@@ -98,7 +101,7 @@
                             </strong>
                         </td>
                         <td class="valueC">
-                            <a href="">
+                            <a href="tc?<%=Constants.MODULE_KEY%>=StudioUserContests&amp${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow.getLongItem("user_id")%>"/>&amp;d1=tournament&amp;d2=tco07&amp;d3=studio&amp;d4=completedContests">
                                 <rsc:item name="completed_contests" row="<%=resultRow%>"/>
                             </A>
                         </td>
@@ -106,7 +109,7 @@
                             <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="points" row="<%=resultRow%>"/></span>
                         </td>
                         <td class="valueC">
-                            <a href="">
+                            <a href="tc?<%=Constants.MODULE_KEY%>=StudioUserContests&amp${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow.getLongItem("user_id")%>"/>&amp;d1=tournament&amp;d2=tco07&amp;d3=studio&amp;d4=currentContests">
                                 <rsc:item name="current_contests" row="<%=resultRow%>"/>
                             </A>
                         </td>
