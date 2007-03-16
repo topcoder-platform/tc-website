@@ -1,4 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -51,25 +53,27 @@
                                     </tr>
                                     <tr>
                                         <td class="header">
-                                            <A href="">Contest</A>
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("contest_name")%>"/>">Contest</A>
                                         </td>
                                         <td class="headerC">
-                                            <A href="">Start Date</A>
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("start_time")%>"/>">Start
+                                                Date</A>
                                         </td>
                                         <td class="headerC">
-                                            <A href="">End Date</A>
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("end_time")%>"/>">End
+                                                Date</A>
                                         </td>
                                         <td class="headerC">
-                                            <A href="">Registrants</A>
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("registrants")%>"/>">Registrants</A>
                                         </td>
                                         <td class="headerC">
-                                            <A href="">Submissions</A>
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("submissions")%>"/>">Submissions</A>
                                         </td>
                                         <td class="headerC">
-                                            <A href="">Placed</A>
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("place")%>"/>">Placed</A>
                                         </td>
                                         <td class="headerC">
-                                            <A href="">Points</A>
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("points")%>"/>">Points</A>
                                         </td>
                                     </tr>
                                 </thead>
@@ -79,7 +83,7 @@
                                         <tr class="<%=(even ? "dark" : "light")%>">
                                             <td class="value">
                                                     <%-- if completed, link to results.  if in progress, link to contest details --%>
-                                                <A href="">
+                                                <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?<%=Constants.MODULE_KEY%>=ViewContestResults&amp;ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                                                     <rsc:item name="contest_name" row="<%=resultRow%>"/>
                                                 </A>
                                             </td>
