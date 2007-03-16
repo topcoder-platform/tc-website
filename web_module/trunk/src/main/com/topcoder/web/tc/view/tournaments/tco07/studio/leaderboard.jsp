@@ -87,8 +87,8 @@
                 </tr>
             </thead>
             <tbody>
-                <c:set name="eventId" value="<%=Constants.EVENT_ID%>"/>
-                <c:set name="eventId" value="<%=Constants.USER_ID%>"/>
+                <c:set value="<%=Constants.EVENT_ID%>" var="eventId"/>
+                <c:set value="<%=Constants.USER_ID%>" var="userId"/>
                 <%int i = 0;%>
                 <rsc:iterator list='<%=rsc%>' id="resultRow">
                     <tr class="<%=(i%2==0 ? "dark" : "light")%>">
