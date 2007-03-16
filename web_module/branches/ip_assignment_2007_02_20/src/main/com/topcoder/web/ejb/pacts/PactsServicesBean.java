@@ -4987,6 +4987,70 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return s;
         return '"' + s + '"';
     }
+    
+    private void checkAssignmentDocumentBeforePrint(Connection c) throws Exception {
+        StringBuffer getHoldComponentPayments = new StringBuffer(300);
+        getHoldComponentPayments.append("SELECT p.payment_id, p2.payment_id ");
+        getHoldComponentPayments.append("FROM payment p, payment_detail pd, user u, OUTER payment p2, OUTER assignment_document ad ");
+        getHoldComponentPayments.append("WHERE p.referral_payment_id = p2.payment_id ");
+        getHoldComponentPayments.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+        getHoldComponentPayments.append("AND pd.status_id = " + READY_TO_PRINT_STATUS + " ");
+        getHoldComponentPayments.append("AND p.user_id = ad.user_id ");
+        getHoldComponentPayments.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
+        getHoldComponentPayments.append("AND pd.component_project_id = ad.component_project_id ");
+        ResultSetContainer rscComponent = runSelectQuery(c, getHoldComponentPayments.toString(), false);
+
+        List changeToOnHold = new ArrayList();
+        
+        for (Iterator it = rscComponent.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            Long paymentId = (Long) rsr.getItem(0).getResultData();
+            Long referId = (Long) rsr.getItem(1).getResultData();
+
+            changeToOnHold.add(paymentId);
+            
+            if (referId != null) {
+                changeToOnHold.add(referId);
+            }
+        }
+        
+        StringBuffer getHoldStudioPayments = new StringBuffer(300);
+        getHoldStudioPayments.append("SELECT p.payment_id, p2.payment_id ");
+        getHoldStudioPayments.append("FROM payment p, payment_detail pd, user u, OUTER payment p2, OUTER assignment_document ad ");
+        getHoldStudioPayments.append("WHERE p.referral_payment_id = p2.payment_id ");
+        getHoldStudioPayments.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+        getHoldStudioPayments.append("AND pd.status_id = " + READY_TO_PRINT_STATUS + " ");
+        getHoldStudioPayments.append("AND p.user_id = ad.user_id ");
+        getHoldStudioPayments.append("AND pd.payment_type_id = " + TC_STUDIO_PAYMENT + " ");
+        getHoldStudioPayments.append("AND pd.studio_contest_id = ad.studio_contest_id ");
+        ResultSetContainer rscStudio = runSelectQuery(c, getHoldStudioPayments.toString(), false);
+
+        for (Iterator it = rscStudio.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            Long paymentId = (Long) rsr.getItem(0).getResultData();
+            Long referId = (Long) rsr.getItem(1).getResultData();
+
+            changeToOnHold.add(paymentId);
+            
+            if (referId != null) {
+                changeToOnHold.add(referId);
+            }
+        }
+        
+        // make all of them on hold.
+        // There's a small chance that a referral payment in this set has
+        // already been paid.  So we can't update all at once.
+        int i = 0;
+        long pid[] = new long[changeToOnHold.size()];
+        for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
+                pid[i] = ((Long) it.next()).longValue();
+                log.debug("Moving payment " + pid[i] + " to on hold");
+        }
+        
+        if (i > 0) {
+            updatePaymentStatus(c, pid, PAYMENT_ON_HOLD_STATUS);
+        }
+    }
 
     /**
      * Prints the payments that have status of "Ready to Print" to an external location.
@@ -5060,6 +5124,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
+            // Then we also need to put payments on hold in case they are component or studio payments
+            // and they don't have a affirmed Assignment Document.
+            checkAssignmentDocumentBeforePrint(c);
+            
             // Now get the surviving payments that are ready to print
             StringBuffer select = new StringBuffer(700);
             select.append("SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
