@@ -3,6 +3,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("results"));%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 
 <html>
 <head>
@@ -21,109 +23,110 @@
 <jsp:include page="../header.jsp"/>
 
 <table cellpadding="0" cellspacing="0" id="spacer">
-    <tbody>
-        <tr>
-            <td id="navSpacer">
+<tbody>
+<tr>
+<td id="navSpacer">
 
-                <jsp:include page="../nav.jsp">
-                    <jsp:param name="tabLev1" value="studio"/>
-                    <jsp:param name="tabLev2" value="advancers"/>
-                    <jsp:param name="tabLev3" value="leaderboard"/>
-                </jsp:include>
+    <jsp:include page="../nav.jsp">
+        <jsp:param name="tabLev1" value="studio"/>
+        <jsp:param name="tabLev2" value="advancers"/>
+        <jsp:param name="tabLev3" value="leaderboard"/>
+    </jsp:include>
 
-            </td>
-            <td id="bodySpacer" width="100%">
-                <div id="pageBody">
+</td>
+<td id="bodySpacer" width="100%">
+    <div id="pageBody">
 
-                    <h1>
-                        <div>Studio Leaderboard</div>
-                    </h1>
+        <h1>
+            <div>Studio Leaderboard</div>
+        </h1>
 
-                    <p><strong>NOTE:</strong> this ranking does not consider the <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=rules#scoring">tiebreaker rules</A>.</p>
+        <p><strong>NOTE:</strong> this ranking does not consider the
+            <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=rules#scoring">tiebreaker rules</A>.</p>
 
-                    <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
-                        <thead>
-                            <tr>
-                                <td class="title" colspan="7">
-                                    Studio Leaderboard
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="headerC" rowspan="2" width="1%">
-                                    <A href="">Rank</A>
-                                </td>
-                                <td class="header" rowspan="2">
-                                    <A href="">Handle</A>
-                                </td>
-                                <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
-                                    Completed
-                                </td>
-                                <td class="headerC" colspan="2" nowrap="nowrap">
-                                    In Progress
-                                </td>
-                                <td class="headerC" rowspan="2" nowrap="nowrap">
-                                    <A href="">Potential Total<br>Points</A>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="headerC">
-                                    <A href="">Contests</A>
-                                </td>
-                                <td class="headerC" style="border-right: 1px solid #999999;">
-                                    <A href="">Points</A>
-                                </td>
-                                <td class="headerC">
-                                    <A href="">Contests</A>
-                                </td>
-                                <td class="headerC">
-                                    <A href="">Points</A>
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <%int i = 0;%>
-                            <rsc:iterator list='<%=rsc%>' id="resultRow">
-                                <tr class="<%=(i%2==0 ? "dark" : "light")%>">
-                                    <td class="valueC">
-                                        <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="rank" row="<%=resultRow%>"/></span>
-                                    </td>
-                                    <td class="value">
-                                        <strong>
-                                            <rsc:item name="handle" row="<%=resultRow%>"/>
-                                        </strong>
-                                    </td>
-                                    <td class="valueC">
-                                        <a href="">
-                                            <rsc:item name="completed_contests" row="<%=resultRow%>"/>
-                                        </A>
-                                    </td>
-                                    <td class="valueC" style="border-right: 1px solid #999999;">
-                                        <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="points" row="<%=resultRow%>"/></span>
-                                    </td>
-                                    <td class="valueC">
-                                        <a href="">
-                                            <rsc:item name="current_contests" row="<%=resultRow%>"/>
-                                        </A>
-                                    </td>
-                                    <td class="valueC">
-                                        <rsc:item name="potential_points" row="<%=resultRow%>"/>
-                                    </td>
-                                    <td class="valueC">
-                                        <rsc:item name="total_potential_points" row="<%=resultRow%>"/>
-                                    </td>
-                                </tr>
+        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+            <thead>
+                <tr>
+                    <td class="title" colspan="7">
+                        Studio Leaderboard
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headerC" rowspan="2" width="1%">
+                        <A href="">Rank</A>
+                    </td>
+                    <td class="header" rowspan="2">
+                        <A href="">Handle</A>
+                    </td>
+                    <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
+                        Completed
+                    </td>
+                    <td class="headerC" colspan="2" nowrap="nowrap">
+                        In Progress
+                    </td>
+                    <td class="headerC" rowspan="2" nowrap="nowrap">
+                        <A href="">Potential Total<br>Points</A>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="headerC">
+                        <A href="">Contests</A>
+                    </td>
+                    <td class="headerC" style="border-right: 1px solid #999999;">
+                        <A href="">Points</A>
+                    </td>
+                    <td class="headerC">
+                        <A href="">Contests</A>
+                    </td>
+                    <td class="headerC">
+                        <A href="">Points</A>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <%int i = 0;%>
+                <rsc:iterator list='<%=rsc%>' id="resultRow">
+                    <tr class="<%=(i%2==0 ? "dark" : "light")%>">
+                        <td class="valueC">
+                            <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="rank" row="<%=resultRow%>"/></span>
+                        </td>
+                        <td class="value">
+                            <strong>
+                                <rsc:item name="handle" row="<%=resultRow%>"/>
+                            </strong>
+                        </td>
+                        <td class="valueC">
+                            <a href="">
+                                <rsc:item name="completed_contests" row="<%=resultRow%>"/>
+                            </A>
+                        </td>
+                        <td class="valueC" style="border-right: 1px solid #999999;">
+                            <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="points" row="<%=resultRow%>"/></span>
+                        </td>
+                        <td class="valueC">
+                            <a href="">
+                                <rsc:item name="current_contests" row="<%=resultRow%>"/>
+                            </A>
+                        </td>
+                        <td class="valueC">
+                            <rsc:item name="potential_points" row="<%=resultRow%>"/>
+                        </td>
+                        <td class="valueC">
+                            <rsc:item name="total_potential_points" row="<%=resultRow%>"/>
+                        </td>
+                    </tr>
 
-                                <%i++;%>
-                            </rsc:iterator>
-
-
-                        </tbody>
-                    </table>
+                    <%i++;%>
+                </rsc:iterator>
 
 
-                </div>
-            </td>
-        </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</td>
+</tr>
 </table>
 
 
