@@ -58,7 +58,7 @@
     
                 <c:if test="${assignment_document.status.id == PENDING_STATUS_ID}">
                     <c:choose>
-                        <c:when test="${has_hard_copy">
+                        <c:when test="${has_hard_copy}">
                             <table>
                                 <tr>
                                     <td class="bodyText">
