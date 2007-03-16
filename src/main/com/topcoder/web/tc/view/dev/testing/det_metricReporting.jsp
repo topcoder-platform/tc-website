@@ -49,8 +49,6 @@ The Metric Reporting System is composed of a series of components built through 
 <span class="bodySubtitle">Competition Overview</span><br>
 The application described above has already been created.  The goal of this competition is to try and break it.  The competitors in this competition will create a set of automated test cases that will verify that the application is implemented according to the requirements documentation. The application has been divided into small, logical sections.  This competition represents the test cases for one section of this application. For section, a minimum set of test scenarios has already been created.  It is recommended that additional tests are also created.
 <br><br>
-The goal of this competition is to create valid test cases, not to fix the bugs with an application.  If an error occurs while running the tests for this application, then competitors should verify the test case runs properly and note the issue to the project manager for this project (<A href="mailto:cparish@topcoder.com?subject=Metric Reporting Testing Competition">cparish@topcoder.com</A>).
-<br><br>
 <div align="right"><A href="/tc?module=Static&d1=features&d2=071006"><img src="/i/development/testing/learn_more.gif" alt="Want to Learn More?" border="0" /></A></div>
 
 <div class="sectionHeader">Technologies</div>
@@ -140,16 +138,16 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="center"><strong>Start</strong></td><td align="center"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Registration Phase:</td><td align="center">03.16.2007</td><td align="center">03.19.2007</td>
+      <td>Registration Phase:</td><td align="center">03.16.2007</td><td align="center">03.20.2007</td>
    </tr>
    <tr>
-      <td>Test Submission:</td><td align="center">03.17.2007</td><td align="center">03.23.2007</td>
+      <td>Test Submission:</td><td align="center">03.17.2007</td><td align="center">03.24.2007</td>
    </tr>
    <tr>
-      <td>Test Case Screening:</td><td align="center">03.23.2007</td><td align="center">03.25.2007</td>
+      <td>Test Case Screening:</td><td align="center">03.24.2007</td><td align="center">03.26.2007</td>
    </tr>
    <tr>
-      <td>Winner Selection:</td><td align="center">&nbsp;</td><td align="center">03.25.2007</td>
+      <td>Winner Selection:</td><td align="center">&nbsp;</td><td align="center">03.27.2007</td>
    </tr>
 </table>
 </div>
