@@ -26,7 +26,7 @@ public class StudioLeaderboard extends Static {
         String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
         String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
         if (sortCol != null && sortDir != null && rsc != null) {
-            rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+            rsc.sortByColumn(Integer.parseInt(sortCol), sortDir.trim().toLowerCase().equals("asc"));
         }
 
         SortInfo s = new SortInfo();
