@@ -1343,6 +1343,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         AssignmentDocument ad = new AssignmentDocument();
         log.debug("a1");
         ad.setId(new Long(rsr.getLongItem("assignment_document_id")));
+
+        ad.setHardCopy(new Boolean(rsr.getBooleanItem("assignment_document_id")));
         log.debug("a2");
         ad.setAffirmedDate(rsr.getTimestampItem("affirmed_date"));
         log.debug("a3");
@@ -1415,6 +1417,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("ad.assignment_document_status_id , ");
         sb.append("ads.assignment_document_status_desc , ");
         sb.append("ad.assignment_document_text , ");
+        sb.append("ad.assignment_document_hard_copy_ind , ");
         sb.append("ad.assignment_document_submission_title , ");
         sb.append("ad.user_id , ");
         sb.append("ad.studio_contest_id , ");
@@ -1429,55 +1432,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("and ad.assignment_document_status_id <> " + AssignmentDocumentStatus.DELETED_STATUS_ID);
         return sb;
     }
-
-    /**
-     * Returns the list of all assignment document status.
-     *
-     * @return The list of assignment document status
-     * @throws SQLException If there is some problem retrieving the data
-     */
-/*    public List getAssignmentDocumentByProjectId(long projectId) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        ResultSetContainer rsc = null;
-
-        try {
-            conn = DBMS.getConnection();
-
-            log.debug("get the assignment document from the db");
-            
-            StringBuffer getAssignmentDocument = getAssignmentDocumentSelect().append("and ad.component_project_id = ? ");
-            ps = conn.prepareStatement(getAssignmentDocument.toString());
-
-            ps.setLong(1, projectId);
-            rs = ps.executeQuery();
-            rsc =  new ResultSetContainer(rs, false);
-
-            if (rsc.isEmpty()) {
-                return new ArrayList();
-            }
-            
-            List l = new ArrayList();
-            for (Iterator it = rsc.iterator(); it.hasNext(); ) {
-                ResultSetRow rsr = (ResultSetRow) it.next();
-                
-                AssignmentDocument ad = createAssignmentDocumentBean(conn, rsr);
-                l.add(ad);
-            }
-            return l;
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
-            throw(new EJBException(e.getMessage()));
-        } catch (Exception e) {
-            throw(new EJBException(e.getMessage()));
-        } finally {
-            close(rs);
-            close(ps);
-            close(conn);
-        }
-    }*/
-    
 
     /**
      * Returns the list of all assignment document status.
@@ -1517,6 +1471,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     objects.add(value);
                 } else if (key.equals(STATUS)) {
                     getAssignmentDocument.append("and ad.assignment_document_status_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(HARD_COPY)) {
+                    getAssignmentDocument.append("and ad.assignment_document_hard_copy_ind = ? ");
                     objects.add(value);
                 } else if (key.equals(COMPONENT_PROJECT)) {
                     getAssignmentDocument.append("and ad.component_project_id = ? ");
@@ -1842,13 +1799,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 query.append("assignment_document_type_id , ");
                 query.append("assignment_document_status_id , ");
                 query.append("assignment_document_text , ");
+                query.append("assignment_document_hard_copy_ind , ");
                 query.append("assignment_document_submission_title , ");
                 query.append("user_id , ");
                 query.append("studio_contest_id , ");
                 query.append("component_project_id , ");
                 query.append("affirmed_date , ");
                 query.append("expire_date , ");
-                query.append("modify_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current)");
+                query.append("modify_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current)");
     
                 long assignmentDocumentId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_SEQ");
                 ad.setId(new Long(assignmentDocumentId));
@@ -1859,6 +1817,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 query.append("assignment_document_type_id = ?, ");
                 query.append("assignment_document_status_id = ?, ");
                 query.append("assignment_document_text = ?, ");
+                query.append("assignment_document_hard_copy_ind = ?, ");
                 query.append("assignment_document_submission_title = ?, ");
                 query.append("user_id = ?, ");
                 query.append("studio_contest_id = ?, ");
@@ -1874,14 +1833,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(2, ad.getType().getId().longValue());
             ps.setLong(3, ad.getStatus().getId().longValue());
             ps.setString(4, ad.getText());
-            ps.setString(5, ad.getSubmissionTitle());
-            ps.setLong(6, ad.getUser().getId().longValue());
-            ps.setObject(7, ad.getStudioContest() == null ? null : ad.getStudioContest().getId());
-            ps.setObject(8, ad.getComponentProject() == null ? null : ad.getComponentProject().getId());
-            ps.setTimestamp(9, ad.getAffirmedDate());
-            ps.setTimestamp(10, ad.getExpireDate());
+            ps.setBoolean(5, ad.isHardCopy().booleanValue());
+            ps.setString(6, ad.getSubmissionTitle());
+            ps.setLong(7, ad.getUser().getId().longValue());
+            ps.setObject(8, ad.getStudioContest() == null ? null : ad.getStudioContest().getId());
+            ps.setObject(9, ad.getComponentProject() == null ? null : ad.getComponentProject().getId());
+            ps.setTimestamp(10, ad.getAffirmedDate());
+            ps.setTimestamp(11, ad.getExpireDate());
             if (!addOperation) {
-                ps.setLong(11, ad.getId().longValue());
+                ps.setLong(12, ad.getId().longValue());
             }
             int rc = ps.executeUpdate();
             if (rc != 1) {

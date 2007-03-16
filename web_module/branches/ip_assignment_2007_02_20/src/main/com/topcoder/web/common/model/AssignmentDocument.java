@@ -15,6 +15,7 @@ public class AssignmentDocument extends Base {
     private String submissionTitle;
     private String text;
     private User user;
+    private Boolean hardCopy;
     private StudioContest studioContest;
     private ComponentProject componentProject;
     private Timestamp affirmedDate;
@@ -25,6 +26,14 @@ public class AssignmentDocument extends Base {
     public AssignmentDocument() {
         type = new AssignmentDocumentType();
         status = new AssignmentDocumentStatus();
+    }
+
+    public Boolean isHardCopy() {
+        return hardCopy;
+    }
+
+    public void setHardCopy(Boolean hardCopy) {
+        this.hardCopy = hardCopy;
     }
 
     /**

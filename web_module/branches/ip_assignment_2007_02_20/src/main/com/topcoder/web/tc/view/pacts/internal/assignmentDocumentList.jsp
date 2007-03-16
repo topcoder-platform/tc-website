@@ -33,6 +33,7 @@
                 <td><b>Submission Title</b></td>
                 <td><b>Type</b></td>
                 <td><b>Status</b></td>
+                <td><b>Hard Copy</b></td>
                 <td><b>Expire Date</b></td>
                 <td><b>Affirmed Date</b></td>
                 <td><b>Create Date</b></td>
@@ -45,6 +46,12 @@
                 <td><a href="${pacts:viewAssignmentDocument(ad.id)}"><c:out value="${ad.submissionTitle}"/></a></td>
                 <td><c:out value="${ad.type.description}"/></td>
                 <td><c:out value="${ad.status.description}"/></td>
+                <td>
+                <c:choose>
+                    <c:when test="${ad.hardCopy}">Yes</c:when>
+                    <c:otherwise>No</c:otherwise>
+                </c:choose>
+                </td>
                 <td><fmt:formatDate value="${ad.expireDate}" pattern="MM/dd/yyyy"/></td>
                 <td><fmt:formatDate value="${ad.affirmedDate}" pattern="MM/dd/yyyy"/></td>
                 <td><fmt:formatDate value="${ad.createDate}" pattern="MM/dd/yyyy"/></td>

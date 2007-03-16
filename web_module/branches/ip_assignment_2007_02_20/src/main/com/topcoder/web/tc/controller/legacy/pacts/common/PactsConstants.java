@@ -279,6 +279,7 @@ public interface PactsConstants extends Constants {
     public static final String SUBMISSION_TITLE = "submission_title";
     public static final String TYPE = "type";
     public static final String STATUS = "status";
+    public static final String HARD_COPY = "hard_copy";
     public static final String COMPONENT_PROJECT = "component_project";
     public static final String STUDIO_CONTEST = "studio_contest";
     public static final String EARLIEST_EXPIRE_DATE = "earliest_expire_date";

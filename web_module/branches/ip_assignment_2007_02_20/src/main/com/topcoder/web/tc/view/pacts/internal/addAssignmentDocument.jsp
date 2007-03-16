@@ -206,6 +206,14 @@ function loaded() {
 			</td>
 		</tr>
         <tr>
+            <td><b>Hard Copy:</b>
+            </td>
+            <td>        
+                <br/>
+                <tc-webtag:chkBox name="assignment_document_hard_copy"/>
+            </td>
+        </tr>
+        <tr>
 	        <td><b>Expiration Date:</b></td><td>
 	        <tc-webtag:textInput name="expire_date" id="expire_date" size="12" editable="true" /> 
 	            <button id="trigger_expire_date">Set</button> (set to current date + 7 days if left empty)
