@@ -434,7 +434,7 @@ public class RatingQubits {
                 }
                 ratingOrder++;
             }
-            System.out.println(processed + " rows updated the rating_order");
+            System.out.println("updated rating_order in " + processed + " rows");
             
             rs2.close();
             ps.close();
