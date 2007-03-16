@@ -102,7 +102,7 @@
                             </strong>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournament&amp;d2=tco07&amp;d3=studio&amp;d4=completedContests">
+                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=completedContests">
                                 <rsc:item name="completed_contests" row="<%=resultRow%>"/>
                             </A>
                         </td>
@@ -110,7 +110,7 @@
                             <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="points" row="<%=resultRow%>"/></span>
                         </td>
                         <td class="valueC">
-                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournament&amp;d2=tco07&amp;d3=studio&amp;d4=currentContests">
+                            <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=currentContests">
                                 <rsc:item name="current_contests" row="<%=resultRow%>"/>
                             </A>
                         </td>
