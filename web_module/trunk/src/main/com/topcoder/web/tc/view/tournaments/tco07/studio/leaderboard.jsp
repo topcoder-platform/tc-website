@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("results"));%>
@@ -53,10 +54,10 @@
                 </tr>
                 <tr>
                     <td class="headerC" rowspan="2" width="1%">
-                        <A href="">Rank</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</A>
                     </td>
                     <td class="header" rowspan="2">
-                        <A href="">Handle</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</A>
                     </td>
                     <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
                         Completed
@@ -65,21 +66,22 @@
                         In Progress
                     </td>
                     <td class="headerC" rowspan="2" nowrap="nowrap">
-                        <A href="">Potential Total<br>Points</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort column="<%=rsc.getColumnIndex("total_potential_points")%>"/>">Potential
+                            Total<br>Points</A>
                     </td>
                 </tr>
                 <tr>
                     <td class="headerC">
-                        <A href="">Contests</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort column="<%=rsc.getColumnIndex("completed_contests")%>"/>">Contests</A>
                     </td>
                     <td class="headerC" style="border-right: 1px solid #999999;">
-                        <A href="">Points</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort column="<%=rsc.getColumnIndex("points")%>"/>">Points</A>
                     </td>
                     <td class="headerC">
-                        <A href="">Contests</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort column="<%=rsc.getColumnIndex("current_contests")%>"/>">Contests</A>
                     </td>
                     <td class="headerC">
-                        <A href="">Points</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort column="<%=rsc.getColumnIndex("potential_points")%>"/>">Points</A>
                     </td>
                 </tr>
             </thead>
