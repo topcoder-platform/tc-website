@@ -115,7 +115,11 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                         ad.setStudioContest(c);
                     }
 
+                    log.debug("hard copy: " + getRequest().getParameter("assignment_document_hard_copy"));
+                    
                     ad.setHardCopy(new Boolean("on".equals(getRequest().getParameter("assignment_document_hard_copy"))));
+
+                    log.debug("ad.isHardCopy: " + ad.isHardCopy());
 
                     if (expireDate != null) {
                         ad.setExpireDate(new Timestamp(expireDate.getTime()));
