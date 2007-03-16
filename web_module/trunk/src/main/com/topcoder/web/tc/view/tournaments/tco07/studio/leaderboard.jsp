@@ -103,22 +103,22 @@
                         </td>
                         <td class="valueC">
                             <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=completedContests">
-                                <rsc:item name="completed_contests" row="<%=resultRow%>" ifNull="0"/>
+                                <rsc:item name="completed_contests" row="<%=resultRow%>" ifNull="&nbsp;"/>
                             </A>
                         </td>
                         <td class="valueC" style="border-right: 1px solid #999999;">
-                            <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="points" row="<%=resultRow%>" ifNull="0"/></span>
+                            <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="points" row="<%=resultRow%>" ifNull="&nbsp;"/></span>
                         </td>
                         <td class="valueC">
                             <a href="tc?${module}=StudioUserContests&amp;${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=currentContests">
-                                <rsc:item name="current_contests" row="<%=resultRow%>" ifNull="0"/>
+                                <rsc:item name="current_contests" row="<%=resultRow%>" ifNull="&nbsp;"/>
                             </A>
                         </td>
                         <td class="valueC">
-                            <rsc:item name="potential_points" row="<%=resultRow%>" format="#" ifNull="0"/>
+                            <rsc:item name="potential_points" row="<%=resultRow%>" format="#" ifNull="&nbsp;"/>
                         </td>
                         <td class="valueC">
-                            <rsc:item name="total_potential_points" row="<%=resultRow%>" format="#" ifNull="0"/>
+                            <rsc:item name="total_potential_points" row="<%=resultRow%>" format="#" ifNull="&nbsp;"/>
                         </td>
                     </tr>
 
