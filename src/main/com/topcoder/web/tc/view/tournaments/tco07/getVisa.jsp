@@ -39,7 +39,7 @@
                         </p>
                         <p>
                         The following countries DO NOT require a visa to enter the United States: <br>
-                        <a target="_blank" href="<tc-webtag:linkTracking link='http://travel.state.gov/visa/temp/without/without_1990.html#countries' refer='TCO07_VISA_PAGE' />">http://travel.state.gov/visa/temp/without/without_1990.html#countries</a>
+                        <a href="<tc-webtag:linkTracking link="http://travel.state.gov/visa/temp/without/without_1990.html#countries/"/>" target="_blank" refer="tco_getVisa"/>http://travel.state.gov/visa/temp/without/without_1990.html#countries</a>
 
                         <h2>Why should I get it early?</h2>
                         <p>
@@ -76,7 +76,7 @@
                         <p>
                        <h2>How do I apply for a visa?</h2>
                         <p>
-                        Begin by visiting: <A href="/?t=sponsor&c=link&link=http://www.unitedstatesvisas.gov/obtainingvisa/index.html" target="_blank">www.unitedstatesvisas.gov/obtainingvisa/index.html</a> or find your nearest U.S. Embassy or Consulate: <a href="/?t=sponsor&c=link&link=http://usembassy.state.gov" target="_blank">http://usembassy.state.gov</a> 
+                        Begin by visiting: <a href="<tc-webtag:linkTracking link="http://www.unitedstatesvisas.gov/obtainingvisa/index.html"/>" target="_blank" refer="tco_getVisa"/>www.unitedstatesvisas.gov/obtainingvisa/index.html</a> or find your nearest U.S. Embassy or Consulate: <a href="<tc-webtag:linkTracking link="http://usembassy.state.gov"/>" target="_blank" refer="tco_getVisa"/>http://usembassy.state.gov</a> 
                         </p>
                         <p>
                         <b>Remember, if you become a finalist in any competition, you MUST show proof of your visa and/or passport by the finalist deadline before TopCoder will book a flight for you.  If you do not have your visa and/or passport by the appropriate date, you will be disqualified as a finalist.   Please revisit the tournament rules for more information or email <A href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</A>.</b>

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -33,7 +34,7 @@
 
 <h1><span>Hotels near the TCO07</span></h1>
 <p>
-<A href="http://www.mirage.com/" target="_blank">The Mirage</A><br>
+<a href="<tc-webtag:linkTracking link="http://www.mirage.com/"/>" target="_blank" refer="tco_hotels"/>The Mirage</A><br>
 3400 S. Las Vegas Blvd.<br>
 Las Vegas, NV 89109<br>
 800-374-9000
@@ -42,19 +43,19 @@ Las Vegas, NV 89109<br>
 Several other hotels are located only a short walk from The Mirage.  We have included a representative sample for your convenience: 
 </p>
 <p>
-<A href="http://www.imperialpalace.com/stay.php" target="_blank">Imperial Palace</A><br>
+<a href="<tc-webtag:linkTracking link="http://www.imperialpalace.com/stay.php"/>" target="_blank" refer="tco_hotels"/>Imperial Palace</A><br>
 3535 S. Las Vegas Blvd.<br>
 Las Vegas, NV 89109<br>
 800-634-6441
 </p>
 <p>
-<A href="http://www.harrahs.com/casinos/harrahs-las-vegas/casino-misc/hotel-overview.html" target="_blank">Harrah's Las Vegas</A><br>
+<a href="<tc-webtag:linkTracking link="http://www.harrahs.com/casinos/harrahs-las-vegas/casino-misc/hotel-overview.html"/>" target="_blank" refer="tco_hotels"/>Harrah's Las Vegas</A><br>
 3475 S. Las Vegas Blvd.<br>
 Las Vegas, NV 89109<br>
 800-392-9002
 </p>
 <p>
-<A href="http://www.harrahs.com/casinos/caesars-palace/hotel-casino/property-home.shtml" target="_blank">Caesars Palace</A><br>
+<a href="<tc-webtag:linkTracking link="http://www.harrahs.com/casinos/caesars-palace/hotel-casino/property-home.shtml"/>" target="_blank" refer="tco_hotels"/>Caesars Palace</A><br>
 3570 S. Las Vegas Blvd.<br>
 Las Vegas, NV 89109<br>
 877-427-7243
