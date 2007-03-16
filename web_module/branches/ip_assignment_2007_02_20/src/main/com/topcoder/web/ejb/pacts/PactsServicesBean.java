@@ -1344,7 +1344,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         log.debug("a1");
         ad.setId(new Long(rsr.getLongItem("assignment_document_id")));
 
-        ad.setHardCopy(new Boolean(rsr.getIntItem("assignment_document_id") == 1));
+        ad.setHardCopy(new Boolean(rsr.getIntItem("assignment_document_hard_copy_ind") == 1));
         log.debug("a2");
         ad.setAffirmedDate(rsr.getTimestampItem("affirmed_date"));
         log.debug("a3");
@@ -1833,8 +1833,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(2, ad.getType().getId().longValue());
             ps.setLong(3, ad.getStatus().getId().longValue());
             ps.setString(4, ad.getText());
-            log.debug("ad.isHardCopy(): " + ad.isHardCopy());
-            log.debug("setHardCopy: " + (ad.isHardCopy().booleanValue() ? 1 : 0));
             ps.setInt(5, ad.isHardCopy().booleanValue() ? 1 : 0);
             ps.setString(6, ad.getSubmissionTitle());
             ps.setLong(7, ad.getUser().getId().longValue());
