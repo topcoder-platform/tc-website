@@ -31,9 +31,7 @@
                     <td id="bodySpacer" width="100%">
                         <%-- <img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />--%>
                         <div id="pageBody">
-                            <h1>
-                                <div>Competition Arena</div>
-                            </h1>
+                            <h1><span>Competition Arena</span></h1>
 
                             <p>Click
                                 <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=quickLaunch','comp',300,275);">here</a>
