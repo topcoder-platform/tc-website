@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -12,66 +12,73 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-    <jsp:include page="../../script.jsp" />
+    <jsp:include page="../../script.jsp"/>
 </head>
 <body>
 
 <% ResultSetContainer rsc = (ResultSetContainer) (request.getAttribute("list"));
-String compType = (String) request.getAttribute("ct"); %>
+    String compType = (String) request.getAttribute("ct"); %>
 
 <div align="center" style="background: transparent;">
     <div id="content">
 
-        <jsp:include page="../header.jsp" />
+        <jsp:include page="../header.jsp"/>
 
         <table cellpadding="0" cellspacing="0" id="spacer">
-        <tbody>
-            <tr>
-                <td id="navSpacer">
+            <tbody>
+                <tr>
+                    <td id="navSpacer">
 
-                    <jsp:include page="../nav.jsp" >
-                    <jsp:param name="tabLev1" value="studio"/>
-                    <jsp:param name="tabLev2" value="registrants"/>
-                    <jsp:param name="tabLev3" value=""/>
-                    </jsp:include>
+                        <jsp:include page="../nav.jsp">
+                            <jsp:param name="tabLev1" value="studio"/>
+                            <jsp:param name="tabLev2" value="registrants"/>
+                            <jsp:param name="tabLev3" value=""/>
+                        </jsp:include>
 
-                </td>
-                <td id="bodySpacer" width="100%">
-                    <div id="pageBody">
+                    </td>
+                    <td id="bodySpacer" width="100%">
+                        <div id="pageBody">
 
-                        <h1><div>Registrants</div></h1>
+                            <h1>
+                                <div>Registrants</div>
+                            </h1>
 
-<div align="center">
-<table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
-<thead>
-    <tr><td class="title">Registrants: <%=rsc.size()%></td></tr>
-    <tr>
-        <td class="header">
-            <a href="/tc?module=TCO07ViewRegistrants&ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
-        </td>
-    </tr>
-</thead>
-<tbody>
-        <%boolean even = false;%>
-        <rsc:iterator list='<%=rsc%>' id="resultRow">
-            <tr class="<%=(even ? "dark" : "light")%>">
-                <td class="value">
-                    <strong><rsc:item name="handle" row='<%=resultRow%>'/></strong>
-                </td>
-            </tr>
-        <%even = !even;%>
-        </rsc:iterator>
-</tbody>
-</table>
-</div>
+                            <div align="center">
+                                <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">
+                                    <thead>
+                                        <tr>
+                                            <td class="title">Registrants: <%=rsc.size()%>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="header">
+                                                <a href="/tc?module=TCO07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</a>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%boolean even = false;%>
+                                        <rsc:iterator list='<%=rsc%>' id="resultRow">
+                                            <tr class="<%=(even ? "dark" : "light")%>">
+                                                <td class="value">
+                                                    <strong>
+                                                        <rsc:item name="handle" row='<%=resultRow%>'/>
+                                                    </strong>
+                                                </td>
+                                            </tr>
+                                            <%even = !even;%>
+                                        </rsc:iterator>
+                                    </tbody>
+                                </table>
+                            </div>
 
-                    </div>
-                </td>
-            </tr>
+                        </div>
+                    </td>
+                </tr>
         </table>
 
 
-        <jsp:include page="../footer.jsp" />
+        <jsp:include page="../footer.jsp"/>
     </div>
 </div>
 
