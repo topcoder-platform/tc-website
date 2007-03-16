@@ -399,7 +399,7 @@ public class RatingQubits {
             sqlStr.append("and pi.project_id = pr.project_id ");
             sqlStr.append("and pi.project_id = p.project_id  ");
             sqlStr.append("and p.project_category_id in (1,2) ");
-            sqlStr.append("and p.project_status_id in (4, 7) ");
+            sqlStr.append("and p.project_status_id in (4,5,6, 7) ");
             sqlStr.append("order by user_id, project_category_id, year, month, day, p.project_id ");
             
             ps = conn.prepareStatement(sqlStr.toString());
