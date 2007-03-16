@@ -18,14 +18,14 @@ public class HandleTag extends TagSupport {
     private String link = "";
     private String cssclass = "";
     private boolean darkBG = false;
-/*
-    private boolean algorithm = false;
-    private boolean hsAlgorithm = false;
-    private boolean design = false;
-    private boolean development = false;
-    private boolean component = false;
-    private boolean hsOrAlgorithm = false;
-*/
+    /*
+        private boolean algorithm = false;
+        private boolean hsAlgorithm = false;
+        private boolean design = false;
+        private boolean development = false;
+        private boolean component = false;
+        private boolean hsOrAlgorithm = false;
+    */
     private String context = null;
 
     public final static String DEFAULT_LINK = "/tc?module=MemberProfile&amp;cr=";
@@ -127,7 +127,7 @@ public class HandleTag extends TagSupport {
             output.append("<a href=\"");
             if (link == null || link.equals("")) {
                 StringBuffer buf = new StringBuffer(100);
-                if (pageContext!=null && pageContext.getRequest().getServerName().indexOf(ApplicationServer.SERVER_NAME) >= 0) {
+                if (pageContext != null && pageContext.getRequest().getServerName().indexOf(ApplicationServer.SERVER_NAME) >= 0) {
                     link = buf.append(DEFAULT_LINK).append(coderId).toString();
                 } else {
                     link = buf.append("http://").append(ApplicationServer.SERVER_NAME).append(DEFAULT_LINK).append(coderId).toString();
@@ -135,35 +135,38 @@ public class HandleTag extends TagSupport {
 
             }
             output.append(link);
-            if (context!=null) {
+            if (context != null) {
                 if (context.trim().equalsIgnoreCase(ALGORITHM) && rsc.getIntItem(0, "algorithm_rating") > 0) {
-                    output.append("&tab=alg");
-                } else if (context.trim().equalsIgnoreCase(HS_ALGORITHM) && rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
-                    output.append("&tab=hs");
-                } else if (context.trim().equalsIgnoreCase(MARATHON_MATCH) && rsc.getIntItem(0, "marathon_match_rating") > 0) {
-                    output.append("&tab=long");
+                    output.append("&amp;tab=alg");
+                } else
+                if (context.trim().equalsIgnoreCase(HS_ALGORITHM) && rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
+                    output.append("&amp;tab=hs");
+                } else
+                if (context.trim().equalsIgnoreCase(MARATHON_MATCH) && rsc.getIntItem(0, "marathon_match_rating") > 0) {
+                    output.append("&amp;tab=long");
                 } else if (context.trim().equalsIgnoreCase(DESIGN) && rsc.getIntItem(0, "design_rating") > 0) {
-                    output.append("&tab=des");
-                } else if (context.trim().equalsIgnoreCase(DEVELOPMENT) && rsc.getIntItem(0, "development_rating") > 0) {
-                    output.append("&tab=dev");
+                    output.append("&amp;tab=des");
+                } else
+                if (context.trim().equalsIgnoreCase(DEVELOPMENT) && rsc.getIntItem(0, "development_rating") > 0) {
+                    output.append("&amp;tab=dev");
                 } else if (context.trim().equalsIgnoreCase(COMPONENT)) {
                     if (rsc.getIntItem(0, "design_rating") >= rsc.getIntItem(0, "development_rating")) {
                         if (rsc.getIntItem(0, "design_rating") > 0) {
-                            output.append("&tab=des");
+                            output.append("&amp;tab=des");
                         }
                     } else {
                         if (rsc.getIntItem(0, "development_rating") > 0) {
-                            output.append("&tab=dev");
+                            output.append("&amp;tab=dev");
                         }
                     }
                 } else if (context.trim().equalsIgnoreCase(HS_OR_ALGORITHM)) {
                     if (rsc.getIntItem(0, "algorithm_rating") >= rsc.getIntItem(0, "hs_algorithm_rating")) {
                         if (rsc.getIntItem(0, "algorithm_rating") > 0) {
-                            output.append("&tab=alg");
+                            output.append("&amp;tab=alg");
                         }
                     } else {
                         if (rsc.getIntItem(0, "hs_algorithm_rating") > 0) {
-                            output.append("&tab=hs");
+                            output.append("&amp;tab=hs");
                         }
                     }
                 }
@@ -218,7 +221,7 @@ public class HandleTag extends TagSupport {
 
             output.append("</a>");
         }
-            return output.toString();
+        return output.toString();
     }
 
     private static String getRatingCSS(int rating, String[] lightStyles, String[] darkStyles, boolean darkBG) {
