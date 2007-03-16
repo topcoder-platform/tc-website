@@ -191,21 +191,3 @@ As in Round 1, it was clear that any positive score would be enough to advance t
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial News" border="0" /><br>03.12.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=recursionPt1">An Introduction to Recursion, Part 1</A></span><br><br>
-Recursion is a wonderful programming tool, but it can be hard to see how a problem can be approached recursively. In this article we'll go over the basics of recursion and help you develop, or refine, this important programming skill. 
-        </td>
-      <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15498334" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tutorials&d2=recursionPt1">full story</A> | 
-        <tc-webtag:forumLink forumID="514702" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-   
-

@@ -11,6 +11,8 @@
             <A href="/?module=Static&amp;d1=schedule" onfocus="this.blur();">Schedule</A></li>
         <li<% if (selectedTab.equals("rules")) {%> class="on"<% } %>>
             <A href="/?module=Static&amp;d1=rules" onfocus="this.blur();">Rules</A></li>
+        <li<% if (selectedTab.equals("leaderboardOverview")) {%> class="on"<% } %>>
+            <A href="/?module=Static&d1=leaderboardOverview" onfocus="this.blur();">Leaderboard Overview</A></li>
         <li<% if (selectedTab.equals("competitions")) {%> class="on"<% } %>>
             <A href="/?module=Static&amp;d1=competitions" onfocus="this.blur();">Competitions</A></li>
         <li<% if (selectedTab.equals("discuss")) {%> class="on"<% } %> style="background-image: none; border-bottom: 1px solid #CCCCCC;">

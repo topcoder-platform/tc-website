@@ -25,7 +25,7 @@
         <jsp:include page="top.jsp"/>
 
         <jsp:include page="primaryNav.jsp">
-            <jsp:param name="selectedTab" value="rules"/>
+            <jsp:param name="selectedTab" value="leaderboardOverview"/>
         </jsp:include>
 
         <div id="main">
