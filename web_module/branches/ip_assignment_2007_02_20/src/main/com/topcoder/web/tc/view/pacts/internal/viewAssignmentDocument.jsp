@@ -55,8 +55,8 @@
             <td><b>Hard Copy:</b></td>
             <td>
                 <c:choose>
-                    <c:when test="${assignment_document.hardCopy}">Yes.</c:when>
-                    <c:otherwise>No.</c:otherwise>
+                    <c:when test="${assignment_document.hardCopy}">Yes</c:when>
+                    <c:otherwise>No</c:otherwise>
                 </c:choose>
             </td>
         </tr>

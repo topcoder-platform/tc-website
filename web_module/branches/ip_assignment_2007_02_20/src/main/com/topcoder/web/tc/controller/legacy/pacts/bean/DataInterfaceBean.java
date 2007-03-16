@@ -1769,5 +1769,9 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getAssignmentDocumentByUserIdStudioContestId(studioContestId, projectId);
     }
 
+    public Boolean hasHardCopyAssignmentDocumentByProjectId(long userId, long assignmentDocumentTypeId)  throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.hasHardCopyAssignmentDocumentByProjectId(userId, assignmentDocumentTypeId);
+    }
 }
 

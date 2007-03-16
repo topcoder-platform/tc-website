@@ -1582,6 +1582,25 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    public Boolean hasHardCopyAssignmentDocumentByProjectId(long userId, long assignmentDocumentTypeId) {
+        log.debug("check if user has a hard copy assignment document (project_id)");
+
+        try {
+            Map searchCriteria = new HashMap();
+           
+            log.debug("a");   
+            searchCriteria.put(USER_ID, String.valueOf(userId));
+            log.debug("b");   
+            searchCriteria.put(TYPE, String.valueOf(assignmentDocumentTypeId));
+            log.debug("c");   
+            searchCriteria.put(HARD_COPY, "1");
+
+            return new Boolean(findAssignmentDocument(searchCriteria).size() > 0);
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        }
+    }
+    
     public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) {
         log.debug("get the assignment document from the db (user_id : " + userId + " / typeId : " + assignmentDocumentTypeId + ")");
 
