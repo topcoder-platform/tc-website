@@ -51,7 +51,7 @@ We are seeking Top Coder's best to engineer algorithmic trading systems. We'll g
 <p>
 Technology drives our trading. You drive our technology.
 </p>
-                        <p><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drwConfirm" class="button" style="width: 70px;">Apply Now</a></p>
+                        <p><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=drwConfirm" class="button" style="width: 70px;">Apply Now</a></p>
                     </div>
                 </td>
             </tr>

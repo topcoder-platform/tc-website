@@ -12,7 +12,7 @@
 
     <SCRIPT type="text/javascript">
         function getReq() {
-            u = '?module=Static&d1=faq&d2=soft_req';
+            u = '?module=Static&amp;d1=faq&amp;d2=soft_req';
             window.open(u);
             close();
         }

@@ -34,7 +34,7 @@
                             <h1><span>Competition Arena</span></h1>
 
                             <p>Click
-                                <a href="Javascript:openWin('?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=quickLaunch','comp',300,275);">here</a>
+                                <a href="Javascript:openWin('?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=quickLaunch','comp',300,275);">here</a>
                                 to run the Competition Arena as a
                                 <a href="Javascript:openWin('?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=quickLaunch','comp',300,275);">Java
                                     Applet</A>.</p>
@@ -53,7 +53,7 @@
                                 <br><br><br><br><br><br><br><br></p>
 
                             <p>See the official
-                                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=rules">rules and
+                                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=rules">rules and
                                     regulations</A> for more details.
                             </p>
                         </div>

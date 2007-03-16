@@ -88,7 +88,7 @@
                                        <td class="value">April 19, 2007 9:00AM</td>
                                 </tr>
                                 <tr class="dark">
-                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
+                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&amp;day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
                                 </tr>
                         </tbody>
                         </table>
@@ -132,7 +132,7 @@
                                        <td class="value">N/A</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
+                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&amp;day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
                                 </tr>
                         </tbody>
                         </table>

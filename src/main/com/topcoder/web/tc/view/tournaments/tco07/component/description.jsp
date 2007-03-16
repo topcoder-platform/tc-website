@@ -55,10 +55,10 @@
                         All implementation and review work of the TopCoder Open Development Finals will take place online.  At the onsite event, the competitors will first see their review scorecards and the appeals phase will take place.
                         </p>
                         <p>
-                        When is the competition?  See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">schedule</a>.
+                        When is the competition?  See the <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=component&amp;d4=schedule">schedule</a>.
                         </p>
                         <p>
-                        It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=rules">rules and regulations</a> for more details.  
+                        It is important for you to read the official <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=component&amp;d4=rules">rules and regulations</a> for more details.  
                         </p>
                         <p>
                         The competition is free and you must be 18 years or older, as well as meet all eligibility criteria, in order to participate.

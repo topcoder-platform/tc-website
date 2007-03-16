@@ -34,7 +34,7 @@
                         <div style="float: right;">
                         <h2 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h2>
                         <strong>
-                        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolChat20070220">SRM 340</A>
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolChat20070220">SRM 340</A>
                         </strong>
                         </div>
 
@@ -46,7 +46,7 @@
                         AOL is a global Web services company that operates some of the most popular Web destinations and offers a comprehensive suite of free software and services. AOL also provides a range of resources and support for third-party developers. Available at <a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='TCO07_AOL_PAGES' />">dev.aol.com</a>, the AOL Developer Network provides the developer community with access to AOL's technology platform, open APIs, and design tools.
                         </p>
                         <p>
-                        Do you want millions of people to use your code? AOL is looking for top programming talent. If you are seeking new career opportunities and want to help shape the next generation of Web applications, AOL wants to hear from you. Check out our <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolOpps">current opportunities</a>.
+                        Do you want millions of people to use your code? AOL is looking for top programming talent. If you are seeking new career opportunities and want to help shape the next generation of Web applications, AOL wants to hear from you. Check out our <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolOpps">current opportunities</a>.
                         </p>
                         <p>
                         AOL and its subsidiaries have operations in the United States, Canada, Europe, and Asia.
@@ -54,7 +54,7 @@
                         <p>
                         * The TopCoder Open is sponsored by TopCoder, Inc. AOL LLC is not responsible for any aspect of the tournament.                           
                         </p>
-                        <p><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolOpps" class="button" style="width: 120px;">Current Opportunities</a></p>
+                        <p><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolOpps" class="button" style="width: 120px;">Current Opportunities</a></p>
                     </div>
                 </td>
             </tr>

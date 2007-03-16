@@ -86,7 +86,7 @@ Eligible employees must register separately for the Sponsor Track Competition.  
                         </tbody>
                         </table>
                         <p>&#160;</p>
-<p>See the official <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=rules">rules and regulations</a> for more details.</p>
+<p>See the official <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=rules">rules and regulations</a> for more details.</p>
 
                     </div>
                 </td>

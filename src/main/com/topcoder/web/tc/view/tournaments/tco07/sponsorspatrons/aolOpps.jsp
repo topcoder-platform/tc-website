@@ -126,7 +126,7 @@ Advertising.com, Inc., founded in 1998, is a leading provider of results-based i
 <b>Projects:</b> Optimization of internet advertising, Data mining, behavioral targeting of internet advertising, large scale ad serving, high performance technical computing, vary large scale data management, information retrieval algorithm design, numerical analysis 
 </p>
 <p>
-<a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolConfirm" class="button" style="width: 70px;">Apply Now</a>
+<a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolConfirm" class="button" style="width: 70px;">Apply Now</a>
 </p>
                     </div>
                 </td>

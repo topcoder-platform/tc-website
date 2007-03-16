@@ -47,7 +47,7 @@
                         <p>
                        You and Us. UBS.
                         </p>
-                        <p><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubsConfirm" class="button" style="width: 70px;">Apply Now</a></p>                       
+                        <p><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=ubsConfirm" class="button" style="width: 70px;">Apply Now</a></p>                       
                     </div>
                 </td>
             </tr>

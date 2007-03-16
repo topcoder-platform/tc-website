@@ -31,9 +31,7 @@
                     <td id="bodySpacer" width="100%">
                         <div id="pageBody">
 
-                            <h1>
-                                <div>Studio Design Competition</div>
-                            </h1>
+                            <h1><span>Studio Design Competition</span></h1>
                             <p>
                                 TopCoder Studio is thrilled to announce its first tournament for graphic and web
                                 designers! Competitors will put their design talent to the test during the 8-week Studio

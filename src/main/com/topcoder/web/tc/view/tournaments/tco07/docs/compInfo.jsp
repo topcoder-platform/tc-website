@@ -100,7 +100,7 @@
     <li>
         <p>
             <strong>TRAVEL FORM</strong> - View the
-            <a href="${sessionInfo.secureAbsoluteServletPath}?module=TourneyInfo&amp;d1=tournaments&amp;d2=tco07&d3=docs&amp;d4=compTravelInfo">Travel
+            <a href="${sessionInfo.secureAbsoluteServletPath}?module=TourneyInfo&amp;d1=tournaments&amp;d2=tco07&amp;d3=docs&amp;d4=compTravelInfo">Travel
                 Information Page.</a>
         </p>
     </li>

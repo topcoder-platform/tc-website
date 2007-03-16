@@ -141,7 +141,7 @@ Both the design and development competitions will have five (5) weeks of online 
                                        <td class="value">April 19, 2007 9:00AM</td>
                                 </tr>
                                 <tr class="dark">
-                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
+                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&amp;day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
                                 </tr>
                         </tbody>
                         </table>
@@ -185,7 +185,7 @@ Both the design and development competitions will have five (5) weeks of online 
                                        <td class="value">N/A</td>
                                 </tr>
                                 <tr class="light">
-                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
+                                       <td class="value" colspan="4">*All times are noted in Eastern Daylight Time (UTC/GMT -4). Click <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=3&amp;day=15&year=2007&hour=9&min=0&sec=0&p1=179" target="_blank">here</a> for your time zone.</td>
                                 </tr>
                         </tbody>
                         </table>
@@ -249,7 +249,7 @@ All contestants must confirm their attendance at the onsite rounds no later than
 </p>
 <p>
 <b>Visa Assistance</b><br>
-TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors that pass screening on at least one component, will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, their letter will be shipped out by FedEx International Priority mail.  Competitors have until 5:00 PM EDT (GMT/UTC -4) on Friday, Monday, April 23, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If you fail to request a visa invitation letter by the date above, TopCoder will not assist you in the process of obtaining a travel visa. See more information about <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=getvisa">travel visas</A>.  
+TopCoder will issue visa invitation letters at the request of international competitors who require one to obtain a travel visa to enter the United States. All competitors that pass screening on at least one component, will receive a request form to fill out if they require a letter.  As soon as a competitor fills out the form in its entirety, their letter will be shipped out by FedEx International Priority mail.  Competitors have until 5:00 PM EDT (GMT/UTC -4) on Friday, Monday, April 23, 2007 to request a letter. Visas can take a significant amount of time to obtain in certain countries; therefore, for those competitors who need a letter, it is in their best interest to request one well before the deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If you fail to request a visa invitation letter by the date above, TopCoder will not assist you in the process of obtaining a travel visa. See more information about <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=getvisa">travel visas</A>.  
 </p>
 <p>
 <b>Travel Details</b><br>

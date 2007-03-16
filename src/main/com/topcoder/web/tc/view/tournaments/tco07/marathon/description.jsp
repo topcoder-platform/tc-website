@@ -56,10 +56,10 @@ Competitors are encouraged to improve solutions and resubmit throughout the subm
 Once time is up for submitting, each submission will be run against a larger set of test cases and be issued a final score.  This final score will determine the rankings of the match and the advancers of the round.
 </p>
 <p>
-When is the competition?  See the <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule">schedule</A>.
+When is the competition?  See the <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=marathon&amp;d4=schedule">schedule</A>.
 </p>
 <p>
-It is important for you to read the official <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=rules">rules and regulations</A> for more details.  
+It is important for you to read the official <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=marathon&amp;d4=rules">rules and regulations</A> for more details.  
 </p>
 <p>
 The competition is free and you must be 18 years or older, as well as meet all eligibility criteria, in order to participate.
