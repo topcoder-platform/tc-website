@@ -170,7 +170,6 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                 setDefault("assignment_document_text", ad.getText());
                 setDefault("submission_title", ad.getSubmissionTitle());
                 log.info("10b");
-                log.info(ad.getComponentProject().getId().toString());
                 if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
                     setDefault("reference_id", String.valueOf(ad.getComponentProject().getId()));
                     getRequest().setAttribute("reference_description", ad.getComponentProject().getDescription());
