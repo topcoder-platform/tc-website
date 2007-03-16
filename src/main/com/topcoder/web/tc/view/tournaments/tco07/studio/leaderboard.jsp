@@ -37,71 +37,71 @@
 
 </td>
 <td id="bodySpacer" width="100%">
-    <div id="pageBody">
+<div id="pageBody">
 
-        <h1>
-            <div>Studio Leaderboard</div>
-        </h1>
+<h1>
+    <div>Studio Leaderboard</div>
+</h1>
 
-        <p><strong>NOTE:</strong> this ranking does not consider the
-            <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=rules#scoring">tiebreaker rules</A>.</p>
+<p><strong>NOTE:</strong> this ranking does not consider the
+    <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=rules#scoring">tiebreaker rules</A>.</p>
 
-        <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
-            <thead>
-                <tr>
-                    <td class="title" colspan="7">
-                        Studio Leaderboard
-                    </td>
-                </tr>
-                <tr>
-                    <td class="headerC" rowspan="2" width="1%">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</A>
-                    </td>
-                    <td class="header" rowspan="2">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</A>
-                    </td>
-                    <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
-                        Completed
-                    </td>
-                    <td class="headerC" colspan="2" nowrap="nowrap">
-                        In Progress
-                    </td>
-                    <td class="headerC" rowspan="2" nowrap="nowrap">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("total_potential_points")%>"/>">Potential
-                            Total<br>Points</A>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("completed_contests")%>"/>">Contests</A>
-                    </td>
-                    <td class="headerC" style="border-right: 1px solid #999999;">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("points")%>"/>">Points</A>
-                    </td>
-                    <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("current_contests")%>"/>">Contests</A>
-                    </td>
-                    <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("potential_points")%>"/>">Points</A>
-                    </td>
-                </tr>
-            </thead>
-            <tbody>
-                <c:set value="<%=Constants.EVENT_ID%>" var="eventId"/>
-                <c:set value="<%=Constants.USER_ID%>" var="userId"/>
-                <%int i = 0;%>
-                <rsc:iterator list='<%=rsc%>' id="resultRow">
-                    <tr class="<%=(i%2==0 ? "dark" : "light")%>">
-                        <td class="valueC">
-                            <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="rank" row="<%=resultRow%>"/></span>
-                        </td>
-                        <td class="value">
-                            <strong>
-                                <rsc:item name="handle" row="<%=resultRow%>"/>
-                            </strong>
-                        </td>
-                        <td class="valueC">
-                            <a href="tc?<%=Constants.MODULE_KEY%>=StudioUserContests&amp${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow.getLongItem("user_id")%>"/>&amp;d1=tournament&amp;d2=tco07&amp;d3=studio&amp;d4=completedContests">
+<table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+    <thead>
+        <tr>
+            <td class="title" colspan="7">
+                Studio Leaderboard
+            </td>
+        </tr>
+        <tr>
+            <td class="headerC" rowspan="2" width="1%">
+                <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</A>
+            </td>
+            <td class="header" rowspan="2">
+                <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</A>
+            </td>
+            <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
+                Completed
+            </td>
+            <td class="headerC" colspan="2" nowrap="nowrap">
+                In Progress
+            </td>
+            <td class="headerC" rowspan="2" nowrap="nowrap">
+                <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("total_potential_points")%>"/>">Potential
+                    Total<br>Points</A>
+            </td>
+        </tr>
+        <tr>
+            <td class="headerC">
+                <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("completed_contests")%>"/>">Contests</A>
+            </td>
+            <td class="headerC" style="border-right: 1px solid #999999;">
+                <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("points")%>"/>">Points</A>
+            </td>
+            <td class="headerC">
+                <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("current_contests")%>"/>">Contests</A>
+            </td>
+            <td class="headerC">
+                <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("potential_points")%>"/>">Points</A>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <c:set value="<%=Constants.EVENT_ID%>" var="eventId"/>
+        <c:set value="<%=Constants.USER_ID%>" var="userId"/>
+        <%int i = 0;%>
+        <rsc:iterator list='<%=rsc%>' id="resultRow">
+        <tr class="<%=(i%2==0 ? "dark" : "light")%>">
+            <td class="valueC">
+                <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="rank" row="<%=resultRow%>"/></span>
+            </td>
+            <td class="value">
+                <strong>
+                    <rsc:item name="handle" row="<%=resultRow%>"/>
+                </strong>
+            </td>
+            <td class="valueC">
+                <a href="tc?<%=Constants.MODULE_KEY%>=StudioUserContests&amp${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow"/>&amp;d1=tournament&amp;d2=tco07&amp;d3=studio&amp;d4=completedContests">
                                 <rsc:item name="completed_contests" row="<%=resultRow%>"/>
                             </A>
                         </td>
@@ -109,7 +109,7 @@
                             <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="points" row="<%=resultRow%>"/></span>
                         </td>
                         <td class="valueC">
-                            <a href="tc?<%=Constants.MODULE_KEY%>=StudioUserContests&amp${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow.getLongItem("user_id")%>"/>&amp;d1=tournament&amp;d2=tco07&amp;d3=studio&amp;d4=currentContests">
+                            <a href="tc?<%=Constants.MODULE_KEY%>=StudioUserContests&amp${eventId}=${param[eventId]}&amp;${userId}=<rsc:item name="user_id" row="<%=resultRow%>"/>&amp;d1=tournament&amp;d2=tco07&amp;d3=studio&amp;d4=currentContests">
                                 <rsc:item name="current_contests" row="<%=resultRow%>"/>
                             </A>
                         </td>
