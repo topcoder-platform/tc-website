@@ -205,7 +205,7 @@ function fib(n)
 function calcFibonacci(n,memo)
 {
     // If we've got the answer in our memo, no need to recalculate
-    if memo[n]!=-1 then return -1
+    if memo[n]!=-1 then return memo[n]
 
     // Otherwise, calculate the answer and store it in memo    
     memo[n] = calcFibonacci(n-2,memo) + calcFibonacci(n-1,memo)
