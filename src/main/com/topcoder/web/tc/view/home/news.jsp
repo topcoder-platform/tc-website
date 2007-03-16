@@ -4,6 +4,21 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>03.16.07<br>3:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_metricReporting">Metric Reporting Testing Competition</A>
+        </span><br><br>
+        There's a new Testing Competition available. The application has already been created. The goal of this competition is to try and break it.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_metricReporting">details</A> | 
+         <A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=2041">discuss this</A> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.16.07<br>2:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=SurveyResults&sid=16651">The votes are in for the new Press Room design</A>
