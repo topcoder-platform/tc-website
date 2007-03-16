@@ -4991,7 +4991,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private void checkAssignmentDocumentBeforePrint(Connection c) throws Exception {
         StringBuffer getHoldComponentPayments = new StringBuffer(300);
         getHoldComponentPayments.append("SELECT p.payment_id, p2.payment_id ");
-        getHoldComponentPayments.append("FROM payment p, payment_detail pd, user u, OUTER payment p2, OUTER assignment_document ad ");
+        getHoldComponentPayments.append("FROM payment p, payment_detail pd, OUTER payment p2, OUTER assignment_document ad ");
         getHoldComponentPayments.append("WHERE p.referral_payment_id = p2.payment_id ");
         getHoldComponentPayments.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
         getHoldComponentPayments.append("AND pd.status_id = " + READY_TO_PRINT_STATUS + " ");
@@ -5016,7 +5016,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         
         StringBuffer getHoldStudioPayments = new StringBuffer(300);
         getHoldStudioPayments.append("SELECT p.payment_id, p2.payment_id ");
-        getHoldStudioPayments.append("FROM payment p, payment_detail pd, user u, OUTER payment p2, OUTER assignment_document ad ");
+        getHoldStudioPayments.append("FROM payment p, payment_detail pd, OUTER payment p2, OUTER assignment_document ad ");
         getHoldStudioPayments.append("WHERE p.referral_payment_id = p2.payment_id ");
         getHoldStudioPayments.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
         getHoldStudioPayments.append("AND pd.status_id = " + READY_TO_PRINT_STATUS + " ");
@@ -5040,6 +5040,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // make all of them on hold.
         // There's a small chance that a referral payment in this set has
         // already been paid.  So we can't update all at once.
+        log.debug("Size: " + changeToOnHold.size());
         int i = 0;
         long pid[] = new long[changeToOnHold.size()];
         for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
