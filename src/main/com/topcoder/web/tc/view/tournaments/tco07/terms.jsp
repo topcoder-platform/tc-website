@@ -49,7 +49,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Registration</div></h1>
+                        <h1><span>Registration</span></h1>
 
                         <form name="terms" method="post" action="/tc">
                             <input name="module" value="TCO07SubmitRegistration" type="hidden">

@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Studio Design Competition Schedule</div></h1>
+                        <h1><span>Studio Design Competition Schedule</span></h1>
                         <p>
                         The Studio competitions will have eight (8) weeks of online competition and one (1) onsite Championship round. Each contestant participating in an online round must submit his/her design submission for any contest by the submission deadline as scheduled. 
                         </p>

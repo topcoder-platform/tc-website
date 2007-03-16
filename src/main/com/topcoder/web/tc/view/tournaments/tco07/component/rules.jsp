@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Component Competition Official Rules and Regulations</div></h1>
+                        <h1><span>Component Competition Official Rules and Regulations</span></h1>
                         <p>
 <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="#placement">Placement Scoring </a>&nbsp;&nbsp;|&nbsp;&nbsp;

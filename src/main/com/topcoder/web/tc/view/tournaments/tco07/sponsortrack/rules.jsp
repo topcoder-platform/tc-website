@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <%--<img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />--%>
                     <div id="pageBody">
-                        <h1><div>Sponsor Track Competition Official Rules and Regulations </div></h1>
+                        <h1><span>Sponsor Track Competition Official Rules and Regulations </span></h1>
 
 <p>
 <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;

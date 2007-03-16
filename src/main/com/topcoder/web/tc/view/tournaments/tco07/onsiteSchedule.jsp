@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Onsite Schedule</div></h1>
+                        <h1><span>Onsite Schedule</span></h1>
                            
                         <div align="center">
                         <table cellspacing="0" cellpadding="0" class="stat" style="width: 450px;">

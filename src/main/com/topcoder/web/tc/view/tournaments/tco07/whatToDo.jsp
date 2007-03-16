@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-<h1><div>What NOT to miss in Las Vegas!</div></h1>
+<h1><span>What NOT to miss in Las Vegas!</span></h1>
 
 <ol>
 <li><A href="/?t=sponsor&c=link&link=http://www.bellagio.com/pages/frameset_flash.asp" target="_blank">Bellagio Fountains</A>.  Located in front of the glamorous Bellagio Hotel and Casino, the Bellagio Fountains are a beautiful sight. These world-famous fountains shoot up to the sky with style, grace and beautiful light and music.  Shows happen all day long and are free so don't forget to pass by during the spectacle.  

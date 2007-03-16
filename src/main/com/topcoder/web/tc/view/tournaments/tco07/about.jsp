@@ -32,7 +32,7 @@
                     <img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />
                     <div id="pageBody">
 
-<h1><div>2007 TopCoder Open Sponsored by AOL</div></h1>
+<h1><span>2007 TopCoder Open Sponsored by AOL</span></h1>
 <h2>Welcome to the 2007 TopCoder Open</h2>
 <p>
 It's the ultimate TopCoder experience!  Four competitions, professional and collegiate programmers and designers from all over the world, 80 finalists, and one grand finale at The Mirage in Las Vegas, Nevada, June 26 - 29, 2007; the 2007 TopCoder Open has arrived!

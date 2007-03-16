@@ -35,13 +35,13 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                    <h1><div>
+                    <h1><span>
                     <%if (eligible.booleanValue()) {%>
                         Registration Successful
                     <%} else {%>
                         Registration Failed
                     <%}%>
-                    </div></h1>
+                    </span></h1>
 
 
                     <div align="center" style="margin:40px;">

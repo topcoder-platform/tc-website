@@ -33,7 +33,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Important Information Needed</div></h1>
+                        <h1><span>Important Information Needed</span></h1>
 
 <h2>Please read all instructions carefully before proceeding.</h2>
 

@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Marathon Match Competition</div></h1>
+                        <h1><span>Marathon Match Competition</span></h1>
 <p>
 As part of the 2007 TopCoder Open, the Marathon Match Competition provides a more flexible format with an extended timeline that offers different types of problems than what can be offered in a traditional TopCoder algorithm round.  Competitors may submit code in the following languages:  Java, C++, C#, VB.NET and Python.
 </p>

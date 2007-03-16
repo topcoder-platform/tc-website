@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>How to get to the TCO07</div></h1>
+                        <h1><span>How to get to the TCO07</span></h1>
 <p>
 <A href="/?t=sponsor&c=link&link=http://www.mirage.com/" target="_blank">Mirage</A><br>
 3400 S. Las Vegas Blvd.<br>

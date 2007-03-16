@@ -45,7 +45,7 @@
                 <td id="bodySpacer" width="100%">
                     <%--<img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />--%>
                     <div id="pageBody">
-                        <h1><div>Advancers - Overview</div></h1>
+                        <h1><span>Advancers - Overview</span></h1>
                 <p>Click a column title to sort the list of advancers by that column. Click
                 <a href="/tc?module=SimpleStats&c=tco07_spon_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=spon_adv_overview">here</a>
                 to reset the list to its originally sorted format.</p>
