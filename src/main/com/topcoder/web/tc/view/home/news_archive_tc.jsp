@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.16.07 2:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=16651">The votes are in for the new Press Room design</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.13.07 2:00 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065">Redesign the homepage at TopCoder Studio</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.12.07 6:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=16651">Vote for the new Press Room design</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.06.07 3:15 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=16491">The votes are in for the new Member Badges</A></td></tr>
