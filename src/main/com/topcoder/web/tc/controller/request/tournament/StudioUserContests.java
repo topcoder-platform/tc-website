@@ -25,8 +25,9 @@ public class StudioUserContests extends Static {
 
         String sortCol = getRequest().getParameter(DataAccessConstants.SORT_COLUMN);
         String sortDir = getRequest().getParameter(DataAccessConstants.SORT_DIRECTION);
-        if (sortCol != null && sortDir != null && rsc != null)
-            rsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
+        if (sortCol != null && sortDir != null && rsc != null) {
+            rsc.sortByColumn(Integer.parseInt(sortCol), sortDir.trim().toLowerCase().equals("asc"));
+        }
 
         getRequest().setAttribute("results", rsc);
 
