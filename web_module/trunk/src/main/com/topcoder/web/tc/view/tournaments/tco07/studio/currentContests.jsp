@@ -53,21 +53,21 @@
                                     </tr>
                                     <tr>
                                         <td class="header">
-                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("contest_name")%>"/>">Contest</A>
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>" column="<%=rsc.getColumnIndex("contest_name")%>"/>">Contest</A>
                                         </td>
                                         <td class="headerC">
-                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("start_time")%>"/>">Start
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("start_time")%>"/>">Start
                                                 Date</A>
                                         </td>
                                         <td class="headerC">
-                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("end_time")%>"/>">End
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("end_time")%>"/>">End
                                                 Date</A>
                                         </td>
                                         <td class="headerC">
-                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("registrants")%>"/>">Registrants</A>
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("registrants")%>"/>">Registrants</A>
                                         </td>
                                         <td class="headerC">
-                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("submissions")%>"/>">Submissions</A>
+                                            <A href="/tc?<%=Constants.MODULE_KEY%>=StudioUserContests<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("submissions")%>"/>">Submissions</A>
                                         </td>
                                     </tr>
                                 </thead>

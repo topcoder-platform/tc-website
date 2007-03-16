@@ -55,10 +55,10 @@
                 </tr>
                 <tr>
                     <td class="headerC" rowspan="2" width="1%">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("rank")%>"/>">Rank</A>
                     </td>
                     <td class="header" rowspan="2">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("handle_lower")%>"/>">Handle</A>
                     </td>
                     <td class="headerC" colspan="2" nowrap="nowrap" style="border-right: 1px solid #999999;">
                         Completed
@@ -67,22 +67,22 @@
                         In Progress
                     </td>
                     <td class="headerC" rowspan="2" nowrap="nowrap">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("total_potential_points")%>"/>">Potential
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("total_potential_points")%>"/>">Potential
                             Total<br>Points</A>
                     </td>
                 </tr>
                 <tr>
                     <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("completed_contests")%>"/>">Contests</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("completed_contests")%>"/>">Contests</A>
                     </td>
                     <td class="headerC" style="border-right: 1px solid #999999;">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("points")%>"/>">Points</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("points")%>"/>">Points</A>
                     </td>
                     <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("current_contests")%>"/>">Contests</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("current_contests")%>"/>">Contests</A>
                     </td>
                     <td class="headerC">
-                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" column="<%=rsc.getColumnIndex("potential_points")%>"/>">Points</A>
+                        <A href="/tc?<%=Constants.MODULE_KEY%>=StudioLeaderboard<tc-webtag:sort includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"  column="<%=rsc.getColumnIndex("potential_points")%>"/>">Points</A>
                     </td>
                 </tr>
             </thead>
