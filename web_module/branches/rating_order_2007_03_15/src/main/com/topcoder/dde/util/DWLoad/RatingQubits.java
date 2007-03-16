@@ -426,8 +426,9 @@ public class RatingQubits {
                     psUpd.setLong(3, rs2.getLong("project_id"));
                     int retVal = psUpd.executeUpdate();
                     
-                    if (retVal != 0) {
-                        throw new Exception("Expected 1 row to be updated for user_id=" +rs2.getLong("user_id") + " project_id=" + rs2.getLong("project_id"));
+                    if (retVal != 1) {
+                        throw new Exception("Expected 1 row to be updated for user_id=" +rs2.getLong("user_id") + 
+                                 " project_id=" + rs2.getLong("project_id") + " but there were " + retVal);
                     }
                     processed++;
                 }
