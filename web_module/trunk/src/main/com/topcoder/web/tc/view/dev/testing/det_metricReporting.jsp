@@ -165,7 +165,7 @@ TopCoder staff will respond as to whether you are registered or not.
 
 <br><br>
 <div class="sectionHeader">Submission</div>
-Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingSubmissions@topcoder.com?subject=Register: Online Review Project Admin and Details Tests">TestingSubmissions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.
+Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingSubmissions@topcoder.com?subject=Register: Metric Reporting Testing Competition">TestingSubmissions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.
 <br><br>
 </div>
 </td>
