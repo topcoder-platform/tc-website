@@ -35,6 +35,12 @@ public class AssignmentDocumentDetails extends BaseProcessor {
                 throw new IllegalArgumentException("This AD doesn't belong to the logged user");  
             }
             
+            Boolean hasHardCopy = PactsServicesLocator.getService()
+                .hasHardCopyAssignmentDocumentByProjectId(ad.getUser().getId().longValue(), 
+                    ad.getType().getId().longValue());
+
+            getRequest().setAttribute("has_hard_copy", hasHardCopy);
+            
             setNextPage("/assignmentDocumentDetails.jsp");
             setIsNextPageInContext(true);
         } catch (Exception e) {
