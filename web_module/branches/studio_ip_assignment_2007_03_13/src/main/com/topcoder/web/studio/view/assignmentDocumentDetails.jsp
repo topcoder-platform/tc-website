@@ -68,29 +68,38 @@
                 </p>
     
                 <c:if test="${assignment_document.status.id == PENDING_STATUS_ID}">
-                    <table>
-                        <tr>
-                            <td class="bodyText">
-                                <form action="/" method="post">
-                                    <input type="hidden" name="<%=Constants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
-                                    <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
-                                    <input type="submit" value="Affirm assignment document"/>
-                                </form>
-                            </td>
-                            <td class="bodyText">
-                                <form action="/" method="post">
-                                    <input type="hidden" name="<%=Constants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
-                                    <input type="hidden" name="module" value="RejectAssignmentDocument"/> 
-                                    <input type="submit" value="Reject assignment document"/>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">
-                                    <input type="submit" value="Edit Personal Information">
-                                </form>
-                            </td>
-                        </tr>
-                    </table>
+                    <c:choose>
+                        <c:when test="${has_hard_copy}">
+                        <table>
+                            <tr>
+                                <td class="bodyText">
+                                    <form action="/" method="post">
+                                        <input type="hidden" name="<%=Constants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
+                                        <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
+                                        <input type="submit" value="Affirm assignment document"/>
+                                    </form>
+                                </td>
+                                <td class="bodyText">
+                                    <form action="/" method="post">
+                                        <input type="hidden" name="<%=Constants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
+                                        <input type="hidden" name="module" value="RejectAssignmentDocument"/> 
+                                        <input type="submit" value="Reject assignment document"/>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="http://<%=ApplicationServer.SERVER_NAME%>/reg/?nrg=false">
+                                        <input type="submit" value="Edit Personal Information">
+                                    </form>
+                                </td>
+                            </tr>
+                        </table>
+                        </c:when>
+                        <c:otherwise>
+                            <p>
+                                You'll need to send a signed hard copy of the Assignment Document in order to be able to affirm it in the future with the system. You can get a printer friendly view <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
+                            </p>
+                        </c:otherwise>
+                    </c:choose>
                 </c:if>
             </center>
         </TD>
