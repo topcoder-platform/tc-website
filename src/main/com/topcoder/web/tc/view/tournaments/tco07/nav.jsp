@@ -214,7 +214,7 @@
                         <span>Rules</span>
                     </a></li>
                 <%--
-                <li class="stop"><a href="/tc?module=TCO07ViewRegistration&ct=marathon"<% if (tabLev1.equals("marathon") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>><span>Register</span></a></li>
+                <li class="stop"><a href="/tc?module=TCO07ViewRegistration&amp;ct=marathon"<% if (tabLev1.equals("marathon") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>><span>Register</span></a></li>
                 --%>
                 <li class="stop">
                     <a href="/tc?module=TCO07ViewRegistrants&amp;ct=marathon"<% if (tabLev1.equals("marathon") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>

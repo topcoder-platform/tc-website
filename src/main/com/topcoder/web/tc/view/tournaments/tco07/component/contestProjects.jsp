@@ -49,7 +49,7 @@
         <td valign=top align=center>
             <div class="bodySpacer">
                 <br/>
-                  <span class="bigTitle"><a href="/tc?module=TCCC06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
+                  <span class="bigTitle"><a href="/tc?module=TCCC06ContestDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />">
                       <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                   </a> -
                   Components</span>
@@ -79,7 +79,7 @@
                                 <% } %>
 
                                 <br>
-                                <A href="/tc?module=TCCC06ProjectDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
+                                <A href="/tc?module=TCCC06ProjectDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
                                 <% if (isComplete) { %>
                                 |
                                 <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">contest

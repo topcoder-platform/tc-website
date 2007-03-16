@@ -39,7 +39,7 @@
 <%--
 --%>
 <p align="center" style="margin-bottom: 40px;">
-<strong><A href="/tc?module=TCO07ViewRegistration&ct=algorithm">Algorithm Competition</A></strong>
+<strong><A href="/tc?module=TCO07ViewRegistration&amp;ct=algorithm">Algorithm Competition</A></strong>
 </p>
 <%--
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">
@@ -49,7 +49,7 @@
 --%>
 
 <p align="center" style="margin-bottom: 40px;">
-<strong><A href="/tc?module=TCO07ViewRegistration&ct=component">Component Design & Development Competition</A></strong>
+<strong><A href="/tc?module=TCO07ViewRegistration&amp;ct=component">Component Design & Development Competition</A></strong>
 </p>
 <%--
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">
@@ -60,7 +60,7 @@
 
 <%--
 <p align="center" style="margin-bottom: 40px;">
-<strong><A href="/tc?module=TCO07ViewRegistration&ct=marathon">Marathon Match Competition</A></strong>
+<strong><A href="/tc?module=TCO07ViewRegistration&amp;ct=marathon">Marathon Match Competition</A></strong>
 </p>
 --%>
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">
@@ -69,7 +69,7 @@
 </p>
 
 <p align="center" style="margin-bottom: 40px;">
-<strong><A href="/tc?module=TCO07ViewRegistration&ct=studio">Studio Competition</A></strong>
+<strong><A href="/tc?module=TCO07ViewRegistration&amp;ct=studio">Studio Competition</A></strong>
 </p>
 <%--
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">

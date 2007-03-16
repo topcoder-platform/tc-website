@@ -55,7 +55,7 @@
         <td align="center">
             <div class="bodySpacer">
                 <br>
-               <span class="bigTitle"><A href="/tc?module=TCCC06ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
+               <span class="bigTitle"><A href="/tc?module=TCCC06ContestDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
                    <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                </A> -
                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
