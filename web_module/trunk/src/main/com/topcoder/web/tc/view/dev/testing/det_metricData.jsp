@@ -38,7 +38,7 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
-<span class="bigTitle">Metric Reporting Testing Competition - Manage Metric Group</span>
+<span class="bigTitle">Metric Reporting Testing Competition - Metric Data</span>
 <br><br>
 <div class="sectionHeader">Overview</div>
 <span class="bodySubtitle">Application Overview</span><br>
@@ -93,19 +93,18 @@ The list below defines the deliverables for the competition:
 <li>Any instructions required to configure / run tests</li>
 </ul>
 All submissions should be submitted in a zip file named:<br>
-[Member Handle]_MetricReporting_[root directory name].zip<br>
+[Member Handle]_MetricData_[root directory name].zip<br>
 The file structure for the submissions should be
 <br><br>
 <div class="sectionHeader">Competition Deliverable Tasks</div>
 <table cellpadding="4" cellspacing="0">
-<tr><td>Requirements Section</td><td>2.11 Manage Metric Group</td></tr>
-<tr><td>Use Case Name</td><td>Manage Metric Group</td></tr>
-<tr><td>Activity Diagram(s)</td><td>Manage Metric Group - Create Group Activity<br>
-Manage Metric Group - Delete Group Activity</td></tr>
-<tr><td>Test Cases</td><td>Range: 76 - 90</td></tr>
-<tr><td>Java Test File Package</td><td>com.topcoder.metric.web.testing</td></tr>
-<tr><td>Primary Test File Name</td><td>ManageMetricGroupTest.java</td></tr>
-<tr><td>Application Section</td><td>Manage_Metric_Group</td></tr>
+<tr><td>Requirements Section</td><td>2.22 Add Metric 2.23 Edit Metric</td></tr>
+<tr><td>Use Case Name</td><td>Add Metric, Edit Metric</td></tr>
+<tr><td>Activity Diagram(s)</td><td>Add Metric Activity<br>Edit Metric Activity</td></tr>
+<tr><td>Test Cases</td><td>Range: 248 - 257</td></tr>
+<tr><td>Java Test File Package</td><td>com.topcoder.metric.web.testing.metricdata</td></tr>
+<tr><td>Primary Test File Name</td><td>MetricDataTest.java</td></tr>
+<tr><td>Application Section</td><td>Metric_Data</td></tr>
 </table>
 <br><br>
 <div class="sectionHeader">Payment</div>
@@ -155,7 +154,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
 <div class="sectionHeader">Registration</div>
 <%--Registration is closed.--%>
 
-To sign up as a participant, send an email to <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Metric Reporting Testing Competition - Manage Metric Group">TestingCompetitions@topcoder.com</A>.  In the email, include the following information:
+To sign up as a participant, send an email to <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Metric Reporting Testing Competition - Metric Data">TestingCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
 <li>First & Last Name</li>
@@ -165,7 +164,7 @@ TopCoder staff will respond as to whether you are registered or not.
 
 <br><br>
 <div class="sectionHeader">Submission</div>
-Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingSubmissions@topcoder.com?subject=Register: Metric Reporting Testing Competition - Manage Metric Group">TestingSubmissions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.
+Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingSubmissions@topcoder.com?subject=Register: Metric Reporting Testing Competition - Metric Data">TestingSubmissions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.
 <br><br>
 </div>
 </td>

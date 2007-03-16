@@ -39,7 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">03.16.07 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=testing&d3=det_metricReporting">Metric Reporting Testing Competition</A><br></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">03.16.07 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Metric Reporting Testing Competitions</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.02.07 3:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners">Digital Run: Stage 3 Winners</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">02.13.07 9:00 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=22">Software Forums integrated into TopCoder Forums</A><br></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.27.06 5:00 PM - </td><td width="100%"><A href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Announcement&annID=55">Poseidon version update</A><br></td></tr>
