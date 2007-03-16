@@ -24,11 +24,18 @@ public class RejectAssignmentDocument extends BaseProcessor implements PactsCons
 
             // check that the assignment document belongs to the logged user.
             if (ad == null || ad.getUser().getId().longValue() != getUser().getId()) {
-                throw new IllegalArgumentException("Affidavit not found");  
+                throw new IllegalArgumentException("Assignment Document not found");  
             }
             
             if (!ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
-                throw new IllegalArgumentException("Affidavit should be pending");  
+                throw new IllegalArgumentException("Assignment Document should be pending");  
+            }
+
+            Boolean hasHardCopy = bean.hasHardCopyAssignmentDocumentByProjectId(ad.getUser().getId().longValue(), 
+                    ad.getType().getId().longValue());
+
+            if (!hasHardCopy.booleanValue()) {
+                throw new IllegalArgumentException("You must send a hard copy of the Assignment Document before you can use this system to affirm");  
             }
             
             ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.REJECTED_STATUS_ID));
