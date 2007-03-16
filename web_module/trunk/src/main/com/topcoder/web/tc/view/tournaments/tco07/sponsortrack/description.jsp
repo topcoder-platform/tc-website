@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />
                     <div id="pageBody">
-                        <h1><div>Description of the Sponsor Track Competition</div></h1>
+                        <h1><span>Description of the Sponsor Track Competition</span></h1>
 <p>We're giving employees and interns of the sponsors of the 2007 TopCoder Open a tournament of your own. It's a chance to compete among your peers in the Sponsor Track Competition, open to all employees of companies sponsoring the TCO. </p>
 
 <h2>What is the Sponsor Track Competition?</h2>

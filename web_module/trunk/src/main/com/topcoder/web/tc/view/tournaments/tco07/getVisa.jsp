@@ -32,7 +32,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Getting your Visa and Getting it Early</div></h1>
+                        <h1><span>Getting your Visa and Getting it Early</span></h1>
                         <h2>Do I need a visa?</h2>
                         <p>
                         All travelers entering the United States must present either a passport or a visa. If you do NOT have a passport, or you are from a country that does NOT participate in the Visa Waiver Program, you must apply for a visa.

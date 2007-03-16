@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Developer Forums</div></h1>
+                        <h1><span>Developer Forums</span></h1>
                         <p>
                         <b>**NEED NEW CONTENT**</b> <br>
                         Are you attending the TCO finals as a spectator or finalist? Either way, be sure to attend the Developer Forums. This year's TCO features three rewarding topics:

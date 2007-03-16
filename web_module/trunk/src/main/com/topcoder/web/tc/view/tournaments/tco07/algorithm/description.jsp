@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Algorithm Competition</div></h1>
+                        <h1><span>Algorithm Competition</span></h1>
                         <p>
                         The Algorithm competition, as part of the 2007 TopCoder Open, is a timed contest where all contestants compete online and are given the same problems to solve under the same time constraints.  The competition is available in four programming languages:  Java, C#, C++, and VB.NET.
                         </p>

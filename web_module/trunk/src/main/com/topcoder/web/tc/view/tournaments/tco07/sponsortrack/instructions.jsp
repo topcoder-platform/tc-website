@@ -47,7 +47,7 @@
                 <td id="bodySpacer" width="100%">
                     <%--<img src="/i/tournament/tco07/competitorsbanner.jpg" alt="Competitors" />--%>
                     <div id="pageBody">
-                        <h1><div>Instructions</div></h1>
+                        <h1><span>Instructions</span></h1>
 
 
 <h2>Loading the Competition Arena</h2>

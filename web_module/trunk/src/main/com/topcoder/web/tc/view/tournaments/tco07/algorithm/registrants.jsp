@@ -39,7 +39,7 @@ String compType = (String) request.getAttribute("ct"); %>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><div>Registrants</div></h1>
+                        <h1><span>Registrants</span></h1>
 
 <div align="center">
 <table cellpadding="0" cellspacing="0" class="stat" style="width:400px; margin-bottom: 100px;">

@@ -30,7 +30,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <h1><div>Advancers - Qualification</div></h1>
+                        <h1><span>Advancers - Qualification</span></h1>
 
                     </div>
                 </td>

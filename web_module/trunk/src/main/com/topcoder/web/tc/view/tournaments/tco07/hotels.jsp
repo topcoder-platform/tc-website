@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-<h1><div>Hotels near the TCO07</div></h1>
+<h1><span>Hotels near the TCO07</span></h1>
 <p>
 <A href="http://www.mirage.com/" target="_blank">The Mirage</A><br>
 3400 S. Las Vegas Blvd.<br>

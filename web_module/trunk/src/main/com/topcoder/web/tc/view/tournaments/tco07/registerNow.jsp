@@ -31,7 +31,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-<h1><div>Register Now!</div></h1>
+<h1><span>Register Now!</span></h1>
 <div align="center" style="margin: 10px 40px 40px 40px;">
 <img src="/i/tournament/tco07/forWhichCompetition.png" alt="For which competition would you like to register?" />
 </div>
