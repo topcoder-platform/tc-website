@@ -109,13 +109,6 @@
                 <ejb-link>DDEUserMasterEJB</ejb-link>
             </ejb-local-ref>
             <ejb-local-ref>
-                <ejb-ref-name>ejb/forum/ForumAdminEJB</ejb-ref-name>
-                <ejb-ref-type>Session</ejb-ref-type>
-                <local-home>com.topcoder.forum.ForumAdminLocalHome</local-home>
-                <local>com.topcoder.forum.ForumAdminLocal</local>
-                <ejb-link>ForumAdminEJB</ejb-link>
-            </ejb-local-ref>
-            <ejb-local-ref>
                 <ejb-ref-name>ejb/dde/UserManagerEJB</ejb-ref-name>
                 <ejb-ref-type>Session</ejb-ref-type>
                 <local-home>com.topcoder.dde.user.UserManagerLocalHome</local-home>
@@ -288,13 +281,6 @@
                 <local-home>com.topcoder.dde.persistencelayer.interfaces.LocalDDELicenseLevelHome</local-home>
                 <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDELicenseLevel</local>
                 <ejb-link>DDELicenseLevelEJB</ejb-link>
-            </ejb-local-ref>
-            <ejb-local-ref>
-                <ejb-ref-name>ejb/forum/ForumAdminEJB</ejb-ref-name>
-                <ejb-ref-type>Session</ejb-ref-type>
-                <local-home>com.topcoder.forum.ForumAdminLocalHome</local-home>
-                <local>com.topcoder.forum.ForumAdminLocal</local>
-                <ejb-link>ForumAdminEJB</ejb-link>
             </ejb-local-ref>
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>

@@ -228,27 +228,6 @@
                 <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDEDownloadTracking</local>
                 <ejb-link>DDEDownloadTrackingEJB</ejb-link>
             </ejb-local-ref>
-            <ejb-local-ref>
-                <ejb-ref-name>ejb/ForumMasterEJB</ejb-ref-name>
-                <ejb-ref-type>Entity</ejb-ref-type>
-                <local-home>com.topcoder.forum.persistencelayer.interfaces.LocalForumMasterHome</local-home>
-                <local>com.topcoder.forum.persistencelayer.interfaces.LocalForumMaster</local>
-                <ejb-link>ForumMasterEJB</ejb-link>
-            </ejb-local-ref>
-            <ejb-local-ref>
-                <ejb-ref-name>ejb/ForumTopicsEJB</ejb-ref-name>
-                <ejb-ref-type>Entity</ejb-ref-type>
-                <local-home>com.topcoder.forum.persistencelayer.interfaces.LocalForumTopicsHome</local-home>
-                <local>com.topcoder.forum.persistencelayer.interfaces.LocalForumTopics</local>
-                <ejb-link>ForumTopicsEJB</ejb-link>
-            </ejb-local-ref>
-            <ejb-local-ref>
-                <ejb-ref-name>ejb/ForumStatusEJB</ejb-ref-name>
-                <ejb-ref-type>Entity</ejb-ref-type>
-                <local-home>com.topcoder.forum.persistencelayer.interfaces.LocalForumStatusHome</local-home>
-                <local>com.topcoder.forum.persistencelayer.interfaces.LocalForumStatus</local>
-                <ejb-link>ForumStatusEJB</ejb-link>
-            </ejb-local-ref>
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>
                 <res-type>javax.sql.DataSource</res-type>

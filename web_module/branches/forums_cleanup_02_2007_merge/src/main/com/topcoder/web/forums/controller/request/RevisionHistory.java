@@ -5,10 +5,9 @@ package com.topcoder.web.forums.controller.request;
 
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Revision;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
-import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.ejb.messagehistory.MessageHistoryLocal;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.jivesoftware.base.JiveGlobals;
@@ -16,8 +15,6 @@ import com.jivesoftware.forum.ForumMessage;
 
 import java.util.ArrayList;
 import java.sql.Date;
-import javax.naming.InitialContext;
-
 
 /**
  * @author mtong
@@ -30,17 +27,7 @@ public class RevisionHistory extends ForumsProcessor {
 
         long messageID = Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         ForumMessage message = forumFactory.getMessage(messageID);
-        
-        InitialContext ctx = null;
-        MessageHistory historyBean = null;
-        try {
-            ctx = TCContext.getInitial();
-            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
-        } catch (Exception e) {
-            log.error(e);
-        } finally {
-            BaseProcessor.close(ctx);
-        }
+        MessageHistoryLocal historyBean = (MessageHistoryLocal)createLocalEJB(getInitialContext(), MessageHistory.class);
 
         // useful if revision history needs to be paged in the future
         int range = JiveGlobals.getJiveIntProperty("skin.default.defaultMessagesPerPage", 

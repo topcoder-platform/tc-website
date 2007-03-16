@@ -5,6 +5,9 @@
 package com.topcoder.dde.catalog;
 
 import javax.naming.NamingException;
+
+import com.topcoder.web.common.WebConstants;
+
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -36,12 +39,12 @@ import java.util.List;
  */
 public interface Catalog extends javax.ejb.EJBObject {
 
-    long NET_CATALOG = 5801777;
-    long JAVA_CATALOG = 5801776;
-    long FLASH_CATALOG = 8459260;
-    long NET_CUSTOM_CATALOG = 5801779;
-    long JAVA_CUSTOM_CATALOG = 5801778;
-    long APPLICATION_CATALOG = 9926572;
+    long NET_CATALOG = WebConstants.NET_CATALOG;
+    long JAVA_CATALOG = WebConstants.JAVA_CATALOG;
+    long FLASH_CATALOG = WebConstants.FLASH_CATALOG;
+    long NET_CUSTOM_CATALOG = WebConstants.NET_CUSTOM_CATALOG;
+    long JAVA_CUSTOM_CATALOG = WebConstants.JAVA_CUSTOM_CATALOG;
+    long APPLICATION_CATALOG = WebConstants.APPLICATION_CATALOG;
 
     /**
      * <p>Performs a search on the catalog. All options are represented by a

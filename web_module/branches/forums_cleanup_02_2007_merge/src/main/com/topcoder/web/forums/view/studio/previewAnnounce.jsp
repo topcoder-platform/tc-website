@@ -145,29 +145,45 @@ function AllowTabCharacter() {
 <h3>Edit Announcement</h3>
 <table cellpadding="0" cellspacing="0" class="rtTable">
 <form name="form1" method="post" action="<%=sessionInfo.getServletPath()%>">
-<tc-webtag:hiddenInput name="module"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.CATEGORY_ID%>"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.ANNOUNCEMENT_ID%>"/>
-<tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
+	<tc-webtag:hiddenInput name="module"/>
+	<tc-webtag:hiddenInput name="<%=ForumConstants.CATEGORY_ID%>"/>
+	<tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
+	<tc-webtag:hiddenInput name="<%=ForumConstants.ANNOUNCEMENT_ID%>"/>
+	<tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
 
-<tr><td class="rtHeader" colspan="2"><%=announcement.getSubject()%></td></tr>
-<tr>
-<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
-<%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
-   <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
-<%  } %>
-<span class="bodyText"><studio:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div></td>
-<td class="rtTextCell100">
-<% if (errors.get(ForumConstants.ANNOUNCEMENT_SUBJECT) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ANNOUNCEMENT_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
-<b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.ANNOUNCEMENT_SUBJECT%>" escapeHtml="false" onKeyPress="return noenter(event)"/><br/><br/>
-<% if (errors.get(ForumConstants.ANNOUNCEMENT_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ANNOUNCEMENT_BODY%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
-<b>Body:</b><font color="red"><span align="left" id="Warning" style="display: none"><br/>Warning: one or more &lt;pre&gt; tags is not closed.</span></font>
-<br/><tc-webtag:textArea id="tcPreviewArea" rows="15" cols="72" name="<%=ForumConstants.ANNOUNCEMENT_BODY%>" onKeyDown="AllowTabCharacter()"/>
-</td>
-</tr>
-<tr><td class="rtFooter"><input type="image" src="/i/forums/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostAnnouncement'"/><input type="image" src="/i/forums/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewAnnouncement'"/></td></tr>
-</form></table>
+	<tr>
+		<td class="rtHeader" colspan="2"><%=announcement.getSubject()%></td>
+	</tr>
+	<tr>
+		<td class="rtPosterCell" rowspan="2"><div class="rtPosterSpacer">
+			<%  if (ForumsUtil.displayMemberPhoto(user, user)) { %>
+			   <img src="<%=user.getProperty("imagePath")%>" width="55" height="61" border="0" class="rtPhoto" /><br/>
+			<%  } %>
+			<span class="bodyText"><studio:handle coderId="<%=user.getID()%>"/></span><br/><A href="?module=History&<%=ForumConstants.USER_ID%>=<%=user.getID()%>"><%=ForumsUtil.display(forumFactory.getUserMessageCount(user), "post")%></A></div>
+		</td>
+		<td class="rtTextCell100">
+			<% if (errors.get(ForumConstants.ANNOUNCEMENT_SUBJECT) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ANNOUNCEMENT_SUBJECT%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
+			<b>Subject:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.ANNOUNCEMENT_SUBJECT%>" escapeHtml="false" onKeyPress="return noenter(event)"/><br/><br/>
+			<% if (errors.get(ForumConstants.ANNOUNCEMENT_BODY) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.ANNOUNCEMENT_BODY%>"><%=err%></tc-webtag:errorIterator><br/></span><% } %>
+			<b>Body:</b><font color="red"><span align="left" id="Warning" style="display: none"><br/>Warning: one or more &lt;pre&gt; tags is not closed.</span></font>
+			<br/><tc-webtag:textArea id="tcPreviewArea" rows="15" cols="72" name="<%=ForumConstants.ANNOUNCEMENT_BODY%>" onKeyDown="AllowTabCharacter()"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="rtFooter">
+			<input type="image" src="/i/forums/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='PostAnnouncement'"/>
+			<input type="image" src="/i/forums/preview.gif" class="rtButton" alt="Preview" onclick="form1.module.value='PreviewAnnouncement'"/>
+			<%	String cancelLink = "?module=Main"; 
+				if (forum != null) {
+					cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID();
+				} else if (forumCategory != null) {
+					cancelLink = "?module=Category&"+ForumConstants.CATEGORY_ID+"="+forumCategory.getID();
+				} %>
+			<a href="<%=cancelLink%>"><img src="/i/layout/btnCancel.png" alt="Cancel"/></a>
+		</td>
+	</tr>
+</form>
+</table>
 
          </div>
          <img src="/i/layout/contentInS.gif" alt="" style="display:block;" />

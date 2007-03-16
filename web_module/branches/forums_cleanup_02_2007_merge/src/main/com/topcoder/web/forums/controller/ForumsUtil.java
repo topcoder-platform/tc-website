@@ -27,6 +27,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.forums.ForumsLocal;
+import com.topcoder.web.forums.model.ImageData;
 import com.topcoder.web.forums.model.TCAuthToken;
 import com.topcoder.web.forums.util.filter.TCHTMLFilter;
 import com.topcoder.web.forums.ForumConstants;
@@ -261,7 +262,7 @@ public class ForumsUtil {
     // Returns subcategories within a category, with empty/inactive/unapproved categories omitted or placed at 
     // the list's end. Only forums for approved software components are displayed.
     public static ArrayList getCategories(ForumsLocal forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
-            boolean excludeEmptyCategories) throws RemoteException {
+            boolean excludeEmptyCategories, boolean mergeEmptyCategories) throws RemoteException {
     	Iterator itCategories = forumCategory.getCategories();
         ArrayList categoriesList = new ArrayList();
         ArrayList emptyCategories = new ArrayList();
@@ -272,8 +273,7 @@ public class ForumsUtil {
         	n++;
         	ForumCategory c = (ForumCategory)itCategories.next();
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
-        	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_ARCHIVED.equals(archivalStatus) ||
-        			ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
+        	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
         	
         	try {
         		componentIDs[n] = Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
@@ -282,7 +282,7 @@ public class ForumsUtil {
         		continue;
         	}
         	
-        	if (c.getMessageCount() > 0) {
+        	if (c.getMessageCount() > 0 || mergeEmptyCategories) {
         		categoriesList.add(c);
         	} else {
         		emptyCategories.add(c);
@@ -579,7 +579,7 @@ public class ForumsUtil {
     	return masterFactory.getForumCategory(category.getID());
     }
     
-    public static String getComponentCategoryName(String name, String versionText, long forumType) {
+    public static String getComponentCategoryName(String name, String versionText) {
         if (versionText != null && !versionText.trim().equals("")) {
         	boolean wellFormatted = versionText.trim().matches("\\d+(\\.\\d+)*\\w?");    	
         	if (wellFormatted) {
@@ -588,13 +588,6 @@ public class ForumsUtil {
         		name += " (" + versionText.trim() + ")";
         	}
         }
-        /*
-        if (forumType == ForumConstants.CUSTOMER_FORUM) {
-        	name += " - " + "Customer Forum";
-        } else if (forumType == ForumConstants.DEVELOPER_FORUM) {
-        	name += " - " + "Developer Forum";
-        }
-        */
         return name;
     }
     
@@ -602,6 +595,19 @@ public class ForumsUtil {
     	ForumCategory parentCategory = category.getParentCategory();
     	if (parentCategory == null) return false;
     	return (parentCategory.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID);
+    }
+    
+    // Determines if a (Component) link should be displayed on software component category, forum, and thread pages.
+    public static boolean showComponentLink(ForumsLocal forumsBean, ForumCategory category) {
+        if (ForumsUtil.isSoftwareSubcategory(category)) {
+            long compVersID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+            long compID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+            long compVersPhase = forumsBean.getComponentVersionPhase(compVersID);
+            long rootCategoryID = forumsBean.getComponentRootCategory(compID);
+            ImageData imageData = new ImageData(compVersPhase, rootCategoryID);
+            return imageData.hasComponentLink();
+        }
+        return false;
     }
 }
 

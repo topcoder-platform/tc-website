@@ -12,7 +12,6 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.forums.ForumConstants;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +29,6 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected AuthToken authToken;
     protected ForumFactory forumFactory;
     protected User user;
-    protected Forums forumsBean;
 
     /* TODO there is redundant code stuff that seems to break the design.  hopefully this can be cleaned */
 
@@ -39,6 +37,9 @@ public abstract class ForumsProcessor extends BaseProcessor {
      * Subclasses should do their work by implementing this method.
      */
     protected void businessProcessing() throws Exception {
+        getResponse().setContentType("text/html; charset=ISO-8859-1");
+        getHttpResponse().setContentType("text/html; charset=ISO-8859-1");
+        
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
         getRequest().setAttribute("forumFactory", forumFactory);

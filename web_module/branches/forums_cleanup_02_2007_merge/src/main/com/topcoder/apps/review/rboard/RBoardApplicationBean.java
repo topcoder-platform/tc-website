@@ -169,20 +169,20 @@ public class RBoardApplicationBean extends BaseEJB {
         ResultSet rs = null;
         try {
             ps = conn.prepareStatement("select p.project_id, pi_cn.value as component_name, pi_vt.value as version_text, "
-                + "pt.name as project_type_name, cfx.jive_category_id, cfx.forum_type from project p "
+                + "pt.name as project_type_name, cjcx.jive_category_id from project p "
                 + ",project_category_lu pt "
                 + ",project_info pi_cn "
         		+ ",project_info pi_vt "
         		+ ",project_info pi_vi "
         		+ ",comp_versions cv "
-        		+ ",comp_forum_xref cfx "
+        		+ ",comp_jive_category_xref cjcx "
                 + "where p.project_id = ? " 
                 + "and p.project_category_id = pt.project_category_id "
                 + "and p.project_id = pi_cn.project_id and pi_cn.project_info_type_id = 6 "
                 + "and p.project_id = pi_vt.project_id and pi_vt.project_info_type_id = 7 "
                 + "and p.project_id = pi_vi.project_id and pi_vi.project_info_type_id = 2 "
                 + "and cv.component_id = pi_vi.value and cv.phase_id in (112, 113) "
-                + "and cfx.comp_vers_id = cv.comp_vers_id and cfx.forum_type = 2 "
+                + "and cjcx.comp_vers_id = cv.comp_vers_id "
                 );
             ps.setLong(1, projectId);
 

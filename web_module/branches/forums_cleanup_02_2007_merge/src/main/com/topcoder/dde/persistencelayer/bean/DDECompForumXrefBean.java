@@ -1,50 +1,24 @@
 package com.topcoder.dde.persistencelayer.bean;
 
+import com.topcoder.dde.catalog.ComponentManagerBean;
 import com.topcoder.dde.persistencelayer.interfaces.LocalDDECompVersions;
+import com.topcoder.dde.persistencelayer.keys.CompForumXrefKey;
 
 import javax.ejb.CreateException;
 
 /**
- * The bean implementation class representing the CMP bean for the comp_forum_xref table.
+ * The bean implementation class representing the CMP bean for the comp_jive_category_xref table.
  *
  * @version     1.0
  * @author      Timur Zambalayev
  */
 public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
-
+    
     /**
      * Creates a new instance.
      */
     public DDECompForumXrefBean() {
     }
-
-    /**
-     * Gets the forum type.
-     *
-     * @return forum type.
-     */
-    public abstract int getForumType();
-
-    /**
-     * Sets the forum type.
-     *
-     * @param forumType     forum type.
-     */
-    public abstract void setForumType(int forumType);
-
-    /**
-     * Gets the forum id.
-     *
-     * @return forum id.
-     */
-    public abstract long getForumId();
-
-    /**
-     * Sets the forum id.
-     *
-     * @param forumId       forum id.
-     */
-    public abstract void setForumId(long forumId);
     
     /**
      * Gets the category id.
@@ -59,35 +33,42 @@ public abstract class DDECompForumXrefBean extends DDEBaseCompVersionsBean {
      * @param categoryId       category id.
      */
     public abstract void setCategoryId(long categoryId);
+    
+    /**
+     * Gets the component version id.
+     *
+     * @return component version id.
+     */
+    public abstract long getCompVersId();
+
+    /**
+     * Sets the component version id.
+     *
+     * @param compVersId       component version id.
+     */
+    public abstract void setCompVersId(long compVersId);
 
     /**
      * Creates an entity object.
      *
-     * @param forumId               forum id.
      * @param categoryId			category id.
-     * @param forumType             forum type.
-     * @param compVersions          compVersions.
+     * @param compVersId            component version id.
      * @return the entity bean's primary key (should be null for CMP bean implementations).
      * @throws CreateException      an application level error occurred during the create operation.
      */
-    public Long ejbCreate(long forumId, long categoryId, int forumType, LocalDDECompVersions compVersions) throws CreateException {
-        setPrimaryKey();
-        setForumId(forumId);
+    public CompForumXrefKey ejbCreate(long categoryId, long compVersId) throws CreateException {
         setCategoryId(categoryId);
-        setForumType(forumType);
+        setCompVersId(compVersId);
         return null;
     }
 
     /**
      * Creates an entity object.
      *
-     * @param forumId               forum id.
      * @param categoryId			category id.
-     * @param forumType             forum type.
-     * @param compVersions          compVersions.
+     * @param compVersId            component version id.
      */
-    public void ejbPostCreate(long forumId, long categoryId, int forumType, LocalDDECompVersions compVersions) {
-        setCompVersions(compVersions);
+    public void ejbPostCreate(long categoryId, long compVersId) {
     }
 
 }

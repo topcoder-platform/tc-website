@@ -25,8 +25,6 @@ public class Login extends Base {
     public static final String REMEMBER_USER = "rem";
     public static final String STATUS = "status";
 
-    public static final String STATUS_START = "start";
-
     protected void businessProcessing() throws TCWebException {
 
         /* may be null */
@@ -151,7 +149,7 @@ public class Login extends Base {
             getAuthentication().logout();
         }
 
-        if (loginStatus.equals(STATUS_START)) {
+        if (loginStatus.equals(WebConstants.STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
         int nextPageIdx = info.getRequestString().indexOf("nextpage=");

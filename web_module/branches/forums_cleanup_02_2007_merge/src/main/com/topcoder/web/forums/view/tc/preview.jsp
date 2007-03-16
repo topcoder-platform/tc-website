@@ -214,6 +214,13 @@ function AllowTabCharacter() {
 			<input type="image" src="/i/interface/btn_attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
 			<%	} %>
 		<%	} %>
+		<%	String cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID(); 
+			if (parentMessage != null) {
+				cancelLink = "?module=Message&"+ForumConstants.MESSAGE_ID+"="+parentMessage.getID();
+			} else if (thread != null) {
+				cancelLink = "?module=Thread&"+ForumConstants.THREAD_ID+"="+thread.getID();
+			} %>
+		<a href="<%=cancelLink%>"><img src="/i/interface/btn_cancel.gif" alt="Cancel"/></a>
 	</td>
 </tr>
 

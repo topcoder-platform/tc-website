@@ -12,6 +12,8 @@ import java.rmi.RemoteException;
 
 public interface MessageHistoryHome extends EJBHome {
 
+    public static final String EJB_REF_NAME = "com.topcoder.web.ejb.messagehistory.MessageHistoryHome";
+    
     /**
      *
      * This method returns a MessageHistory ejb.
