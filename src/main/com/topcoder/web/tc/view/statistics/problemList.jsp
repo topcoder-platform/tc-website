@@ -2,8 +2,8 @@
         language="java"
         import="com.topcoder.shared.dataAccess.DataAccessConstants,
                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                com.topcoder.web.tc.Constants,
                 com.topcoder.web.common.tag.HandleTag,
+                com.topcoder.web.tc.Constants,
                 javax.servlet.http.HttpServletRequest,
                 java.util.Iterator,
                 java.util.Map"
@@ -63,7 +63,7 @@ function previous() {
     void add(StringBuffer buf, String key, String val) {
         if (key.equals(Constants.CLASS_NAME)
                 || key.equals(Constants.CATEGORY)
-                || key.equals(Constants.WRITER)                
+                || key.equals(Constants.WRITER)
                 || key.equals(Constants.MIN_DIV1_SUCCESS)
                 || key.equals(Constants.MIN_DIV2_SUCCESS)
                 || key.equals(Constants.MAX_DIV1_SUCCESS)
@@ -161,10 +161,12 @@ function submitEnter(e) {
 <tr>
     <td align="right" class="statText">Class Name</td>
     <td align="left" class="statText">
-        <tc-webtag:textInput name="<%=Constants.CLASS_NAME%>" size="15" maxlength="32" onKeyPress="submitEnter(event)"/></td>
+        <tc-webtag:textInput name="<%=Constants.CLASS_NAME%>" size="15" maxlength="32" onKeyPress="submitEnter(event)"/>
+    </td>
     <td align="right" class="statText">Category</td>
     <td align="left" class="statText">
-        <tc-webtag:rscSelect name="<%=Constants.CATEGORY%>" list="<%=categories%>" fieldText="category" fieldValue="category"/></td>
+        <tc-webtag:rscSelect name="<%=Constants.CATEGORY%>" list="<%=categories%>" fieldText="category" fieldValue="category"/>
+    </td>
 </tr>
 <tr>
     <td colspan="2" class="errorText" align="center">
@@ -178,10 +180,12 @@ function submitEnter(e) {
 <tr>
     <td align="right" class="statText" width="25%">Division I Level</td>
     <td align="left" class="statText" width="25%">
-        <tc-webtag:rscSelect name="<%=Constants.DIV1_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
+        <tc-webtag:rscSelect name="<%=Constants.DIV1_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/>
+    </td>
     <td align="right" class="statText" width="25%">Division II Level</td>
     <td align="left" class="statText" width="25%">
-        <tc-webtag:rscSelect name="<%=Constants.DIV2_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
+        <tc-webtag:rscSelect name="<%=Constants.DIV2_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/>
+    </td>
 </tr>
 
 <tr>
@@ -195,10 +199,14 @@ function submitEnter(e) {
 <tr>
     <td align="right" class="statText">Minimum Division I Success Rate</td>
     <td align="left" class="statText">
-        <tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
+        <tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>" size="3" maxlength="3" onKeyPress="submitEnter(event)"/>
+        %
+    </td>
     <td align="right" class="statText">Minimum Division II Success Rate</td>
     <td align="left" class="statText">
-        <tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
+        <tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>" size="3" maxlength="3" onKeyPress="submitEnter(event)"/>
+        %
+    </td>
 </tr>
 <tr>
     <td colspan="2" class="errorText" align="center">
@@ -211,22 +219,27 @@ function submitEnter(e) {
 <tr>
     <td align="right" class="statText">Maximum Division I Success Rate</td>
     <td align="left" class="statText">
-        <tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
+        <tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>" size="3" maxlength="3" onKeyPress="submitEnter(event)"/>
+        %
+    </td>
     <td align="right" class="statText">Maximum Division II Success Rate</td>
     <td align="left" class="statText">
-        <tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
+        <tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>" size="3" maxlength="3" onKeyPress="submitEnter(event)"/>
+        %
+    </td>
 </tr>
 <tr>
     <td colspan="2" class="errorText" align="center">
         <tc-webtag:errorIterator id="err" name="<%=Constants.WRITER%>"><%=err%><br/></tc-webtag:errorIterator>
     </td>
-    <td colspan="2" class="errorText" align="center">        
+    <td colspan="2" class="errorText" align="center">
     </td>
 </tr>
 <tr>
     <td align="right" class="statText">Writer:</td>
     <td align="left" class="statText">
-        <tc-webtag:textInput name="<%=Constants.WRITER%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/></td>
+        <tc-webtag:textInput name="<%=Constants.WRITER%>" size="15" maxlength="15" onKeyPress="submitEnter(event)"/>
+    </td>
     <td align="right" class="statText"></td>
     <td align="left" class="statText"></td>
 </tr>
@@ -239,107 +252,122 @@ function submitEnter(e) {
 </tr>
 <table>
 
-    <br/><br/>
+<br/><br/>
 
-    <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%">
+    <TR>
+        <TD colspan="12" class="statText"><%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+            | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+        </TD>
+    </TR>
+    <TR>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="10">
+            <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="13%" HEIGHT="18">
+            <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="0"/><%=addParams(request)%>" class="statText"><b>Problem&nbsp;Name</b></a>
+        </TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="15%">
+            <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="1"/><%=addParams(request)%>" class="statText"><b>Contest</b></a>
+        </TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="10%">
+            <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="2"/><%=addParams(request)%>" class="statText"><b>Date</b></a>
+        </TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="10%">
+            <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="18"/><%=addParams(request)%>" class="statText"><b>Writer</b></a>
+        </TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="20%">
+            <b>Categories</b>
+        </TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="5%">
+            <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="4" ascColumn="8" descColumn="9"/><%=addParams(request)%>" class="statText"><b>Div.
+                1<br/>Level</b></a></TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%">
+            <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="6" ascColumn="12" descColumn="13"/><%=addParams(request)%>" class="statText"><b>Div.
+                1<br/>Success Rate</b></a></TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10%">
+            <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="5" ascColumn="10" descColumn="11"/><%=addParams(request)%>" class="statText"><b>Div.
+                2<br/>Level</b></a></TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%">
+            <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="7" ascColumn="14" descColumn="15"/><%=addParams(request)%>" class="statText"><b>Div.
+                2<br/>Success Rate</b></a></TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="5%" HEIGHT="18"></TD>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10">
+            <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+    </TR>
+    <TR>
+        <TD colspan="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+    </TR>
+    <rsc:iterator list="<%=rsc%>" id="resultRow">
         <TR>
-            <TD colspan="12" class="statText"><%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-                | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%></TD>
-        </TR>
-        <TR>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="10">
-                <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="13%" HEIGHT="18">
-                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="0"/><%=addParams(request)%>" class="statText"><b>Problem&nbsp;Name</b></a>
+            <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+            <TD CLASS="statText" HEIGHT="13">
+                <A HREF="/stat?c=problem_statement&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/>" class="statText">
+                    <rsc:item name="problem_name" row="<%=resultRow%>"/>
+                </A></TD>
+            <TD CLASS="statText" HEIGHT="13" ALIGN="left" NOWRAP="on">
+                <% if (resultRow.getIntItem("algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>
+                <A HREF="/stat?c=round_overview&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statText">
+                    <rsc:item name="contest_name" row="<%=resultRow%>"/>
+                </A>
+                <% } else { %>
+                <A HREF="/tc?<%=Constants.MODULE_KEY%>=HSRoundOverview&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statText">
+                    <rsc:item name="contest_name" row="<%=resultRow%>"/>
+                </A>
+                <% } %>
             </TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="15%">
-                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="1"/><%=addParams(request)%>" class="statText"><b>Contest</b></a>
+            <TD CLASS="statText" HEIGHT="13" ALIGN="left">
+                <rsc:item name="contest_date" row="<%=resultRow%>" format="MM.dd.yyyy"/>
             </TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="10%">
-                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="2"/><%=addParams(request)%>" class="statText"><b>Date</b></a>
+            <TD CLASS="statText" HEIGHT="13" ALIGN="left">
+                <% if (resultRow.getItem("writer_id").getResultData() != null) {%>
+                <tc-webtag:handle coderId='<%= resultRow.getLongItem("writer_id") %>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+                <% } %>
             </TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="10%">
-                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="18"/><%=addParams(request)%>" class="statText"><b>Writer</b></a>
+            <TD CLASS="statText" HEIGHT="13" ALIGN="left">
+                <rsc:item name="categories" row="<%=resultRow%>"/>
             </TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="20%"><b>Categories</b>
+            <TD CLASS="statText" HEIGHT="13" ALIGN="right">
+                <rsc:item name="div1_level" row="<%=resultRow%>"/>
             </TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="5%">
-                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="4" ascColumn="8" descColumn="9"/><%=addParams(request)%>" class="statText"><b>Div.
-                    1<br/>Level</b></a></TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%">
-                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="6" ascColumn="12" descColumn="13"/><%=addParams(request)%>" class="statText"><b>Div.
-                    1<br/>Success Rate</b></a></TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="10%">
-                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="5" ascColumn="10" descColumn="11"/><%=addParams(request)%>" class="statText"><b>Div.
-                    2<br/>Level</b></a></TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="15%">
-                <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=ProblemArchive"%><tc-webtag:sort column="7" ascColumn="14" descColumn="15"/><%=addParams(request)%>" class="statText"><b>Div.
-                    2<br/>Success Rate</b></a></TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="5%" HEIGHT="18"></TD>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10">
-                <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-        </TR>
-        <TR>
-            <TD colspan="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-        </TR>
-        <rsc:iterator list="<%=rsc%>" id="resultRow">
-            <TR>
-                <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                <TD CLASS="statText" HEIGHT="13">
-                    <A HREF="/stat?c=problem_statement&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/>" class="statText">
-                        <rsc:item name="problem_name" row="<%=resultRow%>"/></A></TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="left" NOWRAP="on">
-                    <% if (resultRow.getIntItem("algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>
-                    <A HREF="/stat?c=round_overview&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statText">
-                        <rsc:item name="contest_name" row="<%=resultRow%>"/></A>
-                    <% } else { %>
-                    <A HREF="/tc?<%=Constants.MODULE_KEY%>=HSRoundOverview&<%=Constants.ROUND_ID%>=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statText">
-                        <rsc:item name="contest_name" row="<%=resultRow%>"/></A>
-                    <% } %>
-                </TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="left">
-                    <rsc:item name="contest_date" row="<%=resultRow%>" format="MM.dd.yyyy"/></TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="left">        	
-                	<%  if (resultRow.getItem( "writer_id").getResultData() != null)  {%>               
-                		<tc-webtag:handle coderId='<%= resultRow.getLongItem("writer_id") %>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
-                	<% } %>
-                </TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="categories" row="<%=resultRow%>"/></TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div1_level" row="<%=resultRow%>"/></TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="right">
-                    <rsc:item name="div1_success" row="<%=resultRow%>" format="0.00%"/></TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div2_level" row="<%=resultRow%>"/></TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="right">
-                    <rsc:item name="div2_success" row="<%=resultRow%>" format="0.00%"/></TD>
-                <TD CLASS="statText" HEIGHT="13" ALIGN="right">
-                    <A HREF="/tc?module=ProblemDetail&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/>" class="statText">details</A>
-                </TD>
-                <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-            </TR>
-        </rsc:iterator>
-        <TR>
-            <TD colspan="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-        </TR>
-        <TR>
-            <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" HEIGHT="16" colspan="11" ALIGN="center">
+            <TD CLASS="statText" HEIGHT="13" ALIGN="right">
+                <rsc:item name="div1_success" row="<%=resultRow%>" format="0.00%"/>
             </TD>
+            <TD CLASS="statText" HEIGHT="13" ALIGN="right">
+                <rsc:item name="div2_level" row="<%=resultRow%>"/>
+            </TD>
+            <TD CLASS="statText" HEIGHT="13" ALIGN="right">
+                <rsc:item name="div2_success" row="<%=resultRow%>" format="0.00%"/>
+            </TD>
+            <TD CLASS="statText" HEIGHT="13" ALIGN="right">
+                <A HREF="/tc?module=ProblemDetail&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>&pm=<rsc:item name="problem_id" row="<%=resultRow%>"/>" class="statText">details</A>
+            </TD>
+            <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
         </TR>
-        <TR>
-            <TD colspan="12" class="statText"><%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
-                | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%></TD>
-        </TR>
+    </rsc:iterator>
+    <TR>
+        <TD colspan="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
+    </TR>
+    <TR>
+        <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" HEIGHT="16" colspan="11" ALIGN="center">
+        </TD>
+    </TR>
+    <TR>
+        <TD colspan="12" class="statText"><%=(rsc.croppedDataBefore() ? "<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
+            | <%=(rsc.croppedDataAfter() ? "<a href=\"Javascript:next()\" class=\"statText\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
+        </TD>
+    </TR>
 
-        <TR>
-            <TD colspan="12" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-        </TR>
-        <TR>
-            <TD colspan="12" ALIGN="center" CLASS="statText">
-            </TD>
-        </TR>
-        <TR>
-            <TD colspan="12" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-        </TR>
-    </TABLE>
+    <TR>
+        <TD colspan="12" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+    </TR>
+    <TR>
+        <TD colspan="12" ALIGN="center" CLASS="statText">
+        </TD>
+    </TR>
+    <TR>
+        <TD colspan="12" VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+    </TR>
+</TABLE>
 </form>
 </TD>
 </TR>
