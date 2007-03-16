@@ -47,7 +47,7 @@
                          U.S. citizenship is required. NSA is an Equal Opportunity Employer.<br>
                          For more information about the career opportunities available at NSA:
                          </p>
-                         <p><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsaConfirm" class="button" style="width: 70px;">Apply Now</a></p>                       
+                         <p><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=nsaConfirm" class="button" style="width: 70px;">Apply Now</a></p>                       
                     </div>
                 </td>
             </tr>

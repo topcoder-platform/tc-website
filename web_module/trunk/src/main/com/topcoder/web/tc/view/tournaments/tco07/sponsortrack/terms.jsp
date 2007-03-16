@@ -49,7 +49,7 @@
                                     <b>read and agree to</b> the terms listed below.</p>
 
                                 <div align="center">
-                                    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&d1=tournaments&d2=tco07&d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=${event.terms.id}"></iframe>
+                                    <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=${event.terms.id}"></iframe>
                                 </div>
 
                                 <div align="center">

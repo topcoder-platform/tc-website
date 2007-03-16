@@ -39,9 +39,7 @@
 <td id="bodySpacer" width="100%">
     <div id="pageBody">
 
-        <h1>
-            <div>Studio Leaderboard</div>
-        </h1>
+        <h1><span>Studio Leaderboard</span></h1>
 
         <p><strong>NOTE:</strong> this ranking does not consider the
             <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=rules#scoring">tiebreaker

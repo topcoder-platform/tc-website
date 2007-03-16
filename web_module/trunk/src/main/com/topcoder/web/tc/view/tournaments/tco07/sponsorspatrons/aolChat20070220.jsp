@@ -31,7 +31,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <div style="margin-bottom: 20px;"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" /><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
+                        <div style="margin-bottom: 20px;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol" /><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a></div>
 
 <table class="stat" style="width: 100%;" cellpadding="0" cellspacing="0">
 <thead>
@@ -108,7 +108,7 @@
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Duke</span></td><td class="value"><span class="bigRed">Look at our sponsor site that will have job opportunity links that we will be updating throughout the TCO sponsorship</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">if you use Flickr and want to make changes to pictures you took</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">you have to do that online</span></td></tr>
-<tr class="light"><td class="value">kclune</td><td class="value">http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol</td></tr>
+<tr class="light"><td class="value">kclune</td><td class="value">http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol</td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">what happens when we move that content offline, and sync later when your connection is back.</span></td></tr>
 <tr class="light"><td class="value">athenachu71</td><td class="value">AOL_Greg: do you mean it's kind of reverse direction of basic Server-Client architecture?</td></tr>
 <tr class="dark"><td class="value">Malkava</td><td class="value">AOL_Greg: I see.. and does Web 3.0 has any implicity technology to be built, like AJAX for Web 2.0 ?</td></tr>
@@ -139,8 +139,8 @@
 <tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">Anyone interested in opportunities should go to the Topcoder website and apply</span></td></tr>
 <tr class="dark"><td class="value">kclune</td><td class="value">athenachu71: but more importantly, everyone should apply here:</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">Ah, Microsoft will have to adapt</span></td></tr>
-<tr class="dark"><td class="value">kclune</td><td class="value">athenachu71: http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolConfirm</td></tr>
-<tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol</span></td></tr>
+<tr class="dark"><td class="value">kclune</td><td class="value">athenachu71: http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolConfirm</td></tr>
+<tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol</span></td></tr>
 <tr class="dark"><td class="value">erty</td><td class="value">AOL_Greg: I hope so :)</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">Well I think offline web development is well under way...of course it is not done in HTML</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">think the Flickr Uploader</span></td></tr>
@@ -152,7 +152,7 @@
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">Google Finance may implement portfolio editing offline</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">while Yahoo chooses not to allow that</span></td></tr>
 <tr class="dark"><td class="value">Shaoye</td><td class="value">AOL_Greg: sound like you are part of the web</td></tr>
-<tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">Hello - anyone interested in hearing more about our opportunities should go to http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol</span></td></tr>
+<tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">Hello - anyone interested in hearing more about our opportunities should go to http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">Well thank you Shaoye but I think mine is only an opinion...of course this is also a vision I have of where we can take the web and make it easier to use, consume and participate at all times</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">We look for fresh ideas at all levels of experience.  Existing skills are not mandatory for all of AOL's positions (they are for some of the higher-level ones for obvious reasons) but passion and ability to think and learn are most important.</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">One thing I see happening is the move to disagregation among social networking sites</span></td></tr>
@@ -195,7 +195,7 @@
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">for example, EBay or SPAM systems</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">all have Databases of who can be trusted and who can't</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">Can I trust Greg on answering AIM questions?</span></td></tr>
-<tr class="dark"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">To find out more about AOL, please log on to :http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">To find out more about AOL, please log on to :http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">Hopefully a browser can say yes</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">what do you think web 3.0 is going to be</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">or better yet</span></td></tr>
@@ -222,7 +222,7 @@
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">and who they interact with</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">if web 2.0 is about consolidating the disparate data...then I believe Web 3.0 will do the same for the social world</span></td></tr>
 <tr class="dark"><td class="value">kclune</td><td class="value">if anyone likes what they hear so far, please check out other opportunities with AOL here, and apply to their open positions at the bottom of the page:</td></tr>
-<tr class="light"><td class="value">kclune</td><td class="value">http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolOpps</td></tr>
+<tr class="light"><td class="value">kclune</td><td class="value">http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolOpps</td></tr>
 <tr class="dark"><td class="value">code_rasher</td><td class="value">what is IETF, Microformats ??</td></tr>
 <tr class="light"><td class="value">sql_lall</td><td class="value">AOL_Greg: moving from O(Client * Server) connections to O(Client * Client)? :p</td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">think Second Life breaking itself into States, or Counties, or Cities or towns</span></td></tr>
@@ -241,10 +241,10 @@
 <tr class="light"><td class="value">griffon</td><td class="value">AOL_Greg: hmm&lt; no article about web 3.0 in wikipedia</td></tr>
 <tr class="dark"><td class="value">kclune</td><td class="value">I believe AOL is looking for interns this summer.</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">AIM Pages is built using DoJo and microformats</span></td></tr>
-<tr class="dark"><td class="value">kclune</td><td class="value">tywok: Please go to http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolOpps</td></tr>
+<tr class="dark"><td class="value">kclune</td><td class="value">tywok: Please go to http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolOpps</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">We are starting our recruitment efforts for summer interns. If you want to hear more about a summer internship, please go to:</span></td></tr>
 <tr class="dark"><td class="value">kclune</td><td class="value">tywok: to apply.</td></tr>
-<tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol</span></td></tr>
+<tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol</span></td></tr>
 <tr class="dark"><td class="value">tywok</td><td class="value">ok, i'll do! Thanks!</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">one thing to follow closely is how DRM starts creeping into the conversation on data</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">there is already a microformat for copywriting YOUR material</span></td></tr>
@@ -276,7 +276,7 @@
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">basically each user is an RSS feed</span></td></tr>
 <tr class="light"><td class="value">kclune</td><td class="value">For those of you who don't know, AOL is based in Dulles, Virginia, which is about 25 miles west of Washington DC.</td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">where we notify people who have that user listed as a contact, when they have uploaded pics to Flickr, or updated their profile</span></td></tr>
-<tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">Anyone interested in internship opportunities go to:http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol</span></td></tr>
+<tr class="light"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">Anyone interested in internship opportunities go to:http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol</span></td></tr>
 <tr class="dark"><td class="value">Majjj</td><td class="value">AOL_Carl: how about foreign nationals</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">I think the ad model for Web 2.0 is not exactly correct.  I wrote on my blog about this a week or two ago...http://journals.aol.com/gregsblog/aimInfo</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">to summerize it</span></td></tr>
@@ -289,7 +289,7 @@
 <tr class="light"><td class="value">sql_lall</td><td class="value">AOL_Greg: would you buy anything from a web ad?</td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">heck yeah, if it was something i wanted</span></td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">for example</span></td></tr>
-<tr class="dark"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">For those who joined us, check out all of AOL's opportunities at:http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">For those who joined us, check out all of AOL's opportunities at:http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol</span></td></tr>
 <tr class="light"><td class="value">MyNameIsKoda</td><td class="value">examples can be plenty of course :)</td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">if I was fired an alert or coupon from a local pizza joint at 1130AM to get a $1 off a slice of pizza at lunch that day only</span></td></tr>
 <tr class="light"><td class="value">kclune</td><td class="value">AOL_Carl: There is an "apply" button at the bottom of the page.</td></tr>
@@ -318,7 +318,7 @@
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">my blog http://journals.aol.com/gregsblog/aimInfo</span></td></tr>
 <tr class="light"><td class="value">MyNameIsKoda</td><td class="value">AOL_Greg: thanks</td></tr>
 <tr class="dark"><td class="value">kclune</td><td class="value">One last time, anyone interested in exploring a great new opportunity with AOL, should go here:</td></tr>
-<tr class="light"><td class="value">kclune</td><td class="value">http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolOpps</td></tr>
+<tr class="light"><td class="value">kclune</td><td class="value">http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolOpps</td></tr>
 <tr class="dark"><td class="value">saarixx</td><td class="value">ArcanaDooDleZ: hi</td></tr>
 <tr class="light"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">it mashes up the context of your IM conversation with Flickr photos</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">that was an idea I had, so I just built it</span></td></tr>
@@ -345,7 +345,7 @@
 <tr class="light"><td class="value"><span class="bigRed">AOL_Duke</span></td><td class="value"><span class="bigRed">Greg...Thanks for joining us today</span></td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">please check out dev.aol.com</span></td></tr>
 <tr class="light"><td class="value">jmpld40</td><td class="value">Thanks Greg, great chat</td></tr>
-<tr class="dark"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">If you are just joining us, check out our exciting opportunities at: http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol</span></td></tr>
+<tr class="dark"><td class="value"><span class="bigRed">AOL_Carl</span></td><td class="value"><span class="bigRed">If you are just joining us, check out our exciting opportunities at: http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol</span></td></tr>
 <tr class="light"><td class="value">jmpld40</td><td class="value">thanks Duke, Gray and Carl as well</td></tr>
 <tr class="dark"><td class="value"><span class="bigRed">AOL_Greg</span></td><td class="value"><span class="bigRed">or my blog http://journals.aol.com/gregsblog/aimInfo</span></td></tr>
 <tr class="light"><td class="value">kclune</td><td class="value">jmpld40: Yes, thank you all.</td></tr>

@@ -32,8 +32,7 @@
                     <td id="bodySpacer" width="100%">
                         <div id="pageBody">
 
-                            <h1>
-                                <div>
+                            <h1><span>
                                     <c:choose>
                                         <c:when test="${eligible}">
                                             Registration Successful
@@ -42,8 +41,7 @@
                                             Registration Failed
                                         </c:otherwise>
                                     </c:choose>
-                                </div>
-                            </h1>
+                                </span></h1>
 
 
                             <div align="center" style="margin:40px;">

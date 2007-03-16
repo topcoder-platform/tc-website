@@ -46,18 +46,18 @@
 <h2>How to Register for the TCO07 Sponsor Track Competition</h2>
 
 <p><b>Already a TopCoder Member?</b><br>
-Click <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=reg">here</a> to register for the TCO Sponsor Track Competition </p>
+Click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=reg">here</a> to register for the TCO Sponsor Track Competition </p>
 
 <p><b>Not Yet a TopCoder Member?</b><br>
 Click <a href="/reg">here</A> to sign up as a TopCoder member<br>
 Check your email and activate your new TopCoder account<br>
-Click <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=reg">here</a> to register for the TCO Sponsor Track Competition </p>
+Click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=reg">here</a> to register for the TCO Sponsor Track Competition </p>
 
 <p>The competition is free and you must be a registered TopCoder member who is at least 18 years old to be eligible. </p>
 
-<p>See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=rules">official rules and regulations</a> for more details.</p>
+<p>See the <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=rules">official rules and regulations</a> for more details.</p>
 
-<p>When is the competition?  See the <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=schedule">schedule</a> here.</p>
+<p>When is the competition?  See the <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=schedule">schedule</a> here.</p>
 
                     </div>
                 </td>
