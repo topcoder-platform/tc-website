@@ -18,7 +18,6 @@
             color: #666666;
             background: none;
             position: static;
-            width: auto;
         }
         h1 div {
             margin: 0px 0px 20px 0px;
@@ -32,7 +31,6 @@
     <c:param name="<%=Constants.MODULE_KEY%>" value="ViewAssignmentDocumentText"/>
     <c:param name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="<%=request.getParameter(PactsConstants.ASSIGNMENT_DOCUMENT_ID)%>"/>
 </c:import>
-
 </body>
 
 </html>

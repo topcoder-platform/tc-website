@@ -43,45 +43,32 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-        <td width="100%" align="left" class="bodyColumn">
+<td width="100%" align="center" class="bodyColumn">
+<div class="maxWidthBody">
         
             <jsp:include page="/page_title.jsp" >
             <jsp:param name="image" value="pact_s"/>
-            <jsp:param name="title" value="Assignment Documents"/>
+            <jsp:param name="title" value="IP Transfers"/>
             </jsp:include>
     
-                <p><a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click here for a printer friendly version of the assignment document</a></p>
-            <center>
-                <p><iframe  width="70%" height="500" marginWidth="5"
+                <p align="right"><a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">Printer friendly version</a></p>
+
+                <p><iframe  width="100%" height="500" marginWidth="5"
                     src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                 </p>
     
+                <div align="center">
+
                 <c:if test="${assignment_document.status.id == PENDING_STATUS_ID}">
                     <c:choose>
                         <c:when test="${has_hard_copy}">
-                            <table>
-                                <tr>
-                                    <td class="bodyText">
-                                        <form action="/PactsMemberServlet" method="post">
-                                            <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
-                                            <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
-                                            <input type="submit" value="Affirm assignment document"/>
-                                        </form>
-                                    </td>
-                                    <td class="bodyText">
-                                        <form action="/PactsMemberServlet" method="post">
-                                            <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
-                                            <input type="hidden" name="module" value="RejectAssignmentDocument"/> 
-                                            <input type="submit" value="Reject assignment document"/>
-                                        </form>
-                                    </td>
-                                    <td>
-                                        <form action="/reg/?nrg=false">
-                                            <input type="submit" value="Edit Personal Information">
-                                        </form>
-                                    </td>
-                                </tr>
-                            </table>
+                            <form action="/PactsMemberServlet" method="post">
+                                <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
+                                <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
+                                <input type="submit" value="I accept"/>
+                            </form>
+
+                            <p>If the personal information in this document is incorrect,<br>please <A href="/reg/?nrg=false">update your profile</A> before accepting.</p>
                         </c:when>
                         <c:otherwise>
                             <p>
@@ -90,8 +77,9 @@
                         </c:otherwise>
                     </c:choose>
                 </c:if>
-            </center>
-        </TD>
+                </div>
+</div>
+</TD>
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->

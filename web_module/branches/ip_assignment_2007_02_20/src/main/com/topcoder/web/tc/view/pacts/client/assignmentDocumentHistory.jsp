@@ -72,12 +72,12 @@
 
 <jsp:include page="../../page_title.jsp" >
 <jsp:param name="image" value="pact_s"/>
-<jsp:param name="title" value="Assignment Documents"/>
+<jsp:param name="title" value="IP Transfers"/>
 </jsp:include>
 
 
 <div align="left">
-    <span class="bodySubtitle">Assignment Documents > </span><br>
+    <span class="bodySubtitle">IP Transfers > </span><br>
     <c:if test="${fullList}" >
         View all | <a href="/PactsMemberServlet?module=AssignmentDocumentHistory&full_list=false" class="bcLink">View pending</a>
     </c:if>
@@ -117,13 +117,13 @@
     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
     <tbody>
         <tr>
-            <td class="title" colspan="7">
-                Assignment Documents
+            <td class="title" colspan="4">
+                IP Transfers
             </td>
         </tr>
         <tr>
             <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>">
-            Submission</a>
+            Description</a>
             </td>
             <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">
             Affirmation</a>
@@ -166,7 +166,7 @@
                         </td>
                         <td class="valueC">
                             <strong><a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
-                                 <c:out value="${ad.daysLeftToExpire}"/>
+                                 <c:out value="${ad.daysLeftToExpire}"/> days
                             </a></strong>            
                         </td>
                     </c:when>
