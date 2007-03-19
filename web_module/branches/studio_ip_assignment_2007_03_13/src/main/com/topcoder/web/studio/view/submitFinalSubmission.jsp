@@ -82,7 +82,7 @@
     ${contest.name}
 </div>
 
-<h1>Submit Your Final Submission</h1>
+<h1>Upload Your Final Submission</h1>
 
 <div align="center">
     <div align="left" style="width:500px; margin-top: 20px;">
