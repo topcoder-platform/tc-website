@@ -90,23 +90,25 @@
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
             <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-            <c:choose>
-                <c:when test="${!has_hard_copy}">
-                    <p>Remember that in order to get paid you must send a signed copy of the Assignment document</p>
-                </c:when>
-                <c:when test="${has_hard_copy and assignment_document.status.id == PENDING_STATUS_ID}">
-                    <p><iframe  width="100%" height="300" marginWidth="5"
-                        src="/?module=Static&d1=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
-                    </p>
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD%>"><span class="bigRed">${err}</span>
-                    <br></tc-webtag:errorIterator>
-                    <tc-webtag:chkBox name="<%=Constants.ACCEPT_AD%>"/> I accept
-                    </p>                
-                </c:when>
-                <c:otherwise>
-                    You have already accepted the Assignment Document.
-                </c:otherwise>
-            </c:choose>
+            <div align="center">
+                <c:choose>
+                    <c:when test="${!has_hard_copy}">
+                        <p>Remember that in order to get paid you must send a signed copy of the Assignment document</p>
+                    </c:when>
+                    <c:when test="${has_hard_copy and assignment_document.status.id == PENDING_STATUS_ID}">
+                        <p><iframe  width="100%" height="300" marginWidth="5"
+                            src="/?module=Static&d1=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
+                        </p>
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD%>"><span class="bigRed">${err}</span>
+                        <br></tc-webtag:errorIterator>
+                        <tc-webtag:chkBox name="<%=Constants.ACCEPT_AD%>"/> I accept
+                        </p>                
+                    </c:when>
+                    <c:otherwise>
+                        You have already accepted the Assignment Document.
+                    </c:otherwise>
+                </c:choose>
+            </div>
     
             <p>Please use the form below to upload your submission:</p>
     
