@@ -60,20 +60,15 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         boolean noEvent = getRequest().getParameter(EVENT_ID) == null;
 
         if (noEvent) {
-            /*
-            event = eventDAO.findCurrent();
-            if (event != null) {
-                eid = event.getId();
-            } else {
-                setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);
-                setIsNextPageInContext(true);
-                return;
-            }*/
             List<VisaLetterEvent> events = eventDAO.findShowStatus();
             List<com.topcoder.web.common.model.VisaLetterRequest> reqs = new ArrayList<com.topcoder.web.common.model.VisaLetterRequest>();
             
             for (VisaLetterEvent e : events) {
-                reqs.add(reqDAO.find(userId, e.getId()));
+                com.topcoder.web.common.model.VisaLetterRequest req = reqDAO.find(userId, e.getId());
+                
+                if (req != null) {
+                    reqs.add(req);
+                }
             }
             
             getRequest().setAttribute("reqs", reqs);
@@ -182,7 +177,10 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
             setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST);
         } else {
             // Display the status page
-            getRequest().setAttribute("req", req);
+            List reqs = new ArrayList();
+            reqs.add(req);
+            
+            getRequest().setAttribute("reqs", reqs);
             setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);
         }
 

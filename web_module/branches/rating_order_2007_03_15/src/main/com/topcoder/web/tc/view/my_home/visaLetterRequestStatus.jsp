@@ -68,7 +68,7 @@
                         </div>
                     </c:when>
                     <c:otherwise>
-                    	<c:forEach items="reqs" var="req">
+                    	<c:forEach items="${reqs}" var="req" >
 	                        <span class="bodySubtitle">Visa letter request for <c:out value="${req.event.name}"/></span><br>
 	                        <strong>Requested on:</strong>
 	                        <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy"/>
