@@ -42,24 +42,27 @@
 </p>
 
 <p>
-    A room at the University will be confirmed for your arrival on May 18 and departure on
-    May 20, 2007. In order to receive your rooming assignment, please register upon arrival.
-    Registration is 8:00AM and 6:00PM. You will receive more information about registration
-    in your agenda. If you have any special requests, please indicate them on the travel form below. </p>
+   A room at the University will be confirmed for your arrival on May 18 and departure on May 20, 2007. In
+    order to receive your rooming assignment, please register upon arrival. Registration will take place
+    between 8:00 AM and 6:00 PM on Friday, May 18. You will receive more information about registration
+    in your agenda, which TopCoder will email to you. If you have any special requests, please indicate
+    them on the travel form below. </p>
 
 <p>
-    <b><b>At the TCHS, you will be sharing a hotel room with another competitor or with your team.</b> Please
+    <b>At the TCHS, you will be sharing a hotel room with another competitor or with your team.</b> Please
         fill in the appropriate space with your roommate preference if you have one. We will do our
-        best to accommodate your request</p>
+        best to accommodate your request.</p>
 
 
 <B><U>AIRPORT TRANSPORTATION:</U></B>
 
 <p>
-
-    TopCoder will provide transportation to and from the hotel and airport in Indiana. We will email
-    you a voucher for a round-trip ticket for the Lafayette Limo shuttle that will drop you off at
-    the registration desk.</p>
+    TopCoder will provide transportation to and from the hotel and airport in Indiana. We will email you
+    a voucher for a round-trip ticket for the Lafayette Limo shuttle that will pick you up from the
+    Indianapolis airport and drop you off at the registration desk at Purdue University.  Upon returning to
+    the airport, Lafayette Limo will provide you with a schedule of times for pick ups to coincide
+    with your flight departures.
+</p>
 
 
 <h3 align="center">Travel Form</h3>
