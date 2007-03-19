@@ -46,6 +46,7 @@
     5.8.5 - 2007.03.xx
     <ul>
         <li>Add studio results to the tco07 site -dok</li>
+        <li>Add rating_order column to project_result tables in trans and dw.  Using that column for sort</li>
     </ul>
 </p>
 
