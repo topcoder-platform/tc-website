@@ -38,9 +38,7 @@ public class RejectAssignmentDocument extends BaseProcessor implements PactsCons
                 throw new IllegalArgumentException("You must send a hard copy of the Assignment Document before you can use this system to affirm");  
             }
             
-            ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.REJECTED_STATUS_ID));
-            ad.setAffirmedDate(null);
-            bean.addAssignmentDocument(ad);
+            bean.rejectAssignmentDocument(ad);
             
             setNextPage("/PactsMemberServlet?module=AssignmentDocumentHistory");
             setIsNextPageInContext(true);

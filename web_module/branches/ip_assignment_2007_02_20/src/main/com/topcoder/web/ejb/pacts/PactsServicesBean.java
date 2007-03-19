@@ -1045,7 +1045,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         if (pendingOnly) {
             selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
-                    PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
+                PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + 
+                PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
         selectPaymentDetails.append("ORDER BY date_due DESC");
@@ -1086,6 +1087,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         if (pendingOnly) {
             selectPaymentHeaders.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
+                    PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + 
                     PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
@@ -1722,6 +1724,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
     public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
         Connection conn = null;
+
+        try {
+            conn = DBMS.getConnection();
+            return addAssignmentDocument(conn, ad);
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage(), e));
+        } finally {
+            close(conn);
+        }
+    }
+    
+    public AssignmentDocument addAssignmentDocument(Connection c, AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -1796,8 +1811,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         
         // store
         try {
-            conn = DBMS.getConnection();
-
             if (ad.getText() == null || ad.getText().trim().length() == 0) {
                 // template is transformed if the ad is created with affirmed status 
                 // or the status is updated to affirmed. (and the text is empty)
@@ -1805,7 +1818,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                    (oldAssignmentDocumentInstance == null || 
                    !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID))) {
                     log.debug("get the assignment document text from the db");
-                    AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(conn, ad.getType().getId().longValue());
+                    AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue());
                     ad.setText(adt.transformTemplate(ad));
                 }
             }
@@ -1847,7 +1860,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 query.append("where assignment_document_id = ? ");
             }
             
-            ps = conn.prepareStatement(query.toString());
+            ps = c.prepareStatement(query.toString());
             ps.setLong(1, ad.getId().longValue());
             ps.setLong(2, ad.getType().getId().longValue());
             ps.setLong(3, ad.getStatus().getId().longValue());
@@ -1879,7 +1892,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } finally {
             close(rs);
             close(ps);
-            close(conn);
         }
     }
     
@@ -1935,6 +1947,190 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    
+    public void affirmAssignmentDocument(AssignmentDocument ad) {
+        // validate
+        if (ad.getId() == null) {
+            throw new IllegalArgumentException("Assignment Document's id cannot be null");
+        }
+
+        try {
+            ad = getAssignmentDocument(ad.getId().longValue());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Assignment document does not exists");
+        }
+        
+        // deny the operation if the assignment document is affirmed.
+        
+        if (!ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
+            throw new IllegalArgumentException("Assignment Document should be pending");  
+        }
+        
+        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByProjectId(ad.getUser().getId().longValue(), 
+                ad.getType().getId().longValue());
+
+        if (!hasHardCopy.booleanValue()) {
+            throw new IllegalArgumentException("You must send a hard copy of the Assignment Document " +
+                    "before you can use this system to affirm");  
+        }
+
+        ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
+        ad.setAffirmedDate(null);
+        
+        Connection c = null;
+        try {
+            c = DBMS.getConnection();
+            c.setAutoCommit(false);
+            setLockTimeout(c);
+
+            addAssignmentDocument(c, ad);
+            updateAssignmentDocumentPaymentStatus(c, ad, PAYMENT_OWED_STATUS);
+            
+            c.commit();
+            c.setAutoCommit(true);
+            c.close();
+            c = null;
+        } catch (Exception e) {
+            printException(e);
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            c = null;
+            throw(new EJBException(e.getMessage(), e));
+        }        
+    }
+
+    public void rejectAssignmentDocument(AssignmentDocument ad) {
+        // validate
+        if (ad.getId() == null) {
+            throw new IllegalArgumentException("Assignment Document's id cannot be null");
+        }
+
+        try {
+            ad = getAssignmentDocument(ad.getId().longValue());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Assignment document does not exists");
+        }
+        
+        // deny the operation if the assignment document is affirmed.
+        
+        if (!ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
+            throw new IllegalArgumentException("Assignment Document should be pending");  
+        }
+        
+        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByProjectId(ad.getUser().getId().longValue(), 
+                ad.getType().getId().longValue());
+
+        if (!hasHardCopy.booleanValue()) {
+            throw new IllegalArgumentException("You must send a hard copy of the Assignment Document " +
+                    "before you can use this system to reject");  
+        }
+
+        ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.REJECTED_STATUS_ID));
+        ad.setAffirmedDate(null);
+        
+        Connection c = null;
+        try {
+            c = DBMS.getConnection();
+            c.setAutoCommit(false);
+            setLockTimeout(c);
+
+            addAssignmentDocument(c, ad);
+            updateAssignmentDocumentPaymentStatus(c, ad, PAYMENT_ON_HOLD_REJECTED_AD_STATUS);
+            
+            c.commit();
+            c.setAutoCommit(true);
+            c.close();
+            c = null;
+        } catch (Exception e) {
+            printException(e);
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            c = null;
+            throw(new EJBException(e.getMessage(), e));
+        }        
+    }
+
+    
+    private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad, int statusId) throws Exception {
+        StringBuffer updatePaymentStatus = new StringBuffer(300);
+        if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
+            updatePaymentStatus.append("FROM payment p, payment_detail pd, OUTER payment p2, OUTER assignment_document ad ");
+            updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
+            updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+            updatePaymentStatus.append("AND p.user_id = ad.user_id ");
+            updatePaymentStatus.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
+            updatePaymentStatus.append("AND pd.component_project_id = ad.component_project_id ");
+            updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
+        } else if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
+            updatePaymentStatus.append("FROM payment p, payment_detail pd, OUTER payment p2, OUTER assignment_document ad ");
+            updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
+            updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+            updatePaymentStatus.append("AND p.user_id = ad.user_id ");
+            updatePaymentStatus.append("AND pd.payment_type_id = " + TC_STUDIO_PAYMENT + " ");
+            updatePaymentStatus.append("AND pd.studio_contest_id = ad.studio_contest_id ");
+            updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
+        }
+        
+        log.debug(updatePaymentStatus.toString());
+        
+        ResultSetContainer rscComponent = runSelectQuery(c, updatePaymentStatus.toString(), false);
+
+        List changeToOnHold = new ArrayList();
+        
+        for (Iterator it = rscComponent.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            Long paymentId = (Long) rsr.getItem(0).getResultData();
+            Long referId = (Long) rsr.getItem(1).getResultData();
+
+            changeToOnHold.add(paymentId);
+            
+            if (referId != null) {
+                changeToOnHold.add(referId);
+            }
+        }
+        
+        log.debug("Size: " + changeToOnHold.size());
+        int i = 0;
+        long pid[] = new long[changeToOnHold.size()];
+        for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
+                pid[i] = ((Long) it.next()).longValue();
+                log.debug("Moving payment " + pid[i] + " to " + statusId);
+        }
+        
+        if (i > 0) {
+            updatePaymentStatus(c, pid, statusId);
+        }
+    }
+
+    
     /**
      * Returns the list of all contract types.
      *
@@ -4241,7 +4437,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             // Add address record if necessary
-            if (addressData != null && p.getStatusId() != PAYMENT_ON_HOLD_STATUS) {
+            if (addressData != null && p.getStatusId() != PAYMENT_ON_HOLD_STATUS
+                    && p.getStatusId() != PAYMENT_ON_HOLD_REJECTED_AD_STATUS 
+                    && p.getStatusId() != PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS) {
                 paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
 
                 StringBuffer addAddress = new StringBuffer(300);
@@ -5049,7 +5247,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
         
         if (i > 0) {
-            updatePaymentStatus(c, pid, PAYMENT_ON_HOLD_STATUS);
+            updatePaymentStatus(c, pid, PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS);
         }
     }
 
@@ -5698,7 +5896,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             query.append(" from payment_detail pd, payment p");
             query.append(" WHERE payment_type_id = " + ALGORITHM_CONTEST_PAYMENT);
             query.append(" AND pd.payment_detail_id = p.most_recent_detail_id");
-            query.append(" AND status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
+            query.append(" AND status_id IN (" + PAYMENT_ON_HOLD_STATUS + ",");
+            query.append(PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
             query.append(" AND today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
             ResultSetContainer payments = runSelectQuery(c, query.toString(), false);
 
@@ -6959,7 +7158,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append("AND p.user_id = " + userId);
 
         if (pendingOnly) {
-        	query.append(" AND pd.status_id IN (" + PactsConstants.PAYMENT_ON_HOLD_STATUS + "," + PactsConstants.PAYMENT_OWED_STATUS + "," + PactsConstants.PAYMENT_PENDING_STATUS + ")");
+        	query.append(" AND pd.status_id IN (" + PactsConstants.PAYMENT_ON_HOLD_STATUS + "," );
+            query.append(PactsConstants.PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + PactsConstants.PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + ",");
+            query.append(PactsConstants.PAYMENT_OWED_STATUS + "," + PactsConstants.PAYMENT_PENDING_STATUS + ")");
         }
 
         query.append("ORDER BY " + sortColumn + (sortAscending? " ASC" : " DESC"));

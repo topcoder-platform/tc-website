@@ -40,9 +40,7 @@ public class RejectAssignmentDocument extends BaseProcessor {
                 throw new IllegalArgumentException("You must send a hard copy of the Assignment Document before you can use this system to affirm");  
             }
             
-            ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.REJECTED_STATUS_ID));
-            ad.setAffirmedDate(null);
-            PactsServicesLocator.getService().addAssignmentDocument(ad);
+            PactsServicesLocator.getService().rejectAssignmentDocument(ad);
             
             setNextPage("/?module=AssignmentDocumentHistory");
             setIsNextPageInContext(true);

@@ -38,9 +38,7 @@ public class AffirmAssignmentDocument extends BaseProcessor  {
                 throw new IllegalArgumentException("You must send a hard copy of the Assignment Document before you can use this system to affirm");  
             }
             
-            ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
-            ad.setAffirmedDate(null);
-            PactsServicesLocator.getService().addAssignmentDocument(ad);
+            PactsServicesLocator.getService().affirmAssignmentDocument(ad);
             
             setNextPage("/?module=AssignmentDocumentHistory");
             setIsNextPageInContext(true);

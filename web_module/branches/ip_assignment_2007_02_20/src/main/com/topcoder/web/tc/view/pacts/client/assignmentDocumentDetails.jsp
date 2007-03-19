@@ -85,7 +85,7 @@
                         </c:when>
                         <c:otherwise>
                             <p>
-                                You'll need to send a signed hard copy of the Assignment Document in order to be able to affirm it in the future. You can get a printer friendly view <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
+                                You'll need to send a signed hard copy of the Assignment Document in order to be able to affirm it in the future. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
                             </p>
                         </c:otherwise>
                     </c:choose>

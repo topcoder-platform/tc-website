@@ -268,9 +268,16 @@ public abstract class ComponentProjectReferencePayment extends BasePayment {
          */
         public int lookupStatus(BasePayment payment) throws SQLException {
             System.out.println("lookupStatus (component) : tax " + hasTaxForm(payment.getCoderId()));
-            return (hasTaxForm(payment.getCoderId()) && 
-                hasAffirmedAssignmentDocument(payment.getCoderId(), ((ComponentProjectReferencePayment) payment).getProjectId())) ?
-                    PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS;
+
+            if (!hasAffirmedAssignmentDocument(payment.getCoderId(), ((ComponentProjectReferencePayment) payment).getProjectId())) {
+                return PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS;
+            }
+            
+            if (!hasTaxForm(payment.getCoderId())) {
+                return PAYMENT_ON_HOLD_STATUS;
+            }
+
+            return PAYMENT_PENDING_STATUS;
         }
         
         /**
