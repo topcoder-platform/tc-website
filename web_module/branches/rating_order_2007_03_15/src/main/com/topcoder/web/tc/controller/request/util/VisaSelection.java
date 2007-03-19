@@ -34,14 +34,12 @@ public class VisaSelection extends ShortHibernateProcessor {
         
         List<VisaLetterEvent> allEvents = eventDAO.findShowStatus();
         List<VisaLetterEvent> events = new ArrayList<VisaLetterEvent>();
-  //      List<com.topcoder.web.common.model.VisaLetterRequest> reqs = new ArrayList<com.topcoder.web.common.model.VisaLetterRequest>();
 
         // find all the events where the coder has requests.
         for (VisaLetterEvent e : allEvents) {
             com.topcoder.web.common.model.VisaLetterRequest req = reqDAO.find(userId, e.getId());
             
             if (req != null) {
-//                reqs.add(req);
                 events.add(e);
             }
         }
@@ -49,7 +47,7 @@ public class VisaSelection extends ShortHibernateProcessor {
         // one request, go directly to status page.
         if (events.size() == 1) {
             setNextPage("http://" + ApplicationServer.SERVER_NAME + "/tc?module=VisaLetterRequestStatus&eid=" + events.get(0).getId());            
-            setIsNextPageInContext(false);
+            setIsNextPageInContext(true);
             return;            
         }
 

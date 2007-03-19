@@ -1,8 +1,6 @@
 package com.topcoder.web.tc.controller.request.util;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
@@ -179,7 +177,6 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
             setNextPage("https://" + ApplicationServer.SERVER_NAME + "/tc?module=VisaLetterRequestStatus&eid=" + event.getId());
             setIsNextPageInContext(false);
         }
-        return;        
     }
 
     private Object fullName(String f, String m, String l) {
