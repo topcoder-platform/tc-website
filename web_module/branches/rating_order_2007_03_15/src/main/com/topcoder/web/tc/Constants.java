@@ -167,6 +167,7 @@ public class Constants implements WebConstants {
     public static String VISA_LETTER_REQUEST;
     public static String VISA_LETTER_REQUEST_STATUS;
     public static String VISA_SELECTION;
+    public static String VISA_ERROR;
 
     
     public static String MEMBER_CONTACT_ENABLE_SUCCEEDED;

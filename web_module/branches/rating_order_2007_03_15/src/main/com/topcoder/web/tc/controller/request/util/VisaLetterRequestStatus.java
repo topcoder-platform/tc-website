@@ -32,6 +32,10 @@ public class VisaLetterRequestStatus extends ShortHibernateProcessor {
 
         com.topcoder.web.common.model.VisaLetterRequest req = reqDAO.find(userId, eventId);
 
+        if (req == null) {
+            throw new NavigationException("Event or Visa Letter Request not found");
+        }
+        
         getRequest().setAttribute("req", req);
         setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);
 

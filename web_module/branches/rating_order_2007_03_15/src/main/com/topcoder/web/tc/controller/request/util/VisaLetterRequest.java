@@ -68,6 +68,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
             throw new IllegalArgumentException("Event id not found: " + eid);
         }
 
+        // Check if the event is currently open for registration
         Date today = new Date();
         String dateError = null;
         if (event.getStartDate().after(today)) {
@@ -79,66 +80,19 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         if (dateError != null) {
             getRequest().setAttribute("event_name", event.getName());
             getRequest().setAttribute(dateError, "true");
-            setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);
+            setNextPage(com.topcoder.web.tc.Constants.VISA_ERROR);
             setIsNextPageInContext(true);
             return;
         }
 
 
-        com.topcoder.web.common.model.VisaLetterRequest req = null;
-
         if (getRequest().getParameter(FULL_NAME) != null) {
-            // The user is posting a request
-            String fullName = getRequest().getParameter(FULL_NAME);
-            String phoneNumber = getRequest().getParameter(PHONE_NUMBER);
-
-
-            if (fullName.trim().length() == 0) {
-                addError(FULL_NAME, "Please enter the full name");
-            }
-
-            if (phoneNumber == null || phoneNumber.trim().length() == 0) {
-                addError(PHONE_NUMBER, "Please enter the phone number");
-            }
-
-            Address addr = getAddress("");
-            addr.setAddressTypeId(Address.PASSPORT_TYPE_ID);
-
-            Address shippingAddr = getAddress("s_");
-            shippingAddr.setAddressTypeId(Address.VISA_LETTER_TYPE_ID);
-
-            if (hasErrors()) {
-                setDefault(FULL_NAME, fullName);
-                setDefault(PHONE_NUMBER, phoneNumber);
-
-                String []fields = {Constants.ADDRESS1, Constants.ADDRESS2, Constants.ADDRESS3, Constants.CITY,
-                                   Constants.POSTAL_CODE, Constants.PROVINCE, Constants.COUNTRY_CODE, Constants.STATE_CODE};
-
-                for (int i = 0; i < fields.length; i++) {
-                    setDefault(fields[i], getRequest().getParameter(fields[i]));
-                    setDefault("s_"+ fields[i], getRequest().getParameter("s_" + fields[i]));
-                }
-            } else {
-
-                req = new com.topcoder.web.common.model.VisaLetterRequest();
-                req.setUser(user);
-                req.setEvent(event);
-                req.setFullName(fullName);
-                req.setAddress(addr);
-                req.setShippingAddress(shippingAddr);
-                req.setPhoneNumber(phoneNumber);
-                req.setRequestDate(new Date());
-
-                reqDAO.saveOrUpdate(req);
-
-                setNextPage("https://" + ApplicationServer.SERVER_NAME + "/tc?module=VisaLetterRequestStatus&eid=" + event.getId());
-                setIsNextPageInContext(false);
-                return;
-            }
-        } else {
-            req = reqDAO.find(userId, eid);
-        }
-
+            save(event, user);
+            return;
+        } 
+        
+        com.topcoder.web.common.model.VisaLetterRequest req = reqDAO.find(userId, eid);
+        
         // can't force a request when you were denied
         if (req != null && req.isDenied()) {
             forceRequest = false;
@@ -150,6 +104,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
             setIsNextPageInContext(false);
             return;                        
         }
+        
         // forcing request or the user doesn't have any request yet
         setDefault(FULL_NAME, fullName(user.getFirstName(), user.getMiddleName(), user.getLastName()));
 
@@ -166,6 +121,66 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         setIsNextPageInContext(true);
     }
 
+    private void save(VisaLetterEvent event, User user) {
+
+        String fullName = getRequest().getParameter(FULL_NAME);
+        String phoneNumber = getRequest().getParameter(PHONE_NUMBER);
+
+
+        if (fullName.trim().length() == 0) {
+            addError(FULL_NAME, "Please enter the full name");
+        }
+
+        if (phoneNumber == null || phoneNumber.trim().length() == 0) {
+            addError(PHONE_NUMBER, "Please enter the phone number");
+        }
+
+        Address addr = getAddress("");
+        addr.setAddressTypeId(Address.PASSPORT_TYPE_ID);
+
+        Address shippingAddr = getAddress("s_");
+        shippingAddr.setAddressTypeId(Address.VISA_LETTER_TYPE_ID);
+
+        if (hasErrors()) {
+            setDefault(FULL_NAME, fullName);
+            setDefault(PHONE_NUMBER, phoneNumber);
+
+            String []fields = {Constants.ADDRESS1, Constants.ADDRESS2, Constants.ADDRESS3, Constants.CITY,
+                               Constants.POSTAL_CODE, Constants.PROVINCE, Constants.COUNTRY_CODE, Constants.STATE_CODE};
+
+            for (int i = 0; i < fields.length; i++) {
+                setDefault(fields[i], getRequest().getParameter(fields[i]));
+                setDefault("s_"+ fields[i], getRequest().getParameter("s_" + fields[i]));
+            }
+            
+            getRequest().setAttribute("event", event);
+            getRequest().setAttribute("address", user.getHomeAddress());
+            getRequest().setAttribute("countries", DAOUtil.getFactory().getCountryDAO().getCountries());
+
+            setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST);
+            setIsNextPageInContext(true);    
+            
+        } else {
+            VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
+            
+            // Save the visa letter request
+            com.topcoder.web.common.model.VisaLetterRequest req = new com.topcoder.web.common.model.VisaLetterRequest();
+            req.setUser(user);
+            req.setEvent(event);
+            req.setFullName(fullName);
+            req.setAddress(addr);
+            req.setShippingAddress(shippingAddr);
+            req.setPhoneNumber(phoneNumber);
+            req.setRequestDate(new Date());
+
+            reqDAO.saveOrUpdate(req);
+
+            // and got to status page
+            setNextPage("https://" + ApplicationServer.SERVER_NAME + "/tc?module=VisaLetterRequestStatus&eid=" + event.getId());
+            setIsNextPageInContext(false);
+        }
+        return;        
+    }
 
     private Object fullName(String f, String m, String l) {
         StringBuffer sb = new StringBuffer(30);
