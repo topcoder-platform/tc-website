@@ -36,7 +36,7 @@ public class AssignmentDocumentDetails extends BaseProcessor {
             }
             
             Boolean hasHardCopy = PactsServicesLocator.getService()
-                .hasHardCopyAssignmentDocumentByProjectId(ad.getUser().getId().longValue(), 
+                .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
                     ad.getType().getId().longValue());
 
             getRequest().setAttribute("has_hard_copy", hasHardCopy);

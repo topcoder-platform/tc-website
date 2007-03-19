@@ -290,7 +290,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     List getAssignmentDocumentByUserIdStudioContestId(long studioContestId,  long projectId);
 
-    Boolean hasHardCopyAssignmentDocumentByProjectId(long userId, long assignmentDocumentTypeId);
+    Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId);
 
     void affirmAssignmentDocument(AssignmentDocument ad);
 

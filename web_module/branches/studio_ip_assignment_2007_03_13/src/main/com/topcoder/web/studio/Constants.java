@@ -39,6 +39,7 @@ public class Constants implements WebConstants {
     public static final String FILE_TYPE = "ft_";
     public static final String SUBMISSION_RANK = "srank";
     public static final String REG_CONFIRM = "rconfirm";
+    public static final String ACCEPT_AD = "accept_ad";
 
     public static final String ASSIGNMENT_DOCUMENT_ID = "assignment_document_id";
     public static final String RESULT_KEY = "result_key";

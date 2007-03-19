@@ -1584,7 +1584,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
-    public Boolean hasHardCopyAssignmentDocumentByProjectId(long userId, long assignmentDocumentTypeId) {
+    public Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId) {
         log.debug("check if user has a hard copy assignment document (project_id)");
 
         try {
@@ -1966,7 +1966,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalArgumentException("Assignment Document should be pending");  
         }
         
-        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByProjectId(ad.getUser().getId().longValue(), 
+        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
                 ad.getType().getId().longValue());
 
         if (!hasHardCopy.booleanValue()) {
@@ -2030,7 +2030,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalArgumentException("Assignment Document should be pending");  
         }
         
-        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByProjectId(ad.getUser().getId().longValue(), 
+        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
                 ad.getType().getId().longValue());
 
         if (!hasHardCopy.booleanValue()) {

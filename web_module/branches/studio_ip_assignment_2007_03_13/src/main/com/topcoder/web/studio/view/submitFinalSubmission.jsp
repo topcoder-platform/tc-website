@@ -130,9 +130,6 @@
 
 <div align="center">
    <strong>In the table below</strong> you can rank your submissions.
-   <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for this contest.
-   <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved to the bottom of the page.
-   <br>If one of your preferred submissions fails after the submission phase, the next passing submission will take its place.
 </div>
 
 <br><br>

@@ -8,6 +8,7 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
@@ -61,6 +62,18 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 throw new NavigationException("User cannot upload final submissions");
             }
 
+            AssignmentDocument ad = PactsServicesLocator.getService()
+                .getAssignmentDocumentByUserIdStudioContestId(u.getId().longValue(), c.getId().longValue());
+        
+            getRequest().setAttribute("assignment_document", ad);
+    
+            Boolean hasHardCopy = PactsServicesLocator.getService()
+                .hasHardCopyAssignmentDocumentByUsertId(ad.getUser().getId().longValue(), 
+                    ad.getType().getId().longValue());
+    
+            getRequest().setAttribute("has_hard_copy", hasHardCopy);
+    
+            
             setDefault(Constants.CONTEST_ID, contestId.toString());
             setDefault(Constants.SUBMISSION_RANK, "1");
             loadSubmissionData(u, c, cFactory.getSubmissionDAO(), SubmissionType.FINAL_SUBMISSION_TYPE);
