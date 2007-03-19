@@ -155,6 +155,10 @@
                <tc-webtag:handle coderId="15498334" context="algorithm"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=recursionPt2"><strong>An Introduction to Recursion, Part 2</strong></a>
             </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="19841837" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=binarySearchRedBlack"><strong>An Introduction to Binary Search and Red-Black Trees</strong></a>
+            </td></tr>
             <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
             </tr>

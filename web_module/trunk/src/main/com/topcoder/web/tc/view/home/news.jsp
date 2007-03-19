@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorial News" border="0" /><br>03.19.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=binarySearchRedBlack">An Introduction to Binary Search and Red-Black Trees</A></span><br><br>
+As a programmer, you'll frequently come across tasks that deal with a number of objects -- numbers, strings, people, and so forth -- and that require you to store and process those objects.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/cpphamza_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="19841837" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=binarySearchRedBlack">full story</A> | 
+        <tc-webtag:forumLink forumID="514787" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Software Competition News" border="0" /><br>03.16.07<br>3:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">Metric Reporting Testing Competitions</A>
@@ -172,21 +189,5 @@ As in Round 1, it was clear that any positive score would be enough to advance t
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Alpha">full story</A> | 
         <tc-webtag:forumLink forumID="514494" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.12.07<br>6:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=16651">Vote for the new Press Room design</A>
-        </span><br><br>
-        We recently ran a Studio contest to redesign the <A href="/tc?module=Static&d1=pressroom&d2=index">TopCoder Press Room</A> and now we're holding a community vote to pick the winner.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=16651">vote</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=33">discuss this</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 

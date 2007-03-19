@@ -49,7 +49,7 @@
                 <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br>
                 </span> <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br>
                 </span>
-                <tc-webtag:forumLink forumID="514702" message="Discuss this article" />
+                <tc-webtag:forumLink forumID="514787" message="Discuss this article" />
             </div>
             
             <span class="bigTitle">An Introduction to Binary Search and Red-Black Trees</span>
@@ -76,7 +76,7 @@
  
 <p>A tree is a data structure that represents data in a hierarchical manner. It associates every object to a node in the tree and maintains the parent/child relationships between those nodes. Each tree must have exactly one node, called the <strong>root</strong>, from which all nodes of the tree extend (and which has no parent of its own). The other end of the tree &ndash; the last level down -- contains the leaf nodes of the tree. </p>
 
-<div align="center"><img src="rbtrees1.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
+<div align="center"><img src="/i/education/rbtrees1.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
 
 <p>The number of lines you pass through when you travel from the root until you reach a particular node is the <strong>depth</strong> of that node in the tree (node G in the figure above has a depth of 2). The <strong>height</strong> of the tree is the maximum depth of any node in the tree (the tree in Figure 1 has a height of 3). The number of children emanating from a given node is referred to as its<strong> degree</strong> -- for example, node A above has a degree of 3 and node H has a degree of 1. </p>
 
@@ -84,7 +84,7 @@
 
 <p>A binary search tree is a tree with one additional constraint -- it keeps the elements in the tree in a particular order. Formally each node in the BST has two children (if any are missing we consider it a <strong>nil node</strong>), a left child and a right child. Nodes are rooted in place based on their values, with the smallest on the left and largest on the right. </p>
 
-<div align="center"><img src="rbtrees2.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
+<div align="center"><img src="/i/education/rbtrees2.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
 
 <p><span class="bodySubtitle">Traversing BST</span></p>
 
@@ -112,7 +112,7 @@ When adding a new node to a binary search tree, note that the new node will alwa
   <li>We've reached a leaf, so the last step is to attach the new node to the right of the current node. Here is how the new BST looks: </li>
 </ul>
 
-<p><img src="rbtrees3.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></p>
+<p><img src="/i/education/rbtrees3.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></p>
 
 <p><strong>BST Deletion:</strong><br />
 Deleting a node from BST is a little more subtle. Formally there are three cases for deleting node n from a BST: </p>
@@ -129,7 +129,7 @@ Deleting a node from BST is a little more subtle. Formally there are three cases
 
 <p>Figure 4 shows these three cases in action. </p>
 
-<div align="center"><img src="rbtrees4.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
+<div align="center"><img src="/i/education/rbtrees4.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
 
 <p><strong>BST Retrieval:</strong><br />
 Retrieving an element from binary search trees requires simple navigation, starting from the root and going left, if the current node is larger than the node we are looking for, or going right otherwise. </p>
@@ -152,7 +152,7 @@ Retrieving an element from binary search trees requires simple navigation, start
 
 <p>Figure 5 shows an example of a red-black tree. </p>
 
-<div align="center"><img src="rbtrees5.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
+<div align="center"><img src="/i/education/rbtrees5.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
 
 <p>Using these properties, we can show in two steps that a red-black tree which contains n nodes has a height of O(log n), thus all primitive operations on the tree will be of O(log n) since their order is a function of tree height. </p>
 
@@ -181,7 +181,7 @@ Retrieving an element from binary search trees requires simple navigation, start
   <li>Let y&rsquo;s left child be x&rsquo;s right child. </li>
 </ul>
 
-<div align="center"><img src="rbtrees6.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
+<div align="center"><img src="/i/education/rbtrees6.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
 
 <p><span class="bodySubtitle">Operations on red-black tree (insertion, deletion and retrieval) </span></p>
 
@@ -196,7 +196,7 @@ Inserting a node in a red-black tree is a two step process:
 
 <p>Accordingly the total running time of the insertion process is O(log n). Figure 7 shows the red-black tree in figure 5 before and after insertion of a node with value 4. You can see how the swap operations modified the tree structure to keep it balanced. </p>
 
-<div align="center"><img src="rbtrees7.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
+<div align="center"><img src="/i/education/rbtrees7.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
 
 <p><strong>Red-black tree deletion: </strong><br />
 The same concept behind red-black tree insertions applies here. Removing a node from a red-black tree makes use of the BST deletion procedure and then restores the red-black tree properties in O(log n). The total running time for the deletion process takes O(log n) time, then, which meets the complexity requirements for the primitive operations. </p>
@@ -207,13 +207,13 @@ Retrieving a node from a red-black tree doesn&rsquo;t require more than the use 
 <p><span class="bodySubtitle">Conclusion</span></p>
 <p>Although you may never need to implement your own set or map classes, thanks to their common built-in support, understanding how these data structures work should help you better assess the performance of your applications and give you more insight into what structure is right for a given task. For more practice with these concepts, check out these problems from the TopCoder archive that involve trees: </p>
 <ul>
-<li><a href="http://www.topcoder.com/stat?c=problem_statement&pm=5898&rd=8083">MonomorphicTyper</a> (SRM 286) </li>
-<li><a href="http://www.topcoder.com/stat?c=problem_statement&pm=6066&rd=10060">PendingTasks</a> (TCHS SRM 8) </li>
-<li><a href="http://www.topcoder.com/stat?c=problem_statement&pm=1748&rd=4580">RedBlack</a> (SRM 155) </li>
-<li><a href="http://www.topcoder.com/stat?c=problem_statement&pm=1874&rd=4645">DirectoryTree</a> (SRM 168) </li>
-<li><a href="http://www.topcoder.com/stat?c=problem_statement&pm=4700&rd=7995">EncodingTrees</a> (SRM 261) </li>
-<li><a href="http://www.topcoder.com/stat?c=problem_statement&pm=4440&rd=7999">AntiChess</a> (SRM 266) </li>
-<li><a href="http://www.topcoder.com/stat?c=problem_statement&pm=6713&rd=9999">IncompleteBST</a> (SRM 319) </li>
+<li><a href="/stat?c=problem_statement&pm=5898&rd=8083">MonomorphicTyper</a> (SRM 286) </li>
+<li><a href="/stat?c=problem_statement&pm=6066&rd=10060">PendingTasks</a> (TCHS SRM 8) </li>
+<li><a href="/stat?c=problem_statement&pm=1748&rd=4580">RedBlack</a> (SRM 155) </li>
+<li><a href="/stat?c=problem_statement&pm=1874&rd=4645">DirectoryTree</a> (SRM 168) </li>
+<li><a href="/stat?c=problem_statement&pm=4700&rd=7995">EncodingTrees</a> (SRM 261) </li>
+<li><a href="/stat?c=problem_statement&pm=4440&rd=7999">AntiChess</a> (SRM 266) </li>
+<li><a href="/stat?c=problem_statement&pm=6713&rd=9999">IncompleteBST</a> (SRM 319) </li>
 </ul>
 
 <p><span class="bodySubtitle">References</span></p>
