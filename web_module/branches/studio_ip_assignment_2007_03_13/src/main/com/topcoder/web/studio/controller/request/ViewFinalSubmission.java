@@ -40,7 +40,7 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 throw new NavigationException("User not registered for the contest");
             }
             
-            List submissions = cFactory.getSubmissionDAO().getSubmissions(u, c, SubmissionType.FINAL_SUBMISSION_TYPE);
+            List submissions = cFactory.getSubmissionDAO().getSubmissions(u, c, SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
             
             boolean isWinner = false;
             for (Iterator it = submissions.iterator(); it.hasNext() && !isWinner;) {

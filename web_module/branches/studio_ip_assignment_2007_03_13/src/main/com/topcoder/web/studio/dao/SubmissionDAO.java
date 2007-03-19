@@ -1,11 +1,10 @@
 package com.topcoder.web.studio.dao;
 
+import java.util.List;
+
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionType;
-
-import java.util.List;
 
 /**
  * @author dok

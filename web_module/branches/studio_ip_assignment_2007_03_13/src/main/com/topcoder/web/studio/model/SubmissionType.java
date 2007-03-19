@@ -10,6 +10,7 @@ import com.topcoder.web.common.model.Base;
 public class SubmissionType extends Base {
 
     public static final Integer INITIAL_CONTEST_SUBMISSION_TYPE = new Integer(1);
+    public static final Integer FINAL_SUBMISSION_TYPE = new Integer(2);
 
     private Integer id;
     private String description;
