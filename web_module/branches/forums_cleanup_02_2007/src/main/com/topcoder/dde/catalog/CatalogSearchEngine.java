@@ -94,9 +94,9 @@ class CatalogSearchEngine {
     }
 
     public synchronized void reIndex(long componentId, String words) {
-        IndexStrategy indexer = searchEngine.getIndexStrategy(WORDCOUNT);
+	IndexStrategy indexer = searchEngine.getIndexStrategy(WORDCOUNT);
         indexer.deleteIdentifier(CATALOG, componentId);
-        indexer.indexDoc(CATALOG, componentId,
+        indexer.reIndexDoc(CATALOG, componentId,
                 new InMemoryLoc(words, STRINGPARSE));
     }
 
