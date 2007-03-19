@@ -1,15 +1,15 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Iterator;
+import java.util.List;
+
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionType;
-
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * @author dok
@@ -18,6 +18,26 @@ import java.util.List;
  */
 abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
 
+    boolean isWinner(User u, Contest c, SubmissionDAO dao, Integer ct) {
+        List submissions = dao.getSubmissions(u, c, ct);
+        
+        boolean isWinner = false;
+        for (Iterator it = submissions.iterator(); it.hasNext() && !isWinner;) {
+            Submission s = (Submission) it.next();
+            log.debug("sub:" + s.getId());
+            ContestResult curr;
+            for (Iterator it2 = s.getContest().getResults().iterator(); it2.hasNext() && !isWinner;) {
+                curr = (ContestResult) it2.next();
+                log.debug("Prize: " + curr.getPrize() + "sub:" + curr.getSubmission().getId());
+                isWinner = s.equals(curr.getSubmission()) && curr.getPrize().getPlace() != null;
+                if (isWinner) {
+                    log.debug("user has got place: " + curr.getPrize().getPlace());
+                }
+            }
+        }
+        return isWinner;
+    }
+    
     void loadSubmissionData(User u, Contest c, SubmissionDAO dao, Integer ct) {
         Integer maxRank = dao.getMaxRank(c, u);
         loadSubmissionData(u, c, dao, maxRank, ct);

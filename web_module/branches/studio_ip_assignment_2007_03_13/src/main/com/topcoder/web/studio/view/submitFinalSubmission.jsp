@@ -93,9 +93,10 @@
             <div align="center">
                 <c:choose>
                     <c:when test="${!has_hard_copy}">
-                        <p>Remember that in order to get paid you must send a signed copy of the Assignment document</p>
+                        <p><strong>Remember that in order to get paid you must send a signed copy of the Assignment document</strong></p>
                     </c:when>
                     <c:when test="${has_hard_copy and assignment_document.status.id == PENDING_STATUS_ID}">
+                        <p><a href="/?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click here for a printer friendly version of the assignment document</a></p>
                         <p><iframe  width="100%" height="300" marginWidth="5"
                             src="/?module=Static&d1=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                         </p>
@@ -109,7 +110,7 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-    
+            <br/>
             <p>Please use the form below to upload your submission:</p>
     
             <p>The maximum file size per submission is 2MB.</p>

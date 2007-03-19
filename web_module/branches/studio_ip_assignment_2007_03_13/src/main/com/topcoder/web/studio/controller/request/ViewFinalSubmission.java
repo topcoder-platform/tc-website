@@ -18,6 +18,7 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
@@ -45,25 +46,8 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                 throw new NavigationException("User not registered for the contest");
             }
-            
-            List submissions = cFactory.getSubmissionDAO().getSubmissions(u, c, SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
-            
-            boolean isWinner = false;
-            for (Iterator it = submissions.iterator(); it.hasNext() && !isWinner;) {
-                Submission s = (Submission) it.next();
-                log.debug("sub:" + s.getId());
-                ContestResult curr;
-                for (Iterator it2 = s.getContest().getResults().iterator(); it2.hasNext() && !isWinner;) {
-                    curr = (ContestResult) it2.next();
-                    log.debug("Prize: " + curr.getPrize() + "sub:" + curr.getSubmission().getId());
-                    isWinner = s.equals(curr.getSubmission()) && curr.getPrize().getPlace() != null;
-                    if (isWinner) {
-                        log.debug("user has got place: " + curr.getPrize().getPlace());
-                    }
-                }
-            }
-            
-            if (!isWinner) {
+                        
+            if (!isWinner(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE)) {
                 throw new NavigationException("User cannot upload final submissions");
             }
 

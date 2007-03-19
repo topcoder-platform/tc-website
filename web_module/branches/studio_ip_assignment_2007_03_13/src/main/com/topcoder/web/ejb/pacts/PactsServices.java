@@ -266,5 +266,8 @@ public interface PactsServices extends EJBObject {
     Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId) throws RemoteException;
 
     AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException;
+
+    public void affirmAssignmentDocument(AssignmentDocument ad) throws RemoteException;
+
 }
 
