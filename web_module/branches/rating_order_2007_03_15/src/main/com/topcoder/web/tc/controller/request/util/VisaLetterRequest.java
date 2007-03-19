@@ -91,11 +91,6 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         
         com.topcoder.web.common.model.VisaLetterRequest req = reqDAO.find(userId, eid);
         
-        // can't force a request when you were denied
-        if (req != null && req.isDenied()) {
-            forceRequest = false;
-        }
-
         if (!(forceRequest || req == null)) {
             // The user has already a request, so go to the status page
             setNextPage("http://" + ApplicationServer.SERVER_NAME + "/tc?module=VisaLetterRequestStatus&eid=" + eid);            
