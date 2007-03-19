@@ -48,6 +48,7 @@
    <tr><td class="bodyText">03.12.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Beta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Beta">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">03.08.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Alpha - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Alpha">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">03.08.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 2 Gamma - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Gamma">Problem Set & Analysis</a></td></tr>
+   <tr><td class="bodyText">03.06.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Delta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Delta">Problem Set & Analysis</a></td></tr>
    <tr><td class="bodyText">03.06.07</td><td class="bodyText" nowrap="0" width="100%">TCHS Round 1 Beta - <a href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd1Beta">Problem Set & Analysis</a></td></tr>
 
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
