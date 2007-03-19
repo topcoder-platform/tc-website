@@ -3,6 +3,7 @@ package com.topcoder.web.studio.dao;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionType;
 
 import java.util.List;
 
@@ -22,9 +23,9 @@ public interface SubmissionDAO {
     public void changeRank(Integer newRank, Long submissionId, Long userId);
 */
 
-    List getSubmissions(User u, Contest c);
+    List getSubmissions(User u, Contest c, Integer submissionTypeId);
 
     Integer getMaxRank(Contest contest, User submitter);
 
-    List getSubmissions(Long contestId, Long submitterId);
+    List getSubmissions(Long contestId, Long submitterId, Integer submissionType);
 }

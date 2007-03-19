@@ -9,6 +9,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionType;
 
 import java.util.*;
 
@@ -28,7 +29,7 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
         Integer newRankInt;
         Submission currSubmission = null;
         Date now = new Date();
-        List userSubmissions = dao.getSubmissions(contestId, new Long(getUser().getId()));
+        List userSubmissions = dao.getSubmissions(contestId, new Long(getUser().getId()), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
         Integer maxRank = null;
         ArrayList newRanks = new ArrayList(userSubmissions.size());
         ArrayList changedSubmissions = new ArrayList(userSubmissions.size());
@@ -83,7 +84,7 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
             dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         }
 
-        loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);
+        loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank, s.getType().getId());
 
         if (hasErrors()) {
             //override so that the user gets their data back to them

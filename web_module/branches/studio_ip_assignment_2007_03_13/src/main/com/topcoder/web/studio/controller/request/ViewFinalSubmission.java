@@ -15,6 +15,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionType;
 
 /**
  * @author pulky
@@ -39,7 +40,7 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 throw new NavigationException("User not registered for the contest");
             }
             
-            List submissions = cFactory.getSubmissionDAO().getSubmissions(u, c);
+            List submissions = cFactory.getSubmissionDAO().getSubmissions(u, c, SubmissionType.FINAL_SUBMISSION_TYPE);
             
             boolean isWinner = false;
             for (Iterator it = submissions.iterator(); it.hasNext() && !isWinner;) {
@@ -62,7 +63,7 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
 
             setDefault(Constants.CONTEST_ID, contestId.toString());
             setDefault(Constants.SUBMISSION_RANK, "1");
-            loadSubmissionData(u, c, cFactory.getSubmissionDAO());
+            loadSubmissionData(u, c, cFactory.getSubmissionDAO(), SubmissionType.FINAL_SUBMISSION_TYPE);
             setNextPage("/submitFinalSubmission.jsp");
             setIsNextPageInContext(true);
 

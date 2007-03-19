@@ -11,6 +11,7 @@ import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.studio.model.SubmissionType;
 
 import java.util.Date;
 
@@ -48,7 +49,7 @@ public class ViewSubmission extends BaseSubmissionDataProcessor {
 
             setDefault(Constants.CONTEST_ID, contestId.toString());
             setDefault(Constants.SUBMISSION_RANK, "1");
-            loadSubmissionData(u, c, cFactory.getSubmissionDAO());
+            loadSubmissionData(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
             setNextPage("/submit.jsp");
             setIsNextPageInContext(true);
 

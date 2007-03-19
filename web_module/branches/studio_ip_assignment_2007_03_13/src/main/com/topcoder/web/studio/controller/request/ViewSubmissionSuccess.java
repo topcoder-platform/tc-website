@@ -7,6 +7,7 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionType;
 
 /**
  * @author dok
@@ -22,7 +23,7 @@ public class ViewSubmissionSuccess extends BaseSubmissionDataProcessor {
         SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         Submission s = dao.find(new Long(submissionId));
         if (s.getSubmitter().getId().longValue() == getUser().getId()) {
-            loadSubmissionData(s.getSubmitter(), s.getContest(), dao);
+            loadSubmissionData(s.getSubmitter(), s.getContest(), dao, s.getType().getId());
             setIsNextPageInContext(true);
             setNextPage("submissionSuccess.jsp");
         } else {

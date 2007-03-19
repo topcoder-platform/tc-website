@@ -6,6 +6,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionType;
 
 import java.util.Date;
 
@@ -44,7 +45,7 @@ public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
         }
         dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         s = dao.find(new Long(submissionId));
-        loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);
+        loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank, s.getType().getId());
         setIsNextPageInContext(true);
         setNextPage("submitTableBody.jsp");
 
