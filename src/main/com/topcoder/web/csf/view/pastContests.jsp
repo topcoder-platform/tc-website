@@ -35,14 +35,14 @@
 
 <div id="main">
 <div class="pageHeader">
-    <span class="pageName">Active Competitions</span>
+    <span class="pageName">Past Creative Competitions</span>
 </div>
 
 <div class="breadcrumb">
     <div style="float:left;"><A href="/?module=Static&amp;d1=competitions">Competitions</A> >&nbsp;</div>
     <div style="float:left; margin-bottom: 10px;">
-    <A href="/?module=ViewActiveContests">Active Contests</A><br>
-    <strong>Past Contests</strong>
+    <A href="/?module=ViewActiveContests">Active Creative Competitions</A><br>
+    <strong>Past Creative Competitions</strong>
     </div>
 </div>
 
@@ -51,7 +51,7 @@
 <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
     <tbody>
         <tr>
-            <td class="title" colspan="7"><span class="title">Past Contests</span></td>
+            <td class="title" colspan="7"><span class="title">Past Creative Competitions</span></td>
         </tr>
         <tr>
             <td class="header" width="100%">
@@ -84,7 +84,7 @@
                     <A href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
                         <rsc:item name="name" row="<%=resultRow%>"/>
                     </A></td>
-                <td class="value" style="border-right: none;">
+                <td class="value" style="border-right: none;" nowrap="nowrap">
                     <% if (resultRow.getItem("winner_id").getResultData() != null) { %>
                     <csf:handle coderId="<%=resultRow.getLongItem("winner_id")%>"/>
                     <% } else {%>

@@ -36,14 +36,14 @@
 
 <div id="main">
 <div class="pageHeader">
-    <span class="pageName">Active Competitions</span>
+    <span class="pageName">Active Creative Competitions</span>
 </div>
 
 <div class="breadcrumb">
     <div style="float:left;"><A href="/?module=Static&amp;d1=competitions">Competitions</A> >&nbsp;</div>
     <div style="float:left; margin-bottom: 10px;">
-    <strong>Active Contests</strong><br>
-    <A href="/?module=ViewPastContests">Past Contests</A>
+    <strong>Active Creative Competitions</strong><br>
+    <A href="/?module=ViewPastContests">Past Creative Competitions</A>
     </div>
 </div>
 
@@ -52,7 +52,7 @@
 <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
     <thead>
         <tr>
-            <td class="title" colspan="7"><span class="title">Competitions</span></td>
+            <td class="title" colspan="7"><span class="title">Active Creative Competitions</span></td>
         </tr>
         <tr>
             <td class="header" width="100%">
@@ -80,7 +80,8 @@
                 <tr class="light">
                     <td class="valueC" colspan="7">
                         <div align="center" style="margin: 40px 0px 40px 0px;">
-                            There are currently no active contests, but check back soon.
+                            There are currently no active contests, but check back soon.<br>
+                            In the meantime, take a look at our <A href="/?module=ViewPastContests">Past Competitions</A>.
                         </div>
                     </td>
                 </tr>
