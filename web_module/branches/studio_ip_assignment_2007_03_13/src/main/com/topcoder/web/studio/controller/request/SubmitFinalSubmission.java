@@ -82,7 +82,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
                 }
 
-                if ("on".equals(getRequest().getParameter(Constants.ACCEPT_AD))) {
+                if (!"on".equals(getRequest().getParameter(Constants.ACCEPT_AD))) {
                     addError(Constants.ACCEPT_AD, "You must accept the Assignment Document in order to upload your final submission");
                 }
 
@@ -91,12 +91,12 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
 
                 AssignmentDocument ad = (AssignmentDocument) adList.get(0);
 
+                Boolean hasHardCopy = PactsServicesLocator.getService()
+                .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
+                ad.getType().getId().longValue());
+
                 if (hasErrors()) {
                     getRequest().setAttribute("assignment_document", ad);
-                    Boolean hasHardCopy = PactsServicesLocator.getService()
-                        .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
-                        ad.getType().getId().longValue());
-    
                     getRequest().setAttribute("has_hard_copy", hasHardCopy);
 
                     setDefault(Constants.CONTEST_ID, contestId.toString());
@@ -107,7 +107,9 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     setIsNextPageInContext(true);
                 } else {
                     // affirm the AD.
-                    PactsServicesLocator.getService().affirmAssignmentDocument(ad);
+                    if (hasHardCopy.booleanValue()) {
+                        PactsServicesLocator.getService().affirmAssignmentDocument(ad);
+                    }
                     
                     // accept the file
                     MimeType mt = cFactory.getMimeTypeDAO().find(submissionFile.getContentType());

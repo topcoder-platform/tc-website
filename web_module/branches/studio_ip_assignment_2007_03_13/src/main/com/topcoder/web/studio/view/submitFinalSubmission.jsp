@@ -106,6 +106,7 @@
                         </p>                
                     </c:when>
                     <c:otherwise>
+                        <tc-webtag:hiddenInput name="<%=Constants.ACCEPT_AD%>" value="on"/>
                         You have already accepted the Assignment Document.
                     </c:otherwise>
                 </c:choose>
