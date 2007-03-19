@@ -51,7 +51,7 @@
         </p>
     </li>
     <li>
-        <p><strong>Confirmation of attendance/proof of travel documents</strong> – Please email <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>
+        <p><strong>Confirmation of attendance/proof of travel documents</strong> - Please email <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>
             to confirm your attendance onsite.  For anyone that has advanced as a finalist in more than one competition,
             please note which competition you will compete for onsite. If you require a passport and/or visa to visit the
             United States, you must show proof of your documents via a scanned copy of the necessary documents.</p>
