@@ -43,11 +43,11 @@
 </jsp:include>
 
 <p>
-    5.8.5 - 2007.03.xx
+    5.8.5 - 2007.03.19
     <ul>
         <li>Add studio results to the tco07 site -dok</li>
-        <li>Add rating_order column to project_result tables in trans and dw.  Using that column for sort - cucu</li>
-        <li>Add support for many simultaneous events in Visa Letters - cucu</li>        
+        <li>Add standarized way to sort component competitions in the order in which they were rated- cucu</li>
+        <li>Add support for many simultaneous events in Visa Letters - cucu</li>
     </ul>
 </p>
 
