@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -32,6 +34,19 @@ public class VisaLetterEventDAOHibernate extends Base implements VisaLetterEvent
         return (VisaLetterEvent) l.get(0);
     }
 
+    public List findShowStatus() {
+        Query q = session.createQuery(" from VisaLetterEvent " +
+                " where request_start_date <= current " +
+                " and request_end_date >= :endDate" +
+                " order by request_start_date desc");
+
+        Calendar c = new GregorianCalendar();
+        c.add(Calendar.MONTH, -1);
+        
+        q.setCalendar("endDate", c);
+        return q.list();
+    }
+
     public VisaLetterEvent find(Long eventId) {
         return (VisaLetterEvent) find(VisaLetterEvent.class, eventId);
 
@@ -48,6 +63,7 @@ public class VisaLetterEventDAOHibernate extends Base implements VisaLetterEvent
     public void saveOrUpdate(VisaLetterEvent event) {
         super.saveOrUpdate(event);
     }
+
 
 
 }

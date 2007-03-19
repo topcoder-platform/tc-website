@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page language="java"
-        %>
+<%@ page language="java" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -43,74 +42,39 @@
                     <jsp:param name="title" value="&nbsp;"/>
                 </jsp:include>
 
-                <c:choose>
+                 <span class="bodySubtitle">Visa letter request for <c:out value="${req.event.name}"/></span><br>
+                 <strong>Requested on:</strong>
+                 <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy"/>
+                 <br>
+                 <strong>Status:</strong>
 
-                    <c:when test="${not empty requestScope.tooEarly}">
-                        <span class="bodySubtitle">Visa letter request for <c:out value="${requestScope.event_name}"/></span>
+                 <div align="center" style="margin: 20px;">
+                     <c:choose>
+                         <c:when test="${not empty req.sentDate}">
+                             Your Visa request has been <span class="bigGreen">APPROVED</span>.<br>The letter was
+                             sent to you on:
+                             <strong>
+                                 <fmt:formatDate value="${req.sentDate}" pattern="MM/dd/yyyy"/>
+                             </strong><br>
 
-                        <div align="center" style="margin: 20px;">
-                            TopCoder is not currently accepting Visa requests for this event.<br>Please check again
-                            later.
-                        </div>
-                    </c:when>
-
-                    <c:when test="${not empty requestScope.tooLate}">
-                        <span class="bodySubtitle">Visa letter request for <c:out value="${requestScope.event_name}"/></span><br>
-
-                        <div align="center" style="margin: 20px;">
-                            We're sorry, TopCoder is no longer accepting Visa requests for this event.
-                        </div>
-                    </c:when>
-
-                    <c:when test="${empty req}">
-                        <div align="center" style="margin: 20px;">
-                            You have no pending Visa letter requests.
-                        </div>
-                    </c:when>
-                    <c:otherwise>
-                        <span class="bodySubtitle">Visa letter request for <c:out value="${req.event.name}"/></span><br>
-                        <strong>Requested on:</strong>
-                        <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy"/>
-                        <br>
-                        <strong>Status:</strong>
-
-                        <div align="center" style="margin: 20px;">
-                            <c:choose>
-                                <c:when test="${not empty req.sentDate}">
-                                    Your Visa request has been <span class="bigGreen">APPROVED</span>.<br>The letter was
-                                    sent to you on:
-                                    <strong>
-                                        <fmt:formatDate value="${req.sentDate}" pattern="MM/dd/yyyy"/>
-                                    </strong><br>
-
-                                    <div align="center" style="margin: 20px;">
-                                        <a href="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request
-                                            again</a>
-                                    </div>
-                                </c:when>
-                                <c:when test="${req.denied }">
-                                    We're sorry, your Visa letter request has been <span class="bigRed">DENIED</span>.
-                                    <div style="margin: 20px 0px 100px 0px;">
-                                        <a href="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request
-                                            again</a><br>
-                                    </div>
-                                </c:when>
-                                <c:otherwise>
-                                    Your Visa letter request is <strong>PENDING</strong> approval.<br>Please check again
-                                    soon.
-                                </c:otherwise>
-                            </c:choose>
-                        </div>
-                    </c:otherwise>
-                </c:choose>
-
-                <%-- SUCCESS TEXT
-                <div align="center" style="margin: 20px;">
-                <strong>Your Visa request has been sent.</strong><br>
-                You can check on the status of your request from<br>the "My TopCoder" section of the site navigation
-                </div>
-                --%>
-
+                             <div align="center" style="margin: 20px;">
+                                 <a href="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request
+                                     again</a>
+                             </div>
+                         </c:when>
+                         <c:when test="${req.denied }">
+                             We're sorry, your Visa letter request has been <span class="bigRed">DENIED</span>.
+                             <div style="margin: 20px 0px 100px 0px;">
+                                 <a href="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request
+                                     again</a><br>
+                             </div>
+                         </c:when>
+                         <c:otherwise>
+                             Your Visa letter request is <strong>PENDING</strong> approval.<br>Please check again
+                             soon.
+                         </c:otherwise>
+                     </c:choose>
+                 </div>
 
             </div>
         </td>

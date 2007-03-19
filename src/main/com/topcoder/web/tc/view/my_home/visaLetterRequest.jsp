@@ -60,8 +60,12 @@ function addrToShippingAddr() {
 }
 
 function init() {
-    regToAddr();
-    regToShippingAddr();
+<% java.util.Map e = (java.util.Map) request.getAttribute(com.topcoder.web.common.BaseProcessor.ERRORS_KEY);
+   if (e == null || e.size() == 0) { 
+%>
+        regToAddr();
+        regToShippingAddr();
+<% } %>
 }
  </script>
 </head>
