@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <c:set var="PENDING_STATUS_ID" value="<%= AssignmentDocumentStatus.PENDING_STATUS_ID + "" %>" />
+<c:set var="ASSIGNMENT_DOCUMENT_ID" value="assignment_document_id" />
 
 <html>
 <head>
