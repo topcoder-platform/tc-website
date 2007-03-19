@@ -100,7 +100,7 @@
                         <p><iframe  width="100%" height="300" marginWidth="5"
                             src="/?module=Static&d1=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                         </p>
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD%>"><span class="bigRed">${err}</span>
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD_ERROR%>"><span class="bigRed">${err}</span>
                         <br></tc-webtag:errorIterator>
                         <tc-webtag:chkBox name="<%=Constants.ACCEPT_AD%>"/> I accept
                         </p>                

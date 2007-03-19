@@ -15,6 +15,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionType;
 
 /**
  * @author dok
@@ -48,9 +49,9 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
                 } else {
                     currSubmission = findSubmission(userSubmissions,
                             new Long(paramName.substring(Constants.SUBMISSION_ID.length())));
-                    if (now.before(currSubmission.getContest().getStartTime()) ||
+                    if (submissionTypeId.equals(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE) && (now.before(currSubmission.getContest().getStartTime()) ||
                             now.after(currSubmission.getContest().getEndTime()) ||
-                            !ContestStatus.ACTIVE.equals(currSubmission.getContest().getStatus().getId())) {
+                            !ContestStatus.ACTIVE.equals(currSubmission.getContest().getStatus().getId()))) {
                         addError(paramName, "Sorry, you can not make a change to a submission for a contest that is not active.");
                     } else {
                         if (maxRank==null) {

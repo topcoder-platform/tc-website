@@ -84,7 +84,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                 }
 
                 if (!"on".equals(getRequest().getParameter(Constants.ACCEPT_AD))) {
-                    addError(Constants.ACCEPT_AD, "You must accept the Assignment Document in order to upload your final submission");
+                    addError(Constants.ACCEPT_AD_ERROR, "You must accept the Assignment Document in order to upload your final submission");
                 }
 
                 List adList = PactsServicesLocator.getService()
