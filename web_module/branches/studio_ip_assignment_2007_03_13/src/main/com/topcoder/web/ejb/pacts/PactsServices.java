@@ -269,5 +269,9 @@ public interface PactsServices extends EJBObject {
 
     public void affirmAssignmentDocument(AssignmentDocument ad) throws RemoteException;
 
+    AssignmentDocument getAssignmentDocument(long assignmentDocumentId) throws RemoteException;
+
+    String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) throws RemoteException;
+
 }
 

@@ -33,7 +33,8 @@ public class ViewAssignmentDocumentText extends BaseProcessor implements PactsCo
 
             // if ad status is pending, the stored text is empty and therefore the template needs to be retrieved and transformed.
             if ((ad.getText() == null || ad.getText().trim().length() == 0) && 
-                 ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
+                 (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID) || 
+                  ad.getStatus().getId().equals(AssignmentDocumentStatus.EXPIRED_STATUS_ID))) {
                 String transformedText = bean.getAssignmentDocumentTransformedText(ad.getType().getId().longValue(), ad);
                 ad.setText(transformedText);
             }
