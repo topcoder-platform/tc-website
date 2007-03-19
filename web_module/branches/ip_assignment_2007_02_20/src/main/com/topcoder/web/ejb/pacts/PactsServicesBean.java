@@ -2088,7 +2088,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             updatePaymentStatus.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
             updatePaymentStatus.append("AND pd.component_project_id = ad.component_project_id ");
             updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
-        } else if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+        } else if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
             updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
             updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
             updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
