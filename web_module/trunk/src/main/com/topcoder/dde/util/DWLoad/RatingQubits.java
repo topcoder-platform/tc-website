@@ -139,6 +139,8 @@ public class RatingQubits {
             rs = null;
             ps.close();
             ps = null;
+            
+            this.updateRatingOrder(conn);
         } catch (SQLException sqe) {
             sqe.printStackTrace();
         } catch (Exception sqe) {
@@ -387,58 +389,6 @@ public class RatingQubits {
 
             }
 
-
-            // update rating_order column
-            System.out.println("UPDATING rating_order COLUMN....");
-            
-            sqlStr = new StringBuffer(300);
-            sqlStr.append("select user_id, project_category_id, p.project_id, rating_order ");
-            sqlStr.append("        ,substr(pi.value, 1, 2) as month, substr(pi.value, 4, 2) as day, substr(pi.value, 7, 4) as year ");
-            sqlStr.append("from project_result pr, project_info pi, project p ");
-            sqlStr.append("where pi.project_info_type_id =22  ");
-            sqlStr.append("and pi.project_id = pr.project_id ");
-            sqlStr.append("and pi.project_id = p.project_id  ");
-            sqlStr.append("and p.project_category_id in (1,2) ");
-            sqlStr.append("and p.project_status_id in (4,5,6, 7) ");
-            sqlStr.append("order by user_id, project_category_id, year, month, day, p.project_id ");
-            
-            ps = conn.prepareStatement(sqlStr.toString());
-            rs2 = ps.executeQuery();
-            
-            
-            PreparedStatement psUpd = conn.prepareStatement("UPDATE project_result SET rating_order=? where user_id=? and project_id=?");
-            
-            long prevUser = -1;
-            int prevCategory = -1;
-            int ratingOrder = 1;
-            int processed = 0;
-            
-            while (rs2.next()) {
-                if (rs2.getLong("user_id") != prevUser || rs2.getInt("project_category_id") != prevCategory) {
-                    ratingOrder = 1;
-                    prevUser = rs2.getLong("user_id");
-                    prevCategory = rs2.getInt("project_category_id"); 
-                }
-                if (ratingOrder != rs2.getInt("rating_order")) {
-                    psUpd.clearParameters();
-                    psUpd.setInt(1, ratingOrder);
-                    psUpd.setLong(2, rs2.getLong("user_id"));
-                    psUpd.setLong(3, rs2.getLong("project_id"));
-                    int retVal = psUpd.executeUpdate();
-                    
-                    if (retVal != 1) {
-                        throw new Exception("Expected 1 row to be updated for user_id=" +rs2.getLong("user_id") + 
-                                 " project_id=" + rs2.getLong("project_id") + " but there were " + retVal);
-                    }
-                    processed++;
-                }
-                ratingOrder++;
-            }
-            System.out.println("updated rating_order in " + processed + " rows");
-            
-            rs2.close();
-            ps.close();
-            psUpd.close();
          
             
             //commit final ratings to DB
@@ -500,7 +450,82 @@ public class RatingQubits {
             }
 
         }
+    }
+    
+    
+    private void updateRatingOrder(Connection conn) throws Exception {
+        // update rating_order column
+        System.out.println("UPDATING rating_order COLUMN....");
+        ResultSet rs2 = null;
+        PreparedStatement ps = null;
+        PreparedStatement psUpd = null;
+        try {        
+            StringBuffer sqlStr = new StringBuffer(300);
+            sqlStr.append("select user_id, project_category_id, p.project_id, rating_order ");
+            sqlStr.append("        ,substr(pi.value, 1, 2) as month, substr(pi.value, 4, 2) as day, substr(pi.value, 7, 4) as year ");
+            sqlStr.append("from project_result pr, project_info pi, project p ");
+            sqlStr.append("where pi.project_info_type_id =22  ");
+            sqlStr.append("and pi.project_id = pr.project_id ");
+            sqlStr.append("and pi.project_id = p.project_id  ");
+            sqlStr.append("and p.project_category_id in (1,2) ");
+            sqlStr.append("and p.project_status_id in (4,5,6, 7) ");
+            sqlStr.append("order by user_id, project_category_id, year, month, day, p.project_id ");
+            
+            ps = conn.prepareStatement(sqlStr.toString());
+            rs2 = ps.executeQuery();            
+            
+            psUpd = conn.prepareStatement("UPDATE project_result SET rating_order=? where user_id=? and project_id=?");
+            
+            long prevUser = -1;
+            int prevCategory = -1;
+            int ratingOrder = 1;
+            int processed = 0;
+            
+            while (rs2.next()) {
+                if (rs2.getLong("user_id") != prevUser || rs2.getInt("project_category_id") != prevCategory) {
+                    ratingOrder = 1;
+                    prevUser = rs2.getLong("user_id");
+                    prevCategory = rs2.getInt("project_category_id"); 
+                }
+                if (ratingOrder != rs2.getInt("rating_order")) {
+                    psUpd.clearParameters();
+                    psUpd.setInt(1, ratingOrder);
+                    psUpd.setLong(2, rs2.getLong("user_id"));
+                    psUpd.setLong(3, rs2.getLong("project_id"));
+                    int retVal = psUpd.executeUpdate();
+                    
+                    if (retVal != 1) {
+                        throw new Exception("Expected 1 row to be updated for user_id=" +rs2.getLong("user_id") + 
+                                 " project_id=" + rs2.getLong("project_id") + " but there were " + retVal);
+                    }
+                    processed++;
+                }
+                ratingOrder++;
+            }
+            System.out.println("updated rating_order in " + processed + " rows");
+        } finally {
+            try {
+                if (rs2 != null) {
+                    rs2.close();
+                }
+            } catch (Exception ignore) {
+            }
+            try {
+                if (ps != null) {
+                    ps.close();
+                }
+            } catch (Exception ignore) {
+            }
+            try {
+                if (psUpd != null) {
+                    psUpd.close();
+                }
+            } catch (Exception ignore) {
+            }
 
+        }
+        
+        
     }
 
     int STEPS = 100;
