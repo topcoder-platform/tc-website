@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
@@ -48,6 +49,10 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
+        if (getRequest().getParameter(EVENT_ID) == null) {
+            throw new NavigationException("Expected " + EVENT_ID + " parameter");
+        }
+
         Long userId  = new Long(getUser().getId());
 
         VisaLetterRequestDAO reqDAO =  DAOUtil.getFactory().getVisaLetterRequestDAO();
@@ -55,31 +60,8 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         User user  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         boolean forceRequest = getRequest().getParameter(FORCE_REQUEST) != null;
-        Long eid = null;
-        VisaLetterEvent event = null;
-        boolean noEvent = getRequest().getParameter(EVENT_ID) == null;
-
-        if (noEvent) {
-            List<VisaLetterEvent> events = eventDAO.findShowStatus();
-            List<com.topcoder.web.common.model.VisaLetterRequest> reqs = new ArrayList<com.topcoder.web.common.model.VisaLetterRequest>();
-            
-            for (VisaLetterEvent e : events) {
-                com.topcoder.web.common.model.VisaLetterRequest req = reqDAO.find(userId, e.getId());
-                
-                if (req != null) {
-                    reqs.add(req);
-                }
-            }
-            
-            getRequest().setAttribute("reqs", reqs);
-            setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);
-            setIsNextPageInContext(true);
-            return;
-
-        }
-
-        eid = new Long(getRequest().getParameter(EVENT_ID));
-        event = eventDAO.find(eid);
+        Long eid = new Long(getRequest().getParameter(EVENT_ID));
+        VisaLetterEvent event = eventDAO.find(eid);
 
         
         if (event == null) {
@@ -106,7 +88,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         com.topcoder.web.common.model.VisaLetterRequest req = null;
 
         if (getRequest().getParameter(FULL_NAME) != null) {
-            // The user requested a letter
+            // The user is posting a request
             String fullName = getRequest().getParameter(FULL_NAME);
             String phoneNumber = getRequest().getParameter(PHONE_NUMBER);
 
@@ -149,7 +131,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
 
                 reqDAO.saveOrUpdate(req);
 
-                setNextPage("https://" + ApplicationServer.SERVER_NAME + "/tc?module=VisaLetterRequest&eid=" + event.getId());
+                setNextPage("https://" + ApplicationServer.SERVER_NAME + "/tc?module=VisaLetterRequestStatus&eid=" + event.getId());
                 setIsNextPageInContext(false);
                 return;
             }
@@ -162,28 +144,25 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
             forceRequest = false;
         }
 
-        if ((forceRequest || req == null) && !noEvent) {
-            setDefault(FULL_NAME, fullName(user.getFirstName(), user.getMiddleName(), user.getLastName()));
+        if (!(forceRequest || req == null)) {
+            // The user has already a request, so go to the status page
+            setNextPage("http://" + ApplicationServer.SERVER_NAME + "/tc?module=VisaLetterRequestStatus&eid=" + eid);            
+            setIsNextPageInContext(false);
+            return;                        
+        }
+        // forcing request or the user doesn't have any request yet
+        setDefault(FULL_NAME, fullName(user.getFirstName(), user.getMiddleName(), user.getLastName()));
 
-            Phone ph = user.getPrimaryPhoneNumber();
-            if (ph != null) {
-                setDefault(PHONE_NUMBER, ph.getNumber());
-            }
-
-            getRequest().setAttribute("event", event);
-            getRequest().setAttribute("address", user.getHomeAddress());
-            getRequest().setAttribute("countries", DAOUtil.getFactory().getCountryDAO().getCountries());
-
-            setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST);
-        } else {
-            // Display the status page
-            List reqs = new ArrayList();
-            reqs.add(req);
-            
-            getRequest().setAttribute("reqs", reqs);
-            setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);
+        Phone ph = user.getPrimaryPhoneNumber();
+        if (ph != null) {
+            setDefault(PHONE_NUMBER, ph.getNumber());
         }
 
+        getRequest().setAttribute("event", event);
+        getRequest().setAttribute("address", user.getHomeAddress());
+        getRequest().setAttribute("countries", DAOUtil.getFactory().getCountryDAO().getCountries());
+
+        setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST);
         setIsNextPageInContext(true);
     }
 

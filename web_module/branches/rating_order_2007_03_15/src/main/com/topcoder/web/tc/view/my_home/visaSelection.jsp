@@ -42,11 +42,10 @@
 
 <c:choose>
 	<c:when test="${empty events}">
-	</c:when>
        <div align="center" style="margin: 20px;">
            You have no pending Visa letter requests.
        </div>
-	
+	</c:when>	
 	<c:otherwise>
         <h2 align="center">Current Visa letter requests:</h2>
         <p align="center">
