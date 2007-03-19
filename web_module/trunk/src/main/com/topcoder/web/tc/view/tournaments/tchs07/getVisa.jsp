@@ -38,7 +38,7 @@ Getting your travel documents well in advance of your travel dates is important.
 </p>
 <h3>What is involved in applying for a visa?</h3>
 <p>
-The visa application process is an interview at the US Embassy explaining your trip to the United States.  You should apply for a travel/tourist visa and be sure to let them know that you are only staying in the United States for a short time.  It’s a good idea to have the following information available at your interview: 
+The visa application process is an interview at the US Embassy explaining your trip to the United States.  You should apply for a travel/tourist visa and be sure to let them know that you are only staying in the United States for a short time.  It's a good idea to have the following information available at your interview: 
 </p>
 <ul>
    <li>An official letter of invitation from TopCoder (please see below)</li>
@@ -55,7 +55,7 @@ After Online Round 2 of each region, competitors advancing to Round 3 will recei
 Begin by visiting: 
 <a href="<tc-webtag:linkTracking link='http://www.unitedstatesvisas.gov/obtainingvisa/index.html' refer='TCHS07_VISA' />">www.unitedstatesvisas.gov/obtainingvisa/index.html</a> or find your nearest U.S. Embassy or Consulate: <a href="<tc-webtag:linkTracking link='http://usembassy.state.gov' refer='TCHS07_VISA' />">http://usembassy.state.gov</a> 
 </p>
-<p><b>Remember, if you become a finalist, you MUST show proof of your visa and/or passport before TopCoder will book a flight for you.  If you do not have your visa and/or passport by Monday, April 23, 2007, you will be disqualified as a finalist.   Please revisit the tournament rules for more information or email <a href="mailto:jdamato@topcoder.com">Jessie D’Amato Ford</a>.</b></p>
+<p><b>Remember, if you become a finalist, you MUST show proof of your visa and/or passport before TopCoder will book a flight for you.  If you do not have your visa and/or passport by Wednesday, April 25, 2007, you will be disqualified as a finalist.   Please revisit the tournament rules for more information or email <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>.</b></p>
         </div>
         <div class="footer">
             Copyright &#169; 2000-2006, TopCoder, Inc. All rights reserved.
