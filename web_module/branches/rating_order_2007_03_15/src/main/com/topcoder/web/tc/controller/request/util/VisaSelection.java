@@ -47,7 +47,7 @@ public class VisaSelection extends ShortHibernateProcessor {
         // one request, go directly to status page.
         if (events.size() == 1) {
             setNextPage("http://" + ApplicationServer.SERVER_NAME + "/tc?module=VisaLetterRequestStatus&eid=" + events.get(0).getId());            
-            setIsNextPageInContext(true);
+            setIsNextPageInContext(false);
             return;            
         }
 
