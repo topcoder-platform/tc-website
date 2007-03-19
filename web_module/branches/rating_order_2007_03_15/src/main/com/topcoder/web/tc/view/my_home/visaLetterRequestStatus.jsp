@@ -1,11 +1,10 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page language="java"
-        %>
+<%@ page language="java" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<c:set var="reqs" value="${requestScope.reqs}"/>
+<c:set var="req" value="${requestScope.req}"/>
 <html>
 <head>
     <title>Visa Letter Request</title>
@@ -62,13 +61,12 @@
                         </div>
                     </c:when>
 
-                    <c:when test="${empty reqs}">
+                    <c:when test="${empty req}">
                         <div align="center" style="margin: 20px;">
                             You have no pending Visa letter requests.
                         </div>
                     </c:when>
                     <c:otherwise>
-                    	<c:forEach items="${reqs}" var="req" >
 	                        <span class="bodySubtitle">Visa letter request for <c:out value="${req.event.name}"/></span><br>
 	                        <strong>Requested on:</strong>
 	                        <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy"/>
@@ -102,7 +100,7 @@
 	                                </c:otherwise>
 	                            </c:choose>
 	                        </div>
-                        </c:forEach>
+
                     </c:otherwise>
                 </c:choose>
 

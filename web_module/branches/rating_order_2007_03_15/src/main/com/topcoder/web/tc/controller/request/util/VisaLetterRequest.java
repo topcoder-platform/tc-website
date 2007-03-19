@@ -41,7 +41,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
     public static final String FULL_NAME = "full_name";
     public static final String FORCE_REQUEST = "fr";
 
-    private final static String EVENT_ID = "eid";
+    public final static String EVENT_ID = "eid";
 
     protected void dbProcessing() throws Exception {
         if (!userIdentified()) {
