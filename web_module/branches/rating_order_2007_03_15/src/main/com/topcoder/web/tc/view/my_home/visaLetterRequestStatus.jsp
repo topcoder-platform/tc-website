@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<c:set var="req" value="${requestScope.req}"/>
+<c:set var="reqs" value="${requestScope.reqs}"/>
 <html>
 <head>
     <title>Visa Letter Request</title>
@@ -62,45 +62,47 @@
                         </div>
                     </c:when>
 
-                    <c:when test="${empty req}">
+                    <c:when test="${empty reqs}">
                         <div align="center" style="margin: 20px;">
                             You have no pending Visa letter requests.
                         </div>
                     </c:when>
                     <c:otherwise>
-                        <span class="bodySubtitle">Visa letter request for <c:out value="${req.event.name}"/></span><br>
-                        <strong>Requested on:</strong>
-                        <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy"/>
-                        <br>
-                        <strong>Status:</strong>
-
-                        <div align="center" style="margin: 20px;">
-                            <c:choose>
-                                <c:when test="${not empty req.sentDate}">
-                                    Your Visa request has been <span class="bigGreen">APPROVED</span>.<br>The letter was
-                                    sent to you on:
-                                    <strong>
-                                        <fmt:formatDate value="${req.sentDate}" pattern="MM/dd/yyyy"/>
-                                    </strong><br>
-
-                                    <div align="center" style="margin: 20px;">
-                                        <a href="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request
-                                            again</a>
-                                    </div>
-                                </c:when>
-                                <c:when test="${req.denied }">
-                                    We're sorry, your Visa letter request has been <span class="bigRed">DENIED</span>.
-                                    <div style="margin: 20px 0px 100px 0px;">
-                                        <a href="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request
-                                            again</a><br>
-                                    </div>
-                                </c:when>
-                                <c:otherwise>
-                                    Your Visa letter request is <strong>PENDING</strong> approval.<br>Please check again
-                                    soon.
-                                </c:otherwise>
-                            </c:choose>
-                        </div>
+                    	<c:forEach items="reqs" var="req">
+	                        <span class="bodySubtitle">Visa letter request for <c:out value="${req.event.name}"/></span><br>
+	                        <strong>Requested on:</strong>
+	                        <fmt:formatDate value="${req.requestDate}" pattern="MM/dd/yyyy"/>
+	                        <br>
+	                        <strong>Status:</strong>
+	
+	                        <div align="center" style="margin: 20px;">
+	                            <c:choose>
+	                                <c:when test="${not empty req.sentDate}">
+	                                    Your Visa request has been <span class="bigGreen">APPROVED</span>.<br>The letter was
+	                                    sent to you on:
+	                                    <strong>
+	                                        <fmt:formatDate value="${req.sentDate}" pattern="MM/dd/yyyy"/>
+	                                    </strong><br>
+	
+	                                    <div align="center" style="margin: 20px;">
+	                                        <a href="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request
+	                                            again</a>
+	                                    </div>
+	                                </c:when>
+	                                <c:when test="${req.denied }">
+	                                    We're sorry, your Visa letter request has been <span class="bigRed">DENIED</span>.
+	                                    <div style="margin: 20px 0px 100px 0px;">
+	                                        <a href="${sessionInfo.secureAbsoluteServletPath}?module=VisaLetterRequest&eid=${req.event.id }&fr=true" class="button" style="width: 80px;">Request
+	                                            again</a><br>
+	                                    </div>
+	                                </c:when>
+	                                <c:otherwise>
+	                                    Your Visa letter request is <strong>PENDING</strong> approval.<br>Please check again
+	                                    soon.
+	                                </c:otherwise>
+	                            </c:choose>
+	                        </div>
+                        </c:forEach>
                     </c:otherwise>
                 </c:choose>
 

@@ -32,6 +32,15 @@ public class VisaLetterEventDAOHibernate extends Base implements VisaLetterEvent
         return (VisaLetterEvent) l.get(0);
     }
 
+    public List findShowStatus() {
+        Query q = session.createQuery(" from VisaLetterEvent " +
+                " where request_start_date <= current " +
+                " and (request_end_date + 31 units day) >= current" +
+                " order by request_start_date desc");
+
+        return q.list();
+    }
+
     public VisaLetterEvent find(Long eventId) {
         return (VisaLetterEvent) find(VisaLetterEvent.class, eventId);
 
@@ -48,6 +57,7 @@ public class VisaLetterEventDAOHibernate extends Base implements VisaLetterEvent
     public void saveOrUpdate(VisaLetterEvent event) {
         super.saveOrUpdate(event);
     }
+
 
 
 }

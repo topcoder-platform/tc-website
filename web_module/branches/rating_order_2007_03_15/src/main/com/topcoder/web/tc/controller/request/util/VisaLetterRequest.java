@@ -1,6 +1,8 @@
 package com.topcoder.web.tc.controller.request.util;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.ApplicationServer;
@@ -11,6 +13,7 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
 import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.Phone;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.VisaLetterEvent;
@@ -58,6 +61,7 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
         boolean noEvent = getRequest().getParameter(EVENT_ID) == null;
 
         if (noEvent) {
+            /*
             event = eventDAO.findCurrent();
             if (event != null) {
                 eid = event.getId();
@@ -65,14 +69,25 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
                 setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);
                 setIsNextPageInContext(true);
                 return;
+            }*/
+            List<Event> events = eventDAO.findShowStatus();
+            List<com.topcoder.web.common.model.VisaLetterRequest> reqs = new ArrayList<com.topcoder.web.common.model.VisaLetterRequest>();
+            
+            for (Event e : events) {
+                reqs.add(reqDAO.find(userId, e.getId()));
             }
+            
+            getRequest().setAttribute("reqs", reqs);
+            setNextPage(com.topcoder.web.tc.Constants.VISA_LETTER_REQUEST_STATUS);
+            setIsNextPageInContext(true);
+            return;
 
-        } else {
-            eid = new Long(getRequest().getParameter(EVENT_ID));
-            event = eventDAO.find(eid);
         }
 
+        eid = new Long(getRequest().getParameter(EVENT_ID));
+        event = eventDAO.find(eid);
 
+        
         if (event == null) {
             throw new IllegalArgumentException("Event id not found: " + eid);
         }
