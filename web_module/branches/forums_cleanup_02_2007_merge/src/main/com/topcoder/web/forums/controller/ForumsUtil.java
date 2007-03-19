@@ -15,6 +15,7 @@ import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.ForumCategoryNotFoundException;
 import com.jivesoftware.forum.ForumFactory;
 import com.jivesoftware.forum.ForumMessage;
+import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.QueryResult;
 import com.jivesoftware.forum.ResultFilter;
@@ -374,6 +375,10 @@ public class ForumsUtil {
     public static boolean isAdmin(User user) {
         if (user == null) return false;
         return user.isAuthorized(Permissions.SYSTEM_ADMIN);
+    }
+    
+    public static boolean canAnnounce(Forum forum) {
+        return forum.isAuthorized(ForumPermissions.ANNOUNCEMENT_ADMIN);
     }
 
     public static byte[] asciiGetBytes(String s) {

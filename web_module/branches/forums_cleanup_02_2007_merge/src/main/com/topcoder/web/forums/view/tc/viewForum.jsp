@@ -121,7 +121,7 @@
             <jsp:include page="searchHeader.jsp"/>
         </td>
         <td align="right" nowrap="nowrap" valign="top">
-            <% if (ForumsUtil.isAdmin(user)) { %>
+            <% if (ForumsUtil.canAnnounce(forum)) { %>
             <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
                 Announcement</A>&#160; |&#160;
             <% } %>
