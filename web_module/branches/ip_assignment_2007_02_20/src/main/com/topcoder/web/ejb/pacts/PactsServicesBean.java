@@ -1792,7 +1792,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 try {
                     findStudioContestsById(ad.getStudioContest().getId().longValue());
                 } catch (Exception e) {
-                    throw new IllegalArgumentException("Assignment Document's studio contest doesn't exists");
+                    throw new IllegalArgumentException("Assignment Document's studio contest doesn't exists: " +
+                            ad.getStudioContest().getId().longValue());
                 }
             }
         }
@@ -1863,6 +1864,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = c.prepareStatement(query.toString());
             ps.setLong(1, ad.getId().longValue());
             ps.setLong(2, ad.getType().getId().longValue());
+            log.debug("Status: (1) " + ad.getStatus());
+            log.debug("Status: (2) " + ad.getStatus().getId());
+            log.debug("Status: (3) " + ad.getStatus().getId().longValue());
             ps.setLong(3, ad.getStatus().getId().longValue());
             ps.setString(4, ad.getText());
             ps.setInt(5, ad.isHardCopy().booleanValue() ? 1 : 0);

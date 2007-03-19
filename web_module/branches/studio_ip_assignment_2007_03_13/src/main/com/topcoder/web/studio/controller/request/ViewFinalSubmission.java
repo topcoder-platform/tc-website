@@ -86,7 +86,11 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 ad.setUser(user);
                 ad.setType(new AssignmentDocumentType(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID));
                 ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.PENDING_STATUS_ID));
-                
+
+                log.debug("Status: (a1) " + ad.getStatus());
+                log.debug("Status: (a2) " + ad.getStatus().getId());
+                log.debug("Status: (a3) " + ad.getStatus().getId().longValue());
+
                 ad = PactsServicesLocator.getService().addAssignmentDocument(ad);
             } else {
                 ad = (AssignmentDocument) adList.get(0);
