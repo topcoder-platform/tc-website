@@ -143,12 +143,13 @@ public abstract class StudioContestReferencePayment extends BasePayment {
          * @return the status of the payment.
          * @throws SQLException
          */
-        public int lookupStatus(BasePayment payment) throws SQLException {
-            System.out.println("lookupStatus (studio) : tax " + hasTaxForm(payment.getCoderId()));
+        public int lookupStatus(BasePayment payment) throws SQLException {            
+            System.out.println("lookupStatus (studio) : hasAffirmedAssignmentDocument " + hasAffirmedAssignmentDocument(payment.getCoderId(), ((StudioContestReferencePayment) payment).getContestId()));
             if (!hasAffirmedAssignmentDocument(payment.getCoderId(), ((StudioContestReferencePayment) payment).getContestId())) {
                 return PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS;
             }
             
+            System.out.println("lookupStatus (studio) : tax " + hasTaxForm(payment.getCoderId()));
             if (!hasTaxForm(payment.getCoderId())) {
                 return PAYMENT_ON_HOLD_STATUS;
             }
