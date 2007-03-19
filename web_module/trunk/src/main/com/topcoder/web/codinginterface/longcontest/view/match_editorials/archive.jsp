@@ -39,6 +39,7 @@
 
 <table class="bodyText" cellpadding="3" cellspacing="0" border="0">
 <tr><td>01.31.2007</td><td><strong>Marathon Match 10</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_10">Analysis</A></td></tr>
+<tr><td>11.30.2006</td><td><strong>Intel&#174; Multi-Threading Competion 11</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_11">Analysis</A></td></tr>
 <tr><td>11.01.2006</td><td><strong>Intel&#174; Multi-Threading Competion 10</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_10">Analysis</A></td></tr>
 <tr><td>09.27.2006</td><td><strong>Intel&#174; Multi-Threading Competion 9</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_9">Analysis</A></td></tr>
 <tr><td>08.30.2006</td><td><strong>Intel&#174; Multi-Threading Competion 8</strong> - <A href="/longcontest/?module=Static&d1=match_editorials&d2=intel_mtcs_8">Analysis</A></td></tr>
