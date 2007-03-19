@@ -126,7 +126,7 @@
 <form name="submissionForm" action="#">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
-<tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_TYPE_ID%>" value="<%=SubmissionType.FINAL_SUBMISSION_TYPE.intValue()%>"/>
+<tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_TYPE_ID%>" value="<%=SubmissionType.FINAL_SUBMISSION_TYPE.toString()%>"/>
 
 <div align="center">
    <strong>In the table below</strong> you can rank your submissions.
