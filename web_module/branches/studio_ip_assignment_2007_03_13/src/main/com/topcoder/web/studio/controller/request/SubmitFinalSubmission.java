@@ -18,6 +18,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.ObjectInput;
@@ -97,7 +98,9 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
 
                 if (hasErrors()) {
                     getRequest().setAttribute("assignment_document", ad);
-                    getRequest().setAttribute("has_hard_copy", hasHardCopy);
+                    getRequest().setAttribute(Constants.ACCEPT_AD, getRequest().getParameter(Constants.ACCEPT_AD));
+
+                    setDefault(Constants.CONTEST_ID, contestId.toString());
 
                     setDefault(Constants.CONTEST_ID, contestId.toString());
                     setDefault(Constants.SUBMISSION_RANK, rank);
@@ -107,7 +110,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     setIsNextPageInContext(true);
                 } else {
                     // affirm the AD.
-                    if (hasHardCopy.booleanValue()) {
+                    if (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID) && hasHardCopy.booleanValue()) {
                         PactsServicesLocator.getService().affirmAssignmentDocument(ad);
                     }
                     
