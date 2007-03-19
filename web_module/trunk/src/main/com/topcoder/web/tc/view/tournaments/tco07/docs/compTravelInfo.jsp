@@ -73,7 +73,7 @@
     is for arrival on June 26, 2007 and departure on June 30, 2007 (or Sunday, July 1, 2007 if ticket cost is
     significantly less due to a Saturday night stay). Unless there are extenuating circumstances, which DO NOT
     include personal holiday/vacation, flights will not be booked for dates other than those stated. Extended
-    flights and/or hotel room nights are your responsibility to coordinate with Globe Travel direct and TopCoder
+    flights and/or hotel room nights are your responsibility to coordinate with Globe Travel directly and TopCoder
     will only reimburse you the cost of a flight for the dates stated above. Please be sure to state any
     requests below for Globe Travel.
 </p>
@@ -82,7 +82,7 @@
 <p>
 
     TopCoder will provide transportation to and from the hotel and airport in Las Vegas. Further information on
-    where to board upon your arrival at the airport will be indicated on your agenda</p>
+    where to board upon your arrival at the airport will be indicated on your agenda.</p>
 
 
 <h2 align="center">Travel Form</h2>
@@ -178,7 +178,7 @@
 <tr>
     <td class="sidebarText" align="right">
         <input type="hidden" name="q44" value="June 26, 2007 - Preferred arrival time"/>
-        June 26, 2007 - Preferred arrival time:
+        June 26, 2007 - Preferred arrival time in Las Vegas:
     </td>
     <td class="sidebarText" align="left"><select name="a44">
         <option value="AM">AM</option>
@@ -189,8 +189,7 @@
 <tr>
     <td class="sidebarText" align="right">
         <input type="hidden" name="q45" value="June 30, 2007 - preferred departure time"/>June 30, 2007 -
-        preferred
-        departure time:
+        Preferred departure time from Las Vegas:
     </td>
     <td class="sidebarText" align="left"><select name="a45">
         <option value="AM">AM</option>
@@ -245,8 +244,8 @@
 
 <tr>
     <td class="sidebarText" colspan="2">
-        In order to help us correctly pronouce your name and handle please fill in the
-        questions below. If you would prefer to send a recording, you may email it
+        In order to help us correctly pronounce your name and handle please fill in the
+        information below. If you would prefer to send a recording, you may email it
         to <a href="mailto:ntrefz@topcoder.com">Nick Trefz</a>
     </td>
 </tr>
