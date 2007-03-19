@@ -85,42 +85,42 @@
 
 <div align="center">
     <div align="left" style="width:500px; margin-top: 20px;">
-        <div align="center">
-            <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
-                <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+        <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
+            <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-                <c:choose>
-                    <c:when test="${!has_hard_copy}">
-                        <p>Remember that in order to get paid you must send a signed copy of the Assignment document</p>
-                    </c:when>
-                    <c:when test="${has_hard_copy and assignment_document.status.id == PENDING_STATUS_ID}">
-                        <p><iframe  width="70%" height="500" marginWidth="5"
-                            src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
-                        <br/>
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD%>"><span class="bigRed">${err}</span>
-                        <br></tc-webtag:errorIterator>
-                        <tc-webtag:chkBox name="<%=Constants.ACCEPT_AD%>"/> I accept
-                        </p>                
-                    </c:when>
-                    <c:otherwise>
-                        You have already accepted the Assignment Document.
-                    </c:otherwise>
-                </c:choose>
-        
-                <p>Please use the form below to upload your submission:</p>
-        
-                <p>The maximum file size per submission is 2MB.</p>
+            <c:choose>
+                <c:when test="${!has_hard_copy}">
+                    <p>Remember that in order to get paid you must send a signed copy of the Assignment document</p>
+                </c:when>
+                <c:when test="${has_hard_copy and assignment_document.status.id == PENDING_STATUS_ID}">
+                    <p><iframe  width="70%" height="500" marginWidth="5"
+                        src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
+                    <br/>
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD%>"><span class="bigRed">${err}</span>
+                    <br></tc-webtag:errorIterator>
+                    <tc-webtag:chkBox name="<%=Constants.ACCEPT_AD%>"/> I accept
+                    </p>                
+                </c:when>
+                <c:otherwise>
+                    You have already accepted the Assignment Document.
+                </c:otherwise>
+            </c:choose>
+    
+            <p>Please use the form below to upload your submission:</p>
+    
+            <p>The maximum file size per submission is 2MB.</p>
 
-                <p>Only the following file types will be accepted:</p>
-                <ul>
-                    <c:forEach items="${contest.fileTypes}" var="fileType">
-                        <li>
-                                ${fileType.description}
-                        </li>
-                    </c:forEach>
-                </ul>
+            <p>Only the following file types will be accepted:</p>
+            <ul>
+                <c:forEach items="${contest.fileTypes}" var="fileType">
+                    <li>
+                            ${fileType.description}
+                    </li>
+                </c:forEach>
+            </ul>
 
+            <div align="center">
                 <p>
                     <b>My design:</b><br/>
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
@@ -135,9 +135,8 @@
                 <p id="submitButton">
                     <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
                 </p>
-            </form>
-        </div>
-
+            </div>
+        </form>
     </div>
 </div>
 
