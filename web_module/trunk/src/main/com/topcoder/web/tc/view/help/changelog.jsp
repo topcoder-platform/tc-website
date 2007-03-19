@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.8.5 - 2007.03.19
+    5.8.6 - 2007.03.19
     <ul>
         <li>Add studio results to the tco07 site -dok</li>
         <li>Add standarized way to sort component competitions in the order in which they were rated- cucu</li>
