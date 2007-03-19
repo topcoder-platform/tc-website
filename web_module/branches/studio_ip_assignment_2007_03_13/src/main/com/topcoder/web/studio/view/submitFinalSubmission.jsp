@@ -94,9 +94,9 @@
                     <p>Remember that in order to get paid you must send a signed copy of the Assignment document</p>
                 </c:when>
                 <c:when test="${has_hard_copy and assignment_document.status.id == PENDING_STATUS_ID}">
-                    <p><iframe  width="70%" height="500" marginWidth="5"
-                        src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
-                    <br/>
+                    <p><iframe  width="100%" height="300" marginWidth="5"
+                        src="/?module=Static&d1=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
+                    </p>
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD%>"><span class="bigRed">${err}</span>
                     <br></tc-webtag:errorIterator>
                     <tc-webtag:chkBox name="<%=Constants.ACCEPT_AD%>"/> I accept

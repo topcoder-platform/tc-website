@@ -1758,6 +1758,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalArgumentException("Assignment Document's status cannot be null");
         }
         
+        if (ad.isHardCopy() == null) {
+            ad.setHardCopy(Boolean.FALSE);
+        }
+        
         if (ad.getExpireDate() == null) {
             Calendar dueDateCal = Calendar.getInstance();
             dueDateCal.add(Calendar.DAY_OF_YEAR, ASSIGNMENT_DOCUMENT_EXPIRATION_PERIOD);
