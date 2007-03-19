@@ -1,5 +1,11 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
+
 import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.StringInput;
@@ -9,9 +15,6 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionType;
-
-import java.util.*;
 
 /**
  * @author dok
@@ -23,13 +26,15 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
 
         Long contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
 
+        Integer submissionTypeId = new Integer(getRequest().getParameter(Constants.SUBMISSION_TYPE_ID));
+
         SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         String paramName;
         String newRank;
         Integer newRankInt;
         Submission currSubmission = null;
         Date now = new Date();
-        List userSubmissions = dao.getSubmissions(contestId, new Long(getUser().getId()), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
+        List userSubmissions = dao.getSubmissions(contestId, new Long(getUser().getId()), submissionTypeId);
         Integer maxRank = null;
         ArrayList newRanks = new ArrayList(userSubmissions.size());
         ArrayList changedSubmissions = new ArrayList(userSubmissions.size());

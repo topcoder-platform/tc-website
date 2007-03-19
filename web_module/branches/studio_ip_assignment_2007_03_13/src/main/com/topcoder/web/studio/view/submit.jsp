@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.Constants, com.topcoder.web.studio.model.SubmissionType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -40,7 +40,7 @@
             Fat.fade_element('fade8');
         }
         function batchUpdate() {
-            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}');
+            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}&<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE%>');
         <c:forEach items="${submissions}" var="submission">
             ajaxRequest.addNamedFormElements("<%=Constants.SUBMISSION_ID%>${submission.id}");
         </c:forEach>
@@ -126,6 +126,7 @@
 <form name="submissionForm" action="#">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
+<tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_TYPE_ID%>" value="<%=SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE%>"/>
 
 <div align="center">
    <strong>In the table below</strong> you can rank your submissions.
