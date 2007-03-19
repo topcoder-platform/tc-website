@@ -38,33 +38,32 @@
     <span class="pageName">Active Competitions</span>
 </div>
 
-<table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
-    <tr>
-        <td width="50%">
-            <A href="/?module=ViewActiveContests" class="statTabLinkOff"><span>Active Contests</span></A>
-        </td>
-        <td width="50%">
-            <A href="/?module=ViewPastContests" class="statTabLinkOn"><span>Past Contests</span></A>
-        </td>
-    </tr>
-</table>
+<div class="breadcrumb">
+    <div style="float:left;"><A href="/?module=Static&amp;d1=competitions">Competitions</A> >&nbsp;</div>
+    <div style="float:left; margin-bottom: 10px;">
+    <A href="/?module=ViewActiveContests">Active Contests</A><br>
+    <strong>Past Contests</strong>
+    </div>
+</div>
 
-<table class="stat" cellpadding="0" cellspacing="0" style="width:740px">
+<br style="clear: both;" />
+
+<table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
     <tbody>
         <tr>
-            <td class="title" colspan="7">Past Contests</td>
+            <td class="title" colspan="7"><span class="title">Past Contests</span></td>
         </tr>
         <tr>
-            <td class="header">
+            <td class="header" width="100%">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Project</a>
             </td>
             <td class="header" colspan="2">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Winner</a>
             </td>
-            <td class="headerR">
+            <td class="headerC">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("registrants")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Registrants</a>
             </td>
-            <td class="headerR">
+            <td class="headerC">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewPastContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a>
             </td>
             <td class="headerR">
@@ -107,10 +106,10 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td class="valueR">
+                <td class="valueC">
                     <rsc:item name="registrants" row="<%=resultRow%>"/>
                 </td>
-                <td class="valueR">
+                <td class="valueC">
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("show_submissions")%>">
                             <A href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
