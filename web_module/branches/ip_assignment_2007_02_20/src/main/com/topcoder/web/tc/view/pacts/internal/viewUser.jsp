@@ -59,8 +59,6 @@
 <jsp:param name="title" value="&nbsp;"/>
 </jsp:include>
 
-<h2>View User</h2>
-
 <table border="0" cellpadding="1" cellspacing="1">
     <tr>
         <td><b>User:</b></td>
@@ -185,7 +183,7 @@
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
         out.print(PactsConstants.MODULE_KEY+"=ViewSearchAssignmentDocumentResult&");
         out.println(PactsConstants.USER_ID + "=" + user.getHeader().getId());
-        out.println("\">Search for User's Assignment Documents</a><br>");
+        out.println("\">Search for User's IP Transfers</a><br>");
         
         out.println("<a href=\"" + PactsConstants.INTERNAL_SERVLET_URL + "?");
         out.print(PactsConstants.TASK_STRING + "=" + PactsConstants.LIST_TASK + "&");
@@ -222,7 +220,7 @@
         out.println("\">Add Contract</a><br>");
         %>            
 
-        <a href="${pacts:addAssignmentDocument(user.header.id)}">Add Assignment Document</a>
+        <a href="${pacts:addAssignmentDocument(user.header.id)}">Add IP Transfer</a>
         <br/>
 
 <%
