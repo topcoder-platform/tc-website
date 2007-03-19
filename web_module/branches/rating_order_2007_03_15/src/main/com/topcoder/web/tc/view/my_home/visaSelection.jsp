@@ -37,7 +37,7 @@
                     <jsp:param name="title" value="&nbsp;"/>
                 </jsp:include>
 
-                <h2 align="center">For which event do you need a Visa Letter?</h2>
+                <h2 align="center">Current Visa letter requests:</h2>
 
                 <p align="center">
                 <A href="">2007 TopCoder Open</A><br>
