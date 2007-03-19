@@ -319,7 +319,7 @@
     travel to the U.S. by that date and time. In order for a finalist to confirm attendance for the onsite finals, it is
     necessary to show proof of visa and/or passport by the deadline (5:00 PM EDT (UTC/GMT -4) on Friday, May 11, 2007)
     if the finalist is required to travel from outside the United States. Finalists may do this by emailing a copy of
-    their documents to Jessie D'Amato Ford at jford@topcoder.com. Competitors who fail to meet this requirement by the
+    their documents to Jessie D'Amato Ford at <a href="mailto:jford@topcoder.com">jford@topcoder.com</a>. Competitors who fail to meet this requirement by the
     deadline will not be able to attend the onsite finals and will be replaced as an onsite finalist.
 </p>
 <b>Visa Assistance</b><br>
@@ -331,7 +331,7 @@ Monday, April 23, 2007 to request a letter. Visas can take a significant amount 
 therefore, for those competitors who need a letter, it is in their best interest to request one well before the
 deadline. The cost of obtaining a visa is the sole responsibility of the competitor. If you fail to request a visa
 invitation letter by the date above, TopCoder will not assist you in the process of obtaining a travel visa. See more
-information about <A href="/tc?module=Static&amp;d1=tournament&amp;d2=tco07&amp;d3=getvisa">travel visas</A>.
+information about <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=getVisa">travel visas</A>.
 </p>
 <p>
     <b>Travel Details</b><br>
