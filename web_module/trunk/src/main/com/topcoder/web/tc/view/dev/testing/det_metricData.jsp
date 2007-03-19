@@ -137,7 +137,7 @@ All submissions are required to be submitted by the end of Competition Phase. Th
       <td><strong>Phase</strong></td><td align="center"><strong>Start</strong></td><td align="center"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Registration Phase:</td><td align="center">03.16.2007</td><td align="center">03.20.2007</td>
+      <td>Registration Phase:</td><td align="center">03.16.2007</td><td align="center">03.21.2007</td>
    </tr>
    <tr>
       <td>Test Submission:</td><td align="center">03.17.2007</td><td align="center">03.24.2007</td>
