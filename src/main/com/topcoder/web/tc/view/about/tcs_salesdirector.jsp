@@ -64,28 +64,31 @@
 
                        <strong>Job Description: </strong>
 
-                        <p>TopCoder, Inc. is a progressive company looking to hire a motivated, hard working salesperson. TopCoder markets application 
-                        development services, private label events, sponsorships and talented developers to companies in multiple industries using a unique 
-                        combination of competition qualified software developers, a rigorous development methodology and catalogs of re-usable software 
-                        components. TopCoder also sells subscriptions to the component catalogs.</p>
+                        <p>TopCoder, Inc. is a rapidly growing and progressive company looking to build a sales team that is motivated, has the proven ability and desire to sell to Fortune 1000 C-Level executives, and that can articulate the TopCoder value. TopCoder markets application development services to Fortune 1000 companies in multiple industries using our member base of thousands of highly-skilled developers from all over the world, our competition-based methodology, and our catalogs of re-usable components.  TopCoder delivers high-quality software at a lower cost than the competition.
+                        <A href="http://software.topcoder.com/applications/index.jsp">Learn more</A></p>
 
                         <strong>Responsibilities include: </strong>
                         <ul>
-                            <li>Exceed all revenue targets - Following a six-month period to build a sales pipeline, we expect our sales representatives to exceed quarterly revenue goals. </li>
-                            <li>Build sales pipeline - Identify new customer prospects via professional networks, cold calling and any other means necessary to build a sales pipeline. </li>
-                            <li>Schedule meetings - Set up meetings for TopCoder executives at qualified prospects with identified needs. </li>
-                            <li>Build business plan - Build a plan for developing the assigned business including specific customers and timeframes. </li>
+                            <li>Exceed all revenue targets - Following a six-month period to build a sales pipeline, we expect our sales representatives to exceed quarterly revenue goals.</li>
+                            <li>Build sales pipeline - Identify new customer prospects via professional networks, cold calling and any other means necessary to build a sales pipeline.</li>
+                            <li>Build business plan - Build a plan for developing the assigned business including specific customers and timeframes.</li>
                         </ul>
 
                         <strong>Qualifications include: </strong>
                         <ul>
-                            <li>Business development experience - Ideal candidates should have at least three years of prior technical sales experience.</li>
                             <li>Strong selling skills - Ideal candidates should have experience identifying, qualifying and closing software or services deals.</li>
+                            <li>Research - Ability to research prospects, customers and industries to identify opportunities for prospects.</li>
                             <li>Prior success - Ideal candidates should have a demonstrated ability to consistently exceed quota.</li>
+                            <li>Relationship building - Ideal candidates should be able to work with customers to build long term relationships.</li>
                             <li>Strong work ethic - Ideal candidates should be able to grow a pipeline two to four times the size of quota targets and prioritize likely prospects.</li>
-                            <li>College Degree - Four year degree preferred.</li>
                         </ul>
 
+                        <strong>Salary: </strong>
+                        <ul>
+                            <li>Base Salary</li>
+                            <li>Personal Goals bonus plan</li>
+                            <li>Company Goals bonus plan</li>
+                        </ul>
 
                         <p>
                         <A href="mailto:jobs@topcoder.com?subject=Salesperson">Apply for this job.<a/>
