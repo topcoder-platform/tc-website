@@ -14,6 +14,8 @@ public interface VisaLetterEventDAO {
 
     VisaLetterEvent findCurrent();
 
+    List findShowStatus();
+
     List getAll();
 
     void saveOrUpdate(VisaLetterEvent req);
