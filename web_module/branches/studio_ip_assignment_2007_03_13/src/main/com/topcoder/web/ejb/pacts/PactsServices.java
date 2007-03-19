@@ -260,5 +260,10 @@ public interface PactsServices extends EJBObject {
     void deletePayment(BasePayment payment) throws RemoteException, Exception;
 
     BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
+
+    public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) throws RemoteException;
+
+    Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId) throws RemoteException;
+
 }
 

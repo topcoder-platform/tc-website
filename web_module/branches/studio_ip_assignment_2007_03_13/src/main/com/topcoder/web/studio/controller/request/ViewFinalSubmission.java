@@ -62,17 +62,22 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 throw new NavigationException("User cannot upload final submissions");
             }
 
-            AssignmentDocument ad = PactsServicesLocator.getService()
+            List adList = PactsServicesLocator.getService()
                 .getAssignmentDocumentByUserIdStudioContestId(u.getId().longValue(), c.getId().longValue());
         
-            getRequest().setAttribute("assignment_document", ad);
-    
-            Boolean hasHardCopy = PactsServicesLocator.getService()
-                .hasHardCopyAssignmentDocumentByUsertId(ad.getUser().getId().longValue(), 
+            if (adList.size() > 0) {
+                AssignmentDocument ad = (AssignmentDocument) adList.get(0);
+                getRequest().setAttribute("assignment_document", ad);
+                Boolean hasHardCopy = PactsServicesLocator.getService()
+                    .hasHardCopyAssignmentDocumentByUsertId(ad.getUser().getId().longValue(), 
                     ad.getType().getId().longValue());
     
-            getRequest().setAttribute("has_hard_copy", hasHardCopy);
-    
+                getRequest().setAttribute("has_hard_copy", hasHardCopy);
+            } else {
+                getRequest().setAttribute("assignment_document", null);
+                getRequest().setAttribute("has_hard_copy", Boolean.FALSE);
+            }
+
             
             setDefault(Constants.CONTEST_ID, contestId.toString());
             setDefault(Constants.SUBMISSION_RANK, "1");
