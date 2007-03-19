@@ -98,9 +98,10 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
 
                 if (hasErrors()) {
                     getRequest().setAttribute("assignment_document", ad);
+                    getRequest().setAttribute("has_hard_copy", hasHardCopy);
                     getRequest().setAttribute(Constants.ACCEPT_AD, getRequest().getParameter(Constants.ACCEPT_AD));
 
-                    setDefault(Constants.CONTEST_ID, contestId.toString());
+                    setDefault(Constants.ACCEPT_AD, getRequest().getParameter(Constants.ACCEPT_AD));
 
                     setDefault(Constants.CONTEST_ID, contestId.toString());
                     setDefault(Constants.SUBMISSION_RANK, rank);

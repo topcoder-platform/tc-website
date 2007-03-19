@@ -72,17 +72,11 @@
                     &gt; ${contest.name}
                 </div>
 
-                <h1>Submission Successfully Uploaded</h1>
+                <h1>Final Submission Successfully Uploaded</h1>
 
                 <div align="center">
                     <div align="left" style="width:500px; margin-top: 20px;">
                         Your Submission Has Been Uploaded
-                        <br><br>
-                        Please allow at least 24 hours for processing. If your submission does not pass screening, you
-                        will receive an
-                        email with a list of any requirements that it failed to meet.
-                        <br><br>
-                        Thank you.
                         <br><br>
                         <div align="center">
                         <A href="${sessionInfo.servletPath}?module=ViewSubmission&amp;<%=Constants.CONTEST_ID%>=${contest.id}" onfocus="this.blur();"><img src="/i/layout/btnSubmitAnother.png" alt="submit another" onmouseover="this.src = '/i/layout/btnSubmitAnotherOn.png';" onmouseout="this.src = '/i/layout/btnSubmitAnother.png';"/></A>
