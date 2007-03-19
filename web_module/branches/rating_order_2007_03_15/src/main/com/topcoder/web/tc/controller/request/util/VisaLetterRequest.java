@@ -13,7 +13,6 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.VisaLetterEventDAO;
 import com.topcoder.web.common.dao.VisaLetterRequestDAO;
 import com.topcoder.web.common.model.Address;
-import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.Phone;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.VisaLetterEvent;
@@ -70,10 +69,10 @@ public class VisaLetterRequest extends ShortHibernateProcessor {
                 setIsNextPageInContext(true);
                 return;
             }*/
-            List<Event> events = eventDAO.findShowStatus();
+            List<VisaLetterEvent> events = eventDAO.findShowStatus();
             List<com.topcoder.web.common.model.VisaLetterRequest> reqs = new ArrayList<com.topcoder.web.common.model.VisaLetterRequest>();
             
-            for (Event e : events) {
+            for (VisaLetterEvent e : events) {
                 reqs.add(reqDAO.find(userId, e.getId()));
             }
             
