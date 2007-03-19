@@ -108,6 +108,9 @@
                     </c:choose>
                 </td>
                 <td class="valueR">
+                    <rsc:item name="registrants" row="<%=resultRow%>"/>
+                </td>
+                <td class="valueR">
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("show_submissions")%>">
                             <A href="${sessionInfo.servletPath}?module=ViewSubmissions&amp;<%=Constants.CONTEST_ID%>=<rsc:item name="contest_id" row="<%=resultRow%>"/>">
