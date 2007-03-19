@@ -53,7 +53,7 @@
     <li>
         <p><strong>Confirmation of attendance/proof of travel documents</strong> - Please email <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>
             to confirm your attendance onsite.  For anyone that has advanced as a finalist in more than one competition,
-            please note which competition you will compete for onsite. If you require a passport and/or visa to visit the
+            please note which competition you will compete in onsite. If you require a passport and/or visa to visit the
             United States, you must show proof of your documents via a scanned copy of the necessary documents.</p>
     </li>
     <li>
@@ -70,7 +70,7 @@
             and postmarked on or before Friday, May 11. Documents that are sent must arrive at
             TopCoder by June 3, 2007. See <a href="/PactsMemberServlet?module=AffidavitHistory">Affidavits
             page</a>
-            for status of affidavits &amp; tax forms due.
+            for status of affidavits due.
         </p>
     </li>
 

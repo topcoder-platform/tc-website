@@ -53,7 +53,7 @@
 
 <p>
 A hotel room will be confirmed for your arrival on June 26 and departure on June 30, 2007. The
-    check-in time is 3:00 PM and check out time is 12:00 PM. If you have any special requests,
+    check-in time is 3:00 PM and check out time is 12:00 PM (Noon). If you have any special requests,
     please indicate them on the travel form below. The cost of your sleeping room and applicable taxes
     will be charged to the TopCoder master account. You will be required, however, to provide a
     credit card upon check-in for any incidental expenses. </p>
@@ -64,15 +64,20 @@ A hotel room will be confirmed for your arrival on June 26 and departure on June
 As soon as you send in this form, TopCoder will secure airline reservations based upon your registration
     information and will email a travel itinerary to you by Wednesday, June 20, 2006. Please be advised
     that once airlines tickets are confirmed, any changes are subject to penalty fees at your own expense.
-    Extended flights and/or hotel room nights are your responsibility to coordinate with Globe Travel direct.
-    Please be sure to state any requests below for Globe Travel
+    The flight reserved by and paid for by TopCoder is for arrival on June 26, 2007 and departure on
+    June 30, 2007 (or Sunday, July 1, 2007 if ticket cost is significantly less due to a Saturday night stay).
+    Unless there are extenuating circumstances, which DO NOT include personal holiday/vacation, flights
+    will not be booked for dates other than those stated. Extended flights and/or hotel room nights are
+    your responsibility to coordinate with Globe Travel directly and TopCoder will only reimburse you the
+    cost of a flight for the dates stated above.
+
 </p>
 <B><U>AIRPORT TRANSPORTATION:</U></B>
 
 <p>
 
     TopCoder will provide transportation to and from the hotel and airport in Las Vegas. Further information on
-    where to board upon your arrival at the airport will be indicated on your agenda</p>
+    where to board upon your arrival at the airport will be indicated on your agenda.</p>
 
 
 <h2 align="center">Travel Form</h2>
@@ -136,7 +141,7 @@ As soon as you send in this form, TopCoder will secure airline reservations base
 
 <tr>
     <td class="sidebarText" colspan="2">
-        Please list your local newspapers, radio, and television stations for both hometown and college locations.
+        Please list your local newspapers, radio, and television stations for your hometown.
     </td>
 </tr>
 
@@ -168,7 +173,7 @@ As soon as you send in this form, TopCoder will secure airline reservations base
 <tr>
     <td class="sidebarText" align="right">
         <input type="hidden" name="q44" value="June 26, 2007 - Preferred arrival time"/>
-        June 26, 2007 - Preferred arrival time:
+        June 26, 2007 - Preferred arrival time in Las Vegas:
     </td>
     <td class="sidebarText" align="left"><select name="a44">
         <option value="AM">AM</option>
@@ -179,8 +184,7 @@ As soon as you send in this form, TopCoder will secure airline reservations base
 <tr>
     <td class="sidebarText" align="right">
         <input type="hidden" name="q45" value="June 30, 2007 - preferred departure time"/>June 30, 2007 -
-        preferred
-        departure time:
+        Preferred departure time from Las Vegas:
     </td>
     <td class="sidebarText" align="left"><select name="a45">
         <option value="AM">AM</option>
@@ -237,8 +241,8 @@ As soon as you send in this form, TopCoder will secure airline reservations base
 
 <tr>
     <td class="sidebarText" colspan="2">
-        In order to help us correctly pronouce your name and handle please fill in the
-        questions below. If you would prefer to send a recording, you may email it
+        In order to help us correctly pronounce  your name and handle please fill in the
+        information below. If you would prefer to send a recording, you may email it
         to <a href="mailto:ntrefz@topcoder.com">Nick Trefz</a>
     </td>
 </tr>

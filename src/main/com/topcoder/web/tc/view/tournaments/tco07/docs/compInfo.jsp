@@ -70,7 +70,7 @@
             and postmarked on or before Friday, May 4. Documents that are sent must arrive at
             TopCoder by June 3, 2007. See <a href="/PactsMemberServlet?module=AffidavitHistory">Affidavits
             page</a>
-            for status of affidavits &amp; tax forms due.
+            for status of affidavits due.
         </p>
     </li>
 
