@@ -15,11 +15,14 @@
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>CSF</title>
     <jsp:include page="style.jsp">
         <jsp:param name="key" value="csf"/>
     </jsp:include>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>CSF</title>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript"> _uacct = "UA-321688-2";
+    urchinTracker(); </script>
     <script type="text/javascript" src="/js/popup.js"></script>
     <script type="text/javascript"><!--
     function next() {
@@ -51,32 +54,39 @@
 <body>
 
 <div align="center">
-<div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
-    <jsp:param name="node" value="contests"/>
-</jsp:include>
-<div id="contentIn" class="contentIn">
-<img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
+<div id="content">
 
-<div class="contentSpacer">
+<jsp:include page="top.jsp"/>
+
+<jsp:include page="primaryNav.jsp">
+    <jsp:param name="selectedTab" value="competitions"/>
+</jsp:include>
+
+<div id="main">
+<div class="pageHeader">
+    <span class="pageName">Submissions</span>
+</div>
+
 <div class="linkBox">
     <csf:forumLink forumID="${contest.forumId}"/>
 </div>
 
 <div class="breadcrumb">
+    <div style="float:left;"><A href="/?module=Static&amp;d1=competitions">Competitions</A> >&nbsp;</div>
+    <div style="float:left; margin-bottom: 10px;">
     <c:choose>
         <c:when test="${isOver}">
-            <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Contests</A> &gt;
+            <A href="${sessionInfo.servletPath}?module=ViewPastContests">Past Creative Competitions</A> &gt;
         </c:when>
         <c:otherwise>
-            <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Contests</A> &gt;
+            <A href="${sessionInfo.servletPath}?module=ViewActiveContests">Active Creative Competitions</A> &gt;
         </c:otherwise>
     </c:choose>
     ${contest.name}
+    </div>
 </div>
 
-<h1>Submissions</h1>
+<br style="clear: both;" />
 
 <form name="submissionsForm" method="get" action="${sessionInfo.servletPath}">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="ViewSubmissions"/>
@@ -96,31 +106,26 @@
     <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
     | <%=(submissions.croppedDataAfter() ? "<a href=\"Javascript:next()\">next &gt;&gt;</a>" : "next &gt;&gt;")%>
 </div>
-<table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+<table class="stat" cellpadding="0" cellspacing="0" style="width:100%;">
     <tbody>
         <tr>
-            <td class="NW">&nbsp;</td>
             <c:choose>
                 <c:when test="${isOver}">
-                    <td class="title" colspan="4">Submissions</td>
+                    <td class="title" colspan="4"><span class="title">Submissions</span></td>
                 </c:when>
                 <c:otherwise>
-                    <td class="title" colspan="3">Submissions</td>
+                    <td class="title" colspan="3"><span class="title">Submissions</span></td>
                 </c:otherwise>
             </c:choose>
-            <td class="NE">&nbsp;</td>
         </tr>
         <tr>
-            <td class="headerW">
-                <div>&nbsp;</div>
-            </td>
             <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
             <c:if test="${isOver}">
                 <td class="header">
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
                 </td>
             </c:if>
-            <td class="header" nowrap="nowrap">
+            <td class="headerC" nowrap="nowrap">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_id")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
                     Submission ID</a>
             </td>
@@ -131,23 +136,17 @@
             <td class="headerC" width="100%">
                 Submission
             </td>
-            <td class="headerE">
-                <div>&nbsp;</div>
-            </td>
         </tr>
         <% boolean even = true;
             int i = 0; %>
         <rsc:iterator list="<%=submissions%>" id="resultRow">
             <tr class="<%=even?"light":"dark"%>">
-                <td class="valueW">
-                    <div>&nbsp;</div>
-                </td>
                 <c:if test="${isOver}">
                     <td class="value">
                         <csf:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
                     </td>
                 </c:if>
-                <td class="value">
+                <td class="valueC">
                     <rsc:item name="submission_id" row="<%=resultRow%>"/>
                 </td>
                 <td class="valueC" nowrap="nowrap">
@@ -171,27 +170,10 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
-                <td class="valueE">
-                    <div>&nbsp;</div>
-                </td>
             </tr>
             <% even = !even;
                 i++; %>
         </rsc:iterator>
-        <tr>
-            <c:choose>
-                <c:when test="${isOver}">
-                    <td class="SW" colspan="5">&nbsp;</td>
-                </c:when>
-                <c:otherwise>
-                    <td class="SW" colspan="4">&nbsp;</td>
-                </c:otherwise>
-            </c:choose>
-
-
-            <td class="SE">&nbsp;</td>
-        </tr>
-
     </tbody>
 </table>
 <br>
@@ -206,11 +188,10 @@
 
 
 </form>
+
 </div>
-<img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-</div>
+
 <jsp:include page="foot.jsp"/>
-<img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>
 
