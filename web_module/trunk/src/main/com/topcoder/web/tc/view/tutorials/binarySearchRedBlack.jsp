@@ -112,7 +112,7 @@ When adding a new node to a binary search tree, note that the new node will alwa
   <li>We've reached a leaf, so the last step is to attach the new node to the right of the current node. Here is how the new BST looks: </li>
 </ul>
 
-<p><img src="/i/education/rbtrees3.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></p>
+<div align="center"><img src="/i/education/rbtrees3.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
 
 <p><strong>BST Deletion:</strong><br />
 Deleting a node from BST is a little more subtle. Formally there are three cases for deleting node n from a BST: </p>
