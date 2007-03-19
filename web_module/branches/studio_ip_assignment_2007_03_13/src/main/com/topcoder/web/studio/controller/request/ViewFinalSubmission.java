@@ -69,7 +69,7 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 AssignmentDocument ad = (AssignmentDocument) adList.get(0);
                 getRequest().setAttribute("assignment_document", ad);
                 Boolean hasHardCopy = PactsServicesLocator.getService()
-                    .hasHardCopyAssignmentDocumentByUsetId(ad.getUser().getId().longValue(), 
+                    .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
                     ad.getType().getId().longValue());
     
                 getRequest().setAttribute("has_hard_copy", hasHardCopy);
