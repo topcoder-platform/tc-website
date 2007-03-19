@@ -32,6 +32,11 @@
             <div class="pageHeader">
                 <span class="pageName">Competition Guide</span>
             </div>
+
+            <div style="float: right; margin: 0px 0px 10px 10px;">
+                <A href="/?module=Static&d1=leaderboardOverview"><img src="/i/home/seriesPrizes.png" alt="Series Prizes" /></A>
+            </div>
+
             <p>
                 Microsoft and British Telecom, in association with TopCoder, will run a series of Connected Services
                 Sandbox Mashup Service Design and Assembly competitions. In these competitions, developers from Sandbox

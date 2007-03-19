@@ -30,7 +30,7 @@
 
         <div id="main">
             <div class="pageHeader">
-                <span class="pageName">Leaderboard</span>
+                <span class="pageName">Series Prizes</span>
             </div>
 
 <h3>Placement Points</h3>
