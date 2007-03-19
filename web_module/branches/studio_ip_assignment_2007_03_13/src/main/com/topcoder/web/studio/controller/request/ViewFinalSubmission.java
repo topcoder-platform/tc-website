@@ -1,5 +1,7 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,6 +11,9 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentStatus;
+import com.topcoder.web.common.model.AssignmentDocumentType;
+import com.topcoder.web.common.model.StudioContest;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
@@ -65,18 +70,34 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
             List adList = PactsServicesLocator.getService()
                 .getAssignmentDocumentByUserIdStudioContestId(u.getId().longValue(), c.getId().longValue());
         
-            if (adList.size() > 0) {
-                AssignmentDocument ad = (AssignmentDocument) adList.get(0);
-                getRequest().setAttribute("assignment_document", ad);
-                Boolean hasHardCopy = PactsServicesLocator.getService()
-                    .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
-                    ad.getType().getId().longValue());
-    
-                getRequest().setAttribute("has_hard_copy", hasHardCopy);
+            // if there's no AD, we must create it
+            AssignmentDocument ad = null;
+            if (adList.size() == 0) {
+                ad = new AssignmentDocument();
+
+                StudioContest contest = new StudioContest();
+                contest.setId(contest.getId());
+                ad.setStudioContest(contest);
+
+                ad.setSubmissionTitle(c.getName() + " - " + new SimpleDateFormat("MM/dd/yyyy").format(new Date(c.getStartTime().getTime())));
+                
+                User user = new User();
+                user.setId(u.getId());
+                ad.setUser(user);
+                ad.setType(new AssignmentDocumentType(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID));
+                ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.PENDING_STATUS_ID));
+                
+                ad = PactsServicesLocator.getService().addAssignmentDocument(ad);
             } else {
-                getRequest().setAttribute("assignment_document", null);
-                getRequest().setAttribute("has_hard_copy", Boolean.FALSE);
+                ad = (AssignmentDocument) adList.get(0);
             }
+
+            getRequest().setAttribute("assignment_document", ad);
+            Boolean hasHardCopy = PactsServicesLocator.getService()
+                .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
+                ad.getType().getId().longValue());
+
+            getRequest().setAttribute("has_hard_copy", hasHardCopy);
 
             
             setDefault(Constants.CONTEST_ID, contestId.toString());
