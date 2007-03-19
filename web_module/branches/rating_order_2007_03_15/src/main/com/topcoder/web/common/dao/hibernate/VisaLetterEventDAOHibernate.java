@@ -1,5 +1,8 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -35,9 +38,13 @@ public class VisaLetterEventDAOHibernate extends Base implements VisaLetterEvent
     public List findShowStatus() {
         Query q = session.createQuery(" from VisaLetterEvent " +
                 " where request_start_date <= current " +
-                " and (request_end_date + 31 units day) >= current" +
+                " and request_end_date >= :endDate" +
                 " order by request_start_date desc");
 
+        Calendar c = new GregorianCalendar();
+        c.add(Calendar.MONTH, -1);
+        
+        q.setCalendar("endDate", c);
         return q.list();
     }
 
