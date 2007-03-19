@@ -76,7 +76,7 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 ad = new AssignmentDocument();
 
                 StudioContest contest = new StudioContest();
-                contest.setId(contest.getId());
+                contest.setId(c.getId());
                 ad.setStudioContest(contest);
 
                 ad.setSubmissionTitle(c.getName() + " - " + new SimpleDateFormat("MM/dd/yyyy").format(new Date(c.getStartTime().getTime())));
