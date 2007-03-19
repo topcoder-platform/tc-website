@@ -87,7 +87,7 @@
 <div align="center">
     <div align="left" style="width:500px; margin-top: 20px;">
         <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
-            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitFinalSubmission"/>
             <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
             <div align="center">
