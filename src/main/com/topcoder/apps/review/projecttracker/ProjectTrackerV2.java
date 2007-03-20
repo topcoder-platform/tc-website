@@ -78,7 +78,7 @@ public interface ProjectTrackerV2 extends EJBObject {
      * @throws RemoteException if error occurs while retrieve data from db
      */
     public long createProject(String projectName, String projectVersion, long compVersId, long projectTypeId,
-        String overview, Date[] dates, TCSubject requestor, long levelId, long forumId)
+        String overview, Date[] dates, TCSubject requestor, long levelId, long forumCategoryId)
         throws BaseException, RemoteException;
 
     /**

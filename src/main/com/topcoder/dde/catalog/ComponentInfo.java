@@ -10,6 +10,8 @@
 
 package com.topcoder.dde.catalog;
 
+import com.topcoder.web.common.WebConstants;
+
 
 /**
  * An object that holds the attributes of a component that are returned by the
@@ -26,22 +28,22 @@ public class ComponentInfo implements java.io.Serializable {
 
 
     /** The status constant used to indicate a component has been deleted */
-    public static final long DELETED = 0;
+    public static final long DELETED = WebConstants.STATUS_DELETED;
 
     /** The status constant used to indicate a component has been requested */
-    public static final long REQUESTED = 101;
+    public static final long REQUESTED = WebConstants.STATUS_REQUESTED;
 
     /** The status constant used to indicate a component has been approved */
-    public static final long APPROVED = 102;
+    public static final long APPROVED = WebConstants.STATUS_APPROVED;
 
     /**
      * The status constant used to indicate a component has been declined
      * because it is a duplicate of another existing component
      */
-    public static final long DUPLICATE = 103;
+    public static final long DUPLICATE = WebConstants.STATUS_DUPLICATE;
 
     /** The status constant used to indicate a component has been declined */
-    public static final long DECLINED = 104;
+    public static final long DECLINED = WebConstants.STATUS_DECLINED;
 
     /** The delimiter used to separate keywords */
     public static final String KEYWORD_DELIMITER = " ";

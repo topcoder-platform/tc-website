@@ -120,33 +120,28 @@
     boolean hasPreviousForumCategories = false;
     Collection colVersions = componentManager.getAllVersionInfo();
     ComponentVersionInfo versions[] = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
-    com.topcoder.dde.catalog.ForumCategory collaborations[] = new com.topcoder.dde.catalog.ForumCategory[versions.length];
     com.topcoder.dde.catalog.ForumCategory specifications[] = new com.topcoder.dde.catalog.ForumCategory[versions.length];
     for (int i=0; i < versions.length; i++) {
         if (versions[i].getPhase() != ComponentVersionInfo.COMPLETED) {
-            collaborations[i] = null;
             specifications[i] = null;
             continue;
         } else {
             componentManager.setVersion(versions[i].getVersion());
             try {
-                collaborations[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
-                specifications[i] = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+                specifications[i] = componentManager.getForumCategory();
             } catch (CatalogException ce) {
                 // getForumCategory returns multiple forum categories of a type which is not supposed to happen
                 // what to do?
             }
-            if (collaborations[i] != null || specifications[i] != null) {
+            if (specifications[i] != null) {
                 hasPreviousForumCategories = true;
             }
         }
     }
     componentManager.setVersion(versionInfo.getVersion());
-    com.topcoder.dde.catalog.ForumCategory activeCollab = null;
     com.topcoder.dde.catalog.ForumCategory activeSpec = null;
     try {
-        activeCollab = componentManager.getActiveForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
-        activeSpec = componentManager.getActiveForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+        activeSpec = componentManager.getActiveForumCategory();
     } catch (CatalogException ce) {
     }
 %>

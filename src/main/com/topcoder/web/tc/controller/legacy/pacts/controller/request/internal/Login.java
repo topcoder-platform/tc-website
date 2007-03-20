@@ -26,9 +26,6 @@ public class Login extends PactsBaseProcessor implements PactsConstants {
 
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
-    public static final String STATUS = "status";
-
-    public static final String STATUS_START = "start";
 
     protected void businessProcessing() throws TCWebException {
     	
@@ -36,7 +33,7 @@ public class Login extends PactsBaseProcessor implements PactsConstants {
         String username = getRequest().getParameter(USER_NAME);
         String password = getRequest().getParameter(PASSWORD);
         SessionInfo info = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-        String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
+        String loginStatus = StringUtils.checkNull(getRequest().getParameter(Constants.STATUS));
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
@@ -93,7 +90,7 @@ public class Login extends PactsBaseProcessor implements PactsConstants {
             getAuthentication().logout();
         }
 
-        if (loginStatus.equals(STATUS_START)) {
+        if (loginStatus.equals(Constants.STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
         int nextPageIdx = info.getRequestString().indexOf("nextpage=");

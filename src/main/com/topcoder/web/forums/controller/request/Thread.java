@@ -12,17 +12,18 @@ import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.jivesoftware.forum.stats.ViewCountManager;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.ejb.messagehistory.MessageHistory;
+import com.topcoder.web.ejb.messagehistory.MessageHistoryLocal;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 import com.topcoder.web.forums.controller.ForumsUtil;
 
 import java.util.Iterator;
-import javax.naming.InitialContext;
 
 /**
  * @author mtong
@@ -71,21 +72,18 @@ public class Thread extends ForumsProcessor {
         Paginator paginator = new Paginator(paging);
         Iterator itMessages = null;
 
-        MessageHistory historyBean = null;
-        InitialContext ctx = null;
-        try {
-            ctx = TCContext.getInitial();
-            historyBean = (MessageHistory)createEJB(ctx, MessageHistory.class);
-        } catch (Exception e) {
-            log.error(e);
-        } finally {
-            BaseProcessor.close(ctx);
-        }
+        MessageHistoryLocal historyBean = (MessageHistoryLocal)createLocalEJB(getInitialContext(), MessageHistory.class);
+        getRequest().setAttribute("editCountTable", historyBean.getMessageEditCounts(thread.getID(), DBMS.FORUMS_DATASOURCE_NAME));
         
 		getRequest().setAttribute("forum", forum);
 		getRequest().setAttribute("thread", thread);
 		getRequest().setAttribute("paginator", paginator);
-        getRequest().setAttribute("historyBean", historyBean);
+        
+        if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) {
+            ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
+            getRequest().setAttribute("showComponentLink", 
+                    String.valueOf(ForumsUtil.showComponentLink(forumsBean, forum.getForumCategory())));
+        }
         
         ReadTracker readTracker = forumFactory.getReadTracker();
         if (user != null && !authToken.isAnonymous()) {
@@ -135,6 +133,9 @@ public class Thread extends ForumsProcessor {
             }
             itMessages = thread.getTreeWalker().getRecursiveMessages();
             setNextPage("/viewThreadTree.jsp");
+        } else {
+            itMessages = thread.getMessages(resultFilter);
+            setNextPage("/viewThreadFlat.jsp");
         }
         
         getRequest().setAttribute("resultFilter", resultFilter);

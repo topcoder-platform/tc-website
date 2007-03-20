@@ -23,22 +23,12 @@ import java.util.Date;
  */
 public class ForumCategory implements java.io.Serializable {
 
-
-    /** The status constant used to indicate a forum has been deleted */
-    public static final long DELETED = 0;
-
     /** The status constant used to indicate a forum is active */
     public static final long ACTIVE = 1;
 
     /** The status constant used to indicate a forum has been closed */
     public static final long CLOSED = 2;
-
-    /** The type constant used to indicate a forum is a collaboration forum */
-    public static final int COLLABORATION = 1;
-
-    /** The type constant used to indicate a forum is a specification forum */
-    public static final int SPECIFICATION = 2;
-
+    
     private final long id;		// represents Jive category ID
     private final Date startDate;
     private final long status;

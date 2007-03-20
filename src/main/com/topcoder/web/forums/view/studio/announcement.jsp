@@ -66,7 +66,7 @@
                         </td>
                     </tr>
                     <tr><td colspan="3" style="padding-bottom:3px;"><b>
-                        <%   if (ForumsUtil.isAdmin(user)) { %>
+                        <%   if (ForumsUtil.canAnnounce(forum)) { %>
                         <div style="float:right; white-space: nowrap;">
                             <% Date now = Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime();
                                 if (announcement.getEndDate() == null || announcement.getEndDate().after(now)) { %>

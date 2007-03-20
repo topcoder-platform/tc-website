@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class Main extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
         super.businessProcessing();
-        
+
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.MODIFICATION_DATE);
         resultFilter.setSortOrder(ResultFilter.DESCENDING);
@@ -34,12 +34,7 @@ public class Main extends ForumsProcessor {
         Iterator itCategories = forumFactory.getRootForumCategory().getCategories();
         ArrayList categoryList = new ArrayList();   // forums diplayed on main page
         
-        ForumsLocal forumsBean = null;
-        try {
-            forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
-        } catch (Exception e) {
-            log.error(e);
-        }
+        ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
         
         while (itCategories.hasNext()) {
             ForumCategory category = (ForumCategory)itCategories.next();
@@ -50,7 +45,7 @@ public class Main extends ForumsProcessor {
             String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
             if (!"".equals(limit)) {
                 if (category.getCategoryCount() > 0) {
-                    ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true);
+                    ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true, false);
                     ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                     getRequest().setAttribute("categoriesIterator_"+category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveCategories_"+category.getID(), new Long(pageList.size()));
@@ -81,7 +76,8 @@ public class Main extends ForumsProcessor {
                         getRequest().setAttribute("imageDataTable_"+category.getID(), imageDataTable);
                     }
                 } else {
-                    ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
+                    boolean excludeEmptyForums = !("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)));
+                    ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, excludeEmptyForums);
                     ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                     getRequest().setAttribute("forumsIterator_"+category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveForums_"+category.getID(), new Long(pageList.size()));

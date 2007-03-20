@@ -53,6 +53,17 @@
 <!-- Links to versions -->
 
 <p>
+    <b>2.0.1 - 2007.03.14</b>
+    <ul>
+		<li>Refactored code/EJBs/DB schema, improved response time for several pages.</li>
+		<li>Added a "Cancel" option to preview and post pages.</li>
+		<li>Removed links to nonexistent component pages.</li>
+		<li>Fixed an error in downloading attachments with names containing spaces in Firefox.</li>
+		<li>Fixed an error where calling malformed thread view URLs exceeded the request limit.</li>
+    </ul>
+</p>
+
+<p>
     <b>2.0 - 2007.02.12</b>
     <ul>
 		<li>Migrated software forums into TopCoder Forums. Browse all forums from one place with the latest features!</li>

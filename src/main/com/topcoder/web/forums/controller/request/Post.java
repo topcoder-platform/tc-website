@@ -61,8 +61,8 @@ public class Post extends ForumsProcessor {
                     return;
                 }
             	
-                setDefault(ForumConstants.MESSAGE_SUBJECT, message.getSubject());
-                setDefault(ForumConstants.MESSAGE_BODY, ForumsUtil.createTextAreaBody(message.getUnfilteredBody()));
+                setDefault(ForumConstants.MESSAGE_SUBJECT, message.getUnfilteredSubject());
+                setDefault(ForumConstants.MESSAGE_BODY, message.getUnfilteredBody());
             } 
             getRequest().setAttribute("message", message);
             getRequest().setAttribute("thread", message.getForumThread());

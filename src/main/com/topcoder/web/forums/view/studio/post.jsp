@@ -229,6 +229,13 @@
 									<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
 								<%	} %>
 							<%	} %>
+							<%	String cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID(); 
+								if (message != null) {
+									cancelLink = "?module=Message&"+ForumConstants.MESSAGE_ID+"="+message.getID();
+								} else if (thread != null) {
+									cancelLink = "?module=Thread&"+ForumConstants.THREAD_ID+"="+thread.getID();
+								} %>
+							<a href="<%=cancelLink%>"><img src="/i/layout/btnCancel.png" alt="Cancel"/></a>
                         </td></tr>
                     </form>
                 </table>

@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!-- 3/07/07: Is this file still being used? -->
 
 <project name="DDE" default="dist" basedir=".">
 
@@ -44,7 +45,6 @@
     <property name="informixinitdir" value="com/topcoder/util/informixinit" />
     <property name="catalogdir" value="${packagedir}/catalog" />
     <property name="admindir" value="${packagedir}/admin" />
-    <property name="ddeforumdir" value="${packagedir}/forum" />
     <property name="notificationdir" value="${packagedir}/notification" />
     <property name="wrapperdir" value="${packagedir}/sql/wrapper" />
     <property name="ddeutildir" value="${packagedir}/util" />
@@ -71,8 +71,6 @@
     <property name="catalog.jar" value="${dist.jars.dir}/catalog.jar"/>
     <property name="admin.src.dir" value="${src.package.dir}/admin"/>
     <property name="admin.jar" value="${dist.jars.dir}/admin.jar"/>
-    <property name="ddeforum.src.dir" value="${src.package.dir}/forum"/>
-    <property name="ddeforum.jar" value="${dist.jars.dir}/ddeforum.jar"/>
     <property name="notification.src.dir" value="${src.package.dir}/notification"/>
     <property name="notification.jar" value="${dist.jars.dir}/notification.jar"/>
     <property name="ddesubmission.src.dir" value="${src.package.dir}/submission"/>
@@ -101,7 +99,6 @@
     <property name="math_matrix.jar" value="${jardir}/tcs/math_matrix.jar"/>
     <property name="render.jar" value="${jardir}/render.jar"/>
     <property name="security.jar" value="${jardir}/security.jar" />
-    <property name="forum.jar" value="${jardir}/tcs/forum.jar"/>
     <property name="tcsutil.jar" value="${jardir}/tcsUtil.jar"/>
     <property name="object_formatter.jar" value="${jardir}/tcs/object_formatter.jar"/>
     <property name="upload.jar" value="${jardir}/upload.jar"/>
@@ -157,7 +154,6 @@
         <pathelement location="${render.jar}"/>
         <pathelement location="${security.jar}"/>
         <pathelement location="${emailaddressvalidator.jar}"/>
-        <pathelement location="${forum.jar}"/>
         <pathelement location="${tcsutil.jar}"/>
         <pathelement location="${object_formatter.jar}"/>
 
@@ -245,7 +241,6 @@
     <target name="package" depends="compile,compile_timeline,build-or,jar_shared">
         <mkdir dir="${dist.jars.dir}"/>
         <copy file="${idgenerator.jar}" todir="${dist.jars.dir}"/>
-        <copy file="${forum.jar}" todir="${dist.jars.dir}"/>
         <copy file="${tcsutil.jar}" todir="${dist.jars.dir}"/>
 
         <jar
@@ -279,12 +274,6 @@
                 basedir="${build_classdir}"
                 includes="${admindir}/**">
             <metainf dir="${admin.src.dir}" includes="*.xml"/>
-        </jar>
-
-        <jar    jarfile="${ddeforum.jar}"
-                basedir="${build_classdir}"
-                includes="${ddeforumdir}/**">
-            <metainf dir="${ddeforum.src.dir}" includes="*.xml"/>
         </jar>
 
         <jar    jarfile="${notification.jar}"
@@ -509,14 +498,6 @@
 
     <target name="qatest-user">
         <property name="testclass" value="${package}.user.test.AllUserTests" />
-        <java fork="yes" classname="junit.textui.TestRunner">
-            <arg value="${testclass}" />
-            <classpath refid="runtime.classpath"/>
-        </java>
-    </target>
-
-    <target name="qatest-forum">
-        <property name="testclass" value="${package}.forum.test.AllForumTests" />
         <java fork="yes" classname="junit.textui.TestRunner">
             <arg value="${testclass}" />
             <classpath refid="runtime.classpath"/>

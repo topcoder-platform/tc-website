@@ -22,8 +22,7 @@
                 com.jivesoftware.forum.database.DbAttachmentManager,
                 java.text.NumberFormat,
                 java.text.DecimalFormat,
-                java.util.*,
-                com.topcoder.shared.util.DBMS"
+                java.util.*"
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -35,7 +34,6 @@
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
 <tc-webtag:useBean id="resultFilter" name="resultFilter" type="com.jivesoftware.forum.ResultFilter" toScope="request"/>
-<tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
@@ -49,7 +47,8 @@
     boolean showPrevNextThreads = !(user != null && "false".equals(user.getProperty("jiveShowPrevNextThreads")));
     String prevTrackerClass = "", nextTrackerClass = "";
     ForumMessage prevPost = null, nextPost = null;
-    NumberFormat formatter = new DecimalFormat("0.00");                  	                     		
+    NumberFormat formatter = new DecimalFormat("0.00");
+    Hashtable editCountTable = (Hashtable)request.getAttribute("editCountTable");
 
     String cmd = "";
     String watchMessage = "";
@@ -298,11 +297,12 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 
 <%	int colspan = (paginator.getNumPages() > 1) ? 2 : 3; %>
 <tr><td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
-   <%	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
+   <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
+   		Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
     	while (itCategories.hasNext()) {
     		ForumCategory category = (ForumCategory)itCategories.next(); %>
 	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-	<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+	<%      if (!itCategories.hasNext() && showComponentLink) { %>
 	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
 		<%	} %>
 			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
@@ -340,7 +340,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 
 <%-------------POSTS---------------%>
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
    	<tr>
       	<td class="rtHeader" colspan="2">
       	<%  String msgBodyID = "msgBody" + message.getID(); 
@@ -349,7 +349,8 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
           	int posRatings = -1;
           	int negRatings = -1; %>  
          	<div style="float: right; padding-left: 5px; white-space: nowrap;">
-            	<%  int editCount = historyBean.getEditCount(message.getID(), DBMS.FORUMS_DATASOURCE_NAME);
+            <%  int editCount = editCountTable.containsKey(String.valueOf(message.getID())) ? 
+            		Integer.parseInt((String)editCountTable.get(String.valueOf(message.getID()))) : 0;
             	if (editCount > 0) { %> 
                 	<a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink" title="Last updated <tc-webtag:format object="${message.modificationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>"><%=ForumsUtil.display(editCount, "edit")%></a> | 
             	<%  } %>

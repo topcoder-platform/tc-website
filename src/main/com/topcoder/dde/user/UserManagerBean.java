@@ -1039,11 +1039,10 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
             registerInquiry(userId, componentId, rating, userId, comments, true, projectCategory == 14 ? null : new Long(phase), version, projectId);
 
-
             Object objTechTypes = ctx.lookup(ComponentManagerHome.EJB_REF_NAME);
             ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
             ComponentManager componentMgr = home.create(componentId);
-            ForumCategory activeForumCategory = componentMgr.getActiveForumCategory(ForumCategory.SPECIFICATION);
+            ForumCategory activeForumCategory = componentMgr.getActiveForumCategory();
 
             if (activeForumCategory == null) throw new EJBException("Could not find forum for component " + componentId);
 

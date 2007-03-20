@@ -33,7 +33,6 @@ import javax.sql.DataSource;
  * @version 1.0
  */
 public class ProjectTrackerV2Bean implements SessionBean {
-    private static final int DEVELOPMENT_FORUM_TYPE = 2;
     private Logger log;
     private SessionContext ejbContext;
     private DataSource dataSource;
@@ -116,15 +115,14 @@ public class ProjectTrackerV2Bean implements SessionBean {
             String forumDbName = DBMS.getDbName(DBMS.FORUMS_DATASOURCE_NAME);
             psForum = conn.prepareStatement("SELECT c.categoryid " + 
             		"FROM " + forumDbName + ":jivecategory c, " + forumDbName + ":jivecategoryprop cp, " +
-            		"	comp_forum_xref cfx, comp_versions cv " +
-                    "WHERE c.categoryid = cfx.jive_category_id " + 
-                    "AND cfx.comp_vers_id = cv.comp_vers_id " +
+            		"	comp_jive_category_xref cjcx, comp_versions cv " +
+                    "WHERE c.categoryid = cjcx.jive_category_id " + 
+                    "AND cjcx.comp_vers_id = cv.comp_vers_id " +
                     "AND cv.phase_id in (112, 113) " +
                     "AND cv.component_id = ? " +
                     "AND c.categoryid = cp.categoryid " +
                     "AND cp.name = '" + ForumConstants.PROPERTY_ARCHIVAL_STATUS + "' " + 
-                    "AND cp.propvalue = " + ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE + " " +                  
-                    "AND cfx.forum_type = " + DEVELOPMENT_FORUM_TYPE);
+                    "AND cp.propvalue = " + ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
 
             psForum.setLong(1, componentId);
             rsForum = psForum.executeQuery();
@@ -295,7 +293,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
      * @throws RuntimeException if error occurs
      */
     public long createProject(String projectName, String projectVersion, long compVersId, long projectTypeId,
-        String overview, Date[] dates, TCSubject requestor, long levelId, long forumId)
+        String overview, Date[] dates, TCSubject requestor, long levelId, long forumCategoryId)
         throws BaseException {
         log.debug("PT.createProject; projectName: " + projectName + " ,compVersId: " + compVersId 
         		+ " ,projectTypeId: " + projectTypeId + " ,projectVersion: " + projectVersion+ " ,requestor: " + requestor.getUserId());
@@ -304,7 +302,7 @@ public class ProjectTrackerV2Bean implements SessionBean {
 
         try {
             conn = dataSource.getConnection();
-            return ProjectUtil.createProject(conn, projectVersion, compVersId, projectTypeId, requestor.getUserId(), forumId);
+            return ProjectUtil.createProject(conn, projectVersion, compVersId, projectTypeId, requestor.getUserId(), forumCategoryId);
         } catch (Exception e) {
             ejbContext.setRollbackOnly();
             throw new RuntimeException("Create project: " + e.getMessage(), e);

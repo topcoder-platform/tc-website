@@ -35,13 +35,7 @@ public class Category extends ForumsProcessor {
             return;
         }
         ForumCategory forumCategory = forumFactory.getForumCategory(categoryID);
-
-        ForumsLocal forumsBean = null;
-        try {
-            forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
-        } catch (Exception e) {
-            log.error(e);
-        }
+        ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
         
         int startIdx = 0;
         if ((!StringUtils.checkNull(getRequest().getParameter(ForumConstants.START_IDX)).equals(""))) {
@@ -77,12 +71,13 @@ public class Category extends ForumsProcessor {
             resultFilter.setSortOrder(Integer.parseInt(sortOrder));
         }
         
-        boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
-        
         ArrayList list = null;
         if (forumCategory.getCategoryCount() > 0) {
-        	list = ForumsUtil.getCategories(forumsBean, forumCategory, resultFilter, excludeEmptyForums);
+            boolean excludeEmptyCategories = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_CATEGORIES));
+            boolean mergeEmptyCategories = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_MERGE_EMPTY_CATEGORIES));
+        	list = ForumsUtil.getCategories(forumsBean, forumCategory, resultFilter, excludeEmptyCategories, mergeEmptyCategories);
         } else {
+            boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
         	list = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);   
         }
         ArrayList pageList = ForumsUtil.getPage(list, startIdx, forumRange);
@@ -90,19 +85,6 @@ public class Category extends ForumsProcessor {
         resultFilter.setNumResults(forumRange);
         Paging paging = new Paging(resultFilter, list.size());
         Paginator paginator = new Paginator(paging);
-        
-        // determine if component is custom
-        if (ForumsUtil.isSoftwareSubcategory(forumCategory)) {
-            long compVersID = Long.parseLong(forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
-            long compID = Long.parseLong(forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
-            long compVersPhase = forumsBean.getComponentVersionPhase(compVersID);
-            long rootCategoryID = forumsBean.getComponentRootCategory(compID);
-            ImageData imageData = new ImageData(compVersPhase, rootCategoryID);
-            String technologyText = imageData.getTechnologyText();
-            if (technologyText.indexOf("Custom") == -1) { 
-                getRequest().setAttribute("isCustomComponent", "true");
-            }     
-        }
         
         if (forumCategory.getCategoryCount() > 0) {
         	getRequest().setAttribute("categories", pageList.iterator());
@@ -140,6 +122,8 @@ public class Category extends ForumsProcessor {
         getRequest().setAttribute("paginator", paginator);
         getRequest().setAttribute("sortField", sortField);
         getRequest().setAttribute("sortOrder", sortOrder);
+        getRequest().setAttribute("showComponentLink", 
+                String.valueOf(ForumsUtil.showComponentLink(forumsBean, forumCategory)));
 
         if (markRead.equals("t")) {
         	setNextPage(getSessionInfo().getServletPath() + 

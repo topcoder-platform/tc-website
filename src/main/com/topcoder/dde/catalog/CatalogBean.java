@@ -7,8 +7,6 @@ package com.topcoder.dde.catalog;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.dde.DDEException;
-import com.topcoder.dde.forum.ForumModeratePermission;
-import com.topcoder.dde.forum.ForumPostPermission;
 import com.topcoder.dde.persistencelayer.interfaces.*;
 import com.topcoder.dde.user.RegistrationInfo;
 import com.topcoder.dde.user.UserManagerLocalHome;
@@ -97,7 +95,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
     private LocalDDECompCategoriesHome compcatsHome;
     private LocalDDECompKeywordsHome keywordsHome;
     private LocalDDECompTechnologyHome comptechHome;
-    private LocalDDECompForumXrefHome compforumHome;
+    //private LocalDDECompForumXrefHome compforumHome;
     private LocalDDECategoriesHome categoriesHome;
     private LocalDDETechnologyTypesHome technologiesHome;
     private LocalDDERolesHome rolesHome;
@@ -146,9 +144,9 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             comptechHome = (LocalDDECompTechnologyHome)
                     homeBindings.lookup(LocalDDECompTechnologyHome.EJB_REF_NAME);
             log.debug("blah");
-            compforumHome = (LocalDDECompForumXrefHome)
-                    homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
-            log.debug("blah");
+            //compforumHome = (LocalDDECompForumXrefHome)
+            //        homeBindings.lookup(LocalDDECompForumXrefHome.EJB_REF_NAME);
+            //log.debug("blah");
             categoriesHome = (LocalDDECategoriesHome)
                     homeBindings.lookup(LocalDDECategoriesHome.EJB_REF_NAME);
             log.debug("blah");
@@ -472,33 +470,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         }
         return new CatalogSearchView(results);
     }
-
-//    public CatalogSearchView searchForums(String searchtext) throws CatalogException, NamingException, SQLException {
-//
-//        if (searchtext == null) {
-//            throw new CatalogException("Null specified for search text");
-//        }
-//
-//        StringBuffer query = new StringBuffer(1000);
-//        query.append("SELECT f.forum_id, f.create_time, f.closed_time, ")
-//
-//        Connection c = null;
-//        PreparedStatement ps = null;
-//        ResultSet rs = null;
-//        ArrayList results = new ArrayList();
-//
-//        try {
-//
-//            c = getConnection();
-//
-//            ps = c.prepareStatement(query.toString());
-//            ps.executeQuery();
-//
-//            while (rs.next()) {
-//                results.add(new Forum(rs.getLong(1), rs.getDate(2), rs.getDate(3), rs.getLong(4), rs.getLong(5), rs.getString(6)));
-//            }
-//        }
-//    }
 
     /**
      * <p>Gets all category names including or not base and visible categories.</p>
@@ -1093,14 +1064,13 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             query.append("  FROM ");
             query.append(forumDbName).append(":jivecategory cat, ");
             query.append(forumDbName).append(":jivecategoryprop p, ");
-            query.append("		 comp_versions v, comp_forum_xref x, comp_catalog c ");
+            query.append("		 comp_versions v, comp_jive_category_xref x, comp_catalog c ");
             query.append(" WHERE x.jive_category_id = cat.categoryid      ");
             query.append("   AND x.comp_vers_id = v.comp_vers_id           ");
             query.append("   AND c.component_id = ?                        ");
             query.append("   AND c.component_id = v.component_id           ");
             query.append("	 AND cat.categoryid = p.categoryid			   ");
-            query.append("	 AND p.name = 'forumType'					   ");
-            query.append("   AND ( NOT ( p.propvalue = ? ) )               "); 
+            query.append("	 AND p.name = 'archivalStatus'				   ");
             if (version < 0)
                 query.append("   AND c.current_version = v.version ");
             else
@@ -1110,8 +1080,7 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
 
                 ps = c.prepareStatement(query.toString());
                 ps.setLong(1, componentId);
-                ps.setLong(2, ForumCategory.DELETED);
-                if (version >= 0) ps.setLong(3, version);
+                if (version >= 0) ps.setLong(2, version);
                 rs = ps.executeQuery();
 
                 List list = new ArrayList();
@@ -1637,67 +1606,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
             throw new EJBException(exception.toString());
         }
     }
-
-    private void createForumRoles(long forumId, long forumType)
-            throws CatalogException {
-        /*
-         * This is a convenience method to create the security roles for forums.
-         * Currently, it has to call createRoles with null for the requestor.
-         * This only works because createRoles has not implemented permission
-         * checking yet. This functionality does not really belong in the
-         * component catalog.
-         */
-        PermissionCollection perms = null;
-        RolePrincipal role = null;
-        RolePrincipal adminRole = null;
-        RolePrincipal collabModeratorRole = null;
-        RolePrincipal specUserRole = null;
-        RolePrincipal specModeratorRole = null;
-        try {
-            PrincipalMgrRemote principalManager = principalmgrHome.create();
-            PolicyMgrRemote policyManager = policymgrHome.create();
-
-            adminRole = principalManager.getRole(Long.parseLong(getConfigValue("administrator_role")));
-            collabModeratorRole = principalManager.getRole(Long.parseLong(getConfigValue("collaboration_moderator_role")));
-            specUserRole = principalManager.getRole(Long.parseLong(getConfigValue("specification_user_role")));
-            specModeratorRole = principalManager.getRole(Long.parseLong(getConfigValue("specification_moderator_role")));
-            if (forumType == ForumCategory.SPECIFICATION) {
-                role = principalManager.createRole("ForumUser " + forumId, null);
-                perms = new PermissionCollection();
-                perms.addPermission(new ForumPostPermission(forumId));
-                policyManager.addPermissions(role, perms, null);
-                policyManager.addPermissions(adminRole, perms, null);
-                policyManager.addPermissions(specUserRole, perms, null);
-            }
-
-            role = principalManager.createRole("ForumModerator " + forumId, null);	// the problem is here
-            perms = new PermissionCollection();
-            perms.addPermission(new ForumModeratePermission(forumId));
-            policyManager.addPermissions(role, perms, null);
-            policyManager.addPermissions(adminRole, perms, null);
-            if (forumType == ForumCategory.SPECIFICATION) {
-                policyManager.addPermissions(specModeratorRole, perms, null);
-            } else {
-                policyManager.addPermissions(collabModeratorRole, perms, null);
-            }
-
-        } catch (ConfigManagerException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to obtain configuration data: " + exception.toString());
-        } catch (CreateException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to create security roles for forum: "
-                    + exception.toString());
-        } catch (GeneralSecurityException exception) {
-            throw new CatalogException(
-                    "Failed to create security roles for forum: "
-                    + exception.toString());
-        } catch (RemoteException exception) {
-            throw new EJBException(exception.toString());
-        }
-    }
     
     public ComponentSummary requestComponent(ComponentRequest request)
             throws CatalogException, NamingException, SQLException {
@@ -1784,45 +1692,6 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
                     "Failed to associate new version with technology: "
                     + exception.toString());
         }
-
-        /* 2/12/07: No customer forums
-        Forums forumsBean = null;
-        try {
-            Context context = TCContext.getInitial(ApplicationServer.FORUMS_HOST_URL);
-    		ForumsHome forumsHome = (ForumsHome) context.lookup(ForumsHome.EJB_REF_NAME);
-    		forumsBean = forumsHome.create();
-    	} catch (NamingException e) { 
-    		ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to connect to forums server EJB: "
-                    + e.toString());
-        } catch (CreateException e) { 
-    		ejbContext.setRollbackOnly();
-            throw new CatalogException(e.toString());
-        } catch (RemoteException e) { 
-    		ejbContext.setRollbackOnly();
-            throw new CatalogException(e.toString());
-        }
-        
-        long categoryID = -1;
-        if (!ejbContext.getRollbackOnly()) {
-	    	try {
-	    		// This should be replaced by a distributed transaction (XA, etc.) that rolls back 
-	    		// changes on the software and forum servers when an error in the workflow occurs.
-	    		categoryID = forumsBean.createSoftwareComponentForums(newComponent.getComponentName(), ((Long)newComponent.getPrimaryKey()).longValue(),
-	    				((Long)newVersion.getPrimaryKey()).longValue(), newVersion.getPhaseId(), newComponent.getStatusId(), 
-	    				newComponent.getRootCategory(), newComponent.getShortDesc(), newVersion.getVersionText(), 
-	    				ForumCategory.COLLABORATION, false);
-	    		//compforumHome.create(category, Forum.COLLABORATION, newVersion);
-	    	} catch (RemoteException e) {
-	    		ejbContext.setRollbackOnly();
-	            throw new CatalogException(e.toString());
-	    	} catch (Exception e) {
-	    		ejbContext.setRollbackOnly();
-	            throw new CatalogException(e.toString());
-	    	}
-    	}
-    	*/
 
         createComponentRole(((Long) newComponent.getPrimaryKey()).longValue());
 
@@ -2682,8 +2551,3 @@ public class CatalogBean implements SessionBean, ConfigManagerInterface {
         }
     }
 }
-
-
-
-
-

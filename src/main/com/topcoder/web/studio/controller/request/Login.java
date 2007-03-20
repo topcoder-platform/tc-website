@@ -24,9 +24,6 @@ public class Login extends ShortHibernateProcessor {
     public static final String USER_NAME = "username";
     public static final String PASSWORD = "password";
     public static final String REMEMBER_USER = "rem";
-    public static final String STATUS = "status";
-
-    public static final String STATUS_START = "start";
 
     protected void dbProcessing() throws TCWebException {
 
@@ -113,7 +110,7 @@ public class Login extends ShortHibernateProcessor {
         }
 
 /*
-        if (loginStatus.equals(STATUS_START)) {
+        if (loginStatus.equals(WebConstants.STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
 */

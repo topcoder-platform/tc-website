@@ -22,7 +22,7 @@ import com.topcoder.web.forums.ForumConstants;
  */
 public class PreviewMessage extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
-		super.businessProcessing();
+        super.businessProcessing();
 		if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }

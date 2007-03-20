@@ -73,8 +73,8 @@ public class PostAnnounce extends ForumsProcessor {
             Announcement announcement = announcementManager.getAnnouncement(Long.parseLong(announcementIDStr));
 
             if (postMode.equals("Edit")) {
-                setDefault(ForumConstants.ANNOUNCEMENT_SUBJECT, announcement.getSubject());
-                setDefault(ForumConstants.ANNOUNCEMENT_BODY, ForumsUtil.createTextAreaBody(announcement.getUnfilteredBody()));
+                setDefault(ForumConstants.ANNOUNCEMENT_SUBJECT, announcement.getUnfilteredSubject());
+                setDefault(ForumConstants.ANNOUNCEMENT_BODY, announcement.getUnfilteredBody());
             }
             getRequest().setAttribute("announcement", announcement);
         }

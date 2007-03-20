@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Hashtable;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
@@ -12,12 +13,11 @@ import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
-import javax.naming.InitialContext;
 
 /**
- * This class handles interaction with the database regarding revision history of forum messages.
- *
  * @author mtong
+ * 
+ * Handles interaction with the database regarding revision history of forum messages.
  */
 
 public class MessageHistoryBean extends BaseEJB {
@@ -43,17 +43,14 @@ public class MessageHistoryBean extends BaseEJB {
     public ResultSetContainer getEdits(long messageId, String dataSource) {
         Connection conn = null;
         PreparedStatement ps = null;
-        InitialContext ctx = null;
         ResultSet rs = null;
         try {
-        
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(GET_EDITS_SQL);
             ps.setLong(1, messageId);
         
             rs = ps.executeQuery();
             return new ResultSetContainer(rs);
-        
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw new EJBException(e.getMessage());
@@ -63,7 +60,6 @@ public class MessageHistoryBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
         }
     }
     
@@ -74,10 +70,8 @@ public class MessageHistoryBean extends BaseEJB {
     public int getEditCount(long messageId, String dataSource) {
         Connection conn = null;
         PreparedStatement ps = null;
-        InitialContext ctx = null;
         ResultSet rs = null;
         try {
-        
             conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(GET_EDIT_COUNT_SQL);
             ps.setLong(1, messageId);
@@ -91,7 +85,6 @@ public class MessageHistoryBean extends BaseEJB {
                 throw new RowNotFoundException("no row found for " + ps.toString());
             }
             return ret;
-        
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw new EJBException(e.getMessage());
@@ -101,7 +94,41 @@ public class MessageHistoryBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
+        }
+    }
+    
+    private static final String GET_MESSAGE_EDIT_COUNTS_SQL = 
+        "select h.messageid, count(*) as cnt " +
+        "from message_history h, jivemessage m " +
+        "where h.messageid = m.messageid " +
+        "and m.threadid = ? " +
+        "group by h.messageid ";
+
+    public Hashtable getMessageEditCounts(long threadId, String dataSource) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(GET_MESSAGE_EDIT_COUNTS_SQL);
+            ps.setLong(1, threadId);
+        
+            rs = ps.executeQuery();
+            
+            Hashtable h = new Hashtable();
+            while (rs.next()) {
+                h.put(rs.getString("messageid"), rs.getString("cnt"));
+            }
+            return h;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
         }
     }
 }

@@ -277,8 +277,7 @@ public class ForumConversion {
 
             // create a category for topcoder forum
             log.info("Processing forum " + forumNum + "/" + endIdx + " (ID = " + forum.getId() + "): ");
-            String categoryName = ForumsUtil.getComponentCategoryName(forum.getName(), forum.getVersionText(),
-            		forum.getForumType());
+            String categoryName = ForumsUtil.getComponentCategoryName(forum.getName(), forum.getVersionText());
             ForumCategory category = root.createCategory(categoryName, forum.getDesc());
             category.setCreationDate(forum.getCreation());
             category.setModificationDate(forum.getCreation());
@@ -289,7 +288,6 @@ public class ForumConversion {
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, forum.getCompVersId() + "");
             //category.setProperty(ForumConstants.PROPERTY_COMPONENT_ROOT_CATEGORY_ID, 
             //		forum.getRootCategoryId() + "");
-            category.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, forum.getForumType() + "");
             category.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, forum.getVersionText());
             category.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
             

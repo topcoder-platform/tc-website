@@ -114,7 +114,7 @@
         <td align="right" nowrap="nowrap" valign="top">
             <A href="?module=History" class="rtbcLink">My Post History</A> |
             <A href="?module=Settings" class="rtbcLink">User Settings</A><br>
-            <% if (ForumsUtil.isAdmin(user)) { %>
+            <% if (ForumsUtil.canAnnounce(forum)) { %>
             <A href="?module=PostAnnounce&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.CATEGORY_ID%>=<%=forum.getForumCategory().getID()%>&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="rtbcLink">Post
                 Announcement</A> |
             <% } %>

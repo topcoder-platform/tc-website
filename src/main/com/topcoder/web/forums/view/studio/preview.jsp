@@ -20,7 +20,7 @@
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
-<% ForumMessage parentMessage = (ForumMessage) request.getAttribute("parentMessage");
+<%  ForumMessage parentMessage = (ForumMessage) request.getAttribute("parentMessage");
     ForumThread thread = (ForumThread) request.getAttribute("thread");
     HashMap errors = (HashMap) request.getAttribute(BaseProcessor.ERRORS_KEY); %>
 
@@ -238,6 +238,13 @@
 									<input type="image" src="/i/forums/attach_files.gif" class="rtButton" alt="Attach Files" onclick="form1.module.value='AttachFiles'"/>
 								<%	} %>
 							<%	} %>
+							<%	String cancelLink = "?module=ThreadList&"+ForumConstants.FORUM_ID+"="+forum.getID(); 
+								if (parentMessage != null) {
+									cancelLink = "?module=Message&"+ForumConstants.MESSAGE_ID+"="+parentMessage.getID();
+								} else if (thread != null) {
+									cancelLink = "?module=Thread&"+ForumConstants.THREAD_ID+"="+thread.getID();
+								} %>
+							<a href="<%=cancelLink%>"><img src="/i/layout/btnCancel.png" alt="Cancel"/></a>
                         </td></tr>
                     </form>
                 </table>

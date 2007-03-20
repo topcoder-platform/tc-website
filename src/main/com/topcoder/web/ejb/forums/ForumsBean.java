@@ -2,7 +2,6 @@ package com.topcoder.web.ejb.forums;
 
 import com.jivesoftware.base.*;
 import com.jivesoftware.forum.*;
-import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RowNotFoundException;
@@ -213,11 +212,15 @@ public class ForumsBean extends BaseEJB {
         }
     }
 
-    // Software Forums
-    public com.topcoder.dde.catalog.ForumCategory getSoftwareForumCategory(long categoryID, long version, String versionLabel) throws ForumCategoryNotFoundException {
+    /*********************************************/
+    /* Software Forums                           */
+    /*********************************************/
+    public ArrayList getSoftwareForumCategoryData(long categoryID) throws ForumCategoryNotFoundException {
         ForumCategory category = forumFactory.getForumCategory(categoryID);
-        return new com.topcoder.dde.catalog.ForumCategory(categoryID, category.getCreationDate(),
-                Long.parseLong(category.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS)), version, versionLabel);
+        ArrayList data = new ArrayList();
+        data.add(category.getCreationDate());
+        data.add(category.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS));
+        return data;
     }
 
     public String[][] getSoftwareCategoriesData() {
@@ -336,9 +339,9 @@ public class ForumsBean extends BaseEJB {
     */
     public long createSoftwareComponentForums(String componentName, long componentID,
                                               long versionID, long phaseID, long componentStatusID, long rootCategoryID, String description,
-                                              String versionText, long templateID, boolean isPublic) throws Exception {
+                                              String versionText, boolean isPublic) throws Exception {
         try {
-            String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText, templateID);
+            String categoryName = ForumsUtil.getComponentCategoryName(componentName, versionText);
             ForumCategory newCategory = forumFactory.getForumCategory(TCS_FORUMS_ROOT_CATEGORY_ID).createCategory(categoryName, description);
             newCategory.setProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS, ForumConstants.PROPERTY_ARCHIVAL_STATUS_ACTIVE);
             //newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_PHASE, String.valueOf(phaseID));
@@ -347,14 +350,12 @@ public class ForumsBean extends BaseEJB {
             newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_ID, String.valueOf(componentID));
             newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID, String.valueOf(versionID));
             newCategory.setProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_TEXT, versionText);
-            newCategory.setProperty(ForumConstants.PROPERTY_FORUM_TYPE, String.valueOf(templateID));
             newCategory.setProperty(ForumConstants.PROPERTY_MODIFY_FORUMS, "true");
 
             Connection forumsConn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
             PreparedStatement forumsPS = forumsConn.prepareStatement(
                     "select name, description from template_forum t " +
-                            "where t.template_id = ? order by t.display_order, t.template_forum_id");
-            forumsPS.setLong(1, templateID);
+                            "where t.template_id = 2 order by t.display_order, t.template_forum_id");
             ResultSet rs = forumsPS.executeQuery();
             while (rs.next()) {
                 forumFactory.createForum(rs.getString("name"), rs.getString("description"), newCategory);
@@ -366,6 +367,7 @@ public class ForumsBean extends BaseEJB {
             // SW admin posts one introductory message in every category so that it will rise to the top
             // of the list of forums. This should be replaced by a search function that will find category
             // by name, or (possibly better) by not moving empty categories to the end.
+            /*
             try {
                 String swAdminIDStr = JiveGlobals.getJiveProperty("tc.tcs.forums.admin");
                 if (swAdminIDStr != null) {
@@ -388,11 +390,9 @@ public class ForumsBean extends BaseEJB {
             } catch (UserNotFoundException unfe) {
                 com.jivesoftware.base.Log.debug("ForumsBean.createSoftwareComponentForums(): admin not found - will not create initial message");
             }
+            */
 
-            // Customer forums are always public
-            if (templateID != ForumConstants.CUSTOMER_FORUM) {
-                createSoftwareComponentPermissions(newCategory, isPublic);
-            }
+            createSoftwareComponentPermissions(newCategory, isPublic);
             return newCategory.getID();
         } catch (Exception e) {
             logException(e, "error in creating software component forums");
@@ -611,7 +611,7 @@ public class ForumsBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             StringBuffer psStrBuf = new StringBuffer(
-                    "select c.component_id from comp_catalog c where status_id = " + ComponentInfo.APPROVED + " " +
+                    "select c.component_id from comp_catalog c where status_id = " + WebConstants.STATUS_APPROVED + " " +
                             "and c.component_id IN (");
             for (int i = 0; i < compIDs.length - 1; i++) {
                 psStrBuf.append(compIDs[i]);
@@ -673,7 +673,7 @@ public class ForumsBean extends BaseEJB {
 				"select c.component_id" +
 		        " from comp_catalog c" +
 		        " join comp_versions v on (c.component_id = v.component_id)" +
-		        " where c.status_id = " + com.topcoder.dde.catalog.ComponentInfo.APPROVED +
+		        " where c.status_id = " + WebConstants.STATUS_APPROVED +
 		        " and v.comp_vers_id = ?");
 		forumsPS.setLong(1, compVersID);
 		ResultSet rs = forumsPS.executeQuery();
@@ -687,7 +687,9 @@ public class ForumsBean extends BaseEJB {
 		return componentID;
     }
     */
-    // Software Forums - End
+    /*********************************************/
+    /* Software Forums - End                     */
+    /*********************************************/
 
     public void deleteOrphanedAttachments() {
         Connection conn = null;

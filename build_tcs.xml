@@ -66,7 +66,6 @@
         <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
         <pathelement location="${jars.dir}/tcs/file_class/1.0/file_class.jar"/>
         <pathelement location="${jars.dir}/tcs/file_upload.jar"/>
-        <pathelement location="${jars.dir}/tcs/forum.jar"/>
         <pathelement location="${jars.dir}/tcs/job_scheduling.jar"/>
         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
         <pathelement location="${jars.dir}/tcs/math_matrix.jar"/>
@@ -155,7 +154,6 @@
             <exclude name="com/topcoder/apps/screening/**"/>
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/web/common/**"/>
-            <include name="com/topcoder/web/forums/**"/>
             <include name="com/topcoder/web/ejb/forums/**"/>
         </javac>
         <antcall target="jar_common"/>
@@ -254,11 +252,6 @@
             <metainf dir="${java.dir}/com/topcoder/dde/catalog" includes="*.xml"/>
         </jar>
 
-        <jar jarfile="${ejb.jars.dir}/ddeforum.jar">
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/forum/**"/>
-            <metainf dir="${java.dir}/com/topcoder/dde/forum" includes="*.xml"/>
-        </jar>
-
         <jar jarfile="${ejb.jars.dir}/ddePersistenceLayer.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/persistencelayer/**"/>
             <metainf dir="${java.dir}/com/topcoder/dde/persistencelayer" includes="*.xml"/>
@@ -272,7 +265,6 @@
         <jar jarfile="${ejb.jars.dir}/forums.jar">
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes.dir}" includes="com/topcoder/web/ejb/forums/*.class"/>
-            <zipfileset dir="${classes.dir}" includes="com/topcoder/dde/catalog/ForumCategory.class"/>
             <metainf dir="${java.dir}/com/topcoder/web/ejb/forums" includes="*.xml"/>
         </jar>
 
@@ -588,9 +580,6 @@
             <fileset dir="${jars.dir}">
                 <include name="idgenerator.jar"/>
             </fileset>
-            <fileset dir="${jars.dir}/tcs">
-                <include name="forum.jar"/>
-            </fileset>
         </ear>
     </target>
 
@@ -610,9 +599,8 @@
             <fileset dir="${ejb.jars.dir}">
                 <include name="Project.jar"/>
                 <include name="RBoard.jar"/>
-                <include name="forums.jar"/>
                 <!--remove with new OR
-                                <include name="Specification.jar"/>
+                <include name="Specification.jar"/>
                 -->
             </fileset>
         </copy>
