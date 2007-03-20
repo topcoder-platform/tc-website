@@ -80,7 +80,7 @@
 
 <p>The number of lines you pass through when you travel from the root until you reach a particular node is the <strong>depth</strong> of that node in the tree (node G in the figure above has a depth of 2). The <strong>height</strong> of the tree is the maximum depth of any node in the tree (the tree in Figure 1 has a height of 3). The number of children emanating from a given node is referred to as its<strong> degree</strong> -- for example, node A above has a degree of 3 and node H has a degree of 1. </p>
 
-<p><span class="bodySubtitle">Binary Search Tree (BST)</spam></p>
+<p><span class="bodySubtitle">Binary Search Tree (BST)</span></p>
 
 <p>A binary search tree is a tree with one additional constraint -- it keeps the elements in the tree in a particular order. Formally each node in the BST has two children (if any are missing we consider it a <strong>nil node</strong>), a left child and a right child. Nodes are rooted in place based on their values, with the smallest on the left and largest on the right. </p>
 
