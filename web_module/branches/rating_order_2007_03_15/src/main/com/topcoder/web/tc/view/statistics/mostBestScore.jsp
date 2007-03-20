@@ -15,6 +15,7 @@
 <% //common code that pulls out the request bean.
     ResultSetContainer rsc = (ResultSetContainer)((Map)request.getAttribute("QUERY_RESPONSE")).get("most_best_score");
 %>
+<%@page import="java.text.NumberFormat"%>
 <html>
 <head>
 <TITLE>TopCoder Statistics - Most Problem Best Scores</TITLE>
@@ -60,20 +61,21 @@
     <tr>
         <td class="headerC">Rank</td>
         <td class="header">Coder</td>
-		<td class="header"># Events<br>Competed</td>
-		<td class="header">avg best scores<br>per event</td>
-        <td class="headerC" width="100%" nowrap>Number of<br>best scores</td>
+		<td class="headerC"># Events<br>Competed</td>
+		<td class="headerC">avg best scores<br>per event</td>
+        <td class="headerC">Number of<br>best scores</td>
     </tr>
 </thead>
 <tbody>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="resultRow">
-    <% double avg = resultRow.getIntItem("best_scores") /  resultRow.getIntItem("events"); %>
+    <% double avg = resultRow.getIntItem("best_scores") /  resultRow.getIntItem("events"); 
+       String avgStr = new java.text.DecimalFormat("#.###").format(avg); %>
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
         <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueR"><rsc:item row="<%=resultRow%>" name="events"/></td>
-        <td class="valueR"><rsc:item row="<%=resultRow%>" name="best_scores"/></td>
+        <td class="valueR"><%= avgStr %></td>
         <td class="valueR"><b><rsc:item row="<%=resultRow%>" name="best_scores"/></b></td>
     </tr>
     <% even = !even;%>
