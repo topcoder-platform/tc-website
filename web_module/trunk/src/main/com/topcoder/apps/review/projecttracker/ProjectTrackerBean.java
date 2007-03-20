@@ -195,21 +195,15 @@ public class ProjectTrackerBean implements SessionBean {
                 ComponentManager componentManager = null;
                 componentManager = componentManagerHome.create(componentId, compVersId);
 
-                Forum forum = null;
-                if (projectTypeId == ProjectType.ID_DESIGN) {
-                    forum = componentManager.getActiveForum(Forum.COLLABORATION);
-                } else {
-                    forum = componentManager.getActiveForum(Forum.SPECIFICATION);
-                }
-                forumId = forum.getId();
+                ForumCategory forumCategory = componentManager.getActiveForumCategory();
+                forumCategoryId = forumCategory.getId();
 */
 
                 // Get forum category id with custom sql
                 psForumCategory = conn.prepareStatement(
-                        "SELECT cfx.category_id " +
-                                "FROM comp_forum_xref cfx " +
-                                "WHERE cfx.comp_vers_id = ? AND " +
-                                "cfx.forum_type = 2"); // TODO Hardcoded specification type
+                        "SELECT cjcx.jive_category_id " +
+                                "FROM comp_jive_category_xref cjcx " +
+                                "WHERE cjcx.comp_vers_id = ?");
 
                 psForumCategory.setLong(1, compVersId);
                 rsForumCategory = psForumCategory.executeQuery();

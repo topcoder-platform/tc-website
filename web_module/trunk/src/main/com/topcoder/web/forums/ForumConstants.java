@@ -50,10 +50,6 @@ public interface ForumConstants {
     public final static String SORT_FIELD = "sortField";
     public final static String SORT_ORDER = "sortOrder";
     
-    public final static String FORUM_TYPE = "ft";
-    public final static int CUSTOMER_FORUM = 1;
-    public final static int DEVELOPER_FORUM = 2;
-    
     public final static Long FORUM_MODERATE_PERMISSION = new Long(1);
     public final static Long FORUM_POST_PERMISSION = new Long(2);
     public final static Long FORUM_MODERATE_AND_POST_PERMISSION = new Long(3);
@@ -64,6 +60,8 @@ public interface ForumConstants {
     public final static String GROUP_SOFTWARE_ADMINS = "Software Admins";
     
     // Extended Properties
+    public final static String PROPERTY_HIDE_EMPTY_CATEGORIES = "hideEmptyCategories";
+    public final static String PROPERTY_MERGE_EMPTY_CATEGORIES = "mergeEmptyCategories";    // merge with non-empty categories
     public final static String PROPERTY_HIDE_EMPTY_FORUMS = "hideEmptyForums";
     public final static String PROPERTY_HIDE_SEARCH_FORUMS = "hideSearchForums";
     public final static String PROPERTY_LEFT_NAV_NAME = "leftNavName";
@@ -90,12 +88,10 @@ public interface ForumConstants {
     public final static String PROPERTY_COMPONENT_VERSION_ID = "compVersionId";
     public final static String PROPERTY_COMPONENT_VERSION_TEXT = "versionText";
     public final static String PROPERTY_COMPONENT_TECH_TYPES = "compTechTypes";
-    public final static String PROPERTY_FORUM_TYPE = "forumType";
 
     public final static String PROPERTY_ARCHIVAL_STATUS = "archivalStatus";
-    public final static String PROPERTY_ARCHIVAL_STATUS_CLOSED = "0";
     public final static String PROPERTY_ARCHIVAL_STATUS_ACTIVE = "1";
-    public final static String PROPERTY_ARCHIVAL_STATUS_ARCHIVED = "2";
+    public final static String PROPERTY_ARCHIVAL_STATUS_CLOSED = "2";
     
     // Admin
     public final static String ADMIN_COMMAND = "cmd";
@@ -106,6 +102,7 @@ public interface ForumConstants {
     public final static String ADMIN_ENABLE_RATINGS = "enableRatings";
     public final static String ADMIN_CREATE_FORUM_FROM_EJB = "createForumFromEJB";
     public final static String ADMIN_CONVERT_TCS_FORUMS = "convertTCSForums";
+    public final static String ADMIN_CONVERT_TCS_FORUM_PERMS = "convertTCSForumPerms";
 
     public final static String ADMIN_MATCH = "match";
 
@@ -154,7 +151,7 @@ public interface ForumConstants {
     public final static int DEFAULT_SEARCH_RANGE = 20;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
     public final static int DEFAULT_THREAD_RANGE = 15;
-    public final static int DEFAULT_FORUM_RANGE = 10;
+    public final static int DEFAULT_FORUM_RANGE = 15;
     public final static int DEFAULT_HISTORY_RANGE = 10;
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     public final static String DEFAULT_FLAT_THREAD_VIEW = "flat";

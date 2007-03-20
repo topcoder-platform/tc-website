@@ -13,18 +13,18 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
 import com.topcoder.web.forums.util.ForumConversion;
+import com.topcoder.web.forums.util.PermissionsConversion;
 import com.topcoder.common.web.data.Round;
 
-import javax.naming.InitialContext;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -81,17 +81,9 @@ public class Admin extends ForumsProcessor {
                 }
             }
         } else if (command.equals(ForumConstants.ADMIN_CREATE_FORUM_FROM_EJB) && !match.equals("")) {
-            InitialContext ctx = null;
-            try {
-                ctx = TCContext.getInitial();
-                Forums forums = (Forums) createEJB(ctx, Forums.class);
-                int matchID = Integer.parseInt(match);
-                forums.createMatchForum(matchID);
-            } catch (Exception e) {
-                log.error(e);
-            } finally {
-                BaseProcessor.close(ctx);
-            }
+            ForumsLocal forums = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
+            int matchID = Integer.parseInt(match);
+            forums.createMatchForum(matchID);
         } else if (command.equals(ForumConstants.ADMIN_COMMAND_HTML_ESCAPE)) {
             //escapeHTML();
         } else if (command.equals(ForumConstants.ADMIN_ENABLE_RATINGS)) {
@@ -108,6 +100,9 @@ public class Admin extends ForumsProcessor {
         } else if (command.equals(ForumConstants.ADMIN_CONVERT_TCS_FORUMS)) {
         	log.info("Converting TCS forums... ");
         	ForumConversion.convertForums(forumFactory);
+        } else if (command.equals(ForumConstants.ADMIN_CONVERT_TCS_FORUM_PERMS)) {
+            log.info("Converting TCS forum permissions... ");
+            PermissionsConversion.convertPermissions(forumFactory);
         }
         /*
         else if (command.equals("Add test forums")) {

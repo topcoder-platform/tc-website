@@ -6,9 +6,7 @@
                  com.jivesoftware.forum.WatchManager,
                  com.jivesoftware.forum.Forum,
                  com.jivesoftware.base.User,
-                 java.util.ArrayList,
-                 java.util.Calendar,
-                 java.util.Iterator"
+                 java.util.*"
         %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -78,36 +76,10 @@
     calendar.set(Calendar.MINUTE, 0); %>
 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)categories.iterator()%>'>
     <% String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
-        if (!"0".equals(limit)) { %>
-    <% Iterator itForums = null, itForumsCopy = null;
-        int numActiveForums = 0;
-        if (!"".equals(limit)) {
-            if (limit.endsWith("d")) {
-                int numDays = Integer.parseInt(limit.substring(0, limit.length() - 1));
-                calendar.add(Calendar.DATE, numDays * -1);
-                resultFilter.setModificationDateRangeMin(calendar.getTime());
-                calendar.add(Calendar.DATE, numDays);
-                resultFilter.setNumResults(ForumConstants.MAX_DISPLAYED_FORUMS_PER_CATEGORY);
-                itForums = category.getForums(resultFilter);
-                itForumsCopy = category.getForums(resultFilter);
-            } else {
-                //resultFilter.setNumResults(Integer.parseInt(category.getProperty("displayLimit")));
-                ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, true);
-                ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                itForums = pageList.iterator();
-                itForumsCopy = pageList.iterator();
-            }
-        } else {
-            resultFilter.setNumResults(ResultFilter.NULL_INT);
-            itForums = category.getForums(resultFilter);
-            itForumsCopy = category.getForums(resultFilter);
-        }
-        while (itForums.hasNext()) {
-            if (((Forum) itForums.next()).getMessageCount() > 0) numActiveForums++;
-        }
-
-        if (numActiveForums > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
-
+        if (!"0".equals(limit)) {
+        	Iterator itForums = (Iterator)request.getAttribute("forumsIterator_"+category.getID());
+            long numActiveForums = ((Long)request.getAttribute("numActiveForums_"+category.getID())).longValue();
+            if (numActiveForums > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>
     <table cellpadding="0" cellspacing="0" class="rtTable">
         <tr>
             <td class="rtHeader" width="100%">
@@ -122,7 +94,7 @@
                 <div style="width:280px;">Last Post</div>
             </td>
         </tr>
-        <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=itForumsCopy%>'>
+        <tc-webtag:iterator id="forum" type="com.jivesoftware.forum.Forum" iterator='<%=itForums%>'>
             <% trackerClass = (user == null || forum.getMessageCount() <= 0 || readTracker.getReadStatus(user, forum.getLatestMessage()) == ReadTracker.READ
                     || ("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) ? "rtLinkOld" : "rtLinkBold"; %>
             <% if (forum.getMessageCount() > 0 || ("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)))) { %>

@@ -6,8 +6,7 @@
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 java.util.HashMap,
-                 java.util.Iterator"
+                 java.util.*"
         %>
 
 <%@ page contentType="text/html;charset=utf-8" %>

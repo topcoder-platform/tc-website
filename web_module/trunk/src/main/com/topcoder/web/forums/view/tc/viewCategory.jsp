@@ -147,8 +147,8 @@
                     <%=category.getName()%>
                     <% } %>
                 </tc-webtag:iterator>
-                <%	boolean isCustomComponent = "true".equals((String)request.getAttribute("isCustomComponent"));
-                	if (isCustomComponent) { %>
+                <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
+                	if (showComponentLink) { %>
                 		(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
 				<%	} %>
             </b></td>
@@ -179,7 +179,7 @@
 </table>
 
 <% if (forumCategory.getForumCount() > 0) { %>
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
     <tr>
         <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Forum</a></td>
         <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
@@ -227,7 +227,7 @@
 </table>
 <% } else if (forumCategory.getCategoryCount() > 0) { 
 	Hashtable imageDataTable = (Hashtable) request.getAttribute("imageDataTable"); %>
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
     <tr>
         <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Category</a></td>
         <td class="rtHeader"><div style="width:80px;"><% if (forumCategory.getID() != 1) { %>T./M.<% } %></div></td>
@@ -286,6 +286,48 @@
 </table>
 <% } %>
 
+<%	if (paginator.getNumPages () > 1) { %> 
+<table cellpadding="0" cellspacing="0" class="rtbcTable">
+    <tr>
+    	<td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
+        <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
+            <% if (category.getID() != forumCategory.getID()) { %>
+            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+            <img src="/i/interface/exp_w.gif" align="absmiddle"/>
+            <% } else { %>
+            <%=category.getName()%>
+            <% } %>
+        </tc-webtag:iterator>
+        <%	if (showComponentLink) { %>
+        		(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forumCategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
+		<%	} %>
+    </b></td>
+        <% if (paginator.getNumPages() > 1) { %>
+        <td class="rtbc" align="right"><b>
+            <% if (paginator.getPreviousPage()) { %>
+            <A href="<%=prevLink%>" class="rtbcLink">
+                << PREV</A>&#160;&#160;&#160;
+            <% } %> [
+            <% pages = paginator.getPages(5);
+                for (int i = 0; i < pages.length; i++) {
+            %>  <% if (pages[i] != null) { %>
+            <% if (pages[i].getNumber() == paginator.getPageIndex() + 1) { %>
+            <span class="currentPage"><%= pages[i].getNumber() %></span>
+            <% } else { %>
+            <A href="<%=link%><%=pages[i].getStart()%>" class="rtbcLink">
+                <%= pages[i].getNumber() %></A>
+            <% } %>
+            <% } else { %> ... <% } %>
+            <% } %> ]
+            <% if (paginator.getNextPage()) { %>
+            &#160;&#160;&#160;<A href="<%=nextLink%>" class="rtbcLink">NEXT ></A>
+            <% } %>
+        </b></td></tr>
+    	<% } %>
+    </tr>
+</table>
+<%	} %>
+
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
     <tr>
         <% if (forumCategory.getID() != 1) { %>
@@ -297,7 +339,13 @@
             postings.</td>
         <% } %>
         <td align="right">
-            <a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a>
+        	<%	if (paginator.getNumPages () > 1) { %> 
+        	<div style="margin: 2px 0px 0px 0px;">
+            	<a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a>
+            </div>
+            <%	} else { %>
+            	<a href="?module=RSS&<%=ForumConstants.CATEGORY_ID%>=<%=forumCategory.getID()%>"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a>
+            <% 	} %>
         </td>
     </tr>
 </table>

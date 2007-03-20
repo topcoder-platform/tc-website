@@ -22,7 +22,6 @@
 <%@ page import="javax.naming.Context" %>
 
 <%@ page import="com.topcoder.dde.catalog.*" %>
-<%@ page import="com.topcoder.dde.forum.*" %>
 <%@ page import="com.topcoder.web.ejb.forums.*" %>
 <%@ page import="com.topcoder.util.config.*" %>
 <%@ page import="com.topcoder.servlet.request.*" %>
@@ -652,14 +651,9 @@ if (action != null) {
         ver.setPrice(Double.parseDouble(price));
         ver.setSuspended(request.getParameter("suspended") != null);
 
-//		com.topcoder.dde.catalog.ForumCategory activeCollab = null;
 		com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-//            activeCollab = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.COLLABORATION);
-//            if (activeCollab != null) {
-//            	forums.updateComponentVersion(activeCollab.getId(), versionLabel);
-//            }
-            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+            activeSpec = componentManager.getForumCategory();
             if (activeSpec != null) {
             	forums.updateComponentVersion(activeSpec.getId(), versionLabel);
             }
@@ -952,7 +946,7 @@ if (action != null) {
         String txtUsername = request.getParameter("txtHandle");
         com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+            activeSpec = componentManager.getForumCategory();
         } catch (CatalogException ce) {
         }
 
@@ -975,7 +969,7 @@ if (action != null) {
         String txtUsername = request.getParameter("txtHandle");
         com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
-            activeSpec = componentManager.getForumCategory(com.topcoder.dde.catalog.ForumCategory.SPECIFICATION);
+            activeSpec = componentManager.getForumCategory();
         } catch (CatalogException ce) {
         }
 
@@ -1027,17 +1021,16 @@ if (action != null) {
             try {
                 log.debug("Locating the user for handle '" + strUsername + "' ...");
                 long userID = PRINCIPAL_MANAGER.getUser(strUsername).getId();
-
-				long forumCategoryId = componentManager.getForumCategory(ForumCategory.SPECIFICATION).getId();
-				boolean canReadCategory = forums.canReadCategory(userID, forumCategoryId);
-				if (!canReadCategory) {
-					strError = "User " + strUsername + " must have permission to read this component's forums before this watch can be assigned.";
-				} else {
-	                // Assign watch
+		long forumCategoryId = componentManager.getForumCategory().getId();
+		boolean canReadCategory = forums.canReadCategory(userID, forumCategoryId);
+		if (!canReadCategory) {
+			strError = "User " + strUsername + " must have permission to read this component's forums before this watch can be assigned.";
+		} else {
+	        	// Assign watch
 	                forums.createCategoryWatch(userID, forumCategoryId);
 	                log.info("Assigning watch on category " + forumCategoryId + " to user " + userID);
-					strMessage += "User " + strUsername + " is now watching developer forums for this component. ";
-				}
+			strMessage += "User " + strUsername + " is now watching developer forums for this component. ";
+		}
             } catch (Exception e) {
                 log.error("An error occurred while assigning watch to user", e);
                 strError = "An error occurred while assigning watch to user : " + e;

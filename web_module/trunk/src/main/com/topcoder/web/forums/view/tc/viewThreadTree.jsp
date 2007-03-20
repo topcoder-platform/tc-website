@@ -17,8 +17,7 @@
                 com.jivesoftware.forum.RatingManager,
                 com.jivesoftware.forum.Attachment,
                 com.jivesoftware.forum.database.DbAttachmentManager,
-                java.util.*,
-                com.topcoder.shared.util.DBMS"
+                java.util.*"
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -30,7 +29,6 @@
 <tc-webtag:useBean id="thread" name="thread" type="com.jivesoftware.forum.ForumThread" toScope="request"/>
 <tc-webtag:useBean id="activeMessage" name="activeMessage" type="com.jivesoftware.forum.ForumMessage" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
-<tc-webtag:useBean id="historyBean" name="historyBean" type="com.topcoder.web.ejb.messagehistory.MessageHistory" toScope="request"/>
 <tc-webtag:useBean id="unreadCategories" name="unreadCategories" type="java.lang.String" toScope="request"/>
 
 <%  HashMap errors = (HashMap)request.getAttribute(BaseProcessor.ERRORS_KEY);
@@ -43,6 +41,7 @@
     boolean showPrevNextThreads = !(user != null && "false".equals(user.getProperty("jiveShowPrevNextThreads")));
     String prevTrackerClass = "", nextTrackerClass = "";
     ForumMessage prevPost = null, nextPost = null;
+    Hashtable editCountTable = (Hashtable)request.getAttribute("editCountTable");
 
     String cmd = "";
     String watchMessage = "";
@@ -193,11 +192,12 @@ function displayVotes(messageID, posVotes, negVotes) {
 </tr>
 
 <tr><td colspan="3" style="padding-bottom:3px;"><b>
-   <%	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
+   <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
+   		Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
     	while (itCategories.hasNext()) {
     		ForumCategory category = (ForumCategory)itCategories.next(); %>
 	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-	<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+	<%      if (!itCategories.hasNext() && showComponentLink) { %>
 	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
 		<%	} %>
 			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
@@ -222,7 +222,8 @@ function displayVotes(messageID, posVotes, negVotes) {
           int posRatings = -1;
           int negRatings = -1; %> 
          <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
-            <%  int editCount = historyBean.getEditCount(activeMessage.getID(), DBMS.FORUMS_DATASOURCE_NAME);
+            <%  int editCount = editCountTable.containsKey(String.valueOf(activeMessage.getID())) ? 
+            		Integer.parseInt((String)editCountTable.get(String.valueOf(activeMessage.getID()))) : 0;
             if (editCount > 0) { %> 
                 <a href="?module=RevisionHistory&<%=ForumConstants.MESSAGE_ID%>=<%=activeMessage.getID()%>" class="rtbcLink" title="Last updated <tc-webtag:format object="${activeMessage.modificationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/>"><%=ForumsUtil.display(editCount, "edit")%></a> | 
             <%  } %>
@@ -279,7 +280,7 @@ function displayVotes(messageID, posVotes, negVotes) {
 <%-------------ACTIVE POST ENDS----------%>
 
 <%-------------POSTS---------------%>
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
     <tr>
         <td class="rtHeader" width="100%">Subject</td>
         <td class="rtHeader">Author</td>

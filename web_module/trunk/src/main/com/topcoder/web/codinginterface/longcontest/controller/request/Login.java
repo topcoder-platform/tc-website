@@ -20,20 +20,13 @@ import java.util.Arrays;
 public class Login extends Base {
 
     public static final String USER_ID = "userid";
-    public static final String STATUS = "status";
-
-    public static final String STATUS_START = "start";
-    public static final char[] ACTIVE_STATI = {'1', 'A'};
-    public static final int ACTIVE_STATUS = 1;
-    public static final char[] INACTIVE_STATI = {'I', '0', '9', '6', '5', '4'};
-    public static final char[] UNACTIVE_STATI = {'U', '2'};
 
     protected void longContestProcessing() throws TCWebException {
 
         /* may be null */
         String username = getRequest().getParameter(Constants.KEY_USER_HANDLE);
         String password = getRequest().getParameter(Constants.KEY_USER_PASS);
-        String loginStatus = StringUtils.checkNull(getRequest().getParameter(STATUS));
+        String loginStatus = StringUtils.checkNull(getRequest().getParameter(WebConstants.STATUS));
 
         // if not null, we got here via a form submit;
         // otherwise, skip this and just draw the login form
@@ -58,9 +51,9 @@ public class Login extends Base {
                         }
                         char status = getStatus(sub.getUserId());
                         log.debug("status: " + status);
-                        if (Arrays.binarySearch(ACTIVE_STATI, status) >= 0) {
+                        if (Arrays.binarySearch(WebConstants.ACTIVE_STATI, status) >= 0) {
                             //check if they have an active email address
-                            if (getEmailStatus(sub.getUserId()) != ACTIVE_STATUS) {
+                            if (getEmailStatus(sub.getUserId()) != WebConstants.EMAIL_ACTIVE_STATUS) {
                                 getAuthentication().logout();
                                 log.debug("inactive email");
                                 setNextPage(Constants.EMAIL_ACTIVATE);
@@ -82,11 +75,11 @@ public class Login extends Base {
                             }
                         } else {
                             getAuthentication().logout();
-                            if (Arrays.binarySearch(INACTIVE_STATI, status) >= 0) {
+                            if (Arrays.binarySearch(WebConstants.INACTIVE_STATI, status) >= 0) {
                                 log.debug("user inactive");
                                 throw new LoginException("Sorry, your account is not active.  " +
                                         "If you believe this is an error, please contact TopCoder.");
-                            } else if (Arrays.binarySearch(UNACTIVE_STATI, status) >= 0) {
+                            } else if (Arrays.binarySearch(WebConstants.UNACTIVE_STATI, status) >= 0) {
                                 log.debug("user unactive");
                                 getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Your account is not active.  " +
                                         "Please review the activation email that was sent to you after registration.");
@@ -110,7 +103,7 @@ public class Login extends Base {
             getAuthentication().logout();
         }
 
-        if (loginStatus.equals(STATUS_START)) {
+        if (loginStatus.equals(WebConstants.STATUS_START)) {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
 
         }

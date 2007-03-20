@@ -12,10 +12,7 @@ import com.topcoder.apps.review.projecttracker.ProjectTrackerV2;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerV2Home;
 import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.projecttracker.User;
-import com.topcoder.dde.forum.ForumModeratePermission;
-import com.topcoder.dde.forum.ForumPostPermission;
 import com.topcoder.dde.persistencelayer.interfaces.*;
-import com.topcoder.forum.*;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
@@ -112,7 +109,6 @@ public class ComponentManagerBean
     public LocalDDEUserMasterHome userHome;
     public LocalDDEDownloadTrackingHome trackingHome;
     public LocalDDELicenseLevelHome licenseHome;
-    public ForumAdminLocalHome forumadminHome;
     public PrincipalMgrRemoteHome principalmgrHome;
     public PolicyMgrRemoteHome policymgrHome;
     public PolicyRemoteHome policyHome;
@@ -176,8 +172,6 @@ public class ComponentManagerBean
                 homeBindings.lookup(LocalDDEDownloadTrackingHome.EJB_REF_NAME);
         licenseHome = (LocalDDELicenseLevelHome)
                 homeBindings.lookup(LocalDDELicenseLevelHome.EJB_REF_NAME);
-        forumadminHome = (ForumAdminLocalHome)
-                homeBindings.lookup(ForumAdminLocalHome.EJB_REF_NAME);
 /*
             /** SECURITY MANAGER
         Hashtable principalMgrEnvironment=new Hashtable();
@@ -424,44 +418,19 @@ public class ComponentManagerBean
         
         // look for the public forum flag
         try {
-            long forumId = 0, categoryId = 0;
+            long categoryId = 0;
             versionId = ((Long) bean.getPrimaryKey()).longValue();
             log.debug("versionId: " + versionId);
 
             Iterator forumIterator;
             try {
-                forumIterator = compforumHome.
-                        findByCompVersIdAndType(versionId, ForumCategory.SPECIFICATION).iterator();
+                forumIterator = compforumHome.findByCompVersId(versionId).iterator();
             } catch (FinderException impossible) {
                 throw new CatalogException("Could not find forum: " + impossible.toString());
             }
             if (forumIterator.hasNext()) {
             	categoryId = ((LocalDDECompForumXref)forumIterator.next()).getCategoryId();
             	cvi.setPublicForum(forums.isPublic(categoryId));
-            	/*
-                forumId = ((LocalDDECompForumXref)
-                        forumIterator.next()).getForumId();
-
-                PrincipalMgrRemote principalManager = principalmgrHome.create();
-                RolePrincipal userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
-
-                PolicyMgrRemote policyManager = policymgrHome.create();
-                PermissionCollection perms = policyManager.getPermissions(userRole, null);
-
-                GenericPermission forumPerm = new GenericPermission((new ForumPostPermission(forumId)).getName());
-
-                log.debug("Looking for: " + forumPerm.getName());
-                for (Iterator it=perms.getPermissions().iterator(); it.hasNext(); ) {
-                    Object itNext = it.next();
-                    if (itNext instanceof GenericPermission) {
-                        GenericPermission itForum = (GenericPermission) itNext;
-                        if (itForum.equals(forumPerm)) {
-                            log.debug("Forum is public");
-                            cvi.setPublicForum(true);
-                        }
-                    }
-                }
-                */
             }
         } catch (UnauthorizedException exception) {
             throw new CatalogException(
@@ -574,79 +543,6 @@ public class ComponentManagerBean
         return info;
     }
 
-
-    private void createForumRoles(long forumId, long forumType, boolean publicForum)
-            throws CatalogException {
-        /*
-         * This is a convenience method to create the security roles for forums.
-         * Currently, it has to call createRoles with null for the requestor.
-         * This only works because createRoles has not implemented permission
-         * checking  yet. This functionality does not really belong in the
-         * component catalog.
-         */
-        PermissionCollection perms = null;
-        RolePrincipal role = null;
-        RolePrincipal adminRole = null;
-        RolePrincipal collabModeratorRole = null;
-        RolePrincipal specUserRole = null;
-        RolePrincipal specModeratorRole = null;
-        RolePrincipal userRole = null;
-        try {
-            PrincipalMgrRemote principalManager = principalmgrHome.create();
-            PolicyMgrRemote policyManager = policymgrHome.create();
-
-            adminRole = principalManager.getRole(Long.parseLong(getConfigValue("administrator_role")));
-            collabModeratorRole = principalManager.getRole(Long.parseLong(getConfigValue("collaboration_moderator_role")));
-            specUserRole = principalManager.getRole(Long.parseLong(getConfigValue("specification_user_role")));
-            specModeratorRole = principalManager.getRole(Long.parseLong(getConfigValue("specification_moderator_role")));
-            //GT New  - Added this to make public forums
-            userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
-            if (forumType == ForumCategory.SPECIFICATION) {
-                role = principalManager.createRole("ForumUser " + forumId, null);
-                perms = new PermissionCollection();
-                perms.addPermission(new ForumPostPermission(forumId));
-                policyManager.addPermissions(role, perms, null);
-                policyManager.addPermissions(adminRole, perms, null);
-                policyManager.addPermissions(specUserRole, perms, null);
-
-                //GT New - Added this to make public forums
-                if (publicForum)
-                    policyManager.addPermissions(userRole, perms, null);
-
-                log.debug("TRUE/FALSE " + publicForum);
-            }
-
-            role = principalManager.createRole("ForumModerator " + forumId, null);
-            perms = new PermissionCollection();
-            perms.addPermission(new ForumModeratePermission(forumId));
-            policyManager.addPermissions(role, perms, null);
-            policyManager.addPermissions(adminRole, perms, null);
-
-            if (forumType == ForumCategory.SPECIFICATION) {
-                policyManager.addPermissions(specModeratorRole, perms, null);
-            } else {
-                policyManager.addPermissions(collabModeratorRole, perms, null);
-            }
-
-        } catch (ConfigManagerException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to obtain configuration data: " + exception.toString());
-        } catch (CreateException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to create security roles for forum: "
-                    + exception.toString());
-        } catch (GeneralSecurityException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to create security roles for forum: "
-                    + exception.toString());
-        } catch (RemoteException exception) {
-            throw new EJBException(exception.toString());
-        }
-    }
-
     public long createNewVersion(ComponentVersionRequest request)
             throws CatalogException {
         if (request == null) {
@@ -710,50 +606,6 @@ public class ComponentManagerBean
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
         }
-
-      
-        /* 2/12/07: No customer forums
-        Forums forumsBean = getForumsBean();
-        long categoryID = -1; 
-        if (!ejbContext.getRollbackOnly()) {
-	    	try {
-	    		// This should be replaced by a distributed transaction (XA, etc.) that rolls back 
-	    		// changes on the software and forum servers when an error in the workflow occurs.
-	    		//log.info("******* [ComponentManagerBean] calling createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-	    		categoryID = forumsBean.createSoftwareComponentForums(comp.getComponentName(), ((Long)comp.getPrimaryKey()).longValue(),
-	    				((Long)newVer.getPrimaryKey()).longValue(), newVer.getPhaseId(), comp.getStatusId(), 
-	    				comp.getRootCategory(), comp.getShortDesc(), newVer.getVersionText(), 
-	    				ForumCategory.COLLABORATION, true);
-	    		//compforumHome.create(category, Forum.COLLABORATION, newVers);
-	    		//log.info("******* [ComponentManagerBean] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
-	    	} catch (RemoteException e) {
-	    		ejbContext.setRollbackOnly();
-	            throw new CatalogException(e.toString());
-	    	} catch (Exception e) {
-	    		ejbContext.setRollbackOnly();
-	            throw new CatalogException(e.toString());
-	    	}
-    	}
-    	*/
-
-        /*
-        try {
-            LocalDDEUserMaster user = userHome.findByPrimaryKey(
-                    new Long(request.getUserId()));
-            LocalDDERoles roleBean = rolesHome.findByPrimaryKey(
-                    new Long(Long.parseLong(getConfigValue("requestor_role_id"))));
-            userroleHome.create("", user, newVer, roleBean);
-        } catch (ConfigManagerException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(
-                    "Failed to obtain configuration data: " + exception.toString());
-        } catch (FinderException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(exception.toString());
-        } catch (CreateException exception) {
-            ejbContext.setRollbackOnly();
-            throw new CatalogException(exception.toString());
-        }*/
 
         return nextVersion;
     }
@@ -868,23 +720,12 @@ public class ComponentManagerBean
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(impossible.toString());
             }
-            ForumAdminLocal forumAdmin;
-            try {
-                forumAdmin = forumadminHome.create();
-            } catch (CreateException exception) {
-                ejbContext.setRollbackOnly();
-                throw new CatalogException(exception.toString());
-            }
             try {
                 while (forumIterator.hasNext()) {
                     LocalDDECompForumXref forumRef =
                             (LocalDDECompForumXref) forumIterator.next();
-                    forumAdmin.closeForum(forumAdmin.getForum(forumRef.getForumId()));
                     forumsBean.closeCategory(forumRef.getCategoryId());
                 }
-            } catch (ForumException exception) {
-                ejbContext.setRollbackOnly();
-                throw new CatalogException(exception.toString());
             } catch (RemoteException exception) {
             	ejbContext.setRollbackOnly();
                 throw new CatalogException(exception.toString());
@@ -922,7 +763,6 @@ public class ComponentManagerBean
             }
         }
 
-        long newForum = -1;
         long categoryID = -1;
 
         // If the version is changing to specification or development
@@ -937,8 +777,7 @@ public class ComponentManagerBean
     	
         Collection forums;
         try {
-            forums = compforumHome.findByCompVersIdAndType(versionId,
-                    ForumCategory.SPECIFICATION);
+            forums = compforumHome.findByCompVersId(versionId);
         } catch (FinderException exception) {
             ejbContext.setRollbackOnly();
             throw new CatalogException(exception.toString());
@@ -957,8 +796,8 @@ public class ComponentManagerBean
 	    	    		categoryID = forumsBean.createSoftwareComponentForums(compBean.getComponentName(), 
 	    	    				((Long)compBean.getPrimaryKey()).longValue(), ((Long)versionBean.getPrimaryKey()).longValue(), 
 	    	    				versionBean.getPhaseId(), compBean.getStatusId(), compBean.getRootCategory(), 
-	    	    				compBean.getShortDesc(), versionBean.getVersionText(), ForumCategory.SPECIFICATION, info.getPublicForum());
-	    	    		//compforumHome.create(category, Forum.COLLABORATION, newVers);
+	    	    				compBean.getShortDesc(), versionBean.getVersionText(), info.getPublicForum());
+                        compforumHome.create(categoryID, info.getVersionId());
 	    	    		//log.info("*** [ComponentManagerBean.updateVersionInfo()] finished createSoftwareComponentForums in forums EJB: " + Calendar.getInstance().getTime());
 	    	    	} catch (RemoteException e) {
 	    	    		ejbContext.setRollbackOnly();
@@ -968,32 +807,6 @@ public class ComponentManagerBean
 	    	            throw new CatalogException(e.toString());
 	    	    	}
 	        	}
-	        	
-	            /*	TODO: remove */
-	        	try {
-	                com.topcoder.forum.Forum forum = new com.topcoder.forum.Forum();
-	                try {
-	                    forum = forumadminHome.create().createForum(forum,
-	                            Long.parseLong(getConfigValue("spec_forum_template")));
-	                } catch (ConfigManagerException cme) {
-	                    log.warn("Encountered a configuration manager exception reading spec_forum_template property");
-	                    forum = forumadminHome.create().createForum(forum);
-	                } catch (NumberFormatException nfe) {
-	                    log.warn("Failed to parse the spec_forum_template property");
-	                    forum = forumadminHome.create().createForum(forum);
-	                }
-	                newForum = forum.getId();
-	                compforumHome.create(newForum, categoryID, ForumCategory.SPECIFICATION, versionBean);
-	                createForumRoles(newForum, ForumCategory.SPECIFICATION, info.getPublicForum());
-	            } catch (ForumException exception) {
-	                ejbContext.setRollbackOnly();
-	                throw new CatalogException(
-	                        "Failed to create specification forum: "
-	                        + exception.toString());
-	            } catch (CreateException exception) {
-	                ejbContext.setRollbackOnly();
-	                throw new CatalogException(exception.toString());
-	            }
             }
         } else {
             log.debug("Updating public flag");
@@ -1001,16 +814,8 @@ public class ComponentManagerBean
             for (Iterator it=forums.iterator(); it.hasNext(); ) {
                 LocalDDECompForumXref compForumXref = (LocalDDECompForumXref)it.next();
 
-                RolePrincipal userRole = null;
                 try {
-                    log.debug("Looking for forum: " + compForumXref.getForumId());
-
-                    PrincipalMgrRemote principalManager = principalmgrHome.create();
-                    userRole = principalManager.getRole(Long.parseLong(getConfigValue("user_role")));
-
-                    PermissionCollection perms = null;
-                    perms = new PermissionCollection();
-                    perms.addPermission(new ForumPostPermission(compForumXref.getForumId()));
+                    log.debug("Looking for forum category: " + compForumXref.getCategoryId());
 
                     try {
                     	forumsBean.setPublic(compForumXref.getCategoryId(), info.getPublicForum());
@@ -1021,27 +826,6 @@ public class ComponentManagerBean
                         throw new CatalogException(
                             "Forum category not found: " + exception.toString());
                     }
-                        
-                    PolicyMgrRemote policyManager = policymgrHome.create();
-                    log.debug("Remove public permission");
-                    policyManager.removePermissions(userRole, perms, null);
-
-                    if (info.getPublicForum()) {
-                        log.debug("Add public permission");
-                        policyManager.addPermissions(userRole, perms, null);
-                    }
-                } catch (ConfigManagerException exception) {
-                    ejbContext.setRollbackOnly();
-                    throw new CatalogException(
-                        "Failed to obtain configuration data: " + exception.toString());
-                } catch (CreateException exception) {
-                    ejbContext.setRollbackOnly();
-                    throw new CatalogException(
-                        "Failed to make forum public: " + exception.toString());
-                } catch (GeneralSecurityException exception) {
-                    ejbContext.setRollbackOnly();
-                    throw new CatalogException(
-                        "Failed to make forum public: " + exception.toString());
                 } catch (RemoteException exception) {
                     ejbContext.setRollbackOnly();
                     throw new EJBException(exception.toString());
@@ -1112,24 +896,6 @@ public class ComponentManagerBean
                         	throw new CatalogException(
                                 "User not found: " + exception.toString());
                         }
-                        /* TODO: remove
-                        NotificationHome notificationHome = (NotificationHome)
-                                PortableRemoteObject.narrow(
-                                homeBindings.lookup(NotificationHome.EJB_REF_NAME),
-                                NotificationHome.class);
-
-                        Notification notification = notificationHome.create();
-
-                        if (notification != null) {
-                            description = createNotificationEventDescription("Forum Post");
-                            notification.createNotification(
-                                    "com.topcoder.dde.forum.ForumPostEvent " + winnerCategoryIds[1],
-                                    winnerCategoryIds[0],
-                                    Notification.FORUM_POST_TYPE_ID, description);
-                        } else {
-                            log.debug("Can't get the notification bean.  The design winner was not added.");
-                        }
-                        */
                     } else {
                         log.debug("Winner can't be retrieved because project.getWinner()==null.  No notification added");
                     }
@@ -1144,21 +910,13 @@ public class ComponentManagerBean
                         null,
                         requestor,
                         levelId,
-                        newForum);
+                        categoryID);
 
 
                 if (categoryID >= 0) {
                     log.debug("New category created, adding PM to notification. New category: " + categoryID);
                     
                     User pm = pt.getPM(projectId);
-
-                    /* TODO: remove
-                    NotificationHome notificationHome = (NotificationHome)
-                                PortableRemoteObject.narrow(
-                                homeBindings.lookup(NotificationHome.EJB_REF_NAME),
-                                NotificationHome.class);
-
-                    Notification notification = notificationHome.create(); */
 
                     if (pm == null) {
                         log.debug("The PM can't be retrieved for this project.  Notification not added.");
@@ -1175,23 +933,6 @@ public class ComponentManagerBean
                         	throw new CatalogException(
                                 "User not found: " + exception.toString());
                         }
-                    	
-                    	/* TODO: remove
-                        // Generate the description if it hasn't been generated yet
-                        if (description == null) {
-                            description = createNotificationEventDescription("Forum Post");
-                        }
-
-                        notification.createNotification("com.topcoder.dde.forum.ForumPostEvent " + newForum,
-<<<<<<< ComponentManagerBean.java
-                                  pm.getId(),
-                                Notification.FORUM_POST_TYPE_ID, description);
-                    //    notification.createNotification("com.topcoder.dde.forum.ForumPostEvent " + newForum,
-                    //              156859,
-                     //           Notification.FORUM_POST_TYPE_ID, description);
-=======
-                                pm.getId(),
-                                Notification.FORUM_POST_TYPE_ID, description); */
                     }
                 }
 
@@ -1645,14 +1386,13 @@ public class ComponentManagerBean
         return reviews;
     }
 
-    public ForumCategory getForumCategory(int type) throws CatalogException {
+    public ForumCategory getForumCategory() throws CatalogException {
     	Forums forumsBean = getForumsBean();
     	ComponentVersionInfo info = getVersionInfo();
         Collection categories = new HashSet();
         Iterator categoryIterator;
         try {
-            categoryIterator = compforumHome.
-                    findByCompVersIdAndType(versionId, type).iterator();
+            categoryIterator = compforumHome.findByCompVersId(versionId).iterator();
         } catch (FinderException impossible) {
             throw new CatalogException(impossible.toString());
         }
@@ -1660,7 +1400,10 @@ public class ComponentManagerBean
         	long categoryId = ((LocalDDECompForumXref)
                     categoryIterator.next()).getCategoryId();
         	try {
-        		categories.add(forumsBean.getSoftwareForumCategory(categoryId, version, info.getVersionLabel()));
+                ArrayList data = forumsBean.getSoftwareForumCategoryData(categoryId);
+                Date startDate = (Date)data.get(0);
+                long status = Long.parseLong((String)data.get(1));
+        		categories.add(new ForumCategory(categoryId, startDate, status, version, info.getVersionLabel()));
         	} catch (ForumCategoryNotFoundException fe) {
         		throw new CatalogException("Forum category not found: " + fe.toString());
         	} catch (RemoteException exception) {
@@ -1677,7 +1420,7 @@ public class ComponentManagerBean
         return (ForumCategory) categories.iterator().next();
     }
 
-    public ForumCategory getActiveForumCategory(int type) throws CatalogException {
+    public ForumCategory getActiveForumCategory() throws CatalogException {
     	Forums forumsBean = getForumsBean();
         Collection categories = new HashSet();
         Iterator versionIterator = getAllVersionInfo().iterator();
@@ -1686,8 +1429,7 @@ public class ComponentManagerBean
                     (ComponentVersionInfo) versionIterator.next();
             Iterator categoryIterator;
             try {
-                categoryIterator = compforumHome.findByCompVersIdAndType(
-                        info.getVersionId(), type).iterator();
+                categoryIterator = compforumHome.findByCompVersId(info.getVersionId()).iterator();
             } catch (FinderException impossible) {
                 throw new CatalogException(impossible.toString());
             }
@@ -1695,8 +1437,11 @@ public class ComponentManagerBean
                 long categoryId = ((LocalDDECompForumXref)
                         categoryIterator.next()).getCategoryId();
                 try {
-                	ForumCategory forumCategory = forumsBean.getSoftwareForumCategory(categoryId, info.getVersion(), info.getVersionLabel());
-            		if (forumCategory.getStatus() == ForumCategory.ACTIVE) {
+                    ArrayList data = forumsBean.getSoftwareForumCategoryData(categoryId);
+                    Date startDate = (Date)data.get(0);
+                    long status = Long.parseLong((String)data.get(1));
+                    ForumCategory forumCategory = new ForumCategory(categoryId, startDate, status, info.getVersion(), info.getVersionLabel());
+                    if (forumCategory.getStatus() == ForumCategory.ACTIVE) {
             			categories.add(forumCategory);
             		}
             	} catch (ForumCategoryNotFoundException fe) {
@@ -1704,28 +1449,6 @@ public class ComponentManagerBean
             	} catch (RemoteException exception) {
                     throw new EJBException(exception.toString());
                 }
-                
-                /* TODO: remove
-                long forumId = ((LocalDDECompForumXref)
-                        categoryIterator.next()).getForumId();
-                com.topcoder.forum.Forum forum = null;
-                try {
-                    forum = forumadminHome.create().getForum(forumId);
-                } catch (ForumException exception) {
-                    throw new CatalogException(exception.toString());
-                } catch (CreateException exception) {
-                    throw new CatalogException(exception.toString());
-                }
-                if (forum.getStatus() == Forum.ACTIVE) {
-                    forums.add(new Forum(
-                            forum.getId(),
-                            forum.getCreateTime(),
-                            forum.getCloseTime(),
-                            forum.getStatus(),
-                            info.getVersion(),
-                            info.getVersionLabel()));
-                }
-                */
             }
         }
         if (categories.size() > 1) {
@@ -1737,7 +1460,7 @@ public class ComponentManagerBean
         return (ForumCategory) categories.iterator().next();
     }
 
-    public Collection getClosedForumCategories(int type) throws CatalogException {
+    public Collection getClosedForumCategories() throws CatalogException {
     	Forums forumsBean = getForumsBean();
     	List categories = new ArrayList();
         Iterator versionIterator = getAllVersionInfo().iterator();
@@ -1746,8 +1469,7 @@ public class ComponentManagerBean
                     (ComponentVersionInfo) versionIterator.next();
             Iterator categoryIterator;
             try {
-                categoryIterator = compforumHome.findByCompVersIdAndType(
-                        info.getVersionId(), type).iterator();
+                categoryIterator = compforumHome.findByCompVersId(info.getVersionId()).iterator();
             } catch (FinderException impossible) {
                 throw new CatalogException(impossible.toString());
             }
@@ -1755,7 +1477,10 @@ public class ComponentManagerBean
                 long categoryId = ((LocalDDECompForumXref)
                         categoryIterator.next()).getCategoryId();
                 try {
-                	ForumCategory forumCategory = forumsBean.getSoftwareForumCategory(categoryId, info.getVersion(), info.getVersionLabel());
+                    ArrayList data = forumsBean.getSoftwareForumCategoryData(categoryId);
+                    Date startDate = (Date)data.get(0);
+                    long status = Long.parseLong((String)data.get(1));
+                    ForumCategory forumCategory = new ForumCategory(categoryId, startDate, status, info.getVersion(), info.getVersionLabel());
             		if (forumCategory.getStatus() == ForumCategory.CLOSED) {
             			categories.add(forumCategory);
             		}
@@ -1764,26 +1489,6 @@ public class ComponentManagerBean
             	} catch (RemoteException exception) {
                     throw new EJBException(exception.toString());
                 }
-                 
-                /* TODO: remove
-                com.topcoder.forum.Forum forum = null;
-                try {
-                    forum = forumadminHome.create().getForum(forumId);
-                } catch (ForumException exception) {
-                    throw new CatalogException(exception.toString());
-                } catch (CreateException exception) {
-                    throw new CatalogException(exception.toString());
-                }
-                if (forum.getStatus() == Forum.CLOSED) {
-                    forums.add(new Forum(
-                            forum.getId(),
-                            forum.getCreateTime(),
-                            forum.getCloseTime(),
-                            forum.getStatus(),
-                            info.getVersion(),
-                            info.getVersionLabel()));
-                }
-                */
             }
         }
         Collections.sort(categories, new Comparators.ForumCategorySorter());

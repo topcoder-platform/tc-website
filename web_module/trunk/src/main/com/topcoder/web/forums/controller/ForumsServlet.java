@@ -20,7 +20,6 @@ import com.topcoder.web.common.security.*;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.ejb.forums.ForumsLocalHome;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
-import com.topcoder.web.tc.controller.request.authentication.Login;
 
 import javax.naming.Context;
 import javax.servlet.ServletConfig;
@@ -217,7 +216,7 @@ public class ForumsServlet extends BaseServlet {
                 append("?module=").append(LOGIN_PROCESSOR);
         String fromPage = StringUtils.replace(StringUtils.checkNull(info.getRequestString()), "&", "%26");
         nextPage.append("&").append(BaseServlet.NEXT_PAGE_KEY).append("=").append(fromPage);
-        nextPage.append("&").append(Login.STATUS).append("=").append(Login.STATUS_START);
+        nextPage.append("&").append(WebConstants.STATUS).append("=").append(WebConstants.STATUS_START);
         fetchRegularPage(request, response, nextPage.toString(), false);
 
         //request.setAttribute(MESSAGE_KEY, "In order to continue, you must provide your user name " +
