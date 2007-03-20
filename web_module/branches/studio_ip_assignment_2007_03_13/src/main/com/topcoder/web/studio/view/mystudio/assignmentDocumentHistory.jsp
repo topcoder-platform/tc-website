@@ -170,7 +170,7 @@
                         <c:when test="${ad.status.id == AFFIRMED_STATUS_ID}">
                             <td class="valueC">
                                 <a href="/?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
-                                    Affirmed on<br><fmt:formatDate value="${ad.affirmedDate}" pattern="MM/dd/yyyy"/>
+                                    Affirmed on<br><fmt:formatDate value="${ad.affirmedDate}" pattern="MM.dd.yyyy"/>
                                 </a>                
                             </td>
                             <td class="valueC">&nbsp;</td>
@@ -183,7 +183,7 @@
                             </td>
                             <td class="valueC">
                                 <strong><a href="/?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
-                                     <c:out value="${ad.daysLeftToExpire}"/>
+                                     <c:out value="${ad.daysLeftToExpire}"/> days
                                 </a></strong>            
                             </td>
                         </c:when>
@@ -194,9 +194,7 @@
                                 </a>
                             </td>
                             <td class="valueC">
-                                <a href="/?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}" class="bigRed">
-                                    Expired
-                                </a>                
+                                &nbsp;
                             </td>
                         </c:otherwise>
                     </c:choose>
