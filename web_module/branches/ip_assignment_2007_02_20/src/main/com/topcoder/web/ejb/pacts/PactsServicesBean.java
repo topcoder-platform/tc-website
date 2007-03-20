@@ -1833,6 +1833,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(1, ad.getId().longValue());
             ps.setLong(2, ad.getType().getId().longValue());
             ps.setLong(3, ad.getStatus().getId().longValue());
+            log.debug("ad.isHardCopy() : " + ad.isHardCopy());
+            log.debug("0/1? : " + ((ad.isHardCopy() != null && ad.isHardCopy().booleanValue()) ? 1 : 0));
             ps.setInt(4, (ad.isHardCopy() != null && ad.isHardCopy().booleanValue()) ? 1 : 0);
             ps.setString(5, ad.getSubmissionTitle());
             ps.setLong(6, ad.getUser().getId().longValue());
