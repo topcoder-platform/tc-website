@@ -1,4 +1,4 @@
-package com.topcoder.web.studio.controller.request.legal;
+package com.topcoder.web.studio.controller.request.mystudio;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;

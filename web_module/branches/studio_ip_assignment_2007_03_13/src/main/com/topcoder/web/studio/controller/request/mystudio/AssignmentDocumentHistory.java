@@ -1,4 +1,4 @@
-package com.topcoder.web.studio.controller.request.legal;
+package com.topcoder.web.studio.controller.request.mystudio;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -73,7 +73,7 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             getRequest().setAttribute(ASSIGNMENT_DOCUMENTS, result);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
-            setNextPage("/legal/assignmentDocumentHistory.jsp");
+            setNextPage("/mystudio/assignmentDocumentHistory.jsp");
             setIsNextPageInContext(true);
         	
         } catch (Exception e) {

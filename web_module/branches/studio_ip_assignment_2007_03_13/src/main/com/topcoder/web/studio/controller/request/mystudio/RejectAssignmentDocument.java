@@ -1,4 +1,4 @@
-package com.topcoder.web.studio.controller.request.legal;
+package com.topcoder.web.studio.controller.request.mystudio;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
@@ -41,7 +41,7 @@ public class RejectAssignmentDocument extends BaseProcessor {
             
             PactsServicesLocator.getService().rejectAssignmentDocument(ad);
             
-            setNextPage("/legal/?module=AssignmentDocumentHistory");
+            setNextPage("/mystudio/?module=AssignmentDocumentHistory");
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
