@@ -95,10 +95,41 @@ class CatalogSearchEngine {
 
     public synchronized void reIndex(long componentId, String words) {
 	IndexStrategy indexer = searchEngine.getIndexStrategy(WORDCOUNT);
-        indexer.deleteIdentifier(CATALOG, componentId);  // see what this removes
-        // last resort - run delete queries directly
-        //indexer.reIndexDoc(CATALOG, componentId,
-        //        new InMemoryLoc(words, STRINGPARSE));
+        
+        /* The following deletes should be moved to IndexStrategy.reIndexDoc() */
+        indexer.deleteIdentifier(CATALOG, componentId);  // delete from word_srch_ctgy
+        
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(
+                    "delete from word_search where document_id = ?");
+            ps.setLong(1, componentId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                } 
+            } catch (SQLException e) {
+                throw new EJBException(e);
+            }
+            try {
+                if (conn != null) {
+                    conn.close();
+                } 
+            } catch (SQLException e) {
+                throw new EJBException(e);
+            }
+        }
+        /* End - deletes to be moved */
+
+        indexer.reIndexDoc(CATALOG, componentId,
+                new InMemoryLoc(words, STRINGPARSE)); 
     }
 
     public synchronized void unIndex(long componentId) {
