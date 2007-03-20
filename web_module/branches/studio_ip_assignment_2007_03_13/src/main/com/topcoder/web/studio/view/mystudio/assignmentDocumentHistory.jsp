@@ -53,14 +53,14 @@
 <div id="contentOut" class="contentOut">
 <jsp:include page="../top.jsp"/>
 <jsp:include page="../topNav.jsp">
-    <jsp:param name="node" value="contests"/>
+    <jsp:param name="node" value=""/>
 </jsp:include>
 <div id="contentIn" class="contentIn">
 <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
 <div class="contentSpacer" style="padding-bottom:100px;">
 
-<h1>Assignment Documents</h1>
+<h1>I<span class="small">ntellectual</span> P<span class="small">roperty</span> Transfers</h1>
 
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
@@ -91,32 +91,9 @@
          <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
          <input type="hidden" name="<%= AssignmentDocumentHistory.FULL_LIST %>" value="<c:out value="${fullList}"/>" />
 
-    <c:if test="${not empty assignment_documents}" >
-        <c:if test="${croppedDataBefore or croppedDataAfter}" >
-            <div class="pagingBox">
-                <c:choose>
-                    <c:when test="${croppedDataBefore}">
-                        <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
-                    </c:when>
-                    <c:otherwise>
-                        &lt;&lt; prev
-                    </c:otherwise>
-                </c:choose>
-                
-                <c:choose>
-                    <c:when test="${croppedDataAfter}">
-                        <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
-                    </c:when>
-                    <c:otherwise>
-                        next &gt;&gt;
-                    </c:otherwise>
-                </c:choose>
-            </div>
-        </c:if>
-    </c:if>
     <tr>
         <td class="NW">&nbsp;</td>
-        <td class="title" colspan="4">Assignment Documents</td>
+        <td class="title" colspan="4">IP Transfers</td>
         <td class="NE">&nbsp;</td>
     </tr>
     <tr>
@@ -124,7 +101,7 @@
             <div>&nbsp;</div>
         </td>
         <td class="header">
-            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Submission</a>
+            <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="1" includeParams="true"/>">Description</a>
         </td>
         <td class="headerC">
             <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Affirmation</a>
@@ -217,6 +194,29 @@
     </form>            
 </tbody>
 </table>
+    <c:if test="${not empty assignment_documents}" >
+        <c:if test="${croppedDataBefore or croppedDataAfter}" >
+            <div class="pagingBox">
+                <c:choose>
+                    <c:when test="${croppedDataBefore}">
+                        <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+                    </c:when>
+                    <c:otherwise>
+                        &lt;&lt; prev
+                    </c:otherwise>
+                </c:choose>
+                
+                <c:choose>
+                    <c:when test="${croppedDataAfter}">
+                        <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+                    </c:when>
+                    <c:otherwise>
+                        next &gt;&gt;
+                    </c:otherwise>
+                </c:choose>
+            </div>
+        </c:if>
+    </c:if>
 
 
 </div>
