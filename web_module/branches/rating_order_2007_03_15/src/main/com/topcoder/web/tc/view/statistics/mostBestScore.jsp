@@ -17,7 +17,7 @@
 %>
 <html>
 <head>
-<TITLE>TopCoder Statistics - Consecutive Rating Increases</TITLE>
+<TITLE>TopCoder Statistics - Most Problem Best Scores</TITLE>
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
@@ -51,27 +51,30 @@
 <div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
 <span class="bodyText">
 <br><br>
-<strong>Record:</strong> This chart represents the longest consecutive SRM appearances.
+<strong>Record:</strong> This chart shows the competitors that have most best scores for a problem.
 </span>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
 <thead>
-    <tr><td class="title" colspan="6">Most Consecutive SRM appearances.</td></tr>
+    <tr><td class="title" colspan="5">Most Best Scores.</td></tr>
     <tr>
         <td class="headerC">Rank</td>
         <td class="header">Coder</td>
-		<td class="header"># Events Competed</td>
-        <td class="headerC" width="100%" nowrap>Number of best scores</td>
+		<td class="header"># Events<br>Competed</td>
+		<td class="header">avg best scores<br>per event</td>
+        <td class="headerC" width="100%" nowrap>Number of<br>best scores</td>
     </tr>
 </thead>
 <tbody>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="resultRow">
+    <% double avg = resultRow.getIntItem("best_scores") /  resultRow.getIntItem("events"); %>
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
-        <td class="value"><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
+        <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueR"><rsc:item row="<%=resultRow%>" name="events"/></td>
         <td class="valueR"><rsc:item row="<%=resultRow%>" name="best_scores"/></td>
+        <td class="valueR"><b><rsc:item row="<%=resultRow%>" name="best_scores"/></b></td>
     </tr>
     <% even = !even;%>
     </rsc:iterator>
