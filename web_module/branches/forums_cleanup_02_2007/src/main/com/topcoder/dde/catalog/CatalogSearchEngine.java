@@ -95,9 +95,10 @@ class CatalogSearchEngine {
 
     public synchronized void reIndex(long componentId, String words) {
 	IndexStrategy indexer = searchEngine.getIndexStrategy(WORDCOUNT);
-        indexer.deleteIdentifier(CATALOG, componentId);
-        indexer.reIndexDoc(CATALOG, componentId,
-                new InMemoryLoc(words, STRINGPARSE));
+        indexer.deleteIdentifier(CATALOG, componentId);  // see what this removes
+        // last resort - run delete queries directly
+        //indexer.reIndexDoc(CATALOG, componentId,
+        //        new InMemoryLoc(words, STRINGPARSE));
     }
 
     public synchronized void unIndex(long componentId) {
