@@ -83,6 +83,7 @@
     receive 10 points. Note that only those registered for the event from University of Belgrade are
     considered when determining place and placement points. In order to receive placement points, a
     submission must pass the minimum component score of 75. Placement scoring is as follows:
+    <br/>
     <strong>1st Place - 10 Points</strong><br/>
     <strong>2nd Place - 7 Points</strong><br/>
     <strong>3rd Place - 5 points</strong><br/>
@@ -118,6 +119,7 @@
     <strong>Participatory Prize:</strong> All competitors who pass review at least once during the 3 weeks will receive
     a
     TopCoder t-shirt. Each competitor is only allowed to win a maximum of one t-shirt.
+    <br/>
     <strong>Weekly Prize:</strong> The three competitors with the highest weekly placement points will win the following
     cash prizes:
     <ul>
