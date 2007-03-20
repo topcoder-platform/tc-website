@@ -197,14 +197,16 @@ function loaded() {
 				</SELECT>
 			</td>
 		</tr>
-        <tr>
-	        <td><b>Text:</b>
-	        </td>
-	        <td>        
-		        <br/>
-				<tc-webtag:textArea name="assignment_document_text" rows="10" cols="70"/>
-			</td>
-		</tr>
+        <c:if test="${assignmentDocumentId == 0}">
+            <tr>
+    	        <td><b>Text:</b>
+    	        </td>
+    	        <td>        
+    		        <br/>
+    				<tc-webtag:textArea name="assignment_document_text" rows="10" cols="70"/>
+    			</td>
+    		</tr>
+        </c:if>
         <tr>
             <td><b>Hard Copy:</b>
             </td>

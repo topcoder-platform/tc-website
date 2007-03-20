@@ -1343,69 +1343,41 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
     private AssignmentDocument createAssignmentDocumentBean(Connection conn, ResultSetRow rsr) throws SQLException {
         AssignmentDocument ad = new AssignmentDocument();
-        log.debug("a1");
         ad.setId(new Long(rsr.getLongItem("assignment_document_id")));
 
         ad.setHardCopy(new Boolean(rsr.getIntItem("assignment_document_hard_copy_ind") == 1));
-        log.debug("a2");
         ad.setAffirmedDate(rsr.getTimestampItem("affirmed_date"));
-        log.debug("a3");
         ad.setExpireDate(rsr.getTimestampItem("expire_date"));
-        log.debug("a4");
         ad.setCreateDate(rsr.getTimestampItem("create_date"));
-        log.debug("a4a");
         ad.setModifyDate(rsr.getTimestampItem("modify_date"));
-        log.debug("a4b");
     
         UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rsr.getLongItem("user_id")));
-        log.debug("a5");
         User u = new User();
-        log.debug("a6");
         u.setId(new Long(user.getId()));
-        log.debug("a7");
         u.setHandle(user.getHandle());
-        log.debug("a8");
         ad.setUser(u);
-        log.debug("a9");
         
         ad.setText(rsr.getStringItem("assignment_document_text"));
-        log.debug("a10");
         ad.setSubmissionTitle(rsr.getStringItem("assignment_document_submission_title"));
-        log.debug("a11");
 
         AssignmentDocumentType adt = new AssignmentDocumentType();
-        log.debug("a12");
         adt.setId(new Long(rsr.getLongItem("assignment_document_type_id")));
-        log.debug("a13");
         adt.setDescription(rsr.getStringItem("assignment_document_type_desc"));
-        log.debug("a14");
         ad.setType(adt);
-        log.debug("a15");
         
         AssignmentDocumentStatus ads = new AssignmentDocumentStatus();
-        log.debug("a16");
         ads.setId(new Long(rsr.getLongItem("assignment_document_status_id")));
-        log.debug("a17");
         ads.setDescription(rsr.getStringItem("assignment_document_status_desc"));
-        log.debug("a18");
         ad.setStatus(ads);
-        log.debug("a19");
         
         if (rsr.getItem("component_project_id").getResultData() != null) {
-            log.debug("a20");
             ComponentProject cp = findComponentProjectById(rsr.getLongItem("component_project_id"));
-            log.debug("a21");
             ad.setComponentProject(cp);
         }
-        log.debug("a22");
         if (rsr.getItem("studio_contest_id").getResultData() != null) {
-            log.debug("a23");
             StudioContest c = findStudioContestsById(rsr.getLongItem("studio_contest_id"));
-            log.debug("a24");
             ad.setStudioContest(c);
-            log.debug("a25");
         }
-        log.debug("a26");
     
         return ad;
     }
@@ -1510,24 +1482,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            log.debug("----- Query:\n");
-            log.debug(getAssignmentDocument.toString() + "\n");
-            log.debug("----- Objects: (size:");
-            log.debug("" + objects.size());
-            log.debug(")\n");
-            for (int j = 0; j < objects.size(); j++)
-                log.debug(objects.get(j).toString() + "\n");
-
             rsc = runSearchQuery(conn, getAssignmentDocument.toString(), objects, true);
-
-            log.debug("Returned: " + rsc.size());
 
             for (Iterator it = rsc.iterator(); it.hasNext(); ) {
                 ResultSetRow rsr = (ResultSetRow) it.next();
                 
                 AssignmentDocument ad = createAssignmentDocumentBean(conn, rsr);
-
-                log.debug("AD: " + ad.getSubmissionTitle() + " (" + ad.getId() + ")");
 
                 l.add(ad);
             }
@@ -1590,11 +1550,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             Map searchCriteria = new HashMap();
            
-            log.debug("a");   
             searchCriteria.put(USER_ID, String.valueOf(userId));
-            log.debug("b");   
             searchCriteria.put(TYPE, String.valueOf(assignmentDocumentTypeId));
-            log.debug("c");   
             searchCriteria.put(HARD_COPY, "1");
 
             return new Boolean(findAssignmentDocument(searchCriteria).size() > 0);
@@ -1608,17 +1565,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             Map searchCriteria = new HashMap();
-            log.debug("a");   
             searchCriteria.put(USER_ID, String.valueOf(userId));
-            log.debug("b");   
             searchCriteria.put(TYPE, String.valueOf(assignmentDocumentTypeId));
-            log.debug("c");   
             if (onlyPending) {
-                log.debug("d");   
                 searchCriteria.put(STATUS, String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
             }
 
-            log.debug("e");   
             return findAssignmentDocument(searchCriteria);
         } catch (Exception e) {
             throw(new EJBException(e.getMessage(), e));
@@ -1817,6 +1769,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
         }
         
+        // only update text if it's an addition or the AD is being affirmed.
+        boolean updateText = false;
         // store
         try {
             if (ad.getText() == null || ad.getText().trim().length() == 0) {
@@ -1829,9 +1783,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                    (ad.getStatus().getId().equals(AssignmentDocumentStatus.REJECTED_STATUS_ID) && 
                            (oldAssignmentDocumentInstance == null || 
                                    !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.REJECTED_STATUS_ID)))) {
-                    log.debug("get the assignment document text from the db");
+
                     AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue());
                     ad.setText(adt.transformTemplate(ad));
+                    updateText = true;
                 }
             }
 
@@ -1860,13 +1815,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 query.append("assignment_document_id = ?, ");
                 query.append("assignment_document_type_id = ?, ");
                 query.append("assignment_document_status_id = ?, ");
-                query.append("assignment_document_text = ?, ");
                 query.append("assignment_document_hard_copy_ind = ?, ");
                 query.append("assignment_document_submission_title = ?, ");
                 query.append("user_id = ?, ");
                 query.append("studio_contest_id = ?, ");
                 query.append("component_project_id = ?, ");
                 query.append("affirmed_date = ?, ");
+                if (updateText) {
+                    query.append("assignment_document_text = ?, ");
+                }
                 query.append("expire_date = ?, ");
                 query.append("modify_date = current ");
                 query.append("where assignment_document_id = ? ");
@@ -1875,20 +1832,24 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = c.prepareStatement(query.toString());
             ps.setLong(1, ad.getId().longValue());
             ps.setLong(2, ad.getType().getId().longValue());
-            log.debug("Status: (1) " + ad.getStatus());
-            log.debug("Status: (2) " + ad.getStatus().getId());
-            log.debug("Status: (3) " + ad.getStatus().getId().longValue());
             ps.setLong(3, ad.getStatus().getId().longValue());
-            ps.setString(4, ad.getText());
-            ps.setInt(5, ad.isHardCopy().booleanValue() ? 1 : 0);
-            ps.setString(6, ad.getSubmissionTitle());
-            ps.setLong(7, ad.getUser().getId().longValue());
-            ps.setObject(8, ad.getStudioContest() == null ? null : ad.getStudioContest().getId());
-            ps.setObject(9, ad.getComponentProject() == null ? null : ad.getComponentProject().getId());
-            ps.setTimestamp(10, ad.getAffirmedDate());
-            ps.setTimestamp(11, ad.getExpireDate());
-            if (!addOperation) {
-                ps.setLong(12, ad.getId().longValue());
+            ps.setInt(4, ad.isHardCopy().booleanValue() ? 1 : 0);
+            ps.setString(5, ad.getSubmissionTitle());
+            ps.setLong(6, ad.getUser().getId().longValue());
+            ps.setObject(7, ad.getStudioContest() == null ? null : ad.getStudioContest().getId());
+            ps.setObject(8, ad.getComponentProject() == null ? null : ad.getComponentProject().getId());
+            ps.setTimestamp(9, ad.getAffirmedDate());
+            if (addOperation || updateText) {
+                ps.setString(10, ad.getText());
+                ps.setTimestamp(11, ad.getExpireDate());
+                if (!addOperation) {
+                    ps.setLong(12, ad.getId().longValue());
+                }
+            } else {
+                ps.setTimestamp(10, ad.getExpireDate());
+                if (!addOperation) {
+                    ps.setLong(11, ad.getId().longValue());
+                }
             }
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -2113,9 +2074,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             updatePaymentStatus.append("AND pd.studio_contest_id = ad.studio_contest_id ");
             updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
         }
-        
-        log.debug(updatePaymentStatus.toString());
-        
+                
         ResultSetContainer rscComponent = runSelectQuery(c, updatePaymentStatus.toString(), false);
 
         List changeToOnHold = new ArrayList();
@@ -2132,12 +2091,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
         }
         
-        log.debug("Size: " + changeToOnHold.size());
         int i = 0;
         long pid[] = new long[changeToOnHold.size()];
         for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
                 pid[i] = ((Long) it.next()).longValue();
-                log.debug("Moving payment " + pid[i] + " to " + statusId);
         }
         
         if (i > 0) {
@@ -5253,12 +5210,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // make all of them on hold.
         // There's a small chance that a referral payment in this set has
         // already been paid.  So we can't update all at once.
-        log.debug("Size: " + changeToOnHold.size());
         int i = 0;
         long pid[] = new long[changeToOnHold.size()];
         for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
                 pid[i] = ((Long) it.next()).longValue();
-                log.debug("Moving payment " + pid[i] + " to on hold");
         }
         
         if (i > 0) {
