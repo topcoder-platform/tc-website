@@ -45,7 +45,7 @@ class CatalogSearchEngine {
     private static CatalogSearchEngine singleton = null;
 
     private SearchEngine searchEngine;
-
+    private DataSource ds;
 
     private CatalogSearchEngine() {
         searchEngine = new SearchEngine();
