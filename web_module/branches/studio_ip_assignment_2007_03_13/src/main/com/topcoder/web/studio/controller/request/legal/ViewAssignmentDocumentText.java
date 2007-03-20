@@ -1,15 +1,11 @@
-package com.topcoder.web.studio.controller.request;
+package com.topcoder.web.studio.controller.request.legal;
 
-import javax.naming.InitialContext;
-
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
-import com.topcoder.web.common.model.AssignmentDocumentTemplate;
-import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.studio.Constants;
+import com.topcoder.web.studio.controller.request.PactsServicesLocator;
 
 /**
  *

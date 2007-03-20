@@ -1,4 +1,4 @@
-package com.topcoder.web.studio.controller.request;
+package com.topcoder.web.studio.controller.request.legal;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -10,10 +10,8 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentType;
-import com.topcoder.web.ejb.pacts.PactsServices;
+import com.topcoder.web.studio.controller.request.PactsServicesLocator;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
  *
@@ -75,7 +73,7 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             getRequest().setAttribute(ASSIGNMENT_DOCUMENTS, result);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
-            setNextPage("/assignmentDocumentHistory.jsp");
+            setNextPage("/admin/assignmentDocumentHistory.jsp");
             setIsNextPageInContext(true);
         	
         } catch (Exception e) {
