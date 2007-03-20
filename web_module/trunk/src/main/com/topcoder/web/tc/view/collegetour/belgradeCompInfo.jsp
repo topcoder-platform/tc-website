@@ -53,7 +53,7 @@
 
 
 <p>
-    <h2>University of Belgrade Component Design & Development Competition Series</h2>
+    <h2>University of Belgrade Component Design &amp; Development Competition Series</h2>
 </p>
 <p>
     <h3>The Event</h3>
@@ -67,26 +67,27 @@
 
 <p>
     The event will take place over the course of 3 weeks and will include all components posted from
-    March 22 through April 5, 2007. In addition to registering with TopCoder, all competitors must
-    register here
-    <LINK>
-    .
-    Competition Overview
+    March 22 through April 5, 2007. In addition to <a href="/reg/">registering with TopCoder</a>, all competitors must
+    register <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=40">here</A>.
+</p>
+
+<p>
+    <h3>Competition Overview</h3>
     Registered competitors have the opportunity to participate in component design and development
-    competitions at TopCoder. All available projects are listed here
-    <LINK>
-    . Scoring in the Series is determined based on the placement for each submission, as it relates to
+    competitions at TopCoder. All available design projects are listed <a href="/tc?module=ViewActiveContests&ph=112">here</a>
+    and development projects are listed <a href="/tc?module=ViewActiveContests&ph=113">here</a>.
+    Scoring in the Series is determined based on the placement for each submission, as it relates to
     other University of Belgrade submissions. Placement is determined based on the score awarded for a
     particular component. For example, if 3 submissions were received for a component and the scores
     were 93, 89, and 71, the competitor receiving the score of 93 would be in 1st place and would
     receive 10 points. Note that only those registered for the event from University of Belgrade are
     considered when determining place and placement points. In order to receive placement points, a
     submission must pass the minimum component score of 75. Placement scoring is as follows:
-    1st Place - 10 Points
-    2nd Place - 7 Points
-    3rd Place - 5 points
-    4th Place - 4 Points
-    Below 4th Place - 0 Points
+    <strong>1st Place - 10 Points</strong><br/>
+    <strong>2nd Place - 7 Points</strong><br/>
+    <strong>3rd Place - 5 points</strong><br/>
+    <strong>4th Place - 4 Points</strong><br/>
+    <strong>Below 4th Place - 0 Points</strong><br/>
 </p>
 <p>
     During each week of competition, eligible competitors can submit design and/or development solutions
@@ -103,45 +104,56 @@
 <p>
     In the event of a tie of cumulative placement score for the Weekly or Series Prizes, the tie will be
     resolved in the following manner:
+
+    <ul>
+        <li>Highest individual component score of the lesser number of components used to develop the cumulative
+            placement score for the tied competitors.
+        </li>
+        <li>If a tie still remains, then all tied contestants will share equally in the prize money.</li>
+    </ul>
 </p>
 
 <p>
-    Highest individual component score of the lesser number of components used to develop the cumulative
-    placement score for the tied competitors.
-    If a tie still remains, then all tied contestants will share equally in the prize money.
-    Prizes
-    Participatory Prize: All competitors who pass review at least once during the 3 weeks will receive a
+    <h3>Prizes</h3>
+    <strong>Participatory Prize:</strong> All competitors who pass review at least once during the 3 weeks will receive
+    a
     TopCoder t-shirt. Each competitor is only allowed to win a maximum of one t-shirt.
-</p>
-
-<p>
-    Weekly Prize: The three competitors with the highest weekly placement points will win the following
+    <strong>Weekly Prize:</strong> The three competitors with the highest weekly placement points will win the following
     cash prizes:
-    1st place weekly prize - $500
-    2nd place weekly prize - $300
-    3rd place weekly prize - $100
-    Series Prize: The three competitors with the highest cumulative placement points across all 3 weeks
+    <ul>
+        <li>1st place weekly prize - $500</li>
+        <li>2nd place weekly prize - $300</li>
+        <li>3rd place weekly prize - $100</li>
+    </ul>
+    <strong>Series Prize</strong>: The three competitors with the highest cumulative placement points across all 3 weeks
     of competition will win the following cash prizes:
-    1st place prize - $5,000
-    2nd place prize - $2,500
-    3rd place prize - $1,000
+    <ul>
+        <li>1st place prize - $5,000</li>
+        <li>2nd place prize - $2,500</li>
+        <li>3rd place prize - $1,000</li>
+    </ul>
 </p>
 
 <p>
     <h3>Eligibility</h3>
     You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements.
     In addition, you must fit into one of the following categories.
-</p>
-
-<p>
+    <br/><br/>
     If you reside in the United States, you must be either:
-    A US Citizen
-    A Lawful Permanent Resident of the US
-    A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
-    permitting unrestricted employment in the U.S.
+    <ul>
+        <li>A US Citizen</li>
+        <li>A Lawful Permanent Resident of the US</li>
+        <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card
+            permitting unrestricted employment in the U.S.
+        </li>
+    </ul>
+    <br/>
     If you do not reside in the United States:
-    You must be authorized to perform services as an independent contractor. (Note: In most cases you
-    will not need to do anything to become authorized)
+    <ul>
+        <li>You must be authorized to perform services as an independent contractor. (Note: In most cases you
+            will not need to do anything to become authorized)
+        </li>
+    </ul>
 </p>
 
 
