@@ -127,9 +127,8 @@
                 <td>
                     <strong>Most Problems Best Scores</strong><br/>
                     This chart shows the competitors that have most best scores for a problem.<br/>
-                    <a href="/stat?c=most_best_score">Overall</a> |
-                    <a href="/stat?c=most_best_score&amp;dns=1">Division I</a> |
-                    <a href="/stat?c=most_best_score&amp;dns=2">Division II</a>
+                    <a href="/stat?c=most_best_score&amp;dn=1">Division I</a> |
+                    <a href="/stat?c=most_best_score&amp;dn=2">Division II</a>
                 </td>
                 <td>
                 </td>
