@@ -60,10 +60,10 @@
     <tr><td class="title" colspan="5">Most Problem Best Scores.</td></tr>
     <tr>
         <td class="headerC">Rank</td>
-        <td class="header"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="5" includeParams="true" excludeParams="c"/>">Coder</A></td>
-		<td class="headerR"># Events<br>Competed</td>
-		<td class="headerR">Avg Best Scores<br>Per Event</td>
-        <td class="headerR">Number Of<br>Best Scores</td>
+        <td class="header"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="4" includeParams="true" excludeParams="c"/>">Coder</A></td>
+        <td class="headerR"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="2" includeParams="true" excludeParams="c"/>"># Events<br>Competed</A></td>
+        <td class="headerR"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="3" includeParams="true" excludeParams="c"/>">Avg Best Scores<br>Per Event</A></td>
+        <td class="headerR"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="1" includeParams="true" excludeParams="c"/>">Number Of<br>Best Scores</A></td>
     </tr>
 </thead>
 <tbody>
