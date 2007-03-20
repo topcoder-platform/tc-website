@@ -69,7 +69,7 @@
 <tbody>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="resultRow">
-    <% double avg = resultRow.getDoubletem("best_scores") /  resultRow.getDoubleItem("events"); 
+    <% double avg = resultRow.getDoubleItem("best_scores") /  resultRow.getDoubleItem("events"); 
        String avgStr = new java.text.DecimalFormat("#.###").format(avg); %>
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
