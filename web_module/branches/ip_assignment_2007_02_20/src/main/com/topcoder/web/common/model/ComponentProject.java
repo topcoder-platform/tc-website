@@ -2,6 +2,8 @@ package com.topcoder.web.common.model;
 
 
 /**
+ * Simplified bean to represent a component project
+ * 
  * @author pulky
  */
 public class ComponentProject extends Base {

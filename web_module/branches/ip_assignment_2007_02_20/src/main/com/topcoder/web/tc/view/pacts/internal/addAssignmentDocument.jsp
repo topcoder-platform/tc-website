@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,
-				 com.topcoder.web.common.BaseProcessor,
-				 java.util.HashMap" %>
+                 com.topcoder.web.common.BaseProcessor,
+                 java.util.HashMap" %>
 
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -25,7 +25,7 @@
 <script type="text/javascript">
 
 function doSearch(mustSearch, firstLoad) {
-	var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectAssignmentDocumentTypeReference');
+    var ajaxRequest = new AjaxRequest('/PactsInternalServlet?module=SelectAssignmentDocumentTypeReference');
     
     if (mustSearch) {
         ajaxRequest.addNamedFormElements("search_text");
@@ -112,20 +112,15 @@ function loaded() {
 
 
 
-<c:set var="user" value="${requestScope.user}"/>
-<c:set var="assignmentDocumentId" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_ID) %>" />
-<c:set var="typeList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_TYPE_LIST) %>" />
-<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_STATUS_LIST) %>" />
 <c:set var="defaultTypeId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_type_id")) %>" />
 <c:set var="defaultStatusId" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("assignment_document_status_id")) %>" />
-<c:set var="reference_description" value='<%= request.getAttribute("reference_description") %>' />
 <c:set var="reference_id" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("reference_id")) %>" />
 
 
 
 <h1>PACTS</h1>
 <c:choose>
-    <c:when test="${assignmentDocumentId > 0}">
+    <c:when test="${assignment_document_id > 0}">
         <h2>Update Assignment Document</h2>
     </c:when>
     <c:otherwise>
@@ -135,44 +130,44 @@ function loaded() {
 
 <form name='f' action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
-  <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignmentDocumentId}"/>
+  <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document_id}"/>
   <input type="hidden" name="module" value="AddAssignmentDocument"/>
 
-		<table cellpadding="5" cellspacing="5" border="0">
-		<tr id="errorsTr">
-	        <td colspan="2">
-    	    	<tc-webtag:errorIterator id="err" name="error">
-    	    		<font color="#FF0000"><%=err%></font><br/>
-    	    	</tc-webtag:errorIterator>
-        	</td>
+        <table cellpadding="5" cellspacing="5" border="0">
+        <tr id="errorsTr">
+            <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="error">
+                    <font color="#FF0000"><%=err%></font><br/>
+                </tc-webtag:errorIterator>
+            </td>
         </tr>
-		<tr>
-			<td><b>User</b></td>
-			<td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></a></td>			
-		</tr>
-		<tr>		
-			<td><b>Type:</b></td>
-			<td>
-				<SELECT CLASS="dropdown" NAME="assignment_document_type_id" onChange="typeChanged()">
-				    <c:forEach items="${typeList}" var="typeItem">
-				        <OPTION value='${typeItem.id}' <c:if test="${typeItem.id == defaultTypeId}">selected</c:if>>
-				        	${typeItem.description}
-				        </OPTION>
-					</c:forEach>
-				</SELECT>
-			</td>
-		</tr>
+        <tr>
+            <td><b>User</b></td>
+            <td><a href="${pacts:viewUser(user.id)}"><c:out value="${user.handle}" /></a></td>          
+        </tr>
+        <tr>        
+            <td><b>Type:</b></td>
+            <td>
+                <SELECT CLASS="dropdown" NAME="assignment_document_type_id" onChange="typeChanged()">
+                    <c:forEach items="${assignment_document_type_list}" var="typeItem">
+                        <OPTION value='${typeItem.id}' <c:if test="${typeItem.id == defaultTypeId}">selected</c:if>>
+                            ${typeItem.description}
+                        </OPTION>
+                    </c:forEach>
+                </SELECT>
+            </td>
+        </tr>
         <tr id="selectReference">
             <c:if test="${not empty reference_description}">    
                 <td><b>Reference:</b></td>      
                 <td><c:out value="${reference_description}" />
                 <c:choose>
-                    <c:when test="${assignmentDocumentId > 0}">
+                    <c:when test="${assignment_document_id > 0}">
                         <input type="hidden" name="search_list" value="${reference_id}"/>
                         <input type="button" value="change" onClick="typeChanged()" />
                     </c:when>
                     <c:otherwise>
-            	        <input type="text" name="search_text"/>
+                        <input type="text" name="search_text"/>
                         <input type="button" value="search" onClick="doSearch(true, false)" />
                     </c:otherwise>
                 </c:choose>
@@ -182,30 +177,30 @@ function loaded() {
         <tr>        
             <td><b>Submission title:</b></td>
             <td>
-    	        <tc-webtag:textInput name="submission_title" id="submission_title" editable="true" /> 
+                <tc-webtag:textInput name="submission_title" id="submission_title" editable="true" /> 
             </td>
         </tr>
-		<tr>		
-			<td><b>Status:</b></td>
-			<td>
-				<SELECT CLASS="dropdown" NAME="assignment_document_status_id">
-				    <c:forEach items="${statusList}" var="statusItem">
-				        <OPTION value='${statusItem.id}' <c:if test="${statusItem.id == defaultStatusId}">selected</c:if>>
-				        	${statusItem.description}
-				        </OPTION>
-					</c:forEach>
-				</SELECT>
-			</td>
-		</tr>
-        <c:if test="${assignmentDocumentId == 0}">
+        <tr>        
+            <td><b>Status:</b></td>
+            <td>
+                <SELECT CLASS="dropdown" NAME="assignment_document_status_id">
+                    <c:forEach items="${assignment_document_status_list}" var="statusItem">
+                        <OPTION value='${statusItem.id}' <c:if test="${statusItem.id == defaultStatusId}">selected</c:if>>
+                            ${statusItem.description}
+                        </OPTION>
+                    </c:forEach>
+                </SELECT>
+            </td>
+        </tr>
+        <c:if test="${assignment_document_id == 0}">
             <tr>
-    	        <td><b>Text:</b>
-    	        </td>
-    	        <td>        
-    		        <br/>
-    				<tc-webtag:textArea name="assignment_document_text" rows="10" cols="70"/>
-    			</td>
-    		</tr>
+                <td><b>Text:</b>
+                </td>
+                <td>        
+                    <br/>
+                    <tc-webtag:textArea name="assignment_document_text" rows="10" cols="70"/>
+                </td>
+            </tr>
         </c:if>
         <tr>
             <td><b>Hard Copy:</b>
@@ -216,17 +211,17 @@ function loaded() {
             </td>
         </tr>
         <tr>
-	        <td><b>Expiration Date:</b></td><td>
-	        <tc-webtag:textInput name="expire_date" id="expire_date" size="12" editable="true" /> 
-	            <button id="trigger_expire_date">Set</button> If left empty it is set to current date + 7 (has hard copy) or current date + 30 days (no hard copy)
-	        </td>            
-		</tr>		
+            <td><b>Expiration Date:</b></td><td>
+            <tc-webtag:textInput name="expire_date" id="expire_date" size="12" editable="true" /> 
+                <button id="trigger_expire_date">Set</button> If left empty it is set to current date + 7 (has hard copy) or current date + 30 days (no hard copy)
+            </td>            
+        </tr>       
         <tr>
-	        <td><b>Affirmed Date:</b></td><td>
-	        <tc-webtag:textInput name="affirmed_date" id="affirmed_date" size="12" editable="true" /> 
-	            <button id="trigger_affirmed_date">Set</button> (set to current date if left empty and status is affirmed)
-	        </td>            
-		</tr>		
+            <td><b>Affirmed Date:</b></td><td>
+            <tc-webtag:textInput name="affirmed_date" id="affirmed_date" size="12" editable="true" /> 
+                <button id="trigger_affirmed_date">Set</button> (set to current date if left empty and status is affirmed)
+            </td>            
+        </tr>       
 </table>
 
 <script language="javascript" type="text/javascript">

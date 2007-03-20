@@ -46,9 +46,6 @@
 
                 <mapping resource="com/topcoder/web/common/model/Answer.hbm.xml"/>
 
-                <mapping resource="com/topcoder/web/common/model/AssignmentDocumentStatus.hbm.xml"/>
-                <mapping resource="com/topcoder/web/common/model/AssignmentDocumentType.hbm.xml"/>
-
         <mapping resource="com/topcoder/web/common/model/Coder.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/CoderImage.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/CoderReferral.hbm.xml"/>

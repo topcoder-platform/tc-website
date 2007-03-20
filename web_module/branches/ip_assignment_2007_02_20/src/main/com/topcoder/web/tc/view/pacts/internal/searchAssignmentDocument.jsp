@@ -82,9 +82,7 @@ function loaded() {
 </p>
 </div>
 
-<c:set var="typeList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_TYPE_LIST) %>" />
-<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_STATUS_LIST) %>" />
-<c:set var="reference_description" value='<%= request.getAttribute("reference_description") %>' />
+
 <c:set var="reference_id" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("reference_id")) %>" />
 
 <h1 align="center">PACTS</h1>
@@ -106,7 +104,7 @@ function loaded() {
         			<td>
         				<SELECT CLASS="dropdown" NAME="assignment_document_type_id" onChange="typeChanged()">
         			        <OPTION value='0' selected>Any</OPTION>
-        				    <c:forEach items="${typeList}" var="typeItem">
+        				    <c:forEach items="${assignment_document_type_list}" var="typeItem">
         				        <OPTION value='${typeItem.id}'>
         				        	${typeItem.description}
         				        </OPTION>
@@ -142,7 +140,7 @@ function loaded() {
         			<td>
         				<SELECT CLASS="dropdown" NAME="assignment_document_status_id">
                             <OPTION value='0' selected>Any</OPTION>
-        				    <c:forEach items="${statusList}" var="statusItem">
+        				    <c:forEach items="${assignment_document_status_list}" var="statusItem">
         				        <OPTION value='${statusItem.id}'>
         				        	${statusItem.description}
         				        </OPTION>

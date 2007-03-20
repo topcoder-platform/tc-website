@@ -11,8 +11,6 @@
     </head>
     <body>
 
-        <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.ASSIGNMENT_DOCUMENT_TYPE_LIST) %>" />
-
         <h1>PACTS</h1>
         <h2 align="center">Create Assignment Document Template</h2>
 
@@ -24,7 +22,7 @@
                     <tr>
                         <td align="center">
                             <SELECT CLASS="dropdown" NAME="assignment_document_type_id"">
-                                <c:forEach items="${typeList}" var="typeItem">
+                                <c:forEach items="${assignment_document_type_list}" var="typeItem">
                                     <OPTION value='${typeItem.id}' <c:if test="${typeItem.id == defaultTypeId}">selected</c:if>>
                                         ${typeItem.description}
                                     </OPTION>

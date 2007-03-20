@@ -2,6 +2,8 @@ package com.topcoder.web.common.model;
 
 
 /**
+ * Simplified bean to represent a Studio contest
+ * 
  * @author pulky
  */
 public class StudioContest extends Base {

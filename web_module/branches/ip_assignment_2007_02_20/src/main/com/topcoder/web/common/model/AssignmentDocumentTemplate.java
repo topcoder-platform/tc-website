@@ -16,7 +16,6 @@ import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserProfileBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UserDemographics;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 
 
@@ -92,10 +91,6 @@ public class AssignmentDocumentTemplate extends Base {
     
             tc.addTag(a);
     
-            log.info("changed!!!!");
-            log.info("ad.getSubmissionTitle().toString(): " + ad.getSubmissionTitle().toString());
-            log.info(tc.getXML(false, 2));
-
             TransformerFactory tFactory = TransformerFactory.newInstance();
             StringReader xmlIn = new StringReader(tc.getXML(false));
             StringReader xslIn = new StringReader(text);
