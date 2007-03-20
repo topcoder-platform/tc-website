@@ -10,10 +10,10 @@ import java.io.Serializable;
  *          Create Date: Jul 28, 2006
  */
 public class ContestConfig extends Base {
-    Contest contest;
-    ContestProperty property;
-    String value;
-    Identifier id = new Identifier();
+    private Contest contest;
+    private ContestProperty property;
+    private String value;
+    private Identifier id = new Identifier();
 
 
     public Contest getContest() {
