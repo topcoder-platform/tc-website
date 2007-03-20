@@ -63,11 +63,11 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
         getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
 
         String submissionTitle = getRequest().getParameter("submission_title");
-        if (submissionTitle == null || submissionTitle.trim().length() == 0) {
+        if (hasParameter("submission_title") && submissionTitle.trim().length() == 0) {
             addError("error", "Please enter a text for the submission title.");
         }
 
-        if (submissionTitle != null) {
+        if (hasParameter("submission_title")) {
 
             String assignmentDocumentText = getRequest().getParameter("assignment_document_text");
 
