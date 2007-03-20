@@ -5,7 +5,9 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
@@ -31,6 +33,7 @@ import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.FilePath;
 import com.topcoder.web.studio.model.MimeType;
+import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionType;
 import com.topcoder.web.studio.validation.SubmissionValidator;
@@ -72,6 +75,11 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
 
                 UploadedFile submissionFile = r.getUploadedFile(Constants.SUBMISSION);
 
+                // for final submissions only zip files are allowed.
+                StudioFileType sft = cFactory.getFileTypeDAO().find(StudioFileType.ZIP_ARCHIVE_TYPE_ID);
+                Set ft = new HashSet();
+                ft.add(sft);
+                c.setFileTypes(ft);
                 //do validation
                 ValidationResult submissionResult = new SubmissionValidator(c).validate(new ObjectInput(submissionFile));
                 if (!submissionResult.isValid()) {
