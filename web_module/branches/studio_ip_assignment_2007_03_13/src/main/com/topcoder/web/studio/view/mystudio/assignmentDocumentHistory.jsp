@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.web.studio.controller.request.AssignmentDocumentHistory" %>
+<%@ page import="com.topcoder.web.studio.controller.request.mystudio.AssignmentDocumentHistory" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.common.model.AssignmentDocumentStatus" %>
@@ -11,8 +11,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<c:set var="fullList" value="<%= request.getAttribute(AssignmentDocumentHistory.FULL_LIST) %>"/>
-<c:set var="assignment_documents" value="<%= request.getAttribute(AssignmentDocumentHistory.ASSIGNMENT_DOCUMENTS) %>"/>
 <c:set value="<%=AssignmentDocumentHistory.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
 <c:set value="<%=DataAccessConstants.END_RANK%>" var="endRank"/>

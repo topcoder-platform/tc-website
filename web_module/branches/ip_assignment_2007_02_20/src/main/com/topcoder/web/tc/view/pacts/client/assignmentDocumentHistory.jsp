@@ -19,7 +19,6 @@
 
 <c:set var="PENDING_STATUS_ID" value="<%= AssignmentDocumentStatus.PENDING_STATUS_ID + "" %>" />
 <c:set var="AFFIRMED_STATUS_ID" value="<%= AssignmentDocumentStatus.AFFIRMED_STATUS_ID + "" %>" />
-<c:set var="REJECTED_STATUS_ID" value="<%= AssignmentDocumentStatus.REJECTED_STATUS_ID + "" %>" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -151,14 +150,6 @@
                         <td class="valueC">
                             <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
                                 Affirmed on<br><fmt:formatDate value="${ad.affirmedDate}" pattern="MM/dd/yyyy"/>
-                            </a>                
-                        </td>
-                        <td class="valueC">&nbsp;</td>
-                    </c:when>
-                    <c:when test="${ad.status.id == REJECTED_STATUS_ID}">
-                        <td class="valueC">
-                            <a href="/PactsMemberServlet?module=AssignmentDocumentDetails&assignment_document_id=${ad.id}">
-                                Rejected
                             </a>                
                         </td>
                         <td class="valueC">&nbsp;</td>

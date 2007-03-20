@@ -15,8 +15,6 @@ public class CreateAssignmentDocumentTemplate extends BaseProcessor implements P
 
     protected void businessProcessing() throws TCWebException {
         try {
-            // TODO: pulky: populate the textbox with the latest template (via ajax)
-            
             DataInterfaceBean dib = new DataInterfaceBean();
             List types = dib.getAssignmentDocumentTypes();
             getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TYPE_LIST, types);
