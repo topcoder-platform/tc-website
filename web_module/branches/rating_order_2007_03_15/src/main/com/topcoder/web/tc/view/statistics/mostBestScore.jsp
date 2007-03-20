@@ -57,7 +57,7 @@
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
 <thead>
-    <tr><td class="title" colspan="5">Most Best Scores.</td></tr>
+    <tr><td class="title" colspan="5">Most Problem Best Scores.</td></tr>
     <tr>
         <td class="headerC">Rank</td>
         <td class="header">Coder</td>
