@@ -39,7 +39,7 @@ public class AffirmAssignmentDocument extends BaseProcessor  {
             
             PactsServicesLocator.getService().affirmAssignmentDocument(ad);
             
-            setNextPage("/admin/?module=AssignmentDocumentHistory");
+            setNextPage("/legal/?module=AssignmentDocumentHistory");
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);

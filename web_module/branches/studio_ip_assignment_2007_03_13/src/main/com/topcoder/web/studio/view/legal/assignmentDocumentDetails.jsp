@@ -20,7 +20,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
-    <jsp:include page="style.jsp">
+    <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     <script type="text/javascript" src="/js/popup.js"></script>
@@ -32,8 +32,8 @@
 
 <div align="center">
 <div id="contentOut" class="contentOut">
-<jsp:include page="top.jsp"/>
-<jsp:include page="topNav.jsp">
+<jsp:include page="../top.jsp"/>
+<jsp:include page="../topNav.jsp">
     <jsp:param name="node" value="contests"/>
 </jsp:include>
 <div id="contentIn" class="contentIn">
@@ -123,7 +123,7 @@
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
 </div>
-<jsp:include page="foot.jsp"/>
+<jsp:include page="../foot.jsp"/>
 <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
 </div>
 </div>

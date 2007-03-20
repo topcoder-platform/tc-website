@@ -36,7 +36,7 @@ public class AssignmentDocumentDetails extends BaseProcessor {
 
             getRequest().setAttribute("has_hard_copy", hasHardCopy);
             
-            setNextPage("/admin/assignmentDocumentDetails.jsp");
+            setNextPage("/legal/assignmentDocumentDetails.jsp");
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);

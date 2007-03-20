@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <head>
-    <jsp:include page="/script.jsp"/>
+    <jsp:include page="../script.jsp"/>
 
     <title>Assignment Document Text</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

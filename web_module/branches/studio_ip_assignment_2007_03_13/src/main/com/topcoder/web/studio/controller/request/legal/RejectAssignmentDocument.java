@@ -41,7 +41,7 @@ public class RejectAssignmentDocument extends BaseProcessor {
             
             PactsServicesLocator.getService().rejectAssignmentDocument(ad);
             
-            setNextPage("/admin/?module=AssignmentDocumentHistory");
+            setNextPage("/legal/?module=AssignmentDocumentHistory");
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);

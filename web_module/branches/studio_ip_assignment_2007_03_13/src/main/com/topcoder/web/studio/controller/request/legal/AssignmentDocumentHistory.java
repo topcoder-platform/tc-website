@@ -73,7 +73,7 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             getRequest().setAttribute(ASSIGNMENT_DOCUMENTS, result);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
-            setNextPage("/admin/assignmentDocumentHistory.jsp");
+            setNextPage("/legal/assignmentDocumentHistory.jsp");
             setIsNextPageInContext(true);
         	
         } catch (Exception e) {
