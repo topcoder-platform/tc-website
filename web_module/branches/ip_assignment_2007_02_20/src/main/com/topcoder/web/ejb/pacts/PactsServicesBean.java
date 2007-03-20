@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.pacts;
 
-import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -1294,7 +1293,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List getAssignmentDocumentTypes() throws SQLException {
-        //List assignmentDocumentTypes = DAOUtil.getFactory().getAssignmentDocumentTypesDAO().findAll();
         List assignmentDocumentTypes = new ArrayList();
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT assignment_document_type_id, assignment_document_type_desc FROM assignment_document_type_lu ORDER BY 2");
@@ -1321,7 +1319,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List getAssignmentDocumentStatus() throws SQLException {
-        //List assignmentDocumentStatus =  DAOUtil.getFactory().getAssignmentDocumentStatusDAO().findAll();
         List assignmentDocumentStatus = new ArrayList();
         StringBuffer sb = new StringBuffer(300);
         sb.append("SELECT assignment_document_status_id, assignment_document_status_desc FROM assignment_document_status_lu ORDER BY 2");
@@ -1341,6 +1338,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return assignmentDocumentStatus;
     }
     
+    /**
+     * Helper method to create the assignment document bean
+     *
+     * @param conn the connection to use
+     * @param rsr the ResultSetRow retrieved
+     * @return The Assignment Document bean
+     * @throws SQLException If there is some problem retrieving the data
+     */
     private AssignmentDocument createAssignmentDocumentBean(Connection conn, ResultSetRow rsr) throws SQLException {
         AssignmentDocument ad = new AssignmentDocument();
         ad.setId(new Long(rsr.getLongItem("assignment_document_id")));
@@ -1382,6 +1387,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return ad;
     }
 
+    /**
+     * Helper method to create the SQL select to find assignment document 
+     *
+     * @return The SQL select to find assignment document
+     */
     private StringBuffer getAssignmentDocumentSelect() {
         StringBuffer sb = new StringBuffer(100);
         sb.append("select ");
@@ -1408,8 +1418,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns the list of all assignment document status.
+     * Find assignment documents
      *
+     * @param searchCriteria The map containing the search criteria
      * @return The list of assignment document status
      * @throws SQLException If there is some problem retrieving the data
      */
@@ -1503,9 +1514,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
-     * Returns the list of all assignment document status.
+     * Gets a Assignment Document using its ID
      *
-     * @return The list of assignment document status
+     * @param assignmentDocumentId the Assignment Document id to find
+     * @return The Assignment Document
      * @throws SQLException If there is some problem retrieving the data
      */
     public AssignmentDocument getAssignmentDocument(long assignmentDocumentId) {
@@ -1529,6 +1541,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    /**
+     * Gets a list of Assignment Documents using its project id
+     *
+     * @param projectId the Assignment Document's project id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
     public List getAssignmentDocumentByProjectId(long projectId) {
         log.debug("get the assignment document from the db (project_id)");
 
@@ -1544,6 +1563,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    /**
+     * Returns whether a user has a hard copy of an assignmet document
+     *
+     * @param userId the Assignment Document's user id to find
+     * @param assignmentDocumentTypeId the Assignment Document's type id to find
+     * @return true if the user has a hard copy assignment document
+     * @throws SQLException If there is some problem retrieving the data
+     */
     public Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId) {
         log.debug("check if user has a hard copy assignment document (project_id)");
 
@@ -1560,6 +1587,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    /**
+     * Gets a list of Assignment Documents using its user id
+     *
+     * @param userId the Assignment Document's user id to find
+     * @param assignmentDocumentTypeId the Assignment Document's type id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
     public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) {
         log.debug("get the assignment document from the db (user_id : " + userId + " / typeId : " + assignmentDocumentTypeId + ")");
 
@@ -1577,6 +1612,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    /**
+     * Gets a list of Assignment Documents using its user id and project id
+     *
+     * @param userId the Assignment Document's user id to find
+     * @param projectId the Assignment Document's project id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
     public List getAssignmentDocumentByUserIdProjectId(long userId, long projectId) {
         log.debug("get the assignment document from the db (user_id, project_id)");
 
@@ -1594,6 +1637,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
+    /**
+     * Gets a list of Assignment Documents using its user id and studio contest id
+     *
+     * @param userId the Assignment Document's user id to find
+     * @param assignmentDocumentTypeId the Assignment Document's studio contest id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
     public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) {
         log.debug("get the assignment document from the db (user_id, studio_contest_id)");
 
@@ -1610,7 +1661,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-
+    /**
+     * Gets the transformed text of an assignment document
+     *
+     * @param ad the Assignment Document to transform
+     * @param assignmentDocumentTypeId the Assignment Document's type id
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
     public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) {
         AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(null, assignmentDocumentTypeId);
         
@@ -1618,9 +1676,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
     
     /**
-     * Returns the list of all assignment document status.
+     * Returns an assignment document template
      *
-     * @return The list of assignment document status
+     * @param conn the Connection to use
+     * @param assignmentDocumentTypeId the Assignment Document's type id
+     * @return The required assignment document template
      * @throws SQLException If there is some problem retrieving the data
      */
     public AssignmentDocumentTemplate getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTypeId) {
@@ -1674,6 +1734,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    /**
+     * Inserts or updates an assignment document to the DB
+     *
+     * @param ad the Assignment Document to store
+     * @return The stored assignment document template
+     * @throws DeleteAffirmedAssignmentDocumentException If there's an attempt to delete an affirmed assignment document
+     */
     public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
         Connection conn = null;
 
@@ -1688,6 +1755,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    /**
+     * Inserts or updates an assignment document to the DB
+     *
+     * @param conn the Connection to use
+     * @param ad the Assignment Document to store
+     * @return The stored assignment document template
+     * @throws DeleteAffirmedAssignmentDocumentException If there's an attempt to delete an affirmed assignment document
+     */
     public AssignmentDocument addAssignmentDocument(Connection c, AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -1828,8 +1903,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(1, ad.getId().longValue());
             ps.setLong(2, ad.getType().getId().longValue());
             ps.setLong(3, ad.getStatus().getId().longValue());
-            log.debug("ad.isHardCopy() : " + ad.isHardCopy());
-            log.debug("0/1? : " + ((ad.isHardCopy() != null && ad.isHardCopy().booleanValue()) ? 1 : 0));
             ps.setInt(4, (ad.isHardCopy() != null && ad.isHardCopy().booleanValue()) ? 1 : 0);
             ps.setString(5, ad.getSubmissionTitle());
             ps.setLong(6, ad.getUser().getId().longValue());
@@ -1868,6 +1941,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
+    /**
+     * Marks an assignment document as deleted
+     *
+     * @param ad the Assignment Document to store
+     * @throws DeleteAffirmedAssignmentDocumentException If there's an attempt to delete an affirmed assignment document
+     */
     public void deleteAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -1921,6 +2000,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     
+    /**
+     * Marks an assignment document as affirmed
+     *
+     * @param ad the Assignment Document to store
+     * @throws DeleteAffirmedAssignmentDocumentException If there's an attempt to delete an affirmed assignment document
+     */
     public void affirmAssignmentDocument(AssignmentDocument ad) {
         // validate
         if (ad.getId() == null) {
@@ -1985,6 +2070,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }        
     }
 
+    /**
+     * Helper method to update assignment document's related payments status.
+     *
+     * @param c the Connection to use
+     * @param ad the Assignment Document to update
+     * @param statusId the status id to update to
+     * @throws Exception If there's an error
+     */
     private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad, int statusId) throws Exception {
         StringBuffer updatePaymentStatus = new StringBuffer(300);
         if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
