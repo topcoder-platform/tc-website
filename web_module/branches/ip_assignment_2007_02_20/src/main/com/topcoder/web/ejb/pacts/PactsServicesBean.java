@@ -1797,13 +1797,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 query.append("assignment_document_id , ");
                 query.append("assignment_document_type_id , ");
                 query.append("assignment_document_status_id , ");
-                query.append("assignment_document_text , ");
                 query.append("assignment_document_hard_copy_ind , ");
                 query.append("assignment_document_submission_title , ");
                 query.append("user_id , ");
                 query.append("studio_contest_id , ");
                 query.append("component_project_id , ");
                 query.append("affirmed_date , ");
+                query.append("assignment_document_text , ");
                 query.append("expire_date , ");
                 query.append("modify_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current)");
     
