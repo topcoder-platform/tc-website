@@ -1,14 +1,13 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Date;
+
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionType;
-
-import java.util.Date;
 
 /**
  * @author dok

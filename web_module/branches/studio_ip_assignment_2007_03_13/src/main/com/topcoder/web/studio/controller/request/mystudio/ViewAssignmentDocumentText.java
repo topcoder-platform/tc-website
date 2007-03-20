@@ -30,7 +30,7 @@ public class ViewAssignmentDocumentText extends BaseProcessor {
                 throw new IllegalArgumentException("This AD doesn't belong to the logged user");  
             }
 
-            // if ad status is pending, the stored text is empty and therefore the template needs to be retrieved and transformed.
+            // if ad status is pending or expired, the stored text is empty and therefore the template needs to be retrieved and transformed.
             if ((ad.getText() == null || ad.getText().trim().length() == 0) && 
                 (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID) || 
                  ad.getStatus().getId().equals(AssignmentDocumentStatus.EXPIRED_STATUS_ID))) {

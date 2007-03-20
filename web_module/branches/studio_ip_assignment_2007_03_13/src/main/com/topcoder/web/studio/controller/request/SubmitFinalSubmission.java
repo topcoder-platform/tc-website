@@ -69,7 +69,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
             } else if (!isWinner(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE)) {
                 throw new NavigationException("User cannot upload final submissions");
             } else {
-                //registered
+                //registered and winner
 
                 MultipartRequest r = (MultipartRequest) getRequest();
 

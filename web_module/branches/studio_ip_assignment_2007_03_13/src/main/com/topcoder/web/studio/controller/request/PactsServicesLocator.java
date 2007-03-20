@@ -14,6 +14,7 @@ import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesHome;
 
 /**
+ * Locator for pacts services
  */
 public class PactsServicesLocator {
     private static PactsServicesHome home;

@@ -24,15 +24,10 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
         boolean isWinner = false;
         for (Iterator it = submissions.iterator(); it.hasNext() && !isWinner;) {
             Submission s = (Submission) it.next();
-            log.debug("sub:" + s.getId());
             ContestResult curr;
             for (Iterator it2 = s.getContest().getResults().iterator(); it2.hasNext() && !isWinner;) {
                 curr = (ContestResult) it2.next();
-                log.debug("Prize: " + curr.getPrize() + "sub:" + curr.getSubmission().getId());
                 isWinner = s.equals(curr.getSubmission()) && curr.getPrize().getPlace() != null;
-                if (isWinner) {
-                    log.debug("user has got place: " + curr.getPrize().getPlace());
-                }
             }
         }
         return isWinner;

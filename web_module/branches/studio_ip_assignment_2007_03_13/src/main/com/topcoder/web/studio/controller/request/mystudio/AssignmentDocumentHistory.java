@@ -14,6 +14,8 @@ import com.topcoder.web.studio.controller.request.PactsServicesLocator;
 import com.topcoder.web.tc.Constants;
 
 /**
+ * This processor handles the request for the assignment document history for a particular
+ * user providing the links for affirmation.
  *
  * @author  pulky
  */
@@ -48,25 +50,19 @@ public class AssignmentDocumentHistory extends BaseProcessor {
 
             if ("".equals(endRank)) {
                 endRank = String.valueOf(Integer.parseInt(startRank) + 30 - 1);
-                log.debug("endRank1: " + endRank);
             } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
                 endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
-                log.debug("endRank2: " + endRank);
             }
             setDefault(DataAccessConstants.END_RANK, endRank);
 
-            
+            // gets, sorts and crops data.
             List result = PactsServicesLocator.getService().getAssignmentDocumentByUserId(getUser().getId(), 
                     AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID.longValue(), !fullList);
             
             sortResult(result, sortCol, sortAscending);
-
-            log.debug("Integer.parseInt(endRank): " + Integer.parseInt(endRank));
-
             result = cropResult(result, Integer.parseInt(startRank), Integer.parseInt(endRank));
 
-            log.debug("new result size after crop: " + result.size());
-
+            // sets params and defaults
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
             setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
             
@@ -82,7 +78,6 @@ public class AssignmentDocumentHistory extends BaseProcessor {
     }
 
     private List cropResult(List result, int startRank, int endRank) {
-        log.debug("Crop result called: " + result.size() + " / " + startRank + " / " + endRank);
         Boolean croppedDataAfter = Boolean.TRUE;
         if (endRank >= result.size()) {
             endRank = result.size();
@@ -91,8 +86,6 @@ public class AssignmentDocumentHistory extends BaseProcessor {
         getRequest().setAttribute("croppedDataAfter", croppedDataAfter);        
         getRequest().setAttribute("croppedDataBefore", new Boolean(startRank > 1));
         
-        log.debug("(2): " + endRank + " / " + new Boolean(startRank > 1) + " / " + croppedDataAfter);
-
         if (result.size() > 0) {
             return result.subList(startRank - 1, endRank);
         } else {
@@ -103,28 +96,22 @@ public class AssignmentDocumentHistory extends BaseProcessor {
     private void sortResult(List result, int sortCol, boolean sortAscending) {
         switch (sortCol) {
             case SUBMISSION_TITLE_COL:
-                log.debug("Sort results by Submission title");
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        log.debug("1: " + ((AssignmentDocument) arg0).getSubmissionTitle().toLowerCase() + " / " + ((AssignmentDocument) arg1).getSubmissionTitle().toLowerCase() + " : " + ((AssignmentDocument) arg0).getSubmissionTitle().toLowerCase().compareTo(((AssignmentDocument) arg1).getSubmissionTitle().toLowerCase()));
                         return ((AssignmentDocument) arg0).getSubmissionTitle().toLowerCase().compareTo(((AssignmentDocument) arg1).getSubmissionTitle().toLowerCase());
                     }
                 });
                 break;
             case TIME_LEFT_COL:
-                log.debug("Sort results by Time left");
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        log.debug("2: " + ((AssignmentDocument) arg0).getDaysLeftToExpire() + " / " + ((AssignmentDocument) arg1).getDaysLeftToExpire() + " : " + ((AssignmentDocument) arg1).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg0).getDaysLeftToExpire()));
                         return ((AssignmentDocument) arg0).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg1).getDaysLeftToExpire());
                     }
                 });
                 break;
             case STATUS_COL:
-                log.debug("Sort results by Status");
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        log.debug("3: " + ((AssignmentDocument) arg0).getStatus().getDescription().toLowerCase() + " / " + ((AssignmentDocument) arg1).getStatus().getDescription().toLowerCase() + " : " + ((AssignmentDocument) arg0).getStatus().getDescription().toLowerCase().compareTo(((AssignmentDocument) arg1).getStatus().getDescription().toLowerCase()));
                         return ((AssignmentDocument) arg0).getStatus().getDescription().toLowerCase().compareTo(((AssignmentDocument) arg1).getStatus().getDescription().toLowerCase());
                     }
                 });
@@ -134,7 +121,5 @@ public class AssignmentDocumentHistory extends BaseProcessor {
             Collections.reverse(result);
         }
     }
-    
-    
 }
 

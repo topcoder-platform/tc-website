@@ -2,7 +2,6 @@ package com.topcoder.web.studio.controller.request;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 import com.topcoder.shared.security.ClassResource;
@@ -18,10 +17,7 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
-import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.ContestResult;
-import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionType;
 
 /**
@@ -70,10 +66,6 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 ad.setUser(user);
                 ad.setType(new AssignmentDocumentType(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID));
                 ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.PENDING_STATUS_ID));
-
-                log.debug("Status: (a1) " + ad.getStatus());
-                log.debug("Status: (a2) " + ad.getStatus().getId());
-                log.debug("Status: (a3) " + ad.getStatus().getId().longValue());
 
                 ad = PactsServicesLocator.getService().addAssignmentDocument(ad);
             } else {
