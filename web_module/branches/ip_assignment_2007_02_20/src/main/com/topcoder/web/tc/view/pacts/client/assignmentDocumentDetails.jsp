@@ -53,9 +53,8 @@
     
                 <p align="right"><a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">Printer friendly version</a></p>
 
-                <p><iframe  width="100%" height="500" marginWidth="5"
+                <iframe  width="100%" height="500" marginWidth="5" style="margin-bottom: 10px;"
                     src="/tc?module=Static&d1=pacts&d2=client&d3=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
-                </p>
     
                 <div align="center">
 
@@ -68,7 +67,7 @@
                                 <input type="submit" value="Affirm"/>
                             </form>
 
-                            <p>If the personal information in this document is incorrect,<br>please <A href="/reg/?nrg=false">update your profile</A> before accepting.</p>
+                            <p>If the personal information in this document is incorrect,<br>please <A href="/reg/?nrg=false">update your profile</A> before affirming.</p>
                         </c:when>
                         <c:otherwise>
                             <p>
