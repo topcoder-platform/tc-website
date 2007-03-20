@@ -60,17 +60,17 @@
     <tr><td class="title" colspan="5">Most Problem Best Scores.</td></tr>
     <tr>
         <td class="headerC">Rank</td>
-        <td class="header">Coder</td>
+        <td class="header"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="5" includeParams="true" excludeParams="c"/>">Coder</A></td>
 		<td class="headerR"># Events<br>Competed</td>
-		<td class="headerR">avg best scores<br>per event</td>
-        <td class="headerR">Number of<br>best scores</td>
+		<td class="headerR">Avg Best Scores<br>Per Event</td>
+        <td class="headerR">Number Of<br>Best Scores</td>
     </tr>
 </thead>
 <tbody>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="resultRow">
     <% double avg = resultRow.getDoubleItem("best_scores") /  resultRow.getDoubleItem("events"); 
-       String avgStr = new java.text.DecimalFormat("#,###").format(avg); %>
+       String avgStr = new java.text.DecimalFormat("0.000").format(avg); %>
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
         <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
