@@ -1763,8 +1763,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
         
         if (ad.getExpireDate() == null) {
+            Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
+                    ad.getType().getId().longValue());
+
             Calendar dueDateCal = Calendar.getInstance();
-            dueDateCal.add(Calendar.DAY_OF_YEAR, ASSIGNMENT_DOCUMENT_EXPIRATION_PERIOD);
+            dueDateCal.add(Calendar.DAY_OF_YEAR, hasHardCopy.booleanValue() ? ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD : ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD);
             ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
         }
         

@@ -198,7 +198,8 @@ public interface PactsConstants extends Constants {
     public static final String USER_CURRENT_SCHOOL = "user_current_school";
     public static final String COMPONENT_DATA = "component_data";
 
-    public static final int ASSIGNMENT_DOCUMENT_EXPIRATION_PERIOD = 7;
+    public static final int ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD = 7;
+    public static final int ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD = 30;
 
     /*
     public static final String AFFIDAVIT_DETAIL = "affidavit";
