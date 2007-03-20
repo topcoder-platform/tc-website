@@ -11,6 +11,7 @@
 package com.topcoder.dde.catalog;
 
 import com.topcoder.search.*;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.sql.DB;
 import com.topcoder.util.idgenerator.sql.InformixDB;
 
@@ -106,7 +107,7 @@ class CatalogSearchEngine {
         PreparedStatement ps = null;
 
         try {
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             ps = conn.prepareStatement(
                     "delete from word_search where document_id = ?");
             ps.setLong(1, componentId);
