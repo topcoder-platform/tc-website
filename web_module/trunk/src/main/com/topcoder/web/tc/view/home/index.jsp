@@ -239,8 +239,17 @@
                 <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcast20060108.jpg" alt="TCCC Webcast" border="0" style="display:block;"/></A>
                 --%>
 
-                <%-- CSF --%>
+                <%-- CSF
                 <a href="<tc-webtag:linkTracking link='http://csf.topcoder.com' refer='HOMEPAGE' />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
+                 --%>
+                 
+                <%-- Marathon Match Sponsor --%>
+                <map name="mm">
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign" />
+                </map>
+                <img src="/i/home/mmtco2_verisign.png" alt="TCO07 Marathon Match 2 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
+                
                 
                 <%-- SRM SPONSOR 
                 <map name="srm">
