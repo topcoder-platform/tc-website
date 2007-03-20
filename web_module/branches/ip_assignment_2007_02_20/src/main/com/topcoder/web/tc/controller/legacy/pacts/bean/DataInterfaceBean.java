@@ -1779,9 +1779,5 @@ public class DataInterfaceBean implements PactsConstants {
         ps.affirmAssignmentDocument(ad);
     }
 
-    public void rejectAssignmentDocument(AssignmentDocument ad) throws RemoteException {
-        PactsServicesLocal ps = getEjbHandle();
-        ps.rejectAssignmentDocument(ad);
-    }
 }
 

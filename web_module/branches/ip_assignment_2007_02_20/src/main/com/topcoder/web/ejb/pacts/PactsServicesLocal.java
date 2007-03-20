@@ -294,7 +294,5 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     void affirmAssignmentDocument(AssignmentDocument ad);
 
-    void rejectAssignmentDocument(AssignmentDocument ad);
-
 }
 

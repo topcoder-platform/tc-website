@@ -278,8 +278,6 @@ public interface PactsServices extends EJBObject {
 
     public void affirmAssignmentDocument(AssignmentDocument ad) throws RemoteException;
 
-    public void rejectAssignmentDocument(AssignmentDocument ad) throws RemoteException;
-
     public List getAssignmentDocumentByUserIdProjectId(long userId, long projectId) throws RemoteException;
 
     public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) throws RemoteException;

@@ -1763,8 +1763,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
              oldAssignmentDocumentInstance = getAssignmentDocument(ad.getId().longValue());
             
             if (oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
-                (ad.getStatus().getId().equals(AssignmentDocumentStatus.DELETED_STATUS_ID) ||
-                    ad.getStatus().getId().equals(AssignmentDocumentStatus.REJECTED_STATUS_ID))) {
+                (ad.getStatus().getId().equals(AssignmentDocumentStatus.DELETED_STATUS_ID))) {
                 throw new DeleteAffirmedAssignmentDocumentException("Assignment Document cannot be deleted or rejected since it was affirmed");
             }
         }
@@ -1778,11 +1777,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 // or the status is updated to affirmed. (and the text is empty)
                 if ((ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) && 
                    (oldAssignmentDocumentInstance == null || 
-                   !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)))
-                   || 
-                   (ad.getStatus().getId().equals(AssignmentDocumentStatus.REJECTED_STATUS_ID) && 
-                           (oldAssignmentDocumentInstance == null || 
-                                   !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.REJECTED_STATUS_ID)))) {
+                   !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)))) {
 
                     AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue());
                     ad.setText(adt.transformTemplate(ad));
@@ -1990,71 +1985,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }        
     }
 
-    public void rejectAssignmentDocument(AssignmentDocument ad) {
-        // validate
-        if (ad.getId() == null) {
-            throw new IllegalArgumentException("Assignment Document's id cannot be null");
-        }
-
-        try {
-            ad = getAssignmentDocument(ad.getId().longValue());
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Assignment document does not exists");
-        }
-        
-        // deny the operation if the assignment document is affirmed.
-        
-        if (!ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
-            throw new IllegalArgumentException("Assignment Document should be pending");  
-        }
-        
-        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
-                ad.getType().getId().longValue());
-
-        if (!hasHardCopy.booleanValue()) {
-            throw new IllegalArgumentException("You must send a hard copy of the Assignment Document " +
-                    "before you can use this system to reject");  
-        }
-
-        ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.REJECTED_STATUS_ID));
-        ad.setAffirmedDate(null);
-        
-        Connection c = null;
-        try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
-
-            addAssignmentDocument(c, ad);
-            updateAssignmentDocumentPaymentStatus(c, ad, PAYMENT_ON_HOLD_REJECTED_AD_STATUS);
-            
-            c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
-        } catch (Exception e) {
-            printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
-            throw(new EJBException(e.getMessage(), e));
-        }        
-    }
-
-    
     private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad, int statusId) throws Exception {
         StringBuffer updatePaymentStatus = new StringBuffer(300);
         if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {

@@ -9,7 +9,6 @@ public class AssignmentDocumentStatus extends Base {
     public static final Long DELETED_STATUS_ID = new Long(2);
     public static final Long AFFIRMED_STATUS_ID = new Long(3);
     public static final Long EXPIRED_STATUS_ID = new Long(4);
-    public static final Long REJECTED_STATUS_ID = new Long(5);
 
     private Long id;
     private String description;
