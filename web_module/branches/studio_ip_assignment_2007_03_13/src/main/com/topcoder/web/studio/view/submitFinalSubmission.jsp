@@ -100,6 +100,7 @@
                         <p><iframe  width="100%" height="300" marginWidth="5"
                             src="/?module=Static&d1=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                         </p>
+                        <p>
                         <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD_ERROR%>"><span class="bigRed">${err}</span>
                         <br></tc-webtag:errorIterator>
                         <tc-webtag:chkBox name="<%=Constants.ACCEPT_AD%>"/> I accept
@@ -116,14 +117,7 @@
     
             <p>The maximum file size per submission is 2MB.</p>
 
-            <p>Only the following file types will be accepted:</p>
-            <ul>
-                <c:forEach items="${contest.fileTypes}" var="fileType">
-                    <li>
-                            ${fileType.description}
-                    </li>
-                </c:forEach>
-            </ul>
+            <p>Only z ZIP Archive file type will be accepted:</p>
 
             <div align="center">
                 <p>
@@ -146,66 +140,6 @@
 </div>
 
 
-<div style="margin: 40px 0px 20px 0px;">
-<form name="submissionForm" action="#">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
-<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
-<tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_TYPE_ID%>" value="<%=SubmissionType.FINAL_SUBMISSION_TYPE.toString()%>"/>
-
-<div align="center">
-   <strong>In the table below</strong> you can rank your submissions.
-</div>
-
-<br><br>
-<table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
-<thead>
-    <tr>
-        <td class="NW">&nbsp;</td>
-        <td class="title" colspan="7">My Favorites</td>
-        <td class="NE">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="headerW">
-            <div>&nbsp;</div>
-        </td>
-        <td class="headerC">
-            Ranking
-            <div>
-                <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
-            </div>
-        </td>
-        <td class="header" colspan="2" width="33%">
-            Submission
-        </td>
-        <td class="headerC" width="33%">
-            Date Submitted
-        </td>
-        <td class="headerC" width="33%">
-            Passed / Failed
-        </td>
-        <td class="headerC" nowrap>
-            Move Up /<br>Move Down
-        </td>
-        <td class="headerC" nowrap>
-            Move to<br>Top
-        </td>
-        <td class="headerE">
-            <div>&nbsp;</div>
-        </td>
-    </tr>
-</thead>
-<tbody id="submissions">
-    <jsp:include page="submitTableBody.jsp"/>
-</tbody>
-<tfoot>
-    <tr>
-        <td class="SW" colspan="8">&nbsp;</td>
-        <td class="SE">&nbsp;</td>
-    </tr>
-</tfoot>
-</table>
-</form>
-</div>
 
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>

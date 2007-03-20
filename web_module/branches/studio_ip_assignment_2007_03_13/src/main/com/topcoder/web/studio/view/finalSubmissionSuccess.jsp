@@ -84,68 +84,6 @@
                     </div>
                 </div>
 
-                <div style="margin: 40px 0px 20px 0px;">
-                    <form name="submissionForm" action="#">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_TYPE_ID%>" value="<%=SubmissionType.FINAL_SUBMISSION_TYPE.toString()%>"/>
-<div align="center">
-   <strong>In the table below</strong> you can rank your submissions.
-</div>
-<br><br>
-                    <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
-                        <thead>
-                            <tr>
-                                <td class="NW">&nbsp;</td>
-                                <td class="title" colspan="7">My Favorites</td>
-                                <td class="NE">&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td class="headerW">
-                                    <div>&nbsp;</div>
-                                </td>
-                                <td class="headerC">
-                                    Ranking
-                                    <div>
-                                        <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
-                                    </div>
-                                </td>
-                                <td class="header" colspan="2" width="33%">
-                                    Submission
-                                </td>
-                                <td class="headerC" width="33%">
-                                    Date Submitted
-                                </td>
-                                <td class="headerC" width="33%">
-                                    Passed / Failed
-                                </td>
-                                <td class="headerC" nowrap>
-                                    Move Up /<br>Move Down
-                                </td>
-                                <td class="headerC" nowrap>
-                                    Move to<br>Top
-                                </td>
-                                <td class="headerE">
-                                    <div>&nbsp;</div>
-                                </td>
-                            </tr>
-                        </thead>
-                        <tbody id="submissions">
-                            <jsp:include page="submitTableBody.jsp"/>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td class="SW" colspan="8">&nbsp;</td>
-                                <td class="SE">&nbsp;</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                        </form>
-                    <br><br>
-                    <strong>NOTE:</strong> green rows indicate submissions that you have selected to be considered for
-                    this contest
-                </div>
-
-
             </div>
             <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
