@@ -117,7 +117,7 @@
     
             <p>The maximum file size per submission is 2MB.</p>
 
-            <p>Only z ZIP Archive file type will be accepted:</p>
+            <p>Only ZIP Archive file type will be accepted:</p>
 
             <div align="center">
                 <p>
