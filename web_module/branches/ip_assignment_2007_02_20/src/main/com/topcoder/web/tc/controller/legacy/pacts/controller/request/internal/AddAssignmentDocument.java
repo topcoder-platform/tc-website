@@ -61,13 +61,15 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
         // Give the JSP the list of assignment document status
         List assignmentDocumentStatus = dib.getAssignmentDocumentStatus();
         getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
-        
-        String assignmentDocumentText = getRequest().getParameter("assignment_document_text");
-        if (assignmentDocumentText != null) {
-            String submissionTitle = getRequest().getParameter("submission_title");
-            if (submissionTitle.trim().length() == 0) {
-                addError("error", "Please enter a text for the submission title.");
-            }
+
+        String submissionTitle = getRequest().getParameter("submission_title");
+        if (submissionTitle == null || submissionTitle.trim().length() == 0) {
+            addError("error", "Please enter a text for the submission title.");
+        }
+
+        if (submissionTitle != null) {
+
+            String assignmentDocumentText = getRequest().getParameter("assignment_document_text");
 
             if (!hasParameter("search_list")) {
                 addError("error", "Please enter a reference for the assignment document.");
