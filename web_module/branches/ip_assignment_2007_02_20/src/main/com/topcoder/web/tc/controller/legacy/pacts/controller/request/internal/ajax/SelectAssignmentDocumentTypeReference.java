@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.
 
 import java.util.Map;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -28,7 +29,7 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
                 if (search != null) {
                     log.info("search");
                     map = dib.findProjects("%" + search + "%");
-                    if (map.size() > 0) {
+                    if (((ResultSetContainer)map.get(COMPONENT_PROJECT_LIST)).size() > 0) {
                         getRequest().setAttribute("search_values", map.get(COMPONENT_PROJECT_LIST));
                         getRequest().setAttribute("reference_description", "Please select a component project from the list:");
                         getRequest().setAttribute("field_text", "project_desc");
@@ -45,7 +46,7 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
                 if (search != null) {
                     log.info("search");
                     map = dib.findStudioContests("%" + search + "%");
-                    if (map.size() > 0) {
+                    if (((ResultSetContainer)map.get(STUDIO_CONTEST_LIST)).size() > 0) {
                         getRequest().setAttribute("search_values", map.get(STUDIO_CONTEST_LIST));
                         getRequest().setAttribute("reference_description", "Please select a studio contest from the list:");
                         getRequest().setAttribute("field_text", "name");
