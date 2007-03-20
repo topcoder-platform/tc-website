@@ -147,7 +147,7 @@ public class AddAssignmentDocument extends PactsBaseProcessor implements PactsCo
                 date.add(Calendar.DAY_OF_YEAR, ASSIGNMENT_DOCUMENT_DEFAULT_EXPIRATION_PERIOD.intValue());
 
                 setDefault("assignment_document_hard_copy", "false");
-                setDefault("expire_date", new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime()));
+                //setDefault("expire_date", new SimpleDateFormat(DATE_FORMAT_STRING).format(date.getTime()));
                 setDefault("affirmed_date", "");
                 setDefault("reference_id", "0");
                 setDefault("assignment_document_type_id", String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
