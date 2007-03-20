@@ -61,15 +61,15 @@
     <tr>
         <td class="headerC">Rank</td>
         <td class="header">Coder</td>
-		<td class="headerC"># Events<br>Competed</td>
-		<td class="headerC">avg best scores<br>per event</td>
-        <td class="headerC">Number of<br>best scores</td>
+		<td class="headerR"># Events<br>Competed</td>
+		<td class="headerR">avg best scores<br>per event</td>
+        <td class="headerR">Number of<br>best scores</td>
     </tr>
 </thead>
 <tbody>
     <% boolean even = false; %>
     <rsc:iterator list="<%=rsc%>" id="resultRow">
-    <% double avg = resultRow.getIntItem("best_scores") /  resultRow.getIntItem("events"); 
+    <% double avg = resultRow.getDoubletem("best_scores") /  resultRow.getDoubleItem("events"); 
        String avgStr = new java.text.DecimalFormat("#.###").format(avg); %>
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
