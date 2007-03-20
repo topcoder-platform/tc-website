@@ -55,7 +55,7 @@ After Online Round 2 of each region, competitors advancing to Round 3 will recei
 Begin by visiting: 
 <a href="<tc-webtag:linkTracking link='http://www.unitedstatesvisas.gov/obtainingvisa/index.html' refer='TCHS07_VISA' />">www.unitedstatesvisas.gov/obtainingvisa/index.html</a> or find your nearest U.S. Embassy or Consulate: <a href="<tc-webtag:linkTracking link='http://usembassy.state.gov' refer='TCHS07_VISA' />">http://usembassy.state.gov</a> 
 </p>
-<p><b>Remember, if you become a finalist, you MUST show proof of your visa and/or passport before TopCoder will book a flight for you.  If you do not have your visa and/or passport by Wednesday, April 25, 2007, you will be disqualified as a finalist.   Please revisit the tournament rules for more information or email <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>.</b></p>
+<p><b>Remember, if you become a finalist, you MUST show proof of your visa and/or passport to be an eligible finalist.   If you do not have your visa and/or passport by Wednesday, April 25, 2007, you will be disqualified as a finalist. Please revisit the tournament rules for more information or email <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>.</b></p>
         </div>
         <div class="footer">
             Copyright &#169; 2000-2006, TopCoder, Inc. All rights reserved.
