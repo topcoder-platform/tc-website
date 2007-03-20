@@ -65,7 +65,7 @@
                             <form action="/PactsMemberServlet" method="post">
                                 <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
                                 <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
-                                <input type="submit" value="I accept"/>
+                                <input type="submit" value="Affirm"/>
                             </form>
 
                             <p>If the personal information in this document is incorrect,<br>please <A href="/reg/?nrg=false">update your profile</A> before accepting.</p>
