@@ -74,9 +74,9 @@
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
         <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
-        <td class="valueR"><rsc:item row="<%=resultRow%>" name="events"/></td>
-        <td class="valueR"><%= avgStr %></td>
-        <td class="valueR"><b><rsc:item row="<%=resultRow%>" name="best_scores"/></b></td>
+        <td class="valueC"><rsc:item row="<%=resultRow%>" name="events"/></td>
+        <td class="valueC"><%= avgStr %></td>
+        <td class="valueC"><b><rsc:item row="<%=resultRow%>" name="best_scores"/></b></td>
     </tr>
     <% even = !even;%>
     </rsc:iterator>
