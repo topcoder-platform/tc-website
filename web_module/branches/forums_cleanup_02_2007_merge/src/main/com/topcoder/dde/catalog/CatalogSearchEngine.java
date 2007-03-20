@@ -11,6 +11,7 @@
 package com.topcoder.dde.catalog;
 
 import com.topcoder.search.*;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.idgenerator.sql.DB;
 import com.topcoder.util.idgenerator.sql.InformixDB;
 
@@ -19,6 +20,9 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
@@ -45,11 +49,10 @@ class CatalogSearchEngine {
     private static CatalogSearchEngine singleton = null;
 
     private SearchEngine searchEngine;
-
+    private DataSource ds;
 
     private CatalogSearchEngine() {
         searchEngine = new SearchEngine();
-        DataSource ds;
         try {
             Context dsBinding = new InitialContext();
             ds = (DataSource) dsBinding.lookup("java:comp/env/jdbc/DefaultDS");
@@ -95,9 +98,41 @@ class CatalogSearchEngine {
 
     public synchronized void reIndex(long componentId, String words) {
         IndexStrategy indexer = searchEngine.getIndexStrategy(WORDCOUNT);
-        indexer.deleteIdentifier(CATALOG, componentId);
-        indexer.indexDoc(CATALOG, componentId,
-                new InMemoryLoc(words, STRINGPARSE));
+        
+        /* The following deletes should be moved to IndexStrategy.reIndexDoc() */
+        indexer.deleteIdentifier(CATALOG, componentId);  // delete from word_srch_ctgy
+        
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+            ps = conn.prepareStatement(
+                    "delete from word_search where document_id = ?");
+            ps.setLong(1, componentId);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            try {
+                if (ps != null) {
+                    ps.close();
+                } 
+            } catch (SQLException e) {
+                throw new EJBException(e);
+            }
+            try {
+                if (conn != null) {
+                    conn.close();
+                } 
+            } catch (SQLException e) {
+                throw new EJBException(e);
+            }
+        }
+        /* End - deletes to be moved */
+
+        indexer.reIndexDoc(CATALOG, componentId,
+                new InMemoryLoc(words, STRINGPARSE));   
     }
 
     public synchronized void unIndex(long componentId) {
