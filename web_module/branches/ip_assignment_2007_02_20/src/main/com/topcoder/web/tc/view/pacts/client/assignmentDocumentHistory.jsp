@@ -11,8 +11,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
-<c:set var="fullList" value="<%= request.getAttribute(AssignmentDocumentHistory.FULL_LIST) %>"/>
-<c:set var="assignment_documents" value="<%= request.getAttribute(AssignmentDocumentHistory.ASSIGNMENT_DOCUMENTS) %>"/>
 <c:set value="<%=AssignmentDocumentHistory.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
 <c:set value="<%=DataAccessConstants.END_RANK%>" var="endRank"/>

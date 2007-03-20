@@ -22,12 +22,8 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
         try {
             Long type = new Long(getRequest().getParameter("assignment_document_type_id"));
             String search = getRequest().getParameter("search_text");
-            log.info("type: " + type);
-            log.info("search: " + search);
             if (type.equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
-                log.info("component");
                 if (search != null) {
-                    log.info("search");
                     map = dib.findProjects("%" + search + "%");
                     if (((ResultSetContainer)map.get(COMPONENT_PROJECT_LIST)).size() > 0) {
                         getRequest().setAttribute("search_values", map.get(COMPONENT_PROJECT_LIST));
@@ -38,13 +34,10 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
                         getRequest().setAttribute("reference_description", "Enter search text for component name:");
                     }
                 } else {
-                    log.info("no search");
                     getRequest().setAttribute("reference_description", "Enter search text for component name:");
                 }
             } else if (type.equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
-                log.info("studio");
                 if (search != null) {
-                    log.info("search");
                     map = dib.findStudioContests("%" + search + "%");
                     if (((ResultSetContainer)map.get(STUDIO_CONTEST_LIST)).size() > 0) {
                         getRequest().setAttribute("search_values", map.get(STUDIO_CONTEST_LIST));
@@ -55,7 +48,6 @@ public class SelectAssignmentDocumentTypeReference extends BaseProcessor impleme
                         getRequest().setAttribute("reference_description", "Enter search text for studio contest name:");
                     }
                 } else {
-                    log.info("no search");
                     getRequest().setAttribute("reference_description", "Enter search text for studio contest name:");
                 }
             }

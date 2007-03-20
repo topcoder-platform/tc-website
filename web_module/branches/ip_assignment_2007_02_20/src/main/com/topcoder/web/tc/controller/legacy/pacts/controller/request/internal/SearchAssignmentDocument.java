@@ -14,7 +14,6 @@ public class SearchAssignmentDocument extends PactsBaseProcessor implements Pact
     protected void businessProcessing() throws Exception {
             DataInterfaceBean dib = new DataInterfaceBean();
 
-            log.info("3");
             // Give the JSP the list of assignment document Types
             List assignmentDocumentTypes = dib.getAssignmentDocumentTypes();
             getRequest().setAttribute(ASSIGNMENT_DOCUMENT_TYPE_LIST, assignmentDocumentTypes);
@@ -22,7 +21,6 @@ public class SearchAssignmentDocument extends PactsBaseProcessor implements Pact
             // Give the JSP the list of assignment document status
             List assignmentDocumentStatus = dib.getAssignmentDocumentStatus();
             getRequest().setAttribute(ASSIGNMENT_DOCUMENT_STATUS_LIST, assignmentDocumentStatus);
-            log.info("4");
 
             setDefault("reference_id", "0");
             getRequest().setAttribute("reference_description", "");

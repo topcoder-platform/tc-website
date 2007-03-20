@@ -50,10 +50,8 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
 
             if ("".equals(endRank)) {
                 endRank = String.valueOf(Integer.parseInt(startRank) + PactsConstants.ASSIGNMENT_DOCUMENT_HISTORY_PAGE_SIZE - 1);
-                log.debug("endRank1: " + endRank);
             } else if (Integer.parseInt(endRank) - Integer.parseInt(startRank) > Constants.MAX_HISTORY) {
                 endRank = String.valueOf(Integer.parseInt(startRank) + Constants.MAX_HISTORY);
-                log.debug("endRank2: " + endRank);
             }
             setDefault(DataAccessConstants.END_RANK, endRank);
 
@@ -64,11 +62,7 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
             
             sortResult(result, sortCol, sortAscending);
 
-            log.debug("Integer.parseInt(endRank): " + Integer.parseInt(endRank));
-
             result = cropResult(result, Integer.parseInt(startRank), Integer.parseInt(endRank));
-
-            log.debug("new result size after crop: " + result.size());
 
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
             setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
@@ -85,7 +79,6 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
     }
 
     private List cropResult(List result, int startRank, int endRank) {
-        log.debug("Crop result called: " + result.size() + " / " + startRank + " / " + endRank);
         Boolean croppedDataAfter = Boolean.TRUE;
         if (endRank >= result.size()) {
             endRank = result.size();
@@ -94,7 +87,6 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
         getRequest().setAttribute("croppedDataAfter", croppedDataAfter);        
         getRequest().setAttribute("croppedDataBefore", new Boolean(startRank > 1));
         
-        log.debug("(2): " + endRank + " / " + new Boolean(startRank > 1) + " / " + croppedDataAfter);
 
         if (result.size() > 0) {
             return result.subList(startRank - 1, endRank);
@@ -106,28 +98,22 @@ public class AssignmentDocumentHistory extends BaseProcessor implements PactsCon
     private void sortResult(List result, int sortCol, boolean sortAscending) {
         switch (sortCol) {
             case SUBMISSION_TITLE_COL:
-                log.debug("Sort results by Submission title");
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        log.debug("1: " + ((AssignmentDocument) arg0).getSubmissionTitle().toLowerCase() + " / " + ((AssignmentDocument) arg1).getSubmissionTitle().toLowerCase() + " : " + ((AssignmentDocument) arg0).getSubmissionTitle().toLowerCase().compareTo(((AssignmentDocument) arg1).getSubmissionTitle().toLowerCase()));
                         return ((AssignmentDocument) arg0).getSubmissionTitle().toLowerCase().compareTo(((AssignmentDocument) arg1).getSubmissionTitle().toLowerCase());
                     }
                 });
                 break;
             case TIME_LEFT_COL:
-                log.debug("Sort results by Time left");
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        log.debug("2: " + ((AssignmentDocument) arg0).getDaysLeftToExpire() + " / " + ((AssignmentDocument) arg1).getDaysLeftToExpire() + " : " + ((AssignmentDocument) arg1).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg0).getDaysLeftToExpire()));
                         return ((AssignmentDocument) arg0).getDaysLeftToExpire().compareTo(((AssignmentDocument) arg1).getDaysLeftToExpire());
                     }
                 });
                 break;
             case STATUS_COL:
-                log.debug("Sort results by Status");
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        log.debug("3: " + ((AssignmentDocument) arg0).getStatus().getDescription().toLowerCase() + " / " + ((AssignmentDocument) arg1).getStatus().getDescription().toLowerCase() + " : " + ((AssignmentDocument) arg0).getStatus().getDescription().toLowerCase().compareTo(((AssignmentDocument) arg1).getStatus().getDescription().toLowerCase()));
                         return ((AssignmentDocument) arg0).getStatus().getDescription().toLowerCase().compareTo(((AssignmentDocument) arg1).getStatus().getDescription().toLowerCase());
                     }
                 });
