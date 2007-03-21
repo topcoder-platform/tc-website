@@ -384,6 +384,8 @@ favorites list should be moveable.
 </div>
 </form>
 
+
+        <jsp:include page="foot.jsp"/>
         </div>
     </div>
 </div>
