@@ -25,53 +25,12 @@
     <style type="text/css">
     html { min-height: 100%; margin-bottom: 1px; }
 
-    ul.imageLineup{
-        padding: 0px;
-        margin: 0px;
-        list-style-type: none;
-    }
-
-    ul.imageLineup li{
-        position: relative;
-        float: left;
-        margin: 10px 4px 1px 4px;
-        padding: 0px;
-        text-align: center;
-        background: #FFFFFF;
-    }
-
-    img.small{
-        width: 50px;
-        height: 50px;
-        display: block;
-        padding: 0px;
-        margin: 0px;
-        border: 1px solid black;
-        cursor: pointer;
-    }
-
-    ul.imageLineup div.save{
-        position: absolute;
-        bottom: -5px;
-        right: -3px;
-        background: #FFFFFF;
-        border-top: 1px solid #FFFFFF;
-        border-right: none;
-        border-bottom: none;
-        border-left: 1px solid #FFFFFF;
-    }
-
-    ul.imageLineup div.remove{
-        position: absolute;
-        bottom: -27px;
-        left: 17px;
-    }
-
-    #favorites{
-    }
-
-    #favorites li{
+    #favorites img.small {
         cursor: move;
+    }
+
+    #candidates img.small {
+        cursor: pointer;
     }
 
     a.marker{
@@ -92,16 +51,16 @@
 <h1>Make your prediction</h1>
 
 <form>
-<div align="center" style="margin-bottom: 20px;">
+<div align="center">
 
-<table cellpadding="0" cellspacing="0" style="width: 100%; text-align: left; margin-bottom: 20px;">
+<table cellpadding="0" cellspacing="0" style="width: 610px; text-align: left; margin-bottom: 20px;">
 <tbody>
     <tr>
         <td style="padding: 6px;">
             <img src="/i/oracle/i/interface/step1.png" alt="Step 1"/>
         </td>
         <td width="100%">
-            Browse the <strong>Candidate Pool</strong> and <strong>Click</strong> on the items you like most to move them into the <strong>Favorites</strong> list.<br>
+            Browse the <strong>Candidate Pool</strong> and <strong>Click</strong> on the candidates you like most to move them into the <strong>Favorites</strong> list.<br>
         </td>
     </tr>
     <tr>
@@ -117,21 +76,15 @@
             <img src="/i/oracle/i/interface/step3.png" alt="Step 3" /> 
         </td>
         <td>
-            <strong>Click the remove button</strong> <img src="/i/oracle/i/interface/remove.png" alt="REMOVE" align="absmiddle" /> under any of your favorites to remove it from the list.
+            You can <strong>click the remove button</strong> <img src="/i/oracle/i/interface/remove.png" alt="REMOVE" align="absmiddle" /> under any of your favorites to remove it from the list.
         </td>
     </tr>
 </table>
 
-<table cellpadding="0" cellspacing="0" style="margin-bottom: 40px;">
-<tbody>
-    <tr>
-        <td>
-
-<%-- "favorites" is the container <ul> for the candidate <li>'s that have been selected for ranking --%>
-
-<div align="center">
-
-<ul id="favorites" class="imageLineup" align="center" style="float:left; clear:both;">
+<%-- centers favorites and limits its width to 610px --%>
+<div align="center" style="width: 610px;">
+    <div>
+<ul id="favorites" class="imageLineup" align="center" style="float:left; clear:both; padding-bottom: 40px;">
 <li>
     <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
     <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
@@ -172,25 +125,20 @@
     <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
     <img class="small" src="/i/oracle/i/submissions/08.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" />
 </li>
-<li>
-    <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/09.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" />
-</li>
-<li>
-    <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/10.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" />
-</li>
+<%-- 
+This is what a spot on the favorites list before a candidate has been added
+to its spot.  It creates a light gray spot to show how many more candidates 
+you can add. When dragging and dropping, only the "filled" spots on the 
+favorites list should be moveable.
+--%>
+<li>&nbsp;</li>
+<li>&nbsp;</li>
 </ul>
-</div>
-<div class="popUp" id="viewerpopup"><img src="" id="viewer" alt="" style="margin:5px; border: 1px solid black; background: #FFFFFF;"></div>
-        </td>
-    </tr>
-</tbody>
-</table>
 
-<div style="margin-bottom: 40px;">
+</div>
+
+
+<div style="clear: both; margin-bottom: 20px;">
     <BUTTON name="submit" value="submit" type="submit" class="button">Submit</BUTTON>
 </div>
 
@@ -213,14 +161,19 @@
     </div>
 --%>
 
-<table cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
-<tbody>
-    <tr>
-        <td>
 
-<%-- "submissions" is the container <ul> for candidate <li>'s --%>
+<p align="center">
+<%--
+<span class="bigRed">You have no available spots in your Favorites list. Please remove one of your candidates and try again.</span>
+--%>
+<%-- use this when there are no errors --%>
+<span class="bigRed">&nbsp;</span>
+</div>
 
-<ul id="submissions" class="imageLineup" align="center" style="float:left; clear:both; width: 100%;">
+<%-- centers candidates and limits its width to 610px --%>
+<div align="center" style="width: 610px;">
+
+<ul id="candidates" class="imageLineup" align="center" style="float:left; clear:both; width: 100%;">
 <li>
     <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
     <img class="small" src="/i/oracle/i/submissions/01.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
@@ -422,15 +375,13 @@
     <img class="small" src="/i/oracle/i/submissions/50.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
 </li>
 </ul>
-<div class="popUp" id="viewerpopup"><img src="" id="viewer" alt="" style="margin:5px; border: 1px solid black; background: #FFFFFF;"></div>
-
-
-        </td>
-    </tr>
-</tbody>
-</table>
 </div>
 
+<div class="popUp" id="viewerpopup"><img src="" id="viewer" alt="" style="margin:5px; border: 1px solid black; background: #FFFFFF;"></div>
+
+<div style="clear:both;">&nbsp;</div>
+
+</div>
 </form>
 
         </div>
