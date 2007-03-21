@@ -129,7 +129,7 @@ this problem is separating the kings with unique names
 from those who have a namesake(s). Probably one of the most obvious ways to achieve
 this separation is just to count the number of occurences of each name in the
 given list. Map data structure provides a good aid here. After separation, we
-need to do the second pass over the list in order to enumerate the kings whose
+need to do a second pass over the list in order to enumerate the kings whose
 names occurs in the list more than once.
 <br />
 <br />
@@ -310,7 +310,7 @@ Used as: Division One - Level Three: <blockquote><table cellspacing="2">
 </table></blockquote> 
 
 It is not difficult to realize that this one can be solved by backtracking,
-but it is much more difficult to implement it quickly and in a correct way.
+but it is much more difficult to implement it quickly and correctly.
 <br />
 <br />
 
@@ -333,7 +333,7 @@ Function <i>rec</i> requires the following global variables:
 </ul>
 
 The recursive backtracking function <i>rec</i> tries to assign every color to the team <i>c</i> in the game <i>r</i> and return the number of ways
-to complete the schedule strarting from <i>r</i><sup>th</sup> row and <i>c</i><sup>th</sup> column assuming that the previous part of the schedule is
+to complete the schedule starting from <i>r</i><sup>th</sup> row and <i>c</i><sup>th</sup> column assuming that the previous part of the schedule is
 filled according to the values of global variables and argument <i>cmask</i>.
 It takes into account all neccessary constraints.
 </p>

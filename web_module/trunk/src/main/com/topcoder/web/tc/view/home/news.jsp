@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.21.07<br>4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Alpha">TCHS07 Round 3 Alpha - Problem Set & Analysis</A></span><br><br>
+        Fairly difficult medium and hard problems led to a relatively low scoring HS match.  <tc-webtag:handle coderId="15092597" context="hs_algorithm"/> won the match with 1174.04 points, <tc-webtag:handle coderId="15117368" context="hs_algorithm"/> finished second with 1041.94 and <tc-webtag:handle coderId="10039742" context="hs_algorithm"/> rounded out the top three with 775.53.</td>
+      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Alpha">full story</A> | 
+        <tc-webtag:forumLink forumID="514495" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.21.07<br>1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -175,20 +191,5 @@ When our program only has to make one decision, our approach can be fairly simpl
         <A href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">full story</A> | 
         <tc-webtag:forumLink forumID="514703" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.13.07<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065">Redesign the homepage at TopCoder Studio</A>
-        </span><br><br>
-        Sorry Old Homepage, we just think we can do better. So we're reaching out to Studio competitors to give us a new look and feel, and the winner gets $10,000.  You've got 2 weeks, so head over to the Studio and get creative.  If you haven't <A href="/reg/?nrg=false">added Studio registration</A> to your profile, make sure you do.<br><br>And Old Homepage, no hard feelings, ok?
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065">details</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=38">discuss this</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
