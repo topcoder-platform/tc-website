@@ -1,13 +1,14 @@
 package com.topcoder.web.studio.dao.hibernate;
 
+import java.util.List;
+
+import org.hibernate.Query;
+
 import com.topcoder.web.common.dao.hibernate.Base;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.Submission;
-import org.hibernate.Query;
-
-import java.util.List;
 
 /**
  * @author dok
@@ -96,28 +97,32 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
         }
     }
 
-    public List getSubmissions(User u, Contest c) {
+    public List getSubmissions(User u, Contest c, Integer submissionTypeId) {
         Query q = session.createQuery("from Submission s " +
                 "left join fetch s.review " +
                 "left join fetch s.result " +
                 "where s.submitter.id = ? " +
                 "and s.contest.id = ? " +
+                "and s.type.id = ? " +
                 "order by case when s.rank is null then 10000 else s.rank end asc");
         q.setLong(0, u.getId().longValue());
         q.setLong(1, c.getId().longValue());
+        q.setInteger(2, submissionTypeId.intValue());
         return q.list();
 
     }
 
-    public List getSubmissions(Long contestId, Long submitterId) {
+    public List getSubmissions(Long contestId, Long submitterId, Integer submissionTypeId) {
         Query q = session.createQuery("from Submission s " +
                 "left join fetch s.review " +
                 "left join fetch s.result " +
                 "where s.submitter.id = ? " +
                 "and s.contest.id = ? " +
+                "and s.type.id = ? " +
                 "order by case when s.rank is null then 10000 else s.rank end asc");
         q.setLong(0, submitterId.longValue());
         q.setLong(1, contestId.longValue());
+        q.setInteger(2, submissionTypeId.intValue());
         return q.list();
 
     }

@@ -9,6 +9,7 @@ import javax.ejb.EJBObject;
 import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -259,5 +260,26 @@ public interface PactsServices extends EJBObject {
     void deletePayment(BasePayment payment) throws RemoteException, Exception;
 
     BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
+
+    void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException;
+
+    AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException;
+
+    List getAssignmentDocumentByProjectId(long projectId) throws RemoteException;
+    
+    String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) throws RemoteException;
+
+    List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) throws RemoteException;
+
+    AssignmentDocument getAssignmentDocument(long assignmentDocumentId) throws RemoteException;
+
+    Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId) throws RemoteException;
+
+    public void affirmAssignmentDocument(AssignmentDocument ad) throws RemoteException;
+
+    public List getAssignmentDocumentByUserIdProjectId(long userId, long projectId) throws RemoteException;
+
+    public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) throws RemoteException;
+
 }
 

@@ -19,7 +19,9 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
 import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
 import com.topcoder.web.ejb.pacts.PactsServicesLocal;
@@ -399,6 +401,62 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getAffidavitTypes();
     }
 
+    /**
+     * Returns the list of all assignment document types.
+     *
+     * @return  The list of assignment document types
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentTypes() throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentTypes();
+    }
+
+    /**
+     * Returns the requested assignment document.
+     *
+     * @return  The requested assignment document
+     * @throws  RemoteException If there is some communication problem with the EJB
+     */
+    public AssignmentDocument getAssignmentDocument(long assignmentDocumentId) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocument(assignmentDocumentId);
+    }
+
+    /**
+     * deletes the provided assignment document
+     *
+     * @throws  RemoteException If there is some communication problem with the EJB
+     */
+    public void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException {
+        PactsServicesLocal ps = getEjbHandle();
+        ps.deleteAssignmentDocument(ad);
+    }
+
+    /**
+     * adds the provided assignment document
+     *
+     * @return  The added assignment document
+     * @throws  RemoteException If there is some communication problem with the EJB
+     */
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.addAssignmentDocument(ad);
+    }
+
+    /**
+     * Returns the list of all assignment document status.
+     *
+     * @return  The list of assignment document status
+     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws  SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentStatus() throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentStatus();
+    }
+    
     /**
      * Returns the list of all contract types.
      *
@@ -1586,10 +1644,29 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.expireOldAffidavits();
     }
 
+    /**
+     * Sets the status on all assignment documents older than a specified time
+     * to Expired, and set the status on their associated payment (if any)
+     * to Canceled.
+     *
+     * @return The number of affidavit/payment pairs thus affected.
+     * @throws SQLException If there was some error updating the data.
+     */
+    public int expireOldAssignmentDocuments() throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.expireOldAssignmentDocuments();
+    }
+    
     public void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         ps.createAffidavitTemplate(affidavitTypeId, text);
     }
+    
+    public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        ps.createAssignmentDocumentTemplate(assignmentdocumentTypeId, text);
+    }
+
 
     public Payment getEmptyPayment(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1666,6 +1743,40 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.findPayments(paymentTypeId, referenceId);
     }
 
+    public List findAssignmentDocument(Map searchCriteria) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.findAssignmentDocument(searchCriteria);
+    }
+
+    public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending)  throws RemoteException{
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentByUserId(userId, assignmentDocumentTypeId, onlyPending);
+    }
+
+    public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad)  throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentTransformedText(assignmentDocumentTypeId, ad);
+    }
+
+    public List getAssignmentDocumentByUserIdProjectId(long userId,  long projectId)  throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentByUserIdProjectId(userId, projectId);
+    }
+
+    public List getAssignmentDocumentByUserIdStudioContestId(long studioContestId,  long projectId)  throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getAssignmentDocumentByUserIdStudioContestId(studioContestId, projectId);
+    }
+
+    public Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId)  throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.hasHardCopyAssignmentDocumentByUserId(userId, assignmentDocumentTypeId);
+    }
+    
+    public void affirmAssignmentDocument(AssignmentDocument ad) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        ps.affirmAssignmentDocument(ad);
+    }
 
 }
 

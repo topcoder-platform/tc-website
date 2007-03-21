@@ -1,14 +1,15 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.util.Iterator;
+import java.util.List;
+
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
-
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * @author dok
@@ -17,15 +18,30 @@ import java.util.List;
  */
 abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
 
-    void loadSubmissionData(User u, Contest c, SubmissionDAO dao) {
+    boolean isWinner(User u, Contest c, SubmissionDAO dao, Integer ct) {
+        List submissions = dao.getSubmissions(u, c, ct);
+        
+        boolean isWinner = false;
+        for (Iterator it = submissions.iterator(); it.hasNext() && !isWinner;) {
+            Submission s = (Submission) it.next();
+            ContestResult curr;
+            for (Iterator it2 = s.getContest().getResults().iterator(); it2.hasNext() && !isWinner;) {
+                curr = (ContestResult) it2.next();
+                isWinner = s.equals(curr.getSubmission()) && curr.getPrize().getPlace() != null;
+            }
+        }
+        return isWinner;
+    }
+    
+    void loadSubmissionData(User u, Contest c, SubmissionDAO dao, Integer ct) {
         Integer maxRank = dao.getMaxRank(c, u);
-        loadSubmissionData(u, c, dao, maxRank);
+        loadSubmissionData(u, c, dao, maxRank, ct);
     }
 
-    void loadSubmissionData(User u, Contest c, SubmissionDAO dao, Integer maxRank) {
+    void loadSubmissionData(User u, Contest c, SubmissionDAO dao, Integer maxRank, Integer ct) {
         getRequest().setAttribute("maxRank", maxRank);
 
-        List submissions = dao.getSubmissions(u, c);
+        List submissions = dao.getSubmissions(u, c, ct);
 
         Submission curr;
         for (Iterator it = submissions.iterator(); it.hasNext();) {
