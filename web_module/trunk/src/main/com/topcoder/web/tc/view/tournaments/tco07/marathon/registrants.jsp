@@ -47,7 +47,7 @@ String compType = (String) request.getAttribute("ct"); %>
     <tr><td class="title" colspan="3">Registrants: <%=rsc.size()%></td></tr>
     <tr>
         <td class="headerC" nowrap="nowrap">
-            <a href="/tc?module=TCO07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("rank")%>"/>">TCO Rank</a>
+            <a href="/tc?module=TCO07ViewRegistrants&amp;ct=<%=compType%><tc-webtag:sort column="<%=rsc.getColumnIndex("seed")%>"/>">Seed</a>
         </td>
 <%-- show after seeds are assigned
         <td class="headerC">
@@ -67,13 +67,8 @@ String compType = (String) request.getAttribute("ct"); %>
         <rsc:iterator list='<%=rsc%>' id="resultRow">
             <tr class="<%=(even ? "dark" : "light")%>">
                 <td class="valueC">
-                    <rsc:item name="rank" row='<%=resultRow%>'/>
+                    <rsc:item name="seed" row='<%=resultRow%>'/>
                 </td>
-<%--
-                <td class="valueC">
-                    1234
-                </td>
---%>
                 <td class="value">
                     <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="marathon_match"/>
                 </td>
