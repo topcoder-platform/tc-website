@@ -84,8 +84,13 @@ public interface Constants {
      */
     public static final int PAYMENT_ON_HOLD_STATUS = 55;
 
-    /** 
-     * We get an "owed" status after the associated affidavit is affirmed, or if it's a referral
+    /* This is a particular case of the on hold status. A payment gets this status if 
+     * the corresponding an admin tries to print the payment but it doesn't have a corresponding
+     * affirmed Assignment Document
+     */
+    public static final int PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS = 201;
+
+    /* We get an "owed" status after the associated affidavit is affirmed, or if it's a referral
      * payment.  In either case, it means we should pay them...
      */
     public static final int PAYMENT_OWED_STATUS = 56;

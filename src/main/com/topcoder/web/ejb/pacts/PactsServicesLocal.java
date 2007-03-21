@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.pacts;
 
-import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +8,7 @@ import javax.ejb.EJBLocalObject;
 import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -72,6 +72,10 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     // Type listings and other miscellaneous retrieval
     Map getAffidavitTypes() throws  SQLException;
+
+    List getAssignmentDocumentTypes() throws  SQLException;
+
+    List getAssignmentDocumentStatus() throws  SQLException;
 
     Map getContractTypes() throws  SQLException;
 
@@ -206,7 +210,11 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     int expireOldAffidavits() throws  SQLException;
 
+    int expireOldAssignmentDocuments() throws  SQLException;
+
     void createAffidavitTemplate(int affidavitTypeId, String text) throws  SQLException;
+
+    void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text);
 
     boolean hasNotarizedAffidavit(long userId, int affidavitTypeId) throws  SQLException;
 
@@ -261,5 +269,28 @@ public interface PactsServicesLocal extends EJBLocalObject {
     void deletePayment(BasePayment payment) throws  SQLException;
 
     BasePayment fillPaymentData(BasePayment payment) throws  SQLException;
+
+    AssignmentDocument getAssignmentDocument(long assignmentDocumentId);
+
+    List getAssignmentDocumentByProjectId(long projectId);
+
+    void deleteAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException;
+
+    AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException;
+
+    List findAssignmentDocument(Map searchCriteria);
+
+    List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending);
+
+    String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad);
+    
+    List getAssignmentDocumentByUserIdProjectId(long userId,  long projectId);
+    
+    List getAssignmentDocumentByUserIdStudioContestId(long studioContestId,  long projectId);
+
+    Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId);
+
+    void affirmAssignmentDocument(AssignmentDocument ad);
+
 }
 

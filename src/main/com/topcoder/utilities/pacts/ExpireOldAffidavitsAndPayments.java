@@ -80,9 +80,12 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
             	int n = dib.expireOldAffidavits();
             	logger.info(n + " affidavits expired");
             	
-            	n = dib.expireOldPayments();
-            	logger.info(n + " payments expired");
-            	
+                n = dib.expireOldPayments();
+                logger.info(n + " payments expired");
+                
+                n = dib.expireOldAssignmentDocuments();
+                logger.info(n + " assignment documents expired");
+                
             } catch (Exception e) {
                 if (!(e instanceof NameNotFoundException))
                     logger.error(e.getMessage());

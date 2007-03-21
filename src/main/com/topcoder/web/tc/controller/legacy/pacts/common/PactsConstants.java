@@ -162,6 +162,10 @@ public interface PactsConstants extends Constants {
     public static final String USER_TAX_FORM_HEADER_LIST = "user_tax_form_header_list";
     public static final String USER_TAX_FORM_DETAIL = "user_tax_form_detail";
     // Code lookups
+    public static final Integer ASSIGNMENT_DOCUMENT_DEFAULT_EXPIRATION_PERIOD = new Integer(7);
+
+    public static final String ASSIGNMENT_DOCUMENT_TYPE_LIST = "assignment_document_type_list";
+    public static final String ASSIGNMENT_DOCUMENT_STATUS_LIST = "assignment_document_status_list";
     public static final String AFFIDAVIT_TYPE_LIST = "affidavit_type_list";
     public static final String CONTRACT_TYPE_LIST = "contract_type_list";
     public static final String MODIFICATION_RATIONALE_LIST = "modification_rationale_list";
@@ -193,6 +197,9 @@ public interface PactsConstants extends Constants {
     public static final String ENTRY_HEADER_LIST = "entry_header_list";
     public static final String USER_CURRENT_SCHOOL = "user_current_school";
     public static final String COMPONENT_DATA = "component_data";
+
+    public static final int ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD = 7;
+    public static final int ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD = 30;
 
     /*
     public static final String AFFIDAVIT_DETAIL = "affidavit";
@@ -264,11 +271,22 @@ public interface PactsConstants extends Constants {
     public static final String PAYMENT_ID = "payment_id";
     public static final String CONTRACT_ID = "contract_id";
     public static final String AFFIDAVIT_ID = "affidavit_id";
+    public static final String ASSIGNMENT_DOCUMENT_ID = "assignment_document_id";
     public static final String TAX_FORM_ID = "tax_form_id";
     public static final String NOTE_ID = "note_id";
     public static final String HANDLE = "handle";
     public static final String PROJECT_ID = "project_id";
     public static final String PROJECT_CLIENT = "client";
+    public static final String SUBMISSION_TITLE = "submission_title";
+    public static final String TYPE = "type";
+    public static final String STATUS = "status";
+    public static final String HARD_COPY = "hard_copy";
+    public static final String COMPONENT_PROJECT = "component_project";
+    public static final String STUDIO_CONTEST = "studio_contest";
+    public static final String EARLIEST_EXPIRE_DATE = "earliest_expire_date";
+    public static final String LATEST_EXPIRE_DATE = "latest_expire_date";
+    public static final String EARLIEST_AFFIRM_DATE = "earliest_affirm_date";
+    public static final String LATEST_AFFIRM_DATE = "latest_affirm_date";
 
     // Payment searches
     public static final String EARLIEST_DUE_DATE = "earliest_due_date";
@@ -336,6 +354,8 @@ public interface PactsConstants extends Constants {
     public static final String MODULE_KEY = "module";
     public static final String AFFIDAVIT_TYPE_ID = "aftid";
     public static final String AFFIDAVIT_TEXT = "atxt";
+    public static final String ASSIGNMENT_DOCUMENT_TEMPLATE_TEXT = "adtxt";
+    
     public static final String PROJECT_TERMINATION_STATUS = "projts";
 
     // affidavit member jsps
@@ -391,6 +411,7 @@ public interface PactsConstants extends Constants {
     public static final String NOTE_CMD = "note";
     public static final String AFFIDAVIT_CMD = "affidavit";
     public static final String CONTRACT_CMD = "contract";
+    public static final String ASSIGNMENT_DOCUMENT_CMD = "assignment_document";
     public static final String PAYMENT_CMD = "payment";
     public static final String PAYMENT_AUDIT_TRAIL_CMD = "payment_audit_trail";
     public static final String USER_CMD = "user";
@@ -416,6 +437,7 @@ public interface PactsConstants extends Constants {
 
     // member jsp page names
     public static final String AFFIDAVIT_HISTORY_JSP = MEMBER_JSP_DIR + "AffidavitHistory.jsp";
+    public static final String ASSIGNMENT_DOCUMENT_HISTORY_JSP = MEMBER_JSP_DIR + "assignmentDocumentHistory.jsp";
     public static final String AFFIDAVIT_DETAILS_JSP = MEMBER_JSP_DIR + "AffidavitDetails.jsp";
     public static final String AFFIDAVIT_PAYMENT_DETAILS_JSP = MEMBER_JSP_DIR + "AffidavitPaymentDetails.jsp";
     public static final String CONTRACT_HISTORY_JSP = MEMBER_JSP_DIR + "ContractHistory.jsp";
@@ -427,7 +449,9 @@ public interface PactsConstants extends Constants {
     public static final String TAX_FORM_HISTORY_JSP = MEMBER_JSP_DIR + "TaxFormHistory.jsp";
     public static final String TAX_FORM_DETAILS_JSP = MEMBER_JSP_DIR + "TaxFormDetails.jsp";
     public static final String AFFIDAVIT_RENDER_JSP = MEMBER_JSP_DIR + "AffidavitRender.jsp";
-    
+    public static final String ASSIGNMENT_DOCUMENT_DETAILS_JSP = MEMBER_JSP_DIR + "/assignmentDocumentDetails.jsp";
+    public static final String VIEW_ASSIGNMENT_DOCUMENT_TEXT_JSP = MEMBER_JSP_DIR + "/viewAssignmentDocumentText.jsp";
+
     // internal jsp page names (and loccations)
     public static final String INTERNAL_SEARCH_JSP = INTERNAL_JSP_DIR + "/search.jsp";
     public static final String INTERNAL_SEARCH_USERS_JSP = INTERNAL_JSP_DIR + "/searchUsers.jsp";
@@ -451,10 +475,14 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_FOOTER_JSP = INTERNAL_JSP_DIR + "/InternalFooter.jsp";
     public static final String INTERNAL_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/viewAffidavit.jsp";
     public static final String INTERNAL_PAYMENT_JSP = INTERNAL_JSP_DIR + "/viewPayment.jsp";
+    public static final String INTERNAL_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/viewAssignmentDocument.jsp";
     public static final String INTERNAL_PAYMENT_AUDIT_TRAIL_JSP = INTERNAL_JSP_DIR + "/viewPaymentAuditTrail.jsp";
     public static final String INTERNAL_CONTRACT_JSP = INTERNAL_JSP_DIR + "/viewContract.jsp";
     public static final String INTERNAL_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewTaxForm.jsp";
     public static final String INTERNAL_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewUserTaxForm.jsp";
+    public static final String INTERNAL_ADD_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/addAssignmentDocument.jsp";
+    public static final String INTERNAL_SEARCH_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/searchAssignmentDocument.jsp";
+    public static final String INTERNAL_LIST_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/assignmentDocumentList.jsp";
     public static final String INTERNAL_ADD_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/addAffidavit.jsp";
     public static final String INTERNAL_ADD_CONTRACT_JSP = INTERNAL_JSP_DIR + "/addContract.jsp";
     public static final String INTERNAL_ADD_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/addTaxForm.jsp";
@@ -473,7 +501,10 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_GENERATE_PAYMENTS = INTERNAL_JSP_DIR + "/generatePayments.jsp";
     public static final String INTERNAL_GENERATE_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/generateComponentPayments.jsp";
     public static final String INTERNAL_CREATE_AFFIDAVIT = INTERNAL_JSP_DIR + "/createAffidavitTemplate.jsp";
+    public static final String INTERNAL_CREATE_ASSIGNMENT_DOCUMENT_TEMPLATE = INTERNAL_JSP_DIR + "/createAssignmentDocumentTemplate.jsp";
     public static final String INTERNAL_AJAX_SELECT_PAYMENT_TYPE_REFERENCE = INTERNAL_AJAX_JSP_DIR + "/selectPaymentTypeReference.jsp";
+    public static final String INTERNAL_AJAX_SELECT_ASSIGNMENT_DOCUMENT_TYPE_REFERENCE = INTERNAL_AJAX_JSP_DIR + "/selectAssignmentDocumentTypeReference.jsp";
+    public static final String INTERNAL_AJAX_VALIDATE_ASSIGNMENT_DOCUMENT = INTERNAL_AJAX_JSP_DIR + "/validateAssignmentDocument.jsp";
     public static final String INTERNAL_AJAX_FILL_PAYMENT_DATA = INTERNAL_AJAX_JSP_DIR + "/fillPaymentData.jsp";
     public static final String INTERNAL_AJAX_DISPLAY_AMOUNTS = INTERNAL_AJAX_JSP_DIR + "/displayAmounts.jsp";
 
@@ -531,6 +562,7 @@ public interface PactsConstants extends Constants {
 
     public static final int PAYMENT_HISTORY_PAGE_SIZE = 20;
     public static final int AFFIDAVIT_HISTORY_PAGE_SIZE = 20;
+    public static final int ASSIGNMENT_DOCUMENT_HISTORY_PAGE_SIZE = 20;
     
 }
 

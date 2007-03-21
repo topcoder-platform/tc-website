@@ -17,7 +17,13 @@
 
 <html>
 <head>
-    <title>PACTS | Login</title>
+    <title>TopCoder PACTs</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../../script.jsp" />
+    <jsp:include page="../../style.jsp">
+    <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 
     <SCRIPT type="text/javascript">
         function submitEnter(e) {
@@ -36,28 +42,31 @@
 
 <body>
 
-<h1>PACTS</h1>
-<h2>Login</h2>
+<jsp:include page="../../top.jsp" >
+<jsp:param name="level1" value=""/>
+</jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-<tr valign="top">
+<tbody>
+    <tr valign="top">
+<%-- Left Column Begins--%>
+        <td width="180">
+            <jsp:include page="../../includes/global_left.jsp">
+                <jsp:param name="node" value=""/>
+            </jsp:include>
+        </td>
+<%-- Left Column Ends --%>
 
-    <!-- Left Column Begins -->
-    <td width="170">
-        <jsp:include page="../includes/global_left.jsp">
-            <jsp:param name="node" value=""/>
-        </jsp:include>
-    </td>
-    <!-- Left Column Ends -->
+<%-- Center Column Begins --%>
+        <td width="100%" align="center" class="bodyColumn">
+            <div class="fixedWidthBody">
 
-    <!-- Gutter Begins -->
-    <td valign="top">
-    </td>
-    <!-- Gutter Ends -->
+<jsp:include page="../../page_title.jsp" >
+<jsp:param name="image" value="pact_s"/>
+<jsp:param name="title" value="Login"/>
+</jsp:include>
 
-    <!-- Center Column begins -->
-    <td width="100%">
-	 <form method="post" name="frmLogin" action="/PactsInternalServlet">
+     <form method="post" name="frmLogin" action="/PactsInternalServlet">
      <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
      <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="Login">
 
@@ -69,9 +78,9 @@
                             </td></tr>
                             <tr valign="top">
                                 <td class="errorText" colspan="3">
-						                <tc-webtag:errorIterator id="err" name="error">
-						                    <font color="#FF0000"><%=err%></font><br/>
-						                </tc-webtag:errorIterator>
+                                        <tc-webtag:errorIterator id="err" name="error">
+                                            <font color="#FF0000"><%=err%></font><br/>
+                                        </tc-webtag:errorIterator>
                                 </td>
                             </tr>
 
@@ -105,31 +114,22 @@
         </table>
        </form>
 
-        <p><br></p>
-
-        <p><br></p>
-
-    </div>
-</td>
-<!-- Center Column ends -->
-
-<!-- Gutter -->
-<td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-<!-- Right Column Begins -->
-<td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0"></td>
-<!-- Left Column Ends -->
-
-<!-- Gutter -->
-<td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-<!-- Gutter Ends -->
-
-</tr>
+            </div>
+        </td>
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
+        <td width="170">
+            <jsp:include page="../../public_right.jsp">
+                <jsp:param name="level1" value="default"/>
+            </jsp:include>
+        </td>
+<%-- Right Column Ends --%>
+        
+    </tr>
+    </tbody>
 </table>
 
-
-
+<jsp:include page="../../foot.jsp" />
 </body>
 </html>
-

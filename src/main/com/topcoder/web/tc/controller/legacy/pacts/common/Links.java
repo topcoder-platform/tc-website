@@ -17,8 +17,16 @@ public class Links implements PactsConstants {
         return createLink("AddAffidavit", USER_ID, userId + "");
     }
 
+    public static String addAssignmentDocument(long userId) {
+        return createLink("AddAssignmentDocument", USER_ID, userId + "");
+    }
+
     public static String addAffidavitForPayment(long userId, long paymentId) {
         return createLink("AddAffidavit", USER_ID, userId + "", PAYMENT_ID, paymentId + "");
+    }
+
+    public static String updateAssignmentDocument(long assignmentDocumentId) {
+        return createLink("AddAssignmentDocument", ASSIGNMENT_DOCUMENT_ID, assignmentDocumentId + "");
     }
 
     public static String updateAffidavit(long affidavitId) {
@@ -27,6 +35,10 @@ public class Links implements PactsConstants {
 
     public static String viewAffidavit(long affidavitId) {
         return PactsConstants.INTERNAL_SERVLET_URL + "?t=view&c=affidavit&" + AFFIDAVIT_ID + "=" + affidavitId;
+    }
+
+    public static String viewAssignmentDocument(long assignmentDocuumentId) {
+        return createLink("ViewAssignmentDocument", ASSIGNMENT_DOCUMENT_ID, assignmentDocuumentId + "");
     }
 
     public static String viewUser(long userId) {

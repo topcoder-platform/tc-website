@@ -90,7 +90,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                 if (hasErrors()) {
                     setDefault(Constants.CONTEST_ID, contestId.toString());
                     setDefault(Constants.SUBMISSION_RANK, rank);
-                    loadSubmissionData(u, c, dao);
+                    loadSubmissionData(u, c, dao, SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
                     getRequest().setAttribute("contest", c);
                     setNextPage("/submit.jsp");
                     setIsNextPageInContext(true);

@@ -29,6 +29,7 @@ import javax.jms.JMSException;
 
 import com.topcoder.apps.review.projecttracker.ProjectStatus;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
@@ -36,6 +37,13 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentStatus;
+import com.topcoder.web.common.model.AssignmentDocumentTemplate;
+import com.topcoder.web.common.model.AssignmentDocumentType;
+import com.topcoder.web.common.model.ComponentProject;
+import com.topcoder.web.common.model.StudioContest;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
@@ -49,6 +57,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 
 /**
@@ -231,7 +240,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     private ResultSetContainer runSearchQuery(String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
-        return runSearchQuery(null, query, objects, setLockTimeout);
+        return runSearchQuery((String) null, query, objects, setLockTimeout);
     }
 
     private ResultSetContainer runSearchQuery(String connection, String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
@@ -288,6 +297,56 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 printException(e1);
             }
             c = null;
+            throw new SQLException(e.getMessage());
+        }
+    }
+
+    private ResultSetContainer runSearchQuery(Connection c, String query, ArrayList objects, boolean setLockTimeout) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            if (setLockTimeout)
+                setLockTimeout(c);
+            ps = c.prepareStatement(query);
+            for (int i = 0; i < objects.size(); i++) {
+                Object o = objects.get(i);
+                if (o instanceof Timestamp)
+                    ps.setTimestamp(i + 1, (Timestamp) o);
+                else if (o instanceof String)
+                    ps.setString(i + 1, (String) o);
+            }
+            rs = ps.executeQuery();
+            ResultSetContainer rsc = new ResultSetContainer(rs, false);
+            rs.close();
+            rs = null;
+            ps.close();
+            ps = null;
+
+            return rsc;
+        } catch (Exception e) {
+            printException(e);
+            StringBuffer sb = new StringBuffer(300);
+            sb.append("----- Query:\n");
+            sb.append(query + "\n");
+            sb.append("----- Objects: (size:");
+            sb.append(objects.size());
+            sb.append(")\n");
+            for (int i = 0; i < objects.size(); i++)
+                sb.append(objects.get(i).toString() + "\n");
+            log.error(sb.toString());
+
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            rs = null;
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            ps = null;
             throw new SQLException(e.getMessage());
         }
     }
@@ -987,7 +1046,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         if (pendingOnly) {
             selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
-                    PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
+                PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," + 
+                PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
         selectPaymentDetails.append("ORDER BY date_due DESC");
@@ -1028,6 +1088,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         if (pendingOnly) {
             selectPaymentHeaders.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
+                    PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," + 
                     PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
@@ -1227,6 +1288,848 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
+    /**
+     * Returns the list of all assignment document types.
+     *
+     * @return The list of assignment document types
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentTypes() throws SQLException {
+        List assignmentDocumentTypes = new ArrayList();
+        StringBuffer sb = new StringBuffer(300);
+        sb.append("SELECT assignment_document_type_id, assignment_document_type_desc FROM assignment_document_type_lu ORDER BY 2");
+
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            
+            AssignmentDocumentType adt = new AssignmentDocumentType();
+            adt.setId(new Long(rsr.getLongItem("assignment_document_type_id")));
+            adt.setDescription(rsr.getStringItem("assignment_document_type_desc"));
+            
+            assignmentDocumentTypes.add(adt);
+        }
+
+        return assignmentDocumentTypes;
+    }
+
+    /**
+     * Returns the list of all assignment document status.
+     *
+     * @return The list of assignment document status
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentStatus() throws SQLException {
+        List assignmentDocumentStatus = new ArrayList();
+        StringBuffer sb = new StringBuffer(300);
+        sb.append("SELECT assignment_document_status_id, assignment_document_status_desc FROM assignment_document_status_lu ORDER BY 2");
+
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            
+            AssignmentDocumentType adt = new AssignmentDocumentType();
+            adt.setId(new Long(rsr.getLongItem("assignment_document_status_id")));
+            adt.setDescription(rsr.getStringItem("assignment_document_status_desc"));
+            
+            assignmentDocumentStatus.add(adt);
+        }
+
+        return assignmentDocumentStatus;
+    }
+    
+    /**
+     * Helper method to create the assignment document bean
+     *
+     * @param conn the connection to use
+     * @param rsr the ResultSetRow retrieved
+     * @return The Assignment Document bean
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    private AssignmentDocument createAssignmentDocumentBean(Connection conn, ResultSetRow rsr) throws SQLException {
+        AssignmentDocument ad = new AssignmentDocument();
+        ad.setId(new Long(rsr.getLongItem("assignment_document_id")));
+
+        ad.setHardCopy(new Boolean(rsr.getIntItem("assignment_document_hard_copy_ind") == 1));
+        ad.setAffirmedDate(rsr.getTimestampItem("affirmed_date"));
+        ad.setExpireDate(rsr.getTimestampItem("expire_date"));
+        ad.setCreateDate(rsr.getTimestampItem("create_date"));
+        ad.setModifyDate(rsr.getTimestampItem("modify_date"));
+    
+        UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rsr.getLongItem("user_id")));
+        User u = new User();
+        u.setId(new Long(user.getId()));
+        u.setHandle(user.getHandle());
+        ad.setUser(u);
+        
+        ad.setText(rsr.getStringItem("assignment_document_text"));
+        ad.setSubmissionTitle(rsr.getStringItem("assignment_document_submission_title"));
+
+        AssignmentDocumentType adt = new AssignmentDocumentType();
+        adt.setId(new Long(rsr.getLongItem("assignment_document_type_id")));
+        adt.setDescription(rsr.getStringItem("assignment_document_type_desc"));
+        ad.setType(adt);
+        
+        AssignmentDocumentStatus ads = new AssignmentDocumentStatus();
+        ads.setId(new Long(rsr.getLongItem("assignment_document_status_id")));
+        ads.setDescription(rsr.getStringItem("assignment_document_status_desc"));
+        ad.setStatus(ads);
+        
+        if (rsr.getItem("component_project_id").getResultData() != null) {
+            ComponentProject cp = findComponentProjectById(rsr.getLongItem("component_project_id"));
+            ad.setComponentProject(cp);
+        }
+        if (rsr.getItem("studio_contest_id").getResultData() != null) {
+            StudioContest c = findStudioContestsById(rsr.getLongItem("studio_contest_id"));
+            ad.setStudioContest(c);
+        }
+    
+        return ad;
+    }
+
+    /**
+     * Helper method to create the SQL select to find assignment document 
+     *
+     * @return The SQL select to find assignment document
+     */
+    private StringBuffer getAssignmentDocumentSelect() {
+        StringBuffer sb = new StringBuffer(100);
+        sb.append("select ");
+        sb.append("ad.assignment_document_id , ");
+        sb.append("ad.assignment_document_type_id , ");
+        sb.append("adt.assignment_document_type_desc , ");
+        sb.append("ad.assignment_document_status_id , ");
+        sb.append("ads.assignment_document_status_desc , ");
+        sb.append("ad.assignment_document_text , ");
+        sb.append("ad.assignment_document_hard_copy_ind , ");
+        sb.append("ad.assignment_document_submission_title , ");
+        sb.append("ad.user_id , ");
+        sb.append("ad.studio_contest_id , ");
+        sb.append("ad.component_project_id , ");
+        sb.append("ad.affirmed_date, ");
+        sb.append("ad.expire_date, ");
+        sb.append("ad.create_date , ");
+        sb.append("ad.modify_date ");
+        sb.append("from 'informix'.assignment_document ad, 'informix'.assignment_document_type_lu adt, 'informix'.assignment_document_status_lu ads ");
+        sb.append("where ad.assignment_document_type_id = adt.assignment_document_type_id ");
+        sb.append("and ad.assignment_document_status_id = ads.assignment_document_status_id ");
+        sb.append("and ad.assignment_document_status_id <> " + AssignmentDocumentStatus.DELETED_STATUS_ID);
+        return sb;
+    }
+
+    /**
+     * Find assignment documents
+     *
+     * @param searchCriteria The map containing the search criteria
+     * @return The list of assignment document status
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List findAssignmentDocument(Map searchCriteria) {
+        Connection conn = null;
+        ResultSetContainer rsc = null;
+        List l = new ArrayList();
+
+        try {
+            conn = DBMS.getConnection();
+
+            StringBuffer getAssignmentDocument = getAssignmentDocumentSelect();
+            
+            ArrayList objects = new ArrayList();
+            Iterator i = searchCriteria.keySet().iterator();
+            while (i.hasNext()) {
+                String key = (String) i.next();
+                String value = ((String) searchCriteria.get(key)).toUpperCase();
+                if (key.equals(HANDLE)) {
+                    getAssignmentDocument.append("and ad.user_id in (select user_id from user where UPPER(handle_lower) like ?) ");
+                    objects.add(value);
+                } else if (key.equals(ASSIGNMENT_DOCUMENT_ID)) {
+                    getAssignmentDocument.append("and ad.assignment_document_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(USER_ID)) {
+                    getAssignmentDocument.append("and ad.user_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(SUBMISSION_TITLE)) {
+                    getAssignmentDocument.append("and UPPER(ad.assignment_document_submission_title) like ? ");
+                    objects.add(value);
+                } else if (key.equals(TYPE)) {
+                    getAssignmentDocument.append("and ad.assignment_document_type_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(STATUS)) {
+                    getAssignmentDocument.append("and ad.assignment_document_status_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(HARD_COPY)) {
+                    getAssignmentDocument.append("and ad.assignment_document_hard_copy_ind = ? ");
+                    objects.add(value);
+                } else if (key.equals(COMPONENT_PROJECT)) {
+                    getAssignmentDocument.append("and ad.component_project_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(STUDIO_CONTEST)) {
+                    getAssignmentDocument.append("and ad.studio_contest_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(EARLIEST_CREATION_DATE)) {
+                    getAssignmentDocument.append(" AND ad.create_date >= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(LATEST_CREATION_DATE)) {
+                    getAssignmentDocument.append(" AND ad.create_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(EARLIEST_MODIFICATION_DATE)) {
+                    getAssignmentDocument.append(" AND ad.modify_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(LATEST_MODIFICATION_DATE)) {
+                    getAssignmentDocument.append(" AND ad.modify_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(EARLIEST_EXPIRE_DATE)) {
+                    getAssignmentDocument.append(" AND ad.expire_date >= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(LATEST_EXPIRE_DATE)) {
+                    getAssignmentDocument.append(" AND ad.expire_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(EARLIEST_AFFIRM_DATE)) {
+                    getAssignmentDocument.append(" AND ad.affirm_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                } else if (key.equals(LATEST_AFFIRM_DATE)) {
+                    getAssignmentDocument.append(" AND ad.affirm_date <= ?");
+                    objects.add(makeTimestamp(value, false, true));
+                }
+            }
+
+            rsc = runSearchQuery(conn, getAssignmentDocument.toString(), objects, true);
+
+            for (Iterator it = rsc.iterator(); it.hasNext(); ) {
+                ResultSetRow rsr = (ResultSetRow) it.next();
+                
+                AssignmentDocument ad = createAssignmentDocumentBean(conn, rsr);
+
+                l.add(ad);
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        } finally {
+            close(conn);
+        }
+        return l;
+    }
+
+    /**
+     * Gets a Assignment Document using its ID
+     *
+     * @param assignmentDocumentId the Assignment Document id to find
+     * @return The Assignment Document
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public AssignmentDocument getAssignmentDocument(long assignmentDocumentId) {
+        log.debug("get the assignment document from the db");
+
+        try {
+            Map searchCriteria = new HashMap();
+           
+            searchCriteria.put(ASSIGNMENT_DOCUMENT_ID, String.valueOf(assignmentDocumentId));
+
+            List result = findAssignmentDocument(searchCriteria); 
+            
+            if (result.isEmpty()) {
+                throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentId);
+            }
+        
+            AssignmentDocument ad = (AssignmentDocument) result.get(0);
+            return ad;
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        }
+    }
+    
+    /**
+     * Gets a list of Assignment Documents using its project id
+     *
+     * @param projectId the Assignment Document's project id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentByProjectId(long projectId) {
+        log.debug("get the assignment document from the db (project_id)");
+
+        try {
+            Map searchCriteria = new HashMap();
+           
+            searchCriteria.put(COMPONENT_PROJECT, String.valueOf(projectId));
+            searchCriteria.put(TYPE, String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
+
+            return findAssignmentDocument(searchCriteria);
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        }
+    }
+    
+    /**
+     * Returns whether a user has a hard copy of an assignmet document
+     *
+     * @param userId the Assignment Document's user id to find
+     * @param assignmentDocumentTypeId the Assignment Document's type id to find
+     * @return true if the user has a hard copy assignment document
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId) {
+        log.debug("check if user has a hard copy assignment document (project_id)");
+
+        try {
+            Map searchCriteria = new HashMap();
+           
+            searchCriteria.put(USER_ID, String.valueOf(userId));
+            searchCriteria.put(TYPE, String.valueOf(assignmentDocumentTypeId));
+            searchCriteria.put(HARD_COPY, "1");
+
+            return new Boolean(findAssignmentDocument(searchCriteria).size() > 0);
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        }
+    }
+    
+    /**
+     * Gets a list of Assignment Documents using its user id
+     *
+     * @param userId the Assignment Document's user id to find
+     * @param assignmentDocumentTypeId the Assignment Document's type id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) {
+        log.debug("get the assignment document from the db (user_id : " + userId + " / typeId : " + assignmentDocumentTypeId + ")");
+
+        try {
+            Map searchCriteria = new HashMap();
+            searchCriteria.put(USER_ID, String.valueOf(userId));
+            searchCriteria.put(TYPE, String.valueOf(assignmentDocumentTypeId));
+            if (onlyPending) {
+                searchCriteria.put(STATUS, String.valueOf(AssignmentDocumentStatus.PENDING_STATUS_ID));
+            }
+
+            return findAssignmentDocument(searchCriteria);
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        }
+    }
+    
+    /**
+     * Gets a list of Assignment Documents using its user id and project id
+     *
+     * @param userId the Assignment Document's user id to find
+     * @param projectId the Assignment Document's project id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentByUserIdProjectId(long userId, long projectId) {
+        log.debug("get the assignment document from the db (user_id, project_id)");
+
+        try {
+            Map searchCriteria = new HashMap();
+           
+            searchCriteria.put(COMPONENT_PROJECT, String.valueOf(projectId));
+            searchCriteria.put(TYPE, String.valueOf(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID));
+            searchCriteria.put(USER_ID, String.valueOf(userId));
+
+            return findAssignmentDocument(searchCriteria);
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        }
+    }
+
+
+    /**
+     * Gets a list of Assignment Documents using its user id and studio contest id
+     *
+     * @param userId the Assignment Document's user id to find
+     * @param assignmentDocumentTypeId the Assignment Document's studio contest id to find
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) {
+        log.debug("get the assignment document from the db (user_id, studio_contest_id)");
+
+        try {
+            Map searchCriteria = new HashMap();
+           
+            searchCriteria.put(STUDIO_CONTEST, String.valueOf(studioContestId));
+            searchCriteria.put(TYPE, String.valueOf(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID));
+            searchCriteria.put(USER_ID, String.valueOf(userId));
+
+            return findAssignmentDocument(searchCriteria);
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        }
+    }
+
+    /**
+     * Gets the transformed text of an assignment document
+     *
+     * @param ad the Assignment Document to transform
+     * @param assignmentDocumentTypeId the Assignment Document's type id
+     * @return a List of Assignment Documents
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) {
+        AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(null, assignmentDocumentTypeId);
+        
+        return adt.transformTemplate(ad); 
+    }
+    
+    /**
+     * Returns an assignment document template
+     *
+     * @param conn the Connection to use
+     * @param assignmentDocumentTypeId the Assignment Document's type id
+     * @return The required assignment document template
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public AssignmentDocumentTemplate getAssignmentDocumentTemplate(Connection conn, long assignmentDocumentTypeId) {
+        boolean closeConnection = false;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetContainer rsc = null;
+
+        try {
+            if (conn == null) {
+                closeConnection = true;
+                conn = DBMS.getConnection();
+            }
+
+            log.debug("get the assignment document template from the db");
+            
+            StringBuffer sb = new StringBuffer(100);
+            sb.append("select ");
+            sb.append("assignment_document_template_id, ");
+            sb.append("assignment_document_template_text ");
+            sb.append("from 'informix'.assignment_document_template ");
+            sb.append("where assignment_document_type_id = ? ");
+            sb.append("and cur_version = 1 ");
+            
+            ps = conn.prepareStatement(sb.toString());
+
+            ps.setLong(1, assignmentDocumentTypeId);
+            rs = ps.executeQuery();
+            rsc =  new ResultSetContainer(rs, false);
+
+            if (rsc.isEmpty()) {
+                throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentTypeId);
+            }
+        
+            AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
+            adt.setId(new Long(rsc.getLongItem(0, "assignment_document_template_id")));
+            adt.setText(rsc.getStringItem(0, "assignment_document_template_text"));
+
+            return adt;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        } finally {
+            close(rs);
+            close(ps);
+            if (closeConnection) {
+                close(conn);
+            }
+        }
+    }
+    
+    /**
+     * Inserts or updates an assignment document to the DB
+     *
+     * @param ad the Assignment Document to store
+     * @return The stored assignment document template
+     * @throws DeleteAffirmedAssignmentDocumentException If there's an attempt to delete an affirmed assignment document
+     */
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
+        Connection conn = null;
+
+        try {
+            conn = DBMS.getConnection();
+            return addAssignmentDocument(conn, ad);
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage(), e));
+        } finally {
+            close(conn);
+        }
+    }
+    
+    /**
+     * Inserts or updates an assignment document to the DB
+     *
+     * @param conn the Connection to use
+     * @param ad the Assignment Document to store
+     * @return The stored assignment document template
+     * @throws DeleteAffirmedAssignmentDocumentException If there's an attempt to delete an affirmed assignment document
+     */
+    public AssignmentDocument addAssignmentDocument(Connection c, AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        boolean addOperation = false;
+        if (ad.getId() == null) {
+            addOperation = true;
+        }
+        
+        // validate
+        if (ad.getSubmissionTitle() == null || ad.getSubmissionTitle().trim().length() == 0) {
+            throw new IllegalArgumentException("Assignment Document's submission title cannot be null or empty");
+        }
+        
+        if (ad.getType() == null) {
+            throw new IllegalArgumentException("Assignment Document's type cannot be null");
+        }
+        
+        if (ad.getStatus() == null) {
+            throw new IllegalArgumentException("Assignment Document's status cannot be null");
+        }
+        
+        if (ad.isHardCopy() == null) {
+            ad.setHardCopy(Boolean.FALSE);
+        }
+        
+        if (ad.getExpireDate() == null) {
+            Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
+                    ad.getType().getId().longValue());
+
+            Calendar dueDateCal = Calendar.getInstance();
+            dueDateCal.add(Calendar.DAY_OF_YEAR, hasHardCopy.booleanValue() ? ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD : ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD);
+            ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
+        }
+        
+        if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) && ad.getAffirmedDate() == null) {
+            Calendar dueDateCal = Calendar.getInstance();
+            ad.setAffirmedDate(new Timestamp(dueDateCal.getTimeInMillis()));
+        }
+        
+        if (ad.getUser() == null) {
+            throw new IllegalArgumentException("Assignment Document's user cannot be null");
+        }
+        
+        if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+            if (ad.getComponentProject() == null) {
+                throw new IllegalArgumentException("Assignment Document's component project cannot be null");
+            } else {
+                try {
+                    findComponentProjectById(ad.getComponentProject().getId().longValue());
+                } catch (Exception e) {
+                    throw new IllegalArgumentException("Assignment Document's component project doesn't exists");
+                }
+            }
+        }
+
+        if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
+            if (ad.getStudioContest() == null) {
+                throw new IllegalArgumentException("Assignment Document's studio contest cannot be null");
+            } else {
+                try {
+                    findStudioContestsById(ad.getStudioContest().getId().longValue());
+                } catch (Exception e) {
+                    throw new IllegalArgumentException("Assignment Document's studio contest doesn't exists: " +
+                            ad.getStudioContest().getId().longValue());
+                }
+            }
+        }
+
+        AssignmentDocument oldAssignmentDocumentInstance = null;
+        if (ad.getId() != null) {
+            // update
+             oldAssignmentDocumentInstance = getAssignmentDocument(ad.getId().longValue());
+            
+            if (oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
+                (ad.getStatus().getId().equals(AssignmentDocumentStatus.DELETED_STATUS_ID))) {
+                throw new DeleteAffirmedAssignmentDocumentException("Assignment Document cannot be deleted or rejected since it was affirmed");
+            }
+        }
+        
+        // only update text if it's an addition or the AD is being affirmed.
+        boolean updateText = false;
+        // store
+        try {
+            if (ad.getText() == null || ad.getText().trim().length() == 0) {
+                // template is transformed if the ad is created with affirmed status 
+                // or the status is updated to affirmed. (and the text is empty)
+                if ((ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) && 
+                   (oldAssignmentDocumentInstance == null || 
+                   !oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)))) {
+
+                    AssignmentDocumentTemplate adt = getAssignmentDocumentTemplate(c, ad.getType().getId().longValue());
+                    ad.setText(adt.transformTemplate(ad));
+                    updateText = true;
+                }
+            }
+
+            StringBuffer query = new StringBuffer(1024);
+            if (addOperation) {
+                // add
+                query.append("insert into 'informix'.assignment_document( ");
+                query.append("assignment_document_id , ");
+                query.append("assignment_document_type_id , ");
+                query.append("assignment_document_status_id , ");
+                query.append("assignment_document_hard_copy_ind , ");
+                query.append("assignment_document_submission_title , ");
+                query.append("user_id , ");
+                query.append("studio_contest_id , ");
+                query.append("component_project_id , ");
+                query.append("affirmed_date , ");
+                query.append("assignment_document_text , ");
+                query.append("expire_date , ");
+                query.append("modify_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, current)");
+    
+                long assignmentDocumentId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_SEQ");
+                ad.setId(new Long(assignmentDocumentId));
+            } else {
+                // update
+                query.append("update 'informix'.assignment_document set ");
+                query.append("assignment_document_id = ?, ");
+                query.append("assignment_document_type_id = ?, ");
+                query.append("assignment_document_status_id = ?, ");
+                query.append("assignment_document_hard_copy_ind = ?, ");
+                query.append("assignment_document_submission_title = ?, ");
+                query.append("user_id = ?, ");
+                query.append("studio_contest_id = ?, ");
+                query.append("component_project_id = ?, ");
+                query.append("affirmed_date = ?, ");
+                if (updateText) {
+                    query.append("assignment_document_text = ?, ");
+                }
+                query.append("expire_date = ?, ");
+                query.append("modify_date = current ");
+                query.append("where assignment_document_id = ? ");
+            }
+            
+            ps = c.prepareStatement(query.toString());
+            ps.setLong(1, ad.getId().longValue());
+            ps.setLong(2, ad.getType().getId().longValue());
+            ps.setLong(3, ad.getStatus().getId().longValue());
+            ps.setInt(4, (ad.isHardCopy() != null && ad.isHardCopy().booleanValue()) ? 1 : 0);
+            ps.setString(5, ad.getSubmissionTitle());
+            ps.setLong(6, ad.getUser().getId().longValue());
+            ps.setObject(7, ad.getStudioContest() == null ? null : ad.getStudioContest().getId());
+            ps.setObject(8, ad.getComponentProject() == null ? null : ad.getComponentProject().getId());
+            ps.setTimestamp(9, ad.getAffirmedDate());
+            if (addOperation || updateText) {
+                ps.setString(10, ad.getText());
+                ps.setTimestamp(11, ad.getExpireDate());
+                if (!addOperation) {
+                    ps.setLong(12, ad.getId().longValue());
+                }
+            } else {
+                ps.setTimestamp(10, ad.getExpireDate());
+                if (!addOperation) {
+                    ps.setLong(11, ad.getId().longValue());
+                }
+            }
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in 'addAssignmentDocument'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+            
+            return ad;
+        } catch (IDGenerationException e) {
+            throw new EJBException(e);
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        } finally {
+            close(rs);
+            close(ps);
+        }
+    }
+    
+    /**
+     * Marks an assignment document as deleted
+     *
+     * @param ad the Assignment Document to store
+     * @throws DeleteAffirmedAssignmentDocumentException If there's an attempt to delete an affirmed assignment document
+     */
+    public void deleteAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        // validate
+        if (ad.getId() == null) {
+            throw new IllegalArgumentException("Assignment Document's id cannot be null");
+        }
+
+        try {
+            ad = getAssignmentDocument(ad.getId().longValue());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Assignment document does not exists");
+        }
+        
+        // deny the operation if the assignment document is affirmed.
+        
+        if (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID)) {
+            throw new DeleteAffirmedAssignmentDocumentException("Cannot delete an affirmed Assignment Document");            
+        }
+        
+        // mark as deleted
+        try {
+            conn = DBMS.getConnection();
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("update 'informix'.assignment_document set ");
+            query.append("assignment_document_status_id = ?, ");
+            query.append("modify_date = current ");
+            query.append("where assignment_document_id = ? ");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, AssignmentDocumentStatus.DELETED_STATUS_ID.longValue());
+            ps.setLong(2, ad.getId().longValue());
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in 'deleteAssignmentDocument'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+            
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage(), e));
+        } finally {
+            close(ps);
+            close(conn);
+        }
+    }
+
+    
+    /**
+     * Marks an assignment document as affirmed
+     *
+     * @param ad the Assignment Document to store
+     * @throws DeleteAffirmedAssignmentDocumentException If there's an attempt to delete an affirmed assignment document
+     */
+    public void affirmAssignmentDocument(AssignmentDocument ad) {
+        // validate
+        if (ad.getId() == null) {
+            throw new IllegalArgumentException("Assignment Document's id cannot be null");
+        }
+
+        try {
+            ad = getAssignmentDocument(ad.getId().longValue());
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Assignment document does not exists");
+        }
+        
+        // deny the operation if the assignment document is affirmed.
+        
+        if (!ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
+            throw new IllegalArgumentException("Assignment Document should be pending");  
+        }
+        
+        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
+                ad.getType().getId().longValue());
+
+        if (!hasHardCopy.booleanValue()) {
+            throw new IllegalArgumentException("You must send a hard copy of the Assignment Document " +
+                    "before you can use this system to affirm");  
+        }
+
+        ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
+        ad.setAffirmedDate(null);
+        
+        Connection c = null;
+        try {
+            c = DBMS.getConnection();
+            c.setAutoCommit(false);
+            setLockTimeout(c);
+
+            addAssignmentDocument(c, ad);
+            updateAssignmentDocumentPaymentStatus(c, ad, PAYMENT_OWED_STATUS);
+            
+            c.commit();
+            c.setAutoCommit(true);
+            c.close();
+            c = null;
+        } catch (Exception e) {
+            printException(e);
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            c = null;
+            throw(new EJBException(e.getMessage(), e));
+        }        
+    }
+
+    /**
+     * Helper method to update assignment document's related payments status.
+     *
+     * @param c the Connection to use
+     * @param ad the Assignment Document to update
+     * @param statusId the status id to update to
+     * @throws Exception If there's an error
+     */
+    private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad, int statusId) throws Exception {
+        StringBuffer updatePaymentStatus = new StringBuffer(300);
+        if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
+            updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
+            updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
+            updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+            updatePaymentStatus.append("AND p.user_id = ad.user_id ");
+            updatePaymentStatus.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
+            updatePaymentStatus.append("AND pd.component_project_id = ad.component_project_id ");
+            updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
+        } else if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
+            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
+            updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
+            updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
+            updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+            updatePaymentStatus.append("AND p.user_id = ad.user_id ");
+            updatePaymentStatus.append("AND pd.payment_type_id = " + TC_STUDIO_PAYMENT + " ");
+            updatePaymentStatus.append("AND pd.studio_contest_id = ad.studio_contest_id ");
+            updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
+        }
+                
+        ResultSetContainer rscComponent = runSelectQuery(c, updatePaymentStatus.toString(), false);
+
+        List changeToOnHold = new ArrayList();
+        
+        for (Iterator it = rscComponent.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            Long paymentId = (Long) rsr.getItem(0).getResultData();
+            Long referId = (Long) rsr.getItem(1).getResultData();
+
+            changeToOnHold.add(paymentId);
+            
+            if (referId != null) {
+                changeToOnHold.add(referId);
+            }
+        }
+        
+        int i = 0;
+        long pid[] = new long[changeToOnHold.size()];
+        for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
+                pid[i] = ((Long) it.next()).longValue();
+        }
+        
+        if (i > 0) {
+            updatePaymentStatus(c, pid, statusId);
+        }
+    }
+
+    
     /**
      * Returns the list of all contract types.
      *
@@ -3533,7 +4436,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             // Add address record if necessary
-            if (addressData != null && p.getStatusId() != PAYMENT_ON_HOLD_STATUS) {
+            if (addressData != null && p.getStatusId() != PAYMENT_ON_HOLD_STATUS
+                    && p.getStatusId() != PAYMENT_ON_HOLD_REJECTED_AD_STATUS 
+                    && p.getStatusId() != PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS) {
                 paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
 
                 StringBuffer addAddress = new StringBuffer(300);
@@ -4279,6 +5184,69 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return s;
         return '"' + s + '"';
     }
+    
+    private void checkAssignmentDocumentBeforePrint(Connection c) throws Exception {
+        StringBuffer getHoldComponentPayments = new StringBuffer(300);
+        getHoldComponentPayments.append("SELECT p.payment_id, p2.payment_id ");
+        getHoldComponentPayments.append("FROM payment p, payment_detail pd, OUTER payment p2, OUTER assignment_document ad ");
+        getHoldComponentPayments.append("WHERE p.referral_payment_id = p2.payment_id ");
+        getHoldComponentPayments.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+        getHoldComponentPayments.append("AND pd.status_id = " + READY_TO_PRINT_STATUS + " ");
+        getHoldComponentPayments.append("AND p.user_id = ad.user_id ");
+        getHoldComponentPayments.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
+        getHoldComponentPayments.append("AND pd.component_project_id = ad.component_project_id ");
+        ResultSetContainer rscComponent = runSelectQuery(c, getHoldComponentPayments.toString(), false);
+
+        List changeToOnHold = new ArrayList();
+        
+        for (Iterator it = rscComponent.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            Long paymentId = (Long) rsr.getItem(0).getResultData();
+            Long referId = (Long) rsr.getItem(1).getResultData();
+
+            changeToOnHold.add(paymentId);
+            
+            if (referId != null) {
+                changeToOnHold.add(referId);
+            }
+        }
+        
+        StringBuffer getHoldStudioPayments = new StringBuffer(300);
+        getHoldStudioPayments.append("SELECT p.payment_id, p2.payment_id ");
+        getHoldStudioPayments.append("FROM payment p, payment_detail pd, OUTER payment p2, OUTER assignment_document ad ");
+        getHoldStudioPayments.append("WHERE p.referral_payment_id = p2.payment_id ");
+        getHoldStudioPayments.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+        getHoldStudioPayments.append("AND pd.status_id = " + READY_TO_PRINT_STATUS + " ");
+        getHoldStudioPayments.append("AND p.user_id = ad.user_id ");
+        getHoldStudioPayments.append("AND pd.payment_type_id = " + TC_STUDIO_PAYMENT + " ");
+        getHoldStudioPayments.append("AND pd.studio_contest_id = ad.studio_contest_id ");
+        ResultSetContainer rscStudio = runSelectQuery(c, getHoldStudioPayments.toString(), false);
+
+        for (Iterator it = rscStudio.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            Long paymentId = (Long) rsr.getItem(0).getResultData();
+            Long referId = (Long) rsr.getItem(1).getResultData();
+
+            changeToOnHold.add(paymentId);
+            
+            if (referId != null) {
+                changeToOnHold.add(referId);
+            }
+        }
+        
+        // make all of them on hold.
+        // There's a small chance that a referral payment in this set has
+        // already been paid.  So we can't update all at once.
+        int i = 0;
+        long pid[] = new long[changeToOnHold.size()];
+        for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
+                pid[i] = ((Long) it.next()).longValue();
+        }
+        
+        if (i > 0) {
+            updatePaymentStatus(c, pid, PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS);
+        }
+    }
 
     /**
      * Prints the payments that have status of "Ready to Print" to an external location.
@@ -4352,6 +5320,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
+            // Then we also need to put payments on hold in case they are component or studio payments
+            // and they don't have a affirmed Assignment Document.
+            checkAssignmentDocumentBeforePrint(c);
+            
             // Now get the surviving payments that are ready to print
             StringBuffer select = new StringBuffer(700);
             select.append("SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
@@ -4921,7 +5893,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             query.append(" from payment_detail pd, payment p");
             query.append(" WHERE payment_type_id = " + ALGORITHM_CONTEST_PAYMENT);
             query.append(" AND pd.payment_detail_id = p.most_recent_detail_id");
-            query.append(" AND status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
+            query.append(" AND status_id IN (" + PAYMENT_ON_HOLD_STATUS + ",");
+            query.append(PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
             query.append(" AND today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
             ResultSetContainer payments = runSelectQuery(c, query.toString(), false);
 
@@ -5037,6 +6010,45 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
+    /**
+     * Sets the status on all assignment documents older than a specified time
+     * to Expired, and set the status on their associated payment (if any)
+     * to Canceled.
+     *
+     * @return The number of affidavit/payment pairs thus affected.
+     * @throws SQLException If there was some error updating the data.
+     */
+    public int expireOldAssignmentDocuments() throws SQLException {
+        Connection c = null;
+
+        try {
+            c = DBMS.getConnection();
+
+            StringBuffer updateAssignmentDocuments = new StringBuffer(300);
+            updateAssignmentDocuments.append("update assignment_document ");
+            updateAssignmentDocuments.append("set assignment_document_status_id = " + AssignmentDocumentStatus.EXPIRED_STATUS_ID);
+            updateAssignmentDocuments.append("modify_date = current ");
+            updateAssignmentDocuments.append("WHERE date(expire_date) <= date(current) ");
+            updateAssignmentDocuments.append("and assignment_document_status_id = " + AssignmentDocumentStatus.PENDING_STATUS_ID);
+
+            int rowsUpdated = runUpdateQuery(c, updateAssignmentDocuments.toString(), false);
+
+            c.close();
+            c = null;
+            return rowsUpdated;
+        } catch (Exception e) {
+            printException(e);
+            try {
+                if (c != null) c.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            c = null;
+            throw new SQLException(e.getMessage());
+        }
+    }
+
+
     public void createAffidavitTemplate(int affidavitTypeId, String text) throws SQLException {
 
         Connection conn = null;
@@ -5069,6 +6081,57 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             DBMS.printSqlException(true, e);
             throw(new EJBException(e.getMessage()));
         } finally {
+            close(ps);
+            close(conn);
+        }
+    }
+
+    public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+
+            conn = DBMS.getConnection();
+            conn.setAutoCommit(false);
+            setLockTimeout(conn);
+
+            StringBuffer update = new StringBuffer(1024);
+            update.append("update assignment_document_template set cur_version = 0 ");
+            update.append("where assignment_document_type_id = ?");
+
+            ps = conn.prepareStatement(update.toString());
+            ps.setInt(1, assignmentdocumentTypeId);
+            
+            ps.executeUpdate();
+            ps.close();
+            
+            StringBuffer query = new StringBuffer(1024);
+            query.append("insert into assignment_document_template (assignment_document_template_id, assignment_document_type_id, assignment_document_template_text, cur_version)");
+            query.append("values (?, ?, ?, 1)");
+
+            long assignmentDocumentTemplateId = IdGeneratorClient.getSeqId("ASSIGNMENT_DOCUMENT_TEMPLATE_SEQ");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, assignmentDocumentTemplateId);
+            ps.setInt(2, assignmentdocumentTypeId);
+            ps.setBytes(3, text.getBytes());
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in 'assignment_document_template'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+            conn.commit();
+        } catch (IDGenerationException e) {
+            rollback(conn);
+            throw new EJBException(e);
+        } catch (SQLException e) {
+            rollback(conn);
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage(), e));
+        } finally {
+            setAutoCommit(conn, true);
             close(ps);
             close(conn);
         }
@@ -5247,7 +6310,102 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return hm;
     }
 
+    private StudioContest findStudioContestsById(long contestId) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetContainer rsc = null;
 
+        try {
+            conn = DBMS.getConnection(DBMS.STUDIO_DATASOURCE_NAME);
+
+            StringBuffer query = new StringBuffer(1000);
+
+            query.append(" select contest_id, name");
+            query.append(" from contest");
+            query.append(" where contest_id = ?");
+            ps = conn.prepareStatement(query.toString());
+
+            ps.setLong(1, contestId);
+            rs = ps.executeQuery();
+            rsc =  new ResultSetContainer(rs, false);
+
+            if (rsc.isEmpty()) {
+                throw new IllegalUpdateException("Couldn't find studio contest for id: " + contestId);
+            }
+            
+            StudioContest c = new StudioContest();
+            
+            c.setId(new Long(rsc.getLongItem(0, "contest_id")));
+            c.setName(rsc.getStringItem(0, "name"));
+            
+            return c;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+
+    private ComponentProject findComponentProjectById(long projectId) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ResultSetContainer rsc = null;
+
+        try {
+            conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
+
+            StringBuffer query = new StringBuffer(1000);
+
+            query.append(" select p.project_id,  ");
+            query.append(" component_name || ' '  || ");
+            query.append(" pc.name || ");
+            query.append(" ' (' ||  NVL(pi_rated.value, 'UNKNWON')  || ')' as project_desc ");
+            query.append(" from project p, ");
+            query.append(" comp_catalog c, ");
+            query.append(" project_category_lu pc, ");
+            query.append(" project_info pi_comp, ");
+            query.append(" OUTER project_info pi_rated ");
+            query.append(" where pi_comp.value = c.component_id ");
+            query.append(" and p.project_category_id = pc.project_category_id ");
+            query.append(" and pi_rated.project_info_type_id = 22 ");
+            query.append(" and pi_rated.project_id = p.project_id ");
+            query.append(" and pi_comp.project_info_type_id = 2 ");
+            query.append(" and pi_comp.project_id = p.project_id ");
+            query.append(" and p.project_id = ?");
+            ps = conn.prepareStatement(query.toString());
+
+            ps.setLong(1, projectId);
+            rs = ps.executeQuery();
+            rsc =  new ResultSetContainer(rs, false);
+
+            if (rsc.isEmpty()) {
+                throw new IllegalUpdateException("Couldn't find project for id: " + projectId);
+            }
+            
+            ComponentProject cp = new ComponentProject();
+            
+            cp.setId(new Long(rsc.getLongItem(0, "project_id")));
+            cp.setDescription(rsc.getStringItem(0, "project_desc"));
+            
+            return cp;
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } catch (Exception e) {
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
 
     public Map findRounds(String search, int[] roundTypes) throws SQLException {
         StringBuffer types = new StringBuffer(100);
@@ -5997,7 +7155,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append("AND p.user_id = " + userId);
 
         if (pendingOnly) {
-            query.append(" AND pd.status_id IN (" + PactsConstants.PAYMENT_ON_HOLD_STATUS + "," + PactsConstants.PAYMENT_OWED_STATUS + "," + PactsConstants.PAYMENT_PENDING_STATUS + ")");
+        	query.append(" AND pd.status_id IN (" + PactsConstants.PAYMENT_ON_HOLD_STATUS + "," );
+            query.append(PactsConstants.PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + ",");
+            query.append(PactsConstants.PAYMENT_OWED_STATUS + "," + PactsConstants.PAYMENT_PENDING_STATUS + ")");
         }
 
         query.append("ORDER BY " + sortColumn + (sortAscending? " ASC" : " DESC"));
@@ -6046,6 +7206,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         return runSelectQuery(query.toString(), false);
     }
+
 
     class AlgorithmContestPaymentDataRetriever extends AlgorithmContestPayment {
         private final String roundName;
