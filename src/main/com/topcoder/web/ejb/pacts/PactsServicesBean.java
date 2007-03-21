@@ -5194,6 +5194,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getHoldComponentPayments.append("AND p.user_id = ad.user_id ");
         getHoldComponentPayments.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
         getHoldComponentPayments.append("AND pd.component_project_id = ad.component_project_id ");
+        getHoldComponentPayments.append("AND (ad.assignment_document_status_id is null or ad.assignment_document_status_id <> " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID + ") ");
         ResultSetContainer rscComponent = runSelectQuery(c, getHoldComponentPayments.toString(), false);
 
         List changeToOnHold = new ArrayList();
@@ -5219,6 +5220,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getHoldStudioPayments.append("AND p.user_id = ad.user_id ");
         getHoldStudioPayments.append("AND pd.payment_type_id = " + TC_STUDIO_PAYMENT + " ");
         getHoldStudioPayments.append("AND pd.studio_contest_id = ad.studio_contest_id ");
+        getHoldStudioPayments.append("AND (ad.assignment_document_status_id is null or ad.assignment_document_status_id <> " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID + ") ");
         ResultSetContainer rscStudio = runSelectQuery(c, getHoldStudioPayments.toString(), false);
 
         for (Iterator it = rscStudio.iterator(); it.hasNext();) {
@@ -5239,7 +5241,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int i = 0;
         long pid[] = new long[changeToOnHold.size()];
         for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
-                pid[i] = ((Long) it.next()).longValue();
+            pid[i] = ((Long) it.next()).longValue();
+            log.debug("attempting to move back to on hold payment id: " + pid[i] + " (no affirmed AD)");
         }
         
         if (i > 0) {
@@ -5322,7 +5325,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER == 1) {
                 // Then we also need to put payments on hold in case they are component or studio payments
                 // and they don't have a affirmed Assignment Document.
+                log.debug("IP transfer active, checking Assignment Documents...");
                 checkAssignmentDocumentBeforePrint(c);
+            } else {
+                log.debug("IP transfer inactive, avoid checking Assignment Documents...");
             }
             
             // Now get the surviving payments that are ready to print
