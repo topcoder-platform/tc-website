@@ -41,12 +41,18 @@
 
 <div align="center">
    <div style="width:500px; text-align:left;">
-
+<%--
 <map name="tutorial_map">
 <area shape="rect" alt="audio" coords="42,98, 106,136" href="#" onClick="window.open('/flash/demos/devdemo1.html','screen','height=490,width=640'); return false;" />
 <area shape="rect" alt="text" coords="116,98, 180,136" href="#" onClick="window.open('/flash/demos/devdemo2.html','screen','height=520,width=640'); return false;" />
-</map>   
-<div align="center"><img src="/i/support/dev_promo.gif" valign="top" align="center" width="510" height="150" border="0" alt="Watch the Tutorial Movie" usemap="#tutorial_map" /></div>
+</map> --%>  
+
+<map name="tutorial_map_practice">
+<area shape="rect" alt="audio" coords="41,99, 100,135" href="#" onClick="window.open('/flash/demos/devdemo1.html','screen','height=490,width=640'); return false;" />
+<area shape="rect" alt="text" coords="116,99, 175,135" href="#" onClick="window.open('/flash/demos/devdemo2.html','screen','height=520,width=640'); return false;" />
+<area shape="rect" alt="practice" coords="376,99, 437,119" href="/tc?module=Static&d1=dev&d2=support&d3=devPractice" />
+</map>
+<div align="center"><img src="/i/support/dev_promo.png" valign="top" align="center" width="510" height="150" border="0" alt="Watch the Tutorial Movie" usemap="#tutorial_map_practice" /></div>
 
 <h2>Getting Started in Development Competitions</h2>
 
