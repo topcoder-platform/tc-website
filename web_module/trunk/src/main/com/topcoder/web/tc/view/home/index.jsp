@@ -245,7 +245,7 @@
                  
                 <%-- Marathon Match Sponsor --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=schedule" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/longcontest/?module=ViewActiveContests" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign" />
                 </map>
                 <img src="/i/home/mmtco2_verisign.png" alt="TCO07 Marathon Match 2 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
