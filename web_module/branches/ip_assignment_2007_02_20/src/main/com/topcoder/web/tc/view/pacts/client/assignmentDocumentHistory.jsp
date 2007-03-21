@@ -78,10 +78,10 @@
        <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
     <span class="bodySubtitle">IP Transfers > </span><br>
-    <c:if test="${fullList}" >
+    <c:if test="${full_list}" >
         View all | <a href="/PactsMemberServlet?module=AssignmentDocumentHistory&full_list=false" class="bcLink">View pending</a>
     </c:if>
-    <c:if test="${not fullList}" >
+    <c:if test="${not full_list}" >
         <a href="/PactsMemberServlet?module=AssignmentDocumentHistory&full_list=true" class="bcLink">View all</a> | View pending
     </c:if>
 </div>
@@ -190,7 +190,7 @@
          <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
          <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
          <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
-         <input type="hidden" name="<%= AssignmentDocumentHistory.FULL_LIST %>" value="<c:out value="${fullList}"/>" />
+         <input type="hidden" name="<%= AssignmentDocumentHistory.FULL_LIST %>" value="<c:out value="${full_list}"/>" />
 
          <c:if test="${croppedDataBefore or croppedDataAfter}" >
             <div class="pagingBox">
