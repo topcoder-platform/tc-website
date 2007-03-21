@@ -5322,7 +5322,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            if (com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER == 1) {
+            if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER) {
                 // Then we also need to put payments on hold in case they are component or studio payments
                 // and they don't have a affirmed Assignment Document.
                 log.debug("IP transfer active, checking Assignment Documents...");
