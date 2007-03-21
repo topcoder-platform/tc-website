@@ -10,7 +10,8 @@
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalog,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECategories,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalogHome,
-                 com.topcoder.dde.persistencelayer.interfaces.LocalDDECategoriesHome" %>
+                 com.topcoder.dde.persistencelayer.interfaces.LocalDDECategoriesHome,
+                 com.topcoder.web.common.MultipartRequest" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -170,11 +171,11 @@ String strMessage = "";
 if (request.getMethod().equals("POST")) {
     try {
         // File Upload - Config manager
-        FileUpload fu = new FileUpload(request,false);
-        lngComponent = Long.parseLong(fu.getParameter("comp"));
-        lngVersion = Long.parseLong(fu.getParameter("ver"));
-        Iterator fileUploads = fu.getAllUploadedFiles();
-        action = fu.getParameter("a");
+        MultipartRequest upload = new MultipartRequest(request);
+        lngComponent = Long.parseLong(upload.getParameter("comp"));
+        lngVersion = Long.parseLong(upload.getParameter("ver"));
+        UploadedFile[] fileUploads = upload.getAllUploadedFiles();
+        action = upload.getParameter("a");
 
         // File Upload - parse request
         strMessage += "File was uploaded.";
@@ -184,7 +185,7 @@ if (request.getMethod().equals("POST")) {
             componentManager = component_manager_home.create(lngComponent);
         }
 
-        String rootDir = fu.getCurrentDefaultDir();
+        String rootDir = upload.getCurrentDefaultDir();
         if (!rootDir.endsWith("/")) {
             rootDir += "/";
         }
@@ -199,8 +200,8 @@ if (request.getMethod().equals("POST")) {
             // Documents
             if (action.equals("Add Document")) {
 
-                if (fileUploads.hasNext()) {
-                    UploadedFile uf = (UploadedFile) fileUploads.next();
+                if (fileUploads.length > 0) {
+                    UploadedFile uf = fileUploads[0];
                     String fileName = uf.getRemoteFileName();
 
                     component = componentManager.getComponentInfo();
@@ -323,12 +324,12 @@ if (request.getMethod().equals("POST")) {
             }
 
             if (action.equals("Upload Document")) {
-                com.topcoder.dde.catalog.Document document = catalog.getDocument(Long.parseLong(fu.getParameter("lngDocument")));
-                if (fileUploads.hasNext()) {
+                com.topcoder.dde.catalog.Document document = catalog.getDocument(Long.parseLong(upload.getParameter("lngDocument")));
+                if (fileUploads.length > 0) {
                     try {
                         new File(rootDir + document.getURL()).delete();
                     } catch (Exception e) {}
-                    UploadedFile uf = (UploadedFile)fileUploads.next();
+                    UploadedFile uf = fileUploads[0];
                     String url = dir + uf.getRemoteFileName();
                     InputStream is = uf.getInputStream();
                     new File(rootDir + dir).mkdirs();
@@ -359,12 +360,12 @@ if (request.getMethod().equals("POST")) {
 
             // Downloads
             if (action.equals("Add Download")) {
-                String desc = fu.getParameter("txtDownloadDescription");
+                String desc = upload.getParameter("txtDownloadDescription");
                 if (desc.trim().length() == 0) {
                     strError += "Name cannot be blank.<BR>";
                 } else {
-                    if (fileUploads.hasNext()) {
-                        UploadedFile uf = (UploadedFile)fileUploads.next();
+                    if (fileUploads.length > 0) {
+                        UploadedFile uf = fileUploads[0];
                         String url = dir + uf.getRemoteFileName();
                         InputStream is = uf.getInputStream();
                         new File(rootDir + dir).mkdirs();
@@ -388,12 +389,12 @@ if (request.getMethod().equals("POST")) {
             }
 
             if (action.equals("Upload Download")) {
-                Download download = catalog.getDownload(Long.parseLong(fu.getParameter("lngDownload")));
-                if (fileUploads.hasNext()) {
+                Download download = catalog.getDownload(Long.parseLong(upload.getParameter("lngDownload")));
+                if (fileUploads.length > 0) {
                     try {
                         new File(rootDir + download.getURL()).delete();
                     } catch (Exception e) {}
-                    UploadedFile uf = (UploadedFile)fileUploads.next();
+                    UploadedFile uf = fileUploads[0];
                     String url = dir + uf.getRemoteFileName();
                     InputStream is = uf.getInputStream();
                     new File(rootDir + dir).mkdirs();
@@ -417,9 +418,9 @@ if (request.getMethod().equals("POST")) {
 
             // Handle "Update Document" requests
             if (action.equalsIgnoreCase("Update Document")) {
-                String name = fu.getParameter("txtDocumentName");
-                String type = fu.getParameter("selDocType");
-                String strDocId = fu.getParameter("lngDocument");
+                String name = upload.getParameter("txtDocumentName");
+                String type = upload.getParameter("selDocType");
+                String strDocId = upload.getParameter("lngDocument");
 
                 long lngType = -1;
                 try {

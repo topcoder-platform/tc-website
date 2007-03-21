@@ -721,7 +721,6 @@
                 <include name="ifxjdbc.jar"/>
                 <include name="bfograph.jar"/>
                 <include name="object_formatter.jar"/>
-                <include name="file_upload.jar"/>
                 <include name="tcsUtil.jar"/>
                 <include name="fileconvert.jar"/>
                 <include name="idgenerator.jar"/>
@@ -733,6 +732,9 @@
             </fileset>
             <fileset dir="${jars.dir}/tcs/db_connection_factory/1.0">
                 <include name="db_connection_factory.jar"/>
+            </fileset>
+        	<fileset dir="${jars.dir}/tcs/file_upload/2.0">
+                <include name="file_upload.jar"/>
             </fileset>
         </copy>
 

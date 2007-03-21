@@ -4,8 +4,9 @@
 
 package com.topcoder.apps.review;
 
-import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.util.log.Level;
+import com.topcoder.web.common.MultipartRequest;
+
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForwards;
@@ -65,7 +66,7 @@ public final class SaveTestCasesAction extends ReviewAction {
 
         try {
             BusinessDelegate businessDelegate = new BusinessDelegate();
-            FileUpload upload = new FileUpload(request, false);
+            MultipartRequest upload = new MultipartRequest(request);
             ResultData result = null;
             SolutionData data = null;
 
