@@ -61,7 +61,7 @@ As a programmer, you'll frequently come across tasks that deal with a number of 
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=match_editorials&d2=srm342">full story</A> | 
         <tc-webtag:forumLink forumID="506232" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
 <%--------------------------------------------------------%>
