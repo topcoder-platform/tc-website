@@ -136,9 +136,11 @@
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tr><td class="title" colspan="9">
-            Algorithm Competition History
-        </td></tr>
+        <tr>
+            <td class="title" colspan="9">
+                Algorithm Competition History
+            </td>
+        </tr>
         <tr>
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("date")%>" includeParams="true"/>">Date</a>
@@ -150,7 +152,7 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("division")%>" includeParams="true"/>">Division</a>
             </TD>
             <TD CLASS="headerC">
-                <a href="">Division<br>Place</a>
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("division_placed")%>" includeParams="true"/>">Division<br>Place</a>
             </TD>
             <TD CLASS="headerC">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("room_placed")%>" includeParams="true"/>">Room<br>Place</a>
@@ -171,7 +173,9 @@
         <%boolean even = true;%>
         <rsc:iterator list="<%=rsc2%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">
-                <TD class="value"><rsc:item name="date" row="<%=resultRow%>" format="MM.dd.yy"/></TD>
+                <TD class="value">
+                    <rsc:item name="date" row="<%=resultRow%>" format="MM.dd.yy"/>
+                </TD>
                 <TD class="value">
                     <A HREF="/stat?c=coder_room_stats&cr=<%=coderId%>&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>&rm=<rsc:item name="room_id" row="<%=resultRow%>"/>" CLASS="statLink">
                         <rsc:item name="short_name" row="<%=resultRow%>"/>
@@ -180,12 +184,24 @@
                 <TD class="value">
                     <rsc:item name="division" row="<%=resultRow%>"/>
                 </TD>
-                <TD class="valueC">100</TD>
-                <TD class="valueC"><rsc:item name="room_placed" row="<%=resultRow%>"/></TD>
-                <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
-                <TD class="valueR"><rsc:item name="vol" row="<%=resultRow%>"/></TD>
-                <TD class="valueC"><rsc:item name="rank" row="<%=resultRow%>"/></TD>
-                <TD class="valueC"><rsc:item name="percentile" row="<%=resultRow%>" format="#0.00" /></TD>                
+                <TD class="valueC">
+                    <rsc:item name="division_placed" row="<%=resultRow%>"/>
+                </TD>
+                <TD class="valueC">
+                    <rsc:item name="room_placed" row="<%=resultRow%>"/>
+                </TD>
+                <TD class="valueR">
+                    <rsc:item name="new_rating" row="<%=resultRow%>"/>
+                </TD>
+                <TD class="valueR">
+                    <rsc:item name="vol" row="<%=resultRow%>"/>
+                </TD>
+                <TD class="valueC">
+                    <rsc:item name="rank" row="<%=resultRow%>"/>
+                </TD>
+                <TD class="valueC">
+                    <rsc:item name="percentile" row="<%=resultRow%>" format="#0.00"/>
+                </TD>
             </tr>
             <%even = !even;%>
         </rsc:iterator>
