@@ -43,6 +43,14 @@
 </jsp:include>
 
 <p>
+    5.8.7 - 2007.03.21
+    <ul>
+        <li>Add division placed to algorithm competition history -dok</li>
+    </ul>
+</p>
+
+
+<p>
     5.8.6 - 2007.03.19
     <ul>
         <li>Add studio results to the tco07 site -dok</li>
