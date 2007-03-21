@@ -61,7 +61,7 @@
     <td class="valueC">Alpha</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
@@ -70,7 +70,7 @@
     <td class="valueC">Alpha</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
@@ -79,7 +79,7 @@
     <td class="valueC">Alpha</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
@@ -88,7 +88,7 @@
     <td class="valueC">Alpha</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
@@ -160,7 +160,7 @@
     <td class="valueC">Gamma</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
@@ -169,7 +169,7 @@
     <td class="valueC">Gamma</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
