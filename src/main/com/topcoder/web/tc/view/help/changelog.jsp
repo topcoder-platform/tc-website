@@ -43,6 +43,13 @@
 </jsp:include>
 
 <p>
+    5.8.8 - 2007.03.xx
+    <ul>
+        <li>Add handle in the recovery password email.</li>
+    </ul>
+</p>
+
+<p>
     5.8.7 - 2007.03.21
     <ul>
         <li>Add division placed to algorithm competition history -dok</li>
