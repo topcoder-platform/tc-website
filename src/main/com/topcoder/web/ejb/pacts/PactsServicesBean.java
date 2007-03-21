@@ -4437,7 +4437,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             // Add address record if necessary
             if (addressData != null && p.getStatusId() != PAYMENT_ON_HOLD_STATUS
-                    && p.getStatusId() != PAYMENT_ON_HOLD_REJECTED_AD_STATUS 
                     && p.getStatusId() != PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS) {
                 paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
 
