@@ -5319,9 +5319,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            // Then we also need to put payments on hold in case they are component or studio payments
-            // and they don't have a affirmed Assignment Document.
-            checkAssignmentDocumentBeforePrint(c);
+            if (com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER == 1) {
+                // Then we also need to put payments on hold in case they are component or studio payments
+                // and they don't have a affirmed Assignment Document.
+                checkAssignmentDocumentBeforePrint(c);
+            }
             
             // Now get the surviving payments that are ready to print
             StringBuffer select = new StringBuffer(700);
