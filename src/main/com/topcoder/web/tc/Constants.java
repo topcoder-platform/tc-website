@@ -331,7 +331,7 @@ public class Constants implements WebConstants {
     public static String DEFAULT_SURVEY_SCROLL_SIZE;
     public static final String COLOR = "color";
 
-    public static final int ACTIVATE_IP_TRANSFER = 0;
+    public static String ACTIVATE_IP_TRANSFER;
 
     static {
         initialize();
