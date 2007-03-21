@@ -6,10 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 /**
  * Represents basic payment information, without reference information.
@@ -677,6 +679,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             return rsc.getRowCount() > 0;
         }
 
+        
         /**
          * Get an ordinal string for a placement.
          * If it's 0, "winnings" is returned, if not, "1st place", "2nd place", "3rd place" and so on.
