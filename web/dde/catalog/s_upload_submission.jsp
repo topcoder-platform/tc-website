@@ -8,7 +8,8 @@
                  com.topcoder.dde.user.User,
                  com.topcoder.dde.user.RegistrationInfo,
                  com.topcoder.dde.user.UserManagerRemote,
-                 com.topcoder.dde.user.UserManagerRemoteHome" %>
+                 com.topcoder.dde.user.UserManagerRemoteHome,
+                 com.topcoder.web.common.MultipartRequest" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -29,9 +30,9 @@
     String page_name = "s_about.jsp";
     String action = request.getParameter("a");
 
-    FileUpload fu = null;
+    MultipartRequest upload = null;
     try {
-        fu = new FileUpload(request, false);
+        upload = new MultipartRequest(request);
     } catch (InvalidContentTypeException e) {}
     boolean submit;
     long comp_ver_id = -1;
@@ -40,7 +41,7 @@
     long component_id = -1;
     String comp_name = null;
     String comment= null;
-    if (fu == null) {
+    if (upload == null) {
         submit = false;
         try {
             component_id = Long.parseLong(request.getParameter("comp_id"));
@@ -65,26 +66,26 @@
     } else {
         submit = true;
         try {
-            component_id = Long.parseLong(fu.getParameter("comp_id"));
+            component_id = Long.parseLong(upload.getParameter("comp_id"));
         } catch (NullPointerException e) {
         } catch (NumberFormatException e) {}
         try {
-            version = Long.parseLong(fu.getParameter("version"));
+            version = Long.parseLong(upload.getParameter("version"));
         } catch (NullPointerException e) {
         } catch (NumberFormatException e) {}
         try {
-            comp_ver_id = Long.parseLong(fu.getParameter("compvers"));
+            comp_ver_id = Long.parseLong(upload.getParameter("compvers"));
         } catch (NullPointerException e) {
         } catch (NumberFormatException e) {}
         try {
-            comp_name = fu.getParameter("Project");
+            comp_name = upload.getParameter("Project");
         } catch (NullPointerException e) {
         } catch (NumberFormatException e) {}
         try {
-            phase_id = Long.parseLong(fu.getParameter("phase"));
+            phase_id = Long.parseLong(upload.getParameter("phase"));
         } catch (NullPointerException e) {
         } catch (NumberFormatException e) {}
-        comment = fu.getParameter("comment");
+        comment = upload.getParameter("comment");
     }
     RegistrationInfo regInfo = null;
     if (tcSubject == null || tcUser == null) {
@@ -103,7 +104,7 @@
         //do the submission
         boolean successful = false;
         try {
-            successful = Utility.submit(fu,tcUser,comp_ver_id,phase_id,comment);
+            successful = Utility.submit(upload,tcUser,comp_ver_id,phase_id,comment);
         } catch (Exception e) {
             e.printStackTrace(new PrintWriter(out));
         }

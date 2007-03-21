@@ -1,5 +1,4 @@
 <%@ page import="javax.naming.*,
-                 com.topcoder.servlet.request.FileUpload,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.dde.catalog.Document" %>
 <%@ page import="javax.ejb.CreateException" %>

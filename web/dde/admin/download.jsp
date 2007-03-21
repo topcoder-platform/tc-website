@@ -2,15 +2,16 @@
 <%@ page import = "java.io.*" %>
 <%@ page import = "com.topcoder.util.config.*" %>
 <%@ page import = "com.topcoder.servlet.request.*" %>
+<%@ page import = "com.topcoder.web.common.MultipartRequest" %>
 <%
 String namespace = "com.topcoder.servlet.request.FileUpload";
 
-Iterator it = null;
+UploadedFiles[] fileUploads = null;
 if(request.getMethod().equals("POST")){
     //retrieve uploaded files with persistence
     try{
-        FileUpload fu = new FileUpload(request,true);
-        it = fu.getAllUploadedFiles();
+    	MultipartRequest upload = new MultipartRequest(request);
+        fileUploads = upload.getAllUploadedFiles();
     }catch (FileSizeLimitExceededException fe){
     }
 
@@ -36,12 +37,12 @@ if(request.getMethod().equals("POST")){
     <tr>
 	<td align="center"><input type="submit" name="a" value="Save" class="formButtonA1"></td>
     </tr>
-<% if (it != null){  %>
+<% if (fileUploads.length > 0) {  %>
     <tr>
         <td>Uploaded Files</td>
     </tr>
-    <%  while (it.hasNext()) {
-    	UploadedFile uf = (UploadedFile)it.next();
+    <%  for (int i=0; i<fileUploads.length; i++) {
+    	UploadedFile uf = fileUploads[i];
     	File f = uf.getFile();
     %>
     <tr>

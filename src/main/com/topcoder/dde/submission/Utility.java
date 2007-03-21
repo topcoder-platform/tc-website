@@ -1,9 +1,11 @@
 package com.topcoder.dde.submission;
 
 import com.topcoder.dde.user.User;
-import com.topcoder.servlet.request.FileUpload;
+import com.topcoder.servlet.request.FileDoesNotExistException;
+import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.util.idgenerator.bean.IdGenException;
+import com.topcoder.web.common.MultipartRequest;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;
@@ -15,7 +17,6 @@ import java.io.InputStream;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -47,18 +48,20 @@ public class Utility {
         return (Submission[]) list.toArray(new Submission[0]);
     }
 
-    public static boolean submit(FileUpload fileUpload, User user, long comp_version_id, long phase_id, String comment) throws SubmitterDoesNotExistException, IOException, NamingException, CreateException, SQLException, IdGenException {
+    public static boolean submit(MultipartRequest fileUpload, User user, long comp_version_id, long phase_id, String comment) 
+        throws SubmitterDoesNotExistException, IOException, NamingException, CreateException, SQLException, 
+            IdGenException, FileDoesNotExistException, PersistenceException {
 
-        Iterator it = fileUpload.getAllUploadedFiles();
+        UploadedFile[] files = fileUpload.getAllUploadedFiles();
         boolean rv = false;
-        while (it.hasNext()) {
-            InputStream is = ((UploadedFile) it.next()).getInputStream();
+        for (int i=0; i<files.length; i++) {
+            InputStream is = files[i].getInputStream();
             if (is.available() <= 0)
                 continue;
             else
                 rv = true;
             getSubmissions().submit(getSubmitters().getSubmitterId(user.getId(),
-                    comp_version_id, phase_id, true), is, comment);
+                    comp_version_id, phase_id, true), is, comment); 
         }
         return rv;
     }
