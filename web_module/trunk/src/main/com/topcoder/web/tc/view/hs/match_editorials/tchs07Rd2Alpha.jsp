@@ -487,8 +487,6 @@ If a cell has a positive state, replace the character in the output by '*'.
 
 
 
-</p>
-
 <div class="authorPhoto">
     <img src="/i/m/Olexiy_big2.jpg" alt="Author" />
 </div>
