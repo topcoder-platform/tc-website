@@ -27,6 +27,8 @@ import com.topcoder.apps.screening.SpecificationScreeningRequest;
 import com.topcoder.apps.screening.application.AppSpecification;
 import com.topcoder.apps.screening.application.ApplicationSpecification;
 import com.topcoder.dde.util.Constants;
+import com.topcoder.servlet.request.FileDoesNotExistException;
+import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.util.format.FormatMethodFactory;
@@ -114,6 +116,10 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
                 copy(is, pathPrefix + destFilename);
             } catch (IOException ioe) {
                 throw new TCWebException("Couldn't read uploaded file.", ioe);
+            } catch (PersistenceException pe) {
+                throw new TCWebException("Persistence exception.", pe);
+            } catch (FileDoesNotExistException fe) {
+                throw new TCWebException("File does not exist.", fe);
             } finally {
                 try {
                     is.close();
@@ -167,6 +173,10 @@ public class UploadApplicationSpecificationTask extends BaseProcessor {
             throw new TCWebException("Could not create the specification screening request.", sqle);
         } catch (MalformedURLException murle) {
             throw new TCWebException("Could not create the remote file.", murle);
+        } catch (PersistenceException pe) {
+            throw new TCWebException("Persistence exception.", pe);
+        } catch (FileDoesNotExistException fe) {
+            throw new TCWebException("File does not exist.", fe);
         } finally {
             Common.close(conn);
         }
