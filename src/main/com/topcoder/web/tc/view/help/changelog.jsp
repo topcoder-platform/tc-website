@@ -42,16 +42,11 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
-<p>
-    5.8.8 - 2007.03.xx
-    <ul>
-        <li>Add handle in the recovery password email.</li>
-    </ul>
-</p>
 
 <p>
-    5.8.7 - 2007.03.21
+    5.8.7 - 2007.03.xx
     <ul>
+        <li>Add handle in the recovery password email. - cucu</li>
         <li>Add division placed to algorithm competition history -dok</li>
     </ul>
 </p>
