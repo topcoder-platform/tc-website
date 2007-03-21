@@ -136,7 +136,7 @@
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tr><td class="title" colspan="8">
+        <tr><td class="title" colspan="9">
             Algorithm Competition History
         </td></tr>
         <tr>
@@ -150,7 +150,10 @@
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("division")%>" includeParams="true"/>">Division</a>
             </TD>
             <TD CLASS="headerC">
-                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("room_placed")%>" includeParams="true"/>">Place</a>
+                <a href="">Division<br>Place</a>
+            </TD>
+            <TD CLASS="headerC">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("room_placed")%>" includeParams="true"/>">Room<br>Place</a>
             </TD>
             <TD CLASS="headerR">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("new_rating")%>" includeParams="true"/>">Rating</a>
@@ -177,6 +180,7 @@
                 <TD class="value">
                     <rsc:item name="division" row="<%=resultRow%>"/>
                 </TD>
+                <TD class="valueC">100</TD>
                 <TD class="valueC"><rsc:item name="room_placed" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="new_rating" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="vol" row="<%=resultRow%>"/></TD>
