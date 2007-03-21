@@ -17,7 +17,6 @@ public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Studio");
     private static final Logger log = Logger.getLogger(Constants.class);
 
-
     public static String DEFAULT_PAGE;
 
     public static final String START_TIME = "sttm";
@@ -40,6 +39,11 @@ public class Constants implements WebConstants {
     public static final String FILE_TYPE = "ft_";
     public static final String SUBMISSION_RANK = "srank";
     public static final String REG_CONFIRM = "rconfirm";
+    public static final String ACCEPT_AD = "accept_ad";
+    public static final String ACCEPT_AD_ERROR = "accept_ad_err";
+
+    public static final String ASSIGNMENT_DOCUMENT_ID = "assignment_document_id";
+    public static final String RESULT_KEY = "result_key";
 
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;

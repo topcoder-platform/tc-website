@@ -18,6 +18,8 @@ public class StudioFileType extends Base {
     private Integer sort;
     private Boolean imageFile;
 
+    public static final Integer ZIP_ARCHIVE_TYPE_ID = new Integer(14);
+
     public Integer getId() {
         return id;
     }

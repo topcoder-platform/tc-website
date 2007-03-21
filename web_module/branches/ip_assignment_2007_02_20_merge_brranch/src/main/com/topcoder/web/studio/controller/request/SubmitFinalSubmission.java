@@ -1,5 +1,17 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;
@@ -7,6 +19,8 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.ObjectInput;
@@ -16,24 +30,18 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.*;
+import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.FilePath;
+import com.topcoder.web.studio.model.MimeType;
+import com.topcoder.web.studio.model.StudioFileType;
+import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionType;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.sql.Timestamp;
-import java.util.Date;
-
 /**
- * @author dok
- * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Jul 20, 2006
+ * @author pulky
  */
-public class Submit extends BaseSubmissionDataProcessor {
+public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
     private File f = null;
 
     protected void dbProcessing() throws Exception {
@@ -53,29 +61,25 @@ public class Submit extends BaseSubmissionDataProcessor {
             SubmissionDAO dao = cFactory.getSubmissionDAO();
 
             Contest c = cFactory.getContestDAO().find(contestId);
-            Date now = new Date();
-            if (now.before(c.getStartTime()) ||
-                    now.after(c.getEndTime()) ||
-                    !ContestStatus.ACTIVE.equals(c.getStatus().getId())) {
-                throw new NavigationException("Inactive contest specified.");
-            }
             User u = factory.getUserDAO().find(new Long(getUser().getId()));
 
-            if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
-                //not registered
-                StringBuffer buf = new StringBuffer(50);
-                buf.append(getSessionInfo().getServletPath());
-                buf.append("?" + Constants.MODULE_KEY + "=ViewRegistration&");
-                buf.append(Constants.CONTEST_ID + "=").append(contestId);
-                setNextPage(buf.toString());
-                setIsNextPageInContext(false);
+            
+            if (cFactory.getContestRegistrationDAO().find(c, u) == null) { 
+                throw new NavigationException("User not registered for the contest");
+            } else if (!isWinner(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE)) {
+                throw new NavigationException("User cannot upload final submissions");
             } else {
-                //registered
+                //registered and winner
 
                 MultipartRequest r = (MultipartRequest) getRequest();
 
                 UploadedFile submissionFile = r.getUploadedFile(Constants.SUBMISSION);
 
+                // for final submissions only zip files are allowed.
+                StudioFileType sft = cFactory.getFileTypeDAO().find(StudioFileType.ZIP_ARCHIVE_TYPE_ID);
+                Set ft = new HashSet();
+                ft.add(sft);
+                c.setFileTypes(ft);
                 //do validation
                 ValidationResult submissionResult = new SubmissionValidator(c).validate(new ObjectInput(submissionFile));
                 if (!submissionResult.isValid()) {
@@ -87,14 +91,39 @@ public class Submit extends BaseSubmissionDataProcessor {
                     addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
                 }
 
+                if (!"on".equals(getRequest().getParameter(Constants.ACCEPT_AD))) {
+                    addError(Constants.ACCEPT_AD_ERROR, "You must accept the Assignment Document in order to upload your final submission");
+                }
+
+                List adList = PactsServicesLocator.getService()
+                .getAssignmentDocumentByUserIdStudioContestId(u.getId().longValue(), c.getId().longValue());
+
+                AssignmentDocument ad = (AssignmentDocument) adList.get(0);
+
+                Boolean hasHardCopy = PactsServicesLocator.getService()
+                .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
+                ad.getType().getId().longValue());
+
                 if (hasErrors()) {
+                    getRequest().setAttribute("assignment_document", ad);
+                    getRequest().setAttribute("has_hard_copy", hasHardCopy);
+                    getRequest().setAttribute(Constants.ACCEPT_AD, getRequest().getParameter(Constants.ACCEPT_AD));
+
+                    setDefault(Constants.ACCEPT_AD, String.valueOf("on".equals(getRequest().getParameter(Constants.ACCEPT_AD))));
+
                     setDefault(Constants.CONTEST_ID, contestId.toString());
                     setDefault(Constants.SUBMISSION_RANK, rank);
-                    loadSubmissionData(u, c, dao, SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE);
+                    loadSubmissionData(u, c, dao, SubmissionType.FINAL_SUBMISSION_TYPE);
                     getRequest().setAttribute("contest", c);
-                    setNextPage("/submit.jsp");
+                    setNextPage("/submitFinalSubmission.jsp");
                     setIsNextPageInContext(true);
                 } else {
+                    // affirm the AD.
+                    if (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID) && hasHardCopy.booleanValue()) {
+                        PactsServicesLocator.getService().affirmAssignmentDocument(ad);
+                    }
+                    
+                    // accept the file
                     MimeType mt = cFactory.getMimeTypeDAO().find(submissionFile.getContentType());
                     Submission s = new Submission();
                     s.setContest(c);
@@ -127,7 +156,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     //root/submissions/contest_id/user_id/time.pdf
                     s.setPath(p);
                     s.setSystemFileName(System.currentTimeMillis() + ext);
-                    s.setType(cFactory.getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
+                    s.setType(cFactory.getSubmissionTypeDAO().find(SubmissionType.FINAL_SUBMISSION_TYPE));
                     s.setSubmissionDate(new Timestamp(System.currentTimeMillis()));
 
                     if (log.isDebugEnabled()) {
@@ -170,7 +199,7 @@ public class Submit extends BaseSubmissionDataProcessor {
 
                     StringBuffer nextPage = new StringBuffer(50);
                     nextPage.append(getSessionInfo().getServletPath());
-                    nextPage.append("?" + Constants.MODULE_KEY + "=ViewSubmissionSuccess&");
+                    nextPage.append("?" + Constants.MODULE_KEY + "=ViewFinalSubmissionSuccess&");
                     nextPage.append(Constants.SUBMISSION_ID + "=").append(s.getId());
                     setNextPage(nextPage.toString());
                     setIsNextPageInContext(false);

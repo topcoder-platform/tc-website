@@ -1,5 +1,11 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
+
 import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.StringInput;
@@ -9,8 +15,7 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
-
-import java.util.*;
+import com.topcoder.web.studio.model.SubmissionType;
 
 /**
  * @author dok
@@ -22,13 +27,15 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
 
         Long contestId = new Long(getRequest().getParameter(Constants.CONTEST_ID));
 
+        Integer submissionTypeId = new Integer(getRequest().getParameter(Constants.SUBMISSION_TYPE_ID));
+
         SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         String paramName;
         String newRank;
         Integer newRankInt;
         Submission currSubmission = null;
         Date now = new Date();
-        List userSubmissions = dao.getSubmissions(contestId, new Long(getUser().getId()));
+        List userSubmissions = dao.getSubmissions(contestId, new Long(getUser().getId()), submissionTypeId);
         Integer maxRank = null;
         ArrayList newRanks = new ArrayList(userSubmissions.size());
         ArrayList changedSubmissions = new ArrayList(userSubmissions.size());
@@ -42,9 +49,9 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
                 } else {
                     currSubmission = findSubmission(userSubmissions,
                             new Long(paramName.substring(Constants.SUBMISSION_ID.length())));
-                    if (now.before(currSubmission.getContest().getStartTime()) ||
+                    if (submissionTypeId.equals(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE) && (now.before(currSubmission.getContest().getStartTime()) ||
                             now.after(currSubmission.getContest().getEndTime()) ||
-                            !ContestStatus.ACTIVE.equals(currSubmission.getContest().getStatus().getId())) {
+                            !ContestStatus.ACTIVE.equals(currSubmission.getContest().getStatus().getId()))) {
                         addError(paramName, "Sorry, you can not make a change to a submission for a contest that is not active.");
                     } else {
                         if (maxRank==null) {
@@ -83,7 +90,7 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
             dao = StudioDAOUtil.getFactory().getSubmissionDAO();
         }
 
-        loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank);
+        loadSubmissionData(s.getSubmitter(), s.getContest(), dao, maxRank, s.getType().getId());
 
         if (hasErrors()) {
             //override so that the user gets their data back to them
