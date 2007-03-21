@@ -60,7 +60,7 @@
             <img src="/i/oracle/i/interface/step1.png" alt="Step 1"/>
         </td>
         <td width="100%">
-            Browse the <strong>Candidate Pool</strong> and <strong>Click</strong> on the candidates you like most to move them into the <strong>Favorites</strong> list.<br>
+            Browse the <strong>The Pool</strong> and <strong>Click</strong> on the candidates you like most to move them into the <strong>My Prediction</strong> list.<br>
         </td>
     </tr>
     <tr>
@@ -68,7 +68,7 @@
             <img src="/i/oracle/i/interface/step2.png" alt="Step 2" /> 
         </td>
         <td>
-            In the <strong>Favorites</strong> section, <strong>drag and drop</strong> candidates to sort them according to your preference.<br>
+            In the <strong>My Prediction</strong> section, <strong>drag and drop</strong> candidates to sort them according to your preference.<br>
         </td>
     </tr>
     <tr>
@@ -81,68 +81,48 @@
     </tr>
 </table>
 
+<h2 align="left" style="width: 610px;">My Prediction</h2>
+
 <%-- centers favorites and limits its width to 610px --%>
 <div align="center" style="width: 610px;">
-    <div>
-<ul id="favorites" class="imageLineup" align="center" style="float:left; clear:both; padding-bottom: 40px;">
-<li>
-    <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/09.png" alt="" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/43.png" alt="" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/12.png" alt="" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/13.png" alt="" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/27.png" alt="" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/06.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" />
-</li>
-<li>
-    <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/07.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" />
-</li>
-<li>
-    <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/08.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" />
-</li>
-<%-- 
-This is what a spot on the favorites list before a candidate has been added
-to its spot.  It creates a light gray spot to show how many more candidates 
-you can add. When dragging and dropping, only the "filled" spots on the 
-favorites list should be moveable.
---%>
-<li>&nbsp;</li>
-<li>&nbsp;</li>
-</ul>
 
-</div>
+    <%-- 
+    this width has to be set dynamically (centering floats is always a pain)
+    It has to be 61 X Max num of favorites 
+    --%>
+    <div style="width: 305px; margin: 0px; padding: 0px;">
+        <ul id="favorites" class="imageLineup" align="center" style="float:left; clear:both; padding-bottom: 40px; margin: 0px;">
+        <li>
+            <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
+            <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+            <img class="small" src="/i/oracle/i/submissions/09.png" alt="" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+        </li>
+        <li>
+            <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
+            <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+            <img class="small" src="/i/oracle/i/submissions/43.png" alt="" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+        </li>
+        <li>
+            <div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>
+            <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+            <img class="small" src="/i/oracle/i/submissions/12.png" alt="" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+        </li>
+        <%-- 
+        This is what a spot on the favorites list before a candidate has been added
+        to its spot.  It creates a light gray spot to show how many more candidates 
+        you can add. When dragging and dropping, only the "filled" spots on the 
+        favorites list should be moveable.
+        --%>
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        </ul>
+    </div>
 
+    <div style="clear: both; margin-bottom: 20px;">
+        <BUTTON name="submit" value="submit" type="submit" class="button">Submit</BUTTON>
+    </div>
 
-<div style="clear: both; margin-bottom: 20px;">
-    <BUTTON name="submit" value="submit" type="submit" class="button">Submit</BUTTON>
-</div>
-
-<%-- PAGING
+    <%-- PAGING
     < prev</A>
     | <A href="javascript:void(0)">next ></A>
     <!-- dotted line container -->
@@ -159,222 +139,224 @@ favorites list should be moveable.
         <A href="javascript:void(0)" class="marker" style="left: 593px;"><img src="/i/oracle/i/layout/marker.png" alt="marker" /></A>
         <img src="/i/oracle/i/layout/dottedLine.png" alt="Submission range" style="display: block;" />
     </div>
---%>
+    --%>
 
 
-<p align="center">
-<%--
-<span class="bigRed">You have no available spots in your Favorites list. Please remove one of your candidates and try again.</span>
---%>
-<%-- use this when there are no errors --%>
-<span class="bigRed">&nbsp;</span>
+    <p align="center">
+    <%-- error text
+    <span class="bigRed">You have no available spots in your My Prediction list. Please remove one of your candidates and try again.</span>
+    --%>
+    <%-- use this when there are no errors --%>
+    <span class="bigRed">&nbsp;</span>
 </div>
+
+<h2 align="left" style="width: 610px;">The Pool</h2>
 
 <%-- centers candidates and limits its width to 610px --%>
 <div align="center" style="width: 610px;">
 
-<ul id="candidates" class="imageLineup" align="center" style="float:left; clear:both; width: 100%;">
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/01.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/02.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/03.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/04.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/05.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/06.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/07.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/08.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/09.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/10.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/11.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/12.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/13.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/14.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/15.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/16.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/17.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/18.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/19.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/20.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/21.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/22.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/23.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/24.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/25.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/26.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/27.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/28.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/29.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/30.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/31.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/32.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/33.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/34.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/35.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/36.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/37.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/38.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/39.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/40.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/41.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/42.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/43.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/44.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/45.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/46.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/47.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/48.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/49.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-<li>
-    <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
-    <img class="small" src="/i/oracle/i/submissions/50.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
-</li>
-</ul>
+    <ul id="candidates" class="imageLineup" align="center" style="float:left; clear:both; width: 100%;">
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/01.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/02.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/03.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/04.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/05.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/06.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/07.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/08.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/09.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/10.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/11.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/12.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/13.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/14.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/15.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/16.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/17.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/18.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/19.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/20.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/21.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/22.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/23.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/24.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/25.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/26.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/27.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/28.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/29.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/30.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/31.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/32.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/33.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/34.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/35.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/36.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/37.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/38.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/39.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/40.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/41.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/42.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/43.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/44.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/45.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/46.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/47.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/48.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/49.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    <li>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <img class="small" src="/i/oracle/i/submissions/50.png" alt="" onClick="pickCandidate(this);" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+    </li>
+    </ul>
 </div>
 
 <div class="popUp" id="viewerpopup"><img src="" id="viewer" alt="" style="margin:5px; border: 1px solid black; background: #FFFFFF;"></div>
