@@ -1046,7 +1046,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         if (pendingOnly) {
             selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
-                PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + 
+                PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," + 
                 PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
@@ -1088,7 +1088,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         if (pendingOnly) {
             selectPaymentHeaders.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
-                    PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + 
+                    PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," + 
                     PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
         }
 
@@ -5894,7 +5894,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             query.append(" WHERE payment_type_id = " + ALGORITHM_CONTEST_PAYMENT);
             query.append(" AND pd.payment_detail_id = p.most_recent_detail_id");
             query.append(" AND status_id IN (" + PAYMENT_ON_HOLD_STATUS + ",");
-            query.append(PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
+            query.append(PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
             query.append(" AND today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
             ResultSetContainer payments = runSelectQuery(c, query.toString(), false);
 
@@ -7156,7 +7156,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         if (pendingOnly) {
         	query.append(" AND pd.status_id IN (" + PactsConstants.PAYMENT_ON_HOLD_STATUS + "," );
-            query.append(PactsConstants.PAYMENT_ON_HOLD_REJECTED_AD_STATUS + "," + PactsConstants.PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + ",");
+            query.append(PactsConstants.PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + ",");
             query.append(PactsConstants.PAYMENT_OWED_STATUS + "," + PactsConstants.PAYMENT_PENDING_STATUS + ")");
         }
 
