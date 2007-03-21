@@ -64,14 +64,14 @@
 
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
-        <c:if test="${fullList}" >
+        <c:if test="${full_list}" >
             <td width="50%"><A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOn"><span>View all</span></A>
             </td>
             <td width="50%">
                 <A href="/?module=AssignmentDocumentHistory&full_list=false" class="statTabLinkOff"><span>View pending</span></A>
             </td>
         </c:if>
-        <c:if test="${not fullList}" >
+        <c:if test="${not full_list}" >
             <td width="50%"><A href="/?module=AssignmentDocumentHistory&full_list=true" class="statTabLinkOff"><span>View all</span></A>
             </td>
             <td width="50%">
@@ -89,7 +89,7 @@
          <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
          <tc-webtag:hiddenInput name="<%=DataAccessConstants.START_RANK%>"/>
          <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
-         <input type="hidden" name="<%= AssignmentDocumentHistory.FULL_LIST %>" value="<c:out value="${fullList}"/>" />
+         <input type="hidden" name="<%= AssignmentDocumentHistory.FULL_LIST %>" value="<c:out value="${full_list}"/>" />
 
     <tr>
         <td class="NW">&nbsp;</td>
