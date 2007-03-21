@@ -75,7 +75,8 @@ public class RecoverEmail extends ShortHibernateProcessor {
             msgText.append("http://");
             msgText.append(ApplicationServer.SERVER_NAME);
             msgText.append("/tc?module=ResetPassword&pr=" + pr.getId() + "&hc=" + pr.hash());
-
+            msgText.append("\n\nYour handle is: " + u.getHandle() + ". Please remember that handles are case-sensitive.");
+            
             TCSEmailMessage mail = new TCSEmailMessage();
             mail.setSubject("TopCoder Password Recovery");
             mail.setBody(msgText.toString());

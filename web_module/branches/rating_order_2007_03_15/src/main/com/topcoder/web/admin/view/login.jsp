@@ -51,7 +51,7 @@
                             <FONT SIZE="2" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Password:</FONT>&#160;&#160;
                         </TD>
                         <TD HEIGHT="20" VALIGN="TOP">
-                            <input type="password" name="pass" maxlength="15" size="12" class="dropdown" onKeyPress="submitEnter(event, document.frmLogin)"/>
+                            <input type="password" name="pass" maxlength="30" size="12" class="dropdown" onKeyPress="submitEnter(event, document.frmLogin)"/>
                         </TD>
                         <TD CLASS="statTextBig" VALIGN="top">
                             <!--<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="45" BORDER="0"/>-->
