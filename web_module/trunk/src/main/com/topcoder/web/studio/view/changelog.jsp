@@ -26,6 +26,12 @@
 
 <div class="contentSpacer">
 
+<p>
+    1.3.2 - 2007.03.xx
+    <ul>
+        <li>Add IP Transfer functionality -pulky</li>
+    </ul>
+</p>
 
 <p>
     1.3.1 - 2007.03.14

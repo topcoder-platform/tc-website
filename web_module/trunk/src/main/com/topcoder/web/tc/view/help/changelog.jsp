@@ -42,10 +42,11 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
-
 <p>
     5.8.7 - 2007.03.xx
     <ul>
+        <li>TCO07 marathon registrants page updated to show seed -pulky</li>
+        <li>Add IP Transfer functionality -pulky</li>
         <li>Add handle in the recovery password email. - cucu</li>
         <li>Add division placed to algorithm competition history -dok</li>
     </ul>
