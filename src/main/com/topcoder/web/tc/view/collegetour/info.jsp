@@ -30,8 +30,8 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td class="cardCell" width="100%" align="center">
-    <div class="myTCBody">
+<td width="100%" align="center" class="bodyColumn">
+<div class="fixedWidthBody">
 
         <jsp:include page="../page_title.jsp">
             <jsp:param name="image" value="college_tour"/>
