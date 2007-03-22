@@ -63,6 +63,14 @@
                     <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>"
                                          message="Discuss College Tour"/>
                     <% } %>
+                    <c:choose>
+                        <c:when test="${cteid==42}">
+                            | <A href="/tc?module=Static&d1=collegetour&d2=belgradeCompInfo">Component Information</A> |
+                        </c:when>
+                        <c:otherwise>
+                        </c:otherwise>
+                    </c:choose>
+
                 </p>
                 <!-- ends -->
 
