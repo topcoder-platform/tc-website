@@ -185,7 +185,7 @@ if (request.getMethod().equals("POST")) {
             componentManager = component_manager_home.create(lngComponent);
         }
 
-        String rootDir = upload.getCurrentDefaultDir();
+        String rootDir = upload.getDir();
         if (!rootDir.endsWith("/")) {
             rootDir += "/";
         }
