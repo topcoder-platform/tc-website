@@ -63,21 +63,21 @@ String compType = (String) request.getAttribute("ct"); %>
     </tr>
 </thead>
 <tbody>
-        <%boolean even = false;%>
-        <rsc:iterator list='<%=rsc%>' id="resultRow">
-            <tr class="<%=(even ? "dark" : "light")%>">
-                <td class="valueC">
-                    <rsc:item name="seed" row='<%=resultRow%>'/>
-                </td>
-                <td class="value">
-                    <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="marathon_match"/>
-                </td>
-                <td class="valueR">
-                    <rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>'/>
-                </td>
-            </tr>
-            <%even = !even;%>
-        </rsc:iterator>
+<%boolean even = false;%>
+<rsc:iterator list='<%=rsc%>' id="resultRow">
+<tr class="<%=(even ? "dark" : "light")%>">
+<td class="valueC">
+<rsc:item name="seed" row='<%=resultRow%>'/>
+</td>
+<td class="value">
+<tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="marathon_match"/>
+</td>
+<td class="valueR">
+<rsc:item format="###0" ifNull="Unrated" name="rating" row='<%=resultRow%>'/>
+</td>
+</tr>
+<%even = !even;%>
+</rsc:iterator>
 </tbody>
 </table>
 </div>
