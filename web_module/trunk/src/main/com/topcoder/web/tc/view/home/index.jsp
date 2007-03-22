@@ -27,11 +27,12 @@
         </script>
     --%>
     <script language="JavaScript" type="text/javascript"><!--
-    function openWin(url, name, myWidth, myHeight) {
-        win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=no,toolbar=no,width=myWidth,height=myHeight");
+    function openWin(url, name) {
+        win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=no,toolbar=no,width=650,height=650");
         win.location.href = url;
         win.focus();
     }
+    window.name="main"; // required for whatistopcoder popup targeting
     //-->
     </script>
 </head>
@@ -59,7 +60,7 @@
     <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt=""/></A>
 </div>
 <div align="center">
-    <A href="javascript:openWin('<tc-webtag:linkTracking link="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" refer="homepage" />','whatistopcoder',600,600);"><img src="/i/home/message.png" alt=""/></A>
+    <A href="javascript:openWin('<tc-webtag:linkTracking link="/whatistopcoder" refer="homepage" />','whatistopcoder');"><img src="/i/home/message.png" alt="" /></A>
 </div>
 
 
