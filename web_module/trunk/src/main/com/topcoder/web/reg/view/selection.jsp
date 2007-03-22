@@ -14,7 +14,7 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_reg"/>
     </jsp:include>
-    <SCRIPT LANGUAGE="JavaScript" SRC="/js/popup.js"></SCRIPT>
+    <script type="text/javascript" src="/js/popup.js"></script>
     <script language="javascript" type="text/javascript">
         <!--
         function openWin(url, name, w, h) {
