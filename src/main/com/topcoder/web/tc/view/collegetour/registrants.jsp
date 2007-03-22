@@ -1,6 +1,5 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
-<%@ page language="java" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -68,6 +67,14 @@
                     <% if (request.getAttribute(Constants.FORUM_ID) != null) {%>
                     <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
                     <% } %>
+                    <c:choose>
+                        <c:when test="${cteid==42}">
+                            | <A href="/tc?module=Static&d1=collegetour&d2=belgradeCompInfo">Component Information</A> |
+                        </c:when>
+                        <c:otherwise>
+                        </c:otherwise>
+                    </c:choose>
+
                 </p>
                 <!-- ends -->
 

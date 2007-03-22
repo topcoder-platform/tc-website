@@ -1,15 +1,15 @@
-<%@ page import="com.topcoder.web.tc.Constants"%>
-<%@ page language="java" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <title>TopCoder College Tour</title>
 
-<jsp:include page="/script.jsp"/>
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
+    <jsp:include page="/script.jsp"/>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
 
 </head>
 
@@ -22,10 +22,11 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
         <!-- Left Column Begins-->
-        <td width="180"><jsp:include page="/includes/global_left.jsp">
-<jsp:param name="node" value="m_competitions"/>
-</jsp:include>
-</td>
+        <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="m_competitions"/>
+            </jsp:include>
+        </td>
         <!-- Left Column Ends -->
 
         <!-- Center Column Begins -->
@@ -46,16 +47,23 @@
                     <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A>&#160;&#160;|&#160;&#160;
                     Registration&#160;&#160;|&#160;&#160;
                     <A href="/tc?module=CollegeTourRegistrants&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>&#160;&#160;|&#160;&#160;
-                    <% if (request.getAttribute(Constants.FORUM_ID)!=null) {%>
+                    <% if (request.getAttribute(Constants.FORUM_ID) != null) {%>
                     <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss College Tour"/>
                     <% } %>
+                    <c:choose>
+                        <c:when test="${cteid==42}">
+                            | <A href="/tc?module=Static&d1=collegetour&d2=belgradeCompInfo">Component Information</A> |
+                        </c:when>
+                        <c:otherwise>
+                        </c:otherwise>
+                    </c:choose>
+
                 </p>
 
 
                 <p align="center">
-                    Thank you.  You have successfully registered for the event.
+                    Thank you. You have successfully registered for the event.
                 </p>
-
 
 
             </div>
