@@ -56,8 +56,8 @@
                     <br><br>
                     <span class="subTitle">Competition Arena</span>
                     <br><br>
-                    <%-- The Google Code Jam Latin America 2007 Arena is no longer available.--%>
-
+                     The Google Code Jam Latin America 2007 Arena is no longer available.
+<%--
                     <A href="/pl/?module=Google06Credentials&<%=Constants.COMPANY_ID%>=66426">Forgot your Google Code
                         Jam
                         Latin America 2007 password?</A>
@@ -94,10 +94,10 @@
                     <br><br>
                     If you experience problems loading or running the Competition Arena please contact
                     <A href="mailto:gcjla@topcoder.com?subject=Question%20regarding%20Google%20Code%20Jam%20Latin%20America%202007">gcjla@topcoder.com</A>.
-
+--%>
 
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><br><br><br>
                     To find out more detailed information about the Google&#153; Code Jam Latin America 2007, please
                     read the
                     <a href="/pl/?&module=Static&d1=gcjsa07&d2=rules">Terms and Conditions</a>.
