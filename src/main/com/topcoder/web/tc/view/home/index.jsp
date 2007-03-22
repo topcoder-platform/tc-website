@@ -183,7 +183,7 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_nej.png" alt="TopCoder & NEJ" border="0" style="display:block;"/></A>
+                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_aol.png" alt="TopCoder & AOL" border="0" style="display:block;"/></A>
             </td>
         </tr>
     </table>
