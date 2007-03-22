@@ -48,6 +48,7 @@
         <li>TCO07 marathon registrants page updated to show seed -pulky</li>
         <li>Add IP Transfer functionality -pulky</li>
         <li>Add handle in the recovery password email. - cucu</li>
+        <li>Allow members that are only registered for TCHS to be found in Pacts -dok</li>
         <li>Add division placed to algorithm competition history -dok</li>
     </ul>
 </p>
