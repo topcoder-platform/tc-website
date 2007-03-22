@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><a href="/tc?module=Static&d1=tutorials&d2=recursionPt1"><strong>An Introduction to Recursion, Part 1</strong></a>, by <tc-webtag:handle coderId="15498334" /><br>
-Recursion is a wonderful programming tool, but it can be hard to see how a problem can be approached recursively. In this article we'll go over the basics of recursion and help you develop, or refine, this important programming skill.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=primeNumbers"><strong>Prime Numbers, Factorization and Euler Function</strong></a>, by <tc-webtag:handle coderId="269207" /><br>
-Prime numbers were extensively studied by the ancient Greek mathematicians. Thousands of years later, we use the properties that they discovered to solve problems. In this article we’ll review some definitions, well-known theorems, and number properties, as well as some problems associated with them.</li>
-<li><a href="/tc?module=Static&d1=features&d2=030107"><strong>Test Drive: Code Coverage Tools</strong></a>, by <tc-webtag:handle coderId="22630158" /><br>
-As of today, TopCoder is requiring the use of code coverage tools in the component development process. In this article, we'll compare four of the more popular coverage tools and look at how they work, their key features, and how they perform in a test on sample TopCoder components.</li>
+<li><a href="tc?module=Static&d1=features&d2=032207"><strong>The Last 20 Feet</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
+For a few years now, there has been plenty of buzz about the "last mile problem," the final leg of communications connectivity between service provider backbones and the end customer. Whether or not "last mile" connectivity is an issue, we all have to figure out the best possible path for the most important of it -- the last twenty feet. </li>
+<li><a href="/tc?module=Static&d1=tutorials&d2=binarySearchRedBlack"><strong>An Introduction to Binary Search and Red-Black Trees</strong></a>, by <tc-webtag:handle coderId="19841837" /><br>
+As a programmer, you'll frequently come across tasks that deal with a number of objects -- numbers, strings, people, and so forth -- and that require you to store and process those objects.</li>
+<li><a href="/tc?module=Static&d1=tutorials&d2=recursionPt2"><strong>An Introduction to Recursion, Part 2</strong></a>, by <tc-webtag:handle coderId="15498334" /><br>
+When our program only has to make one decision, our approach can be fairly simple.  We loop through each of the options for our decision, evaluate each one, and pick the best.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
