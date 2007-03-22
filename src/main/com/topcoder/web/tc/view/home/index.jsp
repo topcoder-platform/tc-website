@@ -61,7 +61,7 @@
 </div>
 <%--
 <div align="center">
-    <A href="javascript:openWin('<tc-webtag:linkTracking link="/whatistopcoder" refer="homepage" />','whatistopcoder');"><img src="/i/home/message.png" alt="" /></A>
+    <A href="javascript:openWin('<tc-webtag:linkTracking link="/whatistopcoder" refer="homepage" />','whatistopcoder');"><img src="/i/home/whatistopcoder.png" alt="" /></A>
 </div>
 --%>
 
