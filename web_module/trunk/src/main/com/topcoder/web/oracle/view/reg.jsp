@@ -26,7 +26,7 @@
 
         <form name="terms" method="POST" action="${sessionInfo.servletPath}">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Register"/>
-            <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+            <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
 
 
             <iframe width="590" height="300" marginWidth="5" src="${sessionInfo.servletPath}?module=Terms&amp;<%=Constants.TERMS_OF_USE_ID%>=<%=Constants.CONTEST_TERMS_OF_USE_ID%>"></iframe>
