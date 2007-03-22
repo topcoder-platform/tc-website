@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Tutorial News" border="0" /><br>03.22.07<br>1:35 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="tc?module=Static&d1=features&d2=032207">The Last 20 Feet</A></span><br><br>
+For a few years now, there has been plenty of buzz about the "last mile problem," the final leg of communications connectivity between service provider backbones and the end customer. Whether or not "last mile" connectivity is an issue, we all have to figure out the best possible path for the most important of it -- the last twenty feet. 
+        </td>
+      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="tc?module=Static&d1=features&d2=032207">full story</A> | 
+        <tc-webtag:forumLink forumID="514812" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.21.07<br>4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -176,20 +193,3 @@ When our program only has to make one decision, our approach can be fairly simpl
          <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>03.13.07<br>7:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">Why Google put a research lab in Poland</A></span><br><br>
-"Last year's TopCoder Collegiate Challenge drew 21000 registrants from around the world, but half of the 48 finalists were from former Soviet bloc nations, including the winner, Petr Mitrichev of Russia, who also won last year's Global Code Jam."</td>
-      <td class="newsPhoto"><img src="/i/pressroom/usatoday_logo.gif" alt="USA Today Logo" width="67" height="25" border="0" /</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">full story</A> | 
-        <tc-webtag:forumLink forumID="514703" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-
