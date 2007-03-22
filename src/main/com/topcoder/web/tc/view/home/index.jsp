@@ -59,7 +59,7 @@
     <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt=""/></A>
 </div>
 <div align="center">
-    <A href="javascript:openWin('<tc-webtag:linkTracking link="http://www.dev.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=about" refer="homepage" />','whatistopcoder',600,600);"><img src="/i/home/message.png" alt=""/></A>
+    <A href="javascript:openWin('<tc-webtag:linkTracking link="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" refer="homepage" />','whatistopcoder',600,600);"><img src="/i/home/message.png" alt=""/></A>
 </div>
 
 
