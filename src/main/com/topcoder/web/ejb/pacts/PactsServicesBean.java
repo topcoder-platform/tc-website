@@ -6018,7 +6018,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             StringBuffer updateAssignmentDocuments = new StringBuffer(300);
             updateAssignmentDocuments.append(" update assignment_document ");
-            updateAssignmentDocuments.append(" set assignment_document_status_id = " + AssignmentDocumentStatus.EXPIRED_STATUS_ID);
+            updateAssignmentDocuments.append(" set assignment_document_status_id = " + AssignmentDocumentStatus.EXPIRED_STATUS_ID + ", ");
             updateAssignmentDocuments.append(" modify_date = current ");
             updateAssignmentDocuments.append(" WHERE date(expire_date) <= date(current) ");
             updateAssignmentDocuments.append(" and assignment_document_status_id = " + AssignmentDocumentStatus.PENDING_STATUS_ID);
