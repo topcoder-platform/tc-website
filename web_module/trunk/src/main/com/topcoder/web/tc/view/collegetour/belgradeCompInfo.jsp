@@ -36,10 +36,9 @@
 <td class="cardCell" width="100%" align="center">
 <div class="myTCBody">
 
-<div align=center>
-    <img src="/i/collegetour/banner.jpg" alt="Competition, evolved." border=0 clear="all">
+<div align="center">
+    <img src="/i/collegetour/logo_lcbelgrade.png" alt="College Logo" border="0">
 </div>
-
 
 <p align="center">
     <A href="/tc?module=CollegeTourOverview&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=40">Overview</A> | 
