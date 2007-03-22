@@ -89,9 +89,9 @@ public class UserProfile implements PactsConstants, java.io.Serializable {
         }
 
         // make sure the row is valid
-        if (rsc.getRowCount() < 0) {
+        if (rsc.getRowCount() < 1) {
             log.error("the result set container for " + USER_PROFILE_DETAIL + "had");
-            log.error("no datat in it");
+            log.error("no data in it");
             setDefaults();
             return;
         }
