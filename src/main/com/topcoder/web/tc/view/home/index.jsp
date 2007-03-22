@@ -26,7 +26,14 @@
             -->
         </script>
     --%>
-
+<script language="JavaScript" type="text/javascript"><!--
+function openWin(url, name, myWidth, myHeight) {
+    win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=no,toolbar=no,width=myWidth,height=myHeight");
+    win.location.href = url;
+    win.focus();
+}
+//-->
+</script>
 </head>
 
 <body>
@@ -44,29 +51,17 @@
     </tr>
 </table>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr>
-        <td width="50%" class="homeLogo" align="left"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></td>
-        <td class="BIGPromoBox" align="center">
-<%-- TCO  
-<map name="tco07">
-<area shape="rect" alt="" coords="1,1,499,129" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" />
-<area shape="rect" alt="" coords="1,131,499,149" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview" />
-</map>
-<img src="/i/home/tco07announcement.png" alt="2007 TopCoder Open" border="0" style="display:block;" usemap="#tco07"/>
---%>
-<A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt="" /></A>
-        </td>
-        <td width="50%" align="right" valign="top" style="border-bottom: 1px solid #666666; padding:0px; margin:0px;">
-            <%-- no dogear --%>
-            &nbsp;
-            
-            <%-- standard studio dogear 
-            <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>"><img src="/i/home/studioDogEarStandard.png" alt="TopCoder Studio" /></A>
-            --%>
-        </td>
-    </tr>
-</table>
+
+<div style="position: absolute; top: 30px; left: 10px;">
+    <img src="/i/home/topcoder.png" alt="TopCoder" />
+</div>
+<div align="center" style="margin: 10px 198px 10px 198px;">
+    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt="" /></A>
+</div>
+<div align="center">
+    <A href="javascript:openWin('<tc-webtag:linkTracking link="http://www.dev.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=about" refer="homepage" />','whatistopcoder',600,600);"><img src="/i/home/message.png" alt="" /></A>
+</div>
+
 
 
 <table border="0" cellpadding="0" cellspacing="0" class="centerer">
@@ -84,6 +79,7 @@
         <A href="/tc?module=Static&d1=pressroom&d2=index"><img src="/i/home/tab_newsevents.gif" alt="News & Events" border="0" style="display:block;"/></A>
     </td>
 </tr>
+
 <%-- Body --%>
 <tr>
 <%-- Left Column --%>
