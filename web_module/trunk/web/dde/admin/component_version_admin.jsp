@@ -454,13 +454,8 @@ if (request.getMethod().equals("POST")) {
                 }
             }
         }
-    } catch (FileSizeLimitExceededException fe) {
-        strError += "File size exceeds limit: " + fe.getMessage();
-    } catch (DisallowedDirectoryException dde) {
-        strError += "Directory access is denied: " + dde.getMessage();
     } catch (ConfigManagerException e) {
         strError += "ConfigManager exception occurred: " + e.getMessage();
-    } catch (InvalidContentTypeException icte) {
     }
 }
 
