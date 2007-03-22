@@ -3557,7 +3557,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     Payment referPay = new Payment();
                     referPay.setGrossAmount(amount * REFERRAL_PERCENTAGE);
                     referPay.setNetAmount(0);
-                    referPay.setStatusId(PAYMENT_OWED_STATUS);
+                    referPay.setStatusId(p.getStatusId());
                     long referId = Long.parseLong(rsc.getItem(0, "reference_id").toString());
                     String handle = rsc.getItem(0, "coder_handle").toString();
                     referPay.getHeader().setDescription("Referral bonus for " + handle + " " + p.getHeader().getDescription());
