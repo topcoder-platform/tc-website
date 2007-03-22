@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.8.7 - 2007.03.xx
+    5.8.7 - 2007.03.22
     <ul>
         <li>TCO07 marathon registrants page updated to show seed -pulky</li>
         <li>Add IP Transfer functionality -pulky</li>
