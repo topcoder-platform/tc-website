@@ -243,7 +243,7 @@
                 <%--
                 <li class="<% if (tabLev1.equals("studio") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Advancers</span></a>
                     <ul>
-                    <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=leaderboard"<% if (tabLev1.equals("studio") && tabLev2.equals("advancers") && tabLev3.equals("leaderboard")) {%> class="navHighlight"<% } %>><span>Leaderboard</span></a></li>
+                    <li class="stop"><a href="/tc?module=StudioLeaderboard&d1=tournaments&d3=studio&d4=leaderboard&eid=2352&d2=tco07"<% if (tabLev1.equals("studio") && tabLev2.equals("advancers") && tabLev3.equals("leaderboard")) {%> class="navHighlight"<% } %>><span>Leaderboard</span></a></li>
                     </ul>
                 </li>
                 --%>
