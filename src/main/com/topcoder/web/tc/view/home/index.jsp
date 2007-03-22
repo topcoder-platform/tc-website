@@ -59,10 +59,11 @@
 <div align="center" style="margin: 10px 198px 10px 198px;">
     <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt=""/></A>
 </div>
+<%--
 <div align="center">
     <A href="javascript:openWin('<tc-webtag:linkTracking link="/whatistopcoder" refer="homepage" />','whatistopcoder');"><img src="/i/home/message.png" alt="" /></A>
 </div>
-
+--%>
 
 <table border="0" cellpadding="0" cellspacing="0" class="centerer">
 <%-- Banners --%>
