@@ -33,18 +33,23 @@
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-<td class="cardCell" width="100%" align="center">
-<div class="myTCBody">
+<td width="100%" align="center" class="bodyColumn">
+<div class="fixedWidthBody">
+
+<jsp:include page="../page_title.jsp">
+    <jsp:param name="image" value="college_tour"/>
+    <jsp:param name="title" value="Overview"/>
+</jsp:include>
 
 <div align="center">
     <img src="/i/collegetour/logo_lcbelgrade.png" alt="College Logo" border="0">
 </div>
 
 <p align="center">
-    <A href="/tc?module=CollegeTourOverview&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=40">Overview</A> | 
-    <A href="/tc?module=CollegeTourInfo&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=40">Instructions</A> | 
-    <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=40">Registration</A> |
-    <a href="/tc?module=CollegeTourRegistrants&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=40">Registrants</A> |
+    <A href="/tc?module=CollegeTourOverview&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Overview</A> | 
+    <A href="/tc?module=CollegeTourInfo&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Instructions</A> | 
+    <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Registration</A> |
+    <a href="/tc?module=CollegeTourRegistrants&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Registrants</A> |
     <tc-webtag:forumLink forumID="514541" message="Discuss"/> | Component Information
 </p>
 
