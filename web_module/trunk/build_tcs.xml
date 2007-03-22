@@ -542,6 +542,11 @@
                 <include name="file_upload.jar"/>
             </fileset>
         </copy>
+    	<copy todir="${jboss.lib.dir}">
+            <fileset dir="${jars.dir}/tcs/guid_generator/1.0">
+                <include name="guid_generator.jar"/>
+            </fileset>
+        </copy>
         <!--
                 <copy todir="${jboss.lib.dir}">
                     <fileset dir="${bin.dir}">
