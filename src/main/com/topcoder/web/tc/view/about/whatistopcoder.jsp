@@ -11,14 +11,15 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_reg"/>
     </jsp:include>
+
+    <script language="JavaScript" type="text/javascript"><!--
+    function getAndClose(link) { 
+        opener.location.href = link;
+        window.close();
+    }
+    //-->
+    </script>
 </head>
-<script language="JavaScript" type="text/javascript"><!--
-function getAndClose(link) { 
-    opener.location.href = link;
-    window.close();
-}
-//-->
-</script>
 
 <body>
 <div align="center">
@@ -59,7 +60,7 @@ function getAndClose(link) {
     <strong><A href="javascript:getAndClose('http://software.topcoder.com/applications/index.jsp');">How does TopCoder build Software?</A></strong>
     </p>
     <p align="center">
-    <strong><A href="javascript:getAndClose('/tc?module=Static&d1=about&d2=contactus');">Who can I contact about working with TopCoder?</A></strong>
+    <strong><A href="javascript:getAndClose('/tc?module=Static&amp;d1=about&amp;d2=contactus');">Who can I contact about working with TopCoder?</A></strong>
     </p>
     <p align="center">
     <strong><A href="javascript:getAndClose('/reg/');">Great, sign me up</A></strong>
