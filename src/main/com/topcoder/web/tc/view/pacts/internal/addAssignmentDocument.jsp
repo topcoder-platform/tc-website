@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Add Assignment Document</title>
+    <title>Add IP Transfer</title>
     
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
@@ -121,10 +121,10 @@ function loaded() {
 <h1>PACTS</h1>
 <c:choose>
     <c:when test="${assignment_document_id > 0}">
-        <h2>Update Assignment Document</h2>
+        <h2>Update IP Transfer</h2>
     </c:when>
     <c:otherwise>
-        <h2>Add Assignment Document</h2>
+        <h2>Add IP Transfer</h2>
     </c:otherwise>
 </c:choose>
 
@@ -247,7 +247,7 @@ Calendar.setup(
 );
 </script>
 
-<input type="button" value="Save Assignment Document" OnClick="send()">
+<input type="button" value="Save IP Transfer" OnClick="send()">
 
 <div id="runJS">
     <input type="hidden" id="doSend" name="doSend" value="false"/>

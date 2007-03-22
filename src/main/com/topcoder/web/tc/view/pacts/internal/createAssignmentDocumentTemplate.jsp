@@ -12,7 +12,7 @@
     <body>
 
         <h1>PACTS</h1>
-        <h2 align="center">Create Assignment Document Template</h2>
+        <h2 align="center">Create IP Transfer Template</h2>
 
         <center>
             <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
