@@ -26,14 +26,14 @@
             -->
         </script>
     --%>
-<script language="JavaScript" type="text/javascript"><!--
-function openWin(url, name, myWidth, myHeight) {
-    win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=no,toolbar=no,width=myWidth,height=myHeight");
-    win.location.href = url;
-    win.focus();
-}
-//-->
-</script>
+    <script language="JavaScript" type="text/javascript"><!--
+    function openWin(url, name, myWidth, myHeight) {
+        win = window.open(url, name, "menubar=no,status=no,scrollbars=yes,resizable=no,toolbar=no,width=myWidth,height=myHeight");
+        win.location.href = url;
+        win.focus();
+    }
+    //-->
+    </script>
 </head>
 
 <body>
@@ -53,15 +53,14 @@ function openWin(url, name, myWidth, myHeight) {
 
 
 <div style="position: absolute; top: 30px; left: 10px;">
-    <img src="/i/home/topcoder.png" alt="TopCoder" />
+    <img src="/i/home/topcoder.png" alt="TopCoder"/>
 </div>
 <div align="center" style="margin: 10px 198px 10px 198px;">
-    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt="" /></A>
+    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt=""/></A>
 </div>
 <div align="center">
-    <A href="javascript:openWin('<tc-webtag:linkTracking link="http://www.dev.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=about" refer="homepage" />','whatistopcoder',600,600);"><img src="/i/home/message.png" alt="" /></A>
+    <A href="javascript:openWin('<tc-webtag:linkTracking link="http://www.dev.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=about" refer="homepage" />','whatistopcoder',600,600);"><img src="/i/home/message.png" alt=""/></A>
 </div>
-
 
 
 <table border="0" cellpadding="0" cellspacing="0" class="centerer">
@@ -89,12 +88,12 @@ function openWin(url, name, myWidth, myHeight) {
             <td class="homeBigPromo">
                 <%-- DIGITAL RUN --%>
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                
+
 
                 <%-- TCO07
-                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
-                 --%>
-                
+               <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
+                --%>
+
                 <%-- Marathon Match Sponsor 
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/longcontest/?module=ViewActiveContests" />
@@ -226,127 +225,130 @@ function openWin(url, name, myWidth, myHeight) {
 </td>
 <%-- Right Column --%>
 <td class="homeRightCol">
-    <table border="0" cellpadding="0" cellspacing="0">
-        <tr>
-            <td class="homeBigPromo">
-                <%-- WSJ
-                <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
-                --%>
-                <%-- AOL webcast team 
-                <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcast20060108.jpg" alt="TCCC Webcast" border="0" style="display:block;"/></A>
-                --%>
+<table border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="homeBigPromo">
+            <%-- WSJ
+            <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
+            --%>
+            <%-- AOL webcast team
+            <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcast20060108.jpg" alt="TCCC Webcast" border="0" style="display:block;"/></A>
+            --%>
 
-                <%-- CSF
-                <a href="<tc-webtag:linkTracking link='http://csf.topcoder.com' refer='HOMEPAGE' />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
-                 --%>
-                 
-                <%-- Marathon Match Sponsor
-                <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/longcontest/?module=ViewActiveContests" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign" />
-                </map>
-                <img src="/i/home/mmtco2_verisign.png" alt="TCO07 Marathon Match 2 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
-                 --%>
-                
-                <%-- SRM SPONSOR 
-                <map name="srm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10665" />
-                <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa" />
-                </map>
-                <img src="/i/home/srm341_nsa.png" alt="SRM 341 brought to you by NSA" border="0" style="display:block;" usemap="#srm"/>
-                --%>
-                
-                <%-- TCO07 --%>
-                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
-                
-            </td>
-        </tr>
-    </table>
-    <table border="0" cellpadding="0" cellspacing="0">
-        <%-- Press Room --%>
-        <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=pressroom&d2=index" class="homeTitleLink">Highlights</A>
-            </td>
-        </tr>
-        <tr>
-            <td class="homeArrow">&#160;</td>
-            <td class="homeText"><br>
+            <%-- CSF
+           <a href="<tc-webtag:linkTracking link='http://csf.topcoder.com' refer='HOMEPAGE' />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
+            --%>
 
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/usatoday_logo.gif" alt="USA Today Logo" width="67" height="25" border="0"/>
-                </div>
-                Why Google put a research lab in Poland
-                <A target="_blank" href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">...more</A><br>[March 13]<br><br>
+            <%-- Marathon Match Sponsor
+           <map name="mm">
+           <area shape="rect" alt="" coords="1,1,264,95" href="/longcontest/?module=ViewActiveContests" />
+           <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign" />
+           </map>
+           <img src="/i/home/mmtco2_verisign.png" alt="TCO07 Marathon Match 2 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
+            --%>
 
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/tco07_logo.png" alt="TCO07" width="88" height="41" border="0"/>
-                </div>
-                UBS, DRW, and NSA Join TCO 07
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_030507">...more</A><br>[March 5]<br><br>
-                
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/tco07_logo.png" alt="TCO07" width="88" height="41" border="0"/>
-                </div>
-                TopCoder Announces TopCoder Open 2007 Sponsored by AOL
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">...more</A><br>[February 22]<br><br>
+            <%-- SRM SPONSOR
+            <map name="srm">
+            <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10665" />
+            <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa" />
+            </map>
+            <img src="/i/home/srm341_nsa.png" alt="SRM 341 brought to you by NSA" border="0" style="display:block;" usemap="#srm"/>
+            --%>
 
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" width="67" height="15" border="0"/>
-                </div>
-                Ideagora, a Marketplace for Minds
-                <A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">...more</A><br>[February 15]<br><br>
+            <%-- TCO07 --%>
+            <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
 
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/computerworld.gif" alt="ComputerWorld" width="67" height="18" border="0"/>
-                </div>
-                Microsoft launches 'mashup' competition for developers
-                <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">...more</A><br>[February 14]<br><br>
+        </td>
+    </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0">
+    <%-- Press Room --%>
+    <tr>
+        <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
+        <td class="homeTitle"><A href="/tc?module=Static&d1=pressroom&d2=index" class="homeTitleLink">Highlights</A>
+        </td>
+    </tr>
+    <tr>
+        <td class="homeArrow">&#160;</td>
+        <td class="homeText"><br>
 
-                <div style="float: right; padding-left: 5px;">
-                    <img src="/i/pressroom/tchs07.png" width="67" height="36" alt="TCHS07" border="0" />
-                </div>
-                Registration Opens for First TCHS Tournament
-                <A href="/tc?module=Static&d1=pressroom&d2=pr_021307">...more</A><br>[February 13]<br><br>
+            <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/usatoday_logo.gif" alt="USA Today Logo" width="67" height="25" border="0"/>
+            </div>
+            Why Google put a research lab in Poland
+            <A target="_blank" href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">...more</A><br>[March
+            13]<br><br>
 
-            </td>
-        </tr>
-        <tr>
-            <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-            <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">March
-                Events:</A></td>
-        </tr>
-        <tr>
-            <td class="homeArrow">&#160; </td>
-            <td class="homeText"><br>
-                <b>03.06</b> - TCHS Delta Round 1 - 6 AM<br><br>
-                <b>03.06</b> - TCHS Beta Round 1 - 2 PM<br><br>
-                <b>03.06</b> - TCO07 Marathon Registration Closes - 6 PM<br><br>
-                <b>03.07</b> - TCO07 Marathon Match #1 - 12 NOON<br><br>
-                <b>03.08</b> - TCHS07 Gamma Round 2 - 10 AM<br><br>
-                <b>03.08</b> - TCHS07 Alpha Round 2 - 9 PM<br><br>
-                <b>03.10</b> - SRM 341 - NSA - 12 NOON<br><br>
-                <b>03.12</b> - TCHS Delta Round 2 - 6 AM<br><br>
-                <b>03.12</b> - TCHS Beta Round 2 - 2 PM<br><br>
-                <b>03.14</b> - SRM 342 - AOL - 9 PM<br><br>
-                <b>03.15</b> - CDDC Week 1 Projects Posted - 9 AM<br><br>
-                <b>03.19</b> - TCHS07 Gamma Round 3 - 10 AM<br><br>
-                <b>03.19</b> - TCHS07 Alpha Round 3 - 9 PM<br><br>
-                <b>03.21</b> - TCO07 Marathon Match #2 - 12 NOON<br><br>
-                <b>03.22</b> - SRM 343 - 7 AM<br><br>
-                <b>03.22</b> - CDDC Week 2 Projects Posted - 9 AM<br><br>
-                <b>03.26</b> - TCHS Delta Round 3 - 6 AM<br><br>
-                <b>03.26</b> - TCHS Beta Round 3 - 2 PM<br><br>
-                <b>03.27</b> - TCO07 Algo Registration Closes - 5 PM<br><br>
-                <b>03.28</b> - SRM 344 - DRW - 11AM<br><br>
-                <b>03.29</b> - TCO07 Algo Qual Round 1 - AOL - 7:00 AM<br><br>
-                <b>03.29</b> - CDDC Week 3 Projects Posted - 9 AM<br><br>
-                <b>03.31</b> - TCO07 Algo Qual Round 2 - AOL - 1:00 PM<br><br>
-                <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
-         </td>
-        </tr>
+            <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/tco07_logo.png" alt="TCO07" width="88" height="41" border="0"/>
+            </div>
+            UBS, DRW, and NSA Join TCO 07
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_030507">...more</A><br>[March 5]<br><br>
 
-    </table>
+            <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/tco07_logo.png" alt="TCO07" width="88" height="41" border="0"/>
+            </div>
+            TopCoder Announces TopCoder Open 2007 Sponsored by AOL
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">...more</A><br>[February 22]<br><br>
+
+            <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" width="67" height="15" border="0"/>
+            </div>
+            Ideagora, a Marketplace for Minds
+            <A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">...more</A><br>[February
+            15]<br><br>
+
+            <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/computerworld.gif" alt="ComputerWorld" width="67" height="18" border="0"/>
+            </div>
+            Microsoft launches 'mashup' competition for developers
+            <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">...more</A><br>[February
+            14]<br><br>
+
+            <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/tchs07.png" width="67" height="36" alt="TCHS07" border="0"/>
+            </div>
+            Registration Opens for First TCHS Tournament
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_021307">...more</A><br>[February 13]<br><br>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
+        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">March
+            Events:</A></td>
+    </tr>
+    <tr>
+        <td class="homeArrow">&#160; </td>
+        <td class="homeText"><br>
+            <b>03.06</b> - TCHS Delta Round 1 - 6 AM<br><br>
+            <b>03.06</b> - TCHS Beta Round 1 - 2 PM<br><br>
+            <b>03.06</b> - TCO07 Marathon Registration Closes - 6 PM<br><br>
+            <b>03.07</b> - TCO07 Marathon Match #1 - 12 NOON<br><br>
+            <b>03.08</b> - TCHS07 Gamma Round 2 - 10 AM<br><br>
+            <b>03.08</b> - TCHS07 Alpha Round 2 - 9 PM<br><br>
+            <b>03.10</b> - SRM 341 - NSA - 12 NOON<br><br>
+            <b>03.12</b> - TCHS Delta Round 2 - 6 AM<br><br>
+            <b>03.12</b> - TCHS Beta Round 2 - 2 PM<br><br>
+            <b>03.14</b> - SRM 342 - AOL - 9 PM<br><br>
+            <b>03.15</b> - CDDC Week 1 Projects Posted - 9 AM<br><br>
+            <b>03.19</b> - TCHS07 Gamma Round 3 - 10 AM<br><br>
+            <b>03.19</b> - TCHS07 Alpha Round 3 - 9 PM<br><br>
+            <b>03.21</b> - TCO07 Marathon Match #2 - 12 NOON<br><br>
+            <b>03.22</b> - SRM 343 - 7 AM<br><br>
+            <b>03.22</b> - CDDC Week 2 Projects Posted - 9 AM<br><br>
+            <b>03.26</b> - TCHS Delta Round 3 - 6 AM<br><br>
+            <b>03.26</b> - TCHS Beta Round 3 - 2 PM<br><br>
+            <b>03.27</b> - TCO07 Algo Registration Closes - 5 PM<br><br>
+            <b>03.28</b> - SRM 344 - DRW - 11AM<br><br>
+            <b>03.29</b> - TCO07 Algo Qual Round 1 - AOL - 7:00 AM<br><br>
+            <b>03.29</b> - CDDC Week 3 Projects Posted - 9 AM<br><br>
+            <b>03.31</b> - TCO07 Algo Qual Round 2 - AOL - 1:00 PM<br><br>
+            <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
+        </td>
+    </tr>
+
+</table>
 </td>
 </tr>
 </table>
