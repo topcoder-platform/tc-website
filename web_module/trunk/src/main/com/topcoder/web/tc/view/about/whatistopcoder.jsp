@@ -51,7 +51,7 @@ H3 { font-size: 125%; }
 
     <h2 align="center">What is TopCoder?</h2>
     <p>
-    TopCoder's unique competition-based model taps the best developer minds in the world, delivering custom software applications faster, better, and cheaper than the others. Every time.
+    TopCoder's unique <strong>competition-based</strong> model taps the best developer minds in the <strong>world</strong>, delivering <strong>custom software applications</strong> faster, better, and cheaper than the others. <strong>Every time.</strong>
     </p>
     <p>
     What TopCoder believes is what makes us different:

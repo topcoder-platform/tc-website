@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>View Assignment Document</title>
+    <title>View IP Transfer</title>
 </head>
 <body>
 
@@ -19,7 +19,7 @@
 <c:set var="COMPONENT_COMPETITION_TYPE_ID" value="<%= AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID + "" %>" />
 
 <h1>PACTS</h1>
-<h2>View Assignment Document</h2>
+<h2>View IP Transfer</h2>
 
 		<table border="0" cellpadding="2" cellspacing="2">
 		<tr>
@@ -97,7 +97,7 @@
 
 <br/>
 
-<a href="${pacts:updateAssignmentDocument(assignment_document.id)}">Update Assignment Document</a>
+<a href="${pacts:updateAssignmentDocument(assignment_document.id)}">Update IP Transfer</a>
 <br/>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />

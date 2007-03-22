@@ -12,7 +12,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Add Assignment Document</title>
+    <title>Add IP Transfer</title>
     
     <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
     <script type="text/javascript" src="/js/jscal/calendar.js"></script>
@@ -86,7 +86,7 @@ function loaded() {
 <c:set var="reference_id" value="<%= new Long((String)((HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY)).get("reference_id")) %>" />
 
 <h1 align="center">PACTS</h1>
-<h2 align="center">Search Assignment Document</h2>
+<h2 align="center">Search IP Transfer</h2>
 
 <center>
 <table border="1" cellpadding="5" cellspacing="0">

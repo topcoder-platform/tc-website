@@ -17,7 +17,7 @@
 <body>
 
 <h1>PACTS</h1>
-<h2>Assignment Document List</h2>
+<h2>IP Transfer List</h2>
 
 <c:choose>
     <c:when test="${empty result}">
