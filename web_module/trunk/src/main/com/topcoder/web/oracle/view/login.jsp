@@ -95,12 +95,14 @@
                                             <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
                                         </td>
                                     </tr>
+<%--
                                     <tr>
                                         <td colspan="2" align="center">
                                             <input type="checkbox" name="<%=Login.REMEMBER_USER%>">
                                             Remember
                                             Me</td>
                                     </tr>
+--%>
 
                                     <tr>
                                         <td colspan="2" align="center">
