@@ -45,7 +45,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="10407399" /></td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=032207"><strong>The Last 20 Feet</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=032207"><strong>The Last 20 Feet: The final frontier of home networking</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Mar 22, 2007</td> 
             </tr>
             <tr valign="top">
