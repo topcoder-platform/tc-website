@@ -153,6 +153,7 @@
    out.println(PactsConstants.USER_ID+"="+taxForm.getHeader().getUser().getId()+"\">Update User Tax Form</a><br>");
 %>
 
+<jsp:include page="InternalFooter.jsp" flush="true" />
 
             </div>
         </td>
