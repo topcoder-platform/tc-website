@@ -232,6 +232,8 @@
     %>
 
 
+<jsp:include page="InternalFooter.jsp" flush="true" />
+
             </div>
         </td>
 <%-- Center Column Ends --%>
