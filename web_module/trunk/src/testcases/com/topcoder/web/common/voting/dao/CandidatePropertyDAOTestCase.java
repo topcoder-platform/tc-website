@@ -1,8 +1,8 @@
 package com.topcoder.web.common.voting.dao;
 
-import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.common.voting.CandidateProperty;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.voting.CandidateProperty;
+import com.topcoder.web.reg.TCHibernateTestCase;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  *          Create Date: Jan 31, 2007
  */
 public class CandidatePropertyDAOTestCase extends TCHibernateTestCase {
-    protected static final Logger log = Logger.getLogger(RankBallotDAOTestCase.class);
+    protected static final Logger log = Logger.getLogger(CandidatePropertyDAOTestCase.class);
 
 
     public void testFindAll() {
