@@ -125,6 +125,9 @@ public class RoomResult extends Base {
             buf.append(room.getId());
             return buf.toString().hashCode();
         }
+        public String toString() {
+            return (user!=null?user.getId():"null user") + " " + (room!=null?room.getId():"null room"); 
+        }
 
 
     }
