@@ -14,6 +14,7 @@ import java.util.*;
 public class MultipartRequest extends SimpleRequest {
 
     private FileUploadResult file = null;
+    private String dir = "";
     private static Logger log = Logger.getLogger(MultipartRequest.class);
 
     public MultipartRequest(HttpServletRequest request) throws IOException {
@@ -25,7 +26,7 @@ public class MultipartRequest extends SimpleRequest {
         try {
             FileUpload fu = new LocalFileUpload("com.topcoder.servlet.request.FileUpload");
             file = fu.uploadFiles(request);
-
+            dir = ((LocalFileUpload)fu).getDir();
         } catch (ConfigurationException e) {
             throw new RuntimeException(e);
         } catch (DisallowedDirectoryException e) {
@@ -107,6 +108,10 @@ public class MultipartRequest extends SimpleRequest {
 
     public UploadedFile[] getAllUploadedFiles() {
         return file.getAllUploadedFiles();
+    }
+    
+    public String getDir() {
+        return dir;
     }
 
     private final class ParameterEnums implements Enumeration {
