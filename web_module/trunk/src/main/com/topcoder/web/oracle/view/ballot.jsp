@@ -220,7 +220,7 @@ function boot(obj) {
 <div align="center" style="width: 610px;">
 <ul id="candidateBin" class="imageLineup" align="center" style="float:left; clear:both; width: 100%;">
 
-<c:forEach items="candidates" var="candidate">
+<c:forEach items="${candidates}" var="candidate">
     <li>
         <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
         <img class="small" src="${candidate.infoMap[imageSource]}" alt="" onclick="select(this)" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
