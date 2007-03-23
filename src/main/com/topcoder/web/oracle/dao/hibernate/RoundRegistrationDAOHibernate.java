@@ -5,6 +5,7 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.oracle.dao.RoundRegistrationDAO;
 import com.topcoder.web.oracle.model.Round;
 import com.topcoder.web.oracle.model.RoundRegistration;
+import org.hibernate.Query;
 
 /**
  * @author dok
@@ -23,12 +24,15 @@ public class RoundRegistrationDAOHibernate extends Base implements RoundRegistra
     }
 
     public RoundRegistration find(Integer roundId, Long userId) {
-        RoundRegistration.Identifier id = new RoundRegistration.Identifier();
-        User u = new User();
-        u.setId(userId);
-        Round r = new Round();
-        r.setId(roundId);
-        return find(r, u);
+
+        StringBuffer query = new StringBuffer(100);
+        query.append(" from com.topcoder.web.oracle.model.RoundRegistration");
+        query.append(" where id.round.id = ?");
+        query.append(  " and id.user.id = ?");
+        Query q = session.createQuery(query.toString());
+        q.setInteger(0, roundId);
+        q.setLong(1, userId);
+        return (RoundRegistration)q.uniqueResult();
     }
 
 }

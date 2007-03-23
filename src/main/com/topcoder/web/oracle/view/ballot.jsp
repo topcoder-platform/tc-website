@@ -66,7 +66,13 @@ window.onload = function() {
     var list = document.getElementById("candidateBin").getElementsByTagName("li");
     binHash = new Array(list.length);
     for (var i = 0; i < list.length; i++) {
-        binHash[list[i].getElementsByTagName("img")[0].getAttribute("src")] = i;
+        var images = list[i].getElementsByTagName("img");
+        for (var j=0; j<images.length; j++) {
+            if (images[j].name = "candidateImage") {
+                binHash[images[j].getAttribute("src")] = i;
+                break;
+            }
+        }
     }
 }
 
