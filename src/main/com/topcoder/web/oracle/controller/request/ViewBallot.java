@@ -39,18 +39,22 @@ public class ViewBallot extends ShortHibernateProcessor {
 
                 if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
                     if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
-                        /*
-                        load up the candidates in appropriate random order
-                        it should be the same random order for a particular user every
-                        time they look at the candidates for a particular round
-                        */
-                        List<Candidate> candidates =
-                                OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(round.getId(), getUser().getId());
-                        Collections.sort(candidates, new Candidate.IDComparator());
-                        Collections.shuffle(candidates, new Random(getUser().getId()+round.getId()));
-                        getRequest().setAttribute("candidates", candidates);
-                        setNextPage("/ballot.jsp");
-                        setIsNextPageInContext(true);
+                        if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId())!=null) {
+                            /*
+                            load up the candidates in appropriate random order
+                            it should be the same random order for a particular user every
+                            time they look at the candidates for a particular round
+                            */
+                            List<Candidate> candidates =
+                                    OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(round.getId(), getUser().getId());
+                            Collections.sort(candidates, new Candidate.IDComparator());
+                            Collections.shuffle(candidates, new Random(getUser().getId()+round.getId()));
+                            getRequest().setAttribute("candidates", candidates);
+                            setNextPage("/ballot.jsp");
+                            setIsNextPageInContext(true);
+                        } else {
+                            throw new NavigationException("Sorry, you are not registered for this round.");
+                        }
                     } else {
                         throw new NavigationException("Invalid round specified.");
                     }
