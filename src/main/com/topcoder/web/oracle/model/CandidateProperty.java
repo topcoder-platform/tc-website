@@ -9,6 +9,8 @@ import com.topcoder.web.common.model.Base;
  */
 public class CandidateProperty extends Base {
 
+    public static final Integer IMAGE_SOURCE = 1;
+
     private Integer id;
     private String description;
 

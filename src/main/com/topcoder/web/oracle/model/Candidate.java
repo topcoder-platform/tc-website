@@ -105,11 +105,9 @@ public class Candidate extends Base {
      * class to sort candidates alphabetically by name, and if two are named the same,
      * then by id.  undefined if both name and id are the same.
      */
-    public static class IDComparator implements Comparator {
+    public static class IDComparator implements Comparator<Candidate> {
 
-        public int compare(Object o1, Object o2) {
-            Candidate c1 = (Candidate) o1;
-            Candidate c2 = (Candidate) o2;
+        public int compare(Candidate c1, Candidate c2) {
             int ret = c1.getName().compareTo(c2.getName());
             return ret == 0 ? c1.getId().compareTo(c2.getId()) : ret;
         }
