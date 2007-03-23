@@ -117,24 +117,30 @@ function select(obj) {
 move selected item back into the candidate bin from the selected candidate list
 */
 function boot(obj) {
-    while (obj.tagName != 'UL') {
-        if (obj.tagName == 'LI') {
-            break;
-        } else {
-            obj = obj.parentNode;
-        }
-    }
-    var images = obj.getElementsByTagName("img");
-    for (var j=0; j<images.length; j++) {
-        if (images[j].name == "candidateImage") {
+   var myLi=findParent(obj, 'LI');
+    var images = myLi.getElementsByTagName("img");
+    for (var i=0; i<images.length; i++) {
+        if (images[i].name == "candidateImage") {
             var idx = binHash[images[i].getAttribute("src")];
             var item = document.getElementById("candidateBin").getElementsByTagName("li")[idx];
-            item.innerHTML = obj.parentNode.innerHTML;
-            item.getElementsByTagName("img")[0].setAttribute("onclick", "select(this)");
-            obj.parentNode.parentNode.removeChild(obj.parentNode);
+            images[i].setAttribute("onclick", "select(this)");
+            item.innerHTML = myLi.innerHTML;
+            findParent(obj, 'UL').removeChild(myLi);
             break;
         }
     }
+}
+
+function findParent(element, parentTagName) {
+    element = element.parentNode;
+    while (element.tagName != 'BODY') {
+        if (element.tagName == parentTagName) {
+            return element;
+        } else {
+            element = element.parentNode;
+        }
+    }
+    return null;
 }
 
 
