@@ -86,7 +86,13 @@ function select(obj) {
                 var oldItem = obj.parentNode;
                 var newItem = document.createElement("li");
                 newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="#"><img src="/i/oracle/interface/remove.png" alt="" /></A></div>';
-                newItem.getElementsByTagName("img")[0].setAttribute("onclick", "boot(this)");
+                var images = newItem.getElementsByTagName("img");
+                for (var i=0; i<images.length; i++) {
+                    if (images[i].name = "candidateImage") {
+                        images[i].setAttribute("onclick", "boot(this)");
+                        break;
+                    }
+                }
                 oldItem.innerHTML = "&nbsp;";
                 oldItem.style.visibility = 'hidden';
                 document.getElementById("selectedCandidates").appendChild(newItem);
@@ -223,7 +229,7 @@ function boot(obj) {
 <c:forEach items="${candidates}" var="candidate">
     <li>
         <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/interface/disk.png" alt="DL" /></A></div>
-        <img class="small" src="${candidate.infoMap[imageSource]}" alt="" onclick="select(this)" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
+        <img class="small" name="candidateImage" src="${candidate.infoMap[imageSource]}" alt="" onclick="select(this)" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
     </li>
 </c:forEach>
 </div>
