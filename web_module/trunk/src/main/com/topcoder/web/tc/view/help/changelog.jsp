@@ -50,6 +50,7 @@
         <li>Add handle in the recovery password email. - cucu</li>
         <li>Allow members that are only registered for TCHS to be found in Pacts -dok</li>
         <li>Add division placed to algorithm competition history -dok</li>
+        <%--<li>When creating payments, the corresponding referral payment gets his parent's status -pulky</li>--%>
     </ul>
 </p>
 
