@@ -32,7 +32,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
                         <div style="margin-bottom: 20px;"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol" /><img src="/i/tournament/tco07/aol_logo.png" alt="AOL" border="0" /></a>
-                        <div align="right"><tc-webtag:forumLink forumID="506075" message="Discuss this match" /></div>
+                        <div align="right"><tc-webtag:forumLink forumID="506075" message="Discuss this" /></div>
                         </div>
 
 <table class="stat" style="width: 100%;" cellpadding="0" cellspacing="0">
