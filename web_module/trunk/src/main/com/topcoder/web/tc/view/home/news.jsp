@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.23.07<br>12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Gamma">TCHS07 Round 3 Gamma - Problem Set & Analysis</A></span><br><br>
+        Students from the Gamma region were the first to get into TCHS 2007 tournament, and they were first to qualify for the onsite event. Round 3 was the first round in Gamma that could actually leave somebody with a positive score behind, as 35 students competed for 25 onsite spots.</td>
+      <td class="newsPhoto"><img src="/i/m/andrewzta_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="11829284" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Gamma">full story</A> | 
+        <tc-webtag:forumLink forumID="514495" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Tutorial News" border="0" /><br>03.22.07<br>1:35 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -177,19 +193,4 @@ When our program only has to make one decision, our approach can be fairly simpl
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Beta">full story</A> | 
         <tc-webtag:forumLink forumID="514494" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.14.07<br>1:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session scheduled for SRM 342</A>
-        </span><br><br>
-      Join Edwin Aoki, AOL's Chief Architect, in the Arena at 8 PM EDT on March 14, just prior to SRM 342, to discuss "development in the real world."
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">details</A> | 
-         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
