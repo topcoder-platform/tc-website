@@ -36,14 +36,14 @@
     }
     </style>
 
-<script language="JavaScript" type="text/javascript" src="/i/oracle/js/popup.js"></script>
-<script language="JavaScript" type="text/javascript" src="/i/oracle/js/org/tool-man/core.js"></script>
-<script language="JavaScript" type="text/javascript" src="/i/oracle/js/org/tool-man/events.js"></script>
-<script language="JavaScript" type="text/javascript" src="/i/oracle/js/org/tool-man/css.js"></script>
-<script language="JavaScript" type="text/javascript" src="/i/oracle/js/org/tool-man/coordinates.js"></script>
-<script language="JavaScript" type="text/javascript" src="/i/oracle/js/org/tool-man/drag.js"></script>
-<script language="JavaScript" type="text/javascript" src="/i/oracle/js/org/tool-man/dragsort.js"></script>
-<script language="JavaScript" type="text/javascript" src="/i/oracle/js/org/tool-man/cookies.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/oracle/popup.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/org/tool-man/core.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/org/tool-man/events.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/org/tool-man/css.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/org/tool-man/coordinates.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/org/tool-man/drag.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/org/tool-man/dragsort.js"></script>
+<script language="JavaScript" type="text/javascript" src="/js/org/tool-man/cookies.js"></script>
 <script language="JavaScript" type="text/javascript"><!--
 function postToViewer(mySrc){
     document.getElementById("viewer").src = mySrc;
