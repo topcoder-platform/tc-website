@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.oracle.model" auto-import="false">
 
-    <class name="Contest" table="contest">
+    <class name="Contest" table="oracle_oltp:contest">
         <id name="id" column="contest_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">ORACLE_CONTEST_SEQ</param>
@@ -24,7 +24,7 @@
             <key column="contest_id" not-null="true"/>
             <one-to-many class="ContestConfig"/>
         </set>
-        <set name="prizes" table="contest_prize_xref" cascade="all" sort="natural">
+        <set name="prizes" table="oracle_oltp:contest_prize_xref" cascade="all" sort="natural">
             <key column="contest_id" not-null="true"/>
             <many-to-many column="prize_id" class="Prize"/>
         </set>

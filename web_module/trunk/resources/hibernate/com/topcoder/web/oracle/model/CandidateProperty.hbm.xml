@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.oracle.model" auto-import="false">
 
-    <class name="CandidateProperty" table="candidate_property_lu" mutable="false">
+    <class name="CandidateProperty" table="oracle_oltp:candidate_property_lu" mutable="false">
         <id name="id" column="property_id"/>
         <property name="description" column="property_desc"/>
     </class>

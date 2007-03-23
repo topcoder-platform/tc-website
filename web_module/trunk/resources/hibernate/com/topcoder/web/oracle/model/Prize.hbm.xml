@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.oracle.model" auto-import="false">
 
-    <class name="Prize" table="prize">
+    <class name="Prize" table="oracle_oltp:prize">
         <id name="id" column="prize_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">ORACLE_PRIZE_SEQ</param>

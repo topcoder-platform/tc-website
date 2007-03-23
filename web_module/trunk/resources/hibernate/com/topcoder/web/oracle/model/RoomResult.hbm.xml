@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.oracle.model" auto-import="false">
 
-    <class name="RoomResult" table="room_result">
+    <class name="RoomResult" table="oracle_oltp:room_result">
         <composite-id name="id" class="RoomResult$Identifier">
             <key-many-to-one name="room" class="Room" column="room_id"/>
             <key-many-to-one name="user" class="com.topcoder.web.common.model.User" column="user_id"/>

@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.oracle.model" auto-import="false">
 
-    <class name="ContestType" table="contest_type_lu" mutable="false">
+    <class name="ContestType" table="oracle_oltp:contest_type_lu" mutable="false">
         <id name="id" column="contest_type_id"/>
         <property name="description" column="contest_type_desc"/>
     </class>
