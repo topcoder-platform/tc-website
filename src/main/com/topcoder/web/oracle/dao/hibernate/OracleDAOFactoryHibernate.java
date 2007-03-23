@@ -33,6 +33,10 @@ public class OracleDAOFactoryHibernate implements OracleDAOFactory {
         return new ContestTypeDAOHibernate();
     }
 
+    public PredictionDAO getPredictionDAO() {
+        return new PredictionDAOHibernate();
+    }
+
     public PrizeTypeDAO getPrizeTypeDAO() {
         return new PrizeTypeDAOHibernate();
     }

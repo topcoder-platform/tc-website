@@ -7,18 +7,21 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
+import com.topcoder.web.oracle.model.Candidate;
 import com.topcoder.web.oracle.model.ContestStatus;
 import com.topcoder.web.oracle.model.Round;
 import com.topcoder.web.oracle.model.RoundStatus;
 
-import java.util.Date;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 22, 2007
  */
-public class ViewRegistration extends ShortHibernateProcessor {
+public class ViewBallot extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
 
         if (userLoggedIn()) {
@@ -36,39 +39,30 @@ public class ViewRegistration extends ShortHibernateProcessor {
 
                 if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
                     if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
-                        regProcessing(round);
+                        /*
+                        load up the candidates in appropriate random order
+                        it should be the same random order for a particular user every
+                        time they look at the candidates for a particular round
+                        */
+                        List<Candidate> candidates =
+                                OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(round.getId(), getUser().getId());
+                        Collections.sort(candidates, new Candidate.IDComparator());
+                        Collections.shuffle(candidates, new Random(getUser().getId()+round.getId()));
+                        getRequest().setAttribute("candidates", candidates);
+                        setNextPage("/ballot.jsp");
+                        setIsNextPageInContext(true);
                     } else {
                         throw new NavigationException("Invalid round specified.");
                     }
                 } else {
                     throw new NavigationException("Invalid contest specified.");
                 }
-
             }
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-    }
-
-    protected void regProcessing(Round round) throws Exception {
-
-        Date now = new Date();
-        //todo check dates
-        //todo check if already regsistered
-/*
-                        if (round.getStartTime().before(now) && round.getEndTime().after(now)) {
-*/
-        setDefault(Constants.ROUND_ID, round.getId().toString());
-        getRequest().setAttribute("round", round);
-/*
-                            } else {
-                                throw new NavigationException("Inactive contest specified.");
-                            }*/
-        setNextPage("reg.jsp");
-        setIsNextPageInContext(true);
 
     }
-
 
 }

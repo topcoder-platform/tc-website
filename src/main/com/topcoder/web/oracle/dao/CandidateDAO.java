@@ -1,6 +1,10 @@
 package com.topcoder.web.oracle.dao;
 
 import com.topcoder.web.oracle.model.Candidate;
+import com.topcoder.web.oracle.model.Round;
+import com.topcoder.web.common.model.User;
+
+import java.util.List;
 
 /**
  * @author dok
@@ -12,4 +16,6 @@ public interface CandidateDAO {
 
     void saveOrUpdate(Candidate c);
 
+    List<Candidate> getCandidates(Round r, User u);
+    List<Candidate> getCandidates(Integer roudnId, Long userId);
 }
