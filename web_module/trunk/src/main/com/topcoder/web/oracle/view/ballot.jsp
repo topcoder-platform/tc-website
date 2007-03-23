@@ -126,10 +126,12 @@ function boot(obj) {
             images[i].setAttribute("onclick", "select(this)");
             item.innerHTML = myLi.innerHTML;
             myLi.parentNode.removeChild(myLi);
+            item.style.visibility='visible';
             break;
         }
     }
 }
+
 
 function findParent(element, parentTagName) {
     element = element.parentNode;
