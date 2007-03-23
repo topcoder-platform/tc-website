@@ -5,7 +5,7 @@
 
 <html>
 <head>
-    <link type="image/x-icon" rel="shortcut icon" href="/i/oracle/i/favicon.ico"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/oracle/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Oracle</title>
 
@@ -19,7 +19,7 @@
         height: 160px; 
         margin: 0px; 
         padding: 25px 0px 0px 0px; 
-        background: transparent url(/i/oracle/i/interface/meterMiddle.png) top center repeat-x;
+        background: transparent url(/i/oracle/interface/meterMiddle.png) top center repeat-x;
     }
 
     #selectedCandidates img.small {
@@ -85,7 +85,7 @@ function select(obj) {
             if (element.tagName == 'UL' && element.id == "candidateBin") {
                 var oldItem = obj.parentNode;
                 var newItem = document.createElement("li");
-                newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="REMOVE"><img src="/i/oracle/i/interface/remove.png" alt="" /></A></div>';
+                newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="REMOVE"><img src="/i/oracle/interface/remove.png" alt="" /></A></div>';
                 newItem.getElementsByTagName("img")[0].setAttribute("onclick", "boot(this)");
                 oldItem.innerHTML = "&nbsp;";
                 oldItem.style.visibility = 'hidden';
@@ -135,7 +135,7 @@ function boot(obj) {
 <tbody>
     <tr>
         <td style="padding: 6px;">
-            <img src="/i/oracle/i/interface/step1.png" alt="Step 1"/>
+            <img src="/i/oracle/interface/step1.png" alt="Step 1"/>
         </td>
         <td width="100%">
             Browse the <strong>The Pool</strong> and <strong>Click</strong> on the candidateBin you like most to move them into the <strong>My Prediction</strong> list.<br>
@@ -143,7 +143,7 @@ function boot(obj) {
     </tr>
     <tr>
         <td style="padding: 6px;">
-            <img src="/i/oracle/i/interface/step2.png" alt="Step 2" /> 
+            <img src="/i/oracle/interface/step2.png" alt="Step 2" />
         </td>
         <td>
             In the <strong>My Prediction</strong> section, <strong>drag and drop</strong> candidates to sort them according to your preference.<br>
@@ -151,10 +151,10 @@ function boot(obj) {
     </tr>
     <tr>
         <td style="padding: 6px;">
-            <img src="/i/oracle/i/interface/step3.png" alt="Step 3" /> 
+            <img src="/i/oracle/interface/step3.png" alt="Step 3" />
         </td>
         <td>
-            You can <strong>click the remove button</strong> <img src="/i/oracle/i/interface/remove.png" alt="REMOVE" align="absmiddle" /> under any of your selectedCandidates to remove it from the list.
+            You can <strong>click the remove button</strong> <img src="/i/oracle/interface/remove.png" alt="REMOVE" align="absmiddle" /> under any of your selectedCandidates to remove it from the list.
         </td>
     </tr>
 </table>
@@ -174,8 +174,8 @@ function boot(obj) {
     --%>
 
     <div class="selectedContainer" style="width: 305px;">
-        <img src="/i/oracle/i/interface/meterBest.png" alt="" style="position: absolute; top: 0px; left: -30px;" />
-        <img src="/i/oracle/i/interface/meterWorst.png" alt="" style="position: absolute; top: 0px; right: -30px;" />
+        <img src="/i/oracle/interface/meterBest.png" alt="" style="position: absolute; top: 0px; left: -30px;" />
+        <img src="/i/oracle/interface/meterWorst.png" alt="" style="position: absolute; top: 0px; right: -30px;" />
         <ul id="selectedCandidates" class="imageLineup" align="center" style="float:left; clear:both; margin: 0px;">
         </ul>
     </div>
@@ -190,16 +190,16 @@ function boot(obj) {
     <!-- dotted line container -->
     <div style="position: relative; width: 600px;">
         <!-- left value is always [((thispage - 1) * 600 / (pages - 1)) - 7], so in this case page 1 is -7, page 2 is 93... -->
-        <A href="javascript:void(0)" class="marker" style="left: -7px;"><img src="/i/oracle/i/layout/marker.png" alt="marker" /></A>
-        <A href="javascript:void(0)" class="marker" style="left: 93px;"><img src="/i/oracle/i/layout/markerOn.png" alt="marker" /></A>
+        <A href="javascript:void(0)" class="marker" style="left: -7px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
+        <A href="javascript:void(0)" class="marker" style="left: 93px;"><img src="/i/oracle/layout/markerOn.png" alt="marker" /></A>
         <!-- left value of the page text box is always [((thispage - 1) * 600 / (pages - 1)) - 40] -->
         <div style="width: 80px; position: absolute; top: 10px; left: 60px; text-align: center;">Page <strong>2</strong> of <strong>7</strong></div>
-        <A href="javascript:void(0)" class="marker" style="left: 193px;"><img src="/i/oracle/i/layout/marker.png" alt="marker" /></A>
-        <A href="javascript:void(0)" class="marker" style="left: 293px;"><img src="/i/oracle/i/layout/marker.png" alt="marker" /></A>
-        <A href="javascript:void(0)" class="marker" style="left: 393px;"><img src="/i/oracle/i/layout/marker.png" alt="marker" /></A>
-        <A href="javascript:void(0)" class="marker" style="left: 493px;"><img src="/i/oracle/i/layout/marker.png" alt="marker" /></A>
-        <A href="javascript:void(0)" class="marker" style="left: 593px;"><img src="/i/oracle/i/layout/marker.png" alt="marker" /></A>
-        <img src="/i/oracle/i/layout/dottedLine.png" alt="Submission range" style="display: block;" />
+        <A href="javascript:void(0)" class="marker" style="left: 193px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
+        <A href="javascript:void(0)" class="marker" style="left: 293px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
+        <A href="javascript:void(0)" class="marker" style="left: 393px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
+        <A href="javascript:void(0)" class="marker" style="left: 493px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
+        <A href="javascript:void(0)" class="marker" style="left: 593px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
+        <img src="/i/oracle/layout/dottedLine.png" alt="Submission range" style="display: block;" />
     </div>
     --%>
 
@@ -222,7 +222,7 @@ function boot(obj) {
 
 <c:forEach items="${candidates}" var="candidate">
     <li>
-        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/i/interface/disk.png" alt="DL" /></A></div>
+        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/interface/disk.png" alt="DL" /></A></div>
         <img class="small" src="${candidate.infoMap[imageSource]}" alt="" onclick="select(this)" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
     </li>
 </c:forEach>
