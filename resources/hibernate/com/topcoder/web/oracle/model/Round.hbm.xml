@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.oracle.model" auto-import="false">
 
-    <class name="Round" table="round">
+    <class name="Round" table="oracle_oltp:round">
         <id name="id" column="round_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
                 <param name="sequence_name">ORACLE_ROUND_SEQ</param>
@@ -13,7 +13,7 @@
             </generator>
         </id>
         <property name="name"/>
-        <set name="prizes" table="round_prize_xref" cascade="all" sort="natural">
+        <set name="prizes" table="oracle_oltp:round_prize_xref" cascade="all" sort="natural">
             <key column="round_id" not-null="true"/>
             <many-to-many column="prize_id" class="Prize"/>
         </set>

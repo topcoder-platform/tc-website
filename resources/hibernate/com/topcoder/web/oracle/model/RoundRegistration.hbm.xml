@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.oracle.model" auto-import="false">
 
-    <class name="RoundRegistration" table="round_registration">
+    <class name="RoundRegistration" table="oracle_oltp:round_registration">
         <composite-id name="id" class="RoundRegistration$Identifier">
             <key-many-to-one name="user" class="com.topcoder.web.common.model.User" column="user_id"/>
             <key-many-to-one name="round" class="Round" column="round_id"/>

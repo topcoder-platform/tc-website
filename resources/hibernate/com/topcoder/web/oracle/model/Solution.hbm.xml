@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.oracle.model" auto-import="false">
 
-    <class name="Solution" table="solution">
+    <class name="Solution" table="oracle_oltp:solution">
         <id name="id" column="candidate_id">
             <generator class="foreign">
                 <param name="property">candidate</param>

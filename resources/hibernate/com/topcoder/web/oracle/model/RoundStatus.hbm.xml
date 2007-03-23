@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="com.topcoder.web.oracle.model" auto-import="false">
 
-    <class name="RoundStatus" table="round_status_lu" mutable="false">
+    <class name="RoundStatus" table="oracle_oltp:round_status_lu" mutable="false">
         <id name="id" column="round_status_id"/>
         <property name="description" column="round_status_desc"/>
     </class>
