@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.23.07 7:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolChat20070314">AOL SRM 342 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.21.07 1:00 PM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests">TCO07 Marathon Match Online Round 2 starts today</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.14.07 1:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session scheduled for SRM 342</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.07.07 11:30 AM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests">TCO07 Marathon Match Online Round 1 starts today</A></td></tr>

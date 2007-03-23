@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.23.07<br>7:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolChat20070314">AOL SRM 342 chat session transcript</A></span><br><br>
+        TopCoder members joined Edwin Aoki, AOL's Chief Architect, and others from the company to discuss "development in the real world."</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolChat20070314">full story</A> | 
+        <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.23.07<br>4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -177,21 +193,5 @@ When our program only has to make one decision, our approach can be fairly simpl
         <A href="/tc?module=Static&d1=tutorials&d2=recursionPt2">full story</A> | 
         <tc-webtag:forumLink forumID="514702" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.15.07<br>11:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Delta">TCHS07 Round 2 Delta - Problem Set & Analysis</A></span><br><br>
-        Delta Round 2 provided plenty of advancing slots for competitors. Just one room was enough for the competition, and the 20 competitors only needed a positive score to advance.</td>
-      <td class="newsPhoto"><img src="/i/m/ged_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10505830" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd2Delta">full story</A> | 
-        <tc-webtag:forumLink forumID="514494" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
 
