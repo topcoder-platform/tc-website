@@ -118,6 +118,8 @@ move selected item back into the candidate bin from the selected candidate list
 */
 function boot(obj) {
    var myLi=findParent(obj, 'LI');
+    var myDiv=findParent(obj, 'DIV');
+    myDiv.parentNode.removeChild(myDiv);
     var images = myLi.getElementsByTagName("img");
     for (var i=0; i<images.length; i++) {
         if (images[i].name == "candidateImage") {
