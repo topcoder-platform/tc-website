@@ -261,6 +261,7 @@ function findParent(element, parentTagName) {
         <img class="small" name="candidateImage" src="${candidate.infoMap[imageSource]}" alt="" onclick="select(this)" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
     </li>
 </c:forEach>
+    </ul>
 </div>
 
 <div class="popUp" id="viewerpopup"><img src="" id="viewer" alt="" style="margin:5px; border: 1px solid black; background: #FFFFFF;"></div>
