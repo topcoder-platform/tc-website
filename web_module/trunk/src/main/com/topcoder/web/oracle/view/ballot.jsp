@@ -9,8 +9,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Oracle</title>
 
-    <link type="text/css" rel="stylesheet" href="/i/oracle/css/main.css">
-    <link type="text/css" rel="stylesheet" href="/i/oracle/css/stats.css">
+    <link type="text/css" rel="stylesheet" href="/css/oracle/main.css">
+    <link type="text/css" rel="stylesheet" href="/css/oracle/stats.css">
     <style type="text/css">
     html { min-height: 100%; margin-bottom: 1px; }
 
