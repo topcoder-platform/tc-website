@@ -91,7 +91,7 @@ function select(obj) {
             if (element.tagName == 'UL' && element.id == "candidateBin") {
                 var oldItem = obj.parentNode;
                 var newItem = document.createElement("li");
-                newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="#" onclick="dump(this)"><img src="/i/oracle/interface/remove.png" alt="" /></A></div>';
+                newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="javascript:boot(this);"><img src="/i/oracle/interface/remove.png" alt="" /></A></div>';
                 var images = newItem.getElementsByTagName("img");
                 for (var j=0; j<images.length; j++) {
                     if (images[j].name == "candidateImage") {
@@ -125,7 +125,7 @@ function boot(obj) {
             var item = document.getElementById("candidateBin").getElementsByTagName("li")[idx];
             images[i].setAttribute("onclick", "select(this)");
             item.innerHTML = myLi.innerHTML;
-            findParent(obj, 'UL').removeChild(myLi);
+            myLi.parentNode.removeChild(myLi);
             break;
         }
     }
