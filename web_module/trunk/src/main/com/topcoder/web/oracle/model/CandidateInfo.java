@@ -109,7 +109,6 @@ public class CandidateInfo extends Base {
         }
 
         public int hashCode() {
-            log.debug("candidate info id hash");
             try {
                 StringBuffer buf = new StringBuffer(100);
                 buf.append(property.getId());
