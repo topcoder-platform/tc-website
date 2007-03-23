@@ -85,7 +85,7 @@ function select(obj) {
             if (element.tagName == 'UL' && element.id == "candidateBin") {
                 var oldItem = obj.parentNode;
                 var newItem = document.createElement("li");
-                newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="REMOVE"><img src="/i/oracle/interface/remove.png" alt="" /></A></div>';
+                newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="#"><img src="/i/oracle/interface/remove.png" alt="" /></A></div>';
                 newItem.getElementsByTagName("img")[0].setAttribute("onclick", "boot(this)");
                 oldItem.innerHTML = "&nbsp;";
                 oldItem.style.visibility = 'hidden';
