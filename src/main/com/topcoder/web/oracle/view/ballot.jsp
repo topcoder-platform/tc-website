@@ -91,14 +91,7 @@ function select(obj) {
             if (element.tagName == 'UL' && element.id == "candidateBin") {
                 var oldItem = obj.parentNode;
                 var newItem = document.createElement("li");
-                newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="#"><img src="/i/oracle/interface/remove.png" alt="" /></A></div>';
-                var images = newItem.getElementsByTagName("img");
-                for (var i=0; i<images.length; i++) {
-                    if (images[i].name == "candidateImage") {
-                        images[i].setAttribute("onclick", "boot(this)");
-                        break;
-                    }
-                }
+                newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="#" onclick="dump(this)"><img src="/i/oracle/interface/remove.png" alt="" /></A></div>';
                 oldItem.innerHTML = "&nbsp;";
                 oldItem.style.visibility = 'hidden';
                 document.getElementById("selectedCandidates").appendChild(newItem);
@@ -117,11 +110,24 @@ function select(obj) {
 move selected item back into the candidate bin from the selected candidate list
 */
 function boot(obj) {
-    var idx = binHash[obj.getAttribute("src")];
-    var item = document.getElementById("candidateBin").getElementsByTagName("li")[idx];
-    item.innerHTML = obj.parentNode.innerHTML;
-    item.getElementsByTagName("img")[0].setAttribute("onclick", "select(this)");
-    obj.parentNode.parentNode.removeChild(obj.parentNode);
+    while (obj.tagName != 'UL') {
+        if (obj.tagName == 'LI') {
+            break;
+        } else {
+            obj = obj.parentNode;
+        }
+    }
+    var images = obj.getElementsByTagName("img");
+    for (var j=0; j<images.length; j++) {
+        if (images[j].name == "candidateImage") {
+            var idx = binHash[images[i].getAttribute("src")];
+            var item = document.getElementById("candidateBin").getElementsByTagName("li")[idx];
+            item.innerHTML = obj.parentNode.innerHTML;
+            item.getElementsByTagName("img")[0].setAttribute("onclick", "select(this)");
+            obj.parentNode.parentNode.removeChild(obj.parentNode);
+            break;
+        }
+    }
 }
 
 
