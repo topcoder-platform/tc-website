@@ -60,7 +60,7 @@
 
 <div class="contentSpacer" style="padding-bottom:100px;">
 
-<h1>I<span class="small">ntellectual</span> P<span class="small">roperty</span> Transfers</h1>
+<h1>IP Transfers</h1>
 
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
