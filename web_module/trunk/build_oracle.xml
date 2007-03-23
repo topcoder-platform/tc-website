@@ -184,7 +184,12 @@
             <webinf dir="${resources}/oracle">
                 <include name="jboss-web.xml"/>
             </webinf>
+<!--we'll use the reg one for now while they live in the same jvm
             <classes dir="${resources}/oracle">
+                <include name="hibernate.cfg.xml"/>
+            </classes>
+-->
+            <classes dir="${resources}/reg">
                 <include name="hibernate.cfg.xml"/>
             </classes>
             <classes dir="${resources}/hibernate">
