@@ -68,7 +68,7 @@ window.onload = function() {
     for (var i = 0; i < list.length; i++) {
         var images = list[i].getElementsByTagName("img");
         for (var j=0; j<images.length; j++) {
-            if (images[j].name = "candidateImage") {
+            if (images[j].name == "candidateImage") {
                 binHash[images[j].getAttribute("src")] = i;
                 break;
             }
@@ -94,7 +94,7 @@ function select(obj) {
                 newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="#"><img src="/i/oracle/interface/remove.png" alt="" /></A></div>';
                 var images = newItem.getElementsByTagName("img");
                 for (var i=0; i<images.length; i++) {
-                    if (images[i].name = "candidateImage") {
+                    if (images[i].name == "candidateImage") {
                         images[i].setAttribute("onclick", "boot(this)");
                         break;
                     }
