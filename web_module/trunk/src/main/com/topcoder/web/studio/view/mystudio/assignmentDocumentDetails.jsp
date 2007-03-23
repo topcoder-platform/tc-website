@@ -41,7 +41,7 @@
 
 <div class="contentSpacer">
 
-<h1>Intellectual Property Transfers</h1>
+<h1>IP Transfers</h1>
 
     
                 <p align="right"><a href="/?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">Printer friendly version</a></p>
