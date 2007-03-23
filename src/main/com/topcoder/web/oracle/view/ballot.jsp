@@ -92,6 +92,13 @@ function select(obj) {
                 var oldItem = obj.parentNode;
                 var newItem = document.createElement("li");
                 newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A href="#" onclick="dump(this)"><img src="/i/oracle/interface/remove.png" alt="" /></A></div>';
+                var images = newItem.getElementsByTagName("img");
+                for (var j=0; j<images.length; j++) {
+                    if (images[j].name == "candidateImage") {
+                        images[j].setAttribute("onclick", "");
+                        break;
+                    }
+                }
                 oldItem.innerHTML = "&nbsp;";
                 oldItem.style.visibility = 'hidden';
                 document.getElementById("selectedCandidates").appendChild(newItem);
