@@ -18,6 +18,8 @@ public interface OracleDAOFactory {
 
     ContestTypeDAO getContestTypeDAO();
 
+    PredictionDAO getPredictionDAO();
+
     PrizeTypeDAO getPrizeTypeDAO();
 
     RoomDAO getRoomDAO();
