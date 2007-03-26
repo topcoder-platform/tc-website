@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.8.7 - 2007.03.xx
+    5.8.7 - 2007.03.26
     <ul>
         <li>Changed password length from 15 to 30 chars. - cucu</li>
         <li>TCO07 marathon registrants page updated to show seed -pulky</li>
