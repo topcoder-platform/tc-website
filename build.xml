@@ -140,8 +140,8 @@
                 classpathref="class.path"
                 deprecation="${deprecation}"
                 debug="${debug}"
-                source="1.4"
-                target="1.4"
+                source="1.5"
+                target="1.5"
                 >
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
@@ -155,8 +155,8 @@
                 classpathref="class.path"
                 deprecation="${deprecation}"
                 debug="${debug}"
-                source="1.4"
-                target="1.4"
+                source="1.5"
+                target="1.5"
                 >
             <include name="com/topcoder/web/codinginterface/**"/>
             <include name="com/topcoder/web/common/**"/>
@@ -165,15 +165,14 @@
 
 
     <target name="compile" depends="init,jar_shared">
-        <available property="jdk1.4+" classname="java.nio.ByteBuffer"/>
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
                 classpathref="class.path"
                 deprecation="${deprecation}"
                 debug="${debug}"
-                source="1.4"
-                target="1.4"
+                source="1.5"
+                target="1.5"
                 >
             <include name="com/topcoder/common/**"/>
             <include name="com/topcoder/ejb/**"/>
@@ -191,8 +190,8 @@
                 classpathref="class.path"
                 deprecation="${deprecation}"
                 debug="${debug}"
-                source="1.4"
-                target="1.4"
+                source="1.5"
+                target="1.5"
                 >
             <include name="com/topcoder/web/forums/**"/>
             <include name="com/topcoder/web/common/**"/>
@@ -211,8 +210,8 @@
                 classpathref="class.path"
                 deprecation="${deprecation}"
                 debug="${debug}"
-                source="1.4"
-                target="1.4"
+                source="1.5"
+                target="1.5"
                 >
             <include name="com/topcoder/utilities/forumConvert/**"/>
         </javac>
@@ -225,8 +224,8 @@
                 classpathref="class.path"
                 deprecation="${deprecation}"
                 debug="${debug}"
-                source="1.4"
-                target="1.4"
+                source="1.5"
+                target="1.5"
                 >
             <include name="com/topcoder/web/forums/model/TCUser.java"/>
             <include name="com/topcoder/web/forums/model/TCUserManager.java"/>
@@ -875,8 +874,8 @@
                 classpathref="class.path"
                 deprecation="${deprecation}"
                 debug="${debug}"
-                source="1.4"
-                target="1.4"
+                source="1.5"
+                target="1.5"
                 >
             <include name="com/topcoder/security/**"/>
         </javac>
