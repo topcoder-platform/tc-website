@@ -835,6 +835,8 @@
         <war warfile="${war.dir}/reg.war" webxml="${resources}/reg/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/reg/**/*.class"/>
+                <!--todo remove this once we deploy the oracle -->
+                <include name="com/topcoder/web/oracle/model/**/*.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
