@@ -184,14 +184,18 @@ _ToolManDragGroup.prototype = {
     _dragEnd : function(event) {
         event = ToolMan.events().fix(event)
         var group = this.toolManDragGroup
-        var dragEvent = group.factory._createEvent('dragend', event, group)
+        //in ie7 somehow the group gets to be null some times.  perhaps
+        //it's the order in which events bubble
+        if (group) {
+            var dragEvent = group.factory._createEvent('dragend', event, group)
 
-        group._notifyListeners(dragEvent)
+            group._notifyListeners(dragEvent)
 
-        this.toolManDragGroup = null
-        ToolMan.events().unregister(document, 'mousemove', group._drag)
-        document.onmousemove = null
-        ToolMan.events().unregister(document, 'mouseup', group._dragEnd)
+            this.toolManDragGroup = null
+            ToolMan.events().unregister(document, 'mousemove', group._drag)
+            document.onmousemove = null
+            ToolMan.events().unregister(document, 'mouseup', group._dragEnd)
+        }
     },
 
     _notifyListeners : function(dragEvent) {
