@@ -29,12 +29,6 @@ public class PostAnnouncement extends ForumsProcessor {
 		if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-        
-        if (!ForumsUtil.isAdmin(user)) {
-            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
-            setIsNextPageInContext(false);
-            return;
-        }
 
         AnnouncementManager announcementManager = forumFactory.getAnnouncementManager();
         
@@ -119,6 +113,11 @@ public class PostAnnouncement extends ForumsProcessor {
         boolean isNewAnnouncement = false;
         if (announcement == null) {
             if (forum != null) {
+                if (!ForumsUtil.canAnnounce(forum)) {
+                    setNextPage(getSessionInfo().getServletPath() + "?module=Main");
+                    setIsNextPageInContext(false);
+                    return;
+                }
                 announcement = announcementManager.createAnnouncement(user, forum);
             } else if (category != null) {
                 announcement = announcementManager.createAnnouncement(user, category);
