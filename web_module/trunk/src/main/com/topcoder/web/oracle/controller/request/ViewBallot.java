@@ -39,7 +39,7 @@ public class ViewBallot extends ShortHibernateProcessor {
 
                 if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
                     if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
-                        if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId())!=null) {
+                        if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId()) != null) {
                             /*
                             load up the candidates in appropriate random order
                             it should be the same random order for a particular user every
@@ -48,8 +48,9 @@ public class ViewBallot extends ShortHibernateProcessor {
                             List<Candidate> candidates =
                                     OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(round.getId(), getUser().getId());
                             Collections.sort(candidates, new Candidate.IDComparator());
-                            Collections.shuffle(candidates, new Random(getUser().getId()+round.getId()));
+                            Collections.shuffle(candidates, new Random(getUser().getId() + round.getId()));
                             getRequest().setAttribute("candidates", candidates);
+                            getRequest().setAttribute("round", round);
                             setNextPage("/ballot.jsp");
                             setIsNextPageInContext(true);
                         } else {
