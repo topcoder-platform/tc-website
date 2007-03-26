@@ -178,12 +178,6 @@ function findParent(element, parentTagName) {
 
 <%-- centers selectedCandidates and limits its width to 610px --%>
 <div align="center" style="position: relative; width: 610px;">
-
-    <%--
-    this width has to be set dynamically (centering floats is always a pain)
-    It has to be 61 X Max num of selectedCandidates 
-    --%>
-
     <c:set value="<%=ContestProperty.MAX_SELECTED_CANDIDATES%>" var="maxCandidatesKey"/>
     <c:set value="${round.contest.configMap[maxCandidatesKey]}" var="maxCandidates"/>
 
@@ -203,6 +197,7 @@ function findParent(element, parentTagName) {
 <h2 align="left" style="width: 610px;">The Pool</h2>
 
 <c:set value="<%=CandidateProperty.IMAGE_SOURCE%>" var="imageSource"/>
+<c:set value="<%=CandidateProperty.DOWNLOAD_URL%>" var="downloadUrl"/>
 
 <%-- centers candidates and limits its width to 610px --%>
 <div align="center" style="width: 610px;">
@@ -210,7 +205,9 @@ function findParent(element, parentTagName) {
 
 <c:forEach items="${candidates}" var="candidate">
     <li>
-        <div class="save"><A target="_blank" href="DOWNLOAD"><img src="/i/oracle/interface/disk.png" alt="DL" /></A></div>
+        <c:if test="${!empty candidate.infoMap[downloadUrl]}">
+            <div class="save"><A target="_blank" href="${candidate.infoMap[downloadUrl]}"><img src="/i/oracle/interface/disk.png" alt="DL" /></A></div>
+        </c:if>
         <img class="small" name="candidateImage" src="${candidate.infoMap[imageSource]}" alt="" onclick="select(this)" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()" />
     </li>
 </c:forEach>
