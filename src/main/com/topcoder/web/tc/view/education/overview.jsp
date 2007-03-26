@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="tc?module=Static&d1=features&d2=032607"><strong>A Crash Course in Relational Databases, Part I</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
+If you have been involved with computer science for any length of time, you have probably heard the term "relational database," but you might not have had the opportunity to actually work with this type of technology. Using TopCoder's algorithm competition data as an example, this article will give you an overview of database basics and a better understanding of the key components of relational databases.</li>
 <li><a href="tc?module=Static&d1=features&d2=032207"><strong>The Last 20 Feet</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
 For a few years now, there has been plenty of buzz about the "last mile problem," the final leg of communications connectivity between service provider backbones and the end customer. Whether or not "last mile" connectivity is an issue, we all have to figure out the best possible path for the most important of it -- the last twenty feet. </li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=binarySearchRedBlack"><strong>An Introduction to Binary Search and Red-Black Trees</strong></a>, by <tc-webtag:handle coderId="19841837" /><br>
 As a programmer, you'll frequently come across tasks that deal with a number of objects -- numbers, strings, people, and so forth -- and that require you to store and process those objects.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=recursionPt2"><strong>An Introduction to Recursion, Part 2</strong></a>, by <tc-webtag:handle coderId="15498334" /><br>
-When our program only has to make one decision, our approach can be fairly simple.  We loop through each of the options for our decision, evaluate each one, and pick the best.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
