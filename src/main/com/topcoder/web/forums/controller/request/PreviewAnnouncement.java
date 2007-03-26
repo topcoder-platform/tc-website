@@ -25,12 +25,6 @@ public class PreviewAnnouncement extends ForumsProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         
-        if (!ForumsUtil.isAdmin(user)) {
-            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
-            setIsNextPageInContext(false);
-            return;
-        }
-        
         AnnouncementManager announcementManager = forumFactory.getAnnouncementManager();
         
         long categoryID = -1;
@@ -111,6 +105,13 @@ public class PreviewAnnouncement extends ForumsProcessor {
             return;
 		}
 		
+        // may need to be modified if category/system announcements are added
+        if (!ForumsUtil.canAnnounce(forum)) {
+            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
+            setIsNextPageInContext(false);
+            return;
+        }
+        
         com.jivesoftware.forum.Announcement previewAnnouncement = 
             announcementManager.createAnnouncement(user);
         previewAnnouncement.setSubject(subject);
