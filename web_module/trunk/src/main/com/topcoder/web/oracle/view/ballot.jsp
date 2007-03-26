@@ -36,7 +36,7 @@ function pickCandidate(myCandidate){
     myCandidate.parentNode.style.visibility = 'hidden';        
 }
 
-var binHash
+var binHash;
 var dragsort = ToolMan.dragsort();
 window.onload = function() {
     dragsort.makeListSortable(document.getElementById('selectedCandidates'));
@@ -96,20 +96,25 @@ function select(obj) {
 move selected item back into the candidate bin from the selected candidate list
 */
 function boot(obj) {
-   var myLi=findParent(obj, 'LI');
-    var myDiv=findParent(obj, 'DIV');
-    myDiv.parentNode.removeChild(myDiv);
-    var images = myLi.getElementsByTagName("img");
-    for (var i=0; i<images.length; i++) {
-        if (images[i].name == "candidateImage") {
-            var idx = binHash[images[i].getAttribute("src")];
-            var item = document.getElementById("candidateBin").getElementsByTagName("li")[idx];
-            images[i].setAttribute("onclick", "select(this)");
-            item.innerHTML = myLi.innerHTML;
-            myLi.parentNode.removeChild(myLi);
-            item.style.visibility='visible';
-            break;
-        }
+    if (binHash) {
+        var myLi=findParent(obj, 'LI');
+         var myDiv=findParent(obj, 'DIV');
+         myDiv.parentNode.removeChild(myDiv);
+         var images = myLi.getElementsByTagName("img");
+         for (var i=0; i<images.length; i++) {
+             if (images[i].name == "candidateImage") {
+                 var idx = binHash[images[i].getAttribute("src")];
+                 var item = document.getElementById("candidateBin").getElementsByTagName("li")[idx];
+                 images[i].setAttribute("onclick", "select(this)");
+                 item.innerHTML = myLi.innerHTML;
+                 myLi.parentNode.removeChild(myLi);
+                 item.style.visibility='visible';
+                 break;
+             }
+         }
+
+    } else {
+     alert("Please wait for the page to load completely.")   
     }
 }
 
