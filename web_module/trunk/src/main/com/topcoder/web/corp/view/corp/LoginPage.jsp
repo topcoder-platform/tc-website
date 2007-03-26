@@ -88,7 +88,7 @@
                                     <tr valign="middle">
                                         <td nowrap class="loginText" align="right">Password:</td>
                                         <td align="left">
-                                            <input type="password" name="<%=Login.KEY_USER_PASS%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event,document.frmLogin)">
+                                            <input type="password" name="<%=Login.KEY_USER_PASS%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event,document.frmLogin)">
                                         </td>
                                         <td nowrap class="loginText">
                                             &#160;&#160;<a href="JavaScript:document.frmLogin.submit()" class="loginText">Login&#160;&gt;</a>
