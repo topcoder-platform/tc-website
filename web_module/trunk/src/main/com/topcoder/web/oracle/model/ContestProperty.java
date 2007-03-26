@@ -22,6 +22,8 @@ public class ContestProperty extends Base {
 
 */
 
+    public static final Integer MAX_SELECTED_CANDIDATES = 10;
+
     private Integer id;
     private String description;
 
