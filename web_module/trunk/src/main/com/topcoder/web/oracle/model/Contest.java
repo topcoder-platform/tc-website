@@ -2,9 +2,7 @@ package com.topcoder.web.oracle.model;
 
 import com.topcoder.web.common.model.Base;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * @author dok
@@ -95,6 +93,16 @@ public class Contest extends Base {
         config.setContest(this);
         this.config.add(config);
     }
+
+
+    public Map<Integer, String> getConfigoMap() {
+        HashMap<Integer, String> m = new HashMap<Integer, String>();
+        for (ContestConfig anInfo : config) {
+            m.put(anInfo.getId().getProperty().getId(), anInfo.getValue());
+        }
+        return m;
+    }
+
 
 
     public Set<Prize> getPrizes() {
