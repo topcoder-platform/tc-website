@@ -43,6 +43,7 @@
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round1_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 1</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round2_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 2</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round3_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 3</a></td>
+                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round4_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 4</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=finals_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Final</a></td>
                 </tr>
 <%-- formatting this crappy to save space in the download to the client --%>
@@ -66,6 +67,11 @@
 <td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } else { %>
 <td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
+<td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
 <td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
