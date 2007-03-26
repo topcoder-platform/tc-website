@@ -39,13 +39,10 @@
                 <tr class="advHeader">
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=seed&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Seed</a></td>
                     <td width = "15%" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=handle_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Handle</a></td>
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=section&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Section</a></td>
                     <td width = "5%" align = "right" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=desc&sc=rating&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Rating</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round1_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 1</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round2_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 2</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=round3_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Round 3</a></td>
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=semi_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Semi</a></td>
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=wildcard_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Wildcard</a></td>
                     <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=finals_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Final</a></td>
                 </tr>
 <%-- formatting this crappy to save space in the download to the client --%>
@@ -54,7 +51,6 @@
 <tr>
 <td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="seed" row="<%=resultRow%>"/></td>
 <td  class="<%=even?"advanceDk":"advanceLt"%>"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="<%=HandleTag.MARATHON_MATCH%>"/></td>
-<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="section" row="<%=resultRow%>"/></td>
 <td  class="<%=even?"advanceDkR":"advanceLtR"%>"><rsc:item name="rating" row="<%=resultRow%>"/></td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
 <td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
@@ -70,16 +66,6 @@
 <td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } else { %>
 <td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="round3" row="<%=resultRow%>"/></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
-<% } else { %>
-<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="semi" row="<%=resultRow%>"/></td>
-<% } %>
-<% if (StringUtils.checkNull(resultRow.getStringItem("wildcard")).equals("Eliminated")) { %>
-<td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
-<% } else { %>
-<td  class="<%=even?"advanceDkC":"advanceLtC"%>"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
 <td  class="<%=even?"eliminateDkC":"eliminateLtC"%>"><rsc:item name="final" row="<%=resultRow%>"/></td>
