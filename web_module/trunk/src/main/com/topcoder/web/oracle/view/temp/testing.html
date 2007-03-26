@@ -45,7 +45,7 @@ function select(obj) {
                 newItem.getElementsByTagName("img")[0].setAttribute("onclick", "boot(this)");
                 oldItem.innerHTML = "Space";
                 document.getElementById("selectedCandidates").appendChild(newItem);
-                dragsort.makeListSortable(document.getElementById('selectedCandidates'));
+                dragsort.addSortableItem(document.getElementById("selectedCandidates"), newItem);
                 break;
             } else {
                 element = element.parentNode;
