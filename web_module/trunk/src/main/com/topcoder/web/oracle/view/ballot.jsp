@@ -102,7 +102,7 @@ function select(obj) {
                 oldItem.innerHTML = "&nbsp;";
                 oldItem.style.visibility = 'hidden';
                 document.getElementById("selectedCandidates").appendChild(newItem);
-                dragsort.makeListSortable(document.getElementById('selectedCandidates'));
+                dragsort.addSortableItem('selectedCandidates', newItem);
                 break;
             } else {
                 element = element.parentNode;
