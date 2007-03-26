@@ -43,6 +43,26 @@ ToolMan._dragsortFactory = {
             helpers.map(items, arguments[i])
     },
 
+    addSortableItem : function(list, item) {
+        var threshold = 8
+        var coordinates = ToolMan.coordinates()
+        var dragGroup = dragsort.makeSortable(item)
+        dragGroup.setThreshold(threshold)
+        var min, max
+        dragGroup.addTransform(function(coordinate, dragEvent) {
+            return coordinate.constrainTo(min, max)
+        })
+        dragGroup.register('dragstart', function() {
+            var items = list.getElementsByTagName("li")
+            min = max = coordinates.topLeftOffset(items[0])
+            for (var i = 1, n = items.length; i < n; i++) {
+                var offset = coordinates.topLeftOffset(items[i])
+                min = min.min(offset)
+                max = max.max(offset)
+            }
+        })
+    },
+    
     _onDragStart : function(dragEvent) {
     },
 
