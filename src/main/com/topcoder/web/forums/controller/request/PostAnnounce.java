@@ -28,12 +28,6 @@ public class PostAnnounce extends ForumsProcessor {
         if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-   
-        if (!ForumsUtil.isAdmin(user)) {
-            setNextPage(getSessionInfo().getServletPath() + "?module=Main");
-            setIsNextPageInContext(false);
-            return;
-        }
         
         AnnouncementManager announcementManager = forumFactory.getAnnouncementManager();
 
@@ -83,6 +77,11 @@ public class PostAnnounce extends ForumsProcessor {
         getRequest().setAttribute("category", category);
         try {
             Forum forum = forumFactory.getForum(forumID);
+            if (!ForumsUtil.canAnnounce(forum)) {
+                setNextPage(getSessionInfo().getServletPath() + "?module=Main");
+                setIsNextPageInContext(false);
+                return;
+            }
             getRequest().setAttribute("forum", forum);
         } catch (ForumNotFoundException e) {}
 
