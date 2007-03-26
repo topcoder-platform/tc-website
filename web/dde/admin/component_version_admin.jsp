@@ -10,8 +10,7 @@
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalog,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECategories,
                  com.topcoder.dde.persistencelayer.interfaces.LocalDDECompCatalogHome,
-                 com.topcoder.dde.persistencelayer.interfaces.LocalDDECategoriesHome,
-                 com.topcoder.web.common.MultipartRequest" %>
+                 com.topcoder.dde.persistencelayer.interfaces.LocalDDECategoriesHome" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -122,13 +121,9 @@ public Object[] parseDocumentNameAndType(String componentName, String fileName, 
 
     return new Object[] {name, new Long(lngType)};
 }
-
 %>
 
 <%
-
-
-
 Object objTechTypes = CONTEXT.lookup(CatalogHome.EJB_REF_NAME);
 CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
 Catalog catalog = home.create();
@@ -171,21 +166,23 @@ String strMessage = "";
 if (request.getMethod().equals("POST")) {
     try {
         // File Upload - Config manager
-        MultipartRequest upload = new MultipartRequest(request);
+        FileUpload fu = new LocalFileUpload(namespace);
+        FileUploadResult upload = fu.uploadFiles(request);
         lngComponent = Long.parseLong(upload.getParameter("comp"));
-        lngVersion = Long.parseLong(upload.getParameter("ver"));
+    	lngVersion = Long.parseLong(upload.getParameter("ver"));
         UploadedFile[] fileUploads = upload.getAllUploadedFiles();
         action = upload.getParameter("a");
 
         // File Upload - parse request
         strMessage += "File was uploaded.";
         if (lngVersion > 0) {
-            componentManager = component_manager_home.create(lngComponent, lngVersion);
-        } else {
-            componentManager = component_manager_home.create(lngComponent);
-        }
+        	componentManager = component_manager_home.create(lngComponent, lngVersion);
+    	} else {
+        	componentManager = component_manager_home.create(lngComponent);
+   	 	}
 
-        String rootDir = upload.getDir();
+        // String rootDir = upload.getDir();
+        String rootDir = ((LocalFileUpload)fu).getDir();
         if (!rootDir.endsWith("/")) {
             rootDir += "/";
         }
@@ -456,6 +453,17 @@ if (request.getMethod().equals("POST")) {
         }
     } catch (ConfigManagerException e) {
         strError += "ConfigManager exception occurred: " + e.getMessage();
+    } catch (InvalidContentTypeException e) {
+    	// this error will be thrown whenever a file is not uploaded with the following message:
+    	// 	 "contentType application/x-www-form-urlencoded is not multipart/form-data"
+    	//strError += "InvalidContentTypeException exception occurred: " + e.getMessage();
+    	lngComponent = Long.parseLong(request.getParameter("comp"));
+	    lngVersion = Long.parseLong(request.getParameter("ver"));
+	    if (lngVersion > 0) {
+	        componentManager = component_manager_home.create(lngComponent, lngVersion);
+	    } else if (lngComponent > 0) {
+	        componentManager = component_manager_home.create(lngComponent);
+	    }
     }
 }
 
@@ -1080,7 +1088,7 @@ if (action != null) {
         } else {
             cm.add(namespace, ConfigManager.CONFIG_XML_FORMAT);
         }
-        rootDir = (String)cm.getProperty(namespace, "default_directory");
+        rootDir = (String)cm.getProperty(namespace, "default_dir");
         if (!rootDir.endsWith("/")) {
             rootDir += "/";
         }
