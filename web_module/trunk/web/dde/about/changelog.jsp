@@ -51,11 +51,19 @@
                 <table width="530" border="0" cellspacing="0" cellpadding="0">
                     <tr><td align="left" colspan="2" class="bodyText">
                         <H3>TopCoder Software Web Site Change Log</H3>
-
+						
+						<p>
+                            2.0.6 - 2007.03.26
+                            <ul>
+                                <li>Cleaned dependencies and code related to the migration of software forums to TopCoder Forums.</li>
+                                <li>Integrated File Upload v2.0.</li>
+                            </ul>
+                        </p>
+						
                         <p>
                             2.0.5 - 2007.02.xx
                             <ul>
-                                <li>Project registration code was updated so assembly projets won't interfere with component reliability.</li>
+                                <li>Project registration code was updated so assembly projects won't interfere with component reliability.</li>
                             </ul>
                         </p>
 
