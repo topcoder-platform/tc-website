@@ -43,16 +43,11 @@
 </jsp:include>
 
 <p>
-    5.8.8 - 2007.03.xx
+    5.8.7 - 2007.03.xx
     <ul>
         <li>Changed password length from 15 to 30 chars. - cucu</li>
-    </ul>
-</p>
-
-<p>
-    5.8.7 - 2007.03.22
-    <ul>
         <li>TCO07 marathon registrants page updated to show seed -pulky</li>
+        <li>TCO07 Component results pages - dok</li>
         <li>Add IP Transfer functionality -pulky</li>
         <li>Add handle in the recovery password email. - cucu</li>
         <li>Allow members that are only registered for TCHS to be found in Pacts -dok</li>
