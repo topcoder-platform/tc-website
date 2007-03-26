@@ -13,27 +13,6 @@
     <link type="text/css" rel="stylesheet" href="/css/oracle/stats.css">
     <style type="text/css">
     html { min-height: 100%; margin-bottom: 1px; }
-
-    div.selectedContainer {
-        position: relative;
-        height: 160px; 
-        margin: 0px; 
-        padding: 25px 0px 0px 0px; 
-        background: transparent url(/i/oracle/interface/meterMiddle.png) top center repeat-x;
-    }
-
-    #selectedCandidates img.small {
-        cursor: move;
-    }
-
-    #candidateBin img.small {
-        cursor: pointer;
-    }
-
-    a.marker{
-        position: absolute;
-        top: -7px;
-    }
     </style>
 
 <script language="JavaScript" type="text/javascript" src="/js/oracle/popup.js"></script>
