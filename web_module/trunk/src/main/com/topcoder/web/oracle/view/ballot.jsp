@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.oracle.model.CandidateProperty" %>
+<%@ page import="com.topcoder.web.oracle.model.ContestProperty" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -178,16 +179,15 @@ function findParent(element, parentTagName) {
 <%-- centers selectedCandidates and limits its width to 610px --%>
 <div align="center" style="position: relative; width: 610px;">
 
-<%--
-<div style="position: absolute; top: 0px; left: 0px; width: 400px; height: 10px; margin: 0px; padding: 0px;">
-</div>
--%>
-    <%-- 
+    <%--
     this width has to be set dynamically (centering floats is always a pain)
     It has to be 61 X Max num of selectedCandidates 
     --%>
 
-    <div class="selectedContainer" style="width: 305px;">
+    <c:set value="<%=ContestProperty.MAX_SELECTED_CANDIDATES%>" var="maxCandidatesKey"/>
+    <c:set value="${round.contest.configMap[maxCandidatesKey]}" var="maxCandidates"/>
+
+    <div class="selectedContainer" style="width: ${maxCandidates*61}px;">
         <img src="/i/oracle/interface/meterBest.png" alt="" style="position: absolute; top: 0px; left: -30px;" />
         <img src="/i/oracle/interface/meterWorst.png" alt="" style="position: absolute; top: 0px; right: -30px;" />
         <ul id="selectedCandidates" class="imageLineup" align="center" style="float:left; clear:both; margin: 0px;">
@@ -198,32 +198,6 @@ function findParent(element, parentTagName) {
         <BUTTON name="submit" value="submit" type="submit" class="button">Submit</BUTTON>
     </div>
 
-    <%-- PAGING
-    < prev</A>
-    | <A href="javascript:void(0)">next ></A>
-    <!-- dotted line container -->
-    <div style="position: relative; width: 600px;">
-        <!-- left value is always [((thispage - 1) * 600 / (pages - 1)) - 7], so in this case page 1 is -7, page 2 is 93... -->
-        <A href="javascript:void(0)" class="marker" style="left: -7px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
-        <A href="javascript:void(0)" class="marker" style="left: 93px;"><img src="/i/oracle/layout/markerOn.png" alt="marker" /></A>
-        <!-- left value of the page text box is always [((thispage - 1) * 600 / (pages - 1)) - 40] -->
-        <div style="width: 80px; position: absolute; top: 10px; left: 60px; text-align: center;">Page <strong>2</strong> of <strong>7</strong></div>
-        <A href="javascript:void(0)" class="marker" style="left: 193px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
-        <A href="javascript:void(0)" class="marker" style="left: 293px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
-        <A href="javascript:void(0)" class="marker" style="left: 393px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
-        <A href="javascript:void(0)" class="marker" style="left: 493px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
-        <A href="javascript:void(0)" class="marker" style="left: 593px;"><img src="/i/oracle/layout/marker.png" alt="marker" /></A>
-        <img src="/i/oracle/layout/dottedLine.png" alt="Submission range" style="display: block;" />
-    </div>
-    --%>
-
-
-    <p align="center">
-    <%-- error text
-    <span class="bigRed">You have no available spots in your My Prediction list. Please remove one of your candidates and try again.</span>
-    --%>
-    <%-- use this when there are no errors --%>
-    <span class="bigRed">&nbsp;</span>
 </div>
 
 <h2 align="left" style="width: 610px;">The Pool</h2>
