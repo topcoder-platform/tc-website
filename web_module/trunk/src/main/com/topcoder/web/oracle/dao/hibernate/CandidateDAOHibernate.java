@@ -9,6 +9,7 @@ import org.hibernate.Query;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
 
 /**
  * @author dok
@@ -30,7 +31,7 @@ public class CandidateDAOHibernate extends Base implements CandidateDAO {
 
     public List<Candidate> getCandidates(Integer roundId, Long userId) {
         StringBuffer query = new StringBuffer(100);
-        query.append(" select c");
+        query.append(" select  c");
         query.append(" from com.topcoder.web.oracle.model.RoomResult rr");
         query.append("    , com.topcoder.web.oracle.model.CandidateRoomResult crr");
         query.append("    , com.topcoder.web.oracle.model.Candidate c left join fetch c.info");
@@ -41,7 +42,10 @@ public class CandidateDAOHibernate extends Base implements CandidateDAO {
         Query q = session.createQuery(query.toString());
         q.setInteger(0, roundId);
         q.setLong(1, userId);
-        List res = q.list();
+        //we only want a list of distinct candidates.  but we also want it to
+        //fetch all the candidate info in one shot.  so, using a set here
+        //is what i came up with to do the unique part
+        HashSet res = new HashSet(q.list());
         ArrayList<Candidate> ret = new ArrayList<Candidate>(res.size());
         for (Object aL : res) {
             ret.add((Candidate) aL);
