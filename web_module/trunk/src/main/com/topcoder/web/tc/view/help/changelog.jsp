@@ -47,6 +47,7 @@
     <ul>
         <li>Changed password length from 15 to 30 chars. - cucu</li>
         <li>TCO07 marathon registrants page updated to show seed -pulky</li>
+        <li>TCO07 marathon match results - dok</li>
         <li>TCO07 Component results pages - dok</li>
         <li>Add IP Transfer functionality -pulky</li>
         <li>Add handle in the recovery password email. - cucu</li>
