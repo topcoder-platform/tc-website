@@ -10,6 +10,7 @@ import com.topcoder.web.common.model.Base;
 public class CandidateProperty extends Base {
 
     public static final Integer IMAGE_SOURCE = 1;
+    public static final Integer DOWNLOAD_URL = 2;
 
     private Integer id;
     private String description;
