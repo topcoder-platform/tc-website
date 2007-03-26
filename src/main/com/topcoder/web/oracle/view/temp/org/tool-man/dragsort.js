@@ -43,6 +43,7 @@ ToolMan._dragsortFactory = {
             helpers.map(items, arguments[i])
     },
 
+    //addition so that we can add items to a list
     addSortableItem : function(list, item) {
         var threshold = 8
         var coordinates = ToolMan.coordinates()
