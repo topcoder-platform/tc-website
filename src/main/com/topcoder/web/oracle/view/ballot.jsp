@@ -96,7 +96,6 @@ function select(obj) {
 move selected item back into the candidate bin from the selected candidate list
 */
 function boot(obj) {
-    if (binHash) {
         var myLi=findParent(obj, 'LI');
          var myDiv=findParent(obj, 'DIV');
          myDiv.parentNode.removeChild(myDiv);
@@ -112,10 +111,6 @@ function boot(obj) {
                  break;
              }
          }
-
-    } else {
-     alert("Please wait for the page to load completely.")   
-    }
 }
 
 
