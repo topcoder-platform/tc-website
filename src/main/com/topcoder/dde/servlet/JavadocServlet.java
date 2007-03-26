@@ -63,7 +63,7 @@ public class JavadocServlet extends HttpServlet {
             } else {
                 cm.add(namespace, ConfigManager.CONFIG_XML_FORMAT);
             }
-            rootDir = (String) cm.getProperty(namespace, "default_directory");
+            rootDir = (String) cm.getProperty(namespace, "default_dir");
             if (!rootDir.endsWith("/")) {
                 rootDir += "/";
             }
