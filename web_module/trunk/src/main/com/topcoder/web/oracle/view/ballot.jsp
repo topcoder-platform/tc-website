@@ -91,8 +91,7 @@ function select(obj) {
             if (element.tagName == 'UL' && element.id == "candidateBin") {
                 var oldItem = obj.parentNode;
                 var newItem = document.createElement("li");
-                copyInnerHTML(oldItem, newItem);
-                //newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A onclick="boot(this)"><img src="/i/oracle/interface/remove.png" alt="" \/><\/A><\/div>';
+                newItem.innerHTML = oldItem.innerHTML + '<div class="remove"><A onclick="boot(this)"><img src="/i/oracle/interface/remove.png" alt="" \/><\/A><\/div>';
                 var images = newItem.getElementsByTagName("img");
                 for (var j=0; j<images.length; j++) {
                     if (images[j].name == "candidateImage") {
@@ -112,14 +111,7 @@ function select(obj) {
 
 
     }
-}
-
-function copyInnerHTML(fromElement, toElement) {
-    var fromNodes = fromElement.childNodes;
-    for (var i=0; i<fromNodes.length; i++) {
-        toElement.appendChild(fromNodes[i]);
-    }
-}
+}        
 
 /*
 move selected item back into the candidate bin from the selected candidate list
