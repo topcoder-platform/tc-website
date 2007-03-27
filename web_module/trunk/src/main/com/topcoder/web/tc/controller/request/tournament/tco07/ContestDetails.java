@@ -30,7 +30,7 @@ public class ContestDetails extends StatBase {
     }
 
     protected String getPageName() {
-        return "/tournaments/tco07/contestDetails.jsp";
+        return "/tournaments/tco07/component/contestDetails.jsp";
     }
 
     private ArrayList arr = new ArrayList();

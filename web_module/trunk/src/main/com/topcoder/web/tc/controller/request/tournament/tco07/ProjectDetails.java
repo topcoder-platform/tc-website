@@ -26,7 +26,7 @@ public class ProjectDetails extends StatBase {
     }
 
     protected String getPageName() {
-        return "/tournaments/tco07/projectDetails.jsp";
+        return "/tournaments/tco07/component/projectDetails.jsp";
     }
 
     protected void statProcessing() throws TCWebException {

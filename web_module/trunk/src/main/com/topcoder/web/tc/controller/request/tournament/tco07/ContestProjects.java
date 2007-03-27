@@ -19,7 +19,7 @@ public class ContestProjects extends StatBase {
     }
 
     protected String getPageName() {
-        return "/tournaments/tco07/contestProjects.jsp";
+        return "/tournaments/tco07/component/contestProjects.jsp";
     }
 
     protected void statProcessing() throws com.topcoder.web.common.TCWebException {
