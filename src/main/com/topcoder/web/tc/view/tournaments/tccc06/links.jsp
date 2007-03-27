@@ -15,7 +15,7 @@
 <area shape="rect" alt="" coords="140,1, 190,115" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_des_summary" />
 <area shape="rect" alt="" coords="195,1, 245,115" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=comp_dev_summary" />
 <area shape="rect" alt="" coords="14,142, 85,162" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies" />
-<area shape="rect" alt="" coords="101,142, 171,162" href="/i/downloads/tccc06_program.pdf" />
+<area shape="rect" alt="" coords="101,142, 171,162" href="/i/tournament/tccc06/pdfs/tccc06_program.pdf" />
 <area shape="rect" alt="" coords="190,142, 245,162" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=photos" />
 <area shape="rect" alt="" coords="265,142, 312,162" href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=blogs&d4=overview" />
 </map>
