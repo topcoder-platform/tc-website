@@ -43,6 +43,15 @@
 </jsp:include>
 
 <p>
+    5.8.8 - 2007.03.xx
+    <ul>
+        <li>Format date differently on the component tournament member results pages - dok</li>
+        <li>Adjust pathes of tco07 component tournament results pages - dok</li>
+    </ul>
+</p>
+
+
+<p>
     5.8.7 - 2007.03.26
     <ul>
         <li>Changed password length from 15 to 30 chars. - cucu</li>
