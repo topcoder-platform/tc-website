@@ -12,8 +12,10 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.model.ProjectDetail;
 
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Map;
 
 /**
  * @author rfairfax
@@ -40,7 +42,6 @@ public class TCCC05ProjectDetails extends StatBase {
         ArrayList arr = new ArrayList();
 
         DecimalFormat dfmt = new DecimalFormat("$#,##0.00");
-        SimpleDateFormat dtfmt = new SimpleDateFormat("MM.dd.yyyy hh:mma");
         DecimalFormat scfmt = new DecimalFormat("0.00");
 
         int[] placementPoints = new int[]{10, 7, 5, 4, 0};
@@ -67,14 +68,10 @@ public class TCCC05ProjectDetails extends StatBase {
                 }
             }
 
-            String sub = "";
-            if (rsc.getItem(i, "submit_timestamp").getResultData() != null) {
-                sub = dtfmt.format((Date) rsc.getItem(i, "submit_timestamp").getResultData());
-            }
 
-            arr.add(new ProjectDetail(rsc.getStringItem(i, "handle"), pts,
+            arr.add(new com.topcoder.web.tc.model.ProjectDetail(rsc.getStringItem(i, "handle"), pts,
                     place, score,
-                    rsc.getIntItem(i, "user_id"), prz, sub));
+                    rsc.getIntItem(i, "user_id"), prz, rsc.getTimestampItem(i, "submit_timestamp")));
         }
 
         Collections.sort(arr, new myComparator());
