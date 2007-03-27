@@ -51,7 +51,7 @@
             <div class="bodySpacer">
                 <br/>
                   <span class="bigTitle"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/> -
-                  <a href="/tc?module=TCCC06ContestProjects&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View
+                  <a href="/tc?module=TCO07ContestProjects&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">View
                       Components</a></span>
                 <br><br>
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -82,7 +82,7 @@
                         <td class="sidebarText" align="right"><%=result.getPayment()%>
                         </td>
                         <td class="sidebarText" align="center">
-                            <a href="/tc?module=TCCC06MemberResults&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
+                            <a href="/tc?module=TCO07MemberResults&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a>
                         </td>
                     </tr>
                     <% }%>

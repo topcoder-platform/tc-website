@@ -53,7 +53,7 @@
         <td valign="top" align="center">
             <div class="bodySpacer">
                 <br>
-                <span class="bigTitle"><A href="/tc?module=TCCC06ContestDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle>
+                <span class="bigTitle"><A href="/tc?module=TCO07ContestDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle>
                     <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                 </A> -
                 <tc-webtag:handle context='<%=tab%>' coderId='<%=rscUser.getIntItem(0, "coder_id")%>' darkBG='true'/></span>
