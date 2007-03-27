@@ -37,6 +37,9 @@ public interface WebConstants {
     public static final String POSTAL_CODE = "zip";
     public static final String PHONE_NUMBER = "ph";
     public static final String COMP_COUNTRY_CODE = "ccc";
+    public static final String CONTEST_STATUS_ID = "ctstid";
+    public static final String CONTEST_NAME = "ctname";
+    
 
     public static String EVENT_ID = "eid";
 
