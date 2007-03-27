@@ -7,17 +7,28 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-    <jsp:include page="/script.jsp"/>
-
-    <title>2006 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
-    <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
+    <title>2007 TopCoder Open - Computer Programming Tournament</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+    <jsp:include page="../script.jsp" />
     <%@ taglib uri="tc.tld" prefix="tc" %>
     <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
     <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 </head>
 
 <body>
+
+<div align="center" style="background: transparent;">
+    <div id="content">
+
+        <jsp:include page="header.jsp" />
+
+        <table cellpadding="0" cellspacing="0" id="spacer">
+        <tbody>
+            <tr>
+                <td id="navSpacer">
 
 <% ResultSetContainer rscProject = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("project_details"); %>
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map) request.getAttribute("resultMap")).get("contest_details"); %>
@@ -32,70 +43,66 @@
     String tab = "design";
     if (rscContest.getIntItem(0, "phase_id") == 112) {
 %>
-<jsp:include page="links.jsp">
-    <jsp:param name="tabLev1" value="component"/>
-    <jsp:param name="tabLev2" value="design"/>
-    <jsp:param name="tabLev3" value="results"/>
-</jsp:include>
+                    <jsp:include page="nav.jsp" >
+                    <jsp:param name="tabLev1" value="component"/>
+                    <jsp:param name="tabLev2" value="design"/>
+                    <jsp:param name="tabLev3" value="results"/>
+                    </jsp:include>
 <%
 } else {
     tab = "development";
 %>
-<jsp:include page="links.jsp">
-    <jsp:param name="tabLev1" value="component"/>
-    <jsp:param name="tabLev2" value="development"/>
-    <jsp:param name="tabLev3" value="results"/>
-</jsp:include>
+                    <jsp:include page="nav.jsp" >
+                    <jsp:param name="tabLev1" value="component"/>
+                    <jsp:param name="tabLev2" value="development"/>
+                    <jsp:param name="tabLev3" value="results"/>
+                    </jsp:include>
 <%
     }
 %>
-<table width="100%" border=0 cellpadding=0 cellspacing=0>
-    <!-- Body-->
-    <tr valign="top">
-        <td align="center">
-            <div class="bodySpacer">
-                <br>
-               <span class="bigTitle"><A href="/tc?module=TCO07ContestDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
+                </td>
+                <td id="bodySpacer" width="100%">
+                    <div id="pageBody">
+
+                    <h1><span><A href="/tc?module=TCO07ContestDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">
                    <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/>
                </A> -
                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>">
                    <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/>
                </A>
-               <%if (!isComplete) {%>*<%}%></span>
-                <br>
-
+               <%if (!isComplete) {%>*<%}%></span></h1>
                 <% if (isComplete) { %>
                 <A href="/tc?module=CompContestDetails&pj=<rsc:item name="project_id" set="<%=rscProject%>"/>">contest
-                    details</A>
+                    details</span></h1>
                 <% } %>
 
 
-                <br><br>
-
-                <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
+                <thead>
+                    <tr><td class="title" colspan="6"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></td></tr>
                     <tr>
-                        <td class="sidebarTitle" nowrap=nowrap>Competitor</td>
-                        <td class="sidebarTitle" align=center nowrap=nowrap>Submission Date</td>
-                        <td class="sidebarTitle" align=center>Place</td>
-                        <td class="sidebarTitle" align=center>Placement Points</td>
-                        <td class="sidebarTitle" align=center>Score</td>
-                        <td class="sidebarTitle" align=right>Prizes</td>
+                        <td class="header" nowrap="nowrap">Competitor</td>
+                        <td class="headerC" nowrap="nowrap">Submission Date</td>
+                        <td class="headerC">Place</td>
+                        <td class="headerC">Placement Points</td>
+                        <td class="headerC">Score</td>
+                        <td class="header" align=right>Prizes</td>
                     </tr>
                     <%for (int i = 0; i < lst.size(); i++) { %>
-                    <tr>
+                    <tr class="<%=(i%2==0 ? "light" : "dark")%>">
                         <% ProjectDetail result = (ProjectDetail) lst.get(i); %>
-                        <td class="sidebarText">
-                            <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>' darkBG='true'/>
+                        <td class="value">
+                            <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>'/>
                         </td>
-                        <td class="sidebarText" align=center nowrap=nowrap><%=result.getSubmitTimestamp()%>
+                        <td class="valueC" nowrap="nowrap"><%=result.getSubmitTimestamp()%>
                         </td>
-                        <td class="sidebarText" align=center><%=result.getPlaced()%>
+                        <td class="valueC"><%=result.getPlaced()%>
                         </td>
-                        <td class="sidebarText" align=center><%=result.getPoints()%>
+                        <td class="valueC"><%=result.getPoints()%>
                         </td>
-                        <td class="sidebarText" align=center><%=result.getScore()%>
+                        <td class="valueC"><%=result.getScore()%>
                         </td>
-                        <td class="sidebarText" align=right><%=result.getPayment()%>
+                        <td class="value" align=right><%=result.getPayment()%>
                         </td>
                     </tr>
                     <% }%>
@@ -107,23 +114,15 @@
                 <br><br>
 
 
-            </div>
-        </td>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
 
-        <!-- Right Column-->
-        <td width=170 align=right>
-            <jsp:include page="right.jsp">
-                <jsp:param name="level1" value="all"/>
-            </jsp:include>
-        </td>
-
-    </tr>
-
-</table>
-
-
-<jsp:include page="../../foot.jsp"/>
+        <jsp:include page="footer.jsp" />
+    </div>
+</div>
 
 </body>
 
