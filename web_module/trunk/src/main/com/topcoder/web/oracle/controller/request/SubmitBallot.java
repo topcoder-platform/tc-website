@@ -52,7 +52,7 @@ public class SubmitBallot extends ViewBallot {
                         p.setUser(user);
                         p.setCandidate(c);
                         p.setRound(round);
-                        p.setValue(i++);
+                        p.setValue(++i);
                         predictions.add(p);
                     }
                 } catch (NumberFormatException e) {
