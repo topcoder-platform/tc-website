@@ -215,7 +215,8 @@ function findParent(element, parentTagName) {
             <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
             <tc-webtag:hiddenInput name="<%=Constants.CANDIDATE_IDS%>"/>
 
-            <BUTTON name="submit" value="submit" type="submit" class="button" onClick="submit()">Submit</BUTTON>
+            <%--<BUTTON name="submit" value="submit" type="submit" class="button" onClick="submit()">Submit</BUTTON>--%>
+             <a href="javascript:void(0);" onClick="submit()">Submit</a>
 
         </form>
 
