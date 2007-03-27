@@ -1,8 +1,11 @@
 package com.topcoder.web.oracle.dao.hibernate;
 
 import com.topcoder.web.common.dao.hibernate.Base;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.oracle.dao.PredictionDAO;
 import com.topcoder.web.oracle.model.Prediction;
+import com.topcoder.web.oracle.model.Round;
+import org.hibernate.Query;
 
 /**
  * @author dok
@@ -17,5 +20,20 @@ public class PredictionDAOHibernate extends Base implements PredictionDAO {
 
     public void saveOrUpdate(Prediction prediction) {
         super.saveOrUpdate(prediction);
+    }
+
+    public boolean alreadCompeted(User u, Round r) {
+        return alreadyCompeted(u.getId(), r.getId());
+    }
+
+    public boolean alreadyCompeted(Long userId, Integer roundId) {
+        StringBuffer query = new StringBuffer(100);
+        query.append(" from com.topcoder.web.oracle.model.Prediction p");
+        query.append(" where p.round.id = ?");
+        query.append(  " and p.user.id = ?");
+        Query q = session.createQuery(query.toString());
+        q.setInteger(0, roundId);
+        q.setLong(1, userId);
+        return q.iterate().hasNext();
     }
 }

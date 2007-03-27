@@ -1,6 +1,8 @@
 package com.topcoder.web.oracle.dao;
 
 import com.topcoder.web.oracle.model.Prediction;
+import com.topcoder.web.oracle.model.Round;
+import com.topcoder.web.common.model.User;
 
 /**
  * @author dok
@@ -13,5 +15,8 @@ public interface PredictionDAO {
 
     void saveOrUpdate(Prediction prediction);
 
+    boolean alreadCompeted(User u, Round r);
+
+    boolean alreadyCompeted(Long userId, Integer roundId);
 
 }
