@@ -192,6 +192,13 @@ function findParent(element, parentTagName) {
 
 <%-- centers selectedCandidates and limits its width to 610px --%>
 <div align="center" style="position: relative; width: 610px;">
+
+        <tc-webtag:errorIterator id="err" name="<%=Constants.CANDIDATE_IDS%>">
+            <p align="center"><span class="bigRed">${err}</span></p>
+            </tc-webtag:errorIterator>
+
+
+
     <c:set value="<%=ContestProperty.MAX_SELECTED_CANDIDATES%>" var="maxCandidatesKey"/>
     <c:set value="${round.contest.configMap[maxCandidatesKey]}" var="maxCandidates"/>
 
