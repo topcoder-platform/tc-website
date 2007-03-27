@@ -92,7 +92,6 @@
                                     isComplete = false;%>
                                 *
                                 <% } %>
-
                                 | 
                                 <A href="/tc?module=TCO07ProjectDetails&amp;ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&pj=<rsc:item name="project_id" row="<%=resultRow%>"/>">results</A>
                                 <% if (isComplete) { %>
