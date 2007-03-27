@@ -41,14 +41,18 @@
         <tr>
             <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
 
-<%-- TC HOMEPAGE --%>
-                <div>
-                    <A href="/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt=""/></A>
-                </div>
-
 <%-- CSF --%>
                 <div>
                     <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="studio_homepage" />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder"/></A>
+                </div>
+
+                <div>
+                     <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
+                </div>
+
+<%-- POST A PROJECT --%>
+                <div>
+                    <A href="/?module=Static&amp;d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project"/></A>
                 </div>
 
 <%-- BADGE VOTE 
@@ -57,9 +61,6 @@
                 </div>
 --%>
 
-                <div>
-                     <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
-                </div>
 
 <%-- NEED HELP?
                 <div>
@@ -67,11 +68,7 @@
                 </div>
 --%>
 
-<%-- POST A PROJECT
-                <div>
-                    <A href="/?module=Static&amp;d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project"/></A>
-                </div>
---%>
+
             </td>
             <td valign="top" style="padding-left: 10px;">
 

@@ -40,27 +40,39 @@
 <body>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
-        <td class="homeTopBar" align=left>
+        <td class="homeTopBar" align="left">
             <span class="time">Current Member Count</span>&#160;:&#160;
             <tc-webtag:format object="${sessionInfo.memberCount}" format="#,##0"/>
             -
             <tc-webtag:format object="${sessionInfo.date}" format="MMMM d, yyyy"/>
         </td>
-        <td class="homeTopBar" align=right>
+        <td class="homeTopBar" align="right">
             <A href="/reg/" class="loginLinks">Register Now</A>
             | <A href="/tc?module=Static&d1=about&d2=index" class="loginLinks">About TopCoder</A></td>
     </tr>
 </table>
 
-
-<div style="position: absolute; top: 30px; left: 10px;">
-    <img src="/i/home/topcoder.png" alt="TopCoder"/>
-</div>
-<div align="center" style="margin: 10px 198px 10px 198px;">
-    <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2065"><img src="/i/home/tcDotComRedesign.png" alt=""/></A>
-</div>
 <div align="center">
-    <A href="<tc-webtag:linkTracking link='/whatistopcoder' refer='homepage' />"><img src="/i/home/webuildsoftware.png" alt="" /></A>
+<table cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+    <td align="left" valign="top" style="padding: 10px 0px 0px 10px">
+        <A href="/"><img src="/i/home/topcoder.png" alt="TopCoder" style="display: block;" /></A>
+    </td>
+    <td align="center" style="padding: 10px 10px 10px 10px">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open" style="display: block;" /></A>
+    </td>
+    <td align="right" valign="top">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/"><img src="/i/home/studioDogEarStandard.png" style="display: block;" alt="TopCoder Studio" /></A>
+    </td>
+</tr>
+<tr>
+    <td align="center" colspan="3">
+        <A href="<tc-webtag:linkTracking link='/whatistopcoder' refer='homepage' />"><img src="/i/home/webuildsoftware.png" alt="" style="display: block;" /></A>
+    </td>
+</tr>
+</tbody>
+</table>
 </div>
 
 <table border="0" cellpadding="0" cellspacing="0" class="centerer">
@@ -231,12 +243,9 @@
             <%-- WSJ
             <A href="/?t=sponsor&c=link&link=http://webreprints.djreprints.com/1466111183234.html" target="_blank"><img src="/i/home/wsj_051006_sm.gif" alt="The Wall Street Journal" border="0" style="display:block;" /></A>
             --%>
+
             <%-- AOL webcast team
             <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcast20060108.jpg" alt="TCCC Webcast" border="0" style="display:block;"/></A>
-            --%>
-
-            <%-- CSF
-           <a href="<tc-webtag:linkTracking link='http://csf.topcoder.com' refer='HOMEPAGE' />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder" border="0" style="display:block;"/></A>
             --%>
 
             <%-- Marathon Match Sponsor
@@ -247,17 +256,16 @@
            <img src="/i/home/mmtco2_verisign.png" alt="TCO07 Marathon Match 2 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
             --%>
 
-            <%-- SRM SPONSOR
+            <%-- SRM SPONSOR --%>
             <map name="srm">
-            <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10665" />
-            <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa" />
+            <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10668" />
+            <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw" />
             </map>
-            <img src="/i/home/srm341_nsa.png" alt="SRM 341 brought to you by NSA" border="0" style="display:block;" usemap="#srm"/>
-            --%>
-
-            <%-- TCO07 --%>
+            <img src="/i/home/srm344_drw.png" alt="SRM 344 brought to you by DRW" border="0" style="display:block;" usemap="#srm"/>
+            
+            <%-- TCO07 
             <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
-
+            --%>
         </td>
     </tr>
 </table>
