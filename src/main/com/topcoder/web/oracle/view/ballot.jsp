@@ -1,8 +1,10 @@
 <%@ page import="com.topcoder.web.oracle.model.CandidateProperty" %>
 <%@ page import="com.topcoder.web.oracle.model.ContestProperty" %>
+<%@ page import="com.topcoder.web.oracle.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <html>
 <head>
@@ -127,6 +129,19 @@ function findParent(element, parentTagName) {
     return null;
 }
 
+ function submit() {
+    var candidates = '';
+    var list = document.getElementById("selectedCandidates").getElementsByTagName("li");
+    for (var i = 0; i < list.length; i++) {
+        if (i < list.length - 1) {
+            candidates += list[i].id + ",";
+        } else {
+            candidates += list[i].id;
+        }
+    }
+    document.ballotForm.<%=Constants.CANDIDATE_IDS%>.value = candidates;
+    document.ballotForm.submit();
+}
 
 //-->
 </script>
@@ -143,7 +158,6 @@ function findParent(element, parentTagName) {
 
 <h1>Make your prediction</h1>
 
-<form>
 <div align="center">
 
 <table cellpadding="0" cellspacing="0" style="width: 610px; text-align: left; margin-bottom: 20px;">
@@ -189,7 +203,15 @@ function findParent(element, parentTagName) {
     </div>
 
     <div style="clear: both; margin-bottom: 20px;">
-        <BUTTON name="submit" value="submit" type="submit" class="button">Submit</BUTTON>
+        <form action="${sessionInfo.servletPath}" method="POST" name="ballotForm">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitBallot"/>
+            <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
+            <tc-webtag:hiddenInput name="<%=Constants.CANDIDATE_IDS%>"/>
+
+            <BUTTON name="submit" value="submit" type="submit" class="button" onClick="submit()">Submit</BUTTON>
+
+        </form>
+
     </div>
 
 </div>
@@ -204,7 +226,7 @@ function findParent(element, parentTagName) {
 <ul id="candidateBin" class="imageLineup" align="center" style="float:left; clear:both; width: 100%;">
 
 <c:forEach items="${candidates}" var="candidate">
-    <li>
+    <li id="${candidate.id}">
         <c:if test="${!empty candidate.infoMap[downloadUrl]}">
             <div class="save"><A target="_blank" href="${candidate.infoMap[downloadUrl]}"><img src="/i/oracle/interface/disk.png" alt="DL" /></A></div>
         </c:if>
@@ -219,7 +241,6 @@ function findParent(element, parentTagName) {
 <div style="clear:both;">&nbsp;</div>
 
 </div>
-</form>
 
 
         <jsp:include page="foot.jsp"/>
