@@ -458,7 +458,7 @@ information about <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=getVisa"
             <td class="value">$600</td>
         </tr>
         <tr class="light">
-            <td class="value">Online participants who pass screening for at least one component</td>
+            <td class="value">Online participants who pass screening for at least two contests</td>
             <td class="value">Limited edition 2007 <br>TopCoder Open t-shirt</td>
         </tr>
         <tr class="dark">
