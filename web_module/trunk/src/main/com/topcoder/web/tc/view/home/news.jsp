@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.27.07<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">TCO07 Algorithm registration ends March 27</A></span><br><br>
+        Registration for the 2007 TopCoder Open Algorithm Competition closes at 5:00 PM EDT on Tuesday, March 27. If you haven't registered yet, don't wait any longer!</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about">full story</A> | 
+        <tc-webtag:forumLink forumID="514380" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>03.26.07<br>2:10 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -178,20 +194,3 @@ As a programmer, you'll frequently come across tasks that deal with a number of 
         <tc-webtag:forumLink forumID="506232" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.15.07<br>6:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm341">SRM 341 - Problem Set & Analysis</A></span><br><br>
-        In division 1, the easy problem was easier than usual, so most coders solved it quickly. In the coding phase, only ten coders found the solution to the hard problem, but nine of them failed the testing phase.</td>
-      <td class="newsPhoto"><img src="/i/m/radeye_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10596762" context="algorithm"/> &amp; <tc-webtag:handle coderId="277659" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm341">full story</A> | 
-        <tc-webtag:forumLink forumID="506231" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
