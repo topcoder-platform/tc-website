@@ -7,6 +7,7 @@
 package com.topcoder.web.tc.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 /**
  *
@@ -20,7 +21,7 @@ public class ProjectDetail implements Serializable {
     private String score;
     private int userID;
     private String payment;
-    private String submitTimestamp;
+    private Timestamp submitTimestamp;
 
     /** Creates a new instance of TC04OverallResult */
     public ProjectDetail() {
@@ -30,10 +31,10 @@ public class ProjectDetail implements Serializable {
         score = "";
         userID = 0;
         payment = "";
-        submitTimestamp = "";
+        submitTimestamp =null;
     }
 
-    public ProjectDetail(String h, int pts, String pl, String sc, int u, String pay, String sub) {
+    public ProjectDetail(String h, int pts, String pl, String sc, int u, String pay, Timestamp sub) {
         handle = h;
         points = pts;
         placed = pl;
@@ -43,11 +44,11 @@ public class ProjectDetail implements Serializable {
         submitTimestamp = sub;
     }
 
-    public String getSubmitTimestamp() {
+    public Timestamp getSubmitTimestamp() {
         return submitTimestamp;
     }
 
-    public void setSubmitTimestamp(String s) {
+    public void setSubmitTimestamp(Timestamp s) {
         this.submitTimestamp = s;
     }
 
