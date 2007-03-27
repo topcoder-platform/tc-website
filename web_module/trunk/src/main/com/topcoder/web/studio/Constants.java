@@ -21,7 +21,6 @@ public class Constants implements WebConstants {
 
     public static final String START_TIME = "sttm";
     public static final String END_TIME = "etm";
-    public static final String CONTEST_NAME = "ctname";
     public static final String SUBMISSION = "sbm";
     public static final String SUBMISSION_ID = "sbmid";
     public static final String REVIEW_STATUS_ID = "rstid";
