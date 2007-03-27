@@ -79,7 +79,7 @@ public class ViewBallot extends ShortHibernateProcessor {
         Collections.shuffle(candidates, new Random(getUser().getId() + round.getId()));
         getRequest().setAttribute("candidates", candidates);
         getRequest().setAttribute("round", round);
-        getRequest().setAttribute(Constants.ROUND_ID, round.getId());
+        setDefault(Constants.ROUND_ID, round.getId());
 
     }
 
