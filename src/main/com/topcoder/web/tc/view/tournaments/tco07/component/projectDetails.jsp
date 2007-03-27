@@ -94,7 +94,7 @@
                         <td class="value">
                             <tc-webtag:handle coderId='<%=result.getUserID()%>' context='<%=tab%>'/>
                         </td>
-                        <td class="valueC" nowrap="nowrap"><tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm"/>
+                        <td class="valueC" nowrap="nowrap"><tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
                         </td>
                         <td class="valueC"><%=result.getPlaced()%>
                         </td>
