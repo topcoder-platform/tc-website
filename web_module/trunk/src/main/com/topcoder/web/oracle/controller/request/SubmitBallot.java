@@ -60,17 +60,27 @@ public class SubmitBallot extends ViewBallot {
                 }
 
             }
-            PredictionDAO pDao = OracleDAOUtil.getFactory().getPredictionDAO();
-            for (Prediction prediction : predictions) {
-                pDao.saveOrUpdate(prediction);
+
+            if (predictions.isEmpty()) {
+                loadData(round);
+                addError(Constants.CANDIDATE_IDS, "Please be sure to make your selections before you submit.");
+                setNextPage("/ballot.jsp");
+                setIsNextPageInContext(true);
+            } else {
+                PredictionDAO pDao = OracleDAOUtil.getFactory().getPredictionDAO();
+                for (Prediction prediction : predictions) {
+                    pDao.saveOrUpdate(prediction);
+                }
+
+                StringBuffer buf = new StringBuffer(50);
+                buf.append(getSessionInfo().getServletPath());
+                buf.append("?" + Constants.MODULE_KEY + "=Static&");
+                buf.append(Constants.STATIC_PREFIX).append("1=submitSuccess&");
+                setNextPage(buf.toString());
+                setIsNextPageInContext(false);
+
             }
 
-            StringBuffer buf = new StringBuffer(50);
-            buf.append(getSessionInfo().getServletPath());
-            buf.append("?" + Constants.MODULE_KEY + "=Static&");
-            buf.append(Constants.STATIC_PREFIX).append("1=submitSuccess&");
-            setNextPage(buf.toString());
-            setIsNextPageInContext(false);
 
         }
 
