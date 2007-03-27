@@ -433,7 +433,7 @@
                         Jack Hughes joined <i>Mavericks at Work</i> author William Taylor and host Christopher Lydon to discuss TopCoder's "maverick" approach. <span class="prHead">[October 4]</span><br>
                         <A href="/audio/open_source_060928_24kb.mp3" target="_blank">lo 6.8mb</A> &#160;|&#160;
                         <A href="/audio/open_source_060928_48kb.mp3" target="_blank">hi 13.8mb</A> &#160;|&#160;
-                        <A href="/images/downloads/mavericks_at_work.pdf" target="_blank">Mavericks at Work excerpt</A> [PDF]</p>
+                        <A href="/i/pressroom/pdfs/mavericks_at_work.pdf" target="_blank">Mavericks at Work excerpt</A> [PDF]</p>
                     </td>
                 </tr>
             </table>
