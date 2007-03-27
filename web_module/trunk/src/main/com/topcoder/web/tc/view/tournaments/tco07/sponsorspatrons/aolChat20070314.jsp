@@ -70,37 +70,33 @@
 <tr class="dark"> <td class="value">  n_i_r_a_n_j_a_n  </td> <td class="value"> Hello Edwin, what kind of work is done at your Bangalore office  </td> </tr>
 <tr class="light"> <td class="value"> <span class="bigRed"> AOL_David </span> </td> <td class="value"> <span class="bigRed"> we also have a lot of J2EE, and Ajax </span> </td> </tr>
 <tr class="dark"> <td class="value">  modenl  </td> <td class="value"> Does AOL use .net/c# stuff?  </td> </tr>
-<tr class="light"> <td class="value">  mike  </td> <td class="value"> /mgg Peterpay please do not whisper during this chat  </td> </tr>
-<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> modenl: We do have some projects using .net and C# </span> </td> </tr>
-<tr class="light"> <td class="value">  mike  </td> <td class="value"> whoops  </td> </tr>
+<tr class="light"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> modenl: We do have some projects using .net and C# </span> </td> </tr>
 <tr class="dark"> <td class="value">  vanessa  </td> <td class="value"> AOL_Edwin: is there any link to the AOL's career page?  </td> </tr>
-<tr class="light"> <td class="value">  Peterpay  </td> <td class="value"> its ok mike  </td> </tr>
-<tr class="dark"> <td class="value">  zdravko_b  </td> <td class="value"> where do you have offfices in Europe?  </td> </tr>
-<tr class="light"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> modenl: It's not a huge percentage of our complex yet, but the teams that use it swear by it.  Again, as I was saying to Peterpay earlier, it's all about using the right tool for the job </span> </td> </tr>
-<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_David </span> </td> <td class="value"> <span class="bigRed"> you can apply for AOL jobs at http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol </span> </td> </tr>
-<tr class="light"> <td class="value">  Peterpay  </td> <td class="value"> where do you have dev centers?  </td> </tr>
-<tr class="dark"> <td class="value">  rusolis  </td> <td class="value"> what do programmers in AOL work on?  Is it mostly internet technologies or other fields, like system programming?  </td> </tr>
-<tr class="light"> <td class="value">  vanessa  </td> <td class="value"> AOL_David: thanks  </td> </tr>
-<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_David </span> </td> <td class="value"> <span class="bigRed"> there are a lot of system programmers working in our infrastructure groups </span> </td> </tr>
-<tr class="light"> <td class="value">  modenl  </td> <td class="value"> AOL_Edwin: May I apply position mainly using c#/.net?  </td> </tr>
-<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> zdravko_b: We've got development offices in Europe in the UK, France, and Germany, and other smaller offices in other countries throughout the EU. </span> </td> </tr>
-<tr class="light"> <td class="value">  zhaofu(do_ob)  </td> <td class="value"> And does AOL allow its employee pursuing a MS degree when he is in a full-time role? if so, how AOL gives its employee facilities?  </td> </tr>
-<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_David </span> </td> <td class="value"> <span class="bigRed"> we have a lot of AOL employees seeking advanced degrees </span> </td> </tr>
-<tr class="light"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> rusolis: Well, we're mostly an internet company, of course, so that's our bias.  But we have, in the past, had to do work at lower levels in order to support the delopyment and development of products at scale. </span> </td> </tr>
-<tr class="dark"> <td class="value">  jayaskren  </td> <td class="value"> Is the ficlets website down or is just me?  </td> </tr>
-<tr class="light"> <td class="value">  kevintao  </td> <td class="value"> I have a stupid question: does AOL stand for America On-Line, and if it does, why?  AOL is a global company, right?  </td> </tr>
-<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> rusolis: Admittedly we have to do less of that now, since there's more people doing high scale, Internet development, and the tools are better than there once were. </span> </td> </tr>
-<tr class="light"> <td class="value">  tyrannus  </td> <td class="value"> jayaskren: just you i think  </td> </tr>
-<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> kevintao: Actually, AOL changed its name last year to.. just AOL. </span> </td> </tr>
-<tr class="light"> <td class="value">  kevintao  </td> <td class="value"> oh haha  </td> </tr>
-<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> kevintao: It no longer is an abbrevation for anything. </span> </td> </tr>
-<tr class="light"> <td class="value"> <span class="bigRed"> AOL_David </span> </td> <td class="value"> <span class="bigRed"> also AOL provides very generous tuition reimbursement for work-related fields </span> </td> </tr>
-<tr class="dark"> <td class="value">  zdravko_b  </td> <td class="value"> AOL_Edwin: do you offer internships in Europe?  </td> </tr>
-<tr class="light"> <td class="value">  Peterpay  </td> <td class="value"> AOL_Edwin: how is aol being part in the real world development, i mean ive seen aim and other stuff you but what is the biggest project or technology that your working for?  </td> </tr>
-<tr class="dark"> <td class="value">  kevintao  </td> <td class="value"> thanks edwin  :)  </td> </tr>
-<tr class="light"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> Ficlets seems to be working for me. </span> </td> </tr>
-<tr class="dark"> <td class="value">  rusolis  </td> <td class="value"> do you offer jobs related to artificial intelligence?  </td> </tr>
-<tr class="light"> <td class="value">  aayush  </td> <td class="value"> AOL_E  </td> </tr>
+<tr class="light"> <td class="value">  zdravko_b  </td> <td class="value"> where do you have offfices in Europe?  </td> </tr>
+<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> modenl: It's not a huge percentage of our complex yet, but the teams that use it swear by it.  Again, as I was saying to Peterpay earlier, it's all about using the right tool for the job </span> </td> </tr>
+<tr class="light"> <td class="value"> <span class="bigRed"> AOL_David </span> </td> <td class="value"> <span class="bigRed"> you can apply for AOL jobs at http://www.topcoder.com/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol </span> </td> </tr>
+<tr class="dark"> <td class="value">  Peterpay  </td> <td class="value"> where do you have dev centers?  </td> </tr>
+<tr class="light"> <td class="value">  rusolis  </td> <td class="value"> what do programmers in AOL work on?  Is it mostly internet technologies or other fields, like system programming?  </td> </tr>
+<tr class="dark"> <td class="value">  vanessa  </td> <td class="value"> AOL_David: thanks  </td> </tr>
+<tr class="light"> <td class="value"> <span class="bigRed"> AOL_David </span> </td> <td class="value"> <span class="bigRed"> there are a lot of system programmers working in our infrastructure groups </span> </td> </tr>
+<tr class="dark"> <td class="value">  modenl  </td> <td class="value"> AOL_Edwin: May I apply position mainly using c#/.net?  </td> </tr>
+<tr class="light"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> zdravko_b: We've got development offices in Europe in the UK, France, and Germany, and other smaller offices in other countries throughout the EU. </span> </td> </tr>
+<tr class="dark"> <td class="value">  zhaofu(do_ob)  </td> <td class="value"> And does AOL allow its employee pursuing a MS degree when he is in a full-time role? if so, how AOL gives its employee facilities?  </td> </tr>
+<tr class="light"> <td class="value"> <span class="bigRed"> AOL_David </span> </td> <td class="value"> <span class="bigRed"> we have a lot of AOL employees seeking advanced degrees </span> </td> </tr>
+<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> rusolis: Well, we're mostly an internet company, of course, so that's our bias.  But we have, in the past, had to do work at lower levels in order to support the delopyment and development of products at scale. </span> </td> </tr>
+<tr class="light"> <td class="value">  jayaskren  </td> <td class="value"> Is the ficlets website down or is just me?  </td> </tr>
+<tr class="dark"> <td class="value">  kevintao  </td> <td class="value"> I have a stupid question: does AOL stand for America On-Line, and if it does, why?  AOL is a global company, right?  </td> </tr>
+<tr class="light"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> rusolis: Admittedly we have to do less of that now, since there's more people doing high scale, Internet development, and the tools are better than there once were. </span> </td> </tr>
+<tr class="dark"> <td class="value">  tyrannus  </td> <td class="value"> jayaskren: just you i think  </td> </tr>
+<tr class="light"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> kevintao: Actually, AOL changed its name last year to.. just AOL. </span> </td> </tr>
+<tr class="dark"> <td class="value">  kevintao  </td> <td class="value"> oh haha  </td> </tr>
+<tr class="light"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> kevintao: It no longer is an abbrevation for anything. </span> </td> </tr>
+<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_David </span> </td> <td class="value"> <span class="bigRed"> also AOL provides very generous tuition reimbursement for work-related fields </span> </td> </tr>
+<tr class="light"> <td class="value">  zdravko_b  </td> <td class="value"> AOL_Edwin: do you offer internships in Europe?  </td> </tr>
+<tr class="dark"> <td class="value">  Peterpay  </td> <td class="value"> AOL_Edwin: how is aol being part in the real world development, i mean ive seen aim and other stuff you but what is the biggest project or technology that your working for?  </td> </tr>
+<tr class="light"> <td class="value">  kevintao  </td> <td class="value"> thanks edwin  :)  </td> </tr>
+<tr class="dark"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> Ficlets seems to be working for me. </span> </td> </tr>
+<tr class="light"> <td class="value">  rusolis  </td> <td class="value"> do you offer jobs related to artificial intelligence?  </td> </tr>
 <tr class="dark"> <td class="value">  Peterpay  </td> <td class="value"> AOL_Edwin: i mean now technology is based in a SOA approach, is aol making something simmilar  </td> </tr>
 <tr class="light"> <td class="value"> <span class="bigRed"> AOL_Edwin </span> </td> <td class="value"> <span class="bigRed"> zdravko_b: I don't have a list of our internship opportunities at the moment, but take a look at the link that David put in earlier for job openings and to apply. </span> </td> </tr>
 <tr class="dark"> <td class="value">  aayush  </td> <td class="value"> AOL_Edwin: are there internships for undergrad students in your bangalore office  </td> </tr>
