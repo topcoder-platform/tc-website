@@ -106,7 +106,7 @@
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
@@ -115,16 +115,7 @@
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
-    <td class="valueC">&nbsp;</td>
-    <td class="valueC">&nbsp;</td>
-</tr>
-<tr class="dark">
-    <td class="value">Illyes Gyula High School</td>
-    <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
@@ -133,7 +124,7 @@
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
@@ -142,7 +133,7 @@
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
@@ -151,7 +142,7 @@
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
@@ -173,6 +164,16 @@
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
+<tr class="dark">
+    <td class="value">Illyes Gyula High School</td>
+    <td class="valueC">Beta</td>
+    <td class="valueC">Advanced</td>
+    <td class="valueC">Advanced</td>
+    <td class="valueC"><span class="bigRed">Eliminated</span></td>
+    <td class="valueC">&nbsp;</td>
+    <td class="valueC">&nbsp;</td>
+</tr>
+
 <tr class="light">
     <td class="value">Gymnazium Jura Hronca</td>
     <td class="valueC">Beta</td>
@@ -182,7 +183,7 @@
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
-<tr class="light">
+<tr class="dark">
     <td class="value">MG Varna</td>
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
@@ -191,7 +192,7 @@
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
-<tr class="dark">
+<tr class="light">
     <td class="value">V LO Krakow</td>
     <td class="valueC">Beta</td>
     <td class="valueC"><span class="bigRed">Eliminated</span></td>
