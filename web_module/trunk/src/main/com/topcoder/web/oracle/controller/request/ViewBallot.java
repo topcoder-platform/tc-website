@@ -40,7 +40,16 @@ public class ViewBallot extends ShortHibernateProcessor {
                 if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
                     if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
                         if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId()) != null) {
-                            ballotProcessing(round);
+                            if (OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(getUser().getId(), round.getId())) {
+                                StringBuffer buf = new StringBuffer(50);
+                                buf.append(getSessionInfo().getServletPath());
+                                buf.append("?" + Constants.MODULE_KEY + "=Static&");
+                                buf.append(Constants.STATIC_PREFIX).append("1=submitSuccess");
+                                setNextPage(buf.toString());
+                                setIsNextPageInContext(false);
+                            } else {
+                                ballotProcessing(round);
+                            }
                         } else {
                             throw new NavigationException("Sorry, you are not registered for this round.");
                         }
