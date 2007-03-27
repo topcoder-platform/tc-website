@@ -73,7 +73,7 @@ else
                             <tr>
                                 <% ProjectDetail result = (ProjectDetail)lst.get(i); %>
                                 <td class="sidebarText"><a href="/tc?module=MemberProfile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a></td>
-                                <td class="sidebarText" align=center nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><tc-webtag:format object="<%=result.getSubmitTimestamp()%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/></td>
                                 <td class="sidebarText" align=center><%=result.getPlaced()%></td>
                                 <td class="sidebarText" align=center><%=result.getPoints()%></td>
                                 <td class="sidebarText" align=center><%=result.getScore()%></td>
