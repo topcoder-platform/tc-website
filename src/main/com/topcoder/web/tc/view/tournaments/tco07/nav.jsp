@@ -128,22 +128,24 @@
                     <a href="/tc?module=TCO07ViewRegistrants&amp;ct=algorithm"<% if (tabLev1.equals("algorithm") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
                         <span>Registrants</span>
                     </a></li>
-                <%--
                 <li class="<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Advancers</span></a>
                     <ul>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=qualification"><span>Qualification</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=sectionA"><span>Sections</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancersOverview"><span>Overview</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=bracket"><span>Bracket</span></a></li>
+                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=byes"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("qualification")) {%> class="navHighlight"<% } %>><span>Qualification</span></a></li>
+                <%--
+                        <li class="stop"><a href=""><span>Sections</span></a></li>
+                        <li class="stop"><a href=""><span>Overview</span></a></li>
+                        <li class="stop"><a href=""><span>Bracket</span></a></li>
+                --%>
                     </ul>
                 </li>
+                <%--
                 <li class="<% if (tabLev1.equals("algorithm") && tabLev2.equals("summary")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Summary</span></a>
                     <ul>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=room1"><span>Room 1</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=room2"><span>Room 2</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=room3"><span>Room 3</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=wildcard"><span>WildCard</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=finals"><span>Finals</span></a></li>
+                        <li class="stop"><a href=""><span>Room 1</span></a></li>
+                        <li class="stop"><a href=""><span>Room 2</span></a></li>
+                        <li class="stop"><a href=""><span>Room 3</span></a></li>
+                        <li class="stop"><a href=""><span>WildCard</span></a></li>
+                        <li class="stop"><a href=""><span>Finals</span></a></li>
                     </ul>
                 </li>
                 --%>
@@ -179,7 +181,7 @@
         
                 <li class="<% if (tabLev1.equals("component") && tabLev2.equals("design")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Design</span></a>
                     <ul>
-                        <li class="stop"><a href="/tc?module=TCO07ContestDetails&ct=286"<% if (tabLev1.equals("component") && tabLev2.equals("design") && tabLev3.equals("results")) {%> class="navHighlight"<% } %>><span>Results</span></a></li>
+                        <li class="stop"><a href="/tc?module=TCO07ContestDetails&amp;ct=286"<% if (tabLev1.equals("component") && tabLev2.equals("design") && tabLev3.equals("results")) {%> class="navHighlight"<% } %>><span>Results</span></a></li>
                 <%--
                         <li class="stop"><a href=""><span>Finals</span></a></li>
                         <li class="stop"><a href=""><span>Summary</span></a></li>
@@ -189,7 +191,7 @@
                 </li>
                 <li class="<% if (tabLev1.equals("component") && tabLev2.equals("development")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Development</span></a>
                     <ul>
-                        <li class="stop"><a href="/tc?module=TCO07ContestDetails&ct=287"<% if (tabLev1.equals("component") && tabLev2.equals("development") && tabLev3.equals("results")) {%> class="navHighlight"<% } %>><span>Results</span></a></li>
+                        <li class="stop"><a href="/tc?module=TCO07ContestDetails&amp;ct=287"<% if (tabLev1.equals("component") && tabLev2.equals("development") && tabLev3.equals("results")) {%> class="navHighlight"<% } %>><span>Results</span></a></li>
                 <%--
                         <li class="stop"><a href=""><span>Finals</span></a></li>
                         <li class="stop"><a href=""><span>Summary</span></a></li>
@@ -219,7 +221,7 @@
                     </a></li>
                 <li class="<% if (tabLev1.equals("marathon") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Advancers</span></a>
                     <ul>
-                    <li class="stop"><a href="/tc?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview"<% if (tabLev1.equals("marathon") && tabLev2.equals("advancers") && tabLev3.equals("overview")) {%> class="navHighlight"<% } %>><span>Overview</span></a></li>
+                    <li class="stop"><a href="/tc?module=SimpleStats&amp;c=tco07_mm_adv_overview&amp;trans=true&amp;d1=tournaments&amp;d2=tco07&amp;d3=marathon&amp;d4=advOverview"<% if (tabLev1.equals("marathon") && tabLev2.equals("advancers") && tabLev3.equals("overview")) {%> class="navHighlight"<% } %>><span>Overview</span></a></li>
                     </ul>
                 </li>
                 <%--
@@ -252,7 +254,7 @@
                 <%--
                 <li class="<% if (tabLev1.equals("studio") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Advancers</span></a>
                     <ul>
-                    <li class="stop"><a href="/tc?module=StudioLeaderboard&d1=tournaments&d3=studio&d4=leaderboard&eid=2040&d2=tco07"<% if (tabLev1.equals("studio") && tabLev2.equals("advancers") && tabLev3.equals("leaderboard")) {%> class="navHighlight"<% } %>><span>Leaderboard</span></a></li>
+                    <li class="stop"><a href="/tc?module=StudioLeaderboard&amp;d1=tournaments&amp;d3=studio&amp;d4=leaderboard&eid=2040&amp;d2=tco07"<% if (tabLev1.equals("studio") && tabLev2.equals("advancers") && tabLev3.equals("leaderboard")) {%> class="navHighlight"<% } %>><span>Leaderboard</span></a></li>
                     </ul>
                 </li>
                 --%>
