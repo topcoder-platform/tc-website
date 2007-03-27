@@ -83,6 +83,8 @@ function select(obj) {
                 }
                 oldItem.innerHTML = "&nbsp;";
                 oldItem.style.visibility = 'hidden';
+                newItem.id = oldItem.id;
+                oldItem.id = "";
                 document.getElementById("selectedCandidates").appendChild(newItem);
                 dragsort.addSortableItem(document.getElementById("selectedCandidates"), newItem);
                 break;
@@ -109,6 +111,8 @@ function boot(obj) {
                  var item = document.getElementById("candidateBin").getElementsByTagName("li")[idx];
                  images[i].setAttribute("onclick", "select(this)");
                  item.innerHTML = myLi.innerHTML;
+                 item.id = myLi.id;
+                 myLi.id = "";
                  myLi.parentNode.removeChild(myLi);
                  item.style.visibility='visible';
                  break;
