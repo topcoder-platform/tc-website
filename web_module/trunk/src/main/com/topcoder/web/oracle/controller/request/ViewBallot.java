@@ -22,7 +22,7 @@ import java.util.Random;
  *          Create Date: Mar 22, 2007
  */
 public class ViewBallot extends ShortHibernateProcessor {
-    protected void dbProcessing() throws Exception {
+    protected final void dbProcessing() throws Exception {
 
         if (userLoggedIn()) {
             String roundId = getRequest().getParameter(Constants.ROUND_ID);
@@ -40,19 +40,7 @@ public class ViewBallot extends ShortHibernateProcessor {
                 if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
                     if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
                         if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId()) != null) {
-                            /*
-                            load up the candidates in appropriate random order
-                            it should be the same random order for a particular user every
-                            time they look at the candidates for a particular round
-                            */
-                            List<Candidate> candidates =
-                                    OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(round.getId(), getUser().getId());
-                            Collections.sort(candidates, new Candidate.IDComparator());
-                            Collections.shuffle(candidates, new Random(getUser().getId() + round.getId()));
-                            getRequest().setAttribute("candidates", candidates);
-                            getRequest().setAttribute("round", round);
-                            setNextPage("/ballot.jsp");
-                            setIsNextPageInContext(true);
+                            ballotProcessing(round);
                         } else {
                             throw new NavigationException("Sorry, you are not registered for this round.");
                         }
@@ -67,6 +55,30 @@ public class ViewBallot extends ShortHibernateProcessor {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
+
+    }
+
+    protected void ballotProcessing(Round round) throws Exception {
+        loadData(round);
+        setNextPage("/ballot.jsp");
+        setIsNextPageInContext(true);
+
+    }
+
+
+    /**
+     * load up the candidates in appropriate random order
+     * it should be the same random order for a particular user every
+     * time they look at the candidates for a particular round
+     * @param round
+     */
+    protected final void loadData(Round round) {
+        List<Candidate> candidates =
+                OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(round.getId(), getUser().getId());
+        Collections.sort(candidates, new Candidate.IDComparator());
+        Collections.shuffle(candidates, new Random(getUser().getId() + round.getId()));
+        getRequest().setAttribute("candidates", candidates);
+        getRequest().setAttribute("round", round);
 
     }
 
