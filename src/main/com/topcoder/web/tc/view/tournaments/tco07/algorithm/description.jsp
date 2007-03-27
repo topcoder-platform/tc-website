@@ -55,6 +55,7 @@
                         <p>
                         The competition is free and you must be 18 years or older, as well as meet all eligibility criteria, in order to participate.
                         </p>
+<%--
                         <h2>How to Register for the Algorithm Competition</h2>
                         <p>
                         <strong>Already a TopCoder Member?</strong><br>
@@ -66,6 +67,7 @@
                         Check your email and activate your new TopCoder account.<br>
                         Click <A href="/tc?module=TCO07ViewRegistration&amp;ct=algorithm">here</A> to register for the TCO07 Algorithm Competition
                         </p>
+--%>
                     </div>
                 </td>
             </tr>
