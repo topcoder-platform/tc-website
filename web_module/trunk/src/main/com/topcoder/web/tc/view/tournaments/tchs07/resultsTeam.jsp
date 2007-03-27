@@ -97,7 +97,7 @@
     <td class="valueC">Beta</td>
     <td class="valueC">Advanced</td>
     <td class="valueC">Advanced</td>
-    <td class="valueC">&nbsp;</td>
+    <td class="valueC">Advanced</td>
     <td class="valueC">&nbsp;</td>
     <td class="valueC">&nbsp;</td>
 </tr>
