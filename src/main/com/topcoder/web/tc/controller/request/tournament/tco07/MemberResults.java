@@ -27,7 +27,7 @@ public class MemberResults extends StatBase {
     }
 
     protected String getPageName() {
-        return "/tournaments/tco07/memberResults.jsp";
+        return "/tournaments/tco07/component/memberResults.jsp";
     }
 
     private ArrayList arr = new ArrayList();
