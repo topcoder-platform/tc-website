@@ -66,11 +66,13 @@
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/"><img src="/i/home/studioDogEarStandard.png" style="display: block;" alt="TopCoder Studio" /></A>
     </td>
 </tr>
+<%--
 <tr>
     <td align="center" colspan="3">
         <A href="<tc-webtag:linkTracking link='/whatistopcoder' refer='homepage' />"><img src="/i/home/webuildsoftware.png" alt="" style="display: block;" /></A>
     </td>
 </tr>
+--%>
 </tbody>
 </table>
 </div>
