@@ -35,7 +35,7 @@ public class SubmitBallot extends ViewBallot {
             }
 
             ArrayList<Prediction> predictions = new ArrayList<Prediction>();
-            CandidateDAO dao = OracleDAOUtil.getFactory().getCandidateDAO();
+            CandidateDAO candidateDAO = OracleDAOUtil.getFactory().getCandidateDAO();
             User user = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
             String id;
             Candidate c;
@@ -44,7 +44,7 @@ public class SubmitBallot extends ViewBallot {
             for (StringTokenizer st = new StringTokenizer(candidateIds, ","); st.hasMoreTokens();) {
                 id = st.nextToken();
                 try {
-                    c = dao.find(new Integer(id));
+                    c = candidateDAO.find(new Integer(id));
                     if (c == null) {
                         throw new NavigationException("Invalid candidate specified.");
                     } else {
