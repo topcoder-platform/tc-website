@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.27.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Component Catalog, T-shirt contests now open at Studio</A></span><br><br>
+        Five TCO-eligible contests are now open at Studio, including four T-shirt designs and a contest to redesign TopCoder's Component Catalog.</td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">full story</A> | 
+        <a href="http://studio.topcoder.com/forums?module=Category&categoryID=3">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.27.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -178,20 +194,5 @@ As a programmer, you'll frequently come across tasks that deal with a number of 
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=dev&d2=testing&d3=activeContests">details</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.16.07<br>2:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-        <A href="/tc?module=SurveyResults&sid=16651">The votes are in for the new Press Room design</A>
-        </span><br><br>
-        We recently ran a Studio contest to redesign the <A href="/tc?module=Static&d1=pressroom&d2=index">TopCoder Press Room</A> and here is the winner based on your feedback.
-        </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SurveyResults&sid=16651">results</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=33">discuss this</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
