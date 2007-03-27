@@ -45,6 +45,7 @@
             <br><br>
             <table cellpadding="0" cellspacing="0" class="stat" style="width: 100%;">
             <thead>
+                <tr><td class="title" colspan="8">Marathon Match Advancers</td></tr>
                 <tr>
                     <td class="headerC"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=seed&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Seed</a></td>
                     <td class="header" nowrap="nowrap"><a href="?module=SimpleStats&c=tco07_mm_adv_overview&trans=true&sd=asc&sc=handle_sort&d1=tournaments&d2=tco07&d3=marathon&d4=advOverview">Handle</a></td>
