@@ -101,13 +101,17 @@
 %>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
+        <td class="headerC">Rank</td>
         <td class="header">Handle</td>
-        <td class="headerR">Points</td>
-        <td class="headerR">Potential Points</td>
+        <td class="headerC">Points</td>
+        <td class="headerC">Potential Points</td>
    </tr>
         <% boolean even = false; %>
         <rsc:iterator list="<%=results%>" id="resultRow">
         	<tr class="<%=even?"dark":"light"%>">        	
+		         <td class="valueR">
+		         	<rsc:item row="<%=resultRow%>" name="rank"/>
+		         </td>
         		<td class="value">
 		            <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='<%= context %>'/>
 		         </td>
