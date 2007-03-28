@@ -121,8 +121,9 @@ public class SubmitReview extends Base {
             mail.setSubject("Your TopCoder(R) Studio submission passed review");
         } else if (ReviewStatus.FAILED.equals(status.getId())) {
             mail.setSubject("Your TopCoder(R) Studio submission failed review");
-        } else {
-            throw new Exception("Invalid review status: " + status.getId());
+        } else if (ReviewStatus.CHEATED.equals(status.getId())){
+            //don't send email 
+            return;
         }
 
         StringBuffer msgText = new StringBuffer(3000);
