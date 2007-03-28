@@ -24,6 +24,7 @@ import java.util.HashMap;
 public class GenerateResults extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
         //todo figure out if the round is over
+        //todo only accept post requests
         if (userLoggedIn()) {
             String roundId = getRequest().getParameter(Constants.ROUND_ID);
             if ("".equals(StringUtils.checkNull(roundId))) {
@@ -42,10 +43,14 @@ public class GenerateResults extends ShortHibernateProcessor {
 
 
                 Integer numAdvancing = new Integer(round.getContest().getConfigMap().get(ContestProperty.NUMBER_OF_CANDIDDATE_ADVANCERS));
+                if (log.isDebugEnabled()) {
+                    log.debug("num advancing : " + numAdvancing);
+                }
                 List<CandidateRoomResult> candidateResults = OracleDAOUtil.getFactory().getCandidateRoomResultDAO().getResults(round);
 
                 Collections.sort(candidateResults, new CandidateRoomResult.CorrectValueComparator());
 
+                log.debug("candidate room results: ");
                 for (CandidateRoomResult result : candidateResults) {
                     //we're assuming the the correct value is the same as their placement.  at least for now.
                     // this might not be the case in the future
@@ -53,6 +58,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                     if (result.getCorrectValue() <= numAdvancing) {
                         result.setAdvanced('Y');
                     }
+                    log.debug(result.toString());
                 }
 
                 //figure out the scores for competitors
@@ -71,6 +77,9 @@ public class GenerateResults extends ShortHibernateProcessor {
                 List<RoomResult> roomResults = rrDAO.getResults(round);
                 for (RoomResult rr : roomResults) {
                     rr.setScore(userMap.get(rr.getUser().getId()));
+                    if (log.isDebugEnabled()) {
+                        log.debug("setting " + rr.getUser().getHandle() + " score to " + rr.getScore());
+                    }
                 }
                 int currPlaced = 1;
                 Float lastScore = -666f;
@@ -80,6 +89,9 @@ public class GenerateResults extends ShortHibernateProcessor {
                         currPlaced++;
                     }
                     rr.setPlaced(currPlaced);
+                    if (log.isDebugEnabled()) {
+                        log.debug("setting " + rr.getUser().getHandle() + " placed to " + rr.getPlaced());
+                    }
                 }
 
                 StringBuffer buf = new StringBuffer(50);
