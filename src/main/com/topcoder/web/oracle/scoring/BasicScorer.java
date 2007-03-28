@@ -93,7 +93,7 @@ public class BasicScorer implements Scorer {
             throw new IllegalArgumentException("numRanked must be greater than n " + numRanked + " " + n);
         } else {
             if (n==numRanked) {
-                return 2;
+                return 1;
             } else {
                 return magicNumber(n+1, numRanked) * 2 + 1;
             }
