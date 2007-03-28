@@ -47,7 +47,7 @@
                             <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
                             <input type="hidden" name="module" value="Login">
 
-                            <div align="center"><span class="bigRed"><%= message %></span></div>
+                            <div align="center"><strong><%= message %></strong></div>
                             <table border="0" cellpadding="2" cellspacing="0" style="margin: 20px;">
                             <tbody>
                                 <tr>
