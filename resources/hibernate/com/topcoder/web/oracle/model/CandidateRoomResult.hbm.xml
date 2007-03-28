@@ -12,6 +12,8 @@
         </composite-id>
 
         <property name="advanced"/>
+        <property name="placed"/>
+        <property name="correctValue" column="correct_value" />
     </class>
 
 </hibernate-mapping>
