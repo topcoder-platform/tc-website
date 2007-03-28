@@ -30,6 +30,8 @@
     1.3.2 - 2007.03.xx
     <ul>
         <li>Add IP Transfer functionality -pulky</li>
+        <li>Rework forums packaging to reduce inapproriate dependencies -mktong</li>
+        <li>Fix bug to allow admins to set submissions as belonging to cheaters successfull. -dok</li>
     </ul>
 </p>
 
