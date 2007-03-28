@@ -1,7 +1,7 @@
 <div id="foot">
-<a href="/">home</a>
-    | <a href="">contact us</a>
-    | <a href="">about TopCoder</a>
-    | <a href="">privacy</a>
-    | <a href="">terms</a>
+<a href="/">Home</a>
+    | <a href="">Contact us</a>
+    | <a href="">About TopCoder</a>
+    | <a href="">Privacy</a>
+    | <a href="">Terms</a>
 </div>
