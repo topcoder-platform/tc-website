@@ -13,7 +13,7 @@ import java.util.Comparator;
  */
 public class RoomResult extends Base {
     private Identifier id = new Identifier();
-    private Float score;
+    private Double score;
     private Integer placed;
     private Character advanced;
 
@@ -46,11 +46,11 @@ public class RoomResult extends Base {
         id.setRoom(room);
     }
 
-    public Float getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(Float score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 
@@ -136,7 +136,7 @@ public class RoomResult extends Base {
     public static class ScoreComparator implements Comparator<RoomResult> {
 
         public int compare(RoomResult c1, RoomResult c2) {
-            return c1.getScore().compareTo(c2.getScore());
+            return c2.getScore().compareTo(c1.getScore());
         }
     }
 

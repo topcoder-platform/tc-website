@@ -15,7 +15,7 @@ public class Prediction extends Base {
     private Candidate candidate;
     private Round round;
     private Integer value;
-    private Float score;
+    private Double score;
 
     public Prediction() {
 
@@ -64,11 +64,11 @@ public class Prediction extends Base {
     }
 
 
-    public Float getScore() {
+    public Double getScore() {
         return score;
     }
 
-    public void setScore(Float score) {
+    public void setScore(Double score) {
         this.score = score;
     }
 }
