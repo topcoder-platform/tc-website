@@ -54,13 +54,13 @@ public class GenerateResults extends ShortHibernateProcessor {
                     if (result.getCorrectValue() <= numAdvancing) {
                         result.setAdvanced('Y');
                     }
-                    log.debug(result.toString());
+                    log.debug(result.getId().toString());
                 }
 
                 //todo put in logic so that other scoring systems can instantiated and use via reflection based on user input
                 Set<Prediction> predResult = new BasicScorer().generateScores(round);
                 if (log.isDebugEnabled()) {
-                    log.debug("predictions: " + predResult);
+                    log.debug("predictions: " + predResult.size());
                 }
 
                 //figure out the scores for competitors
@@ -70,9 +70,11 @@ public class GenerateResults extends ShortHibernateProcessor {
                     score = userMap.get(pred.getUser().getId());
                     if (score == null) {
                         score = 0f;
-                        userMap.put(pred.getUser().getId(),score);
                     }
                     userMap.put(pred.getUser().getId(), score+pred.getScore());
+                    if (log.isDebugEnabled()) {
+                        log.debug("adding to user map " + pred.getUser().getId() + " " + score+pred.getScore());
+                    }
                 }
 
                 RoomResultDAO rrDAO = OracleDAOUtil.getFactory().getRoomResultDAO();
