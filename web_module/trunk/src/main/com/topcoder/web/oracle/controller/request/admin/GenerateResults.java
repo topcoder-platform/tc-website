@@ -64,12 +64,12 @@ public class GenerateResults extends ShortHibernateProcessor {
                 }
 
                 //figure out the scores for competitors
-                HashMap<Long,Float> userMap = new HashMap<Long,Float>();
-                Float score;
+                HashMap<Long,Double> userMap = new HashMap<Long,Double>();
+                Double score;
                 for (Prediction pred : predResult) {
                     score = userMap.get(pred.getUser().getId());
                     if (score == null) {
-                        score = 0f;
+                        score = 0d;
                     }
                     userMap.put(pred.getUser().getId(), score+pred.getScore());
                     if (log.isDebugEnabled()) {
@@ -80,7 +80,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                 RoomResultDAO rrDAO = OracleDAOUtil.getFactory().getRoomResultDAO();
                 List<RoomResult> roomResults = rrDAO.getResults(round);
                 for (RoomResult rr : roomResults) {
-                    rr.setScore(userMap.get(rr.getUser().getId()));
+                    rr.setScore(userMap.get(rr.getUser().getId()).floatValue());
                     if (log.isDebugEnabled()) {
                         log.debug("setting " + rr.getUser().getHandle() + " score to " + rr.getScore());
                     }
@@ -89,6 +89,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                 Float lastScore = -666f;
                 Collections.sort(roomResults, new RoomResult.ScoreComparator());
                 for (RoomResult rr: roomResults) {
+                    //todo consider adding epsilon for comparison 
                     if (!rr.getScore().equals(lastScore)) {
                         currPlaced++;
                     }
