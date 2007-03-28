@@ -39,7 +39,7 @@ public class Register extends Base {
                     User u = factory.getUserDAO().find(new Long(getUser().getId()));
                     sendEmail(contestName, u.getHandle(), u.getPrimaryEmailAddress().getAddress());
     
-                    setNextPage("/assemblyRegistrationSuccess.jsp");
+                    setNextPage("/assembly/regSuccess.jsp");
                     setIsNextPageInContext(true);
                 } catch (Exception e) {
                     throw new NavigationException("An error occured during registration.");
@@ -65,7 +65,7 @@ public class Register extends Base {
         msgText.append(" assembly competition:\n\n");
         msgText.append("Handle: ");
         msgText.append(handle);
-        msgText.append("Email: ");
+        msgText.append("\nEmail: ");
         msgText.append(email);
 
         ObjectFormatter formatter = ObjectFormatterFactory.getEmptyFormatter();
