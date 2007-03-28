@@ -55,8 +55,6 @@
 </p>
 
 
-<h2 align="center">University of Belgrade<br>Component Design &amp; Development<br>Competition Series</h2>
-
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
 <tr>
@@ -72,20 +70,26 @@
 <% ResultSetContainer results = (ResultSetContainer) request.getAttribute("results");
    if (results != null) {
 %>
-<table>
+<table width="100%">
+	<tr>
+        <td class="header">Handle</td>
+        <td class="headerR">Points</td>
+        <td class="headerR">Potential Points</td>
+   </tr>
+        <% boolean even = false; %>
         <rsc:iterator list="<%=results%>" id="resultRow">
-        	<tr>
-        		<td>
+        	<tr class="<%=even?"dark":"light"%>">        	
+        		<td class="value">
 		            <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='algorithm'/>
 		         </td>
-		         <td>
+		         <td class="valueR">
 		         	<rsc:item row="<%=resultRow%>" name="points" ifNull="0"/>
 		         </td>
-		         <td>
+		         <td class="valueR"> 
 			         <rsc:item row="<%=resultRow%>" name="potential_points" />
-		         </td>
-		            
+		         </td>		            
             </tr>
+            <% event = !even; %>
         </rsc:iterator>
 </table>
 	
