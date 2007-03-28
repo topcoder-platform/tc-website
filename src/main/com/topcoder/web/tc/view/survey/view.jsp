@@ -26,6 +26,9 @@
     <STYLE TYPE="text/css">
         .logoSmall {
         }
+        #container img {
+            background: #FFFFFF;
+        }
     </STYLE>
     <script type="text/javascript">
         <!--
