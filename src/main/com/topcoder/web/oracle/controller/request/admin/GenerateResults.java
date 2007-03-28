@@ -73,7 +73,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                     }
                     userMap.put(pred.getUser().getId(), score+pred.getScore());
                     if (log.isDebugEnabled()) {
-                        log.debug("adding to user map " + pred.getUser().getId() + " " + score+pred.getScore());
+                        log.debug("adding to user map " + pred.getUser().getId() + " " + (score+pred.getScore()));
                     }
                 }
 
@@ -101,7 +101,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                 StringBuffer buf = new StringBuffer(50);
                 buf.append(getSessionInfo().getServletPath());
                 buf.append("?" + Constants.MODULE_KEY + "=Static&");
-                buf.append(Constants.STATIC_PREFIX).append("1=admin");
+                buf.append(Constants.STATIC_PREFIX).append("1=admin&");
                 buf.append(Constants.STATIC_PREFIX).append("2=generateResultsSuccess");
                 setNextPage(buf.toString());
                 setIsNextPageInContext(false);
