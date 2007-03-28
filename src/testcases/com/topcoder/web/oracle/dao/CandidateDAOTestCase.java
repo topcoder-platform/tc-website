@@ -1,10 +1,10 @@
 package com.topcoder.web.oracle.dao;
 
-import com.topcoder.web.oracle.TCHibernateTestCase;
-import com.topcoder.web.oracle.Constants;
-import com.topcoder.web.oracle.model.*;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.oracle.Constants;
+import com.topcoder.web.oracle.TCHibernateTestCase;
+import com.topcoder.web.oracle.model.*;
 
 import java.util.List;
 
@@ -61,6 +61,9 @@ public class CandidateDAOTestCase extends TCHibernateTestCase {
                             tearDown();
                             setUp();
                             List<Candidate> candidates = OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(round.getId(), dok.getId());
+                            for (Candidate c : candidates) {
+                                log.debug(c.getName());
+                            }
                             log.debug("candidates " + candidates);
                             assertFalse("candidates was null", candidates==null);
                             assertFalse("candidates empty", candidates.isEmpty());
