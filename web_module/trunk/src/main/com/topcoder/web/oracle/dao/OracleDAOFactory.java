@@ -13,6 +13,8 @@ public interface OracleDAOFactory {
     CandidateRoomResultDAO getCandidateRoomResultDAO();
 
     ContestDAO getContestDAO();
+    
+    ContestPropertyDAO getContestPropertyDAO();
 
     ContestStatusDAO getContestStatusDAO();
 
@@ -23,6 +25,8 @@ public interface OracleDAOFactory {
     PrizeTypeDAO getPrizeTypeDAO();
 
     RoomDAO getRoomDAO();
+
+    RoomResultDAO getRoomResultDAO();
 
     RoundDAO getRoundDAO();
 

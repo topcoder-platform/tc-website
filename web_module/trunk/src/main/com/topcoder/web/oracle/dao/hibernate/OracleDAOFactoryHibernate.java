@@ -25,6 +25,10 @@ public class OracleDAOFactoryHibernate implements OracleDAOFactory {
         return new ContestDAOHibernate();
     }
 
+    public ContestPropertyDAO getContestPropertyDAO() {
+        return new ContestPropertyDAOHibernate();
+    }
+
     public ContestStatusDAO getContestStatusDAO() {
         return new ContestStatusDAOHibernate();
     }
@@ -43,6 +47,10 @@ public class OracleDAOFactoryHibernate implements OracleDAOFactory {
 
     public RoomDAO getRoomDAO() {
         return new RoomDAOHibernate();
+    }
+
+    public RoomResultDAO getRoomResultDAO() {
+        return new RoomResultDAOHibernate();
     }
 
     public RoundStatusDAO getRoundStatusDAO() {

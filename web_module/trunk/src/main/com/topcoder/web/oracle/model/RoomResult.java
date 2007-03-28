@@ -4,6 +4,7 @@ import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.User;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 /**
  * @author dok
@@ -130,6 +131,13 @@ public class RoomResult extends Base {
         }
 
 
+    }
+
+    public static class ScoreComparator implements Comparator<RoomResult> {
+
+        public int compare(RoomResult c1, RoomResult c2) {
+            return c1.getScore().compareTo(c2.getScore());
+        }
     }
 
 
