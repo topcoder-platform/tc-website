@@ -10,7 +10,7 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/oracle/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Oracle</title>
+    <title>TopCoder</title>
 
     <link type="text/css" rel="stylesheet" href="/css/oracle/main.css">
     <link type="text/css" rel="stylesheet" href="/css/oracle/stats.css">

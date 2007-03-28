@@ -9,7 +9,9 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio</title>
+    <title>TopCoder</title>
+    <link type="text/css" rel="stylesheet" href="/css/oracle/main.css">
+    <link type="text/css" rel="stylesheet" href="/css/oracle/stats.css">
     <script type="text/javascript">
         function submitEnter(e) {
             var keycode;
@@ -22,9 +24,6 @@
             } else return true;
         }
     </script>
-    <jsp:include page="style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
-    </jsp:include>
 </head>
 
 <%
@@ -37,26 +36,72 @@
 <body>
 
 <div align="center">
-    <div id="contentOut" class="contentOut">
-
-        <jsp:include page="top.jsp">
-            <jsp:param name="section" value="login"/>
-        </jsp:include>
-        <jsp:include page="topNav.jsp">
-            <jsp:param name="node" value="none"/>
-        </jsp:include>
-
-        <div id="contentIn" class="contentIn">
-
-
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div style="text-align:left; padding: 0px 10px 0px 10px;">
+    <div id="contentOut">
+        <div id="contentIn">
 
                 <h1>Login</h1>
 
-                <div align="center">
-                    <div align="left" style="width:500px;">
+                <div align="center" style="margin: 40px 0px 100px 0px;">
+
+                        <form method="post" name="frmLogin" action="${sessionInfo.secureAbsoluteServletPath}">
+                            <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= StringUtils.htmlEncode(nextpage) %>">
+                            <input type="hidden" name="module" value="Login">
+
+                            <div align="center"><span class="bigRed"><%= message %></span></div>
+                            <table border="0" cellpadding="2" cellspacing="0" style="margin: 20px;">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <strong>Handle:</strong>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="<%=Login.USER_NAME%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>Password:</strong>
+                                    </td>
+                                    <td>
+                                        <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <button name="submit" value="submit" type="submit" class="button">Login</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            </table>
+    
+                            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword">Forgot your password?</a><br>
+                            <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Not registered?</A>
+
+                            <br><br>
+
+                            <script type="text/javascript">
+                                document.frmLogin.<%=Login.USER_NAME%>.focus();
+                            </script>
+
+                        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%--
+
                         <p><b>Forgot your password?</b><br/>
                             If you cannot remember your password
                             <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=RecoverPassword" class="bodyText">click
@@ -95,14 +140,12 @@
                                             <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
                                         </td>
                                     </tr>
-<%--
                                     <tr>
                                         <td colspan="2" align="center">
                                             <input type="checkbox" name="<%=Login.REMEMBER_USER%>">
                                             Remember
                                             Me</td>
                                     </tr>
---%>
 
                                     <tr>
                                         <td colspan="2" align="center">
@@ -119,16 +162,13 @@
 
                             </div>
                         </form>
-                    </div>
+--%>
+
+
                 </div>
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
-        </div>
-
         <jsp:include page="foot.jsp"/>
-
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
+        </div>
     </div>
 </div>
 
