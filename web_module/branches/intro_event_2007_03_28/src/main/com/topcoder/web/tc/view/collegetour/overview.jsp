@@ -59,6 +59,8 @@
     <c:choose>
         <c:when test="${cteid==42}">
             | <A href="/tc?module=Static&d1=collegetour&d2=belgradeCompInfo">Component Information</A>
+            | <a href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Results</A> 
+            
         </c:when>
         <c:otherwise>
         </c:otherwise>

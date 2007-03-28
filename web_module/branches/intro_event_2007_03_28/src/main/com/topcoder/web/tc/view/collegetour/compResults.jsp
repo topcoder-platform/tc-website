@@ -59,15 +59,15 @@
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
 <tr>
-<td align="left" style="padding-right:10px;border-right: 1px solid #999999;">
+<td align="center" style="padding-right:10px;border-right: 1px solid #999999;">
 <span class="subtitle">Design</span><br>
-<% if (ct.equals("300")) { %>Week 1<% } else {  %>
+<% if (ct.equals("300")) { %>Week 1 | <% } else {  %>
 	<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=300" class="bcLink">Week 1</A>
 | <% }
-   if (ct.equals("301")) { %>Week 2<% } else {  %>
+   if (ct.equals("301")) { %>Week 2 | <% } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=301" class="bcLink">Week 2</A>
 | <% }
-   if (ct.equals("302")) { %>Week 3<% } else {  %>    
+   if (ct.equals("302")) { %>Week 3 | <% } else {  %>    
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=302" class="bcLink">Week 3</A>
 | <% }
    if (ct.equals("306")) { %>Overall<% } else {  %>
@@ -76,15 +76,15 @@
 
 </td>
 
-<td align="left" style="padding-left:10px;">
+<td align="center" style="padding-left:10px;">
 <span class="subtitle" class="bcLink">Development</span><br>
-<% if (ct.equals("303")) { %>Week 1<% context="development"; } else {  %>
+<% if (ct.equals("303")) { %>Week 1 | <% context="development"; } else {  %>
 	<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=303" class="bcLink">Week 1</A>
 | <% }
-   if (ct.equals("304")) { %>Week 2<% context="development"; } else {  %>
+   if (ct.equals("304")) { %>Week 2 | <% context="development"; } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=304" class="bcLink">Week 2</A>
 | <% }
-   if (ct.equals("305")) { %>Week 3<% context="development"; } else {  %>    
+   if (ct.equals("305")) { %>Week 3 | <% context="development"; } else {  %>    
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=305" class="bcLink">Week 3</A>
 | <% }
    if (ct.equals("307")) { %>Overall<% context="development"; } else {  %>
@@ -94,6 +94,8 @@
 </td>
 </tr>
 </table>
+<br>
+<br>
 <% ResultSetContainer results = (ResultSetContainer) request.getAttribute("results");
    if (results != null) {
 %>
@@ -143,5 +145,5 @@
 
 </body>
 
-</html>
+</html
 
