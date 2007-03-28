@@ -89,7 +89,7 @@
 			         <rsc:item row="<%=resultRow%>" name="potential_points" />
 		         </td>		            
             </tr>
-            <% event = !even; %>
+            <% even = !even; %>
         </rsc:iterator>
 </table>
 	
