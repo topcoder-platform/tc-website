@@ -45,7 +45,12 @@
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21684580" /></td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=032607"><strong>A Crash Course in Relational Databases, Part I</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=032907"><strong>A Crash Course in Relational Databases, Part 2</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Mar 29, 2007</td> 
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21684580" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=032607"><strong>A Crash Course in Relational Databases, Part 1</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Mar 26, 2007</td> 
             </tr>
             <tr valign="top">
