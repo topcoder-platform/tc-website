@@ -51,7 +51,7 @@ public class IdGenerator implements IdentifierGenerator, Configurable {
                 log.debug("our return class will be " + returnClass.getName());
             }
             long id = IdGeneratorClient.getSeqId(seqName);
-            return (Number)returnClass.getConstructor(String.class).newInstance(String.valueOf(id));
+            return (Number)returnClass.getConstructor(new Class[]{String.class}).newInstance(new String[]{String.valueOf(id)});
         } catch (Exception e) {
             throw new HibernateException(e);
         }
