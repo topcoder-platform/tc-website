@@ -80,7 +80,7 @@ public class Register extends Base {
         msgText.append("\n\n");
 
         mail.setBody(msgText.toString());
-        mail.addToAddress("assemblycompetitions@topcoder.com", TCSEmailMessage.TO);
+        mail.addToAddress(Constants.ASSEMBLY_COMPETITION_EMAIL, TCSEmailMessage.TO);
 
         mail.setFromAddress("studioadmin@topcoder.com", "TopCoder Studio Admin");
         EmailEngine.send(mail);
