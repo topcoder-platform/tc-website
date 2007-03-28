@@ -513,7 +513,7 @@ PL/SQL procedure successfully completed.
 
 <p>If you prefer a GUI interface for viewing your query results, Oracle Express Edition does provide one. If you&rsquo;re running Windows, just go to Start-&gt;Programs-&gt;Oracle Database 10g Express Edition-&gt;Go To Database Home Page. Login with your system account, and you will be taken to a page where you can select an SQL dropdown menu to run an SQL command. This tool does a much nicer job than SQL*Plus of presenting query results in an easier-to-read format. Another free GUI tool you may want to check out is Oracle&rsquo;s <a target="_blank" href="<tc-webtag:linkTracking link='http://www.oracle.com/technology/products/database/sql_developer/index.html' refer='feature_032607' />">SQL Developer tool</a>. </p>
 
-<p>In Part 2, coming soon, we'll look at more key components of relational databases, including indexes, referential integrity, constraints, views, transactions, and triggers. Until then, enjoy exploring your new TopCoder competition database, and good luck!</p>
+<p>In <a href="/tc?module=Static&d1=features&d2=032907">Part 2</a>, coming soon, we'll look at more key components of relational databases, including indexes, referential integrity, constraints, views, transactions, and triggers. Until then, enjoy exploring your new TopCoder competition database, and good luck!</p>
 
 <p><br></p>
         </td>
