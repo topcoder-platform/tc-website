@@ -1366,48 +1366,6 @@
             </query>
         </entity>
         <entity>
-            <ejb-name>DDEDocForumXrefEJB</ejb-name>
-            <local-home>com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocForumXrefHome</local-home>
-            <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocForumXref</local>
-            <ejb-class>com.topcoder.dde.persistencelayer.bean.DDEDocForumXrefBean</ejb-class>
-            <persistence-type>Container</persistence-type>
-            <prim-key-class>java.lang.Long</prim-key-class>
-            <reentrant>False</reentrant>
-            <abstract-schema-name>DDEDocForumXref</abstract-schema-name>
-            <cmp-field>
-                <field-name>id</field-name>
-            </cmp-field>
-            <cmp-field>
-                <field-name>topicId</field-name>
-            </cmp-field>
-            <primkey-field>id</primkey-field>
-            <ejb-local-ref>
-                <ejb-ref-name>ejb/IdGenEJB</ejb-ref-name>
-                <ejb-ref-type>Session</ejb-ref-type>
-                <local-home>com.topcoder.util.idgenerator.bean.LocalIdGenHome</local-home>
-                <local>com.topcoder.util.idgenerator.bean.LocalIdGen</local>
-                <ejb-link>IdGenEJB</ejb-link>
-            </ejb-local-ref>
-            <query>
-                <query-method>
-                    <method-name>findByDocumentId</method-name>
-                    <method-params>
-                        <method-param>long</method-param>
-                    </method-params>
-                </query-method>
-                <ejb-ql>SELECT OBJECT(d) FROM DDEDocForumXref d WHERE d.compDocumentation.id = ?1</ejb-ql>
-            </query>
-            <query>
-                <query-method>
-                    <method-name>findByTopicId</method-name>
-                    <method-params>
-                        <method-param>long</method-param>
-                    </method-params>
-                </query-method>
-                <ejb-ql>SELECT OBJECT(d) FROM DDEDocForumXref d WHERE d.topicId = ?1</ejb-ql>
-            </query>
-        </entity>
-        <entity>
             <ejb-name>DDEUserMemberEJB</ejb-name>
             <local-home>com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserMemberHome</local-home>
             <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDEUserMember</local>
@@ -1941,26 +1899,6 @@
             </ejb-relationship-role>
         </ejb-relation>
         <ejb-relation>
-            <ejb-relation-name>DocForumXref-CompDocumentation</ejb-relation-name>
-            <ejb-relationship-role>
-                <ejb-relationship-role-name>DocForumXref-has-a-CompDocumentation</ejb-relationship-role-name>
-                <multiplicity>Many</multiplicity>
-                <relationship-role-source>
-                    <ejb-name>DDEDocForumXrefEJB</ejb-name>
-                </relationship-role-source>
-                <cmr-field>
-                    <cmr-field-name>compDocumentation</cmr-field-name>
-                </cmr-field>
-            </ejb-relationship-role>
-            <ejb-relationship-role>
-                <ejb-relationship-role-name>CompDocumentation-belongs-to-DocForumXref</ejb-relationship-role-name>
-                <multiplicity>One</multiplicity>
-                <relationship-role-source>
-                    <ejb-name>DDECompDocumentationEJB</ejb-name>
-                </relationship-role-source>
-            </ejb-relationship-role>
-        </ejb-relation>
-        <ejb-relation>
             <ejb-relation-name>UserMember-UserMaster</ejb-relation-name>
             <ejb-relationship-role>
                 <ejb-relationship-role-name>UserMember-has-UserMaster</ejb-relationship-role-name>
@@ -2248,10 +2186,6 @@
             </method>
             <method>
                 <ejb-name>DDEUserTechnologiesEJB</ejb-name>
-                <method-name>*</method-name>
-            </method>
-            <method>
-                <ejb-name>DDEDocForumXrefEJB</ejb-name>
                 <method-name>*</method-name>
             </method>
             <method>

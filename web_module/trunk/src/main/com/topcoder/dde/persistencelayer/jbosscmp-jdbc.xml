@@ -710,18 +710,6 @@
             </cmp-field>
         </entity>
         <entity>
-            <ejb-name>DDEDocForumXrefEJB</ejb-name>
-            <table-name>doc_forum_xref</table-name>
-            <cmp-field>
-                <field-name>id</field-name>
-                <column-name>doc_forum_id</column-name>
-            </cmp-field>
-            <cmp-field>
-                <field-name>topicId</field-name>
-                <column-name>topic_id</column-name>
-            </cmp-field>
-        </entity>
-        <entity>
             <ejb-name>DDEUserMemberEJB</ejb-name>
             <table-name>user_member</table-name>
             <cmp-field>
@@ -1164,23 +1152,6 @@
                     <key-field>
                         <field-name>id</field-name>
                         <column-name>technology_type_id</column-name>
-                    </key-field>
-                </key-fields>
-            </ejb-relationship-role>
-        </ejb-relation>
-        <ejb-relation>
-            <ejb-relation-name>DocForumXref-CompDocumentation</ejb-relation-name>
-            <foreign-key-mapping/>
-            <ejb-relationship-role>
-                <ejb-relationship-role-name>DocForumXref-has-a-CompDocumentation</ejb-relationship-role-name>
-                <key-fields/>
-            </ejb-relationship-role>
-            <ejb-relationship-role>
-                <ejb-relationship-role-name>CompDocumentation-belongs-to-DocForumXref</ejb-relationship-role-name>
-                <key-fields>
-                    <key-field>
-                        <field-name>id</field-name>
-                        <column-name>document_id</column-name>
                     </key-field>
                 </key-fields>
             </ejb-relationship-role>

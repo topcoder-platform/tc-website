@@ -192,13 +192,6 @@
                 <ejb-link>DDECompDocumentationEJB</ejb-link>
             </ejb-local-ref>
             <ejb-local-ref>
-                <ejb-ref-name>ejb/DDEDocForumXrefEJB</ejb-ref-name>
-                <ejb-ref-type>Entity</ejb-ref-type>
-                <local-home>com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocForumXrefHome</local-home>
-                <local>com.topcoder.dde.persistencelayer.interfaces.LocalDDEDocForumXref</local>
-                <ejb-link>DDEDocForumXrefEJB</ejb-link>
-            </ejb-local-ref>
-            <ejb-local-ref>
                 <ejb-ref-name>ejb/DDECompExamplesEJB</ejb-ref-name>
                 <ejb-ref-type>Entity</ejb-ref-type>
                 <local-home>com.topcoder.dde.persistencelayer.interfaces.LocalDDECompExamplesHome</local-home>

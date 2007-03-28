@@ -96,7 +96,6 @@ public class ComponentManagerBean
     public LocalDDECompKeywordsHome keywordsHome;
     public LocalDDECompTechnologyHome comptechHome;
     public LocalDDECompDocumentationHome docHome;
-    public LocalDDEDocForumXrefHome docforumHome;
     public LocalDDECompExamplesHome exampleHome;
     public LocalDDECompDownloadHome downloadHome;
     public LocalDDECompDependenciesHome depHome;
@@ -146,8 +145,6 @@ public class ComponentManagerBean
                 homeBindings.lookup(LocalDDECompTechnologyHome.EJB_REF_NAME);
         docHome = (LocalDDECompDocumentationHome)
                 homeBindings.lookup(LocalDDECompDocumentationHome.EJB_REF_NAME);
-        docforumHome = (LocalDDEDocForumXrefHome)
-                homeBindings.lookup(LocalDDEDocForumXrefHome.EJB_REF_NAME);
         exampleHome = (LocalDDECompExamplesHome)
                 homeBindings.lookup(LocalDDECompExamplesHome.EJB_REF_NAME);
         downloadHome = (LocalDDECompDownloadHome)
@@ -1938,13 +1935,6 @@ public class ComponentManagerBean
     public String removeDocument(long documentId) throws CatalogException {
         String urlOfFile = null;
         try {
-            Iterator xrefIterator =
-                    docforumHome.findByDocumentId(documentId).iterator();
-            while (xrefIterator.hasNext()) {
-                LocalDDEDocForumXref xref =
-                        (LocalDDEDocForumXref) xrefIterator.next();
-                xref.remove();
-            }
             LocalDDECompDocumentation compDoc = docHome.findByPrimaryKey(new Long(documentId));
             urlOfFile = compDoc.getUrl();
             compDoc.remove();
