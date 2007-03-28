@@ -109,7 +109,7 @@
         <% boolean even = false; %>
         <rsc:iterator list="<%=results%>" id="resultRow">
         	<tr class="<%=even?"dark":"light"%>">        	
-		         <td class="valueR">
+		         <td class="valueC">
 		         	<rsc:item row="<%=resultRow%>" name="rank"/>
 		         </td>
         		<td class="value">
