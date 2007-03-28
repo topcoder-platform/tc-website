@@ -98,7 +98,7 @@ public class Contest extends Base {
     public Map<Integer, String> getConfigMap() {
         HashMap<Integer, String> m = new HashMap<Integer, String>();
         for (ContestConfig anInfo : config) {
-            m.put(anInfo.getId().getProperty().getId(), anInfo.getValue());
+            m.put(anInfo.getProperty().getId(), anInfo.getValue());
         }
         return m;
     }
