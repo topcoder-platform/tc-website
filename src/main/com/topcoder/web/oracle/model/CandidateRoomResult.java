@@ -72,9 +72,6 @@ public class CandidateRoomResult extends Base {
         return -1;
     }
 
-    public String toString() {
-        return id.toString();
-    }
 
     public static class Identifier implements Serializable, Cloneable {
 

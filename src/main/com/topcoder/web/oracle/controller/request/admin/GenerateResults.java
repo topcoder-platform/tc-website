@@ -38,10 +38,6 @@ public class GenerateResults extends ShortHibernateProcessor {
                 }
                 Round round = OracleDAOUtil.getFactory().getRoundDAO().find(rid);
 
-                //todo put in logic so that other scoring systems can instantiated and use via reflection based on user input
-                Set<Prediction> predResult = new BasicScorer().generateScores(round);
-
-
                 Integer numAdvancing = new Integer(round.getContest().getConfigMap().get(ContestProperty.NUMBER_OF_CANDIDDATE_ADVANCERS));
                 if (log.isDebugEnabled()) {
                     log.debug("num advancing : " + numAdvancing);
@@ -59,6 +55,12 @@ public class GenerateResults extends ShortHibernateProcessor {
                         result.setAdvanced('Y');
                     }
                     log.debug(result.toString());
+                }
+
+                //todo put in logic so that other scoring systems can instantiated and use via reflection based on user input
+                Set<Prediction> predResult = new BasicScorer().generateScores(round);
+                if (log.isDebugEnabled()) {
+                    log.debug("predictions: " + predResult);
                 }
 
                 //figure out the scores for competitors
