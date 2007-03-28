@@ -12,7 +12,7 @@ import java.util.Comparator;
  */
 public class CandidateRoomResult extends Base {
     private Identifier id;
-    private Character advanced;
+    private Boolean advanced;
     private Integer placed;
     private Integer correctValue;
 
@@ -49,27 +49,22 @@ public class CandidateRoomResult extends Base {
         id.setRoom(room);
     }
 
-    public Character getAdvanced() {
+
+    public Boolean getAdvanced() {
         return advanced;
     }
 
-    public void setAdvanced(Character advanced) {
+    public boolean advanced() {
+        return advanced!=null && advanced;
+    }
+
+    public void setAdvanced(Boolean advanced) {
         this.advanced = advanced;
     }
 
-    public boolean advanced() {
-        return advanced != null && advanced.equals('Y');
-    }
 
     public int hashCode() {
-/*
-        try {
-            return id.hashCode();
-        } catch (Throwable e) {
-            log.error("HERE!!!!!", e);
-        }
-*/
-        return -1;
+       return id.hashCode();
     }
 
 

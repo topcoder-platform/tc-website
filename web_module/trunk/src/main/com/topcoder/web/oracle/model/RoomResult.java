@@ -15,7 +15,7 @@ public class RoomResult extends Base {
     private Identifier id = new Identifier();
     private Double score;
     private Integer placed;
-    private Character advanced;
+    private Boolean advanced;
 
     public RoomResult() {
 
@@ -62,17 +62,19 @@ public class RoomResult extends Base {
         this.placed = placed;
     }
 
-    public Character getAdvanced() {
+
+    public Boolean getAdvanced() {
         return advanced;
     }
 
-    public void setAdvanced(Character advanced) {
+    public boolean advanced() {
+        return advanced!=null && advanced;
+    }
+
+    public void setAdvanced(Boolean advanced) {
         this.advanced = advanced;
     }
 
-    public boolean advanced() {
-        return advanced != null && advanced.equals('Y');
-    }
 
 
     public static class Identifier implements Serializable, Cloneable {
