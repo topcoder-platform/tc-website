@@ -18,10 +18,12 @@ public class Round extends Base {
     private Set<Prize> prizes;
     private Set<Room> rooms;
     private RoundStatus status;
+    private Set<Prediction> predictions;
 
     public Round() {
         prizes = new TreeSet<Prize>();
         rooms = new HashSet<Room>();
+        predictions = new HashSet<Prediction>();
     }
 
 
@@ -87,4 +89,26 @@ public class Round extends Base {
     public void addPrize(Prize p) {
         prizes.add(p);
     }
+
+
+    public Set<Prediction> getPredictions() {
+        return predictions;
+    }
+
+    public void setPredictions(Set<Prediction> predictions) {
+        this.predictions = predictions;
+    }
+
+        /**
+     * Add the prediction to this round and add the association
+     * between that prediction and this round.
+     *
+     * @param p the prediction
+     */
+    public void addPrediction(Prediction p) {
+        p.setRound(this);
+        predictions.add(p);
+    }
+
+
 }

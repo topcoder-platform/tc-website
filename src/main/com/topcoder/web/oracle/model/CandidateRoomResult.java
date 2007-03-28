@@ -3,6 +3,7 @@ package com.topcoder.web.oracle.model;
 import com.topcoder.web.common.model.Base;
 
 import java.io.Serializable;
+import java.util.Comparator;
 
 /**
  * @author dok
@@ -12,6 +13,8 @@ import java.io.Serializable;
 public class CandidateRoomResult extends Base {
     private Identifier id;
     private Character advanced;
+    private Integer placed;
+    private Integer correctValue;
 
     public CandidateRoomResult() {
         id = new Identifier();
@@ -131,6 +134,32 @@ public class CandidateRoomResult extends Base {
         }
 
     }
+
+
+    public Integer getPlaced() {
+        return placed;
+    }
+
+    public void setPlaced(Integer placed) {
+        this.placed = placed;
+    }
+
+    public Integer getCorrectValue() {
+        return correctValue;
+    }
+
+    public void setCorrectValue(Integer correctValue) {
+        this.correctValue = correctValue;
+    }
+
+
+    public static class CorrectValueComparator implements Comparator<CandidateRoomResult> {
+
+        public int compare(CandidateRoomResult c1, CandidateRoomResult c2) {
+            return c1.getCorrectValue().compareTo(c2.getCorrectValue());
+        }
+    }
+
 
 
 }
