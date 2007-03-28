@@ -21,7 +21,7 @@ import java.util.HashMap;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 27, 2007
  */
-public class EndRound extends ShortHibernateProcessor {
+public class GenerateResults extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
         //todo figure out if the round is over
         if (userLoggedIn()) {
