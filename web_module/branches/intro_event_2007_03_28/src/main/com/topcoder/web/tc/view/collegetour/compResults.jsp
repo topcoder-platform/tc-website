@@ -49,7 +49,7 @@
     <A href="/tc?module=CollegeTourInfo&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Instructions</A> | 
     <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Registration</A> |
     <a href="/tc?module=CollegeTourRegistrants&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Registrants</A> |
-    <tc-webtag:forumLink forumID="514541" message="Discuss"/> 
+    <tc-webtag:forumLink forumID="514541" message="Discuss"/> |
     <A href="/tc?module=Static&d1=collegetour&d2=belgradeCompInfo">Component Information</A> |
     Results
 </p>
@@ -63,14 +63,14 @@
 <span class="subtitle">Design</span><br>
 <% if (ct.equals("300")) { %>Week 1<% } else {  %>
 	<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=300" class="bcLink">Week 1</A>
-<% }
+| <% }
    if (ct.equals("301")) { %>Week 2<% } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=301" class="bcLink">Week 2</A>
-<% }
+| <% }
    if (ct.equals("302")) { %>Week 3<% } else {  %>    
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=302" class="bcLink">Week 3</A>
-<% }
-   if (ct.equals("303")) { %>Overall<% } else {  %>
+| <% }
+   if (ct.equals("306")) { %>Overall<% } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=306" class="bcLink">Overall</A>
 <% } %>
 
@@ -80,13 +80,13 @@
 <span class="subtitle" class="bcLink">Development</span><br>
 <% if (ct.equals("303")) { %>Week 1<% context="development"; } else {  %>
 	<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=303" class="bcLink">Week 1</A>
-<% }
+| <% }
    if (ct.equals("304")) { %>Week 2<% context="development"; } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=304" class="bcLink">Week 2</A>
-<% }
+| <% }
    if (ct.equals("305")) { %>Week 3<% context="development"; } else {  %>    
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=305" class="bcLink">Week 3</A>
-<% }
+| <% }
    if (ct.equals("307")) { %>Overall<% context="development"; } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=307" class="bcLink">Overall</A>
 <% } %>
