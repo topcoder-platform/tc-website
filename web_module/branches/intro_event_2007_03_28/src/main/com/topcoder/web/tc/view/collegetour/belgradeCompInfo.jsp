@@ -50,7 +50,8 @@
     <A href="/tc?module=CollegeTourInfo&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Instructions</A> | 
     <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Registration</A> |
     <a href="/tc?module=CollegeTourRegistrants&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Registrants</A> |
-    <tc-webtag:forumLink forumID="514541" message="Discuss"/> | Component Information
+    <tc-webtag:forumLink forumID="514541" message="Discuss"/> | Component Information |
+    <a href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Results</A> 
 </p>
 
 
