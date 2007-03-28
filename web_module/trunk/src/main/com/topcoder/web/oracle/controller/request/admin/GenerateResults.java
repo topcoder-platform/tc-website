@@ -100,7 +100,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                 buf.append(getSessionInfo().getServletPath());
                 buf.append("?" + Constants.MODULE_KEY + "=Static&");
                 buf.append(Constants.STATIC_PREFIX).append("1=admin");
-                buf.append(Constants.STATIC_PREFIX).append("1=endRoundSuccess");
+                buf.append(Constants.STATIC_PREFIX).append("2=generateResultsSuccess");
                 setNextPage(buf.toString());
                 setIsNextPageInContext(false);
 
