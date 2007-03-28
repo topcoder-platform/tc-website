@@ -46,4 +46,41 @@ public class PredictionDAOTestCase extends TCHibernateTestCase {
         }
         assertTrue("could not find anything", found);
     }
+
+    public void testSaveAndAlreadyCompeted() {
+        User dok = DAOUtil.getFactory().getUserDAO().find(132456L);
+        boolean found = false;
+        for (Contest contest : OracleDAOUtil.getFactory().getContestDAO().getContests()) {
+            log.debug("contest: " + contest.getId());
+            for (Round round : contest.getRounds()) {
+                log.debug("round: "  + contest.getId());
+                for (Room room : round.getRooms()) {
+                    log.debug("room: " + room.getId());
+                    for (CandidateRoomResult candidateRoomResult : room.getCandidateResults()) {
+                        log.debug("candidate " + candidateRoomResult.getCandidate().getId());
+                        Prediction p = new Prediction();
+                        p.setRound(round);
+                        p.setUser(dok);
+                        p.setCandidate(candidateRoomResult.getCandidate());
+                        p.setValue(939);
+                        p.setScore(39.29f);
+                        found = true;
+
+                        OracleDAOUtil.getFactory().getPredictionDAO().saveOrUpdate(p);
+                        tearDown();
+                        setUp();
+                        assertTrue("prediction not found", 
+                                OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(dok.getId(), round.getId()));
+                        break;
+                    }
+                    if (found) break;
+                }
+                if (found) break;
+            }
+            if (found) break;
+        }
+        assertTrue("could not find anything", found);
+    }
+
+
 }

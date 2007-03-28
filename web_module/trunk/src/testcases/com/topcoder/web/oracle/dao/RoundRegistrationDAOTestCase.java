@@ -46,4 +46,38 @@ public class RoundRegistrationDAOTestCase extends TCHibernateTestCase {
         assertFalse("new round reg entry not created", new1 == null);
     }
 
+    public void testFindById() {
+        Contest c = new Contest();
+        c.setName("gp contest " + System.currentTimeMillis());
+        c.setType(OracleDAOUtil.getFactory().getContestTypeDAO().find(ContestType.STUDIO_WINNER));
+        c.setStatus(OracleDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
+
+
+        Round r = new Round();
+        r.setName("gp round " + System.currentTimeMillis());
+        r.setStatus(OracleDAOUtil.getFactory().getRoundStatusDAO().find(RoundStatus.UNACTIVE));
+
+        c.addRound(r);
+
+        OracleDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
+
+        tearDown();
+        setUp();
+
+        User dok = DAOUtil.getFactory().getUserDAO().find(132456L);
+        RoundRegistration rr = new RoundRegistration();
+        rr.setRound(r);
+        rr.setUser(dok);
+        rr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(Constants.CONTEST_TERMS_OF_USE_ID));
+
+        OracleDAOUtil.getFactory().getRoundRegistrationDAO().saveOrUpdate(rr);
+
+        tearDown();
+        setUp();
+
+        RoundRegistration new1 = OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(r.getId(), 132456L);
+        assertFalse("new round reg entry not created", new1 == null);
+
+    }
+
 }

@@ -1,7 +1,6 @@
 package com.topcoder.web.oracle;
 
-import com.topcoder.web.oracle.dao.RoomDAOTestCase;
-import com.topcoder.web.oracle.dao.RoundRegistrationDAOTestCase;
+import com.topcoder.web.oracle.scoring.ScorerTestCase;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
@@ -21,14 +20,17 @@ public class OracleTests extends TCHibernateTestCase {
         suite.addTest(new TestSuite(ContestDAOTestCase.class));
         suite.addTest(new TestSuite(CandidatePropertyDAOTestCase.class));
         suite.addTest(new TestSuite(CandidateDAOTestCase.class));
+        */
+        /*
+        suite.addTest(new TestSuite(PredictionDAOTestCase.class));
         suite.addTest(new TestSuite(CandidateRoomResultDAOTestCase.class));
-        suite.addTest(new TestSuite(RoundDAOTestCase.class));
-*/
+        suite.addTest(new TestSuite(PredictionDAOTestCase.class));
+        suite.addTest(new TestSuite(RoomDAOTestCase.class));
         suite.addTest(new TestSuite(RoomDAOTestCase.class));
         suite.addTest(new TestSuite(RoundRegistrationDAOTestCase.class));
-/*
         suite.addTest(new TestSuite(RandomAssignerTestCase.class));
 */
+        suite.addTest(new TestSuite(ScorerTestCase.class));
         return suite;
     }
 }

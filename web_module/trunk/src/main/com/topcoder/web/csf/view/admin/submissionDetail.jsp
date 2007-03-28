@@ -18,7 +18,7 @@
     <c:set value="<%=Constants.SUBMISSION_REVIEW_TEXT%>" var="reviewText"/>
     <script language="javascript" type="text/javascript">
         <!--
-        var passed = "I am happy to inform you that your TopCoder Studio submission has passed the initial review.  " +
+        var passed = "I am happy to inform you that your CSF submission has passed the initial review.  " +
                      "It will be presented to the client and may be chosen as the winner.\n\n" +
                      "You will be notified of the contest results via email.\n\n" +
                      "Best of luck to you at the Studio!";

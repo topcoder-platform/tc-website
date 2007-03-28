@@ -31,7 +31,7 @@ public class CandidateRoomResultDAOTestCase extends TCHibernateTestCase {
         OracleDAOUtil.getFactory().getCandidateDAO().saveOrUpdate(can);
 
         CandidateRoomResult crr = new CandidateRoomResult();
-        crr.setAdvanced('Y');
+        crr.setAdvanced(true);
         crr.setCandidate(can);
         crr.setRoom(ro);
 
@@ -74,7 +74,7 @@ public class CandidateRoomResultDAOTestCase extends TCHibernateTestCase {
 
 
         CandidateRoomResult crr = new CandidateRoomResult();
-        crr.setAdvanced('Y');
+        crr.setAdvanced(true);
         crr.setCandidate(can);
         crr.setRoom(ro);
 
