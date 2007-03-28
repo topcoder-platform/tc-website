@@ -51,9 +51,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                     //we're assuming the the correct value is the same as their placement.  at least for now.
                     // this might not be the case in the future
                     result.setPlaced(result.getCorrectValue());
-                    if (result.getCorrectValue() <= numAdvancing) {
-                        result.setAdvanced('Y');
-                    }
+                    result.setAdvanced(result.getCorrectValue() <= numAdvancing);
                     log.debug(result.getId().toString());
                 }
 
@@ -85,7 +83,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                         log.debug("setting " + rr.getUser().getHandle() + " score to " + rr.getScore());
                     }
                 }
-                int currPlaced = 1;
+                int currPlaced = 0;
                 Double lastScore = -666d;
                 Collections.sort(roomResults, new RoomResult.ScoreComparator());
                 for (RoomResult rr: roomResults) {
