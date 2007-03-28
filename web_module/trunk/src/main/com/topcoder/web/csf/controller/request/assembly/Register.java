@@ -10,20 +10,20 @@ import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.csf.Constants;
-import com.topcoder.web.csf.controller.request.Base;
 
 /**
  * @author pulky
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jul 20, 2006
  */
-public class Register extends Base {
+public class Register extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
         if ("POST".equals(getRequest().getMethod())) {
             String contestName = StringUtils.checkNull(getRequest().getParameter(Constants.CONTEST_NAME));
