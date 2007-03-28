@@ -1,14 +1,13 @@
 package com.topcoder.web.oracle.scoring;
 
+import com.topcoder.web.oracle.dao.OracleDAOUtil;
+import com.topcoder.web.oracle.model.CandidateRoomResult;
 import com.topcoder.web.oracle.model.Prediction;
 import com.topcoder.web.oracle.model.Round;
-import com.topcoder.web.oracle.model.CandidateRoomResult;
-import com.topcoder.web.oracle.model.ContestProperty;
-import com.topcoder.web.oracle.dao.OracleDAOUtil;
 
-import java.util.Set;
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -25,12 +24,14 @@ public class BasicScorer implements Scorer {
             throw new GeneralScoringException("No predictions found for round " + round.getName() +
                     " (" + round.getId() + ")");
         } else {
+/*
             String max = round.getContest().getConfigMap().get(ContestProperty.MAX_SELECTED_CANDIDATES);
             if (max==null) {
                 throw new GeneralScoringException("Max Selected Candidates not set for contest " +
                         round.getContest().getName() + " (" + round.getContest().getId() + ")");
             } else {
                 int maxCandidates = Integer.parseInt(max);
+*/
                 int[] magicMapping = new int[MAX_CANDIDATES_IN_SCORING+1];
                 for (int i=1; i<=MAX_CANDIDATES_IN_SCORING; i++) {
                     magicMapping[i] = magicNumber(i, MAX_CANDIDATES_IN_SCORING);
@@ -57,13 +58,15 @@ public class BasicScorer implements Scorer {
                     if (candidateResultMap.containsKey(p.getCandidate().getId())) {
                         int candidateVal = candidateResultMap.get(p.getCandidate().getId());
                         int delta = Math.abs(candidateVal-p.getValue());
-                        p.setScore((float)magicMapping[candidateVal]/(float)Math.pow(delta+1, 2));
+                        p.setScore((double)magicMapping[candidateVal]/Math.pow(delta+1, 2));
                     } else {
-                        p.setScore(0f);
+                        p.setScore(0d);
                     }
 
                 }
+/*
             }
+*/
             return predictions;
         }
 

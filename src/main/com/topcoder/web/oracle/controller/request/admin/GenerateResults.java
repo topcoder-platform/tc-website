@@ -80,13 +80,13 @@ public class GenerateResults extends ShortHibernateProcessor {
                 RoomResultDAO rrDAO = OracleDAOUtil.getFactory().getRoomResultDAO();
                 List<RoomResult> roomResults = rrDAO.getResults(round);
                 for (RoomResult rr : roomResults) {
-                    rr.setScore(userMap.get(rr.getUser().getId()).floatValue());
+                    rr.setScore(userMap.get(rr.getUser().getId()));
                     if (log.isDebugEnabled()) {
                         log.debug("setting " + rr.getUser().getHandle() + " score to " + rr.getScore());
                     }
                 }
                 int currPlaced = 1;
-                Float lastScore = -666f;
+                Double lastScore = -666d;
                 Collections.sort(roomResults, new RoomResult.ScoreComparator());
                 for (RoomResult rr: roomResults) {
                     //todo consider adding epsilon for comparison 
