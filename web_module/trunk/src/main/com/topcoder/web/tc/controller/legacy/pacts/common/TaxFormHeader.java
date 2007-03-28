@@ -55,7 +55,7 @@ public class TaxFormHeader implements PactsConstants, java.io.Serializable {
         user = new UserProfileHeader();
         id = 0;
         name = "Default Tax Form Name";
-        dateFiled = "00/00/00";
+        dateFiled = "Not filled";
     }
 
 /* This constructor makes the object out of raw data.
@@ -119,7 +119,7 @@ public class TaxFormHeader implements PactsConstants, java.io.Serializable {
                 user = new UserProfileHeader();
                 id = 0;
                 name = "Default Tax Form Name";
-                dateFiled = "00/00/00";
+                dateFiled = "Not filled";
                 return;
             }
 
@@ -135,7 +135,7 @@ public class TaxFormHeader implements PactsConstants, java.io.Serializable {
             user = new UserProfileHeader();
             id = 0;
             name = "Default Tax Form Name";
-            dateFiled = "00/00/00";
+            dateFiled = "Not filled";
             return;
         }
 
@@ -145,7 +145,7 @@ public class TaxFormHeader implements PactsConstants, java.io.Serializable {
         status = TCData.getTCString(rsr, "status_desc", "default status", true);
         statusId = TCData.getTCInt(rsr, "status_id", 0, true);
         name = TCData.getTCString(rsr, "name", "default tax form", true);
-        dateFiled = TCData.getTCDate(rsr, "date_filed", "00/00/00", false);
+        dateFiled = TCData.getTCDate(rsr, "date_filed", "Not filled", false);
         user = new UserProfileHeader(
                 TCData.getTCLong(rsr, "user_id", 0, false),
                 TCData.getTCString(rsr, "handle", "default handle", false));
