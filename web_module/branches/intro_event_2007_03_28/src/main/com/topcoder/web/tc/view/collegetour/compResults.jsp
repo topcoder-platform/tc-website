@@ -54,23 +54,50 @@
     Results
 </p>
 
-
+<% String ct=request.getParameter("ct"); 
+  String context="design"; %>
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
 <tr>
 <td align="left" style="padding-right:10px;border-right: 1px solid #999999;">
 <span class="subtitle">Design</span><br>
-<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=300" class="bcLink">Week 1</A>
+<% if (ct.equals("300")) { %>Week 1<% } else {  %>
+	<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=300" class="bcLink">Week 1</A>
+<% }
+   if (ct.equals("301")) { %>Week 2<% } else {  %>
+    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=301" class="bcLink">Week 2</A>
+<% }
+   if (ct.equals("302")) { %>Week 3<% } else {  %>    
+    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=302" class="bcLink">Week 3</A>
+<% }
+   if (ct.equals("303")) { %>Overall<% } else {  %>
+    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=306" class="bcLink">Overall</A>
+<% } %>
+
 </td>
+
 <td align="left" style="padding-left:10px;">
 <span class="subtitle" class="bcLink">Development</span><br>
+<% if (ct.equals("303")) { %>Week 1<% context="development"; } else {  %>
+	<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=303" class="bcLink">Week 1</A>
+<% }
+   if (ct.equals("304")) { %>Week 2<% context="development"; } else {  %>
+    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=304" class="bcLink">Week 2</A>
+<% }
+   if (ct.equals("305")) { %>Week 3<% context="development"; } else {  %>    
+    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=305" class="bcLink">Week 3</A>
+<% }
+   if (ct.equals("307")) { %>Overall<% context="development"; } else {  %>
+    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=307" class="bcLink">Overall</A>
+<% } %>
+
 </td>
 </tr>
 </table>
 <% ResultSetContainer results = (ResultSetContainer) request.getAttribute("results");
    if (results != null) {
 %>
-<table width="100%">
+<table class="stat" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
         <td class="header">Handle</td>
         <td class="headerR">Points</td>
@@ -80,7 +107,7 @@
         <rsc:iterator list="<%=results%>" id="resultRow">
         	<tr class="<%=even?"dark":"light"%>">        	
         		<td class="value">
-		            <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='algorithm'/>
+		            <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='<%= context %>'/>
 		         </td>
 		         <td class="valueR">
 		         	<rsc:item row="<%=resultRow%>" name="points" ifNull="0"/>
