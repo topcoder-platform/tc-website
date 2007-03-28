@@ -67,7 +67,7 @@ public class Matrix implements Serializable {
             for (int j = 0; j < votes.length; j++) {
                 if (i != j) {
                     //mark that i beat j if i was preferred to j
-                    if (votes[i].getRank().compareTo(votes[j].getRank()) > 0) {
+                    if (votes[i].getRank().compareTo(votes[j].getRank()) < 0) {
                         matrix[getIndex(votes[i].getId().getCandidate())][getIndex(votes[j].getId().getCandidate())] = 1;
                     }
                 }
