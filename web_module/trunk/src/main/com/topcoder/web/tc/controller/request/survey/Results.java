@@ -110,9 +110,11 @@ public class Results extends SurveyData {
             //bunch of Candidates objects when we create the votes
             HashMap map = new HashMap();
             for (int i = 0; i < candidates.length; i++) {
+/*
                 if (log.isDebugEnabled()) {
                     log.debug("candidate : " + candidates[i].toString());
                 }
+*/
                 map.put(candidates[i].getId(), candidates[i]);
                 election.getCandidates().add(candidates[i]);
             }
@@ -127,9 +129,11 @@ public class Results extends SurveyData {
                 curr = (ResultSetContainer.ResultSetRow) it.next();
                 if (lastUserId != curr.getLongItem("user_id")) {
                     if (ballot != null) {
+/*
                         if (log.isDebugEnabled()) {
                             log.debug("add ballot: " + ballot.toString());
                         }
+*/
                         election.getBallots().add(ballot);
                     }
                     ballot = new RankBallot();
@@ -146,14 +150,18 @@ public class Results extends SurveyData {
                 lastUserId = curr.getLongItem("user_id");
             }
             if (ballot != null) {
+/*
                 if (log.isDebugEnabled()) {
                     log.debug("add balot: " + ballot.toString());
                 }
+*/
                 election.getBallots().add(ballot);
             }
+/*
             if (log.isDebugEnabled()) {
                 log.debug("election: " + election.getSumMatrix().toString());
             }
+*/
             results = new CondorcetSchulzeResults(election);
             if (hasCacheConnection) {
                 try {
