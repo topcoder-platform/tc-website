@@ -58,9 +58,7 @@ public class JavadocServlet extends HttpServlet {
         String rootDir = "";
         try {
             ConfigManager cm = ConfigManager.getInstance();
-            if (cm.existsNamespace(namespace)) {
-                cm.refresh(namespace);
-            } else {
+            if (!cm.existsNamespace(namespace)) {
                 cm.add(namespace, ConfigManager.CONFIG_XML_FORMAT);
             }
             rootDir = (String) cm.getProperty(namespace, "default_dir");
