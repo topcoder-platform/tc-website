@@ -45,6 +45,7 @@
 <p>
     5.8.8 - 2007.03.xx
     <ul>
+        <%--<li>00/00/00 changed to Not Filled when showing a user tax form with empty filled date - pulky</li>--%>
         <li>Format date differently on the component tournament member results pages - dok</li>
         <li>Adjust pathes of tco07 component tournament results pages - dok</li>
     </ul>
