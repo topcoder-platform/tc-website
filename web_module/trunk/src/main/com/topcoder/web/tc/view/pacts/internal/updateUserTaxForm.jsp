@@ -100,7 +100,7 @@
 		<tr>
 		<td><b>Date Filed:</b></td>
 		<td><input type="text" name="date_filed"
-<% out.print("value=\""+('Not filled'.equals(taxForm.getHeader().getDateFiled()) ? "" : taxForm.getHeader().getDateFiled())+"\">"); %>
+<% out.print("value=\""+("Not filled".equals(taxForm.getHeader().getDateFiled()) ? "" : taxForm.getHeader().getDateFiled())+"\">"); %>
 		</td>
 		</tr>
 		<tr>
