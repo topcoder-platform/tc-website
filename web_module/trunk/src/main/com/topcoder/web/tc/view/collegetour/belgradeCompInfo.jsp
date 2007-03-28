@@ -71,7 +71,7 @@
 <p>
     The event will take place over the course of 3 weeks and will include all components posted from
     March 22 through April 5, 2007. In addition to <a href="/reg/">registering with TopCoder</a>, all competitors must
-    <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=40">register for this competition</A>.
+    <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">register for this competition</A>.
 </p>
 
 <h3>Competition Overview</h3>
