@@ -61,16 +61,16 @@
 <tr>
 <td align="center" style="padding-right:10px;border-right: 1px solid #999999;">
 <span class="subtitle">Design</span><br>
-<% if (ct.equals("300")) { %>Week 1 | <% } else {  %>
+<% if ("300".equals(ct)) { %>Week 1 | <% } else {  %>
 	<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=300" class="bcLink">Week 1</A>
 | <% }
-   if (ct.equals("301")) { %>Week 2 | <% } else {  %>
+   if ("301".equals(ct)) { %>Week 2 | <% } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=301" class="bcLink">Week 2</A>
 | <% }
-   if (ct.equals("302")) { %>Week 3 | <% } else {  %>    
+   if ("302".equals(ct)) { %>Week 3 | <% } else {  %>    
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=302" class="bcLink">Week 3</A>
 | <% }
-   if (ct.equals("306")) { %>Overall<% } else {  %>
+   if ("306".equals(ct)) { %>Overall<% } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=306" class="bcLink">Overall</A>
 <% } %>
 
@@ -78,16 +78,16 @@
 
 <td align="center" style="padding-left:10px;">
 <span class="subtitle" class="bcLink">Development</span><br>
-<% if (ct.equals("303")) { %>Week 1 | <% context="development"; } else {  %>
+<% if ("303".equals(ct)) { %>Week 1 | <% context="development"; } else {  %>
 	<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=303" class="bcLink">Week 1</A>
 | <% }
-   if (ct.equals("304")) { %>Week 2 | <% context="development"; } else {  %>
+   if ("304".equals(ct)) { %>Week 2 | <% context="development"; } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=304" class="bcLink">Week 2</A>
 | <% }
-   if (ct.equals("305")) { %>Week 3 | <% context="development"; } else {  %>    
+   if ("305".equals(ct)) { %>Week 3 | <% context="development"; } else {  %>    
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=305" class="bcLink">Week 3</A>
 | <% }
-   if (ct.equals("307")) { %>Overall<% context="development"; } else {  %>
+   if ("307".equals(ct)) { %>Overall<% context="development"; } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=307" class="bcLink">Overall</A>
 <% } %>
 
