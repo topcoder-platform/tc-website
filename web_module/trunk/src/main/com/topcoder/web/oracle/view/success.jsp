@@ -5,11 +5,8 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio</title>
+    <title>TopCoder Oracle</title>
 
-    <jsp:include page="../style.jsp">
-        <jsp:param name="key" value="tc_studio"/>
-    </jsp:include>
 </head>
 
 <body>
@@ -17,10 +14,6 @@
 <div align="center">
     <div id="contentOut" class="contentOut">
 
-        <jsp:include page="../top.jsp"/>
-        <jsp:include page="../topNav.jsp">
-            <jsp:param name="node" value="contactUs"/>
-        </jsp:include>
 
         <div id="contentIn" class="contentIn">
 
@@ -28,10 +21,10 @@
 
             <div class="contentSpacer">
 
-                <h1>Vote successful</h1>
+                <h1>Submission successful</h1>
 
 <div align="center" style="margin: 100px;">
-Thank you for voting.
+Thank you for competing.
 </div>
 
 
@@ -39,7 +32,6 @@ Thank you for voting.
             <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
 
-        <jsp:include page="../foot.jsp"/>
 
         <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
