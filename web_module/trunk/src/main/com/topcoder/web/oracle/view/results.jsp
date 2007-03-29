@@ -9,48 +9,12 @@
     <link type="text/css" rel="stylesheet" href="/css/oracle/main.css">
     <link type="text/css" rel="stylesheet" href="/css/oracle/stats.css">
     <script language="JavaScript" type="text/javascript" src="/js/oracle/popup.js"></script>
-
-<style type="text/css">
-table.stat td { vertical-align: middle; }
-.offBy0,
-.offBy1,
-.offBy2,
-.offBy3,
-.offBy4,
-.offBy5,
-.offBy6,
-.offBy7,
-.offBy8,
-.offBy9,
-.offBy10,
-.offBy11,
-.offBy12,
-.offBy13,
-.offBy14,
-.offBy15,
-.offBy16 {
-cursor: default;
-font-weight: bold;
+<script language="JavaScript" type="text/javascript"><!--
+function postToEq(myPointsBox) {
+    popUp(myPointsBox,'eqPopup');
 }
-.offBy0{ color: #00CC00 }
-.offBy1{ color: #0ac400 }
-.offBy2{ color: #16bb00 }
-.offBy3{ color: #24af00 }
-.offBy4{ color: #34a200 }
-.offBy5{ color: #469400 }
-.offBy6{ color: #588500 }
-.offBy7{ color: #6c7600 }
-.offBy8{ color: #806600 }
-.offBy9{ color: #935600 }
-.offBy10{ color: #a74700 }
-.offBy11{ color: #b93800 }
-.offBy12{ color: #cb2a00 }
-.offBy13{ color: #db1d00 }
-.offBy14{ color: #e91100 }
-.offBy15{ color: #f50800 }
-.offBy16{ color: #ff0000 }
-</style>
-
+//-->
+</script>
 </head>
 
 <body>
@@ -65,18 +29,19 @@ font-weight: bold;
 <div align="center">
     < prev</A>
     | <A href="#">next ></A>
-    <!-- line container -->
+    <!-- line container: only show for 3 or more pages -->
     <div style="position: relative; width: 600px; margin: 20px 0px 40px 0px;">
-        <!-- left value is always [((thispage - 1) * 600 / (pages - 1)) - 7], so in this case page 1 is -7, page 2 is 93... -->
+        <!-- style="left:" value is always [((thispage - 1) * 600 / (pages - 1)) - 7], 
+        so in this case PAGE 1 is -7, page 2 is 93... -->
         <A href="#" class="marker" style="left: -7px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
         <A href="#" class="marker" style="left: 93px;"><img src="/i/oracle/interface/markerOn.png" alt="marker" /></A>
-        <!-- left value of the page text box is always [((thispage - 1) * 600 / (pages - 1)) - 40] -->
-        <div style="width: 80px; position: absolute; top: 10px; left: 60px; text-align: center;">Page <strong>2</strong> of <strong>7</strong></div>
         <A href="#" class="marker" style="left: 193px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
         <A href="#" class="marker" style="left: 293px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
         <A href="#" class="marker" style="left: 393px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
         <A href="#" class="marker" style="left: 493px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
         <A href="#" class="marker" style="left: 593px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
+        <!-- left value of the page text box is always [((thispage - 1) * 600 / (pages - 1)) - 40] -->
+        <div style="width: 80px; position: absolute; top: 10px; left: 60px; text-align: center;">Page <strong>2</strong> of <strong>7</strong></div>
         <img src="/i/oracle/interface/line.png" alt="" style="display: block;" />
     </div>
 </div>
@@ -121,8 +86,8 @@ font-weight: bold;
         <td class="headerC">
         10th
         </td>
-        <td class="headerR">
-        Total
+        <td class="headerC">
+        Total<br>Points
         </td>
     </tr>
 </thead>
@@ -134,35 +99,42 @@ font-weight: bold;
         <td class="value">
         John Doe 1
         </td>
+
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/19.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">65535<br>points</div>
+            <div align="center">
+                <img src="/i/oracle/candidates/19.png" alt="" class="small" />
+            </div>
+            <span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">
+                65535
+            </div>
+        </td>
+
+        <td class="valueC">
+        <div align="center"><img src="/i/oracle/candidates/45.png" alt="" class="small" /></div><span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">32767</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/45.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">32767<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/26.png" alt="" class="small" /></div><span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">16383</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/26.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">16383<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/33.png" alt="" class="small" /></div><span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">8191</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/33.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">8191<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/23.png" alt="" class="small" /></div><span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">4095</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/23.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">4095<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/50.png" alt="" class="small" /></div><span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">2047</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/50.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">2047<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/49.png" alt="" class="small" /></div><span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">1023</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/49.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">1023<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/48.png" alt="" class="small" /></div><span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">511</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/48.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">511<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/47.png" alt="" class="small" /></div><span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">255</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/47.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">255<br>points</div>
-        </td>
-        <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/46.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">127<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/46.png" alt="" class="small" /></div><span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">127</span>
         </td>
         <td class="valueR">
         <strong>126971</strong>
@@ -176,34 +148,34 @@ font-weight: bold;
         John Doe 2
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/19.png" alt="" class="small" /></div><div class="offBy0" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">65535<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/19.png" alt="" class="small" /></div><span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">65535</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/12.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/12.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/45.png" alt="" class="small" /></div><div class="offBy1" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">8191<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/45.png" alt="" class="small" /></div><span class="pointsBox" style="color:#0AC400;" onmouseover="postToEq(this)" onMouseOut="popHide()">8191</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/26.png" alt="" class="small" /></div><div class="offBy1" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">4095<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/26.png" alt="" class="small" /></div><span class="pointsBox" style="color:#0AC400;" onmouseover="postToEq(this)" onMouseOut="popHide()">4095</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/33.png" alt="" class="small" /></div><div class="offBy1" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">2047<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/33.png" alt="" class="small" /></div><span class="pointsBox" style="color:#0AC400;" onmouseover="postToEq(this)" onMouseOut="popHide()">2047</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/23.png" alt="" class="small" /></div><div class="offBy1" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">4095<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/23.png" alt="" class="small" /></div><span class="pointsBox" style="color:#0AC400;" onmouseover="postToEq(this)" onMouseOut="popHide()">4095</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/50.png" alt="" class="small" /></div><div class="offBy1" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">2047<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/50.png" alt="" class="small" /></div><span class="pointsBox" style="color:#0AC400;" onmouseover="postToEq(this)" onMouseOut="popHide()">2047</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/49.png" alt="" class="small" /></div><div class="offBy1" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">1023<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/49.png" alt="" class="small" /></div><span class="pointsBox" style="color:#0AC400;" onmouseover="postToEq(this)" onMouseOut="popHide()">1023</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/48.png" alt="" class="small" /></div><div class="offBy1" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">511<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/48.png" alt="" class="small" /></div><span class="pointsBox" style="color:#0AC400;" onmouseover="postToEq(this)" onMouseOut="popHide()">511</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/47.png" alt="" class="small" /></div><div class="offBy1" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">255<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/47.png" alt="" class="small" /></div><span class="pointsBox" style="color:#0AC400;" onmouseover="postToEq(this)" onMouseOut="popHide()">255</span>
         </td>
         <td class="valueR">
         <strong>79868</strong>
@@ -217,34 +189,34 @@ font-weight: bold;
         John Doe 3
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/01.png" alt="" class="small" /></div><div class="offBy2" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">31<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/01.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">31</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/02.png" alt="" class="small" /></div><div class="offBy3" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">31<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/02.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">31</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/03.png" alt="" class="small" /></div><div class="offBy4" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">31<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/03.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">31</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/04.png" alt="" class="small" /></div><div class="offBy5" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">31<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/04.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">31</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/05.png" alt="" class="small" /></div><div class="offBy6" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">31<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/05.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">31</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/06.png" alt="" class="small" /></div><div class="offBy7" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">31<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/06.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">31</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/07.png" alt="" class="small" /></div><div class="offBy8" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">31<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/07.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">31</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/08.png" alt="" class="small" /></div><div class="offBy9" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">31<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/08.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">31</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/09.png" alt="" class="small" /></div><div class="offBy10" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">31<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/09.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">31</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/10.png" alt="" class="small" /></div><div class="offBy11" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">31<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/10.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">31</span>
         </td>
         <td class="valueR">
         <strong>155</strong>
@@ -258,34 +230,34 @@ font-weight: bold;
         John Doe 4
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/06.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/06.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/07.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/07.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/08.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/08.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/09.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/09.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/10.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/10.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/06.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/06.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/07.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/07.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/08.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/08.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/09.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/09.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueC">
-        <div align="center"><img src="/i/oracle/candidates/10.png" alt="" class="small" /></div><div class="offBy16" onmouseover="popUp(this,'viewerpopup')" onMouseOut="popHide()">0<br>points</div>
+        <div align="center"><img src="/i/oracle/candidates/10.png" alt="" class="small" /></div><span class="pointsBox" style="color:#FF0000;" onmouseover="postToEq(this)" onMouseOut="popHide()">0</span>
         </td>
         <td class="valueR">
         <strong>0</strong>
@@ -294,12 +266,36 @@ font-weight: bold;
 </tbody>
 </table>
 
-<div class="popUp" id="viewerpopup">
-    <div>
-        <span style="width: 70px; display: block; text-align: center; font-weight: bold;">Finished: 2</span>
-        <span style="width: 70px; display: block; text-align: center; border-bottom: 1px solid black">16383</span>
-        <span style="width: 70px; display: block; text-align: center;">
-        (1+1)<sup>2</sup>
+<div align="center">
+    <!-- line container: only show for 3 or more pages -->
+    <div style="position: relative; width: 600px; margin: 40px 0px 20px 0px;">
+        <!-- style="left:" value is always [((thispage - 1) * 600 / (pages - 1)) - 7], 
+        so in this case PAGE 1 is -7, page 2 is 93... -->
+        <A href="#" class="marker" style="left: -7px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
+        <A href="#" class="marker" style="left: 93px;"><img src="/i/oracle/interface/markerOn.png" alt="marker" /></A>
+        <A href="#" class="marker" style="left: 193px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
+        <A href="#" class="marker" style="left: 293px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
+        <A href="#" class="marker" style="left: 393px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
+        <A href="#" class="marker" style="left: 493px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
+        <A href="#" class="marker" style="left: 593px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
+        <!-- left value of the page text box is always [((thispage - 1) * 600 / (pages - 1)) - 40] -->
+        <div style="width: 80px; position: absolute; bottom: 10px; left: 60px; text-align: center;">Page <strong>2</strong> of <strong>7</strong></div>
+        <img src="/i/oracle/interface/line.png" alt="" style="display: block;" />
+    </div>
+    < prev</A>
+    | <A href="#">next ></A>
+</div>
+
+<div class="popUp" id="eqPopup">
+    <div style="width: 60px;">
+        <span id="placed" style="display: block; text-align: center; font-weight: bold;">
+            Placed 33
+        </span>
+        <span id="init" style="display: block; text-align: center; border-bottom: 1px solid black">
+            16383
+        </span>
+        <span id="delta" style="display: block; text-align: center;">
+            (1+1)<sup>2</sup>
         </span>
     </div>
 </div>
