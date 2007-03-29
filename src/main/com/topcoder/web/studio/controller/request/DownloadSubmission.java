@@ -9,6 +9,7 @@ import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
 
 import javax.imageio.ImageIO;
+import javax.imageio.ImageTypeSpecifier;
 import javax.imageio.stream.ImageInputStream;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -73,12 +74,31 @@ public class DownloadSubmission extends Base {
                     if (it.hasNext()) {
                         BufferedImage image = ImageIO.read(iis);
                         log.debug("3");
-                        BufferedImage ret = (BufferedImage) image.getScaledInstance(w, h, Image.SCALE_DEFAULT);
+
+
+                        if (w<0) {
+                            w = image.getWidth()/(image.getHeight()/h);
+                        }
+                        if (h<0) {
+                            h = image.getHeight()/(image.getWidth()/w);
+                        }
+
+
+                        ImageTypeSpecifier type = new ImageTypeSpecifier(image);
                         log.debug("4");
+
+                        BufferedImage scaled = type.createBufferedImage(w, h);
+                        log.debug("5");
+
+                        Graphics2D scaledGraphics = scaled.createGraphics();
+                        log.debug("6");
+                        scaledGraphics.drawImage(image, 0, 0, w, h, null);
+
+                        log.debug("7");
                         getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
                         getResponse().setContentType(s.getMimeType().getDescription());
-                        ImageIO.write(ret, s.getMimeType().getDescription(), getResponse().getOutputStream());
-                        log.debug("5");
+                        ImageIO.write(scaled, s.getMimeType().getDescription(), getResponse().getOutputStream());
+                        log.debug("8");
                         done = true;
                     }
                 }
