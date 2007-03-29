@@ -52,16 +52,9 @@ public class DownloadSubmission extends Base {
                 }
 
                 if (!((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
-                    if (rsc.getIntItem(0, "status_id") != 7) {
-                        if (!canDownload(projId, coderId)) {
+                        if (!canDownload(projId, coderId, rsc.getIntItem(0, "status_id"))) {
                             throw new TCWebException("You don't have permission to download the submission.");                        
                         }
-                    } else {
-                        ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");                        
-                        if (isCustomComponent(projectInfo)) {
-                            throw new TCWebException("You don't have permission to download the submission.");                        
-                        }
-                    }
                 }
                 
                 String url = rsc.getStringItem(0, "submission_url");
@@ -98,7 +91,7 @@ public class DownloadSubmission extends Base {
         return (ResultSetContainer) result.get("find_projects");
     }
 
-    private boolean canDownload(String projId, String coderId) throws Exception {
+    private boolean canDownload(String projId, String coderId, int statusId) throws Exception {
         
         long userId = getUser().getId();
         
@@ -117,10 +110,16 @@ public class DownloadSubmission extends Base {
 
         ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
         
-        if (isCustomComponent(projectInfo)) {
+        if ("Java Custom".equals(projectInfo.getStringItem(0, "category_desc")) ||
+                ".Net Custom".equals(projectInfo.getStringItem(0, "category_desc"))) {
             return false;
         }
 
+        // completed project, can download if it's not custom
+        if (statusId == 7) {
+            return true;
+        }
+        
         ResultSetContainer dates = findProjects(projectInfo.getStringItem(0, "component_id"),
                                                 projectInfo.getStringItem(0, "version_id"),
                                                 projectInfo.getStringItem(0, "phase_id"));
@@ -144,10 +143,6 @@ public class DownloadSubmission extends Base {
         return false;
     }
     
-    private boolean isCustomComponent(ResultSetContainer projectInfo) {
-        return "Java Custom".equals(projectInfo.getStringItem(0, "category_desc")) ||
-            ".Net Custom".equals(projectInfo.getStringItem(0, "category_desc"));
-    }
 
     private String getContentType(String filename) {
         String ext = "";
