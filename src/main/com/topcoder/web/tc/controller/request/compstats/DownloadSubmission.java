@@ -51,9 +51,16 @@ public class DownloadSubmission extends Base {
                     throw new TCWebException("Not exactly one sumbission url found.  Instead, found " + rsc.getRowCount());
                 }
 
-                if (rsc.getIntItem(0, "status_id") != 7) {
-                    if (!(((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin() || canDownload(projId, coderId))) {
-                        throw new TCWebException("You don't have permission to download the submission.");                        
+                if (!((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
+                    if (rsc.getIntItem(0, "status_id") != 7) {
+                        if (!canDownload(projId, coderId)) {
+                            throw new TCWebException("You don't have permission to download the submission.");                        
+                        }
+                    } else {
+                        ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");                        
+                        if (isCustomComponent(projectInfo)) {
+                            throw new TCWebException("You don't have permission to download the submission.");                        
+                        }
                     }
                 }
                 
@@ -110,12 +117,7 @@ public class DownloadSubmission extends Base {
 
         ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
         
-        log.debug(projectInfo.getStringItem(0, "category_desc"));
-        log.info(projectInfo.getStringItem(0, "category_desc"));
-
-        // Can't download custom components
-        if ("Java Custom".equals(projectInfo.getStringItem(0, "category_desc")) ||
-                ".Net Custom".equals(projectInfo.getStringItem(0, "category_desc"))) {
+        if (isCustomComponent(projectInfo)) {
             return false;
         }
 
@@ -142,6 +144,10 @@ public class DownloadSubmission extends Base {
         return false;
     }
     
+    private boolean isCustomComponent(ResultSetContainer projectInfo) {
+        return "Java Custom".equals(projectInfo.getStringItem(0, "category_desc")) ||
+            ".Net Custom".equals(projectInfo.getStringItem(0, "category_desc"));
+    }
 
     private String getContentType(String filename) {
         String ext = "";
