@@ -1,5 +1,8 @@
-<%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page import="com.topcoder.web.tc.controller.request.util.SubmitBallBug" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <html>
 <head>
@@ -33,6 +36,11 @@
             <div class="fixedWidthBody">
             
 <%-- SAMPLE TABLE --%>
+
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="mainForm">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitBallBug"/>
+
+
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%; margin-bottom: 40px;">
 <thead>
     <tr>
@@ -42,12 +50,25 @@
     </tr>
 </thead>
 <tbody>
+
+    <tr class="light">
+        <td class="value" nowrap="nowrap" style="border-top: none; vertical-align: middle;" colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=SubmitBallBug.BUG_DESC%>"><span class="bigRed"><%=err%><br /></span></tc-webtag:errorIterator>
+        </td>
+    </tr>
+
+
     <tr class="light">
         <td class="value" nowrap="nowrap" style="border-top: none; vertical-align: middle;">
             Bug description:
         </td>
         <td class="value" style="border-top: none;">
-            <textarea name="" rows="6" cols="40"></textarea>
+            <tc-webtag:textArea name="<%=SubmitBallBug.BUG_DESC%>" rows="6" cols="40"/>
+        </td>
+    </tr>
+        <tr class="light">
+        <td class="value" nowrap="nowrap" style="border-top: none; vertical-align: middle;" colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%=SubmitBallBug.HOW_TO%>"><span class="bigRed"><%=err%><br /></span></tc-webtag:errorIterator>
         </td>
     </tr>
     <tr class="light">
@@ -55,7 +76,7 @@
             How to reproduce bug:
         </td>
         <td class="value" style="border-top: none;">
-            <textarea name="" rows="6" cols="40"></textarea>
+            <tc-webtag:textArea name="<%=SubmitBallBug.HOW_TO%>" rows="6" cols="40"/>
         </td>
     </tr>
     <tr class="light">
@@ -65,7 +86,7 @@
     </tr>
 </tbody>
 </table>
-
+</form>
 
             </div>
         </td>
