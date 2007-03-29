@@ -53,6 +53,11 @@
     <A href="/tc?module=Static&d1=collegetour&d2=belgradeCompInfo">Component Information</A> |
     Results
 </p>
+<jsp:include page="topMenu.jsp">
+    <jsp:param name="cteid" value="<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>"/>
+    <jsp:param name="active" value="results"/>
+    <jsp:param name="forumID" value="<%= request.getAttribute(Constants.FORUM_ID)) %>"/>    
+</jsp:include>
 
 <% String ct=request.getParameter("ct"); 
   String context="design"; %>
