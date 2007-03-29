@@ -42,23 +42,11 @@
                     <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
                 </div>
 
-                <p align="center">
-                    <A href="/tc?module=CollegeTourOverview&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Overview</A> | 
-                    <A href="/tc?module=CollegeTourInfo&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Instructions</A> | 
-                    Registration | 
-                    <A href="/tc?module=CollegeTourRegistrants&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A> | 
-                    <% if (request.getAttribute(Constants.FORUM_ID) != null) {%>
-                    <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss"/>
-                    <% } %>
-                    <c:choose>
-                        <c:when test="${cteid==42}">
-                            | <A href="/tc?module=Static&d1=collegetour&d2=belgradeCompInfo">Component Information</A>
-                        </c:when>
-                        <c:otherwise>
-                        </c:otherwise>
-                    </c:choose>
-
-                </p>
+        <jsp:include page="topMenu.jsp">
+		    <jsp:param name="cteid" value="<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>"/>		
+		    <jsp:param name="active" value="registration"/>
+            <jsp:param name="forumID" value="<%= request.getAttribute(Constants.FORUM_ID) %>"/>    
+		</jsp:include>
 
 
                 <p align="center">
