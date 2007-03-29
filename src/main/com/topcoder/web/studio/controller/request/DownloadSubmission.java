@@ -108,15 +108,14 @@ public class DownloadSubmission extends Base {
                             case 12: format="bmp"; break;
                         }
 
-                        ImageIO.write(scaled, format, getResponse().getOutputStream());
-                        log.debug("8");
-                        done = true;
+                        done = ImageIO.write(scaled, format, getResponse().getOutputStream());
                     }
                 }
 
             }
 
             if (!done) {
+                log.debug("not done");
                 getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
                 getResponse().setContentType(s.getMimeType().getDescription());
                 ServletOutputStream sos = getResponse().getOutputStream();
