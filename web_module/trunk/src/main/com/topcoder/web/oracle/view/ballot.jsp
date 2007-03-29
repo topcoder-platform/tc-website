@@ -1,10 +1,12 @@
 <%@ page import="com.topcoder.web.oracle.model.CandidateProperty" %>
-<%@ page import="com.topcoder.web.oracle.model.ContestProperty" %>
+<%@ page import="com.topcoder.web.oracle.model.RoundProperty" %>
 <%@ page import="com.topcoder.web.oracle.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<c:set value="<%=RoundProperty.MAX_SELECTED_CANDIDATES%>" var="maxCandidatesKey"/>
+<c:set value="${round.configMap[maxCandidatesKey]}" var="maxCandidates"/>
 
 <html>
 <head>
@@ -136,15 +138,17 @@ function findParent(element, parentTagName) {
  function submit() {
     var candidates = '';
     var list = document.getElementById("selectedCandidates").getElementsByTagName("li");
-    for (var i = 0; i < list.length; i++) {
-        if (i < list.length - 1) {
-            candidates += list[i].id + ",";
-        } else {
-            candidates += list[i].id;
-        }
-    }
-    document.ballotForm.<%=Constants.CANDIDATE_IDS%>.value = candidates;
-    document.ballotForm.submit();
+     if (list.length<${maxCandidates} && confirm("Are you sure you want to submit without selecting ${maxCandidates} candidates?")) {
+         for (var i = 0; i < list.length; i++) {
+             if (i < list.length - 1) {
+                 candidates += list[i].id + ",";
+             } else {
+                 candidates += list[i].id;
+             }
+         }
+         document.ballotForm.<%=Constants.CANDIDATE_IDS%>.value = candidates;
+         document.ballotForm.submit();
+     }
 }
 
 //-->
@@ -203,8 +207,6 @@ function findParent(element, parentTagName) {
 
 
 
-    <c:set value="<%=ContestProperty.MAX_SELECTED_CANDIDATES%>" var="maxCandidatesKey"/>
-    <c:set value="${round.contest.configMap[maxCandidatesKey]}" var="maxCandidates"/>
 
     <div class="selectedContainer" style="width: ${maxCandidates*61}px;">
         <img src="/i/oracle/interface/meterBest.png" alt="" style="position: absolute; top: 0px; left: -30px;" />
