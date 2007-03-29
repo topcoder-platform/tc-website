@@ -110,9 +110,10 @@ public class DownloadSubmission extends Base {
 
         ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
         
+        log.debug(projectInfo.getStringItem(0, "category_desc"));
         // Can't download custom components
-        if (projectInfo.getStringItem(0, "category_desc").equals("Java Custom") ||
-                projectInfo.getStringItem(0, "category_desc").equals(".Net Custom")) {
+        if ("Java Custom".equals(projectInfo.getStringItem(0, "category_desc")) ||
+                ".Net Custom".equals(projectInfo.getStringItem(0, "category_desc"))) {
             return false;
         }
 
