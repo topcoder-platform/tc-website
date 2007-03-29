@@ -135,12 +135,12 @@ function findParent(element, parentTagName) {
     return null;
 }
 
- function submit() {
+ function verify() {
     var candidates = '';
     var list = document.getElementById("selectedCandidates").getElementsByTagName("li");
      if (list.length<${maxCandidates}) {
          if (!confirm("Are you sure you want to submit without selecting ${maxCandidates} candidates?")) {
-            return;
+            return false;
          }
      }
          for (var i = 0; i < list.length; i++) {
@@ -151,7 +151,7 @@ function findParent(element, parentTagName) {
              }
          }
          document.ballotForm.<%=Constants.CANDIDATE_IDS%>.value = candidates;
-         document.ballotForm.submit();
+         return true;
 }
 
 //-->
@@ -219,13 +219,12 @@ function findParent(element, parentTagName) {
     </div>
 
     <div style="clear: both; margin-bottom: 20px;">
-        <form action="${sessionInfo.servletPath}" method="POST" name="ballotForm">
+        <form action="${sessionInfo.servletPath}" method="POST" name="ballotForm" onSubmit="verify()">
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitBallot"/>
             <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
             <tc-webtag:hiddenInput name="<%=Constants.CANDIDATE_IDS%>"/>
 
-            <%--<BUTTON name="submit" value="submit" type="submit" class="button" onClick="submit()">Submit</BUTTON>--%>
-             <a href="javascript:void(0);" onClick="submit()">Submit</a>
+            <BUTTON name="submit" value="submit" type="submit" class="button">Submit</BUTTON>
 
         </form>
 
