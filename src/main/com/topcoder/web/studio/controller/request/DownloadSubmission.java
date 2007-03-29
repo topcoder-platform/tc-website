@@ -1,14 +1,19 @@
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.controller.request.admin.Base;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.util.Date;
 import java.util.Iterator;
@@ -50,20 +55,40 @@ public class DownloadSubmission extends Base {
             //create the file input stream first so that if there is a problem, we'll get the error and be able to go
             //to an error page.  if we work with the output stream, we won't be able to do that.
 
+            String width = StringUtils.checkNull(getRequest().getParameter(Constants.WIDTH));
+            String height = StringUtils.checkNull(getRequest().getParameter(Constants.HEIGHT));
+
             FileInputStream fis = new FileInputStream(s.getPath().getPath() + s.getSystemFileName());
 
+            boolean done = false;
+            if (!"".equals(width) || !"".equals(height)) {
+                int w = "".equals(width) ? -1 : Integer.parseInt(width);
+                int h = "".equals(height) ? -1 : Integer.parseInt(height);
+                ImageInputStream iis = ImageIO.createImageInputStream(fis);
+                if (iis != null) {
+                    Iterator it = ImageIO.getImageReaders(iis);
+                    if (it.hasNext()) {
+                        BufferedImage image = ImageIO.read(iis);
+                        BufferedImage ret = (BufferedImage) image.getScaledInstance(w, h, Image.SCALE_DEFAULT);
+                        ImageIO.write(ret, s.getMimeType().getDescription(), getResponse().getOutputStream());
+                        done = true;
+                    }
+                }
+
+            }
             getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
             getResponse().setContentType(s.getMimeType().getDescription());
 
-            ServletOutputStream sos = getResponse().getOutputStream();
-
-
-            int b;
-            while ((b = fis.read()) >= 0) {
-                sos.write(b);
+            if (!done) {
+                ServletOutputStream sos = getResponse().getOutputStream();
+                int b;
+                while ((b = fis.read()) >= 0) {
+                    sos.write(b);
+                }
             }
             getResponse().setStatus(HttpServletResponse.SC_OK);
             getResponse().flushBuffer();
+
 
         } else {
             throw new NavigationException("Sorry, you can not download submissions for this contest.");
