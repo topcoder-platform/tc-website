@@ -53,6 +53,7 @@
         <li>Fix bug in condorcet schulze results that basically inverted the results -dok</li>
         <li>Submission download: the custom components can't be downloaded anymore, except by admins - cucu</li>
         <li>Add Ball bug report form -dok</li>
+        <%--<li>Add component contest result for Belgrade College Tour - cucu<li>--%>
     </ul>
 </p>
 
