@@ -7,6 +7,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.tc.Constants;
 
 /**
  * @author dok
@@ -52,7 +53,7 @@ public class SubmitBallBug extends ShortHibernateProcessor {
             msgText.append("\n\n");
             msgText.append("Thank you,\n");
             msgText.append(u.getFirstName()).append(" ").append(u.getLastName()).append(" aka ").append(u.getHandle());
-            msgText.append("PS. Where's my T-Shirt?\n\n");
+            msgText.append("PS  Where's my T-Shirt?\n\n");
 
 
             mail.setBody(msgText.toString());
@@ -65,6 +66,13 @@ public class SubmitBallBug extends ShortHibernateProcessor {
             EmailEngine.send(mail);
 
 
+                            StringBuffer buf = new StringBuffer(50);
+                buf.append(getSessionInfo().getServletPath());
+                buf.append("?" + Constants.MODULE_KEY + "=Static&");
+                buf.append(Constants.STATIC_PREFIX).append("1=sponsors&");
+            buf.append(Constants.STATIC_PREFIX).append("2=ballSubmitBugSuccess&");
+                setNextPage(buf.toString());
+                setIsNextPageInContext(false);
         }
 
 
