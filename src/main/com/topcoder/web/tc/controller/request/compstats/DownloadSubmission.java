@@ -109,6 +109,13 @@ public class DownloadSubmission extends Base {
         Map result = dai.getData(r);
 
         ResultSetContainer projectInfo = (ResultSetContainer) result.get("project_info");
+        
+        // Can't download custom components
+        if (projectInfo.getStringItem(0, "category_desc").equals("Java Custom") ||
+                projectInfo.getStringItem(0, "category_desc").equals(".Net Custom")) {
+            return false;
+        }
+
         ResultSetContainer dates = findProjects(projectInfo.getStringItem(0, "component_id"),
                                                 projectInfo.getStringItem(0, "version_id"),
                                                 projectInfo.getStringItem(0, "phase_id"));
