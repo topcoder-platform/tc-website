@@ -70,7 +70,7 @@
 
 <jsp:include page="topMenu.jsp">
     <jsp:param name="cteid" value="<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>"/>
-    <jsp:param name="active" value="Overview"/>
+    <jsp:param name="active" value="overview"/>
 </jsp:include>
 
 <!-- ends -->

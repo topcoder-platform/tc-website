@@ -7,8 +7,19 @@
 <c:set var="eventId" value="<%=request.getParameter(Constants.COLLEGE_TOUR_EVENT_ID)%>" />
 
 <p align="center">
-    Overview |
-    <A href="/tc?module=CollegeTourInfo&amp;${EID}=${eventId}">Instructions</A>
+	<c:choose>
+		<c:when test="${active=='overview'}">Overview</c:when>
+		<c:otherwise>
+		        <A href="/tc?module=CollegeTourOverview&amp;${EID}=${eventId}">Overview</A>
+		</c:otherwise>
+	</c:choose>
+    |
+	<c:choose>
+		<c:when test="${active=='instructions'}">Instructions</c:when>
+		<c:otherwise>
+		        <A href="/tc?module=CollegeTourInfo&amp;${EID}=${eventId}">Instructions</A>
+		</c:otherwise>
+	</c:choose>
     |
     <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registration</A>
     |
