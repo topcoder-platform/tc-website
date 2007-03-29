@@ -54,7 +54,7 @@
     <a href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Results</A> 
 </p>
 <jsp:include page="topMenu.jsp">
-    <jsp:param name="cteid" value="<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>"/>
+    <jsp:param name="cteid" value="42"/>
     <jsp:param name="active" value="compinfo"/>
     <jsp:param name="forumID" value="<%= request.getAttribute(Constants.FORUM_ID) %>"/>    
 </jsp:include>
