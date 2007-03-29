@@ -5,13 +5,13 @@
 
 <hibernate-configuration>
 
-    <!--
+<!--
                 <session-factory>
                     <property name="connection.username">coder</property>
                     <property name="connection.password">altec</property>
-                    <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/oracle_oltp:INFORMIXSERVER=devinformix10_shm</property>
+                    <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</property>
                     <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
-    -->
+-->
 
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
@@ -93,37 +93,19 @@
         <mapping resource="com/topcoder/web/oracle/model/CandidateProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/CandidateRoomResult.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Contest.hbm.xml"/>
-        <mapping resource="com/topcoder/web/oracle/model/ContestConfig.hbm.xml"/>
-        <mapping resource="com/topcoder/web/oracle/model/ContestProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/ContestStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/ContestType.hbm.xml"/>
+        <mapping resource="com/topcoder/web/oracle/model/Prediction.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Prize.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Room.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoomResult.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Round.hbm.xml"/>
+        <mapping resource="com/topcoder/web/oracle/model/RoundConfig.hbm.xml"/>
+        <mapping resource="com/topcoder/web/oracle/model/RoundProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoundStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoundRegistration.hbm.xml"/>
 
-        <!--
-                <mapping resource="com/topcoder/web/csf/model/Contest.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/ContestConfig.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/ContestProperty.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/ContestRegistration.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/ContestResult.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/ContestStatus.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/Document.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/DocumentType.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/FilePath.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/MimeType.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/Prize.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/PrizeType.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/ReviewStatus.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/CSFFileType.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/Submission.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/SubmissionReview.hbm.xml"/>
-                <mapping resource="com/topcoder/web/csf/model/SubmissionType.hbm.xml"/>
-        -->
 
         <mapping resource="com/topcoder/web/common/voting/Candidate.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/voting/CandidateInfo.hbm.xml"/>

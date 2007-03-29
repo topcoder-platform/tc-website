@@ -64,7 +64,7 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         assertFalse("did not create contest", c1 == null);
         assertFalse("did not create round", c1.getRounds().isEmpty());
         Round theRound = c1.getRounds().iterator().next();
-        assertTrue("did not create room", theRound != null && theRound.getRooms().isEmpty());
+        assertTrue("did not create room", theRound != null && !theRound.getRooms().isEmpty());
         assertTrue("did not create contest prize", c1.getPrizes().iterator().hasNext());
         assertTrue("did not create round prize", theRound.getPrizes().iterator().hasNext());
 

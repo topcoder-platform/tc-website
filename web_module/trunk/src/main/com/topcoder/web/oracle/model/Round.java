@@ -2,9 +2,7 @@ package com.topcoder.web.oracle.model;
 
 import com.topcoder.web.common.model.Base;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 /**
  * @author dok
@@ -19,10 +17,13 @@ public class Round extends Base {
     private Set<Room> rooms;
     private RoundStatus status;
     private Set<Prediction> predictions;
+    private Set<RoundConfig> config;
+
 
     public Round() {
         prizes = new TreeSet<Prize>();
         rooms = new HashSet<Room>();
+        config = new HashSet<RoundConfig>();
         predictions = new HashSet<Prediction>();
     }
 
@@ -110,5 +111,32 @@ public class Round extends Base {
         predictions.add(p);
     }
 
+    public Set getConfig() {
+        return config;
+    }
+
+    public void setConfig(Set<RoundConfig> config) {
+        this.config = config;
+    }
+
+    /**
+     * Add a piece of configuration information to this contest
+     * and make the association between that object and this contest
+     *
+     * @param config the config info to add
+     */
+    public void addConfig(RoundConfig config) {
+        config.setRound(this);
+        this.config.add(config);
+    }
+
+
+    public Map<Integer, String> getConfigMap() {
+        HashMap<Integer, String> m = new HashMap<Integer, String>();
+        for (RoundConfig anInfo : config) {
+            m.put(anInfo.getProperty().getId(), anInfo.getValue());
+        }
+        return m;
+    }
 
 }

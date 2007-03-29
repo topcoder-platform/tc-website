@@ -28,7 +28,7 @@ public class PredictionDAOTestCase extends TCHibernateTestCase {
                         p.setUser(dok);
                         p.setCandidate(candidateRoomResult.getCandidate());
                         p.setValue(939);
-                        p.setScore(39.29f);
+                        p.setScore(39.29d);
                         found = true;
 
                         OracleDAOUtil.getFactory().getPredictionDAO().saveOrUpdate(p);
@@ -63,7 +63,7 @@ public class PredictionDAOTestCase extends TCHibernateTestCase {
                         p.setUser(dok);
                         p.setCandidate(candidateRoomResult.getCandidate());
                         p.setValue(939);
-                        p.setScore(39.29f);
+                        p.setScore(39.29d);
                         found = true;
 
                         OracleDAOUtil.getFactory().getPredictionDAO().saveOrUpdate(p);

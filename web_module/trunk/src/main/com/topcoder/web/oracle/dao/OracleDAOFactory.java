@@ -14,7 +14,7 @@ public interface OracleDAOFactory {
 
     ContestDAO getContestDAO();
     
-    ContestPropertyDAO getContestPropertyDAO();
+    RoundPropertyDAO getRoundPropertyDAO();
 
     ContestStatusDAO getContestStatusDAO();
 

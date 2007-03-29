@@ -27,7 +27,7 @@ abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("contest", contest);
 
 
-/*        ContestPropertyDAO dao = OracleDAOUtil.getFactory().getContestPropertyDAO();
+/*        ContestPropertyDAO dao = OracleDAOUtil.getFactory().getRoundPropertyDAO();
         ContestConfig temp;
         for (int i = 0; i < CONTEST_PROPS.length; i++) {
             temp = contest.getConfig(dao.find(CONTEST_PROPS[i]));

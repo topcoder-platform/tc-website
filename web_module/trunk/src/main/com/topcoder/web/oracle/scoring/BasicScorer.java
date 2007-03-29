@@ -28,7 +28,7 @@ public class BasicScorer implements Scorer {
             String max = round.getContest().getConfigMap().get(ContestProperty.MAX_SELECTED_CANDIDATES);
             if (max==null) {
                 throw new GeneralScoringException("Max Selected Candidates not set for contest " +
-                        round.getContest().getName() + " (" + round.getContest().getId() + ")");
+                        round.getContest().getName() + " (" + round.getRound().getId() + ")");
             } else {
                 int maxCandidates = Integer.parseInt(max);
 */
