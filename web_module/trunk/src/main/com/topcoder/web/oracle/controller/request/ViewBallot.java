@@ -44,7 +44,7 @@ public class ViewBallot extends ShortHibernateProcessor {
                                 StringBuffer buf = new StringBuffer(50);
                                 buf.append(getSessionInfo().getServletPath());
                                 buf.append("?" + Constants.MODULE_KEY + "=Static&");
-                                buf.append(Constants.STATIC_PREFIX).append("1=submitSuccess");
+                                buf.append(Constants.STATIC_PREFIX).append("1=success");
                                 setNextPage(buf.toString());
                                 setIsNextPageInContext(false);
                             } else {
