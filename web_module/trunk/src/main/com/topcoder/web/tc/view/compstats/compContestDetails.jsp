@@ -337,7 +337,12 @@
         %>
         <% } %>
         <TD class="valueC" nowrap="nowrap">
-    	    <% if (isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) { %>
+    	    <% if ((isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) 
+    	            && !projectInfo.getStringItem(0, "category_desc").equals("Java Custom")
+    	            && !projectInfo.getStringItem(0, "category_desc").equals(".Net Custom")    	            
+    	            ) { 
+    	    
+    	    %>
             <div id="pop<%=i%>" class="popUp">
                 <div>Download submission</div>
             </div>
