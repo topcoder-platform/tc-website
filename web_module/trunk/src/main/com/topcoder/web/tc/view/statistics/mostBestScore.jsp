@@ -52,7 +52,7 @@
 <div style="float:right;"><A href="/tc?module=Static&d1=statistics&d2=recordbook_home">back to table of contents</A></div>
 <span class="bodyText">
 <br><br>
-<strong>Record:</strong> This chart shows the competitors that have most best scores for a problem.
+<strong>Record:</strong> This chart shows the competitors that have gotten the highest score on a problem the most times..
 </span>
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
