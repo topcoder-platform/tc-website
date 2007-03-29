@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.29.07<br>11:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=16690">Vote for the new TopCoder video portal</A></span><br><br>
+        TopCoder is building a new web video portal where viewers will be able to access breaking news, interesting instructional segments and fun human interest stories. But first, we need you to vote for the new name and logo!
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=16690">full story</A> | 
+        <a href="http://studio.topcoder.com/forums?module=Thread&threadID=354">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.28.07<br>5:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -185,19 +204,3 @@ For a few years now, there has been plenty of buzz about the "last mile problem,
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.21.07<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Alpha">TCHS07 Round 3 Alpha - Problem Set & Analysis</A></span><br><br>
-        Fairly difficult medium and hard problems led to a relatively low scoring HS match.  <tc-webtag:handle coderId="15092597" context="hs_algorithm"/> won the match with 1174.04 points, <tc-webtag:handle coderId="15117368" context="hs_algorithm"/> finished second with 1041.94 and <tc-webtag:handle coderId="10039742" context="hs_algorithm"/> rounded out the top three with 775.53.</td>
-      <td class="newsPhoto"><img src="/i/m/gevak_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7340263" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Alpha">full story</A> | 
-        <tc-webtag:forumLink forumID="514495" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-
