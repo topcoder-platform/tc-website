@@ -138,7 +138,7 @@ User altered.
 
 </pre>
 
-<p>Now we're finally ready to create our coder table for the active algorithm coder list.  The SQL code to run create our table is listed below.  Note that in SQL*Plus, the command doesn't execute until you follow it with a semicolon -- you can type each of line and press enter, and you don't have to worry about SQL*Plus trying to execute the command until you type a semicolon.  There are some exceptions -- some commands, like running an external script,  will execute without a a semicolon -- but in most cases SQL*Plus won't do anything until you indicate the end of a command in this manner. (Also, please note that you won&rsquo;t be required to type in the line numbers 2, 3, 4, etc. as shown below. Just type in the text and, each time you press return at the end of a line, the next line will begin with a line number to indicate that this text is a continuation of the previous line.)</p>
+<p>Now we're finally ready to create our coder table for the active algorithm coder list.  The SQL code to run create our table is listed below.  Note that in SQL*Plus, the command doesn't execute until you follow it with a semicolon -- you can type each line and press enter, and you don't have to worry about SQL*Plus trying to execute the command until you type a semicolon.  There are some exceptions -- some commands, like running an external script,  will execute without a semicolon -- but in most cases SQL*Plus won't do anything until you indicate the end of a command in this manner. (Also, please note that you won&rsquo;t be required to type in the line numbers 2, 3, 4, etc. as shown below. Just type in the text and, each time you press return at the end of a line, the next line will begin with a line number to indicate that this text is a continuation of the previous line.)</p>
 <pre class="code">
 SQL&gt; create table topcoder.coder (
   2    coder_id        number  primary key
@@ -335,7 +335,7 @@ Package body created.
 
 <p>The easiest way to load an RSS feed, assuming you don't run into firewall issues, is to just load it directly from the website to the Oracle table.  That is the method we will be using.  If you do have firewall issues then there are other methods you can use that require the use of an intermediate table, but that's beyond the scope of this article.</p>
 <p>In the case of our active algorithm coder list, when processing the RSS feed we want to insert the coder record (if we don't already have it in our coder table).  If we do already have the record in our coder table, we want to update it so we get the latest information for the coder (rating, etc.).  If you take a look at the load_coder_tbl procedure from the rss_util package we just created, you will see that we are using Oracle's createuri command to connect directly to the website and extract the active algorithm coder records.</p>
-<p>We are using a loop to iterate through each coder record, which allows us to determine whether to insert new coder records that we don't already have in our topcoder.coder table, or update records that already exist in the table.  When we run this procedure for the first time, we wonÍt have any records in our coder table so all the records will get loaded.</p>
+<p>We are using a loop to iterate through each coder record, which allows us to determine whether to insert new coder records that we don't already have in our topcoder.coder table, or update records that already exist in the table.  When we run this procedure for the first time, we won't have any records in our coder table so all the records will get loaded.</p>
 <p>For the Oracle SQL experts out there who are wondering why I didn't use Oracle's merge command to load the coder table, I actually tried to do so. It turned out to be about a minute slower than the technique I ended up using, however, which was to manually check to see if the coder record existed to determine whether to insert or update.</p>
 <p>A few more comments about this load_coder_table procedure:
 
@@ -345,14 +345,15 @@ Package body created.
 <li>The extractvalue Oracle function allows us to pull out the exact XML attribute we want from each row.</li>
 </ul>
 </p>
-<p>We are now ready to load the active algorithm RSS feed, so type the following code into SQL:</p>
+<p>We are now ready to load the active algorithm RSS feed, so type the following code into SQL*Plus:</p>
 
 <pre class="code">
 SQL&gt; declare
   2  begin
   3    topcoder.rss_util.load_coder_tbl;
-  4  end;
-  5  /
+  4    commit;
+  5  end;
+  6  /
 
 PL/SQL procedure successfully completed. 
 </pre>
