@@ -7,6 +7,8 @@ import com.topcoder.web.oracle.model.Prediction;
 import com.topcoder.web.oracle.model.Round;
 import org.hibernate.Query;
 
+import java.util.List;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -34,6 +36,7 @@ public class PredictionDAOHibernate extends Base implements PredictionDAO {
         Query q = session.createQuery(query.toString());
         q.setInteger(0, roundId);
         q.setLong(1, userId);
-        return q.iterate().hasNext();
+        List l = q.list();
+        return !l.isEmpty();
     }
 }
