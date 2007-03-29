@@ -43,6 +43,9 @@ public class Constants implements WebConstants {
     public static final String ASSIGNMENT_DOCUMENT_ID = "assignment_document_id";
     public static final String RESULT_KEY = "result_key";
 
+    public static final String WIDTH = "width";
+    public static final String HEIGHT = "height";
+
     public static int MAX_CONTEST_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
     public static String JAVA_DATE_FORMAT;
