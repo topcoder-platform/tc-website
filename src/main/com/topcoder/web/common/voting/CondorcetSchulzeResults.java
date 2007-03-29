@@ -84,13 +84,13 @@ public class CondorcetSchulzeResults implements Serializable {
             for (int j = i; j < candidates.size(); j++) {
                 if (i != j) {
                     if (strengthMatrix.beat(i, j)) {
-                        //log.debug(i + "adding a win for " + candidates[i].toString() + " over " + candidates[j].toString());
+                        log.debug(i + "adding a win for " + strengthMatrix.getCandidate(i).getId() + " over " + strengthMatrix.getCandidate(j).getId());
                         ret[count] = new Pair(strengthMatrix.getCandidate(i), strengthMatrix.getCandidate(j), false);
                     } else if (strengthMatrix.tie(i, j)) {
-                        //log.debug(i + "adding a tie betwne " + candidates[i].toString() + " and " + candidates[j].toString());
+                        log.debug(i + "adding a tie between " + strengthMatrix.getCandidate(i).getId() + " and " + strengthMatrix.getCandidate(j).getId());
                         ret[count] = new Pair(strengthMatrix.getCandidate(i), strengthMatrix.getCandidate(j), true);
                     } else {
-                        //log.debug(i + "adding a win for " + candidates[j].toString() + " over " + candidates[i].toString());
+                        log.debug(i + "adding a win for " + strengthMatrix.getCandidate(j).getId() + " over " + strengthMatrix.getCandidate(i).getId());
                         ret[count] = new Pair(strengthMatrix.getCandidate(j), strengthMatrix.getCandidate(i), false);
                     }
                     count++;
