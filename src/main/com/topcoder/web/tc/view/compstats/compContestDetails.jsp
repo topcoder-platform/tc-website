@@ -338,8 +338,8 @@
         <% } %>
         <TD class="valueC" nowrap="nowrap">
     	    <% if ((isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) 
-    	            && !projectInfo.getStringItem(0, "category_desc").equals("Java Custom")
-    	            && !projectInfo.getStringItem(0, "category_desc").equals(".Net Custom")    	            
+    	            && (sessionInfo.isAdmin() || (!projectInfo.getStringItem(0, "category_desc").equals("Java Custom")
+     	                                         && !projectInfo.getStringItem(0, "category_desc").equals(".Net Custom")))    	            
     	            ) { 
     	    
     	    %>
