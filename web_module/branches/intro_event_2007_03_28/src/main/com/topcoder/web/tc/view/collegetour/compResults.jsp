@@ -58,7 +58,7 @@
 <td align="center" style="padding-right:10px;border-right: 1px solid #999999;">
 <span class="subtitle">Design</span><br>
 <% if ("300".equals(ct)) { %>Week 1 | <% } else {  %>
-	<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=300" class="bcLink">Week 1</A>
+    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=300" class="bcLink">Week 1</A>
 | <% }
    if ("301".equals(ct)) { %>Week 2 | <% } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=301" class="bcLink">Week 2</A>
@@ -75,7 +75,7 @@
 <td align="center" style="padding-left:10px;">
 <span class="subtitle" class="bcLink">Development</span><br>
 <% if ("303".equals(ct)) { %>Week 1 | <% context="development"; } else {  %>
-	<A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=303" class="bcLink">Week 1</A>
+    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=303" class="bcLink">Week 1</A>
 | <% }
    if ("304".equals(ct)) { %>Week 2 | <% context="development"; } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=304" class="bcLink">Week 2</A>
@@ -96,32 +96,32 @@
    if (results != null) {
 %>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-	<tr>
+    <tr>
         <td class="headerC">Rank</td>
-        <td class="header">Handle</td>
-        <td class="headerC">Points</td>
-        <td class="headerC">Potential Points</td>
+        <td class="header" width="60%">Handle</td>
+        <td class="headerC" width="40%">Points</td>
+        <td class="headerC" nowrap="nowrap">Potential Points</td>
    </tr>
         <% boolean even = false; %>
         <rsc:iterator list="<%=results%>" id="resultRow">
-        	<tr class="<%=even?"dark":"light"%>">        	
-		         <td class="valueC">
-		         	<rsc:item row="<%=resultRow%>" name="rank"/>
-		         </td>
-        		<td class="value">
-		            <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='<%= context %>'/>
-		         </td>
-		         <td class="valueR">
-		         	<rsc:item row="<%=resultRow%>" name="points" ifNull="0"/>
-		         </td>
-		         <td class="valueR"> 
-			         <rsc:item row="<%=resultRow%>" name="potential_points" />
-		         </td>		            
+            <tr class="<%=even?"dark":"light"%>">            
+                 <td class="valueC">
+                     <rsc:item row="<%=resultRow%>" name="rank"/>
+                 </td>
+                <td class="value">
+                    <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='<%= context %>'/>
+                 </td>
+                 <td class="valueC">
+                     <rsc:item row="<%=resultRow%>" name="points" ifNull="0"/>
+                 </td>
+                 <td class="valueC"> 
+                     <rsc:item row="<%=resultRow%>" name="potential_points" />
+                 </td>                    
             </tr>
             <% even = !even; %>
         </rsc:iterator>
 </table>
-	
+    
 
 <% } %>
 </td>
