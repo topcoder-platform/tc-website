@@ -62,24 +62,32 @@ public class DownloadSubmission extends Base {
 
             boolean done = false;
             if (!"".equals(width) || !"".equals(height)) {
+                log.debug("1");
                 int w = "".equals(width) ? -1 : Integer.parseInt(width);
                 int h = "".equals(height) ? -1 : Integer.parseInt(height);
                 ImageInputStream iis = ImageIO.createImageInputStream(fis);
+                log.debug("2");
                 if (iis != null) {
                     Iterator it = ImageIO.getImageReaders(iis);
+                    log.debug("2");
                     if (it.hasNext()) {
                         BufferedImage image = ImageIO.read(iis);
+                        log.debug("3");
                         BufferedImage ret = (BufferedImage) image.getScaledInstance(w, h, Image.SCALE_DEFAULT);
+                        log.debug("4");
+                        getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
+                        getResponse().setContentType(s.getMimeType().getDescription());
                         ImageIO.write(ret, s.getMimeType().getDescription(), getResponse().getOutputStream());
+                        log.debug("5");
                         done = true;
                     }
                 }
 
             }
-            getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
-            getResponse().setContentType(s.getMimeType().getDescription());
 
             if (!done) {
+                getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
+                getResponse().setContentType(s.getMimeType().getDescription());
                 ServletOutputStream sos = getResponse().getOutputStream();
                 int b;
                 while ((b = fis.read()) >= 0) {
