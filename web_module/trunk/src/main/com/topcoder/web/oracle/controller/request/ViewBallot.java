@@ -7,12 +7,10 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
-import com.topcoder.web.oracle.model.Candidate;
-import com.topcoder.web.oracle.model.ContestStatus;
-import com.topcoder.web.oracle.model.Round;
-import com.topcoder.web.oracle.model.RoundStatus;
+import com.topcoder.web.oracle.model.*;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -48,7 +46,17 @@ public class ViewBallot extends ShortHibernateProcessor {
                                 setNextPage(buf.toString());
                                 setIsNextPageInContext(false);
                             } else {
-                                ballotProcessing(round);
+                                Date now = new Date();
+                                if (round.getPhase(Phase.SUBMISSION).getStartTime().before(now)) {
+                                    if (round.getPhase(Phase.SUBMISSION).getEndTime().after(now)) {
+                                        ballotProcessing(round);
+                                    } else {
+                                        throw new NavigationException("Sorry, the submission phase is over.");
+                                    }
+                                } else {
+                                    throw new NavigationException("Sorry, the submission phase has not started.");
+                                }
+
                             }
                         } else {
                             throw new NavigationException("Sorry, you are not registered for this round.");
@@ -79,6 +87,7 @@ public class ViewBallot extends ShortHibernateProcessor {
      * load up the candidates in appropriate random order
      * it should be the same random order for a particular user every
      * time they look at the candidates for a particular round
+     *
      * @param round
      */
     protected final void loadData(Round round) {
