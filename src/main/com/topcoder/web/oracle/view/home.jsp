@@ -10,7 +10,7 @@
 <body>
 
 <div align="center">
-       <font size="+10"><blink>home page sucka!</blink></font> 
+<A href="?module=ViewBallot&rd=2192">Test contest</A>
 </div>
 
 </body>
