@@ -246,7 +246,7 @@ function verify() {
 
             <%-- centers candidates and limits its width to 610px --%>
             <div align="center" style="width: 610px;">
-                <ul id="candidateBin" class="imageLineup" align="center" style="float:left; clear:both; width: 100%;">
+                <ul id="candidateBin" class="imageLineup" style="float:left; clear:both; width: 100%;">
 
                     <c:forEach items="${candidates}" var="candidate">
                         <li id="${candidate.id}">
