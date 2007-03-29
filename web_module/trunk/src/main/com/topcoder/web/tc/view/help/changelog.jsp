@@ -50,6 +50,7 @@
         <li>Adjust pathes of tco07 component tournament results pages - dok</li>
         <li>Add Most Best Score stat for algorithms - cucu</li>
         <li>Fix bug in condorcet schulze results that basically inverted the results -dok</li>
+        <li>Submission download: the custom components can't be downloaded anymore, except by admins - cucu</li>        
     </ul>
 </p>
 
