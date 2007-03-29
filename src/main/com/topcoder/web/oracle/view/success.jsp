@@ -5,35 +5,26 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Oracle</title>
-
+    <title>TopCoder</title>
+    <link type="text/css" rel="stylesheet" href="/css/oracle/main.css">
+    <link type="text/css" rel="stylesheet" href="/css/oracle/stats.css">
 </head>
 
 <body>
 
 <div align="center">
-    <div id="contentOut" class="contentOut">
+    <div id="contentOut">
+        <div id="contentIn">
+
+                <h1>Thank you!</h1>
+
+                <div align="center" style="margin: 40px 0px 100px 0px;">
+                Thank you for competing.
+                </div>
 
 
-        <div id="contentIn" class="contentIn">
-
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
-
-                <h1>Submission successful</h1>
-
-<div align="center" style="margin: 100px;">
-Thank you for competing.
-</div>
-
-
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+        <jsp:include page="foot.jsp"/>
         </div>
-
-
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
 </div>
 

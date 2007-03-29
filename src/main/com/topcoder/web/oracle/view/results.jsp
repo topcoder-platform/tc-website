@@ -41,7 +41,7 @@
         <A href="#" class="marker" style="left: 493px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
         <A href="#" class="marker" style="left: 593px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
         <!-- left value of the page text box is always [((thispage - 1) * 600 / (pages - 1)) - 40] -->
-        <div style="width: 80px; position: absolute; top: 10px; left: 60px; text-align: center;">Page <strong>2</strong> of <strong>7</strong></div>
+        <div class="markerText" style="top: 10px; left: 60px;">Page <strong>2</strong> of <strong>7</strong></div>
         <img src="/i/oracle/interface/line.png" alt="" style="display: block;" />
     </div>
 </div>
@@ -279,7 +279,7 @@
         <A href="#" class="marker" style="left: 493px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
         <A href="#" class="marker" style="left: 593px;"><img src="/i/oracle/interface/marker.png" alt="marker" /></A>
         <!-- left value of the page text box is always [((thispage - 1) * 600 / (pages - 1)) - 40] -->
-        <div style="width: 80px; position: absolute; bottom: 10px; left: 60px; text-align: center;">Page <strong>2</strong> of <strong>7</strong></div>
+        <div class="markerText" style="bottom: 10px; left: 60px;">Page <strong>2</strong> of <strong>7</strong></div>
         <img src="/i/oracle/interface/line.png" alt="" style="display: block;" />
     </div>
     < prev</A>
