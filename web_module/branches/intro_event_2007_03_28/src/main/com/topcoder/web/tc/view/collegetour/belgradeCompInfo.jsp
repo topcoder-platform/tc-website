@@ -56,7 +56,7 @@
 <jsp:include page="topMenu.jsp">
     <jsp:param name="cteid" value="42"/>
     <jsp:param name="active" value="compinfo"/>
-    <jsp:param name="forumID" value="<%= request.getAttribute(Constants.FORUM_ID) %>"/>    
+    <jsp:param name="forumID" value="514541"/>    
 </jsp:include>
 
 

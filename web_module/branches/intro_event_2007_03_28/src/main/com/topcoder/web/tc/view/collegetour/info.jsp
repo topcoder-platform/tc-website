@@ -42,7 +42,7 @@
         <div align=center>
             <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
         </div>
-INFO PAGE!
+
         <!-- college tour site subnav -->
         <p align="center">
             <A href="/tc?module=CollegeTourOverview&<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Overview</A> | 
