@@ -153,12 +153,23 @@ public class Matrix implements Serializable {
      */
     public String toString() {
         StringBuffer buf = new StringBuffer(matrix.length * 3);
+        Candidate c;
         for (int i = 0; i < matrix.length; i++) {
-            buf.append(((Candidate) candidates.get(i)).getName()).append(",");
+            c = (Candidate) candidates.get(i);
+            if (c.getId()!=null) {
+                buf.append(c.getId()).append(",");
+            } else {
+                buf.append(c.getName()).append(",");
+            }
         }
         buf.append("\n");
         for (int i = 0; i < matrix.length; i++) {
-            buf.append(((Candidate) candidates.get(i)).getName()).append(" ");
+            c = (Candidate) candidates.get(i);
+            if (c.getId()!=null) {
+                buf.append(c.getId()).append(" ");
+            } else {
+                buf.append(c.getName()).append(" ");
+            }
             for (int j = 0; j < matrix[i].length; j++) {
                 buf.append(matrix[i][j]).append(" ");
             }
