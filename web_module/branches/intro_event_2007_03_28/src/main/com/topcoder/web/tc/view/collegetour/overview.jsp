@@ -68,6 +68,11 @@
 
 </p>
 
+<jsp:include page="topMenu.jsp">
+    <jsp:param name="cteid" value="<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>"/>
+    <jsp:param name="active" value="Overview"/>
+</jsp:include>
+
 <!-- ends -->
 
 <% if ("22".equals(request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID))) { %>
