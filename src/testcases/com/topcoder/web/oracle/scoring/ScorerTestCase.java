@@ -26,10 +26,6 @@ public class ScorerTestCase extends TCHibernateTestCase {
         c.setType(OracleDAOUtil.getFactory().getContestTypeDAO().find(ContestType.STUDIO_WINNER));
         c.setStatus(OracleDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
 
-        ContestConfig cc = new ContestConfig();
-        cc.setProperty(OracleDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.MAX_SELECTED_CANDIDATES));
-        cc.setValue("5");
-        c.addConfig(cc);
 
         Room ro = new Room();
         ro.setName("gp room " + System.currentTimeMillis());
@@ -38,6 +34,10 @@ public class ScorerTestCase extends TCHibernateTestCase {
         r.setName("gp round " + System.currentTimeMillis());
         r.addRoom(ro);
         r.setStatus(OracleDAOUtil.getFactory().getRoundStatusDAO().find(RoundStatus.UNACTIVE));
+        RoundConfig cc = new RoundConfig();
+        cc.setProperty(OracleDAOUtil.getFactory().getRoundPropertyDAO().find(RoundProperty.MAX_SELECTED_CANDIDATES));
+        cc.setValue("5");
+        r.addConfig(cc);
 
         c.addRound(r);
 

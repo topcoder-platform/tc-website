@@ -135,8 +135,6 @@
         <mapping resource="com/topcoder/web/oracle/model/CandidateProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/CandidateRoomResult.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Contest.hbm.xml"/>
-        <mapping resource="com/topcoder/web/oracle/model/ContestConfig.hbm.xml"/>
-        <mapping resource="com/topcoder/web/oracle/model/ContestProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/ContestStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/ContestType.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Prediction.hbm.xml"/>
@@ -145,6 +143,8 @@
         <mapping resource="com/topcoder/web/oracle/model/Room.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoomResult.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Round.hbm.xml"/>
+        <mapping resource="com/topcoder/web/oracle/model/RoundConfig.hbm.xml"/>
+        <mapping resource="com/topcoder/web/oracle/model/RoundProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoundStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoundRegistration.hbm.xml"/>
 

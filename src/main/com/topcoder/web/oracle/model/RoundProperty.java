@@ -7,7 +7,7 @@ import com.topcoder.web.common.model.Base;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 20, 2007
  */
-public class ContestProperty extends Base {
+public class RoundProperty extends Base {
 
 /*
     public static final Integer CONTEST_OVERVIEW_TEXT = new Integer(1);

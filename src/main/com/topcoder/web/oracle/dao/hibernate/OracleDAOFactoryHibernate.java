@@ -25,8 +25,8 @@ public class OracleDAOFactoryHibernate implements OracleDAOFactory {
         return new ContestDAOHibernate();
     }
 
-    public ContestPropertyDAO getContestPropertyDAO() {
-        return new ContestPropertyDAOHibernate();
+    public RoundPropertyDAO getRoundPropertyDAO() {
+        return new RoundPropertyDAOHibernate();
     }
 
     public ContestStatusDAO getContestStatusDAO() {

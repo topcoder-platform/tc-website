@@ -9,24 +9,24 @@ import java.io.Serializable;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 20, 2007
  */
-public class ContestConfig extends Base {
+public class RoundConfig extends Base {
     private String value;
     private Identifier id = new Identifier();
 
 
-    public Contest getContest() {
-        return id.getContest();
+    public Round getRound() {
+        return id.getRound();
     }
 
-    public void setContest(Contest contest) {
-        id.setContest(contest);
+    public void setRound(Round round) {
+        id.setRound(round);
     }
 
-    public ContestProperty getProperty() {
+    public RoundProperty getProperty() {
         return id.getProperty();
     }
 
-    public void setProperty(ContestProperty property) {
+    public void setProperty(RoundProperty property) {
         id.setProperty(property);
     }
 
@@ -42,7 +42,7 @@ public class ContestConfig extends Base {
         return id;
     }
 
-    public void setId(ContestConfig.Identifier id) {
+    public void setId(RoundConfig.Identifier id) {
         this.id = id;
     }
 
@@ -52,9 +52,9 @@ public class ContestConfig extends Base {
             return false;
         } else {
             try {
-                ContestConfig oa = (ContestConfig) o;
-                boolean sameContest = (oa.getContest().getId() == null && getContest().getId() == null) ||
-                        (oa.getContest().getId() != null && getContest().getId() != null && oa.getContest().getId().equals(getContest().getId()));
+                RoundConfig oa = (RoundConfig) o;
+                boolean sameContest = (oa.getRound().getId() == null && getRound().getId() == null) ||
+                        (oa.getRound().getId() != null && getRound().getId() != null && oa.getRound().getId().equals(getRound().getId()));
                 boolean sameProperty = (oa.getProperty().getId() == null && getProperty().getId() == null) ||
                         (oa.getProperty().getId() != null && getProperty().getId() != null && oa.getProperty().getId().equals(getProperty().getId()));
                 return sameProperty && sameContest;
@@ -67,12 +67,12 @@ public class ContestConfig extends Base {
     public int hashCode() {
         StringBuffer buf = new StringBuffer(30);
 
-        if (getContest() == null) {
+        if (getRound() == null) {
             buf.append("");
-        } else if (getContest().getId() == null) {
-            buf.append(getContest().hashCode());
+        } else if (getRound().getId() == null) {
+            buf.append(getRound().hashCode());
         } else {
-            buf.append(getContest().getId());
+            buf.append(getRound().getId());
         }
         buf.append(" ");
         if (getProperty() == null) {
@@ -87,32 +87,32 @@ public class ContestConfig extends Base {
 
     public static class Identifier implements Serializable, Cloneable {
 
-        private ContestProperty property;
-        private Contest contest;
+        private RoundProperty property;
+        private Round round;
 
         public Identifier() {
 
         }
 
-        public Identifier(ContestProperty property, Contest contest) {
+        public Identifier(RoundProperty property, Round round) {
             this.property = property;
-            this.contest = contest;
+            this.round = round;
         }
 
-        public ContestProperty getProperty() {
+        public RoundProperty getProperty() {
             return property;
         }
 
-        public void setProperty(ContestProperty property) {
+        public void setProperty(RoundProperty property) {
             this.property = property;
         }
 
-        public Contest getContest() {
-            return contest;
+        public Round getRound() {
+            return round;
         }
 
-        public void setContest(Contest contest) {
-            this.contest = contest;
+        public void setRound(Round round) {
+            this.round = round;
         }
 
 
@@ -121,9 +121,9 @@ public class ContestConfig extends Base {
                 return false;
             } else {
                 try {
-                    ContestConfig.Identifier oa = (ContestConfig.Identifier) o;
+                    RoundConfig.Identifier oa = (RoundConfig.Identifier) o;
                     return (oa.property.getId().equals(property.getId()) &&
-                            oa.contest.getId().equals(contest.getId()));
+                            oa.round.getId().equals(round.getId()));
                 } catch (ClassCastException e) {
                     return false;
                 }
@@ -134,7 +134,7 @@ public class ContestConfig extends Base {
             StringBuffer buf = new StringBuffer(100);
             buf.append(property.getId());
             buf.append(" ");
-            buf.append(contest.getId());
+            buf.append(round.getId());
             return buf.toString().hashCode();
         }
 

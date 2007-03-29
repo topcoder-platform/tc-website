@@ -38,7 +38,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                 }
                 Round round = OracleDAOUtil.getFactory().getRoundDAO().find(rid);
 
-                Integer numAdvancing = new Integer(round.getContest().getConfigMap().get(ContestProperty.NUMBER_OF_CANDIDDATE_ADVANCERS));
+                Integer numAdvancing = new Integer(round.getConfigMap().get(RoundProperty.NUMBER_OF_CANDIDDATE_ADVANCERS));
                 if (log.isDebugEnabled()) {
                     log.debug("num advancing : " + numAdvancing);
                 }
