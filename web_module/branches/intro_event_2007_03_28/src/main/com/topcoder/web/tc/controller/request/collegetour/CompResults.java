@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.collegetour;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 
@@ -8,6 +9,8 @@ import com.topcoder.shared.util.DBMS;
  */
 public class CompResults extends Base {
 
+    private static final int RESULTS_EXPIRATION_TIME = 1000 * 60 * 60;
+    
     protected void collegeTourProcessing() throws Exception {
         String ct = getRequest().getParameter("ct");
 
@@ -16,7 +19,8 @@ public class CompResults extends Base {
             r.setContentHandle("college_tour_comp_results");
             r.setProperty("ct", Long.parseLong(ct) + "");
             
-            getRequest().setAttribute("results", getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, true).getData(r).get("college_tour_comp_results"));
+            getRequest().setAttribute("results", new CachedDataAccess(RESULTS_EXPIRATION_TIME, DBMS.TCS_OLTP_DATASOURCE_NAME).
+                         getData(r).get("college_tour_comp_results"));
         }
         
         setNextPage("/collegetour/compResults.jsp");
