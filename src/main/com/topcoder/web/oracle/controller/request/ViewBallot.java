@@ -59,7 +59,12 @@ public class ViewBallot extends ShortHibernateProcessor {
 
                             }
                         } else {
-                            throw new NavigationException("Sorry, you are not registered for this round.");
+                            StringBuffer buf = new StringBuffer(50);
+                            buf.append(getSessionInfo().getServletPath());
+                            buf.append("?" + Constants.MODULE_KEY + "=ViewRegistration&");
+                            buf.append(Constants.ROUND_ID).append("=").append(round.getId());
+                            setNextPage(buf.toString());
+                            setIsNextPageInContext(false);
                         }
                     } else {
                         throw new NavigationException("Invalid round specified.");
