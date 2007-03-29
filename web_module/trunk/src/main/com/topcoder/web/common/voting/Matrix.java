@@ -80,7 +80,7 @@ public class Matrix implements Serializable {
                 }
             }
         }
-        log.debug(this.toString());
+        //log.debug(this.toString());
     }
 
     private void init(List candidates, int[][] matrix) {

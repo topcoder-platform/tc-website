@@ -213,6 +213,9 @@ public class CondorcetSchulzeElection extends Base {
             }
         }
 
+        if (log.isDebugEnabled()) {
+            log.debug("margin\n"+new Matrix(m.getCandidates(), margin).toString());
+        }
         Matrix ret = new Matrix(m.getCandidates(), strength);
         //log.debug("strength matrix: \n" + ret.toString());
         return ret;
