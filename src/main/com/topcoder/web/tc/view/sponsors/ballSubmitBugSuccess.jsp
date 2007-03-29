@@ -36,7 +36,7 @@
             <div class="fixedWidthBody">
 
 
-                <font size="+10"><blink>you submitted your prediction successfully!</blink></font>
+                <font size="+10"><blink>you submitted your bug successfully!</blink></font>
 
             </div>
         </td>
