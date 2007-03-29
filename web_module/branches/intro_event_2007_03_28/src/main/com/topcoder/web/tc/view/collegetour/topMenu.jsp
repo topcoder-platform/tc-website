@@ -6,10 +6,10 @@
 <c:set var="EID" value="<%=Constants.COLLEGE_TOUR_EVENT_ID%>" />
 <c:set var="eventId" value="<%=request.getParameter(Constants.COLLEGE_TOUR_EVENT_ID)%>" />
 <c:set var="active" value="<%=request.getParameter("active")%>" />
-ACTIVE = ${active }
+ACTIVE = ${param.active }
 <p align="center">
 	<c:choose>
-		<c:when test="${requestScope.active=='overview'}">Overview</c:when>
+		<c:when test="${active=='overview'}">Overview</c:when>
 		<c:otherwise>
 		        <A href="/tc?module=CollegeTourOverview&amp;${EID}=${eventId}">Overview</A>
 		</c:otherwise>
