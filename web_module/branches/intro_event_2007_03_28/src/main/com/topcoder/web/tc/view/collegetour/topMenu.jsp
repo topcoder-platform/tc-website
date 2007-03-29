@@ -67,12 +67,14 @@
                         <A href="/tc?module=Static&d1=collegetour&d2=belgradeCompInfo">Component Competition</A>
                 </c:otherwise>
             </c:choose>
+<!-- 
         |    <c:choose>
                 <c:when test="${active=='results'}">Results</c:when>
                 <c:otherwise>
                         <a href="/tc?module=CollegeTourCompResults&amp;${EID}=${eventId}">Results</A> 
                 </c:otherwise>
             </c:choose>
+ -->                        
         </c:when>
         <c:otherwise>
         </c:otherwise>
