@@ -40,6 +40,8 @@
 
         <ant antfile="build_tc.xml" target="deploy"/>
 
+        <ant antfile="build_oracle.xml" target="deploy-oracle"/>
+
         <antcall target="jar-classes"/>
 
         <jar destfile="topcoder.jar" update="true">
@@ -69,6 +71,11 @@
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/tcwebcommon.jar"/>
                 <include name="lib/bin/classes.jar"/>
+
+                <include name="resources/oracle/**"/>
+                <include name="resources/Oracle.properties"/>
+                <include name="build_oracle.xml"/>
+
             </fileset>
         </jar>
 
