@@ -109,10 +109,18 @@ public class CondorcetSchulzeResults implements Serializable {
             }
         }
 
+        if (log.isDebugEnabled()) {
+            log.debug("strength matrix ****************************");
+            log.debug(strengthMatrix);
+            log.debug("strength matrix ****************************");
+            log.debug("sum matrix ****************************");
+            log.debug(sumMatrix);
+            log.debug("sum matrix ****************************");
+        }
         Arrays.sort(map);
         if (log.isDebugEnabled()) {
             for (MapEntry me : map) {
-                log.debug(me.getCandidate().getId() + " " + me.getLoseCount());
+                log.debug("candidate num loses " + me.getCandidate().getId() + " " + me.getLoseCount());
             }
         }
         ArrayList results = new ArrayList(map.length);
