@@ -9,20 +9,40 @@
 <c:set var="forumId" value="<%=request.getParameter(Constants.FORUM_ID)%>" />
 
 <p align="center">
-	<c:choose>
-		<c:when test="${active=='overview'}">Overview</c:when>
-		<c:otherwise>
-		        <A href="/tc?module=CollegeTourOverview&amp;${EID}=${eventId}">Overview</A>
-		</c:otherwise>
+	<c:choose>	
+        <c:when test="${cteid==41}">
+			<c:choose>
+				<c:when test="${active=='overview'}">Overview</c:when>
+				<c:otherwise>
+				        <A href="/tc?module=Static&d1=collegetour&d2=multischool&d3=belarus">Overview</A>
+				</c:otherwise>
+			</c:choose>
+		    |
+			<c:choose>
+				<c:when test="${active=='instructions'}">Instructions</c:when>
+				<c:otherwise>
+				        <A href="/tc?module=Static&d1=collegetour&d2=multischool&d3=belarusInstructions">Instructions</A>
+				</c:otherwise>
+			</c:choose>
+		    |
+        </c:when>
+        <c:otherwise>
+			<c:choose>
+				<c:when test="${active=='overview'}">Overview</c:when>
+				<c:otherwise>
+				        <A href="/tc?module=CollegeTourOverview&amp;${EID}=${eventId}">Overview</A>
+				</c:otherwise>
+			</c:choose>
+		    |
+			<c:choose>
+				<c:when test="${active=='instructions'}">Instructions</c:when>
+				<c:otherwise>
+				        <A href="/tc?module=CollegeTourInfo&amp;${EID}=${eventId}">Instructions</A>
+				</c:otherwise>
+			</c:choose>
+		    |
+    </c:otherwise>
 	</c:choose>
-    |
-	<c:choose>
-		<c:when test="${active=='instructions'}">Instructions</c:when>
-		<c:otherwise>
-		        <A href="/tc?module=CollegeTourInfo&amp;${EID}=${eventId}">Instructions</A>
-		</c:otherwise>
-	</c:choose>
-    |
 	<c:choose>
 		<c:when test="${active=='registration'}">Registration</c:when>
 		<c:otherwise>
