@@ -9,12 +9,12 @@
     <link type="text/css" rel="stylesheet" href="/css/oracle/main.css">
     <link type="text/css" rel="stylesheet" href="/css/oracle/stats.css">
     <script language="JavaScript" type="text/javascript" src="/js/oracle/popup.js"></script>
-<script language="JavaScript" type="text/javascript"><!--
-function postToEq(myPointsBox) {
-    popUp(myPointsBox,'eqPopup');
-}
-//-->
-</script>
+    <script language="JavaScript" type="text/javascript"><!--
+    function postToEq(myPointsBox) {
+        popUp(myPointsBox,'eqPopup');
+    }
+    //-->
+    </script>
 </head>
 
 <body>
