@@ -53,6 +53,11 @@
     <tc-webtag:forumLink forumID="514541" message="Discuss"/> | Component Information |
     <a href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Results</A> 
 </p>
+<jsp:include page="topMenu.jsp">
+    <jsp:param name="cteid" value="<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>"/>
+    <jsp:param name="active" value="compinfo"/>
+    <jsp:param name="forumID" value="<%= request.getAttribute(Constants.FORUM_ID)) %>"/>    
+</jsp:include>
 
 
 <h2 align="center">University of Belgrade<br>Component Design &amp; Development<br>Competition Series</h2>

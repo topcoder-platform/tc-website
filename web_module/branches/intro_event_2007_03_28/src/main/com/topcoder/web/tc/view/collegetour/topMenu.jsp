@@ -5,8 +5,9 @@
 
 <c:set var="EID" value="<%=Constants.COLLEGE_TOUR_EVENT_ID%>" />
 <c:set var="eventId" value="<%=request.getParameter(Constants.COLLEGE_TOUR_EVENT_ID)%>" />
-<c:set var="active" value="<%=request.getParameter("active")%>" />
-ACTIVE = ${param.active }
+<c:set var="active" value="${param.active}" />
+<c:set var="forumId" value="<%=request.getParameter(Constants.FORUM_ID)%>" />
+
 <p align="center">
 	<c:choose>
 		<c:when test="${active=='overview'}">Overview</c:when>
@@ -16,27 +17,45 @@ ACTIVE = ${param.active }
 	</c:choose>
     |
 	<c:choose>
-		<c:when test="${requestScope.active=='instructions'}">Instructions</c:when>
+		<c:when test="${active=='instructions'}">Instructions</c:when>
 		<c:otherwise>
 		        <A href="/tc?module=CollegeTourInfo&amp;${EID}=${eventId}">Instructions</A>
 		</c:otherwise>
 	</c:choose>
     |
-    <a href="/tc?module=CollegeTourViewReg&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registration</A>
+	<c:choose>
+		<c:when test="${active=='registration'}">Registration</c:when>
+		<c:otherwise>
+		        <A href="/tc?module=CollegeTourViewReg&amp;${EID}=${eventId}">Registration</A>
+		</c:otherwise>
+	</c:choose>
     |
-    <a href="/tc?module=CollegeTourRegistrants&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>">Registrants</A>
-    |
-    <% if (request.getAttribute(Constants.FORUM_ID) != null) {%>
-    <tc-webtag:forumLink forumID="<%=Long.parseLong((String)request.getAttribute(Constants.FORUM_ID))%>" message="Discuss"/>
-    <% } %>
-    <c:choose>
+	<c:choose>
+		<c:when test="${active=='registrants'}">Registrants</c:when>
+		<c:otherwise>
+		        <A href="/tc?module=CollegeTourRegistrants&amp;${EID}=${eventId}">Registrants</A>
+		</c:otherwise>
+	</c:choose>
+    <c:if test="${not empty forumId}" >
+	    | <tc-webtag:forumLink forumID="${forumId }" message="Discuss"/> |
+	</c:if>
+	<c:choose>
         <c:when test="${eventId==42}">
-            | <A href="/tc?module=Static&d1=collegetour&d2=belgradeCompInfo">Component Information</A>
-            | <a href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42">Results</A> 
-            
+        
+		|	<c:choose>
+				<c:when test="${active=='compinfo'}">Component Information</c:when>
+				<c:otherwise>
+				        <A href="/tc?module=Static&d1=collegetour&d2=belgradeCompInfo">Component Information</A>
+				</c:otherwise>
+			</c:choose>
+		|	<c:choose>
+				<c:when test="${active=='results'}">Results</c:when>
+				<c:otherwise>
+				        <a href="/tc?module=CollegeTourCompResults&amp;${EID}=${eventId}">Results</A> 
+				</c:otherwise>
+			</c:choose>
         </c:when>
         <c:otherwise>
         </c:otherwise>
     </c:choose>
-
 </p>

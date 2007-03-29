@@ -66,7 +66,9 @@ INFO PAGE!
         <jsp:include page="topMenu.jsp">
 		    <jsp:param name="cteid" value="<%=request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID)%>"/>		
 		    <jsp:param name="active" value="instructions"/>
+            <jsp:param name="forumID" value="<%= request.getAttribute(Constants.FORUM_ID)) %>"/>    
 		</jsp:include>
+		
         <!-- ends -->
 
         <p>
