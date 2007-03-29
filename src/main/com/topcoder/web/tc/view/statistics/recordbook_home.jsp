@@ -126,7 +126,7 @@
             <tr valign="top">
                 <td>
                     <strong>Most Problems Best Scores</strong><br/>
-                    This chart shows the competitors that have most best scores for a problem.<br/>
+                    This chart shows the competitors that have gotten the highest score on a problem the most times.<br/>
                     <a href="/stat?c=most_best_score&amp;dn=1">Division I</a> |
                     <a href="/stat?c=most_best_score&amp;dn=2">Division II</a>
                 </td>
