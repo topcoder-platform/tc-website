@@ -98,21 +98,21 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <%-- DIGITAL RUN
+                <%-- DIGITAL RUN --%>
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
-                 --%>
+                
 
                 <%-- TCO07
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
                 --%>
 
-                <%-- Marathon Match Sponsor --%>
+                <%-- Marathon Match Sponsor
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" />
                 </map>
                 <img src="/i/home/tco07QualRd1_aol.png" alt="TCO07 Qualification Round 1 brought to you by AOL" border="0" style="display:block;" usemap="#mm"/>
-                
+                 --%>
 
                 <%-- SRM SPONSOR 
                 <map name="srm">
@@ -248,21 +248,22 @@
             <A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies"><img src="/i/home/tccc06webcast20060108.jpg" alt="TCCC Webcast" border="0" style="display:block;"/></A>
             --%>
 
-            <%-- Marathon Match Sponsor
-           <map name="mm">
-           <area shape="rect" alt="" coords="1,1,264,95" href="/longcontest/?module=ViewActiveContests" />
-           <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign" />
-           </map>
-           <img src="/i/home/mmtco2_verisign.png" alt="TCO07 Marathon Match 2 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
-            --%>
+            <%-- Marathon Match Sponsor --%>
+                <map name="mm">
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" />
+                </map>
+                <img src="/i/home/tco07QualRd1_aol.png" alt="TCO07 Qualification Round 1 brought to you by AOL" border="0" style="display:block;" usemap="#mm"/>
+                
 
-            <%-- SRM SPONSOR --%>
+            <%-- SRM SPONSOR
             <map name="srm">
             <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10668" />
             <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw" />
             </map>
             <img src="/i/home/srm344_drw.png" alt="SRM 344 brought to you by DRW" border="0" style="display:block;" usemap="#srm"/>
-            
+             --%>
+             
             <%-- TCO07 
             <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
             --%>
