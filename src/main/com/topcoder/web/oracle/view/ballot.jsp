@@ -138,7 +138,11 @@ function findParent(element, parentTagName) {
  function submit() {
     var candidates = '';
     var list = document.getElementById("selectedCandidates").getElementsByTagName("li");
-     if (list.length<${maxCandidates} && confirm("Are you sure you want to submit without selecting ${maxCandidates} candidates?")) {
+     if (list.length<${maxCandidates}) {
+         if (!confirm("Are you sure you want to submit without selecting ${maxCandidates} candidates?")) {
+            return;
+         }
+     }
          for (var i = 0; i < list.length; i++) {
              if (i < list.length - 1) {
                  candidates += list[i].id + ",";
@@ -148,7 +152,6 @@ function findParent(element, parentTagName) {
          }
          document.ballotForm.<%=Constants.CANDIDATE_IDS%>.value = candidates;
          document.ballotForm.submit();
-     }
 }
 
 //-->
