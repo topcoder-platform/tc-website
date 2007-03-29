@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>03.29.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="tc?module=Static&d1=features&d2=032907">A Crash Course in Relational Databases, Part 2</A></span><br><br>
+With the information in the first part of this article, you should have been able to get your own Oracle Express Edition database up and running, and update it with TopCoder's active algorithm competitor data. In Part 2, we'll look at more of the key concepts and terms that will help you manage and maintain your database.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/dcp_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21684580" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="tc?module=Static&d1=features&d2=032907">full story</A> | 
+        <tc-webtag:forumLink forumID="514866" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.29.07<br>11:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -127,7 +144,7 @@
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>03.26.07<br>2:10 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="tc?module=Static&d1=features&d2=032607">A Crash Course in Relational Databases, Part I</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="tc?module=Static&d1=features&d2=032607">A Crash Course in Relational Databases, Part 1</A></span><br><br>
 If you have been involved with computer science for any length of time, you have probably heard the term "relational database," but you might not have had the opportunity to actually work with this type of technology. Using TopCoder's algorithm competition data as an example, this article will give you an overview of database basics and a better understanding of the key components of relational databases. 
         </td>
       <td class="newsPhoto"><img src="/i/m/dcp_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21684580" context="algorithm"/></td></tr></table>
@@ -185,22 +202,5 @@ If you have been involved with computer science for any length of time, you have
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Gamma">full story</A> | 
         <tc-webtag:forumLink forumID="514495" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>03.22.07<br>1:35 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="tc?module=Static&d1=features&d2=032207">The Last 20 Feet</A></span><br><br>
-For a few years now, there has been plenty of buzz about the "last mile problem," the final leg of communications connectivity between service provider backbones and the end customer. Whether or not "last mile" connectivity is an issue, we all have to figure out the best possible path for the most important of it -- the last twenty feet. 
-        </td>
-      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="tc?module=Static&d1=features&d2=032207">full story</A> | 
-        <tc-webtag:forumLink forumID="514812" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    

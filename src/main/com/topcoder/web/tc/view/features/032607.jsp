@@ -60,7 +60,7 @@
     <tc-webtag:forumLink forumID="514866" message="Discuss this article" />
 </div>
 
-<span class="bigTitle">A Crash Course in Relational Databases, Part I</span>
+<span class="bigTitle">A Crash Course in Relational Databases, Part 1</span>
 <br /><br />
 
 <div class="authorPhoto">
