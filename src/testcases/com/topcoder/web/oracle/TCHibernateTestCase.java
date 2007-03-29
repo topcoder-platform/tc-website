@@ -13,13 +13,9 @@ public class TCHibernateTestCase extends TestCase {
     protected static final Logger log = Logger.getLogger(TCHibernateTestCase.class);
 
     public void tearDown() {
-        try {
             HibernateUtils.getSession().flush();
             HibernateUtils.commit();
             HibernateUtils.close();
-        } catch (Throwable e) {
-            log.error("bad stuff", e);
-        }
     }
 
     public void setUp() {

@@ -18,6 +18,7 @@ public class Round extends Base {
     private RoundStatus status;
     private Set<Prediction> predictions;
     private Set<RoundConfig> config;
+    private Set<RoundPhase> phases;
 
 
     public Round() {
@@ -25,6 +26,7 @@ public class Round extends Base {
         rooms = new HashSet<Room>();
         config = new HashSet<RoundConfig>();
         predictions = new HashSet<Prediction>();
+        phases = new HashSet<RoundPhase>();
     }
 
 
@@ -120,8 +122,8 @@ public class Round extends Base {
     }
 
     /**
-     * Add a piece of configuration information to this contest
-     * and make the association between that object and this contest
+     * Add a piece of configuration information to this round
+     * and make the association between that object and this round
      *
      * @param config the config info to add
      */
@@ -139,4 +141,40 @@ public class Round extends Base {
         return m;
     }
 
+
+    public Set<RoundPhase> getPhases() {
+        return phases;
+    }
+
+    public void setPhases(Set<RoundPhase> phases) {
+        this.phases = phases;
+    }
+
+    /**
+     * Add a phase to this round
+     * and make the association between that object and this round
+     *
+     * @param phase the phase to add
+     */
+    public void addPhase(RoundPhase phase) {
+        phase.setRound(this);
+        phases.add(phase);
+    }
+
+    public Map<Integer, RoundPhase> getPhaseMap() {
+        HashMap<Integer, RoundPhase> ret = new HashMap<Integer, RoundPhase>();
+        for (RoundPhase rp : phases) {
+            ret.put(rp.getPhase().getId(), rp);
+        }
+        return ret;
+    }
+
+    public RoundPhase getPhase(Integer phaseId) {
+        for (RoundPhase rp : phases) {
+            if (rp.getPhase().getId().equals(phaseId)) {
+                return rp;
+            }
+        }
+        return null;
+    }
 }
