@@ -57,11 +57,10 @@
 		</c:otherwise>
 	</c:choose>
     <c:if test="${not empty forumId}" >
-	    | <tc-webtag:forumLink forumID="${forumId }" message="Discuss"/> |
+	    | <tc-webtag:forumLink forumID="${forumId }" message="Discuss"/> 
 	</c:if>
 	<c:choose>
-        <c:when test="${eventId==42}">
-        
+        <c:when test="${eventId==42}">        
 		|	<c:choose>
 				<c:when test="${active=='compinfo'}">Component Information</c:when>
 				<c:otherwise>
