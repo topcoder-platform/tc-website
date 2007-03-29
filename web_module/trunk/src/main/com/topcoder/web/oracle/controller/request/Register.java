@@ -40,6 +40,15 @@ public class Register extends ViewRegistration {
             rReg.setTerms(DAOUtil.getFactory().getTermsOfUse().find(Constants.CONTEST_TERMS_OF_USE_ID));
 
             OracleDAOUtil.getFactory().getRoundRegistrationDAO().saveOrUpdate(rReg);
+
+            StringBuffer buf = new StringBuffer(50);
+            buf.append(getSessionInfo().getServletPath());
+            buf.append("?" + Constants.MODULE_KEY + "=ViewBallot&");
+            buf.append(Constants.ROUND_ID).append("=").append(round.getId());
+            setNextPage(buf.toString());
+            setIsNextPageInContext(false);
+
+
         }
 
     }
