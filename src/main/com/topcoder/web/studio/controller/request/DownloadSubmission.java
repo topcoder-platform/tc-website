@@ -97,7 +97,18 @@ public class DownloadSubmission extends Base {
                         log.debug("7");
                         getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
                         getResponse().setContentType(s.getMimeType().getDescription());
-                        ImageIO.write(scaled, s.getMimeType().getDescription(), getResponse().getOutputStream());
+
+                        String format=null;
+                        Integer fileType = s.getMimeType().getFileType().getId();
+
+                        switch (fileType) {
+                            case 10: format = "gif"; break;
+                            case 9: format="jpeg"; break;
+                            case 11: format="png"; break;
+                            case 12: format="bmp"; break;
+                        }
+
+                        ImageIO.write(scaled, format, getResponse().getOutputStream());
                         log.debug("8");
                         done = true;
                     }
