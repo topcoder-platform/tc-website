@@ -53,6 +53,7 @@ public class SubmitBallBug extends ShortHibernateProcessor {
             msgText.append("\n\n");
             msgText.append("Thank you,\n");
             msgText.append(u.getFirstName()).append(" ").append(u.getLastName()).append(" aka ").append(u.getHandle());
+            msgText.append("\n\n");
             msgText.append("PS  Where's my T-Shirt?\n\n");
 
 
