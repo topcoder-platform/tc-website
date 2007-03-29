@@ -27,7 +27,7 @@
 
 
 <div align="center">
-    < prev</A>
+    <A href="#">< prev</A>
     | <A href="#">next ></A>
     <!-- line container: only show for 3 or more pages -->
     <div style="position: relative; width: 600px; margin: 20px 0px 40px 0px;">
@@ -106,7 +106,7 @@
             </div>
             <span class="pointsBox" style="color:#00CC00;" onmouseover="postToEq(this)" onMouseOut="popHide()">
                 65535
-            </div>
+            </span>
         </td>
 
         <td class="valueC">
@@ -282,7 +282,7 @@
         <div class="markerText" style="bottom: 10px; left: 60px;">Page <strong>2</strong> of <strong>7</strong></div>
         <img src="/i/oracle/interface/line.png" alt="" style="display: block;" />
     </div>
-    < prev</A>
+    <A href="#">< prev</A>
     | <A href="#">next ></A>
 </div>
 
