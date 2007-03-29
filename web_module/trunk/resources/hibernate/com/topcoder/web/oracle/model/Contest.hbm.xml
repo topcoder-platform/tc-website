@@ -20,10 +20,6 @@
         <!--
                 <property name="forumId" column="forum_id"/>
         -->
-        <set name="config" cascade="save-update" inverse="true" outer-join="true">
-            <key column="contest_id" not-null="true"/>
-            <one-to-many class="ContestConfig"/>
-        </set>
         <set name="prizes" table="oracle_oltp:contest_prize_xref" cascade="all" sort="natural">
             <key column="contest_id" not-null="true"/>
             <many-to-many column="prize_id" class="Prize"/>

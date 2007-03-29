@@ -25,6 +25,10 @@
             <key column="round_id" not-null="true"/>
             <one-to-many class="Prediction"/>
         </set>
+        <set name="config" cascade="save-update" inverse="true" outer-join="true">
+            <key column="round_id" not-null="true"/>
+            <one-to-many class="RoundConfig"/>
+        </set>
 
         <many-to-one name="contest" column="contest_id" class="Contest"/>
         <many-to-one name="status" column="round_status_id" class="RoundStatus"/>
