@@ -1,7 +1,10 @@
 package com.topcoder.web.common.voting;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.model.User;
 import junit.framework.TestCase;
+
+import java.util.ArrayList;
 
 
 /**
@@ -29,6 +32,242 @@ public class CondorcetSchulzeTestCase extends TestCase {
      */
     public void tearDown() {
     }
+
+    public void testSet1() {
+        ArrayList<Candidate> cans = new ArrayList<Candidate>();
+        Candidate a = new Candidate();
+        a.setName("A");
+        cans.add(a);
+        Candidate r = new Candidate();
+        r.setName("R");
+        cans.add(r);
+        Candidate s = new Candidate();
+        s.setName("S");
+        cans.add(s);
+        Candidate t = new Candidate();
+        t.setName("T");
+        cans.add(t);
+
+
+        CondorcetSchulzeElection cs = new CondorcetSchulzeElection();
+        cs.getCandidates().addAll(cans);
+        User u;
+        for (int i = 0; i < 3; i++) {
+            RankBallot ballot = new RankBallot();
+            u = new User();
+            u.setHandle("user " + i);
+            ballot.setElection(cs);
+            ballot.setUser(u);
+
+            Vote v1 = new Vote();
+            v1.setRank(1);
+            v1.getId().setCandidate(a);
+            v1.getId().setBallot(ballot);
+            ballot.getVotes().add(v1);
+
+            Vote v2 = new Vote();
+            v2.setRank(2);
+            v2.getId().setCandidate(r);
+            v2.getId().setBallot(ballot);
+            ballot.getVotes().add(v2);
+
+            Vote v3 = new Vote();
+            v3.setRank(3);
+            v3.getId().setCandidate(s);
+            v3.getId().setBallot(ballot);
+            ballot.getVotes().add(v3);
+
+            Vote v4 = new Vote();
+            v4.setRank(4);
+            v4.getId().setCandidate(t);
+            v4.getId().setBallot(ballot);
+            ballot.getVotes().add(v4);
+
+            cs.getBallots().add(ballot);
+        }
+
+        for (int i = 0; i < 2; i++) {
+            RankBallot ballot = new RankBallot();
+            u = new User();
+            u.setHandle("user1 " + i);
+            ballot.setElection(cs);
+            ballot.setUser(u);
+
+            Vote v1 = new Vote();
+            v1.setRank(1);
+            v1.getId().setCandidate(a);
+            v1.getId().setBallot(ballot);
+            ballot.getVotes().add(v1);
+
+            Vote v2 = new Vote();
+            v2.setRank(2);
+            v2.getId().setCandidate(t);
+            v2.getId().setBallot(ballot);
+            ballot.getVotes().add(v2);
+
+            Vote v3 = new Vote();
+            v3.setRank(3);
+            v3.getId().setCandidate(r);
+            v3.getId().setBallot(ballot);
+            ballot.getVotes().add(v3);
+
+            Vote v4 = new Vote();
+            v4.setRank(4);
+            v4.getId().setCandidate(s);
+            v4.getId().setBallot(ballot);
+            ballot.getVotes().add(v4);
+
+            cs.getBallots().add(ballot);
+        }
+
+        for (int i = 0; i < 1; i++) {
+            RankBallot ballot = new RankBallot();
+            u = new User();
+            u.setHandle("user2 " + i);
+            ballot.setElection(cs);
+            ballot.setUser(u);
+
+            Vote v1 = new Vote();
+            v1.setRank(1);
+            v1.getId().setCandidate(a);
+            v1.getId().setBallot(ballot);
+            ballot.getVotes().add(v1);
+
+            Vote v2 = new Vote();
+            v2.setRank(2);
+            v2.getId().setCandidate(s);
+            v2.getId().setBallot(ballot);
+            ballot.getVotes().add(v2);
+
+            Vote v3 = new Vote();
+            v3.setRank(3);
+            v3.getId().setCandidate(t);
+            v3.getId().setBallot(ballot);
+            ballot.getVotes().add(v3);
+
+            Vote v4 = new Vote();
+            v4.setRank(4);
+            v4.getId().setCandidate(r);
+            v4.getId().setBallot(ballot);
+            ballot.getVotes().add(v4);
+
+            cs.getBallots().add(ballot);
+        }
+
+        for (int i = 0; i < 3; i++) {
+            RankBallot ballot = new RankBallot();
+            u = new User();
+            u.setHandle("user3 " + i);
+            ballot.setElection(cs);
+            ballot.setUser(u);
+
+            Vote v1 = new Vote();
+            v1.setRank(1);
+            v1.getId().setCandidate(s);
+            v1.getId().setBallot(ballot);
+            ballot.getVotes().add(v1);
+
+            Vote v2 = new Vote();
+            v2.setRank(2);
+            v2.getId().setCandidate(t);
+            v2.getId().setBallot(ballot);
+            ballot.getVotes().add(v2);
+
+            Vote v3 = new Vote();
+            v3.setRank(3);
+            v3.getId().setCandidate(r);
+            v3.getId().setBallot(ballot);
+            ballot.getVotes().add(v3);
+
+            Vote v4 = new Vote();
+            v4.setRank(4);
+            v4.getId().setCandidate(a);
+            v4.getId().setBallot(ballot);
+            ballot.getVotes().add(v4);
+
+            cs.getBallots().add(ballot);
+        }
+
+
+        for (int i = 0; i < 2; i++) {
+            RankBallot ballot = new RankBallot();
+            u = new User();
+            u.setHandle("user3 " + i);
+            ballot.setElection(cs);
+            ballot.setUser(u);
+
+            Vote v1 = new Vote();
+            v1.setRank(1);
+            v1.getId().setCandidate(r);
+            v1.getId().setBallot(ballot);
+            ballot.getVotes().add(v1);
+
+            Vote v2 = new Vote();
+            v2.setRank(2);
+            v2.getId().setCandidate(s);
+            v2.getId().setBallot(ballot);
+            ballot.getVotes().add(v2);
+
+            Vote v3 = new Vote();
+            v3.setRank(3);
+            v3.getId().setCandidate(t);
+            v3.getId().setBallot(ballot);
+            ballot.getVotes().add(v3);
+
+            Vote v4 = new Vote();
+            v4.setRank(4);
+            v4.getId().setCandidate(a);
+            v4.getId().setBallot(ballot);
+            ballot.getVotes().add(v4);
+
+            cs.getBallots().add(ballot);
+        }
+
+                for (int i = 0; i < 3; i++) {
+            RankBallot ballot = new RankBallot();
+            u = new User();
+            u.setHandle("user3 " + i);
+            ballot.setElection(cs);
+            ballot.setUser(u);
+
+            Vote v1 = new Vote();
+            v1.setRank(1);
+            v1.getId().setCandidate(t);
+            v1.getId().setBallot(ballot);
+            ballot.getVotes().add(v1);
+
+            Vote v2 = new Vote();
+            v2.setRank(2);
+            v2.getId().setCandidate(r);
+            v2.getId().setBallot(ballot);
+            ballot.getVotes().add(v2);
+
+            Vote v3 = new Vote();
+            v3.setRank(3);
+            v3.getId().setCandidate(s);
+            v3.getId().setBallot(ballot);
+            ballot.getVotes().add(v3);
+
+            Vote v4 = new Vote();
+            v4.setRank(4);
+            v4.getId().setCandidate(a);
+            v4.getId().setBallot(ballot);
+            ballot.getVotes().add(v4);
+
+            cs.getBallots().add(ballot);
+
+                    CondorcetSchulzeResults csr = new CondorcetSchulzeResults(cs);
+                    int[][] ret = new int[][]{
+                            {-1, 6, 6, 6},
+                            {6, -1, 8, 5},
+                            {6, 4, -1, 9},
+                            {6, 7, 3, -1}};
+                    assertTrue("incorrect sum matrix", new Matrix(cans, ret).equals(cs.getSumMatrix()));
+                    assertFalse("did not get a tie and should have", csr.hasSingleWinner());
+        }
+
+    }
+
 
 /*
 
