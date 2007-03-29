@@ -12,11 +12,11 @@
                     <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm</property>
                     <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
 -->
-
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/ORACLE_OLTP</property>
         <!-- SQL dialect -->
+
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
         <property name="current_session_context_class">com.topcoder.web.common.ExtendedThreadLocalSessionContext</property>
 
@@ -96,6 +96,7 @@
         <mapping resource="com/topcoder/web/oracle/model/ContestStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/ContestType.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Prediction.hbm.xml"/>
+        <mapping resource="com/topcoder/web/oracle/model/Phase.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Prize.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/PrizeType.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Room.hbm.xml"/>
@@ -103,6 +104,7 @@
         <mapping resource="com/topcoder/web/oracle/model/Round.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoundConfig.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoundProperty.hbm.xml"/>
+        <mapping resource="com/topcoder/web/oracle/model/RoundPhase.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoundStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoundRegistration.hbm.xml"/>
 
