@@ -60,7 +60,7 @@ public class Matrix implements Serializable {
         for (int i = 0; i < votes.length; i++) {
             voteIndex.add(votes[i].getId().getCandidate());
         }
-        log.debug(voteIndex.toString());
+        //log.debug(voteIndex.toString());
 
         Candidate c;
         for (int i = 0; i < votes.length; i++) {
