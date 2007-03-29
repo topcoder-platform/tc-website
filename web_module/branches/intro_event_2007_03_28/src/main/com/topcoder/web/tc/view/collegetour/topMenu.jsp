@@ -7,7 +7,7 @@
 <c:set var="eventId" value="<%=request.getParameter(Constants.COLLEGE_TOUR_EVENT_ID)%>" />
 <c:set var="active" value="${param.active}" />
 <c:set var="forumId" value="<%=request.getParameter(Constants.FORUM_ID)%>" />
-FORUM_ID = ${forumId }
+FORUM_ID = ${forumId }, ${empty forumId }, ${forumId =='null' }
 <p align="center">
 	<c:choose>	
         <c:when test="${cteid==41}">
