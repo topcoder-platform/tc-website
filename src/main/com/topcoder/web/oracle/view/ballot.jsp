@@ -139,7 +139,8 @@ function findParent(element, parentTagName) {
     var candidates = '';
     var list = document.getElementById("selectedCandidates").getElementsByTagName("li");
      if (list.length<${maxCandidates}) {
-         if (!confirm("Are you sure you want to submit without selecting ${maxCandidates} candidates?")) {
+         var confirmed = confirm("Are you sure you want to submit without selecting ${maxCandidates} candidates?");
+         if (!confirmed) {
             return false;
          }
      }
