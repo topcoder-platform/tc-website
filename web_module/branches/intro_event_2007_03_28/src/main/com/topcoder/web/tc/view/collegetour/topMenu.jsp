@@ -5,7 +5,7 @@
 
 <c:set var="EID" value="<%=Constants.COLLEGE_TOUR_EVENT_ID%>" />
 <c:set var="eventId" value="<%=request.getParameter(Constants.COLLEGE_TOUR_EVENT_ID)%>" />
-
+ACTIVE = ${active }
 <p align="center">
 	<c:choose>
 		<c:when test="${active=='overview'}">Overview</c:when>
