@@ -1,5 +1,7 @@
 package com.topcoder.web.common.voting;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ import java.util.Set;
  */
 public class CondorcetSchulzeResults implements Serializable {
 
+    private static final Logger log = Logger.getLogger(CondorcetSchulzeResults.class);
     private Matrix strengthMatrix;
     private Set candidates;
     private List results;
@@ -107,6 +110,11 @@ public class CondorcetSchulzeResults implements Serializable {
         }
 
         Arrays.sort(map);
+        if (log.isDebugEnabled()) {
+            for (MapEntry me : map) {
+                log.debug(me.getCandidate().getId() + " " + me.getLoseCount());
+            }
+        }
         ArrayList results = new ArrayList(map.length);
         int lastLoses = -1;
         int rank = 0;
