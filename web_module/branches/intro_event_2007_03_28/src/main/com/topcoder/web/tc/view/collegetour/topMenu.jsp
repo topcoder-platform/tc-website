@@ -56,7 +56,7 @@ FORUM_ID = ${forumId }
 		        <A href="/tc?module=CollegeTourRegistrants&amp;${EID}=${eventId}">Registrants</A>
 		</c:otherwise>
 	</c:choose>
-    <c:if test="${not empty forumId}" >
+    <c:if test="${not forumId='null'}" >
 	    | <tc-webtag:forumLink forumID="${forumId }" message="Discuss"/> 
 	</c:if>
 	<c:choose>
