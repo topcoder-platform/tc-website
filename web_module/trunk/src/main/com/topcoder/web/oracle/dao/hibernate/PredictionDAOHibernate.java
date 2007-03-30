@@ -41,13 +41,16 @@ public class PredictionDAOHibernate extends Base implements PredictionDAO {
         return !l.isEmpty();
     }
 
-    public List<Prediction> getPredictions(Integer roundId) {
+    public List<Prediction> getPredictions(Long userId, Integer roundId) {
         StringBuffer query = new StringBuffer(100);
         query.append(" from com.topcoder.web.oracle.model.Prediction p");
         query.append(" where p.round.id = ?");
+        query.append(" where p.round.id = ?");
+        query.append(  " and p.user.id = ?");
         query.append(" order by value asc");
         Query q = session.createQuery(query.toString());
         q.setInteger(0, roundId);
+        q.setLong(1, userId);
         List res = q.list();
         ArrayList<Prediction> ret = new ArrayList<Prediction>(res.size());
         for (Object aL : res) {
@@ -56,7 +59,7 @@ public class PredictionDAOHibernate extends Base implements PredictionDAO {
         return ret;
     }
 
-    public List<Prediction> getPredictions(Round r) {
-        return getPredictions(r.getId());
+    public List<Prediction> getPredictions(User u, Round r) {
+        return getPredictions(u.getId(), r.getId());
     }
 }
