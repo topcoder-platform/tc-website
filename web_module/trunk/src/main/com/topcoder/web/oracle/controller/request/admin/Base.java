@@ -66,7 +66,7 @@ abstract class Base extends ShortHibernateProcessor {
         if (round == null) {
             throw new IllegalArgumentException("null round specified");
         }
-        loadGeneralEditContestData();
+        loadGeneralEditRoundData();
         getRequest().setAttribute("round", round);
 
 
