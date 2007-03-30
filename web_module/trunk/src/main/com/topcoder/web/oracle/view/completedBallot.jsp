@@ -41,13 +41,13 @@
             <div align="center" style="margin: 40px 0px 100px 0px;">
                 <p align="center">You have already made your prediction for this contest.<br>Here it is:</p>
 
-                <div class="selectedContainer" style="width: 305px;">
+                <div class="selectedContainer" style="width: 305px; border: 1px solid green;">
                     <img src="/i/oracle/interface/meterBest.png" alt=""
                          style="position: absolute; top: 0px; left: -30px;">
                     <img src="/i/oracle/interface/meterWorst.png" alt=""
                          style="position: absolute; top: 0px; right: -30px;">
 
-                    <ul id="selectedCandidates" class="imageLineup" style="margin: 0px; float: left; clear: both;">
+                    <ul id="selectedCandidates" class="imageLineup" style="margin: 0px; float: left;">
 
                         <c:set value="<%=CandidateProperty.IMAGE_SOURCE%>" var="imageSource"/>
                         <c:set value="<%=CandidateProperty.DOWNLOAD_URL%>" var="downloadUrl"/>
