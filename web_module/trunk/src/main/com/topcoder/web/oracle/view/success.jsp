@@ -19,7 +19,12 @@
                 <h1>Thank you!</h1>
 
                 <div align="center" style="margin: 40px 0px 100px 0px;">
-                Thank you for competing.
+                    <p>
+                    Thank you for competing.
+                    </p>
+                    <p>
+                    <A href="/">Back to TopCoder homepage</A>
+                    </p>
                 </div>
 
 
