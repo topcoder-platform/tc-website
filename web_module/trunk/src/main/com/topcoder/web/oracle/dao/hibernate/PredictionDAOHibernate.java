@@ -45,7 +45,6 @@ public class PredictionDAOHibernate extends Base implements PredictionDAO {
         StringBuffer query = new StringBuffer(100);
         query.append(" from com.topcoder.web.oracle.model.Prediction p");
         query.append(" where p.round.id = ?");
-        query.append(" where p.round.id = ?");
         query.append(  " and p.user.id = ?");
         query.append(" order by value asc");
         Query q = session.createQuery(query.toString());
