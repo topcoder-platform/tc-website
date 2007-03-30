@@ -4,6 +4,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.30.07<br>5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Qualification Round 2 set for March 31</A></span><br><br>
+        Qualification Round 2 of the TCO07 Algorithm Competition, brought to you by AOL, is set for 1:00 PM EDT on March 31.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">full story</A> | 
+        <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.30.07<br>10:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -197,21 +215,5 @@ If you have been involved with computer science for any length of time, you have
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolChat20070314">full story</A> | 
         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.23.07<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm343">SRM 343 - Problem Set & Analysis</A></span><br><br>
-        In one of the final warmups before TCO qualifications, 1127 competitors showed up to battle it out in SRM 343.  In Division 1, competitors were greeted with a reasonable easy problem.  Shortly thereafter, the points began to fly.</td>
-      <td class="newsPhoto"><!-- <img src="/i/m/Kawigi_big.jpg" alt="" width="55" height="61"/><br>-->by <tc-webtag:handle coderId="7296000" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm343">full story</A> | 
-        <tc-webtag:forumLink forumID="506233" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
