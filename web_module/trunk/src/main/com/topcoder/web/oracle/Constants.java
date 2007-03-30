@@ -18,7 +18,14 @@ public class Constants implements WebConstants {
     private static final TCResourceBundle bundle = new TCResourceBundle("Oracle");
     private static final Logger log = Logger.getLogger(Constants.class);
 
+    public static final String ROUND_STATUS_ID = "rdstid";
+    public static final String ROUND_PROPERTY = "rdprop";
+
     public static int CONTEST_TERMS_OF_USE_ID;
+
+    public static int MAX_CONTEST_NAME_LENGTH;
+    public static String JS_DATE_FORMAT;
+    public static String JAVA_DATE_FORMAT;
 
 
     public static String DEFAULT_PAGE;
