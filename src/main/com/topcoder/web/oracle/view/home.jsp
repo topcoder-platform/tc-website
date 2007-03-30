@@ -40,9 +40,9 @@
         Founder and Chairman, TopCoder, Inc.</em>
         </p>
 
-        <div align="center">
-        <A href="?module=ViewBallot&rd=2192" class="button" style="width: 80px;">Test contest</A>
-        </div>
+        <p align="center" style="margin: 20px;">
+        <strong>Predict the winners of the <A href="?module=ViewBallot&rd=2192">TopCoder Homepage Design Contest</A></strong>
+        </p>
 
         <jsp:include page="foot.jsp"/>
         </div>
