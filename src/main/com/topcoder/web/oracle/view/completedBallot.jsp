@@ -53,7 +53,7 @@
                                     <A target="_blank" href="${prediction.candidate.infoMap[downloadUrl]}"><img src="/i/oracle/interface/disk.png" alt="DL"/></A>
                                 </div>
                             </c:if>
-                            <img class="small" name="candidateImage" src="${predition.candidate.infoMap[imageSource]}" alt="" onclick="select(this)" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()"/>
+                            <img class="small" name="candidateImage" src="${prediction.candidate.infoMap[imageSource]}" alt="" onclick="select(this)" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()"/>
                         </li>
                     </c:forEach>
 
