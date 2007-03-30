@@ -21,7 +21,7 @@ public class SubmissionDownloaderUtil {
     //save as submission_id.file extension
 
     public static void main(String[] args) {
-        if (args.length==0 || args[0] == null) {
+        if (args.length == 0 || args[0] == null) {
             System.out.println("Need to provide a contest id");
             System.exit(1);
         }
@@ -55,9 +55,9 @@ public class SubmissionDownloaderUtil {
         }
 
 
-        PreparedStatement ps=null;
-        Connection conn=null;
-        ResultSet rs=null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        ResultSet rs = null;
         try {
             conn = new InformixSimpleDataSource(new TCResourceBundle("DBMS").getProperty("STUDIO_CONNECT_STRING")).getConnection();
             ps = conn.prepareStatement(query);
@@ -68,37 +68,26 @@ public class SubmissionDownloaderUtil {
             String ext;
             while (rs.next()) {
                 ext = rs.getString("original_file_name").substring(rs.getString("original_file_name").lastIndexOf('.'));
-                destFile = new File(destDir.getPath() +System.getProperty("file.separator")+ rs.getInt("submission_id") + ext);
+                destFile = new File(destDir.getPath() + System.getProperty("file.separator") + rs.getInt("submission_id") + ext);
                 sourceFile = new File(rs.getString("path") + rs.getString("system_file_name"));
-
                 try {
 
 
-                            InputStream in = new FileInputStream(sourceFile);
-        OutputStream out = new FileOutputStream(destFile);
+                    InputStream in = new FileInputStream(sourceFile);
+                    OutputStream out = new FileOutputStream(destFile);
 
-        // Transfer bytes from in to out
-        byte[] buf = new byte[1024];
-        int len;
-        while ((len = in.read(buf)) > 0) {
-            out.write(buf, 0, len);
-        }
-        in.close();
-        out.close();
-
-/*
-                    FileReader in = new FileReader(sourceFile);
-                    FileWriter out = new FileWriter(destFile);
-                    int c;
-
-                    while ((c = in.read()) != -1)
-                        out.write(c);
-
+                    // Transfer bytes from in to out
+                    byte[] buf = new byte[1024];
+                    int len;
+                    while ((len = in.read(buf)) > 0) {
+                        out.write(buf, 0, len);
+                    }
                     in.close();
                     out.close();
-*/
+                    System.out.println(rs.getInt("submission_id") + ext);
+
                 } catch (Throwable e) {
-                    System.out.println("failed on submission " + rs.getInt("submission_id") + " "  + sourceFile.getAbsolutePath());
+                    System.out.println("failed on submission " + rs.getInt("submission_id") + " " + sourceFile.getAbsolutePath());
                     //throw e;
                 }
 
