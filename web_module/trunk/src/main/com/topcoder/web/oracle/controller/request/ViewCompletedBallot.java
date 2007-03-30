@@ -77,6 +77,7 @@ public class ViewCompletedBallot extends ShortHibernateProcessor {
                     //load up the data
                     getRequest().setAttribute("predictions",
                             OracleDAOUtil.getFactory().getPredictionDAO().getPredictions(u, round));
+                    getRequest().setAttribute("round", round);
                     setNextPage("/completedBallot.jsp");
                     setIsNextPageInContext(true);
                 } else {
