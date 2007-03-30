@@ -70,20 +70,25 @@ public class SubmissionDownloaderUtil {
                 destFile = new File(destDir.getPath() +System.getProperty("file.separator")+ rs.getInt("submission_id") + ext);
                 sourceFile = new File(rs.getString("path") + rs.getString("system_file_name"));
 
-                FileReader in = new FileReader(sourceFile);
-                FileWriter out = new FileWriter(destFile);
-                int c;
+                try {
+                    FileReader in = new FileReader(sourceFile);
+                    FileWriter out = new FileWriter(destFile);
+                    int c;
 
-                while ((c = in.read()) != -1)
-                    out.write(c);
+                    while ((c = in.read()) != -1)
+                        out.write(c);
 
-                in.close();
-                out.close();
+                    in.close();
+                    out.close();
+                } catch (Throwable e) {
+                    System.out.println("file " + sourceFile.getAbsolutePath());
+                    throw e;
+                }
 
 
             }
 
-        } catch (Exception e) {
+        } catch (Throwable e) {
             e.printStackTrace();
             System.exit(1);
         } finally {
