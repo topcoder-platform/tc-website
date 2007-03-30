@@ -41,8 +41,8 @@ public class ViewBallot extends ShortHibernateProcessor {
                             if (OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(getUser().getId(), round.getId())) {
                                 StringBuffer buf = new StringBuffer(50);
                                 buf.append(getSessionInfo().getServletPath());
-                                buf.append("?" + Constants.MODULE_KEY + "=Static&");
-                                buf.append(Constants.STATIC_PREFIX).append("1=success");
+                                buf.append("?" + Constants.MODULE_KEY + "=ViewCompletedBallot&");
+                                buf.append(Constants.ROUND_ID).append("=").append(round.getId());
                                 setNextPage(buf.toString());
                                 setIsNextPageInContext(false);
                             } else {
