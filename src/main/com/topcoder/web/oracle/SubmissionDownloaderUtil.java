@@ -81,8 +81,8 @@ public class SubmissionDownloaderUtil {
                     in.close();
                     out.close();
                 } catch (Throwable e) {
-                    System.out.println("file " + sourceFile.getAbsolutePath());
-                    throw e;
+                    System.out.println("failed on submission " + rs.getInt("submission_id") + " "  + sourceFile.getAbsolutePath());
+                    //throw e;
                 }
 
 
