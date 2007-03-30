@@ -34,15 +34,18 @@ public class SubmissionDownloaderUtil {
         }
 
         final String query =
-                "  select p.path " +
-                        " , s.original_file_name" +
-                        " , s.system_file_name " +
+                "  select p.path \n" +
+                        ", s.original_file_name" +
+                        ", s.system_file_name " +
                         " , s.submission_id" +
-                        " from submission s, path p, submission_review sr " +
-                        " where s.path_id = p.path_id" +
-                        " and s.contest_id = ?" +
-                        " and sr.submission_id = s.submission_id " +
-                        " and sr.review_status_id = 1";
+                        "          from submission s" +
+                        "             , submission_review sr " +
+                        "             , path p" +
+                        "         where sr.submission_id = s.submission_id " +
+                        "and s.path_id = p.path_id" +
+                        "           and sr.review_status_id = 1" +
+                        "           and s.rank <= (case when (select count(*) from contest_config where contest_id = s.contest_id and property_id = 8 and property_value is not null) > 0 then (select property_value from contest_config where contest_id = s.contest_id and property_id = 8)::decimal else 1000 end)" +
+                        "           and s.contest_id = ? ";
 
 
         File destDir = new File("." + System.getProperty("file.separator") +
