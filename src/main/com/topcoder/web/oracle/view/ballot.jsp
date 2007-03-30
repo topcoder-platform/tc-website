@@ -34,8 +34,6 @@
 <script language="JavaScript" type="text/javascript"><!--
 function postToViewer(mySrc) {
     document.getElementById("viewer").src = mySrc;
-    document.getElementById("viewer").style.width = '300px';
-    document.getElementById("viewer").style.height = '300px';
 }
 
 function hideViewer() {
