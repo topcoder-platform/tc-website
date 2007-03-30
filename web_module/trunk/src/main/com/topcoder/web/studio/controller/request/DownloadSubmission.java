@@ -2,24 +2,15 @@ package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.controller.request.admin.Base;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
 
-import javax.imageio.ImageIO;
-import javax.imageio.ImageTypeSpecifier;
-import javax.imageio.stream.ImageInputStream;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
-import java.awt.image.RenderedImage;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -65,6 +56,7 @@ public class DownloadSubmission extends Base {
 
             FileInputStream fis = new FileInputStream(s.getPath().getPath() + s.getSystemFileName());
 
+/*
             boolean done = false;
             if (!"".equals(width) || !"".equals(height)) {
                 log.debug("1");
@@ -108,6 +100,7 @@ public class DownloadSubmission extends Base {
             }
 
             if (!done) {
+*/
                 log.debug("not done");
                 getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
                 getResponse().setContentType(s.getMimeType().getDescription());
@@ -116,7 +109,9 @@ public class DownloadSubmission extends Base {
                 while ((b = fis.read()) >= 0) {
                     sos.write(b);
                 }
+/*
             }
+*/
             getResponse().setStatus(HttpServletResponse.SC_OK);
             getResponse().flushBuffer();
 
@@ -128,7 +123,7 @@ public class DownloadSubmission extends Base {
 
     }
 
-    private class MyObserver implements ImageObserver {
+/*    private class MyObserver implements ImageObserver {
         private TCResponse myResponse;
         private Submission s;
         private MyObserver(TCResponse r, Submission s) {
@@ -160,5 +155,5 @@ public class DownloadSubmission extends Base {
             }
 
         }
-    }
+    }*/
 }
