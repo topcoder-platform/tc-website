@@ -35,7 +35,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><span>Algorithm Competition</span></h1>
+                        <h1><span>Algorithm Qualification Round</span></h1>
 
                 <div align="center">
 
