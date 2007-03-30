@@ -19,8 +19,6 @@ public class Constants implements WebConstants {
 
     public static String DEFAULT_PAGE;
 
-    public static final String START_TIME = "sttm";
-    public static final String END_TIME = "etm";
     public static final String SUBMISSION = "sbm";
     public static final String SUBMISSION_ID = "sbmid";
     public static final String REVIEW_STATUS_ID = "rstid";
