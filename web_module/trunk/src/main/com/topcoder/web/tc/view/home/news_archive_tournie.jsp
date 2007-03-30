@@ -39,9 +39,10 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.30.07 5:20 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tco07&d3=algorithm&&d4=qualification&c=tco07_alg_qual&trans=true">TCO07 Algorithm Qualification Round 1 Advancers</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.30.07 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Qualification Round 2 set for March 31</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.28.07 5:20 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Qualification Round 1 set for March 29</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">03.28.07 9:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=byes">TCO07 Algorithm Qualification Byes</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">03.28.07 9:00 AM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tco07&d3=algorithm&&d4=qualification&c=tco07_alg_qual&trans=true">TCO07 Algorithm Qualification Byes</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.27.07 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw">DRW Trading chat session scheduled for SRM 344</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.27.07 4:00 PM - </td><td width="100%"><A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">Component Catalog, T-shirt contests now open at Studio</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.27.07 3:00 PM - </td><td width="100%"><A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2070">Win a trip to blog from the TCO</A></td></tr>
