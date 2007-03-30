@@ -39,6 +39,9 @@ public interface WebConstants {
     public static final String COMP_COUNTRY_CODE = "ccc";
     public static final String CONTEST_STATUS_ID = "ctstid";
     public static final String CONTEST_NAME = "ctname";
+    public static final String START_TIME = "sttm";
+    public static final String END_TIME = "etm";
+    public static final String ROUND_NAME = "roundName";
     
 
     public static String EVENT_ID = "eid";
