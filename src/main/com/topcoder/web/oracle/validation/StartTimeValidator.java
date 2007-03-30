@@ -1,8 +1,7 @@
 package com.topcoder.web.oracle.validation;
 
 import com.topcoder.web.common.validation.*;
-import com.topcoder.web.studio.validation.TimeValidator;
-import com.topcoder.web.studio.Constants;
+import com.topcoder.web.oracle.Constants;
 
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
