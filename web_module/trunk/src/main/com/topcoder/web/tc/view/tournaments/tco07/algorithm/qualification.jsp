@@ -35,27 +35,27 @@
                     </tr>
                     <tr class="advHeader">
                         <td width="10%" align="center">
-                            <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=qualification&amp;c=tco07_alg_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=seed&amp;<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                            <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=qualification&amp;c=tco07_alg_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=seed&amp;<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                                 Seed
                             </a>
                         </td>
                         <td width="30%" align="left">
-                            <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=qualification&amp;c=tco07_alg_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&amp;<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                            <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&&amp;d4=qualification&amp;c=tco07_alg_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&amp;<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                                 Handle
                             </a>
                         </td>
                         <td width="30%" align="center">
-                            <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=qualification&amp;c=tco07_alg_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=round_name&amp;<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                            <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&&amp;d4=qualification&amp;c=tco07_alg_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=round_name&amp;<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                                 Problem Set
                             </a>
                         </td>
                         <td width="15%" align="right">
-                            <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=qualification&amp;c=tco07_alg_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=rating&amp;<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                            <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&&amp;d4=qualification&amp;c=tco07_alg_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=rating&amp;<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                                 Rating
                             </a>
                         </td>
                         <td width="15%" align="right">
-                            <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=qualification&amp;c=tco07_alg_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=points&amp;<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                            <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&&amp;d4=qualification&amp;c=tco07_alg_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=points&amp;<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                                 Points
                             </a>
                         </td>
