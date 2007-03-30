@@ -2,6 +2,7 @@ package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.controller.request.admin.Base;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
@@ -15,7 +16,10 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
+import java.awt.image.RenderedImage;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -84,6 +88,9 @@ public class DownloadSubmission extends Base {
                         }
 
 
+                        log.debug("7");
+
+
                         ImageTypeSpecifier type = new ImageTypeSpecifier(image);
                         log.debug("4");
 
@@ -92,23 +99,9 @@ public class DownloadSubmission extends Base {
 
                         Graphics2D scaledGraphics = scaled.createGraphics();
                         log.debug("6");
-                        scaledGraphics.drawImage(image, 0, 0, w, h, null);
+                        scaledGraphics.drawImage(image, 0, 0, w, h, new MyObserver(getResponse(), s));
 
-                        log.debug("7");
-                        getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
-                        getResponse().setContentType(s.getMimeType().getDescription());
 
-                        String format=null;
-                        Integer fileType = s.getMimeType().getFileType().getId();
-
-                        switch (fileType) {
-                            case 10: format = "gif"; break;
-                            case 9: format="jpeg"; break;
-                            case 11: format="png"; break;
-                            case 12: format="bmp"; break;
-                        }
-
-                        done = ImageIO.write(scaled, format, getResponse().getOutputStream());
                     }
                 }
 
@@ -133,5 +126,39 @@ public class DownloadSubmission extends Base {
         }
 
 
+    }
+
+    private class MyObserver implements ImageObserver {
+        private TCResponse myResponse;
+        private Submission s;
+        private MyObserver(TCResponse r, Submission s) {
+            myResponse = r;
+            this.s = s;
+        }
+
+        public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+
+            String format=null;
+            Integer fileType = s.getMimeType().getFileType().getId();
+
+            switch (fileType) {
+                case 10: format = "gif"; break;
+                case 9: format="jpeg"; break;
+                case 11: format="png"; break;
+                case 12: format="bmp"; break;
+            }
+
+            getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
+            getResponse().setContentType(s.getMimeType().getDescription());
+            log.debug("7");
+            try {
+                boolean ret = ImageIO.write((RenderedImage) img, format, myResponse.getOutputStream());
+                log.debug("8");
+                return ret;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
     }
 }
