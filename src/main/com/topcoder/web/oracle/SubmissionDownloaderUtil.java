@@ -4,9 +4,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.sql.InformixSimpleDataSource;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -71,6 +69,21 @@ public class SubmissionDownloaderUtil {
                 sourceFile = new File(rs.getString("path") + rs.getString("system_file_name"));
 
                 try {
+
+
+                            InputStream in = new FileInputStream(sourceFile);
+        OutputStream out = new FileOutputStream(destFile);
+
+        // Transfer bytes from in to out
+        byte[] buf = new byte[1024];
+        int len;
+        while ((len = in.read(buf)) > 0) {
+            out.write(buf, 0, len);
+        }
+        in.close();
+        out.close();
+
+/*
                     FileReader in = new FileReader(sourceFile);
                     FileWriter out = new FileWriter(destFile);
                     int c;
@@ -80,6 +93,7 @@ public class SubmissionDownloaderUtil {
 
                     in.close();
                     out.close();
+*/
                 } catch (Throwable e) {
                     System.out.println("failed on submission " + rs.getInt("submission_id") + " "  + sourceFile.getAbsolutePath());
                     //throw e;
