@@ -8,7 +8,6 @@ import com.topcoder.web.oracle.dao.OracleDAOUtil;
 import com.topcoder.web.oracle.model.Contest;
 import com.topcoder.web.oracle.model.ContestStatus;
 import com.topcoder.web.oracle.validation.ContestNameValidator;
-import com.topcoder.web.studio.dao.StudioDAOUtil;
 
 /**
  * @author dok
@@ -42,7 +41,7 @@ public class EditContest extends Base {
 
             if (!"".equals(StringUtils.checkNull(contestId))) {
                 setDefault(Constants.CONTEST_STATUS_ID,
-                        StudioDAOUtil.getFactory().getContestDAO().find(new Long(contestId)).getStatus().getId());
+                        OracleDAOUtil.getFactory().getContestDAO().find(new Integer(contestId)).getStatus().getId());
             } else if (status != null) {
                 setDefault(Constants.CONTEST_STATUS_ID, contestStatusId);
             } else {

@@ -1,7 +1,7 @@
 package com.topcoder.web.oracle.validation;
 
 import com.topcoder.web.common.validation.*;
-import com.topcoder.web.studio.Constants;
+import com.topcoder.web.oracle.Constants;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.text.SimpleDateFormat;
