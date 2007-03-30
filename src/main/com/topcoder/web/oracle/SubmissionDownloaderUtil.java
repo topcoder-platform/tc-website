@@ -40,9 +40,11 @@ public class SubmissionDownloaderUtil {
                         " , s.original_file_name" +
                         " , s.system_file_name " +
                         " , s.submission_id" +
-                        " from submission s, path p" +
+                        " from submission s, path p, submission_review sr " +
                         " where s.path_id = p.path_id" +
-                        " and s.contest_id = ?";
+                        " and s.contest_id = ?" +
+                        " and sr.submission_id = s.submission_id " +
+                        " and sr.review_status_id = 1";
 
 
         File destDir = new File("." + System.getProperty("file.separator") +
@@ -65,7 +67,7 @@ public class SubmissionDownloaderUtil {
             String ext;
             while (rs.next()) {
                 ext = rs.getString("original_file_name").substring(rs.getString("original_file_name").lastIndexOf('.'));
-                destFile = new File(destDir.getPath() + rs.getInt("submission_id") + "." + ext);
+                destFile = new File(destDir.getAbsolutePath() + rs.getInt("submission_id") + "." + ext);
                 sourceFile = new File(rs.getString("path") + rs.getString("system_file_name"));
 
                 FileReader in = new FileReader(sourceFile);
