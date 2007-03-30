@@ -61,7 +61,7 @@
                 <div style="width: 510px; text-align: left;">
                     <div style="float: right;"><ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
                     </div>
-                    <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME_KEY)%> &gt; <%=request.getAttribute(Constants.ROUND_NAME_KEY)%></span>
+                    <span class="bigHandle">Contest: <%=request.getAttribute(Constants.CONTEST_NAME)%> &gt; <%=request.getAttribute(Constants.ROUND_NAME)%></span>
 
                     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST"
                           name="surveyForm">
