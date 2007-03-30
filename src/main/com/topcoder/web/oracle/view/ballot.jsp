@@ -172,7 +172,7 @@ function verify() {
     <div id="contentIn">
 
 
-        <h1>Make your prediction</h1>
+        <h1>Predict the winners</h1>
 
         <div align="center">
 
@@ -183,8 +183,7 @@ function verify() {
                             <img src="/i/oracle/interface/step1.png" alt="Step 1"/>
                         </td>
                         <td width="100%">
-                            Browse the <strong>The Pool</strong> and <strong>Click</strong> on the candidateBin you like
-                            most to move them into the <strong>My Prediction</strong> list.<br>
+                            Browse the <strong>Pool of Candidates</strong> and <strong>Click</strong> any that you'd like to add to your <strong>Prediction</strong>.<br>
                         </td>
                     </tr>
                     <tr>
@@ -192,8 +191,8 @@ function verify() {
                             <img src="/i/oracle/interface/step2.png" alt="Step 2"/>
                         </td>
                         <td>
-                            In the <strong>My Prediction</strong> section, <strong>drag and drop</strong> candidates to
-                            sort them according to your preference.<br>
+                            In the <strong>Prediction</strong> section, <strong>drag and drop</strong> candidates to
+                            sort them from best to worst.<br>
                         </td>
                     </tr>
                     <tr>
@@ -201,9 +200,9 @@ function verify() {
                             <img src="/i/oracle/interface/step3.png" alt="Step 3"/>
                         </td>
                         <td>
-                            You can <strong>click the remove button</strong>
-                            <img src="/i/oracle/interface/remove.png" alt="REMOVE" align="absmiddle"/> under any of your
-                            selectedCandidates to remove it from the list.
+                            <strong>Click the remove button</strong>
+                            <img src="/i/oracle/interface/remove.png" alt="REMOVE" align="absmiddle"/> under any candidates in your prediction
+                            to remove them from the list.
                         </td>
                     </tr>
             </table>
@@ -239,7 +238,7 @@ function verify() {
 
             </div>
 
-            <h2 align="left" style="width: 610px;">The Pool</h2>
+            <h2 align="left" style="width: 610px;">Pool of Candidates</h2>
 
             <c:set value="<%=CandidateProperty.IMAGE_SOURCE%>" var="imageSource"/>
             <c:set value="<%=CandidateProperty.DOWNLOAD_URL%>" var="downloadUrl"/>
