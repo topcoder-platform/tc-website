@@ -87,6 +87,29 @@
                 </form>
 
 
+               <table cellpadding="0" cellspacing="0" class="input">
+<thead>
+    <tr>
+        <td>Name</td>
+    </tr>
+</thead>
+                        <tbody>
+                            <c:forEach items="${contest.rounds}" var="round">
+                            <tr>
+                                <td>
+                                    ${round.name}
+                                </td>
+                                <td>
+                                    <a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${round.id}">edit</a>
+                                </td>
+                            </tr>
+                                </c:forEach>
+                        </tbody>
+                    </table>
+
+
+
+
             </div>
             <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
         </div>
