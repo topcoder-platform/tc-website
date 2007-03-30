@@ -21,8 +21,8 @@ public interface PredictionDAO {
 
     boolean alreadyCompeted(Long userId, Integer roundId);
 
-    List<Prediction> getPredictions(Integer roundId);
+    List<Prediction> getPredictions(Long userId, Integer roundId);
 
-    List<Prediction> getPredictions(Round r);
+    List<Prediction> getPredictions(User u, Round r);
 
 }
