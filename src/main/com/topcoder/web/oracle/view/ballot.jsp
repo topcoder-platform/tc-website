@@ -71,8 +71,8 @@ f the selected candidates list has reached it's max size, alert user to remove
 a candidate first
 */
 function select(obj) {
-    if (document.getElementById("selectedCandidates").getElementsByTagName("li").length == 5) {
-        alert("Sorry, you have already selected 5 candidates.  Please remove one before adding another.")
+    if (document.getElementById("selectedCandidates").getElementsByTagName("li").length == ${maxCandidates}) {
+        alert("Sorry, you have already selected ${maxCandidates} candidates.  Please remove one before adding another.")
     } else {
         //check if the item is in the candidate bin
         var element = obj;
