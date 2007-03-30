@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -44,36 +45,18 @@
                         <img src="/i/oracle/interface/meterWorst.png" alt="" style="position: absolute; top: 0px; right: -30px;">
 
                         <ul id="selectedCandidates" class="imageLineup" style="margin: 0px; float: left; clear: both;">
-                            <li>
+
+                            <c:forEach items="${predictions}" var="prediction">
+                        <li>
+                            <c:if test="${!empty prediction.candidate.infoMap[downloadUrl]}">
                                 <div class="save">
-                                <a target="_blank" href="DOWNLOAD"><img src="/i/oracle/interface/disk.png" alt="DL"></a>
+                                    <A target="_blank" href="${prediction.candidate.infoMap[downloadUrl]}"><img src="/i/oracle/interface/disk.png" alt="DL"/></A>
                                 </div>
-                                <img class="small" name="candidateImage" src="/i/oracle/candidates/39.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" style="cursor: default;">
-                            </li>
-                            <li>
-                                <div class="save">
-                                <a target="_blank" href="DOWNLOAD"><img src="/i/oracle/interface/disk.png" alt="DL"></a>
-                                </div>
-                                <img class="small" name="candidateImage" src="/i/oracle/candidates/49.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" style="cursor: default;">
-                            </li>
-                            <li>
-                                <div class="save">
-                                <a target="_blank" href="DOWNLOAD"><img src="/i/oracle/interface/disk.png" alt="DL"></a>
-                                </div>
-                                <img class="small" name="candidateImage" src="/i/oracle/candidates/15.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" style="cursor: default;">
-                            </li>
-                            <li>
-                                <div class="save">
-                                <a target="_blank" href="DOWNLOAD"><img src="/i/oracle/interface/disk.png" alt="DL"></a>
-                                </div>
-                                <img class="small" name="candidateImage" src="/i/oracle/candidates/29.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" style="cursor: default;">
-                            </li>
-                            <li>
-                                <div class="save">
-                                <a target="_blank" href="DOWNLOAD"><img src="/i/oracle/interface/disk.png" alt="DL"></a>
-                                </div>
-                                <img class="small" name="candidateImage" src="/i/oracle/candidates/48.png" alt="" onmouseover="postToViewer(this.src); popUp(this,'viewerpopup');" onmouseout="popHide()" onmousedown="hideViewer()" style="cursor: default;">
-                            </li>
+                            </c:if>
+                            <img class="small" name="candidateImage" src="${predition.candidate.infoMap[imageSource]}" alt="" onclick="select(this)" onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');" onMouseOut="popHide()" onMouseDown="hideViewer()"/>
+                        </li>
+                    </c:forEach>
+
                         </ul>
 
                     </div>
