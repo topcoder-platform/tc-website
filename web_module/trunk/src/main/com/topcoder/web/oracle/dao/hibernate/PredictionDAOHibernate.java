@@ -7,6 +7,7 @@ import com.topcoder.web.oracle.model.Prediction;
 import com.topcoder.web.oracle.model.Round;
 import org.hibernate.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,5 +39,24 @@ public class PredictionDAOHibernate extends Base implements PredictionDAO {
         q.setLong(1, userId);
         List l = q.list();
         return !l.isEmpty();
+    }
+
+    public List<Prediction> getPredictions(Integer roundId) {
+        StringBuffer query = new StringBuffer(100);
+        query.append(" from com.topcoder.web.oracle.model.Prediction p");
+        query.append(" where p.round.id = ?");
+        query.append(" order by value asc");
+        Query q = session.createQuery(query.toString());
+        q.setInteger(0, roundId);
+        List res = q.list();
+        ArrayList<Prediction> ret = new ArrayList<Prediction>(res.size());
+        for (Object aL : res) {
+            ret.add((Prediction) aL);
+        }
+        return ret;
+    }
+
+    public List<Prediction> getPredictions(Round r) {
+        return getPredictions(r.getId());
     }
 }
