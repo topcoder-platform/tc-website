@@ -66,6 +66,17 @@ public class Candidate extends Base {
         return m;
     }
 
+    /**
+     * Add a info to this candidate
+     * and make the association between that object and this candidate
+     *
+     * @param info the info to add
+     */
+
+    public void addInfo(CandidateInfo info) {
+        info.setCandidate(this);
+        this.info.add(info);
+    }
 
     public boolean equals(Object o) {
         try {
