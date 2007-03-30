@@ -2,6 +2,8 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set value="<%=RoundProperty.MAX_SELECTED_CANDIDATES%>" var="maxCandidatesKey"/>
+<c:set value="${round.configMap[maxCandidatesKey]}" var="maxCandidates"/>
 
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -41,7 +43,7 @@
             <div align="center" style="margin: 40px 0px 100px 0px;">
                 <p align="center">You have already made your prediction for this contest.<br>Here it is:</p>
 
-                <div class="selectedContainer" style="width: 305px; border: 1px solid green;">
+                <div class="selectedContainer" style="width:  ${maxCandidates*61}px; border: 1px solid green;">
                     <img src="/i/oracle/interface/meterBest.png" alt=""
                          style="position: absolute; top: 0px; left: -30px;">
                     <img src="/i/oracle/interface/meterWorst.png" alt=""
