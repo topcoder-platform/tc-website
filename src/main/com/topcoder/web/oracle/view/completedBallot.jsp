@@ -44,11 +44,11 @@
             <div align="center" style="margin: 40px 0px 100px 0px;">
                 <p align="center">You have already made your prediction for this contest.<br>Here it is:</p>
 
-                <div class="selectedContainer" style="width:  ${maxCandidates*61}px; border: 1px solid green;">
+                <div class="selectedContainer" style="width: ${maxCandidates*61+150}px;">
                     <img src="/i/oracle/interface/meterBest.png" alt=""
-                         style="position: absolute; top: 0px; left: -30px;">
+                         style="float: left;">
                     <img src="/i/oracle/interface/meterWorst.png" alt=""
-                         style="position: absolute; top: 0px; right: -30px;">
+                         style="float: right;">
 
                     <ul id="selectedCandidates" class="imageLineup" style="margin: 0px; float: left;">
 
@@ -65,7 +65,8 @@
                                 <img class="small" name="candidateImage"
                                      src="${prediction.candidate.infoMap[imageSource]}" alt="" onclick="select(this)"
                                      onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');"
-                                     onMouseOut="popHide()" onMouseDown="hideViewer()"/>
+                                     onMouseOut="popHide()" onMouseDown="hideViewer()"
+                                     style="cursor: default;" />
                             </li>
                         </c:forEach>
 
