@@ -9,11 +9,11 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
-import com.topcoder.web.oracle.model.*;
+import com.topcoder.web.oracle.model.ContestStatus;
+import com.topcoder.web.oracle.model.Phase;
+import com.topcoder.web.oracle.model.Round;
+import com.topcoder.web.oracle.model.RoundStatus;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
 import java.util.Date;
 
 /**
@@ -75,38 +75,16 @@ public class ViewCompletedBallot extends ShortHibernateProcessor {
                 }
                 if (self || ok) {
                     //load up the data
-                    //OracleDAOUtil.getFactory().getPredictionDAO().
+                    getRequest().setAttribute("predictions",
+                            OracleDAOUtil.getFactory().getPredictionDAO().getPredictions(u, round));
+
+                } else {
+                    throw new NavigationException("Prediction information not available.");
                 }
             }
 
         }
 
-
-    }
-
-    protected void ballotProcessing(Round round) throws Exception {
-        loadData(round);
-        setNextPage("/ballot.jsp");
-        setIsNextPageInContext(true);
-
-    }
-
-
-    /**
-     * load up the candidates in appropriate random order
-     * it should be the same random order for a particular user every
-     * time they look at the candidates for a particular round
-     *
-     * @param round
-     */
-    protected final void loadData(Round round) {
-        List<Candidate> candidates =
-                OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(round.getId(), getUser().getId());
-        Collections.sort(candidates, new Candidate.IDComparator());
-        Collections.shuffle(candidates, new Random(getUser().getId() + round.getId()));
-        getRequest().setAttribute("candidates", candidates);
-        getRequest().setAttribute("round", round);
-        setDefault(Constants.ROUND_ID, round.getId());
 
     }
 
