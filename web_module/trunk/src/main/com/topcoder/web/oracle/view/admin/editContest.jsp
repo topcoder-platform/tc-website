@@ -50,8 +50,8 @@
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
 <tr>
-    <td colspan="2"><span class="bigRed">
-      <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>">${err}<br></tc-webtag:errorIterator></span>
+    <td colspan="2">
+      <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>"><span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -64,8 +64,8 @@
 </tr>
 <tr>
     <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>">${err}
-                    <br></tc-webtag:errorIterator></span>
+                <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>"><span class="bigRed">${err}
+                    <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>

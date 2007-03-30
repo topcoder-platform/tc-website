@@ -52,8 +52,8 @@
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
 <tr>
-    <td colspan="2"><span class="bigRed">
-      <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>">${err}<br></tc-webtag:errorIterator></span>
+    <td colspan="2">
+      <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_NAME%>"><span class="bigRed">${err}<br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -66,8 +66,8 @@
 </tr>
 <tr>
     <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>">${err}
-                    <br></tc-webtag:errorIterator></span>
+               <tc-webtag:errorIterator id="err" name="<%=Constants.CONTEST_STATUS_ID%>"> <span class="bigRed">${err}
+                    <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -82,13 +82,13 @@
 <tr>
 <tr>
     <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>">${err}
-                    <br></tc-webtag:errorIterator></span>
+                <tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>"><span class="bigRed">${err}
+                    <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
     <td class="name" nowrap="nowrap">
-        Contest Start<br>(Eastern Time):
+        Contest Start<br />(Eastern Time):
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
@@ -97,13 +97,13 @@
 </tr>
 <tr>
     <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>">${err}
-                    <br></tc-webtag:errorIterator></span>
+                <tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>"><span class="bigRed">${err}
+                    <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
     <td class="name" nowrap="nowrap">
-        Contest End<br>(Eastern Time):
+        Contest End<br />(Eastern Time):
     </td>
     <td class="value">
         <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
@@ -112,8 +112,8 @@
 </tr>
 <tr>
     <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.FORUM_ID%>">${err}
-                    <br></tc-webtag:errorIterator></span>
+                <tc-webtag:errorIterator id="err" name="<%=Constants.FORUM_ID%>"><span class="bigRed">${err}
+                    <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -130,7 +130,7 @@
 <tr>
     <td colspan="2">
         <tc-webtag:errorIterator id="err" name="<%=Constants.EVENT_ID%>"><span class="bigRed">${err}</span>
-            <br></tc-webtag:errorIterator>
+            <br /></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -147,8 +147,8 @@
 
 <tr>
     <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${fileType}">${err}
-                    <br></tc-webtag:errorIterator></span>
+                <tc-webtag:errorIterator id="err" name="${fileType}"><span class="bigRed">${err}
+                    <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
@@ -177,13 +177,13 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${minHeight}">${err}
-                    <br></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxHeight}">${err}
-                    <br></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -203,13 +203,13 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${minWidth}">${err}
-                    <br></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxWidth}">${err}
-                    <br></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -229,7 +229,7 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmissions}">${err}
-                    <br></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -246,7 +246,7 @@
 <tr>
     <td colspan="2">
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${maxSubmissions}">${err}
-                    <br></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
@@ -291,10 +291,10 @@
 
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${overviewText}">${err}
-                    <br></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     <strong>Contest Overview:</strong> You may include HTML, the content entered here is exactly what will be inserted
     into the contest
-    details page.<br><br>
+    details page.<br /><br />
     <tc-webtag:textArea name="${overviewText}" rows="8" cols="80"/>
 </p>
 
@@ -317,11 +317,11 @@ var overviewText = getValue("document.editForm", "${overviewText}");
 
 <p>
                 <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeDesc}">${err}
-                    <br></tc-webtag:errorIterator></span>
+                    <br /></tc-webtag:errorIterator></span>
     <strong>Prize Description:</strong> You may include HTML, the content entered here is exactly what will be inserted
     into the contest
     details page.
-    <br><br>
+    <br /><br />
     <tc-webtag:textArea name="${prizeDesc}" rows="8" cols="80"/>
 </p>
 
@@ -354,7 +354,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </p>
 
 
-<br><br>
+<br /><br />
 
 <div class="header">Prizes</div>
 
@@ -370,7 +370,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
             <button onClick="document.removePrizeForm.<%=Constants.PRIZE_PLACE%>.value ='${prize.place}'">
                 Remove
             </button>
-            <br>
+            <br />
         </c:forEach>
     </p>
 </form>
@@ -385,9 +385,9 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
         <tr>
             <td colspan="2">
       <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizePlace}">${err}
-          <br></tc-webtag:errorIterator></span>
+          <br /></tc-webtag:errorIterator></span>
       <span class="bigRed"><tc-webtag:errorIterator id="err" name="${prizeValue}">${err}
-          <br></tc-webtag:errorIterator></span>
+          <br /></tc-webtag:errorIterator></span>
             </td>
         </tr>
         <tr>
@@ -412,7 +412,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
     </table>
 
 </form>
-<br><br>
+<br /><br />
 
 <div class="header">Documentation</div>
 
@@ -429,7 +429,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
             <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
                 Remove
             </button>
-            <br>
+            <br />
         </c:forEach>
     </p>
 </form>
@@ -444,13 +444,13 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
     <p>
     <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
-        <br></tc-webtag:errorIterator></span>
+        <br /></tc-webtag:errorIterator></span>
         <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
-            <br></tc-webtag:errorIterator></span>
+            <br /></tc-webtag:errorIterator></span>
         <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
         <input type="file" name="${doc}">
         <button name="submit" value="submit" type="submit">Add</button>
-        <br><br>
+        <br /><br />
         Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask
         around
         to get it added.
