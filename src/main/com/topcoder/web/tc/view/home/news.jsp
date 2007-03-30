@@ -4,6 +4,33 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.29.07<br>11:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=363">Bug in the voting results</A>
+        </span><br><br>
+On February 27, we accidentally introduced a bug into our code that caused it to display the wrong results for any votes using the Schultz voting system. As a result of this mistake, we displayed incorrect results for the TopCoder Badges, Studio Badges, and Press Room Redesign contests. We have fixed the bug and the correct results are now displayed.
+<br><br>
+<strong>TopCoder Badges</strong> (<A href="/tc?module=SurveyResults&sid=16491">correct results</A> | <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/i/misc/tcbadges.png">incorrect results</A>)
+<br><strong>Studio Badges</strong> (<A href="/tc?module=SurveyResults&sid=16380">correct results</A> | <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/i/misc/studiobadges.png">incorrect results</A>)
+<br><strong>Press Room Badges</strong> (<A href="/tc?module=SurveyResults&sid=16651">correct results</A> | <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/i/misc/pressroom.png">incorrect results</A>)
+<br><br>
+Unfortunately the damage has been done, and we announced incorrect winners for those contests based on inaccurate data. We offer our sincerest apologies to the competitors who we have affected with this bug. As a measure of good faith, we will pay prizes to both the incorrect and correct contest winners. Obviously the real winners deserve to have their designs implemented, so those are the designs we will use.
+<br><br>
+Again, we are very sorry for our mistake and we would be happy to answer any questions about this situation.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=363">details</A> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=363">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>03.29.07<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -188,19 +215,3 @@ If you have been involved with computer science for any length of time, you have
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>03.23.07<br>12:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Gamma">TCHS07 Round 3 Gamma - Problem Set & Analysis</A></span><br><br>
-        Students from the Gamma region were the first to get into TCHS 2007 tournament, and they were first to qualify for the onsite event. Round 3 was the first round in Gamma that could actually leave somebody with a positive score behind, as 35 students competed for 25 onsite spots.</td>
-      <td class="newsPhoto"><img src="/i/m/andrewzta_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="11829284" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Rd3Gamma">full story</A> | 
-        <tc-webtag:forumLink forumID="514495" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
