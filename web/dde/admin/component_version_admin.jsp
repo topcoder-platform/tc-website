@@ -653,7 +653,8 @@ if (action != null) {
         ver.setVersionLabel(versionLabel);
         ver.setComments(comments);
         ver.setPrice(Double.parseDouble(price));
-        ver.setSuspended(request.getParameter("suspended") != null);
+//        ver.setSuspended(request.getParameter("suspended") != null);
+	    ver.setSuspended(false);
 
 		com.topcoder.dde.catalog.ForumCategory activeSpec = null;
         try {
@@ -1441,7 +1442,7 @@ if (action != null) {
                             </tr>
 
 <!-- Suspended -->
-                            <tr valign="middle" ID="date_row">
+         <!--                    <tr valign="middle" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                                 <td width="1%" class="adminLabel" nowrap>Stop attempting to get this built</td>
                                 <td width="1%" class="adminText">
@@ -1450,7 +1451,7 @@ if (action != null) {
                                 </td>
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
                             </tr>
-
+ -->
 <!-- Public Forums -->
                             <tr valign="middle" ID="date_row">
                                 <td width="48%"><img src="../images/clear.gif" alt="" width="5" height="1" border="0"/></td>
