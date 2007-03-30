@@ -48,7 +48,7 @@ public class SubmissionDownloaderUtil {
 
 
         File destDir = new File("." + System.getProperty("file.separator") +
-                "submissions_" + id + System.getProperty("file.separator"));
+                "submissions_" + id);
         if (!destDir.exists()) {
             destDir.mkdirs();
         }
@@ -67,8 +67,8 @@ public class SubmissionDownloaderUtil {
             String ext;
             while (rs.next()) {
                 ext = rs.getString("original_file_name").substring(rs.getString("original_file_name").lastIndexOf('.'));
-                System.out.println(destDir.getAbsolutePath());
-                destFile = new File(destDir.getAbsolutePath() + rs.getInt("submission_id") + ext);
+                System.out.println(destDir.getPath());
+                destFile = new File(destDir.getPath() +System.getProperty("file.separator")+ rs.getInt("submission_id") + ext);
                 sourceFile = new File(rs.getString("path") + rs.getString("system_file_name"));
 
                 FileReader in = new FileReader(sourceFile);
