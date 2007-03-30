@@ -67,7 +67,6 @@ public class SubmissionDownloaderUtil {
             String ext;
             while (rs.next()) {
                 ext = rs.getString("original_file_name").substring(rs.getString("original_file_name").lastIndexOf('.'));
-                System.out.println(destDir.getPath());
                 destFile = new File(destDir.getPath() +System.getProperty("file.separator")+ rs.getInt("submission_id") + ext);
                 sourceFile = new File(rs.getString("path") + rs.getString("system_file_name"));
 
