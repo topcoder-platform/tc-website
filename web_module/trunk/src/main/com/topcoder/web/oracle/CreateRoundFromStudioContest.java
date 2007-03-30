@@ -89,6 +89,7 @@ public class CreateRoundFromStudioContest {
             List<Candidate> cans = new ArrayList<Candidate>();
             Round r = new Round();
             r.setName("Round " + System.currentTimeMillis());
+            r.setStatus(OracleDAOUtil.getFactory().getRoundStatusDAO().find(RoundStatus.ACTIVE));
             //r.
             contest.addRound(r);
             while (rs.next()) {
@@ -99,12 +100,12 @@ public class CreateRoundFromStudioContest {
                 c.setName(rs.getString("submission_id"));
 
                 imageSrc = new CandidateInfo();
-                imageSrc.setValue("/i/oracle/candidates/tcdotcom/" + rs.getInt("sbumission_id" + ext));
+                imageSrc.setValue("/i/oracle/candidates/tcdotcom/" + rs.getInt("submission_id") + ext);
                 imageSrc.setProperty(srcProp);
                 c.addInfo(imageSrc);
 
                 dlURL = new CandidateInfo();
-                dlURL.setValue(ApplicationServer.STUDIO_SERVER_NAME + "/?module=DownloadSubmission&sbmid=" + rs.getInt("submission_id"));
+                dlURL.setValue("http://"+ApplicationServer.STUDIO_SERVER_NAME + "/?module=DownloadSubmission&sbmid=" + rs.getInt("submission_id"));
                 dlURL.setProperty(dlProp);
                 c.addInfo(dlURL);
 
