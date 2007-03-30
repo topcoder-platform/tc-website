@@ -60,7 +60,7 @@ With the information in the first part of this article, you should have been abl
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=ViewSurvey&sid=16690">full story</A> | 
-        <a href="http://studio.topcoder.com/forums?module=Thread&threadID=354">discuss this</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=354">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
@@ -130,7 +130,7 @@ With the information in the first part of this article, you should have been abl
    </tr>
    <tr><td class="newsLinksCell">
         <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">full story</A> | 
-        <a href="http://studio.topcoder.com/forums?module=Category&categoryID=3">discuss this</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Category&categoryID=3">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
@@ -146,7 +146,7 @@ With the information in the first part of this article, you should have been abl
    </tr>
    <tr><td class="newsLinksCell">
         <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2070">full story</A> | 
-        <a href="http://studio.topcoder.com/forums?module=ThreadList&forumID=43">discuss this</a> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=43">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
