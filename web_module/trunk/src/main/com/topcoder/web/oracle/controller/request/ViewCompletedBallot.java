@@ -25,7 +25,7 @@ public class ViewCompletedBallot extends ShortHibernateProcessor {
     protected final void dbProcessing() throws Exception {
 
         String roundId = getRequest().getParameter(Constants.ROUND_ID);
-        String userId = getRequest().getParameter(Constants.USER_ID);
+        String userId = StringUtils.checkNull(getRequest().getParameter(Constants.USER_ID));
         if ("".equals(StringUtils.checkNull(roundId))) {
             throw new NavigationException("No round specified");
         } else {
