@@ -72,7 +72,7 @@ a candidate first
 */
 function select(obj) {
     if (document.getElementById("selectedCandidates").getElementsByTagName("li").length == ${maxCandidates}) {
-        alert("Sorry, you have already selected ${maxCandidates} candidates.  Please remove one before adding another.")
+        alert("Oops, you already have ${maxCandidates} candidates.  Please remove one first.")
     } else {
         //check if the item is in the candidate bin
         var element = obj;
@@ -144,7 +144,7 @@ function verify() {
     var candidates = '';
     var list = document.getElementById("selectedCandidates").getElementsByTagName("li");
     if (list.length <${maxCandidates}) {
-        var confirmed = confirm("Are you sure you want to submit without selecting ${maxCandidates} candidates?");
+        var confirmed = confirm("Are you sure you want to submit without selecting all ${maxCandidates} candidates?");
         if (!confirmed) {
             return false;
         }
@@ -220,7 +220,7 @@ function verify() {
 
                 <div class="selectedContainer" style="width: ${maxCandidates*61}px;">
                     <img src="/i/oracle/interface/meterBest.png" alt="" style="position: absolute; top: 0px; left: -30px;"/>
-                    <img src="/i/oracle/interface/meterWorst.png" alt="" style="position: absolute; top: 0px; right: -30px;"/>
+                    <img src="/i/oracle/interface/meterWorst.png" alt="" style="position: absolute; top: 0px; left: ${maxCandidates*61-45}px;"/>
                     <ul id="selectedCandidates" class="imageLineup" align="center" style="float:left; clear:both; margin: 0px;">
                     </ul>
                 </div>
