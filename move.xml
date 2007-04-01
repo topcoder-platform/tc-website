@@ -40,7 +40,6 @@
 
         <ant antfile="build_tc.xml" target="deploy"/>
 
-        <ant antfile="build_oracle.xml" target="deploy-oracle"/>
 
         <antcall target="jar-classes"/>
 
@@ -71,10 +70,6 @@
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/tcwebcommon.jar"/>
                 <include name="lib/bin/classes.jar"/>
-
-                <include name="resources/oracle/**"/>
-                <include name="resources/Oracle.properties"/>
-                <include name="build_oracle.xml"/>
 
             </fileset>
         </jar>
@@ -335,6 +330,42 @@
         <delete dir="${techassess_war_dir}/META-INF"/>
     </target>
 
+
+
+        <target name="package-oracle" depends="">
+
+        <delete dir="build"/>
+        <delete file="oracle.jar"/>
+
+        <cvs command="update -Pd" package="src"/>
+        <cvs command="update -Pd" package="resources"/>
+        <cvs command="update -Pd" package="lib"/>
+        <cvs command="update -Pd" package="build_oracle.xml"/>
+
+        <exec dir="../shared" executable="cvs">
+            <arg line="update -dP src"/>
+        </exec>
+
+        <ant antfile="build_oracle.xml" target="deploy-oracle"/>
+
+        <antcall target="jar-classes"/>
+
+        <jar destfile="oracle.jar" update="true">
+            <fileset dir=".">
+                <include name="build/wars/**"/>
+                <include name="resources/taglib/**"/>
+                <include name="resources/Oracle.properties"/>
+                <include name="resources/DataAccess.properties"/>
+                <include name="move.xml"/>
+                <include name="build_oracle.xml"/>
+                <include name="lib/bin/shared.jar"/>
+                <include name="lib/bin/tcwebcommon.jar"/>
+                <include name="lib/bin/classes.jar"/>
+                <include name="resources/oracle/**"/>
+            </fileset>
+        </jar>
+
+    </target>
 
 </project>
 

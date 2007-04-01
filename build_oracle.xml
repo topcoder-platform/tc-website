@@ -213,6 +213,7 @@
     </target>
 -->
     <target name="deploy-oracle" depends="war-oracle">
+        <antcall target="deploy-security"/>
         <antcall target="expand-oracle"/>
     </target>
 
@@ -337,7 +338,7 @@
 
     <target name="create_studio_round" depends="compile">
         <java classname="com.topcoder.web.oracle.CreateRoundFromStudioContest" fork="true">
-            <arg value="5007"/>  <!-- 2065-->
+            <arg value="2065"/>  <!-- 2065-->
             <arg value="100"/>
             <classpath>
                 <pathelement location="${classes}"/>
