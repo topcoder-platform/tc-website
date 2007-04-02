@@ -15,8 +15,8 @@ public abstract class Base extends ShortHibernateProcessor {
 
     private Event event = null;    
     private IntroEvent mainEvent = null;
-    private boolean hasAlgo = false;
-    private boolean hasComp = false;
+    private Long algoEventId = null;
+    private Long compEventId = null;
 
     protected abstract void introEventProcessing() throws Exception;
 
@@ -50,21 +50,22 @@ public abstract class Base extends ShortHibernateProcessor {
         }
         
         // Check if there are algo and/or component events
-        Query q = HibernateUtils.getSession().createQuery("select distinct e.type.id from Event e where e.parent.id=:eventId");
-        q.setLong("eventId", eventId);
-        for(Object o : q.list()) {
-            Integer t = (Integer) o;
+        Query q = HibernateUtils.getSession().createQuery("select e.id, e.type.id from Event e where e.parent.id=:eventId");
+        q.setLong("eventId", mainEvent.getId());
+        
+        for(Object child : q.list()) {
+            Object t = (Integer) ((Object[]) child) [1];
             
             if (t.equals(EventType.INTRO_EVENT_ALGO_ID)) {
-                hasAlgo = true;                
+                algoEventId = (Long) ((Object[]) child) [0];                
             }
             if (t.equals(EventType.INTRO_EVENT_COMP_ID)) {
-                hasComp = true;                
+                compEventId = (Long) ((Object[]) child) [0];                
             }
         }
 
-        getRequest().setAttribute("hasAlgo", hasAlgo);
-        getRequest().setAttribute("hasComp", hasComp);
+        getRequest().setAttribute("algoEventId", algoEventId);
+        getRequest().setAttribute("compEventId", compEventId);
         getRequest().setAttribute("eid", eventId);
         getRequest().setAttribute("event", event);
         getRequest().setAttribute("mainEvent", mainEvent);
