@@ -46,62 +46,79 @@ public class CreateRoundFromStudio extends Base {
         dr.setProperty(Constants.CONTEST_ID, studioId.toString());
         ResultSetContainer rsc = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME).getData(dr).get("oracle_admin_submission_list");
 
-
-        File destDir = new File("." + System.getProperty("file.separator") +
-                "submissions_" + studioId);
-        if (!destDir.exists()) {
-            destDir.mkdirs();
-        }
-
-
-        String ext;
-        CandidateDAO cDAO = OracleDAOUtil.getFactory().getCandidateDAO();
-        CandidateInfo imageSrc;
-        CandidateInfo dlURL;
-        CandidateProperty srcProp = OracleDAOUtil.getFactory().getCandidatePropertyDAO().find(CandidateProperty.IMAGE_SOURCE);
-        CandidateProperty dlProp = OracleDAOUtil.getFactory().getCandidatePropertyDAO().find(CandidateProperty.DOWNLOAD_URL);
-        Contest contest = OracleDAOUtil.getFactory().getContestDAO().find(oracleId);
-
-        List<Candidate> cans = new ArrayList<Candidate>();
-        Round r = new Round();
-        r.setName("Round " + System.currentTimeMillis());
-        r.setStatus(OracleDAOUtil.getFactory().getRoundStatusDAO().find(RoundStatus.ACTIVE));
-        //r.
-        contest.addRound(r);
-        for (ResultSetContainer.ResultSetRow row : rsc) {
-
-            ext = row.getStringItem("original_file_name").substring(row.getStringItem("original_file_name").lastIndexOf('.'));
-
-
-            Candidate c = new Candidate();
-            c.setName(row.getStringItem("submission_id"));
-
-            imageSrc = new CandidateInfo();
-            imageSrc.setValue("/i/oracle/candidates/tcdotcom/" + row.getIntItem("submission_id") + ext);
-            imageSrc.setProperty(srcProp);
-            c.addInfo(imageSrc);
-
-            dlURL = new CandidateInfo();
-            dlURL.setValue("http://" + ApplicationServer.STUDIO_SERVER_NAME + "/?module=DownloadSubmission&sbmid=" + row.getIntItem("submission_id"));
-            dlURL.setProperty(dlProp);
-            c.addInfo(dlURL);
-
-
-            cans.add(c);
-
-
-        }
-
-
-        CandidateRoomAssigner ra = new RandomAssigner();
-        List<Room> l = ra.createAssignments(cans, r, 50);
-        for (Room myRoom : l) {
-            r.addRoom(myRoom);
-            for (CandidateRoomResult crr : myRoom.getCandidateResults()) {
-                cDAO.saveOrUpdate(crr.getCandidate());
+        if (rsc.isEmpty()) {
+            throw new NavigationException("No submissions to make a round from.");
+        } else {
+            File destDir = new File("." + System.getProperty("file.separator") +
+                    "submissions_" + studioId);
+            if (!destDir.exists()) {
+                destDir.mkdirs();
             }
+
+
+            String ext;
+            CandidateDAO cDAO = OracleDAOUtil.getFactory().getCandidateDAO();
+            CandidateInfo imageSrc;
+            CandidateInfo dlURL;
+            CandidateProperty srcProp = OracleDAOUtil.getFactory().getCandidatePropertyDAO().find(CandidateProperty.IMAGE_SOURCE);
+            CandidateProperty dlProp = OracleDAOUtil.getFactory().getCandidatePropertyDAO().find(CandidateProperty.DOWNLOAD_URL);
+            Contest contest = OracleDAOUtil.getFactory().getContestDAO().find(oracleId);
+
+            List<Candidate> cans = new ArrayList<Candidate>();
+            Round r = new Round();
+            r.setName("Round " + System.currentTimeMillis());
+            r.setStatus(OracleDAOUtil.getFactory().getRoundStatusDAO().find(RoundStatus.ACTIVE));
+            //r.
+            contest.addRound(r);
+            for (ResultSetContainer.ResultSetRow row : rsc) {
+
+                ext = row.getStringItem("original_file_name").substring(row.getStringItem("original_file_name").lastIndexOf('.'));
+
+
+                Candidate c = new Candidate();
+                c.setName(row.getStringItem("submission_id"));
+
+                imageSrc = new CandidateInfo();
+                imageSrc.setValue("/i/oracle/candidates/tcdotcom/" + row.getIntItem("submission_id") + ext);
+                imageSrc.setProperty(srcProp);
+                c.addInfo(imageSrc);
+
+                dlURL = new CandidateInfo();
+                dlURL.setValue("http://" + ApplicationServer.STUDIO_SERVER_NAME + "/?module=DownloadSubmission&sbmid=" + row.getIntItem("submission_id"));
+                dlURL.setProperty(dlProp);
+                c.addInfo(dlURL);
+
+
+                cans.add(c);
+
+
+            }
+
+
+            CandidateRoomAssigner ra = new RandomAssigner();
+            List<Room> l = ra.createAssignments(cans, r, 50);
+            for (Room myRoom : l) {
+                r.addRoom(myRoom);
+                for (CandidateRoomResult crr : myRoom.getCandidateResults()) {
+                    cDAO.saveOrUpdate(crr.getCandidate());
+                }
+            }
+            OracleDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
+
+            closeConversation();
+            beginCommunication();
+            StringBuffer buf = new StringBuffer(50);
+            buf.append(getSessionInfo().getServletPath());
+            buf.append("?" + Constants.MODULE_KEY + "=AdminViewRound&");
+            buf.append(Constants.ROUND_ID).append("=").append(r.getId());
+            setNextPage(buf.toString());
+            setIsNextPageInContext(false);
+
+
         }
-        OracleDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
+
+
+
 
 
     }
