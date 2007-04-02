@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.02.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/to/">Predict the homepage redesign winner</A>
+        </span><br><br>
+        For TopCoder Studio competitions, we often face the question "Which submission is the best?"  In the spirit of experimentation, we're going to try out a new winner selection format, and it involves the community more than ever before.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/to/">details</A> | 
+        <tc-webtag:forumLink forumID="514973" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.30.07<br>5:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -203,20 +222,3 @@ With the information in the first part of this article, you should have been abl
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>03.26.07<br>2:10 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="tc?module=Static&d1=features&d2=032607">A Crash Course in Relational Databases, Part 1</A></span><br><br>
-If you have been involved with computer science for any length of time, you have probably heard the term "relational database," but you might not have had the opportunity to actually work with this type of technology. Using TopCoder's algorithm competition data as an example, this article will give you an overview of database basics and a better understanding of the key components of relational databases. 
-        </td>
-      <td class="newsPhoto"><img src="/i/m/dcp_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21684580" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="tc?module=Static&d1=features&d2=032607">full story</A> | 
-        <tc-webtag:forumLink forumID="514866" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
