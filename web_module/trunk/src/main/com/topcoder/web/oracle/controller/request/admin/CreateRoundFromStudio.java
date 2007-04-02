@@ -40,7 +40,6 @@ public class CreateRoundFromStudio extends Base {
             throw new NavigationException("Invalid contest specified");
         }
 
-
         Request dr = new Request();
         dr.setContentHandle("oracle_admin_submission_list");
         dr.setProperty(Constants.CONTEST_ID, studioId.toString());
@@ -55,8 +54,6 @@ public class CreateRoundFromStudio extends Base {
                 destDir.mkdirs();
             }
 
-
-            String ext;
             CandidateDAO cDAO = OracleDAOUtil.getFactory().getCandidateDAO();
             CandidateInfo imageSrc;
             CandidateInfo dlURL;
@@ -71,15 +68,11 @@ public class CreateRoundFromStudio extends Base {
             //r.
             contest.addRound(r);
             for (ResultSetContainer.ResultSetRow row : rsc) {
-
-                ext = row.getStringItem("original_file_name").substring(row.getStringItem("original_file_name").lastIndexOf('.'));
-
-
                 Candidate c = new Candidate();
                 c.setName(row.getStringItem("submission_id"));
 
                 imageSrc = new CandidateInfo();
-                imageSrc.setValue("/i/oracle/candidates/tcdotcom/" + row.getIntItem("submission_id") + ext);
+                imageSrc.setValue("http://" + ApplicationServer.STUDIO_SERVER_NAME + "/?module=DownloadSubmission&sbmid=" + row.getIntItem("submission_id"));
                 imageSrc.setProperty(srcProp);
                 c.addInfo(imageSrc);
 
@@ -88,10 +81,7 @@ public class CreateRoundFromStudio extends Base {
                 dlURL.setProperty(dlProp);
                 c.addInfo(dlURL);
 
-
                 cans.add(c);
-
-
             }
 
 

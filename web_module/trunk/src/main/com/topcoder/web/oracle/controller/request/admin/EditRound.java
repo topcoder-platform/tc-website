@@ -98,7 +98,6 @@ public class EditRound extends Base {
 
 
 /*            StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(round);*/
-            markForCommit();
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                     "=AdminViewRound&" + Constants.CONTEST_ID + "=" + round.getId());

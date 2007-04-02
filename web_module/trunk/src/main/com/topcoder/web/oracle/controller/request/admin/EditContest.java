@@ -67,7 +67,6 @@ public class EditContest extends Base {
 
 
             OracleDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
-            markForCommit();
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                     "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contest.getId());
