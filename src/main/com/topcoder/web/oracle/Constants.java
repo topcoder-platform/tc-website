@@ -20,6 +20,7 @@ public class Constants implements WebConstants {
 
     public static final String ROUND_STATUS_ID = "rdstid";
     public static final String ROUND_PROPERTY = "rdprop";
+    public static final String STUDIO_CONTEST_ID = "studio" + CONTEST_ID;
 
     public static int CONTEST_TERMS_OF_USE_ID;
 
