@@ -14,7 +14,7 @@ public class AlgoOverview extends Base {
     @Override
     protected void introEventProcessing() throws Exception {
         getRequest().setAttribute("roundStart", codingStart);
-        getRequest().setAttribute("eventStart", new Timestamp(codingStart.getTime()+(getMainEvent().getRoundStart()*1000*60)));
+        getRequest().setAttribute("eventStart", new Timestamp(codingStart.getTime()+(getMainEvent().getEventStartDelta()*1000*60)));
         
         setNextIntroEventPage("algoOverview.jsp");
 

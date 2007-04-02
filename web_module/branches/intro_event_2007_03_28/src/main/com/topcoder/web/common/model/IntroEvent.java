@@ -96,6 +96,11 @@ public class IntroEvent extends Event  {
     public int getRoundStart() {
         return Integer.parseInt(getConfig(new Long(Constants.ROUND_START_PROP_ID)));
     }
+
+    public int getEventStartDelta() {
+        return Integer.parseInt(getConfig(new Long(Constants.EVENT_START_PROP_ID)));
+    }
+
     /*
     public static final int FIRST_PLACE_PROP_ID = 2;
     public static final int SECOND_PLACE_PROP_ID = 3;
