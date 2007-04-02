@@ -19,7 +19,7 @@ public class CondorcetSchulzeResults implements Serializable {
     private static final Logger log = Logger.getLogger(CondorcetSchulzeResults.class);
     private Matrix strengthMatrix;
     private Set candidates;
-    private List results;
+    private List<RankedResult> results;
     private Matrix sumMatrix;
 
     public CondorcetSchulzeResults(CondorcetSchulzeElection election) {
@@ -37,7 +37,7 @@ public class CondorcetSchulzeResults implements Serializable {
         }
     }
 
-    public List getResults() {
+    public List<RankedResult> getResults() {
         return results;
     }
 
@@ -72,7 +72,7 @@ public class CondorcetSchulzeResults implements Serializable {
     /**
      * @return a <code>RankedResult</code> array containing the results
      */
-    private List buildResults() {
+    private List<RankedResult> buildResults() {
         BigInteger len = new BigInteger(String.valueOf(candidates.size()));
         BigInteger two = new BigInteger("2");
         Pair[] ret = new Pair[(f(len).divide(f(len.subtract(two))).divide(two)).intValue()];
@@ -103,9 +103,9 @@ public class CondorcetSchulzeResults implements Serializable {
         for (int i = 0; i < map.length; i++) {
             map[i] = new MapEntry(strengthMatrix.getCandidate(i));
         }
-        for (int i = 0; i < ret.length; i++) {
-            if (!ret[i].isTie()) {
-                map[strengthMatrix.getIndex(ret[i].getCandidateB())].incrementLoseCount();
+        for (Pair aRet : ret) {
+            if (!aRet.isTie()) {
+                map[strengthMatrix.getIndex(aRet.getCandidateB())].incrementLoseCount();
             }
         }
 
@@ -123,7 +123,7 @@ public class CondorcetSchulzeResults implements Serializable {
                 log.debug("candidate num loses " + me.getCandidate().getId() + " " + me.getLoseCount());
             }
         }
-        ArrayList results = new ArrayList(map.length);
+        ArrayList<RankedResult> results = new ArrayList<RankedResult>(map.length);
         int lastLoses = -1;
         int rank = 0;
         for (int i = 0; i < map.length; i++) {
