@@ -55,10 +55,10 @@ public abstract class Base extends ShortHibernateProcessor {
         for(Object o : q.list()) {
             Integer t = (Integer) o;
             
-            if (t == EventType.INTRO_EVENT_ALGO_ID) {
+            if (t.equals(EventType.INTRO_EVENT_ALGO_ID)) {
                 hasAlgo = true;                
             }
-            if (t == EventType.INTRO_EVENT_COMP_ID) {
+            if (t.equals(EventType.INTRO_EVENT_COMP_ID)) {
                 hasComp = true;                
             }
         }

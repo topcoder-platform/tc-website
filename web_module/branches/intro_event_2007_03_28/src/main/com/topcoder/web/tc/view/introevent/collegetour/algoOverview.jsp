@@ -122,7 +122,6 @@ Comp: ${hasComp }<br>
         </li>
     </ul>
 
-${mainEvent.timeZone.description}
 
     <strong>${mainEvent.recruiterName }
     </strong>, a TopCoder representative, will be present to explain the TopCoder
