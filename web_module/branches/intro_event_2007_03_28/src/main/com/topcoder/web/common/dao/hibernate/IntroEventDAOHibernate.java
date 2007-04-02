@@ -1,12 +1,8 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import java.util.List;
-
-import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.IntroEventDAO;
-import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.IntroEvent;
 
 

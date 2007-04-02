@@ -6,16 +6,22 @@ import org.hibernate.Query;
 
 import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.model.IntroEvent;
+import com.topcoder.web.tc.Constants;
 
 public class AlgoOverview extends Base {
 
     private Timestamp codingStart = null;
+    private Timestamp sysTestEnd = null;
+
     
     @Override
     protected void introEventProcessing() throws Exception {
         getRequest().setAttribute("roundStart", codingStart);
+        getRequest().setAttribute("sysTestEnd", codingStart);
         getRequest().setAttribute("eventStart", new Timestamp(codingStart.getTime()+(getMainEvent().getEventStartDelta()*1000*60)));
-        
+        getRequest().setAttribute("eventEnd", new Timestamp(codingStart.getTime()+(getMainEvent().getEventEndDelta()*1000*60)));
+        getRequest().setAttribute("resultsTime", new Timestamp(codingStart.getTime()+(getMainEvent().getResultsDelta())*1000*60)));
+
         setNextIntroEventPage("algoOverview.jsp");
 
     }
@@ -28,6 +34,7 @@ public class AlgoOverview extends Base {
         Object [] r= (Object[]) q.uniqueResult();
 
         codingStart = (Timestamp) r[1];
+        sysTestEnd = (Timestamp) r[1];
         
         return (IntroEvent) r[0];
     }

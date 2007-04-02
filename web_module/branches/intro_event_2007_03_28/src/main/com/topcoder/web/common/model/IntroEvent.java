@@ -1,7 +1,5 @@
 package com.topcoder.web.common.model;
 
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -12,6 +10,7 @@ import com.topcoder.web.tc.Constants;
 /**
  * @author cucu
  */
+@SuppressWarnings("serial")
 public class IntroEvent extends Event  {
     private School school = null;
     private Long roundId = null;
@@ -93,6 +92,22 @@ public class IntroEvent extends Event  {
         return getConfig(new Long(Constants.RECRUITER_NAME_PROP_ID));
     }
 
+    public String getFirstPlacePrize() {
+        return getConfig(new Long(Constants.FIRST_PLACE_PROP_ID));
+    }
+
+    public String getSecondPlacePrize() {
+        return getConfig(new Long(Constants.SECOND_PLACE_PROP_ID));
+    }
+
+    public String getThirdPlacePrize() {
+        return getConfig(new Long(Constants.THIRD_PLACE_PROP_ID));
+    }
+
+    public String getLocation() {
+        return getConfig(new Long(Constants.LOCATION_PROP_ID));
+    }
+
     public int getRoundStart() {
         return Integer.parseInt(getConfig(new Long(Constants.ROUND_START_PROP_ID)));
     }
@@ -100,18 +115,22 @@ public class IntroEvent extends Event  {
     public int getEventStartDelta() {
         return Integer.parseInt(getConfig(new Long(Constants.EVENT_START_PROP_ID)));
     }
+    
+    public int getEventEndDelta() {
+        return Integer.parseInt(getConfig(new Long(Constants.EVENT_END_PROP_ID)));
+    }
+
+    public int getResultsDelta() {
+        return Integer.parseInt(getConfig(new Long(Constants.RESULTS_PROP_ID)));
+    }
+
+    public String getPagesBase() {
+        return getConfig(new Long(Constants.PAGES_BASE_PROP_ID));
+    }
 
     /*
-    public static final int FIRST_PLACE_PROP_ID = 2;
-    public static final int SECOND_PLACE_PROP_ID = 3;
-    public static final int THIRD_PLACE_PROP_ID = 4;
-    public static final int LOCATION_PROP_ID = 5;
-    public static final int EVENT_START_PROP_ID = 6;
-    public static final int EVENT_END_PROP_ID = 7;
-    public static final int RESULTS_PROP_ID = 8;
     public static final int ROUND_START_PROP_ID = 9;
     public static final int ROUND_END_PROP_ID = 10;
-    public static final int PAGES_BASE_PROP_ID = 11;
     */
 
 }
