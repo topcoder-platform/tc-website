@@ -55,7 +55,7 @@ public abstract class Base extends ShortHibernateProcessor {
 
     
     protected void setNextIntroEventPage(String page) {
-        setNextPage(mainEvent.getConfig(new Long(Constants.PAGES_BASE_PROP_ID)) + page);
+        setNextPage(mainEvent.getConfig(new Long(Constants.PAGES_BASE_PROP_ID)) + "/" + page);
         setIsNextPageInContext(true);
     }
     
