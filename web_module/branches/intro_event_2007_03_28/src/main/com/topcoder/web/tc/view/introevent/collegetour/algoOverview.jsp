@@ -121,6 +121,8 @@
         </li>
     </ul>
 
+${mainEvent.timeZone.desc}
+
     <strong>${mainEvent.recruiterName }
     </strong>, a TopCoder representative, will be present to explain the TopCoder
     algorithm, design and development competitions, TopCoder Employment Services, and other aspects of

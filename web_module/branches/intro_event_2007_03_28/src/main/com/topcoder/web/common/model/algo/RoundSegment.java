@@ -1,11 +1,13 @@
-package com.topcoder.web.common.model;
+package com.topcoder.web.common.model.algo;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import com.topcoder.web.common.model.Base;
 
 /**
  * @author cucu
 = */
+@SuppressWarnings("serial")
 public class RoundSegment extends Base {
 
     protected Identifier id = new Identifier();
