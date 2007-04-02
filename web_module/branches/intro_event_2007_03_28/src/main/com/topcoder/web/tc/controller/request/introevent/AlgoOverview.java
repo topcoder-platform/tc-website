@@ -18,8 +18,8 @@ public class AlgoOverview extends Base {
     
     @Override
     protected void introEventProcessing() throws Exception {
-        if (!getMainEvent().getType().equals(EventType.INTRO_EVENT_ALGO_ID)) {
-            throw new NavigationException("Invalid event type.");
+        if (!getEvent().getType().getId().equals(EventType.INTRO_EVENT_ALGO_ID)) {
+            throw new NavigationException("Invalid event type, was " + getEvent().getType().getId());
         }
         getRequest().setAttribute("contestName", contestName);
         getRequest().setAttribute("roundStart", codingStart);
