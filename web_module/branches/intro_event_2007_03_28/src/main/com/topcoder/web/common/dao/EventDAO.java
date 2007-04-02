@@ -21,6 +21,8 @@ public interface EventDAO {
     List getEvents(EventType et);
 
     List getEvents(Integer eventTypeId);
+    
+    List getChildren(Long id);
 
     void saveOrUpdate(Event e);
 }

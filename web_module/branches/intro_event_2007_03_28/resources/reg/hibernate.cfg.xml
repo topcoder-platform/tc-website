@@ -5,12 +5,10 @@
 
 <hibernate-configuration>
 
-
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_OLTP</property>
-        <!--
-<<<<<<< hibernate.cfg.xml
+<!--
     <session-factory>
         <property name="connection.username">coder</property>
         <property name="connection.password">altec</property>
@@ -18,16 +16,10 @@
             jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm
         </property>
         <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
-
-=======
-            <session-factory>
-                        <property name="connection.username">coder</property>
-                        <property name="connection.password">altec</property>
-                        <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/csf_oltp:INFORMIXSERVER=devinformix10_shm</property>
-                        <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
->>>>>>> 1.5.90.2
-        -->
-        <!-- SQL dialect -->
+   
+   -->
+   
+    <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
         <property name="current_session_context_class">
             com.topcoder.web.common.ExtendedThreadLocalSessionContext
@@ -41,10 +33,11 @@
 
 
         <!-- Echo all executed SQL to stdout -->
-        <!--
+       <!-- 
                 <property name="show_sql">true</property>
                 <property name="format_sql">true</property>
         -->
+        
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
         <mapping resource="com/topcoder/web/common/model/Address.hbm.xml"/>
@@ -73,6 +66,7 @@
 
         <mapping resource="com/topcoder/web/common/model/FileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Image.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/IntroEventConfig.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/MemberContactMessage.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/MemberContactBlackList.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/Notification.hbm.xml"/>

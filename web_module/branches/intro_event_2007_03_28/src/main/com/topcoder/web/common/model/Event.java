@@ -12,6 +12,9 @@ import java.util.Set;
  */
 public class Event extends Base {
     public static final Long TCO07_COMPONENT_ID = new Long(7);
+    public static final Long INTRO_EVENT_ID = new Long(11);
+    public static final Long INTRO_EVENT_ALGO_ID = new Long(12);
+    public static final Long INTRO_EVENT_COMP_ID = new Long(13);
 
     private Long id;
     private EventType type;
@@ -22,6 +25,15 @@ public class Event extends Base {
     private TermsOfUse terms;
     private Survey survey;
     private Set users;
+    private Event parent;
+    
+    public Event getParent() {
+        return parent;
+    }
+
+    public void setParent(Event parent) {
+        this.parent = parent;
+    }
 
     public Event() {
         users = new HashSet();
