@@ -31,7 +31,7 @@
             <many-to-one name="school" column="school_id" class="School" access="field"/>
             <property name="roundId" column="round_id" access="field"/>
             <property name="forumId" column="forum_id" access="field"/>
-            <many-to-one name="timezone" column="timezone_id" class="TimeZone" access="field"/>
+            <many-to-one name="timeZone" column="timezone_id" class="TimeZone" access="field"/>
             <many-to-one name="image" column="image_id" class="Image" access="field"/>
             <property name="eligibilityCommandId" column="eligibility_command_id" access="field"/>                        
             <set name="config" access="field" inverse="true" >
