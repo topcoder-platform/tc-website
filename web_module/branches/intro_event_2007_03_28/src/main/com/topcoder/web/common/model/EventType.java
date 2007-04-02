@@ -16,6 +16,10 @@ public class EventType extends Base {
     public static final Integer STUDIO_TOURNAMENT_ID = new Integer(7);
     public static final Integer HIGH_SCHOOL_TOURNAMENT_ID = new Integer(8);
     public static final Integer MARATHON_TOURNAMENT_ID = new Integer(9);
+    
+    public static final Integer INTRO_EVENT_ID = new Integer(11);
+    public static final Integer INTRO_EVENT_ALGO_ID = new Integer(12);
+    public static final Integer INTRO_EVENT_COMP_ID = new Integer(13);
 
     protected EventType() {
 

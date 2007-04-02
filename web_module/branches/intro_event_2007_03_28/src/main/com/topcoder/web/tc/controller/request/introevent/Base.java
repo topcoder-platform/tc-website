@@ -5,6 +5,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.EventDAO;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.IntroEvent;
 import com.topcoder.web.tc.Constants;
 
@@ -36,11 +37,11 @@ public abstract class Base extends ShortHibernateProcessor {
         
         Integer type = event.getType().getId();
         
-        if (type.equals(Event.INTRO_EVENT_ID)) {
+        if (type.equals(EventType.INTRO_EVENT_ID)) {
             // the event is already an intro event, so load in the main id this event again, but as an intro event
             mainEvent = (IntroEvent) event;
             
-        } else if (type.equals(Event.INTRO_EVENT_ALGO_ID) || type.equals(Event.INTRO_EVENT_COMP_ID)) {
+        } else if (type.equals(EventType.INTRO_EVENT_ALGO_ID) || type.equals(EventType.INTRO_EVENT_COMP_ID)) {
             mainEvent = (IntroEvent) event.getParent(); 
             
         } else {
