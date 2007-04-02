@@ -52,15 +52,15 @@
 
     <h3>The Event</h3>
     TopCoder is sponsoring an onsite programming competition at ${mainEvent.school.name} on
-    <tc-webtag:format object="${roundStart}" format="MM.dd.yyyy" timeZone="${mainEvent.timeZone.id}"/>. <br><br>
+    <tc-webtag:format object="${roundStart}" format="MM.dd.yyyy" timeZone="${mainEvent.timeZone.desc}"/>. <br><br>
 
-    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${mainEvent.registrationEnd}" format="MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>.</span><br>
+    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${mainEvent.registrationEnd}" format="MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.desc}"/>.</span><br>
     <br>
     
     The event is from
-    <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+    <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.desc}"/>
     until
-    <tc-webtag:format object="${eventEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+    <tc-webtag:format object="${eventEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.desc}"/>
     in
     the ${mainEvent.location}. This event is being run in conjunction
     with
@@ -104,19 +104,19 @@
     The timeline for the day of the event:
     <ul>
         <li>
-            <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+            <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.desc}"/>
             - Computer lab opens & competitors set up
         </li>
         <li>
-            <tc-webtag:format object="${roundStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+            <tc-webtag:format object="${roundStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.desc}"/>
             - Competition starts
         </li>
         <li>
-            <tc-webtag:format object="${sysTestEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+            <tc-webtag:format object="${sysTestEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.desc}"/>
             - Competition ends
         </li>
         <li>
-            <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+            <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.desc}"/>
             - Pizza, Results, TopCoder presentation
         </li>
     </ul>
