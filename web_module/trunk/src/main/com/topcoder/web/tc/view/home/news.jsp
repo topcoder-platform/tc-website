@@ -31,7 +31,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=ViewSurvey&sid=16730">details</A> | 
+         <A href="/tc?module=ViewSurvey&sid=16730">vote</A> | 
          <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=40">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
