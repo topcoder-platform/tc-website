@@ -51,6 +51,12 @@ public class CondorcetSchulzeElection extends Base {
         this.ballots = ballots;
     }
 
+    public void addBallot(RankBallot b) {
+        b.setElection(this);
+        this.ballots.add(b);
+
+    }
+
     public Timestamp getStartTime() {
         return startTime;
     }
