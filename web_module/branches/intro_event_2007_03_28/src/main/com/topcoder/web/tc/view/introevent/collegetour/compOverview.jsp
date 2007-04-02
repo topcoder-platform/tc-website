@@ -1,4 +1,3 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -53,7 +52,7 @@
 <h3>The Event</h3>
 
 <p>
-    TopCoder is sponsoring an online software development competition at University of Belgrade for
+    TopCoder is sponsoring an online software development competition at ${mainEvent.school.name} for
     components posted from March 22 through April 5, 2007. 
 </p>
 

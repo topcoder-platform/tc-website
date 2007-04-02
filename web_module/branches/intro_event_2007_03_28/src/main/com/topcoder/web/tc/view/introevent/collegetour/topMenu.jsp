@@ -6,7 +6,7 @@
 <p align="center">
 <c:if test="${not empty algoEventId}" >
 	<b>Algorithms:</b>
-	<a href="/tc?module=IntroEventAlgoOverview&eid=${eid}">Overview</a>
+	<a href="/tc?module=IntroEventAlgoOverview&eid=${algoEventId}">Overview</a>
 	
 	<br>
 	
@@ -14,7 +14,7 @@
 
 <c:if test="${not empty compEventId}" >
 	<b>Components:</b>
-	<a href="/tc?module=IntroEventCompOverview&eid=${eid}">Overview</a>
+	<a href="/tc?module=IntroEventCompOverview&eid=${compEventId}">Overview</a>
 	<br>
 </c:if>
 
