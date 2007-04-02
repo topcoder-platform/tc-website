@@ -1,5 +1,3 @@
-<%@ page import="com.topcoder.web.tc.controller.request.util.SubmitBallBug" %>
-<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
