@@ -1,5 +1,9 @@
 package com.topcoder.web.oracle.controller.request.admin;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
@@ -21,7 +25,15 @@ abstract class Base extends ShortHibernateProcessor {
     protected void loadGeneralEditContestData() throws Exception {
         getRequest().setAttribute("contestStatuses", OracleDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
         getRequest().setAttribute("contestTypes", OracleDAOUtil.getFactory().getContestTypeDAO().getContestTypes());
-        
+
+
+
+        Request r = new Request();
+        r.setContentHandle("oracle_admin_contest_list");
+        DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
+        getRequest().setAttribute("studio_contests", da.getData(r).get("oracle_admin_contest_list"));
+
+
 
     }
 
