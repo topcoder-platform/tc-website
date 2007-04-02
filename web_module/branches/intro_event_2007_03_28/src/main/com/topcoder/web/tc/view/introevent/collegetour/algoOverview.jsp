@@ -43,7 +43,7 @@
 
 <!-- college tour site subnav -->
 <jsp:include page="topMenu.jsp">
-    <jsp:param name="active" value="overview"/>
+    <jsp:param name="active" value="algo_overview"/>
 </jsp:include>
 
 <!-- ends -->
