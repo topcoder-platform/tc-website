@@ -166,7 +166,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                         }
                     }
 
-                    markForCommit();
 
                     StringBuffer nextPage = new StringBuffer(50);
                     nextPage.append(getSessionInfo().getServletPath());

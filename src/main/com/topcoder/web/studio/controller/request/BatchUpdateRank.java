@@ -1,11 +1,5 @@
 package com.topcoder.web.studio.controller.request;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Enumeration;
-import java.util.Iterator;
-import java.util.List;
-
 import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.StringInput;
@@ -16,6 +10,8 @@ import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionType;
+
+import java.util.*;
 
 /**
  * @author dok
@@ -81,7 +77,6 @@ public class BatchUpdateRank extends BaseSubmissionDataProcessor {
                 dao.changeRank((Integer)newRanks.get(i), (Submission)changedSubmissions.get(i));
             }
 
-            markForCommit();
             closeConversation();
 
             beginCommunication();

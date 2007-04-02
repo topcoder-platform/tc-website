@@ -125,7 +125,6 @@ public class EditContest extends Base {
             }
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
-            markForCommit();
 
             if (log.isDebugEnabled()) {
                 closeConversation();

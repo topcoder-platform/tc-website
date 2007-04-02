@@ -70,7 +70,6 @@ public class Register extends ShortHibernateProcessor {
 
                             StudioDAOUtil.getFactory().getContestRegistrationDAO().saveOrUpdate(cr);
 
-                            markForCommit();
                         } else {
                             addError(Constants.REG_CONFIRM, "");
                             setDefault(Constants.CONTEST_ID, c.getId());
