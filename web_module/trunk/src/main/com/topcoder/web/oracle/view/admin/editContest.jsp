@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.oracle.Constants" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -86,28 +87,49 @@
                     </p>
                 </form>
 
-                <h1>Rounds</h1>
+                <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="studioContestForm">
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminCreateRoundFromStudio"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
-               <table cellpadding="0" cellspacing="0" class="input">
-<thead>
-    <tr>
-        <td>Name</td>
-    </tr>
-</thead>
+                <tc-webtag:errorIterator id="err" name="<%=Constants.STUDIO_CONTEST_ID%>"><span class="bigRed">${err}
+                    <br /></span></tc-webtag:errorIterator>
+                Create Round From Studio Contest:
+
+                        <tc-webtag:rscSelect name="<%=Constants.STUDIO_CONTEST_ID%>"
+                                             list="<%=(ResultSetContainer)request.getAttribute("studio_contests")%>" fieldText="name"
+                                             fieldValue="contest_id"/>
+
+                <button name="submit" value="submit" type="submit">Create</button>
+
+            </form>
+
+                <p>
+                <a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${round.id}">Add Round</a>
+                    </p>
+
+                <c:if test="${!empty contest.rounds}">
+                    <h1>Rounds</h1>
+
+                    <table cellpadding="0" cellspacing="0" class="input">
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                            </tr>
+                        </thead>
                         <tbody>
                             <c:forEach items="${contest.rounds}" var="round">
-                            <tr>
-                                <td>
-                                    ${round.name}
-                                </td>
-                                <td>
-                                    <a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${round.id}">edit</a>
-                                </td>
-                            </tr>
-                                </c:forEach>
+                                <tr>
+                                    <td>
+                                            ${round.name}
+                                    </td>
+                                    <td>
+                                        <a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${round.id}">edit</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
-
+                </c:if>
 
 
 
