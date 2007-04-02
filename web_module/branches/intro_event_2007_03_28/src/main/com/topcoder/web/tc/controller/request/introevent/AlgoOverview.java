@@ -53,8 +53,8 @@ public class AlgoOverview extends Base {
         Object[] r = (Object[]) q.uniqueResult();
 
         codingStart = (Timestamp) r[1];
-        sysTestEnd = (Timestamp) r[1];
-        contestName = (String) r[2];
+        sysTestEnd = (Timestamp) r[2];
+        contestName = (String) r[3];
         
         return (IntroEvent) r[0];
     }
