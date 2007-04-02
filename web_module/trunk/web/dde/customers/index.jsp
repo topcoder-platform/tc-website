@@ -59,17 +59,17 @@
             <img src="/images/headCustomers.gif" alt="Customers" width="545" height="32" border="0" /><br>
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Featured Customer</td></tr></table>
             
-<!-- Direct Energy begins -->
+<!-- UBS begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
+                    <td width="170"><img src="/images/clients/ubs_logo.png" alt="UBS" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">Direct Energy is North America's largest competitive energy solutions provider, with over five million residential and commercial customer relationships. Direct Energy provides customers with choice and support in managing energy costs through a portfolio of innovative products and services.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.directenergy.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">UBS is one of the world's leading financial firms. UBS is: the world's leading wealth management business; a global investment banking and securities firm; a key asset manager; and the market leader in Swiss corporate and individual client banking. As an organization, UBS combines financial strength with a culture that embraces change. As an integrated firm, UBS creates added value for clients by drawing on the combined resources and expertise of all its businesses.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.ubs.com" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- Direct Energy ends -->
+<!-- UBS ends -->
 
              <hr width="100%" size="1px" noshade>
 
@@ -220,6 +220,20 @@
                 </tr>
             </table>
 <!-- Detroit Edison ends -->
+
+             <hr width="100%" size="1px" noshade>
+             
+<!-- Direct Energy begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/directenergy_logo.gif" alt="Direct Energy" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">Direct Energy is North America's largest competitive energy solutions provider, with over five million residential and commercial customer relationships. Direct Energy provides customers with choice and support in managing energy costs through a portfolio of innovative products and services.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.directenergy.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Direct Energy ends -->
 
              <hr width="100%" size="1px" noshade>
 
@@ -376,20 +390,6 @@ ESPN ends
                 </tr>
             </table>
 <!-- Talbots ends -->
-
-             <hr width="100%" size="1px" noshade>
-
-<!-- UBS begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/ubs_logo.png" alt="UBS" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">UBS is one of the world's leading financial firms. UBS is: the world's leading wealth management business; a global investment banking and securities firm; a key asset manager; and the market leader in Swiss corporate and individual client banking. As an organization, UBS combines financial strength with a culture that embraces change. As an integrated firm, UBS creates added value for clients by drawing on the combined resources and expertise of all its businesses.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.ubs.com" refer="customer_index"/>" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- UBS ends -->
 
              <hr width="100%" size="1px" noshade>
 
