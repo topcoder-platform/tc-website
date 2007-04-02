@@ -16,7 +16,7 @@ public class IntroEvent extends Event  {
     private School school = null;
     private Long roundId = null;
     private Long forumId = null;
-    private TimeZone timezone = null;
+    private TimeZone timeZone = null;
     private Image image = null;
     private Long eligibilityCommandId = null;
     private Set<IntroEventConfig> config;
@@ -54,12 +54,12 @@ public class IntroEvent extends Event  {
         this.roundId = roundId;
     }
 
-    public TimeZone getTimezone() {
-        return timezone;
+    public TimeZone getTimeZone() {
+        return timeZone;
     }
 
-    public void setTimezone(TimeZone timezone) {
-        this.timezone = timezone;
+    public void setTimezone(TimeZone timeZone) {
+        this.timeZone = timeZone;
     }
 
     public School getSchool() {
