@@ -48,6 +48,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new EventDAOHibernate();
     }
 
+    public IntroEventDAO getIntroEventDAO() {
+        return new IntroEventDAOHibernate();
+    }
+
     public EventRegistrationDAO getEventRegistrationDAO() {
         return new EventRegistrationDAOHibernate();
     }

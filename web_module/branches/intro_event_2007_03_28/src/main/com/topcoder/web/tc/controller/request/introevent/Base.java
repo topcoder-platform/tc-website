@@ -27,9 +27,8 @@ public abstract class Base extends ShortHibernateProcessor {
 
         Long eventId = new Long(eid);
         
-        EventDAO edao =  DAOUtil.getFactory().getEventDAO();
         
-        event = edao.find(eventId);
+        event = DAOUtil.getFactory().getEventDAO().find(eventId);
         
         if (event == null) {
             throw new TCWebException("Event not found: " + eid);
@@ -38,11 +37,11 @@ public abstract class Base extends ShortHibernateProcessor {
         Integer type = event.getType().getId();
         
         if (type.equals(EventType.INTRO_EVENT_ID)) {
-            // the event is already an intro event, so load in the main id this event again, but as an intro event
+            // the event is already an intro event, so use it as the main event as well
             mainEvent = (IntroEvent) event;
             
         } else if (type.equals(EventType.INTRO_EVENT_ALGO_ID) || type.equals(EventType.INTRO_EVENT_COMP_ID)) {
-            mainEvent = (IntroEvent) event.getParent(); 
+            mainEvent = DAOUtil.getFactory().getIntroEventDAO().find(event.getParent().getId()); 
             
         } else {
             throw new TCWebException("Event must be any of intro event types, but was: " + type);
