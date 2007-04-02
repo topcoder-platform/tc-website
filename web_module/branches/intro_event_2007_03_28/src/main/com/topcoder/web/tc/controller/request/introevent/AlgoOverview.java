@@ -41,7 +41,7 @@ public class AlgoOverview extends Base {
                 "   , RoundSegment rs1" +
                 "   , RoundSegment rs2 " +
                 "   , Round r " +
-                " where ie.id = ? " +
+                " where ie.id = :eventId " +
                 " and ie.roundId = rs1.id.roundId " +
                 " and rs1.id.segmentId=2 " +
                 " and ie.roundId = rs2.id.roundId " +
@@ -49,7 +49,7 @@ public class AlgoOverview extends Base {
                 " and r.id = ie.roundId";
         
         Query q = HibernateUtils.getSession().createQuery(str);
-        q.setLong(1, eventId);
+        q.setLong("eventId", eventId);
         Object[] r = (Object[]) q.uniqueResult();
 
         codingStart = (Timestamp) r[1];

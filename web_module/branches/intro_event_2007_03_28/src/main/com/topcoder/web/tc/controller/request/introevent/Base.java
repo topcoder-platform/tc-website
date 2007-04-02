@@ -45,6 +45,7 @@ public abstract class Base extends ShortHibernateProcessor {
             throw new TCWebException("Event must be any of intro event types, but was: " + type);
         }
         
+        getRequest().setAttribute("eid", eventId);
         getRequest().setAttribute("event", event);
         getRequest().setAttribute("mainEvent", mainEvent);
         
