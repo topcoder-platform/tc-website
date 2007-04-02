@@ -36,7 +36,7 @@
         <div align="center" style="clear: both; margin-bottom: 10px;">
         <table cellpadding="3" cellspacing="0">
         <thead>
-        <tr><td align="center" style="border-bottom: 1px solid #999999; border-right: 1px solid #999999;"><strong>Submission<br>placement</strong></td><td align="center" style="border-bottom: 1px solid #999999;"><strong>Point value<br>for predicting<br>placement</strong></td></tr>
+        <tr><td align="center" style="border-bottom: 1px solid #999999; border-right: 1px solid #999999;"><strong>Candidate<br>placement</strong></td><td align="center" style="border-bottom: 1px solid #999999;"><strong>Point value<br>for predicting<br>placement</strong></td></tr>
         </thead>
         <tbody>
         <tr><td align="center" style="border-right: 1px solid #999999;"><strong>1</strong></td><td align="center">65535</td></tr>
@@ -60,7 +60,7 @@
         </div>
         
         <p>
-        Column 1 contains the submission placement.<br>
+        Column 1 contains the candidate placement.<br>
         Column 2 contains the corresponding number of points a competitor receives for correctly predicting that placement.
         </p>
         <p>
@@ -80,11 +80,11 @@
             </div>
         </div>
         <p> 
-        <strong>p</strong> is the number of points associated with the finishing position of the submssion, from the table above.<br>
-        <strong>&#916;</strong>  is the difference between what the competitor predicted for the submission's finishing placement and its actual placement.  
+        <strong>p</strong> is the number of points associated with the finishing position of the candidate, from the table above.<br>
+        <strong>&#916;</strong>  is the difference between what the competitor predicted for the candidate's finishing placement and its actual placement.  
         </p>
         <p> 
-        So, if a competitor predicts that submission A will finish in 1st place, but it actually finishes in 2nd place, the competitor will receive
+        So, if a competitor predicts that candidate A will finish in 1st place, but it actually finishes in 2nd place, the competitor will receive
         </p>
         <div align="center">
             <div style="width: 60px;">
