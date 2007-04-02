@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>04.02.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="tc?module=Static&d1=features&d2=040207">Using Mock Objects with Components</A></span><br><br>
+The number of component projects on TopCoder seems to increase almost every week. While more components means more variety, opportunity and prize money, it can also lead to challenges. What if the component you're developing depends on another, incomplete one? This is where mock objects come in.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/real_vg_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15891862" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="tc?module=Static&d1=features&d2=040207">full story</A> | 
+        <tc-webtag:forumLink forumID="514974" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.02.07<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>

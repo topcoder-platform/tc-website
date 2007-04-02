@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="15891862" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=040207"><strong>Using Mock Objects with Components</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Apr 2, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21684580" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=032907"><strong>A Crash Course in Relational Databases, Part 2</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Mar 29, 2007</td> 
