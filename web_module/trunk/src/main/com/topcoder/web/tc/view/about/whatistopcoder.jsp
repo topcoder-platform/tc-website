@@ -21,8 +21,8 @@ padding: 0px;
 margin: 0px;
 }
 img { border: none }
-A:link { color: #0000FF; text-decoration: underline; }
-A:visited { color: #0000FF; text-decoration: underline; }
+A:link { color: #0000FF; text-decoration: none; }
+A:visited { color: #0000FF; text-decoration: none; }
 A:hover, A:active { color: #F00; }
 ul{ margin-left: 10px; padding-left: 10px;}
 li{ padding-top: 2px; padding-bottom: 2px; }
@@ -55,53 +55,41 @@ H3 { font-size: 125%; }
     </div>
 
 <div align="center" style="margin: 15px 0px 20px 0px;">
-<img src="/i/about/quickmessage.png" alt="quickmessage" />
+<img src="/i/about/quickmessageV2.png" alt="quickmessage" />
 </div>
 
     <p>
-    <strong>Welcome to TopCoder - a different kind of software company:</strong>
+    <strong>Welcome to TopCoder.</strong>
+    </p>
+    <p>
+    Our model is built on three key beliefs:
     </p>
     <ul style="list-style-type: square">
-    <li>We believe intelligence and talent are universal, not limited to one country or one company.</li>
-    <li>We believe the best and smartest ideas should prevail, regardless of where they come from.</li>
-    <li>We believe the only way to determine who's got the better idea is through competition.</li>
+    <li>Intelligence and talent are universal, not limited to one country or one company.</li>
+    <li>The best and smartest ideas should prevail, regardless of where they come from.</li>
+    <li>The only way to determine who has a better solution is through competition.</li>
     </ul>
     <p>
-    <strong>Here's what we've done:</strong>
+    The foundation of TopCoder is a global community of thousands. From coders and contractors to students and hobbyists, they're brought together by a love of programming, a passion for learning, and the drive to compete.
     </p>
     <p>
-    We've built a development community with more than 100,000 members from across the globe. They are developers and contractors, students and hobbyists, brought together by a love for coding, a passion for learning, and a desire to test and improve their skills.
+    Together with our community, we established a rigorous and disciplined software development process that leverages our unique competition model. Based on a growing catalog of reusable software components - built and tested by our members - this process generates high-quality applications quickly and efficiently.
     </p>
-    <p>
-    We developed a rigorous and disciplined software development process that leverages our unique competition model. Based on a growing catalog of reusable software components - built by our members and tested in competition - this process generates high-quality applications quickly, efficiently, and for less money than other companies.
-    </p>
-    <p>
-    <strong>By harnessing the power of competition, TopCoder has revolutionized the way software is built.</strong>
+    <p align="center">
+    <strong>Through competition, the TopCoder community has revolutionized the way software is built.</strong>
     </p>
     <p align="center" style="margin-top: 20px;">
-    <strong><A href="<tc-webtag:linkTracking link='http://software.topcoder.com/applications/index.jsp' refer='whatistopcoder' />">How does TopCoder build software?</A></strong>
+    <strong><A href="<tc-webtag:linkTracking link='http://software.topcoder.com/applications/index.jsp' refer='whatistopcoder' />">I'd like to know more about how TopCoder builds software.</A></strong>
     </p>
     <p align="center">
-    <strong><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=contactus' refer='whatistopcoder' />">Who can I contact about working with TopCoder?</A></strong>
+    <strong><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=contactus' refer='whatistopcoder' />">I'd like to contact someone about working with TopCoder.</A></strong>
     </p>
     <p align="center">
-    <strong><A href="<tc-webtag:linkTracking link='/reg/' refer='whatistopcoder' />">Great, sign me up</A></strong>
+    <strong><A href="<tc-webtag:linkTracking link='/reg/' refer='whatistopcoder' />">I'd like to register now.</A></strong>
     </p>
     <p align="center">
-    <strong><A href="<tc-webtag:linkTracking link='/' refer='whatistopcoder' />">Back to the homepage</A></strong>
+    <strong><A href="<tc-webtag:linkTracking link='/' refer='whatistopcoder' />">Go back to the homepage.</A></strong>
     </p>
-<%--
-    <p align="center" style="margin-top: 20px;">
-    <strong><A href="javascript:getAndClose('<tc-webtag:linkTracking link="http://software.topcoder.com/applications/index.jsp" refer="whatistopcoder" />');">How does TopCoder build software?</A></strong>
-    </p>
-    <p align="center">
-    <strong><A href="javascript:getAndClose('/tc?module=Static&amp;d1=about&amp;d2=contactus');">Who can I contact about working with TopCoder?</A></strong>
-    </p>
-    <p align="center">
-    <strong><A href="javascript:getAndClose('<tc-webtag:linkTracking link="/reg/" refer="whatistopcoder" />');">Great, sign me up</A></strong>
-    </p>
---%>
-
    </div>
 </div>
 
