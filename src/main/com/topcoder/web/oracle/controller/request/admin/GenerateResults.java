@@ -5,16 +5,13 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.voting.*;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.scoring.BasicScorer;
-import com.topcoder.web.oracle.dao.OracleDAOUtil;
-import com.topcoder.web.oracle.dao.RoomResultDAO;
+import com.topcoder.web.oracle.dao.*;
 import com.topcoder.web.oracle.model.*;
 
-import java.util.Set;
-import java.util.List;
-import java.util.Collections;
-import java.util.HashMap;
+import java.util.*;
 
 /**
  * @author dok
@@ -38,13 +35,12 @@ public class GenerateResults extends ShortHibernateProcessor {
                 }
                 Round round = OracleDAOUtil.getFactory().getRoundDAO().find(rid);
 
+
                 Integer numAdvancing = new Integer(round.getConfigMap().get(RoundProperty.NUMBER_OF_CANDIDDATE_ADVANCERS));
                 if (log.isDebugEnabled()) {
                     log.debug("num advancing : " + numAdvancing);
                 }
-                List<CandidateRoomResult> candidateResults = OracleDAOUtil.getFactory().getCandidateRoomResultDAO().getResults(round);
-
-                Collections.sort(candidateResults, new CandidateRoomResult.CorrectValueComparator());
+                List<CandidateRoomResult> candidateResults = getCanidateResults(round);
 
                 log.debug("candidate room results: ");
                 for (CandidateRoomResult result : candidateResults) {
@@ -112,5 +108,54 @@ public class GenerateResults extends ShortHibernateProcessor {
     }
 
 
+    private List<CandidateRoomResult> getCanidateResults(Round r) {
+
+        ArrayList<CandidateRoomResult> ret = new ArrayList<CandidateRoomResult>(100);
+        PredictionDAO pDAO = OracleDAOUtil.getFactory().getPredictionDAO();
+        CandidateRoomResultDAO crrDAO = OracleDAOUtil.getFactory().getCandidateRoomResultDAO();
+        com.topcoder.web.common.voting.Candidate c;
+        HashMap<Integer, com.topcoder.web.common.voting.Candidate> candidateMap =
+                new HashMap<Integer, com.topcoder.web.common.voting.Candidate>();
+
+        RankBallot ballot;
+        Vote v;
+        CondorcetSchulzeElection cs;
+        CandidateRoomResult crr;
+        for (Room room : r.getRooms()) {
+            ArrayList<com.topcoder.web.common.voting.Candidate> cans =
+                    new ArrayList<com.topcoder.web.common.voting.Candidate>();
+            for (CandidateRoomResult cr : room.getCandidateResults()) {
+                c = new com.topcoder.web.common.voting.Candidate();
+                c.setName(cr.getCandidate().getName());
+                c.setId((long) cr.getCandidate().getId());
+                cans.add(c);
+                candidateMap.put(cr.getCandidate().getId(), c);
+            }
+            cs = new CondorcetSchulzeElection();
+            cs.getCandidates().addAll(cans);
+
+            for (RoomResult rr : room.getResults()) {
+                ballot = new RankBallot();
+                ballot.setUser(rr.getUser());
+                for (Prediction p : pDAO.getPredictions(rr.getUser().getId(), r.getId())) {
+                    v = new Vote();
+                    v.setRank(p.getValue());
+                    v.setCandidate(candidateMap.get(p.getCandidate().getId()));
+                    ballot.addVote(v);
+                }
+                cs.addBallot(ballot);
+            }
+
+            CondorcetSchulzeResults csr = new CondorcetSchulzeResults(cs);
+            for (RankedResult result : csr.getResults()) {
+                crr = crrDAO.find(room.getId(), result.getCandidate().getId().intValue());
+                crr.setCorrectValue(result.getRank());
+                ret.add(crr);
+            }
+
+        }
+        return ret;
+
+    }
 
 }
