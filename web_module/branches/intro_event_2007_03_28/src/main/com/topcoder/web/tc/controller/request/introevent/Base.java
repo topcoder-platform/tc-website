@@ -1,8 +1,5 @@
 package com.topcoder.web.tc.controller.request.introevent;
 
-import org.hibernate.Query;
-
-import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;

@@ -20,7 +20,7 @@ public class AlgoOverview extends Base {
         getRequest().setAttribute("sysTestEnd", codingStart);
         getRequest().setAttribute("eventStart", new Timestamp(codingStart.getTime()+(getMainEvent().getEventStartDelta()*1000*60)));
         getRequest().setAttribute("eventEnd", new Timestamp(codingStart.getTime()+(getMainEvent().getEventEndDelta()*1000*60)));
-        getRequest().setAttribute("resultsTime", new Timestamp(codingStart.getTime()+(getMainEvent().getResultsDelta())*1000*60)));
+        getRequest().setAttribute("resultsTime", new Timestamp(codingStart.getTime()+(getMainEvent().getResultsDelta())*1000*60));
 
         setNextIntroEventPage("algoOverview.jsp");
 

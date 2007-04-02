@@ -53,10 +53,80 @@
     <h3>The Event</h3>
     TopCoder is sponsoring an onsite programming competition at ${mainEvent.school.name} on
     <tc-webtag:format object="${roundStart}" format="MM.dd.yyyy" timeZone="${mainEvent.timeZone.id}"/>. <br><br>
----- ERASE:    <tc-webtag:format object="${eventStart}" format="MM.dd.yyyy" timeZone="${mainEvent.timeZone.id}"/>. -------
 
     <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${mainEvent.registrationEnd}" format="MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>.</span><br>
     <br>
+    
+    The event is from
+    <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+    until
+    <tc-webtag:format object="${eventEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+    in
+    the ${mainEvent.location}. This event is being run in conjunction
+    with
+    <A href="/tc?module=MatchDetails&rd=${mainEvent.roundId}">request.getAttribute(Constants.ROUND_NAME)
+    </A>.
+    In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
+    <a href="/tc?module=CollegeTourViewReg FIXME">here</a>
+    and be onsite for the competition.
+    After the event ends, pizza will be served and a TopCoder representative will be present to discuss
+    TopCoder competitions and employment services.
+
+    <br><br>
+
+    <h3>Prizes</h3>
+
+    <ul>
+    	<c:if test="${mainEvent.firstPlacePrize }">
+	        <li>1st place prize - ${mainEvent.firstPlacePrize}
+    	    </li>
+    	</c:if>
+    	<c:if test="${mainEvent.secondPlacePrize }">
+	        <li>1st place prize - ${mainEvent.secondPlacePrize}
+    	    </li>
+    	</c:if>
+    	<c:if test="${mainEvent.thirdPlacePrize }">
+	        <li>1st place prize - ${mainEvent.thirdPlacePrize}
+    	    </li>
+    	</c:if>
+    </ul>
+
+    All competitors will receive a TopCoder t-shirt. Placement in the SRM will be determined by the
+    total number of points at the conclusion of the SRM. The competitor with the highest total positive
+    (i.e., greater than zero) points will finish in 1st place. The overall winner will receive the 1st
+    place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher
+    will receive the 3rd place prize.
+
+    <br><br>
+
+    <h3>Event Schedule</h3>
+
+    The timeline for the day of the event:
+    <ul>
+        <li>
+            <tc-webtag:format object="${eventStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+            - Computer lab opens & competitors set up
+        </li>
+        <li>
+            <tc-webtag:format object="${roundStart}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+            - Competition starts
+        </li>
+        <li>
+            <tc-webtag:format object="${sysTestEnd}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+            - Competition ends
+        </li>
+        <li>
+            <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>
+            - Pizza, Results, TopCoder presentation
+        </li>
+    </ul>
+
+    <strong>${mainEvent.recruiterName }
+    </strong>, a TopCoder representative, will be present to explain the TopCoder
+    algorithm, design and development competitions, TopCoder Employment Services, and other aspects of
+    TopCoder.
+
+    <br><br>
     
 </p>
 
