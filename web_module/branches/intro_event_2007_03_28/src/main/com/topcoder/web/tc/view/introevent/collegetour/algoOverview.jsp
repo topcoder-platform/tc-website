@@ -42,6 +42,9 @@
 </div>
 
 <!-- college tour site subnav -->
+<jsp:include page="topMenu.jsp">
+    <jsp:param name="active" value="overview"/>
+</jsp:include>
 
 <!-- ends -->
 
@@ -49,8 +52,7 @@
     <h2>TopCoder College Tour SRM Overview</h2>
 
     <br>
-Algo: ${algoEventId }<br>
-Comp: ${compEventId }<br>
+
     <h3>The Event</h3>
     TopCoder is sponsoring an onsite programming competition at ${mainEvent.school.name} on
     <tc-webtag:format object="${roundStart}" format="MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>. <br><br>
