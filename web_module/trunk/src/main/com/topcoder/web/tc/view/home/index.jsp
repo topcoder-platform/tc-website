@@ -253,7 +253,7 @@
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" />
                 </map>
-                <img src="/i/home/tco07QualRd2_aol.png" alt="TCO07 Qualification Round 2 brought to you by AOL" border="0" style="display:block;" usemap="#mm"/>
+                <img src="/i/home/tco07QualRd3_aol.png" alt="TCO07 Qualification Round 3 brought to you by AOL" border="0" style="display:block;" usemap="#mm"/>
                 
 
             <%-- SRM SPONSOR
