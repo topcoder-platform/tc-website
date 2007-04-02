@@ -63,6 +63,11 @@ public class RankBallot extends Base {
         this.votes = votes;
     }
 
+    public void addVote(Vote v) {
+        v.setBallot(this);
+        this.votes.add(v);
+    }
+
     /**
      * privides a view of the content of the balot
      *
