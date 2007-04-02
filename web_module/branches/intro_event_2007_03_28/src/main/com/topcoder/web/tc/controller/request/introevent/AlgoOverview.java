@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 import org.hibernate.Query;
 
 import com.topcoder.web.common.HibernateUtils;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.IntroEvent;
 
 public class AlgoOverview extends Base {
@@ -16,6 +18,9 @@ public class AlgoOverview extends Base {
     
     @Override
     protected void introEventProcessing() throws Exception {
+        if (!getEvent().getType().equals(EventType.INTRO_EVENT_ALGO_ID)) {
+            throw new NavigationException("Invalid event type.");
+        }
         getRequest().setAttribute("contestName", contestName);
         getRequest().setAttribute("roundStart", codingStart);
         getRequest().setAttribute("sysTestEnd", sysTestEnd);
