@@ -37,6 +37,25 @@ public class Vote extends Base {
         this.rank = rank;
     }
 
+
+    public RankBallot getBallot() {
+        return id.getBallot();
+    }
+
+    public void setBallot(RankBallot ballot) {
+        id.setBallot(ballot);
+    }
+
+    public Candidate getCandidate() {
+        return id.getCandidate();
+    }
+
+    public void setCandidate(Candidate candidate) {
+        id.setCandidate(candidate);
+    }
+
+
+
     public int hashCode() {
         if (id.getBallot() == null || id.getCandidate() == null || id.getBallot().getId() == null || id.getCandidate().getId() == null) {
             return rank.hashCode();
