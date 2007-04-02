@@ -302,8 +302,13 @@ public class Constants implements WebConstants {
     public static final int EVENT_START_PROP_ID = 6;
     public static final int EVENT_END_PROP_ID = 7;
     public static final int RESULTS_PROP_ID = 8;
+  
+    @Deprecated
     public static final int ROUND_START_PROP_ID = 9;
+    
+    @Deprecated
     public static final int ROUND_END_PROP_ID = 10;
+    
     public static final int PAGES_BASE_PROP_ID = 11;
 
     public static final String EVENT_ID = "eid";

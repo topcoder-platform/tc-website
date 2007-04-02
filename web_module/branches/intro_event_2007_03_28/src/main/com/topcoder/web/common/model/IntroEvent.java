@@ -108,10 +108,6 @@ public class IntroEvent extends Event  {
         return getConfig(new Long(Constants.LOCATION_PROP_ID));
     }
 
-    public int getRoundStart() {
-        return Integer.parseInt(getConfig(new Long(Constants.ROUND_START_PROP_ID)));
-    }
-
     public int getEventStartDelta() {
         return Integer.parseInt(getConfig(new Long(Constants.EVENT_START_PROP_ID)));
     }
@@ -127,10 +123,6 @@ public class IntroEvent extends Event  {
     public String getPagesBase() {
         return getConfig(new Long(Constants.PAGES_BASE_PROP_ID));
     }
-
-    /*
-    public static final int ROUND_START_PROP_ID = 9;
-    public static final int ROUND_END_PROP_ID = 10;
-    */
+   
 
 }

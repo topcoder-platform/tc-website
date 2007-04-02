@@ -49,7 +49,8 @@
     <h2>TopCoder College Tour SRM Overview</h2>
 
     <br>
-
+Algo: ${hasAlgo }<br>
+Comp: ${hasComp }<br>
     <h3>The Event</h3>
     TopCoder is sponsoring an onsite programming competition at ${mainEvent.school.name} on
     <tc-webtag:format object="${roundStart}" format="MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>. <br><br>

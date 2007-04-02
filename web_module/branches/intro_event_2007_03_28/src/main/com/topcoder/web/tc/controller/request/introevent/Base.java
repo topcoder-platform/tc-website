@@ -1,5 +1,8 @@
 package com.topcoder.web.tc.controller.request.introevent;
 
+import org.hibernate.Query;
+
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -10,9 +13,10 @@ import com.topcoder.web.tc.Constants;
 
 public abstract class Base extends ShortHibernateProcessor {
 
-    private Event event = null;
-    
+    private Event event = null;    
     private IntroEvent mainEvent = null;
+    private boolean hasAlgo = false;
+    private boolean hasComp = false;
 
     protected abstract void introEventProcessing() throws Exception;
 
@@ -45,6 +49,22 @@ public abstract class Base extends ShortHibernateProcessor {
             throw new TCWebException("Event must be any of intro event types, but was: " + type);
         }
         
+        // Check if there are algo and/or component events
+        Query q = HibernateUtils.getSession().createQuery("select distinct e.type.id from Event e where e.parent.id=:eventId");
+        q.setLong("eventId", eventId);
+        for(Object o : q.list()) {
+            Integer t = (Integer) o;
+            
+            if (t == EventType.INTRO_EVENT_ALGO_ID) {
+                hasAlgo = true;                
+            }
+            if (t == EventType.INTRO_EVENT_COMP_ID) {
+                hasComp = true;                
+            }
+        }
+
+        getRequest().setAttribute("hasAlgo", hasAlgo);
+        getRequest().setAttribute("hasComp", hasComp);
         getRequest().setAttribute("eid", eventId);
         getRequest().setAttribute("event", event);
         getRequest().setAttribute("mainEvent", mainEvent);
