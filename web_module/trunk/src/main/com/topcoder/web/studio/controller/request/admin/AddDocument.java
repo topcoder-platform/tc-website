@@ -103,7 +103,6 @@ public class AddDocument extends Base {
                 contest.addDocument(d);
 
                 StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
-                markForCommit();
 
                 setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                         "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contestId);

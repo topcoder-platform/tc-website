@@ -84,7 +84,6 @@ public class SubmitReview extends Base {
             Long submitterId = s.getSubmitter().getId();
 
 
-            markForCommit();
 
             closeConversation();
             //have to wrap up the last stuff, and get into new stuff.  we don't want

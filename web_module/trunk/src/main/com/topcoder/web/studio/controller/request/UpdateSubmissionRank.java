@@ -1,13 +1,13 @@
 package com.topcoder.web.studio.controller.request;
 
-import java.util.Date;
-
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
+
+import java.util.Date;
 
 /**
  * @author dok
@@ -32,7 +32,6 @@ public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
                 getRequest().setAttribute("newRank", getRequest().getParameter(Constants.SUBMISSION_RANK));
                 if (newRank > 0 && newRank <= maxRank.intValue()) {
                     dao.changeRank(new Integer(newRank), s);
-                    markForCommit();
                     closeConversation();
                     beginCommunication();
                 }

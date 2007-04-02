@@ -1,17 +1,5 @@
 package com.topcoder.web.studio.controller.request;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;
@@ -30,13 +18,19 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.Contest;
-import com.topcoder.web.studio.model.FilePath;
-import com.topcoder.web.studio.model.MimeType;
-import com.topcoder.web.studio.model.StudioFileType;
-import com.topcoder.web.studio.model.Submission;
-import com.topcoder.web.studio.model.SubmissionType;
+import com.topcoder.web.studio.model.*;
 import com.topcoder.web.studio.validation.SubmissionValidator;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author pulky
@@ -195,7 +189,6 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                         }
                     }
 
-                    markForCommit();
 
                     StringBuffer nextPage = new StringBuffer(50);
                     nextPage.append(getSessionInfo().getServletPath());

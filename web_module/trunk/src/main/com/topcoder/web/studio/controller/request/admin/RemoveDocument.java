@@ -50,7 +50,6 @@ public class RemoveDocument extends Base {
 
 
             StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
-            markForCommit();
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                     "=AdminViewContest&" + Constants.CONTEST_ID + "=" + contestId);
