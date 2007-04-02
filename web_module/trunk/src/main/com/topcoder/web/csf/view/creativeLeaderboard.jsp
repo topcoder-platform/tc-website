@@ -74,7 +74,7 @@
         Eeyore
         </td>
         <td class="valueC">
-        130
+        135
         </td>
     </tr>
    <% even = !even;%>
@@ -88,6 +88,28 @@
         <td class="valueC">
         75
         </td>
+    </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+        <td class="valueC">4</td>
+        <td class="value">dhbello</td>
+        <td class="valueC">
+        30
+        </td>
+    </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+        <td class="valueC">5</td>
+        <td class="value">ericwangqing</td>
+        <td class="valueC">
+        15</td>
+    </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+        <td class="valueC">6</td>
+        <td class="value">ionacoder</td>
+        <td class="valueC">
+        10</td>
     </tr>
 </tbody>
 </table>
