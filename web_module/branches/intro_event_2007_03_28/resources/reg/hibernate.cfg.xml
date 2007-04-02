@@ -4,11 +4,11 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_OLTP</property>
 <!--
+
     <session-factory>
         <property name="connection.username">coder</property>
         <property name="connection.password">altec</property>
@@ -17,8 +17,7 @@
         </property>
         <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
    
-   -->
-   
+-->   
     <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
         <property name="current_session_context_class">
@@ -33,10 +32,8 @@
 
 
         <!-- Echo all executed SQL to stdout -->
-       <!-- 
                 <property name="show_sql">true</property>
                 <property name="format_sql">true</property>
-        -->
         
         <property name="hibernate.query.substitutions">true 1, false 0</property>
 
@@ -92,6 +89,7 @@
         <mapping resource="com/topcoder/web/common/model/Response.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/Resume.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/RoundSegment.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/SecretQuestion.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/School.hbm.xml"/>
         <mapping resource="com/topcoder/web/common/model/SchoolType.hbm.xml"/>

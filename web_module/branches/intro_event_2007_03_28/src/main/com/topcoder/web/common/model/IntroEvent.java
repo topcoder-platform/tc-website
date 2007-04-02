@@ -1,5 +1,7 @@
 package com.topcoder.web.common.model;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -90,8 +92,11 @@ public class IntroEvent extends Event  {
     public String getRecruiterName() {
         return getConfig(new Long(Constants.RECRUITER_NAME_PROP_ID));
     }
+
+    public int getRoundStart() {
+        return Integer.parseInt(getConfig(new Long(Constants.ROUND_START_PROP_ID)));
+    }
     /*
-    public static final int RECRUITER_NAME_PROP_ID = 1;
     public static final int FIRST_PLACE_PROP_ID = 2;
     public static final int SECOND_PLACE_PROP_ID = 3;
     public static final int THIRD_PLACE_PROP_ID = 4;

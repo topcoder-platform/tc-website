@@ -1,9 +1,11 @@
 package com.topcoder.web.tc.controller.request.introevent;
 
+import org.hibernate.Query;
+
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.EventDAO;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.IntroEvent;
@@ -28,7 +30,7 @@ public abstract class Base extends ShortHibernateProcessor {
         Long eventId = new Long(eid);
         
         
-        event = DAOUtil.getFactory().getEventDAO().find(eventId);
+        event = retrieveEvent(eventId);
         
         if (event == null) {
             throw new TCWebException("Event not found: " + eid);
@@ -37,11 +39,10 @@ public abstract class Base extends ShortHibernateProcessor {
         Integer type = event.getType().getId();
         
         if (type.equals(EventType.INTRO_EVENT_ID)) {
-            // the event is already an intro event, so use it as the main event as well
-            mainEvent = (IntroEvent) event;
+            mainEvent = retrieveMainEvent(eventId);
             
         } else if (type.equals(EventType.INTRO_EVENT_ALGO_ID) || type.equals(EventType.INTRO_EVENT_COMP_ID)) {
-            mainEvent = DAOUtil.getFactory().getIntroEventDAO().find(event.getParent().getId()); 
+            mainEvent = retrieveMainEvent(event.getParent().getId()); 
             
         } else {
             throw new TCWebException("Event must be any of intro event types, but was: " + type);
@@ -53,7 +54,14 @@ public abstract class Base extends ShortHibernateProcessor {
         introEventProcessing();
     }
 
-    
+    protected Event retrieveEvent(Long eventId) {
+        return DAOUtil.getFactory().getEventDAO().find(eventId);
+    }
+
+    protected IntroEvent retrieveMainEvent(Long eventId) {
+        return DAOUtil.getFactory().getIntroEventDAO().find(eventId);
+    }
+
     protected void setNextIntroEventPage(String page) {
         setNextPage(mainEvent.getConfig(new Long(Constants.PAGES_BASE_PROP_ID)) + "/" + page);
         setIsNextPageInContext(true);

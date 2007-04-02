@@ -14,7 +14,7 @@
 
 <body>
 
-<jsp:include page="../top.jsp">
+<jsp:include page="../../top.jsp">
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -51,8 +51,13 @@
     <br>
 
     <h3>The Event</h3>
-    TopCoder is sponsoring an onsite programming competition at ${mainEvent.recruiterName}
-    on
+    TopCoder is sponsoring an onsite programming competition at ${mainEvent.school.name} on
+    <tc-webtag:format object="${roundStart}" format="MM.dd.yyyy" timeZone="${mainEvent.timeZone.id}"/>. <br><br>
+---- ERASE:    <tc-webtag:format object="${eventStart}" format="MM.dd.yyyy" timeZone="${mainEvent.timeZone.id}"/>. -------
+
+    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${mainEvent.registrationEnd}" format="MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.id}"/>.</span><br>
+    <br>
+    
 </p>
 
 
