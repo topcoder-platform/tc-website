@@ -150,7 +150,7 @@ ORA-02290: check constraint (TOPCODER.CK_ROUND_RESULTS1) violated
 
 <p><span class="bodySubtitle">IX.  Views</span><br />
 
-Database views are another extremely useful feature of relational databases.  The best way to think of a view is as a stored SQL statement, which you can select from as if it were a database table.  For example, we now have a coder table, a round_list table, and a round_results table.  What if we wanted to know how many coders from South Africa competed in SRM 342?  Clearly, we are going to need information from both of our tables to determine the answer to that question.  We will discuss SQL joins in an upcoming article, but it's clear that we need to write some kind of query to 'join' these tables together to get our desired information.  We could write a query like this to do the job:</p>
+Database views are another extremely useful feature of relational databases.  The best way to think of a view is as a stored SQL statement, which you can select from as if it were a database table.  For example, we now have a coder table, a round_list table, and a round_results table.  What if we wanted to know how many coders from South Africa competed in SRM 342?  Clearly, we are going to need information from all three of our tables to determine the answer to that question.  We will discuss SQL joins in an upcoming article, but it's clear that we need to write some kind of query to 'join' these tables together to get our desired information.  We could write a query like this to do the job:</p>
 
 <pre class="code">
 SQL&gt; select   count(*)
