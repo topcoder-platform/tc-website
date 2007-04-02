@@ -13,10 +13,8 @@
             <A href="/?module=Static&amp;d1=rules" onfocus="this.blur();">Rules</A></li>
         <li<% if (selectedTab.equals("leaderboardOverview")) {%> class="on"<% } %>>
             <A href="/?module=Static&d1=leaderboardOverview" onfocus="this.blur();">Series Prizes</A></li>
-<%--
         <li<% if (selectedTab.equals("creativeLeaderboard")) {%> class="on"<% } %>>
             <A href="/?module=Static&d1=creativeLeaderboard" onfocus="this.blur();">Series Leaderboard</A></li>
---%>
         <li<% if (selectedTab.equals("competitions")) {%> class="on"<% } %>>
             <A href="/?module=Static&amp;d1=competitions" onfocus="this.blur();">Competitions</A></li>
         <li<% if (selectedTab.equals("discuss")) {%> class="on"<% } %> style="background-image: none; border-bottom: 1px solid #CCCCCC;">
