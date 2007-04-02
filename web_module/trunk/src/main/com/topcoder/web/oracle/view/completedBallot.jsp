@@ -22,8 +22,6 @@
     <script language="JavaScript" type="text/javascript"><!--
     function postToViewer(mySrc) {
         document.getElementById("viewer").src = mySrc;
-        document.getElementById("viewer").style.width = '300px';
-        document.getElementById("viewer").style.height = '300px';
     }
 
     function hideViewer() {
@@ -44,11 +42,9 @@
             <div align="center" style="margin: 40px 0px 100px 0px;">
                 <p align="center">You have already made your prediction for this contest.<br>Here it is:</p>
 
-                <div class="selectedContainer" style="width: ${maxCandidates*61+150}px;">
-                    <img src="/i/oracle/interface/meterBest.png" alt=""
-                         style="float: left;">
-                    <img src="/i/oracle/interface/meterWorst.png" alt=""
-                         style="float: right;">
+                <div class="selectedContainer" style="width: ${maxCandidates*61}px;">
+                    <img src="/i/oracle/interface/meterBest.png" alt="" style="position: absolute; top: 0px; left: -30px;"/>
+                    <img src="/i/oracle/interface/meterWorst.png" alt="" style="position: absolute; top: 0px; left: ${maxCandidates*61-45}px;"/>
 
                     <ul id="selectedCandidates" class="imageLineup" style="margin: 0px; float: left;">
 
