@@ -16,32 +16,45 @@
     <div id="contentOut">
         <div id="contentIn">
 
-        <div>
+        <div class="mininav">
+            <h3>
+                About this contest
+            </h3>
+            <A href="/to" class="on">Introduction</A>
+            <A href="?module=Static&d1=contestStructure">Contest Structure</A>
+            <A href="?module=Static&d1=scoring">Scoring</A>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
             <A href="/"><img src="/i/oracle/layout/topcoder.png" alt="TopCoder" /></A>
         </div>
 
         <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent bibendum ipsum nec mauris. Donec eu nibh eget velit mollis mollis. Fusce ac metus. Quisque at sem sit amet urna semper consectetuer. Duis porta sem id libero. Nunc ultricies consequat est. Nulla malesuada felis eget pede. Vestibulum luctus mattis justo. Nunc quis risus. Nulla aliquet massa vitae sem. Nulla facilisi. Praesent eu neque. Aenean suscipit. Curabitur orci lorem, ultrices tempor, pretium in, molestie sed, nisi. Donec vitae leo faucibus tortor condimentum sollicitudin.
+        After the introduction of TopCoder Studio, TopCoder was faced with the challenge of effectively choosing contest winners.  We felt that we needed a mechanism that was efficient and didn't require a lot of additional TopCoder staff time or resources.  We also felt that with the nature of Studio competitions being subjective, no one individual or even set of individuals would necessarily be the best at judging submissions.  The mechanism would need to be effective in that it would need to be able to determine a winner well (well being a fairly subjective term that could mean anything from how much the community or client likes a submission to measurements such as traffic and so on).   Finally, it should be transparent so that there wouldn't be questions of impropriety.
         </p>
         <p>
-        Praesent a diam. Pellentesque luctus, ante eget aliquam adipiscing, nisi nulla aliquet arcu, sed lacinia nibh orci vitae ipsum. Ut nisi. Quisque tellus. Duis a dolor. Quisque pellentesque augue ut libero. Donec in augue quis erat iaculis egestas. Cras tempus libero ac augue. Nullam facilisis tortor nec diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam vehicula, mauris nec vehicula laoreet, ante velit placerat nisi, quis nonummy tellus augue ac tortor. Quisque pede. Integer nec leo id lacus lacinia sagittis. Curabitur sem erat, lobortis ut, lacinia vel, auctor a, diam.
+        This system is the result of our efforts to meet those needs.  In essence, we are attempting to harness the <A target="_blank" href="http://www.randomhouse.com/features/wisdomofcrowds/Q&A.html">"wisdom of the crowd"</A>.
         </p>
         <p>
-        Phasellus vel sapien. Duis a diam id erat consectetuer elementum. Fusce aliquet. Maecenas blandit volutpat mi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam justo arcu, vehicula eget, malesuada porta, porta eu, sapien. Sed augue pede, faucibus in, consequat ac, ultrices quis, lacus. Mauris aliquam. Ut non diam. Praesent lectus enim, imperdiet et, aliquam ut, tempor vitae, pede. Nam et tellus. Maecenas euismod, odio ut nonummy malesuada, metus felis iaculis urna, in facilisis urna tortor in ante. Nullam tincidunt tempor magna. Fusce nisl dolor, convallis et, bibendum eu, commodo sit amet, odio. Donec tempus.
+        The basic idea behind the wisdom of the crowd is that one can rely on the aggregation of the opinions of a large set of individuals to provide the answer to a given question.  In the case of TopCoder Studio, the question is "Which submission is the best?".  Best meaning most well suited for a particular need.
         </p>
         <p>
-        Nulla facilisi. Vestibulum vulputate lacus eget risus. Proin augue. Morbi in nisl. Fusce imperdiet tristique nisi. Nam quis massa venenatis sem scelerisque rhoncus. In tellus dui, fringilla a, tristique vitae, hendrerit a, ipsum. Nulla ac nulla. Duis eleifend magna eget quam. Nullam euismod ullamcorper massa. Integer consequat. Etiam mauris mauris, facilisis sed, ultrices sit amet, porta at, quam. Pellentesque interdum. Donec augue neque, aliquet id, molestie at, varius molestie, tellus. Ut blandit sapien eget odio aliquet placerat.
+        A simple vote is probably the most obvious way to answer that question within the framework of a crowd.  However, votes aren't necessarily pragmatic.  One issue that we have run into is narrowing a large set of submissions down to a relative few.  To date, we have been using a rather traditional approach to this problem:  We take a large set of submissions, utilize a small number of people to choose a number that we like for one reason or another and then have the community vote.   As mentioned above we would like to try a different approach that we hope will produce a better outcome.  In true TopCoder fashion, we have decided to implement a new type of contest.  In this contest, competitors will be asked to guess what other competitors will chose as their favorite submission.  Doing this as a contest allows us to use relatively large groups of people to review relatively small sets of submissions.  Each competitor will be trying to predict what a subsequent large group will choose.  We hope that this contest will be both fun for the competitors and effective at determining the results of a Studio contest.  Competitors who can best predict the crowd's decision will be rewarded with prizes.
         </p>
         <p>
-        Aenean ullamcorper nisi sed odio. Suspendisse potenti. Pellentesque sapien felis, tincidunt eu, dapibus at, pellentesque at, enim. Suspendisse interdum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus eleifend suscipit risus. Fusce varius dolor nec est volutpat feugiat. Nam pretium leo quis massa. Ut quam. Nunc fermentum viverra nibh. Sed ullamcorper metus quis nunc laoreet facilisis. Quisque ac nibh. Fusce non turpis. Aenean dignissim suscipit arcu. Sed ante neque, posuere eu, rutrum vel, accumsan eu, lorem. Pellentesque blandit odio a ligula.
+        We chose to organize this in the format of a competition because it is the core value on which TopCoder is based.  We feel that competition combined with the wisdom of crowds may be able to produce significantly better results than a few "experts" can.  We added prizes to attract competitors because we think that a larger crowd is a wiser crowd.   Please bear in mind that this is still experimental for us and it is likely that we will modify this approach over time.  We hope you will help us with vetting this new approach by giving us much feedback as possible.
         </p>
+        <p>
+        Because of the experimental nature of this system, we will be using it for quite a few Studio contests, BUT THE OUTCOME MAY NOT BE BINDING ON THE ACTUAL STUDIO CONTEST BEING EVALUATED.  Of course the outcome of the judging competition from a prize standpoint will be.  We will have to judge the outcome for some time to gain comfort with the system.
+        </p>
+
         <p>
         <em>Jack Hughes<br>
         Founder and Chairman, TopCoder, Inc.</em>
         </p>
 
         <p align="center" style="margin: 20px;">
-        <strong>Predict the winners of the <A href="?module=ViewBallot&rd=2192">TopCoder Homepage Design Contest</A></strong>
+        <strong>Predict the winners of the <A href="?module=ViewBallot&rd=2000">TopCoder Homepage Design Contest</A></strong>
         </p>
 
         <jsp:include page="foot.jsp"/>
