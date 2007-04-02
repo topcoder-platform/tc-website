@@ -46,6 +46,7 @@
 
 <!-- 2007 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2007</font></td></tr>
+<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_040307">TopCoder Appoints Jiazhi Wu VP of Technology for China</A> [April 3]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_022207">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</A> [February 22]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_021307">Registration Opens for First TopCoder High School Global Programming Tournament</A> [February 13]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_021207">Connected Services Sandbox Launches</A> [February 12]<br/><br/></td></tr>
