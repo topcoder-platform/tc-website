@@ -3,7 +3,7 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="com.topcoder.web.common.model.algo">
+<hibernate-mapping package="com.topcoder.web.common.model.algo" auto-import="false">
 
     <class name="Contest" table="contest" mutable="false">
         <id name="id" column="contest_id" access="field" />
