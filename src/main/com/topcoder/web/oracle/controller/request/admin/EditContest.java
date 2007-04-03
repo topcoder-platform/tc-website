@@ -7,6 +7,7 @@ import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
 import com.topcoder.web.oracle.model.Contest;
 import com.topcoder.web.oracle.model.ContestStatus;
+import com.topcoder.web.oracle.model.ContestType;
 import com.topcoder.web.oracle.validation.ContestNameValidator;
 
 /**
@@ -22,30 +23,29 @@ public class EditContest extends Base {
         String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         String name = getRequest().getParameter(Constants.CONTEST_NAME);
         String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
+        String contestTypeId = getRequest().getParameter(Constants.CONTEST_TYPE_ID);
 
         inputValidation();
 
-        ContestStatus status = null;
-        if ("".equals(StringUtils.checkNull(contestStatusId))) {
-            addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
-        } else {
-            status = OracleDAOUtil.getFactory().getContestStatusDAO().find(new Integer(contestStatusId));
-            if (status == null) {
-                addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
-            }
-        }
 
+        ContestStatus status = OracleDAOUtil.getFactory().getContestStatusDAO().find(new Integer(contestStatusId));
+        ContestType type = OracleDAOUtil.getFactory().getContestTypeDAO().find(new Integer(contestTypeId));
 
         if (hasErrors()) {
             loadGeneralEditContestData();
 
             if (!"".equals(StringUtils.checkNull(contestId))) {
-                setDefault(Constants.CONTEST_STATUS_ID,
-                        OracleDAOUtil.getFactory().getContestDAO().find(new Integer(contestId)).getStatus().getId());
+                Contest c=OracleDAOUtil.getFactory().getContestDAO().find(new Integer(contestId));
+                setDefault(Constants.CONTEST_STATUS_ID, c.getStatus().getId());
+                setDefault(Constants.CONTEST_TYPE_ID,c.getType().getId());
             } else if (status != null) {
                 setDefault(Constants.CONTEST_STATUS_ID, contestStatusId);
             } else {
                 setDefault(Constants.CONTEST_STATUS_ID, ContestStatus.UNACTIVE);
+            }
+
+            if (type!=null) {
+                setDefault(Constants.CONTEST_TYPE_ID, contestTypeId);
             }
 
             setDefault(Constants.CONTEST_ID, contestId);
@@ -64,6 +64,7 @@ public class EditContest extends Base {
             }
             contest.setName(name);
             contest.setStatus(status);
+            contest.setType(type);
 
 
             OracleDAOUtil.getFactory().getContestDAO().saveOrUpdate(contest);
@@ -77,6 +78,8 @@ public class EditContest extends Base {
 
     private void inputValidation() throws Exception {
         String name = getRequest().getParameter(Constants.CONTEST_NAME);
+        String contestStatusId = getRequest().getParameter(Constants.CONTEST_STATUS_ID);
+        String contestTypeId = getRequest().getParameter(Constants.CONTEST_TYPE_ID);
 
         //validate
         ValidationResult nameResult = new ContestNameValidator().validate(new StringInput(name));
@@ -84,6 +87,27 @@ public class EditContest extends Base {
         if (!nameResult.isValid()) {
             addError(Constants.CONTEST_NAME, nameResult.getMessage());
         }
+
+        ContestStatus status;
+        if ("".equals(StringUtils.checkNull(contestStatusId))) {
+            addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
+        } else {
+            status = OracleDAOUtil.getFactory().getContestStatusDAO().find(new Integer(contestStatusId));
+            if (status == null) {
+                addError(Constants.CONTEST_STATUS_ID, "Please choose a valid contest status.");
+            }
+        }
+
+        ContestType type;
+        if ("".equals(StringUtils.checkNull(contestTypeId))) {
+            addError(Constants.CONTEST_TYPE_ID, "Please choose a valid contest type.");
+        } else {
+            type = OracleDAOUtil.getFactory().getContestTypeDAO().find(new Integer(contestTypeId));
+            if (type == null) {
+                addError(Constants.CONTEST_TYPE_ID, "Please choose a valid contest type.");
+            }
+        }
+
 
     }
 
