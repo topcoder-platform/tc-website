@@ -17,7 +17,7 @@ public class Util {
         return m.containsKey(o);
     }
     
-    public static String ordinal(Integer i) {
+    public static String ordinal(int i) {
         switch (i) {
         case 1 : return "1st";
         case 2 : return "2nd";
