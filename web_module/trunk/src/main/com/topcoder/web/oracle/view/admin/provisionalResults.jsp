@@ -50,7 +50,7 @@
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
 
-    <c:forEach items="${room.candidateResults}" var="result">
+    <c:forEach items="${results[room.id]}" var="result">
 
 <tr>
     <td class="name">
