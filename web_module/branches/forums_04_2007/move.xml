@@ -163,7 +163,7 @@
 
     <target name="package-forums-full" depends="">
         <antcall target="package-forums"/>
-        <ant antfile="build.xml" target="build-security"/>
+        <ant antfile="build_forums.xml" target="build-security"/>
 
         <jar destfile="forums.jar" update="true">
             <fileset dir=".">
@@ -185,14 +185,14 @@
         <cvs command="update -Pd" package="src"/>
         <cvs command="update -Pd" package="resources"/>
         <cvs command="update -Pd" package="lib"/>
-        <cvs command="update -Pd" package="build.xml"/>
+        <cvs command="update -Pd" package="build_forums.xml"/>
 
         <exec dir="../shared" executable="cvs">
             <arg line="update -dP src"/>
         </exec>
 
 
-        <ant antfile="build.xml" target="build-forums"/>
+        <ant antfile="build_forums.xml" target="build-forums"/>
 
         <!--
                 <copy todir="../jboss-4.0.2/server/default/lib">
@@ -210,7 +210,7 @@
                 <include name="build/ejb_jars/forums.jar"/>
                 <include name="lib/bin/shared.jar"/>
                 <include name="lib/bin/tcwebcommon.jar"/>
-                <include name="build.xml"/>
+                <include name="build_forums.xml"/>
             </fileset>
         </jar>
     </target>
