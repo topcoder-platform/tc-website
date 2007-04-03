@@ -1,0 +1,56 @@
+package com.topcoder.web.common.model.comp;
+
+import com.topcoder.web.common.model.Base;
+
+/**
+ * @author cucu
+= */
+@SuppressWarnings("serial")
+public class ContestPrize extends Base {
+
+    protected Long id = null;
+    protected Contest contest = null;
+    protected Integer prizeTypeId = null; 
+    protected Integer place = null;
+    protected Double amount = null;
+    protected String description = null;
+    
+    public Double getAmount() {
+        return amount;
+    }
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+    public Contest getContest() {
+        return contest;
+    }
+    public void setContest(Contest contest) {
+        this.contest = contest;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
+    public Integer getPlace() {
+        return place;
+    }
+    public void setPlace(Integer place) {
+        this.place = place;
+    }
+    public Integer getPrizeTypeId() {
+        return prizeTypeId;
+    }
+    public void setPrizeTypeId(Integer prizeTypeId) {
+        this.prizeTypeId = prizeTypeId;
+    }
+
+    
+}

@@ -1,7 +1,6 @@
-<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+=<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -130,13 +129,13 @@
 </p>
 
     <ul>
-        <li>1st place weekly prize - $500</li>
-        <li>2nd place weekly prize - $300</li>
-        <li>3rd place weekly prize - $100</li>
+        <c:forEach items="${weeklyPrizes}" var="prizeAmount">
+	        <li>x place weekly prize - $<tc-webtag:format object="${prizeAmount}" format="###,##0" /> </li>
+        </c:forEach>
     </ul>
 
 <p>
-    <strong>Series Prize</strong>: The three competitors with the highest cumulative placement points across all 3 weeks
+    <strong>Series Prize</strong>: The three competitors with the highest cumulative placement points across all ${weeks } weeks
     of competition will win the following cash prizes:
 </p>
 
