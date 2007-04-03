@@ -2,7 +2,6 @@ package com.topcoder.web.csf.controller.request;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.csf.Constants;
-import com.topcoder.web.csf.controller.request.admin.Base;
 import com.topcoder.web.csf.dao.CSFDAOUtil;
 import com.topcoder.web.csf.model.ContestResult;
 import com.topcoder.web.csf.model.Submission;
