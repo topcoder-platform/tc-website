@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set value="<%=RoundProperty.MAX_SELECTED_CANDIDATES%>" var="maxCandidatesKey"/>
-<c:set value="${round.configMap[maxCandidatesKey]}" var="maxCandidates"/>
+<c:set value="${room.round.configMap[maxCandidatesKey]}" var="maxCandidates"/>
 
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
