@@ -6,7 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <c:set value="<%=RoundProperty.MAX_SELECTED_CANDIDATES%>" var="maxCandidatesKey"/>
-<c:set value="${round.configMap[maxCandidatesKey]}" var="maxCandidates"/>
+<c:set value="${room.round.configMap[maxCandidatesKey]}" var="maxCandidates"/>
 
 <html>
 <head>
@@ -225,7 +225,7 @@ function verify() {
                 <div style="clear: both; margin-bottom: 20px;">
                     <form action="${sessionInfo.servletPath}" method="POST" name="ballotForm" onSubmit="return verify();">
                         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitBallot"/>
-                        <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.ROOM_ID%>"/>
                         <tc-webtag:hiddenInput name="<%=Constants.CANDIDATE_IDS%>"/>
 
                         <BUTTON name="submit" value="submit" type="submit" class="button">Submit</BUTTON>
