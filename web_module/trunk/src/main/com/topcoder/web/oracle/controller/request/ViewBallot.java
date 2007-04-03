@@ -1,8 +1,6 @@
 package com.topcoder.web.oracle.controller.request;
 
-import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.oracle.Constants;
@@ -22,7 +20,6 @@ import java.util.Random;
 public class ViewBallot extends ShortHibernateProcessor {
     protected final void dbProcessing() throws Exception {
 
-        if (userLoggedIn()) {
             String roundId = getRequest().getParameter(Constants.ROUND_ID);
             if ("".equals(StringUtils.checkNull(roundId))) {
                 throw new NavigationException("No round specified");
@@ -73,9 +70,6 @@ public class ViewBallot extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid contest specified.");
                 }
             }
-        } else {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        }
 
 
     }
@@ -93,7 +87,7 @@ public class ViewBallot extends ShortHibernateProcessor {
      * it should be the same random order for a particular user every
      * time they look at the candidates for a particular round
      *
-     * @param round
+     * @param round the round to load data for
      */
     protected final void loadData(Round round) {
         List<Candidate> candidates =
