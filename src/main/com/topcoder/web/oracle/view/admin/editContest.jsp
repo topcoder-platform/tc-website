@@ -125,6 +125,9 @@
                                     <td>
                                         <a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${round.id}">edit</a>
                                     </td>
+                                    <td>
+                                        <a href="${sessionInfo.servletPath}?module=AdminViewProvisionalResults&amp;<%=Constants.ROUND_ID%>=${round.id}">provisional results</a>
+                                    </td>
                                 </tr>
                             </c:forEach>
                         </tbody>
