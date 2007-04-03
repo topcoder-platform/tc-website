@@ -20,4 +20,7 @@ public interface RoomResultDAO {
     List<RoomResult> getResults(Round round);
 
     List<RoomResult> getResults(Integer roundId);
+
+    List<RoomResult> getResults(User u, Round round);
+    List<RoomResult> getResults(Long userId, Integer roundId);
 }

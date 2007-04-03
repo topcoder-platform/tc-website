@@ -55,4 +55,24 @@ public class RoomResultDAOHibernate extends Base implements RoomResultDAO {
         return ret;
     }
 
+    public List<RoomResult> getResults(User u, Round round) {
+        return getResults(u.getId(), round.getId());
+    }
+
+    public List<RoomResult> getResults(Long userId, Integer roundId) {
+        StringBuffer query = new StringBuffer(100);
+        query.append(" from com.topcoder.web.oracle.model.RoomResult crr");
+        query.append(" where crr.id.room.round.id = ?");
+        query.append("   and crr.id.user.id = ?");
+        Query q = session.createQuery(query.toString());
+        q.setInteger(0, roundId);
+        q.setLong(2, userId);
+        List l = q.list();
+        ArrayList<RoomResult> ret = new ArrayList<RoomResult>(l.size());
+        for (Object aL : l) {
+            ret.add((RoomResult) aL);
+        }
+        return ret;
+    }
+
 }
