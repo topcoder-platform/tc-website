@@ -51,10 +51,10 @@
 </thead>
 <tbody>
     <tr>
-        <td class="header">
+        <td class="header" width="40%">
             Bug
         </td>
-        <td class="header">
+        <td class="header" width="60%">
             How to reproduce bug
         </td>
         <td class="headerC">
