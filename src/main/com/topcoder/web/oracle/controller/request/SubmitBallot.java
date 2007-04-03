@@ -70,6 +70,9 @@ public class SubmitBallot extends ViewBallot {
                 PredictionDAO pDao = OracleDAOUtil.getFactory().getPredictionDAO();
                 for (Prediction prediction : predictions) {
                     pDao.saveOrUpdate(prediction);
+                    if (log.isDebugEnabled()) {
+                        log.debug("new prediction " + prediction.getCandidate().getName() + " " + prediction.getValue());
+                    }
                 }
 
                 StringBuffer buf = new StringBuffer(50);
