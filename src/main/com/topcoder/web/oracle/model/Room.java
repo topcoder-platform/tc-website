@@ -16,10 +16,12 @@ public class Room extends Base {
     private String name;
     private Set<CandidateRoomResult> candidateResults;
     private Set<RoomResult> results;
+    private Set<Prediction> predictions;
 
     public Room() {
         candidateResults = new HashSet<CandidateRoomResult>();
         results = new HashSet<RoomResult>();
+        predictions = new HashSet<Prediction>();
     }
 
     public Round getRound() {
@@ -54,6 +56,15 @@ public class Room extends Base {
     public void setCandidateResults(Set<CandidateRoomResult> candidateResults) {
         this.candidateResults = candidateResults;
     }
+
+    public Set<Prediction> getPredictions() {
+        return predictions;
+    }
+
+    public void setPredictions(Set<Prediction> predictions) {
+        this.predictions = predictions;
+    }
+
 
     /**
      * Add the given result to this room and make the association between that

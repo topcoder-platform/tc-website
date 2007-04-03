@@ -23,33 +23,33 @@ public class ViewBallot extends ShortHibernateProcessor {
     protected final void dbProcessing() throws Exception {
 
         if (userLoggedIn()) {
-            String roundId = getRequest().getParameter(Constants.ROUND_ID);
-            if ("".equals(StringUtils.checkNull(roundId))) {
-                throw new NavigationException("No round specified");
+            String roomId = getRequest().getParameter(Constants.ROOM_ID);
+            if ("".equals(StringUtils.checkNull(roomId))) {
+                throw new NavigationException("No room specified");
             } else {
                 Integer rid;
                 try {
-                    rid = new Integer(roundId);
+                    rid = new Integer(roomId);
                 } catch (NumberFormatException e) {
-                    throw new NavigationException("Invalid round specified");
+                    throw new NavigationException("Invalid room specified");
                 }
-                Round round = OracleDAOUtil.getFactory().getRoundDAO().find(rid);
+                Room room = OracleDAOUtil.getFactory().getRoomDAO().find(rid);
 
-                if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
-                    if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
-                        if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId()) != null) {
-                            if (OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(getUser().getId(), round.getId())) {
+                if (ContestStatus.ACTIVE.equals(room.getRound().getContest().getStatus().getId())) {
+                    if (RoundStatus.ACTIVE.equals(room.getRound().getStatus().getId())) {
+                        if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(room.getRound().getId(), getUser().getId()) != null) {
+                            if (OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(getUser().getId(), room.getId())) {
                                 StringBuffer buf = new StringBuffer(50);
                                 buf.append(getSessionInfo().getServletPath());
                                 buf.append("?" + Constants.MODULE_KEY + "=ViewCompletedBallot&");
-                                buf.append(Constants.ROUND_ID).append("=").append(round.getId());
+                                buf.append(Constants.ROOM_ID).append("=").append(room.getId());
                                 setNextPage(buf.toString());
                                 setIsNextPageInContext(false);
                             } else {
                                 Date now = new Date();
-                                if (round.getPhase(Phase.SUBMISSION).getStartTime().before(now)) {
-                                    if (round.getPhase(Phase.SUBMISSION).getEndTime().after(now)) {
-                                        ballotProcessing(round);
+                                if (room.getRound().getPhase(Phase.SUBMISSION).getStartTime().before(now)) {
+                                    if (room.getRound().getPhase(Phase.SUBMISSION).getEndTime().after(now)) {
+                                        ballotProcessing(room);
                                     } else {
                                         throw new NavigationException("Sorry, the submission phase is over.");
                                     }
@@ -62,7 +62,7 @@ public class ViewBallot extends ShortHibernateProcessor {
                             StringBuffer buf = new StringBuffer(50);
                             buf.append(getSessionInfo().getServletPath());
                             buf.append("?" + Constants.MODULE_KEY + "=ViewRegistration&");
-                            buf.append(Constants.ROUND_ID).append("=").append(round.getId());
+                            buf.append(Constants.ROUND_ID).append("=").append(room.getRound().getId());
                             setNextPage(buf.toString());
                             setIsNextPageInContext(false);
                         }
@@ -81,8 +81,8 @@ public class ViewBallot extends ShortHibernateProcessor {
 
     }
 
-    protected void ballotProcessing(Round round) throws Exception {
-        loadData(round);
+    protected void ballotProcessing(Room room) throws Exception {
+        loadData(room.getRound());
         setNextPage("/ballot.jsp");
         setIsNextPageInContext(true);
 

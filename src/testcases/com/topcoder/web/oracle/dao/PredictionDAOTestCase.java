@@ -24,7 +24,7 @@ public class PredictionDAOTestCase extends TCHibernateTestCase {
                     for (CandidateRoomResult candidateRoomResult : room.getCandidateResults()) {
                         log.debug("candidate " + candidateRoomResult.getCandidate().getId());
                         Prediction p = new Prediction();
-                        p.setRound(round);
+                        p.setRoom(room);
                         p.setUser(dok);
                         p.setCandidate(candidateRoomResult.getCandidate());
                         p.setValue(939);
@@ -59,7 +59,7 @@ public class PredictionDAOTestCase extends TCHibernateTestCase {
                     for (CandidateRoomResult candidateRoomResult : room.getCandidateResults()) {
                         log.debug("candidate " + candidateRoomResult.getCandidate().getId());
                         Prediction p = new Prediction();
-                        p.setRound(round);
+                        p.setRoom(room);
                         p.setUser(dok);
                         p.setCandidate(candidateRoomResult.getCandidate());
                         p.setValue(939);
@@ -70,7 +70,7 @@ public class PredictionDAOTestCase extends TCHibernateTestCase {
                         tearDown();
                         setUp();
                         assertTrue("prediction not found", 
-                                OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(dok.getId(), round.getId()));
+                                OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(dok.getId(), room.getId()));
                         break;
                     }
                     if (found) break;

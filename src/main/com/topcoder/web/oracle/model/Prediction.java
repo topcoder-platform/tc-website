@@ -13,7 +13,7 @@ public class Prediction extends Base {
     private Integer id;
     private User user;
     private Candidate candidate;
-    private Round round;
+    private Room room;
     private Integer value;
     private Double score;
 
@@ -51,14 +51,6 @@ public class Prediction extends Base {
         return candidate;
     }
 
-    public Round getRound() {
-        return round;
-    }
-
-    public void setRound(Round round) {
-        this.round = round;
-    }
-
     public void setCandidate(Candidate candidate) {
         this.candidate = candidate;
     }
@@ -70,5 +62,14 @@ public class Prediction extends Base {
 
     public void setScore(Double score) {
         this.score = score;
+    }
+
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }
