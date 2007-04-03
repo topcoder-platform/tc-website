@@ -34,7 +34,17 @@
             <div class="fixedWidthBody">
 
 
-                <font size="+10"><blink>you submitted your bug successfully!</blink></font>
+<div align="center" style="padding-bottom: 10px; border-bottom: 1px solid #999999;">
+    <A href="http://www.theball.com/"><img src="/i/sponsor/theball.png" alt="The Ball" /></A>
+    <br><strong>
+    Report a bug
+    | <A href="/tc?module=Static&d1=sponsors&d2=ballKnownBugs" class="bcLink">Known bugs</A>
+    </strong>
+</div>
+
+<p align="center">
+You submitted your bug successfully.<br>Thank you for your help.
+</p>
 
             </div>
         </td>
