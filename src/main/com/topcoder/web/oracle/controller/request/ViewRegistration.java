@@ -8,6 +8,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
 import com.topcoder.web.oracle.model.ContestStatus;
+import com.topcoder.web.oracle.model.Phase;
 import com.topcoder.web.oracle.model.Round;
 import com.topcoder.web.oracle.model.RoundStatus;
 
@@ -34,9 +35,24 @@ public class ViewRegistration extends ShortHibernateProcessor {
                 }
                 Round round = OracleDAOUtil.getFactory().getRoundDAO().find(rid);
 
+                Date now = new Date();
                 if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
                     if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
-                        regProcessing(round);
+                        if (round.getPhase(Phase.REGISTRATION).getStartTime().before(now) &&
+                                round.getPhase(Phase.REGISTRATION).getEndTime().after(now)) {
+                            if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId()) != null) {
+                                StringBuffer buf = new StringBuffer(50);
+                                buf.append(getSessionInfo().getServletPath());
+                                buf.append("?" + Constants.MODULE_KEY + "=ViewBallot&");
+                                buf.append(Constants.ROUND_ID).append("=").append(round.getId());
+                                setNextPage(buf.toString());
+                                setIsNextPageInContext(false);
+                            } else {
+                                regProcessing(round);
+                            }
+                        } else {
+                            throw new NavigationException("Registration is not currently open.");
+                        }
                     } else {
                         throw new NavigationException("Invalid round specified.");
                     }
@@ -52,23 +68,9 @@ public class ViewRegistration extends ShortHibernateProcessor {
     }
 
     protected void regProcessing(Round round) throws Exception {
-
-        Date now = new Date();
-        //todo check dates
-        //todo check if already regsistered
-/*
-                        if (round.getStartTime().before(now) && round.getEndTime().after(now)) {
-*/
         setDefault(Constants.ROUND_ID, round.getId().toString());
         getRequest().setAttribute("round", round);
-/*
-                            } else {
-                                throw new NavigationException("Inactive contest specified.");
-                            }*/
         setNextPage("reg.jsp");
         setIsNextPageInContext(true);
-
     }
-
-
 }
