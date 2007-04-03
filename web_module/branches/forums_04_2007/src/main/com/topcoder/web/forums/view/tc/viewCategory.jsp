@@ -116,6 +116,15 @@
                 </td>
                 <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
                     <jsp:include page="searchHeader.jsp"/>
+                    <%  if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
+	                	<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
+	            		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+	                		<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
+						<%	} %>
+						<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+							<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
+						<%	} %>
+            		<%	} %>
                 </td>
                 <td align="right" nowrap="nowrap" valign="top">
                 	<%	boolean isAuthorized = forumCategory.isAuthorized(Permissions.SYSTEM_ADMIN) || 
@@ -141,15 +150,6 @@
                     	<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
                     	<img src="/i/interface/exp_w.gif" align="absmiddle"/>
                     <% } else { %>
-               			<%  if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
-               				<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
-		            		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
-		                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
-							<%	} %>
-							<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
-								<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
-							<%	} %>
-                		<%	} %>
                     	<%=category.getName()%>
                     <% } %>
                 </tc-webtag:iterator>
