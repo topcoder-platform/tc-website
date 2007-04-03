@@ -70,10 +70,10 @@ public class CompOverview extends Base {
             Object []o = (Object[]) objects;
             Integer type = (Integer) o[1];
             if (type.equals(12)) {  // fix: use constant!
-                weeklyPrizes.add((Double) o[1]);
+                weeklyPrizes.add((Double) o[2]);
             }
             if (type.equals(13)) { // fix: use constant!
-                overallPrizes.add((Double) o[1]);
+                overallPrizes.add((Double) o[2]);
             }
         }
 
