@@ -86,6 +86,10 @@ public class Category extends ForumsProcessor {
         Paging paging = new Paging(resultFilter, list.size());
         Paginator paginator = new Paginator(paging);
         
+        if (ForumsUtil.isSoftwareSubcategory(forumCategory)) {
+            getRequest().setAttribute("imageData", ForumsUtil.getImageData(forumsBean, forumCategory));
+        }
+        
         if (forumCategory.getCategoryCount() > 0) {
         	getRequest().setAttribute("categories", pageList.iterator());
             

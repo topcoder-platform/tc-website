@@ -141,10 +141,19 @@
             	<td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
                     <% if (category.getID() != forumCategory.getID()) { %>
-                    <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-                    <img src="/i/interface/exp_w.gif" align="absmiddle"/>
+                    	<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+                    	<img src="/i/interface/exp_w.gif" align="absmiddle"/>
                     <% } else { %>
-                    <%=category.getName()%>
+               			<%  if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
+               				<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
+		            		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+		                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
+							<%	} %>
+							<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+								<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
+							<%	} %>
+                		<%	} %>
+                    	<%=category.getName()%>
                     <% } %>
                 </tc-webtag:iterator>
                 <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));

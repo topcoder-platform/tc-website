@@ -602,14 +602,18 @@ public class ForumsUtil {
     	return (parentCategory.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID);
     }
     
+    public static ImageData getImageData(ForumsLocal forumsBean, ForumCategory category) {
+        long compVersID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+        long compID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+        long compVersPhase = forumsBean.getComponentVersionPhase(compVersID);
+        long rootCategoryID = forumsBean.getComponentRootCategory(compID);
+        return new ImageData(compVersPhase, rootCategoryID);
+    }
+    
     // Determines if a (Component) link should be displayed on software component category, forum, and thread pages.
     public static boolean showComponentLink(ForumsLocal forumsBean, ForumCategory category) {
         if (ForumsUtil.isSoftwareSubcategory(category)) {
-            long compVersID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
-            long compID = Long.parseLong(category.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
-            long compVersPhase = forumsBean.getComponentVersionPhase(compVersID);
-            long rootCategoryID = forumsBean.getComponentRootCategory(compID);
-            ImageData imageData = new ImageData(compVersPhase, rootCategoryID);
+            ImageData imageData = getImageData(forumsBean, category);
             return imageData.hasComponentLink();
         }
         return false;
