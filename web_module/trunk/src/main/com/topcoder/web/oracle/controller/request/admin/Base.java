@@ -57,6 +57,7 @@ abstract class Base extends ShortHibernateProcessor {
 
 
         setDefault(Constants.CONTEST_STATUS_ID, contest.getStatus().getId());
+        setDefault(Constants.CONTEST_TYPE_ID, contest.getType().getId());
         setDefault(Constants.CONTEST_ID, contest.getId());
         setDefault(Constants.CONTEST_NAME, contest.getName());
 /*
