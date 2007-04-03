@@ -6,14 +6,14 @@
 <p align="center">
 <c:if test="${not empty algoEventId}" >
 	<b>Algorithms:</b>
-	<tc-webtag:ifLink useLink="${not active=='algo_overview'}" text="Overview" link="/tc?module=IntroEventAlgoOverview&eid=${algoEventId}"/>
+	<tc-webtag:ifLink useLink="${active!='algo_overview'}" text="Overview" link="/tc?module=IntroEventAlgoOverview&eid=${algoEventId}"/>
 	<br>
 	
 </c:if>
 
 <c:if test="${not empty compEventId}" >
 	<b>Components:</b>
-	<tc-webtag:ifLink useLink="${not active=='comp_overview'}" text="Overview" link="/tc?module=IntroEventCompOverview&eid=${compEventId}"/>
+	<tc-webtag:ifLink useLink="${active!='comp_overview'}" text="Overview" link="/tc?module=IntroEventCompOverview&eid=${compEventId}"/>
 	<br>
 </c:if>
 
