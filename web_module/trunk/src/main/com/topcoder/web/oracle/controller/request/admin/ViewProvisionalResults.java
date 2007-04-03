@@ -18,7 +18,7 @@ import java.util.HashMap;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 3, 2007
  */
-public class ProvisionalResults extends Base {
+public class ViewProvisionalResults extends Base {
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
             String roundId = getRequest().getParameter(Constants.ROUND_ID);
