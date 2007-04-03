@@ -43,6 +43,7 @@
         <QuickStatItem url="/stat?c=rated_events">Rated Events</QuickStatItem>
         <QuickStatItem url="/stat?c=successful_challenges">Most Successful Challenges in a Match</QuickStatItem>
         <QuickStatItem url="/stat?c=consecutive_srm_appearances">Consecutive SRM Appearances</QuickStatItem>
+        <QuickStatItem url="/stat?c=most_best_score">Highest Number of Best Score</QuickStatItem>
 
     </QuickStatList>
     <ContentList>
@@ -78,6 +79,8 @@
         <ContentItem contentHandle="consecutive_rating_increases" nextPage="/statistics/consecutiveRatingIncreases.jsp"
                      access="0"/>
         <ContentItem contentHandle="consecutive_srm_appearances" nextPage="/statistics/consecutiveSRMAppearances.jsp"
+                     access="0"/>
+        <ContentItem contentHandle="most_best_score" nextPage="/statistics/mostBestScore.jsp"
                      access="0"/>
         <ContentItem contentHandle="reliability_history" nextPage="/statistics/reliabilityHistory.jsp" access="1"/>
         <ContentItem contentHandle="division_wins" nextPage="/statistics/division_wins.jsp" access="0"/>
