@@ -45,7 +45,7 @@
 <div class="header">Provisional Results</div>
 
 
-    <c:forEach items="${room}" var="room">
+    <c:forEach items="${rooms}" var="room">
 <h3>${room.name}</h3>
 <table cellpadding="0" cellspacing="0" class="input">
 <tbody>
