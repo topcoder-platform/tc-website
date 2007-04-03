@@ -66,7 +66,7 @@ public class RoomResultDAOHibernate extends Base implements RoomResultDAO {
         query.append("   and crr.id.user.id = ?");
         Query q = session.createQuery(query.toString());
         q.setInteger(0, roundId);
-        q.setLong(2, userId);
+        q.setLong(1, userId);
         List l = q.list();
         ArrayList<RoomResult> ret = new ArrayList<RoomResult>(l.size());
         for (Object aL : l) {
