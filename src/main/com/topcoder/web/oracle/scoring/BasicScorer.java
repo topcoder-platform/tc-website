@@ -5,10 +5,7 @@ import com.topcoder.web.oracle.model.Prediction;
 import com.topcoder.web.oracle.model.Room;
 import com.topcoder.web.oracle.model.Round;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author dok
@@ -21,6 +18,7 @@ public class BasicScorer implements Scorer {
 
     public Set<Prediction> generateScores(Round round) throws GeneralScoringException {
 
+        HashSet<Prediction> ret = new HashSet<Prediction>(100);
 
         int[] magicMapping = new int[MAX_CANDIDATES_IN_SCORING + 1];
         for (int i = 1; i <= MAX_CANDIDATES_IN_SCORING; i++) {
@@ -57,12 +55,11 @@ public class BasicScorer implements Scorer {
                 } else {
                     p.setScore(0d);
                 }
-
-
+                ret.add(p);
             }
         }
 
-        return null;
+        return ret;
     }
 
     /**
