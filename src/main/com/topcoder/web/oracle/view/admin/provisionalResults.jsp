@@ -57,7 +57,7 @@
         ${result.candidate.name}
     </td>
     <td class="value" width="100%">
-        ${result.currectValue}
+        ${result.correctValue}
     </td>
 </tr>
     </c:forEach>
