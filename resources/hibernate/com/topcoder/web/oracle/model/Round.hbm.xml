@@ -21,10 +21,6 @@
             <key column="round_id" not-null="true"/>
             <one-to-many class="Room"/>
         </set>
-        <set name="predictions" cascade="save-update" inverse="true">
-            <key column="round_id" not-null="true"/>
-            <one-to-many class="Prediction"/>
-        </set>
         <set name="config" cascade="save-update" inverse="true" outer-join="true">
             <key column="round_id" not-null="true"/>
             <one-to-many class="RoundConfig"/>
