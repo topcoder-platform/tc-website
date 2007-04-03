@@ -102,17 +102,6 @@ public class Round extends Base {
         this.predictions = predictions;
     }
 
-        /**
-     * Add the prediction to this round and add the association
-     * between that prediction and this round.
-     *
-     * @param p the prediction
-     */
-    public void addPrediction(Prediction p) {
-        p.setRound(this);
-        predictions.add(p);
-    }
-
     public Set getConfig() {
         return config;
     }

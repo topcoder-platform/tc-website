@@ -1,8 +1,8 @@
 package com.topcoder.web.oracle.dao;
 
-import com.topcoder.web.oracle.model.Prediction;
-import com.topcoder.web.oracle.model.Round;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.oracle.model.Prediction;
+import com.topcoder.web.oracle.model.Room;
 
 import java.util.List;
 
@@ -17,12 +17,12 @@ public interface PredictionDAO {
 
     void saveOrUpdate(Prediction prediction);
 
-    boolean alreadCompeted(User u, Round r);
+    boolean alreadCompeted(User u, Room r);
 
-    boolean alreadyCompeted(Long userId, Integer roundId);
+    boolean alreadyCompeted(Long userId, Integer roomId);
 
-    List<Prediction> getPredictions(Long userId, Integer roundId);
+    List<Prediction> getPredictions(Long userId, Integer roomId);
 
-    List<Prediction> getPredictions(User u, Round r);
+    List<Prediction> getPredictions(User u, Room r);
 
 }

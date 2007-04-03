@@ -4,7 +4,7 @@ import com.topcoder.web.common.dao.hibernate.Base;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.oracle.dao.PredictionDAO;
 import com.topcoder.web.oracle.model.Prediction;
-import com.topcoder.web.oracle.model.Round;
+import com.topcoder.web.oracle.model.Room;
 import org.hibernate.Query;
 
 import java.util.ArrayList;
@@ -25,30 +25,30 @@ public class PredictionDAOHibernate extends Base implements PredictionDAO {
         super.saveOrUpdate(prediction);
     }
 
-    public boolean alreadCompeted(User u, Round r) {
+    public boolean alreadCompeted(User u, Room r) {
         return alreadyCompeted(u.getId(), r.getId());
     }
 
-    public boolean alreadyCompeted(Long userId, Integer roundId) {
+    public boolean alreadyCompeted(Long userId, Integer roomId) {
         StringBuffer query = new StringBuffer(100);
         query.append(" from com.topcoder.web.oracle.model.Prediction p");
-        query.append(" where p.round.id = ?");
+        query.append(" where p.room.id = ?");
         query.append(  " and p.user.id = ?");
         Query q = session.createQuery(query.toString());
-        q.setInteger(0, roundId);
+        q.setInteger(0, roomId);
         q.setLong(1, userId);
         List l = q.list();
         return !l.isEmpty();
     }
 
-    public List<Prediction> getPredictions(Long userId, Integer roundId) {
+    public List<Prediction> getPredictions(Long userId, Integer roomId) {
         StringBuffer query = new StringBuffer(100);
         query.append(" from com.topcoder.web.oracle.model.Prediction p");
-        query.append(" where p.round.id = ?");
+        query.append(" where p.room.id = ?");
         query.append(  " and p.user.id = ?");
         query.append(" order by value asc");
         Query q = session.createQuery(query.toString());
-        q.setInteger(0, roundId);
+        q.setInteger(0, roomId);
         q.setLong(1, userId);
         List res = q.list();
         ArrayList<Prediction> ret = new ArrayList<Prediction>(res.size());
@@ -58,7 +58,7 @@ public class PredictionDAOHibernate extends Base implements PredictionDAO {
         return ret;
     }
 
-    public List<Prediction> getPredictions(User u, Round r) {
+    public List<Prediction> getPredictions(User u, Room r) {
         return getPredictions(u.getId(), r.getId());
     }
 }

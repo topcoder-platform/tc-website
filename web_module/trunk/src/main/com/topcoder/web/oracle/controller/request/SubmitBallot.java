@@ -10,7 +10,7 @@ import com.topcoder.web.oracle.dao.OracleDAOUtil;
 import com.topcoder.web.oracle.dao.PredictionDAO;
 import com.topcoder.web.oracle.model.Candidate;
 import com.topcoder.web.oracle.model.Prediction;
-import com.topcoder.web.oracle.model.Round;
+import com.topcoder.web.oracle.model.Room;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -21,11 +21,11 @@ import java.util.StringTokenizer;
  *          Create Date: Mar 27, 2007
  */
 public class SubmitBallot extends ViewBallot {
-    protected void ballotProcessing(Round round) throws Exception {
+    protected void ballotProcessing(Room room) throws Exception {
         String candidateIds = StringUtils.checkNull(getRequest().getParameter(Constants.CANDIDATE_IDS));
 
         if ("".equals(candidateIds)) {
-            loadData(round);
+            loadData(room.getRound());
             addError(Constants.CANDIDATE_IDS, "Please be sure to make your selections before you submit.");
             setNextPage("/ballot.jsp");
             setIsNextPageInContext(true);
@@ -51,7 +51,7 @@ public class SubmitBallot extends ViewBallot {
                         p = new Prediction();
                         p.setUser(user);
                         p.setCandidate(c);
-                        p.setRound(round);
+                        p.setRoom(room);
                         p.setValue(++i);
                         predictions.add(p);
                     }
@@ -62,7 +62,7 @@ public class SubmitBallot extends ViewBallot {
             }
 
             if (predictions.isEmpty()) {
-                loadData(round);
+                loadData(room.getRound());
                 addError(Constants.CANDIDATE_IDS, "Please be sure to make your selections before you submit.");
                 setNextPage("/ballot.jsp");
                 setIsNextPageInContext(true);
