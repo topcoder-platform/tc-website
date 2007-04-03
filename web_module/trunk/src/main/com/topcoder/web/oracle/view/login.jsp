@@ -51,7 +51,7 @@
                                         <strong>Password:</strong>
                                     </td>
                                     <td>
-                                        <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="15" size="12">
+                                        <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="12">
                                     </td>
                                 </tr>
                                 <tr>
