@@ -12,6 +12,8 @@ import com.topcoder.web.oracle.model.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Collections;
 
 /**
  * @author dok
@@ -96,7 +98,18 @@ public class ViewProvisionalResults extends Base {
 
 
                 }
+
+
+                HashMap<Integer, List> results = new HashMap<Integer, List>();
+
+                for (Room room : rooms) {
+                    ArrayList<CandidateRoomResult> a = new ArrayList<CandidateRoomResult>(room.getCandidateResults());
+                    Collections.sort(a, new CandidateRoomResult.CorrectValueComparator());
+                    results.put(room.getId(), a);
+                }
+
                 getRequest().setAttribute("rooms", rooms);
+                getRequest().setAttribute("results", results);
                 setNextPage("/admin/provisionalResults.jsp");
                 setIsNextPageInContext(true);
 
