@@ -3,9 +3,11 @@ package com.topcoder.web.oracle.controller.request;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
 import com.topcoder.web.oracle.model.*;
+import com.topcoder.shared.security.ClassResource;
 
 import java.util.Collections;
 import java.util.Date;
@@ -20,6 +22,7 @@ import java.util.Random;
 public class ViewBallot extends ShortHibernateProcessor {
     protected final void dbProcessing() throws Exception {
 
+        if (userLoggedIn()) {
             String roundId = getRequest().getParameter(Constants.ROUND_ID);
             if ("".equals(StringUtils.checkNull(roundId))) {
                 throw new NavigationException("No round specified");
@@ -70,6 +73,10 @@ public class ViewBallot extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid contest specified.");
                 }
             }
+        } else {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+
 
 
     }
