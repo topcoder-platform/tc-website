@@ -10,15 +10,23 @@
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TopCoder Studio</title>
-    <link type="text/css" rel="stylesheet" href="/js/jscal/skins/aqua/theme.css">
-    <script type="text/javascript" src="/js/jscal/calendar.js"></script>
-    <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
-    <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
-    <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+    <title>TopCoder</title>
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
+
+        <script language="JavaScript" type="text/javascript" src="/js/oracle/popup.js"></script>
+    <script language="JavaScript" type="text/javascript"><!--
+    function postToViewer(mySrc) {
+        document.getElementById("viewer").src = mySrc;
+    }
+
+    function hideViewer() {
+        document.getElementById("viewerpopup").style.display = "none";
+    }
+    //-->
+    </script>
+
 
 </head>
 
@@ -54,7 +62,17 @@
 
 <tr>
     <td class="name">
-        ${result.candidate.name}
+<c:if test="${!empty result.candidate.infoMap[downloadUrl]}">
+                                    <div class="save">
+                                        <A target="_blank" href="${result.candidate.infoMap[downloadUrl]}"><img
+                                                src="/i/oracle/interface/disk.png" alt="DL"/></A>
+                                    </div>
+                                </c:if>
+                                <img class="small" name="candidateImage"
+                                     src="${result.candidate.infoMap[imageSource]}" alt="" onclick="select(this)"
+                                     onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');"
+                                     onMouseOut="popHide()" onMouseDown="hideViewer()"
+                                     style="cursor: default;" />
     </td>
     <td class="value" width="100%">
         ${result.correctValue}
