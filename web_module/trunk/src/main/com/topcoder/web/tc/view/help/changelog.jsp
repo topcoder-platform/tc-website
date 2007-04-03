@@ -42,6 +42,17 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+
+<p>
+    5.8.8 - 2007.04.03
+    <ul>
+<%--
+        <li>Switch to use typed Map when returning DataAccess data-dok</li>
+--%>
+    </ul>
+</p>
+
+
 <p>
     5.8.8 - 2007.03.29
     <ul>
@@ -100,6 +111,7 @@
         </li>
         <li>Load for record books: fixed srm consecutive appeareances to skip non rated rounds - cucu</li>
         <li>Fix bug in admin system where placement profiles could not be generated without a client logo - dok</li>
+        <li>Java 1.5 -dok</li>
     </ul>
 </p>
 <p>
