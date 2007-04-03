@@ -80,6 +80,15 @@
                                                             textField="description"/>
                                 </td>
                             </tr>
+                            <tr>
+                                <td class="name">
+                                    Type:
+                                </td>
+                                <td class="value">
+                                    <tc-webtag:objectSelect name="<%=Constants.CONTEST_TYPE_ID%>" list="${contestTypes}" valueField="id"
+                                                            textField="description"/>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <p>
