@@ -1,17 +1,14 @@
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.base.User,
-                 com.jivesoftware.forum.ForumCategory,
-                 com.jivesoftware.forum.ForumMessage,
-                 com.jivesoftware.forum.ReadTracker,
-                 com.jivesoftware.forum.ResultFilter,
-                 com.jivesoftware.forum.WatchManager,
+                 com.jivesoftware.forum.*,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.stats.ViewCountManager,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
+                 com.topcoder.web.forums.model.ImageData,
                  com.topcoder.web.forums.model.Paging,
                  java.util.Iterator"
         %>
@@ -137,7 +134,16 @@
 	        <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
 	        	Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
 	        	while (itCategories.hasNext()) {
-	        		ForumCategory category = (ForumCategory)itCategories.next(); %>
+	        		ForumCategory category = (ForumCategory)itCategories.next(); 
+	        		if (ForumsUtil.isSoftwareSubcategory(category)) { %>
+           				<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
+	            		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+	                		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
+						<%	} %>
+						<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+							<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
+						<%	} %>
+            		<%	} %>
 			        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
 			<%      
 					if (!itCategories.hasNext() && showComponentLink) { %>

@@ -1,21 +1,14 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                 com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.common.StringUtils,
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.forums.controller.ForumsUtil,
-                com.topcoder.web.common.StringUtils,
+                com.topcoder.web.forums.model.ImageData,
                 com.topcoder.shared.util.ApplicationServer,
                 com.jivesoftware.base.User,
                 com.jivesoftware.base.JiveConstants,
                 com.jivesoftware.forum.action.util.Page,
-                com.jivesoftware.forum.WatchManager,
-                com.jivesoftware.forum.Watch,
-                com.jivesoftware.forum.ForumCategory,
-                com.jivesoftware.forum.ForumThread,
-                com.jivesoftware.forum.ForumMessage,
-                com.jivesoftware.forum.ReadTracker,
-                com.jivesoftware.forum.RatingManagerFactory,
-                com.jivesoftware.forum.RatingManager,
-                com.jivesoftware.forum.Attachment,
+                com.jivesoftware.forum.*,
                 com.jivesoftware.forum.database.DbAttachmentManager,
                 java.util.*"
 %>
@@ -195,7 +188,16 @@ function displayVotes(messageID, posVotes, negVotes) {
    <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
    		Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
     	while (itCategories.hasNext()) {
-    		ForumCategory category = (ForumCategory)itCategories.next(); %>
+    		ForumCategory category = (ForumCategory)itCategories.next();
+    		if (ForumsUtil.isSoftwareSubcategory(category)) { %>
+   				<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
+        		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+            		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
+				<%	} %>
+				<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+					<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
+				<%	} %>
+    		<%	} %>
 	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
 	<%      if (!itCategories.hasNext() && showComponentLink) { %>
 	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
@@ -309,7 +311,16 @@ function displayVotes(messageID, posVotes, negVotes) {
 <tr><td><b>
    <%	itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
     	while (itCategories.hasNext()) {
-    		ForumCategory category = (ForumCategory)itCategories.next(); %>
+    		ForumCategory category = (ForumCategory)itCategories.next();
+    		if (ForumsUtil.isSoftwareSubcategory(category)) { %>
+   				<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
+        		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+            		<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
+				<%	} %>
+				<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+					<img align="absmiddle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
+				<%	} %>
+    		<%	} %>
 	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
 	<%      if (!itCategories.hasNext() && showComponentLink) { %>
 	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
