@@ -1,13 +1,13 @@
 package com.topcoder.web.oracle.controller.request;
 
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
 import com.topcoder.web.oracle.model.*;
-import com.topcoder.shared.security.ClassResource;
 
 import java.util.Collections;
 import java.util.Date;
@@ -23,26 +23,49 @@ public class ViewBallot extends ShortHibernateProcessor {
     protected final void dbProcessing() throws Exception {
 
         if (userLoggedIn()) {
+            String roundId = getRequest().getParameter(Constants.ROUND_ID);
             String roomId = getRequest().getParameter(Constants.ROOM_ID);
-            if ("".equals(StringUtils.checkNull(roomId))) {
-                throw new NavigationException("No room specified");
+            if ("".equals(StringUtils.checkNull(roomId))&&"".equals(StringUtils.checkNull(roundId))) {
+                throw new NavigationException("No round or room specified");
             } else {
-                Integer rid;
-                try {
-                    rid = new Integer(roomId);
-                } catch (NumberFormatException e) {
-                    throw new NavigationException("Invalid room specified");
+
+                Room room;
+
+                if (!"".equals(StringUtils.checkNull(roomId))) {
+                    Integer rid;
+                    try {
+                        rid = new Integer(roomId);
+                    } catch (NumberFormatException e) {
+                        throw new NavigationException("Invalid room specified");
+                    }
+                    room = OracleDAOUtil.getFactory().getRoomDAO().find(rid);
+                    if (room==null) {
+                        throw new NavigationException("Invalid room specified");
+                    }
+                } else {
+                    Integer rid;
+                    try {
+                        rid = new Integer(roundId);
+                    } catch (NumberFormatException e) {
+                        throw new NavigationException("Invalid round specified");
+                    }
+                    List<RoomResult> rrs = OracleDAOUtil.getFactory().getRoomResultDAO().getResults(getUser().getId(), rid);
+                    if (rrs.size()>1) {
+                        throw new NavigationException("User assigned to " + rrs.size() + " rooms");
+                    }
+                    room = rrs.get(0).getRoom();
                 }
-                Room room = OracleDAOUtil.getFactory().getRoomDAO().find(rid);
+
+
 
                 if (ContestStatus.ACTIVE.equals(room.getRound().getContest().getStatus().getId())) {
                     if (RoundStatus.ACTIVE.equals(room.getRound().getStatus().getId())) {
                         if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(room.getRound().getId(), getUser().getId()) != null) {
-                            if (OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(getUser().getId(), room.getId())) {
+                            if (OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(getUser().getId(),room.getId())) {
                                 StringBuffer buf = new StringBuffer(50);
                                 buf.append(getSessionInfo().getServletPath());
                                 buf.append("?" + Constants.MODULE_KEY + "=ViewCompletedBallot&");
-                                buf.append(Constants.ROOM_ID).append("=").append(room.getId());
+                                buf.append(Constants.ROUND_ID).append("=").append(room.getRound().getId());
                                 setNextPage(buf.toString());
                                 setIsNextPageInContext(false);
                             } else {
@@ -82,7 +105,7 @@ public class ViewBallot extends ShortHibernateProcessor {
     }
 
     protected void ballotProcessing(Room room) throws Exception {
-        loadData(room.getRound());
+        loadData(room);
         setNextPage("/ballot.jsp");
         setIsNextPageInContext(true);
 
@@ -94,16 +117,16 @@ public class ViewBallot extends ShortHibernateProcessor {
      * it should be the same random order for a particular user every
      * time they look at the candidates for a particular round
      *
-     * @param round the round to load data for
+     * @param room the room to load data for
      */
-    protected final void loadData(Round round) {
+    protected final void loadData(Room room) {
         List<Candidate> candidates =
-                OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(round.getId(), getUser().getId());
+                OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(room.getId(), getUser().getId());
         Collections.sort(candidates, new Candidate.IDComparator());
-        Collections.shuffle(candidates, new Random(getUser().getId() + round.getId()));
+        Collections.shuffle(candidates, new Random(getUser().getId() + room.getId()));
         getRequest().setAttribute("candidates", candidates);
-        getRequest().setAttribute("round", round);
-        setDefault(Constants.ROUND_ID, round.getId());
+        getRequest().setAttribute("room", room);
+        setDefault(Constants.ROOM_ID, room.getId());
 
     }
 

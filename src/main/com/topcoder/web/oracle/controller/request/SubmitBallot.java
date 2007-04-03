@@ -25,7 +25,7 @@ public class SubmitBallot extends ViewBallot {
         String candidateIds = StringUtils.checkNull(getRequest().getParameter(Constants.CANDIDATE_IDS));
 
         if ("".equals(candidateIds)) {
-            loadData(room.getRound());
+            loadData(room);
             addError(Constants.CANDIDATE_IDS, "Please be sure to make your selections before you submit.");
             setNextPage("/ballot.jsp");
             setIsNextPageInContext(true);
@@ -62,7 +62,7 @@ public class SubmitBallot extends ViewBallot {
             }
 
             if (predictions.isEmpty()) {
-                loadData(room.getRound());
+                loadData(room);
                 addError(Constants.CANDIDATE_IDS, "Please be sure to make your selections before you submit.");
                 setNextPage("/ballot.jsp");
                 setIsNextPageInContext(true);
