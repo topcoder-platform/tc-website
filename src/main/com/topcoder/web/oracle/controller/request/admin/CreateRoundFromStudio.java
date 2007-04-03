@@ -27,6 +27,9 @@ public class CreateRoundFromStudio extends Base {
 
     protected void dbProcessing() throws Exception {
 
+        //todo assign round phase, assign round config items
+
+
         Long studioId = null;
         try {
             studioId = new Long(getRequest().getParameter(Constants.STUDIO_CONTEST_ID));
@@ -65,7 +68,6 @@ public class CreateRoundFromStudio extends Base {
             Round r = new Round();
             r.setName("Round " + System.currentTimeMillis());
             r.setStatus(OracleDAOUtil.getFactory().getRoundStatusDAO().find(RoundStatus.ACTIVE));
-            //r.
             contest.addRound(r);
             for (ResultSetContainer.ResultSetRow row : rsc) {
                 Candidate c = new Candidate();
