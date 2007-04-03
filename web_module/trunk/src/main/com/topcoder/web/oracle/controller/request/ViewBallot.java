@@ -25,12 +25,13 @@ public class ViewBallot extends ShortHibernateProcessor {
         if (userLoggedIn()) {
             String roundId = getRequest().getParameter(Constants.ROUND_ID);
             String roomId = getRequest().getParameter(Constants.ROOM_ID);
-            if ("".equals(StringUtils.checkNull(roomId))&&"".equals(StringUtils.checkNull(roundId))) {
+            if ("".equals(StringUtils.checkNull(roomId)) && "".equals(StringUtils.checkNull(roundId))) {
                 throw new NavigationException("No round or room specified");
             } else {
 
-                Room room;
+                Room room=null;
 
+                Round round;
                 if (!"".equals(StringUtils.checkNull(roomId))) {
                     Integer rid;
                     try {
@@ -39,9 +40,10 @@ public class ViewBallot extends ShortHibernateProcessor {
                         throw new NavigationException("Invalid room specified");
                     }
                     room = OracleDAOUtil.getFactory().getRoomDAO().find(rid);
-                    if (room==null) {
+                    if (room == null) {
                         throw new NavigationException("Invalid room specified");
                     }
+                    round = room.getRound();
                 } else {
                     Integer rid;
                     try {
@@ -50,22 +52,25 @@ public class ViewBallot extends ShortHibernateProcessor {
                         throw new NavigationException("Invalid round specified");
                     }
                     List<RoomResult> rrs = OracleDAOUtil.getFactory().getRoomResultDAO().getResults(getUser().getId(), rid);
-                    if (rrs.size()>1) {
+                    if (rrs.isEmpty()) {
+                        round = OracleDAOUtil.getFactory().getRoundDAO().find(rid);
+                    } else if (rrs.size() > 1) {
                         throw new NavigationException("User assigned to " + rrs.size() + " rooms");
+                    } else {
+                        room = rrs.get(0).getRoom();
+                        round = room.getRound();
                     }
-                    room = rrs.get(0).getRoom();
                 }
 
 
-
-                if (ContestStatus.ACTIVE.equals(room.getRound().getContest().getStatus().getId())) {
-                    if (RoundStatus.ACTIVE.equals(room.getRound().getStatus().getId())) {
-                        if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(room.getRound().getId(), getUser().getId()) != null) {
-                            if (OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(getUser().getId(),room.getId())) {
+                if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
+                    if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
+                        if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId()) != null) {
+                            if (room!=null&&OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(getUser().getId(), room.getId())) {
                                 StringBuffer buf = new StringBuffer(50);
                                 buf.append(getSessionInfo().getServletPath());
                                 buf.append("?" + Constants.MODULE_KEY + "=ViewCompletedBallot&");
-                                buf.append(Constants.ROUND_ID).append("=").append(room.getRound().getId());
+                                buf.append(Constants.ROOM_ID).append("=").append(room.getId());
                                 setNextPage(buf.toString());
                                 setIsNextPageInContext(false);
                             } else {
@@ -99,7 +104,6 @@ public class ViewBallot extends ShortHibernateProcessor {
         } else {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-
 
 
     }
