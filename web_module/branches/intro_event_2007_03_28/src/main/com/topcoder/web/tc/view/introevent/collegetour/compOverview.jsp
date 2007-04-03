@@ -1,6 +1,8 @@
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-=<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -129,8 +131,10 @@
 </p>
 
     <ul>
-        <c:forEach items="${weeklyPrizes}" var="prizeAmount">
-	        <li>x place weekly prize - $<tc-webtag:format object="${prizeAmount}" format="###,##0" /> </li>
+	    <c:set var="i" value="0"/>
+	    <c:forEach items="${weeklyPrizes}" var="prizeAmount">
+	        <li>${cf:ordinal(i)} place weekly prize - $<tc-webtag:format object="${prizeAmount}" format="###,##0" /> </li>
+	        <c:set var="i" value="${i+1 }"/>
         </c:forEach>
     </ul>
 
@@ -140,9 +144,11 @@
 </p>
 
     <ul>
-        <li>1st place prize - $5,000</li>
-        <li>2nd place prize - $2,500</li>
-        <li>3rd place prize - $1,000</li>
+    	<c:set var="i" value="0"/>
+	    <c:forEach items="${overallPrizes}" var="prizeAmount">
+	        <li>${cf:ordinal(i)} place prize - $<tc-webtag:format object="${prizeAmount}" format="###,##0" /> </li>
+	        <c:set var="i" value="${i+1 }"/>
+        </c:forEach>
     </ul>
 
     <h3>Eligibility</h3>

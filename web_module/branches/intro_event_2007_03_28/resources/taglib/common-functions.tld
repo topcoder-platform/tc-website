@@ -28,6 +28,13 @@
             boolean containsMapKey(java.util.Map, java.lang.Object)
         </function-signature>
     </function>
+    <function>
+        <name>ordinal</name>
+        <function-class>com.topcoder.web.common.function.Util</function-class>
+        <function-signature>
+           String ordinal(java.lang.Integer i)
+        </function-signature>
+    </function>
 
 </taglib>
 

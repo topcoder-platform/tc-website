@@ -19,7 +19,10 @@
             jdbc:informix-sqli://63.118.154.190:1526/informixoltp:INFORMIXSERVER=devinformix10_shm
         </property>
         <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+
 -->      
+
+
     <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
         <property name="current_session_context_class">
@@ -126,6 +129,7 @@
         <mapping resource="com/topcoder/web/common/model/algo/Round.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/model/comp/Contest.hbm.xml"/>
+        <mapping resource="com/topcoder/web/common/model/comp/ContestPrize.hbm.xml"/>
 
         <!-- this is really just here so that we can run the oracle on the tc site -->
         <mapping resource="com/topcoder/web/oracle/model/Candidate.hbm.xml"/>

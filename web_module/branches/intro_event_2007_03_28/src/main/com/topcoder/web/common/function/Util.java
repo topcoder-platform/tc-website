@@ -16,5 +16,14 @@ public class Util {
     public static boolean containsMapKey(Map m, Object o) {
         return m.containsKey(o);
     }
+    
+    public static String ordinal(Integer i) {
+        switch (i) {
+        case 1 : return "1st";
+        case 2 : return "2nd";
+        case 3 : return "3rd";        
+        }
+        return i + "th";
+    }
 
 }
