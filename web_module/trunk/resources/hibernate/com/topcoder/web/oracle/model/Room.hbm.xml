@@ -23,5 +23,10 @@
             <one-to-many class="CandidateRoomResult"/>
         </set>
 
+        <set name="predictions" cascade="save-update" inverse="true">
+            <key column="room_id" not-null="true"/>
+            <one-to-many class="Prediction"/>
+        </set>
+
     </class>
 </hibernate-mapping>

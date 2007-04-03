@@ -12,7 +12,7 @@
             </generator>
         </id>
         <many-to-one name="user" column="user_id" class="com.topcoder.web.common.model.User"/>
-        <many-to-one name="round" column="round_id" class="Round"/>
+        <many-to-one name="room" column="room_id" class="Room"/>
         <many-to-one name="candidate" column="candidate_id" class="Candidate"/>
 
         <property name="value"/>
