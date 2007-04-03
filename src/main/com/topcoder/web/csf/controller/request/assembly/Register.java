@@ -1,8 +1,5 @@
 package com.topcoder.web.csf.controller.request.assembly;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
@@ -17,6 +14,9 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.CalendarDateFormatMethod;
 import com.topcoder.web.csf.Constants;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author pulky
@@ -82,7 +82,7 @@ public class Register extends ShortHibernateProcessor {
         mail.setBody(msgText.toString());
         mail.addToAddress(Constants.ASSEMBLY_COMPETITION_EMAIL, TCSEmailMessage.TO);
 
-        mail.setFromAddress("studioadmin@topcoder.com", "TopCoder Studio Admin");
+        mail.setFromAddress(email, email);
         EmailEngine.send(mail);
     }
 }
