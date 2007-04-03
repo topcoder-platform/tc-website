@@ -1,13 +1,12 @@
 <%@ page contentType="text/html" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<c:set var="active" value="${param.active}" />
 
 <p align="center">
 <c:if test="${not empty algoEventId}" >
 	<b>Algorithms:</b>
-	<a href="/tc?module=IntroEventAlgoOverview&eid=${algoEventId}">Overview</a>
-	
+	<tc-webtag:ifLink useLink="${active=='algo_overview'}" text="Overview" link="/tc?module=IntroEventAlgoOverview&eid=${algoEventId}"/>
 	<br>
 	
 </c:if>
