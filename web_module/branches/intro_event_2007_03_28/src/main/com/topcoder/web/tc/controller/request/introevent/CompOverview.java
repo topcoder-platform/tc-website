@@ -20,7 +20,9 @@ public class CompOverview extends Base {
         }
 
         // make that code nicer!
-        Query q = HibernateUtils.getSession().createQuery("select min(c.startDate), max(c.startDate) from com.topcoder.web.common.model.comp.Contest c where c.event.id=?");        
+        Query q = HibernateUtils.getSession().createQuery("select min(c.startDate), max(c.startDate) from com.topcoder.web.common.model.comp.Contest c where c.event.id=:eventId");
+        q.setLong("eventId", getEvent().getId());
+        
         Object obj[] = (Object[]) q.uniqueResult();
         Date startDate = (Date) obj[0];
         Date endDate = (Date) obj[1];
