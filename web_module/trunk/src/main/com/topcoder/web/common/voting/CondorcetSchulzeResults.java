@@ -165,9 +165,12 @@ public class CondorcetSchulzeResults implements Serializable {
     }
 
     private static final BigInteger one = new BigInteger("1");
+    private static final BigInteger zero = new BigInteger("0");
 
     private static BigInteger f(BigInteger n) {
-        if (one.compareTo(n) == 0) {
+        if (n.compareTo(zero) < 0) {
+            throw new IllegalArgumentException("Invalid input " + n);
+        } else if (one.compareTo(n) == 0) {
             return one;
         } else {
             return n.multiply(f(n.subtract(one)));
