@@ -137,7 +137,7 @@ public class GenerateResults extends ShortHibernateProcessor {
             for (RoomResult rr : room.getResults()) {
                 ballot = new RankBallot();
                 ballot.setUser(rr.getUser());
-                for (Prediction p : pDAO.getPredictions(rr.getUser().getId(), r.getId())) {
+                for (Prediction p : pDAO.getPredictions(rr.getUser().getId(), room.getId())) {
                     v = new Vote();
                     v.setRank(p.getValue());
                     v.setCandidate(candidateMap.get(p.getCandidate().getId()));

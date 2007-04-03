@@ -74,7 +74,7 @@ public class ViewProvisionalResults extends Base {
                     for (RoomResult rr : room.getResults()) {
                         ballot = new RankBallot();
                         ballot.setUser(rr.getUser());
-                        for (Prediction p : pDAO.getPredictions(rr.getUser().getId(), round.getId())) {
+                        for (Prediction p : pDAO.getPredictions(rr.getUser().getId(), room.getId())) {
                             v = new Vote();
                             v.setRank(p.getValue());
                             v.setCandidate(candidateMap.get(p.getCandidate().getId()));
