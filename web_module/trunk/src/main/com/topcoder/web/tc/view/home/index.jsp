@@ -285,6 +285,13 @@
         <td class="homeText"><br>
 
             <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/china_20061027.gif" alt="TopCoder & China" width="67" height="25" border="0"/>
+            </div>
+            TopCoder Appoints Jiazhi Wu VP of Technology for China
+            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040307">...more</A><br>[April
+            3]<br><br>
+            
+            <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/usatoday_logo.gif" alt="USA Today Logo" width="67" height="25" border="0"/>
             </div>
             Why Google put a research lab in Poland
@@ -316,12 +323,6 @@
             Microsoft launches 'mashup' competition for developers
             <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">...more</A><br>[February
             14]<br><br>
-
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/tchs07.png" width="67" height="36" alt="TCHS07" border="0"/>
-            </div>
-            Registration Opens for First TCHS Tournament
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_021307">...more</A><br>[February 13]<br><br>
 
         </td>
     </tr>

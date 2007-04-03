@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>04.03.07<br>7:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_040307">TopCoder Appoints Jiazhi Wu VP of Technology for China</A>
+        </span><br><br>
+        TopCoder announced it has hired Jiazhi Wu as Vice President of Technology for the company's operations in China. Wu, known by his handle <tc-webtag:handle coderId="286907" context="algorithm"/>, will oversee the development of systems and application development for all competitions and technologies and be responsible for introducing and training new members in China to the TopCoder software process.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=pressroom&d2=pr_040307">details</A> | 
+        <tc-webtag:forumLink forumID="514975" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.03.07<br>2:40 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -260,22 +279,3 @@ With the information in the first part of this article, you should have been abl
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.28.07<br>9:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=byes">TCO07 Algorithm Qualification Byes</A>
-        </span><br><br>
-        The following competitors get a bye for the qualification round and advance right to Round 1.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=byes">full story</A> | 
-        <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
