@@ -46,9 +46,7 @@
 <p>
     5.8.9 - 2007.04.03
     <ul>
-<%--
-        <li>Switch to use typed Map when returning DataAccess data-dok</li>
---%>
+        <li>Take advantage of generics for general in-memory data container -dok</li>
     </ul>
 </p>
 
