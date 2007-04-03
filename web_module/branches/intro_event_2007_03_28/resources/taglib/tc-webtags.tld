@@ -964,5 +964,31 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>ifLink</name>
+        <tag-class>com.topcoder.web.common.tag.IfLinkTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>link</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>text</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>useLink</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
 
 </taglib>

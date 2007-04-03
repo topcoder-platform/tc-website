@@ -131,7 +131,7 @@
 </p>
 
     <ul>
-	    <c:set var="i" value="0"/>
+	    <c:set var="i" value="1"/>
 	    <c:forEach items="${weeklyPrizes}" var="prizeAmount">
 	        <li>${cf:ordinal(i)} place weekly prize - $<tc-webtag:format object="${prizeAmount}" format="###,##0" /> </li>
 	        <c:set var="i" value="${i+1 }"/>
@@ -144,7 +144,7 @@
 </p>
 
     <ul>
-    	<c:set var="i" value="0"/>
+    	<c:set var="i" value="1"/>
 	    <c:forEach items="${overallPrizes}" var="prizeAmount">
 	        <li>${cf:ordinal(i)} place prize - $<tc-webtag:format object="${prizeAmount}" format="###,##0" /> </li>
 	        <c:set var="i" value="${i+1 }"/>
