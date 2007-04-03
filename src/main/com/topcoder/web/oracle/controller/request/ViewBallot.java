@@ -66,7 +66,9 @@ public class ViewBallot extends ShortHibernateProcessor {
                 if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
                     if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
                         if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId()) != null) {
-                            if (room!=null&&OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(getUser().getId(), room.getId())) {
+                            if (room==null) {
+                                throw new NavigationException("User not assigned to a room");
+                            } else if (OracleDAOUtil.getFactory().getPredictionDAO().alreadyCompeted(getUser().getId(), room.getId())) {
                                 StringBuffer buf = new StringBuffer(50);
                                 buf.append(getSessionInfo().getServletPath());
                                 buf.append("?" + Constants.MODULE_KEY + "=ViewCompletedBallot&");
@@ -75,8 +77,8 @@ public class ViewBallot extends ShortHibernateProcessor {
                                 setIsNextPageInContext(false);
                             } else {
                                 Date now = new Date();
-                                if (room.getRound().getPhase(Phase.SUBMISSION).getStartTime().before(now)) {
-                                    if (room.getRound().getPhase(Phase.SUBMISSION).getEndTime().after(now)) {
+                                if (round.getPhase(Phase.SUBMISSION).getStartTime().before(now)) {
+                                    if (round.getPhase(Phase.SUBMISSION).getEndTime().after(now)) {
                                         ballotProcessing(room);
                                     } else {
                                         throw new NavigationException("Sorry, the submission phase is over.");
@@ -90,7 +92,7 @@ public class ViewBallot extends ShortHibernateProcessor {
                             StringBuffer buf = new StringBuffer(50);
                             buf.append(getSessionInfo().getServletPath());
                             buf.append("?" + Constants.MODULE_KEY + "=ViewRegistration&");
-                            buf.append(Constants.ROUND_ID).append("=").append(room.getRound().getId());
+                            buf.append(Constants.ROUND_ID).append("=").append(round.getId());
                             setNextPage(buf.toString());
                             setIsNextPageInContext(false);
                         }
