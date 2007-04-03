@@ -59,7 +59,7 @@
                                     </div>
                                 </c:if>
                                 <img class="small" name="candidateImage"
-                                     src="${prediction.candidate.infoMap[imageSource]}" alt="" onclick="select(this)"
+                                     src="${prediction.candidate.infoMap[imageSource]}" alt=""
                                      onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');"
                                      onMouseOut="popHide()" onMouseDown="hideViewer()"
                                      style="cursor: default;" />
