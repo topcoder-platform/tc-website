@@ -97,6 +97,9 @@ public class ViewProvisionalResults extends Base {
 
                 }
                 getRequest().setAttribute("rooms", rooms);
+                setNextPage("/admin/provisionalResults.jsp");
+                setIsNextPageInContext(true);
+
 
             }
         }
