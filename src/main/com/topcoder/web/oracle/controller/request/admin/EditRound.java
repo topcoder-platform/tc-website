@@ -60,6 +60,7 @@ public class EditRound extends Base {
                 setDefault(Constants.ROUND_STATUS_ID, RoundStatus.UNACTIVE);
             }
 
+            setDefault(Constants.CONTEST_ID, contestId);
             setDefault(Constants.ROUND_ID, roundId);
             setDefault(Constants.ROUND_NAME, name);
             setDefault(Constants.START_TIME+Phase.REGISTRATION, regStartTime);

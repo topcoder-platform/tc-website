@@ -73,6 +73,7 @@ abstract class Base extends ShortHibernateProcessor {
         setDefault(Constants.ROUND_STATUS_ID, round.getStatus().getId());
         setDefault(Constants.ROUND_ID, round.getId());
         setDefault(Constants.ROUND_NAME, round.getName());
+        setDefault(Constants.CONTEST_ID, round.getContest().getId());
 
         setDefault(Constants.START_TIME+ Phase.REGISTRATION,
                 sdf.format(round.getPhaseMap().get(Phase.REGISTRATION).getStartTime()));
