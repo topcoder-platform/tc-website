@@ -6,7 +6,6 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -20,7 +19,7 @@ public class Contest extends Base {
     private String name;
     private Timestamp startTime;
     private Timestamp endTime;
-    private Set config = new HashSet();
+    private Set<ContestConfig> config = new HashSet<ContestConfig>();
     private Set prizes = new TreeSet();
     private Set documents = new HashSet();
     private ContestStatus status;
@@ -87,17 +86,12 @@ public class Contest extends Base {
     }
 
     public ContestConfig getConfig(ContestProperty property) {
-        boolean found = false;
-        ContestConfig ret = null;
-        for (Iterator it = config.iterator(); it.hasNext() && !found;) {
-            ret = (ContestConfig) it.next();
-            found = ret.getProperty() != null && ret.getProperty().equals(property);
+        for (ContestConfig c : config) {
+            if (c.getProperty() != null && c.getProperty().equals(property)) {
+                return c;
+            }
         }
-        if (found) {
-            return ret;
-        } else {
-            return null;
-        }
+        return null;
     }
 
     public ContestConfig getOverview() {
