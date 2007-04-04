@@ -16,6 +16,7 @@ public class RoomResult extends Base {
     private Double score;
     private Integer placed;
     private Boolean advanced;
+    //todo add attended
 
     public RoomResult() {
 
