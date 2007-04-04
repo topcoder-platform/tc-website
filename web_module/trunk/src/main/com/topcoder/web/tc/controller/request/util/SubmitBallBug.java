@@ -17,6 +17,7 @@ import com.topcoder.web.tc.Constants;
 public class SubmitBallBug extends ShortHibernateProcessor {
     public static final String BUG_DESC = "desc";
     public static final String HOW_TO = "howto";
+    public static final String SYS_CONFIG = "system";
 
     protected void dbProcessing() throws Exception {
 
@@ -28,10 +29,15 @@ public class SubmitBallBug extends ShortHibernateProcessor {
         if ("".equals(howTo)) {
             addError(HOW_TO, "Please fill in how to replicate the bug.");
         }
+        String sysConfig = StringUtils.checkNull(getRequest().getParameter(SYS_CONFIG)).trim();
+        if ("".equals(sysConfig)) {
+            addError(SYS_CONFIG, "Please fill in your system configuration.");
+        }
 
         if (hasErrors()) {
             setDefault(BUG_DESC, desc);
             setDefault(HOW_TO, howTo);
+            setDefault(SYS_CONFIG, sysConfig);
             setNextPage("/sponsors/ballSubmitBug.jsp");
             setIsNextPageInContext(true);
         } else {
@@ -49,7 +55,9 @@ public class SubmitBallBug extends ShortHibernateProcessor {
             msgText.append("\n\n");
             msgText.append("In order to replicate this problem, you'll need to:\n\n");
             msgText.append(howTo);
-
+            msgText.append("\n\n");
+            msgText.append("My system is configurated thusly:\n\n");
+            msgText.append(sysConfig);
             msgText.append("\n\n");
             msgText.append("Thank you,\n");
             msgText.append(u.getFirstName()).append(" ").append(u.getLastName()).append(" aka ").append(u.getHandle());

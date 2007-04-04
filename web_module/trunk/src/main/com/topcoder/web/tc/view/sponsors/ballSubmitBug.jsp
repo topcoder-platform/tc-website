@@ -72,12 +72,29 @@
 
 <table cellspacing="0" cellpadding="3" style="width: 100%; margin-bottom: 40px;">
 <tbody>
+
     <tr>
         <td nowrap="nowrap" align="center" colspan="2">
-            <tc-webtag:errorIterator id="err" name="<%=SubmitBallBug.BUG_DESC%>"><span class="bigRed"><%=err%><br /></span></tc-webtag:errorIterator>
+            <tc-webtag:errorIterator id="err" name="<%=SubmitBallBug.SYS_CONFIG%>"><span class="bigRed"><%=err%><br /></span></tc-webtag:errorIterator>
         </td>
     </tr>
 
+
+    <tr>
+        <td nowrap="nowrap">
+            System Configuration:
+        </td>
+        <td>
+            <tc-webtag:textArea name="<%=SubmitBallBug.SYS_CONFIG%>" rows="6" cols="40"/>
+        </td>
+    </tr>
+
+
+    <tr>
+    <td nowrap="nowrap" align="center" colspan="2">
+        <tc-webtag:errorIterator id="err" name="<%=SubmitBallBug.BUG_DESC%>"><span class="bigRed"><%=err%><br /></span></tc-webtag:errorIterator>
+    </td>
+</tr>
 
     <tr>
         <td nowrap="nowrap">
@@ -87,6 +104,9 @@
             <tc-webtag:textArea name="<%=SubmitBallBug.BUG_DESC%>" rows="6" cols="40"/>
         </td>
     </tr>
+
+
+
         <tr>
         <td nowrap="nowrap" align="center" colspan="2">
             <tc-webtag:errorIterator id="err" name="<%=SubmitBallBug.HOW_TO%>"><span class="bigRed"><%=err%><br /></span></tc-webtag:errorIterator>
