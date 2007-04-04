@@ -277,6 +277,7 @@ public class ForumsBean extends BaseEJB {
     }
 
     public String[][] getSoftwareRolesData(long userID) {
+        log.debug("### getSoftwareRolesData(userID) called");
         User user = null;
         try {
             user = forumFactory.getUserManager().getUser(userID);
@@ -285,7 +286,9 @@ public class ForumsBean extends BaseEJB {
             return null;
         }
 
+        log.debug("### getUserGroups() called");
         Iterator itGroups = forumFactory.getGroupManager().getUserGroups(user);
+        log.debug("### getUserGroups() finished");
         ArrayList softwareGroupList = new ArrayList();
         while (itGroups.hasNext()) {
             com.jivesoftware.base.Group group = (com.jivesoftware.base.Group) itGroups.next();
@@ -306,10 +309,12 @@ public class ForumsBean extends BaseEJB {
             softwareGroupData[i][1] = String.valueOf(group.getName());
             softwareGroupData[i][2] = String.valueOf(group.getDescription());
         }
+        log.debug("### getSoftwareRolesData(userID) finished");
         return softwareGroupData;
     }
 
     public String[][] getAllSoftwareRolesData() {
+        log.debug("### getAllSoftwareRolesData() called");
         Iterator itGroups = forumFactory.getGroupManager().getGroups();
         ArrayList softwareGroupList = new ArrayList();
         while (itGroups.hasNext()) {
@@ -331,6 +336,7 @@ public class ForumsBean extends BaseEJB {
             softwareGroupData[i][1] = String.valueOf(group.getName());
             softwareGroupData[i][2] = String.valueOf(group.getDescription());
         }
+        log.debug("### getAllSoftwareRolesData() finished");
         return softwareGroupData;
     }
 

@@ -107,6 +107,7 @@ public class Search extends ForumsProcessor {
                 status = "error";
             }
 
+            log.debug("!!!!!! before CreateQuery()");
             Query query = null;
             if (searchScope.equals("all")) {
                 query = forumFactory.createQuery();
@@ -119,16 +120,19 @@ public class Search extends ForumsProcessor {
                 ArrayList forumList = new ArrayList();
                 ForumCategory category = forumFactory.getForumCategory(categoryID);
                 Iterator itCategoryForums = category.getRecursiveForums(resultFilter);
+                log.debug("!!!!!! START: populate forumList");
                 while (itCategoryForums.hasNext()) {
                     Forum f = (Forum)itCategoryForums.next();
                     if (!forumList.contains(f)) {
                         forumList.add(f);
                     }
                 }
+                log.debug("!!!!!! END: populate forumList");
                 query = forumFactory.getQueryManager().createQuery(
                         (Forum[]) forumList.toArray(new Forum[forumList.size()]));
             }
             query.setQueryString(queryTerms);
+            log.debug("!!!!!! after CreateQuery()");
 
             if (!dateRange.equals("all")) {
                 query.setAfterDate((Date)dates.get(dateRange));
@@ -149,6 +153,7 @@ public class Search extends ForumsProcessor {
             pageFilter.setStartIndex(startIdx);
             pageFilter.setNumResults(resultSize);
 
+            log.debug("!!!!!! before getResults()");
             Iterator itResults = null;
             int totalItemCount = 0;
             if (displayPerThread) {
@@ -158,9 +163,21 @@ public class Search extends ForumsProcessor {
                 itResults = query.getResults(startIdx, resultSize);
                 totalItemCount = query.getResultCount();
             }
+            log.debug("!!!!!! after getResults()");
 
             Paging paging = new Paging(pageFilter, totalItemCount);
             Paginator paginator = new Paginator(paging);
+            
+            // configure and deploy tcsdev2@186, redeploy forums
+            // explain to Greg/Mike that part of the problem lies with the TCS user admin tool
+            // for members w/many roles such as AleaActaEst, Pops, etc. Fix it or explain the timing.
+            
+            // exact match, startsWith, matches all terms, matches any term
+            // must handle "" and + correctly
+            // only display matches if in Software Categories forum
+            // parse queryTerms, places matches into ArrayList, retrieve page of results
+            // Time search. Should be < 2 s, ideally < 1s.
+            // Investigate if some small search package can help with this.
 
             getRequest().setAttribute("status", status);
             getRequest().setAttribute("query", query);
