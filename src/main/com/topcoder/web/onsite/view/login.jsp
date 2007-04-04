@@ -64,7 +64,7 @@
                 <tr valign="middle">
                     <td align="right" width="50%">Password:</td>
                     <td align="left">
-                        <input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="15" size="12" onkeypress="submitEnter(event)">
+                        <input type="password" name="<%=Constants.PASSWORD%>" value="" maxlength="30" size="12" onkeypress="submitEnter(event)">
                     </td>
                     <td width="50%">
                         &#160;&#160;<a href="JavaScript:document.frmLogin.submit()">Login&#160;&gt;</a>

@@ -47,7 +47,7 @@
                                             <input name="<%=Login.USER_NAME%>" size="8" maxlength="15" type="text" value=""/>
                                         </td>
                                         <td>
-                                            <input name="<%=Login.PASSWORD%>" size="8" maxlength="15" type="password" value=""/>
+                                            <input name="<%=Login.PASSWORD%>" size="8" maxlength="30" type="password" value=""/>
                                         </td>
                                         <td>
                                             <input type="image" src="/i/layout/btn_login.gif" onmouseover="this.src='/i/layout/btn_login_on.gif'" onmouseout="this.src='/i/layout/btn_login.gif'">
