@@ -131,8 +131,8 @@
                 <li class="<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Advancers</span></a>
                     <ul>
                         <li class="stop"><a href="/tc?module=SimpleStats&d1=tournaments&d2=tco07&d3=algorithm&&d4=qualification&c=tco07_alg_qual&trans=true"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("qualification")) {%> class="navHighlight"<% } %>><span>Qualification</span></a></li>
+                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=sectionA"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("sections")) {%> class="navHighlight"<% } %>><span>Sections</span></a></li>
                 <%--
-                        <li class="stop"><a href=""><span>Sections</span></a></li>
                         <li class="stop"><a href=""><span>Overview</span></a></li>
                         <li class="stop"><a href=""><span>Bracket</span></a></li>
                 --%>
