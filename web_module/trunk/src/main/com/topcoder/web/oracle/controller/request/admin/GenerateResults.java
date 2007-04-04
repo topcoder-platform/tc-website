@@ -72,19 +72,18 @@ public class GenerateResults extends ShortHibernateProcessor {
                 }
 
                 RoomResultDAO rrDAO = OracleDAOUtil.getFactory().getRoomResultDAO();
-                List<RoomResult> roomResults = rrDAO.getResults(round);
+                List<RoomResult> tempRoomResults = rrDAO.getResults(round);
+                List<RoomResult> roomResults = new ArrayList<RoomResult>(tempRoomResults.size());
 
-                //remove the stuff we don't need to deal with.
-                for (int i=0; i<roomResults.size(); i++) {
-                    if (roomResults.get(i).getScore()==null) {
-                        roomResults.remove(i);
-                        i--;
-                    }
-                }
+                Double tempScore;
                 for (RoomResult rr : roomResults) {
-                    rr.setScore(userMap.get(rr.getUser().getId()));
-                    if (log.isDebugEnabled()) {
-                        log.debug("setting " + rr.getUser().getHandle() + " score to " + rr.getScore());
+                    tempScore = userMap.get(rr.getUser().getId());
+                    if (tempScore!=null) {
+                        rr.setScore(tempScore);
+                        roomResults.add(rr);
+                        if (log.isDebugEnabled()) {
+                            log.debug("setting " + rr.getUser().getHandle() + " score to " + rr.getScore());
+                        }
                     }
                 }
                 int currPlaced = 0;
