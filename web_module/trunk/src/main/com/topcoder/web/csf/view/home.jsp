@@ -35,6 +35,7 @@
 
             <div style="float: right; margin: 0px 0px 10px 10px;">
                 <A href="/?module=Static&d1=leaderboardOverview"><img src="/i/home/seriesPrizes.png" alt="Series Prizes" /></A>
+                <div align="center" style="margin-top:10px; color:#65a610;">Congratulations to<br><span style="font-weight: bold; font-size: 14px;">dsdirect</span><br>for winning the first <br>mashup competition!</div>
             </div>
 
             <p>
