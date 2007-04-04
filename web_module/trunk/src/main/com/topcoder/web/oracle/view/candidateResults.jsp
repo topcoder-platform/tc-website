@@ -63,7 +63,7 @@
             <div class="popUp" id="viewerpopup"><img src="#" id="viewer" alt="" style="margin:5px; border: 1px solid black; background: #FFFFFF;"></div>
 
         <div style="clear:both;">&nbsp;</div>
-        <jsp:include page="../foot.jsp"/>
+        <jsp:include page="foot.jsp"/>
         </div>
     </div>
 </div>
