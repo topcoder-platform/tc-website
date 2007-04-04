@@ -12,7 +12,9 @@
     <h3>
         Homepage Designs
     </h3>
-    <A href="/to"<% if (selectedTab.equals("predRd1")) {%> class="on"<% } %>>Round 1 Prediction Results</A>
-    <A href="?module=Static&d1=results&d2=tcdotcomCandRd1Rm1"<% if (selectedTab.equals("candRd1")) {%> class="on"<% } %>>Round 1 Candidate Results</A>
-    <A href="/to">Compete in Round 2!</A>
+    <A href="/to/?module=ViewSimpleResults&rm=2001"<% if (selectedTab.equals("predRd1")) {%> class="on"<% } %>>Round 1 Prediction Results</A>
+    <A href="/to/?module=ViewCandidateResults&rm=2001"<% if (selectedTab.equals("candRd1")) {%> class="on"<% } %>>Round 1 Candidate Results</A>
+<!--
+    <A href="/to/?module=">Compete in Round 2!</A>
+-->
 </div>

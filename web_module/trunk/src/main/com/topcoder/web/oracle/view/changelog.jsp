@@ -12,9 +12,18 @@
 
 <body>
 
+
 <div align="center">
     <div id="contentOut">
         <div id="contentIn">
+            <p>
+                1.0.2 - 2007.04.04
+                <ul>
+                    <li>Improve admin site a bit more -dok</li>
+                    <li>Fix but when calculating competitor placed -dok</li>
+                    <li>Add simple results pages -dok</li>
+                </ul>
+            </p>
             <p>
                 1.0.1 - 2007.04.03
                 <ul>

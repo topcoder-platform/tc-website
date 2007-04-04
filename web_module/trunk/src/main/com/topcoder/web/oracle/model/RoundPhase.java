@@ -63,11 +63,11 @@ public class RoundPhase extends Base {
         } else {
             try {
                 RoundPhase oa = (RoundPhase) o;
-                boolean sameContest = (oa.getRound().getId() == null && getRound().getId() == null) ||
+                boolean sameRound = (oa.getRound().getId() == null && getRound().getId() == null) ||
                         (oa.getRound().getId() != null && getRound().getId() != null && oa.getRound().getId().equals(getRound().getId()));
-                boolean sameProperty = (oa.getPhase().getId() == null && getPhase().getId() == null) ||
+                boolean samePhase = (oa.getPhase().getId() == null && getPhase().getId() == null) ||
                         (oa.getPhase().getId() != null && getPhase().getId() != null && oa.getPhase().getId().equals(getPhase().getId()));
-                return sameProperty && sameContest;
+                return samePhase && sameRound;
             } catch (ClassCastException e) {
                 return false;
             }
