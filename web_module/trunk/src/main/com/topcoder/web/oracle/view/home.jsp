@@ -17,15 +17,10 @@
     <div id="contentOut">
         <div id="contentIn">
 
-        <div class="mininav">
-            <h3>
-                About this contest
-            </h3>
-            <A href="/to" class="on">Introduction</A>
-            <A href="?module=Static&d1=contestStructure">Contest Structure</A>
-            <A href="?module=Static&d1=scoring">Scoring</A>
-        </div>
-        
+        <jsp:include page="nav.jsp">
+          <jsp:param name="selectedTab" value="introduction"/>
+        </jsp:include>
+
         <div style="margin-bottom: 20px;">
             <A href="/"><img src="/i/oracle/layout/topcoder.png" alt="TopCoder" /></A>
         </div>
@@ -49,10 +44,11 @@
         Because of the experimental nature of this system, we will be using it for quite a few Studio contests, BUT THE OUTCOME MAY NOT BE BINDING ON THE ACTUAL STUDIO CONTEST BEING EVALUATED.  Of course the outcome of the judging competition from a prize standpoint will be.  We will have to judge the outcome for some time to gain comfort with the system.
         </p>
 
+<%--
         <p align="center" style="margin: 20px;">
         <strong>Predict the winners of the <A href="?module=ViewBallot&rd=2000">TopCoder Homepage Design Contest</A></strong>
         </p>
-
+--%>
         <jsp:include page="foot.jsp"/>
         </div>
     </div>
