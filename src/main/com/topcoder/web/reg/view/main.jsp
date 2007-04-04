@@ -471,6 +471,9 @@
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.SECRET_QUESTION%>" size="30"  editable="true"/>
+            <br />
+         <span class="small">If you ever forget your password and you do not have access to the email address in our system,
+             you will be asked to answer this question in order to reset your password.</span>
         </td>
     </tr>
 </c:if>
