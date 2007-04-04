@@ -7,9 +7,11 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.voting.*;
 import com.topcoder.web.oracle.Constants;
-import com.topcoder.web.oracle.scoring.BasicScorer;
-import com.topcoder.web.oracle.dao.*;
+import com.topcoder.web.oracle.dao.CandidateRoomResultDAO;
+import com.topcoder.web.oracle.dao.OracleDAOUtil;
+import com.topcoder.web.oracle.dao.PredictionDAO;
 import com.topcoder.web.oracle.model.*;
+import com.topcoder.web.oracle.scoring.BasicScorer;
 
 import java.util.*;
 
@@ -48,7 +50,9 @@ public class GenerateResults extends ShortHibernateProcessor {
                     // this might not be the case in the future
                     result.setPlaced(result.getCorrectValue());
                     result.setAdvanced(result.getCorrectValue() <= numAdvancing);
-                    log.debug(result.getId().toString());
+                    if (log.isDebugEnabled()) {
+                        log.debug(result.getId().toString());
+                    }
                 }
 
                 //todo put in logic so that other scoring systems can instantiated and use via reflection based on user input
@@ -58,45 +62,48 @@ public class GenerateResults extends ShortHibernateProcessor {
                 }
 
                 //figure out the scores for competitors
-                HashMap<Long,Double> userMap = new HashMap<Long,Double>();
+                HashMap<String, Double> userMap = new HashMap<String, Double>();
                 Double score;
+                String key;
                 for (Prediction pred : predResult) {
-                    score = userMap.get(pred.getUser().getId());
+                    key = pred.getUser().getId() + " " + pred.getRoom().getId();
+                    score = userMap.get(key);
                     if (score == null) {
                         score = 0d;
                     }
-                    userMap.put(pred.getUser().getId(), score+pred.getScore());
+                    userMap.put(key, score + pred.getScore());
                     if (log.isDebugEnabled()) {
-                        log.debug("adding to user map " + pred.getUser().getId() + " " + (score+pred.getScore()));
+                        log.debug("adding to user map " + pred.getUser().getId() + " " + (score + pred.getScore()));
                     }
                 }
 
-                RoomResultDAO rrDAO = OracleDAOUtil.getFactory().getRoomResultDAO();
-                List<RoomResult> tempRoomResults = rrDAO.getResults(round);
-                List<RoomResult> roomResults = new ArrayList<RoomResult>(tempRoomResults.size());
-
-                Double tempScore;
-                for (RoomResult rr : tempRoomResults) {
-                    tempScore = userMap.get(rr.getUser().getId());
-                    if (tempScore!=null) {
-                        rr.setScore(tempScore);
-                        roomResults.add(rr);
-                        if (log.isDebugEnabled()) {
-                            log.debug("setting " + rr.getUser().getHandle() + " score to " + rr.getScore());
+                ArrayList<ArrayList<RoomResult>> results = new ArrayList<ArrayList<RoomResult>>(round.getRooms().size());
+                ArrayList<RoomResult> tempRoomResults;
+                for (Room room : round.getRooms()) {
+                    tempRoomResults = new ArrayList<RoomResult>(room.getResults().size());
+                    for (RoomResult rr : room.getResults()) {
+                        key = rr.getUser().getId() + " " + rr.getRoom().getId();
+                        if (userMap.containsKey(key)) {
+                            rr.setScore(userMap.get(key));
+                            tempRoomResults.add(rr);
                         }
                     }
+                    results.add(room.getId(), tempRoomResults);
                 }
-                int currPlaced = 0;
-                Double lastScore = -666d;
-                Collections.sort(roomResults, new RoomResult.ScoreComparator());
-                for (RoomResult rr: roomResults) {
-                    //todo consider adding epsilon for comparison 
-                    if (!rr.getScore().equals(lastScore)) {
-                        currPlaced++;
-                    }
-                    rr.setPlaced(currPlaced);
-                    if (log.isDebugEnabled()) {
-                        log.debug("setting " + rr.getUser().getHandle() + " placed to " + rr.getPlaced());
+
+                for (ArrayList<RoomResult> roomResults : results) {
+                    int currPlaced = 0;
+                    Double lastScore = -666d;
+                    Collections.sort(roomResults, new RoomResult.ScoreComparator());
+                    for (RoomResult rr : roomResults) {
+                        //todo consider adding epsilon for comparison
+                        if (!rr.getScore().equals(lastScore)) {
+                            currPlaced++;
+                        }
+                        rr.setPlaced(currPlaced);
+                        if (log.isDebugEnabled()) {
+                            log.debug("setting " + rr.getUser().getHandle() + " placed to " + rr.getPlaced());
+                        }
                     }
                 }
 
@@ -159,7 +166,9 @@ public class GenerateResults extends ShortHibernateProcessor {
                 crr.setCorrectValue(result.getRank());
                 ret.add(crr);
             }
-
+            if (log.isDebugEnabled()) {
+                log.debug("size after doing " + room.getId() + " " + ret.size());
+            }
         }
         return ret;
 
