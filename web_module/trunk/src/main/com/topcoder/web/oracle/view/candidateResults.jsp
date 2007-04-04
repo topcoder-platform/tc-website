@@ -12,6 +12,7 @@
     <title>TopCoder</title>
     <link type="text/css" rel="stylesheet" href="/css/oracle/main.css">
     <link type="text/css" rel="stylesheet" href="/css/oracle/stats.css">
+    <link type="text/css" rel="stylesheet" href="/css/oracle/coders.css">
     <script language="JavaScript" type="text/javascript" src="/js/oracle/popup.js"></script>
     <script language="JavaScript" type="text/javascript"><!--
     function postToViewer(mySrc) {
