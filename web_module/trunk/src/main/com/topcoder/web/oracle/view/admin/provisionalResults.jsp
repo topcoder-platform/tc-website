@@ -48,8 +48,8 @@
                 <c:forEach items="${rooms}" var="room">
                             <td valign="top" align="center">
                             <h3>${room.name}</h3>
-                            <c:forEach items="${results[room.id]}" var="result">
                             <ul id="candidateBin" class="imageLineup">
+                            <c:forEach items="${results[room.id]}" var="result">
                                 <li style="float: none;">
                                     <c:if test="${!empty result.candidate.infoMap[downloadUrl]}">
                                         <div class="save">
@@ -66,8 +66,8 @@
                                          onMouseOut="popHide()" onMouseDown="hideViewer()"
                                          style="cursor: default;"/>
                                 </li>
-                            </ul>
                             </c:forEach>
+                            </ul>
                             </td>
                 </c:forEach>
                         </tr>
