@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.oracle.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -20,11 +21,21 @@
     <div id="contentOut">
         <div id="contentIn">
 
-            <h1>TopCoder Homepage Design > Prediction Results</h1>
+            <h1>${room.round.name} > Prediction Results</h1>
 
             <div class="pagingBox">
-                Room 1
-                | <A href="?module=Static&d1=results&d2=tcdotcomPredRd1Rm2">Room 2</A>
+                |
+                <c:forEach items="${room.round.rooms}" var="myRoom">
+                    <c:choose>
+                        <c:when test="${room.id==myRoom.id}">
+                            ${myRoom.name}
+                        </c:when>
+                        <c:otherwise>
+                            <A href="?module=ViewSimpleResults&amp;<%=Constants.ROOM_ID%>=${myRoom.id}">${myRoom.name}</A>
+                        </c:otherwise>
+                    </c:choose>
+                |
+                </c:forEach>
             </div>
 
             <div align="center">
@@ -42,7 +53,7 @@
                         <tr class="<%=even?"light":"dar"%>">
                             <td class="valueC">${result.placed}</td>
                             <td class="value"><tc-webtag:handle coderId="${result.user.id}" /></td>
-                            <td class="valueR"><fmt:formatNumber value="${result.score}" pattern="#,###.000"/></td>
+                            <td class="valueR"><fmt:formatNumber value="${result.score}" pattern="#,###.0000"/></td>
                         </tr>
                         <%even=!even;%>
                      </c:forEach>
