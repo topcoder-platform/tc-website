@@ -42,48 +42,53 @@
                         <h1><span>Advancers - Qualification</span></h1>
 
 
-                        <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
+                        <div align="center">
+                        <table cellpadding="0" cellspacing="0" class="stat" style="width: 400px;">
+                        <thead>
                             <tr>
-                                <td class="advTitle" width="100%" colspan="4">Qualification Round</td>
+                                <td class="title" width="100%" colspan="4">Qualification Round</td>
                             </tr>
-                            <tr class="advHeader">
-                                <td width="10%" align="center">
+                            <tr>
+                                <td class="headerC">
                                     <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=qualification&amp;c=tco07_spon_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=seed&amp;<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                                         Seed
                                     </a>
                                 </td>
-                                <td width="30%" align="left">
+                                <td class="header" width="60%">
                                     <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=qualification&amp;c=tco07_spon_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&amp;<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                                         Handle
                                     </a>
                                 </td>
-                                <td width="15%" align="right">
+                                <td class="headerR" width="20%">
                                     <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=qualification&amp;c=tco07_spon_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=rating&amp;<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                                         Rating
                                     </a>
                                 </td>
-                                <td width="15%" align="right">
+                                <td class="headerR" width="20%">
                                     <a href="/tc?module=SimpleStats&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=qualification&amp;c=tco07_spon_qual&amp;trans=true&amp;<%=DataAccessConstants.SORT_COLUMN%>=points&amp;<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                                         Points
                                     </a>
                                 </td>
                             </tr>
-
+                        </thead>
+                        <tbody>
                             <%boolean even = false;%>
-                            <rsc:iterator list="<%=rsc%>" id="resultRow"><tr>
-                                <td class="<%=even?"advanceDk":"advanceLt"%>" align="center">
+                            <rsc:iterator list="<%=rsc%>" id="resultRow">
+                            <tr class="<%=(even ? "dark" : "light")%>">
+                                <td class="valueC">
                                     <rsc:item name="seed" row="<%=resultRow%>"/></td>
-                                <td class="<%=even?"advanceDk":"advanceLt"%>" align="left">
+                                <td class="value">
                                     <tc-webtag:handle coderId='<%=resultRow.getIntItem("user_id")%>' context="algorithm"/></td>
-                                <td class="<%=even?"advanceDk":"advanceLt"%>" align="right">
+                                <td class="valueR">
                                     <rsc:item name="rating" row="<%=resultRow%>"/></td>
-                                <td class="<%=even?"advanceDk":"advanceLt"%>" align="right">
+                                <td class="valueR">
                                     <rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
                             </tr>
-                                <%even = !even;%>
+                            <%even = !even;%>
                             </rsc:iterator>
+                        </tbody>
                         </table>
-
+                        </div>
 
 
 
