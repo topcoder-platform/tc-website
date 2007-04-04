@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.oracle.model.CandidateProperty" %>
+<%@ page import="com.topcoder.web.oracle.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -30,11 +31,21 @@
     <div id="contentOut">
         <div id="contentIn">
 
-            <h1>TopCoder Homepage Design > Candidate Results</h1>
+            <h1>${room.round.name} > Candidate Results</h1>
 
             <div class="pagingBox">
-                Room 1
-                | <A href="?module=Static&d1=results&d2=tcdotcomCandRd1Rm2">Room 2</A>
+                |
+                <c:forEach items="${room.round.rooms}" var="myRoom">
+                    <c:choose>
+                        <c:when test="${room.id==myRoom.id}">
+                            ${myRoom.name}
+                        </c:when>
+                        <c:otherwise>
+                            <A href="?module=ViewCandidateResults&amp<%=Constants.ROOM_ID%>=${myRoom.id}">${myRoom.name}</A>
+                        </c:otherwise>
+                    </c:choose>
+                |
+                </c:forEach>
             </div>
 
             <div align="center">
