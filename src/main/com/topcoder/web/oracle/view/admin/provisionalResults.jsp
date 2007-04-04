@@ -35,70 +35,50 @@
 <body>
 
 <div align="center">
-    <div id="contentOut" class="contentOut">
-        <jsp:include page="../top.jsp">
-            <jsp:param name="section" value="admin"/>
-        </jsp:include>
-        <jsp:include page="../topNav.jsp">
-            <jsp:param name="node" value="contests"/>
-        </jsp:include>
-        <div id="contentIn" class="contentIn">
-            <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
-
-            <div class="contentSpacer">
-
-                <div class="linkBox"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests">back
-                    to
-                    Contests</A></div>
+    <div id="contentOut">
+        <div id="contentIn">
 
                 <h1>Provisional Results</h1>
 
-                <div class="header">Provisional Results</div>
                 <c:set value="<%=CandidateProperty.IMAGE_SOURCE%>" var="imageSource"/>
                 <c:set value="<%=CandidateProperty.DOWNLOAD_URL%>" var="downloadUrl"/>
-
-
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                    <tbody>
+                        <tr>
                 <c:forEach items="${rooms}" var="room">
-                    <h3>${room.name}</h3>
-                    <table cellpadding="0" cellspacing="0" class="input">
-                        <tbody>
-
+                            <td valign="top" align="center">
+                            <h3>${room.name}</h3>
                             <c:forEach items="${results[room.id]}" var="result">
-
-                                <tr>
-                                    <td class="name">
-                                        <c:if test="${!empty result.candidate.infoMap[downloadUrl]}">
-                                            <div class="save">
-                                                <A target="_blank" href="${result.candidate.infoMap[downloadUrl]}"><img
-                                                        src="/i/oracle/interface/disk.png" alt="DL"/></A>
-                                            </div>
-                                        </c:if>
-                                        <img class="small" name="candidateImage"
-                                             src="${result.candidate.infoMap[imageSource]}" alt=""
-                                             onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');"
-                                             onMouseOut="popHide()" onMouseDown="hideViewer()"
-                                             style="cursor: default;"/>
-                                    </td>
-                                    <td class="value" width="100%">
+                            <ul id="candidateBin" class="imageLineup">
+                                <li style="float: none;">
+                                    <c:if test="${!empty result.candidate.infoMap[downloadUrl]}">
+                                        <div class="save">
+                                            <A target="_blank" href="${result.candidate.infoMap[downloadUrl]}"><img
+                                                    src="/i/oracle/interface/disk.png" alt="DL"/></A>
+                                        </div>
+                                    </c:if>
+                                        <div class="place">
                                             ${result.correctValue}
-                                    </td>
-                                </tr>
+                                        </div>
+                                    <img class="small" name="candidateImage"
+                                         src="${result.candidate.infoMap[imageSource]}" alt=""
+                                         onMouseOver="postToViewer(this.src); popUp(this,'viewerpopup');"
+                                         onMouseOut="popHide()" onMouseDown="hideViewer()"
+                                         style="cursor: default;"/>
+                                </li>
+                            </ul>
                             </c:forEach>
-
-                        </tbody>
-                    </table>
-                    <div class="popUp" id="viewerpopup">
-                        <img src="#" id="viewer" alt="" style="margin:5px; border: 1px solid black; background: #FFFFFF;"></div>
-                    
-
+                            </td>
                 </c:forEach>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <div class="popUp" id="viewerpopup"><img src="#" id="viewer" alt="" style="margin:5px; border: 1px solid black; background: #FFFFFF;"></div>
 
 
-            </div>
-            <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
+        <div style="clear:both;">&nbsp;</div>
+        <jsp:include page="foot.jsp"/>
         </div>
-        <jsp:include page="../foot.jsp"/>
-        <img src="/i/layout/contentOutS.gif" alt="" style="display:block;"/>
     </div>
 </div>
 
