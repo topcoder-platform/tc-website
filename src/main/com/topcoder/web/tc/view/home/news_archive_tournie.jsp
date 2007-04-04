@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">04.04.07 12:15 PM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests">TCO07 Marathon Match Online Round 3 starts today</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.03.07 2:40 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drwChat20070328">DRW Trading SRM 344 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.03.07 1:20 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Qualification Round 3 set for April 3</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.30.07 5:20 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&d1=tournaments&d2=tco07&d3=algorithm&&d4=qualification&c=tco07_alg_qual&trans=true">TCO07 Algorithm Qualification Round 1 Advancers</A></td></tr>
