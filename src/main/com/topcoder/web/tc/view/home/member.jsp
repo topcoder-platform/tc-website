@@ -23,7 +23,7 @@
 <%--
 --%>
 <div style="position:absolute; left:200px; top:190px;">
-<A href="<tc-webtag:linkTracking link='http://www.theball.com' refer='/tc' />" target="_blank"><img src="/i/interface/dot.gif" alt="" /></A>
+<A href="<tc-webtag:linkTracking link='http://www.theball.com' refer='/tc' />" target="_blank"><img src="/i/interface/tinyBrackets.png" alt="" /></A>
 </div>
 
 <jsp:include page="../top.jsp" >
