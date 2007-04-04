@@ -85,11 +85,13 @@ public class EditRound extends Base {
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
             RoundPhase reg = new RoundPhase();
+            reg.setPhase(OracleDAOUtil.getFactory().getPhaseDAO().find(Phase.REGISTRATION));
             reg.setStartTime(new Timestamp(sdf.parse(regStartTime).getTime()));
             reg.setEndTime(new Timestamp(sdf.parse(regEndTime).getTime()));
             round.addPhase(reg);
 
             RoundPhase submission = new RoundPhase();
+            submission.setPhase(OracleDAOUtil.getFactory().getPhaseDAO().find(Phase.SUBMISSION));
             submission.setStartTime(new Timestamp(sdf.parse(submissionStartTime).getTime()));
             submission.setEndTime(new Timestamp(sdf.parse(submissionEndTime).getTime()));
             round.addPhase(submission);
