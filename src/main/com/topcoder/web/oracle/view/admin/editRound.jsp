@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.oracle.Constants" %>
 <%@ page import="com.topcoder.web.oracle.model.RoundProperty" %>
+<%@ page import="com.topcoder.web.oracle.model.Phase" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -45,6 +46,7 @@
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditRound"/>
 <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
+<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
 <div class="header">Round Details</div>
 
@@ -78,41 +80,77 @@
                                 textField="description"/>
     </td>
 </tr>
-<tr>
+
 <tr>
     <td colspan="2">
-                <tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME%>"><span class="bigRed">${err}
+                <tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME+Phase.REGISTRATION%>"><span class="bigRed">${err}
                     <br /></span></tc-webtag:errorIterator>
     </td>
 </tr>
 <tr>
     <td class="name" nowrap="nowrap">
-        Contest Start<br />(Eastern Time):
+        Reg Start<br />(Eastern Time):
     </td>
     <td class="value">
-        <tc-webtag:textInput name="<%=Constants.START_TIME%>" id="<%=Constants.START_TIME%>"/>
-        <button id="trigger<%=Constants.START_TIME%>">Set</button>
+        <tc-webtag:textInput name="<%=Constants.START_TIME+Phase.REGISTRATION%>" id="<%=Constants.START_TIME+Phase.REGISTRATION%>"/>
+        <button id="trigger<%=Constants.START_TIME+Phase.REGISTRATION%>">Set</button>
     </td>
 </tr>
 <tr>
     <td colspan="2">
-                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME%>">${err}
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME+Phase.REGISTRATION%>">${err}
                     <br /></tc-webtag:errorIterator></span>
     </td>
 </tr>
 <tr>
     <td class="name" nowrap="nowrap">
-        Contest End<br />(Eastern Time):
+        Reg End<br />(Eastern Time):
     </td>
     <td class="value">
-        <tc-webtag:textInput name="<%=Constants.END_TIME%>" id="<%=Constants.END_TIME%>"/>
-        <button id="trigger<%=Constants.END_TIME%>">Set</button>
+        <tc-webtag:textInput name="<%=Constants.END_TIME+Phase.REGISTRATION%>" id="<%=Constants.END_TIME+Phase.REGISTRATION%>"/>
+        <button id="trigger<%=Constants.END_TIME+Phase.REGISTRATION%>">Set</button>
     </td>
 </tr>
 
 
+
+<tr>
+    <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="<%=Constants.START_TIME+Phase.SUBMISSION%>"><span class="bigRed">${err}
+                    <br /></span></tc-webtag:errorIterator>
+    </td>
+</tr>
+<tr>
+    <td class="name" nowrap="nowrap">
+        Submission Start<br />(Eastern Time):
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="<%=Constants.START_TIME+Phase.SUBMISSION%>" id="<%=Constants.START_TIME+Phase.SUBMISSION%>"/>
+        <button id="trigger<%=Constants.START_TIME+Phase.SUBMISSION%>">Set</button>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=Constants.END_TIME+Phase.SUBMISSION%>">${err}
+                    <br /></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td class="name" nowrap="nowrap">
+        Submission End<br />(Eastern Time):
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="<%=Constants.END_TIME+Phase.SUBMISSION%>" id="<%=Constants.END_TIME+Phase.SUBMISSION%>"/>
+        <button id="trigger<%=Constants.END_TIME+Phase.SUBMISSION%>">Set</button>
+    </td>
+</tr>
+
+
+
+
 <c:set value="<%=Constants.ROUND_PROPERTY+RoundProperty.MAX_SELECTED_CANDIDATES%>" var="maxSelected"/>
 <c:set value="<%=Constants.ROUND_PROPERTY+RoundProperty.NUMBER_OF_CANDIDDATE_ADVANCERS%>" var="numAdvancers"/>
+<c:set value="<%=Constants.ROUND_PROPERTY+RoundProperty.MAX_ROOM_SIZE%>" var="maxRoomSize"/>
 
 <tr>
     <td colspan="2">
@@ -145,6 +183,21 @@
     </td>
 </tr>
 
+<tr>
+    <td colspan="2">
+                <tc-webtag:errorIterator id="err" name="${maxRoomSize}"><span class="bigRed">${err}
+                    <br /></span></tc-webtag:errorIterator>
+    </td>
+</tr>
+
+<tr>
+    <td class="name">
+        Max Room Size:
+    </td>
+    <td class="value">
+        <tc-webtag:textInput name="${maxRoomSize}" size="4"/>
+    </td>
+</tr>
 
 
 </tbody>
@@ -154,9 +207,9 @@
 <script language="javascript" type="text/javascript">
     Calendar.setup(
     {
-        inputField  : "<%=Constants.START_TIME%>",         // ID of the input field
+        inputField  : "<%=Constants.START_TIME+Phase.REGISTRATION%>",         // ID of the input field
         ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
-        button      : "trigger<%=Constants.START_TIME%>",       // ID of the button
+        button      : "trigger<%=Constants.START_TIME+Phase.REGISTRATION%>",       // ID of the button
         showsTime   : true,
         singleClick  : false,
         cache       : true
@@ -164,9 +217,30 @@
             );
     Calendar.setup(
     {
-        inputField  : "<%=Constants.END_TIME%>",         // ID of the input field
+        inputField  : "<%=Constants.END_TIME+Phase.REGISTRATION%>",         // ID of the input field
         ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
-        button      : "trigger<%=Constants.END_TIME%>",      // ID of the button
+        button      : "trigger<%=Constants.END_TIME+Phase.REGISTRATION%>",      // ID of the button
+        showsTime    : true,
+        singleClick  : false,
+        cache       : true
+    }
+            );
+
+        Calendar.setup(
+    {
+        inputField  : "<%=Constants.START_TIME+Phase.SUBMISSION%>",         // ID of the input field
+        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+        button      : "trigger<%=Constants.START_TIME+Phase.SUBMISSION%>",       // ID of the button
+        showsTime   : true,
+        singleClick  : false,
+        cache       : true
+    }
+            );
+    Calendar.setup(
+    {
+        inputField  : "<%=Constants.END_TIME+Phase.SUBMISSION%>",         // ID of the input field
+        ifFormat    : "<%=Constants.JS_DATE_FORMAT%>",    // the date format
+        button      : "trigger<%=Constants.END_TIME+Phase.SUBMISSION%>",      // ID of the button
         showsTime    : true,
         singleClick  : false,
         cache       : true
