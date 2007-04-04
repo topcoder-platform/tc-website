@@ -113,7 +113,7 @@
             </form>
 
                 <p>
-                <a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${round.id}">Add Round</a>
+                <a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Add Round</a>
                     </p>
 
                 <c:if test="${!empty contest.rounds}">
