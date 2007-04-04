@@ -21,7 +21,7 @@
     <div id="contentOut">
         <div id="contentIn">
 
-            <h1>${room.round.name} > Prediction Results</h1>
+            <h1>${room.round.contest.name} &gt; ${room.round.name} &gt; Prediction Results</h1>
 
             <div class="pagingBox">
                 |

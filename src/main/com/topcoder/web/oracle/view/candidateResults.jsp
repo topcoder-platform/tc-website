@@ -31,7 +31,7 @@
     <div id="contentOut">
         <div id="contentIn">
 
-            <h1>${room.round.name} > Candidate Results</h1>
+            <h1>${room.round.contest.name} &gt; ${room.round.name} &gt; Candidate Results</h1>
 
             <div class="pagingBox">
                 |
