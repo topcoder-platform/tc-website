@@ -38,6 +38,7 @@ public class ViewSimpleResults extends ShortHibernateProcessor {
                 List<RoomResult> results = new ArrayList<RoomResult>(room.getResults());
                 Collections.sort(results, new RoomResult.ScoreComparator());
                 getRequest().setAttribute("results", results);
+                getRequest().setAttribute("room", room);
                 setNextPage("/simpleResults.jsp");
                 setIsNextPageInContext(true);
             }
