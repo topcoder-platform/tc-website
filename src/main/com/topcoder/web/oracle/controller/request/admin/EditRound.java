@@ -126,7 +126,7 @@ public class EditRound extends Base {
 
 
     private void inputValidation() throws Exception {
-        String name = getRequest().getParameter(Constants.CONTEST_NAME);
+        String name = getRequest().getParameter(Constants.ROUND_NAME);
         String regStartTime = getRequest().getParameter(Constants.START_TIME+Phase.REGISTRATION);
         String regEndTime = getRequest().getParameter(Constants.END_TIME+Phase.REGISTRATION);
         String submissionStartTime = getRequest().getParameter(Constants.START_TIME+ Phase.SUBMISSION);
