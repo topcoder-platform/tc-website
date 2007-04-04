@@ -38,6 +38,10 @@
 
             <div align="center">
                 <ul id="candidateBin" class="imageLineup">
+
+                    <c:set value="<%=CandidateProperty.IMAGE_SOURCE%>" var="imageSource"/>
+                    <c:set value="<%=CandidateProperty.DOWNLOAD_URL%>" var="downloadUrl"/>
+                    
                 <c:forEach items="${results}" var="result">
 
                     <li style="float: none;">
