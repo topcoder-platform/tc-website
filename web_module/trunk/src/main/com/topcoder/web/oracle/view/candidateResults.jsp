@@ -49,7 +49,7 @@
                             </div>
                         </c:if>
                             <div class="place">
-                                ${result.place}
+                                ${result.placed}
                             </div>
                         <img class="small" name="candidateImage"
                              src="${result.candidate.infoMap[imageSource]}" alt=""
