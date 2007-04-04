@@ -76,7 +76,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                 List<RoomResult> roomResults = new ArrayList<RoomResult>(tempRoomResults.size());
 
                 Double tempScore;
-                for (RoomResult rr : roomResults) {
+                for (RoomResult rr : tempRoomResults) {
                     tempScore = userMap.get(rr.getUser().getId());
                     if (tempScore!=null) {
                         rr.setScore(tempScore);
