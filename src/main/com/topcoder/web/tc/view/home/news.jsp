@@ -4,6 +4,43 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analyses" border="0" /><br>04.04.07<br>9:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd2">TCO07 Qualification Round 2 - Problem Set & Analyses</A></span><br><br>
+This Saturday's qualification round attracted most of the high-rated coders who needed to compete for a spot in Round 1, and most of them easily advanced. Since most of the sports champions will be crowned during the next couple of months (NBA, NHL, TCO), the problems today 
+were sports-oriented, with <tc-webtag:handle coderId="7269339" context="algorithm"/>, 
+<tc-webtag:handle coderId="21749340" context="algorithm"/> and 
+<tc-webtag:handle coderId="22673803" context="algorithm"/> finishing in the top three.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd2">full story</A> | 
+        <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analyses" border="0" /><br>04.04.07<br>9:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd1">TCO07 Qualification Round 1 - Problem Set & Analyses</A></span><br><br>
+The TopCoder Open 2007 started for Algorithm competitors with Qualification Round 1. This round -- the first of three chances to qualify for Online Round 1 -- attracted several very high-rated competitors who were uneligible for a bye.
+        </td>
+      <td class="newsPhoto"><!-- <img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/> --><br>by <tc-webtag:handle coderId="159544" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd1">full story</A> | 
+        <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>04.03.07<br>7:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -240,42 +277,5 @@ With the information in the first part of this article, you should have been abl
         <A href="tc?module=Static&d1=features&d2=032907">full story</A> | 
         <tc-webtag:forumLink forumID="514866" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.29.07<br>11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=16690">Vote for the new TopCoder video portal</A></span><br><br>
-        TopCoder is building a new web video portal where viewers will be able to access breaking news, interesting instructional segments and fun human interest stories. But first, we need you to vote for the new name and logo!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=16690">full story</A> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=354">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.28.07<br>5:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Qualification Round 1 set for March 29</A></span><br><br>
-        Qualification Round 1 of the TCO07 Algorithm Competition, brought to you by AOL, is set for 7:00 AM EDT on March 29.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">full story</A> | 
-        <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
