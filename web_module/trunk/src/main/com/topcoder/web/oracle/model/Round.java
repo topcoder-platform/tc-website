@@ -130,6 +130,15 @@ public class Round extends Base {
         return m;
     }
 
+    public RoundConfig getConfig(Integer propertyId) {
+        for (RoundConfig r : config) {
+            if (r.getProperty().getId().equals(propertyId)) {
+                return r;
+            }
+        }
+        return null;
+    }
+
 
     public Set<RoundPhase> getPhases() {
         return phases;
