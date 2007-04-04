@@ -48,7 +48,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% boolean even = false;%>
+                    <% boolean even = true;%>
                     <c:forEach items="${results}" var="result">
                         <tr class="<%=even?"light":"dark"%>">
                             <td class="valueC">${result.placed}</td>
