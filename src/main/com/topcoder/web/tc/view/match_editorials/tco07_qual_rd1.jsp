@@ -52,7 +52,7 @@
 
 <p>
 The TopCoder Open 2007 started for Algorithm competitors with Qualification Round 1. 
-This round -- the first of three chances to qualify for Online Round 1 -- attracted several very high-rated competitors who were uneligible for a bye.
+This round -- the first of three chances to qualify for Online Round 1 -- attracted several very high-rated competitors who were ineligible for a bye.
 Thanks to a great challenge phase, 
 <tc-webtag:handle coderId="22645831" context="algorithm"/> won this tough competition.
 <tc-webtag:handle coderId="7227699" context="algorithm"/>, thanks to the fastest hard problem, finished second.
