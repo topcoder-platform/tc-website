@@ -50,7 +50,7 @@
                 <tbody>
                     <% boolean even = false;%>
                     <c:forEach items="${results}" var="result">
-                        <tr class="<%=even?"light":"dar"%>">
+                        <tr class="<%=even?"light":"dark"%>">
                             <td class="valueC">${result.placed}</td>
                             <td class="value"><tc-webtag:handle coderId="${result.user.id}" /></td>
                             <td class="valueR"><fmt:formatNumber value="${result.score}" pattern="#,###.0000"/></td>
