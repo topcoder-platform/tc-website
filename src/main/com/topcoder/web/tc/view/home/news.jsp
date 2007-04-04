@@ -4,10 +4,10 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analyses" border="0" /><br>04.04.07<br>10:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.04.07<br>10:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd2">TCO07 Qualification Round 2 - Problem Set & Analyses</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd2">TCO07 Qualification Round 2 - Problem Set & Analysis</A></span><br><br>
 This Saturday's qualification round attracted most of the high-rated coders who needed to compete for a spot in Round 1, and most of them easily advanced.
         </td>
       <td class="newsPhoto"><img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303644" context="algorithm"/></td></tr></table>
@@ -21,10 +21,10 @@ This Saturday's qualification round attracted most of the high-rated coders who 
    
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analyses" border="0" /><br>04.04.07<br>10:00 AM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.04.07<br>10:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd1">TCO07 Qualification Round 1 - Problem Set & Analyses</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd1">TCO07 Qualification Round 1 - Problem Set & Analysis</A></span><br><br>
 The TopCoder Open 2007 started for Algorithm competitors with Qualification Round 1. This round -- the first of three chances to qualify for Online Round 1 -- attracted several very high-rated competitors who were ineligible for a bye.
         </td>
       <td class="newsPhoto"><!-- <img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/> --><br>by <tc-webtag:handle coderId="159544" context="algorithm"/></td></tr></table>
