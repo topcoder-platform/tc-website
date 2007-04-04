@@ -50,7 +50,7 @@
                 </table>
             </div>
 
-        <jsp:include page="../foot.jsp"/>
+        <jsp:include page="foot.jsp"/>
         </div>
     </div>
 </div>

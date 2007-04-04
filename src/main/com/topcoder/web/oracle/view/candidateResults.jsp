@@ -41,7 +41,7 @@
                             ${myRoom.name}
                         </c:when>
                         <c:otherwise>
-                            <A href="?module=ViewCandidateResults&amp<%=Constants.ROOM_ID%>=${myRoom.id}">${myRoom.name}</A>
+                            <A href="?module=ViewCandidateResults&amp;<%=Constants.ROOM_ID%>=${myRoom.id}">${myRoom.name}</A>
                         </c:otherwise>
                     </c:choose>
                 |

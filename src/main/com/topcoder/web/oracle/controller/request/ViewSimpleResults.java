@@ -35,7 +35,14 @@ public class ViewSimpleResults extends ShortHibernateProcessor {
             if (room == null) {
                 throw new NavigationException("Invalid room specified");
             } else {
-                List<RoomResult> results = new ArrayList<RoomResult>(room.getResults());
+                List<RoomResult> tempResults = new ArrayList<RoomResult>(room.getResults());
+                List<RoomResult> results = new ArrayList<RoomResult>(tempResults.size());
+                for (RoomResult rr : tempResults) {
+                    if (rr.getScore()!=null) {
+                        results.add(rr);
+                    }
+                }
+
                 Collections.sort(results, new RoomResult.ScoreComparator());
                 getRequest().setAttribute("results", results);
                 getRequest().setAttribute("room", room);
