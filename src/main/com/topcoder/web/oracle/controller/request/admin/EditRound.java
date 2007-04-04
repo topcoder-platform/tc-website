@@ -1,11 +1,19 @@
 package com.topcoder.web.oracle.controller.request.admin;
 
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
-import com.topcoder.web.oracle.model.Round;
-import com.topcoder.web.oracle.model.RoundStatus;
+import com.topcoder.web.oracle.dao.RoundPropertyDAO;
+import com.topcoder.web.oracle.model.*;
+import com.topcoder.web.oracle.validation.EndTimeValidator;
+import com.topcoder.web.oracle.validation.RoundNameValidator;
+import com.topcoder.web.oracle.validation.StartTimeValidator;
+import com.topcoder.web.oracle.validation.RoundStatusValidator;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 
 /**
@@ -18,31 +26,30 @@ public class EditRound extends Base {
     protected void dbProcessing() throws Exception {
 
         String roundId = getRequest().getParameter(Constants.ROUND_ID);
+        String contestId = getRequest().getParameter(Constants.CONTEST_ID);
         String name = getRequest().getParameter(Constants.ROUND_NAME);
-        String startTime = getRequest().getParameter(Constants.START_TIME);
-        String endTime = getRequest().getParameter(Constants.END_TIME);
+        String regStartTime = getRequest().getParameter(Constants.START_TIME+Phase.REGISTRATION);
+        String regEndTime = getRequest().getParameter(Constants.END_TIME+Phase.REGISTRATION);
+        String submissionStartTime = getRequest().getParameter(Constants.START_TIME+ Phase.SUBMISSION);
+        String submissionEndTime = getRequest().getParameter(Constants.END_TIME+ Phase.SUBMISSION);
         String roundStatusId = getRequest().getParameter(Constants.ROUND_STATUS_ID);
 
         inputValidation();
 
-        RoundStatus status = null;
-        if ("".equals(StringUtils.checkNull(roundStatusId))) {
-            addError(Constants.ROUND_STATUS_ID, "Please choose a valid round status.");
-        } else {
-            status = OracleDAOUtil.getFactory().getRoundStatusDAO().find(new Integer(roundStatusId));
-            if (status == null) {
-                addError(Constants.ROUND_STATUS_ID, "Please choose a valid round status.");
-            }
+        Contest c = OracleDAOUtil.getFactory().getContestDAO().find(new Integer(contestId));
+        if (c==null) {
+            throw new NavigationException("Invalid contest specified.");
         }
 
 
         if (hasErrors()) {
             loadGeneralEditRoundData();
 
-            for (int i = 0; i < ROUND_PROPS.length; i++) {
-                setDefault(Constants.ROUND_PROPERTY + ROUND_PROPS[i],
-                        getRequest().getParameter(Constants.ROUND_PROPERTY + ROUND_PROPS[i]));
+            for (Integer aROUND_PROPS : ROUND_PROPS) {
+                setDefault(Constants.ROUND_PROPERTY + aROUND_PROPS,
+                        getRequest().getParameter(Constants.ROUND_PROPERTY + aROUND_PROPS));
             }
+            RoundStatus status = OracleDAOUtil.getFactory().getRoundStatusDAO().find(new Integer(roundStatusId));
 
             if (!"".equals(StringUtils.checkNull(roundId))) {
                 setDefault(Constants.ROUND_STATUS_ID,
@@ -55,8 +62,10 @@ public class EditRound extends Base {
 
             setDefault(Constants.ROUND_ID, roundId);
             setDefault(Constants.ROUND_NAME, name);
-            setDefault(Constants.START_TIME, startTime);
-            setDefault(Constants.END_TIME, endTime);
+            setDefault(Constants.START_TIME+Phase.REGISTRATION, regStartTime);
+            setDefault(Constants.END_TIME+Phase.REGISTRATION, regEndTime);
+            setDefault(Constants.START_TIME+Phase.SUBMISSION, submissionStartTime);
+            setDefault(Constants.END_TIME+Phase.SUBMISSION, submissionEndTime);
 
             setNextPage("/admin/editRound.jsp");
             setIsNextPageInContext(true);
@@ -69,35 +78,41 @@ public class EditRound extends Base {
                 log.debug("new round");
                 round = new Round();
             }
-            SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
             round.setName(name);
-/*
-            round.setStartTime(new Timestamp(sdf.parse(startTime).getTime()));
-            round.setEndTime(new Timestamp(sdf.parse(endTime).getTime()));
-            round.setStatus(status);
+            round.setContest(c);
 
-            ContestConfig currConfig;
-            ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
-            ContestProperty curr;
-            for (int i = 0; i < CONTEST_PROPS.length; i++) {
-                curr = dao.find(CONTEST_PROPS[i]);
-                if (contest.isNew() || contest.getConfig(curr) == null) {
-                    currConfig = new ContestConfig();
-                    currConfig.setContest(contest);
+            SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
+
+            RoundPhase reg = new RoundPhase();
+            reg.setStartTime(new Timestamp(sdf.parse(regStartTime).getTime()));
+            reg.setEndTime(new Timestamp(sdf.parse(regEndTime).getTime()));
+            round.addPhase(reg);
+
+            RoundPhase submission = new RoundPhase();
+            submission.setStartTime(new Timestamp(sdf.parse(submissionStartTime).getTime()));
+            submission.setEndTime(new Timestamp(sdf.parse(submissionEndTime).getTime()));
+            round.addPhase(submission);
+
+            round.setStatus(OracleDAOUtil.getFactory().getRoundStatusDAO().find(new Integer(roundStatusId)));
+
+            RoundConfig currConfig;
+            RoundPropertyDAO dao = OracleDAOUtil.getFactory().getRoundPropertyDAO();
+            RoundProperty curr;
+            for (Integer prop : ROUND_PROPS) {
+                curr = dao.find(prop);
+                if (round.isNew() || !round.getConfigMap().containsKey(curr.getId())) {
+                    currConfig = new RoundConfig();
                     currConfig.setProperty(curr);
-                    currConfig.getId().setContest(contest);
-                    currConfig.getId().setProperty(curr);
-                    contest.addConfig(currConfig);
+                    round.addConfig(currConfig);
                 } else {
-                    currConfig = contest.getConfig(curr);
+                    currConfig = round.getConfig(curr.getId());
                 }
-                String val = getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]);
+                String val = getRequest().getParameter(Constants.ROUND_PROPERTY + prop);
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
-*/
 
 
-/*            StudioDAOUtil.getFactory().getContestDAO().saveOrUpdate(round);*/
+            OracleDAOUtil.getFactory().getRoundDAO().saveOrUpdate(round);
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                     "=AdminViewRound&" + Constants.CONTEST_ID + "=" + round.getId());
@@ -106,37 +121,44 @@ public class EditRound extends Base {
 
     }
 
+    
+
+
     private void inputValidation() throws Exception {
         String name = getRequest().getParameter(Constants.CONTEST_NAME);
-        String startTime = getRequest().getParameter(Constants.START_TIME);
-        String endTime = getRequest().getParameter(Constants.END_TIME);
+        String regStartTime = getRequest().getParameter(Constants.START_TIME+Phase.REGISTRATION);
+        String regEndTime = getRequest().getParameter(Constants.END_TIME+Phase.REGISTRATION);
+        String submissionStartTime = getRequest().getParameter(Constants.START_TIME+ Phase.SUBMISSION);
+        String submissionEndTime = getRequest().getParameter(Constants.END_TIME+ Phase.SUBMISSION);
+        String roundStatusId = getRequest().getParameter(Constants.ROUND_STATUS_ID);
 
 
         //validate
-/*
-        ValidationResult nameResult = new ContestNameValidator().validate(new StringInput(name));
-        ValidationResult startTimeResult = new StartTimeValidator(endTime).validate(new StringInput(startTime));
-        ValidationResult endTimeResult = new EndTimeValidator(startTime).validate(new StringInput(endTime));
+        ValidationResult nameResult = new RoundNameValidator().validate(new StringInput(name));
+        ValidationResult regStartTimeResult = new StartTimeValidator(regEndTime).validate(new StringInput(regStartTime));
+        ValidationResult regEndTimeResult = new EndTimeValidator(regStartTime).validate(new StringInput(regEndTime));
+        ValidationResult subStartTimeResult = new StartTimeValidator(submissionEndTime).validate(new StringInput(submissionStartTime));
+        ValidationResult subEndTimeResult = new EndTimeValidator(submissionStartTime).validate(new StringInput(submissionEndTime));
+        ValidationResult roundStatusResult = new RoundStatusValidator().validate(new StringInput(roundStatusId));
 
         if (!nameResult.isValid()) {
-            addError(Constants.CONTEST_NAME, nameResult.getMessage());
+            addError(Constants.ROUND_NAME, nameResult.getMessage());
         }
-        if (!startTimeResult.isValid()) {
-            addError(Constants.START_TIME, startTimeResult.getMessage());
+        if (!regStartTimeResult.isValid()) {
+            addError(Constants.START_TIME+Phase.REGISTRATION, regStartTimeResult.getMessage());
         }
-        if (!endTimeResult.isValid()) {
-            addError(Constants.END_TIME, endTimeResult.getMessage());
+        if (!regEndTimeResult.isValid()) {
+            addError(Constants.END_TIME+Phase.REGISTRATION, regEndTimeResult.getMessage());
         }
-*/
-
-
-/*
-        ValidationResult maxSubmissionsResult =
-                new MaxSubmissionsValidator().validate(new StringInput(maxSubmissions));
-        if (!maxSubmissionsResult.isValid()) {
-            addError(Constants.CONTEST_PROPERTY + ContestProperty.MAX_SUBMISSIONS, maxSubmissionsResult.getMessage());
+        if (!subStartTimeResult.isValid()) {
+            addError(Constants.START_TIME+Phase.SUBMISSION, subStartTimeResult.getMessage());
         }
-*/
+        if (!subEndTimeResult.isValid()) {
+            addError(Constants.END_TIME+Phase.SUBMISSION, subEndTimeResult.getMessage());
+        }
+        if (!roundStatusResult.isValid()) {
+            addError(Constants.ROUND_STATUS_ID, roundStatusResult.getMessage());
+        }
 
     }
 }

@@ -1,48 +1,95 @@
 package com.topcoder.web.oracle.controller.request.admin;
 
-import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
-import com.topcoder.web.oracle.model.Round;
+import com.topcoder.web.oracle.model.*;
+import com.topcoder.web.oracle.roomassignment.CandidateRoomAssigner;
+import com.topcoder.web.oracle.roomassignment.RandomAssigner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2007
  */
-public class AdvanceCandidates extends ShortHibernateProcessor {
+public class AdvanceCandidates extends Base {
+
     protected void dbProcessing() throws Exception {
-        //take a round id, figure out which candidates advanced.
-        //take them, create a new round for the contest
-        //and assign them to rooms
 
         //todo take which class to use for assignment from user
+        inputValidation();
 
-        String roundName = getRequest().getParameter(Constants.ROUND_NAME);
-        String startTime = getRequest().getParameter(Constants.START_TIME);
-        String endTime = getRequest().getParameter(Constants.END_TIME);
-        //round name
-        //round config properties
+        if (!hasErrors()) {
+            Round r = OracleDAOUtil.getFactory().getRoundDAO().find(new Integer(getRequest().getParameter(Constants.ROUND_ID)));
 
-        //todo only accept post requests
-        if (userLoggedIn()) {
-            String roundId = getRequest().getParameter(Constants.ROUND_ID);
-            if ("".equals(StringUtils.checkNull(roundId))) {
-                throw new NavigationException("No round specified");
-            } else {
-                Integer rid;
-                try {
-                    rid = new Integer(roundId);
-                } catch (NumberFormatException e) {
-                    throw new NavigationException("Invalid round specified");
+            List<Candidate> cans = new ArrayList<Candidate>();
+            Candidate c;
+            for (CandidateRoomResult crr : OracleDAOUtil.getFactory().getCandidateRoomResultDAO().getResults(r)) {
+                if (crr.advanced()) {
+                    cans.add(crr.getCandidate());
                 }
-                Round round = OracleDAOUtil.getFactory().getRoundDAO().find(rid);
-
-                Round newRound = new Round();
-                //newRound.setName();
             }
+
+            CandidateRoomAssigner ra = new RandomAssigner();
+            List<Room> l = ra.createAssignments(cans, r, new Integer(r.getConfigMap().get(RoundProperty.MAX_ROOM_SIZE)));
+            for (Room myRoom : l) {
+                r.addRoom(myRoom);
+            }
+
+            StringBuffer buf = new StringBuffer(50);
+            buf.append(getSessionInfo().getServletPath());
+            buf.append("?" + Constants.MODULE_KEY + "=AdminViewRound&");
+            buf.append(Constants.ROUND_ID).append("=").append(r.getId());
+            setNextPage(buf.toString());
+            setIsNextPageInContext(false);
+
+
+        } else {
+            Round r = OracleDAOUtil.getFactory().getRoundDAO().find(new Integer(getRequest().getParameter(Constants.ROUND_ID)));
+
+            loadEditRoundData(r);
+
+            setNextPage("/admin/editRound.jsp");
+            setIsNextPageInContext(true);
         }
     }
+
+    private void inputValidation() throws NavigationException {
+        Integer roundId;
+        try {
+            roundId = new Integer(getRequest().getParameter(Constants.ROUND_ID));
+        } catch (NumberFormatException e) {
+            throw new NavigationException("Invalid round specified");
+        }
+        Round r = OracleDAOUtil.getFactory().getRoundDAO().find(roundId);
+        if (r == null) {
+            throw new NavigationException("Invalid round specified");
+        } else {
+            if (!r.getConfigMap().containsKey(RoundProperty.MAX_ROOM_SIZE)) {
+                addError(Constants.STUDIO_CONTEST_ID, "Round must have max room size set to add candidates.");
+            }
+        }
+
+        Integer priorRoundId = null;
+        try {
+            priorRoundId = new Integer(getRequest().getParameter(Constants.PRIOR_ROUND_ID));
+        } catch (NumberFormatException e) {
+            addError(Constants.PRIOR_ROUND_ID, "Please choose a valid round.");
+        }
+        if (priorRoundId != null) {
+            Round pr = OracleDAOUtil.getFactory().getRoundDAO().find(priorRoundId);
+            if (pr == null) {
+                addError(Constants.PRIOR_ROUND_ID, "Please choose a valid round.");
+            }
+        }
+
+
+    }
+
+
 }
+
+

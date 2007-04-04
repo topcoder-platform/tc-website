@@ -24,6 +24,7 @@ public class RoundProperty extends Base {
 
     public static final Integer MAX_SELECTED_CANDIDATES = 10;
     public static final Integer NUMBER_OF_CANDIDDATE_ADVANCERS = 11;
+    public static final Integer MAX_ROOM_SIZE = 12;
 
     private Integer id;
     private String description;
