@@ -62,7 +62,7 @@ public class ViewBallot extends ShortHibernateProcessor {
                     }
                 }
 
-
+//todo check times for submission before registration so that we give them a submission error, not a reg one
                 if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
                     if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
                         if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId()) != null) {
