@@ -11,16 +11,16 @@
 	<tc-webtag:ifLink useLink="${active!='algo_reg'}" text="Registration" link="/tc?module=IntroEventRegister&eid=${algoEventId}"/> |
 	<tc-webtag:ifLink useLink="${active!='algo_viewReg'}" text="Registrants" link="/tc?module=IntroEventViewRegistrants&eid=${algoEventId}"/>
 	<br>
-	
+	<br>
 </c:if>
 
 <c:if test="${not empty compEventId}" >
 	<b>Components:</b>
 	<tc-webtag:ifLink useLink="${active!='comp_overview'}" text="Overview" link="/tc?module=IntroEventCompOverview&eid=${compEventId}"/> |
-	<tc-webtag:ifLink useLink="${active!='comp_info'}" text="Instructions" link="/tc?module=IntroEventCompInfo&eid=${algoEventId}"/> |
-	<tc-webtag:ifLink useLink="${active!='comp_reg'}" text="Registration" link="/tc?module=IntroEventRegister&eid=${algoEventId}"/> |
-	<tc-webtag:ifLink useLink="${active!='comp_viewReg'}" text="Registrants" link="/tc?module=IntroEventViewRegistrants&eid=${algoEventId}"/> | 
-	<tc-webtag:ifLink useLink="${active!='comp_results'}" text="Results" link="/tc?module=IntroEventCompResults&eid=${algoEventId}"/>
+	<tc-webtag:ifLink useLink="${active!='comp_info'}" text="Instructions" link="/tc?module=IntroEventCompInfo&eid=${compEventId}"/> |
+	<tc-webtag:ifLink useLink="${active!='comp_reg'}" text="Registration" link="/tc?module=IntroEventRegister&eid=${compEventId}"/> |
+	<tc-webtag:ifLink useLink="${active!='comp_viewReg'}" text="Registrants" link="/tc?module=IntroEventViewRegistrants&eid=${compEventId}"/> | 
+	<tc-webtag:ifLink useLink="${active!='comp_results'}" text="Results" link="/tc?module=IntroEventCompResults&eid=${compEventId}"/>
 	<br>
 </c:if>
 

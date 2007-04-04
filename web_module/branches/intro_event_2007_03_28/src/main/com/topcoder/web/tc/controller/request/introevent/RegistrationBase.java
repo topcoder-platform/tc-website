@@ -1,0 +1,108 @@
+package com.topcoder.web.tc.controller.request.introevent;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventType;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.ejb.query.Command;
+
+/**
+ * @author cucu
+ */
+public abstract class RegistrationBase extends Base {
+
+
+    private boolean isEarly = false;
+    private boolean isLate = false;
+    private boolean isRegistered = false;
+    
+    protected abstract void regProcessing(Event event, User user) throws Exception;
+
+
+    protected void introEventProcessing() throws Exception {
+        if (!userLoggedIn()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        } 
+        if (!getEvent().getType().getId().equals(EventType.INTRO_EVENT_COMP_ID) &&
+            !getEvent().getType().getId().equals(EventType.INTRO_EVENT_ALGO_ID)) {
+            throw new NavigationException("Invalid event type.");
+        }
+        
+
+        Event e = getEvent();
+        
+        getRequest().setAttribute("event", e);
+        Calendar now = Calendar.getInstance();
+        now.setTime(new Date());
+        Calendar regStart = new GregorianCalendar();
+        regStart.setTime(e.getRegistrationStart());
+        Calendar regEnd = new GregorianCalendar();
+        regEnd.setTime(e.getRegistrationEnd());
+
+        isLate = now.after(regEnd);
+        isEarly = now.before(regStart);
+        
+        if (!isLate && !isEarly) {
+            isRegistered = getActiveUser().getEventRegistration(e) != null;
+        }
+                
+    }
+
+
+    public User getActiveUser() {
+        return getUser().isAnonymous() ? null : DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+    }
+    
+    
+    public boolean isEligible() throws Exception {
+        Long commandId = getMainEvent().getEligibilityCommandId();
+        
+        // by default is eligible
+        if (commandId == null) {
+            return true;
+        }
+        
+        Command cmd = (Command) createEJB(getInitialContext(), Command.class);
+        String cmdName = cmd.getCommandDesc(commandId, DBMS.OLTP_DATASOURCE_NAME);
+        
+        Request r = new Request();
+        r.setContentHandle(cmdName);
+        
+        r.setProperty("cr", String.valueOf(user.getId()));
+        r.setProperty("eid", String.valueOf(getEvent().getId()));
+        
+        Iterator it = new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).values().iterator();
+        
+        ResultSetContainer rsc = (ResultSetContainer) it.next();
+        
+        return !rsc.isEmpty();        
+    }
+
+
+    public boolean isEarly() {
+        return isEarly;
+    }
+
+
+    public boolean isLate() {
+        return isLate;
+    }
+
+
+    public boolean isRegistered() {
+        return isRegistered;
+    }
+
+}
