@@ -118,7 +118,8 @@ public class EditRound extends Base {
             OracleDAOUtil.getFactory().getRoundDAO().saveOrUpdate(round);
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
-                    "=AdminViewRound&" + Constants.CONTEST_ID + "=" + round.getId());
+                    "=AdminViewRound&" + Constants.ROUND_ID + "=" + round.getId()+"&" +
+                    Constants.CONTEST_ID + "=" + round.getContest().getId());
             setIsNextPageInContext(false);
         }
 
