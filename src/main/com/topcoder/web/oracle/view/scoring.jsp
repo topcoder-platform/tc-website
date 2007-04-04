@@ -16,14 +16,9 @@
     <div id="contentOut">
         <div id="contentIn">
 
-        <div class="mininav">
-            <h3>
-                About this contest
-            </h3>
-            <A href="/to">Introduction</A>
-            <A href="?module=Static&d1=contestStructure">Contest Structure</A>
-            <A href="?module=Static&d1=scoring" class="on">Scoring</A>
-        </div>
+        <jsp:include page="nav.jsp">
+          <jsp:param name="selectedTab" value="scoring"/>
+        </jsp:include>
         
         <div style="margin-bottom: 20px;">
             <A href="/"><img src="/i/oracle/layout/topcoder.png" alt="TopCoder" /></A>
@@ -33,7 +28,7 @@
         Competitors will be scored using this table:
         </p>
         
-        <div align="center" style="clear: both; margin-bottom: 10px;">
+        <div align="center" style="margin-bottom: 10px;">
         <table cellpadding="3" cellspacing="0">
         <thead>
         <tr><td align="center" style="border-bottom: 1px solid #999999; border-right: 1px solid #999999;"><strong>Candidate<br>placement</strong></td><td align="center" style="border-bottom: 1px solid #999999;"><strong>Point value<br>for predicting<br>placement</strong></td></tr>
@@ -98,10 +93,6 @@
         </div>
         <p>
         points.
-        </p>
-
-        <p align="center" style="margin: 20px;">
-        <strong>Predict the winners of the <A href="?module=ViewBallot&rd=2000">TopCoder Homepage Design Contest</A></strong>
         </p>
 
         <jsp:include page="foot.jsp"/>
