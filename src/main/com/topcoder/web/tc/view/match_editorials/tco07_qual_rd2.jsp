@@ -203,22 +203,23 @@ To make sure we won't have any bugs with floating point precision, we multiply t
 by 2 for all teams:
 
 <pre>
-vector &lt;string> constructTable(vector &lt;string> teams) {
-    vector&lt;pair&lt;int, string> > data;
-    for (int i = 0; i &lt; teams.size(); i++) {
+vector <string> constructTable(vector <string> teams) {
+    vector<pair<int, string> > data;
+    for (int i = 0; i < teams.size(); i++) {
         int n1 = teams[i].find(' ');
         int n2 = teams[i].find(' ', n1 + 1);
-        int wins = atoi(teams[i].substr(n1 + 1, n2 - n1 - 1).c-str());
-        int losses = atoi(teams[i].substr(n2 + 1).c-str());
-        data.push_back(make_pair(2 * wins + 1000 - (wins + losses), teams.substr(0, n1)));
+        int wins = atoi(teams[i].substr(n1 + 1, n2 - n1 - 1).c_str());
+        int losses = atoi(teams[i].substr(n2 + 1).c_str());
+        data.push_back(make_pair(-(2 * wins + 1000 - (wins + losses)), teams[i].substr(0, n1)));
     }
     sort(data.begin(), data.end());
-    revese(data.begin(), data.end());
-    vector&lt;string> res;
+    for (int i = 0; i < data.size(); i++)
+        data[i].first *= -1;
+    vector<string> res;
     for (int i = 0; i < data.size(); i++) {
         char buf[50];
         int gap = data[0].first - data[i].first; // The gap between the best and the i-th teams
-        sprintf(buf, "%s %i.%i", data[i].second, gap/2, (gap % 2) * 5);
+        sprintf(buf, "%s %i.%i", data[i].second.c_str(), gap/2, (gap % 2) * 5);
         res.push_back(string(buf));
     }
     return res;
