@@ -88,7 +88,7 @@ public class GenerateResults extends ShortHibernateProcessor {
                             tempRoomResults.add(rr);
                         }
                     }
-                    results.add(room.getId(), tempRoomResults);
+                    results.add(tempRoomResults);
                 }
 
                 for (ArrayList<RoomResult> roomResults : results) {
