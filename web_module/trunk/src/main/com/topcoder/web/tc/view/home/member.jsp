@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -20,10 +21,10 @@
 <body>
 
 <%--
-<div style="position:absolute; left:200px; top:190px;">
-<A href="/?t=sponsor&c=link&link=http://www.equitrader.com" target="_blank"><img src="/i/interface/dot.gif" alt="" /></A>
-</div>
 --%>
+<div style="position:absolute; left:200px; top:190px;">
+<A href="<tc-webtag:linkTracking link='http://www.theball.com' refer='/tc' />" target="_blank"><img src="/i/interface/dot.gif" alt="" /></A>
+</div>
 
 <jsp:include page="../top.jsp" >
    <jsp:param name="level1" value="competition"/>
