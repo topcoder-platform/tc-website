@@ -7,17 +7,17 @@
 
 <div class="leftColContent">
    <div style="padding-left:3px;">
-   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br>- March</div>
+   <div style="padding-bottom:10px;"><img src="/i/home/com_title.gif" alt="Coder of the Month" /><br>- April</div>
    <table cellpadding="0" cellspacing="0" border="0" width="165">
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/ulzha_big.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;" width="100%">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_ALGO_COM%>" class="gMetal">Algorithm</A></strong><br>
-         <tc-webtag:handle coderId="21183970" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br>
+         <tc-webtag:handle coderId="22675302" context="<%=HandleTag.ALGORITHM%>" darkBG="true" />:<br>
          <span class="small">
-         SRM 340: 2005<br>
-         SRM 339: 1850<br>
-         SRM 338: 1804
+         TCO07 Qual 1: 1911<br>
+         SRM 344: 1775<br>
+         SRM 343: 1592
          </span><br><br>
       </td>
    </tr>
@@ -25,17 +25,17 @@
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DESIGN_COM%>" class="gMetal">Design</A></strong><br>
-         <tc-webtag:handle coderId="15179224" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br> 
-         <span class="small">Won five design competitions
+         <tc-webtag:handle coderId="22651514" context="<%=HandleTag.DESIGN%>" darkBG="true" />:<br> 
+         <span class="small">5 wins, 3 second places, 1 third place
          </span><br><br>
       </td>
    </tr>
    <tr>
-      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/nophoto.jpg" alt="" width="55" height="61"/></td>
+      <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/zsudraco_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</A></strong><br>
-         <span class="small"><tc-webtag:handle coderId="22661509" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:</span><br>
-         <span class="small">Won seven development competitions
+         <span class="small"><tc-webtag:handle coderId="14820574" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:</span><br>
+         <span class="small">3 wins, 2 second places
          </span><br><br>
       </td>
    </tr>
