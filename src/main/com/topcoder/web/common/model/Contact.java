@@ -12,6 +12,10 @@ public class Contact extends Base {
     private String title;
     private User user;
 
+    public Contact() {
+        super();
+    }
+
     public Long getId() {
         return id;
     }

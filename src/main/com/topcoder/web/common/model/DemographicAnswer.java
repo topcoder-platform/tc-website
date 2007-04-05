@@ -10,6 +10,10 @@ public class DemographicAnswer extends Base implements Comparable {
     private Integer sort;
     private String status;
 
+
+    public DemographicAnswer() {
+    }
+
     public Long getId() {
         return id;
     }

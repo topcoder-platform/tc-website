@@ -22,36 +22,50 @@ public class MemberContactMessage extends Base {
     public boolean isCopy() {
         return copy;
     }
+
     public void setCopy(boolean copy) {
         this.copy = copy;
     }
+
+    public MemberContactMessage() {
+    }
+
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public User getRecipient() {
         return recipient;
     }
+
     public void setRecipient(User recipient) {
         this.recipient = recipient;
     }
+
     public User getSender() {
         return sender;
     }
+
     public void setSender(User sender) {
         this.sender = sender;
     }
+
     public Date getSentDate() {
         return sentDate;
     }
+
     public void setSentDate(Date sentDate) {
         this.sentDate = sentDate;
     }
+
     public String getText() {
         return text;
     }
+
     public void setText(String text) {
         this.text = text;
     }

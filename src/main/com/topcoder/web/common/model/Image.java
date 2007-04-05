@@ -22,6 +22,9 @@ public class Image extends Base {
     private Integer width;
     private Set coders;
 
+    public Image() {
+    }
+
     public Long getId() {
         return id;
     }

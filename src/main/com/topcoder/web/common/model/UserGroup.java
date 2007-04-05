@@ -13,6 +13,9 @@ public class UserGroup extends Base {
     private Long createUserId;
     private Integer securityStatusId;
 
+    public UserGroup() {
+    }
+
     public Long getId() {
         return id;
     }

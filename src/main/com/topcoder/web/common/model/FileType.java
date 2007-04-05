@@ -28,6 +28,9 @@ public class FileType extends Base {
         this.description = description;
     }
 
+    public FileType() {
+    }
+
     public String getMimeType() {
         return mimeType;
     }

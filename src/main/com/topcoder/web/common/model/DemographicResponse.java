@@ -24,6 +24,9 @@ public class DemographicResponse extends Base {
         return user;
     }
 
+    public DemographicResponse() {
+    }
+
     public void setUser(User user) {
         this.user = user;
     }

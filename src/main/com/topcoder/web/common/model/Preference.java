@@ -36,6 +36,9 @@ public class Preference extends Base implements Comparable {
         this.id = id;
     }
 
+    public Preference() {
+    }
+
     public String getName() {
         return name;
     }

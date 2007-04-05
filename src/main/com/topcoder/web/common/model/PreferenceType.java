@@ -25,6 +25,9 @@ public class PreferenceType extends Base {
         return description;
     }
 
+    public PreferenceType() {
+    }
+
     public Set getPreferences() {
         return Collections.unmodifiableSet(preferences);
     }

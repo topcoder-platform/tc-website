@@ -16,6 +16,9 @@ public class UserPreference extends Base {
     private String value;
     private PreferenceValue preferenceValue;
 
+    public UserPreference() {
+    }
+
     public Identifier getId() {
         return id;
     }

@@ -15,6 +15,9 @@ public class TermsOfUse extends Base {
     private Integer typeId;
     private Set users;
 
+    public TermsOfUse() {
+    }
+
     public Integer getId() {
         return id;
     }

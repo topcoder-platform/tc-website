@@ -19,7 +19,7 @@ public class SecurityGroup extends Base {
     private Set users;
     private Set registrationTypes;
 
-    protected SecurityGroup() {
+    public SecurityGroup() {
 
     }
 

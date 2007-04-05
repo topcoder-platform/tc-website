@@ -13,6 +13,10 @@ public class CoderImage extends Base {
     private Image image;
     private Boolean display;
 
+    public CoderImage() {
+        super();
+    }
+
     public Identifier getId() {
         return id;
     }

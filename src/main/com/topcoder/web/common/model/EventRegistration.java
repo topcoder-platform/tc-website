@@ -41,6 +41,9 @@ public class EventRegistration extends Base {
         }
     }
 
+    public EventRegistration() {
+    }
+
     public int hashCode() {
         return id.hashCode();
     }

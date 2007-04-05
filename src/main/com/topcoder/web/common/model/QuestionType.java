@@ -10,7 +10,7 @@ public class QuestionType extends Base {
     private String description;
     private boolean active;
 
-    protected QuestionType() {
+    public QuestionType() {
 
     }
 
@@ -21,7 +21,7 @@ public class QuestionType extends Base {
     public void setId(Integer id) {
         this.id = id;
     }
-    
+
     public String getDescription() {
         return description;
     }

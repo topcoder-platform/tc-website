@@ -10,7 +10,7 @@ public class State extends Base {
     private String name;
     private Boolean optionalDemographics;
 
-    protected State() {
+    public State() {
 
     }
 

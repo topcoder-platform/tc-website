@@ -22,6 +22,9 @@ public class Phone extends Base {
         return id;
     }
 
+    public Phone() {
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

@@ -16,6 +16,9 @@ public class PreferenceValue extends Base implements Comparable {
     private String description;
     private Integer sort;
 
+    public PreferenceValue() {
+    }
+
     public Integer getId() {
         return id;
     }

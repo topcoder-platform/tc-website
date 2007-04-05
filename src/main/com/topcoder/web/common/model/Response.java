@@ -13,6 +13,9 @@ public class Response extends Base {
     private User user;
 
 
+    public Response() {
+    }
+
     public Long getId() {
         return id;
     }

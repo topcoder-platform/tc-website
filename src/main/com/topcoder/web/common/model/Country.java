@@ -18,7 +18,7 @@ public class Country extends Base {
     private String name;
     private Set regions;
 
-    protected Country() {
+    public Country() {
         regions = new HashSet();
     }
 
@@ -44,6 +44,19 @@ public class Country extends Base {
 
     public String getName() {
         return name;
+    }
+
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setRegions(Set regions) {
+        this.regions = regions;
     }
 
 

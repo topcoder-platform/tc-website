@@ -6,20 +6,17 @@
 
 package com.topcoder.web.common.model;
 
-import com.topcoder.web.common.model.ContractingResponse;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 public class ContractingResponseGroup implements Serializable {
 
-    String name;
-    ArrayList responses;
+    private String name;
+    private ArrayList responses;
 
     public ContractingResponseGroup() {
         name = "";

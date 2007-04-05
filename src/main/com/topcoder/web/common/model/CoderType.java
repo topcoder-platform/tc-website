@@ -13,6 +13,10 @@ public class CoderType extends Base {
     public static final Integer STUDENT = new Integer(1);
     public static final Integer PROFESSIONAL = new Integer(2);
 
+    public CoderType() {
+        super();
+    }
+
     public Integer getId() {
         return id;
     }

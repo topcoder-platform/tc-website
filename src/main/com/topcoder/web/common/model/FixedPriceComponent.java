@@ -37,14 +37,14 @@ public class FixedPriceComponent extends DefaultPriceComponent {
     /**
      * Default constructor
      */
-    protected FixedPriceComponent() {
+    public FixedPriceComponent() {
     }
 
     /**
      * Constructor compatible with DefaultPriceComponent
      */
     public FixedPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId,
-           float primaryFixedPayment, float secondaryFixedPayment)  {
+                               float primaryFixedPayment, float secondaryFixedPayment) {
         super(levelId, submissionCount, submissionsPassedScreening, phaseId);
 
         setPrimaryFixedPayment(primaryFixedPayment);
@@ -66,7 +66,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
 
     /**
      * Gets Aggregation Cost
-     *
+     * <p/>
      * Delegates to super and adjusts with the primary adjustment factor calculated using the fixed amounts.
      *
      * @return resized Aggregation cost.
@@ -78,7 +78,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
 
     /**
      * Gets Screening Cost
-     *
+     * <p/>
      * Delegates to super and adjusts with the primary adjustment factor calculated using the fixed amounts.
      *
      * @return resized Screening cost.
@@ -90,7 +90,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
 
     /**
      * Gets Final Review Cost
-     *
+     * <p/>
      * Delegates to super and adjusts with the primary adjustment factor calculated using the fixed amounts.
      *
      * @return resized Final Review cost.
@@ -102,7 +102,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
 
     /**
      * Gets Core Review Cost
-     *
+     * <p/>
      * Delegates to super and adjusts with the primary adjustment factor calculated using the fixed amounts.
      *
      * @return resized Core Review cost.
@@ -114,7 +114,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
 
     /**
      * Gets Primary Review Cost
-     *
+     * <p/>
      * Delegates to super and adjusts with the primary adjustment factor calculated using the fixed amounts.
      *
      * @return resized Primary Review cost.
@@ -126,7 +126,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
 
     /**
      * Setter for Primary payment fixed amount
-     *
+     * <p/>
      * Also calculates the adjustmente factor.
      *
      * @param amount The primary payment fixed amount
@@ -155,7 +155,7 @@ public class FixedPriceComponent extends DefaultPriceComponent {
      * Command line utility
      */
     private static void showPayments(int submissionCount, int submissionsPassedScreening, int phaseId,
-            float primaryFixedPayment, float secondaryFixedPayment) {
+                                     float primaryFixedPayment, float secondaryFixedPayment) {
 
         FixedPriceComponent fpc = new FixedPriceComponent(LEVEL1,
                 submissionCount, submissionsPassedScreening,
