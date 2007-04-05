@@ -178,7 +178,7 @@ This is the kind of activity that should be done even if it isn&rsquo;t required
 <p>If your program interacts with users, write a user manual. Never think &ldquo;The interface is so simple, how could anyone ever make a mistake!&rdquo; Remember: if there is the remotest possible chance that your program could crash, there's a user out there who will find the way to make it happen. You should minimize the risks, by make your program as stable and easy to use as possible, but you should also outline the risks in the manual. You can't avoid all user error, but at least you will have the comfort of being able to say &ldquo;you should have read the manual!&rdquo; </p>
 
 <p><strong>Related Reading</strong><br />
-If you are interested in learning more on these topics, you can refer to <a target="_blank" href="http://www.cc2e.com/Default.aspx">Code Complete</a> by Steve McConnell, which discusses loads of ways to improve your developing and coding style. </p>
+If you are interested in learning more on these topics, you can refer to <a target="_blank" href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://www.cc2e.com/Default.aspx&amp;refer=feature_040507">Code Complete</a> by Steve McConnell, which discusses loads of ways to improve your developing and coding style. </p>
 <p>&nbsp; </p>
         </td>
 <!-- Center Column Ends -->
