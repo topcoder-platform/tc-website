@@ -347,6 +347,9 @@ public class BasicAuthentication implements WebAuthentication {
     }
 
     private User getUserFromPersistor() {
+        if (log.isDebugEnabled()) {
+            log.debug("session id: " + request.getSession().getId());
+        }
         return (User) persistor.getObject(request.getSession().getId() + USER_PERSISTOR_KEY);
     }
 
