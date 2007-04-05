@@ -29,6 +29,10 @@
 
             <div id="bodyColumn">
 
+                <p align="center">
+                <span class="bigRed"><A href="?module=ViewBallot&rm=1999" class="bigRed">Make your prediction now</A> for the Homepage Redesign Round 2!<br>
+                You have until 2PM on Monday.</span>
+                </p>
                 <p>
                 After the introduction of TopCoder Studio, TopCoder was faced with the challenge of effectively choosing contest winners.  We felt that we needed a mechanism that was efficient and didn't require a lot of additional TopCoder staff time or resources.  We also felt that with the nature of Studio competitions being subjective, no one individual or even set of individuals would necessarily be the best at judging submissions.  The mechanism would need to be effective in that it would need to be able to determine a winner well (well being a fairly subjective term that could mean anything from how much the community or client likes a submission to measurements such as traffic and so on).   Finally, it should be transparent so that there wouldn't be questions of impropriety.
                 </p>
@@ -48,12 +52,6 @@
                 Because of the experimental nature of this system, we will be using it for quite a few Studio contests, BUT THE OUTCOME MAY NOT BE BINDING ON THE ACTUAL STUDIO CONTEST BEING EVALUATED.  Of course the outcome of the judging competition from a prize standpoint will be.  We will have to judge the outcome for some time to gain comfort with the system.
                 </p>
         
-<%--
-                <p align="center" style="margin: 20px;">
-                <strong>Predict the winners of the <A href="?module=ViewBallot&rd=2000">TopCoder Homepage Design Contest</A></strong>
-                </p>
---%>
-
             </div>
 
         <div style="clear:both;">&nbsp;</div>
