@@ -69,7 +69,7 @@
 <%--
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open" style="display: block;" /></A>
 --%>
-        <A href="/to"><img src="/i/home/predict.png" alt="Predict the winners" style="display: block;" /></A>
+        <A href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners" style="display: block;" /></A>
     </td>
     <td align="right" valign="top">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/"><img src="/i/home/studioDogEarStandard.png" style="display: block;" alt="TopCoder Studio" /></A>
