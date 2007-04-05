@@ -28,53 +28,56 @@
             </div>
 
             <jsp:include page="nav.jsp" >
-            <jsp:param name="tabLev1" value="competitions"/>
-            <jsp:param name="tabLev2" value="tcdotcomRd1"/>
-            <jsp:param name="tabLev3" value="prediction"/>
+            <jsp:param name="selectedTab" value="tcdotcomPredRd1"/>
             </jsp:include>
 
 <%--
             <p><strong>${room.round.contest.name} &gt; ${room.round.name} &gt; Prediction Results</strong></p>
 --%>
 
-            <div class="pagingBox">
-                |
-                <c:forEach items="${room.round.rooms}" var="myRoom">
-                    <c:choose>
-                        <c:when test="${room.id==myRoom.id}">
-                            ${myRoom.name}
-                        </c:when>
-                        <c:otherwise>
-                            <A href="?module=ViewSimpleResults&amp;<%=Constants.ROOM_ID%>=${myRoom.id}">${myRoom.name}</A>
-                        </c:otherwise>
-                    </c:choose>
-                |
-                </c:forEach>
-            </div>
+            <div id="bodyColumn">
 
-            <div align="center">
-                <table cellpadding="0" cellspacing="0" class="stat" width="400px;">
-                <thead>
-                    <tr>
-                        <td class="headerC">Place</td>
-                        <td class="header" width="100%">Handle</td>
-                        <td class="headerR">Points</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% boolean even = true;%>
-                    <c:forEach items="${results}" var="result">
-                        <tr class="<%=even?"light":"dark"%>">
-                            <td class="valueC">${result.placed}</td>
-                            <td class="value"><tc-webtag:handle coderId="${result.user.id}" /></td>
-                            <td class="valueR"><fmt:formatNumber value="${result.score}" pattern="#,###.0000"/></td>
+                <div class="pagingBox">
+                    |
+                    <c:forEach items="${room.round.rooms}" var="myRoom">
+                        <c:choose>
+                            <c:when test="${room.id==myRoom.id}">
+                                ${myRoom.name}
+                            </c:when>
+                            <c:otherwise>
+                                <A href="?module=ViewSimpleResults&amp;<%=Constants.ROOM_ID%>=${myRoom.id}">${myRoom.name}</A>
+                            </c:otherwise>
+                        </c:choose>
+                    |
+                    </c:forEach>
+                </div>
+    
+                <div align="center">
+                    <table cellpadding="0" cellspacing="0" class="stat" width="400px;">
+                    <thead>
+                        <tr>
+                            <td class="headerC">Place</td>
+                            <td class="header" width="100%">Handle</td>
+                            <td class="headerR">Points</td>
                         </tr>
-                        <%even=!even;%>
-                     </c:forEach>
-                </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                        <% boolean even = true;%>
+                        <c:forEach items="${results}" var="result">
+                            <tr class="<%=even?"light":"dark"%>">
+                                <td class="valueC">${result.placed}</td>
+                                <td class="value"><tc-webtag:handle coderId="${result.user.id}" /></td>
+                                <td class="valueR"><fmt:formatNumber value="${result.score}" pattern="#,###.0000"/></td>
+                            </tr>
+                            <%even=!even;%>
+                         </c:forEach>
+                    </tbody>
+                    </table>
+                </div>
+
             </div>
 
+        <div style="clear:both;">&nbsp;</div>
         <jsp:include page="foot.jsp"/>
         </div>
     </div>
