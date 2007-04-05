@@ -1,4 +1,5 @@
 <%@  page language="java"  %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -42,6 +43,26 @@
          <div class="sectionHeader">Current Tournaments</div>
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
+                    <td width="274" rowspan="2"><A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/' refer='pbtc page' />" target="_blank"><img src="/i/events/csfLogo.png" alt="Microsoft Connected Services Framework Competition Series" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Microsoft Connected Services Framework Competition Series</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        March 6, 2007 -<br />
+                        <A href="<tc-webtag:linkTracking link='http://csf.topcoder.com/' refer='pbtc page' />" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+
+<%-- Past Tournaments begins --%>
+
+         <div class="sectionHeader" width="100%">Past Tournaments</div>
+
+           <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
                     <td width="274" rowspan="2"><A href="/pl/?module=Static&d1=gcjsa07&d2=overview" target="_blank"><img src="/i/events/gcjla07.gif" alt="GCJLA" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText"><font size="3"><strong>Google Code Jam Latin America 2007</strong></font></td>
@@ -54,12 +75,8 @@
                     </td>
                 </tr>
             </table>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-
-<%-- Past Tournaments begins --%>
-
-         <div class="sectionHeader" width="100%">Past Tournaments</div>
+                <hr width="100%" size="1" noshade="noshade" />
 
            <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
