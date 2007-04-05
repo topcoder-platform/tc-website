@@ -10,7 +10,7 @@
       <td valign="top"><span class="newsTitle">
         <A href="/to/">Predict the homepage redesign winner: Round 2</A>
         </span><br><br>
-        <A href="/to/?module=ViewSimpleResults&rm=2001">Round 1</A> of the first prediction contest is over.  If you missed out, don't worry, because <A href="/to/?module=ViewBallot&rm=1999">Round 2 has already started</A>.
+        <A href="/to/?module=ViewSimpleResults&rm=2001">Round 1</A> of the first prediction contest is over.  If you missed out, don't worry, because <A href="/to/?module=ViewBallot&rm=1999">Round 2 has already started</A>.  The contest is open until 2PM on Monday, April 9.
         </td>
       </tr></table>
       </td>
