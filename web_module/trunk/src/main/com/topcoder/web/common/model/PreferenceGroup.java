@@ -21,6 +21,9 @@ public class PreferenceGroup extends Base implements Comparable {
         return id;
     }
 
+    public PreferenceGroup() {
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }

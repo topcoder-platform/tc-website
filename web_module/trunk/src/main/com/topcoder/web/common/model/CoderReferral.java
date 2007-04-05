@@ -13,6 +13,9 @@ public class CoderReferral extends Base {
     private Coder referenceCoder;
     private String other;
 
+    public CoderReferral() {
+        super();
+    }
 
     public Long getId() {
         return id;

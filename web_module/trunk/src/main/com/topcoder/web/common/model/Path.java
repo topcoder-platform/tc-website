@@ -9,6 +9,17 @@ public class Path extends Base {
     private Long id;
     private String path;
 
+    public Path() {
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
     public Long getId() {
         return id;
     }

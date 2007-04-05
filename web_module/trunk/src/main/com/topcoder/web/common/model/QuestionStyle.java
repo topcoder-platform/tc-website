@@ -10,7 +10,7 @@ public class QuestionStyle extends Base {
     private String description;
     private boolean active;
 
-    protected QuestionStyle() {
+    public QuestionStyle() {
 
     }
 
@@ -21,7 +21,7 @@ public class QuestionStyle extends Base {
     public void setId(Integer id) {
         this.id = id;
     }
-    
+
     public String getDescription() {
         return description;
     }

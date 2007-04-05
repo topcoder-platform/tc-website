@@ -20,7 +20,7 @@ public class NavNode implements Serializable {
     private boolean isLink = false;
     private String onClick = null;
 
-    private NavNode() {
+    public NavNode() {
         this.children = null;
         this.leaf = true;
     }

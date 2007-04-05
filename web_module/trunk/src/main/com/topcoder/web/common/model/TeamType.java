@@ -11,6 +11,9 @@ public class TeamType extends Base {
     private Integer id;
     private String description;
 
+    public TeamType() {
+    }
+
     public Integer getId() {
         return id;
     }

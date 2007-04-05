@@ -16,7 +16,7 @@ public class DemographicAssignment extends Base {
     private Identifier id = new Identifier();
     private Boolean required;
 
-    protected DemographicAssignment() {
+    public DemographicAssignment() {
 
     }
 

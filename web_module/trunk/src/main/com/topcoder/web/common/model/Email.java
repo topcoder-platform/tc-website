@@ -28,6 +28,9 @@ public class Email extends Base {
         return id;
     }
 
+    public Email() {
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

@@ -9,7 +9,7 @@ public class TimeZone extends Base {
     private Integer id;
     private String description;
 
-    protected TimeZone() {
+    public TimeZone() {
 
     }
 

@@ -17,6 +17,9 @@ public class School extends Base {
     private Boolean viewable;
     private Date modifyDate;
 
+    public School() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -96,12 +99,12 @@ public class School extends Base {
         }
     }
 
-	public Date getModifyDate() {
-		return modifyDate;
-	}
+    public Date getModifyDate() {
+        return modifyDate;
+    }
 
-	public void setModifyDate(Date modifyDate) {
-		this.modifyDate = modifyDate;
-	}
+    public void setModifyDate(Date modifyDate) {
+        this.modifyDate = modifyDate;
+    }
 
 }

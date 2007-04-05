@@ -11,6 +11,21 @@ public class Region extends Base {
     private RegionType type;
     private String name;
 
+    public Region() {
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setType(RegionType type) {
+        this.type = type;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }

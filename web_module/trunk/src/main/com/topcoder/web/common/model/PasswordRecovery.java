@@ -3,13 +3,11 @@ package com.topcoder.web.common.model;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * Class holding data for each password recovery event.
  *
  * @author cucu
- *
  */
 public class PasswordRecovery extends Base {
 
@@ -22,30 +20,42 @@ public class PasswordRecovery extends Base {
     public Date getExpireDate() {
         return expireDate;
     }
+
+    public PasswordRecovery() {
+    }
+
     public void setExpireDate(Date expireDate) {
         this.expireDate = expireDate;
     }
+
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getRecoveryAddress() {
         return recoveryAddress;
     }
+
     public void setRecoveryAddress(String recoveryAddress) {
         this.recoveryAddress = recoveryAddress;
     }
+
     public boolean isUsed() {
         return used;
     }
+
     public void setUsed(boolean used) {
         this.used = used;
     }
+
     public User getUser() {
         return user;
     }
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -65,7 +75,7 @@ public class PasswordRecovery extends Base {
                 hex.append(Integer.toHexString(raw[i] & 0xff));
 
             return hex.toString();
-        } catch(NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             throw new IllegalArgumentException("Can't do an MD5 hash." + e);
         }
 

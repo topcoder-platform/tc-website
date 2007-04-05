@@ -20,9 +20,9 @@ public class AlgoRating extends Base {
     protected Integer volatility;
 
     public AlgoRating() {
-        this.numRatings = new Integer(0);
-        this.volatility = new Integer(0);
-        this.rating = new Integer(0);
+        this.numRatings = 0;
+        this.volatility = 0;
+        this.rating = 0;
     }
 
     public Identifier getId() {

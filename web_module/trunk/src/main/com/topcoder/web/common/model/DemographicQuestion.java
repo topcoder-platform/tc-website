@@ -15,9 +15,9 @@ public class DemographicQuestion extends Base {
     private String text;
     private Character selectable;
     private String description;
-/*
-    private List answers = new ArrayList();
-*/
+    /*
+        private List answers = new ArrayList();
+    */
     private Set answers = new TreeSet();
 
     public static final Character MULTIPLE_SELECT = new Character('M');
@@ -26,6 +26,9 @@ public class DemographicQuestion extends Base {
 
     public Long getId() {
         return id;
+    }
+
+    public DemographicQuestion() {
     }
 
     public String getText() {

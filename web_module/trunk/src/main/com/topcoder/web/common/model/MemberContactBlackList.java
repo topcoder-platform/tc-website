@@ -27,6 +27,9 @@ public class MemberContactBlackList extends Base {
         this.blocked = blocked;
     }
 
+    public MemberContactBlackList() {
+    }
+
     public void setId(Identifier id) {
         this.id = id;
     }
@@ -39,17 +42,20 @@ public class MemberContactBlackList extends Base {
         public User getBlockedUser() {
             return blockedUser;
         }
+
         public void setBlockedUser(User blockedUser) {
             this.blockedUser = blockedUser;
         }
+
         public User getUser() {
             return user;
         }
-        public void setUser(User user) {
-            this.user = user;
-        }
 
         public Identifier() {
+        }
+
+        public void setUser(User user) {
+            this.user = user;
         }
 
         public Identifier(User user, User blockedUser) {
@@ -71,6 +77,7 @@ public class MemberContactBlackList extends Base {
             }
 
         }
+
         public int hashCode() {
             return (user.getId() + " " + blockedUser.getId()).hashCode();
         }

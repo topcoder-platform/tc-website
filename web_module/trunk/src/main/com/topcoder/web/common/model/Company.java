@@ -12,6 +12,10 @@ public class Company extends Base {
     private Contact primaryContact;
     private TimeZone timeZone;
 
+    public Company() {
+        super();
+    }
+
     public Long getId() {
         return id;
     }

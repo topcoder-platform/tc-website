@@ -11,6 +11,7 @@ public class Answer implements Serializable, Cloneable, Comparable {
     private Boolean correct;
 
     public Answer() {
+        super();
     }
 
     public Object clone() throws OutOfMemoryError {

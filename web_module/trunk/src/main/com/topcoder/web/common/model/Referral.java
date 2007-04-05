@@ -18,6 +18,9 @@ public class Referral extends Base {
     private Integer statusId;
 
 
+    public Referral() {
+    }
+
     public Integer getId() {
         return id;
     }

@@ -14,6 +14,9 @@ public class Resume extends Base {
     private Coder coder;
 
 
+    public Resume() {
+    }
+
     public Long getId() {
         return id;
     }

@@ -13,6 +13,10 @@ public class AlgoRatingType extends Base {
     private Integer id;
     private String description;
 
+    public AlgoRatingType() {
+        super();
+    }
+
     public Integer getId() {
         return id;
     }

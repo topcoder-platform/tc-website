@@ -8,7 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 /**
  * <strong>Purpose</strong>:
  * Calculates Reviewers tasks costs
- *
+ * <p/>
  * Version 1.0.1 Change notes:
  * <ol>
  * <li>
@@ -34,7 +34,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     private int submissionCount;
     private int submissionsPassedScreening;
 
-    protected DefaultPriceComponent() {
+    public DefaultPriceComponent() {
     }
 
     public DefaultPriceComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId) {
@@ -101,6 +101,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * Return the total payment for the primary development reviewer
+     *
      * @return
      */
     private float getPrimaryDevReviewCost() {
@@ -129,6 +130,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * Return the review cost for a primary reviewer.
+     *
      * @return
      */
     private float getDevCoreReviewCost() {
@@ -143,6 +145,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * Return the total payment for a development reviewer
+     *
      * @return
      */
     private float getDevReviewCost() {
@@ -153,6 +156,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * Return the total payment for a design reviewer
+     *
      * @return
      */
     private float getDesignReviewCost() {
@@ -163,6 +167,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
 
     /**
      * Return the total payment for the primary design reviewer
+     *
      * @return
      */
     private float getPrimaryDesignReviewCost() {
@@ -191,6 +196,7 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * Return the base design review cost, this is a number that both
      * primary and regular reviewers start with.
+     *
      * @return
      */
     private float getCoreDesignReviewCost() {
@@ -204,8 +210,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * Return aggregation task's cost
      *
-     * @since 1.0.1
      * @return The cost of the aggregation task
+     * @since 1.0.1
      */
     public float getAggregationCost() {
         float ret = 0.0f;
@@ -222,8 +228,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * Return screening task's cost
      *
-     * @since 1.0.1
      * @return The cost of the screening task
+     * @since 1.0.1
      */
     public float getScreeningCost() {
         float ret = 0.0f;
@@ -240,8 +246,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * Return final review task's cost
      *
-     * @since 1.0.1
      * @return The cost of the final review task
+     * @since 1.0.1
      */
     public float getFinalReviewCost() {
         float ret = 0.0f;
@@ -258,8 +264,8 @@ public class DefaultPriceComponent implements SoftwareComponent {
     /**
      * Return core review cost
      *
-     * @since 1.0.1
      * @return The cost of the core review
+     * @since 1.0.1
      */
     public float getCoreReviewCost() {
         float ret = 0.0f;

@@ -8,17 +8,19 @@ package com.topcoder.web.common.model;
 
 /**
  *
- * @author  rfairfax
+ * @author rfairfax
  */
 
 import java.io.Serializable;
 
 public class ContractingResponse implements Serializable {
 
-    /** Creates a new instance of ContractingResponse */
+    /**
+     * Creates a new instance of ContractingResponse
+     */
 
-    String name;
-    String val;
+    private String name;
+    private String val;
 
     public ContractingResponse() {
         name = "";

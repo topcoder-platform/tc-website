@@ -14,6 +14,10 @@ public class CurrentSchool extends Base {
     private Float GPAScale;
     private Boolean viewable;
 
+    public CurrentSchool() {
+        super();
+    }
+
     public Long getId() {
         return id;
     }
