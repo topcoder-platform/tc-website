@@ -11,6 +11,10 @@ public class RankedResult implements Serializable {
     private Candidate candidate;
     private int rank;
 
+    public RankedResult() {
+        super();
+    }
+
     public RankedResult(Candidate candidate, int rank) {
         this.candidate = candidate;
         this.rank = rank;

@@ -12,6 +12,10 @@ public class CandidateProperty extends Base {
     private Integer id;
     private String description;
 
+    public CandidateProperty() {
+        super();
+    }
+
     public Integer getId() {
         return id;
     }

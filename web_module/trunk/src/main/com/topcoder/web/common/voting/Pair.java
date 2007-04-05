@@ -12,6 +12,10 @@ public class Pair implements Serializable {
     private Candidate b;
     private boolean tie = false;
 
+    public Pair() {
+        super();
+    }
+
     /**
      * create a new <code>Pair</code> by convention
      * <code>a</code> beat <code>b</code> except in the

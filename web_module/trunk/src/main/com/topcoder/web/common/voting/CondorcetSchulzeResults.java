@@ -22,6 +22,10 @@ public class CondorcetSchulzeResults implements Serializable {
     private List<RankedResult> results;
     private Matrix sumMatrix;
 
+    public CondorcetSchulzeResults() {
+        super();
+    }
+
     public CondorcetSchulzeResults(CondorcetSchulzeElection election) {
         this.strengthMatrix = election.getBeatPathStrengthMatrix();
         this.candidates = election.getCandidates();
