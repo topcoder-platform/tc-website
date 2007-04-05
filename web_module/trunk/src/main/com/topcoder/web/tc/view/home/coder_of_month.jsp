@@ -34,7 +34,7 @@
       <td style="border-top: 1px solid #CCCCCC;" valign="top"><img src="/i/m/zsudraco_big.jpg" alt="" width="55" height="61"/></td>
       <td style="padding-left:5px; border-top: 1px solid #CCCCCC;">
          <strong><A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_DEV_COM%>" class="gMetal">Development</A></strong><br>
-         <span class="small"><tc-webtag:handle coderId="14820574" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:</span><br>
+         <tc-webtag:handle coderId="14820574" context="<%=HandleTag.DEVELOPMENT%>" darkBG="true" />:<br>
          <span class="small">3 wins, 2 second places
          </span><br><br>
       </td>
