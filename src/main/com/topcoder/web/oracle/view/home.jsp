@@ -17,15 +17,16 @@
     <div id="contentOut">
         <div id="contentIn">
 
-        <jsp:include page="nav.jsp">
-          <jsp:param name="selectedTab" value="introduction"/>
-        </jsp:include>
-
-        <div style="width: 600px;">
             <div style="margin-bottom: 20px;">
                 <A href="/"><img src="/i/oracle/layout/topcoder.png" alt="TopCoder" /></A>
             </div>
     
+            <jsp:include page="nav.jsp" >
+            <jsp:param name="tabLev1" value="introduction"/>
+            <jsp:param name="tabLev2" value=""/>
+            <jsp:param name="tabLev3" value=""/>
+            </jsp:include>
+
             <p>
             After the introduction of TopCoder Studio, TopCoder was faced with the challenge of effectively choosing contest winners.  We felt that we needed a mechanism that was efficient and didn't require a lot of additional TopCoder staff time or resources.  We also felt that with the nature of Studio competitions being subjective, no one individual or even set of individuals would necessarily be the best at judging submissions.  The mechanism would need to be effective in that it would need to be able to determine a winner well (well being a fairly subjective term that could mean anything from how much the community or client likes a submission to measurements such as traffic and so on).   Finally, it should be transparent so that there wouldn't be questions of impropriety.
             </p>
@@ -50,7 +51,6 @@
             <strong>Predict the winners of the <A href="?module=ViewBallot&rd=2000">TopCoder Homepage Design Contest</A></strong>
             </p>
 --%>
-        </div>
 
         <jsp:include page="foot.jsp"/>
         </div>
