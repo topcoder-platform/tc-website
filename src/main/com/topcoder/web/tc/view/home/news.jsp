@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>04.05.07<br>4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="tc?module=Static&d1=features&d2=040507">Programming in the Real World</A></span><br><br>
+In the working world, successful programming sometimes requires more than quickly writing correct code – it takes learning how to work as part of a team. This article describes some of the difficulties you might encounter when you join your first working team.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15635590" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="tc?module=Static&d1=features&d2=040507">full story</A> | 
+        <tc-webtag:forumLink forumID="515048" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.05.07<br>11:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -250,23 +267,4 @@ The number of component projects on TopCoder seems to increase almost every week
          <A href="/tc?module=ViewSurvey&sid=16730">vote</A> | 
          <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=40">discuss this</A> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>03.30.07<br>5:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=SimpleStats&d1=tournaments&d2=tco07&d3=algorithm&&d4=qualification&c=tco07_alg_qual&trans=true">TCO07 Algorithm Qualification Round 1 advancers</A>
-        </span><br><br>
-        The TCO07 Algorithm Qualification Round 1 results are ready.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SimpleStats&d1=tournaments&d2=tco07&d3=algorithm&&d4=qualification&c=tco07_alg_qual&trans=true">details</A> | 
-        <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
