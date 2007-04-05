@@ -19,10 +19,10 @@
 <body>
 
 <%--
---%>
 <div style="position:absolute; left:200px; top:190px;">
 <A href="<tc-webtag:linkTracking link='http://www.theball.com' refer='/tc' />" target="_blank"><img src="/i/interface/tinyBrackets.png" alt="" /></A>
 </div>
+--%>
 
 <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
@@ -36,11 +36,11 @@
                 <jsp:param name="node" value="competition_home"/>
             </jsp:include>
             <jsp:include page="coder_of_month.jsp" />
-		<%--
+        <%--
          <div style="float:left; clear:left;">
             <jsp:include page="/calendar.jsp" />
          </div>
-		 --%>
+         --%>
         </td>
 <!-- Left Column Ends -->
 
