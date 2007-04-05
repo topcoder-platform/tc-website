@@ -513,7 +513,7 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
     	while (itCategories.hasNext()) {
     		ForumCategory category = (ForumCategory)itCategories.next(); %>
 	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-	<%      if (!itCategories.hasNext() && ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+	<%      if (!itCategories.hasNext() && showComponentLink) { %>
 	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
 		<%	} %>
 			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
