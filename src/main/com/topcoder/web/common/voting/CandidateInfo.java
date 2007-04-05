@@ -11,8 +11,12 @@ import java.io.Serializable;
  */
 
 public class CandidateInfo extends Base {
-    String value;
-    Identifier id = new Identifier();
+    private String value;
+    private Identifier id = new Identifier();
+
+    public CandidateInfo() {
+        super();
+    }
 
     public String getValue() {
         return value;

@@ -14,6 +14,10 @@ public class Vote extends Base {
     private Integer rank;
     private Identifier id = new Identifier();
 
+    public Vote() {
+        super();
+    }
+
     /**
      * the rank for this vote
      *
@@ -53,7 +57,6 @@ public class Vote extends Base {
     public void setCandidate(Candidate candidate) {
         id.setCandidate(candidate);
     }
-
 
 
     public int hashCode() {

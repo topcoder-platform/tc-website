@@ -15,6 +15,10 @@ public class ElectionStatus extends Base {
     private Integer id;
     private String description;
 
+    public ElectionStatus() {
+        super();
+    }
+
     public Integer getId() {
         return id;
     }

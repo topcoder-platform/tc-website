@@ -17,6 +17,9 @@ public class Matrix implements Serializable {
     private Map candidateIndex;
     private int[][] matrix;
 
+    public Matrix() {
+        super();
+    }
 
     /**
      * create a matrix using the given <code>candidates</code>
@@ -156,7 +159,7 @@ public class Matrix implements Serializable {
         Candidate c;
         for (int i = 0; i < matrix.length; i++) {
             c = (Candidate) candidates.get(i);
-            if (c.getId()!=null) {
+            if (c.getId() != null) {
                 buf.append(c.getId()).append(",");
             } else {
                 buf.append(c.getName()).append(",");
@@ -165,7 +168,7 @@ public class Matrix implements Serializable {
         buf.append("\n");
         for (int i = 0; i < matrix.length; i++) {
             c = (Candidate) candidates.get(i);
-            if (c.getId()!=null) {
+            if (c.getId() != null) {
                 buf.append(c.getId()).append(" ");
             } else {
                 buf.append(c.getName()).append(" ");
