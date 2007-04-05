@@ -32,8 +32,19 @@
     <div id="contentOut">
         <div id="contentIn">
 
-            <h1>${room.round.contest.name} &gt; ${room.round.name} &gt; Candidate Results</h1>
+            <div style="margin-bottom: 20px;">
+                <A href="/"><img src="/i/oracle/layout/topcoder.png" alt="TopCoder" /></A>
+            </div>
 
+            <jsp:include page="nav.jsp" >
+            <jsp:param name="tabLev1" value="competitions"/>
+            <jsp:param name="tabLev2" value="tcdotcomRd1"/>
+            <jsp:param name="tabLev3" value="candidate"/>
+            </jsp:include>
+
+<%--
+            <p><strong>${room.round.contest.name} &gt; ${room.round.name} &gt; Candidate Results</strong></p>
+--%>
             <div class="pagingBox">
                 |
                 <c:forEach items="${room.round.rooms}" var="myRoom">

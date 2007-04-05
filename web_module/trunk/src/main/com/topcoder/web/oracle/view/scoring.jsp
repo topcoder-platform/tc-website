@@ -16,14 +16,15 @@
     <div id="contentOut">
         <div id="contentIn">
 
-        <jsp:include page="nav.jsp">
-          <jsp:param name="selectedTab" value="scoring"/>
-        </jsp:include>
-            
-        <div style="width: 600px;">
             <div style="margin-bottom: 20px;">
                 <A href="/"><img src="/i/oracle/layout/topcoder.png" alt="TopCoder" /></A>
             </div>
+            
+            <jsp:include page="nav.jsp" >
+            <jsp:param name="tabLev1" value="scoring"/>
+            <jsp:param name="tabLev2" value=""/>
+            <jsp:param name="tabLev3" value=""/>
+            </jsp:include>
             
             <p>
             Competitors will be scored using this table:
@@ -95,7 +96,6 @@
             <p>
             points.
             </p>
-        </div>
 
         <jsp:include page="foot.jsp"/>
         </div>
