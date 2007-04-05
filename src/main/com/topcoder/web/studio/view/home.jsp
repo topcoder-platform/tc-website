@@ -41,9 +41,14 @@
         <tr>
             <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
 
-<%-- CSF --%>
+<%-- CSF 
                 <div>
                     <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="studio_homepage" />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder"/></A>
+                </div>
+--%>
+<%-- THE BALL --%>
+                <div>
+                    <A href="/?module=ViewContestDetails&ct=2076"><img src="/i/home/theBallLogo.png" alt="Design The Ball logo"/></A>
                 </div>
 
                 <div>
@@ -54,13 +59,6 @@
                 <div>
                     <A href="/?module=Static&amp;d1=contactUs"><img src="/i/home/post_project.gif" alt="Post a project"/></A>
                 </div>
-
-<%-- BADGE VOTE 
-                <div>
-                    <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=SurveyResults&sid=16380"><img src="/i/home/badgeWinner.jpg" alt="Vote for Studio badges"/></A>
-                </div>
---%>
-
 
 <%-- NEED HELP?
                 <div>
