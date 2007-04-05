@@ -78,6 +78,7 @@
                             <tbody>
                                 <%boolean even = false;%>
                                 <rsc:iterator list='<%=rsc%>' id="resultRow">
+                                    <% if (resultRow.getBooleanItem("completed")) { %>
                                     <tr class="<%=(even ? "dark" : "light")%>">
                                         <td class="value">
                                                 <%-- if completed, link to results.  if in progress, link to contest details --%>
@@ -105,6 +106,7 @@
                                         </td>
                                     </tr>
                                     <%even = !even;%>
+                                    <% } %>
                                 </rsc:iterator>
                             </tbody>
                         </table>
