@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.04.07<br>9:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/to/">Predict the homepage redesign winner: Round 2</A>
+        </span><br><br>
+        <A href="/to/?module=ViewSimpleResults&rm=2001">Round 1</A> of the first prediction contest is over.  If you missed out, don't worry, because <A href="/to/?module=ViewBallot&rm=1999">Round 2 has already started</A>.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/to/">details</A> | 
+        <tc-webtag:forumLink forumID="514973" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.04.07<br>12:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -250,31 +269,3 @@ The number of component projects on TopCoder seems to increase almost every week
         <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>03.30.07<br>10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=363">Bug in the voting results</A>
-        </span><br><br>
-On February 27, we accidentally introduced a bug into our code that caused it to display the wrong results for any votes using the Schultz voting system. As a result of this mistake, we displayed incorrect results for the TopCoder Badges, Studio Badges, and Press Room Redesign contests. We have fixed the bug and the correct results are now displayed.
-<br><br>
-<strong>TopCoder Badges</strong> (<A href="/tc?module=SurveyResults&sid=16491">correct results</A> | <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/i/misc/tcbadges.png">incorrect results</A>)
-<br><strong>Studio Badges</strong> (<A href="/tc?module=SurveyResults&sid=16380">correct results</A> | <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/i/misc/studiobadges.png">incorrect results</A>)
-<br><strong>Press Room Badges</strong> (<A href="/tc?module=SurveyResults&sid=16651">correct results</A> | <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/i/misc/pressroom.png">incorrect results</A>)
-<br><br>
-Unfortunately the damage has been done, and we announced incorrect winners for those contests based on inaccurate data. We offer our sincerest apologies to the competitors who we have affected with this bug. As a measure of good faith, we will pay prizes to both the incorrect and correct contest winners. Obviously the real winners deserve to have their designs implemented, so those are the designs we will use.
-<br><br>
-Again, we are very sorry for our mistake and we would be happy to answer any questions about this situation.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=363">details</A> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=363">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   

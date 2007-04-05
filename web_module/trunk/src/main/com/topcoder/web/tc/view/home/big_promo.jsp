@@ -14,5 +14,5 @@
 <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open"/></A>
 --%>
 <%-- homepage design prediction --%>
-<A href="/to"><img src="/i/home/predict.png" alt="Predict the winners"/></A>
+<A href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></A>
 
