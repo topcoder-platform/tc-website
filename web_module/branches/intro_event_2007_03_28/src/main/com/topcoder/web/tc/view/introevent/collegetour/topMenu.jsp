@@ -22,6 +22,7 @@
 	<tc-webtag:ifLink useLink="${active!='comp_viewreg'}" text="Registrants" link="/tc?module=IntroEventViewRegistrants&eid=${compEventId}"/> | 
 	<tc-webtag:ifLink useLink="${active!='comp_results'}" text="Results" link="/tc?module=IntroEventCompResults&eid=${compEventId}"/>
 	<br>
+	<br>	
 </c:if>
 
 <c:if test="${not empty mainEvent.forumId}" >

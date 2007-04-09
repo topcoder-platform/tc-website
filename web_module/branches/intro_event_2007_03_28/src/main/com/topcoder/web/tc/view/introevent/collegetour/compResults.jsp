@@ -60,7 +60,7 @@
 <span class="subtitle">Design</span><br>
 <c:set var="first" value="true" />
 <c:forEach items="${desContests}" var="contest" >
-    <c:if test="${not fisrt}">| </c:if>
+    <c:if test="${not first}">| </c:if>
 	<c:set var="first" value="false" />
     <A href="/tc?module=IntroEventCompResults&amp;eid=event.id&amp;ct=${contest[0]}" class="bcLink">${contest[1]}</A>
 </c:forEach>
@@ -68,19 +68,12 @@
 
 <td align="center" style="padding-left:10px;">
 <span class="subtitle" class="bcLink">Development</span><br>
-<% if ("303".equals(ct)) { %>Week 1 | <% context="development"; } else {  %>
-    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=303" class="bcLink">Week 1</A>
-| <% }
-   if ("304".equals(ct)) { %>Week 2 | <% context="development"; } else {  %>
-    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=304" class="bcLink">Week 2</A>
-| <% }
-   if ("305".equals(ct)) { %>Week 3 | <% context="development"; } else {  %>    
-    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=305" class="bcLink">Week 3</A>
-| <% }
-   if ("307".equals(ct)) { %>Overall<% context="development"; } else {  %>
-    <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=307" class="bcLink">Overall</A>
-<% } %>
-
+<c:set var="first" value="true" />
+<c:forEach items="${devContests}" var="contest" >
+    <c:if test="${not first}">| </c:if>
+	<c:set var="first" value="false" />
+    <A href="/tc?module=IntroEventCompResults&amp;eid=event.id&amp;ct=${contest[0]}" class="bcLink">${contest[1]}</A>
+</c:forEach>
 </td>
 </tr>
 </table>
