@@ -34,7 +34,7 @@
             </div>
 
             <div class="linkBox">
-                <csf:forumLink forumID="3"/>
+                <csf:forumLink forumID="6"/>
             </div>
 
             <div class="breadcrumb">

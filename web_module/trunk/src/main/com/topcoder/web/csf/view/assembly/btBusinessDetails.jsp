@@ -1,11 +1,75 @@
-<%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
+<%@ taglib uri="csf.tld" prefix="csf" %>
+<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <html>
+<head>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../style.jsp">
+        <jsp:param name="key" value="csf"/>
+    </jsp:include>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>CSF</title>
+    <script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+    <script type="text/javascript"> _uacct = "UA-321688-2";
+    urchinTracker(); </script>
+    <script type="text/javascript" src="/js/popup.js"></script>
+</head>
+
 <body>
 
-<link type="text/css" rel="stylesheet" href="/css/main.css">
-<div style="margin:10px;">
+<div align="center">
+    <div id="content">
+
+        <jsp:include page="../top.jsp"/>
+
+        <jsp:include page="../primaryNav.jsp">
+            <jsp:param name="selectedTab" value="competitions"/>
+        </jsp:include>
+
+        <div id="main">
+            <div class="pageHeader">
+                <span class="pageName">Competition Details</span>
+            </div>
+            
+<div class="linkBox">
+    <a href="http://csf.topcoder.com/forums?module=ThreadList&amp;forumID=6">Discuss this</a>
+</div>
+
+<div class="breadcrumb">
+    <a href="/?module=Static&d1=competitions">Competitions</a>
+    > <a href="/?module=Static&d1=assembly&d2=activeContests">Active Assembly Competitions</a>
+    > BT Business CSF Mashup Assembly Competition
+</div>
+
+        <div align="center">
+        <table class="bodyText" style="margin-top: 20px; margin-bottom: 20px; width: 320px;" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td width="100%">
+                        <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
+                            <div style="float: right; text-align: right;">
+                                $5,000.00<br>$2,000.00<br>$500.00<br>04.23.2007
+                            </div>
+                            <strong>
+                                First:<br>
+                                Second:<br>
+                                Third:<br>
+                                Due date:
+                            </strong>
+                        </div>
+                    </td>
+                    <td style="padding: 10px 5px 10px 20px;" align="right">
+                        <a class="button" style="width: 60px;" href="/?module=SecureStatic&d1=assembly&d2=reg">Register</a>
+                    </td>
+                    <td style="padding: 10px 0px 10px 5px;" align="right">
+                        <a class="button" style="width: 60px;" href="mailto:">Submit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
 
 <h2>Project Overview</h2>
 
@@ -15,7 +79,7 @@
 
 <p><strong>NO PURCHASE NECESSARY TO ENTER OR WIN. A PURCHASE WILL NOT INCREASE YOUR CHANCE OF WINNING.  VOID WHERE PROHIBITED.</strong></p> 
 
-<p><strong>For ELIGIBILITY, ENTRANCE and GENERAL CONDITIONS, see the <A target="_blank" href="/?module=Static&d1=rules ">Official Rules for the Contest Series</a>.</strong></p> 
+<p><strong>For ELIGIBILITY, ENTRANCE and GENERAL CONDITIONS, see the <a href="/?module=Static&d1=rules ">Official Rules for the Contest Series</a>.</strong></p> 
 
 <p><strong>Overview</strong></p>
 <p>
@@ -28,10 +92,10 @@ BT is looking for the best mashup ideas for their ground-breaking project, code-
 A core component of BT's Web21C platform will be Microsoft's Connected Services Framework (CSF) which provides the common service capabilities (service creation, deployment, execution, and management) for Microsoft-compliant applications connecting to BT's services and network.
 </p>
 <p>
-For this contest, you are asked to develop a prototype mashup application that was the winner of the 1st CSF Mashup Design Competition.  The prototype mashup must run in within the CSF Sandbox here: <A target="_blank" href="http://www.networkmashups.com">www.networkmashups.com</A>.
+For this contest, you are asked to develop a prototype mashup application that was the winner of the 1st CSF Mashup Design Competition.  The prototype mashup must run in within the CSF Sandbox here: <A href="http://www.networkmashups.com">www.networkmashups.com</A>.
 </p>
 <p>
-Mashing together BT services, Microsoft web services/technologies, <A target="_blank" href="http://software.topcoder.com/catalog/c_showroom.jsp?cat=5801777">TopCoder Components</A>, and third party web services and content (as long as it is free and publicly available for commercial use), you can unleash your ideas, your curiosities, and your talents towards prototyping a usable mashup.
+Mashing together BT services, Microsoft web services/technologies, <A href="http://software.topcoder.com/catalog/c_showroom.jsp?cat=5801777">TopCoder Components</A>, and third party web services and content (as long as it is free and publicly available for commercial use), you can unleash your ideas, your curiosities, and your talents towards prototyping a usable mashup.
 </p>
 
 <p><strong>Representing Your Idea</strong></p>
@@ -44,8 +108,8 @@ Entries must be your original work, and must not infringe on the copyright or li
 
 <p><strong>Documentation</strong></p>
 <p>
-Specification: <A target="_blank" href="/i/download/Collaborative_Logistics_Mashup.ppt">Collaborative_Logistics_Mashup.ppt</A><br>
-Scorecard: <A target="_blank" href="/pdfs/CSF_Assembly_Scorecard.pdf">CSF_Assembly_Scorecard.pdf</A>
+Specification: <A href="/i/download/Collaborative_Logistics_Mashup.ppt">Collaborative_Logistics_Mashup.ppt</A><br>
+Scorecard: <A href="/pdfs/CSF_Assembly_Scorecard.pdf">CSF_Assembly_Scorecard.pdf</A>
 </p>
 
 <h2>Payment</h2>
@@ -98,7 +162,7 @@ You are eligible to enter and may sign-up and compete in this Contest Series or 
 
 <ul>
 <li>You are 18 years or older at the time of entry; and</li>
-<li>You are a registered member of the Microsoft Connected Services Sandbox community in good standing. Those wishing to learn more about the Microsoft Connected Services Sandbox community can find more information at <A target="_blank" href="http://www.networkmashups.com">www.networkmashups.com</A>.</li>
+<li>You are a registered member of the Microsoft Connected Services Sandbox community in good standing. Those wishing to learn more about the Microsoft Connected Services Sandbox community can find more information at <A href="http://www.networkmashups.com">www.networkmashups.com</A>.</li>
 </ul>
 
 <p>
@@ -142,5 +206,11 @@ All submissions are required to be submitted by the End Date.
     </table>
 </div>
 
+        </div>
 
+        <jsp:include page="../foot.jsp"/>
+    </div>
 </div>
+
+</body>
+</html>
