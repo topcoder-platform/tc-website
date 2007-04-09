@@ -97,7 +97,11 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
         //getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
     }
 
-    private static class HibernateSessionHouse implements Serializable, HttpSessionBindingListener {
+    public static class HibernateSessionHouse implements Serializable, HttpSessionBindingListener {
+
+        public HibernateSessionHouse() {
+
+        }
 
         private Session session;
 
