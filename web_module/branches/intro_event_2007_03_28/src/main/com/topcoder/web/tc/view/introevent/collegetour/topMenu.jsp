@@ -15,7 +15,7 @@
 </c:if>
 
 <c:if test="${not empty compEventId}" >
-	<b>Components:</b>
+	<b>Development:</b>
 	<tc-webtag:ifLink useLink="${active!='comp_overview'}" text="Overview" link="/tc?module=IntroEventCompOverview&eid=${compEventId}"/> |
 	<tc-webtag:ifLink useLink="${active!='comp_info'}" text="Instructions" link="/tc?module=IntroEventCompInfo&eid=${compEventId}"/> |
 	<tc-webtag:ifLink useLink="${active!='comp_reg'}" text="Registration" link="/tc?module=IntroEventViewRegister&eid=${compEventId}"/> |

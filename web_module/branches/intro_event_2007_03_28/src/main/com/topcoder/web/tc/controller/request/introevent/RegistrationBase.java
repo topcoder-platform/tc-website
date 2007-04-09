@@ -46,6 +46,9 @@ public abstract class RegistrationBase extends Base {
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
             
         getRequest().setAttribute("event", e);
+        getRequest().setAttribute("isComp", e.getType().getId().equals(EventType.INTRO_EVENT_COMP_ID));
+        getRequest().setAttribute("isAlgo", e.getType().getId().equals(EventType.INTRO_EVENT_ALGO_ID));
+        
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
         Calendar regStart = new GregorianCalendar();
