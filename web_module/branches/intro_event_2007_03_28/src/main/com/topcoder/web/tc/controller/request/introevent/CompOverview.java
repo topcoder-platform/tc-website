@@ -11,7 +11,6 @@ import org.hibernate.Query;
 import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.EventType;
-import com.topcoder.web.common.voting.Pair;
 
 public class CompOverview extends Base {
 

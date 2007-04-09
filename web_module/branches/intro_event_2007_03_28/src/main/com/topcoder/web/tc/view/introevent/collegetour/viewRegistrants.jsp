@@ -44,32 +44,18 @@
 
         <!-- college tour site subnav -->
 		<jsp:include page="topMenu.jsp">
-		    <jsp:param name="active" value="${isAlgo? 'algo_reg' : 'comp_reg'}"/>
+		    <jsp:param name="active" value="${isAlgo? 'algo_viewreg' : 'comp_viewreg'} "/>
 		</jsp:include>		
         <!-- ends -->
         
         <p>
-        <c:choose>
-	        <c:when test="${isEarly}">
-	        The registration is not yet open.
-	        </c:when>
-	        <c:when test="${isLate}">
-	        The registration has already closed.
-	        </c:when>
-	        <c:when test="${isRegistered}">
-		        You are already registered for this event.
-	        </c:when>
-	 		<c:when test="${!isEligible}" >
-	 		    You are not eligible for this event.
-	 		</c:when>
-	 		<c:otherwise>
-                <p align="center">Click <a
-                        href="/tc?module=IntroEventRegister&eid=${event.id}" >here</a>
-                    to register for the TopCoder College Tour ${isAlgo? 'algorithms' : 'development'} event at ${mainEvent.school.name} .</p>
-	 		
-	 		</c:otherwise>
-	
-        </c:choose>
+        <c:if test="${not empty registrants}">
+	        <strong>Handle</strong>
+        </c:if>
+        <c:forEach items="${registrants}" var="coderId">
+			<tc-webtag:handle coderId="${coderId}" context="${isAlgo? 'algorithm' : 'component'} "/>
+        </c:forEach>
+        
         </p>
 
     </div>

@@ -7,7 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import java.util.List;
-
+ 
 
 /**
  * @author dok
@@ -64,5 +64,12 @@ public class EventDAOHibernate extends Base implements EventDAO {
 
     public void saveOrUpdate(Event e) {
         super.saveOrUpdate(e);
+    }
+
+    @SuppressWarnings("unchecked")
+    public List<Long> getRegistrants(Long eventId) {
+        Query q = session.createQuery("select e.id.user.id from EventRegistration e where e.id.event.id = :eventId");
+        q.setLong("eventId", eventId);
+        return (List<Long>) q.list();
     }
 }
