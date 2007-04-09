@@ -32,10 +32,7 @@ public abstract class RegistrationBase extends Base {
 
 
     protected void introEventProcessing() throws Exception {
-        if (!userLoggedIn()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        } 
-        
+       
         if (!getEvent().getType().getId().equals(EventType.INTRO_EVENT_COMP_ID) &&
             !getEvent().getType().getId().equals(EventType.INTRO_EVENT_ALGO_ID)) {
             throw new NavigationException("Invalid event type.");
@@ -43,7 +40,7 @@ public abstract class RegistrationBase extends Base {
         
 
         Event e = getEvent();
-        User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+        User u = getUser().isAnonymous() ? null : DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
             
         getRequest().setAttribute("event", e);
         getRequest().setAttribute("isComp", e.getType().getId().equals(EventType.INTRO_EVENT_COMP_ID));
@@ -59,7 +56,7 @@ public abstract class RegistrationBase extends Base {
         isLate = now.after(regEnd);
         isEarly = now.before(regStart);
         
-        if (!isLate && !isEarly) {
+        if (!isLate && !isEarly && u != null) {
             isRegistered = u.getEventRegistration(e) != null;
         }
          

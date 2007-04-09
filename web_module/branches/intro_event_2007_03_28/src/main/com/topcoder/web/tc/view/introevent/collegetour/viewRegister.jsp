@@ -44,7 +44,7 @@
 
         <!-- college tour site subnav -->
 		<jsp:include page="topMenu.jsp">
-		    <jsp:param name="active" value="${isAlgo? 'algo_reg' : 'comp_reg'} "/>
+		    <jsp:param name="active" value="${isAlgo? 'algo_reg' : 'comp_reg'}"/>
 		</jsp:include>		
         <!-- ends -->
         
