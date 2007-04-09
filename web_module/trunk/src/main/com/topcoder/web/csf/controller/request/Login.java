@@ -23,7 +23,6 @@ import javax.naming.Context;
 import javax.xml.rpc.holders.BooleanHolder;
 import java.rmi.RemoteException;
 import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * @author dok
@@ -96,20 +95,20 @@ public class Login extends ShortHibernateProcessor {
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
             log.debug("create the security user");
-            myPrincipal = pmr.createUser(u.getId().longValue(), u.getHandle(), u.getPassword(), tcs, DBMS.CSF_DATASOURCE_NAME);
+            myPrincipal = pmr.createUser(u.getId(), u.getHandle(), u.getPassword(), tcs, DBMS.CSF_DATASOURCE_NAME);
 
             //addVote them to these two as well.  eventually i'm guessing we'll rearrange security and this'll change
             Collection groups = pmr.getGroups(tcs, DBMS.CSF_DATASOURCE_NAME);
             GroupPrincipal anonGroup = null;
             GroupPrincipal userGroup = null;
-            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-                anonGroup = (GroupPrincipal) iterator.next();
+            for (Object group : groups) {
+                anonGroup = (GroupPrincipal) group;
                 if (anonGroup.getName().equals("Anonymous")) {
                     break;
                 }
             }
-            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-                userGroup = (GroupPrincipal) iterator.next();
+            for (Object group1 : groups) {
+                userGroup = (GroupPrincipal) group1;
                 if (userGroup.getName().equals("CSF User")) {
                     break;
                 }
@@ -120,7 +119,7 @@ public class Login extends ShortHibernateProcessor {
             pmr.addUserToGroup(anonGroup, myPrincipal, tcs, DBMS.CSF_DATASOURCE_NAME);
             pmr.addUserToGroup(userGroup, myPrincipal, tcs, DBMS.CSF_DATASOURCE_NAME);
             //refresh the cached object
-            SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.CSF_DATASOURCE_NAME);
+            SecurityHelper.getUserSubject(u.getId(), true, DBMS.CSF_DATASOURCE_NAME);
         } finally {
             close(ctx);
         }
@@ -149,7 +148,7 @@ public class Login extends ShortHibernateProcessor {
     private void loginUser(String username, String password) throws LoginException, TCWebException {
         BooleanHolder res = new BooleanHolder();
         SandboxUserHolder user = new SandboxUserHolder();
-        String email = null;
+        String email;
         try {
             Sandbox10Locator api = new Sandbox10Locator();
             Sandbox10Soap sandBox = api.getSandbox10Soap();
@@ -181,7 +180,7 @@ public class Login extends ShortHibernateProcessor {
             log.debug("user doesn't exist, create in TC system " + user.value.getUserId());
             u = new User();
             u.setHandle(user.value.getUserId());
-            u.setPassword("");
+            u.setPassword(password);
             u.setFirstName(username);
             u.setLastName(username);
             Email a = new Email();
@@ -214,6 +213,20 @@ public class Login extends ShortHibernateProcessor {
                     u.getPrimaryEmailAddress().setAddress(email);
                 }
                 dao.saveOrUpdate(u);
+
+                Context ctx = null;
+                try {
+                    ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+                    TCSubject tcs = new TCSubject(132456);
+                    PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                    PrincipalMgrRemote pmr = pmrh.create();
+                    UserPrincipal myPrincipal = pmr.getUser(u.getId(), DBMS.CSF_DATASOURCE_NAME);
+                    pmr.editPassword(myPrincipal, password, tcs, DBMS.CSF_DATASOURCE_NAME);
+                } catch (Exception e) {
+                    throw new TCWebException(e);
+                } finally {
+                   close(ctx);
+                }
                 markForCommit();
             }
         }
@@ -226,7 +239,7 @@ public class Login extends ShortHibernateProcessor {
             setIsNextPageInContext(false);
         }
         log.debug("on successful login, going to " + getNextPage());
-        getAuthentication().login(new SimpleUser(u.getId().longValue(), u.getHandle(), u.getPassword()), false);
+        getAuthentication().login(new SimpleUser(u.getId(), u.getHandle(), u.getPassword()), false);
     }
 
 }
