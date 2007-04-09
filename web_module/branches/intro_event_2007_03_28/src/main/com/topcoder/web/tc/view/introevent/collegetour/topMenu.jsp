@@ -4,6 +4,7 @@
 <c:set var="active" value="${param.active}" />
 
 <p align="center">
+Active=${active }
 <c:if test="${not empty algoEventId}" >
 	<b>Algorithms:</b>
 	<tc-webtag:ifLink useLink="${active!='algo_overview'}" text="Overview" link="/tc?module=IntroEventAlgoOverview&eid=${algoEventId}"/> |

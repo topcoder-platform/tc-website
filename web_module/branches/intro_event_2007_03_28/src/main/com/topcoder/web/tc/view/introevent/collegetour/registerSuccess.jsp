@@ -49,27 +49,8 @@
         <!-- ends -->
         
         <p>
-        <c:choose>
-	        <c:when test="${isEarly}">
-	        Early
-	        </c:when>
-	        <c:when test="${isLate}">
-	        Late
-	        </c:when>
-	        <c:when test="${isRegistered}">
-		        You are already registered for this event.
-	        </c:when>
-	 		<c:when test="${!isEligible}" >
-	 		    You are not eligible for this event.
-	 		</c:when>
-	 		<c:otherwise>
-                <p align="center">Click <a
-                        href="/tc?module=IntroEventRegister&eid=${event.id}" >here</a>
-                    to register for the TopCoder College Tour ${isAlgo? 'algorithms' : 'development'} event at ${mainEvent.school.name} .</p>
-	 		
-	 		</c:otherwise>
-	
-        </c:choose>
+        You are now registered for this event.
+        
         </p>
 
     </div>
