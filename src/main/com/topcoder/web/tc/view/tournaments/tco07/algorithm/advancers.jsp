@@ -32,20 +32,20 @@
 
         <span class="bigTitle">Advancers - Overview</span>
             <br><br>
-            Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">here</a> to reset the list to its originally sorted format.
+            Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">here</a> to reset the list to its originally sorted format.
             <br><br>
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                 <tr class="advHeader">
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=seed&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">Seed</a></td>
-                    <td width = "15%" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=handle_sort&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">Handle</a></td>
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=section&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">Section</a></td>
-                    <td width = "5%" align = "right" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=desc&amp;sc=rating&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">Rating</a></td>
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=round1_sort&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">Round 1</a></td>
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=round2_sort&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">Round 2</a></td>
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=round3_sort&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">Round 3</a></td>
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=semi_sort&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">Semi</a></td>
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=wildcard_sort&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">Wildcard</a></td>
-                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=finals_sort&amp;d1=tournaments&amp;d2=tccc06&amp;d3=algorithm&amp;d4=advancers">Final</a></td>
+                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=seed&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Seed</a></td>
+                    <td width = "15%" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=handle_sort&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Handle</a></td>
+                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=section&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Section</a></td>
+                    <td width = "5%" align = "right" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=desc&amp;sc=rating&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Rating</a></td>
+                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=round1_sort&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Round 1</a></td>
+                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=round2_sort&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Round 2</a></td>
+                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=round3_sort&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Round 3</a></td>
+                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=semi_sort&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Semi</a></td>
+                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=wildcard_sort&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Wildcard</a></td>
+                    <td width = "10%" align = "center" nowrap="nowrap"><a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=finals_sort&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Final</a></td>
                 </tr>
 <%-- formatting this crappy to save space in the download to the client --%>
                 <%boolean even = false;%>
