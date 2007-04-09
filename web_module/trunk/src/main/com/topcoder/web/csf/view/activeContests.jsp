@@ -49,7 +49,7 @@
 
 <br style="clear: both;" />
 
-<table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
+<table class="stat" cellpadding="0" cellspacing="0" style="width:100%; margin-bottom: 100px;">
     <thead>
         <tr>
             <td class="title" colspan="7"><span class="title">Active Creative Competitions</span></td>
@@ -126,56 +126,6 @@
         </c:choose>
     </tbody>
 </table>
-
-
-<%-- ASSEMBLY
-
-    <table class="stat" cellpadding="0" cellspacing="0" style="width:100%">
-        <thead>
-            <tr>
-                <td class="title" colspan="6"><span class="title">Competitions</span></td>
-            </tr>
-            <tr>
-                <td class="header" width="100%">
-                    <a href="">Project</a>
-                </td>
-                <td class="headerC">
-                    <a href="">Registration ends</a></td>
-                <td class="headerC">
-                    <a href="">Submit by</a></td>
-                <td class="headerR">
-                    <a href="">Payment</a>
-                </td>
-                <td class="headerR">
-                    <a href="">Submissions</a>
-                </td>
-                <td class="header">&nbsp;</td>
-            </tr>
-        <% boolean even = true;%>
-            <tr class="<%=even?"light":"dark"%>">
-                <td class="value">
-                    <A href="">Project</A>
-                </td>
-                <td class="valueC" nowrap="nowrap">
-                     03.01.2007 15:07 EST
-                </td>
-                <td class="valueC" nowrap="nowrap">
-                     03.01.2007 15:07 EST
-                </td>
-                <td class="valueR" nowrap="nowrap">
-                    $1,000.00
-                </td>
-                <td class="valueR">
-                    0
-                </td>
-                <td class="valueR" nowrap="nowrap">
-                    <A href="" class="button" style="margin: 4px;">Submit</A>
-                </td>
-            </tr>
-            <% even = !even;%>
-        </tbody>
-    </table>
---%>
 
 
 </div>
