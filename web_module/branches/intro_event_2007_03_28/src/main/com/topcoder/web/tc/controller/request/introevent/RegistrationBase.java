@@ -35,6 +35,7 @@ public abstract class RegistrationBase extends Base {
         if (!userLoggedIn()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } 
+        
         if (!getEvent().getType().getId().equals(EventType.INTRO_EVENT_COMP_ID) &&
             !getEvent().getType().getId().equals(EventType.INTRO_EVENT_ALGO_ID)) {
             throw new NavigationException("Invalid event type.");
@@ -42,7 +43,8 @@ public abstract class RegistrationBase extends Base {
         
 
         Event e = getEvent();
-        
+        User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+            
         getRequest().setAttribute("event", e);
         Calendar now = Calendar.getInstance();
         now.setTime(new Date());
@@ -55,16 +57,12 @@ public abstract class RegistrationBase extends Base {
         isEarly = now.before(regStart);
         
         if (!isLate && !isEarly) {
-            isRegistered = getActiveUser().getEventRegistration(e) != null;
+            isRegistered = u.getEventRegistration(e) != null;
         }
-                
+         
+        regProcessing(e, u);
     }
-
-
-    public User getActiveUser() {
-        return getUser().isAnonymous() ? null : DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-    }
-    
+   
     
     public boolean isEligible() throws Exception {
         Long commandId = getMainEvent().getEligibilityCommandId();
