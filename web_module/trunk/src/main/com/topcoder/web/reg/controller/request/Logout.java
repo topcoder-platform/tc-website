@@ -20,6 +20,7 @@ public class Logout extends Base {
 
         // Invalidates the session
         getRequest().getSession().invalidate();
+        getRequest().getSession(true);
 
         // Go to active contests page
         String nextpage = (String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
