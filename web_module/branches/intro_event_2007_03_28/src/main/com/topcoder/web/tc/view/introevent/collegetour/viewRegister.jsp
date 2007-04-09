@@ -41,8 +41,6 @@
         <div align=center>
             <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
         </div>
-isAlgo=${isAlgo} <br>
-isComp=${isComp} <br>
 
         <!-- college tour site subnav -->
 		<jsp:include page="topMenu.jsp">
