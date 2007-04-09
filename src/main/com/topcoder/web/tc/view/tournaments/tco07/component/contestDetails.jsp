@@ -11,7 +11,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
-    <jsp:include page="../script.jsp" />
+    <jsp:include page="../../script.jsp" />
     <%@ taglib uri="tc.tld" prefix="tc" %>
     <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
     <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -22,7 +22,7 @@
 <div align="center" style="background: transparent;">
     <div id="content">
 
-        <jsp:include page="header.jsp" />
+        <jsp:include page="../header.jsp" />
 
         <table cellpadding="0" cellspacing="0" id="spacer">
         <tbody>
@@ -37,7 +37,7 @@
     String tab = "design";
     if (rscContest.getIntItem(0, "phase_id") == 112) {
 %>
-                    <jsp:include page="nav.jsp" >
+                    <jsp:include page="../nav.jsp" >
                     <jsp:param name="tabLev1" value="component"/>
                     <jsp:param name="tabLev2" value="design"/>
                     <jsp:param name="tabLev3" value="results"/>
@@ -46,7 +46,7 @@
 } else {
     tab = "development";
 %>
-                    <jsp:include page="nav.jsp" >
+                    <jsp:include page="../nav.jsp" >
                     <jsp:param name="tabLev1" value="component"/>
                     <jsp:param name="tabLev2" value="development"/>
                     <jsp:param name="tabLev3" value="results"/>
@@ -114,7 +114,7 @@
         </table>
 
 
-        <jsp:include page="footer.jsp" />
+        <jsp:include page="../footer.jsp" />
     </div>
 </div>
 
