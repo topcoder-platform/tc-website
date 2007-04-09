@@ -49,20 +49,19 @@
         <!-- ends -->
         
         <p>
-        <c:choose>
-        	<c:when test="${empty registrants}">
-        	   There are no coders registered for this event yet.
-        	</c:when>
-        	<c:otherwise>
-                <div align="center">
-			        <strong>Handle</strong><br>
-				    <c:forEach items="${registrants}" var="coderId">	        
-						<tc-webtag:handle coderId="${coderId}" context="${isAlgo? 'algorithm' : 'component'}"/><br>
-			        </c:forEach>
-			     </div>
-		    </c:otherwise>
-        </c:choose>
-         
+        <div align="center">
+	        <c:choose>
+	        	<c:when test="${empty registrants}">
+	        	   There are no coders registered for this event yet.
+	        	</c:when>
+	        	<c:otherwise>
+				        <strong>Handle</strong><br>
+					    <c:forEach items="${registrants}" var="coderId">	        
+							<tc-webtag:handle coderId="${coderId}" context="${isAlgo? 'algorithm' : 'component'}"/><br>
+				        </c:forEach>
+			    </c:otherwise>
+	        </c:choose>
+        </div>      
         </p>
 
     </div>
