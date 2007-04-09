@@ -58,7 +58,7 @@
 <tr>
 <td align="center" style="padding-right:10px;border-right: 1px solid #999999;">
 <span class="subtitle">Design</span><br>
-<c:forEach var="${desContests}" items="contest" >
+<c:forEach items="${desContests}" var="contest" >
 	${contest[0]}; ${contest[1]} - 
 </c:forEach>
 <% if ("300".equals(ct)) { %>Week 1 | <% } else {  %>

@@ -29,6 +29,7 @@ public class CompResults extends Base {
             Request r = new Request();
             r.setContentHandle("intro_event_comp_results");
             r.setProperty("ct", Long.parseLong(ct) + "");
+            r.setProperty("eid", getEvent().getId() + "");
             
             
             Map<String, ResultSetContainer> results = new CachedDataAccess(RESULTS_EXPIRATION_TIME, DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r);
