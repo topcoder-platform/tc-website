@@ -42,6 +42,12 @@
    
    <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
    <tr><td valign="middle" class="bodyText" colspan="2">
+   <strong>April</strong>
+   </td></tr>
+   <tr><td class="bodyText">04.03.07</td><td class="bodyText" nowrap="0" width="100%">TCO07 - Qualification Round 3 - <a href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd3">Problem Set & Analysis</a></td></tr>
+   
+   <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+   <tr><td valign="middle" class="bodyText" colspan="2">
    <strong>March</strong>
    </td></tr>
    <tr><td class="bodyText">03.31.07</td><td class="bodyText" nowrap="0" width="100%">TCO07 - Qualification Round 2 - <a href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd2">Problem Set & Analysis</a></td></tr>
