@@ -3,6 +3,8 @@
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -17,7 +19,7 @@
 
 <body>
 
-<jsp:include page="../top.jsp">
+<jsp:include page="../../top.jsp">
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -35,14 +37,15 @@
 <td width="100%" align="center" class="bodyColumn">
 <div class="fixedWidthBody">
 
-<jsp:include page="../page_title.jsp">
+<jsp:include page="../../page_title.jsp">
     <jsp:param name="image" value="college_tour"/>
     <jsp:param name="title" value="Overview"/>
 </jsp:include>
 
-<div align="center">
-    <img src="/i/collegetour/logo_lcbelgrade.png" alt="College Logo" border="0">
+<div align=center>
+    <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
 </div>
+
 
 <jsp:include page="topMenu.jsp">
     <jsp:param name="active" value="comp_results"/>
@@ -55,6 +58,9 @@
 <tr>
 <td align="center" style="padding-right:10px;border-right: 1px solid #999999;">
 <span class="subtitle">Design</span><br>
+<c:forEach var="${desContests}" items="contest" >
+	${contest[0]}; ${contest[1]} - 
+</c:forEach>
 <% if ("300".equals(ct)) { %>Week 1 | <% } else {  %>
     <A href="/tc?module=CollegeTourCompResults&amp;<%=Constants.COLLEGE_TOUR_EVENT_ID%>=42&amp;ct=300" class="bcLink">Week 1</A>
 | <% }
