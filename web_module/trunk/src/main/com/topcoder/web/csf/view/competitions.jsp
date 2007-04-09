@@ -38,10 +38,13 @@
                     <tbody>
                         <tr>
                             <td style="padding-right: 20px; background: transparent url(/i/layout/dotsVertical.png) top right repeat-y;">
-                                <A href="/?module=ViewActiveContests"><img src="/i/layout/btnCreative.png" alt=""/></A>
+                                <A href="/?module=ViewActiveContests"><img src="/i/layout/btnCreative.png" alt="Creative"/></A>
                             </td>
                             <td style="padding-left: 20px;">
+                                <A href="/?module=Static&d1=assembly&d2=activeContests"><img src="/i/layout/btnAssembly.png" alt="Assembly"/></A>
+                                <%--
                                 <img src="/i/layout/btnAssemblyNA.png" alt=""/>
+                                --%>
                             </td>
                         </tr>
                     </tbody>

@@ -49,7 +49,7 @@
 
 <br style="clear: both;" />
 
-<table class="stat" cellpadding="0" cellspacing="0" style="width:100%; margin-bottom: 100px;">
+<table class="stat" cellpadding="0" cellspacing="0" style="width:100%; margin-bottom: 120px;">
     <thead>
         <tr>
             <td class="title" colspan="7"><span class="title">Active Creative Competitions</span></td>

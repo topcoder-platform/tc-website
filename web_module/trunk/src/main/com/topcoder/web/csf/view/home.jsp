@@ -51,6 +51,10 @@
                 deployments in service provider networks .
             </p>
 
+            <p align="center">
+                <span class="bigRed">Click <A class="bigRed" href="<tc-webtag:linkTracking link="http://www.networkmashups.com/" refer="csf_home"/>">here</A> to register and learn more!</span>
+            </p>
+
             <h2>Competition Series Goals &amp; Objectives</h2>
             <ul>
                 <li>Fuel the creative development process and encourage collaboration among the wide range of Connected
