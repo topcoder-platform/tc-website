@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.09.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=SimpleStats&c=tco07_alg_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=algorithm&d4=advancers">TCO07 Round 1-A Advancers now online</A>
+        </span><br><br>
+        The first batch of TCO07 Round 1 advancers is now updated on the site. Congratulations!
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SimpleStats&c=tco07_alg_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=algorithm&d4=advancers">details</A> | 
+        <tc-webtag:forumLink forumID="514948" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.09.07<br>1:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -199,24 +218,5 @@ The TopCoder Open 2007 started for Algorithm competitors with Qualification Roun
         <A href="/tc?module=Static&d1=pressroom&d2=pr_040307">details</A> | 
         <tc-webtag:forumLink forumID="514975" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.03.07<br>2:40 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drwChat20070328">DRW Trading SRM 344 chat session transcript</A>
-        </span><br><br>
-        TopCoder members joined representatives from DRW Trading prior to SRM 344 to discuss career opportunities at the company.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drwChat20070328">details</A> | 
-        <tc-webtag:forumLink forumID="514387" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
