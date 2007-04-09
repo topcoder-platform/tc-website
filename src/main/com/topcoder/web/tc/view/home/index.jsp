@@ -260,9 +260,9 @@
             <%-- Marathon Match Sponsor --%>
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa" />
                 </map>
-                <img src="/i/home/tco07Rd1-A_ubs.png" alt="TCO07 Round 1-A brought to you by UBS" border="0" style="display:block;" usemap="#mm"/>
+                <img src="/i/home/tco07Rd1-B_nsa.png" alt="TCO07 Round 1-B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
                 
 
             <%-- SRM SPONSOR
