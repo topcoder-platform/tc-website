@@ -512,68 +512,6 @@
 	</table>
 <!-- Forum Roles ends -->
 
-<!-- Forum Watches begins -->
-
-			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
-				<tr><td class="adminSubhead">Forum Watches</td></tr>
-			</table>
-
-			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">
-    <%	
-    	String[][] itWatches = forums.getWatchedSoftwareCategoriesData(selectedUser.getId(), true);
-        if (itWatches.length > 0) {
-    %>
-				<tr valign="top">
-					<td width="80%" class="adminTitle">Notification Event</td>
-					<td width="20%" class="adminTitleCenter">Action</td>
-				</tr>
-
-	<%
-            // Render the list of notification events assigned to user
-            for (int i=0; i<itWatches.length; i++) {
-    %>
-				<tr valign="top">
-					<td class="forumText">
-                        <%=itWatches[i][1]%>
-                    </td>
-					<td class="forumTextCenter">
-                        <strong>
-                            <a href="user_admin.jsp?lngPrincipal=<%=lngPrincipal%>&user=<%=selectedUser.getId()%>&categoryID=<%=itWatches[i][0]%>&a=RemoveWatch">
-                                Remove Watch
-                            </a>
-                        </strong>
-                    </td>
-				</tr>
-    <%
-            }
-        }
-
-        // Render the drop-down list to select the notification event to assign to user
-        // Such a drop-down list should better not contain the events already assigned to user
-        itWatches = forums.getWatchedSoftwareCategoriesData(selectedUser.getId(), false);
-        if (itWatches.length > 0) {
-	%>
-
-				<tr valign="top">
-					<td class="forumSubject">
-						<select class="adminForm" name="categoryID" multiple="true" >
-		<%	for (int i=0; i<itWatches.length; i++) { %>
-                           	<option value="<%=itWatches[i][0]%>">
-                                <%=itWatches[i][1]%>
-                            </option>
-		<%  } %>
-                        </select>
-                    </td>
-					<td class="forumSubjectCenter">
-                        <input class="adminButton" type="submit" name="a" value="Watch Forum" />
-                    </td>
-				</tr>
-    <%  }  %>
-				<tr><td class="adminTitle" colspan="2"><img src="/images/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
-			</table>
-
-<!-- Forum Watches ends -->
-
 <% } %>
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center">
 				<tr><td colspan="2" height="40"><img src="/images/clear.gif" alt="" width="10" height="40" border="0" /></td></tr>
