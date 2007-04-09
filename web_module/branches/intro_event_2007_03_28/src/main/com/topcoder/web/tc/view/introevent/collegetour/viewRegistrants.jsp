@@ -44,7 +44,7 @@
 
         <!-- college tour site subnav -->
 		<jsp:include page="topMenu.jsp">
-		    <jsp:param name="active" value="${isAlgo? 'algo_viewreg' : 'comp_viewreg'} "/>
+		    <jsp:param name="active" value="${isAlgo? 'algo_viewreg' : 'comp_viewreg'}"/>
 		</jsp:include>		
         <!-- ends -->
         
@@ -54,11 +54,13 @@
         	   There are no coders registered for this event yet.
         	</c:when>
         	<c:otherwise>
-		        <strong>Handle</strong><br>
-			    <c:forEach items="${registrants}" var="coderId">	        
-					<tc-webtag:handle coderId="${coderId}" context="${isAlgo? 'algorithm' : 'component'}"/><br>
-		        </c:forEach>
-		        	</c:otherwise>
+                <div align="center">
+			        <strong>Handle</strong><br>
+				    <c:forEach items="${registrants}" var="coderId">	        
+						<tc-webtag:handle coderId="${coderId}" context="${isAlgo? 'algorithm' : 'component'}"/><br>
+			        </c:forEach>
+			     </div>
+		    </c:otherwise>
         </c:choose>
          
         </p>
