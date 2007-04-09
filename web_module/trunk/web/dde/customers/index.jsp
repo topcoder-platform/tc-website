@@ -59,17 +59,17 @@
             <img src="/images/headCustomers.gif" alt="Customers" width="545" height="32" border="0" /><br>
             <table width="100%" border="0" cellpadding="0" cellspacing="0"><tr><td class="subhead">Featured Customer</td></tr></table>
             
-<!-- Caliper begins -->
+<!-- Verisign begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
-                    <td width="170"><img src="/images/clients/caliper_logo.gif" alt="Caliper" border="0" /></td>
+                    <td width="170"><img src="/images/clients/verisign_logo.png" alt="Verisign" border="0" /></td>
                     <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">Caliper has advised more than 25,000 companies - including FedEx, Avis and some of the fastest growing smaller firms - on Employee Selection, Employee Development, Team Building and Organizational Development. <br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.calipercorp.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the world's voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.verisign.com" refer="customer_index"/>" target="_blank">homepage</A>
                      </td>
                 </tr>
             </table>
-<!-- Caliper ends -->
+<!-- Verisign ends -->
 
              <hr width="100%" size="1px" noshade>
 
@@ -192,6 +192,19 @@
                 </tr>
             </table>
 <!-- Burlington ends -->
+
+             <hr width="100%" size="1px" noshade>
+<!-- Caliper begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/clients/caliper_logo.gif" alt="Caliper" border="0" /></td>
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    <td width="99%" class="bodyText">Caliper has advised more than 25,000 companies - including FedEx, Avis and some of the fastest growing smaller firms - on Employee Selection, Employee Development, Team Building and Organizational Development. <br><br>
+                    <A href="<tc-webtag:linkTracking link="http://www.calipercorp.com/" refer="customer_index"/>" target="_blank">homepage</A>
+                     </td>
+                </tr>
+            </table>
+<!-- Caliper ends -->
 
              <hr width="100%" size="1px" noshade>
 
@@ -392,19 +405,7 @@ ESPN ends
 <!-- UBS ends -->
 
              <hr width="100%" size="1px" noshade>
-<!-- Verisign begins -->
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tr valign="top">
-                    <td width="170"><img src="/images/clients/verisign_logo.png" alt="Verisign" border="0" /></td>
-                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
-                    <td width="99%" class="bodyText">VeriSign Inc operates intelligent infrastructure services that enable and protect billions of interactions every day across the world's voice and data networks. Every day, we process as many as 18 billion Internet interactions and support over 100 million phone calls. We also provide the services that help over 3,000 enterprises and 500,000 Web sites to operate securely, reliably, and efficiently. VeriSign is a global enterprise with offices throughout the Asia-Pacific region, Europe, Latin America, and North America, supported by a widespread international network of data centers and operations centers.<br><br>
-                    <A href="<tc-webtag:linkTracking link="http://www.verisign.com" refer="customer_index"/>" target="_blank">homepage</A>
-                     </td>
-                </tr>
-            </table>
-<!-- Verisign ends -->
 
-             <hr width="100%" size="1px" noshade>
 
 
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
