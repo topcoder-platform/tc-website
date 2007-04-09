@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.09.07<br>11:50 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd3">TCO07 Qualification Round 3 - Problem Set & Analysis</A></span><br><br>
+A total of 831 coders waited until the third and final qualification round for the 2007 TopCoder Open.  Of these, only 488 scored greater than zero points, so all of those will advance to the next round.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/legakis_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="287269" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd3">full story</A> | 
+        <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.05.07<br>6:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -252,24 +269,5 @@ The number of component projects on TopCoder seems to increase almost every week
         <A href="tc?module=Static&d1=features&d2=040207">full story</A> | 
         <tc-webtag:forumLink forumID="514974" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.02.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/to/">Predict the homepage redesign winner</A>
-        </span><br><br>
-        For TopCoder Studio competitions, we often face the question "Which submission is the best?"  In the spirit of experimentation, we're going to try out a new winner selection format, and it involves the community more than ever before.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/to/">details</A> | 
-        <tc-webtag:forumLink forumID="514973" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
