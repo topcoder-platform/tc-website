@@ -49,13 +49,18 @@
         <!-- ends -->
         
         <p>
-        <c:if test="${not empty registrants}">
-	        <strong>Handle</strong>
-        </c:if>
-        <c:forEach items="${registrants}" var="coderId">
-			<tc-webtag:handle coderId="${coderId}" context="${isAlgo? 'algorithm' : 'component'} "/>
-        </c:forEach>
-        
+        <c:choose>
+        	<c:when test="${empty registrants}">
+        	   There are no coders registered for this event yet.
+        	</c:when>
+        	<c:otherwise>
+		        <strong>Handle</strong><br>
+			    <c:forEach items="${registrants}" var="coderId">	        
+					<tc-webtag:handle coderId="${coderId}" context="${isAlgo? 'algorithm' : 'component'}"/><br>
+		        </c:forEach>
+		        	</c:otherwise>
+        </c:choose>
+         
         </p>
 
     </div>
