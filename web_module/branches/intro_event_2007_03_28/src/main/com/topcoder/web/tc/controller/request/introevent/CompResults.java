@@ -37,12 +37,11 @@ public class CompResults extends Base {
             String search = rr.getIntItem("phase_id") == 112? "- Design " : "- Development ";
             int pos = rr.getStringItem("contest_name").indexOf(search);
             String name = rr.getStringItem("contest_name");
-            log.debug("contest name=" + name);
                                        
             if (pos < 0) {
                 log.warn("Contest name format was expected to contain '"+ search + "'.  Contest id=" + rr.getStringItem("contest_id") + "  name=" + name);
             } else {
-                name = name.substring(0, pos+search.length());
+                name = name.substring(pos+search.length());
             }
 
             if (rr.getIntItem("phase_id") == 112) {
@@ -64,6 +63,7 @@ public class CompResults extends Base {
             getRequest().setAttribute("results", results.get("intro_event_comp_results"));
         }
         
+        getRequest().setAttribute("event", getEvent());
         setNextIntroEventPage("compResults.jsp");
     }
 }
