@@ -32,6 +32,16 @@
             <div class="pageHeader">
                 <span class="pageName">Schedule</span>
             </div>
+            <h2>Competition #1 Part #2: BT Business CSF Mashup Assembly Competition</h2>
+
+            <ul>
+                <li><strong>Submission Start Date:</strong> April 10, 2007</li>
+                <li><strong>Submission End Date:</strong> April 23, 2007</li>
+                <li><strong>Review Start Date:</strong> April 27, 2007</li>
+                <li><strong>Review End Date:</strong> May 8, 2007</li>
+                <li><strong>Winner Announced:</strong> May 14, 2007</li>
+            </ul>
+
             <h2>Competition #1: BT Business CSF Mashup Design Competition</h2>
 
             <ul>
