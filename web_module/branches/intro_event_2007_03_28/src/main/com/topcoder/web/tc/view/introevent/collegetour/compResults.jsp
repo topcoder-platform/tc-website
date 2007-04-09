@@ -72,7 +72,7 @@
 <c:forEach items="${devContests}" var="contest" >
     <c:if test="${not first}">| </c:if>
 	<c:set var="first" value="false" />
-    <A href="/tc?module=IntroEventCompResults&amp;eid=event.id&amp;ct=${contest[0]}" class="bcLink">${contest[1]}</A>
+    <A href="/tc?module=IntroEventCompResults&amp;eid=${event.id}&amp;ct=${contest[0]}" class="bcLink">${contest[1]}</A>
 </c:forEach>
 </td>
 </tr>
