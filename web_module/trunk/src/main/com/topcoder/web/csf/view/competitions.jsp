@@ -41,10 +41,10 @@
                                 <A href="/?module=ViewActiveContests"><img src="/i/layout/btnCreative.png" alt="Creative"/></A>
                             </td>
                             <td style="padding-left: 20px;">
-                                <A href="/?module=Static&d1=assembly&d2=activeContests"><img src="/i/layout/btnAssembly.png" alt="Assembly"/></A>
                                 <%--
-                                <img src="/i/layout/btnAssemblyNA.png" alt=""/>
+                                <A href="/?module=Static&d1=assembly&d2=activeContests"><img src="/i/layout/btnAssembly.png" alt="Assembly"/></A>
                                 --%>
+                                <img src="/i/layout/btnAssemblyNA.png" alt=""/>
                             </td>
                         </tr>
                     </tbody>
