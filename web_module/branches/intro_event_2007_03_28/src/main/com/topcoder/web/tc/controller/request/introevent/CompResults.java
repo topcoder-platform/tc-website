@@ -25,42 +25,42 @@ public class CompResults extends Base {
         
         String ct = getRequest().getParameter("ct");
 
-        log.debug("ct=" + ct);
+        Request r = new Request();
+        r.setContentHandle("intro_event_contests");
+        r.setProperty("eid", getEvent().getId() + "");        
+        ResultSetContainer contests = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("intro_event_contests");
+        
+        List<String[]> devContests = new ArrayList<String[]>();
+        List<String[]> desContests = new ArrayList<String[]>();
+        
+        for(ResultSetContainer.ResultSetRow rr : contests) {
+            String search = rr.getIntItem("phase_id") == 112? "- Design " : "- Development ";
+            int pos = rr.getStringItem("contest_name").indexOf(search);
+            String name = rr.getStringItem("contest_name");
+            log.debug("contest name=" + name);
+                                       
+            if (pos < 0) {
+                log.warn("Contest name format was expected to contain '"+ search + "'.  Contest id=" + rr.getStringItem("contest_id") + "  name=" + name);
+            } else {
+                name = name.substring(0, pos+search.length());
+            }
+
+            if (rr.getIntItem("phase_id") == 112) {
+                desContests.add(new String[]{rr.getStringItem("contest_id"), name} );
+            } else {
+                devContests.add(new String[]{rr.getStringItem("contest_id"), name} );                    
+            }
+        }
+        
+        getRequest().setAttribute("desContests", desContests);
+        getRequest().setAttribute("devContests", devContests);
+        
         if(ct != null) {
-            Request r = new Request();
+            r = new Request();
             r.setContentHandle("intro_event_comp_results");
             r.setProperty("ct", Long.parseLong(ct) + "");
-            r.setProperty("eid", getEvent().getId() + "");
-            
             
             Map<String, ResultSetContainer> results = new CachedDataAccess(RESULTS_EXPIRATION_TIME, DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r);
-            ResultSetContainer contests = results.get("intro_event_contests");
-            
-            List<String[]> devContests = new ArrayList<String[]>();
-            List<String[]> desContests = new ArrayList<String[]>();
-            
-            for(ResultSetContainer.ResultSetRow rr : contests) {
-                String search = rr.getIntItem("phase_id") == 112? "- Design " : "- Development ";
-                int pos = rr.getStringItem("contest_name").indexOf(search);
-                String name = rr.getStringItem("contest_name");
-                log.debug("contest name=" + name);
-                        
-                        
-                if (pos < 0) {
-                    log.warn("Contest name format was expected to contain '"+ search + "'.  Contest id=" + rr.getStringItem("contest_id") + "  name=" + name);
-                } else {
-                    name = name.substring(0, pos+search.length());
-                }
-
-                if (rr.getIntItem("phase_id") == 112) {
-                    desContests.add(new String[]{rr.getStringItem("contest_id"), name} );
-                } else {
-                    devContests.add(new String[]{rr.getStringItem("contest_id"), name} );                    
-                }
-            }
-            
-            getRequest().setAttribute("desContests", desContests);
-            getRequest().setAttribute("devContests", devContests);
             getRequest().setAttribute("results", results.get("intro_event_comp_results"));
         }
         
