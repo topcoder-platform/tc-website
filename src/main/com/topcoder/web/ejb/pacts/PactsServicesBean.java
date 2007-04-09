@@ -1379,7 +1379,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("from 'informix'.assignment_document ad, 'informix'.assignment_document_type_lu adt, 'informix'.assignment_document_status_lu ads ");
         sb.append("where ad.assignment_document_type_id = adt.assignment_document_type_id ");
         sb.append("and ad.assignment_document_status_id = ads.assignment_document_status_id ");
-        sb.append("and ad.assignment_document_status_id <> " + AssignmentDocumentStatus.DELETED_STATUS_ID);
+        sb.append("and ad.assignment_document_status_id <> " + AssignmentDocumentStatus.DELETED_STATUS_ID + " ");
         return sb;
     }
 
