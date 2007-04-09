@@ -85,71 +85,39 @@
                     <%-- formatting this crappy to save space in the download to the client --%>
                     <%boolean even = false;%>
                     <rsc:iterator list="<%=rsc%>" id="resultRow"><tr class="<%=(even ? "dark" : "light")%>">
-<td class="valueC">
-<rsc:item name="seed" row="<%=resultRow%>"/>
-</td>
-<td class="value">
-<tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="algorithm"/>
-</td>
-<td class="valueC">
-<rsc:item name="section" row="<%=resultRow%>"/>
-</td>
-<td class="valueC">
-<rsc:item name="rating" row="<%=resultRow%>"/>
-</td>
+<td class="valueC"><rsc:item name="seed" row="<%=resultRow%>"/></td>
+<td class="value"><tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="algorithm"/></td>
+<td class="valueC"><rsc:item name="section" row="<%=resultRow%>"/></td>
+<td class="valueC"><rsc:item name="rating" row="<%=resultRow%>"/></td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
-<td class="valueC">
-<span class="bigRed"><rsc:item name="round1" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCE"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td class="valueC">
-<span class="bigGreen"><rsc:item name="round1" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCA"><rsc:item name="round1" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round2")).equals("Eliminated")) { %>
-<td class="valueC">
-<span class="bigRed"><rsc:item name="round2" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCE"><rsc:item name="round2" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td class="valueC">
-<span class="bigGreen"><rsc:item name="round2" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCA"><rsc:item name="round2" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round3")).equals("Eliminated")) { %>
-<td class="valueC">
-<span class="bigRed"><rsc:item name="round3" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCE"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td class="valueC">
-<span class="bigGreen"><rsc:item name="round3" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCA"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
-<td class="valueC">
-<span class="bigRed"><rsc:item name="semi" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCE"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td class="valueC">
-<span class="bigGreen"><rsc:item name="semi" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCA"><rsc:item name="semi" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("wildcard")).equals("Eliminated")) { %>
-<td class="valueC">
-<span class="bigRed"><rsc:item name="wildcard" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCE"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td class="valueC">
-<span class="bigGreen"><rsc:item name="wildcard" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCA"><rsc:item name="wildcard" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("final")).equals("Eliminated")) { %>
-<td class="valueC">
-<span class="bigRed"><rsc:item name="final" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCE"><rsc:item name="final" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td class="valueC">
-<span class="bigGreen"><rsc:item name="final" row="<%=resultRow%>"/></span>
-</td>
+<td class="valueCA"><rsc:item name="final" row="<%=resultRow%>"/></td>
 <% } %>
 </tr>
 <%even = !even;%>
