@@ -25,6 +25,7 @@ public class CompResults extends Base {
         
         String ct = getRequest().getParameter("ct");
 
+        log.debug("ct=" + ct);
         if(ct != null) {
             Request r = new Request();
             r.setContentHandle("intro_event_comp_results");
@@ -42,6 +43,7 @@ public class CompResults extends Base {
                 String search = rr.getIntItem("phase_id") == 112? "- Design " : "- Development ";
                 int pos = rr.getStringItem("contest_name").indexOf(search);
                 String name = rr.getStringItem("contest_name");
+                log.debug("contest name=" + name);
                         
                         
                 if (pos < 0) {
