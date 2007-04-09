@@ -291,18 +291,22 @@
         <td class="homeText"><br>
 
             <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" width="67" height="21" border="0"/>
+            </div>
+            TopCoder Appoints Russ Malz Vice President of Sales
+            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040907">...more</A><br>[April 9]<br><br>
+
+            <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/china_20061027.gif" alt="TopCoder & China" width="67" height="25" border="0"/>
             </div>
             TopCoder Appoints Jiazhi Wu VP of Technology for China
-            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040307">...more</A><br>[April
-            3]<br><br>
+            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040307">...more</A><br>[April 3]<br><br>
             
             <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/usatoday_logo.gif" alt="USA Today Logo" width="67" height="25" border="0"/>
             </div>
             Why Google put a research lab in Poland
-            <A target="_blank" href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">...more</A><br>[March
-            13]<br><br>
+            <A target="_blank" href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">...more</A><br>[March 13]<br><br>
 
             <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/tco07_logo.png" alt="TCO07" width="88" height="41" border="0"/>
@@ -320,15 +324,8 @@
                 <img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" width="67" height="15" border="0"/>
             </div>
             Ideagora, a Marketplace for Minds
-            <A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">...more</A><br>[February
-            15]<br><br>
+            <A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">...more</A><br>[February 15]<br><br>
 
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/computerworld.gif" alt="ComputerWorld" width="67" height="18" border="0"/>
-            </div>
-            Microsoft launches 'mashup' competition for developers
-            <A href="http://www.computerworld.com/action/article.do?command=viewArticleBasic&taxonomyId=11&articleId=9011098&intsrc=hm_topic">...more</A><br>[February
-            14]<br><br>
 
         </td>
     </tr>
