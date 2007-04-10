@@ -1,9 +1,8 @@
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page language="java" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="ct" value="${param.ct}" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -51,8 +50,6 @@
     <jsp:param name="active" value="comp_results"/>
 </jsp:include>
 
-<% String ct=request.getParameter("ct"); 
-  String context="design"; %>
 <div align="center">
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
 <tr>
@@ -62,7 +59,7 @@
 <c:forEach items="${desContests}" var="contest" >
     <c:if test="${not first}">| </c:if>
 	<c:set var="first" value="false" />
-    <A href="/tc?module=IntroEventCompResults&amp;eid=event.id&amp;ct=${contest[0]}" class="bcLink">${contest[1]}</A>
+   	<tc-webtag:ifLink useLink="${ct!=contest[0]}" text="${contest[1]}" link="/tc?module=IntroEventCompResults&amp;eid=${event.id}&amp;ct=${contest[0]}"/> |        
 </c:forEach>
 </td>
 
@@ -72,16 +69,13 @@
 <c:forEach items="${devContests}" var="contest" >
     <c:if test="${not first}">| </c:if>
 	<c:set var="first" value="false" />
-    <A href="/tc?module=IntroEventCompResults&amp;eid=${event.id}&amp;ct=${contest[0]}" class="bcLink">${contest[1]}</A>
+   	<tc-webtag:ifLink useLink="${ct!=contest[0]}" text="${contest[1]}" link="/tc?module=IntroEventCompResults&amp;eid=${event.id}&amp;ct=${contest[0]}"/> |    
 </c:forEach>
 </td>
 </tr>
 </table>
 <br>
 <br>
-<% ResultSetContainer results = (ResultSetContainer) request.getAttribute("results");
-   if (results != null) {
-%>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td class="headerC">Rank</td>
@@ -90,27 +84,26 @@
         <td class="headerC" nowrap="nowrap">Potential Points</td>
    </tr>
         <% boolean even = false; %>
-        <rsc:iterator list="<%=results%>" id="resultRow">
+		<c:forEach items="${results}" var="resultRow">
             <tr class="<%=even?"dark":"light"%>">            
                  <td class="valueC">
-                     <rsc:item row="<%=resultRow%>" name="rank"/>
+                     <rsc:item row="${resultRow}" name="rank"/>
                  </td>
                 <td class="value">
-                    <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='<%= context %>'/>
+                    <!--   tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='${context}'/ -->
                  </td>
                  <td class="valueC">
-                     <rsc:item row="<%=resultRow%>" name="points" ifNull="0"/>
+                     <rsc:item row="${resultRow}" name="points" ifNull="0"/>
                  </td>
                  <td class="valueC"> 
-                     <rsc:item row="<%=resultRow%>" name="potential_points" />
+                     <rsc:item row="${resultRow}" name="potential_points" />
                  </td>                    
             </tr>
             <% even = !even; %>
-        </rsc:iterator>
-</table>
-    
+		</c:forEach>    
 
-<% } %>
+</table>
+
 </td>
 <!-- Center Column Ends -->
 
