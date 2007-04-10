@@ -51,7 +51,7 @@
 
                 <form name="terms" method="post" action="${sessionInfo.secureAbsoluteServletPath}">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AssemblyRegister"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_NAME%>" value="TestCompetition"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_NAME%>" value="BT Business CSF Mashup Assembly Competition"/>
 
 
                     <iframe marginwidth="5" src="/?module=Static&d1=assembly&d2=terms" height="300" width="590"></iframe>
