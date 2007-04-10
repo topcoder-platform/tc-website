@@ -12,7 +12,7 @@ public class Info extends Base {
         setNextPage("/collegetour/info.jsp");
         setIsNextPageInContext(true);*/
         
-        setNextPage("tc?module=IntroEventAlgoInfo&eid" + (getEventId() * 3 + 1001));
+        setNextPage("tc?module=IntroEventAlgoInfo&eid=" + (getEventId() * 3 + 1001));
         setIsNextPageInContext(false);
 
     }

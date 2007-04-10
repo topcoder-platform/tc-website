@@ -19,7 +19,7 @@ public class Registrants extends Base {
         setNextPage("/collegetour/registrants.jsp");
         setIsNextPageInContext(true);*/
         
-        setNextPage("tc?module=IntroEventViewRegistrants&eid" + (getEventId() * 3 + 1001));
+        setNextPage("tc?module=IntroEventViewRegistrants&eid=" + (getEventId() * 3 + 1001));
         setIsNextPageInContext(false);
     }
 }

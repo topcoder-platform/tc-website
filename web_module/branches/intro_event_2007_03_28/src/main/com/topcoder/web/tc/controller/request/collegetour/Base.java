@@ -32,6 +32,12 @@ abstract public class Base extends BaseProcessor {
     private Timestamp regEnd = null;
 
     protected final void businessProcessing() throws Exception {
+        String eid = getRequest().getParameter(Constants.COLLEGE_TOUR_EVENT_ID);
+        if (eid==null) {
+            throw new TCWebException("invalid request no event id specified");
+        }
+         eventId = Long.parseLong(eid);
+         
         /*
         String eid = getRequest().getParameter(Constants.COLLEGE_TOUR_EVENT_ID);
         getRequest().setAttribute(Constants.COLLEGE_TOUR_EVENT_ID, eid);

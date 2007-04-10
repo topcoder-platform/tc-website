@@ -51,7 +51,7 @@ public class Register extends Base {
         } else {
             throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
         }*/
-        setNextPage("tc?module=IntroEventRegister&eid" + (getEventId() * 3 + 1001));
+        setNextPage("tc?module=IntroEventRegister&eid=" + (getEventId() * 3 + 1001));
         setIsNextPageInContext(false);
         
 

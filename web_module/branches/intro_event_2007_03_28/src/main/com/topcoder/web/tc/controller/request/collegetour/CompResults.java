@@ -26,7 +26,7 @@ public class CompResults extends Base {
         
         setNextPage("/collegetour/compResults.jsp");
         setIsNextPageInContext(true);*/
-        setNextPage("tc?module=IntroEventCompResults&eid" + (getEventId() * 3 + 1002));
+        setNextPage("tc?module=IntroEventCompResults&eid=" + (getEventId() * 3 + 1002));
         setIsNextPageInContext(false);
     }
 }
