@@ -11,7 +11,7 @@ public class Overview extends Base {
 /*        loadConfigInfo();
         setNextPage("/collegetour/overview.jsp");
         setIsNextPageInContext(true);*/
-        setNextPage("tc?module=IntroEventAlgoInfo&eid=" + (getEventId() * 3 + 1001));
+        setNextPage("tc?module=IntroEventAlgoOverview&eid=" + (getEventId() * 3 + 1001));
         setIsNextPageInContext(false);
         
     }
