@@ -49,17 +49,19 @@
                     </tr>
                     <tr>
                         <td class="header" width="100%">
-                            <a href="">Project</a>
+                            Project
                         </td>
                         <td class="headerC" nowrap="nowrap">
-                            <a href="">Registration ends</a></td>
+                            Registration ends
+                        </td>
                         <td class="headerC">
-                            <a href="">Submit by</a></td>
-                        <td class="headerR">
-                            <a href="">Payment</a>
+                            Submit by
                         </td>
                         <td class="headerR">
-                            <a href="">Submissions</a>
+                            Payment
+                        </td>
+                        <td class="headerR">
+                            Submissions
                         </td>
                         <td class="header">&nbsp;</td>
                     </tr>
