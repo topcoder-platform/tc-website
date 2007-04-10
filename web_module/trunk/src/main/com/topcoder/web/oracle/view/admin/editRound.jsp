@@ -257,6 +257,21 @@
 
 </form>
 
+
+
+<c:if test="${!round.new}">
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="advanceForm">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAdvanceCandidates"/>
+<tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
+<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+    <p>
+        Advance candidates from: <tc-webtag:objectSelect name="<%=Constants.PRIOR_ROUND_ID%>" list="${round.contest.rounds}" valueField="id"
+                                    textField="name"/>
+<button name="submit" value="submit" type="submit">Do It!</button>
+    </p>
+</c:if>
+
+
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
 </div>
