@@ -64,7 +64,7 @@
                         <a class="button" style="width: 60px;" href="/?module=SecureStatic&d1=assembly&d2=reg">Register</a>
                     </td>
                     <td style="padding: 10px 0px 10px 5px;" align="right">
-                        <a class="button" style="width: 60px;" href="mailto:">Submit</a>
+                        <a class="button" style="width: 60px;" href="/review">Submit</a>
                     </td>
                 </tr>
             </tbody>

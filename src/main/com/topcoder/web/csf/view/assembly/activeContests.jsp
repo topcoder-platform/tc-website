@@ -81,7 +81,8 @@
                             0
                         </td>
                         <td class="valueR" nowrap="nowrap">
-                            <A href="" class="button" style="margin: 4px;">Submit</A>
+                            <A href="/?module=SecureStatic&d1=assembly&d2=reg" class="button" style="margin: 4px;">Register</A>
+                            <A href="/review" class="button" style="margin: 4px;">Submit</A>
                         </td>
                     </tr>
                     <% even = !even;%>
