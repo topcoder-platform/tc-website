@@ -54,7 +54,9 @@
                     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_NAME%>" value="BT Business CSF Mashup Assembly Competition"/>
 
 
-                    <iframe marginwidth="5" src="/?module=Static&d1=assembly&d2=terms" height="300" width="590"></iframe>
+                    <iframe marginwidth="5" src="/?module=Static&d1=assembly&d2=terms" height="300" width="590" style="margin-bottom: 10px;"></iframe>
+
+                    <br style="clear: both;">
 
                     <button name="submit" value="submit" type="submit" class="button">Submit</button>
                     <br><br>
