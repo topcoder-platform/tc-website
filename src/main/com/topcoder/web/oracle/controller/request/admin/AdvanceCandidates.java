@@ -24,10 +24,11 @@ public class AdvanceCandidates extends Base {
 
         if (!hasErrors()) {
             Round r = OracleDAOUtil.getFactory().getRoundDAO().find(new Integer(getRequest().getParameter(Constants.ROUND_ID)));
+            Round pr = OracleDAOUtil.getFactory().getRoundDAO().find(new Integer(getRequest().getParameter(Constants.PRIOR_ROUND_ID)));
 
             List<Candidate> cans = new ArrayList<Candidate>();
             Candidate c;
-            for (CandidateRoomResult crr : OracleDAOUtil.getFactory().getCandidateRoomResultDAO().getResults(r)) {
+            for (CandidateRoomResult crr : OracleDAOUtil.getFactory().getCandidateRoomResultDAO().getResults(pr)) {
                 if (crr.advanced()) {
                     cans.add(crr.getCandidate());
                 }
