@@ -86,23 +86,32 @@ public class EditRound extends Base {
             if (round==null) {
                 log.debug("new round");
                 round = new Round();
-                round.setContest(c);
+                c.addRound(round);
             }
             round.setName(name);
 
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
-            RoundPhase reg = new RoundPhase();
-            reg.setPhase(f.getPhaseDAO().find(Phase.REGISTRATION));
+
+            RoundPhase reg = round.getPhase(Phase.REGISTRATION);
+            if (reg==null) {
+                reg = new RoundPhase();
+                reg.setPhase(f.getPhaseDAO().find(Phase.REGISTRATION));
+                round.addPhase(reg);
+            }
+
             reg.setStartTime(new Timestamp(sdf.parse(regStartTime).getTime()));
             reg.setEndTime(new Timestamp(sdf.parse(regEndTime).getTime()));
-            round.addPhase(reg);
 
-            RoundPhase submission = new RoundPhase();
-            submission.setPhase(f.getPhaseDAO().find(Phase.SUBMISSION));
+
+            RoundPhase submission = round.getPhase(Phase.SUBMISSION);
+            if (submission==null) {
+                submission = new RoundPhase();
+                submission.setPhase(f.getPhaseDAO().find(Phase.SUBMISSION));
+                round.addPhase(submission);
+            }
             submission.setStartTime(new Timestamp(sdf.parse(submissionStartTime).getTime()));
             submission.setEndTime(new Timestamp(sdf.parse(submissionEndTime).getTime()));
-            round.addPhase(submission);
 
             round.setStatus(f.getRoundStatusDAO().find(new Integer(roundStatusId)));
 
@@ -121,9 +130,6 @@ public class EditRound extends Base {
                 String val = getRequest().getParameter(Constants.ROUND_PROPERTY + prop);
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
-
-
-            f.getRoundDAO().saveOrUpdate(round);
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                     "=AdminViewRound&" + Constants.ROUND_ID + "=" + round.getId()+"&" +
