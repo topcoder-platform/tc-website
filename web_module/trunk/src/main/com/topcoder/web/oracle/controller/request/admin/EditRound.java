@@ -43,7 +43,7 @@ public class EditRound extends Base {
         Round round=null;
 
         if ("".equals(StringUtils.checkNull(roundId))) {
-            c = OracleDAOUtil.getFactory().getContestDAO().find(new Integer(contestId));
+            c = f.getContestDAO().find(new Integer(contestId));
             if (c==null) {
                 throw new NavigationException("Invalid contest specified.");
             }
@@ -61,11 +61,11 @@ public class EditRound extends Base {
                 setDefault(Constants.ROUND_PROPERTY + aROUND_PROPS,
                         getRequest().getParameter(Constants.ROUND_PROPERTY + aROUND_PROPS));
             }
-            RoundStatus status = OracleDAOUtil.getFactory().getRoundStatusDAO().find(new Integer(roundStatusId));
+            RoundStatus status = f.getRoundStatusDAO().find(new Integer(roundStatusId));
 
             if (!"".equals(StringUtils.checkNull(roundId))) {
                 setDefault(Constants.ROUND_STATUS_ID,
-                        OracleDAOUtil.getFactory().getRoundDAO().find(new Integer(roundId)).getStatus().getId());
+                        f.getRoundDAO().find(new Integer(roundId)).getStatus().getId());
             } else if (status != null) {
                 setDefault(Constants.ROUND_STATUS_ID, roundStatusId);
             } else {
@@ -93,21 +93,21 @@ public class EditRound extends Base {
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
             RoundPhase reg = new RoundPhase();
-            reg.setPhase(OracleDAOUtil.getFactory().getPhaseDAO().find(Phase.REGISTRATION));
+            reg.setPhase(f.getPhaseDAO().find(Phase.REGISTRATION));
             reg.setStartTime(new Timestamp(sdf.parse(regStartTime).getTime()));
             reg.setEndTime(new Timestamp(sdf.parse(regEndTime).getTime()));
             round.addPhase(reg);
 
             RoundPhase submission = new RoundPhase();
-            submission.setPhase(OracleDAOUtil.getFactory().getPhaseDAO().find(Phase.SUBMISSION));
+            submission.setPhase(f.getPhaseDAO().find(Phase.SUBMISSION));
             submission.setStartTime(new Timestamp(sdf.parse(submissionStartTime).getTime()));
             submission.setEndTime(new Timestamp(sdf.parse(submissionEndTime).getTime()));
             round.addPhase(submission);
 
-            round.setStatus(OracleDAOUtil.getFactory().getRoundStatusDAO().find(new Integer(roundStatusId)));
+            round.setStatus(f.getRoundStatusDAO().find(new Integer(roundStatusId)));
 
             RoundConfig currConfig;
-            RoundPropertyDAO dao = OracleDAOUtil.getFactory().getRoundPropertyDAO();
+            RoundPropertyDAO dao = f.getRoundPropertyDAO();
             RoundProperty curr;
             for (Integer prop : ROUND_PROPS) {
                 curr = dao.find(prop);
@@ -123,7 +123,7 @@ public class EditRound extends Base {
             }
 
 
-            OracleDAOUtil.getFactory().getRoundDAO().saveOrUpdate(round);
+            f.getRoundDAO().saveOrUpdate(round);
 
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                     "=AdminViewRound&" + Constants.ROUND_ID + "=" + round.getId()+"&" +
