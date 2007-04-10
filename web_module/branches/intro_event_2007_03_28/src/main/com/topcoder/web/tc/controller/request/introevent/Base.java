@@ -78,7 +78,7 @@ public abstract class Base extends ShortHibernateProcessor {
                 image.setWidth(img.getWidth());
             }
             image.setLink(img.getLink());
-            image.setSrc(img.getPath() + img.getFileName());
+            image.setSrc(img.getPath().getPath() + img.getFileName());
             getRequest().setAttribute("image", image);
         }
         
