@@ -48,7 +48,7 @@
       <td valign="top"><span class="newsTitle">
         <A href="/tc?module=ViewSurvey&sid=16884">Vote for the homepage redesign winner</A>
         </span><br><br>
-        We've narrowed the homepage redesign to 3 finalists, and we're asking you to rank these 3 designs from best to worst.
+        After <A href="/to/?module=ViewCandidateResults&rm=1999">2 rounds of predicting</A>, we've narrowed the homepage redesign to 3 finalists, and we're asking you to rank these 3 designs from best to worst.
         </td>
       </tr></table>
       </td>
