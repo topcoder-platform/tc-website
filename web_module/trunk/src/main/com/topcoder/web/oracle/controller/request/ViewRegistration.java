@@ -34,31 +34,35 @@ public class ViewRegistration extends ShortHibernateProcessor {
                     throw new NavigationException("Invalid round specified");
                 }
                 Round round = OracleDAOUtil.getFactory().getRoundDAO().find(rid);
-
-                Date now = new Date();
-                if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
-                    if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
-                        if (round.getPhase(Phase.REGISTRATION).getStartTime().before(now) &&
-                                round.getPhase(Phase.REGISTRATION).getEndTime().after(now)) {
-                            if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId()) != null) {
-                                StringBuffer buf = new StringBuffer(50);
-                                buf.append(getSessionInfo().getServletPath());
-                                buf.append("?" + Constants.MODULE_KEY + "=ViewBallot&");
-                                buf.append(Constants.ROUND_ID).append("=").append(round.getId());
-                                setNextPage(buf.toString());
-                                setIsNextPageInContext(false);
+                if (round == null) {
+                    throw new NavigationException("Invalid round specified");
+                } else {
+                    Date now = new Date();
+                    if (ContestStatus.ACTIVE.equals(round.getContest().getStatus().getId())) {
+                        if (RoundStatus.ACTIVE.equals(round.getStatus().getId())) {
+                            if (round.getPhase(Phase.REGISTRATION).getStartTime().before(now) &&
+                                    round.getPhase(Phase.REGISTRATION).getEndTime().after(now)) {
+                                if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round.getId(), getUser().getId()) != null) {
+                                    StringBuffer buf = new StringBuffer(50);
+                                    buf.append(getSessionInfo().getServletPath());
+                                    buf.append("?" + Constants.MODULE_KEY + "=ViewBallot&");
+                                    buf.append(Constants.ROUND_ID).append("=").append(round.getId());
+                                    setNextPage(buf.toString());
+                                    setIsNextPageInContext(false);
+                                } else {
+                                    regProcessing(round);
+                                }
                             } else {
-                                regProcessing(round);
+                                throw new NavigationException("Registration is not currently open.");
                             }
                         } else {
-                            throw new NavigationException("Registration is not currently open.");
+                            throw new NavigationException("Invalid round specified.");
                         }
                     } else {
-                        throw new NavigationException("Invalid round specified.");
+                        throw new NavigationException("Invalid contest specified.");
                     }
-                } else {
-                    throw new NavigationException("Invalid contest specified.");
                 }
+
 
             }
         } else {
