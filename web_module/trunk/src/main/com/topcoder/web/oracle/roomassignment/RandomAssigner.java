@@ -34,8 +34,6 @@ public class RandomAssigner implements CandidateRoomAssigner {
         if (roomCount == 1) {
             for (Candidate c : candidates) {
                 res = new CandidateRoomResult(c);
-                res.getId().setRoom(rooms[0]);
-                res.getId().setCandidate(c);
                 rooms[0].addCandidateResult(res);
             }
         } else {
