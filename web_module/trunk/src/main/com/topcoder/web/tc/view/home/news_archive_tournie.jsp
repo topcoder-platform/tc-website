@@ -39,8 +39,9 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">04.09.07 2:00 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tco07_alg_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=algorithm&d4=advancers">TCO07 Round 1-A Advancers now online</A></td></tr>
-<tr class="bodyText"><td nowrap="nowrap">04.05.07 6:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 1-A set for April 7</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.10.07 11:10 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 1B set for April 10</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.09.07 2:00 PM - </td><td width="100%"><A href="/tc?module=SimpleStats&c=tco07_alg_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=algorithm&d4=advancers">TCO07 Round 1A Advancers now online</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.05.07 6:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 1A set for April 7</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.05.07 11:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=sectionA">TCO07 Algorithm Sections posted</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.04.07 12:15 PM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests">TCO07 Marathon Match Online Round 3 starts today</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.03.07 2:40 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drwChat20070328">DRW Trading SRM 344 chat session transcript</A></td></tr>
