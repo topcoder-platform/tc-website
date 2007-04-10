@@ -8,9 +8,11 @@ import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.CandidateDAO;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
 import com.topcoder.web.oracle.dao.PredictionDAO;
+import com.topcoder.web.oracle.dao.OracleDAOFactory;
 import com.topcoder.web.oracle.model.Candidate;
 import com.topcoder.web.oracle.model.Prediction;
 import com.topcoder.web.oracle.model.Room;
+import com.topcoder.web.oracle.model.RoomResult;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -34,8 +36,9 @@ public class SubmitBallot extends ViewBallot {
                 log.debug("candidate ids: " + candidateIds);
             }
 
+            OracleDAOFactory f = OracleDAOUtil.getFactory();
             ArrayList<Prediction> predictions = new ArrayList<Prediction>();
-            CandidateDAO candidateDAO = OracleDAOUtil.getFactory().getCandidateDAO();
+            CandidateDAO candidateDAO = f.getCandidateDAO();
             User user = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
             String id;
             Candidate c;
@@ -67,6 +70,8 @@ public class SubmitBallot extends ViewBallot {
                 setNextPage("/ballot.jsp");
                 setIsNextPageInContext(true);
             } else {
+                RoomResult rr = f.getRoomResultDAO().find(room, user);
+                rr.setAttended(true);
                 PredictionDAO pDao = OracleDAOUtil.getFactory().getPredictionDAO();
                 for (Prediction prediction : predictions) {
                     pDao.saveOrUpdate(prediction);
