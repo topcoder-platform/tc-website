@@ -44,7 +44,7 @@
     <A href="/stat?c=round_overview&er=5&rd=10738">Match Overview</A><br>
     <tc-webtag:forumLink forumID="514948" message="Discuss this match" />
 </div>
-<span class="bodySubtitle">2007 TopCoder Open<br>Algorithm Round 1-A</span><br>Saturday, April 7, 2007
+<span class="bodySubtitle">2007 TopCoder Open<br>Algorithm Round 1A</span><br>Saturday, April 7, 2007
 <br><br>
 
 
