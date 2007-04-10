@@ -10,9 +10,8 @@
 </map>
 <img src="/i/home/tchs07registration.png" alt="TCHS07" border="0" style="display:block;" usemap="#tchs07"/>
 --%>
-<%-- TCO07 
+<%-- TCO07 --%>
 <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open"/></A>
---%>
-<%-- homepage design prediction --%>
+<%-- homepage design prediction 
 <A href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></A>
-
+--%>
