@@ -39,6 +39,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">04.10.07 10:45 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=16853">Vote for the TopCoder video portal graphic set</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.04.07 9:00 PM - </td><td width="100%"><A href="/to/">Predict the homepage redesign winner: Round 2</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.02.07 1:00 PM - </td><td width="100%"><A href="/to/">Predict the homepage redesign winner</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">03.30.07 10:00 AM - </td><td width="100%"><A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=363">Bug in the voting results</A></td></tr>
