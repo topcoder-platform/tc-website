@@ -20,6 +20,7 @@ import java.sql.Timestamp;
  */
 public class Register extends Base {
     protected void collegeTourProcessing() throws Exception {
+        /*
         if (SecurityHelper.hasPermission(getLoggedInUser(), new ClassResource(this.getClass()))) {
             TransactionManager tm = null;
             try {
@@ -49,7 +50,10 @@ public class Register extends Base {
             setIsNextPageInContext(true);
         } else {
             throw new PermissionException(getLoggedInUser(), new ClassResource(this.getClass()));
-        }
+        }*/
+        setNextPage("tc?module=IntroEventRegister&eid" + (getEventId() * 3 + 1001));
+        setIsNextPageInContext(false);
+        
 
     }
 }

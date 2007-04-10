@@ -8,9 +8,13 @@ package com.topcoder.web.tc.controller.request.collegetour;
 public class Info extends Base {
 
     protected void collegeTourProcessing() throws Exception {
-        loadConfigInfo();
+/*        loadConfigInfo();
         setNextPage("/collegetour/info.jsp");
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(true);*/
+        
+        setNextPage("tc?module=IntroEventAlgoInfo&eid" + (getEventId() * 3 + 1001));
+        setIsNextPageInContext(false);
+
     }
 
 }

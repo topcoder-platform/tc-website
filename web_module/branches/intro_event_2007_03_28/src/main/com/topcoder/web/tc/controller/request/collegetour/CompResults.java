@@ -12,6 +12,7 @@ public class CompResults extends Base {
     private static final int RESULTS_EXPIRATION_TIME = 1000 * 60 * 60;
     
     protected void collegeTourProcessing() throws Exception {
+        /*
         String ct = getRequest().getParameter("ct");
 
         if(ct != null) {
@@ -24,6 +25,8 @@ public class CompResults extends Base {
         }
         
         setNextPage("/collegetour/compResults.jsp");
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(true);*/
+        setNextPage("tc?module=IntroEventCompResults&eid" + (getEventId() * 3 + 1002));
+        setIsNextPageInContext(false);
     }
 }

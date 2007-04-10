@@ -32,6 +32,7 @@ abstract public class Base extends BaseProcessor {
     private Timestamp regEnd = null;
 
     protected final void businessProcessing() throws Exception {
+        /*
         String eid = getRequest().getParameter(Constants.COLLEGE_TOUR_EVENT_ID);
         getRequest().setAttribute(Constants.COLLEGE_TOUR_EVENT_ID, eid);
         if (eid==null) {
@@ -77,7 +78,7 @@ abstract public class Base extends BaseProcessor {
                     getRequest().setAttribute("image", image);
                 }
             }
-        }
+        }*/
         collegeTourProcessing();
     }
 

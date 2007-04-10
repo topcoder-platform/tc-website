@@ -11,11 +11,15 @@ import com.topcoder.web.tc.Constants;
 public class Registrants extends Base {
 
     protected void collegeTourProcessing() throws Exception {
+        /*
         Request r = new Request();
         r.setContentHandle("college_tour_registrants");
         r.setProperty(Constants.COLLEGE_TOUR_EVENT_ID, String.valueOf(getEventId()));
         getRequest().setAttribute("registrants", getDataAccess().getData(r).get("college_tour_registrants"));
         setNextPage("/collegetour/registrants.jsp");
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(true);*/
+        
+        setNextPage("tc?module=IntroEventViewRegistrants&eid" + (getEventId() * 3 + 1001));
+        setIsNextPageInContext(false);
     }
 }
