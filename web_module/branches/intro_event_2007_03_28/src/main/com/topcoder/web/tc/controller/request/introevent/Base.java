@@ -8,6 +8,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
+import com.topcoder.web.common.model.Image;
+import com.topcoder.web.common.model.ImageInfo;
 import com.topcoder.web.common.model.IntroEvent;
 import com.topcoder.web.tc.Constants;
 
@@ -64,6 +66,23 @@ public abstract class Base extends ShortHibernateProcessor {
             }
         }
 
+        // Set up the event image
+        Image img = mainEvent.getImage();
+        
+        if (img != null) {
+            ImageInfo image = new ImageInfo();
+            if (img.getHeight() != null) {
+                image.setHeight(img.getHeight());
+            }
+            if (img.getWidth() != null) {
+                image.setWidth(img.getWidth());
+            }
+            image.setLink(img.getLink());
+            image.setSrc(img.getPath() + img.getFileName());
+            getRequest().setAttribute("image", image);
+        }
+        
+        
         getRequest().setAttribute("algoEventId", algoEventId);
         getRequest().setAttribute("compEventId", compEventId);
         getRequest().setAttribute("eid", eventId);
