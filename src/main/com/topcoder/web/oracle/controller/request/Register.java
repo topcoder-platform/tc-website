@@ -2,6 +2,7 @@ package com.topcoder.web.oracle.controller.request;
 
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
 import com.topcoder.web.oracle.dao.RoomDAO;
@@ -26,6 +27,9 @@ public class Register extends ViewRegistration {
         } else {
             RoomDAO roomDAO = OracleDAOUtil.getFactory().getRoomDAO();
             Room room = roomDAO.findSmallestRoom(round);
+            if (room==null) {
+                throw new NavigationException("Couldn't find a room to assign.");
+            }
             User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
 
             RoomResult rr = new RoomResult();
@@ -44,7 +48,7 @@ public class Register extends ViewRegistration {
             StringBuffer buf = new StringBuffer(50);
             buf.append(getSessionInfo().getServletPath());
             buf.append("?" + Constants.MODULE_KEY + "=ViewBallot&");
-            buf.append(Constants.ROUND_ID).append("=").append(round.getId());
+            buf.append(Constants.ROOM_ID).append("=").append(room.getId());
             setNextPage(buf.toString());
             setIsNextPageInContext(false);
 
