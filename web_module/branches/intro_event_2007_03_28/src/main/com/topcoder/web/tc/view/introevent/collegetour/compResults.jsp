@@ -94,7 +94,7 @@
                      <rsc:item row="<%=resultRow%>" name="rank"/>
                  </td>
                 <td class="value">
-                    <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='<%= context %>'/>
+                    <tc-webtag:handle coderId='<%= resultRow.getLongItem("coder_id")%>' context='${context}'/>
                  </td>
                  <td class="valueC">
                      <rsc:item row="<%=resultRow%>" name="points" ifNull="0"/>
