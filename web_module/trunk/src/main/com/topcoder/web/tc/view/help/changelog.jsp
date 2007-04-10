@@ -47,6 +47,8 @@
     5.8.9 - 2007.04.03
     <ul>
         <li>Take advantage of generics for general in-memory data container -dok</li>
+        <li>Fix bug in algorithm consecutive rating increase -cucu</li> 
+        <!-- <li>Add is current flag in record books -cucu</li>  -->
     </ul>
 </p>
 
