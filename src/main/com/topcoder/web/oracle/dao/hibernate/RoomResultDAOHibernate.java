@@ -22,18 +22,18 @@ public class RoomResultDAOHibernate extends Base implements RoomResultDAO {
     }
 
     public RoomResult find(Room room, User user) {
-        return null;
+        return (RoomResult) super.find(RoomResult.class, new RoomResult.Identifier(user, room));
     }
 
     public RoomResult find(Integer roomId, Long userId) {
-        RoomResult.Identifier id = new RoomResult.Identifier();
-        Room r = new Room();
-        r.setId(roomId);
-        id.setRoom(r);
-        User u = new User();
-        u.setId(userId);
-        id.setUser(u);
-        return (RoomResult) super.find(RoomResult.class, id);
+        StringBuffer query = new StringBuffer(100);
+        query.append(" from com.topcoder.web.oracle.model.RoomResult rr");
+        query.append(" where rr.id.room.id = ?");
+        query.append("  and rr.id.user.id = ?");
+        Query q = session.createQuery(query.toString());
+        q.setInteger(0, roomId);
+        q.setLong(1, userId);
+        return (RoomResult)q.uniqueResult();
     }
 
 

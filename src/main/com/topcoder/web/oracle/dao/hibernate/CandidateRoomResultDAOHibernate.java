@@ -22,14 +22,14 @@ public class CandidateRoomResultDAOHibernate extends Base implements CandidateRo
     }
 
     public CandidateRoomResult find(Integer roomId, Integer candidateId) {
-        CandidateRoomResult.Identifier id = new CandidateRoomResult.Identifier();
-        Room r = new Room();
-        r.setId(roomId);
-        id.setRoom(r);
-        Candidate c = new Candidate();
-        c.setId(candidateId);
-        id.setCandidate(c);
-        return (CandidateRoomResult) super.find(CandidateRoomResult.class, id);
+        StringBuffer query = new StringBuffer(100);
+        query.append(" from com.topcoder.web.oracle.model.CandidateRoomResult crr");
+        query.append(" where crr.id.room.id = ?");
+        query.append("  and crr.id.candidate.id = ?");
+        Query q = session.createQuery(query.toString());
+        q.setInteger(0, roomId);
+        q.setInteger(1, candidateId);
+        return (CandidateRoomResult)q.uniqueResult();
     }
 
     public CandidateRoomResult find(Room room, Candidate candidate) {
