@@ -34,8 +34,12 @@
             </div>
 
             <div style="float: right; margin: 0px 0px 10px 10px;">
-                <A href="/?module=Static&d1=leaderboardOverview"><img src="/i/home/seriesPrizes.png" alt="Series Prizes" /></A>
-                <div align="center" style="margin-top:10px; color:#65a610;">Congratulations to<br><span style="font-weight: bold; font-size: 14px;">dsdirect</span><br>for winning the first <br>mashup competition!</div>
+                <map name="highlights">
+                <area shape="rect" alt="" coords="1,1,199,95" href="/?module=Static&d1=leaderboardOverview" />
+                <area shape="rect" alt="" coords="1,105,199,195" href="/?module=ViewPastContests" />
+                <area shape="rect" alt="" coords="1,205,199,299" href="/?module=Static&d1=assembly&d2=btBusinessDetails" />
+                </map>
+                <img src="/i/home/highlights0410.png" alt="Series Prizes" usemap="#highlights" />
             </div>
 
             <p>
