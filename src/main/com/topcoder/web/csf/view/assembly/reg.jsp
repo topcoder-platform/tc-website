@@ -45,7 +45,7 @@
 
             <div align="center">
 
-                Please read through the following terms and then click <strong>"I Agree"</strong> when you're done.
+                Please read through the following terms:
                 <br><br>
 
                 <form name="terms" method="post" action="/">
@@ -55,11 +55,6 @@
 
                     <iframe marginwidth="5" src="/?module=Static&d1=assembly&d2=terms" height="300" width="590"></iframe>
 
-                    <br><br>
-                <span class="bigRed"></span>
-                    <input name="terms_agree" type="checkbox">I Agree
-                    <br><br>
-                    
                     <button name="submit" value="submit" type="submit" class="button">Submit</button>
                     <br><br>
 
