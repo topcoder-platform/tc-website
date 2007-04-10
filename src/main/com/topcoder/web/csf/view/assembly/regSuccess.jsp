@@ -43,8 +43,8 @@
     > BT Business CSF Mashup Assembly Competition
 </div>
 
-<div align="center" style="margin: 40px 0px 80px 0px;">
-Thank you for registering.
+<div align="center" style="margin: 100px 0px 140px 0px;">
+<strong>Thank you for registering.</strong>
 </div>
 
         </div>
