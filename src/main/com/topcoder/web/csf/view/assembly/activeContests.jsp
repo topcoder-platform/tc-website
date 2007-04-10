@@ -52,7 +52,7 @@
                             Project
                         </td>
                         <td class="headerC" nowrap="nowrap">
-                            Registration ends
+                            Registration opens
                         </td>
                         <td class="headerC">
                             Submit by

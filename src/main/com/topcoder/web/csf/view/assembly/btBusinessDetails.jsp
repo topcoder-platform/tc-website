@@ -196,7 +196,7 @@ All submissions are required to be submitted by the End Date.
 
                 <td nowrap="nowrap" valign="top"><strong>Start Date:</strong></td>
                 <td>
-                    Tuesday, April 10, 2007 at 16:00 EST
+                    Tuesday, April 10, 2007 at 16:00 EDT
                 </td>
             </tr>
             <tr>

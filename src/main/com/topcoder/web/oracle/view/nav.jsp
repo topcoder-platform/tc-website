@@ -38,9 +38,9 @@
     <A href="?module=Static&d1=contestStructure"<% if (selectedTab.equals("structure")) {%> class="on"<% } %>>Contest Structure</A>
     <A href="?module=Static&d1=scoring"<% if (selectedTab.equals("scoring")) {%> class="on"<% } %>>Scoring</A>
     <div class="section">Homepage Redesign Round 1</div>
-    <A href="?module=ViewSimpleResults&rm=2001"<% if (selectedTab.equals("2001PredRd1") || selectedTab.equals("2000CandRd2")) {%> class="on"<% } %>>Prediction Results</A>
-    <A href="?module=ViewCandidateResults&rm=2001"<% if (selectedTab.equals("2001CandRd1") || selectedTab.equals("2000CandRd2")) {%> class="on"<% } %>>Candidate Results</A>
+    <A href="?module=ViewSimpleResults&rm=2001"<% if (selectedTab.equals("2001Pred") || selectedTab.equals("2000Pred")) {%> class="on"<% } %>>Prediction Results</A>
+    <A href="?module=ViewCandidateResults&rm=2001"<% if (selectedTab.equals("2001Cand") || selectedTab.equals("2000Cand")) {%> class="on"<% } %>>Candidate Results</A>
     <div class="section">Homepage Redesign Round 2</div>
-    <A href="?module=ViewSimpleResults&rm=1999"<% if (selectedTab.equals("1999PredRd2")) {%> class="on"<% } %>>Prediction Results</A>
-    <A href="?module=ViewCandidateResults&rm=1999"<% if (selectedTab.equals("1999CandRd2")) {%> class="on"<% } %>>Candidate Results</A>
+    <A href="?module=ViewSimpleResults&rm=1999"<% if (selectedTab.equals("1999Pred")) {%> class="on"<% } %>>Prediction Results</A>
+    <A href="?module=ViewCandidateResults&rm=1999"<% if (selectedTab.equals("1999Cand")) {%> class="on"<% } %>>Candidate Results</A>
 </div>
