@@ -272,28 +272,33 @@ public class ForumsUtil {
         int n = -1;
         
         log.debug("##### before category iterator");
+        log.debug("##### number of iterator categories: " + forumCategory.getCategoryCount());
         while (itCategories.hasNext()) {
         	n++;
         	ForumCategory c = (ForumCategory)itCategories.next();
+            log.debug("##### obtained category " + n);
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
         	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
         	
+            log.debug("##### category is active");
         	try {
         		componentIDs[n] = Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
         	} catch (NumberFormatException nfe) {
         		log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
         		continue;
         	}
+            log.debug("##### parsedComponentID");
         	
         	if (c.getMessageCount() > 0 || mergeEmptyCategories) {
         		categoriesList.add(c);
         	} else {
         		emptyCategories.add(c);
         	}
+            log.debug("##### added to list");
         }
         log.debug("##### after category iterator");
         log.debug("##### number of non-empty categories: " + categoriesList.size());
-        log.debug("##### number of empty categories: " + categoriesList.size());
+        log.debug("##### number of empty categories: " + emptyCategories.size());
 
         HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
         log.debug("##### obtained approved components");
