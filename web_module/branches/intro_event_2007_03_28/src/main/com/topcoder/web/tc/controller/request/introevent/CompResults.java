@@ -37,17 +37,24 @@ public class CompResults extends Base {
             String search = rr.getIntItem("phase_id") == 112? "- Design " : "- Development ";
             int pos = rr.getStringItem("contest_name").indexOf(search);
             String name = rr.getStringItem("contest_name");
+            String id = rr.getStringItem("contest_id");
                                        
             if (pos < 0) {
-                log.warn("Contest name format was expected to contain '"+ search + "'.  Contest id=" + rr.getStringItem("contest_id") + "  name=" + name);
+                log.warn("Contest name format was expected to contain '"+ search + "'.  Contest id=" + id  + "  name=" + name);
             } else {
                 name = name.substring(pos+search.length());
             }
 
             if (rr.getIntItem("phase_id") == 112) {
-                desContests.add(new String[]{rr.getStringItem("contest_id"), name} );
+                if (id.equals(ct)) {
+                    getRequest().setAttribute("context", "design");
+                }
+                desContests.add(new String[]{id, name} );
             } else {
-                devContests.add(new String[]{rr.getStringItem("contest_id"), name} );                    
+                if (id.equals(ct)) {
+                    getRequest().setAttribute("context", "development");
+                }
+                devContests.add(new String[]{id, name} );                    
             }
         }
         
