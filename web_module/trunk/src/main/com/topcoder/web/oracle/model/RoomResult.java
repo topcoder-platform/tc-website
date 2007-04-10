@@ -17,6 +17,7 @@ public class RoomResult extends Base {
     private Integer placed;
     private Boolean advanced;
     //todo add attended
+    private Boolean attended;
 
     public RoomResult() {
 
@@ -77,6 +78,17 @@ public class RoomResult extends Base {
     }
 
 
+    public Boolean getAttended() {
+        return attended;
+    }
+
+    public void setAttended(Boolean attended) {
+        this.attended = attended;
+    }
+
+    public boolean attended() {
+        return attended!=null &&  attended;
+    }
 
     public static class Identifier implements Serializable, Cloneable {
 
@@ -142,6 +154,8 @@ public class RoomResult extends Base {
             return c2.getScore().compareTo(c1.getScore());
         }
     }
+
+
 
 
 }

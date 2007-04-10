@@ -12,6 +12,7 @@
         </composite-id>
 
         <property name="advanced"/>
+        <property name="attended"/>
         <property name="score"/>
         <property name="placed"/>
     </class>
