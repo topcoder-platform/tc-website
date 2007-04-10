@@ -71,6 +71,8 @@ public class RoomDAOTestCase extends TCHibernateTestCase {
         RoomResult rr = new RoomResult();
         r2.addResult(rr);
         rr.setUser(DAOUtil.getFactory().getUserDAO().find(132456l));
+        rr.setAdvanced(false);
+        rr.setAttended(false);
 
         OracleDAOUtil.getFactory().getRoomDAO().saveOrUpdate(r2);
 
