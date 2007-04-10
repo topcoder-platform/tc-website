@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.10.07<br>10:45 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=16853">Vote for the TopCoder video portal graphic set</A>
+        </span><br><br>
+        TopCoder has chosen the top five graphic sets that could be the basic template for the "personality" behind the new TopCoder video web portal. Vote for your favorite!
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=16853">details</A> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=388&start=0&mc=1">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>04.09.07<br>2:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -197,23 +216,6 @@ This Saturday's qualification round attracted most of the high-rated coders who 
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd2">full story</A> | 
-        <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.04.07<br>10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd1">TCO07 Qualification Round 1 - Problem Set & Analysis</A></span><br><br>
-The TopCoder Open 2007 started for Algorithm competitors with Qualification Round 1. This round -- the first of three chances to qualify for Online Round 1 -- attracted several very high-rated competitors who were ineligible for a bye.
-        </td>
-      <td class="newsPhoto"><!-- <img src="/i/m/_efer__big.jpg" alt="" width="55" height="61"/> --><br>by <tc-webtag:handle coderId="159544" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd1">full story</A> | 
         <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
