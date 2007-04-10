@@ -136,13 +136,17 @@ The payment will be distributed in one full installment once the final version o
 
 <p>
 The winner must deliver the following final files: 
-<br><br>
-GUI Prototype OR Written Concept<br>
-Summary Document<br>
-Marketing Pitch<br>
-Original Graphic Files (files used to create the concept)<br>
-Run in the Sandbox<br>
 </p>
+
+<ul>
+<li>Full sources for the mashup implementation.</li>
+<li>A VS.NET solution file or NAnt build script set up to fully build the mashup implementation.</li>
+<li>A document in RTF format explaining how to set up any dependency services or components, and deploy the application to the CSF sandbox.
+    <ul>
+    <li>This document should also contain a section listing all (if any) of the TopCoder components that were used in the prototype.</li>
+    </ul>
+</li>
+</ul>
 
 <p><strong>
 Refer to the Spec Doc for a full description of the final deliverables required from the winner. 
