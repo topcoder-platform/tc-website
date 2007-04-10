@@ -93,7 +93,7 @@
                 <rsc:iterator list='<%=rsc%>' id="resultRow">
                     <tr class="<%=(i%2==0 ? "dark" : "light")%>">
                         <td class="valueC">
-                            <span class="<%=(i<8 ? "bigGreen" : "bigRed")%>"><rsc:item name="rank" row="<%=resultRow%>"/></span>
+                            <span class="<%= resultRow.getIntItem("rank")<=8? "bigGreen" : "bigRed"%>"><rsc:item name="rank" row="<%=resultRow%>"/></span>
                         </td>
                         <td class="value">
                             <strong>
