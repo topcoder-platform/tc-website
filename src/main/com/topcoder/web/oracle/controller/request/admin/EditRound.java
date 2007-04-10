@@ -7,6 +7,7 @@ import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
 import com.topcoder.web.oracle.dao.RoundPropertyDAO;
+import com.topcoder.web.oracle.dao.OracleDAOFactory;
 import com.topcoder.web.oracle.model.*;
 import com.topcoder.web.oracle.validation.EndTimeValidator;
 import com.topcoder.web.oracle.validation.RoundNameValidator;
@@ -36,11 +37,22 @@ public class EditRound extends Base {
 
         inputValidation();
 
-        Contest c = OracleDAOUtil.getFactory().getContestDAO().find(new Integer(contestId));
-        if (c==null) {
-            throw new NavigationException("Invalid contest specified.");
-        }
+        OracleDAOFactory f = OracleDAOUtil.getFactory();
 
+        Contest c=null;
+        Round round=null;
+
+        if ("".equals(StringUtils.checkNull(roundId))) {
+            c = OracleDAOUtil.getFactory().getContestDAO().find(new Integer(contestId));
+            if (c==null) {
+                throw new NavigationException("Invalid contest specified.");
+            }
+        } else {
+            round = f.getRoundDAO().find(new Integer(roundId));
+            if (round==null) {
+                throw new NavigationException("Invalid round specified.");
+            }
+        }
 
         if (hasErrors()) {
             loadGeneralEditRoundData();
@@ -71,16 +83,12 @@ public class EditRound extends Base {
             setNextPage("/admin/editRound.jsp");
             setIsNextPageInContext(true);
         } else {
-            Round round;
-            if (!"".equals(StringUtils.checkNull(roundId))) {
-                log.debug("existing round");
-                round = OracleDAOUtil.getFactory().getRoundDAO().find(new Integer(roundId));
-            } else {
+            if (round==null) {
                 log.debug("new round");
                 round = new Round();
+                round.setContest(c);
             }
             round.setName(name);
-            round.setContest(c);
 
             SimpleDateFormat sdf = new SimpleDateFormat(Constants.JAVA_DATE_FORMAT);
 
