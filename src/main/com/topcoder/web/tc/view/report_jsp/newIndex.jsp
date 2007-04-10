@@ -281,6 +281,7 @@ Technical Assessment
 
 Quarterly Reports
 <ul>
+    <li><a href="http://www.topcoder.com/html/reports/2007_q1_report/operatingstats_q1_07.htm">2007 Q1</a></li>
     <li><a href="http://www.topcoder.com/html/reports/2006_q4_report/operatingstats_q4.htm">2006 Q4</a></li>
     <li><a href="http://www.topcoder.com/html/reports/2006_q3_report/operatingstats_q3.htm">2006 Q3</a></li>
     <li><a href="http://www.topcoder.com/html/reports/2006_q2_report/operatingstats_q2.htm">2006 Q2</a></li>
