@@ -28,7 +28,7 @@
             </div>
 
             <jsp:include page="nav.jsp" >
-            <jsp:param name="selectedTab" value="tcdotcomPredRd1"/>
+            <jsp:param name="selectedTab" value="${myRoom.id}PredRd1"/>
             </jsp:include>
 
 <%--
