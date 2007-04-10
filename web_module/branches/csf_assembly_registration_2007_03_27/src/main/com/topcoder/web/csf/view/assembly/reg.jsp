@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.csf.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="csf.tld" prefix="csf" %>
@@ -48,9 +49,9 @@
                 Please read through the following terms and then click <strong>"I Agree"</strong> when you're done.
                 <br><br>
 
-                <form name="terms" method="post" action="/">
-                    <input name="module" value="Register" type="hidden">
-                    <input name="ct" value="1005" type="hidden">
+                <form name="terms" method="post" action="${sessionInfo.secureAbsoluteServletPath}">
+                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AssemblyRegister"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_NAME%>" value="TestCompetition"/>
 
 
                     <iframe marginwidth="5" src="/?module=Static&d1=assembly&d2=terms" height="300" width="590"></iframe>
