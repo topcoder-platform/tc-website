@@ -41,6 +41,8 @@ public class CandidateRoomResultDAOTestCase extends TCHibernateTestCase {
         OracleDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
 
 
+        tearDown();
+        setUp();
         CandidateRoomResult crr1 = OracleDAOUtil.getFactory().getCandidateRoomResultDAO().find(ro.getId(), can.getId());
 
         assertFalse("cound not find candidate room result", crr1 == null);
@@ -79,6 +81,8 @@ public class CandidateRoomResultDAOTestCase extends TCHibernateTestCase {
         crr.setRoom(ro);
 
         OracleDAOUtil.getFactory().getCandidateRoomResultDAO().saveOrUpdate(crr);
+        tearDown();
+        setUp();
 
         CandidateRoomResult crr1 = OracleDAOUtil.getFactory().getCandidateRoomResultDAO().find(ro, can);
 
