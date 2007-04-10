@@ -264,12 +264,14 @@ public class ForumsUtil {
     // the list's end. Only forums for approved software components are displayed.
     public static ArrayList getCategories(ForumsLocal forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories, boolean mergeEmptyCategories) throws RemoteException {
-    	Iterator itCategories = forumCategory.getCategories();
+        log.debug("##### ForumsUtil.getCategories() entered");
+        Iterator itCategories = forumCategory.getCategories();
         ArrayList categoriesList = new ArrayList();
         ArrayList emptyCategories = new ArrayList();
         long[] componentIDs = new long[forumCategory.getCategoryCount()];
         int n = -1;
         
+        log.debug("##### before category iterator");
         while (itCategories.hasNext()) {
         	n++;
         	ForumCategory c = (ForumCategory)itCategories.next();
@@ -289,8 +291,12 @@ public class ForumsUtil {
         		emptyCategories.add(c);
         	}
         }
+        log.debug("##### after category iterator");
+        log.debug("##### number of non-empty categories: " + categoriesList.size());
+        log.debug("##### number of empty categories: " + categoriesList.size());
 
         HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
+        log.debug("##### obtained approved components");
         for (int i=categoriesList.size()-1; i>=0; i--) {
         	ForumCategory c = (ForumCategory)categoriesList.get(i);
         	String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
@@ -298,6 +304,7 @@ public class ForumsUtil {
         		categoriesList.remove(i);
         	}
         }
+        log.debug("##### removed from categoriesList");
         for (int i=emptyCategories.size()-1; i>=0; i--) {
         	ForumCategory c = (ForumCategory)emptyCategories.get(i);
         	String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
@@ -306,6 +313,7 @@ public class ForumsUtil {
         	}
         }
 
+        log.debug("##### before sort");
         Collections.sort(categoriesList, 
         		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
         Collections.sort(emptyCategories, 
@@ -313,6 +321,7 @@ public class ForumsUtil {
         if (!excludeEmptyCategories) {
         	categoriesList.addAll(emptyCategories);
         }
+        log.debug("##### ForumsUtil.getCategories() exited");
         return categoriesList;
     }
 
