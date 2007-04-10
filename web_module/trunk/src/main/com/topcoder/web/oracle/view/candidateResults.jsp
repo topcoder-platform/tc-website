@@ -37,12 +37,12 @@
             </div>
 
             <jsp:include page="nav.jsp" >
-            <jsp:param name="selectedTab" value="${myRoom.id}CandRd1"/>
+            <jsp:param name="selectedTab" value="${room.id}Cand"/>
             </jsp:include>
 
-<%--
+            <%--
             <p><strong>${room.round.contest.name} &gt; ${room.round.name} &gt; Candidate Results</strong></p>
---%>
+            --%>
 
             <div id="bodyColumn">
 
