@@ -57,7 +57,7 @@
 <br><br>
 <table class="stat" cellpadding="0" cellspacing="0" style="float: left; width: 510px; margin-right: 15px; margin-bottom: 15px;">
 <thead>
-    <tr><td class="title" colspan="5">Most Problem Best Scores.</td></tr>
+    <tr><td class="title" colspan="5">Most High Scores.</td></tr>
     <tr>
         <td class="headerC">Rank</td>
         <td class="header"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="4" includeParams="true" excludeParams="c"/>">Coder</A></td>
