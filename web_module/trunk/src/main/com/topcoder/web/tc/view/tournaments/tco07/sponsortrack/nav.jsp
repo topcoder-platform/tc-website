@@ -27,6 +27,7 @@ function toggleMenu(menuTitle,menuID){
         <ul>
         <li class="stop"><a href="/tc?module=SimpleStats&c=tco07_spon_qual&d1=tournaments&d2=tco07&d3=sponsortrack&d4=qualification&trans=true"<% if (tabLev1.equals("advancers") && tabLev2.equals("qualification")) {%> class="navHighlight"<% } %>><span>Qualification</span></a></li>
 <%--
+        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsortrack&d4=advancers"<% if (tabLev1.equals("advancers") && tabLev2.equals("overview")) {%> class="navHighlight"<% } %>><span>Overview</span></a></li>
         <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsortrack&amp;d4=advOverview"<% if (tabLev1.equals("advancers") && tabLev2.equals("overview")) {%> class="navHighlight"<% } %>><span>Overview</span></a></li>
 --%>
         </ul>
