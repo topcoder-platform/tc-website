@@ -70,7 +70,7 @@ H3 { font-size: 125%; }
     <li>The only way to determine who has a better solution is through competition.</li>
     </ul>
     <p>
-    The foundation of TopCoder is a global community of thousands. From coders and contractors to students and hobbyists, they're brought together by a love of programming, a passion for learning, and the drive to compete.
+    The foundation of TopCoder is a global community of thousands. From coders and contractors to students and hobbyists, they're brought together by a love of programming, a passion for learning, and the<br>drive to compete.
     </p>
     <p>
     Together with our community, we established a rigorous and disciplined software development process that leverages our unique competition model. Based on a growing catalog of reusable software components - built and tested by our members - this process generates high-quality applications quickly and efficiently.
@@ -79,10 +79,10 @@ H3 { font-size: 125%; }
     <strong>Through competition, the TopCoder community has revolutionized the way software is built.</strong>
     </p>
     <p align="center" style="margin-top: 20px;">
-    <strong><A href="<tc-webtag:linkTracking link='http://software.topcoder.com/applications/index.jsp' refer='whatistopcoder' />">I'd like to know more about how TopCoder builds software.</A></strong>
+    <strong><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=contactus' refer='whatistopcoder' />">Call us today and let us build your next application.</A></strong>
     </p>
     <p align="center">
-    <strong><A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=contactus' refer='whatistopcoder' />">I'd like to contact someone about working with TopCoder.</A></strong>
+    <strong><A href="<tc-webtag:linkTracking link='http://software.topcoder.com/applications/index.jsp' refer='whatistopcoder' />">I'd like to know more about how TopCoder builds software.</A></strong>
     </p>
     <p align="center">
     <strong><A href="<tc-webtag:linkTracking link='/reg/' refer='whatistopcoder' />">I'd like to register now.</A></strong>
