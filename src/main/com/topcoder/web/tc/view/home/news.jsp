@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.11.07<br>10:30 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="http://csf.topcoder.com/?module=Static&d1=assembly&d2=activeContests">Connected Services Assembly Competition now open</A>
+        </span><br><br>
+        Microsoft Corp. and BT Group PLC, in association with TopCoder, are running a series of Connected Services Sandbox Mashup Service Design and Assembly competitions. In the Assembly stage -- now open -- developers create a prototype of a <a href="http://csf.topcoder.com/?module=ViewPastContests">mashup idea</a> for a total prize purse of $7,500.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://csf.topcoder.com/?module=Static&d1=assembly&d2=activeContests">details</A> |
+        <a href="http://csf.topcoder.com/forums?module=ThreadList&forumID=6&mc=0">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.10.07<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -16,7 +35,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2080">details</A>
+        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2080">details</A> |
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=50">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
@@ -35,7 +54,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2079">details</A>
+        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2079">details</A> |
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=49">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
@@ -203,22 +222,5 @@ A total of 831 coders waited until the third and final qualification round for t
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">details</A> | 
         <tc-webtag:forumLink forumID="514948" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>04.05.07<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="tc?module=Static&d1=features&d2=040507">Programming in the Real World</A></span><br><br>
-In the working world, successful programming sometimes requires more than quickly writing correct code – it takes learning how to work as part of a team. This article describes some of the difficulties you might encounter when you join your first working team.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15635590" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="tc?module=Static&d1=features&d2=040507">full story</A> | 
-        <tc-webtag:forumLink forumID="515048" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    

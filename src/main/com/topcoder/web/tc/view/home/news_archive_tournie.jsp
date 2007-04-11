@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+
 <tr class="bodyText"><td nowrap="nowrap">04.10.07 2:00 PM - </td><td width="100%"><A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2080">Now open at Studio: TCO07 Program Design Contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.10.07 2:00 PM - </td><td width="100%"><A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2079">Now open at Studio: 2007 TCCC Web Site Design Contest</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.10.07 11:10 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 1B set for April 10</A></td></tr>
