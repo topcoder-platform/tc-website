@@ -85,7 +85,7 @@ The Problems
 
 <font size="+2"> 
 
-<b><a href="/stat?c=problem_statement&amp;pm=7571&amp;rd=10738" name="7571" onClick="return (false);">Turnpike</a></b> 
+<b><a href="/stat?c=problem_statement&amp;pm=7571&amp;rd=10738" name="7571">Turnpike</a></b> 
 
 </font> 
 
@@ -403,7 +403,7 @@ Thus our algorithm always finds an optimal solution.
 
 <font size="+2"> 
 
-<b><a href="/stat?c=problem_statement&amp;pm=7260&amp;rd=10738" name="7260" onClick="return (false);">TableLabel</a></b> 
+<b><a href="/stat?c=problem_statement&amp;pm=7260&amp;rd=10738" name="7260">TableLabel</a></b> 
 
 </font> 
 
@@ -595,7 +595,7 @@ public:
 
 <font size="+2"> 
 
-<b><a href="/stat?c=problem_statement&amp;pm=7316&amp;rd=10738" name="7316" onClick="return (false);">Destruction</a></b> 
+<b><a href="/stat?c=problem_statement&amp;pm=7316&amp;rd=10738" name="7316">Destruction</a></b> 
 
 </font> 
 
