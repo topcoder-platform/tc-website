@@ -28,11 +28,11 @@
 
          <joined-subclass name="IntroEvent" table="intro_event">
             <key column="event_id"/>
-            <many-to-one name="school" column="school_id" class="School" access="field"/>
+            <many-to-one name="school" column="school_id" class="School" access="field" fetch="join"/>
             <property name="roundId" column="round_id" access="field"/>
             <property name="forumId" column="forum_id" access="field"/>
             <many-to-one name="timeZone" column="timezone_id" class="TimeZone" access="field"/>
-            <many-to-one name="image" column="image_id" class="Image" access="field" />
+            <many-to-one name="image" column="image_id" class="Image" access="field" fetch="join"/>
             <property name="eligibilityCommandId" column="eligibility_command_id" access="field"/>                        
             <set name="config" access="field" inverse="true">
                 <key column="event_id" not-null="true" />
