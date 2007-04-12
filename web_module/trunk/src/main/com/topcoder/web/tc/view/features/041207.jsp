@@ -71,7 +71,7 @@ Kyoto, Japan
 
 <p>"I've participated in TopCoder since 03.06.2007. Before I registered for TopCoder, I participated in ACM/ICPC 2005 and 2006, and I register with some online judges.  When I first solved programming problems in ACM/ICPC 2005, I found that solving problems was very pleasant for me."</p>
 
-<p>"Nya's <a target="_blank" href="<tc-webtag:linkTracking link='http://d.hatena.ne.jp/nyaasan/' refer='feature_041207' />">blog</a> let me know about TopCoder. TopCoder gives me chances to participate in competitions more frequently, so that attracted me."</p>
+<p>"<tc-webtag:handle coderId="15764636" />'s <a target="_blank" href="<tc-webtag:linkTracking link='http://d.hatena.ne.jp/nyaasan/' refer='feature_041207' />">blog</a> let me know about TopCoder. TopCoder gives me chances to participate in competitions more frequently, so that attracted me."</p>
 
 <p><strong>What's your proudest TopCoder moment?</strong><br>
 "It is moment of submitting. Especially when I've submitted the last problem's solution, it is a very proud moment. But, after the coding phase, when I find my mistakes, I'm in very low spirits."</p>
