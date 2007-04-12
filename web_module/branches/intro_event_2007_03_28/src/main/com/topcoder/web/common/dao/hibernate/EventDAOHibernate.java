@@ -62,6 +62,18 @@ public class EventDAOHibernate extends Base implements EventDAO {
         return q.list();
     }
 
+    @SuppressWarnings("unchecked")
+    public List<Object[]> getChildrenTypes(Long id) {
+        StringBuffer query = new StringBuffer(100);
+        query.append("select e.id, e.type.id ");
+        query.append(" from Event e");
+        query.append(" where e.parent.id = :eventId");
+
+        Query q = session.createQuery(query.toString());
+        q.setLong("eventId", id);
+        return q.list();
+    }
+
     public void saveOrUpdate(Event e) {
         super.saveOrUpdate(e);
     }

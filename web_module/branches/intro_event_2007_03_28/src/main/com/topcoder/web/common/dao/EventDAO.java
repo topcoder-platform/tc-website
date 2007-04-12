@@ -24,7 +24,9 @@ public interface EventDAO {
     
     List getChildren(Long id);
 
+    List<Object[]> getChildrenTypes(Long id);
+
     List<Long> getRegistrants(Long eventId);
-    
+        
     void saveOrUpdate(Event e);
 }

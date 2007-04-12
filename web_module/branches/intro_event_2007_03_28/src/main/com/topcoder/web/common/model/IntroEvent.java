@@ -1,5 +1,6 @@
 package com.topcoder.web.common.model;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -21,6 +22,13 @@ public class IntroEvent extends Event  {
     private Set<IntroEventConfig> config;
     private Map<Long, String> configMap = null;
     
+    // formula fields
+    private Timestamp roundStart = null;
+    private Timestamp roundEnd = null;
+    private String roundName = null;
+    
+    
+
     public Long getEligibilityCommandId() {
         return eligibilityCommandId;
     }
@@ -123,6 +131,17 @@ public class IntroEvent extends Event  {
     public String getPagesBase() {
         return getConfig(new Long(Constants.PAGES_BASE_PROP_ID));
     }
-   
+
+    public Timestamp getRoundStart() {
+        return roundStart;
+    }
+    
+    public Timestamp getRoundEnd() {
+        return roundEnd;
+    }
+
+    public String getRoundName() {
+        return roundName;
+    }
 
 }

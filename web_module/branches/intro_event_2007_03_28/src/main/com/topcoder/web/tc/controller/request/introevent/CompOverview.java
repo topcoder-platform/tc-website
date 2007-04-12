@@ -11,6 +11,7 @@ import org.hibernate.Query;
 import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.EventType;
+import com.topcoder.web.common.model.comp.ContestPrize;
 
 public class CompOverview extends Base {
 
@@ -21,13 +22,17 @@ public class CompOverview extends Base {
             throw new NavigationException("Invalid event type.");
         }
 
-        // make that code nicer!
-        Query q = HibernateUtils.getSession().createQuery("select min(c.startDate), max(c.startDate) from com.topcoder.web.common.model.comp.Contest c where c.event.id=:eventId");
+        // Find out the start date of the first and last contest, and the number of weeks it lasts.
+        String query = "select min(c.startDate), max(c.startDate) " +
+                " from com.topcoder.web.common.model.comp.Contest c " +
+                " where c.event.id=:eventId";
+
+        Query q = HibernateUtils.getSession().createQuery(query);
         q.setLong("eventId", getEvent().getId());
-        
-        Object obj[] = (Object[]) q.uniqueResult();
-        Date startDate = (Date) obj[0];
-        Date endDate = (Date) obj[1];
+
+        Date[] dates = (Date[]) q.uniqueResult();    
+        Date startDate = dates[0];
+        Date endDate = dates[1];
 
         long dt = endDate.getTime() - startDate.getTime();        
         int weeks = (int) (dt / (7 * 24 * 60 * 60 * 1000)) + 1;
@@ -38,6 +43,7 @@ public class CompOverview extends Base {
         Calendar endCal = Calendar.getInstance();
         endCal.setTime(endDate);
 
+        // format dates.  Start date uses the year only if the year is different than the end date.
         SimpleDateFormat endFmt = new SimpleDateFormat("MMMMM d, yyyy");
         SimpleDateFormat startFmt = endFmt;
 
@@ -54,11 +60,13 @@ public class CompOverview extends Base {
         getRequest().setAttribute("endDateFormatted", end);
         getRequest().setAttribute("weeks", weeks);
 
+        // Find out the prizes for the contest
         q = HibernateUtils.getSession().createQuery("select cp.place, cp.prizeTypeId, min(cp.amount)" +
                 " from com.topcoder.web.common.model.comp.ContestPrize cp " +
                 " where cp.contest.event.id = :eventId " +
                 " group by cp.place, cp.prizeTypeId " +
                 " order by cp.place");
+        
         q.setLong("eventId", getEvent().getId());
         List l = q.list();
         
@@ -68,10 +76,10 @@ public class CompOverview extends Base {
         for (Object objects : l) {
             Object []o = (Object[]) objects;
             Integer type = (Integer) o[1];
-            if (type.equals(12)) {  // fix: use constant!
+            if (type.equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_WEEKLY)) {  
                 weeklyPrizes.add((Double) o[2]);
             }
-            if (type.equals(13)) { // fix: use constant!
+            if (type.equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_OVERALL)) {
                 overallPrizes.add((Double) o[2]);
             }
         }
@@ -82,4 +90,6 @@ public class CompOverview extends Base {
         setNextIntroEventPage("compOverview.jsp");
 
     }
+        
+    
 }

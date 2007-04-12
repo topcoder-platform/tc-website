@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.request.introevent;
 
+import java.util.List;
+
 import org.hibernate.Query;
 
 import com.topcoder.web.common.HibernateUtils;
@@ -13,6 +15,15 @@ import com.topcoder.web.common.model.ImageInfo;
 import com.topcoder.web.common.model.IntroEvent;
 import com.topcoder.web.tc.Constants;
 
+/**
+ * Base class for introductory event processors.
+ * It expects a parameter eid with the event id.  This is usually an algo or component event, whose parent (mainEvent) is
+ * an introductory event.  
+ * 
+ * 
+ * @author Cucu
+ *
+ */
 public abstract class Base extends ShortHibernateProcessor {
 
     private Event event = null;    
@@ -33,7 +44,7 @@ public abstract class Base extends ShortHibernateProcessor {
         Long eventId = new Long(eid);
         
         
-        event = retrieveEvent(eventId);
+        event = DAOUtil.getFactory().getEventDAO().find(eventId);
         
         if (event == null) {
             throw new TCWebException("Event not found: " + eid);
@@ -42,10 +53,10 @@ public abstract class Base extends ShortHibernateProcessor {
         Integer type = event.getType().getId();
         
         if (type.equals(EventType.INTRO_EVENT_ID)) {
-            mainEvent = retrieveMainEvent(eventId);
+            mainEvent = DAOUtil.getFactory().getIntroEventDAO().find(eventId);
             
         } else if (type.equals(EventType.INTRO_EVENT_ALGO_ID) || type.equals(EventType.INTRO_EVENT_COMP_ID)) {
-            mainEvent = retrieveMainEvent(event.getParent().getId()); 
+            mainEvent = DAOUtil.getFactory().getIntroEventDAO().find(event.getParent().getId()); 
             
         } else {
             throw new TCWebException("Event must be any of intro event types, but was: " + type);
@@ -55,14 +66,16 @@ public abstract class Base extends ShortHibernateProcessor {
         Query q = HibernateUtils.getSession().createQuery("select e.id, e.type.id from Event e where e.parent.id=:eventId");
         q.setLong("eventId", mainEvent.getId());
         
-        for(Object child : q.list()) {
-            Object t = (Integer) ((Object[]) child) [1];
+        List<Object[]> children = DAOUtil.getFactory().getEventDAO().getChildrenTypes(mainEvent.getId());
+        
+        for(Object[] child : children) {
+            Object t = (Integer) (child[1]);
             
             if (t.equals(EventType.INTRO_EVENT_ALGO_ID)) {
-                algoEventId = (Long) ((Object[]) child) [0];                
+                algoEventId = (Long) (child[0]);                
             }
             if (t.equals(EventType.INTRO_EVENT_COMP_ID)) {
-                compEventId = (Long) ((Object[]) child) [0];                
+                compEventId = (Long) (child[0]);                
             }
         }
 
@@ -90,14 +103,6 @@ public abstract class Base extends ShortHibernateProcessor {
         getRequest().setAttribute("mainEvent", mainEvent);
         
         introEventProcessing();
-    }
-
-    protected Event retrieveEvent(Long eventId) {
-        return DAOUtil.getFactory().getEventDAO().find(eventId);
-    }
-
-    protected IntroEvent retrieveMainEvent(Long eventId) {
-        return DAOUtil.getFactory().getIntroEventDAO().find(eventId);
     }
 
     protected void setNextIntroEventPage(String page) {

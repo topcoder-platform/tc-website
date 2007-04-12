@@ -39,6 +39,32 @@
                 <one-to-many class="IntroEventConfig"/>
             </set>
             
+            <property name="roundStart" access="field">
+                <formula>
+                        (select rs.start_time 
+                        from round_segment rs
+                        where rs.segment_id = 2
+                        and rs.round_id = round_id)
+                </formula>
+            </property>
+            <property name="roundEnd" access="field">
+                <formula>
+                        (select rs.start_time 
+                        from round_segment rs
+                        where rs.segment_id = 5
+                        and rs.round_id = round_id)
+                </formula>
+            </property>
+
+            <property name="roundName" access="field">
+                <formula>
+                        (select c.name
+                        from contest c, round r
+                        where c.contest_id = r.contest_id
+                        and r.round_id = round_id)
+                </formula>
+            </property>
+        
         </joined-subclass>
     </class>
 </hibernate-mapping>

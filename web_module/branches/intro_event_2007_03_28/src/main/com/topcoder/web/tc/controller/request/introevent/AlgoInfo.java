@@ -3,6 +3,11 @@ package com.topcoder.web.tc.controller.request.introevent;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.EventType;
 
+/**
+ * Display information about the algorithm contest for the event.
+ * 
+ * @author Cucu
+ */
 public class AlgoInfo extends Base {
     
     @Override

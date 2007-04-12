@@ -25,6 +25,8 @@ public class CompResults extends Base {
         
         String ct = getRequest().getParameter("ct");
 
+        // Find the contests for the event, to show the crumb with them.  
+        // It stores the names and id for des and dev in separate lists.
         Request r = new Request();
         r.setContentHandle("intro_event_contests");
         r.setProperty("eid", getEvent().getId() + "");        
@@ -62,6 +64,7 @@ public class CompResults extends Base {
         getRequest().setAttribute("devContests", devContests);
         
         if(ct != null) {
+            // if a contest was specified, find out the results
             r = new Request();
             r.setContentHandle("intro_event_comp_results");
             r.setProperty("ct", Long.parseLong(ct) + "");

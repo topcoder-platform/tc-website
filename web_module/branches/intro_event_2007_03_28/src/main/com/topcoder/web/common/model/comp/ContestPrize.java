@@ -8,6 +8,9 @@ import com.topcoder.web.common.model.Base;
 @SuppressWarnings("serial")
 public class ContestPrize extends Base {
 
+    public static final Integer CONTEST_PRIZE_INTRO_EVENT_WEEKLY = 12;
+    public static final Integer CONTEST_PRIZE_INTRO_EVENT_OVERALL = 13;
+    
     protected Long id = null;
     protected Contest contest = null;
     protected Integer prizeTypeId = null; 

@@ -3,6 +3,12 @@ package com.topcoder.web.tc.controller.request.introevent;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.User;
 
+/**
+ *  Display a link to register, or if it's not possible to register (too early, too late, already registered or not eligible) it shows that reason.
+ *  
+ * @author Cucu
+ *
+ */
 public class ViewRegister extends RegistrationBase {
 
     @Override

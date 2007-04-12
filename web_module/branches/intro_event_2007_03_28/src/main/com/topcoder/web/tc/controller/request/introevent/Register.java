@@ -8,6 +8,11 @@ import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.User;
 
+/**
+ * Sets the user as registered in the event passed as a parameter.
+ * 
+ * @author Cucu
+ */
 public class Register extends RegistrationBase {
 
     @Override

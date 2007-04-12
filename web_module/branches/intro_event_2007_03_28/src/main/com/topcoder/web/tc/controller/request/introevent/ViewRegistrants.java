@@ -7,13 +7,19 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
 
+/**
+ * Display a list of registrants for the event.
+ * 
+ * @author Cucu
+ *
+ */
 public class ViewRegistrants extends Base {
     
     @Override
     protected void introEventProcessing() throws Exception {
         if (!getEvent().getType().getId().equals(EventType.INTRO_EVENT_COMP_ID) &&
                 !getEvent().getType().getId().equals(EventType.INTRO_EVENT_ALGO_ID)) {
-                throw new NavigationException("Invalid event type.");
+            throw new NavigationException("Invalid event type.");
         }
             
 
