@@ -40,7 +40,7 @@
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
 <li><a href="/tc?module=Static&d1=features&d2=041207"><strong>Meet the April Coders of the Month</strong></a><%--, by <tc-webtag:handle coderId="15635590" />--%><br>
-We caught up with two of April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.</li>
+We caught up with April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=lineSweep"><strong>Line Sweep Algorithms</strong></a>, by <tc-webtag:handle coderId="251074" /><br>
 In this article I'll explore some more advanced algorithms that can be built from the basic tools of computational geometry. They are all based on the simple but powerful idea of a sweep line: a vertical line that is conceptually "swept" across the plane.</li>
 <li><a href="/tc?module=Static&d1=features&d2=040507"><strong>Programming in the Real World</strong></a>, by <tc-webtag:handle coderId="15635590" /><br>

@@ -59,7 +59,7 @@
 --%>
 <br clear="all">
 
-<p>We caught up with two of April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.</p>
+<p>We caught up with April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.</p>
 
 <p>
 <a href="/tc?module=COMHistory&achtid=5">Algorithm</a>: <tc-webtag:handle coderId="22675302" />:<br>
@@ -102,6 +102,22 @@ Cincinnati, Ohio
 
 <p><strong>What advice would you give?</strong><br>
 "Have fun. Enjoy the intensity of effort and focus required, and you will succeed."</p>
+
+<p>
+<a href="/tc?module=COMHistory&achtid=6">Development</a>: <tc-webtag:handle coderId="14820574" />:<br>
+3 wins, 2 second places<br>
+GuangZhou, China
+</p>
+
+<p><i><tc-webtag:handle coderId="14820574" /> is also having a great Stage 4 of the Digital Run, currently leading the Development Cup with 3070 points.</i></p>
+
+<p>"I first came to TopCoder about two years ago. My friend <tc-webtag:handle coderId="347569" /> told me about <tc-webtag:handle coderId="286907" /> -- that he had won quite some money in the software competition -- and recommended that I have a look. Then I browsed the forums, learned Java, C# and some components. I like the competitions and do them better and better, and am glad that I was selected as a coder of the month."</p>
+
+<p><strong>What's the coolest thing you’ve seen at TopCoder?</strong><br>
+"That was about one year ago, when several classmates and I participated in a SRM. We shared our algorithms after the contest, and the feeling was like playing an interesting game with some friends -- unlike software competitions, which are more work than game to me."</p>
+
+<p><strong>What advice would you give?</strong><br>
+"The start may be a pain, but don't be frustrated even if you've failed several times. You have gained more experience and will do better next time."</p>
 
 <p>&nbsp;</p>
         </td>
