@@ -46,15 +46,15 @@
 <br>Sorry, registration for this competition has closed.
 </p>
 
+<%--
 <p align="center" style="margin-bottom: 40px;">
 <strong><A href="/tc?module=TCO07ViewRegistration&amp;ct=component">Component Design & Development Competition</A></strong>
 </p>
-<%--
+--%>
 <p class="grayedOut" align="center" style="margin-bottom: 40px;">
 <strong>Component Design & Development Competition</strong>
 <br>Sorry, registration for this competition has closed.
 </p>
---%>
 
 <%--
 <p align="center" style="margin-bottom: 40px;">
