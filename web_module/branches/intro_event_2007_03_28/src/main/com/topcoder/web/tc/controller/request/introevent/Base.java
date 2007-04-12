@@ -59,23 +59,7 @@ public abstract class Base extends ShortHibernateProcessor {
             throw new TCWebException("Event must be any of intro event types, but was: " + type);
         }
         
-        // Check if there are algo and/or component events
-/*        Query q = HibernateUtils.getSession().createQuery("select e.id, e.type.id from Event e where e.parent.id=:eventId");
-        q.setLong("eventId", mainEvent.getId());
-        
-        List<Object[]> children = DAOUtil.getFactory().getEventDAO().getChildrenTypes(mainEvent.getId());
-        
-        for(Object[] child : children) {
-            Object t = (Integer) (child[1]);
-            
-            if (t.equals(EventType.INTRO_EVENT_ALGO_ID)) {
-                algoEventId = (Long) (child[0]);                
-            }
-            if (t.equals(EventType.INTRO_EVENT_COMP_ID)) {
-                compEventId = (Long) (child[0]);                
-            }
-        }
-*/
+        // Check if there are algo and/or component events and get their ids
         List<Event> children = DAOUtil.getFactory().getEventDAO().getChildrenTypes(mainEvent.getId());
         
         for(Event child : children) {

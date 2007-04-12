@@ -5,9 +5,12 @@ import java.sql.Timestamp;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.EventType;
 
+/**
+ * Display an overview of the algorithm competition.
+ * 
+ * @author Cucu
+ */
 public class AlgoOverview extends Base {
-
-
     
     @Override
     protected void introEventProcessing() throws Exception {

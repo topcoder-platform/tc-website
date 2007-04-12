@@ -12,6 +12,8 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.model.EventType;
 
 /**
+ * Show the results for the component competition.
+ * 
  * @author cucu
  */
 public class CompResults extends Base {
