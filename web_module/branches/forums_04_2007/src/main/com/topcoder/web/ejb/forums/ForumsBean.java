@@ -729,6 +729,8 @@ public class ForumsBean extends BaseEJB {
                     "(select groupid from jivegroup " +
                     "where (name like 'Software\\_Moderators\\_%' or name like 'Software\\_Users\\_%')) ");
             ps.executeUpdate();
+            close(ps);
+            
             ps = conn.prepareStatement(
                     "delete from jivegroupuser where groupid in " +
                     "(select groupid from jivegroup " +

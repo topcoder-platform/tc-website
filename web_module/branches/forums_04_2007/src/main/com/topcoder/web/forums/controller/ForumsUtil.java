@@ -287,7 +287,7 @@ public class ForumsUtil {
         		log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
         		continue;
         	}
-            log.debug("##### parsedComponentID");
+            log.debug("##### parsed component ID");
         	
         	if (c.getMessageCount() > 0 || mergeEmptyCategories) {
         		categoriesList.add(c);
