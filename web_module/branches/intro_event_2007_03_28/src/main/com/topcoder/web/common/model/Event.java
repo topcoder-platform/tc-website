@@ -24,6 +24,12 @@ public class Event extends Base {
     private Set users;
     private Event parent;
     
+    public Event(Long id, EventType type) {
+        super();
+        this.id = id;
+        this.type = type;
+    }
+
     public Event getParent() {
         return parent;
     }

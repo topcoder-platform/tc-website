@@ -31,9 +31,9 @@ public class CompOverview extends Base {
         Query q = HibernateUtils.getSession().createQuery(query);
         q.setLong("eventId", getEvent().getId());
 
-        Date[] dates = (Date[]) q.uniqueResult();    
-        Date startDate = dates[0];
-        Date endDate = dates[1];
+        Object[] dates = (Object[]) q.uniqueResult();    
+        Date startDate = (Date) dates[0];
+        Date endDate = (Date) dates[1];
 
         long dt = endDate.getTime() - startDate.getTime();        
         int weeks = (int) (dt / (7 * 24 * 60 * 60 * 1000)) + 1;

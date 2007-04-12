@@ -63,7 +63,7 @@ public abstract class Base extends ShortHibernateProcessor {
         }
         
         // Check if there are algo and/or component events
-        Query q = HibernateUtils.getSession().createQuery("select e.id, e.type.id from Event e where e.parent.id=:eventId");
+/*        Query q = HibernateUtils.getSession().createQuery("select e.id, e.type.id from Event e where e.parent.id=:eventId");
         q.setLong("eventId", mainEvent.getId());
         
         List<Object[]> children = DAOUtil.getFactory().getEventDAO().getChildrenTypes(mainEvent.getId());
@@ -78,7 +78,18 @@ public abstract class Base extends ShortHibernateProcessor {
                 compEventId = (Long) (child[0]);                
             }
         }
-
+*/
+        List<Event> children = DAOUtil.getFactory().getEventDAO().getChildrenTypes(mainEvent.getId());
+        
+        for(Event child : children) {
+            if (child.getType().getId().equals(EventType.INTRO_EVENT_ALGO_ID)) {
+                algoEventId = child.getId();                
+            }
+            if (child.getType().getId().equals(EventType.INTRO_EVENT_COMP_ID)) {
+                compEventId = child.getId();                
+            }
+        }
+        
         // Set up the event image
         Image img = mainEvent.getImage();
         
