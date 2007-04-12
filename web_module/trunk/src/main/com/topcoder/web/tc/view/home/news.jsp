@@ -8,7 +8,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041207">Meet the April Coders of the Month</A></span><br><br>
-We caught up with two of April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.
+We caught up with April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.
         </td>
       <td class="newsPhoto">&#160;<%--<img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="algorithm"/>--%></td></tr></table>
       </td>
