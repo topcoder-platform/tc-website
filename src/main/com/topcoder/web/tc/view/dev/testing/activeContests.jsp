@@ -145,25 +145,27 @@
       </td>
    </tr>
    <% even = !even;%>
+
+<%-- THESE TWO COMPETITIONS ARE ON HOLD FOR NOW - as of 04.12.07
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_smcLandingPage">SMC Testing Competition - Landing Page</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
+      <!--registration closed--!>
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Landing Page">register</A>
       </td>
       <td class="valueC">
       &#160;
-      <%--
+      <!--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_smcLandingPage">results</A>
-      --%>
+      --!>
       </td>
       <td class="valueC">
       &#160;
-      <%--
+      <!--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_smcLandingPage">standings</A>
-      --%>
+      --!>
       </td>
       <td class="valueC">$800</td>
       <td class="valueC">
@@ -182,20 +184,20 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_smcNonLandingPage">SMC Testing Competition - Non-Landing Page</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
+      <!--registration closed--!>
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Non-Landing Page">register</A>
       </td>
       <td class="valueC">
       &#160;
-      <%--
+      <!--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_smcNonLandingPage">results</A>
-      --%>
+      --!>
       </td>
       <td class="valueC">
       &#160;
-      <%--
+      <!--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_smcNonLandingPage">standings</A>
-      --%>
+      --!>
       </td>
       <td class="valueC">$800</td>
       <td class="valueC">
@@ -209,6 +211,8 @@
       </td>
    </tr>
    <% even = !even;%>
+--%>
+
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_smcReporting">SMC Testing Competition - Reporting</A>
