@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><a href="tc?module=Static&d1=features&d2=040507"><strong>Programming in the Real World</strong></a>, by <tc-webtag:handle coderId="15635590" /><br>
+<li><a href="/tc?module=Static&d1=features&d2=041207"><strong>Meet the April Coders of the Month</strong></a><%--, by <tc-webtag:handle coderId="15635590" />--%><br>
+We caught up with two of April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.</li>
+<li><a href="/tc?module=Static&d1=tutorials&d2=lineSweep"><strong>Line Sweep Algorithms</strong></a>, by <tc-webtag:handle coderId="251074" /><br>
+In this article I'll explore some more advanced algorithms that can be built from the basic tools of computational geometry. They are all based on the simple but powerful idea of a sweep line: a vertical line that is conceptually "swept" across the plane.</li>
+<li><a href="/tc?module=Static&d1=features&d2=040507"><strong>Programming in the Real World</strong></a>, by <tc-webtag:handle coderId="15635590" /><br>
 In the working world, successful programming sometimes requires more than quickly writing correct code – it takes learning how to work as part of a team. This article describes some of the difficulties you might encounter when you join your first working team.</li>
-<li><a href="tc?module=Static&d1=features&d2=040207"><strong>Using Mock Objects with Components</strong></a>, by <tc-webtag:handle coderId="15891862" /><br>
-The number of component projects posted on TopCoder seems to increase almost every week. While more components means more variety, more opportunity, and more prize money, the increased number can also lead to challenges. What if the component you're developing depends on another component which is not yet complete? This is where mock objects come in.</li>
-<li><a href="tc?module=Static&d1=features&d2=032907"><strong>A Crash Course in Relational Databases, Part 2</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
-With the information in the first part of this article, you should have been able to get your own Oracle Express Edition database up and running, and update it with TopCoder's active algorithm competitor data. In Part 2, we'll look at more of the key concepts and terms that will help you manage and maintain your database.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
