@@ -1,12 +1,14 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import com.topcoder.web.common.dao.EventDAO;
-import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventType;
+import java.util.Date;
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 
-import java.util.List;
+import com.topcoder.web.common.dao.EventDAO;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventType;
  
 
 /**
@@ -65,7 +67,7 @@ public class EventDAOHibernate extends Base implements EventDAO {
     @SuppressWarnings("unchecked")
     public List<Event> getChildrenTypes(Long id) {
         StringBuffer query = new StringBuffer(100);
-        query.append("select new Event(e.id, e.type.id) ");
+        query.append("select new Event(e.id, e.type) ");
         query.append(" from Event e");
         query.append(" where e.parent.id = :eventId");
 
@@ -83,5 +85,19 @@ public class EventDAOHibernate extends Base implements EventDAO {
         Query q = session.createQuery("select e.id.user.id from EventRegistration e where e.id.event.id = :eventId");
         q.setLong("eventId", eventId);
         return (List<Long>) q.list();
+    }
+    
+    public Date[] getComponentContestDates(Long eventId) {
+        // Find out the start date of the first and last contest, and the number of weeks it lasts.
+        String query = "select min(c.startDate), max(c.startDate) " +
+                " from com.topcoder.web.common.model.comp.Contest c " +
+                " where c.event.id=:eventId";
+
+        Query q = session.createQuery(query);
+        q.setLong("eventId",eventId);
+
+        Object[] dates = (Object[]) q.uniqueResult();    
+        
+        return new Date[]{(Date) dates[0], (Date) dates[1]};
     }
 }

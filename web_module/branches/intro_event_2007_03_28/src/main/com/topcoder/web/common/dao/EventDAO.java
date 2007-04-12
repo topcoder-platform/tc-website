@@ -1,9 +1,10 @@
 package com.topcoder.web.common.dao;
 
+import java.util.Date;
+import java.util.List;
+
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
-
-import java.util.List;
 
 /**
  * @author dok
@@ -28,5 +29,7 @@ public interface EventDAO {
 
     List<Long> getRegistrants(Long eventId);
         
+    Date[] getComponentContestDates(Long eventId);
+    
     void saveOrUpdate(Event e);
 }

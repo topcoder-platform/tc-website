@@ -6,9 +6,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.hibernate.Query;
-
-import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.EventType;
@@ -24,16 +21,18 @@ public class CompOverview extends Base {
         }
 
         // Find out the start date of the first and last contest, and the number of weeks it lasts.
-        String query = "select min(c.startDate), max(c.startDate) " +
+/*        String query = "select min(c.startDate), max(c.startDate) " +
                 " from com.topcoder.web.common.model.comp.Contest c " +
                 " where c.event.id=:eventId";
 
         Query q = HibernateUtils.getSession().createQuery(query);
         q.setLong("eventId", getEvent().getId());
 
-        Object[] dates = (Object[]) q.uniqueResult();    
-        Date startDate = (Date) dates[0];
-        Date endDate = (Date) dates[1];
+        Object[] dates = (Object[]) q.uniqueResult();*/
+        Date[] dates = DAOUtil.getFactory().getEventDAO().getComponentContestDates(getEvent().getId());
+        
+        Date startDate = dates[0];
+        Date endDate = dates[1];
 
         long dt = endDate.getTime() - startDate.getTime();        
         int weeks = (int) (dt / (7 * 24 * 60 * 60 * 1000)) + 1;
