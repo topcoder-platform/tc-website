@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>04.12.07<br>3:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041207">Meet the April Coders of the Month</A></span><br><br>
+We caught up with two of April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.
+        </td>
+      <td class="newsPhoto">&#160;<%--<img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="algorithm"/>--%></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=041207">full story</A> | 
+        <tc-webtag:forumLink forumID="515162" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.11.07<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -205,22 +222,5 @@ As everyone involved knew for a few days, this round was supposed to be the toug
         <A href="/tc?module=Static&d1=pressroom&d2=pr_040907">details</A> | 
         <tc-webtag:forumLink forumID="515049" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=pressroom&d2=index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.09.07<br>11:50 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd3">TCO07 Qualification Round 3 - Problem Set & Analysis</A></span><br><br>
-A total of 831 coders waited until the third and final qualification round for the 2007 TopCoder Open.  Of these, only 488 scored greater than zero points, so all of those will advance to the next round.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/legakis_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="287269" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_qual_rd3">full story</A> | 
-        <tc-webtag:forumLink forumID="514899" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
