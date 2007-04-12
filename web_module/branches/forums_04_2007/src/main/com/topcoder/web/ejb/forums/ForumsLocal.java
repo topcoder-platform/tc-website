@@ -76,4 +76,6 @@ public interface ForumsLocal extends EJBLocalObject {
     //public long getSoftwareComponentID(ForumCategory category) throws EJBException, SQLException;
     
     public void deleteOrphanedAttachments() throws EJBException;
+    
+    public void convertTCSPerms() throws EJBException;
 }

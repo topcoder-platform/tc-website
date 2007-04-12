@@ -713,6 +713,38 @@ public class ForumsBean extends BaseEJB {
             close(conn);
         }
     }
+    
+    public void convertTCSPerms() {
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            conn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
+            ps = conn.prepareStatement(
+                    "insert into jiveuserperm " +
+                    "select p.objecttype, p.objectid, u.userid, p.permissiontype, p.permission " +
+                    "from jivegroupuser u, jivegroupperm p " +
+                    "where u.groupid = p.groupid " +
+                    "and p.groupid in " +
+                    "(select groupid from jivegroup " +
+                    "where (name like 'Software\\_Moderators\\_%' or name like 'Software\\_Users\\_%')) ");
+            ps.executeUpdate();
+            ps = conn.prepareStatement(
+                    "delete from jivegroupuser where groupid in " +
+                    "(select groupid from jivegroup " +
+                    "where (name like 'Software\\_Moderators\\_%' or name like 'Software\\_Users\\_%')) ");
+            ps.executeUpdate();
+            log.info("Successfully converted TCS permissions.");
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new EJBException(e.getMessage());
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        } finally {
+            close(ps);
+            close(conn);
+        }
+    }
 
     private void logException(Exception e, String msg) {
         log.info("*** " + msg + ": " + e);
