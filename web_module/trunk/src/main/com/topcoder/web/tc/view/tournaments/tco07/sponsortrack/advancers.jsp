@@ -59,10 +59,58 @@
                             <tbody>
                                 <tr class="light">
                                     <td class="value">
-                                    <tc-webtag:handle coderId="144400" context="algorithm"/>
+                                    <tc-webtag:handle coderId="10445425" context="algorithm"/>
                                     </td>
                                     <td class="valueCA">
                                     Advanced
+                                    </td>
+                                    <td class="valueC">
+                                    &nbsp;
+                                    </td>
+                                    <td class="valueC">
+                                    &nbsp;
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr class="dark">
+                                    <td class="value">
+                                    <tc-webtag:handle coderId="15600872" context="algorithm"/>
+                                    </td>
+                                    <td class="valueCA">
+                                    Advanced
+                                    </td>
+                                    <td class="valueC">
+                                    &nbsp;
+                                    </td>
+                                    <td class="valueC">
+                                    &nbsp;
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr class="light">
+                                    <td class="value">
+                                    <tc-webtag:handle coderId="15653863" context="algorithm"/>
+                                    </td>
+                                    <td class="valueCE">
+                                    Eliminated
+                                    </td>
+                                    <td class="valueC">
+                                    &nbsp;
+                                    </td>
+                                    <td class="valueC">
+                                    &nbsp;
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr class="dark">
+                                    <td class="value">
+                                    <tc-webtag:handle coderId="20978640" context="algorithm"/>
+                                    </td>
+                                    <td class="valueCE">
+                                    Eliminated
                                     </td>
                                     <td class="valueC">
                                     &nbsp;
