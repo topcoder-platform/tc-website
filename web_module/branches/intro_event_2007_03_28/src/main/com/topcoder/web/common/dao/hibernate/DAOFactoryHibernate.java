@@ -27,6 +27,10 @@ public class DAOFactoryHibernate implements DAOFactory {
     public ContactDAO getContactDAO() {
         return new ContactDAOHibernate();
     }
+    
+    public ContestPrizeDAO getContestPrizeDAO() {
+        return new ContestPrizeDAOHibernate();
+    }
 
     public CountryDAO getCountryDAO() {
         return new CountryDAOHibernate();

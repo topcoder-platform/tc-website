@@ -14,6 +14,8 @@ public interface DAOFactory {
 
     CompanyDAO getCompanyDAO();
 
+    ContestPrizeDAO getContestPrizeDAO();
+    
     ContactDAO getContactDAO();
 
     CountryDAO getCountryDAO();

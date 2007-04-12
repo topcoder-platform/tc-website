@@ -10,6 +10,7 @@ import org.hibernate.Query;
 
 import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.comp.ContestPrize;
 
@@ -61,6 +62,7 @@ public class CompOverview extends Base {
         getRequest().setAttribute("weeks", weeks);
 
         // Find out the prizes for the contest
+        /*
         q = HibernateUtils.getSession().createQuery("select cp.place, cp.prizeTypeId, min(cp.amount)" +
                 " from com.topcoder.web.common.model.comp.ContestPrize cp " +
                 " where cp.contest.event.id = :eventId " +
@@ -69,10 +71,8 @@ public class CompOverview extends Base {
         
         q.setLong("eventId", getEvent().getId());
         List l = q.list();
-        
-        List<Double> weeklyPrizes = new ArrayList<Double>();
-        List<Double> overallPrizes = new ArrayList<Double>();
-        
+        */
+        /*
         for (Object objects : l) {
             Object []o = (Object[]) objects;
             Integer type = (Integer) o[1];
@@ -81,6 +81,18 @@ public class CompOverview extends Base {
             }
             if (type.equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_OVERALL)) {
                 overallPrizes.add((Double) o[2]);
+            }
+        }*/
+        List<ContestPrize> prizes = DAOUtil.getFactory().getContestPrizeDAO().getPrizesForEvent(getEvent().getId());
+        List<Double> weeklyPrizes = new ArrayList<Double>();
+        List<Double> overallPrizes = new ArrayList<Double>();
+        
+        for (ContestPrize prize : prizes) {
+            if (prize.getPrizeTypeId().equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_WEEKLY)) {  
+                weeklyPrizes.add(prize.getAmount());
+            }
+            if (prize.getPrizeTypeId().equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_OVERALL)) {
+                overallPrizes.add(prize.getAmount());
             }
         }
 
