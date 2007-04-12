@@ -170,10 +170,12 @@
                     <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=component&amp;d4=rules"<% if (tabLev1.equals("component") && tabLev2.equals("rules")) {%> class="navHighlight"<% } %>>
                         <span>Rules</span>
                     </a></li>
+                <%--
                 <li class="stop">
                     <a href="/tc?module=TCO07ViewRegistration&amp;ct=component"<% if (tabLev1.equals("component") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>>
                         <span>Register</span>
                     </a></li>
+                --%>
                 <li class="stop">
                     <a href="/tc?module=TCO07ViewRegistrants&amp;ct=component"<% if (tabLev1.equals("component") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
                         <span>Registrants</span>
