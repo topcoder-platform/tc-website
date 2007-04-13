@@ -40,6 +40,7 @@
 
 <!-- Center Column begins -->
         <td width="100%">
+<%--
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top"><td id="corpTitle" width="100%" colspan="3"><img src="/i/corp/header_topcoder_testing.gif" alt="" width="546" height="41" border="0"></td></tr>
 
@@ -78,6 +79,7 @@
                         <img src="/i/corp/verisign_m.gif" alt="Payment Services by Verisign" width="103" height="43" border="0" vspace="20"></div>
 
                         <p><br></p>
+--%>
                     </td>
 
 <!-- Gutter -->

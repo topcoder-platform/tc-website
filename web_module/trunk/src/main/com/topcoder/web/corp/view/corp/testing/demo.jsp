@@ -42,6 +42,7 @@
 
 <!-- Center Column begins -->
         <td width="100%">
+<%--
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
 
                 <tr valign="top">
@@ -54,21 +55,22 @@
                         Sit in the candidate's seat and apply for a job, which automatically registers you for the Technical Assessment Tool.
                         Access the Reporting Application, which gives you immediate results of candidates' tests, contact information and resumes.</p>
 
-						<p><a href="/corp/?module=Static&d1=corp&d2=testing&d3=demo_job" target="_blank"><img src="/i/corp/apply.gif" width="129" height="77" alt="" border="0" align="left" style="margin-left: 0px; margin-top: 7px; margin-right: 10px; margin-bottom: 7px;"/></a>
-						<span class="testSubhead"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=demo_job" target="_blank">Step One - Apply for a job and register for the Technical Assessment Tool</a></span><br/>
-						Take a step back into the life of a candidate.  View a job description with a link to apply,
-						which will get you registered for the Technical Assessment Tool. Receive an email with
-						instructions and then participate in the test itself.</p>
-						<p><br/></p>
+                        <p><a href="/corp/?module=Static&d1=corp&d2=testing&d3=demo_job" target="_blank"><img src="/i/corp/apply.gif" width="129" height="77" alt="" border="0" align="left" style="margin-left: 0px; margin-top: 7px; margin-right: 10px; margin-bottom: 7px;"/></a>
+                        <span class="testSubhead"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=demo_job" target="_blank">Step One - Apply for a job and register for the Technical Assessment Tool</a></span><br/>
+                        Take a step back into the life of a candidate.  View a job description with a link to apply,
+                        which will get you registered for the Technical Assessment Tool. Receive an email with
+                        instructions and then participate in the test itself.</p>
+                        <p><br/></p>
 
-						<p><a href="/corp/?module=Login&<%=Login.KEY_USER_HANDLE%>=xyzresults&<%=Login.KEY_USER_PASS%>=xyzpassword&<%=BaseServlet.NEXT_PAGE_KEY%>=/corp/testing?module=CampaignList" target="_blank"><img src="/i/corp/results.gif" width="129" height="77" alt="" border="0" align="left" style="margin-left: 0px; margin-top: 7px; margin-right: 10px; margin-bottom: 7px;"/></a>
-						<span class="testSubhead"><a href="/corp/?module=Login&<%=Login.KEY_USER_HANDLE%>=xyzresults&<%=Login.KEY_USER_PASS%>=xyzpassword&<%=BaseServlet.NEXT_PAGE_KEY%>=/corp/testing?module=CampaignList" target="_blank">Step Two - View sample results and get acclimated with the reporting process</a></span><br/>
-						After you've seen the candidate side, come back and see what kind of information is reported.
-						You'll see contact information, test results (including the submitted code), answers to demographic
-						questions, and resume.  You can rate each candidate on a scale from 1 to 5, and make notes that
-						will be carried along in the interview process.</p>
+                        <p><a href="/corp/?module=Login&<%=Login.KEY_USER_HANDLE%>=xyzresults&<%=Login.KEY_USER_PASS%>=xyzpassword&<%=BaseServlet.NEXT_PAGE_KEY%>=/corp/testing?module=CampaignList" target="_blank"><img src="/i/corp/results.gif" width="129" height="77" alt="" border="0" align="left" style="margin-left: 0px; margin-top: 7px; margin-right: 10px; margin-bottom: 7px;"/></a>
+                        <span class="testSubhead"><a href="/corp/?module=Login&<%=Login.KEY_USER_HANDLE%>=xyzresults&<%=Login.KEY_USER_PASS%>=xyzpassword&<%=BaseServlet.NEXT_PAGE_KEY%>=/corp/testing?module=CampaignList" target="_blank">Step Two - View sample results and get acclimated with the reporting process</a></span><br/>
+                        After you've seen the candidate side, come back and see what kind of information is reported.
+                        You'll see contact information, test results (including the submitted code), answers to demographic
+                        questions, and resume.  You can rate each candidate on a scale from 1 to 5, and make notes that
+                        will be carried along in the interview process.</p>
 
                         <p><br></p>
+--%>
                     </td>
 
 <!-- Gutter -->

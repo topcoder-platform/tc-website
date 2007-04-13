@@ -40,6 +40,7 @@
 
 <!-- Center Column begins -->
         <td width="100%">
+<%--
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
 
                 <tr valign="top">
@@ -48,13 +49,13 @@
 
                         <h1 class="testHead">TopCoder Technical Assessment Process</h1>
 
-                        		<p><a href="/corp/?module=Static&d1=corp&d2=testing&d3=demo"><img src="/i/corp/testing_demo.gif" width="265" height="98" alt="" border="0" align="right"/></a>
-                        		The TopCoder Technical Assessment Program allows companies to assess the technical abilities of candidates during the
-                        		interview process, thereby reducing the time incurred by in-house engineers. Employers can choose problem sets
-                        		to test candidates' problem solving skills with scenarios that mirror on-the-job issues. Instead of only
-                        		assessing employees' skills months after they're hired, detailed statistics and all submitted code are
-                        		released to employers during the interview process as a way to measure and compare candidates. This information
-                        		drastically reduces the time and effort it takes to identify proven developers.</p>
+                                <p><a href="/corp/?module=Static&d1=corp&d2=testing&d3=demo"><img src="/i/corp/testing_demo.gif" width="265" height="98" alt="" border="0" align="right"/></a>
+                                The TopCoder Technical Assessment Program allows companies to assess the technical abilities of candidates during the
+                                interview process, thereby reducing the time incurred by in-house engineers. Employers can choose problem sets
+                                to test candidates' problem solving skills with scenarios that mirror on-the-job issues. Instead of only
+                                assessing employees' skills months after they're hired, detailed statistics and all submitted code are
+                                released to employers during the interview process as a way to measure and compare candidates. This information
+                                drastically reduces the time and effort it takes to identify proven developers.</p>
 
 
                        <p><strong><a href="/corp/?module=Static&d1=corp&d2=testing&d3=management_tool">Click here to see the Technical Assessment Attributes</a></strong></p>
@@ -62,6 +63,7 @@
                         <div align="center"><img src="/i/corp/testing_diagram.gif" width="530" height="565" alt="TopCoder Testing" border="0"></div>
 
                         <p><br></p>
+--%>
                     </td>
 
 <!-- Gutter -->

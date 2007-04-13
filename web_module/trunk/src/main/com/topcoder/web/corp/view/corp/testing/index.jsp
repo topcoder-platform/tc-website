@@ -40,6 +40,7 @@
 
 <!-- Center Column begins -->
         <td width="100%">
+<%--
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
 
                 <tr valign="top">
@@ -52,15 +53,16 @@
                         done on time? If only I had better developers, this job wouldn't be costing so much? If only I had
                         better developers, I could actually be satisfying my customers?"</p>
 
-						<p>If only you had better developers - what a radical concept! The fact is, no single
-						factor impacts your business - in a time when everything depends on automation - more
-						than the quality of your development staff. But how can you evaluate who the best programmer
-						is before you make a hiring decision?</br> <strong><font color="#CC0000"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=testing_attributes">Click here to see how TopCoder can integrate into your recruitment process.</a></font></strong></p>
+                        <p>If only you had better developers - what a radical concept! The fact is, no single
+                        factor impacts your business - in a time when everything depends on automation - more
+                        than the quality of your development staff. But how can you evaluate who the best programmer
+                        is before you make a hiring decision?</br> <strong><font color="#CC0000"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=testing_attributes">Click here to see how TopCoder can integrate into your recruitment process.</a></font></strong></p>
 
 
                         <div align="center"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=demo"><img src="/i/corp/testing_demo.gif" width="265" height="98" alt="" border="0" align="center"/></a></div>
 
                         <p><br></p>
+--%>
                     </td>
 
 <!-- Gutter -->

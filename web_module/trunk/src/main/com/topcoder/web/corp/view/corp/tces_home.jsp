@@ -64,11 +64,6 @@
                       Whether your company seeks to identify and recruit the best talent or develop and recognize employees, TopCoder can provide
                       expertise and experience in executing online and onsite events.</p>
 
-                        <p><img src="/i/corp/quote_nvidia.gif" width="273" height="170" alt="" border="0" align="right"><span class="bodySubtitle"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=index">Skills Assessment</a></span><br>
-                        The TopCoder Skills Assessment Program allows companies to test the technical abilities of candidates during the interview 
-                        process, thereby reducing the time incurred by in-house engineers. Employers can choose problem sets to test candidates' 
-                        problem solving skills with scenarios that mirror on-the-job issues.</p>
-
                         <p><span class="bodySubtitle"><a href="/corp/?module=Static&d1=corp&d2=placement&d3=index">Placement</a></span><br>
                         TopCoder works with companies to fill both full-time and contract positions. Clients provide us with a description of the position they need filled and we locate the most qualified members. TopCoder will contact the candidates and handle the logistics of interviews and provide the hiring company with a resume and TopCoder rating.</p>
 

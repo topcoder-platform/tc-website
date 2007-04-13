@@ -17,13 +17,6 @@
                 <% if (level1.equals("privatelabel")) { %>
                     <tr><td id="<%=level2.equals("tces_report")?"leftSubnavOn":"leftSubnav"%>"><a href="/corp/tces" target="_parent" class="leftOn">Reports</a></td></tr>
                 <% } %>
-                <tr><td id="<%=level1.equals("testing")?(level2.equals("overview")?"leftNavSelect":"leftNavOn"):"leftNav"%>"><img src="/i/corp/nav_arrow_<%=level1.equals("testing")?"bottom":"right"%>.gif" width=10 height=10 border=0><a href="/corp/?module=Static&d1=corp&d2=testing&d3=index" target="_parent" class="<%=level1.equals("testing")?"leftOn":"left"%>">Skills Assessment</a></td></tr>
-	            <% if (level1.equals("testing")) { %>
-	                <tr><td id="<%=level2.equals("attributes")?"leftSubnavOn":"leftSubnav"%>"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=testing_attributes" target="_parent" class="leftOn">Process</a></td></tr>
-	                <tr><td id="<%=level2.equals("management")?"leftSubnavOn":"leftSubnav"%>"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=management_tool" target="_parent" class="leftOn">Attributes</a></td></tr>
-		            <tr><td id="<%=level2.equals("demo")?"leftSubnavOn":"leftSubnav"%>"><a href="/corp/?module=Static&d1=corp&d2=testing&d3=demo" target="_parent" class="leftOn">Demo</a></td></tr>
-	                <tr><td id="leftNavApplet"><img width=10 height=10 src="/i/corp/clear.gif" border=0/><A href="/corp/testing" class="left">Launch Technical Assessment</A></td></tr>
-	            <% } %>
                 <tr><td id="<%=level1.equals("placement")?"leftNavSelect":"leftNav"%>"><img src="/i/corp/nav_arrow_<%=level1.equals("placement")?"bottom":"right"%>.gif" width=10 height=10 border=0><a href="/corp/?module=Static&d1=corp&d2=placement&d3=index" class="<%=level1.equals("placement")?"leftOn":"left"%>">Placement</a></td></tr>
     <% } else if ((level1.equals("sponsorship"))) { %>
                 <tr><td id="leftNavTitle">Marketing Services:</td></tr>
