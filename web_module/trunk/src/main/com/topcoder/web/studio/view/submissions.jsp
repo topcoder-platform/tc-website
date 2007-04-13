@@ -122,7 +122,7 @@
                     Handle</a>
                 </td>
             </c:if>
-            <td class="header" nowrap="nowrap">
+            <td class="headerC" nowrap="nowrap">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_id")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
                     Submission ID</a>
             </td>
@@ -145,7 +145,7 @@
                         <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
                     </td>
                 </c:if>
-                <td class="value">
+                <td class="valueC">
                     <rsc:item name="submission_id" row="<%=resultRow%>"/>
                 </td>
                 <td class="valueC" nowrap="nowrap">
