@@ -126,9 +126,9 @@
                 <%-- SRM SPONSOR --%>
             <map name="mm">
             <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule" />
-            <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw" />
+            <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs" />
             </map>
-            <img src="/i/home/tco07Rd1-C_drw.png" alt="TCO07 Round 1C brought to you by DRW" border="0" style="display:block;" usemap="#mm"/>
+            <img src="/i/home/tco07Rd2_ubs.png" alt="TCO07 Round 2 brought to you by UBS" border="0" style="display:block;" usemap="#mm"/>
                 
 
             </td>
