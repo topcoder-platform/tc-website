@@ -39,6 +39,7 @@
 
 <!-- Center Column begins -->
         <td width="100%">
+<%--
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
 
                 <tr valign="top">
@@ -49,38 +50,39 @@
 
 
                         <p> <a href="/corp/?module=Static&d1=corp&d2=testing&d3=demo"><img src="/i/corp/testing_demo.gif" width="265" height="98" alt="" border="0" align="right"/></a>At the highest level, the TopCoder Technical Assessment Tool tests candidates in the following areas:</p>
-						<blockquote><ul>
-							<li>Problem Statement Comprehension Understanding of elements and the relationship between elements, variables and goals</li>
-							<li>Logical Design Conceive and design a logical structure for problem solving</li>
-							<li>Physical Implementation - Write and test detailed instructions to solve a problem - Compile and debug code by utilizing the functionality of a programming language compiler</li>
-						</ul></blockquote>
+                        <blockquote><ul>
+                            <li>Problem Statement Comprehension Understanding of elements and the relationship between elements, variables and goals</li>
+                            <li>Logical Design Conceive and design a logical structure for problem solving</li>
+                            <li>Physical Implementation - Write and test detailed instructions to solve a problem - Compile and debug code by utilizing the functionality of a programming language compiler</li>
+                        </ul></blockquote>
 
                         <div align="center"><img src="/i/corp/testing_screen_2.gif" alt="Coding Environment and Problem Statement" width="418" height="289" border="0"></div>
 
                         <h3><strong>Technical Assessment Tool</strong></h3>
-						<blockquote><ul>
-							<li>Web-based application used during application process</li>
-							<li>Candidates solve algorithmic problems</li>
-							<li>Measures programming ability</li>
-							<li>Allows candidates to code in Java, C++ or C#</li>
-							<li>Systematically tests for accuracy and basic efficiency</li>
-							<li>Results available immediately via Management Tool website</li>
-						</ul></blockquote>
+                        <blockquote><ul>
+                            <li>Web-based application used during application process</li>
+                            <li>Candidates solve algorithmic problems</li>
+                            <li>Measures programming ability</li>
+                            <li>Allows candidates to code in Java, C++ or C#</li>
+                            <li>Systematically tests for accuracy and basic efficiency</li>
+                            <li>Results available immediately via Management Tool website</li>
+                        </ul></blockquote>
 
-						<h3><strong>Reporting</strong></h3>
-						<p>Access to detailed statistical information on each candidate's performance</p>
-						<blockquote><ul>
-							<li>Programming language chosen</li>
-							<li>Attempted problem status</li>
-							<li>System test results</li>
-							<li>Time to submit</li>
-						</ul></blockquote>
-						<p>Submitted code can be analyzed by engineers to determine problem solving skills</p>
+                        <h3><strong>Reporting</strong></h3>
+                        <p>Access to detailed statistical information on each candidate's performance</p>
+                        <blockquote><ul>
+                            <li>Programming language chosen</li>
+                            <li>Attempted problem status</li>
+                            <li>System test results</li>
+                            <li>Time to submit</li>
+                        </ul></blockquote>
+                        <p>Submitted code can be analyzed by engineers to determine problem solving skills</p>
 
 
                         <div align="center"><img src="/i/corp/testing_screen_4.gif" alt="Technical Assessment Application Managment Tool - Candidate Results Report" width="528" height="388" border="0"></div>
 
                         <p><br></p>
+--%>
                     </td>
 
 <!-- Gutter -->
