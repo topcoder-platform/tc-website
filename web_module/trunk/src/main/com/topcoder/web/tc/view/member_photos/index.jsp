@@ -60,9 +60,7 @@
             </p>
             <p><span class="bodySubtitle">Timeframe for Photo Processing</span></p>
             <p class="bodyText">
-            We process photos every Friday, and publish them the following Monday.  You can expect to see your photos on the first Monday 
-            following the week you submitted your photo.  Please note that these dates may change as a result of holidays or other major 
-            TopCoder events.
+            Since the photos are processed manually, it's unpredictable how soon your profile will be updated. On average, they get processed every other week. Please note that these dates may change as a result of holidays or other major TopCoder events.
             </p>            
          </td>
       </tr>
