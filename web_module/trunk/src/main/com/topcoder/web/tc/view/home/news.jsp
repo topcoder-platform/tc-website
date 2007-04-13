@@ -3,25 +3,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%--------------------------------------------------------%>
-<!--   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.13.07<br>10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">TopCoder College Tour comes to Belarus</A>
-        </span><br><br>
-        On April 26, TopCoder is inviting programming problem-solvers from the best college computer science programs in Belarus to solve algorithm puzzles for great prizes and national recognition. For its first event in the country, the TopCoder College Tour will visit Belarus State University.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">details</A> |
-        <tc-webtag:forumLink forumID="514541" message="discuss this" /> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   -->
-<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.13.07<br>4:00 PM</td>
       <td class="newsTextCell">
@@ -57,6 +38,25 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">details</A> | 
         <tc-webtag:forumLink forumID="514951" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+<tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.13.07<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">TopCoder College Tour comes to Belarus</A>
+        </span><br><br>
+        On April 26, TopCoder is inviting programming problem-solvers from the best college computer science programs in Belarus to solve algorithm puzzles for great prizes and national recognition. For its first event in the country, the TopCoder College Tour will visit Belarus State University.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">details</A> |
+        <tc-webtag:forumLink forumID="514541" message="discuss this" /> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
 <%--------------------------------------------------------%>
@@ -224,41 +224,5 @@ In this article I'll explore some more advanced algorithms that can be built fro
         <A href="/tc?module=Static&d1=tutorials&d2=lineSweep">full story</A> | 
         <tc-webtag:forumLink forumID="515054" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.09.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=SimpleStats&c=tco07_alg_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=algorithm&d4=advancers">TCO07 Round 1A Advancers now online</A>
-        </span><br><br>
-        The first batch of TCO07 Round 1 advancers is now updated on the site. Congratulations!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=SimpleStats&c=tco07_alg_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=algorithm&d4=advancers">details</A> | 
-        <tc-webtag:forumLink forumID="514948" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.09.07<br>1:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1a">TCO07 Algorithm Round 1A - Problem Set & Analysis</A></span><br><br>
-As everyone involved knew for a few days, this round was supposed to be the toughest of the Round 1 groups. With roughly the same number of reds as the other two groups combined, and with a rating of 1617 necessary to be expected to qualify, this surely was a tough crowd.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/misof_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8357090" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1a">full story</A> | 
-        <tc-webtag:forumLink forumID="514948" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    

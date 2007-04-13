@@ -40,7 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<!-- <tr class="bodyText"><td nowrap="nowrap">04.13.07 10:00 AM - </td><td width="100%"><A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">TopCoder College Tour comes to Belarus</A></td></tr> -->
+<tr class="bodyText"><td nowrap="nowrap">04.13.07 10:00 AM - </td><td width="100%"><A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">TopCoder College Tour comes to Belarus</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.11.07 10:30 AM - </td><td width="100%"><A href="http://csf.topcoder.com/?module=Static&d1=assembly&d2=activeContests">Connected Services Assembly Competition now open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.10.07 12:15 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=16884">Vote for the homepage redesign winner</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.10.07 10:45 AM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=16853">Vote for the TopCoder video portal graphic set</A></td></tr>
