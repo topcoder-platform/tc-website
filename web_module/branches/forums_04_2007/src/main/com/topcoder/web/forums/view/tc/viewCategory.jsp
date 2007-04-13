@@ -14,6 +14,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
@@ -74,7 +75,6 @@
     
     String cmd = "";
     String watchMessage = "";
-    WatchManager watchManager = forumFactory.getWatchManager();
     if (!authToken.isAnonymous() && watchManager.isWatched(user, forumCategory)) {
        Watch watch = watchManager.getWatch(user, forumCategory);
        watchMessage = "Stop Watching Forums";
