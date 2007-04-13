@@ -248,7 +248,6 @@ public class ServerMonitorBot {
                 em.addToAddress("ivern@topcoder.com", TCSEmailMessage.TO);
                 em.addToAddress("mtong@topcoder.com", TCSEmailMessage.TO);
                 //em.addToAddress("mfogleman@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("javier-topcoder-alarm@ivern.org", TCSEmailMessage.TO);
                 em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
 
                 em.setSubject("Server Error");
