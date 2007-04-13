@@ -30,7 +30,7 @@
                 <td class=homeRightPromos width="50%">
                 <table width="170" border=0 cellpadding=0 cellspacing=0 align=right>
                     <tr><td><img src="/i/corp/featClientsHead.gif" border=0 /></td></tr>
-                    <tr><td class=homeClientPromo><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/corp/promos/praxairNrodale.png" border=0 /></A></td></tr>
+                    <tr><td class=homeClientPromo><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/corp/promos/talbots_041307.png" border=0 /></A></td></tr>
                     <tr><td><A href="/i/tournament/tco04/onsite_movies/rhughes.mov"><img src="/i/corp/promos/rhughesMovie.gif" alt="" border=0 /></A></td></tr>
                 </table>
                 </td>
