@@ -3,7 +3,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%--------------------------------------------------------%>
-   <tr>
+<!--   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.13.07<br>10:00 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -20,7 +20,7 @@
         <tc-webtag:forumLink forumID="514541" message="discuss this" /> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-   
+   -->
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>04.12.07<br>3:45 PM</td>
