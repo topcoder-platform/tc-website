@@ -109,8 +109,9 @@
 	<li>03:30PM – 04:30PM – TopCoder Presentation at BSIUR</li>
 </ul>
 
+<br>
 
-    The timeline for the day of the event:
+    <b>April 26th</b>
     <ul>
         <li>
             02:30 PM EEST
