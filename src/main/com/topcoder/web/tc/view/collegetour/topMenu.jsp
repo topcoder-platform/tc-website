@@ -43,7 +43,6 @@
             |
     </c:otherwise>
     </c:choose>
-<%--
     <c:choose>
         <c:when test="${active=='registration'}">Registration</c:when>
         <c:otherwise>
@@ -51,7 +50,6 @@
         </c:otherwise>
     </c:choose>
     |
---%>
     <c:choose>
         <c:when test="${active=='registrants'}">Registrants</c:when>
         <c:otherwise>
