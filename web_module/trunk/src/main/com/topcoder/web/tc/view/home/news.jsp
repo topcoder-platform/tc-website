@@ -8,7 +8,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=collegetour&d2=multischool&d3=belarus">TopCoder College Tour comes to Belarus</A>
+        <A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">TopCoder College Tour comes to Belarus</A>
         </span><br><br>
         On April 26, TopCoder is inviting programming problem-solvers from the best college computer science programs in Belarus to solve algorithm puzzles for great prizes and national recognition. For its first event in the country, the TopCoder College Tour will visit Belarus State University.
         </td>
@@ -16,7 +16,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=collegetour&d2=multischool&d3=belarus">full story</A> |
+        <A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">details</A> |
         <tc-webtag:forumLink forumID="514541" message="discuss this" /> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
