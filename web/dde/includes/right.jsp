@@ -31,7 +31,7 @@
                 <img src="/images/clear.gif" width="1" height="100" alt="" border="0"><br>
                 <a href="/catalog/c_showroom.jsp" target="_top"><img src="/images/promos/promo_catalog_third.gif" alt="Component Catalog" width="170" height="120" border="0"></a><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
-                <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>"> target="_top"><img src="/images/promos/promo_cust_forums_third.gif" alt="Software Forums" width="170" height="120" border="0"></a><br>
+                <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>"><img src="/images/promos/promo_cust_forums_third.gif" alt="Software Forums" width="170" height="120" border="0"></a><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <a href="http://www.topcoder.com/rtables/viewForum.jsp?forum=205768&mc=3" target="_top"><img src="/images/promos/promo_roundtables_third.gif" alt="Member Round Tables" width="170" height="120" border="0"></a><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
@@ -52,7 +52,7 @@
                     </tr>
                 </table>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
-                <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>"> target="_top"><img src="/images/promos/promo_cust_forums_third.gif" alt="Software Forums" width="170" height="120" border="0"></a><br>
+                <a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=tcsForumsID%>"><img src="/images/promos/promo_cust_forums_third.gif" alt="Software Forums" width="170" height="120" border="0"></a><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <a href="http://www.topcoder.com/rtables/viewForum.jsp?forum=205768&mc=3" target="_top"><img src="/images/promos/promo_roundtables_third.gif" alt="Member Round Tables" width="170" height="120" border="0"></a><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
