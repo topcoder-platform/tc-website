@@ -108,6 +108,19 @@ public class ForumsBean extends BaseEJB {
             log.info("*** error in assigning role: " + e);
         }
     }
+    
+    public void addCategoryPerms(long userID, long forumCategoryID, long[] perms) {
+        try {
+            User user = forumFactory.getUserManager().getUser(userID);
+            ForumCategory forumCategory = forumFactory.getForumCategory(forumCategoryID);
+            PermissionsManager fcPermManager = forumCategory.getPermissionsManager();
+            for (int i=0; i<perms.length; i++) {
+                fcPermManager.addUserPermission(user, PermissionType.ADDITIVE, perms[i]);
+            }
+        } catch (Exception e) {
+            log.info("*** error in assigning role: " + e);
+        }        
+    }
 
     public void removeRole(long userID, long groupID) {
         try {
@@ -714,37 +727,37 @@ public class ForumsBean extends BaseEJB {
         }
     }
     
-    public void convertTCSPerms() {
-        Connection conn = null;
-        PreparedStatement ps = null;
-
-        try {
-            conn = DBMS.getConnection(DBMS.FORUMS_DATASOURCE_NAME);
-            ps = conn.prepareStatement(
-                    "insert into jiveuserperm " +
-                    "select p.objecttype, p.objectid, u.userid, p.permissiontype, p.permission " +
-                    "from jivegroupuser u, jivegroupperm p " +
-                    "where u.groupid = p.groupid " +
-                    "and p.groupid in " +
-                    "(select groupid from jivegroup " +
-                    "where (name like 'Software\\_Moderators\\_%' or name like 'Software\\_Users\\_%')) ");
-            ps.executeUpdate();
-            close(ps);
-            
-            ps = conn.prepareStatement(
-                    "delete from jivegroupuser where groupid in " +
-                    "(select groupid from jivegroup " +
-                    "where (name like 'Software\\_Moderators\\_%' or name like 'Software\\_Users\\_%')) ");
-            ps.executeUpdate();
-            log.info("Successfully converted TCS permissions.");
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
-            throw new EJBException(e.getMessage());
-        } catch (Exception e) {
-            throw new EJBException(e.getMessage());
-        } finally {
-            close(ps);
-            close(conn);
+    public void convertTCSPerms() {        
+        int groupCNT = forumFactory.getGroupManager().getGroupCount();
+        Iterator itGroups = forumFactory.getGroupManager().getGroups();
+        int n=0;
+        while (itGroups.hasNext()) {
+            Group group = (Group)itGroups.next();
+            log.debug("Analyzing group " + ++n + "/" + groupCNT + ": " + group.getName());
+            if (!(group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX) ||
+                    group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX))) {
+                log.debug("Skipping non-TCS project group.");
+                continue;
+            }
+            Iterator itUsers = group.getMembers();
+            while (itUsers.hasNext()) {
+                User user = (User)itUsers.next();
+                try {
+                    if (group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX)) {
+                        long forumCategoryID = Long.parseLong(group.getName().substring(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX.length()));
+                        addCategoryPerms(user.getID(), forumCategoryID, ForumConstants.MODERATOR_PERMS);
+                        log.debug("Added moderator permissions for " + user.getUsername() + " for category " + forumCategoryID);
+                    } else if (group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX)) {
+                        long forumCategoryID = Long.parseLong(group.getName().substring(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX.length()));
+                        addCategoryPerms(user.getID(), forumCategoryID, ForumConstants.REGISTERED_PERMS);
+                        log.debug("Added user permissions for " + user.getUsername() + " for category " + forumCategoryID);
+                    }
+                    group.removeMember(user);
+                } catch (UnauthorizedException ue) {
+                    ue.printStackTrace();
+                }
+            }
+            log.debug("Converted permissions.");
         }
     }
 

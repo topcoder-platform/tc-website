@@ -26,6 +26,8 @@ public interface ForumsLocal extends EJBLocalObject {
     
     public void assignRole(long userID, String groupName) throws EJBException;
     
+    public void addCategoryPerms(long userID, long forumCategoryID, long[] perms) throws EJBException;
+    
     public void removeRole(long userID, long groupID) throws EJBException;
     
     public void removeRole(long userID, String groupName) throws EJBException;

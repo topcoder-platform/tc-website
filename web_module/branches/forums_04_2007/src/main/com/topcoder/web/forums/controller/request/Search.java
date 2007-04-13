@@ -169,8 +169,6 @@ public class Search extends ForumsProcessor {
             Paginator paginator = new Paginator(paging);
             
             // configure and deploy tcsdev2@186, redeploy forums
-            // explain to Greg/Mike that part of the problem lies with the TCS user admin tool
-            // for members w/many roles such as AleaActaEst, Pops, etc. Fix it or explain the timing.
             
             // exact match, startsWith, matches all terms, matches any term
             // must handle "" and + correctly
