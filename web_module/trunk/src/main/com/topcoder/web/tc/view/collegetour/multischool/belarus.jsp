@@ -52,7 +52,7 @@
 
     <h2>TopCoder College Tour Overview</h2>
 
-    <br>
+    <p align="center"><span class="bigRed">NOTE: The schedule for this event has changed.  Check the new times below.</span></p>
 
     <h3>The Event</h3>
     TopCoder is sponsoring an onsite programming competition for all Belarus colleges
@@ -60,7 +60,7 @@
     04.26.2007.
     <br><br>
 
-    <span class="bigRed">NOTE: Registration for this event now ends on 04.23.2007 at 11:59 PM EEST.</span><br>
+    <strong>NOTE: Registration for this event now ends on 04.23.2007 at 11:59 PM EEST.</strong><br>
 
     <br>
     NOTE: The event is from
@@ -105,8 +105,8 @@
 	<b>April 25th<b>
 
 <ul>
-	<li>12:00 noon -1:00PM EEST – TopCoder Presentation at BSU</li>
-	<li>03:30PM – 04:30PM – TopCoder Presentation at BSIUR</li>
+	<li>12:00 noon -1:00PM EEST - TopCoder Presentation at BSU</li>
+	<li>03:30PM - 04:30PM - TopCoder Presentation at BSIUR</li>
 </ul>
 
 <br>
