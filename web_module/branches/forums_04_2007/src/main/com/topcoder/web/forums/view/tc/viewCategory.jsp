@@ -71,6 +71,18 @@
     String link = linkBuffer.toString();
     String prevLink = linkBuffer.toString() + String.valueOf(paginator.getPreviousPageStart());
     String nextLink = linkBuffer.toString() + String.valueOf(paginator.getNextPageStart());
+    
+    String cmd = "";
+    String watchMessage = "";
+    WatchManager watchManager = forumFactory.getWatchManager();
+    if (!authToken.isAnonymous() && watchManager.isWatched(user, forumCategory)) {
+       Watch watch = watchManager.getWatch(user, forumCategory);
+       watchMessage = "Stop Watching Forums";
+       cmd = "remove";
+    } else {
+       watchMessage = "Watch Forums";
+       cmd = "add";
+    }
 %>
 
 <html>
@@ -127,6 +139,9 @@
             		<%	} %>
                 </td>
                 <td align="right" nowrap="nowrap" valign="top">
+                	<%	if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
+                		<A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.FORUM_CATEGORY%>&<%=ForumConstants.WATCH_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>" class="rtbcLink"><%=watchMessage%></A>&#160; |&#160;
+                	<%	} %>
                 	<%	boolean isAuthorized = forumCategory.isAuthorized(Permissions.SYSTEM_ADMIN) || 
         					forumCategory.isAuthorized(ForumPermissions.FORUM_CATEGORY_ADMIN);
         				boolean canModifyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_MODIFY_FORUMS)) && isAuthorized;
