@@ -61,11 +61,14 @@
     <h3>The Event</h3>
     TopCoder is sponsoring an onsite programming competition at <%=request.getAttribute(Constants.SCHOOL_NAME)%>
     on
-    <tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="MM.dd.yyyy"/>
+    <tc-webtag:format object="<%=conf.get(new Integer(Constants.ROUND_START_PROP_ID))%>" format="EEEE MM.dd.yyyy"/>
     . <br><br>
 
-    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="<%=request.getAttribute("regEnd")%>" format="MM.dd.yyyy"/>.</span><br>
+    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="<%=request.getAttribute("regEnd")%>" format="EEEE MM.dd.yyyy"/>.</span><br>
     <br>
+	<% if("45".equals(request.getAttribute(Constants.COLLEGE_TOUR_EVENT_ID))) { %>
+	   Seating is limited.
+	<% } %>
 
     The event is from
     <tc-webtag:format object="<%=conf.get(new Integer(Constants.EVENT_START_PROP_ID))%>" format="hh:mm a z" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
