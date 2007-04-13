@@ -45,7 +45,7 @@
             <table class="stat" cellpadding="0" cellspacing="0" style="width:100%; margin-bottom: 120px;">
                 <thead>
                     <tr>
-                        <td class="title" colspan="6"><span class="title">Competitions</span></td>
+                        <td class="title" colspan="7"><span class="title">Competitions</span></td>
                     </tr>
                     <tr>
                         <td class="header" width="100%">
@@ -60,12 +60,15 @@
                         <td class="headerR">
                             Payment
                         </td>
-                        <td class="headerR">
+                        <td class="headerC">
+                            Registrants
+                        </td>
+                        <td class="headerC">
                             Submissions
                         </td>
                         <td class="header">&nbsp;</td>
                     </tr>
-                <% boolean even = true;%>
+                    <% boolean even = true;%>
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
                             <A href="/?module=Static&d1=assembly&d2=btBusinessDetails">BT Business CSF Mashup Assembly Competition</A>
@@ -79,7 +82,10 @@
                         <td class="valueR" nowrap="nowrap">
                             $5,000.00
                         </td>
-                        <td class="valueR">
+                        <td class="valueC">
+                            17
+                        </td>
+                        <td class="valueC">
                             0
                         </td>
                         <td class="valueR" nowrap="nowrap">
