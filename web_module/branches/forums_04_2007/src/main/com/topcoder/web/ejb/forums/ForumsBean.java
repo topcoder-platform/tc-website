@@ -728,15 +728,15 @@ public class ForumsBean extends BaseEJB {
     }
     
     public void convertTCSPerms() {        
-        int groupCNT = forumFactory.getGroupManager().getGroupCount();
+        //int groupCNT = forumFactory.getGroupManager().getGroupCount();
         Iterator itGroups = forumFactory.getGroupManager().getGroups();
-        int n=0;
+        //int n=0;
         while (itGroups.hasNext()) {
             Group group = (Group)itGroups.next();
-            log.debug("Analyzing group " + ++n + "/" + groupCNT + ": " + group.getName());
+            //log.debug("Analyzing group " + ++n + "/" + groupCNT + ": " + group.getName());
             if (!(group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX) ||
                     group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX))) {
-                log.debug("Skipping non-TCS project group.");
+                //log.debug("Skipping non-TCS project group.");
                 continue;
             }
             Iterator itUsers = group.getMembers();
@@ -746,18 +746,18 @@ public class ForumsBean extends BaseEJB {
                     if (group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX)) {
                         long forumCategoryID = Long.parseLong(group.getName().substring(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX.length()));
                         addCategoryPerms(user.getID(), forumCategoryID, ForumConstants.MODERATOR_PERMS);
-                        log.debug("Added moderator permissions for " + user.getUsername() + " for category " + forumCategoryID);
+                        //log.debug("Added moderator permissions for " + user.getUsername() + " for category " + forumCategoryID);
                     } else if (group.getName().startsWith(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX)) {
                         long forumCategoryID = Long.parseLong(group.getName().substring(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX.length()));
                         addCategoryPerms(user.getID(), forumCategoryID, ForumConstants.REGISTERED_PERMS);
-                        log.debug("Added user permissions for " + user.getUsername() + " for category " + forumCategoryID);
+                        //log.debug("Added user permissions for " + user.getUsername() + " for category " + forumCategoryID);
                     }
                     group.removeMember(user);
                 } catch (UnauthorizedException ue) {
                     ue.printStackTrace();
                 }
             }
-            log.debug("Converted permissions.");
+            //log.debug("Converted permissions.");
         }
     }
 

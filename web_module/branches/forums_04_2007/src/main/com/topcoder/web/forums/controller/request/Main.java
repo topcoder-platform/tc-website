@@ -25,7 +25,6 @@ import java.util.ArrayList;
  */
 public class Main extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
-        log.debug("##### Main() entered");
         super.businessProcessing();
 
         ResultFilter resultFilter = new ResultFilter();
@@ -40,18 +39,14 @@ public class Main extends ForumsProcessor {
         while (itCategories.hasNext()) {
             ForumCategory category = (ForumCategory)itCategories.next();
             categoryList.add(category);
-            log.debug("##### Category being processed: " + category.getName());
             
             getRequest().setAttribute("numActiveForums_"+category.getID(), new Long(0));
             getRequest().setAttribute("numActiveCategories_"+category.getID(), new Long(0));
             String limit = StringUtils.checkNull(category.getProperty(ForumConstants.PROPERTY_DISPLAY_LIMIT));
             if (!"".equals(limit)) {
                 if (category.getCategoryCount() > 0) {
-                    log.debug("##### before categoriesList");
                     ArrayList categoriesList = ForumsUtil.getCategories(forumsBean, category, resultFilter, true, false);
-                    log.debug("##### before pageList");
                     ArrayList pageList = ForumsUtil.getPage(categoriesList, 0, Integer.parseInt(category.getProperty("displayLimit")));
-                    log.debug("##### after pageList");
                     getRequest().setAttribute("categoriesIterator_"+category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveCategories_"+category.getID(), new Long(pageList.size()));
                     
@@ -80,22 +75,17 @@ public class Main extends ForumsProcessor {
                         }
                         getRequest().setAttribute("imageDataTable_"+category.getID(), imageDataTable);
                     }
-                    log.debug("##### after imageData");
                 } else {
-                    log.debug("##### before block 1");
                     boolean excludeEmptyForums = !("true".equals(category.getProperty(ForumConstants.PROPERTY_SHOW_EMPTY_FORUMS_ON_MAIN)));
                     ArrayList forumsList = ForumsUtil.getForums(category, resultFilter, excludeEmptyForums);
                     ArrayList pageList = ForumsUtil.getPage(forumsList, 0, Integer.parseInt(category.getProperty("displayLimit")));
                     getRequest().setAttribute("forumsIterator_"+category.getID(), pageList.iterator());
                     getRequest().setAttribute("numActiveForums_"+category.getID(), new Long(pageList.size()));
-                    log.debug("##### after block 1");
                 }
             } else {
-                log.debug("##### before block 2");
                 resultFilter.setNumResults(ResultFilter.NULL_INT);
                 getRequest().setAttribute("forumsIterator_"+category.getID(), category.getForums(resultFilter));
                 getRequest().setAttribute("numActiveForums_"+category.getID(), new Long(category.getForumCount(resultFilter)));
-                log.debug("##### after block 2");
             }
         }
         
@@ -121,6 +111,5 @@ public class Main extends ForumsProcessor {
         	setNextPage("/main.jsp");
         	setIsNextPageInContext(true);
         //}
-            log.debug("##### Main() exited");
 	}
 }

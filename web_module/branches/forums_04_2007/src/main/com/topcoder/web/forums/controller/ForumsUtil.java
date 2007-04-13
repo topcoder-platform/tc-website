@@ -264,44 +264,33 @@ public class ForumsUtil {
     // the list's end. Only forums for approved software components are displayed.
     public static ArrayList getCategories(ForumsLocal forumsBean, ForumCategory forumCategory, ResultFilter resultFilter,
             boolean excludeEmptyCategories, boolean mergeEmptyCategories) throws RemoteException {
-        log.debug("##### ForumsUtil.getCategories() entered");
         Iterator itCategories = forumCategory.getCategories();
         ArrayList categoriesList = new ArrayList();
         ArrayList emptyCategories = new ArrayList();
         long[] componentIDs = new long[forumCategory.getCategoryCount()];
         int n = -1;
         
-        log.debug("##### before category iterator");
-        log.debug("##### number of iterator categories: " + forumCategory.getCategoryCount());
         while (itCategories.hasNext()) {
         	n++;
         	ForumCategory c = (ForumCategory)itCategories.next();
-            log.debug("##### obtained category " + n);
         	String archivalStatus = c.getProperty(ForumConstants.PROPERTY_ARCHIVAL_STATUS);
         	if (ForumConstants.PROPERTY_ARCHIVAL_STATUS_CLOSED.equals(archivalStatus)) continue; 
         	
-            log.debug("##### category is active");
         	try {
         		componentIDs[n] = Long.parseLong(c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
         	} catch (NumberFormatException nfe) {
         		log.info("*** Category " + c.getID() + " has no PROPERTY_COMPONENT_ID: add ID or remove category");
         		continue;
         	}
-            log.debug("##### parsed component ID");
         	
         	if (c.getMessageCount() > 0 || mergeEmptyCategories) {
         		categoriesList.add(c);
         	} else {
         		emptyCategories.add(c);
         	}
-            log.debug("##### added to list");
         }
-        log.debug("##### after category iterator");
-        log.debug("##### number of non-empty categories: " + categoriesList.size());
-        log.debug("##### number of empty categories: " + emptyCategories.size());
 
         HashSet approvedComponents = forumsBean.getApprovedComponents(componentIDs);
-        log.debug("##### obtained approved components");
         for (int i=categoriesList.size()-1; i>=0; i--) {
         	ForumCategory c = (ForumCategory)categoriesList.get(i);
         	String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
@@ -309,7 +298,6 @@ public class ForumsUtil {
         		categoriesList.remove(i);
         	}
         }
-        log.debug("##### removed from categoriesList");
         for (int i=emptyCategories.size()-1; i>=0; i--) {
         	ForumCategory c = (ForumCategory)emptyCategories.get(i);
         	String componentIDStr = c.getProperty(ForumConstants.PROPERTY_COMPONENT_ID);
@@ -318,7 +306,6 @@ public class ForumsUtil {
         	}
         }
 
-        log.debug("##### before sort");
         Collections.sort(categoriesList, 
         		new JiveCategoryComparator(resultFilter.getSortField(), resultFilter.getSortOrder()));
         Collections.sort(emptyCategories, 
@@ -326,7 +313,6 @@ public class ForumsUtil {
         if (!excludeEmptyCategories) {
         	categoriesList.addAll(emptyCategories);
         }
-        log.debug("##### ForumsUtil.getCategories() exited");
         return categoriesList;
     }
 
