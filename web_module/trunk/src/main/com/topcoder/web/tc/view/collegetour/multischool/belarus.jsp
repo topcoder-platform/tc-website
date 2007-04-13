@@ -101,7 +101,7 @@
     <br><br>
 
 	<h3>Belarus College Tour Schedule</h3>
-
+<br>
 	<b>April 25th<b>
 
 <ul>
