@@ -60,13 +60,13 @@
     04.26.2007.
     <br><br>
 
-    <span class="bigRed">Registration for this event ends on 04.25.2007 at 11:59 PM EEST.</span><br>
+    <span class="bigRed">NOTE: Registration for this event now ends on 04.23.2007 at 11:59 PM EEST.</span><br>
 
     <br>
-    The event is from
-    06:30 PM EEST
+    NOTE: The event is from
+    03:00 PM EEST
     until
-    09:00 PM EEST.
+    05:30 PM EEST.
     In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
     <a href="/tc?module=CollegeTourViewReg&cteid=41">here</a>
     and be onsite for the competition.
@@ -100,26 +100,34 @@
 
     <br><br>
 
-    <h3>Event Schedule</h3>
+	<h3>Belarus College Tour Schedule</h3>
+
+	<b>April 25th<b>
+
+<ul>
+	<li>12:00 noon -1:00PM EEST – TopCoder Presentation at BSU</li>
+	<li>03:30PM – 04:30PM – TopCoder Presentation at BSIUR</li>
+</ul>
+
 
     The timeline for the day of the event:
     <ul>
         <li>
-            06:30 PM EEST
-            - Computer lab opens &amp; competitors set up
+            02:30 PM EEST
+            - Computer lab opens &amp; competitors set up at BSU
         </li>
         <li>
 
-            07:00 PM EEST
+            03:00 PM EEST
             - Competition starts
         </li>
         <li>
-            08:35 PM EEST
+            05:30 PM EEST
             - Competition ends
         </li>
         <li>
-            08:40 PM EEST
-            - Pizza, Results, TopCoder presentation
+            06:00 PM EEST
+            - Pizza and socializing
         </li>
     </ul>
 
