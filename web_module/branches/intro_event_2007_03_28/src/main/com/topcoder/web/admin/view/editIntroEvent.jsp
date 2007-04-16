@@ -72,7 +72,7 @@
         </td>
    </tr>
 	
-<c:forEach items="config" var="cfg" >
+<c:forEach items="${config}" var="cfg" >
 	<tr>
 		<td>${cfg.description }</td>
 		<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
