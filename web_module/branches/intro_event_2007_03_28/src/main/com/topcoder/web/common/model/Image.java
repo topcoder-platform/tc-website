@@ -12,6 +12,7 @@ import java.util.Set;
 public class Image extends Base {
 
     public static final Integer MEMBER_PHOTO_TYPE = new Integer(1);
+    public static final Integer INTRO_EVENT_TYPE = new Integer(15);
 
     private Long id;
     private String fileName;

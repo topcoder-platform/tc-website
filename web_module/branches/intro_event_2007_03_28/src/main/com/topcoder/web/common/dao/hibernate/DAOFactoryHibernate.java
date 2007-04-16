@@ -68,6 +68,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new FileTypeDAOHibernate();
     }
 
+    public ImageDAO getImageDAO() {
+        return new ImageDAOHibernate();
+    }
+
     public MemberContactMessageDAO getMemberContactMessageDAO() {
         return new MemberContactMessageDAOHibernate();
     }

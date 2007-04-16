@@ -34,11 +34,10 @@
             <jsp:include page="left.jsp"/>
         </td>
         <td>
-                <a href="/admin/?module=EventList">Back to Manage Events</a>
                 <br>
         
 <form name="f" action="/admin/" method="post">
-
+<center>
 <table>
     <tr>
         <td colspan="2">
@@ -48,7 +47,7 @@
         </td>
     </tr>
 	<tr>
-		<td width="150 px">Event Name:</td>
+		<td width="50 px">Event Name:</td>
 		<td width="200 px"><tc-webtag:textInput name="name" size="50" editable="true" /></td>
 	</tr>
 	<tr>
@@ -63,6 +62,13 @@
 		<td>Timezone:</td>
         <td class="value">
             <tc-webtag:objectSelect name="tz" list="${timezones}" valueField="id" textField="description"/>
+        </td>
+   </tr>
+
+	<tr>
+		<td>Image:</td>
+        <td class="value">
+            <tc-webtag:objectSelect name="tz" list="${images}" valueField="id" textField="fileName"/>
         </td>
    </tr>
 	
@@ -82,8 +88,7 @@
 	
  -->		
 </table>
-
-<script language="javascript" type="text/javascript">
+</center>
     <!--
 Calendar.setup(
 {
@@ -108,6 +113,7 @@ Calendar.setup(
 );
 
                 -->
+<script language="javascript" type="text/javascript">
 </script>
 
 <input type="submit" value="Save Event">
