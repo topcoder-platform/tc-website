@@ -10,6 +10,20 @@
 <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 <SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
+<style type="text/css">
+.code
+{
+   width: 520;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
+}
+</style>
 </head>
 <body>
 <div id="onTop">
@@ -270,7 +284,7 @@ The demo application represents a Mock Email Engine, which is supposed to send m
 
 <p>Essentially, the demo application's Email Engine console displays the SMTP server through which the mock email message will be sent. The content of the Email Engine console will contain the configuration source from where the property values are read and the address:port for the SMTP server read from the configuration. You'll notice that if you change the property values in the configuration, and then restart the application, your changes will be reflected in the content of the Email Engine console.</p>
 
-<p>Before running the demo application you should verify that you have the <a target="_blank" href="<tc-webtag:linkTracking link='http://www.microsoft.com/downloads/details.aspx?familyid=0856EACB-4362-4B0D-8EDD-AAB15C5E04F5&displaylang=en' refer='netConfigurationMgr' />">.NET Framework 2.0</a> installed on your machine. In order to run the demo you simply need unzip the <a href="/i/downloads/ConfigManagerTutorial_demo.zip">demo file</a> and then run the <strong>TopCoder.ConfigManagerTutorial.exe</strong> file located in the <tt>build\classes</tt> directory. </p>
+<p>Before running the demo application you should verify that you have the <a target="_blank" href="<tc-webtag:linkTracking link='http://www.microsoft.com/downloads/details.aspx?familyid=0856EACB-4362-4B0D-8EDD-AAB15C5E04F5&displaylang=en' refer='netConfigurationMgr' />">.NET Framework 2.0</a> installed on your machine. In order to run the demo you simply need unzip the <a href="/i/development/downloads/ConfigManagerTutorial_demo.zip">demo file</a> and then run the <strong>TopCoder.ConfigManagerTutorial.exe</strong> file located in the <tt>build\classes</tt> directory. </p>
 If you make modifications on the source files of the demo application and you have <a target="_blank" href="<tc-webtag:linkTracking link='http://nant.sourceforge.net/' />">NAnt</a> tool installed on machine you simply need to call <strong>nant rundemo</strong> to test your changes.
 <p>Good luck!</p>
 
