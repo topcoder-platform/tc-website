@@ -37,34 +37,33 @@
                     <tbody>
                         <tr>
                             <td class="NW">&nbsp;</td>
-                            <td class="title" colspan="6">Contests</td>
-                            <td class="titleR">
+                            <td class="title" colspan="4">Contests</td>
+                            <td class="titleR" colspan="2">
                                 <h2><a href="${sessionInfo.servletPath}?module=AdminViewContest">add contest</a></h2>
                             </td>
                             <td class="NE">&nbsp;</td>
                         </tr>
                         <tr>
                             <td class="headerW"><div>&nbsp;</div></td>
-                            <td class="header">Name</td>
+                            <td class="header" width="100%">Name</td>
                             <td class="header">Status</td>
                             <td class="headerC">Start</td>
                             <td class="headerC">End</td>
                             <td class="headerC">Submissions</td>
-                            <td class="headerC"></td>
-                            <td class="headerC"></td>
+                            <td class="headerC">&nbsp;</td>
                             <td class="headerE"><div>&nbsp;</div></td>
                         </tr>
                         <% boolean even = true;%>
                         <c:forEach items="${contests}" var="contest">
                             <tr class="<%=even?"light":"dark"%>">
                                 <td class="valueW"><div>&nbsp;</div></td>
-                                <td class="value"><strong>${contest.name}</strong></td>
-                                <td class="value">${contest.status.description}</td>
+                                <td class="value"><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${contest.name}</A></td>
+                                <td class="value" nowrap="nowrap">${contest.status.description}</td>
                                 <td class="valueC" nowrap="nowrap">
-                                    <tc-webtag:format object="${contest.startTime}" format="MMMM d, yyyy 'at<br>' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                    <tc-webtag:format object="${contest.startTime}" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
                                 <td class="valueC" nowrap="nowrap">
-                                    <tc-webtag:format object="${contest.endTime}" format="MMMM d, yyyy 'at<br>' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                    <tc-webtag:format object="${contest.endTime}" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
                                 <td class="valueC">
                                     <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${fn:length(contest.submissions)}</a>
@@ -72,15 +71,12 @@
                                 <td class="valueC">
                                     <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
                                 </td>
-                                <td class="valueC">
-                                    <a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}">view</a>
-                                </td>
                                 <td class="valueE"><div>&nbsp;</div></td>
                             </tr>
                             <% even = !even;%>
                         </c:forEach>
                         <tr>
-                            <td class="SW" colspan="8">&nbsp;</td>
+                            <td class="SW" colspan="9">&nbsp;</td>
                             <td class="SE">&nbsp;</td>
                         </tr>
 
