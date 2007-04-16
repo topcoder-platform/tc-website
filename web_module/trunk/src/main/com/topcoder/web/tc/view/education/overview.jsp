@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=netConfigurationMgr"><strong>Using the .Net Configuration Manager</strong></a>, by <tc-webtag:handle coderId="10445079" context="development" /><br>
+Most TopCoder members who have participated in at least one .NET design or development competition will tell you that the first component they needed to learn was the Configuration Manager. Simply put, it's a key to unlocking the potential of the component catalog.</li>
 <li><a href="/tc?module=Static&d1=features&d2=041207"><strong>Meet the April Coders of the Month</strong></a><%--, by <tc-webtag:handle coderId="15635590" />--%><br>
 We caught up with April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=lineSweep"><strong>Line Sweep Algorithms</strong></a>, by <tc-webtag:handle coderId="251074" /><br>
 In this article I'll explore some more advanced algorithms that can be built from the basic tools of computational geometry. They are all based on the simple but powerful idea of a sweep line: a vertical line that is conceptually "swept" across the plane.</li>
-<li><a href="/tc?module=Static&d1=features&d2=040507"><strong>Programming in the Real World</strong></a>, by <tc-webtag:handle coderId="15635590" /><br>
-In the working world, successful programming sometimes requires more than quickly writing correct code – it takes learning how to work as part of a team. This article describes some of the difficulties you might encounter when you join your first working team.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
