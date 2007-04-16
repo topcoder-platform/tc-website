@@ -16,7 +16,7 @@ public class AddIntroEvent extends ShortHibernateProcessor {
         List tz = DAOUtil.getFactory().getTimeZoneDAO().getTimeZones();
         getRequest().setAttribute("timezones", tz);
         
-        setNextPage("admin/editIntroEvent.jsp");
+        setNextPage("/editIntroEvent.jsp");
         setIsNextPageInContext(true);
     }
 
