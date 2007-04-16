@@ -49,7 +49,7 @@
         <td class="sidebarText">All participants</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText"><b>TopCoder Sponsor Track</b> <br>April 3 - May 12, 2007</td>
+        <td class="sidebarText"><b>TopCoder Sponsor Track</b> <br>April 3 - April 14, 2007</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">TBD</td>
         <td class="sidebarText">All participants</td>

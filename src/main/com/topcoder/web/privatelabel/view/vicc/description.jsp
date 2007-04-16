@@ -63,7 +63,7 @@ The 2007 TopCoder Open Sponsor Track Competition is now here!  Its format is mor
         <td class="sidebarText">All participants</td>
     </tr>
     <tr valign="top">
-        <td class="sidebarText"><b>TopCoder Sponsor Track</b> <br>April 3 - May 12, 2007</td>
+        <td class="sidebarText"><b>TopCoder Sponsor Track</b> <br>April 3 - April 14, 2007</td>
         <td class="sidebarText"><strong>Register by March 27!</strong>
             <br>See details <A href="/sponsortrack">here</A>.
         </td>
