@@ -84,10 +84,10 @@
   <li>How to plug this component into your application.</li>
 </ul>
 
-<p>The target audience for this article is TopCoder members who are new to component competitions, or who are interested in taking their first steps into the component arena. If you're more experienced and don't need all the explanations on the component, you might still find the section on configuring your application useful &ndash; if so, feel free to skip over the next few sections and go directly to part 4.</p>
+<p>The target audience for this article is TopCoder members who are new to component competitions, or who are interested in taking their first steps into the component arena. If you're more experienced and don't need all the explanations on the component, you might still find the section on configuring your application useful &ndash; if so, feel free to skip over the next few sections and go directly to <a href="#plug">'How to plug this component into your application'</a>.</p>
 
 <p><span class="bodySubtitle">Where to use Configuration Manager</span><br />
-As stated in its Requirements Specification, the purpose of the Configuration Manager is to centralize the management of, and access to, the configuration data. This component is almost ubiquitous in the TopCoder .NET Catalog because of this functionality.</p>
+As stated in its <a href="https://software.topcoder.com/catalog/document?id=11863464">Requirements Specification</a>, the purpose of the Configuration Manager is to centralize the management of, and access to, the configuration data. This component is almost ubiquitous in the TopCoder .NET Catalog because of this functionality.</p>
 
 <p>Common examples where this component should be used are libraries that need configuration for the external entities with whom they are communicating (like an FTP, SMTP server address and port or a database connections string), or libraries that need to distinguish items that change, depending on which machine they are used, from items that stay the same.</p>
 
@@ -270,7 +270,7 @@ This component provides the possibility to read property values from different t
 &lt;/ConfigManager>
 </pre>
 
-<p><span class="bodySubtitle">How to plug this component into your application</span><br />
+<p><a name="plug"></a><span class="bodySubtitle">How to plug this component into your application</span><br />
 In this section, we'll focus on the necessary steps required to use this component in your application. The demo contains a build file, which can be used in order to compile and run the code. </p>
 
 <p><strong>Add TopCoder.Util.ConfigurationManager.dll as reference for your application</strong><br />
