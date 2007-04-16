@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -116,7 +117,7 @@
                     </td>
                     <td class="value">
                         <% if ("2040".equals(resultRow.getStringItem("event_id"))) { %>
-                        <img src="/i/tournament/tco07/emblem.png" alt="" onmouseover="popUp(this,'popTCO07')" onmouseout="popHide()" style="display: block; margin: 4px;">
+                        <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=StudioLeaderboard&d1=tournaments&d3=studio&d4=leaderboard&eid=2040&d2=tco07"><img src="/i/tournament/tco07/emblem.png" alt="" onmouseover="popUp(this,'popTCO07')" onmouseout="popHide()" style="display: block; margin: 4px;"></A>
                         <% } else { %>
                         &nbsp;
                         <% } %>
