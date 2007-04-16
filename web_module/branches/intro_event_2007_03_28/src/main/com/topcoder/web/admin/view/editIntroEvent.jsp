@@ -47,8 +47,8 @@
         </td>
     </tr>
 	<tr>
-		<td width="100 px">Event Name:</td>
-		<td width="250 px"><tc-webtag:textInput name="name" size="50" editable="true" /></td>
+		<td>Event Name:</td>
+		<td><tc-webtag:textInput name="name" size="50" editable="true" /></td>
 	</tr>
 	<tr>
 		<td>School:</td>
@@ -82,11 +82,22 @@
 </c:forEach>	
 
 <c:if test="${hasAlgo}">
+	<tr> <td></td><td></td></tr>
 	<tr>
 		<td colspan="2">
 		<h3>Algorithm Contest</h3>
 		</td>
 	</tr>
+
+	<tr>
+		<td>Registration:</td>
+        <td class="value">
+            from <tc-webtag:textInput name="algo_reg_start" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+					<button id="trigger_algo_reg_start"">Set</button>
+            To <tc-webtag:textInput name="algo_reg_end" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+			   <button id="trigger_algo_reg_end"">Set</button>
+        </td>
+   </tr>
 	
 	<c:forEach items="${config}" var="cfg" >
 	<c:if test="${cfg.type==2}">
@@ -96,9 +107,38 @@
 	   </tr>
 	</c:if>		
 	</c:forEach>	
+	
+		<script language="javascript" type="text/javascript">
+		    <!--
+		Calendar.setup(
+		{
+		 inputField  : "algo_reg_start",  
+		                    ifFormat    : "%m/%d/%Y %H:%M",  
+		                    button      : "trigger_algo_reg_start",     
+		                    showsTime   : true,
+		                    singleClick  : false,
+		                    cache       : true
+		}
+		);
+		
+		Calendar.setup(
+		{
+		 inputField  : "algo_reg_end",  
+		                    ifFormat    : "%m/%d/%Y %H:%M",    
+		                    button      : "trigger_algo_reg_end",     
+		                    showsTime   : true,
+		                    singleClick  : false,
+		                    cache       : true
+		}
+		);
+		
+		                -->
+		</script>
+	
 </c:if>
 
 <c:if test="${hasComp}">
+	<tr> <td></td><td></td></tr>
 	<tr>
 		<td colspan="3">
 		<h3>Component Contest</h3>
@@ -115,50 +155,8 @@
 	</c:forEach>	
 </c:if>
 
-<!-- 
-
-	<tr>
-		<td>Start Date:</td>
-		<td><tc-webtag:textInput name="<%= EditEvent.START_DATE %>" id="<%= EditEvent.START_DATE %>" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-			<button id="<%="trigger_" + EditEvent.START_DATE %>">Set</button>     
-		</td>
-	</tr>
-	<tr>
-		<td>End Date:</td>
-		<td><tc-webtag:textInput name="<%= EditEvent.END_DATE %>" id="<%= EditEvent.END_DATE %>" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-			<button id="<%="trigger_" + EditEvent.END_DATE %>">Set</button>
-		</td>
-	</tr>
-	
- -->		
 </table>
 </center>
-    <!--
-Calendar.setup(
-{
- inputField  : "<%= EditEvent.START_DATE %>",  
-                    ifFormat    : "%m/%d/%Y %H:%M",  
-                    button      : "trigger_<%= EditEvent.START_DATE %>",     
-                    showsTime   : true,
-                    singleClick  : false,
-                    cache       : true
-}
-);
-
-Calendar.setup(
-{
- inputField  : "<%= EditEvent.END_DATE %>",  
-                    ifFormat    : "%m/%d/%Y %H:%M",    
-                    button      : "trigger_<%= EditEvent.END_DATE %>",     
-                    showsTime   : true,
-                    singleClick  : false,
-                    cache       : true
-}
-);
-
-                -->
-<script language="javascript" type="text/javascript">
-</script>
 
 <input type="submit" value="Save Event">
 
