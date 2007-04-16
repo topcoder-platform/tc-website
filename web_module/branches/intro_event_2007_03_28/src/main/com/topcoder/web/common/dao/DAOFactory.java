@@ -31,7 +31,9 @@ public interface DAOFactory {
     ImageDAO getImageDAO();
 
     IntroEventDAO getIntroEventDAO();
-
+    
+    IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO();
+    
     EventRegistrationDAO getEventRegistrationDAO();
 
     EventTypeDAO getEventTypeDAO();

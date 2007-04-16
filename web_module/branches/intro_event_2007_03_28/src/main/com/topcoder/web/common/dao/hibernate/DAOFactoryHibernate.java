@@ -55,6 +55,9 @@ public class DAOFactoryHibernate implements DAOFactory {
     public IntroEventDAO getIntroEventDAO() {
         return new IntroEventDAOHibernate();
     }
+    public IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO(){
+        return new IntroEventPropertyTypeDAOHibernate();
+    }
 
     public EventRegistrationDAO getEventRegistrationDAO() {
         return new EventRegistrationDAOHibernate();

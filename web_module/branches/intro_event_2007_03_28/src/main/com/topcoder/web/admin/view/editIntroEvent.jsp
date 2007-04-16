@@ -28,7 +28,7 @@
 
 <body>
 <jsp:include page="top.jsp"/>
-<table>
+<table border="1">
     <tr valign="top">
         <td width="200">
             <jsp:include page="left.jsp"/>
@@ -38,7 +38,7 @@
         
 <form name="f" action="/admin/" method="post">
 <center>
-<table>
+<table border="1">
     <tr>
         <td colspan="2">
             <tc-webtag:errorIterator id="err" name="error">
@@ -48,7 +48,7 @@
     </tr>
 	<tr>
 		<td width="50 px">Event Name:</td>
-		<td width="200 px"><tc-webtag:textInput name="name" size="50" editable="true" /></td>
+		<td width="1500 px"><tc-webtag:textInput name="name" size="50" editable="true" /></td>
 	</tr>
 	<tr>
 		<td>School:</td>
@@ -61,17 +61,24 @@
 	<tr>
 		<td>Timezone:</td>
         <td class="value">
-            <tc-webtag:objectSelect name="tz" list="${timezones}" valueField="id" textField="description"  topText="Select One" topValue="-1" />
+            <tc-webtag:objectSelect name="tz" list="${timezones}" valueField="id" textField="description"  topText="[Select one]" topValue="-1" />
         </td>
    </tr>
 
 	<tr>
 		<td>Image:</td>
         <td class="value">
-            <tc-webtag:objectSelect name="tz" list="${images}" valueField="id" textField="fileName" topText="Select One" topValue="-1" />
+            <tc-webtag:objectSelect name="tz" list="${images}" valueField="id" textField="fileName" topText="[Select one]" topValue="-1" /> use ajax!
         </td>
    </tr>
 	
+<c:forEach items="config" var="cfg" >
+	<tr>
+		<td>${cfg.description }</td>
+		<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
+   </tr>
+		
+</c:forEach>	
 <!-- 
 	<tr>
 		<td>Start Date:</td>

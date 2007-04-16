@@ -22,6 +22,9 @@ public class AddIntroEvent extends ShortHibernateProcessor {
         List img = factory.getImageDAO().getImages(Image.INTRO_EVENT_TYPE);
         getRequest().setAttribute("images", img);
         
+        List cfg = factory.getIntroEventPropertyTypeDAO().getTypes();
+        getRequest().setAttribute("config", cfg);
+        
         setNextPage("/editIntroEvent.jsp");
         setIsNextPageInContext(true);
     }
