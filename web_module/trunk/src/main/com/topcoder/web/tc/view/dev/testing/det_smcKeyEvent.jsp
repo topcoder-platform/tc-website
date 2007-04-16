@@ -170,7 +170,7 @@ If you do not reside in the United States:<br>
       <td><strong>Phase</strong></td><td align="center"><strong>Start</strong></td><td align="center"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Registration Phase:</td><td align="center">04.12.2007</td><td align="center">04.19.2007</td>
+      <td>Registration Phase:</td><td align="center">04.12.2007</td><td align="center">04.23.2007</td>
    </tr>
    <tr>
       <td>Test Submission:</td><td align="center">04.13.2007</td><td align="center">04.27.2007</td>
