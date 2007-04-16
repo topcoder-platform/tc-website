@@ -21,7 +21,7 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-        <td width="180">
+        <td width="180" id="onLeft">
          <jsp:include page="/includes/global_left.jsp">
             <jsp:param name="node" value="comp_tutorials"/>
          </jsp:include>
@@ -280,7 +280,7 @@ If you make modifications on the source files of the demo application and you ha
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
-         <td width="170">
+         <td width="170" id="onRight">
             <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
@@ -293,7 +293,9 @@ If you make modifications on the source files of the demo application and you ha
     </tr>
 </table>
 
+<div id="onBottom">
 <jsp:include page="../foot.jsp" />
+</div>
 
 </body>
 
