@@ -5,12 +5,13 @@
 
 
 <hibernate-configuration>
+<!--
 
     <session-factory name="java:comp/env/hibernate/SessionFactory">
 
         <property name="connection.datasource">java:/JTS_OLTP</property>
 
-<!--
+-->      
 
     <session-factory>
         <property name="connection.username">coder</property>
@@ -20,7 +21,6 @@
         </property>
         <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
 
--->      
 
 
     <!-- SQL dialect -->
