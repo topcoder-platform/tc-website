@@ -82,7 +82,7 @@
 </c:forEach>	
 
 <c:if test="${hasAlgo}">
-	<tr> <td></td><td></td></tr>
+	<tr> <td>&nbsp;</td><td>&nbsp;</td></tr>
 	<tr>
 		<td colspan="2">
 		<h3>Algorithm Contest</h3>
@@ -106,12 +106,12 @@
 		<td>
 			<table>
 				<tr>
-					<td>
+					<td width="10%">
 						<tc-webtag:radioButton name="use_round_sel" value="1" />
 						Choose a round:
 					</td>					
 					<td>
-						<tc-webtag:objectSelect name="tz" list="${images}" valueField="id" textField="fileName" topText="[Select one]" topValue="-1" /> 
+						<tc-webtag:objectSelect name="round_id_sel" list="${rounds}" valueField="id" textField="shortName" topText="[Select one]" topValue="-1" /> 
 					</td>
 				</tr>
 				<tr>
@@ -169,7 +169,7 @@
 </c:if>
 
 <c:if test="${hasComp}">
-	<tr> <td></td><td></td></tr>
+	<tr> <td>&nbsp;</td><td>&nbsp;</td></tr>
 	<tr>
 		<td colspan="3">
 		<h3>Component Contest</h3>
@@ -184,6 +184,46 @@
 	   </tr>
 	</c:if>		
 	</c:forEach>	
+	
+		<script language="javascript" type="text/javascript">
+		    <!--
+		Calendar.setup(
+		{
+		 inputField  : "comp_reg_start",  
+		                    ifFormat    : "%m/%d/%Y %H:%M",  
+		                    button      : "trigger_comp_reg_start",     
+		                    showsTime   : true,
+		                    singleClick  : false,
+		                    cache       : true
+		}
+		);
+		
+		Calendar.setup(
+		{
+		 inputField  : "comp_reg_end",  
+		                    ifFormat    : "%m/%d/%Y %H:%M",    
+		                    button      : "trigger_comp_reg_end",     
+		                    showsTime   : true,
+		                    singleClick  : false,
+		                    cache       : true
+		}
+		);
+
+
+		Calendar.setup(
+		{
+		 inputField  : "comp_first_week",  
+		                    ifFormat    : "%m/%d/%Y",    
+		                    button      : "trigger_comp_first_week",     
+		                    showsTime   : true,
+		                    singleClick  : false,
+		                    cache       : true
+		}
+		);
+		
+		                -->
+		</script>
+	
 </c:if>
 
 </table>
