@@ -49,9 +49,6 @@
                                     Round 1
                                     </td>
                                     <td class="headerC">
-                                    Round 2
-                                    </td>
-                                    <td class="headerC">
                                     Finals
                                     </td>
                                 </tr>
@@ -64,11 +61,8 @@
                                     <td class="valueCA">
                                     Advanced
                                     </td>
-                                    <td class="valueC">
-                                    &nbsp;
-                                    </td>
-                                    <td class="valueC">
-                                    &nbsp;
+                                    <td class="valueCA">
+                                    Champion
                                     </td>
                                 </tr>
                             </tbody>
@@ -80,11 +74,8 @@
                                     <td class="valueCA">
                                     Advanced
                                     </td>
-                                    <td class="valueC">
-                                    &nbsp;
-                                    </td>
-                                    <td class="valueC">
-                                    &nbsp;
+                                    <td class="valueCE">
+                                    Eliminated
                                     </td>
                                 </tr>
                             </tbody>
@@ -99,9 +90,6 @@
                                     <td class="valueC">
                                     &nbsp;
                                     </td>
-                                    <td class="valueC">
-                                    &nbsp;
-                                    </td>
                                 </tr>
                             </tbody>
                             <tbody>
@@ -111,9 +99,6 @@
                                     </td>
                                     <td class="valueCE">
                                     Eliminated
-                                    </td>
-                                    <td class="valueC">
-                                    &nbsp;
                                     </td>
                                     <td class="valueC">
                                     &nbsp;
