@@ -161,6 +161,13 @@ public class Search extends ForumsProcessor {
 
             Paging paging = new Paging(pageFilter, totalItemCount);
             Paginator paginator = new Paginator(paging);
+            
+            // exact match, startsWith, matches all terms, matches any term
+            // must handle "" and + correctly
+            // only display matches if in Software Categories forum
+            // parse queryTerms, places matches into ArrayList, retrieve page of results
+            // Time search. Should be < 2 s, ideally < 1s.
+            // Investigate if some small search package can help with this.
 
             getRequest().setAttribute("status", status);
             getRequest().setAttribute("query", query);

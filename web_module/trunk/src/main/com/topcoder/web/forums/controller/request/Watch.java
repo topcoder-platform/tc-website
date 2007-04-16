@@ -4,12 +4,14 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
+import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 
 /**
  * @author mtong
@@ -31,7 +33,8 @@ public class Watch extends ForumsProcessor {
         StringBuffer nextPage = new StringBuffer(getSessionInfo().getServletPath());
         String errors = "";
 
-        if (type == JiveConstants.THREAD) {
+        switch (type) {
+        case JiveConstants.THREAD:
             ForumThread thread = forumFactory.getForumThread(id);
         	if (cmd.equals("add")) {
                 if (watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.maxThreadWatchesPerPage) {
@@ -51,6 +54,19 @@ public class Watch extends ForumsProcessor {
             if (!errors.equals("")) {
             	nextPage.append("&").append(ForumConstants.THREAD_ERROR).append("=").append(errors);
             }
+            break;
+        case JiveConstants.FORUM_CATEGORY:
+            ForumCategory category = forumFactory.getForumCategory(id);
+            if (ForumsUtil.isSoftwareSubcategory(category)) {
+                if (cmd.equals("add")) {
+                    watchManager.createWatch(user, category);
+                } else if (cmd.equals("remove")) {
+                    com.jivesoftware.forum.Watch watch = watchManager.getWatch(user, category);
+                    watchManager.deleteWatch(watch);
+                }
+                nextPage.append("?module=Category&").append(ForumConstants.CATEGORY_ID).append("=").append(category.getID());
+            }
+            break;
         }
 
         setNextPage(nextPage.toString());

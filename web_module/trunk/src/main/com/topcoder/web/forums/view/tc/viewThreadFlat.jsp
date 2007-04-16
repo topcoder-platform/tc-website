@@ -1,24 +1,16 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                 com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.common.StringUtils,
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.forums.controller.ForumsUtil,
-                com.topcoder.web.common.StringUtils,
+                com.topcoder.web.forums.model.ImageData,
                 com.topcoder.shared.util.ApplicationServer,
                 com.jivesoftware.base.User,
                 com.jivesoftware.base.JiveConstants,
                 com.jivesoftware.base.PollManager,
                 com.jivesoftware.base.Poll,
                 com.jivesoftware.forum.action.util.Page,
-                com.jivesoftware.forum.WatchManager,
-                com.jivesoftware.forum.Watch,
-                com.jivesoftware.forum.ResultFilter,
-               	com.jivesoftware.forum.ForumCategory,
-                com.jivesoftware.forum.ForumThread,
-                com.jivesoftware.forum.ForumMessage,
-                com.jivesoftware.forum.ReadTracker,
-                com.jivesoftware.forum.RatingManagerFactory,
-                com.jivesoftware.forum.RatingManager,
-                com.jivesoftware.forum.Attachment,
+                com.jivesoftware.forum.*,
                 com.jivesoftware.forum.database.DbAttachmentManager,
                 java.text.NumberFormat,
                 java.text.DecimalFormat,
@@ -259,12 +251,21 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable" border="0">
 <tr>
-   <td class="categoriesBox" style="padding-right: 20px;">
-      <jsp:include page="categoriesHeader.jsp" />
-   </td>
-   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-       <jsp:include page="searchHeader.jsp" />
-   </td>
+	<td class="categoriesBox" style="padding-right: 20px;">
+   		<jsp:include page="categoriesHeader.jsp" />
+	</td>
+	<td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+        <jsp:include page="searchHeader.jsp" />
+       	<%  if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+	    	<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
+			<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+	    		<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
+			<%	} %>
+			<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+				<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
+			<%	} %>
+		<%	} %>
+	</td>
    <td align="right" nowrap="nowrap" valign="top">
    <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
    class="rtbcLink"><%=watchMessage%></A>&#160;&#160;|&#160;&#160;<A href="?module=History" class="rtbcLink">My Post History</A>&#160;&#160;|&#160;&#160;<A href="?module=Watches" class="rtbcLink">My Watches</A>&#160;&#160;|&#160;&#160;<A href="?module=Settings" class="rtbcLink">User Settings</A><br>

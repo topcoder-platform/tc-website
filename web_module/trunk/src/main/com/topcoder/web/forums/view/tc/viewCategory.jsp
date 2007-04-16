@@ -1,10 +1,7 @@
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.User,
                  com.jivesoftware.base.Permissions,
-                 com.jivesoftware.forum.ForumPermissions,
-                 com.jivesoftware.forum.ReadTracker,
-                 com.jivesoftware.forum.ResultFilter,
-                 com.jivesoftware.forum.WatchManager,
+                 com.jivesoftware.forum.*,
                  com.jivesoftware.forum.action.util.Page,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.StringUtils,
@@ -17,6 +14,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
+<tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forumCategory" name="forumCategory" type="com.jivesoftware.forum.ForumCategory" toScope="request"/>
 <tc-webtag:useBean id="paginator" name="paginator" type="com.jivesoftware.forum.action.util.Paginator" toScope="request"/>
@@ -74,6 +72,17 @@
     String link = linkBuffer.toString();
     String prevLink = linkBuffer.toString() + String.valueOf(paginator.getPreviousPageStart());
     String nextLink = linkBuffer.toString() + String.valueOf(paginator.getNextPageStart());
+    
+    String cmd = "";
+    String watchMessage = "";
+    if (!authToken.isAnonymous() && watchManager.isWatched(user, forumCategory)) {
+       Watch watch = watchManager.getWatch(user, forumCategory);
+       watchMessage = "Stop Watching Forums";
+       cmd = "remove";
+    } else {
+       watchMessage = "Watch Forums";
+       cmd = "add";
+    }
 %>
 
 <html>
@@ -119,8 +128,20 @@
                 </td>
                 <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
                     <jsp:include page="searchHeader.jsp"/>
+                    <%  if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
+	                	<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
+	            		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+	                		<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
+						<%	} %>
+						<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+							<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
+						<%	} %>
+            		<%	} %>
                 </td>
                 <td align="right" nowrap="nowrap" valign="top">
+                	<%	if (ForumsUtil.isSoftwareSubcategory(forumCategory)) { %>
+                		<A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.FORUM_CATEGORY%>&<%=ForumConstants.WATCH_ID%>=<%=forumCategory.getID()%>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>" class="rtbcLink"><%=watchMessage%></A>&#160; |&#160;
+                	<%	} %>
                 	<%	boolean isAuthorized = forumCategory.isAuthorized(Permissions.SYSTEM_ADMIN) || 
         					forumCategory.isAuthorized(ForumPermissions.FORUM_CATEGORY_ADMIN);
         				boolean canModifyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_MODIFY_FORUMS)) && isAuthorized;
@@ -141,10 +162,10 @@
             	<td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
                     <% if (category.getID() != forumCategory.getID()) { %>
-                    <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-                    <img src="/i/interface/exp_w.gif" align="absmiddle"/>
+                    	<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+                    	<img src="/i/interface/exp_w.gif" align="absmiddle"/>
                     <% } else { %>
-                    <%=category.getName()%>
+                    	<%=category.getName()%>
                     <% } %>
                 </tc-webtag:iterator>
                 <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
