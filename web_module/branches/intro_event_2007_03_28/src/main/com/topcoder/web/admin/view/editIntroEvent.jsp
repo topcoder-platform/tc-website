@@ -61,14 +61,14 @@
 	<tr>
 		<td>Timezone:</td>
         <td class="value">
-            <tc-webtag:objectSelect name="tz" list="${timezones}" valueField="id" textField="description"/>
+            <tc-webtag:objectSelect name="tz" list="${timezones}" valueField="id" textField="description"  topText="Select One" topValue="-1" />
         </td>
    </tr>
 
 	<tr>
 		<td>Image:</td>
         <td class="value">
-            <tc-webtag:objectSelect name="tz" list="${images}" valueField="id" textField="fileName"/>
+            <tc-webtag:objectSelect name="tz" list="${images}" valueField="id" textField="fileName" topText="Select One" topValue="-1" />
         </td>
    </tr>
 	
