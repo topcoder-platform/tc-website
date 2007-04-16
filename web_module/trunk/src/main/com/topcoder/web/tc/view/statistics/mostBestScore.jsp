@@ -63,7 +63,7 @@
         <td class="header" width="40%"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="4" includeParams="true" excludeParams="c"/>">Coder</A></td>
         <td class="headerC" width="20%"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="1" includeParams="true" excludeParams="c"/>">High Scores</A></td>
         <td class="headerC" width="20%"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="2" includeParams="true" excludeParams="c"/>">Competitions</A></td>
-        <td class="headerC" width="20%" nowrap="nowrap"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="3" includeParams="true" excludeParams="c"/>">Avg High Scores<br>Per Competitions</A></td>
+        <td class="headerC" width="20%" nowrap="nowrap"><A href="/stat?c=most_best_score&sq=most_best_score<tc-webtag:sort column="3" includeParams="true" excludeParams="c"/>">Avg High Scores<br>Per Competition</A></td>
     </tr>
 </thead>
 <tbody>
