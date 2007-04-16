@@ -106,7 +106,7 @@
 		<td>
 			<table>
 				<tr>
-					<td width="10%">
+					<td width="10%" nowrap="nowrap">
 						<tc-webtag:radioButton name="use_round_sel" value="1" />
 						Choose a round:
 					</td>					
@@ -115,7 +115,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="use_round_sel" value="0" />
 						Or enter round_id:
 					</td>					
@@ -173,6 +173,57 @@
 	<tr>
 		<td colspan="3">
 		<h3>Component Contest</h3>
+		</td>
+	</tr>
+	
+	<tr>
+		<td>Registration:</td>
+        <td class="value">
+            from <tc-webtag:textInput name="comp_reg_start" id="comp_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+					<button id="trigger_comp_reg_start"">Set</button>
+            to <tc-webtag:textInput name="comp_reg_end" id="comp_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+			   <button id="trigger_comp_reg_end"">Set</button>
+			   
+			&nbsp;&nbsp;&nbsp; <tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone
+        </td>
+   </tr>
+	
+	<tr>
+		<td>First week:</td>
+        <td class="value">
+            <tc-webtag:textInput name="comp_first_week" id="comp_first_week" size="10" format="MM/dd/yyyy" editable="true" />  
+					<button id="trigger_comp_first_week"">Set</button>
+		</td>	
+	</tr>
+	<tr>
+		<td>Number of weeks:</td>
+		<td><tc-webtag:textInput name="nweeks" size="4" editable="true" /></td>
+	</tr>
+	<tr>
+		<td>Prizes</td>
+		<td>
+			<table>
+				<tr>
+					<td>&nbsp;</td>
+					<td>Design</td>
+					<td>Development</td>
+				</tr>
+				<tr>
+					<td>1st place weekly</td>
+					<td><tc-webtag:textInput name="prdes1w" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="prdev1w" size="6" editable="true"  format="###,###.00"/></td>
+				</tr>
+				<tr>
+					<td>2nd place weekly</td>
+					<td><tc-webtag:textInput name="prdes2w" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="prdev2w" size="6" editable="true"  format="###,###.00"/></td>
+				</tr>
+				<tr>
+					<td>Overall</td>
+					<td><tc-webtag:textInput name="prdes1ov" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="prdev1ov" size="6" editable="true"  format="###,###.00"/></td>
+				</tr>
+			</table>
 		</td>
 	</tr>
 	
