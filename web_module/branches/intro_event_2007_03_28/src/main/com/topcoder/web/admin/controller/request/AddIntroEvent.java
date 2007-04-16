@@ -14,7 +14,7 @@ public class AddIntroEvent extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
 
         List tz = DAOUtil.getFactory().getTimeZoneDAO().getTimeZones();
-        getRequest().setAttribute("timezones", tz)
+        getRequest().setAttribute("timezones", tz);
         
         setNextPage("admin/editIntroEvent.jsp");
         setIsNextPageInContext(true);
