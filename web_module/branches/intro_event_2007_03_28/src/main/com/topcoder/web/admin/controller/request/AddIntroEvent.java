@@ -1,5 +1,6 @@
 package com.topcoder.web.admin.controller.request;
 
+import java.util.Date;
 import java.util.List;
 
 import com.topcoder.web.common.NavigationException;
@@ -34,6 +35,12 @@ public class AddIntroEvent extends ShortHibernateProcessor {
         List cfg = factory.getIntroEventPropertyTypeDAO().getTypes();
         getRequest().setAttribute("config", cfg);
         
+        if (hasAlgo) {
+            List rounds = factory.getRoundDAO().getRoundsAfter(new Date());            
+            getRequest().setAttribute("rounds", rounds);
+        }
+            
+            
         getRequest().setAttribute("hasAlgo", hasAlgo);
         getRequest().setAttribute("hasComp", hasComp);
         

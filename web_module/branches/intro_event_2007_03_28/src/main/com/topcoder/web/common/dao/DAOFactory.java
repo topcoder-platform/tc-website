@@ -58,6 +58,8 @@ public interface DAOFactory {
 
     ReferralDAO getReferralDAO();
 
+    RoundDAO getRoundDAO();
+
     SchoolDAO getSchoolDAO();
 
     SchoolTypeDAO getSchoolTypeDAO();

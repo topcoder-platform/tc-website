@@ -1,9 +1,10 @@
-package com.topcoder.web.oracle.dao;
+package com.topcoder.web.common.dao;
 
 import java.util.Date;
 import java.util.List;
 
-import com.topcoder.web.oracle.model.Round;
+import com.topcoder.web.common.model.algo.Round;
+
 
 /**
  * @author dok
@@ -14,6 +15,8 @@ public interface RoundDAO {
 
     Round find(Integer id);
 
+    List<Round> getRoundsAfter(Date date);
+    
     void saveOrUpdate(Round r);
 
 

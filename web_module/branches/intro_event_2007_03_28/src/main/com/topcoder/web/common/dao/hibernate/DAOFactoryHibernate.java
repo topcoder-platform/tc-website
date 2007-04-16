@@ -112,6 +112,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new ReferralDAOHibernate();
     }
 
+    public RoundDAO getRoundDAO() {
+        return new RoundDAOHibernate();
+    }
+
     public SchoolDAO getSchoolDAO() {
         return new SchoolDAOHibernate();
     }

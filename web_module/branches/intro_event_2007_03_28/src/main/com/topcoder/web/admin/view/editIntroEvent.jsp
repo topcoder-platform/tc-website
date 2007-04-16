@@ -28,7 +28,7 @@
 
 <body>
 <jsp:include page="top.jsp"/>
-<table border="1">
+<table>
     <tr valign="top">
         <td width="200">
             <jsp:include page="left.jsp"/>
@@ -38,7 +38,7 @@
         
 <form name="f" action="/admin/" method="post">
 <center>
-<table border="1">
+<table>
     <tr>
         <td colspan="2">
             <tc-webtag:errorIterator id="err" name="error">
@@ -94,10 +94,41 @@
         <td class="value">
             from <tc-webtag:textInput name="algo_reg_start" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 					<button id="trigger_algo_reg_start"">Set</button>
-            To <tc-webtag:textInput name="algo_reg_end" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+            to <tc-webtag:textInput name="algo_reg_end" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 			   <button id="trigger_algo_reg_end"">Set</button>
+			   
+			&nbsp;&nbsp;&nbsp; <tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone
         </td>
    </tr>
+	
+	<tr>
+		<td>Round:</td>
+		<td>
+			<table>
+				<tr>
+					<td>
+						<tc-webtag:radioButton name="use_round_sel" value="1" />
+						Choose a round:
+					</td>					
+					<td>
+						<tc-webtag:objectSelect name="tz" list="${images}" valueField="id" textField="fileName" topText="[Select one]" topValue="-1" /> 
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<tc-webtag:radioButton name="use_round_sel" value="0" />
+						Or enter round_id:
+					</td>					
+					<td>
+						<tc-webtag:textInput name="round_id" size="8" editable="true" />
+					</td>
+				</tr>
+				
+					
+			</table>
+		</td>
+		
+	</tr>
 	
 	<c:forEach items="${config}" var="cfg" >
 	<c:if test="${cfg.type==2}">
