@@ -47,8 +47,8 @@
         </td>
     </tr>
 	<tr>
-		<td width="50 px">Event Name:</td>
-		<td width="1500 px"><tc-webtag:textInput name="name" size="50" editable="true" /></td>
+		<td width="100 px">Event Name:</td>
+		<td width="250 px"><tc-webtag:textInput name="name" size="50" editable="true" /></td>
 	</tr>
 	<tr>
 		<td>School:</td>
@@ -73,11 +73,12 @@
    </tr>
 	
 <c:forEach items="${config}" var="cfg" >
+<c:if test="${cfg.type==1 || (hasAlgo && cfg.type==2) || (hasComp && cfg.type==3) }">
 	<tr>
 		<td>${cfg.description }</td>
 		<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
    </tr>
-		
+</c:if>		
 </c:forEach>	
 <!-- 
 	<tr>
