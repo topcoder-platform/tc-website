@@ -5,33 +5,18 @@
 <html>
 <head>
 <title>Component Tutorials</title>
-<%@ taglib uri="tc.tld" prefix="tc" %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_main"/>
+<jsp:param name="key" value="tc_main"/>
 </jsp:include>
-<style type="text/css">
-.code
-{
-   width: 520;
-   padding: 10px;
-   margin: 20px;
-   color: #333;
-   font-size: 11px;
-   font-weight: normal;
-   line-height: 14px;
-   background-color: #EEEEEE;
-   border: 1px solid #999;
-}
-</style>
+<SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
 </head>
-
 <body>
-
-<jsp:include page="../top.jsp" >
+<div id="onTop">
+    <jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
-</jsp:include>
+    </jsp:include>
+</div>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
@@ -60,7 +45,7 @@
     <tc-webtag:forumLink forumID="515168" message="Discuss this article" />
 </div>
 
-<span class="bigTitle">Using the .Net Configuration Manager</span>
+<span class="bigTitle">Using the .Net Configuration Manager </span>
 <br /><br />
 
 <%--<div class="authorPhoto">
