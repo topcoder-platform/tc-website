@@ -73,14 +73,50 @@
    </tr>
 	
 <c:forEach items="${config}" var="cfg" >
-<c:if test="${cfg.type==1 || (hasAlgo && cfg.type==2) || (hasComp && cfg.type==3) }">
+<c:if test="${cfg.type==1}">
 	<tr>
 		<td>${cfg.description }</td>
 		<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
    </tr>
 </c:if>		
 </c:forEach>	
+
+<c:if test="${hasAlgo}">
+	<tr>
+		<td colspan="2">
+		<h3>Algorithm Contest</h3>
+		</td>
+	</tr>
+	
+	<c:forEach items="${config}" var="cfg" >
+	<c:if test="${cfg.type==2}">
+		<tr>
+			<td>${cfg.description }</td>
+			<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
+	   </tr>
+	</c:if>		
+	</c:forEach>	
+</c:if>
+
+<c:if test="${hasComp}">
+	<tr>
+		<td colspan="3">
+		<h3>Component Contest</h3>
+		</td>
+	</tr>
+	
+	<c:forEach items="${config}" var="cfg" >
+	<c:if test="${cfg.type==3}">
+		<tr>
+			<td>${cfg.description }</td>
+			<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
+	   </tr>
+	</c:if>		
+	</c:forEach>	
+</c:if>
+
 <!-- 
+
 	<tr>
 		<td>Start Date:</td>
 		<td><tc-webtag:textInput name="<%= EditEvent.START_DATE %>" id="<%= EditEvent.START_DATE %>" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  

@@ -16,8 +16,8 @@ public class AddIntroEvent extends ShortHibernateProcessor {
     @Override
     protected void dbProcessing() throws Exception {
         
-        boolean hasAlgo = "1".equals(getRequest().getAttribute("ha"));
-        boolean hasComp = "1".equals(getRequest().getAttribute("hc"));
+        boolean hasAlgo = "1".equals(getRequest().getParameter("ha"));
+        boolean hasComp = "1".equals(getRequest().getParameter("hc"));
         
         if (!hasAlgo && !hasComp) {
             throw new NavigationException("ha and/or hc parameters expected to be 1");
