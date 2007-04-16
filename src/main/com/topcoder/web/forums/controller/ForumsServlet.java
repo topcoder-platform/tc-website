@@ -64,6 +64,29 @@ public class ForumsServlet extends BaseServlet {
             }
         };
         tOrphaned.start();
+        
+        // Convert software group permissions into user permissions - pages load slowly for users 
+        // who are in many permission groups. When this is fixed (probably by Jive), the user permissions
+        // can be converted back into group permissions, and this thread can be removed.
+        Thread tConvertTCSPerms = new Thread() {
+            public void run() {
+                while (true) {
+                    try {
+                        log.info("Converting software group permissions into user permissions...");
+                        ForumsLocal forumsBean = getForumsBean();
+                        if (forumsBean != null) {
+                            forumsBean.convertTCSPerms();
+                        } else {
+                            log.error("Could not convert software group permissions: forumsBean is null");
+                        }
+                        sleep(86400000);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        tConvertTCSPerms.start();
     }
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {

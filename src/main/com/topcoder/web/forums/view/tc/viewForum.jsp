@@ -1,17 +1,15 @@
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.base.User,
-                 com.jivesoftware.forum.ForumCategory,
-                 com.jivesoftware.forum.ForumMessage,
-                 com.jivesoftware.forum.ReadTracker,
-                 com.jivesoftware.forum.ResultFilter,
-                 com.jivesoftware.forum.WatchManager,
+                 com.jivesoftware.forum.*,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.stats.ViewCountManager,
                  com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
+                 com.topcoder.web.forums.model.ImageData,
                  com.topcoder.web.forums.model.Paging,
                  java.util.Iterator"
         %>
@@ -119,6 +117,15 @@
         </td>
         <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
             <jsp:include page="searchHeader.jsp"/>
+            <%  if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+            	<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
+        		<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+            		<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
+				<%	} %>
+				<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+					<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
+				<%	} %>
+    		<%	} %>
         </td>
         <td align="right" nowrap="nowrap" valign="top">
             <% if (ForumsUtil.canAnnounce(forum)) { %>

@@ -86,6 +86,7 @@ public class ThreadList extends ForumsProcessor {
             ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
             getRequest().setAttribute("showComponentLink", 
                     String.valueOf(ForumsUtil.showComponentLink(forumsBean, forum.getForumCategory())));
+            getRequest().setAttribute("imageData", ForumsUtil.getImageData(forumsBean, forum.getForumCategory()));
         }
 
         if (markRead.equals("t")) {

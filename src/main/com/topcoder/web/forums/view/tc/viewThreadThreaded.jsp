@@ -1,21 +1,14 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                 com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.common.StringUtils,
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.forums.controller.ForumsUtil,
-                com.topcoder.web.common.StringUtils,
+                com.topcoder.web.forums.model.ImageData,
                 com.topcoder.shared.util.ApplicationServer,
                 com.jivesoftware.base.User,
                 com.jivesoftware.base.JiveConstants,
                 com.jivesoftware.forum.action.util.Page,
-                com.jivesoftware.forum.WatchManager,
-                com.jivesoftware.forum.Watch,
-                com.jivesoftware.forum.ForumCategory,
-                com.jivesoftware.forum.ForumThread,
-                com.jivesoftware.forum.ForumMessage,
-                com.jivesoftware.forum.ReadTracker,
-                com.jivesoftware.forum.RatingManagerFactory,
-                com.jivesoftware.forum.RatingManager,
-                com.jivesoftware.forum.Attachment,
+                com.jivesoftware.forum.*,
                 com.jivesoftware.forum.database.DbAttachmentManager,
                 java.util.*"
 %>
@@ -160,6 +153,15 @@ function displayVotes(messageID, posVotes, negVotes) {
    </td>
    <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
        <jsp:include page="searchHeader.jsp" />
+       <%  if (ForumsUtil.isSoftwareSubcategory(forum.getForumCategory())) { %>
+	    	<%	ImageData imageData = (ImageData)request.getAttribute("imageData"); %>
+			<%	if (!"".equals(StringUtils.checkNull(imageData.getPhaseIcon()))) { %>
+	    		<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getPhaseIcon()%>" alt="<%=imageData.getPhaseText()%>" width="25" height="17" border="0">
+			<%	} %>
+			<%	if (!"".equals(StringUtils.checkNull(imageData.getTechnologyIcon()))) { %>
+				<img align="middle" src="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/images/<%=imageData.getTechnologyIcon()%>" alt="<%=imageData.getTechnologyText()%>" border="0"/>
+			<%	} %>
+		<%	} %>
    </td>
    <td align="right" nowrap="nowrap" valign="top">
    <A href="?module=Watch&<%=ForumConstants.WATCH_TYPE%>=<%=JiveConstants.THREAD%>&<%=ForumConstants.WATCH_ID%>=<%=thread.getID()%><%if (!threadView.equals("")) { %>&<%=ForumConstants.THREAD_VIEW%>=<%=threadView%><% } %>&<%=ForumConstants.WATCH_COMMAND%>=<%=cmd%>"
