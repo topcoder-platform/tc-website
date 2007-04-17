@@ -1776,9 +1776,9 @@ public class DataInterfaceBean implements PactsConstants {
         ps.affirmAssignmentDocument(ad);
     }
     
-    public List<BasePaymentStatus> getPaymentStatusList() throws RemoteException, SQLException {
+    public List<BasePaymentStatus> getPaymentStatusList(Boolean onlyViewable) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.getPaymentStatusList();
+        return ps.getPaymentStatusList(onlyViewable);
     }
 }
 

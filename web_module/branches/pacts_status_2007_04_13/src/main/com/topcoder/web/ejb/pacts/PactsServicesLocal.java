@@ -292,7 +292,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     void affirmAssignmentDocument(AssignmentDocument ad);
     
-    List<BasePaymentStatus> getPaymentStatusList() throws SQLException;
+    List<BasePaymentStatus> getPaymentStatusList(Boolean onlyViewable) throws SQLException;
 
 }
 

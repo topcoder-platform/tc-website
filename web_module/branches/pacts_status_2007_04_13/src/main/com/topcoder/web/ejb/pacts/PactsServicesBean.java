@@ -2261,12 +2261,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return The list of payment statuses
      * @throws SQLException If there is some problem retrieving the data
      */
-    public List<BasePaymentStatus> getPaymentStatusList() throws SQLException {
+    public List<BasePaymentStatus> getPaymentStatusList(Boolean onlyViewable) throws SQLException {
         // TODO: pulky: change the basepaymentstatus for an instance of each payment status.
-        List<BasePaymentStatus> statusList = new ArrayList<BasePaymentStatus>(); 
+        List statusList = new ArrayList<BasePaymentStatus>(); 
         
         StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT payment_status_id, payment_status_desc FROM payment_status_lu WHERE payment_status_viewable_ind = 1 ");
+        sb.append("SELECT payment_status_id, payment_status_desc FROM payment_status_lu");
+        if (onlyViewable) {
+            sb.append(" WHERE payment_status_viewable_ind = ");
+        }
         sb.append(" ORDER BY 2");
 
         ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
