@@ -80,10 +80,10 @@
                              <strong>04.23.2007</strong><br>17:00 EST
                         </td>
                         <td class="valueR" nowrap="nowrap">
-                            $5,000.00
+                            $6,750.00
                         </td>
                         <td class="valueC">
-                            19
+                            20
                         </td>
                         <td class="valueC">
                             0
