@@ -56,7 +56,7 @@ After the submissions are sent to BT, Microsoft and TopCoder, and carefully revi
 </p>
 <p><strong>Prize Structure</strong></p>
 <p>
-The contest will award cash prizes totaling $7,500 to up to three (3) competitors, with a possibility of additional discretionary prizes. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s).
+The contest will award cash prizes totaling $10,000 to up to three (3) competitors, with a possibility of additional discretionary prizes. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner(s).
 </p>
 <p>
 In addition to the cash prize, the winner of the Business CSF Managed Network Mashup Assembly Contest will be interviewed and featured on the MSDN. 
@@ -85,9 +85,9 @@ Refer to the Spec Doc for a full description of the final deliverables required 
 </strong></p>
 
 <p><strong>
-Prize 1: $5,000.00<br>
-Prize 2: $2,000.00<br>
-Prize 3: $500.00 
+Prize 1: $6,750.00<br>
+Prize 2: $2,500.00<br>
+Prize 3: $750.00 
 </strong></p>
 
 <h2>Eligibility</h2>

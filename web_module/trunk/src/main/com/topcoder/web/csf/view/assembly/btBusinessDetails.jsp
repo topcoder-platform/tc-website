@@ -50,7 +50,7 @@
                     <td width="100%">
                         <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
                             <div style="float: right; text-align: right;">
-                                $5,000.00<br>$2,000.00<br>$500.00<br>04.23.2007
+                                $6,750.00<br>$2,500.00<br>$750.00<br>04.23.2007
                             </div>
                             <strong>
                                 First:<br>
@@ -70,6 +70,7 @@
             </tbody>
         </table>
         </div>
+        <div align="center"><span class="bigRed">Prizes increased!</span></div>
 
 <h2>Project Overview</h2>
 
@@ -153,9 +154,9 @@ Refer to the Spec Doc for a full description of the final deliverables required 
 </strong></p>
 
 <p><strong>
-Prize 1: $5,000.00<br>
-Prize 2: $2,000.00<br>
-Prize 3: $500.00 
+Prize 1: $6,750.00<br>
+Prize 2: $2,500.00<br>
+Prize 3: $750.00 
 </strong></p>
 
 <h2>Eligibility</h2>
