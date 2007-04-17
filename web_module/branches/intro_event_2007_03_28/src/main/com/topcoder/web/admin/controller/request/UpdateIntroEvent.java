@@ -33,17 +33,15 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         
         School school = new School();
         school.setId(new Long(schoolId));
-        
-        TimeZone timeZone = new TimeZone(new Integer(timezoneId));
-        
+
         Image image = new Image();
         image.setId(new Long(imageId));
         
         IntroEvent ie = new IntroEvent();
         ie.setDescription(name);
-        ie.setSchool(school); // todo can be blank
+        ie.setSchool(factory.getSchoolDAO().find(new Long(schoolId)));
         ie.setForumId(new Long(forumId));
-        ie.setTimezone(timeZone);
+        ie.setTimezone(factory.getTimeZoneDAO().find(new Integer(timezoneId)));
         ie.setImage(image);        
          
         factory.getIntroEventDAO().saveOrUpdate(ie);        
