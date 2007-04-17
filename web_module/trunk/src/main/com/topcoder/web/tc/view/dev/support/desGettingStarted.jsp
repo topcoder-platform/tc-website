@@ -74,7 +74,7 @@ Now that you have found a component you would like to design you must register f
 <p><span class="bodySubtitle">Step 6 - Check out the Developer Forum</span><br/>
 Upon registering for the project you will be granted access to the developer forum for that specific project.  The forum link will be in a confirmation email you receive from service@topcodersoftware.com.</p>
 
-<p><span class="bodySubtitle">Step 7 - Download the Development Distribution</span><br/>
+<p><span class="bodySubtitle">Step 7 - Download the Design Distribution</span><br/>
 When you go to the developer forum for the project download the Design Distribution for that component.  Read through the docs and get familiar with the requirements.</p>
 
 <p><span class="bodySubtitle">Step 8 - Read the TopCoder Software Member Guide</span><br/>
