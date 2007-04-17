@@ -115,6 +115,8 @@ public interface ForumConstants {
     public final static String SEARCH_SORT_FIELD = "sort";
     public final static String SEARCH_MODE = "mode";
     public final static String SEARCH_MODE_BASIC = "basic";
+    public final static String SEARCH_CATEGORY_RESULT_SIZE = "catResultSize";
+    public final static String SEARCH_CATEGORY_START_IDX = "catStart";
 
     public final static String SEARCH_DATE_YESTERDAY = "dateYesterday";
     public final static String SEARCH_DATE_LAST_7_DAYS = "dateLast7Days";
@@ -149,6 +151,7 @@ public interface ForumConstants {
     
     // Defaults
     public final static int DEFAULT_SEARCH_RANGE = 20;
+    public final static int DEFAULT_SEARCH_CATEGORY_RANGE = 5;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
     public final static int DEFAULT_THREAD_RANGE = 15;
     public final static int DEFAULT_FORUM_RANGE = 15;

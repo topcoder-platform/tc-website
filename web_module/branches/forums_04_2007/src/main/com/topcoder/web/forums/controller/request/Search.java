@@ -14,13 +14,18 @@ import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.ejb.forums.Forums;
+import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
+import com.topcoder.web.forums.model.ImageData;
 import com.topcoder.web.forums.model.Paging;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
 
 /**
@@ -178,6 +183,33 @@ public class Search extends ForumsProcessor {
                     categoryResultsList.add(category);
                 }
             }
+            
+            int categoryResultSize = ForumConstants.DEFAULT_SEARCH_RANGE;
+            if (user != null) {
+                try {
+                    categoryResultSize = Integer.parseInt(user.getProperty("jiveSearchCategoryRange"));
+                } catch (Exception ignored) {}
+            }
+            if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE)).equals("")) {
+                categoryResultSize = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE));
+            }
+            int categoryStartIdx = 0;
+            if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_START_IDX)).equals("")) {
+                categoryStartIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_START_IDX));
+            }
+            
+            pageFilter = new ResultFilter();
+            pageFilter.setStartIndex(categoryStartIdx);
+            pageFilter.setNumResults(categoryResultSize);
+            
+            paging = new Paging(pageFilter, categoryResultsList.size());
+            Paginator categoriesPaginator = new Paginator(paging);
+            
+            ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
+            ArrayList pageList = ForumsUtil.getPage(categoryResultsList, startIdx, categoryResultSize);
+            Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, pageList);
+            getRequest().setAttribute("imageDataTable", imageDataTable);
+            
             long elapsedTimeMillis = System.currentTimeMillis()-start;
             log.info("Category search time for query \"" + query.getQueryString() + "\": " 
                     + elapsedTimeMillis/1000 + "." + elapsedTimeMillis%1000 + "s");
@@ -192,6 +224,7 @@ public class Search extends ForumsProcessor {
             
             getRequest().setAttribute("categories", categoryResultsList.iterator());
             getRequest().setAttribute("categoriesCount", categoryResultsList.size());
+            getRequest().setAttribute("categoriesPaginator", categoriesPaginator);
         }
 	}
 }

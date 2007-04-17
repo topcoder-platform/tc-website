@@ -39,6 +39,7 @@ import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.ArrayList;
 
@@ -317,8 +318,8 @@ public class ForumsUtil {
     }
 
     // Returns one page of items in a list
-    public static ArrayList getPage(ArrayList list, int startIdx, int forumRange) {
-        int endIdx = Math.min(startIdx+forumRange, list.size());
+    public static ArrayList getPage(ArrayList list, int startIdx, int range) {
+        int endIdx = Math.min(startIdx+range, list.size());
         ArrayList pageList = new ArrayList();
         for (int i=startIdx; i<endIdx; i++) {
             pageList.add(list.get(i));
@@ -617,6 +618,31 @@ public class ForumsUtil {
             return imageData.hasComponentLink();
         }
         return false;
+    }
+    
+    public static Hashtable<String,ImageData> getImageDataTable(ForumsLocal forumsBean, ArrayList<ForumCategory> pageList) {
+        Hashtable<String,ImageData> imageDataTable = new Hashtable<String,ImageData>();
+        long[] compVersIDs = new long[pageList.size()];
+        long[] compIDs = new long[pageList.size()];
+        for (int i=0; i<pageList.size(); i++) {
+            ForumCategory subcategory = pageList.get(i);
+            compVersIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+            compIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+        }
+        Hashtable compVersPhasesTable = forumsBean.getComponentVersionPhases(compVersIDs);
+        Hashtable rootCategoriesTable = forumsBean.getComponentRootCategories(compIDs);
+        for (int i=0; i<pageList.size(); i++) {
+            ForumCategory subcategory = pageList.get(i);
+            long compVersPhase = -1, rootCategoryID = -1;
+            if (compVersPhasesTable.containsKey(String.valueOf(compVersIDs[i]))) {
+                compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(compVersIDs[i])));
+            }
+            if (rootCategoriesTable.containsKey(String.valueOf(compIDs[i]))) {
+                rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(compIDs[i])));
+            }
+            imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
+        }
+        return imageDataTable;
     }
 }
 

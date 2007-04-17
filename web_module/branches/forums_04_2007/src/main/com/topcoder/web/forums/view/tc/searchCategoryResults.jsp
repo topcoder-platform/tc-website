@@ -3,7 +3,10 @@
                  com.topcoder.web.common.DateUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
+                 com.topcoder.web.forums.model.ImageData,
+                 com.topcoder.shared.util.ApplicationServer,
                  com.jivesoftware.base.JiveGlobals,
+                 com.jivesoftware.base.User,
                  com.jivesoftware.forum.stats.ViewCountManager,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.action.util.Page,
@@ -17,7 +20,7 @@
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%  User user = (User) request.getAttribute("user");
-	Paginator paginator = (Paginator)request.getAttribute("catPaginator");
+	Paginator paginator = (Paginator)request.getAttribute("categoriesPaginator");
     Query query = (Query)request.getAttribute("query");
     String searchScope = (String)request.getAttribute("searchScope"); 
     String dateRange = (String)request.getAttribute("dateRange");
@@ -87,10 +90,10 @@
 
 <table cellpadding="0" cellspacing="0" class="rtTable">
     <tr>
-        <td class="rtHeader" width="100%"><a href="<%=forumLink%>" class="rtbcLink">Category</a></td>
+        <td class="rtHeader" width="100%">Category</td>
         <td class="rtHeader"><div style="width:80px;">T./M.</div></td>
         <td class="rtHeader" align="center" colspan="2" nowrap="nowrap">
-        	<div style="width:320px;"><a href="<%=dateLink%>" class="rtbcLink">Last Post</a></div>
+        	<div style="width:320px;">Last Post</div>
         </td>
     </tr>
     <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
