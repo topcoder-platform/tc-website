@@ -12,5 +12,5 @@ public interface ImageDAO {
 
     List<Image> getImages(Integer typeId);
 
-    Image find(Integer id);
+    Image find(Long id);
 }

@@ -25,7 +25,7 @@ public class ImageDAOHibernate extends Base implements ImageDAO {
         return findAll(TimeZone.class);
     }
 
-    public Image find(Integer id) {
+    public Image find(Long id) {
         return (Image) find(Image.class, id);
     }
 

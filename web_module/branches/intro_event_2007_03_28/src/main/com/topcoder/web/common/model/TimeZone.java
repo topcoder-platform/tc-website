@@ -12,9 +12,6 @@ public class TimeZone extends Base {
     protected TimeZone() {
 
     }
-    public TimeZone(Integer id) {
-        this.id= id;
-    }
 
     public Integer getId() {
         return id;

@@ -33,7 +33,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         ie.setSchool(factory.getSchoolDAO().find(new Long(schoolId)));
         ie.setForumId(new Long(forumId));
         ie.setTimezone(factory.getTimeZoneDAO().find(new Integer(timezoneId)));
-        ie.setImage(factory.getImageDAO().find(new Integer(imageId)));        
+        ie.setImage(factory.getImageDAO().find(new Long(imageId)));        
          
         factory.getIntroEventDAO().saveOrUpdate(ie);        
         
