@@ -6,9 +6,9 @@ package com.topcoder.web.common.model;
 @SuppressWarnings("serial")
 public class IntroEventPropertyType extends Base {
 
-    public Integer GENERAL_TYPE = new Integer(1);
-    public Integer ALGO_TYPE = new Integer(2);
-    public Integer COMP_TYPE = new Integer(3);
+    public static final Integer GENERAL_TYPE = new Integer(1);
+    public static final Integer ALGO_TYPE = new Integer(2);
+    public static final Integer COMP_TYPE = new Integer(3);
     
     
     private Integer id;
