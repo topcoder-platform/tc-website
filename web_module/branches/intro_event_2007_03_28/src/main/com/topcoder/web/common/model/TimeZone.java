@@ -13,7 +13,7 @@ public class TimeZone extends Base {
 
     }
     public TimeZone(Integer id) {
-        this.id= id.
+        this.id= id;
     }
 
     public Integer getId() {
