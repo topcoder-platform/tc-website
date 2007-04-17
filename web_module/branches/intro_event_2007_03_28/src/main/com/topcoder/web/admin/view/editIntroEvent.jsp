@@ -37,6 +37,7 @@
                 <br>
         
 <form name="f" action="/admin/" method="post">
+  <input type="hidden" name="module" value="UpdateIntroEvent"/>
 <center>
 <table>
     <tr>
@@ -68,7 +69,7 @@
 	<tr>
 		<td>Image:</td>
         <td class="value">
-            <tc-webtag:objectSelect name="tz" list="${images}" valueField="id" textField="fileName" topText="[Select one]" topValue="-1" /> use ajax!
+            <tc-webtag:objectSelect name="img" list="${images}" valueField="id" textField="fileName" topText="[Select one]" topValue="-1" /> use ajax!
         </td>
    </tr>
 	
