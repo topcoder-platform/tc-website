@@ -1,6 +1,7 @@
 package com.topcoder.web.common.model;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.topcoder.web.tc.Constants;
@@ -17,7 +18,7 @@ public class IntroEvent extends Event  {
     private TimeZone timeZone = null;
     private Image image = null;
     private Long eligibilityCommandId = null;
-    private Map<Integer, IntroEventConfig> config;
+    private Map<Integer, IntroEventConfig> config = new HashMap<Integer, IntroEventConfig>();
     
     // formula fields
     private Timestamp roundStart = null;
@@ -74,31 +75,14 @@ public class IntroEvent extends Event  {
         this.school = school;
     }
 
-    /*
-    public Set<IntroEventConfig> getConfig() {
-        return config;
-    }
-
-    public void setConfig(Set<IntroEventConfig> config) {
-        this.config = config;
-        configMap = null;
-    }
-
-        if (configMap == null) {
-            configMap = new HashMap<Long, String>();
-            for (IntroEventConfig iec : getConfig()) {
-                configMap.put(iec.getId().getPropertyId(), iec.getValue());
-            }
-        }
-        return configMap.get(typeId);
-    }
-*/
     
     public IntroEventConfig getConfig(Integer typeId) {
         return config.get(typeId);
     }
     
     public void addConfig(IntroEventConfig iec) {
+        System.out.println(iec.getId().getPropertyId());
+        System.out.println(config);
         config.put(iec.getId().getPropertyId() ,iec);
     }
     
