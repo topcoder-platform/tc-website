@@ -13,6 +13,7 @@ import com.jivesoftware.forum.Query;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.model.Paging;
 
@@ -168,7 +169,19 @@ public class Search extends ForumsProcessor {
             // parse queryTerms, places matches into ArrayList, retrieve page of results
             // Time search. Should be < 2 s, ideally < 1s.
             // Investigate if some small search package can help with this.
-
+            long start = System.currentTimeMillis();
+            Iterator<ForumCategory> itSearchCategories = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
+            ArrayList<ForumCategory> categoryResultsList = new ArrayList<ForumCategory>();
+            while (itSearchCategories.hasNext()) {
+                ForumCategory category = itSearchCategories.next();
+                if (category.getName().equals(query.getQueryString())) {
+                    categoryResultsList.add(category);
+                }
+            }
+            long elapsedTimeMillis = System.currentTimeMillis()-start;
+            log.info("Category search time for query \"" + query.getQueryString() + "\": " 
+                    + elapsedTimeMillis/1000 + "." + elapsedTimeMillis%1000 + "s");
+            
             getRequest().setAttribute("status", status);
             getRequest().setAttribute("query", query);
             getRequest().setAttribute("dateRange", dateRange);
@@ -176,6 +189,9 @@ public class Search extends ForumsProcessor {
             getRequest().setAttribute("results", itResults);
             getRequest().setAttribute("paginator", paginator);
             getRequest().setAttribute("mode", mode);
+            
+            getRequest().setAttribute("categories", categoryResultsList.iterator());
+            getRequest().setAttribute("categoriesCount", categoryResultsList.size());
         }
 	}
 }

@@ -53,6 +53,14 @@
 <!-- Links to versions -->
 
 <p>
+    <b>2.0.2 - 2007.04.16</b>
+    <ul>
+		<li>Improved performance for users having many software permissions.</li>
+		<li>Added software forums watches.</li>
+    </ul>
+</p>
+
+<p>
     <b>2.0.1 - 2007.03.14</b>
     <ul>
 		<li>Refactored code/EJBs/DB schema, improved response time for several pages.</li>

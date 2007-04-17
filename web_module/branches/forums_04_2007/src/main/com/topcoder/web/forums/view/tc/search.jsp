@@ -183,6 +183,7 @@ function noenter(e)
 </table>
 <br>
 <% if ("search".equals(status)) { %>
+	<jsp:include page="searchCategoryResults.jsp"/><p>
     <jsp:include page="searchResults.jsp"/>
 <% } %>
 
