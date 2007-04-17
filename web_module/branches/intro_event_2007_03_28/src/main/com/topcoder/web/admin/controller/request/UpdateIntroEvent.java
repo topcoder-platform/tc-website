@@ -31,18 +31,12 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
 
         DAOFactory factory = DAOUtil.getFactory();
         
-        School school = new School();
-        school.setId(new Long(schoolId));
-
-        Image image = new Image();
-        image.setId(new Long(imageId));
-        
         IntroEvent ie = new IntroEvent();
         ie.setDescription(name);
         ie.setSchool(factory.getSchoolDAO().find(new Long(schoolId)));
         ie.setForumId(new Long(forumId));
         ie.setTimezone(factory.getTimeZoneDAO().find(new Integer(timezoneId)));
-        ie.setImage(image);        
+        ie.setImage(factory.getImageDAO().find(new Integer(imageId)));        
          
         factory.getIntroEventDAO().saveOrUpdate(ie);        
         
