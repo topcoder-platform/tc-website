@@ -3,6 +3,25 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%--------------------------------------------------------%>
+<tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>04.17.07<br>3:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        Arena maintenance scheduled for April 17
+        </span><br><br>
+        The TopCoder Arena will be down for scheduled maintenance at 5:00 PM EDT on April 17 for approximately one hour.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <%--<A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">details</A> |--%>
+        <tc-webtag:forumLink forumID="515169" message="discuss this" /> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.17.07<br>2:00 PM</td>
       <td class="newsTextCell">
@@ -201,24 +220,5 @@ We caught up with April's "coders of the month," to learn a little bit more abou
         <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2079">details</A> |
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=49">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.10.07<br>12:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=16884">Vote for the homepage redesign winner</A>
-        </span><br><br>
-        After <A href="/to/?module=ViewCandidateResults&rm=1999">2 rounds of predicting</A>, we've narrowed the homepage redesign to 3 finalists, and we're asking you to rank these 3 designs from best to worst.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=16884">details</A> | 
-        <tc-webtag:forumLink forumID="514973" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
