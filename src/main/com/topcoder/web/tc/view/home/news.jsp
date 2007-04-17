@@ -3,6 +3,23 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
 <%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>04.17.07<br>5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041707">AOL Boxely chat scheduled before SRM 345</A></span><br><br>
+      Before SRM 345, representatives from AOL will join TopCoder members in the Arena at 10:00 AM EDT to discuss Boxely, AOL's next-generation, standards-based development platform for creating rich desktop applications.
+        </td>
+      <td class="newsPhoto">&#160;<%--<img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61"/><br><--%>by AOL's Boxely Team<%--<tc-webtag:handle coderId="251074" context="algorithm"/>--%></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=041707">full story</A> | 
+        <tc-webtag:forumLink forumID="515170" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
 <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>04.17.07<br>3:15 PM</td>
       <td class="newsTextCell">
@@ -202,23 +219,3 @@ We caught up with April's "coders of the month," to learn a little bit more abou
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=50">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.10.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2079">Now open at Studio: 2007 TCCC Web Site Design Contest</A>
-        </span><br><br>
-        TopCoder is looking for a new "look and feel" for the 2007 TopCoder Collegiate Challenge web site. For this contest, we're asking you to design a unique and creative new layout for the TCCC. 
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2079">details</A> |
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=49">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
