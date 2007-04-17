@@ -10,8 +10,8 @@
 <head>
     <title>TopCoder College Tour</title>
 
-    <jsp:include page="/script.jsp"/>
-    <jsp:include page="/style.jsp">
+    <jsp:include page="../../script.jsp"/>
+    <jsp:include page="../../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
 
@@ -27,7 +27,7 @@
 <tr valign="top">
 <!-- Left Column Begins-->
 <td width="180">
-    <jsp:include page="/includes/global_left.jsp">
+    <jsp:include page="../../includes/global_left.jsp">
         <jsp:param name="node" value="m_competitions"/>
     </jsp:include>
 </td>
@@ -42,7 +42,7 @@
     <jsp:param name="title" value="Overview"/>
 </jsp:include>
 
-<div align=center>
+<div align="center">
     <tc-webtag:sponsorImage image="image" alt="College Logo" border="0"/>
 </div>
 
@@ -106,7 +106,9 @@
             <% even = !even; %>
         </rsc:iterator>
 </table>
-    
+</div>
+
+</div>    
 
 <% } %>
 </td>
@@ -114,7 +116,7 @@
 
 <!-- Right Column Begins -->
 <td width="170">
-    <jsp:include page="../public_right.jsp">
+    <jsp:include page="../../public_right.jsp">
         <jsp:param name="level1" value="privatelabel"/>
     </jsp:include>
 </td>
@@ -126,7 +128,7 @@
 </tr>
 </table>
 
-<jsp:include page="../foot.jsp"/>
+<jsp:include page="../../foot.jsp"/>
 
 </body>
 

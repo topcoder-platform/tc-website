@@ -1,4 +1,5 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -43,12 +44,11 @@
         </div>
 
         <!-- college tour site subnav -->
-		<jsp:include page="topMenu.jsp">
-		    <jsp:param name="active" value="comp_info"/>
-		</jsp:include>		
+        <jsp:include page="topMenu.jsp">
+            <jsp:param name="active" value="comp_info"/>
+        </jsp:include>        
         <!-- ends -->
 
-        <p>
             <h2>Component Competition Instructions</h2>
 
             To be able to compete in the competition, you must be
@@ -64,8 +64,14 @@
                 </li>
             </ol>
             
-            <h3>TO DO: write instructions here!</h3>
-        </p>
+<h3>Getting Started in a Component Competition</h3>
+
+<p>
+At a high level, the process is simple - in a design competition, you convert a set of requirements into a set of diagrams and a component specification document, and in a development competition, you convert a component design into a functional component. When you have submitted your work, a three-member review board will review everything and give you feedback. You are given an opportunity to review their feedback and submit appeals. After the appeals, TopCoder Software compares scores of all submissions and determines the winning submission. If your submission wins, you implement the changes detailed in the feedback from the review board and submit the changes for the final review. This is the last step of the process - once your changes are approved, you are done!
+</p>
+<p><strong>
+<A href="/tc?module=Static&d1=dev&d2=support&d3=desGettingStarted">Learn more >></A>
+</strong></p>
 
     </div>
 

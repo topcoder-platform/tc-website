@@ -49,7 +49,7 @@
         <!-- ends -->
 
         <p>
-            <h2>Competition Instructions</h2>
+            <h2>Algorithm Competition Instructions</h2>
 
             To be able to compete in the competition, you must be
             a ${mainEvent.school.name} student or

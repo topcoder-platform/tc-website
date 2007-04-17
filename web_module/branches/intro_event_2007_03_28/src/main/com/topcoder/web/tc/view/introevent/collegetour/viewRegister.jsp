@@ -43,32 +43,34 @@
         </div>
 
         <!-- college tour site subnav -->
-		<jsp:include page="topMenu.jsp">
-		    <jsp:param name="active" value="${isAlgo? 'algo_reg' : 'comp_reg'}"/>
-		</jsp:include>		
+        <jsp:include page="topMenu.jsp">
+            <jsp:param name="active" value="${isAlgo? 'algo_reg' : 'comp_reg'}"/>
+        </jsp:include>        
         <!-- ends -->
         
         <p>
         <c:choose>
-	        <c:when test="${isEarly}">
-	        The registration is not yet open.
-	        </c:when>
-	        <c:when test="${isLate}">
-	        The registration has already closed.
-	        </c:when>
-	        <c:when test="${isRegistered}">
-		        You are already registered for this event.
-	        </c:when>
-	 		<c:when test="${!isEligible}" >
-	 		    You are not eligible for this event.
-	 		</c:when>
-	 		<c:otherwise>
-                <p align="center">Click <a
-                        href="/tc?module=IntroEventRegister&eid=${event.id}" >here</a>
-                    to register for the TopCoder College Tour ${isAlgo? 'algorithms' : 'development'} event at ${mainEvent.school.name} .</p>
-	 		
-	 		</c:otherwise>
-	
+            <c:when test="${isEarly}">
+            The registration is not yet open.
+            </c:when>
+            <c:when test="${isLate}">
+            The registration has already closed.
+            </c:when>
+            <c:when test="${isRegistered}">
+                You are already registered for this event.
+            </c:when>
+             <c:when test="${!isEligible}" >
+                 You are not eligible for this event.
+             </c:when>
+             <c:otherwise>
+                <div align="center" style="margin-top: 40px;">
+                    <p align="center">
+                        Would you like to register for this event?
+                    </p>
+                    <A href="/tc?module=IntroEventRegister&eid=${event.id}" class="button" style="width: 80px;">Register now</A>
+                </div>             
+             </c:otherwise>
+    
         </c:choose>
         </p>
 
