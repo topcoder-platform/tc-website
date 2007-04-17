@@ -17,7 +17,7 @@ import javax.naming.InitialContext;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.logging.Logger;
+//import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
@@ -35,7 +35,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException
 import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
+//import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
@@ -78,9 +78,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
  */
 
 public class DataInterfaceBean implements PactsConstants {
-
-    private static final Logger log = Logger.getLogger(DataInterfaceBean.class);
-
     // Get handle to the EJB.  All miscellaneous exceptions that can be
     // thrown by the various calls herein (CreateException, NamingException,
     // RemoteException) get packaged into a RemoteException for convenience.
@@ -882,8 +879,8 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(METHOD_CODE) ||
                     key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
-            else if (key.equals(IS_REVIEWED))
-                inputOk = validateInput(value, BOOLEAN);
+//            else if (key.equals(IS_REVIEWED))
+//                inputOk = validateInput(value, BOOLEAN);
            else if (key.equals(PAYMENT_ID)) {
 			   String []s = value.split(",");
 			   inputOk = true;
@@ -1441,23 +1438,23 @@ public class DataInterfaceBean implements PactsConstants {
         ps.batchUpdatePaymentStatus(paymentId, statusId, userId);
     }
 
-    /**
-     * Marks the given payments as reviewed.  This function should be called if the
-     * user wants to reprint payments that have already been printed, prior to the
-     * reprint request.  Its purpose is to ensure that payments don't get printed
-     * multiple times without good reason.
-     *
-     * @param   paymentId The payments to mark as reviewed.
-     * @throws  NoObjectFoundException If any payment does not exist
-     * @throws  IllegalUpdateException If any payment has not been printed
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some other problem updating the data
-     */
-    public void reviewPayments(long paymentId[])
-            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        ps.reviewPayments(paymentId);
-    }
+//    /**
+//     * Marks the given payments as reviewed.  This function should be called if the
+//     * user wants to reprint payments that have already been printed, prior to the
+//     * reprint request.  Its purpose is to ensure that payments don't get printed
+//     * multiple times without good reason.
+//     *
+//     * @param   paymentId The payments to mark as reviewed.
+//     * @throws  NoObjectFoundException If any payment does not exist
+//     * @throws  IllegalUpdateException If any payment has not been printed
+//     * @throws  RemoteException If there is some communication problem with the EJB
+//     * @throws  SQLException If there is some other problem updating the data
+//     */
+//    public void reviewPayments(long paymentId[])
+//            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        ps.reviewPayments(paymentId);
+//    }
 
     /*****************************************************
      * Utility functions
@@ -1497,24 +1494,24 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
 
-    /**
-     * Prints the payments that have status of "Ready to Print" to an external location.
-     * For each payment, updates the status to "Printed", updates the print count, sets
-     * the review field to zero, and sets the date printed to the current date and time.
-     * The payment information, and the separate payee or "vendor" information, are returned
-     * in a two-element string array, the payment information coming first.
-     *
-     * @return  The payment and vendor information in String form
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  PaymentNotReviewedException If any of the payments to print has been
-     * previously printed and not subsequently reviewed
-     * @throws  SQLException If there is some problem updating the database
-     */
-    public String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException {
-        log.debug("printPayments called...");
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.printPayments();
-    }
+//    /**
+//     * Prints the payments that have status of "Ready to Print" to an external location.
+//     * For each payment, updates the status to "Printed", updates the print count, sets
+//     * the review field to zero, and sets the date printed to the current date and time.
+//     * The payment information, and the separate payee or "vendor" information, are returned
+//     * in a two-element string array, the payment information coming first.
+//     *
+//     * @return  The payment and vendor information in String form
+//     * @throws  RemoteException If there is some communication problem with the EJB
+//     * @throws  PaymentNotReviewedException If any of the payments to print has been
+//     * previously printed and not subsequently reviewed
+//     * @throws  SQLException If there is some problem updating the database
+//     */
+//    public String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException {
+//        log.debug("printPayments called...");
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.printPayments();
+//    }
 
 
     /**

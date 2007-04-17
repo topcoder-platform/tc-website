@@ -51,7 +51,7 @@ public interface Constants {
     public static final int MODIFICATION_WITHOLDING_AMOUNT = 3;
     public static final int MODIFICATION_NET_AMOUNT = 4;
     public static final int MODIFICATION_GROSS_AMOUNT = 5;
-    public static final int MODIFICATION_DATE_PRINTED = 6;
+    //public static final int MODIFICATION_DATE_PRINTED = 6;
     public static final int MODIFICATION_DATE_PAID = 7;
     public static final int MODIFICATION_STATUS = 8;
     public static final int MODIFICATION_REFERENCE = 9;
@@ -73,9 +73,9 @@ public interface Constants {
      */
     public static final int PAID_STATUS = 53;
 
-    /** 
-     * We get a "ready to print" status when a TC rep decides the payments are ready to print */
-    public static final int READY_TO_PRINT_STATUS = 54;
+//    /** 
+//     * We get a "ready to print" status when a TC rep decides the payments are ready to print */
+//    public static final int READY_TO_PRINT_STATUS = 54;
 
     /** 
      * We get an "on hold" status when the payment is going to someone who doesn't have a

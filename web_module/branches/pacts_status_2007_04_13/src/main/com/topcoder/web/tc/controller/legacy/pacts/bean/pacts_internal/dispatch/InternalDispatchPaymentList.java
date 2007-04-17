@@ -93,8 +93,8 @@ public class InternalDispatchPaymentList implements PactsConstants {
         if (param != null && !param.equals("")) query.put(USER_ID, param);
         param = request.getParameter(HANDLE);
         if (param != null && !param.equals("")) query.put(HANDLE, param);
-        param = request.getParameter(IS_REVIEWED);
-        if (param != null && !param.equals("")) query.put(IS_REVIEWED, param);
+//        param = request.getParameter(IS_REVIEWED);
+//        if (param != null && !param.equals("")) query.put(IS_REVIEWED, param);
         param = request.getParameter(PROJECT_ID);
         if (param != null && !param.equals("")) query.put(PROJECT_ID, param);
         

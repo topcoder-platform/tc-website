@@ -130,13 +130,13 @@
    } %>
               </select></td>
           </tr>
-          <tr>
+<%--          <tr>
             <td>Is Reviewed:</td>
 <% out.println("            <td><input type=\"radio\" value=\"true\" name=\""+PactsConstants.IS_REVIEWED+"\">Yes<br>");
    out.println("              <input type=\"radio\" name=\""+PactsConstants.IS_REVIEWED+"\" value=\"false\">No<br>");
    out.println("              <input type=\"radio\" name=\""+PactsConstants.IS_REVIEWED+"\" value=\"\" checked>Don't"); %>
-              Care</td>
-          </tr>
+              Care</td> 
+          </tr>--%>
         </table>
         <p><br>
         <input type="submit" value="Submit" name="B1"><input type="reset" value="Reset" name="B2">

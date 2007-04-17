@@ -291,14 +291,14 @@ public interface PactsConstants extends Constants {
     // Payment searches
     public static final String EARLIEST_DUE_DATE = "earliest_due_date";
     public static final String LATEST_DUE_DATE = "latest_due_date";
-    public static final String EARLIEST_PRINT_DATE = "earliest_print_date";
-    public static final String LATEST_PRINT_DATE = "latest_print_date";
+    //public static final String EARLIEST_PRINT_DATE = "earliest_print_date";
+    //public static final String LATEST_PRINT_DATE = "latest_print_date";
     public static final String EARLIEST_PAY_DATE = "earliest_pay_date";
     public static final String LATEST_PAY_DATE = "latest_pay_date";
     public static final String LOWEST_NET_AMOUNT = "lowest_net_amount";
     public static final String HIGHEST_NET_AMOUNT = "highest_net_amount";
     // public static final String PAYMENT_TYPE_CODE = "payment_type_code";
-    public static final String IS_REVIEWED = "reviewed";
+    //public static final String IS_REVIEWED = "reviewed";
 
     // Affidavit searches
     public static final String IS_AFFIRMED = "is_affirmed";
@@ -421,10 +421,10 @@ public interface PactsConstants extends Constants {
     public static final String USER_TAX_FORM_CMD = "user_tax_form";
     public static final String NOTE_LINK_CMD = "note_link";
     public static final String PAID_CMD = "Mark Selected Payments Paid";
-    public static final String PRINT_CMD = "print";
-    public static final String REVIEW_CMD = "Review Selected Payments";
+    //public static final String PRINT_CMD = "print";
+    //public static final String REVIEW_CMD = "Review Selected Payments";
     public static final String STATUS_CMD = "Update Selected Payments' Status";
-    public static final String FILE_CMD = "file";
+    //public static final String FILE_CMD = "file";
 
     // internal parameters
     public static final String OBJECT_ID = "object_id";
@@ -537,7 +537,7 @@ public interface PactsConstants extends Constants {
     public static final String DEFAULT_USER_TAX_FORM_STATUS = "Inactive";
     public static final String DEFAULT_USER_TAX_FORM = "W-9";
     public static final String DEFAULT_MODIFICATION_RATIONALE = "Status Change";
-    public static final String DEFAULT_BATCH_STATUS = "Ready to Print";
+    //public static final String DEFAULT_BATCH_STATUS = "Ready to Print";
 
     //Session attribute constants
     public static final String PACTS_QUICKBOOKS_FILES = "pacts_quickbooks_files";

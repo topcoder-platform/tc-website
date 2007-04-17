@@ -48,13 +48,13 @@
         out.print("\">" + payments[0].getHeader().getUser().getHandle() + "</a></td>\n");
     %>
 </tr>
-    <tr>
+<%--    <tr>
         <td><b>Reviewed:</b></td>
         <%
             if (payments.length >= 1 && payments[0].getHeader().isReviewed()) out.print("<td>Yes</td>\n");
             else out.print("<td>No</td>\n");
         %>
-    </tr>
+    </tr>--%>
 </table>
 <% } else out.print("payments was empty!\n");
 %>
@@ -141,17 +141,17 @@
        out.println(PactsConstants.PAYMENT_ID+"="+request.getParameter(PactsConstants.PAYMENT_ID));
        out.println("\">Update Payment</a><br>");
 
-       out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-       out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
-       out.println(PactsConstants.CMD_STRING+"="+PactsConstants.REVIEW_CMD+"&");
-       out.println(PactsConstants.PAYMENT_ID+"="+request.getParameter(PactsConstants.PAYMENT_ID)+"&");
-       out.print("query="+PactsConstants.INTERNAL_SERVLET_URL+"%3F");
-       out.print(PactsConstants.TASK_STRING+"%3D"+PactsConstants.VIEW_TASK+"%26");
-       out.print(PactsConstants.CMD_STRING+"%3D"+PactsConstants.PAYMENT_AUDIT_TRAIL_CMD+"%26");
-       out.print(PactsConstants.PAYMENT_ID+"%3D"+request.getParameter(PactsConstants.PAYMENT_ID)+"%26");
-       out.print("individual_payment%3D1");
-       out.println("\">Review Payment</a><br>");
-
+       //out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
+       //out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
+       //out.println(PactsConstants.CMD_STRING+"="+PactsConstants.REVIEW_CMD+"&");
+       //out.println(PactsConstants.PAYMENT_ID+"="+request.getParameter(PactsConstants.PAYMENT_ID)+"&");
+       //out.print("query="+PactsConstants.INTERNAL_SERVLET_URL+"%3F");
+       //out.print(PactsConstants.TASK_STRING+"%3D"+PactsConstants.VIEW_TASK+"%26");
+       //out.print(PactsConstants.CMD_STRING+"%3D"+PactsConstants.PAYMENT_AUDIT_TRAIL_CMD+"%26");
+       //out.print(PactsConstants.PAYMENT_ID+"%3D"+request.getParameter(PactsConstants.PAYMENT_ID)+"%26");
+       //out.print("individual_payment%3D1");
+       //out.println("\">Review Payment</a><br>");
+       
     %>
 
     <jsp:include page="InternalFooter.jsp" flush="true"/>

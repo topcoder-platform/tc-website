@@ -16,7 +16,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException
 import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
+//import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
@@ -170,14 +170,14 @@ public interface PactsServices extends EJBObject {
     UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
             throws RemoteException, SQLException;
 
-    void reviewPayments(long paymentId[])
-            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
+//    void reviewPayments(long paymentId[])
+//            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
 
     // Utility routines
     boolean canAffirmAffidavit(long userId, int affidavitTypeId)
             throws RemoteException, SQLException;
 
-    String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException;
+//    String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException;
 
     int generateRoundPayments(long roundId, boolean makeChanges)
             throws IllegalUpdateException, RemoteException, SQLException;
