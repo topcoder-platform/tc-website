@@ -293,9 +293,6 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" width="67" height="21" border="0"/>
-            </div>
             TopCoder Appoints Russ Malz Vice President of Sales
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040907">...more</A><br>[April 9]<br><br>
 
