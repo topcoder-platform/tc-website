@@ -10,7 +10,7 @@
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1c">TCO07 - Algorithm Round 1C - Problem Set & Analysis</A></span><br><br>
       TCO07 online Round 1 concluded with section C, which was probably the easiest of the three sections. No targets participated in this section, but that didn't mean things would be easy. With only 300 coders advancing to round 2, people did their utmost best to be one of them.
         </td>
-      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="309453" context="development"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="309453" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -27,7 +27,7 @@
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1b">TCO07 - Algorithm Round 1B - Problem Set & Analysis</A></span><br><br>
       Round 1B of the TCO07 was characterized by three very approachable problems, but all of them had pitfalls that were very easy to stumble into.  With pass rates of 41%, 21% and 29%, this round was about careful coding, thinking through your algorithms, and massive opportunities during the challenge phase.
         </td>
-      <td class="newsPhoto"><img src="/i/m/HiltonLange_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10428762" context="development"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/HiltonLange_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10428762" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
