@@ -1,9 +1,7 @@
 package com.topcoder.web.common.model;
 
 import java.sql.Timestamp;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 import com.topcoder.web.tc.Constants;
 
@@ -19,8 +17,7 @@ public class IntroEvent extends Event  {
     private TimeZone timeZone = null;
     private Image image = null;
     private Long eligibilityCommandId = null;
-    private Set<IntroEventConfig> config;
-    private Map<Long, String> configMap = null;
+    private Map<Integer, IntroEventConfig> config;
     
     // formula fields
     private Timestamp roundStart = null;
@@ -77,6 +74,7 @@ public class IntroEvent extends Event  {
         this.school = school;
     }
 
+    /*
     public Set<IntroEventConfig> getConfig() {
         return config;
     }
@@ -86,7 +84,6 @@ public class IntroEvent extends Event  {
         configMap = null;
     }
 
-    public String getConfig(Long typeId) {
         if (configMap == null) {
             configMap = new HashMap<Long, String>();
             for (IntroEventConfig iec : getConfig()) {
@@ -95,41 +92,51 @@ public class IntroEvent extends Event  {
         }
         return configMap.get(typeId);
     }
-
+*/
+    
+    public IntroEventConfig getConfig(Integer typeId) {
+        return config.get(typeId);
+    }
+    
+    public void addConfig(IntroEventConfig iec) {
+        config.put(iec.getId().getPropertyId() ,iec);
+    }
+    
+    
     public String getRecruiterName() {
-        return getConfig(new Long(Constants.RECRUITER_NAME_PROP_ID));
+        return getConfig(new Integer(Constants.RECRUITER_NAME_PROP_ID)).getValue();
     }
 
     public String getFirstPlacePrize() {
-        return getConfig(new Long(Constants.FIRST_PLACE_PROP_ID));
+        return getConfig(new Integer(Constants.FIRST_PLACE_PROP_ID)).getValue();
     }
 
     public String getSecondPlacePrize() {
-        return getConfig(new Long(Constants.SECOND_PLACE_PROP_ID));
+        return getConfig(new Integer(Constants.SECOND_PLACE_PROP_ID)).getValue();
     }
 
     public String getThirdPlacePrize() {
-        return getConfig(new Long(Constants.THIRD_PLACE_PROP_ID));
+        return getConfig(new Integer(Constants.THIRD_PLACE_PROP_ID)).getValue();
     }
 
     public String getLocation() {
-        return getConfig(new Long(Constants.LOCATION_PROP_ID));
+        return getConfig(new Integer(Constants.LOCATION_PROP_ID)).getValue();
     }
 
     public int getEventStartDelta() {
-        return Integer.parseInt(getConfig(new Long(Constants.EVENT_START_PROP_ID)));
+        return Integer.parseInt(getConfig(new Integer(Constants.EVENT_START_PROP_ID)).getValue());
     }
     
     public int getEventEndDelta() {
-        return Integer.parseInt(getConfig(new Long(Constants.EVENT_END_PROP_ID)));
+        return Integer.parseInt(getConfig(new Integer(Constants.EVENT_END_PROP_ID)).getValue());
     }
 
     public int getResultsDelta() {
-        return Integer.parseInt(getConfig(new Long(Constants.RESULTS_PROP_ID)));
+        return Integer.parseInt(getConfig(new Integer(Constants.RESULTS_PROP_ID)).getValue());
     }
 
     public String getPagesBase() {
-        return getConfig(new Long(Constants.PAGES_BASE_PROP_ID));
+        return getConfig(new Integer(Constants.PAGES_BASE_PROP_ID)).getValue();
     }
 
     public Timestamp getRoundStart() {

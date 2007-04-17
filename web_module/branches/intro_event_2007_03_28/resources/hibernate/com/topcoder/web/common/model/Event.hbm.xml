@@ -34,11 +34,6 @@
             <many-to-one name="timeZone" column="timezone_id" class="TimeZone" access="field"/>
             <many-to-one name="image" column="image_id" class="Image" access="field" fetch="join"/>
             <property name="eligibilityCommandId" column="eligibility_command_id" access="field"/>                        
-<!--          <set name="config" cascade="save-update" inverse="true" access="field">
-                <key column="event_id" not-null="true" />
-                <one-to-many class="IntroEventConfig"/>
-            </set>
--->            
             <map name="config" cascade="save-update" inverse="true" access="field">
                 <key column="event_id" not-null="true" />
                 <map-key column="property_id" type="integer"/>

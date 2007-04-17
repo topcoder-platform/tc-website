@@ -32,7 +32,7 @@ public class IntroEventConfig extends Base {
     public static class Identifier implements Serializable {
 
         private IntroEvent introEvent = null;
-        private Long propertyId = null;
+        private Integer propertyId = null;
 
 
         public Identifier() {
@@ -40,7 +40,7 @@ public class IntroEventConfig extends Base {
         }
 
 
-        public Identifier(IntroEvent introEvent, Long propertyId) {
+        public Identifier(IntroEvent introEvent, Integer propertyId) {
             this.introEvent = introEvent;
             this.propertyId = propertyId;
         }
@@ -56,12 +56,12 @@ public class IntroEventConfig extends Base {
         }
 
 
-        public Long getPropertyId() {
+        public Integer getPropertyId() {
             return propertyId;
         }
 
 
-        public void setPropertyId(Long propertyId) {
+        public void setPropertyId(Integer propertyId) {
             this.propertyId = propertyId;
         }
 
