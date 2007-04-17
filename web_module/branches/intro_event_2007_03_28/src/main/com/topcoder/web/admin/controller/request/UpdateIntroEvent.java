@@ -3,10 +3,7 @@ package com.topcoder.web.admin.controller.request;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.Image;
 import com.topcoder.web.common.model.IntroEvent;
-import com.topcoder.web.common.model.School;
-import com.topcoder.web.common.model.TimeZone;
 
 /**
  * @author cucu
