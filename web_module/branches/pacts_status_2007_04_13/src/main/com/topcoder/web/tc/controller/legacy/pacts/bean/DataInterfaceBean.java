@@ -21,6 +21,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
 import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
@@ -121,7 +122,7 @@ public class DataInterfaceBean implements PactsConstants {
     private boolean objectTypeExists(int objectType) {
         return (objectType == AFFIDAVIT_OBJ ||
                 objectType == CONTRACT_OBJ ||
-                objectType == PAYMENT_OBJ ||
+                //objectType == PAYMENT_OBJ ||
                 objectType == USER_PROFILE_OBJ ||
                 objectType == TAX_FORM_OBJ ||
                 objectType == NOTE_OBJ ||
@@ -1774,6 +1775,10 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         ps.affirmAssignmentDocument(ad);
     }
-
+    
+    public List<BasePaymentStatus> getPaymentStatusList() throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getPaymentStatusList();
+    }
 }
 

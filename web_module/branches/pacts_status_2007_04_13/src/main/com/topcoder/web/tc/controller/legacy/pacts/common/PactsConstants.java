@@ -171,6 +171,7 @@ public interface PactsConstants extends Constants {
     public static final String MODIFICATION_RATIONALE_LIST = "modification_rationale_list";
     public static final String NOTE_TYPE_LIST = "note_type_list";
     public static final String PAYMENT_TYPE_LIST = "payment_type_list";
+    public static final String PAYMENT_STATUS_LIST = "payment_status_list";
     public static final String PAYMENT_METHOD_LIST = "payment_method_list";
     public static final String STATUS_CODE_LIST = "status_code_list";
     public static final String USER_TYPE_LIST = "user_type_list";

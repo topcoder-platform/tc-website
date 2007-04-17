@@ -291,6 +291,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId);
 
     void affirmAssignmentDocument(AssignmentDocument ad);
+    
+    List<BasePaymentStatus> getPaymentStatusList();
 
 }
 

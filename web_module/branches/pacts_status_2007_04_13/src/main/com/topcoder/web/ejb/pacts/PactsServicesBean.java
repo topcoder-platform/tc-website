@@ -15,6 +15,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
+
+import java.rmi.RemoteException;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -2250,6 +2252,32 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         HashMap hm = new HashMap();
         hm.put(STATUS_CODE_LIST, rsc);
         return hm;
+    }
+
+
+    /**
+     * Returns the list of all payment statuses
+     *
+     * @return The list of payment statuses
+     * @throws SQLException If there is some problem retrieving the data
+     */
+    public List<BasePaymentStatus> getPaymentStatusList() throws SQLException {
+        // TODO: pulky: change the basepaymentstatus for an instance of each payment status.
+        List<BasePaymentStatus> statusList = new ArrayList<BasePaymentStatus>(); 
+        
+        StringBuffer sb = new StringBuffer(300);
+        sb.append("SELECT payment_status_id, payment_status_desc FROM payment_status_lu WHERE payment_status_viewable_ind = 1 ");
+        sb.append(" ORDER BY 2");
+
+        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+        
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            // TODO: pulky: change this!
+            statusList.add(new BasePaymentStatus(row.getLongItem("payment_status_id"), 
+                    row.getStringItem("payment_status_desc")));
+        } 
+        
+        return statusList;
     }
 
     /**

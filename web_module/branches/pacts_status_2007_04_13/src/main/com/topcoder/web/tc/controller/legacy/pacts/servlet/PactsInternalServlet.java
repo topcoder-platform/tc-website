@@ -1975,7 +1975,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         log.debug("doSearch<br>");
 
         DataInterfaceBean dib = new DataInterfaceBean();
-        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
+        request.setAttribute(PAYMENT_STATUS_LIST, dib.getPaymentStatusList());
         request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
         request.setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
 
