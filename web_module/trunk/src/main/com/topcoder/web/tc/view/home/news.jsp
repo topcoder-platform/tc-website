@@ -4,6 +4,40 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.17.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1c">TCO07 - Algorithm Round 1C - Problem Set & Analysis</A></span><br><br>
+      TCO07 online Round 1 concluded with section C, which was probably the easiest of the three sections. No targets participated in this section, but that didn't mean things would be easy. With only 300 coders advancing to round 2, people did their utmost best to be one of them.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="309453" context="development"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1c">full story</A> | 
+        <tc-webtag:forumLink forumID="514950" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.17.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1b">TCO07 - Algorithm Round 1B - Problem Set & Analysis</A></span><br><br>
+      Round 1B of the TCO07 was characterized by three very approachable problems, but all of them had pitfalls that were very easy to stumble into.  With pass rates of 41%, 21% and 29%, this round was about careful coding, thinking through your algorithms, and massive opportunities during the challenge phase.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/HiltonLange_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10428762" context="development"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1b">full story</A> | 
+        <tc-webtag:forumLink forumID="514949" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>04.16.07<br>3:50 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -185,44 +219,6 @@ We caught up with April's "coders of the month," to learn a little bit more abou
    <tr><td class="newsLinksCell">
         <A href="/tc?module=ViewSurvey&sid=16884">details</A> | 
         <tc-webtag:forumLink forumID="514973" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.10.07<br>11:10 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 1B set for April 10</A>
-        </span><br><br>
-        Online Round 1B of the TCO07 Algorithm Competition, brought to you by NSA, is set for 9:00 PM EDT on April 10.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">details</A> | 
-        <tc-webtag:forumLink forumID="514949" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.10.07<br>10:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=16853">Vote for the TopCoder video portal graphic set</A>
-        </span><br><br>
-        TopCoder has chosen the top five graphic sets that could be the basic template for the "personality" behind the new TopCoder video web portal. Vote for your favorite!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=16853">details</A> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=388&start=0&mc=1">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
