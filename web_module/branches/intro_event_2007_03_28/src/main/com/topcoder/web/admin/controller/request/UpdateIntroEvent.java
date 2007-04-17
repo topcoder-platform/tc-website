@@ -53,10 +53,10 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
                 IntroEventConfig iec = new IntroEventConfig();
                 IntroEventConfig.Identifier id = new IntroEventConfig.Identifier();
                 id.setIntroEvent(ie);
-                id.setPropertyId(prop.getId().longValue());
+                id.setPropertyId(prop.getId().intValue());
                 iec.setId(id);
                 iec.setValue(value);
-                
+                ie.addConfig(iec);
             }
         }
         
