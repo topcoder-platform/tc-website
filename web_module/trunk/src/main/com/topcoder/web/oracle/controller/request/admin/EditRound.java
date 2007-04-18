@@ -131,6 +131,9 @@ public class EditRound extends Base {
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
 
+            //an attempt to get the round id populated so we can redirect correctly
+            OracleDAOUtil.getFactory().getContestDAO().saveOrUpdate(c);
+
             setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
                     "=AdminViewRound&" + Constants.ROUND_ID + "=" + round.getId()+"&" +
                     Constants.CONTEST_ID + "=" + round.getContest().getId());
