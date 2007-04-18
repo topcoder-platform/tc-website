@@ -52,12 +52,59 @@
 		<td><tc-webtag:textInput name="name" size="50" editable="true" /></td>
 	</tr>
 	<tr>
+		<td>Short Event Name:</td>
+		<td><tc-webtag:textInput name="sname" size="50" editable="true" /> (e.g. "rutgersTour")</td>
+	</tr>
+	<tr>
 		<td>School:</td>
-		<td><tc-webtag:textInput name="sid" size="6" editable="true" /> (use ajax!)</td>
+		<td>
+			<table>
+				<tr>
+					<td width="10%" nowrap="nowrap">
+						<tc-webtag:radioButton name="use_school_search" value="1" />
+						Search a school:
+					</td>					
+					<td>
+						use ajax! 
+					</td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap">
+						<tc-webtag:radioButton name="use_school_search" value="0" />
+						Or enter school_id:
+					</td>					
+					<td>
+						<tc-webtag:textInput name="sid" size="6" editable="true" />
+					</td>
+				</tr>
+			</table>
+			(leave it blank if no school is associated)
+		</td>
 	</tr>
 	<tr>
 		<td>Forum:</td>
-		<td><tc-webtag:textInput name="fid" size="6" editable="true" /> (use ajax!)</td>
+		<td>
+			<table>
+				<tr>
+					<td width="10%" nowrap="nowrap">
+						<tc-webtag:radioButton name="create_forum" value="1" />
+						Create forum with name:
+					</td>					
+					<td>
+						<tc-webtag:textInput name="forum_name" size="30" editable="true" /> 
+					</td>
+				</tr>
+				<tr>
+					<td nowrap="nowrap">
+						<tc-webtag:radioButton name="create_forum" value="0" />
+						Or enter forum_id:
+					</td>					
+					<td>
+						<tc-webtag:textInput name="fid" size="6" editable="true" />
+					</td>
+				</tr>
+			</table>
+		</td>
 	</tr>
 	<tr>
 		<td>Timezone:</td>
@@ -95,10 +142,14 @@
         <td class="value">
             from <tc-webtag:textInput name="algo_reg_start" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 					<button id="trigger_algo_reg_start"">Set</button>
+					
+					&nbsp;&nbsp;&nbsp; <tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone
+					<br>
+					
             to <tc-webtag:textInput name="algo_reg_end" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 			   <button id="trigger_algo_reg_end"">Set</button>
 			   
-			&nbsp;&nbsp;&nbsp; <tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone
+			
         </td>
    </tr>
 	
@@ -182,10 +233,14 @@
         <td class="value">
             from <tc-webtag:textInput name="comp_reg_start" id="comp_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 					<button id="trigger_comp_reg_start"">Set</button>
+					
+					&nbsp;&nbsp;&nbsp; <tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone
+					<br>
+					
             to <tc-webtag:textInput name="comp_reg_end" id="comp_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 			   <button id="trigger_comp_reg_end"">Set</button>
 			   
-			&nbsp;&nbsp;&nbsp; <tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone
+			
         </td>
    </tr>
 	

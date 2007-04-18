@@ -40,7 +40,11 @@ public class AddIntroEvent extends ShortHibernateProcessor {
             getRequest().setAttribute("rounds", rounds);
         }
             
-            
+
+        setDefault("use_school_search", "1");
+        setDefault("create_forum", "1");
+        setDefault("use_round_sel", "1");
+        
         getRequest().setAttribute("hasAlgo", hasAlgo);
         getRequest().setAttribute("hasComp", hasComp);
         
