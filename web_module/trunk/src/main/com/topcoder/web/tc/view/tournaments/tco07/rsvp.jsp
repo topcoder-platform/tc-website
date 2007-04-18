@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -173,6 +174,7 @@ for the TopCoder Casino Night Party!
             </div>
 
             <form>
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitRsvp"/>
 
             <table cellpadding="4" cellspacing="0">
             <tbody>
@@ -181,9 +183,9 @@ for the TopCoder Casino Night Party!
                         &nbsp;
                     </td>
                     <td>
-                        <input name="attending" value="Attending" type="radio"> I will be attending
+                        <input name="attending" value="" type="radio" checked> I will be attending
                         <br>
-                        <input name="notattending" value="Not Attending" type="radio"> I will not be attending
+                        <input name="attending" value="not" type="radio"> I will not be attending
                     </td>
                 </tr>
                 <tr>
