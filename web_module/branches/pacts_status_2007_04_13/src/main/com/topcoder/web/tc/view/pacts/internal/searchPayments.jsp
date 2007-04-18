@@ -1,3 +1,7 @@
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 
 <head>
@@ -17,20 +21,9 @@
  
 <body>
 
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.topcoder.web.ejb.pacts.BasePaymentStatus" %>
 
-<% int statusRowCount = 0;
-   int paymentTypeRowCount = 0;
+<% int paymentTypeRowCount = 0;
    int paymentMethodRowCount = 0;
-   List<BasePaymentStatus> status = (List<BasePaymentStatus>) request.getAttribute(PactsConstants.PAYMENT_STATUS_LIST);
-   if (status.size() == 0) {
-      out.println("No Status List!");
-      //status = new ResultSetContainer();
-   }
-   else statusRowCount = status.size();
    ResultSetContainer paymentType = (ResultSetContainer) request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST);
    if (paymentType == null) {
       out.println("No Payment Type List!");
@@ -104,12 +97,13 @@
           </tr>
           <tr>
             <td>Status:</td>
-<% out.println("            <td><select name=\""+PactsConstants.STATUS_CODE+"\" multiple size=4>");
-   out.println("              <option value=\"\" selected>Any</option>");
-   for (int n = 0; n < statusRowCount; n++) {
-      BasePaymentStatus baseStatus = status.get(n);
-      out.println("              <option value=\""+baseStatus.getId()+"\">"+baseStatus.getDesc()+"</option>");
-   } %>
+            <td><select name="<%=PactsConstants.STATUS_CODE%>" multiple size=4>
+                <option value="" selected>Any</option>
+                <c:forEach items="${payment_status_list}" var="baseStatus">
+                    <OPTION value='${baseStatus.id}'>
+                        ${baseStatus.desc}
+                    </OPTION>
+                </c:forEach>
               </select></td>
           </tr>
           <tr>
