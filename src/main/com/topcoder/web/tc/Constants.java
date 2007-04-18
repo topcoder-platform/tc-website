@@ -333,6 +333,8 @@ public class Constants implements WebConstants {
 
     public static String ACTIVATE_IP_TRANSFER;
 
+    public static String RSVP_TO_ADDRESS;
+
     static {
         initialize();
     }
