@@ -260,7 +260,7 @@
 
 
 
-<c:if test="${!round.new}">
+<c:if test="${round!=null && !round.new}">
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="advanceForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAdvanceCandidates"/>
 <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
