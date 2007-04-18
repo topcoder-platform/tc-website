@@ -24,6 +24,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new CompanyDAOHibernate();
     }
 
+    public CompContestDAO getCompContestDAO() {
+        return new CompContestDAOHibernate();
+    }
+    
     public ContactDAO getContactDAO() {
         return new ContactDAOHibernate();
     }

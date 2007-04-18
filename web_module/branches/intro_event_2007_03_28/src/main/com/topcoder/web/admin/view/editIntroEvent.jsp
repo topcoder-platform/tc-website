@@ -248,7 +248,7 @@
 	<tr>
 		<td>First week:</td>
         <td class="value">
-            <tc-webtag:textInput name="comp_first_week" id="comp_first_week" size="10" format="MM/dd/yyyy" editable="true" />  
+            <tc-webtag:textInput name="comp_first_week" id="comp_first_week" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 					<button id="trigger_comp_first_week"">Set</button>
 		</td>	
 	</tr>
@@ -321,7 +321,7 @@
 		Calendar.setup(
 		{
 		 inputField  : "comp_first_week",  
-		                    ifFormat    : "%m/%d/%Y",    
+		                    ifFormat    : "%m/%d/%Y %H:%M",   
 		                    button      : "trigger_comp_first_week",     
 		                    showsTime   : true,
 		                    singleClick  : false,

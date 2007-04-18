@@ -11,6 +11,10 @@ import com.topcoder.web.common.model.Event;
 @SuppressWarnings("serial")
 public class Contest extends Base {
 
+    public final static Integer TYPE_INTRO_EVENT_OVERALL = new Integer(22);
+    public final static Integer TYPE_INTRO_EVENT_WEEKLY = new Integer(23);
+    
+    
     protected Long id = null;    
     protected String name = null;
     protected Integer phaseId = null;
