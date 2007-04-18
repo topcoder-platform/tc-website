@@ -1,9 +1,12 @@
 package com.topcoder.web.admin.controller.request;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
+import com.topcoder.web.common.DateUtils;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -12,6 +15,7 @@ import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.IntroEvent;
 import com.topcoder.web.common.model.IntroEventConfig;
 import com.topcoder.web.common.model.IntroEventPropertyType;
+import com.topcoder.web.common.model.TimeZone;
 
 /**
  * @author cucu
@@ -21,7 +25,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
     @Override
     protected void dbProcessing() throws Exception {
         SimpleDateFormat sdfDateTime = new SimpleDateFormat("MM/dd/yyyy HH:mm");
-        
+
         boolean hasAlgo = getRequest().getParameter("algo_reg_start") != null;
         boolean hasComp = getRequest().getParameter("algo_comp_start") != null;
         
@@ -34,6 +38,8 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         String imageId = getRequest().getParameter("img");
 
         DAOFactory factory = DAOUtil.getFactory();
+
+        TimeZone timeZone = factory.getTimeZoneDAO().find(new Integer(timezoneId));
         
         IntroEvent ie = new IntroEvent();
         ie.setDescription(name);
@@ -41,7 +47,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         ie.setShortDescription(sname);
         ie.setSchool(factory.getSchoolDAO().find(new Long(schoolId)));
         ie.setForumId(new Long(forumId));
-        ie.setTimezone(factory.getTimeZoneDAO().find(new Integer(timezoneId)));
+        ie.setTimezone(timeZone);
         ie.setImage(factory.getImageDAO().find(new Long(imageId)));        
         
         if (hasAlgo) {
@@ -73,12 +79,12 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
             algo.setParent(ie);
             ie.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ALGO_ID));       
             
-            String registrationStart = getRequest().getParameter("algo_reg_start");
-            String registrationEnd = getRequest().getParameter("algo_reg_end");
+            TimeZone tz = getRequest().getParameter("algo_tz") != null? timeZone : null;
             
-            algo.setRegistrationStart(new Timestamp(sdfDateTime.parse(registrationStart).getTime()));
-            algo.setRegistrationEnd(new Timestamp(sdfDateTime.parse(registrationEnd).getTime()));
-            algo.setShortDescription(ie.getDescription() + " - Algorithms");
+            algo.setRegistrationStart(getDateTime("alg_reg_start", sdfDateTime, tz));
+            algo.setRegistrationEnd(getDateTime("alg_reg_end", sdfDateTime, tz));
+            algo.setDescription(ie.getDescription() + " - Algorithms");
+            algo.setShortDescription(ie.getShortDescription() + "Algo");
 
         }
 
@@ -92,5 +98,20 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
     }
 
     
+    private Timestamp getDateTime(String param, SimpleDateFormat sdf, TimeZone tz) {
+        Date d;
+        try {
+            d = sdf.parse(param);
+        } catch (ParseException e) {
+            //addError();
+            return null;
+        }
+        
+        if (tz != null) {            
+            d = DateUtils.getConvertedDate(d, tz.getDescription(),  java.util.TimeZone.getDefault().getID());
+        }
+        
+        return new Timestamp(d.getTime());
+    }
 
 }
