@@ -174,7 +174,7 @@ for the TopCoder Casino Night Party!
             </div>
 
             <form name="submitRsvp" method="post" action="/tc">
-                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitRsvp"/>
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="TCO07SubmitRsvp"/>
 
             <table cellpadding="4" cellspacing="0">
             <tbody>
