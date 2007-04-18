@@ -8,7 +8,7 @@
     <class name="Contest" table="tcs_catalog:contest">
         <id name="id" column="contest_id">
             <generator class="com.topcoder.web.common.model.IdGenerator">
-                <param name="sequence_name">CONTEST_SEQ</param>
+                <param name="sequence_name">COMP_CONTEST_SEQ</param>
             </generator>
         </id>
 
