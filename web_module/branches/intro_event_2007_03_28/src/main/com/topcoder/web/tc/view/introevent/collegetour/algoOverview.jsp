@@ -57,7 +57,7 @@
     TopCoder is sponsoring an onsite programming competition at ${mainEvent.school.name} on
     <tc-webtag:format object="${roundStart}" format="MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>. <br><br>
 
-    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${mainEvent.registrationEnd}" format="MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.</span><br>
+    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${event.registrationEnd}" format="MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.</span><br>
     <br>
     
     The event is from
@@ -80,15 +80,15 @@
     <h3>Prizes</h3>
 
     <ul>
-    	<c:if test="${mainEvent.firstPlacePrize }">
+    	<c:if test="${not empty mainEvent.firstPlacePrize }">
 	        <li>1st place prize - ${mainEvent.firstPlacePrize}
     	    </li>
     	</c:if>
-    	<c:if test="${mainEvent.secondPlacePrize }">
+    	<c:if test="${not empty mainEvent.secondPlacePrize }">
 	        <li>1st place prize - ${mainEvent.secondPlacePrize}
     	    </li>
     	</c:if>
-    	<c:if test="${mainEvent.thirdPlacePrize }">
+    	<c:if test="${not empty mainEvent.thirdPlacePrize }">
 	        <li>1st place prize - ${mainEvent.thirdPlacePrize}
     	    </li>
     	</c:if>
