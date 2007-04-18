@@ -89,9 +89,25 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
 
         }
 
+        Event comp = null;
+        if (hasComp) {
+            comp = new Event();
+
+            comp.setParent(ie);
+            comp.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_COMP_ID));       
+            
+            TimeZone tz = getRequest().getParameter("comp_tz") != null? timeZone : null;
+            
+            comp.setRegistrationStart(getDateTime("comp_reg_start", sdfDateTime, tz, "component registration start date"));
+            comp.setRegistrationEnd(getDateTime("comp_reg_end", sdfDateTime, tz, "component registration end date"));        
+        }
+        
         factory.getIntroEventDAO().saveOrUpdate(ie);        
         if (algo != null) {
             factory.getEventDAO().saveOrUpdate(algo);
+        }
+        if (comp != null) {
+            factory.getEventDAO().saveOrUpdate(comp);
         }
         
         setNextPage("/main.jsp");
