@@ -39,7 +39,7 @@ public class SubmitRsvp extends Base {
 
         msgText.append("I will ");
         msgText.append(attending);
-        msgText.append(" be attending:\n");
+        msgText.append("be attending:\n");
         msgText.append("Name: ");
         msgText.append(name + "\n");
         msgText.append("Email: ");
