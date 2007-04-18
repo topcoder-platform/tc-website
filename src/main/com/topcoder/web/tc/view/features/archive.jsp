@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21684580" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=041907"><strong>A Crash Course in SQL</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Apr 19, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText">AOL's Boxely Team</td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely"><strong>Introducing Boxely</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Apr 17, 2007</td> 
