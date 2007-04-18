@@ -173,7 +173,7 @@ for the TopCoder Casino Night Party!
                 <img src="/i/tournament/tco07/rsvp/rsvpRequest.png" alt="" />
             </div>
 
-            <form>
+            <form name="submitRsvp" method="post" action="/tc">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="SubmitRsvp"/>
 
             <table cellpadding="4" cellspacing="0">
