@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.oracle.Constants" %>
 <%@ page import="com.topcoder.web.oracle.model.RoundProperty" %>
 <%@ page import="com.topcoder.web.oracle.model.Phase" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -269,6 +270,27 @@
                                     textField="name"/>
 <button name="submit" value="submit" type="submit">Do It!</button>
     </p>
+
+</form>
+
+    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="studioContestForm">
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminCreateRoundFromStudio"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.STUDIO_CONTEST_ID%>"><span class="bigRed">${err}
+                        <br /></span></tc-webtag:errorIterator>
+                    Create Round From Studio Contest:
+
+                            <tc-webtag:rscSelect name="<%=Constants.STUDIO_CONTEST_ID%>"
+                                                 list="<%=(ResultSetContainer)request.getAttribute("studio_contests")%>" fieldText="name"
+                                                 fieldValue="contest_id"/>
+
+                    <button name="submit" value="submit" type="submit">Create</button>
+
+                </form>
+
+
+
 </c:if>
 
 

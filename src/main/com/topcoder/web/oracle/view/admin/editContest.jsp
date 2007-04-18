@@ -96,21 +96,7 @@
                     </p>
                 </form>
 
-                <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="studioContestForm">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminCreateRoundFromStudio"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-
-                <tc-webtag:errorIterator id="err" name="<%=Constants.STUDIO_CONTEST_ID%>"><span class="bigRed">${err}
-                    <br /></span></tc-webtag:errorIterator>
-                Create Round From Studio Contest:
-
-                        <tc-webtag:rscSelect name="<%=Constants.STUDIO_CONTEST_ID%>"
-                                             list="<%=(ResultSetContainer)request.getAttribute("studio_contests")%>" fieldText="name"
-                                             fieldValue="contest_id"/>
-
-                <button name="submit" value="submit" type="submit">Create</button>
-
-            </form>
+                
 
                 <p>
                 <a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Add Round</a>
