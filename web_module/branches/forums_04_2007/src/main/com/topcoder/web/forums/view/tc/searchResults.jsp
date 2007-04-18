@@ -132,10 +132,4 @@
     <%  } %>
 </table>
 
-<%  } else { %>
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-    <tr>
-        <td class="rtbc">No search results for "<%=StringUtils.escapeHTMLTags(query.getQueryString())%>". Please try a less restrictive search.</td>
-    </tr>
-</table>
 <%  } %>
