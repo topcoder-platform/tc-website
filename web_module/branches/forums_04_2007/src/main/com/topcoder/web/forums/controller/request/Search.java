@@ -206,6 +206,7 @@ public class Search extends ForumsProcessor {
             Paginator categoriesPaginator = new Paginator(paging);
             
             ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
+            // print what is in categoryResultsList, and SQL query; maybe the problem occurs when there are no matches
             ArrayList pageList = ForumsUtil.getPage(categoryResultsList, startIdx, categoryResultSize);
             Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, pageList);
             getRequest().setAttribute("imageDataTable", imageDataTable);
@@ -223,7 +224,7 @@ public class Search extends ForumsProcessor {
             getRequest().setAttribute("mode", mode);
             
             getRequest().setAttribute("categories", categoryResultsList.iterator());
-            getRequest().setAttribute("categoriesCount", categoryResultsList.size());
+            getRequest().setAttribute("categoriesCount", new Integer(categoryResultsList.size()));
             getRequest().setAttribute("categoriesPaginator", categoriesPaginator);
         }
 	}

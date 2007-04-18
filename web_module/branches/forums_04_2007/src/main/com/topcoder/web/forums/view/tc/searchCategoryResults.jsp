@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.common.DateUtils,
+                 com.topcoder.web.common.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  com.topcoder.web.forums.model.ImageData,
@@ -12,7 +13,6 @@
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.Query,
                  com.jivesoftware.forum.ForumMessage,
-                 com.jivesoftware.util.StringUtils,
                  java.util.*,
                  java.text.SimpleDateFormat"
 %>
@@ -26,18 +26,19 @@
     String dateRange = (String)request.getAttribute("dateRange");
     String status = (String)request.getAttribute("status"); 
     String mode = (String)request.getAttribute("mode");
+    Hashtable<String,ImageData> imageDataTable = (Hashtable<String,ImageData>)request.getAttribute("imageDataTable");
     
     int numResults = paginator.getPageable().getResultFilter().getNumResults(); 
     SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' h:mm a z"); 
     boolean displayPerThread = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
-    int resultCount = (int)request.getAttribute("categoriesCount");
+    int resultCount = ((Integer)request.getAttribute("categoriesCount")).intValue();
     
     StringBuffer linkBuffer = new StringBuffer("?module=Search");
     if (mode != null) {
         linkBuffer.append("&").append(ForumConstants.SEARCH_MODE).append("=").append(mode);
     }
     linkBuffer.append("&").append(ForumConstants.STATUS).append("=").append(status);
-    linkBuffer.append("&").append(ForumConstants.SEARCH_QUERY).append("=").append(StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding()));
+    linkBuffer.append("&").append(ForumConstants.SEARCH_QUERY).append("=").append(com.jivesoftware.util.StringUtils.URLEncode(query.getQueryString(), JiveGlobals.getCharacterEncoding()));
     linkBuffer.append("&").append(ForumConstants.SEARCH_SCOPE).append("=").append(searchScope);
     linkBuffer.append("&").append(ForumConstants.SEARCH_DATE_RANGE).append("=").append(dateRange);
     if (query.getFilteredUser() != null) { 

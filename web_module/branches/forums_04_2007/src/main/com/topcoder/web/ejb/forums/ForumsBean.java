@@ -483,6 +483,10 @@ public class ForumsBean extends BaseEJB {
         ResultSet rs = null;
 
         try {
+            if (compVersIDs.length == 0) {
+                return new Hashtable();
+            }
+            
             conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             StringBuffer psStrBuf = new StringBuffer(
                     "select comp_vers_id, phase_id from comp_versions v " +
@@ -585,6 +589,10 @@ public class ForumsBean extends BaseEJB {
         ResultSet rs = null;
 
         try {
+            if (compIDs.length == 0) {
+                return new Hashtable();
+            }
+            
             conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             StringBuffer psStrBuf = new StringBuffer(
                     "select component_id, root_category_id from comp_catalog c " +
@@ -624,6 +632,10 @@ public class ForumsBean extends BaseEJB {
         ResultSet rs = null;
 
         try {
+            if (compIDs.length == 0) {
+                return new HashSet();
+            }
+            
             conn = DBMS.getConnection(DBMS.TCS_OLTP_DATASOURCE_NAME);
             StringBuffer psStrBuf = new StringBuffer(
                     "select c.component_id from comp_catalog c where status_id = " + WebConstants.STATUS_APPROVED + " " +
