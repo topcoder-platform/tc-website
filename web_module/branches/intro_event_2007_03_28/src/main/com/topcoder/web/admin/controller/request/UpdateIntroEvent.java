@@ -77,7 +77,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         if (hasAlgo) {
             algo = new Event();
             algo.setParent(ie);
-            ie.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ALGO_ID));       
+            algo.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ALGO_ID));       
             
             TimeZone tz = getRequest().getParameter("algo_tz") != null? timeZone : null;
             
