@@ -81,8 +81,8 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
             
             TimeZone tz = getRequest().getParameter("algo_tz") != null? timeZone : null;
             
-            algo.setRegistrationStart(getDateTime("alg_reg_start", sdfDateTime, tz));
-            algo.setRegistrationEnd(getDateTime("alg_reg_end", sdfDateTime, tz));
+            algo.setRegistrationStart(getDateTime("alg_reg_start", sdfDateTime, tz, "algorithm registration start date"));
+            algo.setRegistrationEnd(getDateTime("alg_reg_end", sdfDateTime, tz, "algorithm registration end date"));
             
             algo.setDescription(ie.getDescription() + " - Algorithms");
             algo.setShortDescription(ie.getShortDescription() + "Algo");
@@ -99,14 +99,14 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
     }
 
     
-    private Timestamp getDateTime(String param, SimpleDateFormat sdf, TimeZone tz) {
+    private Timestamp getDateTime(String param, SimpleDateFormat sdf, TimeZone tz, String displayName) {
         log.debug("getDateTime " + param);
         Date d;
         try {
-            d = sdf.parse(param);
+            d = sdf.parse(getRequest().getParameter(param));
         } catch (ParseException e) {
             log.debug(e);
-            //addError();
+            addError("err", "Please enter a valid " +displayName);
             return null;
         }
         
