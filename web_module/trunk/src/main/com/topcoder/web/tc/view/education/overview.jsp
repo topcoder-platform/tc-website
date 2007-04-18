@@ -39,7 +39,7 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><a href="/tc?module=Static&d1=features&d2=041707"><strong>Introducing Boxely</strong></a>, by AOL's Bosely Team<%--<tc-webtag:handle coderId="15635590" />--%><br>
+<li><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely"><strong>Introducing Boxely</strong></a>, by AOL's Bosely Team<%--<tc-webtag:handle coderId="15635590" />--%><br>
 Boxely is a next-generation, standards-based development platform for creating rich desktop applications. Combining the benefits of a box-based layout scheme with an advanced rendering engine, Boxely is designed to enable the creation of rich desktop applications with the same ease, flexibility, and extensibility as authoring internet applications today.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=netConfigurationMgr"><strong>Using the .Net Configuration Manager</strong></a>, by <tc-webtag:handle coderId="10445079" context="development" /><br>
 Most TopCoder members who have participated in at least one .NET design or development competition will tell you that the first component they needed to learn was the Configuration Manager. Simply put, it's a key to unlocking the potential of the component catalog.</li>

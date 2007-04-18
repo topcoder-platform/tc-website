@@ -45,7 +45,7 @@
             </tr>
             <tr valign="top">
                <td class="bodyText">AOL's Boxely Team</td>
-               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=041707"><strong>Introducing Boxely</strong></A></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely"><strong>Introducing Boxely</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Apr 17, 2007</td> 
             </tr>
             <tr valign="top">
