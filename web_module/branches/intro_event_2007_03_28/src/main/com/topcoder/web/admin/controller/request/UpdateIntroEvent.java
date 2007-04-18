@@ -83,6 +83,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
             
             algo.setRegistrationStart(getDateTime("alg_reg_start", sdfDateTime, tz));
             algo.setRegistrationEnd(getDateTime("alg_reg_end", sdfDateTime, tz));
+            
             algo.setDescription(ie.getDescription() + " - Algorithms");
             algo.setShortDescription(ie.getShortDescription() + "Algo");
 
@@ -99,15 +100,18 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
 
     
     private Timestamp getDateTime(String param, SimpleDateFormat sdf, TimeZone tz) {
+        log.debug("getDateTime " + param);
         Date d;
         try {
             d = sdf.parse(param);
         } catch (ParseException e) {
+            log.debug(e);
             //addError();
             return null;
         }
         
-        if (tz != null) {            
+        if (tz != null) {
+            log.debug("use tz " + tz.getDescription());
             d = DateUtils.getConvertedDate(d, tz.getDescription(),  java.util.TimeZone.getDefault().getID());
         }
         

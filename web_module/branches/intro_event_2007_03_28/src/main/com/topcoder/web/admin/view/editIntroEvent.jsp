@@ -39,7 +39,7 @@
 <form name="f" action="/admin/" method="post">
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
 <center>
-<table>
+<table border="0" cellpadding="3" cellspacing="3">
     <tr>
         <td colspan="2">
             <tc-webtag:errorIterator id="err" name="error">
@@ -58,6 +58,7 @@
 	<tr>
 		<td>School:</td>
 		<td>
+			(leave it blank if no school is associated)<br>
 			<table>
 				<tr>
 					<td width="10%" nowrap="nowrap">
@@ -78,7 +79,7 @@
 					</td>
 				</tr>
 			</table>
-			(leave it blank if no school is associated)
+
 		</td>
 	</tr>
 	<tr>
