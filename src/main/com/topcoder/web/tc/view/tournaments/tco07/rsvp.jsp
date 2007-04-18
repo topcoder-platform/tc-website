@@ -185,7 +185,7 @@ for the TopCoder Casino Night Party!
                     <td>
                         <input name="attending" value="" type="radio" checked> I will be attending
                         <br>
-                        <input name="attending" value="not" type="radio"> I will not be attending
+                        <input name="attending" value="not " type="radio"> I will not be attending
                     </td>
                 </tr>
                 <tr>
