@@ -81,8 +81,8 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
             
             TimeZone tz = getRequest().getParameter("algo_tz") != null? timeZone : null;
             
-            algo.setRegistrationStart(getDateTime("alg_reg_start", sdfDateTime, tz, "algorithm registration start date"));
-            algo.setRegistrationEnd(getDateTime("alg_reg_end", sdfDateTime, tz, "algorithm registration end date"));
+            algo.setRegistrationStart(getDateTime("algo_reg_start", sdfDateTime, tz, "algorithm registration start date"));
+            algo.setRegistrationEnd(getDateTime("algo_reg_end", sdfDateTime, tz, "algorithm registration end date"));
             
             algo.setDescription(ie.getDescription() + " - Algorithms");
             algo.setShortDescription(ie.getShortDescription() + "Algo");
