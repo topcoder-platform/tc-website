@@ -207,7 +207,7 @@ public class Search extends ForumsProcessor {
             
             ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
             // print what is in categoryResultsList, and SQL query; maybe the problem occurs when there are no matches
-            ArrayList pageList = ForumsUtil.getPage(categoryResultsList, startIdx, categoryResultSize);
+            ArrayList pageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
             Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, pageList);
             getRequest().setAttribute("imageDataTable", imageDataTable);
             
