@@ -20,15 +20,15 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
-<%------------------------------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.19.07<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
-        <A href="/to/?module=ViewBallot&rd=2008">Predict the Ball Logo & Icon winners </A>
+        <A href="/to/?module=ViewBallot&rd=2008">"The Ball" Logo & Icon Prediction Contest Round 1</A>
         </span><br><br>
-        Vote now to predict the winning look for The Ball's logo and icons.
+        Vote now to predict the winning look for The Ball's logo and icons.  This contest closes on April 21 at 2 PM EDT.
         </td>
       </tr></table>
       </td>
@@ -38,7 +38,7 @@
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=48">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-   --------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.18.07<br>12:45 PM</td>
