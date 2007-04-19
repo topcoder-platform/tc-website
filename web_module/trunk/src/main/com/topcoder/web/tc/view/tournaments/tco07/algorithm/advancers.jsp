@@ -71,6 +71,9 @@
                             <a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=round3_sort&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Round
                                 3</a></td>
                         <td class="headerC">
+                            <a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=round4_sort&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Round
+                                4</a></td>
+                        <td class="headerC">
                             <a href="?module=SimpleStats&amp;c=tco07_alg_adv_overview&amp;trans=true&amp;sd=asc&amp;sc=semi_sort&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=advancers">Semi</a>
                         </td>
                         <td class="headerC">
@@ -103,6 +106,11 @@
 <td class="valueCE"><rsc:item name="round3" row="<%=resultRow%>"/></td>
 <% } else { %>
 <td class="valueCA"><rsc:item name="round3" row="<%=resultRow%>"/></td>
+<% } %>
+<% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
+<td class="valueCE"><rsc:item name="round4" row="<%=resultRow%>"/></td>
+<% } else { %>
+<td class="valueCA"><rsc:item name="rounD4" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
 <td class="valueCE"><rsc:item name="semi" row="<%=resultRow%>"/></td>
