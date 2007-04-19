@@ -74,7 +74,7 @@
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="length"/>
 <%--
            <% if (resultRow.getIntItem("is_current") == 1) { %>                        
-                <img src="/i/interface/emblem/andclimbing.png" alt="And climbing" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
+                <img src="/i/interface/emblem/andclimbing.png" alt="" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
             <% } %>
 --%>
         </td>
