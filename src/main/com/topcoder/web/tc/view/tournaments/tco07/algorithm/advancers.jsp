@@ -110,7 +110,7 @@
 <% if (StringUtils.checkNull(resultRow.getStringItem("round4")).equals("Eliminated")) { %>
 <td class="valueCE"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } else { %>
-<td class="valueCA"><rsc:item name="rounD4" row="<%=resultRow%>"/></td>
+<td class="valueCA"><rsc:item name="round4" row="<%=resultRow%>"/></td>
 <% } %>
 <% if (StringUtils.checkNull(resultRow.getStringItem("semi")).equals("Eliminated")) { %>
 <td class="valueCE"><rsc:item name="semi" row="<%=resultRow%>"/></td>
