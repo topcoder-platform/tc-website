@@ -73,9 +73,11 @@
 
 <br clear="all">
 
+<br clear="all">
+
 <p>In the first two parts of this article series we looked at the basic components of relational databases.  We touched briefly on SQL -- the language we use to interact with the database -- but in this article we'll look at it in much more detail, with a specific focus on writing queries.  We'll continue to use the database we developed in the first two articles if you'd like to follow along with the examples.</p>
 
-<p>Note that different databases have syntax variations for SQL.  Since we have used <a target="_blank" href="<tc-webtag:linkTracking link='http://www.oracle.com/technology/xe/index.html' refer='feature_041907' />">Oracle</a> throughout the article series, we will focus on Oracle's SQL syntax.  While we don't have the space to cover every aspect of SQL, we'll focus on some of the core concepts that will help you "hit the ground running" as you begin to work with relational databases.  This article should give you some good tools to begin putting your database to work, and it should help you avoid some common pitfalls.</p>
+<p>Note that different databases have syntax variations for SQL.  Since we have used <a target="_blank" href="http://www.dev.topcoder.com/tc?module=LinkTracking&amp;link=http://www.oracle.com/technology/xe/index.html&amp;refer=feature_041907">Oracle</a> throughout the article series, we will focus on Oracle's SQL syntax.  While we don't have the space to cover every aspect of SQL, we'll focus on some of the core concepts that will help you "hit the ground running" as you begin to work with relational databases.  This article should give you some good tools to begin putting your database to work, and it should help you avoid some common pitfalls.</p>
 
 <p>Note that I have loaded data for the following SRMs into my database for the examples:  342, 343, and 344.  You don't need to have that data loaded to your database, but the examples throughout the article will be based on them.  Please refer to the previous articles for the procedure for loading SRM data into your database.</p>
 
@@ -90,16 +92,18 @@ SQL statements fall into two primary categories:  data definition language (DDL)
 The SELECT statement is one you will find yourself using quite often.  As we saw in the previous articles, we use the SELECT command to get records out of the database so we can view them.  The structure of a SELECT statement is as follows:</p>
 
 <p>
-SELECT	&lt;column list - 1 or more columns from target tables or * for all columns&gt;<br>
-FROM		&lt;source tables&gt;<br>
-WHERE  	&lt;query conditions&gt;<br>
-GROUP BY	&lt;group by conditions&gt;<br>
-HAVING	&lt;aggregate conditions&gt;<br>
-ORDER BY	&lt;sort conditions&gt;
+SELECT    &lt;column list - 1 or more columns from target tables or * for all columns&gt;<br>
+FROM        &lt;source tables&gt;<br>
+
+WHERE      &lt;query conditions&gt;<br>
+GROUP BY    &lt;group by conditions&gt;<br>
+HAVING    &lt;aggregate conditions&gt;<br>
+ORDER BY    &lt;sort conditions&gt;
 </p>
  
 <p>Here's a simple example of a SELECT statement:</p>
 <pre class="code">
+
 SQL&gt; select    handle
   2           ,country_name
   3  from      topcoder.coder
@@ -117,6 +121,7 @@ dcp                  United States
 We saw in the previous section that the column list is simply the list of columns we want to bring back in our query.  If you are using multiple tables in your query (we'll discuss table joins later) and the same column is present in two or more tables in your FROM clause, then you'll need to prefix the column name with the table name or table alias.  For example, the coder table and round_results table both have a coder_id column.  Any time we are querying both of those tables in the same query, and we have coder_id in our column list, we need to specify from which table we are extracting the coder_id.  Let's look at an example of how <strong>not</strong> to write the query:</p>
 
 <pre class="code">
+
 SQL&gt; select    coder_id
   2           ,country_name
   3  from      topcoder.coder
@@ -158,7 +163,7 @@ SQL&gt; select    c.coder_id
 <p>In the WHERE clause, we just list the query conditions we need to use to limit the results to be brought back.  We've seen several examples where we limit the query results to a specific country, etc., and these conditions go in the WHERE clause in most cases.  We also put our table join conditions in the WHERE clause.</p>
 
 <p><span class="bodySubtitle">IV. GROUP BY and HAVING</span><br />
-The GROUP BY clause allows us to roll data up by some column or group of columns.  Put another way, it allows us to summarize or aggregate data.  As an example, let's see how many SRMs that Russian coders have competed in, and pull the results back by coder handle.  We can use SQL's 'count' function, which is an aggregate function, and use our coder and round_results table to get the required data.  Note that we have to issue a GROUP BY clause on our handle column because that tells Oracle to group the results by handle.  Also, since we only have data for three SRM's loaded to the database, the num_competitions column in the query results is just going to be 1, 2 or 3. </p>
+The GROUP BY clause allows us to roll data up by some column or group of columns.  Put another way, it allows us to summarize or aggregate data.  As an example, let's see how many SRMs that Russian coders have competed in, and pull the results back by coder handle.  We can use SQL's 'count' function, which is an aggregate function, and use our coder and round_results tables to get the required data.  Note that we have to issue a GROUP BY clause on our handle column because that tells Oracle to group the results by handle.  Also, since we only have data for three SRMs loaded to the database, the num_competitions column in the query results is just going to be 1, 2 or 3. </p>
 
 <pre class="code">
 SQL&gt; select    c.handle
@@ -179,6 +184,7 @@ gevak                               3
 .
 .
 results truncated for brevity
+
 </pre>
 
 <p>Now, what if we wanted to modify this query to only bring back Russian coders who have only competed in <strong>exactly</strong> two competitions?  We can use a HAVING clause as shown below:</p>
@@ -248,6 +254,7 @@ SQL&gt; select 20 + 10 from dual;
      20+10
 ----------
         30
+
 </pre>
 
 <p>The dual table is just a one row, one column test table that Oracle provides to run little tests like the ones above.  But as you can see from these examples, you need to be sure to always handle the possibility of nulls when performing arithmetic operations on column values.  This is a pitfall that's very easy to stumble into, so watch out for it.  Another way to alleviate the problem completely is to not allow nulls in the column to begin with; then you never have to worry about this problem.  Oracle has a "not null" constraint which can be used on almost any column in a table.</p>
@@ -342,6 +349,7 @@ dcp     SRM 344     208.44
 dcp     SRM 342     582.04
 dcp     SRM 343     561.22
 </pre>
+
  
 <p>But now let's add another condition to our where clause.  Let's add the condition 'short_name = 'SRM 345''.  (Remember, I don't have data for SRM 345 loaded into my database yet.)</p>
 
@@ -399,7 +407,7 @@ SQL&gt; select  c.handle
   2         ,r.division_placed
   3  from    topcoder.coder         c
   4  left outer join topcoder.round_results r
-  5  on     10667           = r.round_id
+  5  on      10667          = r.round_id
   6  and     c.coder_id     = r.coder_id
   7  where   c.country_name = 'Ukraine'
   8  ;
@@ -407,8 +415,9 @@ SQL&gt; select  c.handle
 
 <p>The syntax you use is up to you, but I will mention that the (+)  syntax is specific to Oracle and won't work with databases such as Microsoft SQL Server or DB2.  Personally, I prefer the (+) syntax because it's a little cleaner to write and makes formatting your SQL statement easier.</p>
 
+<p> This brings up the topic of SQL92 compliant syntax. SQL92 is basically a standard for SQL syntax and transaction behavior. Without getting into a lot of details here, the thing to remember is that two databases can be SQL92-compliant, but use different SQL syntax. For example, Microsoft SQL Server supports the &ldquo;inner join&rdquo; syntax on tables, but versions of Oracle prior to 9i did not support this syntax. The &ldquo;inner join&rdquo; syntax is similar to the &ldquo;left outer join&rdquo; syntax shown in the SQL example above, and it&rsquo;s an alternative way to write joins. But don&rsquo;t be afraid to use whatever SQL syntax you&rsquo;re comfortable with, even if it&rsquo;s database specific. If you&rsquo;re worried about being able to write cross-platform compatible SQL, then listen to what Thomas Kyte says in his book, <em>Expert Oracle</em>: </p>
+<blockquote>&quot;You should not be afraid to make use of vendor-specific features &ndash; after all, you are paying a lot of money for them. Every database has its own bag of tricks, and we can always find a way to perform the operation in each database. Use what is best for your current database, and re-implement components as you go to other databases. Use good programming techniques to isolate yourself from these changes. The same techniques are employed by people writing OS-portable applications. The goal is to fully utilize the facilities available to you, but ensure you can change the implementation on a case-by-case basis.&quot;</blockquote>
 <p>One thing to be particularly careful about when joining tables together is that you want to make certain that you use all the necessary fields to properly join the tables.  In other words, if you have a table that has three fields that compose the primary key, then when you join that table to another table you want to make sure you use all three of those fields in the join.  Failure to join the tables together properly will usually result in undesirable results, because you will get back many more rows than you expect -- worse yet, you will have duplicate rows with the same information.  Let's look at an example , but first we'll need to create a couple more tables and insert some data into them.  You can use the same database you've been using to create these tables.</p>
-
 <pre class="code">
 SQL&gt; create table topcoder.person (
   2     last_name  varchar2(100)
@@ -436,6 +445,7 @@ SQL&gt; create table topcoder.person_salary (
 Table created.
 
 SQL&gt;
+
 SQL&gt; alter table topcoder.person_salary
   2  add primary key (last_name, first_name, ssn);
 
@@ -466,6 +476,7 @@ SQL&gt; insert into topcoder.person_salary
 1 row created.
 
 SQL&gt;
+
 SQL&gt; insert into topcoder.person_salary
   2  values('Doe','John','987654321',456);
 
@@ -486,6 +497,7 @@ Commit complete.
 <p>So we have a person table and a person_salary table and the primary key on each of those tables is last_name, first_name, and ssn (social security number).  So now let's write a query to bring back our person records and lookup the salary for each person using an INNER JOIN:</p>
 
 <pre class="code">
+
 SQL&gt; select    p.last_name
   2           ,p.first_name
   3           ,s.salary
@@ -508,24 +520,29 @@ Doe        John       987651234 789
 <pre class="code">
 SQL&gt; select    p.last_name
   2           ,p.first_name
-  3           ,s.salary
-  4  from      topcoder.person        p
-  5           ,topcoder.person_salary s
-  6  where     p.last_name  = s.last_name
-  7  and       p.first_name = s.first_name
-  8  ;
+  3           ,p.ssn
+  4           ,s.salary
+  5  from      topcoder.person        p
+  6           ,topcoder.person_salary s
+  7  where     p.first_name = s.first_name
+  8  and       p.last_name  = s.last_name
+  9  ;
 
-LAST_NAME  FIRST_NAME SSN       SALARY
----------- ---------- --------- ------
-Doe        John       123456789 123
-Doe        John       123456789 123
-Doe        John       987654321 456
-Doe        John       987654321 456
-Doe        John       987651234 789
-Doe        John       987651234 789
+LAST_NAME  FIRST_NAME   SSN          SALARY  
+---------- ------------ ------------ --------
+Doe        John         987654321    123     
+Doe        John         987651234    123     
+Doe        John         123456789    123     
+Doe        John         987654321    456     
+Doe        John         987651234    456     
+Doe        John         123456789    456     
+Doe        John         987654321    789     
+Doe        John         987651234    789     
+Doe        John         123456789    789     
+
 </pre>
 
-<p>Wow, how'd that happen?  We now have six rows returned instead of three.  Well, since we didn't have all the necessary conditions we needed in our where clause, we ended up with duplicate rows.  It's extremely important to make sure you get your joins right.  It sounds simple enough, but it's very easy to make a mistake when you join several tables together, and unfortunately that will cause you to end up with duplicate records in your query results.</p>
+<p>Wow, how'd that happen?  We now have nine rows returned in our query results instead of three.  Well, since we didn't have all the necessary conditions we needed in our where clause, we ended up with duplicate rows.  It's extremely important to make sure you get your joins right.  It sounds simple enough, but it's very easy to make a mistake when you join several tables together, and unfortunately that will cause you to end up with duplicate records in your query results.</p>
 
 <p>Here's a helpful technique I use when my query results contain duplicate records (implying that one of my table joins is incorrect).  First, I eliminate all the tables from my query except for the "main" table.  The "main" table is the driving table in your query; it's the table to which you are joining most of the other tables.  I then add each individual table and its corresponding where clause conditions back into the query one at a time and re-check the query results to ensure I still don't have duplicate rows.  Sooner or later I'm guaranteed to find the join that is causing the duplicates, and then I can determine what conditions I need to add to my where clause to make the join correct.</p>
 
@@ -546,10 +563,11 @@ SQL&gt; select    c.handle
 
 HANDLE                  SHORT_NAME
 --------------------    -------------------------------------
-cluster2006         	SRM 343
-dshaw               	SRM 342
-myKitty             	SRM 344
-xiangsanzi          	SRM 342
+cluster2006             SRM 343
+dshaw                   SRM 342
+myKitty                 SRM 344
+xiangsanzi              SRM 342
+
 </pre>
 
 <p>Correlated subqueries are very handy and you'll find yourself using them often.</p>
@@ -604,6 +622,7 @@ SQL&gt; create table topcoder.fruit (name varchar2(50));
 Table created.
 
 SQL&gt;
+
 SQL&gt; insert into topcoder.fruit values ('apple');
 
 1 row created.
@@ -634,6 +653,7 @@ SQL&gt; commit;
 Commit complete.
 
 SQL&gt;
+
 SQL&gt; select    f.name
   2  from      topcoder.fruit f
   3  where     f.name in ('apple','orange','banana')
@@ -674,6 +694,7 @@ liympanda                 3306.34
 Ying                       3207.5
 ACRush                       3420
 ahyangyi                  3555.95
+
 </pre>
 
 <p>In this example, we have an inline view in our query that is pulling all coder_id's where the sum of the round_results final points values are greater than 2000.  You can think of this select statement as a "table".  Then, in our outer select we join to this "table" on coder_id.  In other words, the same rules we already discussed about joins also apply to inline views.  Inline views are very handy when you have a set of data you need to summarize and then query from, but you really need a two-step process to do it.  That is, you need one query to summarize the data into the form you need, and another to query the summarized data.  As we've just seen, inline views allow you to combine those steps into a single query.  (In the example above, we really could have written the query without an inline view, but you get the idea.) </p>
@@ -726,6 +747,7 @@ felixx               blue
 bosko                blue
 Kentaro              green
 tashj                blue
+
 </pre>
 
 <p><span class="bodySubtitle">XI. Conclusion</span><br />
@@ -733,8 +755,13 @@ Hopefully you can see the power that's at your fingertips when you have a good u
 
 <p>Writing complex SQL queries is something that takes practice, but once you get the hang of it you can get just about any result you need out of the database (assuming you put the data in it in the first place).  I'd encourage you to practice some with your TopCoder database and put some of the techniques in this article to use.</p>
 
-<p><a href="/tc?module=Static&d1=features&d2=032607" target="_blank">A Crash Course in Relational Databases, Part 1</a><br>
-<a href="/tc?module=Static&d1=features&d2=032907" target="_blank">A Crash Course in Relational Databases, Part 2</a></p>
+<p><b>References</b>
+<ul><li><i>Expert Oracle</i>, by Thomas Kyte</li>
+<li><a target="_blank" href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://asktom.oracle.com/pls/asktom/f?p=100:11:0::::P11_QUESTION_ID:27523665852829&amp;refer=feature_032907">asktom.oracle.com</a></li>
+<li><a href="/tc?module=Static&d1=features&d2=032607" target="_blank">A Crash Course in Relational Databases, Part 1</a></li>
+<li><a href="/tc?module=Static&d1=features&d2=032907" target="_blank">A Crash Course in Relational Databases, Part 2</a></li>
+</ul>
+</p>
 
 <p><br></p>
         </td>
