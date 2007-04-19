@@ -100,8 +100,8 @@
         <li>3rd place prize - <%=conf.get(new Integer(Constants.THIRD_PLACE_PROP_ID))%>
         </li>
         <% } %>
-        <% if (conf.containsKey(11)) {%><%-- 4th-10th place prize --%>
-        <li>4th-10th place prizes - <%=conf.get(11)%>
+        <% if (conf.containsKey(new Integer(11))) {%><%-- 4th-10th place prize --%>
+        <li>4th-10th place prizes - <%=conf.get(new Integer(11))%>
         </li>
         <% } %>
     </ul>
