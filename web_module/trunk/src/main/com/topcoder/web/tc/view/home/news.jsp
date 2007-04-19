@@ -4,6 +4,43 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.19.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/to/?module=ViewBallot&rd=2008">Predict the Ball Logo & Icon winners </A>
+        </span><br><br>
+        Vote now to predict the winning look for The Ball's logo and icons.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/to/?module=ViewBallot&rd=2008">vote now</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=48">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.19.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        Predict the TCO T-shirt winners
+        </span><br><br>
+        Don't let bad fashion happen to good people. Vote now to predict the winning TCO07 T-shirt designs, in these categories: <a href="/to/?module=ViewBallot&rd=2016">Algorithm</a>; <a href="/to/?module=ViewBallot&rd=2020">Component</a>; <a href="/to/?module=ViewBallot&rd=2012">Studio</a>; and <a href="/to/?module=ViewBallot&rd=2024">Marathon Match</a>.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Category&categoryID=3">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.18.07<br>12:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -180,43 +217,5 @@ We caught up with April's "coders of the month," to learn a little bit more abou
         <A href="/tc?module=Static&d1=features&d2=041207">full story</A> | 
         <tc-webtag:forumLink forumID="515162" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.11.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 1C set for April 12</A>
-        </span><br><br>
-        Online Round 1C of the TCO07 Algorithm Competition, brought to you by DRW Trading, is set for 7:00 AM EDT on April 12.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">details</A> | 
-        <tc-webtag:forumLink forumID="514950" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.11.07<br>10:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="http://csf.topcoder.com/?module=Static&d1=assembly&d2=activeContests">Connected Services Assembly Competition now open</A>
-        </span><br><br>
-        Microsoft Corp. and BT Group PLC, in association with TopCoder, are running a series of Connected Services Sandbox Mashup Service Design and Assembly competitions. In the Assembly stage -- now open -- developers create a prototype of a <a href="http://csf.topcoder.com/?module=ViewPastContests">mashup idea</a> for a total prize purse of $7,500.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://csf.topcoder.com/?module=Static&d1=assembly&d2=activeContests">details</A> |
-        <a href="http://csf.topcoder.com/forums?module=ThreadList&forumID=6&mc=0">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
