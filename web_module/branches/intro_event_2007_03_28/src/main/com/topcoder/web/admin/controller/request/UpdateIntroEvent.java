@@ -55,13 +55,6 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         ie.setTimezone(timeZone);
         ie.setImage(factory.getImageDAO().find(new Long(imageId)));        
         
-        if (hasAlgo) {
-            boolean sel = "1".equals(getRequest().getParameter("use_round_sel"));
-            String roundId = getRequest().getParameter(sel? "round_id_sel" : "round_id");
-            
-            ie.setRoundId(new Long(roundId));
-        }
-        
         List<IntroEventPropertyType> cfg = factory.getIntroEventPropertyTypeDAO().getTypes();
 
         for (IntroEventPropertyType prop : cfg) {
@@ -80,6 +73,11 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         
         Event algo = null;
         if (hasAlgo) {
+            boolean sel = "1".equals(getRequest().getParameter("use_round_sel"));
+            String roundId = getRequest().getParameter(sel? "round_id_sel" : "round_id");
+            
+            ie.setRoundId(new Long(roundId));
+
             algo = new Event();
             algo.setParent(ie);
             algo.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ALGO_ID));       
@@ -101,6 +99,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
             comp.setParent(ie);
             comp.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_COMP_ID));       
             comp.setDescription(ie.getDescription() + " - Development");
+            comp.setShortDescription(ie.getShortDescription() + "Algo");
             
             TimeZone tz = getRequest().getParameter("comp_tz") != null? timeZone : null;
             
@@ -111,32 +110,24 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
             Timestamp firstWeek = getDateTime("comp_first_week", sdfDateTime, null,"First Week");
             int nweeks = new Integer(getRequest().getParameter("nweeks"));
 
-            List<Double> desOverall = new ArrayList<Double>();
-            List<Double> devOverall = new ArrayList<Double>();
-            List<Double> desWeekly = new ArrayList<Double>();
-            List<Double> devWeekly = new ArrayList<Double>();
+            List<Double> overall = new ArrayList<Double>();
+            List<Double> weekly = new ArrayList<Double>();
 
             for (int i = 1; i <= 3; i++) {
-                Double d = getDouble("prdes" + i + "ov", "Design Overall " + Util.ordinal(i) + " prize");
-                if (d != null && d > 0) desOverall.add(d); 
+                Double d = getDouble("prize" + i + "ov", "Overall " + Util.ordinal(i) + " prize");
+                if (d != null && d > 0) overall.add(d); 
                 
-                d = getDouble("prdev" + i + "ov", "Development Overall" + Util.ordinal(i) + " prize");
-                if (d != null && d > 0) devOverall.add(d); 
-
-                d = getDouble("prdes" + i + "w", "Design Weekly " + Util.ordinal(i) + " prize");
-                if (d != null && d > 0) desWeekly.add(d); 
-
-                d = getDouble("prdev" + i + "w", "Development weekly " + Util.ordinal(i) + " prize");
-                if (d != null && d > 0) devWeekly.add(d); 
+                d = getDouble("prize" + i + "w", "Weekly " + Util.ordinal(i) + " prize");
+                if (d != null && d > 0) weekly.add(d); 
             }
             
-            addContest(comp, "Overall", 112, firstWeek, nweeks * 7, true, desOverall);
-            addContest(comp, "Overall", 113, firstWeek, nweeks * 7, true, devOverall);
+            addContest(comp, "Overall", 112, firstWeek, nweeks * 7, true, overall);
+            addContest(comp, "Overall", 113, firstWeek, nweeks * 7, true, overall);
             
             Timestamp w = firstWeek;
             for (int i = 1; i <= nweeks; i++) {
-                addContest(comp, "Week " + i, 112, w, nweeks * 7, false, desWeekly);
-                addContest(comp, "Week " + i, 113, w, nweeks * 7, false, desWeekly);
+                addContest(comp, "Week " + i, 112, w, nweeks * 7, false, weekly);
+                addContest(comp, "Week " + i, 113, w, nweeks * 7, false, weekly);
                 w = addDays(firstWeek, 7);
             }
             

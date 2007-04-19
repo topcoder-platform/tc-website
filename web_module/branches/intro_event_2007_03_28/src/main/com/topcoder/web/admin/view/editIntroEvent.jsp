@@ -261,24 +261,18 @@
 		<td>
 			<table>
 				<tr>
-					<td>&nbsp;</td>
-					<td>Design</td>
-					<td>Development</td>
 				</tr>
 				<tr>
-					<td>1st place weekly</td>
-					<td><tc-webtag:textInput name="prdes1w" size="6" editable="true" format="###,###.00" /></td>
-					<td><tc-webtag:textInput name="prdev1w" size="6" editable="true"  format="###,###.00"/></td>
+					<td>1st place</td>
+					<td><tc-webtag:textInput name="prize1w" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
-					<td>2nd place weekly</td>
-					<td><tc-webtag:textInput name="prdes2w" size="6" editable="true" format="###,###.00" /></td>
-					<td><tc-webtag:textInput name="prdev2w" size="6" editable="true"  format="###,###.00"/></td>
+					<td>2nd place</td>
+					<td><tc-webtag:textInput name="prize2w" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
-					<td>3rd place weekly</td>
-					<td><tc-webtag:textInput name="prdes3w" size="6" editable="true" format="###,###.00" /></td>
-					<td><tc-webtag:textInput name="prdev3w" size="6" editable="true"  format="###,###.00"/></td>
+					<td>3rd place</td>
+					<td><tc-webtag:textInput name="prize3w" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 			</table>
 		</td>
@@ -288,24 +282,18 @@
 		<td>
 			<table>
 				<tr>
-					<td>&nbsp;</td>
-					<td>Design</td>
-					<td>Development</td>
 				</tr>
 				<tr>
-					<td>1st place overall</td>
-					<td><tc-webtag:textInput name="prdes1ov" size="6" editable="true" format="###,###.00" /></td>
-					<td><tc-webtag:textInput name="prdev1ov" size="6" editable="true"  format="###,###.00"/></td>
+					<td>1st place</td>
+					<td><tc-webtag:textInput name="prize1ov" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
-					<td>2nd place overall</td>
-					<td><tc-webtag:textInput name="prdes2ov" size="6" editable="true" format="###,###.00" /></td>
-					<td><tc-webtag:textInput name="prdev2ov" size="6" editable="true"  format="###,###.00"/></td>
+					<td>2nd place</td>
+					<td><tc-webtag:textInput name="prize2ov" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
-					<td>3rd place overall</td>
-					<td><tc-webtag:textInput name="prdes3ov" size="6" editable="true" format="###,###.00" /></td>
-					<td><tc-webtag:textInput name="prdev3ov" size="6" editable="true"  format="###,###.00"/></td>
+					<td>3rd place</td>
+					<td><tc-webtag:textInput name="prize3ov" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 			</table>
 		</td>
