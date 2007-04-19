@@ -18,12 +18,13 @@ else if (sDivision.equals("2")) romanDivision = "II";
 %>
 <html>
 <head>
-<TITLE>TopCoder Statistics - Most Consecutive Wins</TITLE>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-  <jsp:param name="key" value="tc_stats"/>
-</jsp:include>
-</HEAD>
+    <TITLE>TopCoder Statistics - Most Consecutive Wins</TITLE>
+    <jsp:include page="/script.jsp" />
+    <jsp:include page="/style.jsp">
+      <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
+    <script language="JavaScript" type="text/javascript" src="/js/popup.js"></script>
+</head>
 <body>
 
 <jsp:include page="../top.jsp">
@@ -85,7 +86,9 @@ Div I
         <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 3 /*"coder_score"*/ + "]" %>'/>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 10 /*"rank"*/ + "]" %>'/></td>
         <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
-        <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 2 /*"length"*/ + "]" %>'/></td>
+        <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 2 /*"length"*/ + "]" %>'/>
+            <%--<img src="/i/interface/emblem/andclimbing.png" alt="And climbing" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />--%>
+        </td>
         <td class="valueR" nowrap>
         <strong><bean:write name="resultRow" property='<%= "item[" + 5 /*"contest"*/ + "]" %>'/></strong><br>
         <bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 4 /*"start_date"*/ + "].resultData" %>'/>
@@ -107,6 +110,7 @@ Div I
 </tbody>
 </table>
 
+<div class="popUp" id="emblemPopup"><div>And climbing</div></div>
 
 </div>
 

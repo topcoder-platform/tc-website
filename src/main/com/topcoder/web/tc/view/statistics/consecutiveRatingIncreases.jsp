@@ -29,7 +29,7 @@
       <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
     <script language="JavaScript" type="text/javascript" src="/js/popup.js"></script>
-</HEAD>
+</head>
 <body>
 
 <jsp:include page="../top.jsp">
@@ -83,7 +83,7 @@ SRMs | <A HREF="/stat?c=consecutive_rating_increases&wst=4">SRMs and Tournaments
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
         <td class="value"><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="length"/>
-            <img src="/i/interface/emblem/andclimbing.png" alt="And climbing" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
+            <%--<img src="/i/interface/emblem/andclimbing.png" alt="And climbing" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />--%>
         </td>
         <td class="valueR" nowrap>
         <strong><rsc:item row="<%=resultRow%>" name="start_contest_name"/></strong><br>
