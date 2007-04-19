@@ -58,7 +58,7 @@ td {
 	</tr>
 	<tr>
 		<td>Short Event Name:</td>
-		<td><tc-webtag:textInput name="sname" size="50" editable="true" /> (e.g. "rutgersTour")</td>
+		<td nowrap="nowrap"><tc-webtag:textInput name="sname" size="50" editable="true" /> (e.g. "rutgersTour")</td>
 	</tr>
 	<tr>
 		<td>School:</td>
@@ -153,7 +153,7 @@ td {
 	    	    		<tc-webtag:textInput name="algo_reg_start" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 						<button id="trigger_algo_reg_start"">Set</button>
 					</td>
-					<td rowspan="2" nowrap="true"><tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone</td>
+					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone</td>
 				</tr>
 				<tr>
 	    	    	<td>to</td>
@@ -255,7 +255,7 @@ td {
 	    	    		<tc-webtag:textInput name="comp_reg_start" id="comp_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 						<button id="trigger_comp_reg_start"">Set</button>
 					</td>
-					<td rowspan="2" nowrap="true"><tc-webtag:chkBox name="comp_tz" value="true"/>Event time zone</td>
+					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="comp_tz" value="true"/>Event time zone</td>
 				</tr>
 				<tr>
 	    	    	<td>to</td>
