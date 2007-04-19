@@ -18,6 +18,9 @@ public class ContestPrize extends Base {
     protected Double amount = null;
     protected String description = null;
     
+    public ContestPrize() {
+    }
+    
     public ContestPrize(Integer place, Integer prizeTypeId, Double amount) {
         super();
         this.place = place;

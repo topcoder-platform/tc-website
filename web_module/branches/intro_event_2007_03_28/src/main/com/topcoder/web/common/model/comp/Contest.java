@@ -1,6 +1,8 @@
 package com.topcoder.web.common.model.comp;
 
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 import com.topcoder.web.common.model.Base;
 import com.topcoder.web.common.model.Event;
@@ -22,6 +24,7 @@ public class Contest extends Base {
     protected Timestamp startDate = null;    
     protected Timestamp endDate = null;
     protected Event event;
+    protected Set<ContestPrize> prizes = new HashSet<ContestPrize>();
     
     public Timestamp getEndDate() {
         return endDate;
@@ -64,6 +67,15 @@ public class Contest extends Base {
     }
     public void setTypeId(Integer typeId) {
         this.typeId = typeId;
+    }
+    public Set<ContestPrize> getPrizes() {
+        return prizes;
+    }
+    public void setPrizes(Set<ContestPrize> prizes) {
+        this.prizes = prizes;
+    }
+    public void addPrize(ContestPrize p) {
+        prizes.add(p);
     }
 
 

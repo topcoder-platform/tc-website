@@ -5,11 +5,14 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.topcoder.web.common.model.comp.Contest;
+
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jan 18, 2007
  */
+@SuppressWarnings("serial")
 public class Event extends Base {
     public static final Long TCO07_COMPONENT_ID = new Long(7);
     
@@ -21,9 +24,11 @@ public class Event extends Base {
     private Timestamp registrationEnd;
     private TermsOfUse terms;
     private Survey survey;
-    private Set users;
+    private Set users = new HashSet();
     private Event parent;
+    private Set<Contest> contests = new HashSet<Contest>();
     
+
     public Event(Long id, EventType type) {
         super();
         this.id = id;
@@ -114,4 +119,17 @@ public class Event extends Base {
     public void setShortDescription(String shortDescription) {
         this.shortDescription = shortDescription;
     }
+
+    public Set getContests() {
+        return Collections.unmodifiableSet(contests);
+    }
+
+    public void setContests(Set<Contest> contests) {
+        this.contests = contests;
+    }
+    
+    public void addContest(Contest c) {
+        contests.add(c);
+    }
+
 }

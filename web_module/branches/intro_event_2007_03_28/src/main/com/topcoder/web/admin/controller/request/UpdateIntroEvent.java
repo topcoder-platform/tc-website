@@ -20,6 +20,7 @@ import com.topcoder.web.common.model.IntroEventConfig;
 import com.topcoder.web.common.model.IntroEventPropertyType;
 import com.topcoder.web.common.model.TimeZone;
 import com.topcoder.web.common.model.comp.Contest;
+import com.topcoder.web.common.model.comp.ContestPrize;
 
 /**
  * @author cucu
@@ -94,10 +95,8 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         }
 
         Event comp = null;
-        List<Contest> contests = null;
         if (hasComp) {
             comp = new Event();
-            contests = new ArrayList<Contest>();
 
             comp.setParent(ie);
             comp.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_COMP_ID));       
@@ -107,19 +106,32 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
             comp.setRegistrationStart(getDateTime("comp_reg_start", sdfDateTime, tz, "component registration start date"));
             comp.setRegistrationEnd(getDateTime("comp_reg_end", sdfDateTime, tz, "component registration end date"));
             
-            
+            // Create contests
             Timestamp firstWeek = getDateTime("comp_first_week", sdfDateTime, null,"First Week");
             int nweeks = new Integer(getRequest().getParameter("nweeks"));
+
+            List<Double> desOverall = new ArrayList<Double>();
+            List<Double> devOverall = new ArrayList<Double>();
+            desOverall.add(getDouble("prdes1ov","Design Overall"));
+            devOverall.add(getDouble("prdev1ov","Development Overall"));
             
-            contests.add(createContest(ie, "Design Overall", 112, firstWeek, nweeks * 7, true));
-            contests.add(createContest(ie, "Development Overall", 113, firstWeek, nweeks * 7, true));
+            List<Double> desWeekly = new ArrayList<Double>();
+            List<Double> devWeekly = new ArrayList<Double>();
+            desWeekly.add(getDouble("prdes1w", "Design 1st place weekly"));
+            desWeekly.add(getDouble("prdes2w", "Design 2nd place weekly"));
+            devWeekly.add(getDouble("prdev1w", "Development 1st place weekly"));
+            devWeekly.add(getDouble("prdev2w", "Development 2nd place weekly"));
+            
+            addContest(comp, "Design Overall", 112, firstWeek, nweeks * 7, true, desOverall);
+            addContest(comp, "Development Overall", 113, firstWeek, nweeks * 7, true, devOverall);
             
             Timestamp w = firstWeek;
             for (int i = 1; i <= nweeks; i++) {
-                contests.add(createContest(ie, "Week " + i + " Design", 112, w, nweeks * 7, false));
-                contests.add(createContest(ie, "Week " + i + " Development", 113, w, nweeks * 7, true));
+                addContest(comp, "Week " + i + " Design", 112, w, nweeks * 7, false, desWeekly);
+                addContest(comp, "Week " + i + " Development", 113, w, nweeks * 7, false, desWeekly);
                 w = addDays(firstWeek, 7);
             }
+            
         }
         
         factory.getIntroEventDAO().saveOrUpdate(ie);        
@@ -128,28 +140,34 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         }
         if (comp != null) {
             factory.getEventDAO().saveOrUpdate(comp);
-
-            CompContestDAO dao = factory.getCompContestDAO();
-            
-            for (Contest c : contests) {
-                dao.saveOrUpdate(c);
-            }
         }
         
         setNextPage("/main.jsp");
         setIsNextPageInContext(false);
     }
 
-    private Contest createContest(IntroEvent ie, String contestDescr, int phase, Timestamp start, int days, boolean isOverall) {
+    private void addContest(Event e, String contestDescr, int phase, Timestamp start, int days, boolean isOverall, List<Double> prizes) {
         Contest c = new Contest();
-        c.setName(ie.getDescription() + " " + contestDescr);
+        c.setName(e.getDescription() + " " + contestDescr);
         c.setPhaseId(112);
-        c.setEvent(ie);
+        c.setEvent(e);
         c.setStartDate(start);
         c.setEndDate(addDays(start, days));
         c.setTypeId(isOverall? Contest.TYPE_INTRO_EVENT_OVERALL : Contest.TYPE_INTRO_EVENT_WEEKLY);
+        e.addContest(c);
         
-        return c;
+        int place = 1;
+        for(Double amount : prizes) {
+            ContestPrize cp = new ContestPrize();
+            cp.setContest(c);
+            cp.setDescription(e.getDescription() + (phase == 112? " - Design" : " - Development"));
+            cp.setAmount(amount);
+            cp.setPlace(place);
+            cp.setPrizeTypeId(isOverall? ContestPrize.CONTEST_PRIZE_INTRO_EVENT_OVERALL : ContestPrize.CONTEST_PRIZE_INTRO_EVENT_WEEKLY);
+            
+            c.addPrize(cp);
+            place++;
+        }
     }
     
     private Timestamp addDays(Timestamp t, int days){
@@ -165,7 +183,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         try {
             d = sdf.parse(getRequest().getParameter(param));
         } catch (ParseException e) {
-            addError("err", "Please enter a valid " +displayName);
+            addError("err", "Please enter a valid " + displayName);
             return null;
         }
         
@@ -174,6 +192,15 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         }
         
         return new Timestamp(d.getTime());
+    }
+    
+    private Double getDouble(String param, String displayName) {
+        try {
+            return new Double(param);
+        } catch (Exception e) {
+            addError("err", "Please enter a valid " + displayName);
+            return null;
+        }
     }
 
 }
