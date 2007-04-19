@@ -8,25 +8,6 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
-        <A href="/to/?module=ViewBallot&rd=2008">Predict the Ball Logo & Icon winners </A>
-        </span><br><br>
-        Vote now to predict the winning look for The Ball's logo and icons.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/to/?module=ViewBallot&rd=2008">vote now</A> |
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=48">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.19.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
         Predict the TCO T-shirt winners
         </span><br><br>
         Don't let bad fashion happen to good people. Vote now to predict the winning TCO07 T-shirt designs, in these categories: <a href="/to/?module=ViewBallot&rd=2016">Algorithm</a>; <a href="/to/?module=ViewBallot&rd=2020">Component</a>; <a href="/to/?module=ViewBallot&rd=2012">Studio</a>; and <a href="/to/?module=ViewBallot&rd=2024">Marathon Match</a>.
@@ -39,6 +20,25 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
+<%------------------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.19.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/to/?module=ViewBallot&rd=2008">Predict the Ball Logo & Icon winners </A>
+        </span><br><br>
+        Vote now to predict the winning look for The Ball's logo and icons.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/to/?module=ViewBallot&rd=2008">vote now</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=48">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   --------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.18.07<br>12:45 PM</td>
