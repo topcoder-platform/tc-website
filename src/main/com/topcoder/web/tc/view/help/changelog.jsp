@@ -55,6 +55,7 @@
     <ul>
         <li>Take advantage of generics for general in-memory data container -dok</li>
         <li>Fix bug in algorithm consecutive rating increase -cucu</li> 
+        <li>Fix bug in affirm affidavits for HS coders -cucu</li>         
         <!-- <li>Add is current flag in record books -cucu</li>  -->
     </ul>
 </p>
