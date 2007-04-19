@@ -40,7 +40,7 @@
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
 <li><a href="/tc?module=Static&d1=features&d2=041907"><strong>A Crash Course in SQL</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
-In the first two parts of this article series we looked at the basic components of relational databases.  We touched briefly on SQL -- the language we use to interact with the database -- but in this article we'll look at it in much more detail, with a specific focus on writing queries.  We'll continue to use the database we developed in the first two articles if you'd like to follow along with the examples.</li>
+In the first two parts of this article series we looked at the basic components of relational databases.  We touched briefly on SQL -- the language we use to interact with the database -- but in this article we'll look at it in much more detail, with a specific focus on writing queries.</li>
 <li><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely"><strong>Introducing Boxely</strong></a>, by AOL's Boxely Team<%--<tc-webtag:handle coderId="15635590" />--%><br>
 Boxely is a next-generation, standards-based development platform for creating rich desktop applications. Combining the benefits of a box-based layout scheme with an advanced rendering engine, Boxely is designed to enable the creation of rich desktop applications with the same ease, flexibility, and extensibility as authoring internet applications today.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=netConfigurationMgr"><strong>Using the .Net Configuration Manager</strong></a>, by <tc-webtag:handle coderId="10445079" context="development" /><br>
