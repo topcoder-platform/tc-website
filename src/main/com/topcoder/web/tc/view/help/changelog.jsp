@@ -44,9 +44,10 @@
 
 
 <p>
-    5.8.10 - 2007.04.xx
+    5.8.10 - 2007.04.19
     <ul>
         <li>TCO07 RSVP -pulky</li>
+		<li>Bug fix for demographic information in PACTS -cucu</li>
     </ul>
 </p>
 
