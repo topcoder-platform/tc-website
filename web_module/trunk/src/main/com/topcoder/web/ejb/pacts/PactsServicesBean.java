@@ -5113,15 +5113,29 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public boolean hasAllDemographicAnswers(long userId) throws SQLException {
 
         StringBuffer query = new StringBuffer(300);
-        query.append("SELECT COUNT(*) FROM demographic_assignment da, demographic_question dq ");
-        query.append("WHERE da.coder_type_id = ");
+        query.append("SELECT dq.demographic_question_id, COUNT(*) ");
+        query.append(" , CASE WHEN EXISTS "); 
+        query.append("         (SELECT registration_type_id   ");
+        query.append("          FROM user_group_xref x, "); 
+        query.append("               registration_type_lu r "); 
+        query.append("          WHERE x.group_id = r.security_group_id "); 
+        query.append("          AND x.login_id = " + userId);
+        query.append("          AND r.registration_type_id =3) ");
+        query.append("          THEN 1 ELSE 0 END as is_registered_hs ");
+        query.append(" FROM demographic_assignment da, demographic_question dq ");
+        query.append(" WHERE da.coder_type_id = ");
         query.append("  (SELECT coder_type_id from coder where coder_id = " + userId + ") ");
         query.append(" AND dq.demographic_question_id = da.demographic_question_id ");
         query.append(" and da.status = 'A'");
         query.append(" AND dq.demographic_question_id NOT IN ");
         query.append("  (SELECT demographic_question_id FROM demographic_response ");
         query.append("   WHERE user_id = " + userId + ") ");
-        query.append(" AND da.registration_type_id = 1 ");
+        query.append(" AND da.registration_type_id in ( ");
+        query.append("        SELECT registration_type_id "); 
+        query.append("        FROM user_group_xref x, ");
+        query.append("             registration_type_lu r ");
+        query.append("        WHERE x.group_id = r.security_group_id ");
+        query.append("        AND x.login_id = " + userId + ") ");
         query.append(" AND da.is_required = 1 ");
 
         Connection c = null;
@@ -5129,7 +5143,28 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-            ret = Integer.parseInt(rsc.getItem(0, 0).toString()) == 0;
+            
+            
+            if (rsc.size() == 0) {
+                return true;
+            }
+            
+            // not registered for hs, should have all the questions answered
+            if (rsc.getIntItem(0, "is_registered_hs") == 0) {
+                return false;
+            }
+ 
+            // the coder is in hs, can have some questions unanswered
+            for (int i = 0; i < rsc.size(); i++) {
+                Long l = rsc.getLongItem(i, "demographic_question_id");
+                if (!(l.equals(DemographicQuestion.COLLEGE_MAJOR) || 
+                        l.equals(DemographicQuestion.COLLEGE_MAJOR_DESC) ||
+                        l.equals(DemographicQuestion.DEGREE_PROGRAM))) {
+                    
+                    return false;
+                }
+            }
+            return true;
 
         } catch (SQLException e) {
             close(c);
