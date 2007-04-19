@@ -100,6 +100,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
 
             comp.setParent(ie);
             comp.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_COMP_ID));       
+            comp.setDescription(ie.getDescription() + " - Development");
             
             TimeZone tz = getRequest().getParameter("comp_tz") != null? timeZone : null;
             
@@ -148,8 +149,8 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
 
     private void addContest(Event e, String contestDescr, int phase, Timestamp start, int days, boolean isOverall, List<Double> prizes) {
         Contest c = new Contest();
-        c.setName(e.getDescription() + " " + contestDescr);
-        c.setPhaseId(112);
+        c.setName(e.getParent().getDescription() + " " + contestDescr);
+        c.setPhaseId(phase);
         c.setEvent(e);
         c.setStartDate(start);
         c.setEndDate(addDays(start, days));
@@ -160,7 +161,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         for(Double amount : prizes) {
             ContestPrize cp = new ContestPrize();
             cp.setContest(c);
-            cp.setDescription(e.getDescription() + (phase == 112? " - Design" : " - Development"));
+            cp.setDescription(e.getParent().getDescription() + (phase == 112? " - Design" : " - Development"));
             cp.setAmount(amount);
             cp.setPlace(place);
             cp.setPrizeTypeId(isOverall? ContestPrize.CONTEST_PRIZE_INTRO_EVENT_OVERALL : ContestPrize.CONTEST_PRIZE_INTRO_EVENT_WEEKLY);
@@ -196,7 +197,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
     
     private Double getDouble(String param, String displayName) {
         try {
-            return new Double(param);
+            return new Double(getRequest().getParameter(param));
         } catch (Exception e) {
             addError("err", "Please enter a valid " + displayName);
             return null;

@@ -9,7 +9,7 @@ import com.topcoder.web.common.model.Event;
 
 /**
  * @author cucu
-= */
+*/
 @SuppressWarnings("serial")
 public class Contest extends Base {
 
