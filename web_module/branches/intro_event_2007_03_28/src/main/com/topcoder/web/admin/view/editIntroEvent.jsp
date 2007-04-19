@@ -23,6 +23,11 @@
   <style type="text/css">
 .calendar,
 .calendar table { width: 250px; height: 200px; }
+
+td {
+    vertical-align: top;
+}
+
 </style>
 </head>
 
@@ -39,7 +44,7 @@
 <form name="f" action="/admin/" method="post">
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
 <center>
-<table border="0" cellpadding="3" cellspacing="3">
+<table border="0" cellpadding="3" cellspacing="3" style="width: 0%">
     <tr>
         <td colspan="2">
             <tc-webtag:errorIterator id="err" name="error">
@@ -59,7 +64,7 @@
 		<td>School:</td>
 		<td>
 			(leave it blank if no school is associated)<br>
-			<table>
+			<table style="width: 0%">
 				<tr>
 					<td width="10%" nowrap="nowrap">
 						<tc-webtag:radioButton name="use_school_search" value="1" />
@@ -85,7 +90,7 @@
 	<tr>
 		<td>Forum:</td>
 		<td>
-			<table>
+			<table style="width: 0%">
 				<tr>
 					<td width="10%" nowrap="nowrap">
 						<tc-webtag:radioButton name="create_forum" value="1" />
@@ -124,7 +129,7 @@
 <c:forEach items="${config}" var="cfg" >
 <c:if test="${cfg.type==1}">
 	<tr>
-		<td>${cfg.description }</td>
+		<td nowrap="nowrap">${cfg.description }</td>
 		<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
    </tr>
 </c:if>		
@@ -141,14 +146,25 @@
 	<tr>
 		<td>Registration:</td>
         <td class="value">
-            from <tc-webtag:textInput name="algo_reg_start" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-					<button id="trigger_algo_reg_start"">Set</button>
+        	<table style="width: 0%">
+	        	<tr>
+	    	    	<td>from</td>
+	    	    	<td>
+	    	    		<tc-webtag:textInput name="algo_reg_start" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+						<button id="trigger_algo_reg_start"">Set</button>
+					</td>
+					<td rowspan="2"><tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone</td>
+				</tr>
+				<tr>
+	    	    	<td>to</td>
+	    	    	<td>
+			            <tc-webtag:textInput name="algo_reg_end" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+			   			<button id="trigger_algo_reg_end"">Set</button>
+					</td>				    	    	
+    	    	</tr>
+        	</table>
 					
-					&nbsp;&nbsp;&nbsp; <tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone
-					<br>
 					
-            to <tc-webtag:textInput name="algo_reg_end" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-			   <button id="trigger_algo_reg_end"">Set</button>
 			   
 			
         </td>
@@ -157,7 +173,7 @@
 	<tr>
 		<td>Round:</td>
 		<td>
-			<table>
+			<table style="width: 0%">
 				<tr>
 					<td width="10%" nowrap="nowrap">
 						<tc-webtag:radioButton name="use_round_sel" value="1" />
@@ -186,7 +202,7 @@
 	<c:forEach items="${config}" var="cfg" >
 	<c:if test="${cfg.type==2}">
 		<tr>
-			<td>${cfg.description }</td>
+			<td nowrap="nowrap">${cfg.description }</td>
 			<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
 	   </tr>
 	</c:if>		
@@ -232,14 +248,23 @@
 	<tr>
 		<td>Registration:</td>
         <td class="value">
-            from <tc-webtag:textInput name="comp_reg_start" id="comp_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-					<button id="trigger_comp_reg_start"">Set</button>
-					
-					&nbsp;&nbsp;&nbsp; <tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone
-					<br>
-					
-            to <tc-webtag:textInput name="comp_reg_end" id="comp_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-			   <button id="trigger_comp_reg_end"">Set</button>
+        	<table style="width: 0%">
+	        	<tr>
+	    	    	<td>from</td>
+	    	    	<td>
+	    	    		<tc-webtag:textInput name="comp_reg_start" id="comp_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+						<button id="trigger_comp_reg_start"">Set</button>
+					</td>
+					<td rowspan="2"><tc-webtag:chkBox name="comp_tz" value="true"/>Event time zone</td>
+				</tr>
+				<tr>
+	    	    	<td>to</td>
+	    	    	<td>
+			            <tc-webtag:textInput name="comp_reg_end" id="comp_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+			   			<button id="trigger_comp_reg_end"">Set</button>
+					</td>				    	    	
+    	    	</tr>
+        	</table>
 			   
 			
         </td>
@@ -259,7 +284,7 @@
 	<tr>
 		<td>Weekly Prizes</td>
 		<td>
-			<table>
+			<table style="width: 0%">
 				<tr>
 				</tr>
 				<tr>
@@ -280,7 +305,7 @@
 	<tr>
 		<td>Overall Prizes</td>
 		<td>
-			<table>
+			<table style="width: 0%">
 				<tr>
 				</tr>
 				<tr>
