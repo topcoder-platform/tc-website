@@ -50,10 +50,8 @@
     <div class="section">TCO07 Studio T-Shirt Design</div>
     <strong><A href="?module=ViewBallot&rd=2012">Make your prediction!</A></strong>
 
-<%--
     <div class="section">"The Ball" Logo & Icons Round 1</div>
-    <strong><A href="?module=ViewBallot&rd=2008">Make your prediction!</A></strong>
---%>
+    <strong><A href="?module=ViewBallot&rd=2028">Make your prediction!</A></strong>
 
     <div class="section">Homepage Redesign Round 2</div>
     <A href="?module=ViewSimpleResults&rm=1999"<% if (selectedTab.equals("1999Pred")) {%> class="on"<% } %>>Prediction Results</A>
