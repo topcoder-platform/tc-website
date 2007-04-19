@@ -41,7 +41,7 @@
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
 <tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%">Predict the TCO T-shirt winners</td></tr>
-<%--<tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%"><A href="/to/?module=ViewBallot&rd=2008">Predict the TCO T-shirt winners</A></td></tr>--%>
+<tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%"><A href="/to/?module=ViewBallot&rd=2008">"The Ball" Logo & Icon Prediction Contest Round 1</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.13.07 10:00 AM - </td><td width="100%"><A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">TopCoder College Tour comes to Belarus</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.11.07 10:30 AM - </td><td width="100%"><A href="http://csf.topcoder.com/?module=Static&d1=assembly&d2=activeContests">Connected Services Assembly Competition now open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.10.07 12:15 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=16884">Vote for the homepage redesign winner</A></td></tr>
