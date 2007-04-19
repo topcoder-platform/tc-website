@@ -44,7 +44,7 @@ td {
 <form name="f" action="/admin/" method="post">
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
 <center>
-<table border="0" cellpadding="3" cellspacing="3" style="width: 0%">
+<table border="0" cellpadding="5" cellspacing="5" style="width: 0%">
     <tr>
         <td colspan="2">
             <tc-webtag:errorIterator id="err" name="error">
@@ -149,15 +149,15 @@ td {
         	<table style="width: 0%">
 	        	<tr>
 	    	    	<td>from</td>
-	    	    	<td>
+	    	    	<td nowrap="true">
 	    	    		<tc-webtag:textInput name="algo_reg_start" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 						<button id="trigger_algo_reg_start"">Set</button>
 					</td>
-					<td rowspan="2"><tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone</td>
+					<td rowspan="2" nowrap="true"><tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone</td>
 				</tr>
 				<tr>
 	    	    	<td>to</td>
-	    	    	<td>
+	    	    	<td nowrap="true">
 			            <tc-webtag:textInput name="algo_reg_end" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 			   			<button id="trigger_algo_reg_end"">Set</button>
 					</td>				    	    	
@@ -251,15 +251,15 @@ td {
         	<table style="width: 0%">
 	        	<tr>
 	    	    	<td>from</td>
-	    	    	<td>
+	    	    	<td nowrap="true">
 	    	    		<tc-webtag:textInput name="comp_reg_start" id="comp_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 						<button id="trigger_comp_reg_start"">Set</button>
 					</td>
-					<td rowspan="2"><tc-webtag:chkBox name="comp_tz" value="true"/>Event time zone</td>
+					<td rowspan="2" nowrap="true"><tc-webtag:chkBox name="comp_tz" value="true"/>Event time zone</td>
 				</tr>
 				<tr>
 	    	    	<td>to</td>
-	    	    	<td>
+	    	    	<td nowrap="true">
 			            <tc-webtag:textInput name="comp_reg_end" id="comp_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 			   			<button id="trigger_comp_reg_end"">Set</button>
 					</td>				    	    	
@@ -288,15 +288,15 @@ td {
 				<tr>
 				</tr>
 				<tr>
-					<td>1st place</td>
+					<td nowrap="true">1st place</td>
 					<td><tc-webtag:textInput name="prize1w" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
-					<td>2nd place</td>
+					<td nowrap="true">2nd place</td>
 					<td><tc-webtag:textInput name="prize2w" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
-					<td>3rd place</td>
+					<td nowrap="true">3rd place</td>
 					<td><tc-webtag:textInput name="prize3w" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 			</table>
@@ -309,15 +309,15 @@ td {
 				<tr>
 				</tr>
 				<tr>
-					<td>1st place</td>
+					<td nowrap="true">1st place</td>
 					<td><tc-webtag:textInput name="prize1ov" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
-					<td>2nd place</td>
+					<td nowrap="true">2nd place</td>
 					<td><tc-webtag:textInput name="prize2ov" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
-					<td>3rd place</td>
+					<td nowrap="true">3rd place</td>
 					<td><tc-webtag:textInput name="prize3ov" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 			</table>
