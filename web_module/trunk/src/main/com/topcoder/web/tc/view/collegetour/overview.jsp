@@ -100,6 +100,10 @@
         <li>3rd place prize - <%=conf.get(new Integer(Constants.THIRD_PLACE_PROP_ID))%>
         </li>
         <% } %>
+        <% if (conf.containsKey(11)) {%><%-- 4th-10th place prize --%>
+        <li>4th-10th place prizes - <%=conf.get(11)%>
+        </li>
+        <% } %>
     </ul>
 
     All competitors will receive a TopCoder t-shirt. Placement in the SRM will be determined by the
