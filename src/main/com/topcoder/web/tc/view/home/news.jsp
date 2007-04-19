@@ -10,7 +10,7 @@
       <td valign="top"><span class="newsTitle">
         Predict the TCO T-shirt winners
         </span><br><br>
-        Don't let bad fashion happen to good people. Vote now to predict the winning TCO07 T-shirt designs, in these categories: <a href="/to/?module=ViewBallot&rd=2016">Algorithm</a>; <a href="/to/?module=ViewBallot&rd=2020">Component</a>; <a href="/to/?module=ViewBallot&rd=2012">Studio</a>; and <a href="/to/?module=ViewBallot&rd=2024">Marathon Match</a>.
+        Don't let bad fashion happen to good people. Vote now to predict the winning TCO07 T-shirt designs, in these categories: <a href="/to/?module=ViewBallot&rd=2016">Algorithm</a>; <a href="/to/?module=ViewBallot&rd=2020">Component</a>; <a href="/to/?module=ViewBallot&rd=2012">Studio</a>; and <a href="/to/?module=ViewBallot&rd=2024">Marathon Match</a>.  The prediction contests close on April 21 at 2 PM EDT.
         </td>
       </tr></table>
       </td>
