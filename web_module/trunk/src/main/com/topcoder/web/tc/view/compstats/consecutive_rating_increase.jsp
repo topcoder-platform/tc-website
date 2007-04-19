@@ -31,7 +31,7 @@ if (type == null) type = HandleTag.COMPONENT; %>
         <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
         <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
         <td class="valueC"><rsc:item name="length" row="<%=row%>" format="0"/>
-            <img src="/i/interface/emblem/andclimbing.png" alt="And climbing" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
+            <%--<img src="/i/interface/emblem/andclimbing.png" alt="And climbing" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />--%>
         </td>
         <td class="valueR" width="50%">
             <A href="/tc?module=CompContestDetails&pj=<rsc:item name="start_project_id" row="<%=row%>"/>"><rsc:item name="start_project_name" row="<%=row%>"/></A><br>
