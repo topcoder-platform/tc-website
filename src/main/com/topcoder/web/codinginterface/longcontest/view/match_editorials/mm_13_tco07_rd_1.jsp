@@ -48,7 +48,7 @@
 <tc-webtag:forumLink forumID="514999" message="Discuss this match" />
 </div>
 
-<span class="bodySubtitle">Marathon Match 13 / TCO07 Round #1</span><br>03.7.2007 - 03.14.2007
+<span class="bodySubtitle">TCO07 Round #1 / Marathon Match 13</span><br>03.7.2007 - 03.14.2007
 <br><br>
 
 <img src="/i/m/venco_big.jpg" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/><br>

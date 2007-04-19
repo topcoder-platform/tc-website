@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.19.07<br>4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_13_tco07_rd_1">TCO07 Round 1 Analysis / Marathon Match 13</A></span><br><br>
+      In DensityImaging, a mining company wants to determine if a particular mountain has heavy metals in it by imaging it with electromagnetic waves, rather than digging. Coders were asked to model the problem and come up with a solution to determine the density of the mountain.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/venco_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="274023" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_13_tco07_rd_1">full story</A> | 
+        <tc-webtag:forumLink forumID="514999" message="discuss this" /> | 
+        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>04.19.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -43,7 +60,7 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
-        <A href="/to/?module=ViewBallot&rd=2008">"The Ball" Logo & Icon Prediction Contest Round 1</A>
+        <A href="/to/?module=ViewBallot&rd=2028">"The Ball" Logo & Icon Prediction Contest Round 1</A>
         </span><br><br>
         Vote now to predict the winning look for The Ball's logo and icons.  This contest closes on April 21 at 2 PM EDT.
         </td>
@@ -51,7 +68,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/to/?module=ViewBallot&rd=2008">vote now</A> |
+        <A href="/to/?module=ViewBallot&rd=2028">vote now</A> |
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=48">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
@@ -198,24 +215,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">details</A> | 
         <tc-webtag:forumLink forumID="514951" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-<tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.13.07<br>10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">TopCoder College Tour comes to Belarus</A>
-        </span><br><br>
-        On April 26, TopCoder is inviting programming problem-solvers from the best college computer science programs in Belarus to solve algorithm puzzles for great prizes and national recognition. For its first event in the country, the TopCoder College Tour will visit Belarus State University.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">details</A> |
-        <tc-webtag:forumLink forumID="514541" message="discuss this" /> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
