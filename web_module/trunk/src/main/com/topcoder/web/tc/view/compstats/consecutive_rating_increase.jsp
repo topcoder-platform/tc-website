@@ -1,4 +1,5 @@
 <%@ include file = "includes.jsp"%>
+<script language="JavaScript" type="text/javascript" src="/js/popup.js"></script>
 
 <div class="fixedWidthBody">
 
@@ -29,7 +30,9 @@ if (type == null) type = HandleTag.COMPONENT; %>
         <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
         <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
-        <td class="valueC"><rsc:item name="length" row="<%=row%>" format="0"/></td>
+        <td class="valueC"><rsc:item name="length" row="<%=row%>" format="0"/>
+            <img src="/i/interface/emblem/andclimbing.png" alt="And climbing" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
+        </td>
         <td class="valueR" width="50%">
             <A href="/tc?module=CompContestDetails&pj=<rsc:item name="start_project_id" row="<%=row%>"/>"><rsc:item name="start_project_name" row="<%=row%>"/></A><br>
             <rsc:item name="start_date" row="<%=row%>" format="MM.dd.yyyy"/>
@@ -43,6 +46,8 @@ if (type == null) type = HandleTag.COMPONENT; %>
     <% even = !even;%>
     </rsc:iterator>
 </table>
+
+<div class="popUp" id="emblemPopup"><div>And climbing</div></div>
 
 </div>
 </html>
