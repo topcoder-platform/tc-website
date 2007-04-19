@@ -72,9 +72,11 @@
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
         <td class="value"><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="length"/>
+<%--
            <% if (resultRow.getIntItem("is_current") == 1) { %>                        
                 <img src="/i/interface/emblem/andclimbing.png" alt="And climbing" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
             <% } %>
+--%>
         </td>
         <td class="valueR" nowrap>
         <strong><rsc:item row="<%=resultRow%>" name="start_contest_name"/></strong><br>
