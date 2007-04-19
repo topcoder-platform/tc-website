@@ -20,5 +20,11 @@
         <property name="endDate" column="end_date" access="field"/>        
         <many-to-one name="event" column="event_id" class="com.topcoder.web.common.model.Event" access="field"/>
 
+        <set name="prizes" table="tcs_catalog:contest_prize" inverse="true" access="field" cascade="save-update">
+            <key column="contest_id"/>
+            <one-to-many  class="com.topcoder.web.common.model.comp.ContestPrize"/>
+        </set>
+        
+
     </class>
 </hibernate-mapping>

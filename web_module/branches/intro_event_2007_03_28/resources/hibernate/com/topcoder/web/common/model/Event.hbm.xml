@@ -24,6 +24,11 @@
             <many-to-many column="user_id" class="User"/>
         </set>
 
+        <set name="contests" table="tcs_catalog:contest" inverse="true" access="field" cascade="save-update">
+            <key column="event_id"/>
+            <one-to-many  class="com.topcoder.web.common.model.comp.Contest"/>
+        </set>
+
         <many-to-one name="parent" column="parent_event_id" class="Event" access="field"/>
 
          <joined-subclass name="IntroEvent" table="intro_event">
