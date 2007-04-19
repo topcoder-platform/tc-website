@@ -5113,7 +5113,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public boolean hasAllDemographicAnswers(long userId) throws SQLException {
 
         StringBuffer query = new StringBuffer(300);
-        query.append("SELECT dq.demographic_question_id, ");
+        query.append("SELECT dq.demographic_question_id ");
         query.append(" , CASE WHEN EXISTS "); 
         query.append("         (SELECT registration_type_id   ");
         query.append("          FROM user_group_xref x, "); 
