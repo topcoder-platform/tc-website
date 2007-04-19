@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.topcoder.web.common.DateUtils;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.dao.CompContestDAO;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.function.Util;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.IntroEvent;
@@ -113,23 +113,30 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
 
             List<Double> desOverall = new ArrayList<Double>();
             List<Double> devOverall = new ArrayList<Double>();
-            desOverall.add(getDouble("prdes1ov","Design Overall"));
-            devOverall.add(getDouble("prdev1ov","Development Overall"));
-            
             List<Double> desWeekly = new ArrayList<Double>();
             List<Double> devWeekly = new ArrayList<Double>();
-            desWeekly.add(getDouble("prdes1w", "Design 1st place weekly"));
-            desWeekly.add(getDouble("prdes2w", "Design 2nd place weekly"));
-            devWeekly.add(getDouble("prdev1w", "Development 1st place weekly"));
-            devWeekly.add(getDouble("prdev2w", "Development 2nd place weekly"));
+
+            for (int i = 1; i <= 3; i++) {
+                Double d = getDouble("prdes" + i + "ov", "Design Overall " + Util.ordinal(i) + " prize");
+                if (d != null && d > 0) desOverall.add(d); 
+                
+                d = getDouble("prdev" + i + "ov", "Development Overall" + Util.ordinal(i) + " prize");
+                if (d != null && d > 0) devOverall.add(d); 
+
+                d = getDouble("prdes" + i + "w", "Design Weekly " + Util.ordinal(i) + " prize");
+                if (d != null && d > 0) desWeekly.add(d); 
+
+                d = getDouble("prdev" + i + "w", "Development weekly " + Util.ordinal(i) + " prize");
+                if (d != null && d > 0) devWeekly.add(d); 
+            }
             
-            addContest(comp, "Design Overall", 112, firstWeek, nweeks * 7, true, desOverall);
-            addContest(comp, "Development Overall", 113, firstWeek, nweeks * 7, true, devOverall);
+            addContest(comp, "Overall", 112, firstWeek, nweeks * 7, true, desOverall);
+            addContest(comp, "Overall", 113, firstWeek, nweeks * 7, true, devOverall);
             
             Timestamp w = firstWeek;
             for (int i = 1; i <= nweeks; i++) {
-                addContest(comp, "Week " + i + " Design", 112, w, nweeks * 7, false, desWeekly);
-                addContest(comp, "Week " + i + " Development", 113, w, nweeks * 7, false, desWeekly);
+                addContest(comp, "Week " + i, 112, w, nweeks * 7, false, desWeekly);
+                addContest(comp, "Week " + i, 113, w, nweeks * 7, false, desWeekly);
                 w = addDays(firstWeek, 7);
             }
             
@@ -148,8 +155,9 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
     }
 
     private void addContest(Event e, String contestDescr, int phase, Timestamp start, int days, boolean isOverall, List<Double> prizes) {
+        String phaseStr = phase==112? "Design" : "Development";
         Contest c = new Contest();
-        c.setName(e.getParent().getDescription() + " " + contestDescr);
+        c.setName(e.getParent().getDescription() + " - " + phaseStr + " "+ contestDescr);
         c.setPhaseId(phase);
         c.setEvent(e);
         c.setStartDate(start);
@@ -161,7 +169,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         for(Double amount : prizes) {
             ContestPrize cp = new ContestPrize();
             cp.setContest(c);
-            cp.setDescription(e.getParent().getDescription() + (phase == 112? " - Design" : " - Development"));
+            cp.setDescription(e.getParent().getDescription() + " - " + phaseStr + " " + contestDescr + " " + Util.ordinal(place) + " prize");
             cp.setAmount(amount);
             cp.setPlace(place);
             cp.setPrizeTypeId(isOverall? ContestPrize.CONTEST_PRIZE_INTRO_EVENT_OVERALL : ContestPrize.CONTEST_PRIZE_INTRO_EVENT_WEEKLY);
