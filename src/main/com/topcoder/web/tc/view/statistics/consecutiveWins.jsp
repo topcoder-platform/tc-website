@@ -89,7 +89,7 @@ Div I
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 2 /*"length"*/ + "]" %>'/>
 <%--
            <% if (resultRow.getIntItem("is_current") == 1) { %>                        
-                <img src="/i/interface/emblem/andclimbing.png" alt="And climbing" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
+                <img src="/i/interface/emblem/andclimbing.png" alt="" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
             <% } %>
 --%>
         </td>
