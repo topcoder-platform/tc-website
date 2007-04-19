@@ -23,6 +23,7 @@ import com.topcoder.web.forums.model.Paging;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -36,7 +37,10 @@ import java.util.Iterator;
 public class Search extends ForumsProcessor {
     private boolean displayPerThread
         = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread",true);
-
+    private static final String[] STOP_WORDS = {"a", "and", "are", "as", "at", "be", "but", "by", "do", "for", "i", 
+        "if", "in", "into", "is", "it", "me", "my", "no", "not", "of", "on", "or", "s", "such", "t", "that", "the", 
+        "their", "then", "there", "these", "they", "this", "to", "was", "will", "with", "you"};
+    
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 
@@ -170,21 +174,37 @@ public class Search extends ForumsProcessor {
             
             // exact match, startsWith, matches all terms, matches any term
             // must handle "" and + correctly
-            // only display matches if in Software Categories forum
-            // parse queryTerms, places matches into ArrayList, retrieve page of results
-            // Time search. Should be < 2 s, ideally < 1s.
             // Investigate if some small search package can help with this.
+            // "Bar Graph" should return the two results.
+            // Test pagination, eventually add options to show more/fewer categories if needed.
+            // tokenize phrases in quotes, count number of matches
+
             long start = System.currentTimeMillis();
+            String queryString = query.getQueryString().toLowerCase().trim();
+            boolean isQuoted = queryString.startsWith("\"") && queryString.endsWith("\"") && queryString.length() >= 2;
+            if (isQuoted) {
+                queryString = queryString.substring(1, queryString.length() - 1);
+            }
+
             Iterator<ForumCategory> itSearchCategories = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
             ArrayList<ForumCategory> categoryResultsList = new ArrayList<ForumCategory>();
+            Hashtable<ForumCategory,Integer> categoryRankTable = new Hashtable<ForumCategory,Integer>();
             while (itSearchCategories.hasNext()) {
                 ForumCategory category = itSearchCategories.next();
-                if (category.getName().equals(query.getQueryString())) {
+                String categoryName = category.getName().toLowerCase().trim();
+                int rank = -1;
+                if (categoryName.equals(queryString)) {
+                    rank = 1;
+                } else if (categoryName.startsWith(queryString)) {
+                    rank = 2;
+                }
+                if (rank > 0) {
+                    categoryRankTable.put(category, rank);
                     categoryResultsList.add(category);
                 }
             }
             
-            int categoryResultSize = ForumConstants.DEFAULT_SEARCH_RANGE;
+            int categoryResultSize = ForumConstants.DEFAULT_SEARCH_CATEGORY_RANGE;
             if (user != null) {
                 try {
                     categoryResultSize = Integer.parseInt(user.getProperty("jiveSearchCategoryRange"));
@@ -228,4 +248,24 @@ public class Search extends ForumsProcessor {
             getRequest().setAttribute("categoriesPaginator", categoriesPaginator);
         }
 	}
+    
+    class CategoryResultComparator implements Comparator {
+        private Hashtable<ForumCategory,Integer> rankTable;
+        
+        public CategoryResultComparator(Hashtable<ForumCategory,Integer> rankTable) {
+            this.rankTable = rankTable;
+        }
+        
+        public final int compare(Object o1, Object o2) {
+            ForumCategory c1 = (ForumCategory)o1;
+            ForumCategory c2 = (ForumCategory)o2;
+           
+            int retVal = 0;
+            retVal = rankTable.get(c1).compareTo(rankTable.get(c2));
+            if (retVal == 0) {
+                retVal = c1.getName().compareTo(c2.getName());
+            }            
+            return retVal;
+        }
+    }
 }
