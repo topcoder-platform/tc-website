@@ -6,11 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
-import com.jivesoftware.forum.ForumCategory;
-import com.jivesoftware.forum.ForumFactory;
 import com.topcoder.web.common.DateUtils;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
@@ -24,7 +21,6 @@ import com.topcoder.web.common.model.IntroEventPropertyType;
 import com.topcoder.web.common.model.TimeZone;
 import com.topcoder.web.common.model.comp.Contest;
 import com.topcoder.web.common.model.comp.ContestPrize;
-import com.topcoder.web.forums.model.TCAuthToken;
 
 /**
  * @author cucu
@@ -63,20 +59,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         ie.setForumId(new Long(forumId));
         ie.setTimezone(timeZone);
         ie.setImage(factory.getImageDAO().find(new Long(imageId)));        
-        
-        
-        if ("1".equals(getRequest().getParameter("create_forum"))) {
-            ForumFactory ff = ForumFactory.getInstance(new TCAuthToken(100129));
-            ff.createForum(getRequest().getParameter("forum_name"), "description");
-
-            Iterator itCat = ff.getRootForumCategory().getCategories();
-
-            while (itCat.hasNext()) {
-                ForumCategory fc = (ForumCategory) itCat.next();
-                log.debug("category: "+ fc.getName() + " - " + fc.getDescription());
-            }
-        }
-        
+                        
         List<IntroEventPropertyType> cfg = factory.getIntroEventPropertyTypeDAO().getTypes();
 
         for (IntroEventPropertyType prop : cfg) {
@@ -153,6 +136,13 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
                 w = addDays(firstWeek, 7);
             }
             
+        }
+        
+        if (hasErrors()) {
+            // TODO: set defaults!
+            setNextPage("/editIntroEvent.jsp");
+            setIsNextPageInContext(true);
+            return;
         }
         
         factory.getIntroEventDAO().saveOrUpdate(ie);        
