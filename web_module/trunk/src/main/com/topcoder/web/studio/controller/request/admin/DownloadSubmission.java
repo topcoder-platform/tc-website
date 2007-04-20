@@ -32,7 +32,7 @@ public class DownloadSubmission extends Base {
         FileInputStream fis = new FileInputStream(s.getPath().getPath() + s.getSystemFileName());
 
         //stream it out via the response
-        getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
+        getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getId() + s.getOriginalFileName().substring(s.getOriginalFileName().lastIndexOf('.')) + "\"");
         getResponse().setContentType(s.getMimeType().getDescription());
         ServletOutputStream sos = getResponse().getOutputStream();
 
