@@ -15,6 +15,9 @@ public class IntroEventPropertyType extends Base {
     private String description;
     private Integer type;
     private boolean mandatory;
+    private String explanation;
+    private String defaultValue;
+    private Boolean viewable;
     
     
     protected IntroEventPropertyType() {        
@@ -43,6 +46,41 @@ public class IntroEventPropertyType extends Base {
 
     public Integer getType() {
         return type;
+    }
+
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
+    }
+
+
+    public String getExplanation() {
+        return explanation;
+    }
+
+
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
+    }
+
+
+    public Boolean getViewable() {
+        return viewable;
+    }
+
+
+    public void setViewable(Boolean viewable) {
+        this.viewable = viewable;
+    }
+
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }

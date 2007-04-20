@@ -22,7 +22,7 @@ public class IntroEventPropertyTypeDAOHibernate extends Base implements IntroEve
 
     @SuppressWarnings("unchecked")
     public List<IntroEventPropertyType> getTypes() {
-        return findAll(IntroEventPropertyType.class);
+        return findAll(IntroEventPropertyType.class, "viewable", 1);
     }
 
 }
