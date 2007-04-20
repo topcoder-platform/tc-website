@@ -34,8 +34,9 @@
 </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <SCRIPT type="text/javascript">
-        function submit(module) {
+        function submit(module, example) {
             document.adminForm.<%=Constants.MODULE%>.value=module;
+			document.adminForm.<%=Constants.EXAMPLE_FLAG%>.value=example;
             document.adminForm.submit();
         }
     </SCRIPT>
@@ -70,7 +71,7 @@
 
     <form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="GET" name="adminForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE%>"/>
-
+        <tc-webtag:hiddenInput name="<%=Constants.EXAMPLE_FLAG%>"/>
         <p>
         Please select a contest:<br>
         <tc-webtag:rscSelect name="<%=Constants.ROUND_ID%>" list="<%=rounds%>" fieldText="name" fieldValue="round_id"/>
@@ -81,7 +82,8 @@
         </p>
 
         <ul>
-            <li><a href="javascript:submit('ViewAdminForceSubmit');">Resubmit Competitor Code</a></li>
+            <li><a href="javascript:submit('ViewAdminForceSubmit', 0);">Resubmit Competitor Code</a></li>
+            <li><a href="javascript:submit('ViewAdminForceSubmit', 1);">Resubmit Example Competitor Code</a></li>
         </ul>
 
 
