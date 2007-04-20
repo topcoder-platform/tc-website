@@ -22,7 +22,31 @@
 	<script type="text/javascript" src="/js/taconite-client.js"></script>
 	<script type="text/javascript" src="/js/taconite-parser.js"></script>
   <script type="text/javascript">
+  
+function toggleDiv(divId, state) 
+{
+    if(document.layers)   
+    {
+       document.layers[divId].visibility = state ? "show" : "hide";
+    }
+    else if(document.getElementById)
+    {
+    	alert(document.getElementById(divId));
+        document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
+    }
+    else if(document.all)
+    {
+        document.all[divId].style.visibility = state ? "visible" : "hidden";
+    }
+}
 
+function loading() {
+    toggleDiv("loading", 1);
+}
+
+function loaded() {
+    toggleDiv("loading", 0);
+}
 function search() {
 	var ajaxRequest = new AjaxRequest('/admin/?module=AjaxSearchSchool');    
     ajaxRequest.addNamedFormElements("school_search");
@@ -41,29 +65,7 @@ function searchAgain() {
     ajaxRequest.sendRequest();
 }
 
-function toggleDiv(divId, state) 
-{
-    if(document.layers)   
-    {
-       document.layers[divId].visibility = state ? "show" : "hide";
-    }
-    else if(document.getElementById)
-    {
-        document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
-    }
-    else if(document.all)
-    {
-        document.all[divId].style.visibility = state ? "visible" : "hidden";
-    }
-}
 
-function loading() {
-    toggleDiv("loading", 1);
-}
-
-function loaded() {
-    toggleDiv("loading", 0);
-}
 
 </script>
   
