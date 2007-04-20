@@ -75,9 +75,9 @@
 
 <br clear="all">
 
-<p>In the first two parts of this article series we looked at the basic components of relational databases.  We touched briefly on SQL -- the language we use to interact with the database -- but in this article we'll look at it in much more detail, with a specific focus on writing queries.  We'll continue to use the database we developed in the first two articles if you'd like to follow along with the examples.</p>
+<p>In the first two parts of this article series we looked at the basic components of relational databases: <i>A Crash Course in Relational Databases, <a href="/tc?module=Static&d1=features&d2=032607" target="_blank">Part 1</a> &amp; <a href="/tc?module=Static&d1=features&d2=032907" target="_blank">Part 2</a></i>.  We touched briefly on SQL -- the language we use to interact with the database -- but in this article we'll look at it in much more detail, with a specific focus on writing queries.  We'll continue to use the database we developed in the first two articles if you'd like to follow along with the examples.</p>
 
-<p>Note that different databases have syntax variations for SQL.  Since we have used <a target="_blank" href="http://www.dev.topcoder.com/tc?module=LinkTracking&amp;link=http://www.oracle.com/technology/xe/index.html&amp;refer=feature_041907">Oracle</a> throughout the article series, we will focus on Oracle's SQL syntax.  While we don't have the space to cover every aspect of SQL, we'll focus on some of the core concepts that will help you "hit the ground running" as you begin to work with relational databases.  This article should give you some good tools to begin putting your database to work, and it should help you avoid some common pitfalls.</p>
+<p>Note that different databases have syntax variations for SQL.  Since we have used <a target="_blank" href="<tc-webtag:linkTracking link='http://www.oracle.com/technology/xe/index.html' refer='feature_041907' />">Oracle</a> throughout the article series, we will focus on Oracle's SQL syntax.  While we don't have the space to cover every aspect of SQL, we'll focus on some of the core concepts that will help you "hit the ground running" as you begin to work with relational databases.  This article should give you some good tools to begin putting your database to work, and it should help you avoid some common pitfalls.</p>
 
 <p>Note that I have loaded data for the following SRMs into my database for the examples:  342, 343, and 344.  You don't need to have that data loaded to your database, but the examples throughout the article will be based on them.  Please refer to the previous articles for the procedure for loading SRM data into your database.</p>
 
@@ -716,7 +716,7 @@ VAL
 there
 </pre>
 
-<p>As you can see, the decode statement compares the first two values and, if they're equal, returns the third argument ('hello' in this example); if the two values are not equal it returns the second argument ('there').</p>
+<p>As you can see, the decode statement compares the first two values and, if they're equal, returns the third argument ('hello' in this example); if the two values are not equal it returns the fourth argument ('there').</p>
 
 <p>Besides decode, there's also the case statement, which works similarly to a case statement in high level languages such as JAVA or C++.  I prefer the case statement syntax for more complex conditions because as you start to nest decode statements the code becomes very difficult to read.  The other thing to note about decode is that it's part of Oracle's SQL syntax, but most other database vendors use the case statement syntax.  With Oracle, you have the option of either one.</p>
 
@@ -758,8 +758,6 @@ Hopefully you can see the power that's at your fingertips when you have a good u
 <p><b>References</b>
 <ul><li><i>Expert Oracle</i>, by Thomas Kyte</li>
 <li><a target="_blank" href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://asktom.oracle.com/pls/asktom/f?p=100:11:0::::P11_QUESTION_ID:27523665852829&amp;refer=feature_032907">asktom.oracle.com</a></li>
-<li><a href="/tc?module=Static&d1=features&d2=032607" target="_blank">A Crash Course in Relational Databases, Part 1</a></li>
-<li><a href="/tc?module=Static&d1=features&d2=032907" target="_blank">A Crash Course in Relational Databases, Part 2</a></li>
 </ul>
 </p>
 
