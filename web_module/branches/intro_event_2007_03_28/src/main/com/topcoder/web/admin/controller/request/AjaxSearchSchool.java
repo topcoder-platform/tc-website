@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.School;
 
@@ -22,10 +23,10 @@ public class AjaxSearchSchool extends ShortHibernateProcessor {
         if (!searchAgain) {
             List<Object[]> list = DAOUtil.getFactory().getSchoolDAO().searchByName("%" + search + "%", 100);
             
-            List<School> schools = new ArrayList<School>();
+            List<SchoolOption> schools = new ArrayList<SchoolOption>();
             for(Object[] o : list) {
                 School school = (School) o[1];
-                schools.add(school);
+                schools.add(new SchoolOption(school.getName(), (Long) o[0], school.getId()));
             }
             getRequest().setAttribute("schools", schools);
         }
@@ -38,4 +39,22 @@ public class AjaxSearchSchool extends ShortHibernateProcessor {
     }
 
 
+    class SchoolOption {
+        private String name;
+        private Long id;
+        
+        public SchoolOption(String name, Long count, Long id) {
+            this.name = StringUtils.htmlEncode(name) + " (" + count + ")";
+            this.id = id;
+        }
+
+        public Long getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+        
+    }
 }
