@@ -14,7 +14,7 @@
 				</c:when>
 				<c:otherwise>
 					 
-					<tc-webtag:textInput name="school_search" size="20" editable="true" /> 					
+					<tc-webtag:textInput name="school_search" value="${school_search}" size="20" editable="true" /> 					
 					<input type="button" value="search" onClick="search()" />
 					<c:if test="${not search_again}">
 							<font color="#FF0000">No schools found.</font>

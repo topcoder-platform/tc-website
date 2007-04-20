@@ -107,15 +107,13 @@ td {
 						Search: <div id="schoolSearch"> 
 							<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />
 							</div>
+					</td>
 				</tr>
 				<tr>
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="2" />
-						Use school_id:
+						Use school_id: <tc-webtag:textInput name="sid" size="6" editable="true" />
 					</td>					
-					<td>
-						<tc-webtag:textInput name="sid" size="6" editable="true" />
-					</td>
 				</tr>
 			</table>
 
