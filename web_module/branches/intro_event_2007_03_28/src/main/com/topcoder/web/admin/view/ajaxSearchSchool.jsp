@@ -17,13 +17,13 @@
 		
 				<c:choose>
 					<c:when test="${not empty schools and not search_again }">
-						<tc-webtag:objectSelect name="school_sel_id" list="${schools}" valueField="id" textField="name"  topText="[Select one]" topValue="-1" />
+						<tc-webtag:objectSelect name="school_sel_id" list="${schools}" valueField="id" textField="name"  topText="[Select one]"  topValue="-1" onChange="document.f.school_type.value='1'" />
 						<input type="button" value="search again" onClick="searchAgain()" />
 						<input type="hidden" name="school_search" value="${school_search}" />
 					</c:when>
 					<c:otherwise>
 						 
-						<tc-webtag:textInput name="school_search" value="${school_search}" size="20" editable="true" /> 					
+						<tc-webtag:textInput name="school_search" value="${school_search}" size="20" editable="true"  onKeyPress="document.f.school_type.value='2'" /> 					
 						<input type="button" value="search" onClick="search()" />
 						<c:if test="${not search_again}">
 								<font color="#FF0000">No schools found.</font>

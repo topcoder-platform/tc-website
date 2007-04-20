@@ -104,7 +104,6 @@ td {
 
 <center>
 <table border="0" cellpadding="5" cellspacing="5">
-	<tr> <td>&nbsp;</td><td>&nbsp;</td></tr>
 	<tr>
 		<td colspan="2">
 		<h3>Introductory Event</h3>
@@ -138,7 +137,7 @@ td {
 				<tr>
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="2" />
-						Use school_id: <tc-webtag:textInput name="sid" size="6" editable="true" />
+						Use school_id: <tc-webtag:textInput name="sid" size="6" editable="true" onKeyPress="document.f.school_type.value='2'" />
 					</td>					
 				</tr>
 				<tr>
@@ -188,7 +187,7 @@ td {
 	<tr>
 		<td>Image:</td>
         <td class="value">
-            <tc-webtag:objectSelect name="img" list="${images}" valueField="id" textField="fileName" topText="[Select one]" topValue="-1" /> use ajax!
+            <tc-webtag:objectSelect name="img" list="${images}" valueField="id" textField="fileName" topText="[Select one]" topValue="-1" /> 
         </td>
    </tr>
 	
