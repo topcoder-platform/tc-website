@@ -138,33 +138,6 @@
             <% } %>
         </tr>
     </tc-webtag:iterator>
-</table>
-
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-    <tr>
-        <% if (paginator.getNumPages() > 1) { %>
-        <td class="rtbc" align="right"><b>
-            <%  if (paginator.getPreviousPage()) { %>
-                <A href="<%=link%>&<%=ForumConstants.SEARCH_CATEGORY_START_IDX%>=<%=paginator.getPreviousPageStart()%>" class="rtbcLink">
-                    << PREV</A>&#160;&#160;&#160;
-            <%  } %> [
-            <%  pages = paginator.getPages(5);
-                for (int i=0; i<pages.length; i++) {
-            %>  <%  if (pages[i] != null) { %>
-                        <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-                                <span class="currentPage"><%= pages[i].getNumber() %></span>
-                        <%  } else { %>
-                                <A href="<%=link%>&<%=ForumConstants.SEARCH_CATEGORY_START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
-                                <%= pages[i].getNumber() %></A>
-                        <%  } %>
-                <%  } else { %> ... <%  } %>
-            <%  } %> ]
-            <%  if (paginator.getNextPage()) { %>
-                &#160;&#160;&#160;<A href="<%=link%>&<%=ForumConstants.SEARCH_CATEGORY_START_IDX%>=<%=paginator.getNextPageStart()%>" class="rtbcLink">NEXT ></A>
-            <%  } %>
-        </b></td>
-    </tr>
-    <%  } %>
-</table>
+</table><br>
 
 <%  } %>

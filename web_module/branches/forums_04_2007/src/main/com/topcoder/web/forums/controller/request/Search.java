@@ -205,7 +205,7 @@ public class Search extends ForumsProcessor {
                     } else {
                         curList = optTokens;
                     }
-                    if (ss[i].startsWith("\"")) {
+                    if (ss[i].startsWith("\"") || ss[i].startsWith("+\"")) {
                         // start new quoted block
                         if (ss[i].startsWith("+")) {
                             curQuote = ss[i].substring(1);
@@ -222,6 +222,15 @@ public class Search extends ForumsProcessor {
                 curList.add(curQuote);
             }
             
+            log.info("Required tokens: ");
+            for (int i=0; i<reqTokens.size(); i++) {
+                log.info(i+") "+reqTokens.get(i));
+            }
+            log.info("Optional tokens: ");
+            for (int i=0; i<optTokens.size(); i++) {
+                log.info(i+") "+optTokens.get(i));
+            }
+            
             Iterator<ForumCategory> itSearchCategories = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
             ArrayList<ForumCategory> categoryResultsList = new ArrayList<ForumCategory>();
             Hashtable<ForumCategory,Integer> categoryRankTable = new Hashtable<ForumCategory,Integer>();
@@ -231,8 +240,10 @@ public class Search extends ForumsProcessor {
                 String categoryName = category.getName().toLowerCase().trim();
                 int rank = -1;
                 if (categoryName.equals(queryString)) {
+                    log.info("Rank 1 hit: " + categoryName);
                     rank = 1;
                 } else if (categoryName.startsWith(queryString)) {
+                    log.info("Rank 2 hit: " + categoryName);
                     rank = 2;
                 } else {
                     boolean hasAllReq = true;
@@ -247,6 +258,7 @@ public class Search extends ForumsProcessor {
                             }
                         }
                         if (optTokensCNT > 0 || reqTokens.size() > 0) {
+                            log.info("Rank 3 hit: " + categoryName);
                             optMatchesTable.put(category, optTokensCNT);
                             rank = 3;
                         }
