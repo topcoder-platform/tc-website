@@ -56,62 +56,18 @@ public class DownloadSubmission extends Base {
 
             FileInputStream fis = new FileInputStream(s.getPath().getPath() + s.getSystemFileName());
 
-/*
-            boolean done = false;
-            if (!"".equals(width) || !"".equals(height)) {
-                log.debug("1");
-                int w = "".equals(width) ? -1 : Integer.parseInt(width);
-                int h = "".equals(height) ? -1 : Integer.parseInt(height);
-                ImageInputStream iis = ImageIO.createImageInputStream(fis);
-                log.debug("2");
-                if (iis != null) {
-                    Iterator it = ImageIO.getImageReaders(iis);
-                    log.debug("2");
-                    if (it.hasNext()) {
-                        BufferedImage image = ImageIO.read(iis);
-                        log.debug("3");
-
-
-                        if (w<0) {
-                            w = image.getWidth()/(image.getHeight()/h);
-                        }
-                        if (h<0) {
-                            h = image.getHeight()/(image.getWidth()/w);
-                        }
-
-
-                        log.debug("7");
-
-
-                        ImageTypeSpecifier type = new ImageTypeSpecifier(image);
-                        log.debug("4");
-
-                        BufferedImage scaled = type.createBufferedImage(w, h);
-                        log.debug("5");
-
-                        Graphics2D scaledGraphics = scaled.createGraphics();
-                        log.debug("6");
-                        scaledGraphics.drawImage(image, 0, 0, w, h, new MyObserver(getResponse(), s));
-
-
-                    }
-                }
-
-            }
-
-            if (!done) {
-*/
-                log.debug("not done");
+            log.debug("not done");
+            if (isOwner) {
                 getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
-                getResponse().setContentType(s.getMimeType().getDescription());
-                ServletOutputStream sos = getResponse().getOutputStream();
-                int b;
-                while ((b = fis.read()) >= 0) {
-                    sos.write(b);
-                }
-/*
+            } else {
+                getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getId() + s.getOriginalFileName().substring(s.getOriginalFileName().lastIndexOf('.')) + "\"");
             }
-*/
+            getResponse().setContentType(s.getMimeType().getDescription());
+            ServletOutputStream sos = getResponse().getOutputStream();
+            int b;
+            while ((b = fis.read()) >= 0) {
+                sos.write(b);
+            }
             getResponse().setStatus(HttpServletResponse.SC_OK);
             getResponse().flushBuffer();
 
@@ -123,37 +79,4 @@ public class DownloadSubmission extends Base {
 
     }
 
-/*    private class MyObserver implements ImageObserver {
-        private TCResponse myResponse;
-        private Submission s;
-        private MyObserver(TCResponse r, Submission s) {
-            myResponse = r;
-            this.s = s;
-        }
-
-        public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
-
-            String format=null;
-            Integer fileType = s.getMimeType().getFileType().getId();
-
-            switch (fileType) {
-                case 10: format = "gif"; break;
-                case 9: format="jpeg"; break;
-                case 11: format="png"; break;
-                case 12: format="bmp"; break;
-            }
-
-            getResponse().addHeader("content-disposition", "inline; filename=\"" + s.getOriginalFileName() + "\"");
-            getResponse().setContentType(s.getMimeType().getDescription());
-            log.debug("7");
-            try {
-                boolean ret = ImageIO.write((RenderedImage) img, format, myResponse.getOutputStream());
-                log.debug("8");
-                return ret;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-        }
-    }*/
 }
