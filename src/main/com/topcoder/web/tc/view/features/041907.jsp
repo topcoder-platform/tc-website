@@ -757,7 +757,7 @@ Hopefully you can see the power that's at your fingertips when you have a good u
 
 <p><b>References</b>
 <ul><li><i>Expert Oracle</i>, by Thomas Kyte</li>
-<li><a target="_blank" href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://asktom.oracle.com/pls/asktom/f?p=100:11:0::::P11_QUESTION_ID:27523665852829&amp;refer=feature_032907">asktom.oracle.com</a></li>
+<li><a target="_blank" href="<tc-webtag:linkTracking link='http://asktom.oracle.com/pls/asktom/f?p=100:11:0::::P11_QUESTION_ID:27523665852829' refer='feature_041907' />">asktom.oracle.com</a></li>
 </ul>
 </p>
 
