@@ -172,23 +172,60 @@ public class Search extends ForumsProcessor {
             Paging paging = new Paging(pageFilter, totalItemCount);
             Paginator paginator = new Paginator(paging);
             
-            // exact match, startsWith, matches all terms, matches any term
-            // must handle "" and + correctly
-            // Investigate if some small search package can help with this.
             // "Bar Graph" should return the two results.
             // Test pagination, eventually add options to show more/fewer categories if needed.
-            // tokenize phrases in quotes, count number of matches
-
+            // one "two three" +"four five" six +seven => R: four five | seven, O: one | two three | six
+            // use STOP_WORDS
+            
+            // Consider replacing the following section with a search package to perform category search.
             long start = System.currentTimeMillis();
             String queryString = query.getQueryString().toLowerCase().trim();
             boolean isQuoted = queryString.startsWith("\"") && queryString.endsWith("\"") && queryString.length() >= 2;
             if (isQuoted) {
                 queryString = queryString.substring(1, queryString.length() - 1);
             }
-
+            
+            String[] ss = queryString.split(" ");
+            ArrayList<String> reqTokens = new ArrayList<String>();
+            ArrayList<String> optTokens = new ArrayList<String>();
+            ArrayList<String> curList = null;
+            String curQuote = "";
+            
+            for (int i=0; i<ss.length; i++) {
+                if (curQuote.startsWith("\"")) {
+                    // append to quoted block
+                    curQuote += ss[i];
+                    if (ss[i].endsWith("\"")) {
+                        // quoted block is completed, add to list
+                        curList.add(curQuote);
+                    }
+                } else {
+                    if (ss[i].startsWith("+")) {
+                        curList = reqTokens;
+                    } else {
+                        curList = optTokens;
+                    }
+                    if (ss[i].startsWith("\"")) {
+                        // start new quoted block
+                        if (ss[i].startsWith("+")) {
+                            curQuote = ss[i].substring(1);
+                        } else {
+                            curQuote = ss[i];
+                        }
+                    } else {
+                        // add single word to list
+                        curList.add(ss[i]);
+                    }
+                }
+            }
+            if (!curQuote.equals("")) {
+                curList.add(curQuote);
+            }
+            
             Iterator<ForumCategory> itSearchCategories = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
             ArrayList<ForumCategory> categoryResultsList = new ArrayList<ForumCategory>();
             Hashtable<ForumCategory,Integer> categoryRankTable = new Hashtable<ForumCategory,Integer>();
+            Hashtable<ForumCategory,Integer> optMatchesTable = new Hashtable<ForumCategory,Integer>();
             while (itSearchCategories.hasNext()) {
                 ForumCategory category = itSearchCategories.next();
                 String categoryName = category.getName().toLowerCase().trim();
@@ -197,6 +234,21 @@ public class Search extends ForumsProcessor {
                     rank = 1;
                 } else if (categoryName.startsWith(queryString)) {
                     rank = 2;
+                } else {
+                    boolean hasAllReq = true;
+                    for (int i=0; i<reqTokens.size(); i++) {
+                        hasAllReq &= categoryName.contains(reqTokens.get(i));
+                    }
+                    if (hasAllReq) {
+                        int optTokensCNT = 0;
+                        for (int i=0; i<optTokens.size(); i++) {
+                            if (categoryName.contains(optTokens.get(i))) {
+                                optTokensCNT++;
+                            }
+                        }
+                        optMatchesTable.put(category, optTokensCNT);
+                        rank = 3;
+                    }
                 }
                 if (rank > 0) {
                     categoryRankTable.put(category, rank);
@@ -251,9 +303,12 @@ public class Search extends ForumsProcessor {
     
     class CategoryResultComparator implements Comparator {
         private Hashtable<ForumCategory,Integer> rankTable;
+        private Hashtable<ForumCategory,Integer> optMatches;    // number of optional tokens matched
         
-        public CategoryResultComparator(Hashtable<ForumCategory,Integer> rankTable) {
+        public CategoryResultComparator(Hashtable<ForumCategory,Integer> rankTable,
+                Hashtable<ForumCategory,Integer> optMatches) {
             this.rankTable = rankTable;
+            this.optMatches = optMatches;
         }
         
         public final int compare(Object o1, Object o2) {
@@ -262,6 +317,9 @@ public class Search extends ForumsProcessor {
            
             int retVal = 0;
             retVal = rankTable.get(c1).compareTo(rankTable.get(c2));
+            if (retVal == 0) {
+                retVal = -(optMatches.get(c1).compareTo(optMatches.get(c2)));
+            }
             if (retVal == 0) {
                 retVal = c1.getName().compareTo(c2.getName());
             }            
