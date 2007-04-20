@@ -207,7 +207,15 @@ td {
 <c:if test="${cfg.type==1}">
 	<tr>
 		<td nowrap="nowrap">${cfg.description }</td>
-		<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
+		<td>
+			<table>
+			<tr>
+				<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" value="${defaultValue }"/></td>
+				<td><font size="-1"> ${cfg.explanation }</font></td>
+			</tr>
+			</table>
+		
+		</td>
    </tr>
 </c:if>		
 </c:forEach>	

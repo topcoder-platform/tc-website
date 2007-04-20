@@ -11,7 +11,7 @@
         <property name="type" column="property_type_id" access="field"/>
         <property name="mandatory" column="mandatory_ind" access="field"/>
         <property name="explanation" column="explanation" access="field"/>
-        <property name="defaultValue" column="defaultValue" access="field"/>
+        <property name="defaultValue" column="default_value" access="field"/>
         <property name="viewable" column="viewable_ind" access="field"/>
     </class>
 </hibernate-mapping>
