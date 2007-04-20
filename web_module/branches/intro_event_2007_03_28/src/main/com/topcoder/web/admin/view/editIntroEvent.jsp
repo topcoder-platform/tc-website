@@ -24,7 +24,7 @@
   <script type="text/javascript">
 
 function search() {
-	var ajaxRequest = new AjaxRequest('/admin/ajaxSearchSchool.jsp');
+	var ajaxRequest = new AjaxRequest('/?module=AjaxSearchSchool');
     
     ajaxRequest.addNamedFormElements("school_search");
 
@@ -91,18 +91,14 @@ td {
 					<td width="10%" nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="0" />
 						No school associated with this event.
-					</td>					
-					<td>					
 					</td>
 				</tr>
 				<tr id="schoolSearch">
 					<td width="10%" nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="1" />
-						Search a school by name:
-					</td>					
-					<td>
-						<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />
-					</td>
+						Search: <div id="schoolSearch">
+							<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />
+							</div>
 				</tr>
 				<tr>
 					<td nowrap="nowrap">
