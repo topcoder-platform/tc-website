@@ -74,7 +74,7 @@ function setSchoolType(s)
           break;
        }
     }
-} 
+
 }
 
 
