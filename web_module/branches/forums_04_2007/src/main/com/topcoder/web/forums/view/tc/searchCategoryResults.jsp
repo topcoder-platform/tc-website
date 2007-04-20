@@ -44,7 +44,7 @@
     if (query.getFilteredUser() != null) { 
         linkBuffer.append("&").append(ForumConstants.SEARCH_HANDLE).append("=").append(query.getFilteredUser().getUsername());
     }
-    linkBuffer.append("&").append(ForumConstants.SEARCH_RESULT_SIZE).append("=").append(numResults);
+    linkBuffer.append("&").append(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE).append("=").append(numResults);
     
     String sortFieldLink = linkBuffer.toString();
     String sortFieldLabel = "";
