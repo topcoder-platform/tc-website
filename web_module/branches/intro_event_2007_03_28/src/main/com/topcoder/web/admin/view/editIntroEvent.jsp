@@ -101,12 +101,11 @@ td {
 						No school associated with this event.
 					</td>
 				</tr>
-				<tr>
+				<tr id="schoolSearch">
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="1" />
-						Search: <div id="schoolSearch"> 
+						Search: 
 							<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />
-							</div>
 					</td>
 				</tr>
 				<tr>
