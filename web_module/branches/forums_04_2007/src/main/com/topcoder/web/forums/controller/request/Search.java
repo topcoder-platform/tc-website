@@ -296,7 +296,7 @@ public class Search extends ForumsProcessor {
             getRequest().setAttribute("paginator", paginator);
             getRequest().setAttribute("mode", mode);
             
-            getRequest().setAttribute("categories", categoryPageList);
+            getRequest().setAttribute("categories", categoryPageList.iterator());
             getRequest().setAttribute("categoriesCount", new Integer(categoryResultsList.size()));
             getRequest().setAttribute("categoriesPaginator", categoriesPaginator);
         }
