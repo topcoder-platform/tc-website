@@ -34,7 +34,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
     public static final String SCHOOL_SELECT_ID = "ssid";
     public static final String FORUM_ID = "fid";
     public static final String TIMEZONE_ID = "tz";
-    public static final String IMAGE_ID = "sid";
+    public static final String IMAGE_ID = "img";
     
     public static final Integer SCHOOL_TYPE_NONE = 0;
     public static final Integer SCHOOL_TYPE_SELECT = 1;
@@ -54,21 +54,23 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         String sname = getString(EVENT_SHORT_NAME, true);
         Integer schoolType = getInteger(SCHOOL_TYPE);
         
-        Integer forumId = getInteger(FORUM_ID);
+        Long forumId = getLong(FORUM_ID);
         Integer timezoneId = getSelect(TIMEZONE_ID);
         Integer imageId = getSelect(IMAGE_ID);
 
         DAOFactory factory = DAOUtil.getFactory();
 
-        TimeZone timeZone = factory.getTimeZoneDAO().find(new Integer(timezoneId));
-        
+        TimeZone timeZone = null;
         IntroEvent ie = new IntroEvent();
         ie.setDescription(name);
         ie.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ID));        
         ie.setShortDescription(sname);
-        ie.setForumId(new Long(forumId));
-        ie.setTimezone(timeZone);
-        ie.setImage(factory.getImageDAO().find(new Long(imageId)));        
+        if (forumId != null) ie.setForumId(forumId);
+        if (timezoneId != null) { 
+            timeZone = factory.getTimeZoneDAO().find(new Integer(timezoneId));
+            ie.setTimezone(timeZone);
+        }
+        if (imageId != null) ie.setImage(factory.getImageDAO().find(new Long(imageId)));        
 
         // Fill the school field
         if (schoolType.equals(SCHOOL_TYPE_SELECT)) {
@@ -247,6 +249,22 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         
         try {
             return new Integer(s);
+        } catch (Exception e) {
+            addError(param, "Please enter a valid integer.");
+            return null;
+        }
+    }
+
+    private Long getLong(String param) {
+        String s = getRequest().getParameter(param);
+        
+        if (s != null && s.trim().length() == 0) {
+            addError(param, "Please enter an integer value.");
+            return null;            
+        }
+        
+        try {
+            return new Long(s);
         } catch (Exception e) {
             addError(param, "Please enter a valid integer.");
             return null;

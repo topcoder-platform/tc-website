@@ -68,7 +68,7 @@ function searchAgain() {
 function setSchoolType(s) 
 {
 	var i
-    for (i=0;i< document.f.school_type.length;i++){
+    for (i=0;i< document.f.<%=UpdateIntroEvent.SCHOOL_TYPE%>.length;i++){
        if (document.f.school_type[i].defaultValue == s) {
 	       document.f.school_type[i].checked=true;
           break;
@@ -151,7 +151,7 @@ p.explain {
 		<td nowrap="nowrap">
 			<table>
 				<tr>
-					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.EVENT_SHORT_NAME %>" size="20" editable="true" /></td>
+					<td width="20%"><tc-webtag:textInput name="<%= UpdateIntroEvent.EVENT_SHORT_NAME %>" size="20" editable="true" /></td>
 					<td><p class="explain">(e.g. "rutgers07Tour")</p></td>
 				</tr>
 				</table>
@@ -167,13 +167,13 @@ p.explain {
 				</tr>
 				<tr>
 					<td nowrap="nowrap">
-						<tc-webtag:radioButton name="school_type" value="2" />
-						Use school_id: <tc-webtag:textInput name="sid" size="6" editable="true" onKeyPress="setSchoolType(2)" />
+						<tc-webtag:radioButton name="<%= UpdateIntroEvent.SCHOOL_TYPE %>" value="2" />
+						Use school_id: <tc-webtag:textInput name="<%= UpdateIntroEvent.SCHOOL_ID %>" size="6" editable="true" onKeyPress="setSchoolType(2)" />
 					</td>					
 				</tr>
 				<tr>
 					<td nowrap="nowrap">
-						<tc-webtag:radioButton name="school_type" value="0"/>
+						<tc-webtag:radioButton name="<%= UpdateIntroEvent.SCHOOL_TYPE %>" value="0"/>
 						No school associated with this event.
 					</td>
 				</tr>
@@ -183,42 +183,20 @@ p.explain {
 	</tr>
 	<tr>
 		<td>Forum Id:</td>
-		<td><tc-webtag:textInput name="fid" size="6" editable="true" />
-		<!-- 
-			<table style="width: 0%">
-				<tr>
-					<td width="10%" nowrap="nowrap">
-						<tc-webtag:radioButton name="create_forum" value="1" />
-						Create forum with name:
-					</td>					
-					<td>
-						<tc-webtag:textInput name="forum_name" size="30" editable="true" /> 
-					</td>
-				</tr>
-				<tr>
-					<td nowrap="nowrap">
-						<tc-webtag:radioButton name="create_forum" value="0" />
-						Or enter forum_id:
-					</td>					
-					<td>
-						
-					</td>
-				</tr>
-			</table>
-			 -->
+		<td><tc-webtag:textInput name="<%= UpdateIntroEvent.FORUM_ID %>" size="6" editable="true" />
 		</td>
 	</tr>
 	<tr>
 		<td>Timezone:</td>
         <td class="value">
-            <tc-webtag:objectSelect name="tz" list="${timezones}" valueField="id" textField="description"  topText="[Select one]" topValue="-1" />
+            <tc-webtag:objectSelect name="<%= UpdateIntroEvent.TIMEZONE_ID %>" list="${timezones}" valueField="id" textField="description"  topText="[Select one]" topValue="-1" />
         </td>
    </tr>
 
 	<tr>
 		<td>Image:</td>
         <td class="value">
-            <tc-webtag:objectSelect name="img" list="${images}" valueField="id" textField="fileName" topText="[Select one]" topValue="-1" /> 
+            <tc-webtag:objectSelect name="<%= UpdateIntroEvent.IMAGE_ID %>" list="${images}" valueField="id" textField="fileName" topText="[Select one]" topValue="-1" /> 
         </td>
    </tr>
 	
