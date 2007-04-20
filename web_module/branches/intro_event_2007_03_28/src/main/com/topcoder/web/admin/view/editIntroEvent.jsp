@@ -125,6 +125,12 @@ td {
 	<tr>
 		<td>School:</td>
 		<td>
+<div id="loading">
+<p align="right">
+<b><font color="#FF0000" size="+1">Searching...</font></b>
+</p>
+</div>
+		
 			<table border="1">
 				<tr>
 					<td nowrap="nowrap">
@@ -136,13 +142,7 @@ td {
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="1" />XX
 						Search: 
-							<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />
-<div id="loading">
-<p align="right">
-<b><font color="#FF0000" size="+1">Searching...</font></b>
-</p>
-</div>
-							
+							<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />							
 					</td>
 				</tr>
 				<tr>
