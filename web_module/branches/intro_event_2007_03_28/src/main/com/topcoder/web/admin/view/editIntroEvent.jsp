@@ -58,11 +58,11 @@ function toggleDiv(divId, state)
 }
 
 function loading() {
-    toggleDiv("searching", 1);
+    toggleDiv("loading", 1);
 }
 
 function loaded() {
-    toggleDiv("searching", 0);
+    toggleDiv("loading", 0);
 }
 
 </script>
@@ -78,7 +78,7 @@ td {
 </style>
 </head>
 
-<body>
+<body onLoad="searchAgain()">
 <jsp:include page="top.jsp"/>
 <table>
     <tr valign="top">
@@ -132,12 +132,12 @@ td {
 				</tr>
 				<tr id="schoolSearch">
 					<td nowrap="nowrap">
-						<tc-webtag:radioButton name="school_type" value="1" />
+						<tc-webtag:radioButton name="school_type" value="1" />XX
 						Search: 
 							<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />
-<div id="searching">
+<div id="loading">
 <p align="right">
-<b><font color="#FF0000" size="+1">searching...</font></b>
+<b><font color="#FF0000" size="+1">Searching...</font></b>
 </p>
 </div>
 							
