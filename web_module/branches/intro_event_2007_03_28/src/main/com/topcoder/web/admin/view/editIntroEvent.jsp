@@ -26,6 +26,8 @@
 function search() {
 	var ajaxRequest = new AjaxRequest('/admin/?module=AjaxSearchSchool');    
     ajaxRequest.addNamedFormElements("school_search");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);        
     ajaxRequest.sendRequest();
 }
 
@@ -33,7 +35,34 @@ function searchAgain() {
 	var ajaxRequest = new AjaxRequest('/admin/?module=AjaxSearchSchool');    
     ajaxRequest.addNamedFormElements("school_search");
     ajaxRequest.addNamedFormElements("search_again");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);    
+    
     ajaxRequest.sendRequest();
+}
+
+function toggleDiv(divId, state) 
+{
+    if(document.layers)   
+    {
+       document.layers[divId].visibility = state ? "show" : "hide";
+    }
+    else if(document.getElementById)
+    {
+        document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
+    }
+    else if(document.all)
+    {
+        document.all[divId].style.visibility = state ? "visible" : "hidden";
+    }
+}
+
+function loading() {
+    toggleDiv("searching", 1);
+}
+
+function loaded() {
+    toggleDiv("searching", 0);
 }
 
 </script>
@@ -106,6 +135,12 @@ td {
 						<tc-webtag:radioButton name="school_type" value="1" />
 						Search: 
 							<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />
+<div id="searching">
+<p align="right">
+<b><font color="#FF0000" size="+1">searching...</font></b>
+</p>
+</div>
+							
 					</td>
 				</tr>
 				<tr>

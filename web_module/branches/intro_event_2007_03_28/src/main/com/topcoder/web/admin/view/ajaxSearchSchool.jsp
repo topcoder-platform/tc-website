@@ -7,6 +7,7 @@
     <taconite-replace contextNodeID="schoolSearch" parseInBrowser="true">
 		<tr id="schoolSearch">
 			<td nowrap="nowrap">
+				<tc-webtag:radioButton name="school_type" value="1" />	Search: 
 		
 				<c:choose>
 					<c:when test="${not empty schools and not search_again }">
