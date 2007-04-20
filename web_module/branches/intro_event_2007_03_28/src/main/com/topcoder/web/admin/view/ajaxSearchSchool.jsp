@@ -1,5 +1,4 @@
 <%@page contentType="text/xml"%>
-<%@ taglib uri="http://taconite.sf.net/tags" prefix="tac" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>                 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/xml"%>
