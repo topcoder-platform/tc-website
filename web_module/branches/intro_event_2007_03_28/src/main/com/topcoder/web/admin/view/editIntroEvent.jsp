@@ -19,6 +19,21 @@
     <script type="text/javascript" src="/js/jscal/lang/calendar-en.js"></script>
     <script type="text/javascript" src="/js/jscal/calendar-setup.js"></script>
     <script language="javascript" type="text/javascript" src="/js/tcdhtml.js"></script>
+	<script type="text/javascript" src="/js/taconite-client.js"></script>
+	<script type="text/javascript" src="/js/taconite-parser.js"></script>
+  <script type="text/javascript">
+
+function search() {
+	var ajaxRequest = new AjaxRequest('/ajaxSearchSchool.jsp');
+    
+    ajaxRequest.addNamedFormElements("school_search");
+
+//    ajaxRequest.setPostRequest(loaded);
+//    ajaxRequest.setPreRequest(loading);    
+    ajaxRequest.sendRequest();
+}
+
+</script>
   
   <style type="text/css">
 .calendar,
@@ -45,6 +60,14 @@ td {
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
 <center>
 <table border="0" cellpadding="5" cellspacing="5" style="width: 0%">
+	<tr> <td>&nbsp;</td><td>&nbsp;</td></tr>
+	<tr>
+		<td colspan="2">
+		<h3>Introductory Event</h3>
+		</td>
+	</tr>
+
+
     <tr>
         <td colspan="2">
             <tc-webtag:errorIterator id="err" name="error">
@@ -54,30 +77,37 @@ td {
     </tr>
 	<tr>
 		<td>Event Name:</td>
-		<td><tc-webtag:textInput name="name" size="50" editable="true" /></td>
+		<td><tc-webtag:textInput name="name" size="60" editable="true" /></td>
 	</tr>
 	<tr>
 		<td>Short Event Name:</td>
-		<td nowrap="nowrap"><tc-webtag:textInput name="sname" size="50" editable="true" /> (e.g. "rutgersTour")</td>
+		<td nowrap="nowrap"><tc-webtag:textInput name="sname" size="20" editable="true" /> (e.g. "rutgers07Tour")</td>
 	</tr>
 	<tr>
 		<td>School:</td>
 		<td>
-			(leave it blank if no school is associated)<br>
 			<table style="width: 0%">
 				<tr>
 					<td width="10%" nowrap="nowrap">
-						<tc-webtag:radioButton name="use_school_search" value="1" />
-						Search a school:
+						<tc-webtag:radioButton name="school_type" value="0" />
+						No school associated with this event.
+					</td>					
+					<td>					
+					</td>
+				</tr>
+				<tr id="schoolSearch">
+					<td width="10%" nowrap="nowrap">
+						<tc-webtag:radioButton name="school_type" value="1" />
+						Search a school by name:
 					</td>					
 					<td>
-						use ajax! 
+						<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />
 					</td>
 				</tr>
 				<tr>
 					<td nowrap="nowrap">
-						<tc-webtag:radioButton name="use_school_search" value="0" />
-						Or enter school_id:
+						<tc-webtag:radioButton name="school_type" value="2" />
+						Use school_id:
 					</td>					
 					<td>
 						<tc-webtag:textInput name="sid" size="6" editable="true" />
