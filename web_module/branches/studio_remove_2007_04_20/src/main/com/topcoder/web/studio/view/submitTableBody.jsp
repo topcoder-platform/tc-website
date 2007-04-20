@@ -128,6 +128,11 @@ Pending
 </c:choose>
 </div>
 </td>
+<td class="valueC">
+<div align="center">
+<A href="#" onclick="" onfocus="this.blur();"><img src="/i/layout/btnRemove.png" alt="Remove" onmouseover="this.src = '/i/layout/btnRemoveOn.png';" onmouseout="this.src = '/i/layout/btnRemove.png';"/></A>
+</div>
+</td>
 </c:otherwise>
 </c:choose>
 <td class="valueE" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
