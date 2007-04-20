@@ -96,6 +96,12 @@ td {
 <form name="f" action="/admin/" method="post">
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
 
+<div id="loading">
+<p align="right">
+<b><font color="#FF0000" size="+1">Searching...</font></b>
+</p>
+</div>		
+
 <center>
 <table border="0" cellpadding="5" cellspacing="5">
 	<tr> <td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -133,11 +139,6 @@ td {
 				</tr>
 				<tr id="schoolSearch">
 					<td nowrap="nowrap">
-<div id="loading">
-<p align="right">
-<b><font color="#FF0000" size="+1">Loading...</font></b>
-</p>
-</div>		
 					</td>
 				</tr>
 				<tr>
