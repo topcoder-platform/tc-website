@@ -88,6 +88,10 @@ td {
     vertical-align: top;
 }
 
+p.explain {
+	font-size: -1;	
+}
+
 </style>
 </head>
 
@@ -136,7 +140,7 @@ td {
 	</tr>
 	<tr>
 		<td>Short Event Name:</td>
-		<td nowrap="nowrap"><tc-webtag:textInput name="sname" size="20" editable="true" /> (e.g. "rutgers07Tour")</td>
+		<td nowrap="nowrap"><tc-webtag:textInput name="sname" size="20" editable="true" /> <p class="explain">(e.g. "rutgers07Tour")</p></td>
 	</tr>
 	<tr>
 		<td>School:</td>
@@ -210,8 +214,8 @@ td {
 		<td>
 			<table>
 			<tr>
-				<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" value="${defaultValue }"/></td>
-				<td><font size="-1"> ${cfg.explanation }</font></td>
+				<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" value="${cfg.defaultValue }"/></td>
+				<td><p class="explain">${cfg.explanation }</p></td>
 			</tr>
 			</table>
 		
@@ -288,7 +292,15 @@ td {
 	<c:if test="${cfg.type==2}">
 		<tr>
 			<td nowrap="nowrap">${cfg.description }</td>
-			<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
+			<td>
+				<table>
+				<tr>
+					<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" value="${cfg.defaultValue }"/></td>
+					<td><p class="explain">${cfg.explanation }</p></td>
+				</tr>
+				</table>
+			
+			</td>
 	   </tr>
 	</c:if>		
 	</c:forEach>	
@@ -412,8 +424,15 @@ td {
 	<c:forEach items="${config}" var="cfg" >
 	<c:if test="${cfg.type==3}">
 		<tr>
-			<td>${cfg.description }</td>
-			<td><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" /></td>
+			<td nowrap="nowrap">${cfg.description }</td>
+			<td>
+				<table>
+				<tr>
+					<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" value="${cfg.defaultValue }"/></td>
+					<td><p class="explain">${cfg.explanation }</p></td>
+				</tr>
+				</table>			
+			</td>
 	   </tr>
 	</c:if>		
 	</c:forEach>	
