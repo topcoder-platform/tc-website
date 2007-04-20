@@ -181,7 +181,7 @@ p.explain {
 						<tc-webtag:radioButton name="<%= UpdateIntroEvent.SCHOOL_TYPE %>" value="1" selected="true"/>
 						Search: 
 					
-						<tc-webtag:textInput name="school_search" value="${school_search}" size="20" editable="true"  onKeyPress="setSchoolType(1)" /> 					
+						<tc-webtag:textInput name="school_search" value="" size="20" editable="true"  onKeyPress="setSchoolType(1)" /> 					
 						<input type="button" value="search" onClick="search()" />				
 					</td>
 				</tr>
