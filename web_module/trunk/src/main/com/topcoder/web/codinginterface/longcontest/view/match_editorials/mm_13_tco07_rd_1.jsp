@@ -45,7 +45,7 @@
 <div style="float: right;" align="left"><A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">Archive</A><br>
 <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
 <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
-<tc-webtag:forumLink forumID="514999" message="Discuss this match" />
+<tc-webtag:forumLink forumID="515307" message="Discuss this match" />
 </div>
 
 <span class="bodySubtitle">TCO07 Round #1 / Marathon Match 13</span><br>03.7.2007 - 03.14.2007
