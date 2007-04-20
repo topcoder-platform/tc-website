@@ -39,7 +39,7 @@ public class AjaxSearchSchool extends ShortHibernateProcessor {
     }
 
 
-    class SchoolOption {
+    public class SchoolOption {
         private String name;
         private Long id;
         
