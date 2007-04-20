@@ -29,7 +29,18 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
 
     public static final String EVENT_NAME = "name";
     public static final String EVENT_SHORT_NAME = "sname";
+    public static final String SCHOOL_TYPE = "school_type";
+    public static final String SCHOOL_ID = "sid";
+    public static final String SCHOOL_SELECT_ID = "ssid";
+    public static final String FORUM_ID = "fid";
+    public static final String TIMEZONE_ID = "tz";
+    public static final String IMAGE_ID = "sid";
     
+    public static final Integer SCHOOL_TYPE_NONE = 0;
+    public static final Integer SCHOOL_TYPE_SELECT = 1;
+    public static final Integer SCHOOL_TYPE_ID = 2;
+    
+    public static final String[] RESTORE_VALUES = {EVENT_NAME, EVENT_SHORT_NAME, SCHOOL_TYPE, SCHOOL_ID, SCHOOL_SELECT_ID, FORUM_ID, TIMEZONE_ID, IMAGE_ID};
     
     @Override
     protected void dbProcessing() throws Exception {
@@ -41,11 +52,11 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
      
         String name = getString(EVENT_NAME, true);
         String sname = getString(EVENT_SHORT_NAME, true);
+        Integer schoolType = getInteger(SCHOOL_TYPE);
         
-        String schoolId = getRequest().getParameter("sid");
-        String forumId = getRequest().getParameter("fid");
-        String timezoneId = getRequest().getParameter("tz");
-        String imageId = getRequest().getParameter("img");
+        Integer forumId = getInteger(FORUM_ID);
+        Integer timezoneId = getSelect(TIMEZONE_ID);
+        Integer imageId = getSelect(IMAGE_ID);
 
         DAOFactory factory = DAOUtil.getFactory();
 
@@ -55,11 +66,17 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         ie.setDescription(name);
         ie.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ID));        
         ie.setShortDescription(sname);
-        ie.setSchool(factory.getSchoolDAO().find(new Long(schoolId)));
         ie.setForumId(new Long(forumId));
         ie.setTimezone(timeZone);
         ie.setImage(factory.getImageDAO().find(new Long(imageId)));        
-                        
+
+        // Fill the school field
+        if (schoolType.equals(SCHOOL_TYPE_SELECT)) {
+            ie.setSchool(factory.getSchoolDAO().find(getSelect(SCHOOL_SELECT_ID).longValue()));
+        } else if (schoolType.equals(SCHOOL_TYPE_ID)) {
+            ie.setSchool(factory.getSchoolDAO().find(getInteger(SCHOOL_ID).longValue()));
+        }
+        
         List<IntroEventPropertyType> cfg = factory.getIntroEventPropertyTypeDAO().getTypes();
 
         for (IntroEventPropertyType prop : cfg) {
@@ -139,7 +156,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         }
         
         if (hasErrors()) {
-            // TODO: set defaults!
+            restoreValues();
             setNextPage("/editIntroEvent.jsp");
             setIsNextPageInContext(true);
             return;
@@ -182,6 +199,11 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         }
     }
     
+    private void restoreValues() {
+        for (String s : RESTORE_VALUES) {
+            setDefault(s, getRequest().getParameter(s));
+        }
+    }
     private Timestamp addDays(Timestamp t, int days){
         Calendar cal = Calendar.getInstance();
         cal.setTime(t);
@@ -214,7 +236,37 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
             return null;
         }
     }
-    
+
+    private Integer getInteger(String param) {
+        String s = getRequest().getParameter(param);
+        
+        if (s != null && s.trim().length() == 0) {
+            addError(param, "Please enter an integer value.");
+            return null;            
+        }
+        
+        try {
+            return new Integer(s);
+        } catch (Exception e) {
+            addError(param, "Please enter a valid integer.");
+            return null;
+        }
+    }
+
+    private Integer getSelect(String param) {
+        try {
+            Integer x = new Integer(getRequest().getParameter(param));
+            if (x.intValue() <= 0) {
+                addError(param,"Please select a value");
+                return null;                
+            }
+            return x;
+        } catch (Exception e) {
+            addError(param, "Invalid value");
+            return null;
+        }
+    }
+
     private String getString(String param, boolean required) {
         String s = getRequest().getParameter(param);
         
