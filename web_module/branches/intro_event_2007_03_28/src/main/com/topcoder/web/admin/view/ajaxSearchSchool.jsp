@@ -27,6 +27,11 @@
 				
 				
 				</c:choose>
+<div id="loading">
+<p align="right">
+<b><font color="#FF0000" size="+1">Searching...</font></b>
+</p>
+</div>		
 			
 			</td>
 		</tr>

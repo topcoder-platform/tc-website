@@ -31,7 +31,6 @@ function toggleDiv(divId, state)
     }
     else if(document.getElementById)
     {
-    	alert(document.getElementById(divId));
         document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
     }
     else if(document.all)
@@ -98,7 +97,7 @@ td {
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
 
 <center>
-<table border="1" cellpadding="5" cellspacing="5">
+<table border="0" cellpadding="5" cellspacing="5">
 	<tr> <td>&nbsp;</td><td>&nbsp;</td></tr>
 	<tr>
 		<td colspan="2">
@@ -125,13 +124,7 @@ td {
 	<tr>
 		<td>School:</td>
 		<td>
-<div id="loading">
-<p align="right">
-<b><font color="#FF0000" size="+1">Searching...</font></b>
-</p>
-</div>
-		
-			<table border="1">
+			<table border="0">
 				<tr>
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="0" />
@@ -140,9 +133,11 @@ td {
 				</tr>
 				<tr id="schoolSearch">
 					<td nowrap="nowrap">
-						<tc-webtag:radioButton name="school_type" value="1" />XX
-						Search: 
-							<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />							
+<div id="loading">
+<p align="right">
+<b><font color="#FF0000" size="+1">Loading...</font></b>
+</p>
+</div>		
 					</td>
 				</tr>
 				<tr>
