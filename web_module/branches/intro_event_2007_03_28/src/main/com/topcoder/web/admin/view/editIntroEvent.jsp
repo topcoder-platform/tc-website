@@ -161,10 +161,24 @@ p.explain {
 		<td>School:</td>
 		<td>
 			<table border="0">
+				<tr>
+			        <td colspan="2">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.SCHOOL_SELECT_ID %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>		
 				<tr id="schoolSearch">
 					<td nowrap="nowrap">
 					</td>
 				</tr>
+				<tr>
+			        <td colspan="2">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.SCHOOL_ID %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>		
 				<tr>
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="<%= UpdateIntroEvent.SCHOOL_TYPE %>" value="2" />
@@ -182,16 +196,37 @@ p.explain {
 		</td>
 	</tr>
 	<tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.FORUM_ID %>">
+                <font color="#FF0000"><%=err%></font><br/>
+            </tc-webtag:errorIterator>
+        </td>
+	</tr>			
+	<tr>
 		<td>Forum Id:</td>
 		<td><tc-webtag:textInput name="<%= UpdateIntroEvent.FORUM_ID %>" size="6" editable="true" />
 		</td>
 	</tr>
+	<tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.TIMEZONE_ID %>">
+                <font color="#FF0000"><%=err%></font><br/>
+            </tc-webtag:errorIterator>
+        </td>
+	</tr>			
 	<tr>
 		<td>Timezone:</td>
         <td class="value">
             <tc-webtag:objectSelect name="<%= UpdateIntroEvent.TIMEZONE_ID %>" list="${timezones}" valueField="id" textField="description"  topText="[Select one]" topValue="-1" />
         </td>
    </tr>
+	<tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.IMAGE_ID %>">
+                <font color="#FF0000"><%=err%></font><br/>
+            </tc-webtag:errorIterator>
+        </td>
+	</tr>			
 
 	<tr>
 		<td>Image:</td>
@@ -229,18 +264,32 @@ p.explain {
 		<td>Registration:</td>
         <td class="value">
         	<table style="width: 0%">
+				<tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.ALGO_REG_START %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        	
 	        	<tr>
 	    	    	<td>from</td>
 	    	    	<td nowrap="true">
-	    	    		<tc-webtag:textInput name="algo_reg_start" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+	    	    		<tc-webtag:textInput name="<%= UpdateIntroEvent.ALGO_REG_START %>" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 						<button id="trigger_algo_reg_start">Set</button>
 					</td>
 					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone</td>
 				</tr>
 				<tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.ALGO_REG_END %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        	
+				<tr>
 	    	    	<td>to</td>
 	    	    	<td nowrap="true">
-			            <tc-webtag:textInput name="algo_reg_end" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+			            <tc-webtag:textInput name="<%= UpdateIntroEvent.ALGO_REG_END %>" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 			   			<button id="trigger_algo_reg_end">Set</button>
 					</td>				    	    	
     	    	</tr>

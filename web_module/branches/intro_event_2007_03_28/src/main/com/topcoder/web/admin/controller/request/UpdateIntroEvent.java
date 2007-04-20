@@ -35,19 +35,24 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
     public static final String FORUM_ID = "fid";
     public static final String TIMEZONE_ID = "tz";
     public static final String IMAGE_ID = "img";
+    public static final String ALGO_REG_START = "algo_reg_start";
+    public static final String ALGO_REG_END = "algo_reg_end";
+    public static final String COMP_REG_START = "comp_reg_start";
+    public static final String COMP_REG_END = "comp_reg_end";
     
     public static final Integer SCHOOL_TYPE_NONE = 0;
     public static final Integer SCHOOL_TYPE_SELECT = 1;
     public static final Integer SCHOOL_TYPE_ID = 2;
     
-    public static final String[] RESTORE_VALUES = {EVENT_NAME, EVENT_SHORT_NAME, SCHOOL_TYPE, SCHOOL_ID, SCHOOL_SELECT_ID, FORUM_ID, TIMEZONE_ID, IMAGE_ID};
+    public static final String[] RESTORE_VALUES = {EVENT_NAME, EVENT_SHORT_NAME, SCHOOL_TYPE, SCHOOL_ID, SCHOOL_SELECT_ID, FORUM_ID, TIMEZONE_ID, IMAGE_ID, 
+        ALGO_REG_START, ALGO_REG_END, COMP_REG_START, COMP_REG_END};
     
     @Override
     protected void dbProcessing() throws Exception {
         SimpleDateFormat sdfDateTime = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 
-        boolean hasAlgo = getRequest().getParameter("algo_reg_start") != null;
-        boolean hasComp = getRequest().getParameter("comp_reg_start") != null;
+        boolean hasAlgo = getRequest().getParameter(ALGO_REG_END) != null;
+        boolean hasComp = getRequest().getParameter(COMP_REG_END) != null;
         
      
         String name = getString(EVENT_NAME, true);
@@ -74,9 +79,15 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
 
         // Fill the school field
         if (schoolType.equals(SCHOOL_TYPE_SELECT)) {
-            ie.setSchool(factory.getSchoolDAO().find(getSelect(SCHOOL_SELECT_ID).longValue()));
+            Integer sid = getSelect(SCHOOL_SELECT_ID);
+            if (sid != null)  {
+                ie.setSchool(factory.getSchoolDAO().find(sid.longValue()));
+            }
         } else if (schoolType.equals(SCHOOL_TYPE_ID)) {
-            ie.setSchool(factory.getSchoolDAO().find(getInteger(SCHOOL_ID).longValue()));
+            Integer sid = getInteger(SCHOOL_ID);
+            if (sid != null) {
+                ie.setSchool(factory.getSchoolDAO().find(sid.longValue()));
+            }
         }
         
         List<IntroEventPropertyType> cfg = factory.getIntroEventPropertyTypeDAO().getTypes();
@@ -108,8 +119,8 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
             
             TimeZone tz = getRequest().getParameter("algo_tz") != null? timeZone : null;
             
-            algo.setRegistrationStart(getDateTime("algo_reg_start", sdfDateTime, tz, "algorithm registration start date"));
-            algo.setRegistrationEnd(getDateTime("algo_reg_end", sdfDateTime, tz, "algorithm registration end date"));
+            algo.setRegistrationStart(getDateTime(ALGO_REG_START, sdfDateTime, tz));
+            algo.setRegistrationEnd(getDateTime(ALGO_REG_END, sdfDateTime, tz));
             
             algo.setDescription(ie.getDescription() + " - Algorithms");
             algo.setShortDescription(ie.getShortDescription() + "Algo");
@@ -127,11 +138,11 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
             
             TimeZone tz = getRequest().getParameter("comp_tz") != null? timeZone : null;
             
-            comp.setRegistrationStart(getDateTime("comp_reg_start", sdfDateTime, tz, "component registration start date"));
-            comp.setRegistrationEnd(getDateTime("comp_reg_end", sdfDateTime, tz, "component registration end date"));
+            comp.setRegistrationStart(getDateTime(COMP_REG_START, sdfDateTime, tz));
+            comp.setRegistrationEnd(getDateTime(COMP_REG_END, sdfDateTime, tz));
             
             // Create contests
-            Timestamp firstWeek = getDateTime("comp_first_week", sdfDateTime, null,"First Week");
+            Timestamp firstWeek = getDateTime("comp_first_week", sdfDateTime, null);
             int nweeks = new Integer(getRequest().getParameter("nweeks"));
 
             List<Double> overall = new ArrayList<Double>();
@@ -214,12 +225,12 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         return new Timestamp(cal.getTime().getTime());
     }
     
-    private Timestamp getDateTime(String param, SimpleDateFormat sdf, TimeZone tz, String displayName) {
+    private Timestamp getDateTime(String param, SimpleDateFormat sdf, TimeZone tz) {
         Date d;
         try {
             d = sdf.parse(getRequest().getParameter(param));
         } catch (ParseException e) {
-            addError(param, "Please enter a valid " + displayName);
+            addError(param, "Please enter a valid date");
             return null;
         }
         
