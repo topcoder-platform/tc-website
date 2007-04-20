@@ -77,6 +77,13 @@ function setSchoolType(s)
 
 }
 
+function init() 
+{
+	loaded();
+	<c:if test="${ds}">
+		search();
+	</c:if>	
+}
 
 </script>
   
@@ -96,7 +103,7 @@ p.explain {
 </style>
 </head>
 
-<body onLoad="loaded()">
+<body onLoad="init()">
 <jsp:include page="top.jsp"/>
 <table>
     <tr valign="top">
@@ -163,6 +170,8 @@ p.explain {
 			<table border="0">
 				<tr>
 			        <td colspan="2">
+				        <tc-webtag:radioButton name="<%= UpdateIntroEvent.SCHOOL_TYPE %>" value="1" selected="true"/>
+						Search: 
 			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.SCHOOL_SELECT_ID %>">
 			                <font color="#FF0000"><%=err%></font><br/>
 			            </tc-webtag:errorIterator>

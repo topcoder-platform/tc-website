@@ -39,13 +39,16 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
     public static final String ALGO_REG_END = "algo_reg_end";
     public static final String COMP_REG_START = "comp_reg_start";
     public static final String COMP_REG_END = "comp_reg_end";
+    public static final String SCHOOL_SEARCH = "school_search";
     
+    public static final String DO_SEARCH = "ds";
+
     public static final Integer SCHOOL_TYPE_NONE = 0;
     public static final Integer SCHOOL_TYPE_SELECT = 1;
     public static final Integer SCHOOL_TYPE_ID = 2;
     
     public static final String[] RESTORE_VALUES = {EVENT_NAME, EVENT_SHORT_NAME, SCHOOL_TYPE, SCHOOL_ID, SCHOOL_SELECT_ID, FORUM_ID, TIMEZONE_ID, IMAGE_ID, 
-        ALGO_REG_START, ALGO_REG_END, COMP_REG_START, COMP_REG_END};
+        ALGO_REG_START, ALGO_REG_END, COMP_REG_START, COMP_REG_END, SCHOOL_SEARCH};
     
     @Override
     protected void dbProcessing() throws Exception {
@@ -215,6 +218,10 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
     private void restoreValues() {
         for (String s : RESTORE_VALUES) {
             setDefault(s, getRequest().getParameter(s));
+        }
+
+        if (getRequest().getParameter(SCHOOL_SELECT_ID)!=null) {
+            getRequest().setAttribute(DO_SEARCH, true);            
         }
     }
     private Timestamp addDays(Timestamp t, int days){
