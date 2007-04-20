@@ -80,6 +80,7 @@ function setSchoolType(s)
 function init() 
 {
 	loaded();
+	alert(document.f.school_search.value);
 	<c:if test="${ds}">
 		search();
 	</c:if>	
