@@ -24,12 +24,15 @@
   <script type="text/javascript">
 
 function search() {
-	var ajaxRequest = new AjaxRequest('/admin/?module=AjaxSearchSchool');
-    
+	var ajaxRequest = new AjaxRequest('/admin/?module=AjaxSearchSchool');    
     ajaxRequest.addNamedFormElements("school_search");
+    ajaxRequest.sendRequest();
+}
 
-//    ajaxRequest.setPostRequest(loaded);
-//    ajaxRequest.setPreRequest(loading);    
+function searchAgain() {
+	var ajaxRequest = new AjaxRequest('/admin/?module=AjaxSearchSchool');    
+    ajaxRequest.addNamedFormElements("school_search");
+    ajaxRequest.addNamedFormElements("search_again");
     ajaxRequest.sendRequest();
 }
 
@@ -58,6 +61,7 @@ td {
         
 <form name="f" action="/admin/" method="post">
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
+    <input type="hidden" name="searchAgain" value="1"/>
 <center>
 <table border="0" cellpadding="5" cellspacing="5" style="width: 0%">
 	<tr> <td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -86,17 +90,17 @@ td {
 	<tr>
 		<td>School:</td>
 		<td>
-			<table style="width: 0%">
+			<table>
 				<tr>
-					<td width="10%" nowrap="nowrap">
+					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="0" />
 						No school associated with this event.
 					</td>
 				</tr>
-				<tr id="schoolSearch">
-					<td width="10%" nowrap="nowrap">
+				<tr>
+					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="1" />
-						Search: <div id="schoolSearch">
+						Search: <div id="schoolSearch"> enter part of school name
 							<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />
 							</div>
 				</tr>
