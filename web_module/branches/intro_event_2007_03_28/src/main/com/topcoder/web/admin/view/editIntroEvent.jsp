@@ -61,7 +61,7 @@ td {
         
 <form name="f" action="/admin/" method="post">
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
-    <input type="hidden" name="searchAgain" value="1"/>
+    <input type="hidden" name="search_again" value="1"/>
 <center>
 <table border="0" cellpadding="5" cellspacing="5" style="width: 0%">
 	<tr> <td>&nbsp;</td><td>&nbsp;</td></tr>

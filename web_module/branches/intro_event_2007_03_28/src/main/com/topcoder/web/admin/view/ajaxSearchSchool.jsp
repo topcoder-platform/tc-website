@@ -13,7 +13,7 @@
 					<input type="button" value="search again" onClick="searchAgain()" />
 				</c:when>
 				<c:otherwise>
-					 enter part of school name
+					 
 					<tc-webtag:textInput name="school_search" size="20" editable="true" /> 					
 					<input type="button" value="search" onClick="search()" />
 					<c:if test="${not search_again}">
