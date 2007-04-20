@@ -246,8 +246,10 @@ public class Search extends ForumsProcessor {
                                 optTokensCNT++;
                             }
                         }
-                        optMatchesTable.put(category, optTokensCNT);
-                        rank = 3;
+                        if (optTokensCNT > 0 || reqTokens.size() > 0) {
+                            optMatchesTable.put(category, optTokensCNT);
+                            rank = 3;
+                        }
                     }
                 }
                 if (rank > 0) {
@@ -278,9 +280,8 @@ public class Search extends ForumsProcessor {
             Paginator categoriesPaginator = new Paginator(paging);
             
             ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
-            // print what is in categoryResultsList, and SQL query; maybe the problem occurs when there are no matches
-            ArrayList pageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
-            Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, pageList);
+            ArrayList categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
+            Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, categoryPageList);
             getRequest().setAttribute("imageDataTable", imageDataTable);
             
             long elapsedTimeMillis = System.currentTimeMillis()-start;
@@ -295,7 +296,7 @@ public class Search extends ForumsProcessor {
             getRequest().setAttribute("paginator", paginator);
             getRequest().setAttribute("mode", mode);
             
-            getRequest().setAttribute("categories", categoryResultsList.iterator());
+            getRequest().setAttribute("categories", categoryPageList);
             getRequest().setAttribute("categoriesCount", new Integer(categoryResultsList.size()));
             getRequest().setAttribute("categoriesPaginator", categoriesPaginator);
         }
