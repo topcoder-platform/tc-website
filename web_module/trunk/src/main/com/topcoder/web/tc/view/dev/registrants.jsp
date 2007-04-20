@@ -181,12 +181,14 @@
                     }
                 %>
               </td>
+<%--
               <td class="statDk" align="right" nowrap="0">
                   <rsc:item name="rating" row="<%=resultRow%>" format="####" ifNull="not rated"/>
               </td>
               <td class="statDk" align="right" nowrap="0">
                   <rsc:item name="reliability" row="<%=resultRow%>" format="#.##%" ifNull="n/a"/>
               </td>
+--%>
               <td class="statDk" align="center" nowrap="0">
                   <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
               </td>
