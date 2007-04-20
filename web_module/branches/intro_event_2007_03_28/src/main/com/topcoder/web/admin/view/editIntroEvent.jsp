@@ -80,7 +80,6 @@ function setSchoolType(s)
 function init() 
 {
 	loaded();
-	alert(document.f.school_search.value);
 	<c:if test="${ds}">
 		search();
 	</c:if>	
@@ -181,7 +180,7 @@ p.explain {
 						<tc-webtag:radioButton name="<%= UpdateIntroEvent.SCHOOL_TYPE %>" value="1" selected="true"/>
 						Search: 
 					
-						<tc-webtag:textInput name="school_search" value="" size="20" editable="true"  onKeyPress="setSchoolType(1)" /> 					
+						<tc-webtag:textInput name="school_search"  size="20" editable="true"  onKeyPress="setSchoolType(1)" /> 					
 						<input type="button" value="search" onClick="search()" />				
 					</td>
 				</tr>
