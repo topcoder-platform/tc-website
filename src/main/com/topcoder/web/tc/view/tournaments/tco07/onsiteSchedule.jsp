@@ -68,76 +68,80 @@
                                        <td class="value">Lunch</td>
                                 </tr>
                                 <tr class="dark">
+                                       <td class="value">1:00pm - 2:00pm</td>
+                                       <td class="value">VeriSign Presentation</td>
+                                </tr>
+                                <tr class="light">
                                        <td class="value">1:00pm - 2:30pm</td>
                                        <td class="value">Component Design & Development 1</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">3:00pm - 4:00pm</td>
                                        <td class="value">NSA Presentation</td>
                                 </tr>
-                                <tr class="dark">
+                                <tr class="light">
                                        <td class="value">4:00pm - 6:00pm</td>
                                        <td class="value">Algorithm Semifinal Room 2</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">6:30pm - 10:00pm</td>
                                        <td class="value">TopCoder Evening Event</td>
                                 </tr>
                                 <tr>
                                        <td class="header" colspan="2">Thursday, June 28, 2007</td>
                                 </tr>
-                                <tr class="dark">
+                                <tr class="light">
                                        <td class="value">9:00am - 11:00am</td>
                                        <td class="value">Algorithm Semifinal Room 3</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">9:00am - 6:00pm</td>
                                        <td class="value">Studio Graphic Design Finals</td>
                                 </tr>
-                                <tr class="dark">
+                                <tr class="light">
                                        <td class="value">11:00am - Noon</td>
                                        <td class="value">DRW Presentation</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">Noon - 1:00pm</td>
                                        <td class="value">Lunch</td>
                                 </tr>
-                                <tr class="dark">
+                                <tr class="light">
                                        <td class="value">1:00pm - 2:30pm</td>
                                        <td class="value">Component Design & Development 2</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">4:00pm - 6:00pm</td>
                                        <td class="value">Algorithm Wildcard Round</td>
                                 </tr>
-                                <tr class="dark">
+                                <tr class="light">
                                        <td class="value">6:30pm - 10:00pm</td>
                                        <td class="value">AOL Evening Event</td>
                                 </tr>
                                 <tr>
                                        <td class="header" colspan="2">Friday, June 29, 2007</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">9:00am - 10:30am</td>
                                        <td class="value">Component Design & Development Appeals Final</td>
                                 </tr>
-                                <tr class="dark">
+                                <tr class="light">
                                        <td class="value">11:00am - Noon</td>
                                        <td class="value">AOL Presentation</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">Noon - 1:00pm</td>
                                        <td class="value">Lunch</td>
                                 </tr>
-                                <tr class="dark">
+                                <tr class="light">
                                        <td class="value">1:30pm - 3:30pm</td>
                                        <td class="value">Algorithm Championship Round</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">3:30pm - 4:30pm</td>
                                        <td class="value">Champion Announcements and Awards Ceremony</td>
                                 </tr>
-                                <tr class="dark">
+                                <tr class="light">
                                        <td class="value">7:00pm - 9:00pm</td>
                                        <td class="value">Closing Reception</td>
                                 </tr>
