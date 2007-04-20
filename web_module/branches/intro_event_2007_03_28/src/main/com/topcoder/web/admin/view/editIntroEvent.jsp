@@ -96,7 +96,7 @@ p.explain {
 </style>
 </head>
 
-<body onLoad="searchAgain()">
+<body onLoad="loaded()">
 <jsp:include page="top.jsp"/>
 <table>
     <tr valign="top">
@@ -170,6 +170,8 @@ p.explain {
 				</tr>		
 				<tr id="schoolSearch">
 					<td nowrap="nowrap">
+						<tc-webtag:textInput name="school_search" value="${school_search}" size="20" editable="true"  onKeyPress="setSchoolType(1)" /> 					
+						<input type="button" value="search" onClick="search()" />				
 					</td>
 				</tr>
 				<tr>
