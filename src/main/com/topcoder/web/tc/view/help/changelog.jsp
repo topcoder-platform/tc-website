@@ -44,10 +44,17 @@
 
 
 <p>
+    5.8.11 - 2007.04.xx
+    <ul>
+        <li>Marathon Match enhancement to allow us to rerun / rescore any type of marathon submission -competition team</li>
+    </ul>
+</p>
+
+<p>
     5.8.10 - 2007.04.19
     <ul>
         <li>TCO07 RSVP -pulky</li>
-		<li>Bug fix for demographic information in PACTS -cucu</li>
+        <li>Bug fix for demographic information in PACTS -cucu</li>
     </ul>
 </p>
 
