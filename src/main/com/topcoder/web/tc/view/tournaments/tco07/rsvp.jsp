@@ -71,7 +71,7 @@ border: 4px solid #cc6600;
             </div>
 
             <div style="margin-bottom: 10px;">
-                <img src="/i/tournament/tco07/rsvp/tournamentLogo.png" alt="2007 TopCoder Open Sponsored by AOL" />
+                <A href="/tco07"><img src="/i/tournament/tco07/rsvp/tournamentLogo.png" alt="2007 TopCoder Open Sponsored by AOL" /></A>
             </div>
 
             <div style="margin-bottom: 15px;">
