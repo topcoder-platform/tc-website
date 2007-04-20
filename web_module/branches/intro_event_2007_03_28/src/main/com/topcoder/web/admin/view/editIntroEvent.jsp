@@ -152,8 +152,9 @@ td {
 		</td>
 	</tr>
 	<tr>
-		<td>Forum:</td>
-		<td>
+		<td>Forum Id:</td>
+		<td><tc-webtag:textInput name="fid" size="6" editable="true" />
+		<!-- 
 			<table style="width: 0%">
 				<tr>
 					<td width="10%" nowrap="nowrap">
@@ -170,10 +171,11 @@ td {
 						Or enter forum_id:
 					</td>					
 					<td>
-						<tc-webtag:textInput name="fid" size="6" editable="true" />
+						
 					</td>
 				</tr>
 			</table>
+			 -->
 		</td>
 	</tr>
 	<tr>
