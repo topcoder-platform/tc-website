@@ -24,7 +24,7 @@ public class AjaxSearchSchool extends ShortHibernateProcessor {
             
             List<School> schools = new ArrayList<School>();
             for(Object[] o : list) {
-                Integer count = (Integer) o[0];
+                Long count = (Long) o[0];
                 School school = (School) o[1];
                 school.setName(school.getName() + " (" + count + ")");
                 
