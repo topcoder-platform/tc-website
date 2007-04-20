@@ -20,7 +20,7 @@ public class AjaxSearchSchool extends ShortHibernateProcessor {
         boolean searchAgain = getRequest().getParameter("search_again") != null;
         
         if (!searchAgain) {
-            List<Object[]> list = DAOUtil.getFactory().getSchoolDAO().searchByName(search, 100);
+            List<Object[]> list = DAOUtil.getFactory().getSchoolDAO().searchByName("%" + search + "%", 100);
             
             List<School> schools = new ArrayList<School>();
             for(Object[] o : list) {
