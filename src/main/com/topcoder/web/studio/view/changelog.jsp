@@ -29,6 +29,7 @@
 <p>
     1.3.2 - 2007.03.xx
     <ul>
+        <li>Adjust filename when downloading submissions.  If it's not the user's own submission, save it at the submission id -dok</li>
         <li>Add IP Transfer functionality -pulky</li>
         <li>Rework forums packaging to reduce inapproriate dependencies -mktong</li>
         <li>Fix bug to allow admins to set submissions as belonging to cheaters successfully. -dok</li>
