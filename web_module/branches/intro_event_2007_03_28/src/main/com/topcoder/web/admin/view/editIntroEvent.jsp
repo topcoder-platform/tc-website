@@ -137,7 +137,7 @@ td {
 				<tr>
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="2" />
-						Use school_id: <tc-webtag:textInput name="sid" size="6" editable="true" onKeyPress="document.f.school_type.value='2'" />
+						Use school_id: <tc-webtag:textInput name="sid" size="6" editable="true" onKeyPress="document.f.school_type['2'].selected='true'" />
 					</td>					
 				</tr>
 				<tr>
