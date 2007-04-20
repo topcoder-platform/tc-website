@@ -65,6 +65,18 @@ function searchAgain() {
 }
 
 
+function setSchoolType(s) 
+{
+	var i
+    for (i=0;i< document.f.school_type.length;i++){
+       if (document.f.school_type[i].defaultValue == s) {
+	       document.f.school_type[i].checked=true;
+          break;
+       }
+    }
+} 
+}
+
 
 </script>
   
@@ -137,7 +149,7 @@ td {
 				<tr>
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="2" />
-						Use school_id: <tc-webtag:textInput name="sid" size="6" editable="true" onKeyPress="document.f.school_type['2'].selected='true'" />
+						Use school_id: <tc-webtag:textInput name="sid" size="6" editable="true" onKeyPress="setSchoolType(2)" />
 					</td>					
 				</tr>
 				<tr>
