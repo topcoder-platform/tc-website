@@ -1,13 +1,17 @@
-<%@page contentType="text/xml"%>
+<%@page contentType="text/xml;charset=utf-8"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>                 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page contentType="text/xml"%>
+
+
+<fmt:requestEncoding value="utf-8"/>
+
+
 
 <taconite-root xml:space="preserve">
     <taconite-replace contextNodeID="schoolSearch" parseInBrowser="true">
 		<tr id="schoolSearch">
 			<td nowrap="nowrap">
-				<tc-webtag:radioButton name="school_type" value="1" />
+				<tc-webtag:radioButton name="school_type" value="1" selected="true"/>
 						Search: 
 		
 				<c:choose>

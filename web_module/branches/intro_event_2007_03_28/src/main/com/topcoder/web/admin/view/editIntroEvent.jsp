@@ -131,12 +131,6 @@ td {
 		<td>School:</td>
 		<td>
 			<table border="0">
-				<tr>
-					<td nowrap="nowrap">
-						<tc-webtag:radioButton name="school_type" value="0" />
-						No school associated with this event.
-					</td>
-				</tr>
 				<tr id="schoolSearch">
 					<td nowrap="nowrap">
 					</td>
@@ -146,6 +140,12 @@ td {
 						<tc-webtag:radioButton name="school_type" value="2" />
 						Use school_id: <tc-webtag:textInput name="sid" size="6" editable="true" />
 					</td>					
+				</tr>
+				<tr>
+					<td nowrap="nowrap">
+						<tc-webtag:radioButton name="school_type" value="0"/>
+						No school associated with this event.
+					</td>
 				</tr>
 			</table>
 
