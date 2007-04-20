@@ -89,7 +89,8 @@ td {
 }
 
 p.explain {
-	font-size: -1;	
+	font-size: small;	
+	font-style: italic; 
 }
 
 </style>
