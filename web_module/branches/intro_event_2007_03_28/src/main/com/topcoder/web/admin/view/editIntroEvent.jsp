@@ -59,11 +59,15 @@ td {
         <td>
                 <br>
         
+<form name="ajaxFields">        
+    <input type="hidden" name="search_again" value="1"/>
+</form>
+
 <form name="f" action="/admin/" method="post">
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
-    <input type="hidden" name="search_again" value="1"/>
+
 <center>
-<table border="0" cellpadding="5" cellspacing="5" style="width: 0%">
+<table border="0" cellpadding="5" cellspacing="5">
 	<tr> <td>&nbsp;</td><td>&nbsp;</td></tr>
 	<tr>
 		<td colspan="2">
@@ -80,8 +84,8 @@ td {
         </td>
     </tr>
 	<tr>
-		<td>Event Name:</td>
-		<td><tc-webtag:textInput name="name" size="60" editable="true" /></td>
+		<td width="20%">Event Name:</td>
+		<td width="80%"><tc-webtag:textInput name="name" size="60" editable="true" /></td>
 	</tr>
 	<tr>
 		<td>Short Event Name:</td>
