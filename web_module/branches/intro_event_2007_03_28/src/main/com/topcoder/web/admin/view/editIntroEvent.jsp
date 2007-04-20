@@ -151,7 +151,7 @@ p.explain {
 		<td nowrap="nowrap">
 			<table>
 				<tr>
-					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.EVENT_SHORT_NAME %>"" size="20" editable="true" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.EVENT_SHORT_NAME %>" size="20" editable="true" /></td>
 					<td><p class="explain">(e.g. "rutgers07Tour")</p></td>
 				</tr>
 				</table>
@@ -255,7 +255,7 @@ p.explain {
 	    	    	<td>from</td>
 	    	    	<td nowrap="true">
 	    	    		<tc-webtag:textInput name="algo_reg_start" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-						<button id="trigger_algo_reg_start"">Set</button>
+						<button id="trigger_algo_reg_start">Set</button>
 					</td>
 					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone</td>
 				</tr>
@@ -263,7 +263,7 @@ p.explain {
 	    	    	<td>to</td>
 	    	    	<td nowrap="true">
 			            <tc-webtag:textInput name="algo_reg_end" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-			   			<button id="trigger_algo_reg_end"">Set</button>
+			   			<button id="trigger_algo_reg_end">Set</button>
 					</td>				    	    	
     	    	</tr>
         	</table>
@@ -365,7 +365,7 @@ p.explain {
 	    	    	<td>from</td>
 	    	    	<td nowrap="true">
 	    	    		<tc-webtag:textInput name="comp_reg_start" id="comp_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-						<button id="trigger_comp_reg_start"">Set</button>
+						<button id="trigger_comp_reg_start">Set</button>
 					</td>
 					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="comp_tz" value="true"/>Event time zone</td>
 				</tr>
@@ -373,7 +373,7 @@ p.explain {
 	    	    	<td>to</td>
 	    	    	<td nowrap="true">
 			            <tc-webtag:textInput name="comp_reg_end" id="comp_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-			   			<button id="trigger_comp_reg_end"">Set</button>
+			   			<button id="trigger_comp_reg_end">Set</button>
 					</td>				    	    	
     	    	</tr>
         	</table>
@@ -386,7 +386,7 @@ p.explain {
 		<td>First week:</td>
         <td class="value">
             <tc-webtag:textInput name="comp_first_week" id="comp_first_week" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
-					<button id="trigger_comp_first_week"">Set</button>
+					<button id="trigger_comp_first_week">Set</button>
 		</td>	
 	</tr>
 	<tr>
