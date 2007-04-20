@@ -100,7 +100,7 @@ td {
 				<tr>
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="1" />
-						Search: <div id="schoolSearch"> enter part of school name
+						Search: <div id="schoolSearch"> 
 							<tc-webtag:textInput name="school_search" size="20" editable="true" /> <input type="button" value="search" onClick="search()" />
 							</div>
 				</tr>
