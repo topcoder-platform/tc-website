@@ -170,8 +170,6 @@ p.explain {
 			<table border="0">
 				<tr>
 			        <td colspan="2">
-				        <tc-webtag:radioButton name="<%= UpdateIntroEvent.SCHOOL_TYPE %>" value="1" selected="true"/>
-						Search: 
 			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.SCHOOL_SELECT_ID %>">
 			                <font color="#FF0000"><%=err%></font><br/>
 			            </tc-webtag:errorIterator>
@@ -179,6 +177,9 @@ p.explain {
 				</tr>		
 				<tr id="schoolSearch">
 					<td nowrap="nowrap">
+						<tc-webtag:radioButton name="<%= UpdateIntroEvent.SCHOOL_TYPE %>" value="1" selected="true"/>
+						Search: 
+					
 						<tc-webtag:textInput name="school_search" value="${school_search}" size="20" editable="true"  onKeyPress="setSchoolType(1)" /> 					
 						<input type="button" value="search" onClick="search()" />				
 					</td>
