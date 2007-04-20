@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page language="java" import="com.topcoder.web.admin.controller.request.EditEvent"%>
+<%@ page language="java" import="com.topcoder.web.admin.controller.request.UpdateIntroEvent"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>                 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -120,7 +120,7 @@ p.explain {
 </div>		
 
 <center>
-<table border="0" cellpadding="5" cellspacing="5">
+<table border="1" cellpadding="5" cellspacing="5">
 	<tr>
 		<td colspan="2">
 		<h3>Introductory Event</h3>
@@ -130,18 +130,32 @@ p.explain {
 
     <tr>
         <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="error">
+            <tc-webtag:errorIterator id="err_<%= UpdateIntroEvent.EVENT_NAME %>" name="error">
                 <font color="#FF0000"><%=err%></font><br/>
             </tc-webtag:errorIterator>
         </td>
     </tr>
 	<tr>
 		<td width="20%">Event Name:</td>
-		<td width="80%"><tc-webtag:textInput name="name" size="60" editable="true" /></td>
+		<td width="80%"><tc-webtag:textInput name="<%= UpdateIntroEvent.EVENT_NAME %>" size="60" editable="true" /></td>
 	</tr>
+    <tr>
+        <td colspan="2">
+            <tc-webtag:errorIterator id="err_<%= UpdateIntroEvent.EVENT_SHORT_NAME %>" name="error">
+                <font color="#FF0000"><%=err%></font><br/>
+            </tc-webtag:errorIterator>
+        </td>
+    </tr>
 	<tr>
 		<td>Short Event Name:</td>
-		<td nowrap="nowrap"><tc-webtag:textInput name="sname" size="20" editable="true" /> <p class="explain">(e.g. "rutgers07Tour")</p></td>
+		<td nowrap="nowrap">
+			<table>
+				<tr>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.EVENT_SHORT_NAME %>"" size="20" editable="true" /></td>
+					<td><p class="explain">(e.g. "rutgers07Tour")</p></td>
+				</tr>
+				</table>
+			</td>
 	</tr>
 	<tr>
 		<td>School:</td>

@@ -31,6 +31,10 @@ import com.topcoder.web.forums.model.TCAuthToken;
  */
 public class UpdateIntroEvent extends ShortHibernateProcessor {
 
+    public static final String EVENT_NAME = "name";
+    public static final String EVENT_SHORT_NAME = "sname";
+    
+    
     @Override
     protected void dbProcessing() throws Exception {
         SimpleDateFormat sdfDateTime = new SimpleDateFormat("MM/dd/yyyy HH:mm");
@@ -39,8 +43,9 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         boolean hasComp = getRequest().getParameter("comp_reg_start") != null;
         
      
-        String name = getRequest().getParameter("name");
-        String sname = getRequest().getParameter("sname");
+        String name = getString(EVENT_NAME, true);
+        String sname = getString(EVENT_SHORT_NAME, true);
+        
         String schoolId = getRequest().getParameter("sid");
         String forumId = getRequest().getParameter("fid");
         String timezoneId = getRequest().getParameter("tz");
@@ -200,7 +205,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         try {
             d = sdf.parse(getRequest().getParameter(param));
         } catch (ParseException e) {
-            addError("err", "Please enter a valid " + displayName);
+            addError("err_" + param, "Please enter a valid " + displayName);
             return null;
         }
         
@@ -215,9 +220,19 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         try {
             return new Double(getRequest().getParameter(param));
         } catch (Exception e) {
-            addError("err", "Please enter a valid " + displayName);
+            addError("err_" + param, "Please enter a valid " + displayName);
             return null;
         }
     }
+    
+    private String getString(String param, boolean required) {
+        String s = getRequest().getParameter(param);
+        
+        if (s.trim().length() == 0 && required) {
+            addError("err_" + param, "Please enter a value");            
+        }
+        return s;
+    }
+    
 
 }
