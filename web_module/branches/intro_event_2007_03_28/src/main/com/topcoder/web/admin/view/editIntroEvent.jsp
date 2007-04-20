@@ -24,7 +24,7 @@
   <script type="text/javascript">
 
 function search() {
-	var ajaxRequest = new AjaxRequest('/ajaxSearchSchool.jsp');
+	var ajaxRequest = new AjaxRequest('/admin/ajaxSearchSchool.jsp');
     
     ajaxRequest.addNamedFormElements("school_search");
 
