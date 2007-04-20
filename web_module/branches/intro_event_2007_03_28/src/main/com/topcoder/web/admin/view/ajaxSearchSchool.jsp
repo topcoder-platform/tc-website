@@ -5,12 +5,14 @@
 
 <taconite-root xml:space="preserve">
     <taconite-replace contextNodeID="schoolSearch" parseInBrowser="true">
-		<div id="schoolSearch">
+				<tr id="schoolSearch">
+					<td nowrap="nowrap">
 		
 			<c:choose>
 				<c:when test="${not empty schools and not search_again }">
 					<tc-webtag:objectSelect name="school_sel_id" list="${schools}" valueField="id" textField="name"  topText="[Select one]" topValue="-1" />
 					<input type="button" value="search again" onClick="searchAgain()" />
+					<input type="hidden" name="school_search" value="${school_search}">
 				</c:when>
 				<c:otherwise>
 					 
@@ -24,7 +26,9 @@
 			
 			
 			</c:choose>
-		</div>
+			
+			</td>
+			</tr>
 	</taconite-replace>
 </taconite-root>
  

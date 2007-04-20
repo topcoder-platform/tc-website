@@ -67,7 +67,7 @@ td {
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
 
 <center>
-<table border="0" cellpadding="5" cellspacing="5">
+<table border="1" cellpadding="5" cellspacing="5">
 	<tr> <td>&nbsp;</td><td>&nbsp;</td></tr>
 	<tr>
 		<td colspan="2">
@@ -94,7 +94,7 @@ td {
 	<tr>
 		<td>School:</td>
 		<td>
-			<table>
+			<table border="1">
 				<tr>
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="school_type" value="0" />
