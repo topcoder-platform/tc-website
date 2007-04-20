@@ -32,7 +32,7 @@
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_13_tco07_rd_1">full story</A> | 
-        <tc-webtag:forumLink forumID="514999" message="discuss this" /> | 
+        <tc-webtag:forumLink forumID="515307" message="discuss this" /> | 
         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
