@@ -36,6 +36,7 @@ public class AdminForceSubmit extends Base {
             StringBuffer buf = new StringBuffer(1000);
             int count = 0;
             String message;
+            boolean example = Integer.parseInt(getRequest().getParameter(Constants.EXAMPLE_FLAG)) != 0;
             for (Enumeration enm = getRequest().getParameterNames(); enm.hasMoreElements();) {
                 name = (String) enm.nextElement();
                 log.debug(name);
@@ -49,7 +50,7 @@ public class AdminForceSubmit extends Base {
                     int subNum = Integer.parseInt(ids[5]);
 
                     try {
-                        submit(coderId, componentId, roundId, contestId, languageId, getCode(coderId, componentId, roundId, subNum));
+                        submit(coderId, componentId, roundId, contestId, languageId, getCode(coderId, componentId, roundId, subNum, example), example);
                         message = "submitted successfully";
                     } catch (Exception e) {
                         message = e.getMessage();
@@ -69,20 +70,21 @@ public class AdminForceSubmit extends Base {
         }
     }
 
-    private String getCode(long coderId, long componentId, long roundId, int subNum) throws Exception {
+    private String getCode(long coderId, long componentId, long roundId, int subNum, boolean example) throws Exception {
         Request r = new Request();
         r.setContentHandle("long_contest_submission_text");
         r.setProperty(Constants.CODER_ID, String.valueOf(coderId));
         r.setProperty(Constants.COMPONENT_ID, String.valueOf(componentId));
         r.setProperty(Constants.ROUND_ID, String.valueOf(roundId));
         r.setProperty(Constants.SUBMISSION_NUMBER, String.valueOf(subNum));
+        r.setProperty(Constants.EXAMPLE_FLAG, example ? "1" : "0");
         return ((ResultSetContainer) getDataAccess().getData(r).get("long_contest_submission_text")).getStringItem(0, "submission_text");
     }
 
-    private LongCompileResponse submit(long coderId, long componentId, long roundId, long contestId, int languageId, String code) throws Exception {
+    private LongCompileResponse submit(long coderId, long componentId, long roundId, long contestId, int languageId, String code, boolean example) throws Exception {
         log.debug("submit: " + coderId + " " + componentId + " " + roundId + " " + contestId + " " + languageId);
         AdminSubmitRequest lcr = new AdminSubmitRequest(coderId, componentId, roundId, contestId,
-                languageId, ApplicationServer.WEB_SERVER_ID, code);
+                languageId, ApplicationServer.WEB_SERVER_ID, code, example);
         try {
             lock();
             try {
