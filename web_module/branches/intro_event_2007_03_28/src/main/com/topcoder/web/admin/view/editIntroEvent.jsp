@@ -120,7 +120,7 @@ p.explain {
 </div>		
 
 <center>
-<table border="1" cellpadding="5" cellspacing="5">
+<table border="0" cellpadding="2" cellspacing="2">
 	<tr>
 		<td colspan="2">
 		<h3>Introductory Event</h3>
@@ -130,7 +130,7 @@ p.explain {
 
     <tr>
         <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="err_<%= UpdateIntroEvent.EVENT_NAME %>">
+            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.EVENT_NAME %>">
                 <font color="#FF0000"><%=err%></font><br/>
             </tc-webtag:errorIterator>
         </td>
@@ -141,7 +141,7 @@ p.explain {
 	</tr>
     <tr>
         <td colspan="2">
-            <tc-webtag:errorIterator id="err" name="err_<%= UpdateIntroEvent.EVENT_SHORT_NAME %>">
+            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.EVENT_SHORT_NAME %>">
                 <font color="#FF0000"><%=err%></font><br/>
             </tc-webtag:errorIterator>
         </td>

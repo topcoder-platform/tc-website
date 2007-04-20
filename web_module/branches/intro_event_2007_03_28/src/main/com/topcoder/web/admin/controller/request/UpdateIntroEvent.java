@@ -195,7 +195,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         try {
             d = sdf.parse(getRequest().getParameter(param));
         } catch (ParseException e) {
-            addError("err_" + param, "Please enter a valid " + displayName);
+            addError(param, "Please enter a valid " + displayName);
             return null;
         }
         
@@ -210,7 +210,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         try {
             return new Double(getRequest().getParameter(param));
         } catch (Exception e) {
-            addError("err_" + param, "Please enter a valid " + displayName);
+            addError(param, "Please enter a valid " + displayName);
             return null;
         }
     }
@@ -219,7 +219,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         String s = getRequest().getParameter(param);
         
         if (s.trim().length() == 0 && required) {
-            addError("err_" + param, "Please enter a value");            
+            addError(param, "Please enter a value");            
         }
         return s;
     }
