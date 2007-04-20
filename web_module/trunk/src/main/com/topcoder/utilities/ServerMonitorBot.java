@@ -227,11 +227,11 @@ public class ServerMonitorBot {
             log.info("SENDING ERROR LOG");
             try {
                 TCSEmailMessage em = new TCSEmailMessage();
-                em.addToAddress("8609182841@mmode.com", TCSEmailMessage.TO);
-                em.addToAddress("8604626228@vtext.com", TCSEmailMessage.TO);
-                em.addToAddress("6508045266@vtext.com", TCSEmailMessage.TO);
-                em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
-                em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
+                em.addToAddress("mobile_on_call@topcoder.com", TCSEmailMessage.TO);
+                //em.addToAddress("8604626228@vtext.com", TCSEmailMessage.TO);
+                //em.addToAddress("6508045266@vtext.com", TCSEmailMessage.TO);
+                //em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
+                //em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
                 //em.addToAddress("9196197120@vtext.com", TCSEmailMessage.TO); //fogle
 
                 em.setSubject("Server Error");
@@ -241,14 +241,14 @@ public class ServerMonitorBot {
                 EmailEngine.send(em);
 
                 em = new TCSEmailMessage();
-                em.addToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("thaas@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("ivern@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("mtong@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("email_on_call@topcoder.com", TCSEmailMessage.TO);
+                //em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);
+                //em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
+                //em.addToAddress("thaas@topcoder.com", TCSEmailMessage.TO);
+                //em.addToAddress("ivern@topcoder.com", TCSEmailMessage.TO);
+                //em.addToAddress("mtong@topcoder.com", TCSEmailMessage.TO);
                 //em.addToAddress("mfogleman@topcoder.com", TCSEmailMessage.TO);
-                em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
+                //em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
 
                 em.setSubject("Server Error");
                 em.setBody(errorTextLarge);
