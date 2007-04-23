@@ -191,7 +191,7 @@ p.explain {
 					
 						<tc-webtag:textInput name="school_search"  size="20" editable="true"  onKeyPress="setSchoolType(1)" /> 					
 						<input type="button" value="search" onClick="search()" />		
-						<input type="hidden" name="<%= UpdateIntroEvent.SCHOOL_SELECT_ID %>" >
+						<input type="hidden" name="<%= UpdateIntroEvent.SCHOOL_SELECT_ID %>" value="<%= request.getAttribute(UpdateIntroEvent.SCHOOL_SELECT_ID )%>" >
 					</td>
 				</tr>
 				<tr>

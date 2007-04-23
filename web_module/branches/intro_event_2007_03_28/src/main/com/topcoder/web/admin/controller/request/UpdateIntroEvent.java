@@ -47,7 +47,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
     public static final Integer SCHOOL_TYPE_SELECT = 1;
     public static final Integer SCHOOL_TYPE_ID = 2;
     
-    public static final String[] RESTORE_VALUES = {EVENT_NAME, EVENT_SHORT_NAME, SCHOOL_TYPE, SCHOOL_ID, SCHOOL_SELECT_ID, FORUM_ID, TIMEZONE_ID, IMAGE_ID, 
+    public static final String[] RESTORE_VALUES = {EVENT_NAME, EVENT_SHORT_NAME, SCHOOL_TYPE, SCHOOL_ID, FORUM_ID, TIMEZONE_ID, IMAGE_ID, 
         ALGO_REG_START, ALGO_REG_END, COMP_REG_START, COMP_REG_END, SCHOOL_SEARCH};
     
     @Override
@@ -222,7 +222,7 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
 
         if (getRequest().getParameter(SCHOOL_SELECT_ID)!=null) {
             getRequest().setAttribute(DO_SEARCH, true);            
-         //   getRequest().setAttribute(SCHOOL_SELECT_ID, getRequest().getParameter(SCHOOL_SELECT_ID));            
+            getRequest().setAttribute(SCHOOL_SELECT_ID, getRequest().getParameter(SCHOOL_SELECT_ID));            
         }
         
     }
