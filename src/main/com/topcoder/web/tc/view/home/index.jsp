@@ -125,10 +125,10 @@
 
                 <%-- SRM SPONSOR --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10670" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa" />
                 </map>
-                <img src="/i/home/tco07Rd3_nsa.png" alt="TCO07 Round 3 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
+                <img src="/i/home/srm346_nsa.png" alt="SRM 346 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
                 
 
             </td>
