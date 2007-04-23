@@ -266,6 +266,9 @@ public class Search extends ForumsProcessor {
                 }
             }
             
+            Collections.sort(categoryResultsList, 
+                    new CategoryResultComparator(categoryRankTable, optMatchesTable));
+            
             int categoryResultSize = ForumConstants.DEFAULT_SEARCH_CATEGORY_RANGE;
             if (user != null) {
                 try {
@@ -291,9 +294,6 @@ public class Search extends ForumsProcessor {
             ArrayList<ForumCategory> categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
             Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, categoryPageList);
             getRequest().setAttribute("imageDataTable", imageDataTable);
-            
-            Collections.sort(categoryPageList, 
-                    new CategoryResultComparator(categoryRankTable, optMatchesTable));
             
             long elapsedTimeMillis = System.currentTimeMillis()-start;
             log.info("Category search time for query \"" + query.getQueryString() + "\": " 
