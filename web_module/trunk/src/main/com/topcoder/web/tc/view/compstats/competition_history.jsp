@@ -133,33 +133,33 @@
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
             </TD>
-            <TD CLASS="header" WIDTH="30%">
+            <TD CLASS="header" WIDTH="36%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Component</a>
             </TD>
-            <TD CLASS="header" WIDTH="15%">
+            <TD CLASS="header" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("category_desc")%>" includeParams="true"/>">Category</a>
             </TD>
-            <TD CLASS="headerR" WIDTH="9%">
+            <TD CLASS="headerR" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>">Score</a>
             </TD>
-            <TD CLASS="headerC" WIDTH="9%">
+            <TD CLASS="headerC" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("num_submissions")%>" includeParams="true"/>">Submissions</a>
             </TD>
-            <TD CLASS="headerC" WIDTH="5%">
+            <TD CLASS="headerC" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Passed<br>
                     Review</a></TD>
-            <TD CLASS="headerC" WIDTH="5%">
+            <TD CLASS="headerC" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Place</a>
             </TD>
-            <TD CLASS="headerR" WIDTH="9%">
+            <TD CLASS="headerR" WIDTH="8%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true"/>">Rating</a>
             </TD>
-            <TD CLASS="headerC" WIDTH="9%">
+            <TD CLASS="headerC" WIDTH="8%">
                 <div id="popDR" class="popUp"><div>Digital Run</div></div>
                 <div align="center"><a href='/tc?module=Static&d1=digital_run&d2=description'><img src="/i/interface/emblem/digitalrun.png" alt="" border="0" onmouseover="popUp(this,'popDR')" onmouseout="popHide()" /></a></div>
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Points</a>
             </TD>
-            <TD CLASS="headerR" WIDTH="9%" align="right">&#160;</TD>
+            <TD CLASS="headerR" WIDTH="8%" align="right">&#160;</TD>
         </tr>
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc2%>" id="resultRow">
