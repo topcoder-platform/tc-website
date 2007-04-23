@@ -54,6 +54,16 @@
                                         <input type="password" name="<%=Login.PASSWORD%>" value="" maxlength="30" size="12">
                                     </td>
                                 </tr>
+<%--
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        <input name="rem" type="checkbox"> Remember Me
+                                    </td>
+                                </tr>
+--%>
                                 <tr>
                                     <td>
                                         &nbsp;
