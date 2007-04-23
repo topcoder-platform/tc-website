@@ -96,10 +96,13 @@ public class UpdateIntroEvent extends IntroEventBase {
         
         Event algo = null;
         if (hasAlgo) {
-            boolean sel = "1".equals(getRequest().getParameter(USE_ROUND_SEL));
-            String roundId = getRequest().getParameter(sel? ROUND_SELECT_ID: ROUND_ID);
-            
-            ie.setRoundId(new Long(roundId));
+            Long roundId;
+            if ("1".equals(getRequest().getParameter(USE_ROUND_SEL))) {
+                roundId = getSelect(ROUND_SELECT_ID).longValue();
+            } else {
+                roundId = getLong(ROUND_ID);
+            }
+            ie.setRoundId(roundId);
 
             algo = new Event();
             algo.setParent(ie);

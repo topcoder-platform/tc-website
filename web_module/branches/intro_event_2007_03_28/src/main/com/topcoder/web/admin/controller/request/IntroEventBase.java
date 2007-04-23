@@ -14,6 +14,9 @@ import com.topcoder.web.common.model.IntroEventPropertyType;
  */
 public abstract class IntroEventBase extends ShortHibernateProcessor {
 
+    public static final String HAS_ALGO = "ha";
+    public static final String HAS_COMP = "hc";
+
     public static final String EVENT_NAME = "name";
     public static final String EVENT_SHORT_NAME = "sname";
     public static final String SCHOOL_TYPE = "school_type";
