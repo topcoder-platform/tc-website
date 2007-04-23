@@ -58,8 +58,8 @@
 </p>
 
 <p>
-    Registration for this event will be open from <tc-webtag:format object="${mainEvent.registrationStart}" format=" MMMMM d, yyyy 'at' hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-     through <tc-webtag:format object="${mainEvent.registrationEnd}" format=" MMMMM d, yyyy 'at' hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.
+    Registration for this event will be open from <tc-webtag:format object="${event.registrationStart}" format=" MMMMM d, yyyy 'at' hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
+     through <tc-webtag:format object="${event.registrationEnd}" format=" MMMMM d, yyyy 'at' hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.
     
    
 </p>

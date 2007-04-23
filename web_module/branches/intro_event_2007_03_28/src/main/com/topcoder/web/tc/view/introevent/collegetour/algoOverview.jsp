@@ -55,9 +55,9 @@
 
     <h3>The Event</h3>
     TopCoder is sponsoring an onsite programming competition at ${mainEvent.school.name} on
-    <tc-webtag:format object="${roundStart}" format="MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>. <br><br>
+    <tc-webtag:format object="${roundStart}" format="EEEE MM.dd.yyyy" timeZone="${mainEvent.timeZone.description}"/>. <br><br>
 
-    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${event.registrationEnd}" format="MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.</span><br>
+    <span class="bigRed">Registration for this event ends on <tc-webtag:format object="${event.registrationEnd}" format="EEEE MM.dd.yyyy hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>.</span><br>
     <br>
     
     The event is from

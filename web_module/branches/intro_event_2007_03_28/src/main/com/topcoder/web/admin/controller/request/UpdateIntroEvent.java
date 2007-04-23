@@ -154,9 +154,9 @@ public class UpdateIntroEvent extends IntroEventBase {
                 
                 Timestamp w = firstWeek;
                 for (int i = 1; i <= nweeks; i++) {
-                    addContest(comp, "Week " + i, 112, w, nweeks * 7, false, weekly);
-                    addContest(comp, "Week " + i, 113, w, nweeks * 7, false, weekly);
-                    w = addDays(firstWeek, 7);
+                    addContest(comp, "Week " + i, 112, w, 7, false, weekly);
+                    addContest(comp, "Week " + i, 113, w, 7, false, weekly);
+                    w = addDays(w, 7);
                 }
             }
             
