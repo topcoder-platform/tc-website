@@ -17,7 +17,6 @@ import javax.naming.InitialContext;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
-//import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
@@ -26,6 +25,7 @@ import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
 import com.topcoder.web.ejb.pacts.PactsServicesLocal;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
@@ -36,7 +36,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException
 import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-//import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
@@ -1726,7 +1725,7 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.updatePayment(payment);
     }
 
-    public BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException {
+    public BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getBasePayment(paymentId);
     }
