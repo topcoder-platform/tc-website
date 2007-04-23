@@ -243,15 +243,15 @@ public interface PactsServices extends EJBObject {
     
     BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception;
 
-    List findPayments(int paymentTypeId) throws RemoteException, Exception;
+    List findPayments(int paymentTypeId) throws RemoteException, Exception, InvalidStatusException;
 
-    List findPayments(int paymentTypeId, long referenceId) throws RemoteException, Exception;
+    List findPayments(int paymentTypeId, long referenceId) throws RemoteException, Exception, InvalidStatusException;
 
-    List findCoderPayments(long coderId) throws RemoteException, Exception;
+    List findCoderPayments(long coderId) throws RemoteException, Exception, InvalidStatusException;
 
-    List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception;
+    List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception, InvalidStatusException;
 
-    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception;
+    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception, InvalidStatusException;
 
     BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException;
 

@@ -60,7 +60,7 @@ public interface PactsClientServices extends EJBObject {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    List findPayments(int paymentTypeId) throws RemoteException, Exception;
+    List findPayments(int paymentTypeId) throws RemoteException, Exception, InvalidStatusException;
 
     /**
      * Find all the payments of a certain type, referencing to a particular id.
@@ -72,7 +72,7 @@ public interface PactsClientServices extends EJBObject {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    List findPayments(int paymentTypeId, long referenceId) throws RemoteException, Exception;
+    List findPayments(int paymentTypeId, long referenceId) throws RemoteException, Exception, InvalidStatusException;
 
     /**
      * Find all the payments for a coder, of any type.
@@ -81,7 +81,7 @@ public interface PactsClientServices extends EJBObject {
      * @return a List of instances of BasePayment subclasses.
      * @throws SQLException
      */
-    List findCoderPayments(long coderId) throws RemoteException, Exception;
+    List findCoderPayments(long coderId) throws RemoteException, Exception, InvalidStatusException;
 
     /**
      * Find the payments of the specified type for a coder.
@@ -91,7 +91,7 @@ public interface PactsClientServices extends EJBObject {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception;
+    List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception, InvalidStatusException;
 
     /**
      * Find the payments of the specified type for a coder, referencing to a particular id.
@@ -104,7 +104,7 @@ public interface PactsClientServices extends EJBObject {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception;
+    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception, InvalidStatusException;
 
     /**
      * Get a BasePayment from the database.
