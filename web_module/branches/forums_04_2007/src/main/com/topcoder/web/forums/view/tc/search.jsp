@@ -184,11 +184,11 @@ function noenter(e)
 </table>
 <br>
 
-<%	boolean displayPerThread = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
-    int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); 
-	int categoriesCount = ((Integer)request.getAttribute("categoriesCount")).intValue();
-	if ("search".equals(status)) { %>
-	<%	if (categoriesCount > 0) { %>
+<%	if ("search".equals(status)) { %>
+	<%	boolean displayPerThread = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
+    	int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); 
+		int categoriesCount = ((Integer)request.getAttribute("categoriesCount")).intValue();
+		if (categoriesCount > 0) { %>
 		<jsp:include page="searchCategoryResults.jsp"/><p>
 	<%	} %>
 	<%	if (resultCount > 0) { %>
