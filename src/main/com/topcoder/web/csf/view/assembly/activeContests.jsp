@@ -89,8 +89,11 @@
                             3
                         </td>
                         <td class="valueR" nowrap="nowrap">
+                            registration closed
+                            <%--
                             <A href="/?module=SecureStatic&d1=assembly&d2=reg" class="button" style="margin: 4px;">Register</A>
                             <A href="/?module=Static&d1=assembly&d2=orIntro" class="button" style="margin: 4px;">Submit</A>
+                            --%>
                         </td>
                     </tr>
                     <% even = !even;%>
