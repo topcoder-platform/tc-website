@@ -330,6 +330,14 @@ p.explain {
 		<td>
 			<table style="width: 0%">
 				<tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.ROUND_SELECT_ID %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        	
+			
+				<tr>
 					<td width="10%" nowrap="nowrap">
 						<tc-webtag:radioButton name="<%= UpdateIntroEvent.USE_ROUND_SEL %>" value="1" />
 						Choose a round:
@@ -338,6 +346,13 @@ p.explain {
 						<tc-webtag:objectSelect name="<%= UpdateIntroEvent.ROUND_SELECT_ID %>" list="${rounds}" valueField="id" textField="shortName" topText="[Select one]" topValue="-1" /> 
 					</td>
 				</tr>
+				<tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.ROUND_ID %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        					
 				<tr>
 					<td nowrap="nowrap">
 						<tc-webtag:radioButton name="<%= UpdateIntroEvent.USE_ROUND_SEL %>" value="0" />
@@ -412,6 +427,14 @@ p.explain {
 		<td>Registration:</td>
         <td class="value">
         	<table style="width: 0%">
+				<tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.COMP_REG_START %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        	
+        	
 	        	<tr>
 	    	    	<td>from</td>
 	    	    	<td nowrap="true">
@@ -420,6 +443,13 @@ p.explain {
 					</td>
 					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="<%= UpdateIntroEvent.COMP_REG_USE_TIMEZONE %>"/>Event time zone</td>
 				</tr>
+				<tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.COMP_REG_END %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        					
 				<tr>
 	    	    	<td>to</td>
 	    	    	<td nowrap="true">
@@ -432,7 +462,13 @@ p.explain {
 			
         </td>
    </tr>
-	
+		<tr>
+	       <td colspan="3">
+	           <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.COMP_FIRST_WEEK %>">
+	               <font color="#FF0000"><%=err%></font><br/>
+	           </tc-webtag:errorIterator>
+	       </td>
+	</tr>			        	
 	<tr>
 		<td>First week:</td>
         <td class="value">
@@ -440,6 +476,13 @@ p.explain {
 					<button id="trigger_comp_first_week">Set</button>
 		</td>	
 	</tr>
+	<tr>
+        <td colspan="3">
+            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.COMP_NUMBER_WEEKS %>">
+                <font color="#FF0000"><%=err%></font><br/>
+            </tc-webtag:errorIterator>
+        </td>
+	</tr>			        		
 	<tr>
 		<td>Number of weeks:</td>
 		<td><tc-webtag:textInput name="<%= UpdateIntroEvent.COMP_NUMBER_WEEKS%>" size="4" editable="true" /></td>
@@ -449,15 +492,34 @@ p.explain {
 		<td>
 			<table style="width: 0%">
 				<tr>
-				</tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.WEEKLY_PRIZES[0] %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        					
 				<tr>
 					<td nowrap="true">1st place</td>
 					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[0]%>" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.WEEKLY_PRIZES[1] %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        					
+				<tr>
 					<td nowrap="true">2nd place</td>
 					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[1]%>" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
+				<tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.WEEKLY_PRIZES[2] %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        					
 				<tr>
 					<td nowrap="true">3rd place</td>
 					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[2]%>" size="6" editable="true" format="###,###.00" /></td>
@@ -470,15 +532,34 @@ p.explain {
 		<td>
 			<table style="width: 0%">
 				<tr>
-				</tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.OVERALL_PRIZES[0] %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        					
 				<tr>
 					<td nowrap="true">1st place</td>
 					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[0]%>" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.OVERALL_PRIZES[1] %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        									
+				<tr>
 					<td nowrap="true">2nd place</td>
 					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[1]%>" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
+				<tr>
+			        <td colspan="3">
+			            <tc-webtag:errorIterator id="err" name="<%= UpdateIntroEvent.WEEKLY_PRIZES[2] %>">
+			                <font color="#FF0000"><%=err%></font><br/>
+			            </tc-webtag:errorIterator>
+			        </td>
+				</tr>			        									
 				<tr>
 					<td nowrap="true">3rd place</td>
 					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[2]%>" size="6" editable="true" format="###,###.00" /></td>

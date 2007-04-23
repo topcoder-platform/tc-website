@@ -31,7 +31,7 @@ public class UpdateIntroEvent extends IntroEventBase {
     
     public static final String[] RESTORE_VALUES = {EVENT_NAME, EVENT_SHORT_NAME, SCHOOL_TYPE, SCHOOL_ID, FORUM_ID, TIMEZONE_ID, IMAGE_ID, 
         ALGO_REG_START, ALGO_REG_END, COMP_REG_START, COMP_REG_END, SCHOOL_SEARCH, USE_ROUND_SEL, ROUND_ID, ROUND_SELECT_ID,
-        ALGO_REG_USE_TIMEZONE, COMP_REG_USE_TIMEZONE, COMP_FIRST_WEEK, COMP_NUMBER_WEEKS, OVERALL_PRIZES[0], OVERALL_PRIZES[1], OVERALL_PRIZES[2],
+        COMP_FIRST_WEEK, COMP_NUMBER_WEEKS, OVERALL_PRIZES[0], OVERALL_PRIZES[1], OVERALL_PRIZES[2],
         WEEKLY_PRIZES[0], WEEKLY_PRIZES[1], WEEKLY_PRIZES[2]};
     
     
@@ -135,7 +135,7 @@ public class UpdateIntroEvent extends IntroEventBase {
             
             // Create contests
             Timestamp firstWeek = getDateTime(COMP_FIRST_WEEK, sdfDateTime, null);
-            int nweeks = new Integer(getRequest().getParameter(COMP_NUMBER_WEEKS));
+            Integer nweeks = getInteger(COMP_NUMBER_WEEKS);
 
             List<Double> overall = new ArrayList<Double>();
             List<Double> weekly = new ArrayList<Double>();
@@ -224,6 +224,13 @@ public class UpdateIntroEvent extends IntroEventBase {
         if (ssid !=null && ssid.trim().length() > 0) {
             getRequest().setAttribute(DO_SEARCH, true);            
             getRequest().setAttribute(SCHOOL_SELECT_ID, ssid);            
+        }
+        
+        if (getRequest().getParameter(ALGO_REG_USE_TIMEZONE) != null) {
+            setDefault(ALGO_REG_USE_TIMEZONE, "true");            
+        }
+        if (getRequest().getParameter(COMP_REG_USE_TIMEZONE) != null) {
+            setDefault(COMP_REG_USE_TIMEZONE, "true");            
         }
         
     }
