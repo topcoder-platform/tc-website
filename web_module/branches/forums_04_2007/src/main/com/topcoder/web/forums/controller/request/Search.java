@@ -222,6 +222,14 @@ public class Search extends ForumsProcessor {
             for (int i=0; i<reqTokens.size(); i++) {
                 log.info(i+1+") "+reqTokens.get(i));
             }
+            for (int i=optTokens.size()-1; i>=0; i--) {
+                for (String stopWord: STOP_WORDS) {
+                    if (optTokens.get(i).equals(stopWord)) {
+                        optTokens.remove(i);
+                        break;
+                    }
+                }
+            }
             log.info("Optional tokens: ");
             for (int i=0; i<optTokens.size(); i++) {
                 log.info(i+1+") "+optTokens.get(i));
@@ -256,7 +264,8 @@ public class Search extends ForumsProcessor {
                     if (hasAllReq) {
                         int optTokensCNT = 0;
                         for (int i=0; i<optTokens.size(); i++) {
-                            if (categoryName.contains(optTokens.get(i))) {
+                            if (categoryName.contains(" "+optTokens.get(i)) ||
+                                    categoryName.contains(optTokens.get(i)+" ")) {
                                 optTokensCNT++;
                             }
                         }
