@@ -136,26 +136,28 @@ public class UpdateIntroEvent extends IntroEventBase {
             // Create contests
             Timestamp firstWeek = getDateTime(COMP_FIRST_WEEK, sdfDateTime, null);
             Integer nweeks = getInteger(COMP_NUMBER_WEEKS);
-
-            List<Double> overall = new ArrayList<Double>();
-            List<Double> weekly = new ArrayList<Double>();
-
-            for (int i = 1; i <= 3; i++) {
-                Double d = getDouble(OVERALL_PRIZES[i-1], "Overall " + Util.ordinal(i) + " prize");
-                if (d != null && d > 0) overall.add(d); 
+    
+            if (firstWeek != null && nweeks != null) {
+                List<Double> overall = new ArrayList<Double>();
+                List<Double> weekly = new ArrayList<Double>();
+    
+                for (int i = 1; i <= 3; i++) {
+                    Double d = getDouble(OVERALL_PRIZES[i-1]);
+                    if (d != null && d > 0) overall.add(d); 
+                    
+                    d = getDouble(WEEKLY_PRIZES[i-1]);
+                    if (d != null && d > 0) weekly.add(d); 
+                }
                 
-                d = getDouble(WEEKLY_PRIZES[i-1], "Weekly " + Util.ordinal(i) + " prize");
-                if (d != null && d > 0) weekly.add(d); 
-            }
-            
-            addContest(comp, "Overall", 112, firstWeek, nweeks * 7, true, overall);
-            addContest(comp, "Overall", 113, firstWeek, nweeks * 7, true, overall);
-            
-            Timestamp w = firstWeek;
-            for (int i = 1; i <= nweeks; i++) {
-                addContest(comp, "Week " + i, 112, w, nweeks * 7, false, weekly);
-                addContest(comp, "Week " + i, 113, w, nweeks * 7, false, weekly);
-                w = addDays(firstWeek, 7);
+                addContest(comp, "Overall", 112, firstWeek, nweeks * 7, true, overall);
+                addContest(comp, "Overall", 113, firstWeek, nweeks * 7, true, overall);
+                
+                Timestamp w = firstWeek;
+                for (int i = 1; i <= nweeks; i++) {
+                    addContest(comp, "Week " + i, 112, w, nweeks * 7, false, weekly);
+                    addContest(comp, "Week " + i, 113, w, nweeks * 7, false, weekly);
+                    w = addDays(firstWeek, 7);
+                }
             }
             
         }
@@ -258,11 +260,11 @@ public class UpdateIntroEvent extends IntroEventBase {
         return new Timestamp(d.getTime());
     }
     
-    private Double getDouble(String param, String displayName) {
+    private Double getDouble(String param) {
         try {
             return new Double(getRequest().getParameter(param));
         } catch (Exception e) {
-            addError(param, "Please enter a valid " + displayName);
+            addError(param, "Please enter a valid float value");
             return null;
         }
     }
