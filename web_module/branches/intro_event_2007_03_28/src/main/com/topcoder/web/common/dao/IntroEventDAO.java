@@ -10,6 +10,8 @@ import java.util.List;
 public interface IntroEventDAO {
 
     IntroEvent find(Long id);
+
+    List<IntroEvent> getList(int start, int maxRows);
    
     void saveOrUpdate(IntroEvent e);
 }

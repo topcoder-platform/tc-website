@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.IntroEventDAO;
@@ -23,8 +25,18 @@ public class IntroEventDAOHibernate extends Base implements IntroEventDAO {
         return (IntroEvent) super.find(IntroEvent.class, id);
     }
 
-    public void saveOrUpdate(IntroEvent e) {
-        super.saveOrUpdate(e);
+    @SuppressWarnings("unchecked")
+    public List<IntroEvent> getList(int start, int maxRows) {
+        return session.createQuery("from IntroEvent ie order by ie.id desc")
+            .setFirstResult(start)
+            .setMaxResults(maxRows)
+            .list();
+
         
     }
+    public void saveOrUpdate(IntroEvent e) {
+        super.saveOrUpdate(e);        
+    }
+    
+    
 }

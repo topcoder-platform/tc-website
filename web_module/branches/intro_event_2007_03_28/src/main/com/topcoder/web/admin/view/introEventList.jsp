@@ -25,33 +25,31 @@
             <jsp:include page="left.jsp"/>
         </td>
         <td>
-        <a href="/admin/?module=VisaLetters">Back to Visa Letters</a><br>
-        <a href="/admin/?module=EditEvent">Create new event</a><br>
+
+
 <table width="100%" >        
 <tr class="header">
 	<td></td>
 	<td>Event Name</td>
-	<td>Request start date</td>
-	<td>Request end date</td>
+	<td></td>
+	<td></td>
 	<td>Link for members</td>
 </tr>
 
 <% boolean even = true; %>
-<c:forEach items="${requestScope.events}" var="event">
+<c:forEach items="${events}" var="event">
 <tr class="<%=even?"even":"odd"%>">
 	<td>
-	     <a href="/admin/?module=EditEvent&eid=${event.id }">edit</a>
+	     <a href="/admin/?module=EditIntroEvent&eid=${event.id }">edit</a>
 	</td>
-	<td><c:out value="${event.name}" /></td>
+	<td><c:out value="${event.description}" /></td>
 	<td>
-		<fmt:formatDate value="${event.startDate}" pattern="MM/dd/yyyy HH:mm" />
+		Passed Review Query
 	</td>
 	<td>
-		<fmt:formatDate value="${event.endDate}" pattern="MM/dd/yyyy HH:mm" />
+		Create Payments
 	</td>
-	<td><a href="https://www.topcoder.com/tc?module=VisaLetterRequest&eid=<c:out value="${event.id}" />">
-		https://www.topcoder.com/tc?module=VisaLetterRequest&amp;eid=<c:out value="${event.id}" />
-		</a>
+	<td>VER
 	</td>
 </tr>
 	<% even = !even; %>
