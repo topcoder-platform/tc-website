@@ -38,9 +38,12 @@ public class DownloadSubmission extends Base {
 
 
         int b;
+        int size = 0;
         while ((b = fis.read()) >= 0) {
             sos.write(b);
+            size++;
         }
+        getResponse().addHeader("Content-Length", String.valueOf(size));
         getResponse().setStatus(HttpServletResponse.SC_OK);
         getResponse().flushBuffer();
 

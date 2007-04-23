@@ -117,6 +117,8 @@ public final class GraphServlet extends HttpServlet {
             }
             response.setContentType("image/gif");
             response.setHeader("content-disposition", "inline; filename=graph.png");
+            response.setHeader("Content-Length", String.valueOf(result.length));
+
             response.setContentType("image/png");
             o = response.getOutputStream();
             o.write(result);
