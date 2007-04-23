@@ -25,27 +25,10 @@ import com.topcoder.web.common.model.comp.ContestPrize;
 /**
  * @author cucu
  */
-public class UpdateIntroEvent extends ShortHibernateProcessor {
+public class UpdateIntroEvent extends IntroEventBase {
 
-    public static final String EVENT_NAME = "name";
-    public static final String EVENT_SHORT_NAME = "sname";
-    public static final String SCHOOL_TYPE = "school_type";
-    public static final String SCHOOL_ID = "sid";
-    public static final String SCHOOL_SELECT_ID = "ssid";
-    public static final String FORUM_ID = "fid";
-    public static final String TIMEZONE_ID = "tz";
-    public static final String IMAGE_ID = "img";
-    public static final String ALGO_REG_START = "algo_reg_start";
-    public static final String ALGO_REG_END = "algo_reg_end";
-    public static final String COMP_REG_START = "comp_reg_start";
-    public static final String COMP_REG_END = "comp_reg_end";
-    public static final String SCHOOL_SEARCH = "school_search";
     
     public static final String DO_SEARCH = "ds";
-
-    public static final Integer SCHOOL_TYPE_NONE = 0;
-    public static final Integer SCHOOL_TYPE_SELECT = 1;
-    public static final Integer SCHOOL_TYPE_ID = 2;
     
     public static final String[] RESTORE_VALUES = {EVENT_NAME, EVENT_SHORT_NAME, SCHOOL_TYPE, SCHOOL_ID, FORUM_ID, TIMEZONE_ID, IMAGE_ID, 
         ALGO_REG_START, ALGO_REG_END, COMP_REG_START, COMP_REG_END, SCHOOL_SEARCH};
@@ -173,6 +156,11 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
         
         if (hasErrors()) {
             restoreValues();
+            setEditIntroEventSelects(hasAlgo, hasComp);            
+
+            getRequest().setAttribute("hasAlgo", hasAlgo);
+            getRequest().setAttribute("hasComp", hasComp);
+            
             setNextPage("/editIntroEvent.jsp");
             setIsNextPageInContext(true);
             return;
