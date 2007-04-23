@@ -18,11 +18,13 @@ import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
+import com.topcoder.web.forums.controller.JiveCategoryComparator;
 import com.topcoder.web.forums.model.ImageData;
 import com.topcoder.web.forums.model.Paging;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
@@ -173,6 +175,7 @@ public class Search extends ForumsProcessor {
             Paginator paginator = new Paginator(paging);
             
             // "Bar Graph" should return the two results.
+            // resolve unchecked conversion warnings
             // Test pagination, eventually add options to show more/fewer categories if needed.
             // one "two three" +"four five" six +seven => R: four five | seven, O: one | two three | six
             // use STOP_WORDS
@@ -180,10 +183,6 @@ public class Search extends ForumsProcessor {
             // Consider replacing the following section with a search package to perform category search.
             long start = System.currentTimeMillis();
             String queryString = query.getQueryString().toLowerCase().trim();
-            boolean isQuoted = queryString.startsWith("\"") && queryString.endsWith("\"") && queryString.length() >= 2;
-            if (isQuoted) {
-                queryString = queryString.substring(1, queryString.length() - 1);
-            }
             
             String[] ss = queryString.split(" ");
             ArrayList<String> reqTokens = new ArrayList<String>();
@@ -292,9 +291,12 @@ public class Search extends ForumsProcessor {
             Paginator categoriesPaginator = new Paginator(paging);
             
             ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
-            ArrayList categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
+            ArrayList<ForumCategory> categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
             Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, categoryPageList);
             getRequest().setAttribute("imageDataTable", imageDataTable);
+            
+            Collections.sort(categoryPageList, 
+                    new CategoryResultComparator(categoryRankTable, optMatchesTable));
             
             long elapsedTimeMillis = System.currentTimeMillis()-start;
             log.info("Category search time for query \"" + query.getQueryString() + "\": " 
@@ -316,12 +318,12 @@ public class Search extends ForumsProcessor {
     
     class CategoryResultComparator implements Comparator {
         private Hashtable<ForumCategory,Integer> rankTable;
-        private Hashtable<ForumCategory,Integer> optMatches;    // number of optional tokens matched
+        private Hashtable<ForumCategory,Integer> optMatchesTable;    // number of optional tokens matched
         
         public CategoryResultComparator(Hashtable<ForumCategory,Integer> rankTable,
-                Hashtable<ForumCategory,Integer> optMatches) {
+                Hashtable<ForumCategory,Integer> optMatchesTable) {
             this.rankTable = rankTable;
-            this.optMatches = optMatches;
+            this.optMatchesTable = optMatchesTable;
         }
         
         public final int compare(Object o1, Object o2) {
@@ -331,7 +333,7 @@ public class Search extends ForumsProcessor {
             int retVal = 0;
             retVal = rankTable.get(c1).compareTo(rankTable.get(c2));
             if (retVal == 0) {
-                retVal = -(optMatches.get(c1).compareTo(optMatches.get(c2)));
+                retVal = -(optMatchesTable.get(c1).compareTo(optMatchesTable.get(c2)));
             }
             if (retVal == 0) {
                 retVal = c1.getName().compareTo(c2.getName());
