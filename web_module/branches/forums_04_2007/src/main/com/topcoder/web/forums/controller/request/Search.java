@@ -173,14 +173,10 @@ public class Search extends ForumsProcessor {
             Paging paging = new Paging(pageFilter, totalItemCount);
             Paginator paginator = new Paginator(paging);
             
-            // "Bar Graph" should return the two results.
             // resolve unchecked conversion warnings
             // Test pagination, eventually add options to show more/fewer categories if needed.
-            // one "two three" +"four five" six +seven => R: four five | seven, O: one | two three | six
-            // use STOP_WORDS
             
             // Consider replacing the following section with a search package to perform category search.
-            long start = System.currentTimeMillis();
             String queryString = query.getQueryString().toLowerCase().trim();
             
             String[] ss = queryString.split(" ");
@@ -218,10 +214,6 @@ public class Search extends ForumsProcessor {
                 curList.add(curQuote);
             }
             
-            log.info("Required tokens: ");
-            for (int i=0; i<reqTokens.size(); i++) {
-                log.info(i+1+") "+reqTokens.get(i));
-            }
             for (int i=optTokens.size()-1; i>=0; i--) {
                 for (String stopWord: STOP_WORDS) {
                     if (optTokens.get(i).equals(stopWord)) {
@@ -229,10 +221,6 @@ public class Search extends ForumsProcessor {
                         break;
                     }
                 }
-            }
-            log.info("Optional tokens: ");
-            for (int i=0; i<optTokens.size(); i++) {
-                log.info(i+1+") "+optTokens.get(i));
             }
             
             String unquotedQueryString = "";
@@ -250,11 +238,9 @@ public class Search extends ForumsProcessor {
                 int rank = -1;
                 if (categoryName.equals(queryString) ||
                         (unquotedQueryString.length() > 0 && categoryName.equals(unquotedQueryString))) {
-                    log.info("Rank 1 hit: " + categoryName);
                     rank = 1;
                 } else if (categoryName.startsWith(queryString) ||
                         (unquotedQueryString.length() > 0 && categoryName.startsWith(unquotedQueryString))) {
-                    log.info("Rank 2 hit: " + categoryName);
                     rank = 2;
                 } else {
                     boolean hasAllReq = true;
@@ -270,7 +256,6 @@ public class Search extends ForumsProcessor {
                             }
                         }
                         if (optTokensCNT > 0 || reqTokens.size() > 0) {
-                            log.info("Rank 3 hit: " + categoryName);
                             optMatchesTable.put(category, optTokensCNT);
                             rank = 3;
                         }
@@ -310,10 +295,6 @@ public class Search extends ForumsProcessor {
             ArrayList<ForumCategory> categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
             Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, categoryPageList);
             getRequest().setAttribute("imageDataTable", imageDataTable);
-            
-            long elapsedTimeMillis = System.currentTimeMillis()-start;
-            log.info("Category search time for query \"" + query.getQueryString() + "\": " 
-                    + elapsedTimeMillis/1000 + "." + elapsedTimeMillis%1000 + "s");
             
             getRequest().setAttribute("status", status);
             getRequest().setAttribute("query", query);
