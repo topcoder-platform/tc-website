@@ -121,7 +121,7 @@
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.END_RANK%>"/>
     <tc-webtag:hiddenInput name="<%=Constants.CODER_ID%>"/>
     <table class="stat" cellpadding="0" cellspacing="0" width="100%">
-        <tr><td class="title" colspan="9">
+        <tr><td class="title" colspan="10">
             <% if (phaseId.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {%>
             Development
             <% } else { %>
@@ -133,8 +133,11 @@
             <TD CLASS="header">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Date</a>
             </TD>
-            <TD CLASS="header" WIDTH="37%">
+            <TD CLASS="header" WIDTH="30%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true"/>">Component</a>
+            </TD>
+            <TD CLASS="header" WIDTH="15%">
+                <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("category_desc")%>" includeParams="true"/>">Category</a>
             </TD>
             <TD CLASS="headerR" WIDTH="9%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="8" includeParams="true"/>">Score</a>
@@ -142,10 +145,10 @@
             <TD CLASS="headerC" WIDTH="9%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=rsc2.getColumnIndex("num_submissions")%>" includeParams="true"/>">Submissions</a>
             </TD>
-            <TD CLASS="headerC" WIDTH="9%">
+            <TD CLASS="headerC" WIDTH="5%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true"/>">Passed<br>
                     Review</a></TD>
-            <TD CLASS="headerC" WIDTH="9%">
+            <TD CLASS="headerC" WIDTH="5%">
                 <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Place</a>
             </TD>
             <TD CLASS="headerR" WIDTH="9%">
@@ -171,6 +174,7 @@
                     <rsc:item name="component_name" row="<%=resultRow%>"/>
                     <% } %>
                 </TD>
+                <TD class="value"><rsc:item name="category_desc" row="<%=resultRow%>"/></TD>
                 <TD class="valueR"><rsc:item name="final_score" row="<%=resultRow%>" format="0.00"/></TD>
                 <TD class="valueC"><rsc:item name="num_submissions" row="<%=resultRow%>" ifNull=""/></TD>
                 <TD class="valueC"><rsc:item name="num_submissions_passed_review" row="<%=resultRow%>"/></TD>
