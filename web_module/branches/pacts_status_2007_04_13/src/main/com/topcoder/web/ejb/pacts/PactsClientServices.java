@@ -6,6 +6,8 @@ import java.util.List;
 
 import javax.ejb.EJBObject;
 
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
+
 /**
  * EJB for working with payments.
  * Each payment is represented by an instance of a BasePayment subclass, depending on its type.
@@ -111,7 +113,7 @@ public interface PactsClientServices extends EJBObject {
      * @return the payment loaded or null if no payment found.
      * @throws SQLException
      */
-    BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException;
+    BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException;
     
     /**
      * Delete a payment.
