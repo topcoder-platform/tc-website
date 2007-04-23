@@ -7,7 +7,7 @@
 <%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
-<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
+<%--<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />--%>
 <c:set var="paymentList" value="<%= request.getAttribute(PaymentList.PAYMENTS) %>" />
 <c:set var="reliabilityMap" value="<%= request.getAttribute(PaymentList.RELIABILITY) %>" />
 <c:set var="groupReliability" value="<%= request.getAttribute(PaymentList.GROUP_RELIABILITY) %>" />
@@ -126,7 +126,7 @@ ${fn:length(paymentList)} records. <br />
 <%--<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.REVIEW_CMD  %>"><br><br> --%>
 <input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.STATUS_CMD  %>">
 
-           <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" /> <br><br>
+    <%--       <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" /> <br><br>--%>
 
 
 </form>
