@@ -91,14 +91,14 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
     @Override
     public Boolean isValid(BasePayment payment) {
-        // since this is a system managed status, it’s always valid
+        // since this is a system managed status, it's always valid
         return true;
     }
 
     @Override
     public void nextState(BasePayment payment) {
         if (reasons.size() == 0) {
-            // if there’s no reason to stay in this state, move to the next
+            // if there's no reason to stay in this state, move to the next
             //payment.setCurrentStatus(new AccruingPaymentStatus(payment));
         }
     }

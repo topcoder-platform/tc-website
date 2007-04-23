@@ -40,7 +40,7 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
 
     @Override
     public Boolean isValid(BasePayment payment) {
-        // since this is a system managed status, it’s always valid
+        // since this is a system managed status, it's always valid
         return true;
     }
 
