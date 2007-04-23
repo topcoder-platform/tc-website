@@ -44,12 +44,20 @@
 	</td>
 	<td><c:out value="${event.description}" /></td>
 	<td>
+		<c:forEach items="${event.children}" var="child">
+			<c:if test="${child.type.id == 12 }">
+				<a href="/tc?module=IntroEventAlgoOverview&eid=${child.id }">algo</a>
+			</c:if>
+			<c:if test="${child.type.id == 13 }">
+				<a href="/tc?module=IntroEventCompOverview&eid=${child.id }">comp</a>
+			</c:if>
+		</c:forEach>
+	</td>
+	<td>
 		Passed Review Query
 	</td>
 	<td>
 		Create Payments
-	</td>
-	<td>VER
 	</td>
 </tr>
 	<% even = !even; %>

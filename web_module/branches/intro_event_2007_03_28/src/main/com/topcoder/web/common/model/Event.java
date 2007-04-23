@@ -27,7 +27,7 @@ public class Event extends Base {
     private Set users = new HashSet();
     private Event parent;
     private Set<Contest> contests = new HashSet<Contest>();
-    
+    private Set<Event> children = new HashSet<Event>();
 
     public Event(Long id, EventType type) {
         super();
@@ -130,6 +130,14 @@ public class Event extends Base {
     
     public void addContest(Contest c) {
         contests.add(c);
+    }
+
+    public Set<Event> getChildren() {
+        return children;
+    }
+
+    public void setChildren(Set<Event> children) {
+        this.children = children;
     }
 
 }

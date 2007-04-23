@@ -30,6 +30,11 @@
         </set>
 
         <many-to-one name="parent" column="parent_event_id" class="Event" access="field"/>
+        
+        <set name="children" table="Event" inverse="true" access="field">
+            <key column="event_id"/>
+            <one-to-many  class="Event"/>
+        </set>
 
          <joined-subclass name="IntroEvent" table="intro_event">
             <key column="event_id"/>

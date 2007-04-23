@@ -27,7 +27,7 @@ public class IntroEventDAOHibernate extends Base implements IntroEventDAO {
 
     @SuppressWarnings("unchecked")
     public List<IntroEvent> getList(int start, int maxRows) {
-        return session.createQuery("from IntroEvent ie order by ie.id desc")
+        return session.createQuery("from IntroEvent ie left join fetch ie.children order by ie.id desc")
             .setFirstResult(start)
             .setMaxResults(maxRows)
             .list();
