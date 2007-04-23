@@ -301,7 +301,7 @@ p.explain {
 	    	    		<tc-webtag:textInput name="<%= UpdateIntroEvent.ALGO_REG_START %>" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 						<button id="trigger_algo_reg_start">Set</button>
 					</td>
-					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="<%= UpdateIntroEvent.ALGO_REG_USE_TIMEZONE %>" value="true"/>Event time zone</td>
+					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="<%= UpdateIntroEvent.ALGO_REG_USE_TIMEZONE %>"/>Event time zone</td>
 				</tr>
 				<tr>
 			        <td colspan="3">
@@ -418,7 +418,7 @@ p.explain {
 	    	    		<tc-webtag:textInput name="<%= UpdateIntroEvent.COMP_REG_START %>" id="<%= UpdateIntroEvent.COMP_REG_START %>" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 						<button id="trigger_comp_reg_start">Set</button>
 					</td>
-					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="<%= UpdateIntroEvent.COMP_REG_USE_TIMEZONE %>" value="true"/>Event time zone</td>
+					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="<%= UpdateIntroEvent.COMP_REG_USE_TIMEZONE %>"/>Event time zone</td>
 				</tr>
 				<tr>
 	    	    	<td>to</td>

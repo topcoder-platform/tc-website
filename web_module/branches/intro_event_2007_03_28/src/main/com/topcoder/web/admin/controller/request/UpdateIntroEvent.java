@@ -60,7 +60,7 @@ public class UpdateIntroEvent extends IntroEventBase {
         ie.setShortDescription(sname);
         if (forumId != null) ie.setForumId(forumId);
         if (timezoneId != null) { 
-            timeZone = factory.getTimeZoneDAO().find(new Integer(timezoneId));
+            timeZone = factory.getTimeZoneDAO().find(timezoneId);
             ie.setTimezone(timeZone);
         }
         if (imageId != null) ie.setImage(factory.getImageDAO().find(new Long(imageId)));        
@@ -96,13 +96,14 @@ public class UpdateIntroEvent extends IntroEventBase {
         
         Event algo = null;
         if (hasAlgo) {
-            Long roundId;
             if ("1".equals(getRequest().getParameter(USE_ROUND_SEL))) {
-                roundId = getSelect(ROUND_SELECT_ID).longValue();
+                Integer roundId = getSelect(ROUND_SELECT_ID);
+                if (roundId != null) ie.setRoundId(roundId.longValue());
             } else {
-                roundId = getLong(ROUND_ID);
+                Long roundId = getLong(ROUND_ID);
+                if (roundId != null) ie.setRoundId(roundId);
             }
-            ie.setRoundId(roundId);
+            
 
             algo = new Event();
             algo.setParent(ie);
