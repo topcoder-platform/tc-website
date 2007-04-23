@@ -18,7 +18,6 @@ import com.topcoder.web.ejb.forums.Forums;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
-import com.topcoder.web.forums.controller.JiveCategoryComparator;
 import com.topcoder.web.forums.model.ImageData;
 import com.topcoder.web.forums.model.Paging;
 
