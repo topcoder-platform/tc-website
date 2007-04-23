@@ -27,6 +27,15 @@ public abstract class IntroEventBase extends ShortHibernateProcessor {
     public static final String COMP_REG_START = "comp_reg_start";
     public static final String COMP_REG_END = "comp_reg_end";
     public static final String SCHOOL_SEARCH = "school_search";
+    public static final String USE_ROUND_SEL = "use_round_sel";
+    public static final String ROUND_ID = "rid";
+    public static final String ROUND_SELECT_ID = "rsid";
+    public static final String ALGO_REG_USE_TIMEZONE = "algo_tz";
+    public static final String COMP_REG_USE_TIMEZONE = "comp_tz";
+    public static final String COMP_FIRST_WEEK = "comp_first_week";
+    public static final String COMP_NUMBER_WEEKS = "comp_number_weeks";
+    public static final String[] OVERALL_PRIZES = {"prize1ov", "prize2ov", "prize3ov"};
+    public static final String[] WEEKLY_PRIZES = {"prize1w", "prize2w", "prize3w"};
 
     public static final Integer SCHOOL_TYPE_NONE = 0;
     public static final Integer SCHOOL_TYPE_SELECT = 1;

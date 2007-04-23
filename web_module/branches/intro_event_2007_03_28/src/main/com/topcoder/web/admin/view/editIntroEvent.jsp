@@ -301,7 +301,7 @@ p.explain {
 	    	    		<tc-webtag:textInput name="<%= UpdateIntroEvent.ALGO_REG_START %>" id="algo_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 						<button id="trigger_algo_reg_start">Set</button>
 					</td>
-					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="algo_tz" value="true"/>Event time zone</td>
+					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="<%= UpdateIntroEvent.ALGO_REG_USE_TIMEZONE %>" value="true"/>Event time zone</td>
 				</tr>
 				<tr>
 			        <td colspan="3">
@@ -313,7 +313,7 @@ p.explain {
 				<tr>
 	    	    	<td>to</td>
 	    	    	<td nowrap="true">
-			            <tc-webtag:textInput name="<%= UpdateIntroEvent.ALGO_REG_END %>" id="algo_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+			            <tc-webtag:textInput name="<%= UpdateIntroEvent.ALGO_REG_END %>" id="<%= UpdateIntroEvent.ALGO_REG_END %>" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 			   			<button id="trigger_algo_reg_end">Set</button>
 					</td>				    	    	
     	    	</tr>
@@ -331,20 +331,20 @@ p.explain {
 			<table style="width: 0%">
 				<tr>
 					<td width="10%" nowrap="nowrap">
-						<tc-webtag:radioButton name="use_round_sel" value="1" />
+						<tc-webtag:radioButton name="<%= UpdateIntroEvent.USE_ROUND_SEL %>" value="1" />
 						Choose a round:
 					</td>					
 					<td>
-						<tc-webtag:objectSelect name="round_id_sel" list="${rounds}" valueField="id" textField="shortName" topText="[Select one]" topValue="-1" /> 
+						<tc-webtag:objectSelect name="<%= UpdateIntroEvent.ROUND_SELECT_ID %>" list="${rounds}" valueField="id" textField="shortName" topText="[Select one]" topValue="-1" /> 
 					</td>
 				</tr>
 				<tr>
 					<td nowrap="nowrap">
-						<tc-webtag:radioButton name="use_round_sel" value="0" />
+						<tc-webtag:radioButton name="<%= UpdateIntroEvent.USE_ROUND_SEL %>" value="0" />
 						Or enter round_id:
 					</td>					
 					<td>
-						<tc-webtag:textInput name="round_id" size="8" editable="true" />
+						<tc-webtag:textInput name="<%= UpdateIntroEvent.ROUND_ID %>" size="8" editable="true" />
 					</td>
 				</tr>
 				
@@ -415,15 +415,15 @@ p.explain {
 	        	<tr>
 	    	    	<td>from</td>
 	    	    	<td nowrap="true">
-	    	    		<tc-webtag:textInput name="comp_reg_start" id="comp_reg_start" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+	    	    		<tc-webtag:textInput name="<%= UpdateIntroEvent.COMP_REG_START %>" id="<%= UpdateIntroEvent.COMP_REG_START %>" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 						<button id="trigger_comp_reg_start">Set</button>
 					</td>
-					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="comp_tz" value="true"/>Event time zone</td>
+					<td rowspan="2" nowrap="true" style="vertical-align: middle"><tc-webtag:chkBox name="<%= UpdateIntroEvent.COMP_REG_USE_TIMEZONE %>" value="true"/>Event time zone</td>
 				</tr>
 				<tr>
 	    	    	<td>to</td>
 	    	    	<td nowrap="true">
-			            <tc-webtag:textInput name="comp_reg_end" id="comp_reg_end" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+			            <tc-webtag:textInput name="<%= UpdateIntroEvent.COMP_REG_END %>" id="<%= UpdateIntroEvent.COMP_REG_END %>" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 			   			<button id="trigger_comp_reg_end">Set</button>
 					</td>				    	    	
     	    	</tr>
@@ -436,13 +436,13 @@ p.explain {
 	<tr>
 		<td>First week:</td>
         <td class="value">
-            <tc-webtag:textInput name="comp_first_week" id="comp_first_week" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
+            <tc-webtag:textInput name="<%= UpdateIntroEvent.COMP_FIRST_WEEK %>" id="<%= UpdateIntroEvent.COMP_FIRST_WEEK %>" size="18" format="MM/dd/yyyy HH:mm" editable="true" />  
 					<button id="trigger_comp_first_week">Set</button>
 		</td>	
 	</tr>
 	<tr>
 		<td>Number of weeks:</td>
-		<td><tc-webtag:textInput name="nweeks" size="4" editable="true" /></td>
+		<td><tc-webtag:textInput name="<%= UpdateIntroEvent.COMP_NUMBER_WEEKS%>" size="4" editable="true" /></td>
 	</tr>
 	<tr>
 		<td>Weekly Prizes</td>
@@ -452,15 +452,15 @@ p.explain {
 				</tr>
 				<tr>
 					<td nowrap="true">1st place</td>
-					<td><tc-webtag:textInput name="prize1w" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[0]%>" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
 					<td nowrap="true">2nd place</td>
-					<td><tc-webtag:textInput name="prize2w" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[1]%>" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
 					<td nowrap="true">3rd place</td>
-					<td><tc-webtag:textInput name="prize3w" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[2]%>" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 			</table>
 		</td>
@@ -473,15 +473,15 @@ p.explain {
 				</tr>
 				<tr>
 					<td nowrap="true">1st place</td>
-					<td><tc-webtag:textInput name="prize1ov" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[0]%>" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
 					<td nowrap="true">2nd place</td>
-					<td><tc-webtag:textInput name="prize2ov" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[1]%>" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 				<tr>
 					<td nowrap="true">3rd place</td>
-					<td><tc-webtag:textInput name="prize3ov" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[2]%>" size="6" editable="true" format="###,###.00" /></td>
 				</tr>
 			</table>
 		</td>

@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 
 import com.topcoder.web.common.DateUtils;
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.function.Util;
@@ -31,7 +30,10 @@ public class UpdateIntroEvent extends IntroEventBase {
     public static final String DO_SEARCH = "ds";
     
     public static final String[] RESTORE_VALUES = {EVENT_NAME, EVENT_SHORT_NAME, SCHOOL_TYPE, SCHOOL_ID, FORUM_ID, TIMEZONE_ID, IMAGE_ID, 
-        ALGO_REG_START, ALGO_REG_END, COMP_REG_START, COMP_REG_END, SCHOOL_SEARCH};
+        ALGO_REG_START, ALGO_REG_END, COMP_REG_START, COMP_REG_END, SCHOOL_SEARCH, USE_ROUND_SEL, ROUND_ID, ROUND_SELECT_ID,
+        ALGO_REG_USE_TIMEZONE, COMP_REG_USE_TIMEZONE, COMP_FIRST_WEEK, COMP_NUMBER_WEEKS, OVERALL_PRIZES[0], OVERALL_PRIZES[1], OVERALL_PRIZES[2],
+        WEEKLY_PRIZES[0], WEEKLY_PRIZES[1], WEEKLY_PRIZES[2]};
+    
     
     @Override
     protected void dbProcessing() throws Exception {
@@ -94,8 +96,8 @@ public class UpdateIntroEvent extends IntroEventBase {
         
         Event algo = null;
         if (hasAlgo) {
-            boolean sel = "1".equals(getRequest().getParameter("use_round_sel"));
-            String roundId = getRequest().getParameter(sel? "round_id_sel" : "round_id");
+            boolean sel = "1".equals(getRequest().getParameter(USE_ROUND_SEL));
+            String roundId = getRequest().getParameter(sel? ROUND_SELECT_ID: ROUND_ID);
             
             ie.setRoundId(new Long(roundId));
 
@@ -103,7 +105,7 @@ public class UpdateIntroEvent extends IntroEventBase {
             algo.setParent(ie);
             algo.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ALGO_ID));       
             
-            TimeZone tz = getRequest().getParameter("algo_tz") != null? timeZone : null;
+            TimeZone tz = getRequest().getParameter(ALGO_REG_USE_TIMEZONE) != null? timeZone : null;
             
             algo.setRegistrationStart(getDateTime(ALGO_REG_START, sdfDateTime, tz));
             algo.setRegistrationEnd(getDateTime(ALGO_REG_END, sdfDateTime, tz));
@@ -122,23 +124,23 @@ public class UpdateIntroEvent extends IntroEventBase {
             comp.setDescription(ie.getDescription() + " - Development");
             comp.setShortDescription(ie.getShortDescription() + "Algo");
             
-            TimeZone tz = getRequest().getParameter("comp_tz") != null? timeZone : null;
+            TimeZone tz = getRequest().getParameter(COMP_REG_USE_TIMEZONE) != null? timeZone : null;
             
             comp.setRegistrationStart(getDateTime(COMP_REG_START, sdfDateTime, tz));
             comp.setRegistrationEnd(getDateTime(COMP_REG_END, sdfDateTime, tz));
             
             // Create contests
-            Timestamp firstWeek = getDateTime("comp_first_week", sdfDateTime, null);
-            int nweeks = new Integer(getRequest().getParameter("nweeks"));
+            Timestamp firstWeek = getDateTime(COMP_FIRST_WEEK, sdfDateTime, null);
+            int nweeks = new Integer(getRequest().getParameter(COMP_NUMBER_WEEKS));
 
             List<Double> overall = new ArrayList<Double>();
             List<Double> weekly = new ArrayList<Double>();
 
             for (int i = 1; i <= 3; i++) {
-                Double d = getDouble("prize" + i + "ov", "Overall " + Util.ordinal(i) + " prize");
+                Double d = getDouble(OVERALL_PRIZES[i-1], "Overall " + Util.ordinal(i) + " prize");
                 if (d != null && d > 0) overall.add(d); 
                 
-                d = getDouble("prize" + i + "w", "Weekly " + Util.ordinal(i) + " prize");
+                d = getDouble(WEEKLY_PRIZES[i-1], "Weekly " + Util.ordinal(i) + " prize");
                 if (d != null && d > 0) weekly.add(d); 
             }
             
