@@ -54,6 +54,15 @@ function search() {
     ajaxRequest.sendRequest();
 }
 
+function initialSearch() {
+	var ajaxRequest = new AjaxRequest('/admin/?module=AjaxSearchSchool');    
+    ajaxRequest.addNamedFormElements("school_search");
+    ajaxRequest.addNamedFormElements("<%=UpdateIntroEvent.SCHOOL_SELECT_ID%>");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);        
+    ajaxRequest.sendRequest();
+}
+
 function searchAgain() {
 	var ajaxRequest = new AjaxRequest('/admin/?module=AjaxSearchSchool');    
     ajaxRequest.addNamedFormElements("school_search");
@@ -81,7 +90,7 @@ function init()
 {
 	loaded();
 	<c:if test="${ds}">
-		search();
+		initialSearch();
 	</c:if>	
 }
 
@@ -181,7 +190,8 @@ p.explain {
 						Search: 
 					
 						<tc-webtag:textInput name="school_search"  size="20" editable="true"  onKeyPress="setSchoolType(1)" /> 					
-						<input type="button" value="search" onClick="search()" />				
+						<input type="button" value="search" onClick="search()" />		
+						<input type="hidden" name="<%= UpdateIntroEvent.SCHOOL_SELECT_ID %>" >
 					</td>
 				</tr>
 				<tr>

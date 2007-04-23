@@ -222,7 +222,9 @@ public class UpdateIntroEvent extends ShortHibernateProcessor {
 
         if (getRequest().getParameter(SCHOOL_SELECT_ID)!=null) {
             getRequest().setAttribute(DO_SEARCH, true);            
+         //   getRequest().setAttribute(SCHOOL_SELECT_ID, getRequest().getParameter(SCHOOL_SELECT_ID));            
         }
+        
     }
     private Timestamp addDays(Timestamp t, int days){
         Calendar cal = Calendar.getInstance();
