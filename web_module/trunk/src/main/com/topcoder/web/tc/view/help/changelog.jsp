@@ -44,15 +44,9 @@
 
 
 <p>
-    5.8.12 - 2007.04.xx
+    5.8.11 - 2007.04.xx
     <ul>
         <li>Marathon Match enhancement to allow us to rerun / rescore any type of marathon submission -competition team</li>
-    </ul>
-</p>
-
-<p>
-    5.8.11 - 2007.04.23
-    <ul>
         <li>Category column added to competition history page -pulky</li>
         <%--<li>TCSLoad bugfix: project with deleted status are processed and all related data in the dw is fisically deleted -pulky</li>--%>
     </ul>
