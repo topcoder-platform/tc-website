@@ -37,9 +37,9 @@
                 <map name="highlights">
                 <area shape="rect" alt="" coords="1,1,199,95" href="/?module=Static&d1=leaderboardOverview" />
                 <area shape="rect" alt="" coords="1,105,199,195" href="/?module=ViewPastContests" />
-                <area shape="rect" alt="" coords="1,205,199,299" href="/?module=Static&d1=assembly&d2=btBusinessDetails" />
+                <area shape="rect" alt="" coords="1,205,199,299" href="/?module=Static&d1=assembly&d2=activeContests" />
                 </map>
-                <img src="/i/home/highlights0417.png" alt="Series Prizes" usemap="#highlights" />
+                <img src="/i/home/highlights0423.png" alt="Series Prizes" usemap="#highlights" />
             </div>
 
             <p>
@@ -90,7 +90,7 @@
                 usage scenario. The scope and rules for the competitions will be defined by Microsoft and British
                 Telecom.</p>
 
-            <p><strong><%--<a href="/">--%>Assembly Competitions:<%--</a>--%></strong> The Assembly Competition is the
+            <p><strong><%--<a href="/?module=Static&d1=assembly&d2=activeContests">--%>Assembly Competitions:<%--</a>--%></strong> The Assembly Competition is the
                 second stage and requires that the winning Mashup Design from the first stage of the competition be
                 built into a prototype that delivers a demonstrable service. The Connected Services Framework Mashup
                 Service Design and Assembly Competitions are not intended to produce commercial, carrier-grade software,
