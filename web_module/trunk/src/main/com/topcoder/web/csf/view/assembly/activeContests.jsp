@@ -86,7 +86,7 @@
                             31
                         </td>
                         <td class="valueC">
-                            0
+                            3
                         </td>
                         <td class="valueR" nowrap="nowrap">
                             <A href="/?module=SecureStatic&d1=assembly&d2=reg" class="button" style="margin: 4px;">Register</A>
