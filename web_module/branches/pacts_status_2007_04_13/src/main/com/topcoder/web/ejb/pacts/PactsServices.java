@@ -10,13 +10,13 @@ import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-//import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
@@ -253,7 +253,7 @@ public interface PactsServices extends EJBObject {
 
     List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception;
 
-    BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException;
+    BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException;
 
     void deletePayment(long paymentId) throws RemoteException, Exception;
 
