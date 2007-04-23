@@ -17,7 +17,7 @@ public class AddIntroEvent extends IntroEventBase {
             throw new NavigationException("ha and/or hc parameters expected to be 1");
         }
         
-        setEditIntroEventSelects(hasAlgo, hasComp);            
+        setEditIntroEventSelects(hasAlgo, hasComp, true);            
 
         setDefault("school_type", "1");
         setDefault("create_forum", "1");

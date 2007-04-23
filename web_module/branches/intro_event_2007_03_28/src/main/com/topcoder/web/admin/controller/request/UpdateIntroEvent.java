@@ -156,7 +156,7 @@ public class UpdateIntroEvent extends IntroEventBase {
         
         if (hasErrors()) {
             restoreValues();
-            setEditIntroEventSelects(hasAlgo, hasComp);            
+            setEditIntroEventSelects(hasAlgo, hasComp, false);            
 
             getRequest().setAttribute("hasAlgo", hasAlgo);
             getRequest().setAttribute("hasComp", hasComp);
@@ -208,9 +208,16 @@ public class UpdateIntroEvent extends IntroEventBase {
             setDefault(s, getRequest().getParameter(s));
         }
 
-        if (getRequest().getParameter(SCHOOL_SELECT_ID)!=null) {
+        List<IntroEventPropertyType> configList = DAOUtil.getFactory().getIntroEventPropertyTypeDAO().getTypes();
+        
+        for (IntroEventPropertyType cfg : configList) {
+            setDefault("cfg" + cfg.getId(), getRequest().getParameter("cfg" + cfg.getId()));            
+        }
+
+        String ssid = getRequest().getParameter(SCHOOL_SELECT_ID);
+        if (ssid !=null && ssid.trim().length() > 0) {
             getRequest().setAttribute(DO_SEARCH, true);            
-            getRequest().setAttribute(SCHOOL_SELECT_ID, getRequest().getParameter(SCHOOL_SELECT_ID));            
+            getRequest().setAttribute(SCHOOL_SELECT_ID, ssid);            
         }
         
     }

@@ -190,8 +190,10 @@ p.explain {
 						Search: 
 					
 						<tc-webtag:textInput name="school_search"  size="20" editable="true"  onKeyPress="setSchoolType(1)" /> 					
-						<input type="button" value="search" onClick="search()" />		
-						<input type="hidden" name="<%= UpdateIntroEvent.SCHOOL_SELECT_ID %>" value="<%= request.getAttribute(UpdateIntroEvent.SCHOOL_SELECT_ID )%>" >
+						<input type="button" value="search" onClick="search()" />	
+						<c:if test="${not empty ssid}">
+							<input type="hidden" name="ssid" value="${ssid }" >
+						</c:if>
 					</td>
 				</tr>
 				<tr>
@@ -264,7 +266,7 @@ p.explain {
 		<td>
 			<table>
 			<tr>
-				<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" value="${cfg.defaultValue }"/></td>
+				<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true"/></td>
 				<td><p class="explain">${cfg.explanation }</p></td>
 			</tr>
 			</table>
@@ -359,7 +361,7 @@ p.explain {
 			<td>
 				<table>
 				<tr>
-					<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" value="${cfg.defaultValue }"/></td>
+					<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true"/></td>
 					<td><p class="explain">${cfg.explanation }</p></td>
 				</tr>
 				</table>
@@ -492,7 +494,7 @@ p.explain {
 			<td>
 				<table>
 				<tr>
-					<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true" value="${cfg.defaultValue }"/></td>
+					<td width="20%"><tc-webtag:textInput name="cfg${cfg.id}" size="30" editable="true"/></td>
 					<td><p class="explain">${cfg.explanation }</p></td>
 				</tr>
 				</table>			

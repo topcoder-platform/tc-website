@@ -7,6 +7,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Image;
+import com.topcoder.web.common.model.IntroEventPropertyType;
 
 /**
  * @author cucu
@@ -31,7 +32,7 @@ public abstract class IntroEventBase extends ShortHibernateProcessor {
     public static final Integer SCHOOL_TYPE_SELECT = 1;
     public static final Integer SCHOOL_TYPE_ID = 2;
 
-    protected void setEditIntroEventSelects(boolean hasAlgo, boolean hasComp) throws Exception {
+    protected void setEditIntroEventSelects(boolean hasAlgo, boolean hasComp, boolean setConfigDefaults) throws Exception {
         DAOFactory factory = DAOUtil.getFactory(); 
         
         List tz = factory.getTimeZoneDAO().getTimeZones();
@@ -40,8 +41,17 @@ public abstract class IntroEventBase extends ShortHibernateProcessor {
         List img = factory.getImageDAO().getImages(Image.INTRO_EVENT_TYPE);
         getRequest().setAttribute("images", img);
         
-        List cfg = factory.getIntroEventPropertyTypeDAO().getTypes();
-        getRequest().setAttribute("config", cfg);
+
+        List<IntroEventPropertyType> configList = factory.getIntroEventPropertyTypeDAO().getTypes();
+        
+        if (setConfigDefaults) {
+            for (IntroEventPropertyType cfg : configList) {
+                setDefault("cfg" + cfg.getId(), cfg.getDefaultValue());            
+            }
+        }
+        
+        getRequest().setAttribute("config", configList);
+        
         
         if (hasAlgo) {
             List rounds = factory.getRoundDAO().getRoundsAfter(new Date());            
