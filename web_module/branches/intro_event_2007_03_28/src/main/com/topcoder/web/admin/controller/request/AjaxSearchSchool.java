@@ -31,8 +31,8 @@ public class AjaxSearchSchool extends ShortHibernateProcessor {
             getRequest().setAttribute("schools", schools);            
         }
         
-        if (getRequest().getAttribute(UpdateIntroEvent.SCHOOL_SELECT_ID) != null) {
-            setDefault(UpdateIntroEvent.SCHOOL_SELECT_ID, getRequest().getAttribute(UpdateIntroEvent.SCHOOL_SELECT_ID));
+        if (getRequest().getParameter(UpdateIntroEvent.SCHOOL_SELECT_ID) != null) {
+            setDefault(UpdateIntroEvent.SCHOOL_SELECT_ID, getRequest().getParameter(UpdateIntroEvent.SCHOOL_SELECT_ID));
         }
         getRequest().setAttribute("school_search" , search);
         getRequest().setAttribute("search_again" , searchAgain);
