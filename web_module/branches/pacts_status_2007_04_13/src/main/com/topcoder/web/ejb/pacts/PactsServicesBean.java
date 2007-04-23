@@ -1,5 +1,30 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.sql.Types;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.ParsePosition;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import javax.ejb.EJBException;
+import javax.jms.JMSException;
+
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.messaging.QueueMessageSender;
@@ -9,21 +34,29 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentStatus;
+import com.topcoder.web.common.model.AssignmentDocumentTemplate;
+import com.topcoder.web.common.model.AssignmentDocumentType;
+import com.topcoder.web.common.model.ComponentProject;
+import com.topcoder.web.common.model.StudioContest;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.BaseEJB;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-
-import javax.ejb.EJBException;
-import javax.jms.JMSException;
-
-import java.rmi.RemoteException;
-import java.sql.*;
-import java.text.DateFormat;
-import java.text.DecimalFormat;
-import java.text.ParsePosition;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.Date;
+import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 
 /**
@@ -2262,25 +2295,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List<BasePaymentStatus> getPaymentStatusList(Boolean onlyViewable) throws SQLException {
-        // TODO: pulky: change the basepaymentstatus for an instance of each payment status.
-        List statusList = new ArrayList<BasePaymentStatus>(); 
-        
-        StringBuffer sb = new StringBuffer(300);
-        sb.append("SELECT payment_status_id, payment_status_desc FROM payment_status_lu");
         if (onlyViewable) {
-            sb.append(" WHERE payment_status_viewable_ind = ");
+            return PaymentStatusManager.getSelectableStatusList();
+        } else {
+            return PaymentStatusManager.getAllStatusList();
         }
-        sb.append(" ORDER BY 2");
-
-        ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
-        
-        for (ResultSetContainer.ResultSetRow row : rsc) {
-            // TODO: pulky: change this!
-            statusList.add(new BasePaymentStatus(row.getLongItem("payment_status_id"), 
-                    row.getStringItem("payment_status_desc")));
-        } 
-        
-        return statusList;
     }
 
     /**
@@ -3469,7 +3488,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(1, paymentDetailId);
             ps.setDouble(2, p.getNetAmount());
             ps.setDouble(3, p.getGrossAmount());
-            ps.setInt(4, p.getStatusId());
+            ps.setLong(4, p.getStatusId());
+            // TODO: pulky: add reasons
+            
             setNullableLong(ps, 5, addressId);
             ps.setInt(6, p.getRationaleId());
             ps.setString(7, p.getHeader().getDescription());
@@ -6588,7 +6609,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.setNetAmount(payment.getNetAmount());
         p.setTotalAmount(payment.getTotalAmount());
         p.setInstallmentNumber(payment.getInstallmentNumber());
-        p.setStatusId(payment.getStatusId());
+        p.setStatusId(payment.getCurrentStatus().getId());
+        // TODO: pulky: add reasons
+        
         p.getHeader().setDescription(payment.getDescription());
         p.getHeader().setTypeId(payment.getPaymentType());
         p.setEventDate(payment.getEventDate());
@@ -6910,7 +6933,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    public List findPayments(int paymentTypeId) throws SQLException {
+    public List findPayments(int paymentTypeId) throws SQLException, InvalidStatusException {
         return findCoderPayments(0, paymentTypeId, 0);
     }
 
@@ -6924,7 +6947,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    public List findPayments(int paymentTypeId, long referenceId) throws SQLException {
+    public List findPayments(int paymentTypeId, long referenceId) throws SQLException, InvalidStatusException {
         return findCoderPayments(0, paymentTypeId, referenceId);
     }
 
@@ -6935,7 +6958,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return a List of instances of BasePayment subclasses.
      * @throws SQLException
      */
-    public List findCoderPayments(long coderId) throws SQLException {
+    public List findCoderPayments(long coderId) throws SQLException, InvalidStatusException {
         return findCoderPayments(coderId, 0, 0);
     }
 
@@ -6947,7 +6970,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    public List findCoderPayments(long coderId, int paymentTypeId) throws SQLException {
+    public List findCoderPayments(long coderId, int paymentTypeId) throws SQLException, InvalidStatusException {
         return findCoderPayments(coderId, paymentTypeId, 0);
     }
 
@@ -6962,7 +6985,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    public List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws SQLException {
+    public List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws SQLException, InvalidStatusException {
 
         StringBuffer query = new StringBuffer(500);
         List list = new ArrayList();
@@ -7014,7 +7037,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int paymentType = rsr.getIntItem("payment_type_id");
             int installmentNumber = rsr.getIntItem("installment_number");
             Date dueDate = rsr.getTimestampItem("date_due");
-            int statusId = rsr.getIntItem("status_id");
+            long statusId = rsr.getLongItem("status_id");
             String statusDesc = rsr.getStringItem("status_desc");
             String description = rsr.getStringItem("payment_desc");
 
@@ -7036,7 +7059,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             payment.setTotalAmount(totalAmount);
             payment.setInstallmentNumber(installmentNumber);
             payment.setDueDate(dueDate);
-            payment.setStatusId(statusId);
+            payment.setCurrentStatus(PaymentStatusManager.getStatusUsingId(statusId));
+            // TODO: pulky: get reasons
             payment.setStatusDesc(statusDesc);
             payment.setDescription(description);
 
@@ -7054,7 +7078,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return the payment loaded or null if no payment found.
      * @throws SQLException
      */
-    public BasePayment getBasePayment(long paymentId) throws SQLException {
+    public BasePayment getBasePayment(long paymentId) throws SQLException, InvalidStatusException {
         StringBuffer query = new StringBuffer(500);
 
         query.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
@@ -7087,7 +7111,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int paymentType = rsr.getIntItem("payment_type_id");
         int installmentNumber = rsr.getIntItem("installment_number");
         Date dueDate = rsr.getTimestampItem("date_due");
-        int statusId = rsr.getIntItem("status_id");
+        long statusId = rsr.getLongItem("status_id");
         String statusDesc = rsr.getStringItem("status_desc");
         String description = rsr.getStringItem("payment_desc");
         String client = rsr.getStringItem("client");
@@ -7110,7 +7134,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setTotalAmount(totalAmount);
         payment.setInstallmentNumber(installmentNumber);
         payment.setDueDate(dueDate);
-        payment.setStatusId(statusId);
+        payment.setCurrentStatus(PaymentStatusManager.getStatusUsingId(statusId));
+        // TODO: pulky: get reasons
+        
         payment.setStatusDesc(statusDesc);
         payment.setDescription(description);
 

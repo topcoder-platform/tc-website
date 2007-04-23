@@ -32,7 +32,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private int methodId;
     private String method;
     private String description;
-    private int statusId;
+    private long statusId;
     private String statusDesc;
     private String modifiedDate;
     private String rationale;
@@ -296,11 +296,11 @@ public class Payment implements PactsConstants, java.io.Serializable {
         this.description = description;
     }
 
-    public int getStatusId() {
+    public long getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(int statusId) {
+    public void setStatusId(long statusId) {
         this.statusId = statusId;
     }
 

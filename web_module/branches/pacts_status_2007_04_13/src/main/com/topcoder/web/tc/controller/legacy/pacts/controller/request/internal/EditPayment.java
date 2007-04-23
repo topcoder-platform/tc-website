@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.AlgorithmProblemReferencePayment;
@@ -21,6 +20,8 @@ import com.topcoder.web.ejb.pacts.DigitalRunSeasonReferencePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunStageReferencePayment;
 import com.topcoder.web.ejb.pacts.ParentReferencePayment;
 import com.topcoder.web.ejb.pacts.StudioContestReferencePayment;
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
@@ -85,16 +86,16 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 paymentId = getLongParameter(PAYMENT_ID);
             	payment = dib.getBasePayment(paymentId);
 
-                if (payment.getStatusId() == PAID_STATUS) {
-                    throw new NavigationException("You can't update a paid payment");
-                }
+//                if (payment.getStatusId() == PAID_STATUS) {
+//                    throw new NavigationException("You can't update a paid payment");
+//                }
 
                 userId = payment.getCoderId();
                 user = new UserProfileHeader(dib.getUserProfileHeader(userId));
             }
 
             String desc = "";
-            int statusId = -1;
+            long statusId = -1;
             int typeId = -1;
             double totalAmount = 0.0;
             double grossAmount = 0.0;
@@ -147,7 +148,9 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 	setReference(payment);                
                     
                     payment.setDescription(desc);
-                    payment.setStatusId(statusId);
+                    payment.setCurrentStatus(PaymentStatusManager.getStatusUsingId(statusId));
+                    // TODO: pulky: add reasons
+                    
                     payment.setTotalAmount(totalAmount);
                     payment.setGrossAmount(grossAmount > 0 && payment instanceof ComponentWinningPayment? grossAmount : totalAmount);
                     payment.setNetAmount(netAmount);
@@ -246,7 +249,10 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     }
 
 
-                    statusId = payment.getStatusId();
+                    // TODO: pulky: change the object
+                    statusId = payment.getCurrentStatus().getId();
+                    // TODO: pulky: get reasons
+                    
                     totalAmount = payment.getTotalAmount();
                     grossAmount = payment.getGrossAmount();
                     netAmount = payment.getNetAmount();
@@ -305,6 +311,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
             setNextPage(INTERNAL_EDIT_PAYMENT_JSP);
             setIsNextPageInContext(true);
+        } catch (InvalidStatusException ise) {
+            throw new TCWebException(ise);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

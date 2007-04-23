@@ -6,12 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 
 /**
  * Represents basic payment information, without reference information.
@@ -33,7 +32,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private double grossAmount;
     private double netAmount = 0;
     private Date dueDate = null;
-    private int statusId = 0;
+//    private int statusId = 0;
+    private BasePaymentStatus currentStatus;
     private String description = null;
     private final int paymentTypeId;
     private String referenceDescription = null;
@@ -288,8 +288,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.netAmount = netAmount;
     }
 
-    public int getStatusId() {
-        return statusId;
+    public BasePaymentStatus getCurrentStatus() {
+        return currentStatus;
     }
 
     public long getCoderId() {
@@ -371,14 +371,14 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
      *
      * @param statusId the new status id.
      */
-    public void setStatusId(int statusId) {
-        if (statusId != this.statusId) {
-            this.statusDesc = null;
+    public void setCurrentStatus(BasePaymentStatus status) {
+//        if (statusId != this.statusId) {
+//            this.statusDesc = null;
+//
+//        }
+        fieldChanged(MODIFICATION_STATUS, !status.equals(this.currentStatus));
 
-        }
-        fieldChanged(MODIFICATION_STATUS, statusId != this.statusId);
-
-        this.statusId = statusId;
+        this.currentStatus = status;
     }
 
     public long getContractId() {
@@ -468,13 +468,13 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
                 payment.setDueDate(lookupDueDate(payment));
             }
 
-            if (payment.getStatusId() == 0) {
-                payment.setStatusId(lookupStatus(payment));
-
-                if (payment.getStatusDesc() == null) {
-                    payment.setStatusDesc(lookupStatusDesc(payment.getStatusId()));
-                }
-            }
+//            if (payment.getStatusId() == 0) {
+//                payment.setStatusId(lookupStatus(payment));
+//
+//                if (payment.getStatusDesc() == null) {
+//                    payment.setStatusDesc(lookupStatusDesc(payment.getStatusId()));
+//                }
+//            }
 
             if (payment.getDescription() == null) {
                 payment.setDescription(lookupDescription(payment));
