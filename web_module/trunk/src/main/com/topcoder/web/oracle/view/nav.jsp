@@ -39,19 +39,19 @@
     <A href="?module=Static&d1=scoring"<% if (selectedTab.equals("scoring")) {%> class="on"<% } %>>Scoring</A>
 
     <div class="section">TCO07 Algorithm T-Shirt Design</div>
-    <strong><A href="?module=ViewBallot&rd=2016">Make your prediction!</A></strong>
+    <span class="grayedOut">Registration closed</span>
 
     <div class="section">TCO07 Component T-Shirt Design</div>
-    <strong><A href="?module=ViewBallot&rd=2020">Make your prediction!</A></strong>
+    <span class="grayedOut">Registration closed</span>
 
     <div class="section">TCO07 Marathon T-Shirt Design</div>
-    <strong><A href="?module=ViewBallot&rd=2024">Make your prediction!</A></strong>
+    <span class="grayedOut">Registration closed</span>
 
     <div class="section">TCO07 Studio T-Shirt Design</div>
-    <strong><A href="?module=ViewBallot&rd=2012">Make your prediction!</A></strong>
+    <span class="grayedOut">Registration closed</span>
 
     <div class="section">"The Ball" Logo & Icons Round 1</div>
-    <strong><A href="?module=ViewBallot&rd=2028">Make your prediction!</A></strong>
+    <span class="grayedOut">Registration closed</span>
 
     <div class="section">Homepage Redesign Round 2</div>
     <A href="?module=ViewSimpleResults&rm=1999"<% if (selectedTab.equals("1999Pred")) {%> class="on"<% } %>>Prediction Results</A>
