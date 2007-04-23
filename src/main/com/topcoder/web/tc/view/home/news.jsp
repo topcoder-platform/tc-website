@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.23.07<br>5:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/to/?module=ViewBallot&rd=2032">"The Ball" Logo & Icon Prediction Contest Round 2</A>
+        </span><br><br>
+        Vote now to predict the winning look for The Ball's logo and icons.  This contest closes on April 26 at 2 PM EDT.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/to/?module=ViewBallot&rd=2032">vote now</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=48">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>04.23.07<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -195,23 +214,6 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1c">full story</A> | 
         <tc-webtag:forumLink forumID="514950" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.17.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1b">TCO07 - Algorithm Round 1B - Problem Set & Analysis</A></span><br><br>
-      Round 1B of the TCO07 was characterized by three very approachable problems, but all of them had pitfalls that were very easy to stumble into.  With pass rates of 41%, 21% and 29%, this round was about careful coding, thinking through your algorithms, and massive opportunities during the challenge phase.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/HiltonLange_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10428762" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1b">full story</A> | 
-        <tc-webtag:forumLink forumID="514949" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
