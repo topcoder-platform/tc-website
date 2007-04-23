@@ -195,7 +195,7 @@ public class Search extends ForumsProcessor {
                     curQuote += " " + ss[i];
                     if (ss[i].endsWith("\"")) {
                         // quoted block is completed, add to list
-                        curList.add(curQuote);
+                        curList.add(curQuote.substring(1, curQuote.length()-1));
                         curQuote = "";
                     }
                 } else {
