@@ -192,24 +192,22 @@ public class Search extends ForumsProcessor {
             for (int i=0; i<ss.length; i++) {
                 if (curQuote.startsWith("\"")) {
                     // append to quoted block
-                    curQuote += ss[i];
+                    curQuote += " " + ss[i];
                     if (ss[i].endsWith("\"")) {
                         // quoted block is completed, add to list
                         curList.add(curQuote);
+                        curQuote = "";
                     }
                 } else {
                     if (ss[i].startsWith("+")) {
                         curList = reqTokens;
+                        ss[i] = ss[i].substring(1);
                     } else {
                         curList = optTokens;
                     }
-                    if (ss[i].startsWith("\"") || ss[i].startsWith("+\"")) {
+                    if (ss[i].startsWith("\"")) {
                         // start new quoted block
-                        if (ss[i].startsWith("+")) {
-                            curQuote = ss[i].substring(1);
-                        } else {
-                            curQuote = ss[i];
-                        }
+                        curQuote = ss[i];
                     } else {
                         // add single word to list
                         curList.add(ss[i]);
@@ -222,11 +220,11 @@ public class Search extends ForumsProcessor {
             
             log.info("Required tokens: ");
             for (int i=0; i<reqTokens.size(); i++) {
-                log.info(i+") "+reqTokens.get(i));
+                log.info(i+1+") "+reqTokens.get(i));
             }
             log.info("Optional tokens: ");
             for (int i=0; i<optTokens.size(); i++) {
-                log.info(i+") "+optTokens.get(i));
+                log.info(i+1+") "+optTokens.get(i));
             }
             
             Iterator<ForumCategory> itSearchCategories = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
