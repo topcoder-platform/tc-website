@@ -51,10 +51,10 @@
     <A href="/tc?module=Static&d1=tutorials&d2=alg_index">Archive</A><br>
     <span id="printableLink"><A href="Javascript:makeInvisible();">Printable view</A><br></span>
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
-    <tc-webtag:forumLink forumID="515168" message="Discuss this article" />
+    <tc-webtag:forumLink forumID="515317" message="Discuss this article" />
 </div>
 
-<span class="bigTitle">Minimum cost flow, Part 1: Key concepts</span>
+<span class="bigTitle">Minimum Cost Flow, Part 1: Key Concepts</span>
 <br /><br />
 
 <div class="authorPhoto">
@@ -67,9 +67,9 @@
 </div>
 
 <br clear="all">
-<p>This article covers the so-called "min-cost flow" problem, which has many applications for both TopCoder competitors and professional programmers. It includes the basic theory of minimum cost flow and three simple algorithms for finding minimum cost flow. The article is targeted to readers who are not familiar with the subject, with a focus more on providing a general understanding of the ideas involved rather than heavy theoretic or technical details (for a more in-depth look at this topic, check out the references at the end of this article, in particular [1]). In addition, readers of this article should be familiar with the basic concepts of graph theory (shortest paths [4], paths with negative cost arcs, negative cycles [1]) and maximum flow theory (basic algorithms [3]).</p>
+<p>This article covers the so-called "min-cost flow" problem, which has many applications for both TopCoder competitors and professional programmers. The article is targeted to readers who are not familiar with the subject, with a focus more on providing a general understanding of the ideas involved rather than heavy theory or technical details; for a more in-depth look at this topic, check out the references at the end of this article, in particular [<a href="#1">1</a>]. In addition, readers of this article should be familiar with the basic concepts of graph theory -- including shortest paths [<a href="#4">4</a>], paths with negative cost arcs, negative cycles [<a href="#1">1</a>] -- and maximum flow theory's basic algorithms [<a href="#3">3</a>].</p>
 
-<p>The article is divided into three parts. In Part 1, we'll look at the problem itself. The second part will describe three basic algorithms, and some applications to the problem will be covered in Part 3.</p>
+<p>The article is divided into three parts. In Part 1, we'll look at the problem itself. The next part will describe three basic algorithms, and Part 3 some applications to the problem will be covered in Part 3.</p>
 
 <p><span class="bodySubtitle">Statement of the Problem</span><br />
 What is the minimum cost flow problem? Let's begin with some important terminology.</p>
@@ -161,10 +161,28 @@ This assumption imposes a loss of generality. We will show below that if a netwo
 
 <div align="center"><img alt="" src="/i/education/minimumCostFlow/01_036.png" align="top" style="padding: 10px;"></div>
 
-<p>This theorem implies the following reasoning. Let's introduce a vertex <span class="math">s</span> and for each node <img alt="" src="/i/education/minimumCostFlow/01_004.png" align="top" style="padding: 0px 3px 0px 3px;">, we add an arc <img alt="" src="/i/education/minimumCostFlow/01_015.png" align="top" style="padding: 0px 3px 0px 3px;"> to <span class="math">G</span> with some positive capacity and zero cost.  Suppose that for each <img alt="" src="/i/education/minimumCostFlow/01_004.png" align="top" style="padding: 0px 3px 0px 3px;"> number <img alt="" src="/i/education/minimumCostFlow/01_022.png" align="top" style="padding: 0px 3px 0px 3px;"> denotes length of the shortest path from <span class="math">s</span> to <span class="math">i</span> with respect to cost function <span class="math">c</span>. (Reminder: there is no negative length cycle). If so, one can justify (or read it in [2]) that for each <img alt="" src="/i/education/minimumCostFlow/01_002.png" align="top" style="padding: 0px 3px 0px 3px;"> the shortest path optimality condition is satisfied:</p>
+<p>This theorem implies the following reasoning. Let's introduce a vertex <span class="math">s</span> and for each node <img alt="" src="/i/education/minimumCostFlow/01_004.png" align="top" style="padding: 0px 3px 0px 3px;">, we add an arc <img alt="" src="/i/education/minimumCostFlow/01_015.png" align="top" style="padding: 0px 3px 0px 3px;"> to <span class="math">G</span> with some positive capacity and zero cost.  Suppose that for each <img alt="" src="/i/education/minimumCostFlow/01_004.png" align="top" style="padding: 0px 3px 0px 3px;"> number <img alt="" src="/i/education/minimumCostFlow/01_022.png" align="top" style="padding: 0px 3px 0px 3px;"> denotes length of the shortest path from <span class="math">s</span> to <span class="math">i</span> with respect to cost function <span class="math">c</span>. (Reminder: there is no negative length cycle). If so, one can justify (or read it in [<a href="#2">2</a>]) that for each <img alt="" src="/i/education/minimumCostFlow/01_002.png" align="top" style="padding: 0px 3px 0px 3px;"> the shortest path optimality condition is satisfied:</p>
 
 <div align="center"><img alt="" src="/i/education/minimumCostFlow/01_037.png" align="top" style="padding: 10px;"></div>
 
+<p>Since, <img alt="" src="/i/education/minimumCostFlow/01_038.png" align="top" style="padding: 0px 3px 0px 3px;"> and <img alt="" src="/i/education/minimumCostFlow/01_039.png" align="top" style="padding: 0px 3px 0px 3px;"> yields <img alt="" src="/i/education/minimumCostFlow/01_040.png" align="top" style="padding: 0px 3px 0px 3px;">. Moreover, applying theorem 2, we can note that if <span class="math">G</span> contains negative cycle, it will be negative for any node potential <img alt="" src="/i/education/minimumCostFlow/01_028.png" align="top" style="padding: 0px 3px 0px 3px;"> in reduced network. So, if the transportation network has no negative cycle, we will be able to reduce costs and make them positive by finding the shortest paths from the introduced vertex <span class="math">s</span>, otherwise, our assumption doesn't work. If the reader asks how to find the shortest path in graph with negative costs, I'll refer you back to the basics of the graph theory. One can use Bellman-Ford (label-correcting) algorithm to achieve this goal [<a href="#1">1</a>, <a href="#2">2</a>].</p>
+
+<p>Remember this reduced cost technique, since it appears in many applications and other algorithms (for example, Johnson's algorithm for all pair shortest path in sparse networks uses it [<a href="#2">2</a>]).</p>
+
+<p><i><b>Assumption 4</b>. The supply/demand at the vertexes satisfy the condition <img alt="" src="/i/education/minimumCostFlow/01_041.png" align="top" style="padding: 0px 3px 0px 3px;"> and the minimum cost flow problem has a feasible solution.</i></p>
+
+<p>This assumption is a consequence of the "Finding a Solution" section of this article. If the network doesn't satisfy the first part of this assumption, we can either say that the problem has no solution or make corresponding transformation according to the steps outlined in that section. If the second part of the assumption isn't met then the solution doesn't exist.</p>
+
+<p>By making these assumptions we do transform our original transportation network. However, many problems are often given in such a way which satisfies all the assumptions.</p>
+
+<p>Now that all the preparations are behind us, we can start to discuss the algorithms in Part 2.</p>
+
+<p><span class="bodySubtitle">References</span><br />
+[<a name="1">1</a>]&#160;&#160;Ravindra K. Ahuja, Thomas L. Magnanti, and James B. Orlin. <i>Network Flows: Theory, Algorithms, and Applications</i>.<br>
+[<a name="2">2</a>]&#160;&#160;Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest. <i>Introduction to Algorithms</i>.<br>
+[<a name="3">3</a>]&#160;&#160;<tc-webtag:handle coderId="8593420" context="algorithm"/>. Algorithm Tutorial: <a href="/tc?module=Static&d1=tutorials&d2=maxFlow" target="_blank">Maximum Flow</a>.<br>
+[<a name="4">4</a>]&#160;&#160;<tc-webtag:handle coderId="268851" context="algorithm"/>. Algorithm Tutorial: <a href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs3" target="_blank">Introduction to graphs and their data structures: Section 3</a>.<br>
+</p>
 
         </div>
         <p><br/></p>

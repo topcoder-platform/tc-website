@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>04.23.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow1">Minimum Cost Flow, Part 1: Key Concepts</A></span><br><br>
+      This article covers the so-called "min-cost flow" problem, which has many applications for both TopCoder competitors and professional programmers. In Part 1, we'll look at the problem itself.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22671469" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow1">full story</A> | 
+        <tc-webtag:forumLink forumID="515317" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.20.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -196,22 +213,5 @@
         <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1b">full story</A> | 
         <tc-webtag:forumLink forumID="514949" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>04.16.07<br>3:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=netConfigurationMgr">Using the .Net Configuration Manager</A></span><br><br>
-      Most TopCoder members who have participated in at least one .NET design or development competition will tell you that the first component they needed to learn was the Configuration Manager. Simply put, it's a key to unlocking the potential of the component catalog.
-        </td>
-      <td class="newsPhoto"><%--<img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61"/>--%><br>by <tc-webtag:handle coderId="10445079" context="development"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tutorials&d2=netConfigurationMgr">full story</A> | 
-        <tc-webtag:forumLink forumID="515168" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
    </td></tr>
    
