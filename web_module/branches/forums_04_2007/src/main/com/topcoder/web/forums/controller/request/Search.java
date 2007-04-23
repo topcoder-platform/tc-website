@@ -227,6 +227,11 @@ public class Search extends ForumsProcessor {
                 log.info(i+1+") "+optTokens.get(i));
             }
             
+            String unquotedQueryString = "";
+            if (queryString.length() >= 2 && queryString.startsWith("\"") && queryString.endsWith("\"")) {
+                unquotedQueryString = queryString.substring(1, queryString.length()-1).trim();
+            }
+            
             Iterator<ForumCategory> itSearchCategories = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
             ArrayList<ForumCategory> categoryResultsList = new ArrayList<ForumCategory>();
             Hashtable<ForumCategory,Integer> categoryRankTable = new Hashtable<ForumCategory,Integer>();
@@ -235,10 +240,12 @@ public class Search extends ForumsProcessor {
                 ForumCategory category = itSearchCategories.next();
                 String categoryName = category.getName().toLowerCase().trim();
                 int rank = -1;
-                if (categoryName.equals(queryString)) {
+                if (categoryName.equals(queryString) ||
+                        (unquotedQueryString.length() > 0 && categoryName.equals(unquotedQueryString))) {
                     log.info("Rank 1 hit: " + categoryName);
                     rank = 1;
-                } else if (categoryName.startsWith(queryString)) {
+                } else if (categoryName.startsWith(queryString) ||
+                        (unquotedQueryString.length() > 0 && categoryName.startsWith(unquotedQueryString))) {
                     log.info("Rank 2 hit: " + categoryName);
                     rank = 2;
                 } else {
@@ -260,7 +267,7 @@ public class Search extends ForumsProcessor {
                         }
                     }
                 }
-                if (rank > 0) {
+                if (rank > 0) {                    
                     categoryRankTable.put(category, rank);
                     categoryResultsList.add(category);
                 }
@@ -329,7 +336,7 @@ public class Search extends ForumsProcessor {
            
             int retVal = 0;
             retVal = rankTable.get(c1).compareTo(rankTable.get(c2));
-            if (retVal == 0) {
+            if (retVal == 0 && optMatchesTable.containsKey(c1) && optMatchesTable.containsKey(c2)) {
                 retVal = -(optMatchesTable.get(c1).compareTo(optMatchesTable.get(c2)));
             }
             if (retVal == 0) {
