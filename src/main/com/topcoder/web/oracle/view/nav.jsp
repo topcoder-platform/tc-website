@@ -39,16 +39,20 @@
     <A href="?module=Static&d1=scoring"<% if (selectedTab.equals("scoring")) {%> class="on"<% } %>>Scoring</A>
 
     <div class="section">TCO07 Algorithm T-Shirt Design</div>
-    <span class="grayedOut">Registration closed</span>
+    <A href="?module=ViewSimpleResults&rm=2012"<% if (selectedTab.equals("2012Pred")) {%> class="on"<% } %>>Prediction Results</A>
+    <A href="?module=ViewCandidateResults&rm=2012"<% if (selectedTab.equals("2012Cand")) {%> class="on"<% } %>>Candidate Results</A>
 
     <div class="section">TCO07 Component T-Shirt Design</div>
-    <span class="grayedOut">Registration closed</span>
+    <A href="?module=ViewSimpleResults&rm=2016"<% if (selectedTab.equals("2016Pred")) {%> class="on"<% } %>>Prediction Results</A>
+    <A href="?module=ViewCandidateResults&rm=2016"<% if (selectedTab.equals("2016Cand")) {%> class="on"<% } %>>Candidate Results</A>
 
     <div class="section">TCO07 Marathon T-Shirt Design</div>
-    <span class="grayedOut">Registration closed</span>
+    <A href="?module=ViewSimpleResults&rm=2020"<% if (selectedTab.equals("2020Pred")) {%> class="on"<% } %>>Prediction Results</A>
+    <A href="?module=ViewCandidateResults&rm=2020"<% if (selectedTab.equals("2020Cand")) {%> class="on"<% } %>>Candidate Results</A>
 
     <div class="section">TCO07 Studio T-Shirt Design</div>
-    <span class="grayedOut">Registration closed</span>
+    <A href="?module=ViewSimpleResults&rm=2008"<% if (selectedTab.equals("2008Pred")) {%> class="on"<% } %>>Prediction Results</A>
+    <A href="?module=ViewCandidateResults&rm=2008"<% if (selectedTab.equals("2008Cand")) {%> class="on"<% } %>>Candidate Results</A>
 
     <div class="section">"The Ball" Logo & Icons Round 1</div>
     <span class="grayedOut">Registration closed</span>
