@@ -53,4 +53,12 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
     public void nextState(BasePayment payment) {
         // nothing to do, this is a final state
     }
+    
+    @Override
+    public BasePaymentStatus clone() {
+        BasePaymentStatus newPaymentStatus = new CancelledPaymentStatus();
+        newPaymentStatus.reasons = this.getReasons();
+        return newPaymentStatus;  
+    }
+
 }

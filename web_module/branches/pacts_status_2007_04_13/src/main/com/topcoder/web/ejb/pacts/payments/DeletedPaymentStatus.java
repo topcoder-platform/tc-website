@@ -48,4 +48,12 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
     public void nextState(BasePayment payment) {
         //payment.setCurrentStatus(new DeletedPaymentStatus(payment));
     }
+    
+    @Override
+    public BasePaymentStatus clone() {
+        BasePaymentStatus newPaymentStatus = new DeletedPaymentStatus();
+        newPaymentStatus.reasons = this.getReasons();
+        return newPaymentStatus;  
+    }
+
 }

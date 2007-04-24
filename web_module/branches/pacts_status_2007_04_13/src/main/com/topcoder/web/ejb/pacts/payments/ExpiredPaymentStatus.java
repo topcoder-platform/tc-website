@@ -48,4 +48,12 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
     public void nextState(BasePayment payment) {
         //payment.setCurrentStatus(new ExpiredPaymentStatus(payment));
     }
+    
+    @Override
+    public BasePaymentStatus clone() {
+        BasePaymentStatus newPaymentStatus = new ExpiredPaymentStatus();
+        newPaymentStatus.reasons = this.getReasons();
+        return newPaymentStatus;  
+    }
+
 }

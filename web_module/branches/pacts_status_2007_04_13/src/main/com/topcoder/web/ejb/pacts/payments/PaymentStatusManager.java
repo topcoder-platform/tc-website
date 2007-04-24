@@ -57,7 +57,7 @@ public class PaymentStatusManager {
     public static BasePaymentStatus getStatusUsingId(Long statusId) throws InvalidStatusException {
         for (AvailableStatus availableStatus : AvailableStatus.values()) {
             if (availableStatus.getStatus().getId().equals(statusId)) {
-                return availableStatus.getStatus(); 
+                return availableStatus.getStatus().clone(); 
             }
         }
         throw new InvalidStatusException();
@@ -89,5 +89,38 @@ public class PaymentStatusManager {
 
     public void expiredAffidavit () {
         //payment.getCurrentStatus().expiredAffidavit();
+    }
+
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result + ((payment == null) ? 0 : payment.hashCode());
+        return result;
+    }
+
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final PaymentStatusManager other = (PaymentStatusManager) obj;
+        if (payment == null) {
+            if (other.payment != null)
+                return false;
+        } else if (!payment.equals(other.payment))
+            return false;
+        return true;
     }
 }

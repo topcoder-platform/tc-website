@@ -144,6 +144,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
                 }
             }
 
+            currentStatus.getReasons().clear();
             // check for status reasons
             Long paymentStatusReason = TCData.getTCLong(rRow, "payment_status_reason_id");
             if (paymentStatusReason != 0) {

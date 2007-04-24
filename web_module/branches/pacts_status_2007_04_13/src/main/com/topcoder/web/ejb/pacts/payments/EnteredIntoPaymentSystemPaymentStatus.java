@@ -48,4 +48,12 @@ public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
     public void nextState(BasePayment payment) {
         //payment.setCurrentStatus(new EnteredIntoPaymentSystemPaymentStatus(payment));
     }
+    
+    @Override
+    public BasePaymentStatus clone() {
+        BasePaymentStatus newPaymentStatus = new EnteredIntoPaymentSystemPaymentStatus();
+        newPaymentStatus.reasons = this.getReasons();
+        return newPaymentStatus;  
+    }
+
 }

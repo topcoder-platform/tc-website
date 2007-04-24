@@ -98,4 +98,11 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
             //payment.setCurrentStatus(new AccruingPaymentStatus(payment));
         }
     }
+
+    @Override
+    public BasePaymentStatus clone() {
+        BasePaymentStatus newPaymentStatus = new OnHoldPaymentStatus();
+        newPaymentStatus.reasons = this.getReasons();
+        return newPaymentStatus;  
+    }
 }
