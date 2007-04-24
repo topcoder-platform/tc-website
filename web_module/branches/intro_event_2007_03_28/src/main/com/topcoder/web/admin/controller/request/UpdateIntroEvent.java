@@ -42,6 +42,7 @@ public class UpdateIntroEvent extends IntroEventBase {
         boolean hasAlgo = getRequest().getParameter(ALGO_REG_END) != null;
         boolean hasComp = getRequest().getParameter(COMP_REG_END) != null;
         
+        boolean updating = getRequest().getParameter(EVENT_ID) != null;
      
         String name = getString(EVENT_NAME, true);
         String sname = getString(EVENT_SHORT_NAME, true);
@@ -54,8 +55,7 @@ public class UpdateIntroEvent extends IntroEventBase {
         DAOFactory factory = DAOUtil.getFactory();
 
         TimeZone timeZone = null;
-        IntroEvent ie = getRequest().getParameter(EVENT_ID) == null?  new IntroEvent():
-                factory.getIntroEventDAO().find(new Long(getRequest().getParameter(EVENT_ID)));
+        IntroEvent ie = updating?  factory.getIntroEventDAO().find(new Long(getRequest().getParameter(EVENT_ID))) : new IntroEvent();
         
         ie.setDescription(name);
         ie.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ID));        
@@ -88,8 +88,13 @@ public class UpdateIntroEvent extends IntroEventBase {
                     (prop.getType().equals(IntroEventPropertyType.COMP_TYPE) && hasComp)) {
                 
                 String value = getRequest().getParameter("cfg" + prop.getId());
-                IntroEventConfig iec = new IntroEventConfig();
-                iec.setId(new IntroEventConfig.Identifier(ie, prop.getId()));
+                IntroEventConfig iec;
+                if (updating) {
+                    iec = ie.getConfig(prop.getId());
+                } else {
+                    iec = new IntroEventConfig();
+                    iec.setId(new IntroEventConfig.Identifier(ie, prop.getId()));
+                }
                 iec.setValue(value);
                 ie.addConfig(iec);
             }
