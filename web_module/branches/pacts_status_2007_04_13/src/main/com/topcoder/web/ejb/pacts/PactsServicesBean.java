@@ -3667,7 +3667,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 //            insertPayment.append(" (payment_id, user_id, most_recent_detail_id, print_count, review, ");
             insertPayment.append(" (payment_id, user_id, most_recent_detail_id,  ");
             insertPayment.append("  referral_payment_id) ");
-            insertPayment.append(" VALUES(?,?,?,?," + referralStr + ")");
+            insertPayment.append(" VALUES(?,?,?," + referralStr + ")");
             ps = c.prepareStatement(insertPayment.toString());
             ps.setLong(1, paymentId);
             ps.setLong(2, p.getHeader().getUser().getId());
