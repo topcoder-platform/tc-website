@@ -68,11 +68,11 @@ Create new Introductory Event: <a href="/admin/?module=AddIntroEvent&ha=1">algo<
 
 <c:choose>
 	<c:when test="${sr == 0}">&lt;&lt; prev</c:when>
-	<c:otherwise><a href="/admin/?module=IntroEvenList&sr=${sr-20}">&lt;&lt; prev</a></c:otherwise>
+	<c:otherwise><a href="/admin/?module=IntroEventList&sr=${sr-20}">&lt;&lt; prev</a></c:otherwise>
 </c:choose> 
 | 
 <c:choose>
-	<c:when test="${hasNext}"><a href="/admin/?module=IntroEvenList&sr=${sr+20}">next &gt;&gt;</a></c:when>
+	<c:when test="${hasNext}"><a href="/admin/?module=IntroEventList&sr=${sr+20}">next &gt;&gt;</a></c:when>
 	<c:otherwise>next &gt;&gt;</c:otherwise>
 </c:choose> 
 

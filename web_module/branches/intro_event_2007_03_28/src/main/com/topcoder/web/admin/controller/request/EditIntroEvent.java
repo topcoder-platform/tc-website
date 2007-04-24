@@ -1,5 +1,7 @@
 package com.topcoder.web.admin.controller.request;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +12,7 @@ import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.IntroEvent;
 import com.topcoder.web.common.model.IntroEventConfig;
+import com.topcoder.web.common.model.comp.ContestPrize;
 
 /**
  * @author cucu
@@ -54,7 +57,7 @@ public class EditIntroEvent extends IntroEventBase {
         setDefault(IMAGE_ID, ie.getImage().getId());
         
         for (IntroEventConfig cfg : ie.getConfig().values()) {
-            setDefault("cfg" + cfg.getId(), cfg.getValue());
+            setDefault("cfg" + cfg.getId().getPropertyId(), cfg.getValue());
         }
         
         if (algoEventId != null) {
@@ -77,6 +80,30 @@ public class EditIntroEvent extends IntroEventBase {
             setDefault(COMP_REG_END, DateUtils.getConvertedDate(comp.getRegistrationEnd(),  
                     java.util.TimeZone.getDefault().getID(), ie.getTimeZone().getDescription()));
             setDefault(COMP_REG_USE_TIMEZONE, true);
+
+            
+            // Set first week and number of weeks
+            Date[] dates = DAOUtil.getFactory().getEventDAO().getComponentContestDates(compEventId);
+            
+            Date startDate = dates[0];
+            Date endDate = dates[1];
+
+            long dt = endDate.getTime() - startDate.getTime();        
+            int weeks = (int) (dt / (7 * 24 * 60 * 60 * 1000)) + 1;
+            setDefault(COMP_FIRST_WEEK, startDate);
+            setDefault(COMP_NUMBER_WEEKS, weeks);
+            
+            // set prizes
+            List<ContestPrize> prizes = DAOUtil.getFactory().getContestPrizeDAO().getPrizesForEvent(compEventId);
+
+            for (ContestPrize prize : prizes) {
+                if (prize.getPrizeTypeId().equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_WEEKLY)) {  
+                    setDefault(WEEKLY_PRIZES[prize.getPlace() - 1], prize.getAmount());
+                }
+                if (prize.getPrizeTypeId().equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_OVERALL)) {
+                    setDefault(OVERALL_PRIZES[prize.getPlace() - 1], prize.getAmount());
+                }
+            }
             
         }
         
