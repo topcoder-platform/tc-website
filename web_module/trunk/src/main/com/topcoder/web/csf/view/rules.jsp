@@ -76,12 +76,12 @@ Registration open and closing dates and other specific deadlines vary for each C
 
 <h3>ELIGIBILITY</h3>
 <p>
-You are eligible to enter and may sign-up and compete in this Contest Series or any individual Contest if you satisfy all of the following requirements:
+You are eligible to enter and may sign-up and compete in this Contest Series or any individual Contest if you satisfy the following requirements:
 </p>
 
 <ul>
 <li>You are 18 years or older at the time of entry; and</li>
-<li>You are a registered member of the Microsoft Connected Services Sandbox community in good standing.  Those wishing to learn more about the Microsoft Connected Services Sandbox community can find more information at <A target="_blank" href="http://www.networkmashups.com">www.networkmashups.com</A>. </li>
+<li>You are a registered member of the Microsoft Connected Services Sandbox community in good standing.  (Those wishing to learn more about the Microsoft Connected Services Sandbox community can find more information at <A target="_blank" href="http://www.networkmashups.com">www.networkmashups.com</A>.) </li>
 </ul>
 
 <p>
@@ -89,8 +89,8 @@ You are not eligible to enter this Contest Series or any individual Contest if y
 </p>
 
 <ul>
-<li>Employed by TopCoder, Microsoft, or the applicable Sponsor or any of their respective parent companies, affiliates, subsidiaries, participating vendors or advertising or promotion agencies, or anyone working directly on this program, product and promotion;</li>
-<li>An immediate family member of (i.e., parent, sibling, spouse, child), or living in the same household as, any person described in the group described above at the time of entry; or</li>
+<li>Employed by TopCoder, Microsoft, or the applicable Sponsor or any of their respective parent companies, affiliates, subsidiaries, participating vendors or advertising or promotion agencies, or anyone working directly on this program, product and promotion.  Notwithstanding the foregoing, employees of British Telecommunications, plc, or any of its affiliates, subsidiaries, or any other company which may be part of the same group (as defined by s.53 Companies Act) as British Telecommunications, plc (collectively the "BT Group") are eligible to participate in the Contest, but are NOT ELIGIBLE to win prizes.;</li>
+<li>An immediate family member of (i.e., parent, sibling, spouse, child), or living in the same household as, any person described in the group described above (including BT Group) at the time of entry; or</li>
 <li>A resident of the Province of Quebec, Canada, or any of the following countries: Cuba, Iran, Iraq, North Korea, Sudan, and Syria.</li>
 </ul>
 
@@ -139,7 +139,7 @@ By submitting an entry, you agree that you are granting an irrevocable, royalty 
 Participants agree to be bound by all applicable terms and conditions governing access to TopCoder's, Microsoft's, the Sponsor's or any other third party's services.  All technologies and Contest Series related functionality, media and promotional materials are the intellectual property of TopCoder, Microsoft, or the Sponsor and are protected by applicable copyright, trademark, patent and related proprietary laws.
 </p>
 <p>
-By participating in this Contest Series, you acknowledge and agree that others, including Microsoft and the Sponsor, may independently develop applications with similar function, appearance, action, name, character, or that may in other ways resemble your contest entry, and that such similarity between your submitted entry and any other application independently developed by others shall in no way, other than if your entry is a winning entry, entitle you to any compensation from TopCoder, Microsoft, the Sponsor, or any third party.
+Unless otherwise provided herein, by participating in this Contest Series, you acknowledge and agree that others, including Microsoft and the Sponsor, may independently develop applications with similar function, appearance, action, name, character, or that may in other ways resemble your contest entry, and that such similarity between your submitted entry and any other application independently developed by others shall in no way, other than if your entry is a winning entry, entitle you to any compensation from TopCoder, Microsoft, the Sponsor, or any third party.
 </p>
 
 <h3>PRIZE CONDITIONS & OBLIGATIONS</h3>
@@ -156,7 +156,7 @@ As consideration for the monetary award, you agree to irrevocably and unconditio
 <h3>LIMITATIONS OF LIABILITY</h3>
 
 <p>
-By entering, you agree, where legally permitted, to release and hold harmless TopCoder, Microsoft, the Sponsors and their respective subsidiaries, affiliates, advertising and promotions agencies, prize suppliers, and all of their employees, officers, directors, shareholder's and agents (collectively "Releasees") from and against any and all liability for any loss, property damage, or damage to any person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this Contest Series, or participation in any Contest Series-related activity, or the receipt, use or misuse of any prize.  TopCoder, Microsoft and the Sponsors specifically disclaim all liability associated with, and make no warranties with regard to, any prize given.
+    By entering, you agree, where legally permitted, to release and hold harmless TopCoder, Microsoft, the Sponsors and their respective subsidiaries, affiliates, advertising and promotions agencies, prize suppliers, and all of their employees, officers, directors, shareholders and agents (collectively "Releasees") from and against any and all liability for any loss, property damage, or damage to any person, including without limitation, death and injury, due in whole or in part, directly or indirectly, from or arising out of participation in this Contest Series, or participation in any Contest Series-related activity, or the receipt, use or misuse of any prize.  TopCoder, Microsoft and the Sponsors specifically disclaim all liability associated with, and make no warranties with regard to, any prize given.
 </p>
 <p>
 Releasees assume no responsibility for lost, late, illegible, garbled or misdirected entries, or for any computer, online, telephone, human, or other error or for any technical or other malfunctions that may occur including any injury or damage to your or any other person's computer relating to or resulting from participation in this Contest Series or downloading any materials in connection with this Contest Series.
@@ -184,6 +184,10 @@ If you are one of the winners, you (or, if you have not yet reached the age of l
 <li>will be notified by phone or by U.S. mail, overnight mail, or e-mail; and</li>
 <li>may be required to sign and return an Affidavit of Eligibility/Liability/Publicity release, unless prohibited by law, within ten (10) days of date of prize notification.</li>
 </ul>
+
+<p>
+Employees of BT Group are NOT ELIGIBLE to win prizes and their participation will not affect the distribution of prize money.
+</p>
 
 <p>
 If you are a minor in the country or state in which you reside we will award the prize to your parent or legal guardian, who must sign all documents required under the Official Rules.
