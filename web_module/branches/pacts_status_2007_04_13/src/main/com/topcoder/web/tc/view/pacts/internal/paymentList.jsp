@@ -124,6 +124,8 @@ ${fn:length(paymentList)} records. <br />
 <br>
 
 <%--<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.REVIEW_CMD  %>"><br><br> --%>
+
+<%-- TODO: Change to events --%>
 <input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.STATUS_CMD  %>">
 
     <%--       <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" /> <br><br>--%>

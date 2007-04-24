@@ -612,9 +612,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("pa.first_name, pa.middle_name, pa.last_name, pa.address1, ");
         selectPaymentDetails.append("pa.address2, pa.city, pa.state_code, pa.zip, pa.country_code, ");
         selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, ");
-        selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number ");
+        selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number, ");
+        selectPaymentDetails.append("pdsrx.payment_status_reason_id ");
         selectPaymentDetails.append("FROM payment p, payment_detail pd, status_lu s, ");
         selectPaymentDetails.append("modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
+        selectPaymentDetails.append("OUTER payment_detail_status_reason_xref pdsrx, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
         selectPaymentDetails.append("WHERE p.payment_id = " + paymentId + " ");
         selectPaymentDetails.append("AND pd.payment_detail_id = p.most_recent_detail_id ");
@@ -625,6 +627,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("AND mr.modification_rationale_id = pd.modification_rationale_id ");
         selectPaymentDetails.append("AND state.state_code = pa.state_code ");
         selectPaymentDetails.append("AND country.country_code = pa.country_code");
+        selectPaymentDetails.append("AND pdsrx.payment_detail_id = pd.payment_detail_id");
 
         return doPayment(paymentId, selectPaymentDetails.toString());
     }
@@ -652,6 +655,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("state.state_name, country.country_name, pd.date_modified, pd.date_due, ");
         selectPaymentDetails.append("pd.charity_ind, pa.address3, pa.province, pd.total_amount, pd.installment_number ");
         selectPaymentDetails.append("FROM payment p, payment_detail_xref pdx, payment_detail pd, ");
+        // TODO: pulky: check this.
+        
         selectPaymentDetails.append("status_lu s, modification_rationale_lu mr, payment_type_lu pt, payment_method_lu pm, ");
         selectPaymentDetails.append("OUTER(payment_address pa, OUTER state, OUTER country) ");
         selectPaymentDetails.append("WHERE p.payment_id = " + paymentId + " ");
@@ -3290,7 +3295,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throws IllegalUpdateException, PaymentPaidException, SQLException {
         // Not allowed to manually set status to Printed or Paid.  This can only be done
         // by the system.
-        if (p.getStatusId() == PAID_STATUS) {
+        if (p.getCurrentStatus().equals(PaymentStatusManager.AvailableStatus.PAID_PAYMENT_STATUS.getStatus())) {
             throw new IllegalUpdateException("Payment status cannot be manually set to paid");
         }
 
@@ -3488,7 +3493,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setLong(1, paymentDetailId);
             ps.setDouble(2, p.getNetAmount());
             ps.setDouble(3, p.getGrossAmount());
-            ps.setLong(4, p.getStatusId());
+            ps.setLong(4, p.getCurrentStatus().getId());
             // TODO: pulky: add reasons
             
             setNullableLong(ps, 5, addressId);
@@ -3563,7 +3568,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // We have a problem if the payment net amount is <= 0.  Put the payment
             // on hold.
             if (p.getNetAmount() <= 0)
-                p.setStatusId(PAYMENT_ON_HOLD_STATUS);
+                p.setCurrentStatus(PaymentStatusManager.AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus());
 
             // If the user is creating the payment with Ready to Print status, we need
             // to create the payment_address entry
@@ -3621,7 +3626,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     Payment referPay = new Payment();
                     referPay.setGrossAmount(amount * REFERRAL_PERCENTAGE);
                     referPay.setNetAmount(0);
-                    referPay.setStatusId(p.getStatusId());
+                    referPay.setCurrentStatus(p.getCurrentStatus());
                     long referId = Long.parseLong(rsc.getItem(0, "reference_id").toString());
                     String handle = rsc.getItem(0, "coder_handle").toString();
                     referPay.getHeader().setDescription("Referral bonus for " + handle + " " + p.getHeader().getDescription());
@@ -3951,7 +3956,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param userId user that has a tax form
      * @throws SQLException
      */
-    private void updateOnHoldPayments(Connection c, long userId) throws SQLException {
+    private void updateOnHoldPayments(Connection c, long userId) throws SQLException, InvalidStatusException {
         StringBuffer getPayments = new StringBuffer(200);
         getPayments.append(" SELECT p.payment_id, ");
         getPayments.append(" case when exists ");
@@ -4483,12 +4488,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // We have a problem if the payment net amount is <= 0.  Put the payment
         // on hold.
         if (p.getNetAmount() <= 0)
-            p.setStatusId(PAYMENT_ON_HOLD_STATUS);
+            p.setCurrentStatus(PaymentStatusManager.AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus());
 
         try {
             // Add address record if necessary
-            if (addressData != null && p.getStatusId() != PAYMENT_ON_HOLD_STATUS
-                    && p.getStatusId() != PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS) {
+            if (addressData != null && p.getCurrentStatus().equals(PaymentStatusManager.AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus())) {
                 paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
 
                 StringBuffer addAddress = new StringBuffer(300);
@@ -4520,7 +4524,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String paymentDetailStr = paymentDetailId + "";
 
             // If the payment is deleted, set the most recent detail to null
-            if (p.getStatusId() == PAYMENT_DELETED_STATUS) {
+            if (p.getCurrentStatus().equals(PaymentStatusManager.AvailableStatus.DELETED_PAYMENT_STATUS.getStatus())) {
                 paymentDetailStr = "null";
             }
 
@@ -4785,7 +4789,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // a record of each payment update outcome.  Also commits after each payment update to release
     // locks.
     private UpdateResults batchUpdateStatus(Connection c, long paymentId[], int statusId)
-            throws SQLException {
+            throws SQLException, InvalidStatusException {
         ResultSetContainer addressData, detailData;
         int i;
 
@@ -4852,7 +4856,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             p.setNetAmount(TCData.getTCDouble(detailData.getRow(0), "net_amount", 0, false));
             p.setGrossAmount(TCData.getTCDouble(detailData.getRow(0), "gross_amount", 0, false));
             p.setTotalAmount(TCData.getTCDouble(detailData.getRow(0), "total_amount", 0, false));
-            p.setStatusId(statusId);
+            p.setCurrentStatus(PaymentStatusManager.getStatusUsingId(new Long(statusId)));
             p.setRationaleId(MODIFICATION_STATUS);
             p.getHeader().setDescription(TCData.getTCString(detailData.getRow(0), "payment_desc", "", false));
             p.getHeader().setTypeId(TCData.getTCInt(detailData.getRow(0), "payment_type_id", 1, false));
@@ -4955,7 +4959,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             p.setNetAmount(TCData.getTCDouble(detailData.getRow(i), "net_amount", 0, false));
             p.setGrossAmount(TCData.getTCDouble(detailData.getRow(i), "gross_amount", 0, false));
-            p.setStatusId(statusId);
+            p.setCurrentStatus(PaymentStatusManager.getStatusUsingId(new Long(statusId)));
             p.setRationaleId(MODIFICATION_STATUS);
             p.getHeader().setDescription(TCData.getTCString(detailData.getRow(i), "payment_desc", "", false));
             p.getHeader().setTypeId(TCData.getTCInt(detailData.getRow(i), "payment_type_id", 1, false));
@@ -5728,7 +5732,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                 Payment p = new Payment();
                 p.setGrossAmount(TCData.getTCDouble(winners.getRow(i), "paid"));
-                p.setStatusId(userTaxFormSet.contains(new Long(userId)) ? PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS);
+                
+                p.setCurrentStatus(userTaxFormSet.contains(new Long(userId)) ? PaymentStatusManager.AvailableStatus.OWED_PAYMENT_STATUS.getStatus() : PaymentStatusManager.AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus());
+                // TODO: pulky: add reason
                 p.getHeader().setDescription(roundName + " winnings");
                 p.getHeader().setTypeId(paymentTypeId);
                 p.setDueDate(dueDate);
@@ -5762,7 +5768,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         pairAdd.append(text.substring(0, 50));
                     }
                     pairAdd.append("\nPayment gross amount: " + p.getGrossAmount() + "\n");
-                    pairAdd.append("Payment status ID: " + p.getStatusId() + "\n");
+                    pairAdd.append("Payment status ID: " + p.getCurrentStatus() + "\n");
                     pairAdd.append("Payment description: " + p.getHeader().getDescription() + "\n");
                     pairAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
                     pairAdd.append("Payment due date: " + p.getDueDate() + "\n");
@@ -6609,7 +6615,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.setNetAmount(payment.getNetAmount());
         p.setTotalAmount(payment.getTotalAmount());
         p.setInstallmentNumber(payment.getInstallmentNumber());
-        p.setStatusId(payment.getCurrentStatus().getId());
+        p.setCurrentStatus(payment.getCurrentStatus());
         // TODO: pulky: add reasons
         
         p.getHeader().setDescription(payment.getDescription());

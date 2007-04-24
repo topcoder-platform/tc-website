@@ -7,17 +7,13 @@ package com.topcoder.web.ejb.pacts.payments;
 
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 public class OnHoldPaymentStatus extends BasePaymentStatus {
-
-    public static final PaymentStatusReason NO_TAX_FORM_REASON = new PaymentStatusReason(10l, "No Tax Form");
-    public static final PaymentStatusReason NO_AFFIRMED_AFFIDAVIT_REASON = new PaymentStatusReason(11l, "No affirmed Affidavit");
-    public static final PaymentStatusReason NO_AFFIRMED_IP_TRANSFER_REASON = new PaymentStatusReason(12l, "No affirmed IP Transfer");
-
     public static final Long ON_HOLD_PAYMENT_STATUS_ID = 55l;
     public static final String ON_HOLD_PAYMENT_STATUS_DESC = "On Hold";
     
@@ -36,7 +32,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     
             // check for tax form (every payment type)
              if (!dib.hasTaxForm(payment.getCoderId())) {
-                reasons.add(NO_TAX_FORM_REASON);
+                reasons.add(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason());
              }
     
              // check for affirmed affidavit (alg contests, alg tournaments, marathon matrches)
@@ -64,7 +60,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     
     public void newTaxForm(BasePayment payment) {
         // remove the reason
-        reasons.remove (NO_TAX_FORM_REASON);
+        reasons.remove(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason());
 
         nextState(payment);
     }

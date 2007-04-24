@@ -13,10 +13,6 @@ import com.topcoder.web.ejb.pacts.BasePayment;
  */
 public class CancelledPaymentStatus extends BasePaymentStatus {
 
-    public static final PaymentStatusReason EXPIRED_AFFIDAVIT_REASON = new PaymentStatusReason(50l, "Expired Affidavit");
-    public static final PaymentStatusReason EXPIRED_IP_TRANSFER_REASON = new PaymentStatusReason(51l, "Expired IP Transfer");
-    public static final PaymentStatusReason ACCOUNT_STATUS_REASON = new PaymentStatusReason(52l, "Account Status");
-
     private static final Long CANCELLED_PAYMENT_STATUS_ID = 65l;
     private static final String CANCELLED_PAYMENT_STATUS_DESC = "Cancelled";
     
@@ -28,7 +24,7 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
     }
     
     public void expiredAffidavit() {
-        reasons.add(EXPIRED_AFFIDAVIT_REASON);
+        reasons.add(PaymentStatusReason.AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason());
     }
 
     @Override
