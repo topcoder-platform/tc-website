@@ -136,12 +136,24 @@ public class UpdateIntroEvent extends IntroEventBase {
             
             comp.setRegistrationStart(getDateTime(COMP_REG_START, sdfDateTime, tz));
             comp.setRegistrationEnd(getDateTime(COMP_REG_END, sdfDateTime, tz));
-            
+
             // Create contests
             Timestamp firstWeek = getDateTime(COMP_FIRST_WEEK, sdfDateTime, null);
             Integer nweeks = getInteger(COMP_NUMBER_WEEKS);
+
+            boolean changed = true;
+            if (getRequest().getParameter(COMP_EVENT_ID) != null) {
+                changed = checkContestChanged(comp, nweeks, firstWeek);
+                if (changed) {
+                    int erased = DAOUtil.getFactory().getCompContestDAO().deleteForEvent(comp.getId());
+                    log.debug("contest or prizes changed, old ones will be erased.");
+                } else {
+                    log.debug("contest or prizes NOT changed.");
+                }
+            }
+            
     
-            if (firstWeek != null && nweeks != null) {
+            if (firstWeek != null && nweeks != null && changed) {
                 List<Double> overall = new ArrayList<Double>();
                 List<Double> weekly = new ArrayList<Double>();
     
@@ -213,6 +225,39 @@ public class UpdateIntroEvent extends IntroEventBase {
             c.addPrize(cp);
             place++;
         }
+    }
+    
+    private boolean checkContestChanged(Event comp, int nweeks, Date firstWeek) {
+        // check if number of weeks and start date aren't changed from db values
+        Date[] dates = DAOUtil.getFactory().getEventDAO().getComponentContestDates(comp.getId());
+        
+        Date startDate = dates[0];
+        Date endDate = dates[1];
+
+        long dt = endDate.getTime() - startDate.getTime();        
+        int dbWeeks = (int) (dt / (7 * 24 * 60 * 60 * 1000)) + 1;        
+        
+        boolean changed = false;
+        if (dbWeeks != nweeks || !startDate.equals(firstWeek))) {
+            changed = true;
+        } else {
+            List<ContestPrize> prizes = DAOUtil.getFactory().getContestPrizeDAO().getPrizesForEvent(comp.getId());
+
+            for (ContestPrize prize : prizes) {
+                if (prize.getPrizeTypeId().equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_WEEKLY)) {  
+                    if (!prize.getAmount().equals(getDouble(WEEKLY_PRIZES[prize.getPlace() - 1]))) {
+                        changed = true;
+                    }
+                }
+                if (prize.getPrizeTypeId().equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_OVERALL)) {
+                    if (!prize.getAmount().equals(getDouble(OVERALL_PRIZES[prize.getPlace() - 1]))) {
+                        changed = true;
+                    }
+                }
+            }                    
+        }
+        
+        
     }
     
     private void restoreValues() {
