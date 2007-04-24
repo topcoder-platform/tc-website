@@ -42,10 +42,10 @@
 </c:if>
 		<tr>		
 			<td><b>Status:</b></td>
-			<td><c:out value="${payment.currentStatus.desc}" />( 
+			<td><c:out value="${payment.currentStatus.desc}"/> ( 
                 <c:forEach var="reason" items="${payment.currentStatus.reasons}">
-                    <c:out value="${reason.desc}" />- 
-                </c:forEach>            
+                    <c:out value="${reason.desc}" /> - 
+                </c:forEach>
             )</td>
 		</tr>
 		<tr>		

@@ -45,6 +45,7 @@ import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -3543,6 +3544,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setInt(23, p.getInstallmentNumber());
             ps.executeUpdate();
 
+            // insert reasons:
+            if (p.getCurrentStatus().getReasons().size() > 0) {
+                StringBuffer insertPaymentStatusReasons = new StringBuffer(300);
+                insertPaymentStatusReasons.append("INSERT INTO payment_detail_status_reason_xref ");
+                insertPaymentStatusReasons.append("(payment_detail_id, payment_status_reason_id) ");
+                insertPaymentStatusReasons.append("VALUES (?, ?) ");
+    
+                ps = c.prepareStatement(insertPaymentStatusReasons.toString());
+    
+                for (PaymentStatusReason reason : p.getCurrentStatus().getReasons()) {
+                    ps.clearParameters();
+                    ps.setLong(1, paymentDetailId);
+                    ps.setLong(2, reason.getId());
+                    ps.executeUpdate();
+                }
+            }
+            
             return paymentDetailId;
         } finally {
             close(ps);
@@ -4487,8 +4505,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // We have a problem if the payment net amount is <= 0.  Put the payment
         // on hold.
-        if (p.getNetAmount() <= 0)
-            p.setCurrentStatus(PaymentStatusManager.AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus());
+//        if (p.getNetAmount() <= 0)
+//            p.setCurrentStatus(PaymentStatusManager.AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus());
 
         try {
             // Add address record if necessary
@@ -6616,8 +6634,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.setTotalAmount(payment.getTotalAmount());
         p.setInstallmentNumber(payment.getInstallmentNumber());
         p.setCurrentStatus(payment.getCurrentStatus());
-        // TODO: pulky: add reasons
-        
         p.getHeader().setDescription(payment.getDescription());
         p.getHeader().setTypeId(payment.getPaymentType());
         p.setEventDate(payment.getEventDate());

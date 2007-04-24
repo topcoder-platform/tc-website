@@ -6,6 +6,7 @@
 package com.topcoder.web.ejb.pacts.payments;
 
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -24,7 +25,7 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
     }
     
     public void expiredAffidavit() {
-        reasons.add(PaymentStatusReason.AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason());
+        reasons.add(AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason());
     }
 
     @Override

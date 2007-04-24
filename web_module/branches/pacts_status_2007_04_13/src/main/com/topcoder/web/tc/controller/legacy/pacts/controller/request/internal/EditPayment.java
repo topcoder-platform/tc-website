@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -20,12 +21,12 @@ import com.topcoder.web.ejb.pacts.DigitalRunSeasonReferencePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunStageReferencePayment;
 import com.topcoder.web.ejb.pacts.ParentReferencePayment;
 import com.topcoder.web.ejb.pacts.StudioContestReferencePayment;
-import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
 
@@ -95,7 +96,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             }
 
             String desc = "";
-            long statusId = -1;
+//            long statusId = -1;
             int typeId = -1;
             double totalAmount = 0.0;
             double grossAmount = 0.0;
@@ -110,7 +111,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             	// The user is trying to save the payment, so check that the parameters are ok
 
                 desc = checkNotEmptyString("payment_desc", "Please enter a description for the payment.");
-                statusId = getIntParameter("status_id");
+//                statusId = getIntParameter("status_id");
                 typeId = getIntParameter("payment_type_id");
                 client = (String) getRequest().getParameter("client");
                 totalAmount = checkNonNegativeDouble("total_amount", "Please enter a valid total amount");
@@ -148,7 +149,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 	setReference(payment);                
                     
                     payment.setDescription(desc);
-                    payment.setCurrentStatus(PaymentStatusManager.getStatusUsingId(statusId));
+//                    payment.setCurrentStatus(PaymentStatusManager.getStatusUsingId(statusId));
                     // TODO: pulky: add reasons
                     
                     payment.setTotalAmount(totalAmount);
@@ -179,17 +180,26 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         		} else {
                         			p.setGrossAmount(totalAmount - aux.getGrossAmount());
                         		}
+                                // manage payment status
+                                PaymentStatusMediator psm = new PaymentStatusMediator(payment); 
+                                psm.newPayment();
                             	payment = dib.addPayment(payment);
                             	payments.add(payment);
                         		
                         	} else {
                         		l.set(0, p);
 
-                        		l = dib.addPayments(l);
+                                for (Iterator it = l.iterator(); it.hasNext();) {
+                                    PaymentStatusMediator psm = new PaymentStatusMediator(payment); 
+                                    psm.newPayment();
+                                }
+                                
+                                l = dib.addPayments(l);
                         		payments.addAll(l);
                         	}
                         } else {
-
+                            PaymentStatusMediator psm = new PaymentStatusMediator(payment); 
+                            psm.newPayment();
                         	payment = dib.addPayment(payment);
                         	payments.add(payment);
                         }               
@@ -207,6 +217,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 		}                		
                         setNextPage(Links.viewPayments(ids));
                     } else {
+                        // get payment's status
+                        payment.setCurrentStatus(new Payment(dib.getPayment(paymentId)).getCurrentStatus());
                         dib.updatePayment(payment);
                         setNextPage(Links.viewPayment(paymentId));
                     }
@@ -232,7 +244,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
                 if (adding) {
                     typeId = contractId > 0? CONTRACT_PAYMENT : ALGORITHM_CONTEST_PAYMENT;
-                    statusId = PAYMENT_PENDING_STATUS;
+//                    statusId = PAYMENT_PENDING_STATUS;
                     methodId = 1; // CHECK
                     Calendar date = Calendar.getInstance();
                     date.setTime(new Date());
@@ -250,7 +262,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
 
                     // TODO: pulky: change the object
-                    statusId = payment.getCurrentStatus().getId();
+//                    statusId = payment.getCurrentStatus().getId();
                     // TODO: pulky: get reasons
                     
                     totalAmount = payment.getTotalAmount();
@@ -259,7 +271,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     installmentNumber = payment.getInstallmentNumber();
                     dueDate = sdf.format(payment.getDueDate());
                     charity = payment.isCharity();
-                    modificationRationaleId = MODIFICATION_STATUS;
+//                    modificationRationaleId = MODIFICATION_STATUS;
 
                     setDefault("installment_number", new Integer(installmentNumber));
                     setDefault("total_amount", new Double(totalAmount));
@@ -288,7 +300,7 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             setDefault("payment_method_id", methodId + "");
             setDefault("client", client == null? "" : client);
 
-            setDefault("status_id", statusId + "");
+//            setDefault("status_id", statusId + "");
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
             setDefault("charity_ind", Boolean.valueOf(charity));
@@ -307,12 +319,12 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             getRequest().setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));
             getRequest().setAttribute(PAYMENT_TYPE_LIST, getPaymentTypeList());
             getRequest().setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
-            getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());
+//            getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());
 
             setNextPage(INTERNAL_EDIT_PAYMENT_JSP);
             setIsNextPageInContext(true);
-        } catch (InvalidStatusException ise) {
-            throw new TCWebException(ise);
+//        } catch (InvalidStatusException ise) {
+//            throw new TCWebException(ise);
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
