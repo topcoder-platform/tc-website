@@ -54,6 +54,9 @@
     <A href="?module=ViewSimpleResults&rm=2008"<% if (selectedTab.equals("2008Pred")) {%> class="on"<% } %>>Prediction Results</A>
     <A href="?module=ViewCandidateResults&rm=2008"<% if (selectedTab.equals("2008Cand")) {%> class="on"<% } %>>Candidate Results</A>
 
+    <div class="section">"The Ball" Logo & Icons Round 2</div>
+    <strong><A href="?module=ViewBallot&rd=2032">Make your prediction!</A></strong>
+
     <div class="section">"The Ball" Logo & Icons Round 1</div>
     <span class="grayedOut">Registration closed</span>
 
