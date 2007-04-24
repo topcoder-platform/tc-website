@@ -94,7 +94,7 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             }
         }
 
-        FileOutputStream fos = null;
+/*        FileOutputStream fos = null;
         FileInputStream fis = null;
         String fileName = "temp"+System.currentTimeMillis()+".txt";
         HibernateSessionHouse house=null;
@@ -116,10 +116,11 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } catch (ClassNotFoundException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-        }
+        }*/
 
 
-        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, house);
+//        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, house);
+        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, new HibernateSessionHouse(hibernateSession));
 
 
         //getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
