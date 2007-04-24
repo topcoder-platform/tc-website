@@ -5,7 +5,7 @@ import org.hibernate.Session;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * This implementation uses the session-per-conversation strategy.
@@ -94,6 +94,19 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             }
         }
         getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, new HibernateSessionHouse(hibernateSession));
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream("temp"+System.currentTimeMillis()+".txt");
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(new HibernateSessionHouse(hibernateSession));
+            oos.flush();
+            oos.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
         //getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
     }
 
