@@ -34,6 +34,10 @@ public abstract class BasePaymentStatus {
     
     public abstract void nextState(BasePayment payment);
     
+    public void newPayment(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException();
+    }
+
     public List<PaymentStatusReason> getReasons() {
         return reasons;
     }

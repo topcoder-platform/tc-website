@@ -5,6 +5,7 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
 
 /**
@@ -12,6 +13,8 @@ import com.topcoder.web.ejb.pacts.BasePayment;
  * @version $Id$
  */
 public class OwedPaymentStatus extends BasePaymentStatus {
+
+    private static final Logger log = Logger.getLogger(OwedPaymentStatus.class);
 
     public static final Long OWED_PAYMENT_STATUS_ID = 56l;
     public static final String OWED_PAYMENT_STATUS_DESC = "Owed";

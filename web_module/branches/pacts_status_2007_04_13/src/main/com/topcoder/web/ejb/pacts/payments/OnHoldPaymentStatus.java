@@ -5,15 +5,20 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.AvailableStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 /**
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 public class OnHoldPaymentStatus extends BasePaymentStatus {
+
+    private static final Logger log = Logger.getLogger(OnHoldPaymentStatus.class);
+
     public static final Long ON_HOLD_PAYMENT_STATUS_ID = 55l;
     public static final String ON_HOLD_PAYMENT_STATUS_DESC = "On Hold";
     
@@ -25,14 +30,15 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
     }
 
-    public void create(BasePayment payment) throws InvalidStateTransitionException {
-
+    @Override
+    public void newPayment(BasePayment payment) throws InvalidStateTransitionException {
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
     
             // check for tax form (every payment type)
              if (!dib.hasTaxForm(payment.getCoderId())) {
-                reasons.add(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason());
+                 log.debug("no tax form found!");
+                 reasons.add(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason());
              }
     
              // check for affirmed affidavit (alg contests, alg tournaments, marathon matrches)
@@ -95,8 +101,16 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     public void nextState(BasePayment payment) {
         if (reasons.size() == 0) {
             // if there's no reason to stay in this state, move to the next
-            //payment.setCurrentStatus(new AccruingPaymentStatus(payment));
-        }
+            log.debug("no reason to stay here!");
+            payment.setCurrentStatus(AvailableStatus.ACCRUING_PAYMENT_STATUS.getStatus().clone());
+            try {
+                payment.getCurrentStatus().newPayment(payment);
+            } catch (InvalidStateTransitionException iste) {
+                // do nothing
+            }
+       } else {
+           log.debug("staying in this state!");
+       }
     }
 
     @Override

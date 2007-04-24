@@ -80,7 +80,12 @@ public class PaymentStatusManager {
 
     public void newPayment() {
         // the start point for a new payment is the on hold state
-        //payment.setCurrentStatus(new OnHoldPaymentStatus(payment));
+        payment.setCurrentStatus(AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus().clone());
+        try {
+            payment.getCurrentStatus().newPayment(payment);
+        } catch (InvalidStateTransitionException iste) {
+            
+        }
     }
 
     public void newTaxForm() {

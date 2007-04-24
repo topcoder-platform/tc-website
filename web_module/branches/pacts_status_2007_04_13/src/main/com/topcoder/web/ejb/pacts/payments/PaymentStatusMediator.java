@@ -24,7 +24,6 @@ public class PaymentStatusMediator {
 
     public void newPayment() {
         // when a payment is created, the possible status can be any on hold, accruing and owed
-
         statusManager.newPayment();
     }
 
