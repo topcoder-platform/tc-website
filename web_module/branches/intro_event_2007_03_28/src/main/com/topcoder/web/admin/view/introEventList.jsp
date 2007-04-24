@@ -26,14 +26,15 @@
         </td>
         <td>
 
-
+Create new Introductory Event: <a href="/admin/?module=AddIntroEvent&ha=1">algo</a>, <a href="/admin/?module=AddIntroEvent&hc=1">comp</a>, <a href="/admin/?module=AddIntroEvent&ha=1&hc=1">algo &amp; comp</a>
+<br>
 <table width="100%" >        
 <tr class="header">
 	<td></td>
 	<td>Event Name</td>
+	<td>Type</td>
 	<td></td>
 	<td></td>
-	<td>Link for members</td>
 </tr>
 
 <% boolean even = true; %>
@@ -64,6 +65,17 @@
 
 </c:forEach>
 </table>
+
+<c:choose>
+	<c:when test="${sr == 0}">&lt;&lt; prev</c:when>
+	<c:otherwise><a href="/admin/?module=IntroEvenList&sr=${sr-20}">&lt;&lt; prev</a></c:otherwise>
+</c:choose> 
+| 
+<c:choose>
+	<c:when test="${hasNext}"><a href="/admin/?module=IntroEvenList&sr=${sr+20}">next &gt;&gt;</a></c:when>
+	<c:otherwise>next &gt;&gt;</c:otherwise>
+</c:choose> 
+
         </td>
     </tr>
 </table>

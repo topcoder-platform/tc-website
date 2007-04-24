@@ -7,13 +7,17 @@ import com.topcoder.web.common.dao.DAOUtil;
 
 public class IntroEventList extends ShortHibernateProcessor {
 
+    public static final int NUM_ROWS = 5;
+    
     @Override
     protected void dbProcessing() throws Exception {
-        int start = getRequest().getParameter("sr") == null? 0 : Integer.parseInt(getRequest().getParameter("sr"));
+        int sr = getRequest().getParameter("sr") == null? 0 : Integer.parseInt(getRequest().getParameter("sr"));
         
-        List l = DAOUtil.getFactory().getIntroEventDAO().getList(start, 20);
+        List l = DAOUtil.getFactory().getIntroEventDAO().getList(sr, NUM_ROWS);
 
         getRequest().setAttribute("events", l);
+        getRequest().setAttribute("sr", sr);
+        getRequest().setAttribute("hasNext", l.size() < NUM_ROWS);
 
         setNextPage("/introEventList.jsp");
         setIsNextPageInContext(true);        
