@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.24.07<br>1:20 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA chat scheduled before SRM 346</A>
+        </span><br><br>
+        Before SRM 346, NSA representatives will join TopCoder members in the Arena at 8:00 PM EDT to discuss career opportunities at the agency.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">details</A> | 
+        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.23.07<br>5:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -198,22 +217,5 @@
         <%--<A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">details</A> |--%>
         <tc-webtag:forumLink forumID="515169" message="discuss this" /> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.17.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1c">TCO07 - Algorithm Round 1C - Problem Set & Analysis</A></span><br><br>
-      TCO07 online Round 1 concluded with section C, which was probably the easiest of the three sections. No targets participated in this section, but that didn't mean things would be easy. With only 300 coders advancing to round 2, people did their utmost best to be one of them.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="309453" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1c">full story</A> | 
-        <tc-webtag:forumLink forumID="514950" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
