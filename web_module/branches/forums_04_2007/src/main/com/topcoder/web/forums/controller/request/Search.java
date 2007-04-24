@@ -192,6 +192,21 @@ public class Search extends ForumsProcessor {
     
     // Consider using a search package to perform category search.
     private void searchCategories(Query query) throws Exception {
+        int categoryResultSize = ForumConstants.DEFAULT_SEARCH_CATEGORY_RANGE;
+        if (user != null) {
+            try {
+                categoryResultSize = Integer.parseInt(user.getProperty("jiveSearchCategoryRange"));
+            } catch (Exception ignored) {}
+        }
+        if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE)).equals("")) {
+            categoryResultSize = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE));
+        }
+        if (categoryResultSize == 0) return;
+        int categoryStartIdx = 0;
+        if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_START_IDX)).equals("")) {
+            categoryStartIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_START_IDX));
+        }
+        
         String queryString = query.getQueryString().toLowerCase().trim();
         
         String[] ss = queryString.split(" ");
@@ -284,20 +299,6 @@ public class Search extends ForumsProcessor {
         
         Collections.sort(categoryResultsList, 
                 new CategoryResultComparator(categoryRankTable, optMatchesTable));
-        
-        int categoryResultSize = ForumConstants.DEFAULT_SEARCH_CATEGORY_RANGE;
-        if (user != null) {
-            try {
-                categoryResultSize = Integer.parseInt(user.getProperty("jiveSearchCategoryRange"));
-            } catch (Exception ignored) {}
-        }
-        if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE)).equals("")) {
-            categoryResultSize = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE));
-        }
-        int categoryStartIdx = 0;
-        if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_START_IDX)).equals("")) {
-            categoryStartIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_START_IDX));
-        }
         
         ResultFilter pageFilter = new ResultFilter();
         pageFilter.setStartIndex(categoryStartIdx);
