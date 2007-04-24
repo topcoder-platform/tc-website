@@ -119,14 +119,17 @@ public class Search extends ForumsProcessor {
             }
 
             Query query = null;
+            boolean searchCategories = false;
             if (searchScope.equals("all")) {
                 query = forumFactory.createQuery();
+                searchCategories = true;
             } else if (searchScope.startsWith("f")) {
             	long forumID = Long.parseLong(searchScope.substring(1));
                 Forum forum = forumFactory.getForum(forumID);
                 query = forum.createQuery();
             } else if (searchScope.startsWith("c")) {
                 long categoryID = Long.parseLong(searchScope.substring(1));
+                searchCategories = (categoryID == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID);
                 ArrayList forumList = new ArrayList();
                 ForumCategory category = forumFactory.getForumCategory(categoryID);
                 Iterator itCategoryForums = category.getRecursiveForums(resultFilter);
@@ -173,129 +176,6 @@ public class Search extends ForumsProcessor {
             Paging paging = new Paging(pageFilter, totalItemCount);
             Paginator paginator = new Paginator(paging);
             
-            // resolve unchecked conversion warnings
-            // Test pagination, eventually add options to show more/fewer categories if needed.
-            
-            // Consider replacing the following section with a search package to perform category search.
-            String queryString = query.getQueryString().toLowerCase().trim();
-            
-            String[] ss = queryString.split(" ");
-            ArrayList<String> reqTokens = new ArrayList<String>();
-            ArrayList<String> optTokens = new ArrayList<String>();
-            ArrayList<String> curList = null;
-            String curQuote = "";
-            
-            for (int i=0; i<ss.length; i++) {
-                if (curQuote.startsWith("\"")) {
-                    // append to quoted block
-                    curQuote += " " + ss[i];
-                    if (ss[i].endsWith("\"")) {
-                        // quoted block is completed, add to list
-                        curList.add(curQuote.substring(1, curQuote.length()-1));
-                        curQuote = "";
-                    }
-                } else {
-                    if (ss[i].startsWith("+")) {
-                        curList = reqTokens;
-                        ss[i] = ss[i].substring(1);
-                    } else {
-                        curList = optTokens;
-                    }
-                    if (ss[i].startsWith("\"")) {
-                        // start new quoted block
-                        curQuote = ss[i];
-                    } else {
-                        // add single word to list
-                        curList.add(ss[i]);
-                    }
-                }
-            }
-            if (!curQuote.equals("")) {
-                curList.add(curQuote);
-            }
-            
-            for (int i=optTokens.size()-1; i>=0; i--) {
-                for (String stopWord: STOP_WORDS) {
-                    if (optTokens.get(i).equals(stopWord)) {
-                        optTokens.remove(i);
-                        break;
-                    }
-                }
-            }
-            
-            String unquotedQueryString = "";
-            if (queryString.length() >= 2 && queryString.startsWith("\"") && queryString.endsWith("\"")) {
-                unquotedQueryString = queryString.substring(1, queryString.length()-1).trim();
-            }
-            
-            Iterator<ForumCategory> itSearchCategories = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
-            ArrayList<ForumCategory> categoryResultsList = new ArrayList<ForumCategory>();
-            Hashtable<ForumCategory,Integer> categoryRankTable = new Hashtable<ForumCategory,Integer>();
-            Hashtable<ForumCategory,Integer> optMatchesTable = new Hashtable<ForumCategory,Integer>();
-            while (itSearchCategories.hasNext()) {
-                ForumCategory category = itSearchCategories.next();
-                String categoryName = category.getName().toLowerCase().trim();
-                String[] categoryNameTokens = categoryName.split(" ");
-                int rank = -1;
-                if (categoryName.equals(queryString) ||
-                        (unquotedQueryString.length() > 0 && categoryName.equals(unquotedQueryString))) {
-                    rank = 1;
-                } else if (categoryNameTokens.length > 0 && (categoryNameTokens[0].equals(queryString) ||
-                        (unquotedQueryString.length() > 0 && categoryNameTokens[0].equals(unquotedQueryString)))) {
-                    rank = 2;
-                } else {
-                    boolean hasAllReq = true;
-                    for (int i=0; i<reqTokens.size(); i++) {
-                        hasAllReq &= ForumsUtil.inArray(reqTokens.get(i), categoryNameTokens);
-                    }
-                    if (hasAllReq) {
-                        int optTokensCNT = 0;
-                        for (int i=0; i<optTokens.size(); i++) {
-                            if (ForumsUtil.inArray(optTokens.get(i), categoryNameTokens)) {
-                                optTokensCNT++;
-                            }
-                        }
-                        if (optTokensCNT > 0 || reqTokens.size() > 0) {
-                            optMatchesTable.put(category, optTokensCNT);
-                            rank = 3;
-                        }
-                    }
-                }
-                if (rank > 0) {                    
-                    categoryRankTable.put(category, rank);
-                    categoryResultsList.add(category);
-                }
-            }
-            
-            Collections.sort(categoryResultsList, 
-                    new CategoryResultComparator(categoryRankTable, optMatchesTable));
-            
-            int categoryResultSize = ForumConstants.DEFAULT_SEARCH_CATEGORY_RANGE;
-            if (user != null) {
-                try {
-                    categoryResultSize = Integer.parseInt(user.getProperty("jiveSearchCategoryRange"));
-                } catch (Exception ignored) {}
-            }
-            if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE)).equals("")) {
-                categoryResultSize = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE));
-            }
-            int categoryStartIdx = 0;
-            if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_START_IDX)).equals("")) {
-                categoryStartIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_START_IDX));
-            }
-            
-            pageFilter = new ResultFilter();
-            pageFilter.setStartIndex(categoryStartIdx);
-            pageFilter.setNumResults(categoryResultSize);
-            
-            paging = new Paging(pageFilter, categoryResultsList.size());
-            Paginator categoriesPaginator = new Paginator(paging);
-            
-            ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
-            ArrayList<ForumCategory> categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
-            Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, categoryPageList);
-            getRequest().setAttribute("imageDataTable", imageDataTable);
-            
             getRequest().setAttribute("status", status);
             getRequest().setAttribute("query", query);
             getRequest().setAttribute("dateRange", dateRange);
@@ -304,11 +184,137 @@ public class Search extends ForumsProcessor {
             getRequest().setAttribute("paginator", paginator);
             getRequest().setAttribute("mode", mode);
             
-            getRequest().setAttribute("categoriesPage", categoryPageList.iterator());
-            getRequest().setAttribute("categoriesCount", new Integer(categoryResultsList.size()));
-            getRequest().setAttribute("categoriesPaginator", categoriesPaginator);
+            if (searchCategories) {
+                searchCategories(query);
+            }
         }
 	}
+    
+    // Consider using a search package to perform category search.
+    private void searchCategories(Query query) throws Exception {
+        String queryString = query.getQueryString().toLowerCase().trim();
+        
+        String[] ss = queryString.split(" ");
+        ArrayList<String> reqTokens = new ArrayList<String>();
+        ArrayList<String> optTokens = new ArrayList<String>();
+        ArrayList<String> curList = null;
+        String curQuote = "";
+        
+        for (int i=0; i<ss.length; i++) {
+            if (curQuote.startsWith("\"")) {
+                // append to quoted block
+                curQuote += " " + ss[i];
+                if (ss[i].endsWith("\"")) {
+                    // quoted block is completed, add to list
+                    curList.add(curQuote.substring(1, curQuote.length()-1));
+                    curQuote = "";
+                }
+            } else {
+                if (ss[i].startsWith("+")) {
+                    curList = reqTokens;
+                    ss[i] = ss[i].substring(1);
+                } else {
+                    curList = optTokens;
+                }
+                if (ss[i].startsWith("\"")) {
+                    // start new quoted block
+                    curQuote = ss[i];
+                } else {
+                    // add single word to list
+                    curList.add(ss[i]);
+                }
+            }
+        }
+        if (!curQuote.equals("")) {
+            curList.add(curQuote);
+        }
+        
+        for (int i=optTokens.size()-1; i>=0; i--) {
+            for (String stopWord: STOP_WORDS) {
+                if (optTokens.get(i).equals(stopWord)) {
+                    optTokens.remove(i);
+                    break;
+                }
+            }
+        }
+        
+        String unquotedQueryString = "";
+        if (queryString.length() >= 2 && queryString.startsWith("\"") && queryString.endsWith("\"")) {
+            unquotedQueryString = queryString.substring(1, queryString.length()-1).trim();
+        }
+        
+        Iterator<ForumCategory> itSearchCategories = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
+        ArrayList<ForumCategory> categoryResultsList = new ArrayList<ForumCategory>();
+        Hashtable<ForumCategory,Integer> categoryRankTable = new Hashtable<ForumCategory,Integer>();
+        Hashtable<ForumCategory,Integer> optMatchesTable = new Hashtable<ForumCategory,Integer>();
+        while (itSearchCategories.hasNext()) {
+            ForumCategory category = itSearchCategories.next();
+            String categoryName = category.getName().toLowerCase().trim();
+            String[] categoryNameTokens = categoryName.split(" ");
+            int rank = -1;
+            if (categoryName.equals(queryString) ||
+                    (unquotedQueryString.length() > 0 && categoryName.equals(unquotedQueryString))) {
+                rank = 1;
+            } else if (categoryNameTokens.length > 0 && (categoryNameTokens[0].equals(queryString) ||
+                    (unquotedQueryString.length() > 0 && categoryNameTokens[0].equals(unquotedQueryString)))) {
+                rank = 2;
+            } else {
+                boolean hasAllReq = true;
+                for (int i=0; i<reqTokens.size(); i++) {
+                    hasAllReq &= ForumsUtil.inArray(reqTokens.get(i), categoryNameTokens);
+                }
+                if (hasAllReq) {
+                    int optTokensCNT = 0;
+                    for (int i=0; i<optTokens.size(); i++) {
+                        if (ForumsUtil.inArray(optTokens.get(i), categoryNameTokens)) {
+                            optTokensCNT++;
+                        }
+                    }
+                    if (optTokensCNT > 0 || reqTokens.size() > 0) {
+                        optMatchesTable.put(category, optTokensCNT);
+                        rank = 3;
+                    }
+                }
+            }
+            if (rank > 0) {                    
+                categoryRankTable.put(category, rank);
+                categoryResultsList.add(category);
+            }
+        }
+        
+        Collections.sort(categoryResultsList, 
+                new CategoryResultComparator(categoryRankTable, optMatchesTable));
+        
+        int categoryResultSize = ForumConstants.DEFAULT_SEARCH_CATEGORY_RANGE;
+        if (user != null) {
+            try {
+                categoryResultSize = Integer.parseInt(user.getProperty("jiveSearchCategoryRange"));
+            } catch (Exception ignored) {}
+        }
+        if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE)).equals("")) {
+            categoryResultSize = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_RESULT_SIZE));
+        }
+        int categoryStartIdx = 0;
+        if (!StringUtils.checkNull(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_START_IDX)).equals("")) {
+            categoryStartIdx = Integer.parseInt(getRequest().getParameter(ForumConstants.SEARCH_CATEGORY_START_IDX));
+        }
+        
+        ResultFilter pageFilter = new ResultFilter();
+        pageFilter.setStartIndex(categoryStartIdx);
+        pageFilter.setNumResults(categoryResultSize);
+        
+        Paging paging = new Paging(pageFilter, categoryResultsList.size());
+        Paginator categoriesPaginator = new Paginator(paging);
+        
+        ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
+        ArrayList<ForumCategory> categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
+        Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, categoryPageList);
+        
+        getRequest().setAttribute("imageDataTable", imageDataTable);
+        getRequest().setAttribute("categoriesPage", categoryPageList.iterator());
+        getRequest().setAttribute("categoriesCount", new Integer(categoryResultsList.size()));
+        getRequest().setAttribute("categoriesPaginator", categoriesPaginator);
+    }
     
     class CategoryResultComparator implements Comparator<ForumCategory> {
         private Hashtable<ForumCategory,Integer> rankTable;
