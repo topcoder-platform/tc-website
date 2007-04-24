@@ -645,9 +645,16 @@ public class ForumsUtil {
         return imageDataTable;
     }
     
+    // Search if a string is contained in an array. The string tokens may be separated into consecutive elements
+    // within the array; for instance, "bar graph" is in {"bar","graph","v2.0"}.
     public static boolean inArray(String s, String[] array) {
-        for (int i=0; i<array.length; i++) {
-            if (s.equals(array[i])) return true;
+        String[] ss = s.split(" ");
+        for (int i=0; i<array.length-ss.length+1; i++) {
+            boolean contained = true;
+            for (int j=0; j<ss.length; j++) {
+                contained &= ss[j].equals(array[i+j]);
+            }
+            if (contained) return true;
         }
         return false;
     }
