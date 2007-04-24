@@ -505,7 +505,7 @@ p.explain {
 				</tr>			        					
 				<tr>
 					<td nowrap="true">1st place</td>
-					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[0]%>" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[0]%>" size="6" editable="true" format="######.00" /></td>
 				</tr>
 				<tr>
 			        <td colspan="3">
@@ -516,7 +516,7 @@ p.explain {
 				</tr>			        					
 				<tr>
 					<td nowrap="true">2nd place</td>
-					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[1]%>" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[1]%>" size="6" editable="true" format="######.00" /></td>
 				</tr>
 				<tr>
 			        <td colspan="3">
@@ -527,7 +527,7 @@ p.explain {
 				</tr>			        					
 				<tr>
 					<td nowrap="true">3rd place</td>
-					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[2]%>" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.WEEKLY_PRIZES[2]%>" size="6" editable="true" format="######.00" /></td>
 				</tr>
 			</table>
 		</td>
@@ -545,7 +545,7 @@ p.explain {
 				</tr>			        					
 				<tr>
 					<td nowrap="true">1st place</td>
-					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[0]%>" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[0]%>" size="6" editable="true" format="######.00" /></td>
 				</tr>
 				<tr>
 			        <td colspan="3">
@@ -556,7 +556,7 @@ p.explain {
 				</tr>			        									
 				<tr>
 					<td nowrap="true">2nd place</td>
-					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[1]%>" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[1]%>" size="6" editable="true" format="######.00" /></td>
 				</tr>
 				<tr>
 			        <td colspan="3">
@@ -567,7 +567,7 @@ p.explain {
 				</tr>			        									
 				<tr>
 					<td nowrap="true">3rd place</td>
-					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[2]%>" size="6" editable="true" format="###,###.00" /></td>
+					<td><tc-webtag:textInput name="<%= UpdateIntroEvent.OVERALL_PRIZES[2]%>" size="6" editable="true" format="######.00" /></td>
 				</tr>
 			</table>
 		</td>

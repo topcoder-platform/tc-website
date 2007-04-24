@@ -28,6 +28,8 @@
 
 Create new Introductory Event: <a href="/admin/?module=AddIntroEvent&ha=1">algo</a>, <a href="/admin/?module=AddIntroEvent&hc=1">comp</a>, <a href="/admin/?module=AddIntroEvent&ha=1&hc=1">algo &amp; comp</a>
 <br>
+<br>
+<br>
 <table width="100%" >        
 <tr class="header">
 	<td></td>

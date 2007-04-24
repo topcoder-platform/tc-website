@@ -88,6 +88,11 @@ public class IntroEvent extends Event  {
         config.put(iec.getId().getPropertyId() ,iec);
     }
     
+    public void updateConfig(IntroEventConfig iec) {
+        config.remove(iec.getId().getPropertyId());
+        config.put(iec.getId().getPropertyId() ,iec);
+    }
+    
     
     public String getRecruiterName() {
         return getConfig(new Integer(Constants.RECRUITER_NAME_PROP_ID)).getValue();
