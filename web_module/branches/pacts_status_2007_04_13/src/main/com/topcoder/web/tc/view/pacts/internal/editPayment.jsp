@@ -172,8 +172,8 @@ function placedChanged() {
             break;
         }
     }
-</c:if>--%>
-}
+</c:if>
+}--%>
 
 function initialize() {
     loaded();
