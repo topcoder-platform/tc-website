@@ -10,5 +10,7 @@ public interface CompContestDAO {
 
     Contest find(Long id);
    
+    int deleteForEvent(Long eventId);
+    
     void saveOrUpdate(Contest c);
 }

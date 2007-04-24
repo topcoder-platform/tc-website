@@ -146,7 +146,7 @@ public class UpdateIntroEvent extends IntroEventBase {
                 changed = checkContestChanged(comp, nweeks, firstWeek);
                 if (changed) {
                     int erased = DAOUtil.getFactory().getCompContestDAO().deleteForEvent(comp.getId());
-                    log.debug("contest or prizes changed, old ones will be erased.");
+                    log.debug("contest or prizes changed, " + erased + " rows erased.");
                 } else {
                     log.debug("contest or prizes NOT changed.");
                 }
@@ -237,26 +237,27 @@ public class UpdateIntroEvent extends IntroEventBase {
         long dt = endDate.getTime() - startDate.getTime();        
         int dbWeeks = (int) (dt / (7 * 24 * 60 * 60 * 1000)) + 1;        
         
-        boolean changed = false;
-        if (dbWeeks != nweeks || !startDate.equals(firstWeek))) {
-            changed = true;
-        } else {
-            List<ContestPrize> prizes = DAOUtil.getFactory().getContestPrizeDAO().getPrizesForEvent(comp.getId());
-
-            for (ContestPrize prize : prizes) {
-                if (prize.getPrizeTypeId().equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_WEEKLY)) {  
-                    if (!prize.getAmount().equals(getDouble(WEEKLY_PRIZES[prize.getPlace() - 1]))) {
-                        changed = true;
-                    }
-                }
-                if (prize.getPrizeTypeId().equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_OVERALL)) {
-                    if (!prize.getAmount().equals(getDouble(OVERALL_PRIZES[prize.getPlace() - 1]))) {
-                        changed = true;
-                    }
-                }
-            }                    
-        }
+        if (dbWeeks != nweeks || !startDate.equals(firstWeek)) {
+            return true;
+        } 
         
+        List<ContestPrize> prizes = DAOUtil.getFactory().getContestPrizeDAO().getPrizesForEvent(comp.getId());
+
+        for (ContestPrize prize : prizes) {
+            if (prize.getPrizeTypeId().equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_WEEKLY)) {  
+                if (!prize.getAmount().equals(getDouble(WEEKLY_PRIZES[prize.getPlace() - 1]))) {
+                    return true;
+                }
+            }
+            if (prize.getPrizeTypeId().equals(ContestPrize.CONTEST_PRIZE_INTRO_EVENT_OVERALL)) {
+                if (!prize.getAmount().equals(getDouble(OVERALL_PRIZES[prize.getPlace() - 1]))) {
+                    return true;
+                }
+            }
+        }                    
+        
+
+        return false;
         
     }
     
