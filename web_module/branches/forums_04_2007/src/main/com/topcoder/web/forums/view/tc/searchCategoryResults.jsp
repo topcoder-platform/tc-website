@@ -97,7 +97,7 @@
         	<div style="width:320px;">Last Post</div>
         </td>
     </tr>
-    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categories")%>'>
+    <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=(Iterator)request.getAttribute("categoriesPage")%>'>
         <tr>
             <td class="rtThreadCellWrap">
             	<%	if (ForumsUtil.isSoftwareSubcategory(category)) { %>
