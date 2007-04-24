@@ -93,20 +93,35 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
                 }
             }
         }
-        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, new HibernateSessionHouse(hibernateSession));
 
         FileOutputStream fos = null;
+        FileInputStream fis = null;
+        String fileName = "temp"+System.currentTimeMillis()+".txt";
+        HibernateSessionHouse house=null;
         try {
-            fos = new FileOutputStream("temp"+System.currentTimeMillis()+".txt");
+            fos = new FileOutputStream(fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(new HibernateSessionHouse(hibernateSession));
             oos.flush();
             oos.close();
+
+            fis = new FileInputStream(fileName);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            house = (HibernateSessionHouse)ois.readObject();
+            ois.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
         }
+
+
+        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, house);
+
+
         //getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
     }
 
