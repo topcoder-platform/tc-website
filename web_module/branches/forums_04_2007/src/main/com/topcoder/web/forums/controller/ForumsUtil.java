@@ -644,6 +644,13 @@ public class ForumsUtil {
         }
         return imageDataTable;
     }
+    
+    public static boolean inArray(String s, String[] array) {
+        for (int i=0; i<array.length; i++) {
+            if (s.equals(array[i])) return true;
+        }
+        return false;
+    }
 }
 
 class JiveCategoryComparator implements Comparator {

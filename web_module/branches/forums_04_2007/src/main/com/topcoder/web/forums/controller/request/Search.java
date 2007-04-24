@@ -235,23 +235,23 @@ public class Search extends ForumsProcessor {
             while (itSearchCategories.hasNext()) {
                 ForumCategory category = itSearchCategories.next();
                 String categoryName = category.getName().toLowerCase().trim();
+                String[] categoryNameTokens = categoryName.split(" ");
                 int rank = -1;
                 if (categoryName.equals(queryString) ||
                         (unquotedQueryString.length() > 0 && categoryName.equals(unquotedQueryString))) {
                     rank = 1;
-                } else if (categoryName.startsWith(queryString) ||
-                        (unquotedQueryString.length() > 0 && categoryName.startsWith(unquotedQueryString))) {
+                } else if (categoryNameTokens.length > 0 && (categoryNameTokens[0].equals(queryString) ||
+                        (unquotedQueryString.length() > 0 && categoryNameTokens[0].equals(unquotedQueryString)))) {
                     rank = 2;
                 } else {
                     boolean hasAllReq = true;
                     for (int i=0; i<reqTokens.size(); i++) {
-                        hasAllReq &= categoryName.contains(reqTokens.get(i));
+                        hasAllReq &= ForumsUtil.inArray(reqTokens.get(i), categoryNameTokens);
                     }
                     if (hasAllReq) {
                         int optTokensCNT = 0;
                         for (int i=0; i<optTokens.size(); i++) {
-                            if (categoryName.contains(" "+optTokens.get(i)) ||
-                                    categoryName.contains(optTokens.get(i)+" ")) {
+                            if (ForumsUtil.inArray(optTokens.get(i), categoryNameTokens)) {
                                 optTokensCNT++;
                             }
                         }
