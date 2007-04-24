@@ -4,6 +4,28 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.24.07<br>2:20 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        Vote for the TCO07 t-shirt designs
+        </span><br><br>
+        Now that the submissions have been narrowed down, it all comes down to a simple ranking vote to pick the t-shirts for these competition categories: 
+        <a href="/tc?module=ViewSurvey&sid=16939">Studio Design</a>; 
+        <a href="/tc?module=ViewSurvey&sid=16934">Component Design &amp; Development</a>; 
+        <a href="/tc?module=ViewSurvey&sid=16923">Marathon Match</a>; 
+        <a href="/tc?module=ViewSurvey&sid=16928">Algorithm</a>. Voting ends at 2:00 PM EDT on April 26.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Category&categoryID=3">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.24.07<br>1:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -198,24 +220,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely">full story</A> | 
         <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-<tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>04.17.07<br>3:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        Arena maintenance scheduled for April 17
-        </span><br><br>
-        The TopCoder Arena will be down for scheduled maintenance at 5:00 PM EDT on April 17 for approximately one hour.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <%--<A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">details</A> |--%>
-        <tc-webtag:forumLink forumID="515169" message="discuss this" /> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>
    

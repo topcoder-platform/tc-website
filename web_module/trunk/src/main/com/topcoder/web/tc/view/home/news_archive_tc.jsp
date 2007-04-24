@@ -40,6 +40,11 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">04.24.07 2:20 PM - </td><td width="100%">Vote for the TCO07 t-shirt designs: 
+        <a href="/tc?module=ViewSurvey&sid=16939">Studio Design</a>; 
+        <a href="/tc?module=ViewSurvey&sid=16934">Component Design &amp; Development</a>; 
+        <a href="/tc?module=ViewSurvey&sid=16923">Marathon Match</a>; 
+        <a href="/tc?module=ViewSurvey&sid=16928">Algorithm</a></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.23.07 5:45 PM - </td><td width="100%"><A href="/to/?module=ViewBallot&rd=2032">"The Ball" Logo & Icon Prediction Contest Round 2</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%">Predict the TCO T-shirt winners</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%"><A href="/to/?module=ViewBallot&rd=2028">"The Ball" Logo & Icon Prediction Contest Round 1</A></td></tr>
