@@ -92,7 +92,7 @@ function noenter(e)
 <%	if ("search".equals(status)) { %>
 	<%	boolean displayPerThread = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
     	int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); 
-		int categoriesCount = ((Integer)request.getAttribute("categoriesCount")).intValue();
+		int categoriesCount = (request.getAttribute("categoriesCount") != null) ? ((Integer)request.getAttribute("categoriesCount")).intValue() : 0;
 		if (categoriesCount > 0) { %>
 		<jsp:include page="searchCategoryResults.jsp"/><p>
 	<%	} %>
