@@ -170,6 +170,8 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             if (house != null) {
                 log.debug("bind existing hibernate session");
                 ExtendedThreadLocalSessionContext.bind(house.getSession());
+            } else {
+                log.debug("didn't fine the hibernate session, we'll have to create one");
             }
 /*
             Session session =
