@@ -1,7 +1,9 @@
 package com.topcoder.web.common.dao.hibernate;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -9,6 +11,7 @@ import org.hibernate.Session;
 import com.topcoder.web.common.dao.EventDAO;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
+import com.topcoder.web.common.model.comp.Contest;
  
 
 /**
@@ -100,4 +103,13 @@ public class EventDAOHibernate extends Base implements EventDAO {
         
         return new Date[]{(Date) dates[0], (Date) dates[1]};
     }
+    
+    @SuppressWarnings("unchecked")
+    public void deleteContests(Event e) {
+        for (Contest c : (Set<Contest>)e.getContests()) {
+            session.delete(c);
+        }
+        e.setContests(new HashSet<Contest>());
+    }
+    
 }

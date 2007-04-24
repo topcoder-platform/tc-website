@@ -88,15 +88,15 @@ public class UpdateIntroEvent extends IntroEventBase {
                     (prop.getType().equals(IntroEventPropertyType.COMP_TYPE) && hasComp)) {
                 
                 String value = getRequest().getParameter("cfg" + prop.getId());
-                IntroEventConfig iec;
                 if (updating) {
-                    iec = ie.getConfig(prop.getId());
+                    IntroEventConfig iec = ie.getConfig(prop.getId());
+                    iec.setValue(value);
                 } else {
-                    iec = new IntroEventConfig();
+                    IntroEventConfig  iec = new IntroEventConfig();
                     iec.setId(new IntroEventConfig.Identifier(ie, prop.getId()));
+                    iec.setValue(value);
+                    ie.addConfig(iec);
                 }
-                iec.setValue(value);
-                ie.addConfig(iec);
             }
         }
         
@@ -150,8 +150,8 @@ public class UpdateIntroEvent extends IntroEventBase {
             if (getRequest().getParameter(COMP_EVENT_ID) != null) {
                 changed = checkContestChanged(comp, nweeks, firstWeek);
                 if (changed) {
-                    int erased = DAOUtil.getFactory().getCompContestDAO().deleteForEvent(comp.getId());
-                    log.debug("contest or prizes changed, " + erased + " rows erased.");
+                    DAOUtil.getFactory().getEventDAO().deleteContests(comp);
+                    log.debug("contest or prizes changed, contests and contest prizes erased.");
                 } else {
                     log.debug("contest or prizes NOT changed.");
                 }

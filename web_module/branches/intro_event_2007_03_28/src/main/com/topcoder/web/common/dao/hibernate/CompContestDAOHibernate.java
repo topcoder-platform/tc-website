@@ -18,14 +18,6 @@ public class CompContestDAOHibernate extends Base implements CompContestDAO {
         super(session);
     }
 
-    public int deleteForEvent(Long eventId) {
-        return session.createQuery(
-                "DELETE com.topcoder.web.common.model.comp.Contest c" +
-                " WHERE c.event.id=:eventId" )
-                .setLong("eventId", eventId)
-                .executeUpdate();
-    }
-
     
     public Contest find(Long id) {
         return (Contest) super.find(Contest.class, id);

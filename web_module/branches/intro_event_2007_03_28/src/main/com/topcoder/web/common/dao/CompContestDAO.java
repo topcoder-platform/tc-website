@@ -9,8 +9,6 @@ import com.topcoder.web.common.model.comp.Contest;
 public interface CompContestDAO {
 
     Contest find(Long id);
-   
-    int deleteForEvent(Long eventId);
-    
+      
     void saveOrUpdate(Contest c);
 }

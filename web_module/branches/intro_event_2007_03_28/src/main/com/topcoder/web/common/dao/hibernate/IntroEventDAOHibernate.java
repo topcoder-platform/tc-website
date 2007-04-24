@@ -1,11 +1,13 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.HashSet;
 import java.util.List;
 
 import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.IntroEventDAO;
 import com.topcoder.web.common.model.IntroEvent;
+import com.topcoder.web.common.model.comp.Contest;
 
 
 /**
@@ -31,9 +33,8 @@ public class IntroEventDAOHibernate extends Base implements IntroEventDAO {
             .setFirstResult(start)
             .setMaxResults(maxRows)
             .list();
-
-        
     }
+    
     public void saveOrUpdate(IntroEvent e) {
         super.saveOrUpdate(e);        
     }

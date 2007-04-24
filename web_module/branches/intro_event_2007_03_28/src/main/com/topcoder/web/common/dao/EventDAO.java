@@ -31,5 +31,7 @@ public interface EventDAO {
         
     Date[] getComponentContestDates(Long eventId);
     
+    void deleteContests(Event e);
+
     void saveOrUpdate(Event e);
 }
