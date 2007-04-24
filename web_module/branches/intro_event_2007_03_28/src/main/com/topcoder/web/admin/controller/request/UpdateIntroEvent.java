@@ -203,7 +203,7 @@ public class UpdateIntroEvent extends IntroEventBase {
             factory.getEventDAO().saveOrUpdate(comp);
         }
         
-        setNextPage("/main.jsp");
+        setNextPage("/admin/?module=IntroEventList");
         setIsNextPageInContext(false);
     }
 
