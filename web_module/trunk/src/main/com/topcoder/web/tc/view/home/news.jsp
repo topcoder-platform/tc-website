@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>04.24.07<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">
+      <A href="/tc?module=Static&d1=calendar&d2=may_07">Two new Marathon Matches added to Event Calendar</A>
+      </span><br><br>
+      Check out May and June for the new Marathon Match dates.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=calendar&d2=may_07">view</A> | 
+         <tc-webtag:forumLink forumID="515347" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
+   </td></tr>
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.24.07<br>2:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -203,22 +217,5 @@
         <A href="/longcontest/?module=ViewActiveContests">details</A> | 
         <tc-webtag:forumLink forumID="515204" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.17.07<br>5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely">AOL Boxely chat scheduled before SRM 345</A></span><br><br>
-      Before SRM 345, representatives from AOL will join TopCoder members in the Arena at 10:00 AM EDT to discuss Boxely, AOL's next-generation, standards-based development platform for creating rich desktop applications.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely">full story</A> | 
-        <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    

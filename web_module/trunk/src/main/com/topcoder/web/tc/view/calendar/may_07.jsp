@@ -125,6 +125,11 @@
          </div>
       </td>
       <td class="value">16
+        <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 17</A></strong><br>
+         12:00 NOON<br>
+         2 weeks
+         </div>
       </td>
       <td class="value">17
          <div class="des_dev">
