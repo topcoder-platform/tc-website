@@ -109,6 +109,9 @@ public class EditIntroEvent extends IntroEventBase {
         
         setEditIntroEventSelects(algoEventId != null, compEventId != null, false);            
 
+        getRequest().setAttribute(EVENT_ID, eid);
+        getRequest().setAttribute(ALGO_EVENT_ID, algoEventId);
+        getRequest().setAttribute(COMP_EVENT_ID, compEventId);
         getRequest().setAttribute("hasAlgo", algoEventId != null);
         getRequest().setAttribute("hasComp", compEventId != null);
         

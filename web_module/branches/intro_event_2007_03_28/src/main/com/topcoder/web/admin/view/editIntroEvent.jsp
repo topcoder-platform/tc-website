@@ -128,6 +128,11 @@ p.explain {
 
 <form name="f" action="/admin/" method="post">
   <input type="hidden" name="module" value="UpdateIntroEvent"/>
+<c:if test="${not empty eventId }">
+  <input type="hidden" name="eid" value="${eid}"/>
+  <input type="hidden" name="algoid" value="${algoid}"/>
+  <input type="hidden" name="compid" value="${compid}"/>
+</c:if>
 
 <div id="loading">
 <p align="right">

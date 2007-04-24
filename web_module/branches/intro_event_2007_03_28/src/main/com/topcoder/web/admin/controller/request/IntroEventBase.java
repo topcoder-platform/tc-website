@@ -40,6 +40,10 @@ public abstract class IntroEventBase extends ShortHibernateProcessor {
     public static final String[] OVERALL_PRIZES = {"prize1ov", "prize2ov", "prize3ov"};
     public static final String[] WEEKLY_PRIZES = {"prize1w", "prize2w", "prize3w"};
 
+    public static final String EVENT_ID = "eid";
+    public static final String ALGO_EVENT_ID = "algoid";
+    public static final String COMP_EVENT_ID = "compid";
+
     public static final Integer SCHOOL_TYPE_NONE = 0;
     public static final Integer SCHOOL_TYPE_SELECT = 1;
     public static final Integer SCHOOL_TYPE_ID = 2;

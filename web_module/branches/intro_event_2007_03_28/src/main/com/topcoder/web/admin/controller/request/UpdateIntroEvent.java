@@ -54,7 +54,9 @@ public class UpdateIntroEvent extends IntroEventBase {
         DAOFactory factory = DAOUtil.getFactory();
 
         TimeZone timeZone = null;
-        IntroEvent ie = new IntroEvent();
+        IntroEvent ie = getRequest().getParameter(EVENT_ID) == null?  new IntroEvent():
+                factory.getIntroEventDAO().find(new Long(getRequest().getParameter(EVENT_ID)));
+        
         ie.setDescription(name);
         ie.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ID));        
         ie.setShortDescription(sname);
@@ -104,8 +106,9 @@ public class UpdateIntroEvent extends IntroEventBase {
                 if (roundId != null) ie.setRoundId(roundId);
             }
             
+            algo = getRequest().getParameter(ALGO_EVENT_ID) == null?  new Event():
+                factory.getEventDAO().find(new Long(getRequest().getParameter(ALGO_EVENT_ID)));
 
-            algo = new Event();
             algo.setParent(ie);
             algo.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ALGO_ID));       
             
@@ -121,7 +124,8 @@ public class UpdateIntroEvent extends IntroEventBase {
 
         Event comp = null;
         if (hasComp) {
-            comp = new Event();
+            comp = getRequest().getParameter(COMP_EVENT_ID) == null?  new Event():
+                factory.getEventDAO().find(new Long(getRequest().getParameter(COMP_EVENT_ID)));
 
             comp.setParent(ie);
             comp.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_COMP_ID));       
