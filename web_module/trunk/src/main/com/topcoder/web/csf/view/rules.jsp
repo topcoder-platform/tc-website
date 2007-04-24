@@ -89,7 +89,7 @@ You are not eligible to enter this Contest Series or any individual Contest if y
 </p>
 
 <ul>
-<li>Employed by TopCoder, Microsoft, or the applicable Sponsor or any of their respective parent companies, affiliates, subsidiaries, participating vendors or advertising or promotion agencies, or anyone working directly on this program, product and promotion.  Notwithstanding the foregoing, employees of British Telecommunications, plc, or any of its affiliates, subsidiaries, or any other company which may be part of the same group (as defined by s.53 Companies Act) as British Telecommunications, plc (collectively the "BT Group") are eligible to participate in the Contest, but are NOT ELIGIBLE to win prizes.;</li>
+<li>Employed by TopCoder, Microsoft, or the applicable Sponsor or any of their respective parent companies, affiliates, subsidiaries, participating vendors or advertising or promotion agencies, or anyone working directly on this program, product and promotion.  Notwithstanding the foregoing, employees of British Telecommunications, plc, or any of its affiliates, subsidiaries, or any other company which may be part of the same group (as defined by s.53 Companies Act) as British Telecommunications, plc (collectively the "BT Group") are eligible to participate in the Contest, but are NOT ELIGIBLE to win prizes or collect Placement Points.;</li>
 <li>An immediate family member of (i.e., parent, sibling, spouse, child), or living in the same household as, any person described in the group described above (including BT Group) at the time of entry; or</li>
 <li>A resident of the Province of Quebec, Canada, or any of the following countries: Cuba, Iran, Iraq, North Korea, Sudan, and Syria.</li>
 </ul>
@@ -186,7 +186,7 @@ If you are one of the winners, you (or, if you have not yet reached the age of l
 </ul>
 
 <p>
-Employees of BT Group are NOT ELIGIBLE to win prizes and their participation will not affect the distribution of prize money.
+Employees of BT Group are NOT ELIGIBLE to win prizes or collect Placement Points and their participation will not affect the distribution of prize money or allocation of Placement Points.
 </p>
 
 <p>
