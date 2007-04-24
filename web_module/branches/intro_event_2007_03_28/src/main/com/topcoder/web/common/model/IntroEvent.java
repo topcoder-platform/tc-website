@@ -1,6 +1,7 @@
 package com.topcoder.web.common.model;
 
 import java.sql.Timestamp;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -75,14 +76,15 @@ public class IntroEvent extends Event  {
         this.school = school;
     }
 
+    public Map<Integer, IntroEventConfig>  getConfig() {
+        return Collections.unmodifiableMap(config);
+    }
     
     public IntroEventConfig getConfig(Integer typeId) {
         return config.get(typeId);
     }
     
     public void addConfig(IntroEventConfig iec) {
-        System.out.println(iec.getId().getPropertyId());
-        System.out.println(config);
         config.put(iec.getId().getPropertyId() ,iec);
     }
     
