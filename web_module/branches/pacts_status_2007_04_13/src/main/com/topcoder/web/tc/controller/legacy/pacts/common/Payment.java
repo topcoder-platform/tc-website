@@ -147,12 +147,14 @@ public class Payment implements PactsConstants, java.io.Serializable {
             // check for status reasons
             Long paymentStatusReason = TCData.getTCLong(rRow, "payment_status_reason_id");
             if (paymentStatusReason != 0) {
+                log.debug("add reason 1");
                 currentStatus.getReasons().add(PaymentStatusReason.getStatusReasonUsingId(paymentStatusReason));
 
                 for (int i = 1; rsc.getRowCount() > i; i++) {
                     rRow = rsc.getRow(i);
                     paymentStatusReason = TCData.getTCLong(rRow, "payment_status_reason_id");
                     if (paymentStatusReason != 0) {
+                        log.debug("add reason "+ i+1);
                         currentStatus.getReasons().add(PaymentStatusReason.getStatusReasonUsingId(paymentStatusReason));
                     }
                 }

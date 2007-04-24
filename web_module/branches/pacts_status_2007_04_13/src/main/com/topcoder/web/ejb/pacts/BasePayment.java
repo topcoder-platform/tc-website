@@ -49,7 +49,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private Date eventDate  = null;
 
     // Description of the status, looked up in db
-    private String statusDesc = null;
+//    private String statusDesc = null;
 
     // Some payments include a placement to use in the description.
     private int placed = 0;
@@ -299,9 +299,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         return id;
     }
 
-    public String getStatusDesc() {
-        return statusDesc;
-    }
+//    public String getStatusDesc() {
+//        return statusDesc;
+//    }
     public Date getEventDate() {
         return eventDate;
     }
@@ -314,9 +314,9 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.eventDate = eventDate;
     }
 
-    protected void setStatusDesc(String statusDesc) {
-        this.statusDesc = statusDesc;
-    }
+//    protected void setStatusDesc(String statusDesc) {
+//        this.statusDesc = statusDesc;
+//    }
 
     protected void setReferenceDescription(String referenceDescription) {
         this.referenceDescription = referenceDescription;

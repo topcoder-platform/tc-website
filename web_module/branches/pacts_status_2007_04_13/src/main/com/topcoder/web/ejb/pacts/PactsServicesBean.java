@@ -3296,9 +3296,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throws IllegalUpdateException, PaymentPaidException, SQLException {
         // Not allowed to manually set status to Printed or Paid.  This can only be done
         // by the system.
-        if (p.getCurrentStatus().equals(PaymentStatusManager.AvailableStatus.PAID_PAYMENT_STATUS.getStatus())) {
-            throw new IllegalUpdateException("Payment status cannot be manually set to paid");
-        }
 
         // Can't have net amount > gross amount
         if (p.getNetAmount() > p.getGrossAmount()) {
@@ -3490,6 +3487,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 //            insertPaymentDetail.append(" VALUES(?,?,null,null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             insertPaymentDetail.append(" VALUES(?,?,null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
+            
+            // TODO: pulky: add a transaction
             ps = c.prepareStatement(insertPaymentDetail.toString());
             ps.setLong(1, paymentDetailId);
             ps.setDouble(2, p.getNetAmount());
@@ -3550,7 +3549,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 insertPaymentStatusReasons.append("INSERT INTO payment_detail_status_reason_xref ");
                 insertPaymentStatusReasons.append("(payment_detail_id, payment_status_reason_id) ");
                 insertPaymentStatusReasons.append("VALUES (?, ?) ");
-    
+                ps.close();
+                
                 ps = c.prepareStatement(insertPaymentStatusReasons.toString());
     
                 for (PaymentStatusReason reason : p.getCurrentStatus().getReasons()) {
@@ -3585,11 +3585,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             fillPaymentNetAmount(c, p);
-
-            // We have a problem if the payment net amount is <= 0.  Put the payment
-            // on hold.
-            if (p.getNetAmount() <= 0)
-                p.setCurrentStatus(PaymentStatusManager.AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus());
 
             // If the user is creating the payment with Ready to Print status, we need
             // to create the payment_address entry
@@ -7063,7 +7058,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int installmentNumber = rsr.getIntItem("installment_number");
             Date dueDate = rsr.getTimestampItem("date_due");
             long statusId = rsr.getLongItem("status_id");
-            String statusDesc = rsr.getStringItem("status_desc");
+//            String statusDesc = rsr.getStringItem("status_desc");
             String description = rsr.getStringItem("payment_desc");
 
             String referenceFieldName = rsr.getStringItem("reference_field_name");
@@ -7086,7 +7081,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             payment.setDueDate(dueDate);
             payment.setCurrentStatus(PaymentStatusManager.getStatusUsingId(statusId));
             // TODO: pulky: get reasons
-            payment.setStatusDesc(statusDesc);
+//            payment.setStatusDesc(statusDesc);
             payment.setDescription(description);
 
 
@@ -7137,7 +7132,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int installmentNumber = rsr.getIntItem("installment_number");
         Date dueDate = rsr.getTimestampItem("date_due");
         long statusId = rsr.getLongItem("status_id");
-        String statusDesc = rsr.getStringItem("status_desc");
+//        String statusDesc = rsr.getStringItem("status_desc");
         String description = rsr.getStringItem("payment_desc");
         String client = rsr.getStringItem("client");
 
@@ -7162,7 +7157,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setCurrentStatus(PaymentStatusManager.getStatusUsingId(statusId));
         // TODO: pulky: get reasons
         
-        payment.setStatusDesc(statusDesc);
+//        payment.setStatusDesc(statusDesc);
         payment.setDescription(description);
 
         if (payment instanceof ComponentProjectReferencePayment) {
