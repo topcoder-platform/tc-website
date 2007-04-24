@@ -169,6 +169,7 @@ public interface ForumConstants {
     public final static int MAX_THREADS_PER_PAGE = 100;
     public final static int MAX_MESSAGES_PER_PAGE = 100;
     public final static int MAX_SEARCH_RESULTS_PER_PAGE = 100;
+    public final static int MAX_SEARCH_CATEGORY_RESULTS_PER_PAGE = 50;
     public final static int MAX_THREAD_WATCHES = 2000;
     public final static int MAX_DISPLAYED_FORUMS_PER_CATEGORY = 15;
     public final static int MAX_POLL_CHOICES = 100;
@@ -257,4 +258,6 @@ public interface ForumConstants {
         JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.MAX_MESSAGES_PER_PAGE);
     public static int maxSearchResultsPerPage =
         JiveGlobals.getJiveIntProperty("skin.default.maxSearchResultsPerPage", ForumConstants.MAX_SEARCH_RESULTS_PER_PAGE);
+    public static int maxSearchCategoryResultsPerPage =
+        JiveGlobals.getJiveIntProperty("skin.default.maxSearchCategoryResultsPerPage", ForumConstants.MAX_SEARCH_CATEGORY_RESULTS_PER_PAGE);
 }

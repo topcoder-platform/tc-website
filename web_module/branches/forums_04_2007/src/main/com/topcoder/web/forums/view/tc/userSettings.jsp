@@ -138,7 +138,7 @@ function toggleTabs(id) {
       <td class="rtThreadCell" nowrap="nowrap"><strong>Forums per Category page:</strong></td>
       <td class="rtThreadCell" style="width:100%;">
       <select size="1" name="forumsPerPage">
-      <%  int[] forumCounts = { 10, 15, 25 };
+      <%  int[] forumCounts = { 10, 15, 25, 50 };
           int forumRange = ForumConstants.DEFAULT_FORUM_RANGE;
           try {
               forumRange = Integer.parseInt(user.getProperty("jiveForumRange"));
@@ -213,7 +213,7 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen6">
-      <td class="rtThreadCell" nowrap="nowrap"><strong>Results per Search page:</strong></td>
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Messages/Categories per Search page:</strong></td>
       <td class="rtThreadCell">
         <select size="1" name="resultsPerSearchPage">
         <%  int[] searchCounts = { 10, 20, 30, 50 };
@@ -226,6 +226,20 @@ function toggleTabs(id) {
                     <option value="<%=searchCounts[i]%>" selected><%=searchCounts[i]%></option>
             <%  } else { %>
                     <option value="<%=searchCounts[i]%>"><%=searchCounts[i]%></option>
+            <%  }
+            } %>
+        </select><font size=+1>/</font>
+        <select size="1" name="categoryResultsPerSearchPage">
+        <%  int[] searchCategoryCounts = { 0, 5, 10, 20 };
+            int searchCategoryRange = ForumConstants.DEFAULT_SEARCH_CATEGORY_RANGE;
+            try {
+                searchCategoryRange = Integer.parseInt(user.getProperty("jiveSearchCategoryRange"));
+            } catch (Exception ignored) {}
+            for (int i=0; i<searchCategoryCounts.length; i++) {
+                if (searchCategoryCounts[i] == searchCategoryRange) { %>
+                    <option value="<%=searchCategoryCounts[i]%>" selected><%=searchCategoryCounts[i]%></option>
+            <%  } else { %>
+                    <option value="<%=searchCategoryCounts[i]%>"><%=searchCategoryCounts[i]%></option>
             <%  }
             } %>
         </select>
