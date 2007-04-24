@@ -310,7 +310,7 @@ public class Search extends ForumsProcessor {
         }
 	}
     
-    class CategoryResultComparator implements Comparator {
+    class CategoryResultComparator implements Comparator<ForumCategory> {
         private Hashtable<ForumCategory,Integer> rankTable;
         private Hashtable<ForumCategory,Integer> optMatchesTable;    // number of optional tokens matched
         
@@ -320,10 +320,7 @@ public class Search extends ForumsProcessor {
             this.optMatchesTable = optMatchesTable;
         }
         
-        public final int compare(Object o1, Object o2) {
-            ForumCategory c1 = (ForumCategory)o1;
-            ForumCategory c2 = (ForumCategory)o2;
-           
+        public final int compare(ForumCategory c1, ForumCategory c2) {           
             int retVal = 0;
             retVal = rankTable.get(c1).compareTo(rankTable.get(c2));
             if (retVal == 0 && optMatchesTable.containsKey(c1) && optMatchesTable.containsKey(c2)) {
