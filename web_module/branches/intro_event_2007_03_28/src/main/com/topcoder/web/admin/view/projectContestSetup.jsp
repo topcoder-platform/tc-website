@@ -32,11 +32,12 @@
         	
         	<c:forEach items="${projects}" var="project" varStatus="i">
         		<c:if test="${project.eligibilityOpen}">
-	        		<tr class="${i.index % 2 == 0? "even" : "odd" }>
+	        		<tr class='${i.index % 2 == 0? "even" : "odd" }'>
 	        			<td>${project.projectName }</td>
 	        			<td>
-	        				<c:forEach items="${project.contests }" var="contest">
+	        				<c:forEach items="${project.contests }" var="contest" varStatus="status">	        				
 	        					${contest.name }
+	        					<c:if test="${not status.last }"><br></c:if>
 	        				</c:forEach>
 	        			</td>
 	        		</tr>
