@@ -25,15 +25,14 @@
         </td>
         <td>
         	<table>
-        		<tr>
+        		<tr class="header">
         			<td>Project name</td>
         			<td>Associated contests</td>
         		</tr>
-        	</table>
         	
-        	<c:forEach items="${projects}" var="project">
+        	<c:forEach items="${projects}" var="project" varStatus="index">
         		<c:if test="${project.eligibilityOpen}">
-	        		<tr>
+	        		<tr class="${index % 2 == 0? "even" : "odd" }>
 	        			<td>${project.projectName }</td>
 	        			<td>
 	        				<c:forEach items="${project.contests }" var="contest">
@@ -43,6 +42,7 @@
 	        		</tr>
         		</c:if>
         	</c:forEach>
+        	</table>
 
 
         </td>
