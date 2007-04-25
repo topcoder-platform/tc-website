@@ -11,9 +11,10 @@ public class ProjectContestSetup extends ShortHibernateProcessor {
 
     @Override
     protected void dbProcessing() throws Exception {
-
-        List<Project> projects = DAOUtil.getFactory().getProjectDAO().find(Project.STATUS_ACTIVE, 1);
-        List<Contest> contests = DAOUtil.getFactory().getCompContestDAO().getCurrent();
+        Integer catId = new Integer (getRequest().getParameter("catid"));
+        
+        List<Project> projects = DAOUtil.getFactory().getProjectDAO().find(Project.STATUS_ACTIVE, catId);
+        List<Contest> contests = DAOUtil.getFactory().getCompContestDAO().getCurrent(catId + 111);
         
         getRequest().setAttribute("projects" , projects);
         getRequest().setAttribute("contests" , contests);

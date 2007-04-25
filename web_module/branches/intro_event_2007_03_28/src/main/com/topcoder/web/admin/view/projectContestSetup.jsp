@@ -65,6 +65,14 @@ function link() {
 </p>
 </div>		
         
+        <c:choose>
+        	<c:when test="${catid == 1}">
+        		Design | <a href="/admin/?module=ProjectContestSetup&catid=2">Developoment</a>
+        	</c:when>
+        	<c:when test="${catid == 1}">
+        		<a href="/admin/?module=ProjectContestSetup&catid=1">Design</a> | Developoment
+        	</c:when>
+        </c:choose>
         	<table>
         		<tr class="header">
         			<td>&nbsp;</td>
@@ -89,7 +97,10 @@ function link() {
         	</table>
 
             <tc-webtag:objectSelect name="cid" list="${contests}" valueField="id" textField="name"  useTopValue="false"/>
-			<input type="button" name="Link" onclick="link()">
+			<input type="button" value="Link" onclick="link()">
+			<br>
+			<br>
+			
         </td>
     </tr>
 </table>

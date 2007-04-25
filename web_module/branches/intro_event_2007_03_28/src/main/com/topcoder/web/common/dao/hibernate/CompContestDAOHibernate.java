@@ -32,7 +32,17 @@ public class CompContestDAOHibernate extends Base implements CompContestDAO {
                 "where current between c.startDate and c.endDate")                
                 .list();
     }
-    
+
+    @SuppressWarnings("unchecked")
+    public List<Contest> getCurrent(Integer phaseId) {
+        return session.createQuery(
+                "from com.topcoder.web.common.model.comp.Contest c " +
+                "where current between c.startDate and c.endDate " +
+                "and c.phaseId = :phaseId")        
+                .setInteger("phaseId", phaseId)
+                .list();
+    }
+
     public void saveOrUpdate(Contest c) {
         super.saveOrUpdate(c);
     }

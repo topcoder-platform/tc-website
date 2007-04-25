@@ -13,6 +13,8 @@ public interface CompContestDAO {
     Contest find(Long id);
       
     List<Contest> getCurrent();
+    
+    List<Contest> getCurrent(Integer phaseId);
             
     void saveOrUpdate(Contest c);
 }
