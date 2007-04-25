@@ -78,6 +78,8 @@ public class UpdateIntroEvent extends IntroEventBase {
             if (sid != null) {
                 ie.setSchool(factory.getSchoolDAO().find(sid.longValue()));
             }
+        } else {
+            ie.setSchool(null);
         }
         
         List<IntroEventPropertyType> cfg = factory.getIntroEventPropertyTypeDAO().getTypes();

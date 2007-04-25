@@ -9,6 +9,7 @@ public class IntroEventConfig extends Base {
 
     protected Identifier id = new Identifier();
     protected String value = null;
+protected IntroEvent introEvent;
 
     public IntroEventConfig() {
     }

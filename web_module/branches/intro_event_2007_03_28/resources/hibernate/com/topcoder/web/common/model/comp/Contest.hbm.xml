@@ -24,6 +24,11 @@
             <key column="contest_id"/>
             <one-to-many  class="com.topcoder.web.common.model.comp.ContestPrize"/>
         </set>
+
+        <set name="projects" table="tcs_catalog:contest_project_xref" inverse="true" access="field" cascade="persist,merge,save-update">
+            <key column="contest_id" not-null="true"/>
+            <many-to-many column="project_id" class="Project" />
+        </set>
         
 
     </class>

@@ -12,5 +12,11 @@
         </composite-id>
     
         <property name="value" column="property_value" access="field"/>
+        
+           <many-to-one name="introEvent" access="field"
+              column="event_id"
+              not-null="true"
+              insert="false"
+            update="false"/>
     </class>
 </hibernate-mapping>

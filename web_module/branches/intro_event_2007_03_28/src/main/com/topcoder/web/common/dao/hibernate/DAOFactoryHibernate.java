@@ -107,6 +107,9 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new PreferenceGroupDAOHibernate();
     }
 
+    public ProjectDAO getProjectDAO() {
+        return new ProjectDAOHibernate();
+    }
 
     public RegistrationTypeDAO getRegistrationTypeDAO() {
         return new RegistrationTypeDAOHibernate();

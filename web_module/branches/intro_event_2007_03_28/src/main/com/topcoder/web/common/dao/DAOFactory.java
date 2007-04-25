@@ -56,6 +56,8 @@ public interface DAOFactory {
 
     PreferenceGroupDAO getPreferenceGroupDAO();
 
+    ProjectDAO getProjectDAO();
+
     RegistrationTypeDAO getRegistrationTypeDAO();
 
     ReferralDAO getReferralDAO();

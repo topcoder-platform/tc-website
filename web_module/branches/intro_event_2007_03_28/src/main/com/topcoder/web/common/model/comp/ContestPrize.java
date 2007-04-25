@@ -4,7 +4,7 @@ import com.topcoder.web.common.model.Base;
 
 /**
  * @author cucu
-= */
+ */
 @SuppressWarnings("serial")
 public class ContestPrize extends Base {
 

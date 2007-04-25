@@ -25,6 +25,7 @@ public class Contest extends Base {
     protected Timestamp endDate = null;
     protected Event event;
     protected Set<ContestPrize> prizes = new HashSet<ContestPrize>();
+    protected Set<Project> projects = new HashSet<Project>();
     
     public Timestamp getEndDate() {
         return endDate;
@@ -76,6 +77,16 @@ public class Contest extends Base {
     }
     public void addPrize(ContestPrize p) {
         prizes.add(p);
+    }
+    public Set<Project> getProjects() {
+        return projects;
+    }
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
+    
+    public void addProject(Project project) {
+        projects.add(project);
     }
 
 
