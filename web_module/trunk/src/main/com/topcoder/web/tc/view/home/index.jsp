@@ -265,16 +265,17 @@
             <img src="/i/home/tco07Rd1-B_nsa.png" alt="TCO07 Round 1-B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
             --%>
 
-            <%-- SRM SPONSOR --%>
+            <%-- SRM SPONSOR 
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10670" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa" />
                 </map>
                 <img src="/i/home/srm346_nsa.png" alt="SRM 346 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
+                --%>
                 
-            <%-- TCCC07 Web Design @ Studio 
-            <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2079" target="_blank"><img src="/i/home/tccc07_studiopromo.png" alt="TCCC07 Web Design @ Studio" border="0" style="display:block;" /></A>
-            --%>
+            <%-- 2 Registration Prototype contests open @ Studio --%>
+            <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
+            
             
             <%-- TCO07 
             <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
