@@ -30,11 +30,12 @@
 Coders that passed review for at least one project for event ${event.description }:
 <br>
 <br>
+<center>
        <rsc:iterator list="${coders}" id="resultRow">
            <tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id")%>' context='component'/>
            <br>
        </rsc:iterator>
-
+</center>
         </td>
     </tr>
 </table>

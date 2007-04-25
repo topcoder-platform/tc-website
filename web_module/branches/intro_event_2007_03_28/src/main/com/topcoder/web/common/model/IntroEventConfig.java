@@ -4,12 +4,12 @@ import java.io.Serializable;
 
 /**
  * @author cucu
-= */
+ */
+@SuppressWarnings("serial")
 public class IntroEventConfig extends Base {
 
     protected Identifier id = new Identifier();
     protected String value = null;
-protected IntroEvent introEvent;
 
     public IntroEventConfig() {
     }
@@ -30,6 +30,7 @@ protected IntroEvent introEvent;
         this.value = value;
     }
 
+    @SuppressWarnings("serial")
     public static class Identifier implements Serializable {
 
         private IntroEvent introEvent = null;
