@@ -30,9 +30,9 @@
         			<td>Associated contests</td>
         		</tr>
         	
-        	<c:forEach items="${projects}" var="project" varStatus="index">
+        	<c:forEach items="${projects}" var="project" varStatus="i">
         		<c:if test="${project.eligibilityOpen}">
-	        		<tr class="${index % 2 == 0? "even" : "odd" }>
+	        		<tr class="${i.index % 2 == 0? "even" : "odd" }>
 	        			<td>${project.projectName }</td>
 	        			<td>
 	        				<c:forEach items="${project.contests }" var="contest">
