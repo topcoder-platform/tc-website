@@ -69,10 +69,11 @@ function link() {
         	<c:when test="${catid == 1}">
         		Design | <a href="/admin/?module=ProjectContestSetup&catid=2">Developoment</a>
         	</c:when>
-        	<c:when test="${catid == 1}">
+        	<c:when test="${catid == 2}">
         		<a href="/admin/?module=ProjectContestSetup&catid=1">Design</a> | Developoment
         	</c:when>
         </c:choose>
+        <br>
         	<table>
         		<tr class="header">
         			<td>&nbsp;</td>
