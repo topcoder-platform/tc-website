@@ -82,7 +82,7 @@ function link() {
         	
         	<c:forEach items="${projects}" var="project" varStatus="i">
         		<c:if test="${project.eligibilityOpen}">
-	        		<tr class='${i.index % 2 == 0? "even" : "odd" }'>
+	        		<tr class='${i.index % 2 == 0? "even" : "odd" }' style="font : small">
 	        			<td><input type="checkbox" name="pj" value="${project.id}"/></td>
 	        			<td>${project.projectName }</td>
 				    	<td id="ct${project.id}">
@@ -95,6 +95,7 @@ function link() {
         		</c:if>
         	</c:forEach>
         	</table>
+<br><br>
 
             <tc-webtag:objectSelect name="cid" list="${contests}" valueField="id" textField="name"  useTopValue="false"/>
 			<input type="button" value="Link" onclick="link()">

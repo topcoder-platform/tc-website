@@ -18,6 +18,8 @@ public class ProjectContestSetup extends ShortHibernateProcessor {
         
         getRequest().setAttribute("projects" , projects);
         getRequest().setAttribute("contests" , contests);
+        getRequest().setAttribute("catid" , catId);
+        
         setNextPage("/projectContestSetup.jsp");
         setIsNextPageInContext(true);
 
