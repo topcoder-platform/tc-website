@@ -50,7 +50,7 @@ function link() {
   
 </head>
 
-<body>
+<body onLoad="loaded()">
 <jsp:include page="top.jsp"/>
 <table>
     <tr valign="top">
@@ -73,6 +73,7 @@ function link() {
         		<a href="/admin/?module=ProjectContestSetup&catid=1">Design</a> | Developoment
         	</c:when>
         </c:choose>
+        <br>
         <br>
         	<table>
         		<tr class="header">

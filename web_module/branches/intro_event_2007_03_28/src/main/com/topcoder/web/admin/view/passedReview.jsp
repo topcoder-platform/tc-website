@@ -28,9 +28,10 @@
 Coders that passed review for at least one project for event ${event.description }:
 <br>
 <br>
-<c:forEach items="${coders}" var="coder" >
-	<tc-webtag:handle coderId="${coder.id}" context="component"/><br>
-</c:forEach>
+       <rsc:iterator list="${coders}" id="resultRow">
+           <tc-webtag:handle coderId='<%= resultRow.getLongItem("user_id")%>' context='component'/>
+           <br>
+       </rsc:iterator>
 
         </td>
     </tr>
