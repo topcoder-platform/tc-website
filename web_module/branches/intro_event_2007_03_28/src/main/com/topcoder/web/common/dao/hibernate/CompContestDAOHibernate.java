@@ -1,5 +1,7 @@
 package com.topcoder.web.common.dao.hibernate;
 
+import java.util.List;
+
 import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.CompContestDAO;
@@ -23,6 +25,14 @@ public class CompContestDAOHibernate extends Base implements CompContestDAO {
         return (Contest) super.find(Contest.class, id);
     }
 
+    @SuppressWarnings("unchecked")
+    public List<Contest> getCurrent() {
+        return session.createQuery(
+                "from com.topcoder.web.common.model.comp.Contest c " +
+                "where current between c.startDate and c.endDate")                
+                .list();
+    }
+    
     public void saveOrUpdate(Contest c) {
         super.saveOrUpdate(c);
     }

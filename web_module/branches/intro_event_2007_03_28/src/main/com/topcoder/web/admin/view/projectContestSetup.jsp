@@ -9,9 +9,43 @@
     <title>TopCoder Admin</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-    
-<script language="javascript" type="text/javascript">
- </script>  
+	<script type="text/javascript" src="/js/taconite-client.js"></script>
+	<script type="text/javascript" src="/js/taconite-parser.js"></script>
+  <script type="text/javascript">
+  
+function toggleDiv(divId, state) 
+{
+    if(document.layers)   
+    {
+       document.layers[divId].visibility = state ? "show" : "hide";
+    }
+    else if(document.getElementById)
+    {
+        document.getElementById(divId).style.visibility = state ? "visible" : "hidden";
+    }
+    else if(document.all)
+    {
+        document.all[divId].style.visibility = state ? "visible" : "hidden";
+    }
+}
+
+function loading() {
+    toggleDiv("loading", 1);
+}
+
+function loaded() {
+    toggleDiv("loading", 0);
+}
+function link() {
+	var ajaxRequest = new AjaxRequest('/admin/?module=AjaxSearchSchool');    
+    ajaxRequest.addNamedFormElements("pj");
+    ajaxRequest.addNamedFormElements("cid");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);        
+    ajaxRequest.sendRequest();
+}
+
+</script>
  
   
 </head>
@@ -24,8 +58,16 @@
             <jsp:include page="left.jsp"/>
         </td>
         <td>
+        
+<div id="loading">
+<p align="right">
+<b><font color="#FF0000" size="+1">Working...</font></b>
+</p>
+</div>		
+        
         	<table>
         		<tr class="header">
+        			<td>&nbsp;</td>
         			<td>Project name</td>
         			<td>Associated contests</td>
         		</tr>
@@ -33,6 +75,7 @@
         	<c:forEach items="${projects}" var="project" varStatus="i">
         		<c:if test="${project.eligibilityOpen}">
 	        		<tr class='${i.index % 2 == 0? "even" : "odd" }'>
+	        			<td><tc-webtag:chkBox name="pj" value="${project.id}"/></td>
 	        			<td>${project.projectName }</td>
 	        			<td>
 	        				<c:forEach items="${project.contests }" var="contest" varStatus="status">	        				
@@ -45,7 +88,8 @@
         	</c:forEach>
         	</table>
 
-
+            <tc-webtag:objectSelect name="cid" list="${contests}" valueField="id" textField="name"  useTopValue="false"/>
+			<input type="button" name="Link" onclick="link()">
         </td>
     </tr>
 </table>
