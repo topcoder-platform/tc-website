@@ -32,7 +32,7 @@
         	</table>
         	
         	<c:forEach items="${projects}" var="project">
-        		<c:if test="${project.elegibilityOpen}">
+        		<c:if test="${project.eligibilityOpen}">
 	        		<tr>
 	        			<td>${project.projectName }</td>
 	        			<td>
