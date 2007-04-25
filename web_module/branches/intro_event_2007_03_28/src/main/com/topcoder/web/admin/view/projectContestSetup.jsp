@@ -37,7 +37,7 @@ function loaded() {
     toggleDiv("loading", 0);
 }
 function link() {
-	var ajaxRequest = new AjaxRequest('/admin/?module=AjaxSearchSchool');    
+	var ajaxRequest = new AjaxRequest('/admin/?module=LinkProjectContest');    
     ajaxRequest.addNamedFormElements("pj");
     ajaxRequest.addNamedFormElements("cid");
     ajaxRequest.setPostRequest(loaded);
@@ -77,7 +77,7 @@ function link() {
 	        		<tr class='${i.index % 2 == 0? "even" : "odd" }'>
 	        			<td><input type="checkbox" name="pj" value="${project.id}"/></td>
 	        			<td>${project.projectName }</td>
-	        			<td>
+				    	<td id="ct${project.id}">
 	        				<c:forEach items="${project.contests }" var="contest" varStatus="status">	        				
 	        					${contest.name }
 	        					<c:if test="${not status.last }"><br></c:if>
