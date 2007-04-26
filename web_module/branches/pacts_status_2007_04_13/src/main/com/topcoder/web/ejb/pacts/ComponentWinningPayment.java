@@ -1,10 +1,7 @@
 package com.topcoder.web.ejb.pacts;
 
 import java.sql.SQLException;
-import java.util.List;
 
-import com.topcoder.web.common.model.AssignmentDocument;
-import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 /**
@@ -132,17 +129,8 @@ public class ComponentWinningPayment extends ComponentProjectReferencePayment {
          * @return whether the user has already affirmed the corresponding Assignment Document
          */
         protected boolean hasAffirmedAssignmentDocument(long coderId, long projectId) {
-            DataInterfaceBean dib = new DataInterfaceBean();
             try {
-                List assignmentDocuments = dib.getAssignmentDocumentByUserIdProjectId(coderId, projectId);
-        
-                if (assignmentDocuments.size() == 0) {
-                    return false;
-                }
-                
-                AssignmentDocument ad = (AssignmentDocument) assignmentDocuments.get(0);
-                
-                return (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
+                return new DataInterfaceBean().hasAffirmedAssignmentDocument(COMPONENT_PAYMENT, coderId, projectId);
             } catch (Exception e) {
                 return false;
             }

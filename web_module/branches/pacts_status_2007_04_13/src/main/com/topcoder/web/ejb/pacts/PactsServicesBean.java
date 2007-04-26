@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.sql.Types;
-import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -16,10 +15,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.ejb.EJBException;
@@ -45,6 +42,7 @@ import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
@@ -2018,6 +2016,36 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    /**
+     * Returns whether the user has already affirmed the corresponding Assignment Document
+     *
+     * @param paymentTypeId payment type to check for Assignment Document
+     * @param coderId coder to check for Assignment Document
+     * @param referenceId reference id to check for Assignment Document
+     * @return whether the user has already affirmed the corresponding Assignment Document
+     */
+    protected boolean hasAffirmedAssignmentDocument(long paymentTypeId, long coderId, long referenceId) {
+        try {
+            List assignmentDocuments = new ArrayList();
+            
+            if (paymentTypeId == TC_STUDIO_PAYMENT) {
+                assignmentDocuments = getAssignmentDocumentByUserIdStudioContestId(coderId, referenceId);
+            } else if (paymentTypeId == COMPONENT_PAYMENT) { 
+                assignmentDocuments = getAssignmentDocumentByUserIdProjectId(coderId, referenceId);
+            }
+    
+            if (assignmentDocuments.size() == 0) {
+                return false;
+            }
+            
+            AssignmentDocument ad = (AssignmentDocument) assignmentDocuments.get(0);
+            
+            return (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 
     /**
      * Marks an assignment document as affirmed
@@ -2516,7 +2544,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         hm.put(AFFIDAVIT_HEADER_LIST, rsc);
         return hm;
     }
-
+    
     /**
      * Finds contracts that match the specified search criteria.
      *
@@ -3494,8 +3522,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setDouble(2, p.getNetAmount());
             ps.setDouble(3, p.getGrossAmount());
             ps.setLong(4, p.getCurrentStatus().getId());
-            // TODO: pulky: add reasons
-            
             setNullableLong(ps, 5, addressId);
             ps.setInt(6, p.getRationaleId());
             ps.setString(7, p.getHeader().getDescription());
@@ -3772,53 +3798,53 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return paymentId;
     }
 
-    /**
-     * Adds the specified payment to the database, and to the specified contract.  Does
-     * not add a corresponding referral payment.
-     *
-     * @param contractId The ID of the contract to which to add the payment.
-     * @param p          The payment data to add.
-     * @return The new payment's ID.
-     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed
-     * @throws SQLException           If there is some problem updating the data
-     */
-    public long addContractPayment(long contractId, Payment p) throws IllegalUpdateException, SQLException {
-        Connection c = null;
-        try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
-
-            long paymentId = makeNewContractPayment(c, contractId, p);
-
-            c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
-            return paymentId;
-        } catch (Exception e) {
-            printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
-            if (e instanceof IllegalUpdateException)
-                throw (IllegalUpdateException) e;
-            throw new SQLException(e.getMessage());
-        }
-    }
+//    /**
+//     * Adds the specified payment to the database, and to the specified contract.  Does
+//     * not add a corresponding referral payment.
+//     *
+//     * @param contractId The ID of the contract to which to add the payment.
+//     * @param p          The payment data to add.
+//     * @return The new payment's ID.
+//     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed
+//     * @throws SQLException           If there is some problem updating the data
+//     */
+//    public long addContractPayment(long contractId, Payment p) throws IllegalUpdateException, SQLException {
+//        Connection c = null;
+//        try {
+//            c = DBMS.getConnection();
+//            c.setAutoCommit(false);
+//            setLockTimeout(c);
+//
+//            long paymentId = makeNewContractPayment(c, contractId, p);
+//
+//            c.commit();
+//            c.setAutoCommit(true);
+//            c.close();
+//            c = null;
+//            return paymentId;
+//        } catch (Exception e) {
+//            printException(e);
+//            try {
+//                c.rollback();
+//            } catch (Exception e1) {
+//                printException(e1);
+//            }
+//            try {
+//                c.setAutoCommit(true);
+//            } catch (Exception e1) {
+//                printException(e1);
+//            }
+//            try {
+//                if (c != null) c.close();
+//            } catch (Exception e1) {
+//                printException(e1);
+//            }
+//            c = null;
+//            if (e instanceof IllegalUpdateException)
+//                throw (IllegalUpdateException) e;
+//            throw new SQLException(e.getMessage());
+//        }
+//    }
 
     // Helper function to check for validity
     private void checkTaxForm(TaxForm t) throws IllegalUpdateException {
@@ -5247,13 +5273,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
-    // Surrounds with "" if the string contains a comma, as QuickBooks won't like
-    // a CSV file with this String otherwise.
-    private String shroud(String s) {
-        if (s.indexOf(",") < 0)
-            return s;
-        return '"' + s + '"';
-    }
+//    // Surrounds with "" if the string contains a comma, as QuickBooks won't like
+//    // a CSV file with this String otherwise.
+//    private String shroud(String s) {
+//        if (s.indexOf(",") < 0)
+//            return s;
+//        return '"' + s + '"';
+//    }
 
 //    private void checkAssignmentDocumentBeforePrint(Connection c) throws Exception {
 //        StringBuffer getHoldComponentPayments = new StringBuffer(300);
@@ -5681,16 +5707,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             setLockTimeout(c);
 
-            // Get list of users with taxforms
-            StringBuffer getUsers = new StringBuffer(300);
-            getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
-                    .append(" , room_result rr where u.user_id = utfx.user_id and u.user_id = rr.coder_id ")
-                    .append(" and utfx.user_id = rr.coder_id and rr.round_id = " + roundId);
-            ResultSetContainer rscUser = runSelectQuery(c, getUsers.toString(), false);
-            HashSet userTaxFormSet = new HashSet();
-            for (i = 0; i < rscUser.getRowCount(); i++) {
-                userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
-            }
+//            // Get list of users with taxforms
+//            StringBuffer getUsers = new StringBuffer(300);
+//            getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
+//                    .append(" , room_result rr where u.user_id = utfx.user_id and u.user_id = rr.coder_id ")
+//                    .append(" and utfx.user_id = rr.coder_id and rr.round_id = " + roundId);
+//            ResultSetContainer rscUser = runSelectQuery(c, getUsers.toString(), false);
+//            HashSet userTaxFormSet = new HashSet();
+//            for (i = 0; i < rscUser.getRowCount(); i++) {
+//                userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
+//            }
 
             // Make sure we haven't done this before for this round.
             StringBuffer checkNew = new StringBuffer(300);
@@ -5748,9 +5774,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                 Payment p = new Payment();
                 p.setGrossAmount(TCData.getTCDouble(winners.getRow(i), "paid"));
+
+                // TODO: pulky: check if this can be changed somehow.
+                AlgorithmContestPayment acp = new AlgorithmContestPayment(userId, 0.01, roundId);
+                new PaymentStatusMediator(acp).newPayment();
+                p.setCurrentStatus(acp.getCurrentStatus());
                 
-                p.setCurrentStatus(userTaxFormSet.contains(new Long(userId)) ? PaymentStatusManager.AvailableStatus.OWED_PAYMENT_STATUS.getStatus() : PaymentStatusManager.AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus());
-                // TODO: pulky: add reason
                 p.getHeader().setDescription(roundName + " winnings");
                 p.getHeader().setTypeId(paymentTypeId);
                 p.setDueDate(dueDate);
@@ -5841,26 +5870,26 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return generateRoundPayments(roundId, CONTEST_WINNING_AFFIDAVIT, makeChanges, paymentTypeId);
     }
 
-    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
+//    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm", Locale.US);
 
-    /**
-     * Generates all the payments for the people who won money for the given project (designers, developers,
-     * and review board members). If it is a development project, it may pay the missing 25% to the designer.
-     * It doesn't insert the payments in the DB, just generates and return them.
-     *
-     * @param projectId   The ID of the project
-     * @param status      The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
-     * @param client      The project's client (optional)
-     * @param makeChanges If true, updates the database; if false, logs
-     *                    the changes that would have been made had this parameter been true.
-     * @return The generated payments in a List of BasePayment
-     * @throws IllegalUpdateException If the affidavit/payment information
-     *                                has already been generated for this round.
-     * @throws SQLException           If there was some error updating the data.
-     */
-    public List generateComponentPayments(long projectId, long status, String client) throws IllegalUpdateException, SQLException {
-        return generateComponentPayments(projectId, status, client, 0);
-    }
+//    /**
+//     * Generates all the payments for the people who won money for the given project (designers, developers,
+//     * and review board members). If it is a development project, it may pay the missing 25% to the designer.
+//     * It doesn't insert the payments in the DB, just generates and return them.
+//     *
+//     * @param projectId   The ID of the project
+//     * @param status      The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
+//     * @param client      The project's client (optional)
+//     * @param makeChanges If true, updates the database; if false, logs
+//     *                    the changes that would have been made had this parameter been true.
+//     * @return The generated payments in a List of BasePayment
+//     * @throws IllegalUpdateException If the affidavit/payment information
+//     *                                has already been generated for this round.
+//     * @throws SQLException           If there was some error updating the data.
+//     */
+//    public List generateComponentPayments(long projectId, long status, String client) throws IllegalUpdateException, SQLException {
+//        return generateComponentPayments(projectId, status, client, 0);
+//    }
 
     /**
      * Generates all the payments for the people who won money for the given project (designers, developers,
@@ -5943,7 +5972,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.debug(rsc.getStringItem(i, "user_id"));
             long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
             double amount = rsc.getDoubleItem(i, "paid");
-            payments.add(new ReviewBoardPayment(coderId, amount, client, projectId));
+            ReviewBoardPayment rbp = new ReviewBoardPayment(coderId, amount, client, projectId);
+            
+            // delegate payment status logic to the PaymentStatusMediator
+            new PaymentStatusMediator(rbp).newPayment();
+            payments.add(rbp);
         }
 
         return payments;
@@ -5959,6 +5992,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int expireOldPayments() throws SQLException {
+        // TODO: pulky: change this so it use the PaymentStatusMediator.
+        
         Connection c = null;
 
         try {
@@ -6025,6 +6060,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int expireOldAffidavits() throws SQLException {
+        // TODO: pulky: change this so it use the PaymentStatusMediator.
         Connection c = null;
 
         try {
@@ -6098,6 +6134,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int expireOldAssignmentDocuments() throws SQLException {
+        // TODO: pulky: change this so it use the PaymentStatusMediator.
         Connection c = null;
 
         try {
@@ -6886,19 +6923,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // If it's not first place, just add the payment to the list and return it.
         if (placed != 1) {
-            l.add(new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed));
+            ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
+            // delegate payment status logic to the PaymentStatusMediator
+            new PaymentStatusMediator(cwp).newPayment();
+            l.add(cwp);
             return l;
         }
 
         if (projectType == DESIGN_PROJECT) {
             BasePayment p = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
             p.setGrossAmount(grossAmount * DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT);
+            // delegate payment status logic to the PaymentStatusMediator
+            new PaymentStatusMediator(p).newPayment();
             l.add(p);
         } else if (projectType == DEVELOPMENT_PROJECT) {
             long designProject = getDesignProject(projectId);
 
             // add the development payment as it is
-            l.add(new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed));
+            ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
+            // delegate payment status logic to the PaymentStatusMediator
+            new PaymentStatusMediator(cwp).newPayment();
+            l.add(cwp);
 
             if (designProject > 0) {
                 String query = "SELECT sum(gross_amount) as amount_paid " +
@@ -6932,6 +6977,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
                         p.setGrossAmount(totalAmount - paid);
                         p.setInstallmentNumber(installment);
+                        // delegate payment status logic to the PaymentStatusMediator
+                        new PaymentStatusMediator(p).newPayment();
 
                         if (devSupportCoderId == 0) {
                             p.setMethodId(methodId);

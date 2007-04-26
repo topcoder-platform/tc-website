@@ -113,17 +113,8 @@ public class StudioContestPayment extends StudioContestReferencePayment {
          * @return whether the user has already affirmed the corresponding Assignment Document
          */
         protected boolean hasAffirmedAssignmentDocument(long coderId, long contestId) {
-            DataInterfaceBean dib = new DataInterfaceBean();
             try {
-                List assignmentDocuments = dib.getAssignmentDocumentByUserIdStudioContestId(coderId, contestId);
-        
-                if (assignmentDocuments.size() == 0) {
-                    return false;
-                }
-                
-                AssignmentDocument ad = (AssignmentDocument) assignmentDocuments.get(0);
-                
-                return (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
+                return new DataInterfaceBean().hasAffirmedAssignmentDocument(TC_STUDIO_PAYMENT, coderId, contestId);
             } catch (Exception e) {
                 return false;
             }

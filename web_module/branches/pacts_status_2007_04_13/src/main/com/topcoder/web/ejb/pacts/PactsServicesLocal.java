@@ -135,8 +135,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     long addPayment(Payment p, boolean payReferrer) throws  IllegalUpdateException, SQLException;
 
-    long addContractPayment(long contractId, Payment p)
-            throws  IllegalUpdateException, SQLException;
+//    long addContractPayment(long contractId, Payment p)
+//            throws  IllegalUpdateException, SQLException;
 
     long addTaxForm(TaxForm t, String taxFormText)
             throws  IllegalUpdateException, SQLException;
@@ -197,8 +197,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
     	throws IllegalUpdateException,  SQLException;
 
-    List generateComponentPayments(long projectId, long status, String client)
-            throws IllegalUpdateException,  SQLException;
+//    List generateComponentPayments(long projectId, long status, String client)
+//            throws IllegalUpdateException,  SQLException;
 
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
     		throws IllegalUpdateException,  SQLException;
@@ -294,6 +294,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     void affirmAssignmentDocument(AssignmentDocument ad);
     
     List<BasePaymentStatus> getPaymentStatusList(Boolean onlyViewable) throws SQLException;
+
+    boolean hasAffirmedAssignmentDocument(long paymentTypeId, long coderId, long contestId);
 
 }
 

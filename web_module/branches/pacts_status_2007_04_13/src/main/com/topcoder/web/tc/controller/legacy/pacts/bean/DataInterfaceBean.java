@@ -1121,21 +1121,21 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
 
-    /**
-     * Adds the specified payment to the database, and to the specified contract.  Does
-     * not add a corresponding referral payment.
-     *
-     * @param   contractId The ID of the contract to which to add the payment.
-     * @param   p The payment data to add.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some other problem updating the data
-     * @return  The new payment's ID.
-     */
-    public long addContractPayment(long contractId, Payment p) throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.addContractPayment(contractId, p);
-    }
+//    /**
+//     * Adds the specified payment to the database, and to the specified contract.  Does
+//     * not add a corresponding referral payment.
+//     *
+//     * @param   contractId The ID of the contract to which to add the payment.
+//     * @param   p The payment data to add.
+//     * @throws  RemoteException If there is some communication problem with the EJB
+//     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
+//     * @throws  SQLException If there is some other problem updating the data
+//     * @return  The new payment's ID.
+//     */
+//    public long addContractPayment(long contractId, Payment p) throws RemoteException, IllegalUpdateException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.addContractPayment(contractId, p);
+//    }
 
     /**
      * Adds a tax form.
@@ -1553,32 +1553,32 @@ public class DataInterfaceBean implements PactsConstants {
     	return ps.generateRoundPayments(roundId, makeChanges, paymentTypeId);
     }
 
-    /**
-     * Generates all the payments for the people who won money for the given project (designers, developers,
-     * and review board members). If it is a development project, it may pay the missing 25% to the designer.
-     * It doesn't insert the payments in the DB, just generates and return them.
-     * 
-     * @param projectId The ID of the project
-     * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
-     * @param client The project's client (optional)
-     * @param makeChanges If true, updates the database; if false, logs
-     * the changes that would have been made had this parameter been true.
-     * @return The generated payments in a List of BasePayment
-     * @throws IllegalUpdateException If the affidavit/payment information
-     * has already been generated for this round.
-     * @throws SQLException If there was some error updating the data.
-     */
-    public List generateComponentPayments(long projectId, long status, String client)
-        throws IllegalUpdateException, RemoteException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentPayments(projectId, status, client);
-    }
+//    /**
+//     * Generates all the payments for the people who won money for the given project (designers, developers,
+//     * and review board members). If it is a development project, it may pay the missing 25% to the designer.
+//     * It doesn't insert the payments in the DB, just generates and return them.
+//     * 
+//     * @param projectId The ID of the project
+//     * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
+//     * @param client The project's client (optional)
+//     * @param makeChanges If true, updates the database; if false, logs
+//     * the changes that would have been made had this parameter been true.
+//     * @return The generated payments in a List of BasePayment
+//     * @throws IllegalUpdateException If the affidavit/payment information
+//     * has already been generated for this round.
+//     * @throws SQLException If there was some error updating the data.
+//     */
+//    public List generateComponentPayments(long projectId, long status, String client)
+//        throws IllegalUpdateException, RemoteException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.generateComponentPayments(projectId, status, client);
+//    }
 
     public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-    throws IllegalUpdateException, RemoteException, SQLException {
-    PactsServicesLocal ps = getEjbHandle();
-    return ps.generateComponentPayments(projectId, status, client, devSupportCoderId);
-}
+        throws IllegalUpdateException, RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.generateComponentPayments(projectId, status, client, devSupportCoderId);
+    }
 
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1778,6 +1778,11 @@ public class DataInterfaceBean implements PactsConstants {
     public List<BasePaymentStatus> getPaymentStatusList(Boolean onlyViewable) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getPaymentStatusList(onlyViewable);
+    }
+
+    public boolean hasAffirmedAssignmentDocument(long paymentTypeId, long coderId, long contestId) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.hasAffirmedAssignmentDocument(paymentTypeId, coderId, contestId);
     }
 }
 

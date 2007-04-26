@@ -129,8 +129,8 @@ public interface PactsServices extends EJBObject {
 
     long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException;
 
-    long addContractPayment(long contractId, Payment p)
-            throws RemoteException, IllegalUpdateException, SQLException;
+//    long addContractPayment(long contractId, Payment p)
+//            throws RemoteException, IllegalUpdateException, SQLException;
 
     long addTaxForm(TaxForm t, String taxFormText)
             throws RemoteException, IllegalUpdateException, SQLException;
@@ -191,8 +191,8 @@ public interface PactsServices extends EJBObject {
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
     	throws IllegalUpdateException, RemoteException, SQLException;
 
-    List generateComponentPayments(long projectId, long status, String client)
-            throws IllegalUpdateException, RemoteException, SQLException;
+//    List generateComponentPayments(long projectId, long status, String client)
+//            throws IllegalUpdateException, RemoteException, SQLException;
     
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
     	throws IllegalUpdateException, RemoteException, SQLException;
