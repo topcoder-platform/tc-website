@@ -211,6 +211,8 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         	}
                         } else {
                             log.debug("editpayment: c1- ");
+                            log.debug("editpayment: c1- payment.getCurrentStatus()" + payment.getCurrentStatus());
+                            log.debug("editpayment: c1- payment.getCurrentStatus().getReasons().size() " + payment.getCurrentStatus().getReasons().size());
                             log.debug("editpayment: c1- " + payment.getCurrentStatus() == null ? "null" : payment.getCurrentStatus().getReasons().size());
                             PaymentStatusMediator psm = new PaymentStatusMediator(payment); 
                             log.debug("editpayment: c2- ");
