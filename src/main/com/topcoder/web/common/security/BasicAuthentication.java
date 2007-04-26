@@ -174,7 +174,12 @@ public class BasicAuthentication implements WebAuthentication {
         User u = getUserFromPersistor();
 
         if (u == null) {
-            u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
+            //given the way tomcat/apache handles sessions in a cluster, we can't do this
+            //because the session id is different on the two nodes.  potentially we could
+            //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
+            //it breaks the idea of a pluggable persistor, but we never use that anyway.
+//            u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
+            u = (User) persistor.getObject(USER_COOKIE_NAME);
             if (u == null) {
                 u = checkCookie();
                 if (u == null) {
@@ -183,7 +188,12 @@ public class BasicAuthentication implements WebAuthentication {
                 } else {
                     //log.debug("*** " + u.getUserName() + " was in cookie ***");
                 }
-                persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
+                //given the way tomcat/apache handles sessions in a cluster, we can't do this
+                //because the session id is different on the two nodes.  potentially we could
+                //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
+                //it breaks the idea of a pluggable persistor, but we never use that anyway.
+//                persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
+                persistor.setObject(USER_COOKIE_NAME, u);
             } else {
                 //log.debug("*** " + u.getUserName() + " was stale ***");
             }
@@ -350,7 +360,13 @@ public class BasicAuthentication implements WebAuthentication {
         if (log.isDebugEnabled()) {
             log.debug("session id: " + request.getSession().getId());
         }
-        return (User) persistor.getObject(request.getSession().getId() + USER_PERSISTOR_KEY);
+        //given the way tomcat/apache handles sessions in a cluster, we can't do this
+        //because the session id is different on the two nodes.  potentially we could
+        //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
+        //it breaks the idea of a pluggable persistor, but we never use that anyway.
+
+//        return (User) persistor.getObject(request.getSession().getId() + USER_PERSISTOR_KEY);
+        return (User) persistor.getObject(USER_PERSISTOR_KEY);
     }
 
     /**
@@ -362,7 +378,13 @@ public class BasicAuthentication implements WebAuthentication {
      */
     protected void setUserInPersistor(User user) {
         log.debug("set " + user.getUserName() + " as logged in");
-        persistor.setObject(request.getSession().getId() + USER_PERSISTOR_KEY, user);
+        //given the way tomcat/apache handles sessions in a cluster, we can't do this
+        //because the session id is different on the two nodes.  potentially we could
+        //trim it and stuff to make it the same, but, i'm just gonna cheat and not use it.
+        //it breaks the idea of a pluggable persistor, but we never use that anyway.
+
+        //persistor.setObject(request.getSession().getId() + USER_PERSISTOR_KEY, user);
+        persistor.setObject(USER_PERSISTOR_KEY, user);
     }
 
     public boolean isKnownUser() {
