@@ -58,9 +58,11 @@ public class Settings extends ForumsProcessor {
             String ratingCollapseMinMessages = getRequest().getParameter("ratingCollapseMinMessages");
             
             String collapseRead = getRequest().getParameter("collapseRead");
+            if (collapseRead == null) collapseRead = "false";
             String collapseReadDays = getRequest().getParameter("collapseReadDays");
             String collapseReadPosts = getRequest().getParameter("collapseReadPosts");
             String collapseReadParents = getRequest().getParameter("collapseReadParents");
+            if (collapseReadParents == null) collapseReadParents = "false";
             
             checkMax(forumsPerPage, ForumConstants.maxForumsPerPage, "jiveForumRange", ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
             checkMax(threadsPerPage, ForumConstants.maxThreadsPerPage, "jiveThreadRange", ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
