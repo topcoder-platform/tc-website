@@ -4906,7 +4906,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             p.getHeader().setParentPaymentId(TCData.getTCLong(detailData.getRow(0), "parent_payment_id", 0, false));
             p.getHeader().setClient(TCData.getTCString(detailData.getRow(i), "client", "", false));
             p.setDueDate(TCData.getTCDate(detailData.getRow(i), "date_due", null, false));
-
+ 
             // All the data modifications happen here
             if (addressData == null) {
                 updatePayment(c, p, null);
