@@ -39,6 +39,7 @@ import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -424,15 +425,14 @@ public class ForumsUtil {
         if (!collapse || (thread.getMessageCount() < posts)) return null;
         Hashtable<ForumMessage,Boolean> table = new Hashtable<ForumMessage,Boolean>();
         Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
         calendar.add(Calendar.DAY_OF_MONTH, -days);
-        log.info("calendar time: " + calendar.toString());
 
         Iterator<ForumMessage> itMessages = thread.getMessages();
         while (itMessages.hasNext()) {
             ForumMessage message = itMessages.next();
             if (table.containsKey(message)) continue;
-            log.info("modificationdate of message " + message.getID() + ": " + message.getModificationDate().toString());
-            boolean collapseMessage = calendar.after(message.getModificationDate());
+            boolean collapseMessage = calendar.getTime().after(message.getModificationDate());
             table.put(message, collapseMessage);
             if (showRepliedPosts && !collapseMessage) {
                 while (message.getParentMessage() != null && !table.containsKey(message.getParentMessage())) {

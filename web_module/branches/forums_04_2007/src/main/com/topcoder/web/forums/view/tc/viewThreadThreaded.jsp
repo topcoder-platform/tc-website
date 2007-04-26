@@ -149,6 +149,9 @@ function displayVotes(messageID, posVotes, negVotes) {
 
 Table has <%=collapseReadPostTable.values().size()%> elements.
 value: <%=collapseReadPostTable.get(forumFactory.getMessage(495704))%>
+<%	Calendar calendar = Calendar.getInstance();
+    calendar.add(Calendar.DAY_OF_MONTH, -7); %>
+Calendar earlier: <%=calendar.after(forumFactory.getMessage(495704).getModificationDate())%>    
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
