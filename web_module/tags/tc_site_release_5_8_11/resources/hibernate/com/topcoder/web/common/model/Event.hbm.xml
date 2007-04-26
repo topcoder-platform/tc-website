@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.topcoder.web.common.model">
+
+    <class name="Event" table="event">
+        <id name="id" column="event_id">
+            <generator class="com.topcoder.web.common.model.IdGenerator">
+                <param name="sequence_name">EVENT_SEQ</param>
+            </generator>
+        </id>
+        <many-to-one name="type" column="event_type_id" class="EventType" access="field"/>
+        <property name="description" column="event_desc" access="field"/>
+        <property name="shortDescription" column="event_short_desc" access="field"/>
+        <property name="registrationStart" column="start_registration" access="field"/>
+        <property name="registrationEnd" column="end_registration" access="field"/>
+        <many-to-one name="terms" column="terms_of_use_id" class="TermsOfUse" access="field"/>
+        <many-to-one name="survey" column="survey_id" cascade="save-update" class="Survey" access="field"/>
+
+        <set name="users" table="event_registration" inverse="true" access="field">
+            <key column="event_id"/>
+            <many-to-many column="user_id" class="User"/>
+        </set>
+
+
+    </class>
+</hibernate-mapping>
