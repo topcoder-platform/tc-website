@@ -27,6 +27,7 @@
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="jboss_home" value="../jboss-4.0.4.GA"/>
     <property name="jboss_deploy" value="${jboss_home}/server/all/deploy"/>
+    <property name="jboss_deploy_hasingleton" value="${jboss_home}/server/all/deploy-hasingleton"/>
     <property name="jboss_lib" value="${jboss_home}/server/all/lib"/>
     <property name="jboss_conf" value="${jboss_home}/server/all/conf"/>
     <property environment="env"/>
@@ -1223,11 +1224,13 @@
                 <include name="User.jar"/>
                 <include name="Util.jar"/>
             </fileset>
+        </copy>
+        <copy todir="${jboss_deploy_hasingleton}">
             <fileset dir="${sar.dir}">
                 <include name="expireOldAffidavitsAndPayments.sar"/>
             </fileset>
-        </copy>
-        <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
+		</copy>
+    	<unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/tc.war/META-INF"/>
     </target>
 
