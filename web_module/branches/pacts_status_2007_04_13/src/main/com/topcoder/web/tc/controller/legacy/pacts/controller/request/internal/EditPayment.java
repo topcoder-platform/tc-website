@@ -182,13 +182,13 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         		}
                                 // manage payment status
                                 log.debug("editpayment: 1- ");
-                                log.debug("editpayment: 1- " + p.getCurrentStatus() == null ? "null" : p.getCurrentStatus().getReasons().size());
+                                log.debug("editpayment: 1- " + ((p.getCurrentStatus() == null) ? "null" : p.getCurrentStatus().getReasons().size()));
                                 PaymentStatusMediator psm = new PaymentStatusMediator(payment); 
                                 log.debug("editpayment: 2- ");
-                                log.debug("editpayment: 2- " + payment.getCurrentStatus() == null ? "null" : payment.getCurrentStatus().getReasons().size());
+                                log.debug("editpayment: 2- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
                                 psm.newPayment();
                                 log.debug("editpayment: 3- ");
-                                log.debug("editpayment: 3- " + payment.getCurrentStatus() == null ? "null" : payment.getCurrentStatus().getReasons().size());
+                                log.debug("editpayment: 3- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
                             	payment = dib.addPayment(payment);
                             	payments.add(payment);
                         		
@@ -197,13 +197,13 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
                                 for (Iterator it = l.iterator(); it.hasNext();) {
                                     log.debug("editpayment: b1- ");
-                                    log.debug("editpayment: b1- " + p.getCurrentStatus() == null ? "null" : p.getCurrentStatus().getReasons().size());
+                                    log.debug("editpayment: b1- " + ((p.getCurrentStatus() == null) ? "null" : p.getCurrentStatus().getReasons().size()));
                                     PaymentStatusMediator psm = new PaymentStatusMediator(payment); 
                                     log.debug("editpayment: b2- ");
-                                    log.debug("editpayment: b2- " + payment.getCurrentStatus() == null ? "null" : payment.getCurrentStatus().getReasons().size());
+                                    log.debug("editpayment: b2- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
                                     psm.newPayment();
                                     log.debug("editpayment: b3- ");
-                                    log.debug("editpayment: b3- " + payment.getCurrentStatus() == null ? "null" : payment.getCurrentStatus().getReasons().size());
+                                    log.debug("editpayment: b3- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
                                 }
                                 
                                 l = dib.addPayments(l);

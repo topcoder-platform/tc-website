@@ -39,7 +39,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     
             // check for tax form (every payment type)
              if (!dib.hasTaxForm(payment.getCoderId())) {
-                 log.debug("no tax form found!");
+                 log.debug("no tax form found! (#reasons): " + reasons.size());
                  reasons.add(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason());
              }
     

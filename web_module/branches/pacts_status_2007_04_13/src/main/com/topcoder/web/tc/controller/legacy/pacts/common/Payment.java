@@ -332,6 +332,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
     }
 
     public void setCurrentStatus(BasePaymentStatus status) {
+        log.debug("Payment: Setting current status: #reasons: " + ((status == null ? "null" : status.getReasons().size())));
         this.currentStatus = status;
     }
 

@@ -3579,6 +3579,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 
                 ps = c.prepareStatement(insertPaymentStatusReasons.toString());
     
+                log.debug("#reasons to add: " + p.getCurrentStatus().getReasons().size());
+                
                 for (PaymentStatusReason reason : p.getCurrentStatus().getReasons()) {
                     ps.clearParameters();
                     
