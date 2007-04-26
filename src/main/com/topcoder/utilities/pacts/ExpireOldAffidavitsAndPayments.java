@@ -20,7 +20,8 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
     private Timer timer;
     private static String status = "Not Initialized";
     private String runningTime = null;
-    
+    private boolean isMasterNode = false;
+
     /* (non-Javadoc)
      * @see org.jboss.system.ServiceMBean#getName()
      */
@@ -46,7 +47,8 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
         	Date start = getStartTime();
         	
             timer = new Timer();
-            timer.scheduleAtFixedRate(new ExpireTask(), start, 24 * 60 * 60 * 1000); // Run daily 
+            //timer.scheduleAtFixedRate(new ExpireTask(), start, 24 * 60 * 60 * 1000); // Run daily
+            timer.scheduleAtFixedRate(new ExpireTask(), 60 * 1000, 60*2000); // testing!
 
             logger.info("ExpireOldAffidavitsAndPayments will run daily at " + getRunningTime() + " starting at " + start);
         } catch (Exception e) {
@@ -73,6 +75,10 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
 
     private class ExpireTask extends TimerTask {
         public void run() {
+            if (!isMasterNode()) {
+                logger.info("This is not the master, process ExpireOldAffidavitsAndPayments skipped.");
+                return;
+            }
             logger.info("ExpireOldAffidavitsAndPayments Fired");
 
             try {
@@ -93,6 +99,22 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
         }
     }
 
+
+    
+    public void startSingleton() {
+        isMasterNode = true;
+        logger.debug("StartSingleton");
+    }
+
+    public boolean isMasterNode() {
+        return isMasterNode;  
+    }
+
+    public void stopSingleton() {
+        isMasterNode = false;  
+        logger.debug("StopSingleton");
+
+    }
 
 
 }

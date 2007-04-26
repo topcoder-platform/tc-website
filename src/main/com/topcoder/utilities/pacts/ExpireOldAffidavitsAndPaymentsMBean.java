@@ -1,16 +1,21 @@
 package com.topcoder.utilities.pacts;
 
-import org.jboss.system.ServiceMBean;
 
-public interface ExpireOldAffidavitsAndPaymentsMBean extends ServiceMBean {
+public interface ExpireOldAffidavitsAndPaymentsMBean {
     /********************************************************
      * Obtain the init status for this MBean
      *
      * @return init status for this MBean
      *******************************************************/
-    public String getInitStatus();
+    String getInitStatus();
         
-    public String getRunningTime();
+    String getRunningTime();
 
-	public void setRunningTime(String runningTime);
+	void setRunningTime(String runningTime);
+    
+    void startSingleton();
+
+    boolean isMasterNode();
+
+    void stopSingleton();
 }
