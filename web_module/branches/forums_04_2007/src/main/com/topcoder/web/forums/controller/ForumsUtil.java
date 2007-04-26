@@ -431,6 +431,7 @@ public class ForumsUtil {
         Iterator<ForumMessage> itMessages = thread.getMessages();
         while (itMessages.hasNext()) {
             ForumMessage message = itMessages.next();
+            log.info("processing message: " + message.getID());
             if (table.containsKey(message)) {
                 log.info("table contains key: " + message.getID());
                 continue;
@@ -444,7 +445,7 @@ public class ForumsUtil {
             table.put(message, collapseMessage);
             if (showRepliedPosts && !collapseMessage) {
                 while (message.getParentMessage() != null && 
-                        (table.get(message.getParentMessage() == null || table.get(message.getParentMessage()) == true))) {
+                        (table.get(message.getParentMessage()) == null || table.get(message.getParentMessage()) == true)) {
                     message = message.getParentMessage();
                     log.info("(parent) opening message: " + message.getID());
                     table.put(message, false);
