@@ -505,7 +505,7 @@ information about <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=getVisa"
 
 <p>
     Contestants who advance to the onsite Championship Round must complete the following items and submit them to
-    TopCoder by 5:00 PM EDT on Friday, May 4, 2007:
+    TopCoder by 5:00 PM EDT on Friday, May 11, 2007:
     <ul>
         <li>Confirmation of attendance/proof of travel documents - Please email <a href="mailto:jford@topcoder.com">Jessie
             D'Amato Ford</a> to confirm your attendance onsite. If you require a passport and/or visa to visit the
