@@ -2024,7 +2024,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @param referenceId reference id to check for Assignment Document
      * @return whether the user has already affirmed the corresponding Assignment Document
      */
-    protected boolean hasAffirmedAssignmentDocument(long paymentTypeId, long coderId, long referenceId) {
+    public boolean hasAffirmedAssignmentDocument(long paymentTypeId, long coderId, long referenceId) {
         try {
             List assignmentDocuments = new ArrayList();
             
