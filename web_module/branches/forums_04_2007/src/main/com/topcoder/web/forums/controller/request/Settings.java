@@ -94,7 +94,7 @@ public class Settings extends ForumsProcessor {
             user.setProperty("collapseRead", collapseRead);
             user.setProperty("collapseReadDays", collapseReadDays);
             user.setProperty("collapseReadPosts", collapseReadPosts);
-            user.setProperty("collapseReadParents", collapseReadParents);
+            user.setProperty("collapseReadShowReplied", collapseReadShowReplied);
             
             CronTimer current = forumFactory.getWatchManager().getBatchTimer(user);
             if (current == null && watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {

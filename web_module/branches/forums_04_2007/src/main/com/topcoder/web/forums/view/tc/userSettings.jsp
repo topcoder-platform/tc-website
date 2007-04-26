@@ -288,7 +288,7 @@ function toggleTabs(id) {
 	  <td class="rtThreadCell">
 	  	  <input name="collapseRead" value="true" id="collapseRead" type="checkbox"
        		  <%= ("false".equals(user.getProperty("collapseRead"))) ? "" : "checked"%>
-       		  onclick="Javascript:document.form1.collapseReadParents.disabled=!this.checked;">
+       		  onclick="Javascript:document.form1.collapseReadShowReplied.disabled=!this.checked;">
 		  > <select size="1" name="collapseReadDays">
 	      <%  int[] arrCollapseReadDays = {1,2,3,7,15,30};
 	          int collapseReadDays = ForumConstants.DEFAULT_COLLAPSE_READ_DAYS;
@@ -324,8 +324,8 @@ function toggleTabs(id) {
    <tr id="bodyGen10">
 	  <td class="rtThreadCell" nowrap="nowrap"></td>
 	  <td class="rtThreadCell">
-	  	  <input name="collapseReadParents" value="true" id="collapseReadParents" type="checkbox"
-        	  <%= ("false".equals(user.getProperty("collapseReadParents"))) ? "" : "checked"%>
+	  	  <input name="collapseReadShowReplied" value="true" id="collapseReadShowReplied" type="checkbox"
+        	  <%= ("false".equals(user.getProperty("collapseReadShowReplied"))) ? "" : "checked"%>
         	  <%= ("false".equals(user.getProperty("collapseRead"))) ? "disabled" : "" %>>
 	  	  Do not collapse posts with new replies
 	  </td>
