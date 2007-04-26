@@ -145,13 +145,7 @@ function displayVotes(messageID, posVotes, negVotes) {
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="forums"/>
             <jsp:param name="title" value="&#160;"/>
-        </jsp:include>
-
-Table has <%=collapseReadPostTable.values().size()%> elements.
-value: <%=collapseReadPostTable.get(forumFactory.getMessage(495704))%>
-<%	Calendar calendar = Calendar.getInstance();
-    calendar.add(Calendar.DAY_OF_MONTH, -7); %>
-Calendar earlier: <%=calendar.after(forumFactory.getMessage(495704).getModificationDate())%>    
+        </jsp:include> 
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
