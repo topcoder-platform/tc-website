@@ -425,11 +425,13 @@ public class ForumsUtil {
         Hashtable<ForumMessage,Boolean> table = new Hashtable<ForumMessage,Boolean>();
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_MONTH, -days);
+        log.info("calendar time: " + calendar.toString());
 
         Iterator<ForumMessage> itMessages = thread.getMessages();
         while (itMessages.hasNext()) {
             ForumMessage message = itMessages.next();
             if (table.containsKey(message)) continue;
+            log.info("modificationdate of message " + message.getID() + ": " + message.getModificationDate().toString());
             boolean collapseMessage = calendar.after(message.getModificationDate());
             table.put(message, collapseMessage);
             if (showRepliedPosts && !collapseMessage) {
