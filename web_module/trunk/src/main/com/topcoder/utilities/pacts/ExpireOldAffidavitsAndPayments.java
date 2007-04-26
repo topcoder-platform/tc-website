@@ -47,8 +47,7 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
         	Date start = getStartTime();
         	
             timer = new Timer();
-            //timer.scheduleAtFixedRate(new ExpireTask(), start, 24 * 60 * 60 * 1000); // Run daily
-            timer.scheduleAtFixedRate(new ExpireTask(), 60 * 1000, 60*2000); // testing!
+            timer.scheduleAtFixedRate(new ExpireTask(), start, 24 * 60 * 60 * 1000); // Run daily
 
             logger.info("ExpireOldAffidavitsAndPayments will run daily at " + getRunningTime() + " starting at " + start);
         } catch (Exception e) {
