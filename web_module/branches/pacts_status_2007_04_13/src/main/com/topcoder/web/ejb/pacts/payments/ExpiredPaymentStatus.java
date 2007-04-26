@@ -13,8 +13,8 @@ import com.topcoder.web.ejb.pacts.BasePayment;
  */
 public class ExpiredPaymentStatus extends BasePaymentStatus {
 
-    public static final Long EXPIRED_PAYMENT_STATUS_ID = 68l;
-    public static final String EXPIRED_PAYMENT_STATUS_DESC = "Expired";
+    public static final Long ID = 68l;
+    public static final String DESC = "Expired";
     
     /**
      * 
@@ -22,15 +22,15 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
     public ExpiredPaymentStatus() {
         super();
     }
-    
+
     @Override
     public String getDesc() {
-        return EXPIRED_PAYMENT_STATUS_DESC;
+        return DESC;
     }
 
     @Override
     public Long getId() {
-        return EXPIRED_PAYMENT_STATUS_ID;
+        return ID;
     }
 
     @Override

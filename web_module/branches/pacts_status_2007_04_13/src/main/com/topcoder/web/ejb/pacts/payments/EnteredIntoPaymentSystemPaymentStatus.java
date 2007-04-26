@@ -13,8 +13,8 @@ import com.topcoder.web.ejb.pacts.BasePayment;
  */
 public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
 
-    public static final Long ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS_ID = 70l;
-    public static final String ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS_DESC = "Entered Into Payment System";
+    public static final Long ID = 70l;
+    public static final String DESC = "Entered Into Payment System";
     
     /**
      * 
@@ -22,15 +22,15 @@ public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
     public EnteredIntoPaymentSystemPaymentStatus() {
         super();
     }
-    
+
     @Override
     public String getDesc() {
-        return ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS_DESC;
+        return DESC;
     }
 
     @Override
     public Long getId() {
-        return ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS_ID;
+        return ID;
     }
 
     @Override

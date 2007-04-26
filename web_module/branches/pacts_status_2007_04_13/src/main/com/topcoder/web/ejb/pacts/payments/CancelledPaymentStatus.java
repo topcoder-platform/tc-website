@@ -14,8 +14,8 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusRe
  */
 public class CancelledPaymentStatus extends BasePaymentStatus {
 
-    private static final Long CANCELLED_PAYMENT_STATUS_ID = 65l;
-    private static final String CANCELLED_PAYMENT_STATUS_DESC = "Cancelled";
+    public static final Long ID = 65l;
+    public static final String DESC = "Cancelled";
     
     /**
      * 
@@ -24,18 +24,18 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
         super();
     }
     
-    public void expiredAffidavit() {
-        reasons.add(AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason());
-    }
-
     @Override
     public String getDesc() {
-        return CANCELLED_PAYMENT_STATUS_DESC;
+        return DESC;
     }
 
     @Override
     public Long getId() {
-        return CANCELLED_PAYMENT_STATUS_ID;
+        return ID;
+    }
+
+    public void expiredAffidavit() {
+        reasons.add(AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason());
     }
 
     @Override

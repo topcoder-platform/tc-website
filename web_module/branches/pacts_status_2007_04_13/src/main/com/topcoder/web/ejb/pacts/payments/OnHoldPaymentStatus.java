@@ -21,8 +21,8 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
     private static final Logger log = Logger.getLogger(OnHoldPaymentStatus.class);
 
-    public static final Long ON_HOLD_PAYMENT_STATUS_ID = 55l;
-    public static final String ON_HOLD_PAYMENT_STATUS_DESC = "On Hold";
+    public static final Long ID = 55l;
+    public static final String DESC = "On Hold";
     
     /**
      * 
@@ -30,6 +30,16 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     public OnHoldPaymentStatus() {
         super();
 
+    }
+
+    @Override
+    public String getDesc() {
+        return DESC;
+    }
+
+    @Override
+    public Long getId() {
+        return ID;
     }
 
     @Override
@@ -83,16 +93,6 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     public void expiredAffidavit() {
         //payment.setCurrentStatus(new CancelledPaymentStatus(payment));
         //payment.getCurrentStatus().expiredAffidavit();
-    }
-
-    @Override
-    public String getDesc() {
-        return ON_HOLD_PAYMENT_STATUS_DESC;
-    }
-
-    @Override
-    public Long getId() {
-        return ON_HOLD_PAYMENT_STATUS_ID;
     }
 
     @Override

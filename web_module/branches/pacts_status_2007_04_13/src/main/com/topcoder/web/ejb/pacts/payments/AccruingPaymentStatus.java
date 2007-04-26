@@ -17,8 +17,8 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
 
     private static final Logger log = Logger.getLogger(AccruingPaymentStatus.class);
 
-    public static final Long ACCRUING_PAYMENT_STATUS_ID = 71l;
-    public static final String ACCRUING_PAYMENT_STATUS_DESC = "Accruing";
+    public static final Long ID = 71l;
+    public static final String DESC = "Accruing";
     
     /**
      * 
@@ -26,15 +26,15 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     public AccruingPaymentStatus() {
         super();
     }
-    
+
     @Override
     public String getDesc() {
-        return ACCRUING_PAYMENT_STATUS_DESC;
+        return DESC;
     }
 
     @Override
     public Long getId() {
-        return ACCRUING_PAYMENT_STATUS_ID;
+        return ID;
     }
 
     @Override

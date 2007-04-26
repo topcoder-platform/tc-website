@@ -18,23 +18,29 @@ public class PaymentStatusManager {
     protected BasePayment payment = null;
     
     public enum AvailableStatus {
-        ON_HOLD_PAYMENT_STATUS (new OnHoldPaymentStatus()),
-        CANCELLED_PAYMENT_STATUS (new CancelledPaymentStatus()),
-        PAID_PAYMENT_STATUS (new PaidPaymentStatus()),
-        OWED_PAYMENT_STATUS (new OwedPaymentStatus()),
-        ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS (new EnteredIntoPaymentSystemPaymentStatus()),
-        DELETED_PAYMENT_STATUS (new DeletedPaymentStatus()),
-        ACCRUING_PAYMENT_STATUS (new AccruingPaymentStatus()),
-        EXPIRED_PAYMENT_STATUS (new ExpiredPaymentStatus());
+        ON_HOLD_PAYMENT_STATUS (OnHoldPaymentStatus.class.getName(), OnHoldPaymentStatus.ID),
+        CANCELLED_PAYMENT_STATUS (CancelledPaymentStatus.class.getName(), CancelledPaymentStatus.ID),
+        PAID_PAYMENT_STATUS (PaidPaymentStatus.class.getName(), PaidPaymentStatus.ID),
+        OWED_PAYMENT_STATUS (OwedPaymentStatus.class.getName(), OwedPaymentStatus.ID),
+        ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS (EnteredIntoPaymentSystemPaymentStatus.class.getName(), EnteredIntoPaymentSystemPaymentStatus.ID),
+        DELETED_PAYMENT_STATUS (DeletedPaymentStatus.class.getName(), DeletedPaymentStatus.ID),
+        ACCRUING_PAYMENT_STATUS (AccruingPaymentStatus.class.getName(), AccruingPaymentStatus.ID),
+        EXPIRED_PAYMENT_STATUS (ExpiredPaymentStatus.class.getName(), ExpiredPaymentStatus.ID);
         
-        private BasePaymentStatus paymentStatus;
-         
-        AvailableStatus(BasePaymentStatus paymentStatus) {
-            this.paymentStatus = paymentStatus;
+        private String className;
+        private Long id;
+        
+        AvailableStatus(String className, Long id) {
+            this.className = className;
+            this.id = id;
         }
         
-        public BasePaymentStatus getStatus() {
-            return paymentStatus;
+        public String getClassName() {
+            return className;
+        }
+
+        public Long getId() {
+            return id;
         }
     }
 
@@ -55,13 +61,19 @@ public class PaymentStatusManager {
     }
     
     public static BasePaymentStatus createStatus(AvailableStatus status) {
-        return status.getStatus().newInstance(); 
+        try {
+            Class c = Class.forName(status.getClassName());
+            return (BasePaymentStatus) c.newInstance();
+        } catch (Exception e) {
+            // do nothing
+        }
+        return null;
     }
 
     public static BasePaymentStatus createStatusUsingId(Long statusId) throws InvalidStatusException {
         for (AvailableStatus availableStatus : AvailableStatus.values()) {
-            if (availableStatus.getStatus().getId().equals(statusId)) {
-                return availableStatus.getStatus().newInstance(); 
+            if (availableStatus.getId().equals(statusId)) {
+                return createStatus(availableStatus); 
             }
         }
         throw new InvalidStatusException();
@@ -71,8 +83,9 @@ public class PaymentStatusManager {
         List statusList = new ArrayList<BasePaymentStatus>(); 
 
         for (AvailableStatus availableStatus : AvailableStatus.values()) {
-            if (!onlySelectable || availableStatus.getStatus().isSelectable()) {
-                statusList.add(availableStatus.getStatus());
+            BasePaymentStatus status = createStatus(availableStatus);
+            if (!onlySelectable || status.isSelectable()) {
+                statusList.add(status);
             }
         }
         return statusList;            

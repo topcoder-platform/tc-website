@@ -13,8 +13,8 @@ import com.topcoder.web.ejb.pacts.BasePayment;
  */
 public class DeletedPaymentStatus extends BasePaymentStatus {
 
-    public static final Long DELETED_PAYMENT_STATUS_ID = 69l;
-    public static final String DELETED_PAYMENT_STATUS_DESC = "Deleted";
+    public static final Long ID = 69l;
+    public static final String DESC = "Deleted";
     
     /**
      * 
@@ -22,15 +22,15 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
     public DeletedPaymentStatus() {
         super();
     }
-    
+
     @Override
     public String getDesc() {
-        return DELETED_PAYMENT_STATUS_DESC;
+        return DESC;
     }
 
     @Override
     public Long getId() {
-        return DELETED_PAYMENT_STATUS_ID;
+        return ID;
     }
 
     @Override

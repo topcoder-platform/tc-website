@@ -16,8 +16,8 @@ public class OwedPaymentStatus extends BasePaymentStatus {
 
     private static final Logger log = Logger.getLogger(OwedPaymentStatus.class);
 
-    public static final Long OWED_PAYMENT_STATUS_ID = 56l;
-    public static final String OWED_PAYMENT_STATUS_DESC = "Owed";
+    public static final Long ID = 56l;
+    public static final String DESC = "Owed";
     
     /**
      * 
@@ -25,20 +25,20 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     public OwedPaymentStatus() {
         super();
     }
-    
-    @Override
-    public String getDesc() {
-        return OWED_PAYMENT_STATUS_DESC;
-    }
-
-    @Override
-    public Long getId() {
-        return OWED_PAYMENT_STATUS_ID;
-    }
 
     @Override
     public Boolean isSelectable() {
         return false;
+    }
+
+    @Override
+    public String getDesc() {
+        return DESC;
+    }
+
+    @Override
+    public Long getId() {
+        return ID;
     }
 
     @Override

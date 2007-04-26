@@ -44,6 +44,7 @@ import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.AvailableStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -4536,7 +4537,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             // Add address record if necessary
-            if (addressData != null && p.getCurrentStatus().equals(PaymentStatusManager.AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus())) {
+            if (addressData != null && p.getCurrentStatus().getId().equals(AvailableStatus.ON_HOLD_PAYMENT_STATUS.getId())) {
                 paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
 
                 StringBuffer addAddress = new StringBuffer(300);
@@ -4568,7 +4569,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String paymentDetailStr = paymentDetailId + "";
 
             // If the payment is deleted, set the most recent detail to null
-            if (p.getCurrentStatus().equals(PaymentStatusManager.AvailableStatus.DELETED_PAYMENT_STATUS.getStatus())) {
+            if (p.getCurrentStatus().getId().equals(AvailableStatus.DELETED_PAYMENT_STATUS.getId())) {
                 paymentDetailStr = "null";
             }
 

@@ -13,8 +13,8 @@ import com.topcoder.web.ejb.pacts.BasePayment;
  */
 public class PaidPaymentStatus extends BasePaymentStatus {
 
-    public static final Long PAID_PAYMENT_STATUS_ID = 53l;
-    public static final String PAID_PAYMENT_STATUS_DESC = "Paid";
+    public static final Long ID = 53l;
+    public static final String DESC = "Paid";
     
     /**
      * 
@@ -25,12 +25,12 @@ public class PaidPaymentStatus extends BasePaymentStatus {
     
     @Override
     public String getDesc() {
-        return PAID_PAYMENT_STATUS_DESC;
+        return DESC;
     }
 
     @Override
     public Long getId() {
-        return PAID_PAYMENT_STATUS_ID;
+        return ID;
     }
 
     @Override
