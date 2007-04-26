@@ -6,4 +6,16 @@
 		<attribute name="InitStatus"/>
 		<attribute name="RunningTime">00:01 am</attribute>
 	</mbean>
+	
+	
+    <!-- HASingletonController to run the above MBean as a HASingleton -->
+    <mbean code="org.jboss.ha.singleton.HASingletonController"
+           name="jboss.hasingleton:service=ExpireOldAffidavitsHASingleton">
+        <depends>jboss:service=DefaultPartition</depends>
+        <depends>topcoder.startup:name=ExpireOldAffidavitsAndPayments</depends>
+        <attribute name="TargetName">example.mbean:service=Example</attribute>
+        <attribute name="TargetStartMethod">startSingleton</attribute>
+        <attribute name="TargetStopMethod">stopSingleton</attribute>
+    </mbean>
+    	
 </server>
