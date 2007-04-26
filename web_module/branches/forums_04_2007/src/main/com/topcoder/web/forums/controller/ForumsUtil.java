@@ -431,13 +431,22 @@ public class ForumsUtil {
         Iterator<ForumMessage> itMessages = thread.getMessages();
         while (itMessages.hasNext()) {
             ForumMessage message = itMessages.next();
-            if (table.containsKey(message)) continue;
+            if (table.containsKey(message)) {
+                log.info("table contains key: " + message.getID());
+                continue;
+            }
             boolean collapseMessage = calendar.getTime().after(message.getModificationDate());
+            if (collapseMessage) {
+                log.info("collapsing message: " + message.getID());
+            } else {
+                log.info("opening message: " + message.getID());
+            }
             table.put(message, collapseMessage);
             if (showRepliedPosts && !collapseMessage) {
                 while (message.getParentMessage() != null && 
                         (table.get(message.getParentMessage() == null || table.get(message.getParentMessage()) == true))) {
                     message = message.getParentMessage();
+                    log.info("(parent) opening message: " + message.getID());
                     table.put(message, false);
                 }
             }
