@@ -13,7 +13,7 @@
            name="jboss.hasingleton:service=ExpireOldAffidavitsHASingleton">
         <depends>jboss:service=${jboss.partition.name:DefaultPartition}</depends>
         <depends>topcoder.startup:name=ExpireOldAffidavitsAndPayments</depends>
-        <attribute name="TargetName">example.mbean:service=Example</attribute>
+        <attribute name="TargetName">topcoder.startup:name=ExpireOldAffidavitsAndPayments</attribute>
         <attribute name="TargetStartMethod">startSingleton</attribute>
         <attribute name="TargetStopMethod">stopSingleton</attribute>
     </mbean>
