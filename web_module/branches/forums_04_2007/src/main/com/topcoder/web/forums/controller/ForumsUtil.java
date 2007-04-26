@@ -435,7 +435,7 @@ public class ForumsUtil {
             boolean collapseMessage = calendar.getTime().after(message.getModificationDate());
             table.put(message, collapseMessage);
             if (showRepliedPosts && !collapseMessage) {
-                while (message.getParentMessage() != null && !table.containsKey(message.getParentMessage())) {
+                while (message.getParentMessage() != null && !table.get(message.getParentMessage())) {
                     message = message.getParentMessage();
                     table.put(message, collapseMessage);
                 }
