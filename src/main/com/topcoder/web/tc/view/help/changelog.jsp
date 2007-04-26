@@ -49,6 +49,7 @@
         <li>Marathon Match enhancement to allow us to rerun / rescore any type of marathon submission -competition team</li>
         <li>Category column added to competition history page -pulky</li>
         <%--<li>TCSLoad bugfix: project with deleted status are processed and all related data in the dw is fisically deleted -pulky</li>--%>
+        <li>Fix in pacts: installment was set to 1 when doing a batch status -cucu</li>
     </ul>
 </p>
 
