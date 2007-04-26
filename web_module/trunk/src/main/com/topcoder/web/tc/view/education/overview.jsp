@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=042607"><strong>Test Drive: SandCastle</strong></a>, by <tc-webtag:handle coderId="10627428" /><br>
+TopCoder is currently using NDoc to generate documentation for .NET projects. NDoc, however, lacks support for the new features in .NET Framework version 2.0. In this article, we evaluate SandCastle, Microsoft's documentation tool, to see how it stands up.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow1"><strong>Minimum Cost Flow, Part 1: Key Concepts</strong></a>, by <tc-webtag:handle coderId="22671469" context="algorithm" /><br>
 This article covers the so-called "min-cost flow" problem, which has many applications for both TopCoder competitors and professional programmers. In Part 1, we'll look at the problem itself.</li>
 <li><a href="/tc?module=Static&d1=features&d2=041907"><strong>A Crash Course in SQL</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
 In the first two parts of this article series we looked at the basic components of relational databases.  We touched briefly on SQL -- the language we use to interact with the database -- but in this article we'll look at it in much more detail, with a specific focus on writing queries.</li>
-<li><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely"><strong>Introducing Boxely</strong></a>, by AOL's Boxely Team<%--<tc-webtag:handle coderId="15635590" />--%><br>
-Boxely is a next-generation, standards-based development platform for creating rich desktop applications. Combining the benefits of a box-based layout scheme with an advanced rendering engine, Boxely is designed to enable the creation of rich desktop applications with the same ease, flexibility, and extensibility as authoring internet applications today.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
