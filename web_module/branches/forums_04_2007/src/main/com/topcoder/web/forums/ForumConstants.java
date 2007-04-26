@@ -156,8 +156,15 @@ public interface ForumConstants {
     public final static int DEFAULT_THREAD_RANGE = 15;
     public final static int DEFAULT_FORUM_RANGE = 15;
     public final static int DEFAULT_HISTORY_RANGE = 10;
+    
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     public final static String DEFAULT_FLAT_THREAD_VIEW = "flat";
+    
+    public final static boolean DEFAULT_COLLAPSE_READ = true;
+    public final static int DEFAULT_COLLAPSE_READ_DAYS = 3;
+    public final static int DEFAULT_COLLAPSE_READ_POSTS = 100;
+    public final static boolean DEFAULT_COLLAPSE_READ_SHOW_REPLIED = true;
+    
     public final static int DEFAULT_RATING_HIGHLIGHT_THRESHOLD = 80;
     public final static int DEFAULT_RATING_HIGHLIGHT_MIN_COUNT = 10;
     public final static int DEFAULT_RATING_COLLAPSE_THRESHOLD = 40;

@@ -57,6 +57,11 @@ public class Settings extends ForumsProcessor {
             String ratingCollapseMinCount = getRequest().getParameter("ratingCollapseMinCount");
             String ratingCollapseMinMessages = getRequest().getParameter("ratingCollapseMinMessages");
             
+            String collapseRead = getRequest().getParameter("collapseRead");
+            String collapseReadDays = getRequest().getParameter("collapseReadDays");
+            String collapseReadPosts = getRequest().getParameter("collapseReadPosts");
+            String collapseReadParents = getRequest().getParameter("collapseReadParents");
+            
             checkMax(forumsPerPage, ForumConstants.maxForumsPerPage, "jiveForumRange", ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
             checkMax(threadsPerPage, ForumConstants.maxThreadsPerPage, "jiveThreadRange", ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
             checkMax(messagesPerPage, ForumConstants.maxMessagesPerPage, "jiveMessageRange", ForumConstants.ERR_MESSAGE_RANGE_EXCEEDED);
@@ -76,6 +81,7 @@ public class Settings extends ForumsProcessor {
             user.setProperty("jiveAutoWatchNewTopics", autoWatchNewTopics);
             user.setProperty("jiveAutoWatchReplies", autoWatchReplies);
             user.setProperty("markWatchesRead", markWatchesRead);
+            
             user.setProperty("showRatings", showRatings);
             user.setProperty("ratingHighlightThreshold", ratingHighlightThreshold);
             user.setProperty("ratingHighlightMinCount", ratingHighlightMinCount);
@@ -83,6 +89,11 @@ public class Settings extends ForumsProcessor {
             user.setProperty("ratingCollapseMinCount", ratingCollapseMinCount);
             user.setProperty("ratingCollapseMinMessages", ratingCollapseMinMessages);
 
+            user.setProperty("collapseRead", collapseRead);
+            user.setProperty("collapseReadDays", collapseReadDays);
+            user.setProperty("collapseReadPosts", collapseReadPosts);
+            user.setProperty("collapseReadParents", collapseReadParents);
+            
             CronTimer current = forumFactory.getWatchManager().getBatchTimer(user);
             if (current == null && watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {
                 // We've received a request to create a new batch timer

@@ -36,6 +36,7 @@ import com.topcoder.web.forums.ForumConstants;
 import java.rmi.RemoteException;
 import java.text.NumberFormat;
 import java.text.DecimalFormat;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -408,6 +409,39 @@ public class ForumsUtil {
                 ratingCount >= Integer.parseInt(user.getProperty("ratingCollapseMinCount")) &&
                 messageCount >= Integer.parseInt(user.getProperty("ratingCollapseMinMessages")));
     }
+    
+    // Returns a table indicating if messages already read in a thread should be collapsed.
+    public static Hashtable<ForumMessage,Boolean> getCollapseReadPostTable(User user, ForumThread thread) {
+        log.info("*** Entered getCollapseReadPostTable()");
+        if (user == null) return null;
+        
+        boolean collapse = getBoolean(user.getProperty("collapseRead"), ForumConstants.DEFAULT_COLLAPSE_READ);
+        int days = getInt(user.getProperty("collapseReadDays"), ForumConstants.DEFAULT_COLLAPSE_READ_DAYS);
+        int posts = getInt(user.getProperty("collapseReadPosts"), ForumConstants.DEFAULT_COLLAPSE_READ_POSTS);
+        boolean showRepliedPosts = getBoolean(user.getProperty("collapseReadShowReplied"), 
+                ForumConstants.DEFAULT_COLLAPSE_READ_SHOW_REPLIED);
+
+        if (!collapse || (thread.getMessageCount() < posts)) return null;
+        Hashtable<ForumMessage,Boolean> table = new Hashtable<ForumMessage,Boolean>();
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DAY_OF_MONTH, -days);
+
+        Iterator<ForumMessage> itMessages = thread.getMessages();
+        while (itMessages.hasNext()) {
+            ForumMessage message = itMessages.next();
+            if (table.containsKey(message)) continue;
+            boolean collapseMessage = calendar.after(message.getModificationDate());
+            table.put(message, collapseMessage);
+            if (showRepliedPosts && !collapseMessage) {
+                while (message.getParentMessage() != null && !table.containsKey(message.getParentMessage())) {
+                    message = message.getParentMessage();
+                    table.put(message, collapseMessage);
+                }
+            }
+        }
+        log.info("*** Exited getCollapseReadPostTable()");
+        return table;        
+    }
 
     public static boolean showRatings(User user) {
         boolean defaultRatingsEnabled = JiveGlobals.getJiveBooleanProperty("tc.default.ratings.enabled", true);
@@ -657,6 +691,35 @@ public class ForumsUtil {
             if (contained) return true;
         }
         return false;
+    }
+    
+    public static boolean getBoolean(String s, boolean defaultVal) {
+        try {
+            return Boolean.parseBoolean(s);
+        } catch (NumberFormatException nfe) {
+            return defaultVal;
+        }
+    }
+    public static double getDouble(String s, double defaultVal) {
+        try {
+            return Double.parseDouble(s);
+        } catch (NumberFormatException nfe) {
+            return defaultVal;
+        }
+    }
+    public static int getInt(String s, int defaultVal) {
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException nfe) {
+            return defaultVal;
+        }
+    }
+    public static long getLong(String s, long defaultVal) {
+        try {
+            return Long.parseLong(s);
+        } catch (NumberFormatException nfe) {
+            return defaultVal;
+        }
     }
 }
 

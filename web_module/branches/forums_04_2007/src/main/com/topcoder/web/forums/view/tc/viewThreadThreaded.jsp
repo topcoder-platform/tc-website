@@ -33,6 +33,7 @@
     String prevTrackerClass = "", nextTrackerClass = "";
     ForumMessage prevPost = null, nextPost = null;
     Hashtable editCountTable = (Hashtable)request.getAttribute("editCountTable");
+    Hashtable<ForumMessage,Boolean> collapseReadPostTable = ForumsUtil.getCollapseReadPostTable(user, thread);
 
     String cmd = "";
     String watchMessage = "";
@@ -270,6 +271,9 @@ function displayVotes(messageID, posVotes, negVotes) {
       <% } %>
       <%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);
            String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
+           if (collapseReadPostTable != null && collapseReadPostTable.get(message)) {
+           		msgBodyDisplay = "display:none";
+           }
       %>
       <tr id="<%=msgBodyID%>" style="<%=msgBodyDisplay%>">
       <td class="rtPosterCell">
