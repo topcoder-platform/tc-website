@@ -17,7 +17,7 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
 	
     private static Logger logger = Logger.getLogger(ExpireOldAffidavitsAndPayments.class);
     private static final String NAME = "ExpireOldAffidavits";
-    private Timer timer;
+    private Timer timer = null;
     private static String status = "Not Initialized";
     private String runningTime = null;
     private boolean isMasterNode = false;
@@ -104,6 +104,13 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
     public void startSingleton() {
         isMasterNode = true;
         logger.debug("StartSingleton");
+        try {
+            if (timer == null) {
+                startService();
+            }
+        } catch (Exception e) {
+            logger.error(e);
+        }
     }
 
     public boolean isMasterNode() {
@@ -112,8 +119,9 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
 
     public void stopSingleton() {
         isMasterNode = false;  
+        timer.cancel();
+        timer = null;
         logger.debug("StopSingleton");
-
     }
 
 
