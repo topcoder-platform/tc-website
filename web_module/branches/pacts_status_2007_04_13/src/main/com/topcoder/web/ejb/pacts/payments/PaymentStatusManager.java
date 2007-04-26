@@ -54,10 +54,14 @@ public class PaymentStatusManager {
         return getStatusList(true);
     }
     
-    public static BasePaymentStatus getStatusUsingId(Long statusId) throws InvalidStatusException {
+    public static BasePaymentStatus createStatus(AvailableStatus status) {
+        return status.getStatus().newInstance(); 
+    }
+
+    public static BasePaymentStatus createStatusUsingId(Long statusId) throws InvalidStatusException {
         for (AvailableStatus availableStatus : AvailableStatus.values()) {
             if (availableStatus.getStatus().getId().equals(statusId)) {
-                return availableStatus.getStatus().clone(); 
+                return availableStatus.getStatus().newInstance(); 
             }
         }
         throw new InvalidStatusException();
@@ -80,11 +84,11 @@ public class PaymentStatusManager {
 
     public void newPayment() {
         // the start point for a new payment is the on hold state
-        payment.setCurrentStatus(AvailableStatus.ON_HOLD_PAYMENT_STATUS.getStatus().clone());
         try {
+            payment.setCurrentStatus(createStatus(AvailableStatus.ON_HOLD_PAYMENT_STATUS));
             payment.getCurrentStatus().newPayment(payment);
         } catch (InvalidStateTransitionException iste) {
-            
+            // do nothing
         }
     }
 

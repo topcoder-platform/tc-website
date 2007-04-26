@@ -65,13 +65,12 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     @Override
     public void nextState(BasePayment payment) {
         log.debug("moving to the next state!");
-        payment.setCurrentStatus(AvailableStatus.OWED_PAYMENT_STATUS.getStatus().clone());
+        payment.setCurrentStatus(PaymentStatusManager.createStatus(AvailableStatus.OWED_PAYMENT_STATUS));
     }
     
     @Override
-    public BasePaymentStatus clone() {
+    public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new AccruingPaymentStatus();
-        newPaymentStatus.reasons = this.getReasons();
         return newPaymentStatus;  
     }
 }

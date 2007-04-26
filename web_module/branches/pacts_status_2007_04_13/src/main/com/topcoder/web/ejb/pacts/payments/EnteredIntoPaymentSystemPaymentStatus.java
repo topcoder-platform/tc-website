@@ -50,9 +50,8 @@ public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
     }
     
     @Override
-    public BasePaymentStatus clone() {
+    public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new EnteredIntoPaymentSystemPaymentStatus();
-        newPaymentStatus.reasons = this.getReasons();
         return newPaymentStatus;  
     }
 

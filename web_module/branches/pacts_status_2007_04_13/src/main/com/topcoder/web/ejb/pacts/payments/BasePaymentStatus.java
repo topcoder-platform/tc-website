@@ -21,9 +21,11 @@ public abstract class BasePaymentStatus {
         super();
     }
     
-    @Override
-    public abstract BasePaymentStatus clone();
+//    @Override
+//    public abstract BasePaymentStatus clone();
     
+    public abstract BasePaymentStatus newInstance();
+
     public abstract String getDesc();
 
     public abstract Long getId();

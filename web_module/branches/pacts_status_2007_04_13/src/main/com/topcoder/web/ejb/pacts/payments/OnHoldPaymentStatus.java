@@ -111,7 +111,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         if (reasons.size() == 0) {
             // if there's no reason to stay in this state, move to the next
             log.debug("no reason to stay here!");
-            payment.setCurrentStatus(AvailableStatus.ACCRUING_PAYMENT_STATUS.getStatus().clone());
+            payment.setCurrentStatus(PaymentStatusManager.createStatus(AvailableStatus.ACCRUING_PAYMENT_STATUS));
             try {
                 payment.getCurrentStatus().newPayment(payment);
             } catch (InvalidStateTransitionException iste) {
@@ -123,9 +123,8 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public BasePaymentStatus clone() {
+    public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new OnHoldPaymentStatus();
-        newPaymentStatus.reasons = this.getReasons();
         return newPaymentStatus;  
     }
 }

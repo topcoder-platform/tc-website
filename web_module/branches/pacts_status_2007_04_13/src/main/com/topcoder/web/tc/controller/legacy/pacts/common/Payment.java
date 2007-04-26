@@ -105,7 +105,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
         try {
             id = TCData.getTCLong(rRow, "payment_detail_id");
 //            statusDesc = TCData.getTCString(rRow, "status_desc");
-            currentStatus = PaymentStatusManager.getStatusUsingId(TCData.getTCLong(rRow, "status_id"));
+            currentStatus = PaymentStatusManager.createStatusUsingId(TCData.getTCLong(rRow, "status_id"));
             rationale = TCData.getTCString(rRow, "modification_rationale_desc");
             rationaleId = TCData.getTCInt(rRow, "modification_rationale_id");
             grossAmount = TCData.getTCDouble(rRow, "gross_amount");

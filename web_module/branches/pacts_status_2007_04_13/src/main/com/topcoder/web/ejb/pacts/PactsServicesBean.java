@@ -4900,7 +4900,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             p.setNetAmount(TCData.getTCDouble(detailData.getRow(0), "net_amount", 0, false));
             p.setGrossAmount(TCData.getTCDouble(detailData.getRow(0), "gross_amount", 0, false));
             p.setTotalAmount(TCData.getTCDouble(detailData.getRow(0), "total_amount", 0, false));
-            p.setCurrentStatus(PaymentStatusManager.getStatusUsingId(new Long(statusId)));
+            p.setCurrentStatus(PaymentStatusManager.createStatusUsingId(new Long(statusId)));
             p.setRationaleId(MODIFICATION_STATUS);
             p.getHeader().setDescription(TCData.getTCString(detailData.getRow(0), "payment_desc", "", false));
             p.getHeader().setTypeId(TCData.getTCInt(detailData.getRow(0), "payment_type_id", 1, false));
@@ -5003,7 +5003,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             p.setNetAmount(TCData.getTCDouble(detailData.getRow(i), "net_amount", 0, false));
             p.setGrossAmount(TCData.getTCDouble(detailData.getRow(i), "gross_amount", 0, false));
-            p.setCurrentStatus(PaymentStatusManager.getStatusUsingId(new Long(statusId)));
+            p.setCurrentStatus(PaymentStatusManager.createStatusUsingId(new Long(statusId)));
             p.setRationaleId(MODIFICATION_STATUS);
             p.getHeader().setDescription(TCData.getTCString(detailData.getRow(i), "payment_desc", "", false));
             p.getHeader().setTypeId(TCData.getTCInt(detailData.getRow(i), "payment_type_id", 1, false));
@@ -7130,7 +7130,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             payment.setTotalAmount(totalAmount);
             payment.setInstallmentNumber(installmentNumber);
             payment.setDueDate(dueDate);
-            payment.setCurrentStatus(PaymentStatusManager.getStatusUsingId(statusId));
+            payment.setCurrentStatus(PaymentStatusManager.createStatusUsingId(statusId));
             // TODO: pulky: get reasons
 //            payment.setStatusDesc(statusDesc);
             payment.setDescription(description);
@@ -7205,7 +7205,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setTotalAmount(totalAmount);
         payment.setInstallmentNumber(installmentNumber);
         payment.setDueDate(dueDate);
-        payment.setCurrentStatus(PaymentStatusManager.getStatusUsingId(statusId));
+        payment.setCurrentStatus(PaymentStatusManager.createStatusUsingId(statusId));
         // TODO: pulky: get reasons
         
 //        payment.setStatusDesc(statusDesc);

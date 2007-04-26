@@ -53,9 +53,8 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public BasePaymentStatus clone() {
+    public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new OwedPaymentStatus();
-        newPaymentStatus.reasons = this.getReasons();
         return newPaymentStatus;  
     }
 }
