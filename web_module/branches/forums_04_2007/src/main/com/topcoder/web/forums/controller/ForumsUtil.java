@@ -435,9 +435,10 @@ public class ForumsUtil {
             boolean collapseMessage = calendar.getTime().after(message.getModificationDate());
             table.put(message, collapseMessage);
             if (showRepliedPosts && !collapseMessage) {
-                while (message.getParentMessage() != null && !table.get(message.getParentMessage())) {
+                while (message.getParentMessage() != null && 
+                        (table.get(message.getParentMessage() == null || table.get(message.getParentMessage()) == true))) {
                     message = message.getParentMessage();
-                    table.put(message, collapseMessage);
+                    table.put(message, false);
                 }
             }
         }
