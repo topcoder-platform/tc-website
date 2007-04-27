@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,7 +8,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -39,18 +43,41 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
                     incompleteContests.add(ci);
                     continue;
                 }
+                                
            }
             
-           PrizeInfo pi = new PrizeInfo(row.getIntItem("place"), row.getDoubleItem("prize_amount"), 7545675, false); 
+           PrizeInfo pi = new PrizeInfo(row.getIntItem("place"), row.getDoubleItem("prize_amount")); 
            ci.addPrize(pi); 
         }
-        
+
+        for (ContestInfo ci : completeContests) {
+            fillResults(ci);
+        }
         getRequest().setAttribute("completeContests",completeContests); 
         getRequest().setAttribute("incompleteContests",incompleteContests); 
         setNextPage(INTERNAL_GENERATE_INTRO_EVENT_COMPONENT_PAYMENTS);
         
         setIsNextPageInContext(true);
 
+    }
+
+    private void fillResults(ContestInfo ci) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("intro_event_comp_results");
+        r.setProperty("ct", ci.getId() + "");
+        
+        ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("intro_event_comp_results");
+        
+        int min = ci.getPrizes().size();
+        if (rsc.size() < min) min = rsc.size();
+        
+        int i = 0;
+        for (PrizeInfo pi : ci.getPrizes()) {
+            if (i >= rsc.size()) break;
+            pi.setWinnerId(rsc.getLongItem(i, "coder_id"));
+            pi.setPoints(rsc.getIntItem(i, "points"));
+            
+        }      
     }
 
     public class ContestInfo {
@@ -97,15 +124,14 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
         private int place;
         private double amount;
         private long winnerId;
+        private int points;
         boolean isPaid;
         
         
-        public PrizeInfo(int place, double amount, long winnerId, boolean isPaid) {
+        public PrizeInfo(int place, double amount) {
             super();
             this.place = place;
             this.amount = amount;
-            this.winnerId = winnerId;
-            this.isPaid = isPaid;
         }
         public double getAmount() {
             return amount;
@@ -121,7 +147,7 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
         }
         
         public int compareTo(Object o) {
-            return new Integer(((PrizeInfo) o).getPlace()).compareTo(getPlace());
+            return new Integer(getPlace()).compareTo(((PrizeInfo) o).getPlace());
         }
         
         @Override
@@ -129,6 +155,18 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
             if (!(obj instanceof PrizeInfo)) return false;
             
             return ((PrizeInfo) obj).getPlace() == getPlace();
+        }
+        public int getPoints() {
+            return points;
+        }
+        public void setPoints(int points) {
+            this.points = points;
+        }
+        public void setPaid(boolean isPaid) {
+            this.isPaid = isPaid;
+        }
+        public void setWinnerId(long winnerId) {
+            this.winnerId = winnerId;
         }
         
         
