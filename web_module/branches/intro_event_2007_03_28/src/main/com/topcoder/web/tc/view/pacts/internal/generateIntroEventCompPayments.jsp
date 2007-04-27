@@ -21,6 +21,19 @@
        		<td>
            		${contest.name}
            	</td>
+           	<td>
+           		<table>
+           			<c:forEach items="${contest.prizes}" var="prize">
+           			<tr>
+           				<td> ${prize.place}
+           				</td>
+           				<td> ${prize.amount}
+           				</td>
+           			</tr>
+           			</c:forEach>
+           		</table>
+           		
+           	</td>
         </tr>
    </c:forEach>
 </table>       

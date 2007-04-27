@@ -39,7 +39,7 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
                 }
            }
             
-           PrizeInfo pi = new PrizeInfo(row.getIntItem("place"), row.getDoubleItem("amount"), 7545675, false); 
+           PrizeInfo pi = new PrizeInfo(row.getIntItem("place"), row.getDoubleItem("prize_amount"), 7545675, false); 
            ci.addPrize(pi); 
         }
         
