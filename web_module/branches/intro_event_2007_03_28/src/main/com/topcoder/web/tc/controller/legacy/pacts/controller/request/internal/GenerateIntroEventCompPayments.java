@@ -1,7 +1,9 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.BaseProcessor;
@@ -14,27 +16,31 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
     protected void businessProcessing() throws Exception {
         Long eid = new Long(getRequest().getParameter("eid"));
                
-/*        
-        Request r = new Request();
-        r.setContentHandle("event_contest_status");
-        
-        r.setProperty("eid", eid + "");
-        ResultSetContainer status = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("event_contest_status");
-  */
         DataInterfaceBean dib = new DataInterfaceBean();
         ResultSetContainer rsc = dib.getContestsInfo(eid);
+        Map<Long, ContestInfo> contestsMap = new  HashMap<Long, ContestInfo>();
         
         List<ContestInfo> completeContests = new ArrayList<ContestInfo>();
         List<ContestInfo> incompleteContests = new ArrayList<ContestInfo>();
+        
         for (ResultSetContainer.ResultSetRow row : rsc) {
-            ContestInfo ci = new ContestInfo(row.getLongItem("contest_id"), row.getStringItem("contest_name"),
+            ContestInfo ci = contestsMap.get(row.getLongItem("contest_id")); 
+            
+            if (ci == null) {
+                ci = new ContestInfo(row.getLongItem("contest_id"), row.getStringItem("contest_name"),
                     row.getBooleanItem("time_over"), row.getIntItem("active_projects"));
             
-            if (ci.isTimeOver() && ci.getActiveProjects() == 0) {
-                completeContests.add(ci);
-            } else {
-                incompleteContests.add(ci);
-            }
+                contestsMap.put(row.getLongItem("contest_id"), ci);
+                if (ci.isTimeOver() && ci.getActiveProjects() == 0) {
+                    completeContests.add(ci);
+                } else {
+                    incompleteContests.add(ci);
+                    continue;
+                }
+           }
+            
+           PrizeInfo pi = new PrizeInfo(row.getIntItem("place"), row.getDoubleItem("amount"), 7545675, false); 
+           ci.addPrize(pi); 
         }
         
         getRequest().setAttribute("completeContests",completeContests); 
@@ -50,6 +56,7 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
         private String name;
         private boolean timeOver;
         private int activeProjects;
+        private List<PrizeInfo> prizes = new ArrayList<PrizeInfo>();
         
         public ContestInfo(long id, String name, boolean timeOver, int activeProjects) {
             super();
@@ -75,6 +82,43 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
             return timeOver;
         }
         
+        public void addPrize(PrizeInfo pi) {
+            prizes.add(pi);
+        }
+        
+        public List<PrizeInfo> getPrizes() {
+            return prizes;
+        }
         
     }
+    public class PrizeInfo {
+        private int place;
+        private double amount;
+        private long winnerHandle;
+        boolean isPaid;
+        
+        
+        public PrizeInfo(int place, double amount, long winnerHandle, boolean isPaid) {
+            super();
+            this.place = place;
+            this.amount = amount;
+            this.winnerHandle = winnerHandle;
+            this.isPaid = isPaid;
+        }
+        public double getAmount() {
+            return amount;
+        }
+        public boolean isPaid() {
+            return isPaid;
+        }
+        public int getPlace() {
+            return place;
+        }
+        public long getWinnerHandle() {
+            return winnerHandle;
+        }
+        
+        
+    }
+
 }
