@@ -34,7 +34,7 @@
 			   		<c:choose>
 			   			<c:when test="${prize.paid}"><font color="#FF0000"> paid</font></c:when>
 			   			<c:when test="${empty prize.points}"><font color="#FF0000"> Vacant</font></c:when>
-			   			<c:otherwise><input type="checkbox" name="pay" value="${contest.id}|${prize.place}|${prize.winnerId}|${prize.amount}"></c:otherwise>
+			   			<c:otherwise><input type="checkbox" name="pay" value="${contest.id}:${prize.place}:${prize.winnerId}:${prize.amount}"></c:otherwise>
 			   		</c:choose>
 			   	</td>
 				<td> ${cf:ordinal(prize.place)} place	</td>

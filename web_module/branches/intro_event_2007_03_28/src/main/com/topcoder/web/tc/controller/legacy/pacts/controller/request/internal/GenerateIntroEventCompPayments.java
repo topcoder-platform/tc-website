@@ -25,7 +25,7 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
         
         for (String s : pay) {
             log.debug(s);
-            String []values = s.split("|"); 
+            String []values = s.split(":"); 
             log.debug(values[0]);
             Long contestId = new Long(values[0]);
             log.debug(values[1]);
