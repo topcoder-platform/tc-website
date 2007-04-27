@@ -447,7 +447,6 @@ public class ForumsUtil {
     
     // Returns the time of the latest-read message in the given thread.
     public static Date getLastReadDate(User user, ReadTracker readTracker, ForumThread thread) {
-         log.info("getLastReadDate() entered");
          Calendar calendar = new GregorianCalendar(1970, Calendar.JANUARY, 1);
          Date lastReadDate = calendar.getTime();
          Iterator<ForumMessage> itMessages = thread.getMessages();
@@ -459,7 +458,6 @@ public class ForumsUtil {
                  }
              }
          }
-         log.info("getLastReadDate() exited");
          return lastReadDate;
     }
 
