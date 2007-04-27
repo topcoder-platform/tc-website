@@ -290,7 +290,7 @@ function toggleTabs(id) {
        		  <%= ("false".equals(user.getProperty("collapseRead"))) ? "" : "checked"%>
        		  onclick="Javascript:document.form1.collapseReadShowReplied.disabled=!this.checked;">
 		  > <select size="1" name="collapseReadDays">
-	      <%  int[] arrCollapseReadDays = {1,2,3,7,15,30};
+	      <%  int[] arrCollapseReadDays = {0,1,2,3,7,15,30};
 	          int collapseReadDays = ForumConstants.DEFAULT_COLLAPSE_READ_DAYS;
 	          try {
 	              collapseReadDays = Integer.parseInt(user.getProperty("collapseReadDays"));
