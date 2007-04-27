@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -17,6 +18,9 @@
 <br>
 <br>
 <table>
+<form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+    <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateIntroEventCompPayments"/>
+
 	<c:forEach items="${completeContests}" var="contest">  
 		<c:forEach items="${contest.prizes}" var="prize" varStatus="status">
 			<tr>
@@ -29,7 +33,7 @@
 			   		<c:choose>
 			   			<c:when test="${prize.paid}"><font color="#FF0000"> paid</font></c:when>
 			   			<c:when test="${empty prize.points}"><font color="#FF0000"> Vacant</font></c:when>
-			   			<c:otherwise><input type="checkbox" name="pay" value="${contest.id},${prize.place}"></c:otherwise>
+			   			<c:otherwise><input type="checkbox" name="pay" value="${contest.id}|${prize.place}|${prize.winnerId}|${prize.amount }}"></c:otherwise>
 			   		</c:choose>
 			   	</td>
 				<td> ${cf:ordinal(prize.place)} place	</td>
@@ -46,6 +50,7 @@
 			</td>
 		</tr>
    </c:forEach>
+</form>   
 </table>       
 
 <br>
