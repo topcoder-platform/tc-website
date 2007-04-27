@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.27.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 4 set for April 28</A>
+        </span><br><br>
+        Online Round 4 of the TCO07 Algorithm Competition, brought to you by DRW Trading, is set for 1:00 PM EDT on April 28.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">details</A> | 
+        <tc-webtag:forumLink forumID="514953" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.27.07<br>12:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -198,22 +217,5 @@
         <A href="/tc?module=Static&d1=match_editorials&d2=srm345">full story</A> | 
         <tc-webtag:forumLink forumID="506235" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.19.07<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_13_tco07_rd_1">TCO07 Round 1 Analysis / Marathon Match 13</A></span><br><br>
-      In DensityImaging, a mining company wants to determine if a particular mountain has heavy metals in it by imaging it with electromagnetic waves, rather than digging. Coders were asked to model the problem and come up with a solution to determine the density of the mountain.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/venco_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="274023" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_13_tco07_rd_1">full story</A> | 
-        <tc-webtag:forumLink forumID="515307" message="discuss this" /> | 
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
