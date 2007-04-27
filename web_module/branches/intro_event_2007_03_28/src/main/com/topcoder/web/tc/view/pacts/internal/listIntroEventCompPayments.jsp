@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 
+
 <html>
     <head>
         <title>PACTS</title>
@@ -32,7 +33,7 @@
 			   	</td>
 			   	<td>
 			   		<c:choose>
-			   			<c:when test="${prize.paid}"><font color="#FF0000"> paid</font></c:when>
+			   			<c:when test="${not empty prize.paymentId}"><font color="#FF0000"><a href="${pacts:viewPayment(payment.id)}">paid</a></font>(view)</c:when>
 			   			<c:when test="${empty prize.points}"><font color="#FF0000"> Vacant</font></c:when>
 			   			<c:otherwise><input type="checkbox" name="pay" value="${contest.id}:${prize.place}:${prize.winnerId}:${prize.amount}"></c:otherwise>
 			   		</c:choose>

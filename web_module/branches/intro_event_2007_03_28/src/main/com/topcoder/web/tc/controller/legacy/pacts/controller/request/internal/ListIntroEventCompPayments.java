@@ -82,9 +82,12 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
     private void fillPaid(ContestInfo ci) throws Exception {
         DataInterfaceBean dib = new DataInterfaceBean();
         List<IntroEventCompPayment> l = dib.findPayments(INTRO_EVENT_COMP_PAYMENT, ci.getId());
-        
+        log.debug("fillPaid "  + ci.getName() );
         for (PrizeInfo pi :ci.getPrizes()) {
             for (IntroEventCompPayment payment : l) {
+                log.debug("pi.getWinnerId()" + pi.getWinnerId());
+                log.debug("payment.getCoderId()" + payment.getCoderId());
+                log.debug("payment.getId()" + payment.getId());
                 if (pi.getWinnerId() == payment.getCoderId()) {
                     pi.setPaymentId(payment.getId());
                 }
