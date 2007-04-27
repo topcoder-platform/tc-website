@@ -7219,7 +7219,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append("where  c.contest_id = cp.contest_id ");
         query.append("and c.event_id = e.event_id ");
         query.append("and c.event_id = " + eid);
-        query.append("order by contest_name  ");
+        query.append(" order by contest_name  ");
 
         return runSelectQuery(query.toString(), false);
         
