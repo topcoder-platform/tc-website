@@ -12,6 +12,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.ejb.pacts.IntroEventCompPayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
@@ -51,6 +52,7 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
 
         for (ContestInfo ci : completeContests) {
             fillResults(ci);
+            fillPaid(ci);
         }
         getRequest().setAttribute("completeContests",completeContests); 
         getRequest().setAttribute("incompleteContests",incompleteContests); 
@@ -61,18 +63,14 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
     }
 
     private void fillResults(ContestInfo ci) throws Exception {
-        log.debug("fill results for " + ci.getName() + ", " + ci.getId());
         Request r = new Request();
         r.setContentHandle("intro_event_comp_results");
         r.setProperty("ct", ci.getId() + "");
         
         ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("intro_event_comp_results");
-        
-        log.debug("rsc size:" + rsc.size());
-        
+                
         int i = 0;
         for (PrizeInfo pi : ci.getPrizes()) {
-            log.debug(" user_id=" + rsc.getLongItem(i, "user_id") + "   points=" + rsc.getStringItem(i, "points"));
             if (i >= rsc.size() || rsc.getItem(i, "points").getResultData() == null) break;
             
             pi.setWinnerId(rsc.getLongItem(i, "user_id"));
@@ -81,6 +79,19 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
         }      
     }
 
+    private void fillPaid(ContestInfo ci) throws Exception {
+        DataInterfaceBean dib = new DataInterfaceBean();
+        List<IntroEventCompPayment> l = dib.findPayments(INTRO_EVENT_COMP_PAYMENT, ci.getId());
+        
+        for (PrizeInfo pi :ci.getPrizes()) {
+            for (IntroEventCompPayment payment : l) {
+                if (pi.getWinnerId() == payment.getCoderId()) {
+                    pi.setPaymentId(payment.getId());
+                }
+            }
+        }
+    }
+    
     public class ContestInfo {
         private long id;
         private String name;
@@ -126,7 +137,7 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
         private double amount;
         private Long winnerId = null;
         private Integer points =null;
-        boolean isPaid;
+        private Long paymentId = null;
         
         
         public PrizeInfo(int place, double amount) {
@@ -136,9 +147,6 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
         }
         public double getAmount() {
             return amount;
-        }
-        public boolean isPaid() {
-            return isPaid;
         }
         public int getPlace() {
             return place;
@@ -163,11 +171,16 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
         public void setPoints(Integer points) {
             this.points = points;
         }
-        public void setPaid(boolean isPaid) {
-            this.isPaid = isPaid;
-        }
         public void setWinnerId(Long winnerId) {
             this.winnerId = winnerId;
+        }
+        
+        public Long getPaymentId() {
+            return paymentId;
+        }
+        
+        public void setPaymentId(Long paymentId) {
+            this.paymentId = paymentId;
         }
         
         

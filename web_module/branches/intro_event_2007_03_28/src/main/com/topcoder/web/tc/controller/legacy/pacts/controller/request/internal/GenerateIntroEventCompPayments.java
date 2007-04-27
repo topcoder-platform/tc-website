@@ -17,22 +17,17 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
     protected void businessProcessing() throws Exception {
         String[] pay = getRequest().getParameterValues("pay");
         
-        if (pay.length == 0) {
-            throw new NavigationException("BNo payments selected");
+        if (pay == null || pay.length == 0) {
+            throw new NavigationException("No payments selected");
         }
         DataInterfaceBean bean = new DataInterfaceBean();
         List<Long> ids = new ArrayList<Long>();
         
         for (String s : pay) {
-            log.debug(s);
             String []values = s.split(":"); 
-            log.debug(values[0]);
             Long contestId = new Long(values[0]);
-            log.debug(values[1]);
             Integer place = new Integer(values[1]);
-            log.debug(values[2]);
             Long winnerId = new Long(values[2]);
-            log.debug(values[3]);
             Double amount = new Double(values[3]);
             
             BasePayment payment = new IntroEventCompPayment(winnerId, amount, contestId, place);            
