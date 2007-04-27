@@ -41,15 +41,16 @@
         <tr>
             <td style="padding: 0px 10px 0px 0px; border-right: 1px dashed #999999;">
 
-<%-- CSF 
+<%-- CSF --%>
                 <div>
-                    <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="studio_homepage" />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder"/></A>
+                    <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005" refer="studio_homepage" />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder"/></A>
                 </div>
---%>
 
+<%--   REGISTER NOW 
                 <div>
                      <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/"><img src="/i/home/register_now.gif" alt="Register now"/></A>
                 </div>
+--%>
 
 <%-- POST A PROJECT --%>
                 <div>
