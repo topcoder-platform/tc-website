@@ -712,9 +712,9 @@ public class ForumsUtil {
     }
     
     public static boolean getBoolean(String s, boolean defaultVal) {
-        try {
+        if (s != null) {
             return Boolean.parseBoolean(s);
-        } catch (NumberFormatException nfe) {
+        } else {
             return defaultVal;
         }
     }
