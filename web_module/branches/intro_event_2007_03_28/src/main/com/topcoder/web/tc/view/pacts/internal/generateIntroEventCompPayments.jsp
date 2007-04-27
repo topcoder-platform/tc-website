@@ -17,24 +17,24 @@
 <br>
 <table>
 	<c:forEach items="${completeContests}" var="contest">  
-       <tr>
-       		<td>
-           		${contest.name}
-           	</td>
-           	<td>
-           		<table>
-           			<c:forEach items="${contest.prizes}" var="prize">
-           			<tr>
-           				<td> ${prize.place}
-           				</td>
-           				<td> ${prize.amount}
-           				</td>
-           			</tr>
-           			</c:forEach>
-           		</table>
-           		
-           	</td>
-        </tr>
+		<c:forEach items="${contest.prizes}" var="prize" varStatus="status">
+			<tr>
+				<td>
+			   		<c:if test="${status.first }">
+			   			<b>${contest.name}</b>
+			   		</c:if>
+			   	</td>
+			   	<td>
+			   		<c:choose>
+			   			<c:when test="${prize.paid}"><font color="#FF0000"> paid</font></c:when>
+			   			<c:otherwise><input type="checkbox" name="pay" value="${contest.id},${prize.place}"></c:otherwise>
+			   		</c:choose>
+			   	</td>
+				<td> ${prize.place}	</td>
+				<td> ${prize.amount} </td>
+				<td> <tc-webtag:handle coderId="${prize.winnerId}" context='component'/> </td>
+			</tr>
+		</c:forEach>
    </c:forEach>
 </table>       
 

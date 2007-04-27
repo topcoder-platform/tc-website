@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.BaseProcessor;
@@ -56,7 +58,7 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
         private String name;
         private boolean timeOver;
         private int activeProjects;
-        private List<PrizeInfo> prizes = new ArrayList<PrizeInfo>();
+        private Set<PrizeInfo> prizes = new TreeSet<PrizeInfo>();
         
         public ContestInfo(long id, String name, boolean timeOver, int activeProjects) {
             super();
@@ -86,23 +88,23 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
             prizes.add(pi);
         }
         
-        public List<PrizeInfo> getPrizes() {
+        public Set<PrizeInfo> getPrizes() {
             return prizes;
-        }
-        
+        }      
     }
-    public class PrizeInfo {
+    
+    public class PrizeInfo implements Comparable {
         private int place;
         private double amount;
-        private long winnerHandle;
+        private long winnerId;
         boolean isPaid;
         
         
-        public PrizeInfo(int place, double amount, long winnerHandle, boolean isPaid) {
+        public PrizeInfo(int place, double amount, long winnerId, boolean isPaid) {
             super();
             this.place = place;
             this.amount = amount;
-            this.winnerHandle = winnerHandle;
+            this.winnerId = winnerId;
             this.isPaid = isPaid;
         }
         public double getAmount() {
@@ -114,9 +116,21 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
         public int getPlace() {
             return place;
         }
-        public long getWinnerHandle() {
-            return winnerHandle;
+        public long getWinnerId() {
+            return winnerId;
         }
+        
+        public int compareTo(Object o) {
+            return new Integer(((PrizeInfo) o).getPlace()).compareTo(getPlace());
+        }
+        
+        @Override
+        public boolean equals(Object obj) {
+            if (!(obj instanceof PrizeInfo)) return false;
+            
+            return ((PrizeInfo) obj).getPlace() == getPlace();
+        }
+        
         
         
     }
