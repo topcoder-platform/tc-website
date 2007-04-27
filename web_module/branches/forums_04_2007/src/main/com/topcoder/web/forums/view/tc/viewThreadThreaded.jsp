@@ -148,21 +148,6 @@ function displayVotes(messageID, posVotes, negVotes) {
             <jsp:param name="title" value="&#160;"/>
         </jsp:include> 
 
-<% Calendar calendar = Calendar.getInstance();
-   calendar.setTime(new Date());
-   calendar.add(Calendar.DAY_OF_MONTH, -3); 
-   
-   boolean collapse = ForumsUtil.getBoolean(user.getProperty("collapseRead"), ForumConstants.DEFAULT_COLLAPSE_READ);
-        int days = ForumsUtil.getInt(user.getProperty("collapseReadDays"), ForumConstants.DEFAULT_COLLAPSE_READ_DAYS);
-        int posts = ForumsUtil.getInt(user.getProperty("collapseReadPosts"), ForumConstants.DEFAULT_COLLAPSE_READ_POSTS);
-        boolean showRepliedPosts = ForumsUtil.getBoolean(user.getProperty("collapseReadShowReplied"), 
-                ForumConstants.DEFAULT_COLLAPSE_READ_SHOW_REPLIED); %>
-
-props: collapse = <%=collapse%> | days = <%=days%> | posts = <%=posts%> | showRepliedPosts = <%=showRepliedPosts%>
-collapse: <%=calendar.getTime().after(forumFactory.getMessage(507095).getModificationDate())%>
-lastReadDate: <%=lastReadDate%>
-check: <%=ForumConstants.DEFAULT_COLLAPSE_READ%>
-
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
    <td class="categoriesBox" style="padding-right: 20px;">
