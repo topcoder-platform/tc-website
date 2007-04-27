@@ -4,6 +4,26 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.27.07<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        TCO07 Component Design &amp; Development finalists announced
+        </span><br><br>
+        The final brackets for the TCO07 Component <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desBracket">Design</a> and <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devBracket">Development</a> competitions have been announced. Congratulations!
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desBracket">Design finalists</A> | 
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devBracket">Development finalists</A> | 
+        <tc-webtag:forumLink forumID="514380" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.26.07<br>2:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -195,22 +215,5 @@
         <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_13_tco07_rd_1">full story</A> | 
         <tc-webtag:forumLink forumID="515307" message="discuss this" /> | 
         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>04.19.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041907">A Crash Course in SQL</A></span><br><br>
-        In the first two parts of this article series we looked at the basic components of relational databases.  We touched briefly on SQL -- the language we use to interact with the database -- but in this article we'll look at it in much more detail, with a specific focus on writing queries.
-        </td>
-      <td class="newsPhoto">&#160;<img src="/i/m/dcp_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21684580" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=041907">full story</A> | 
-        <tc-webtag:forumLink forumID="515215" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
