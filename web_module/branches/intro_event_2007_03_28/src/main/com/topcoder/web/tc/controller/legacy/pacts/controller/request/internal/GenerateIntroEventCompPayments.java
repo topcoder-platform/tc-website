@@ -74,7 +74,8 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
         int i = 0;
         for (PrizeInfo pi : ci.getPrizes()) {
             log.debug(" user_id=" + rsc.getLongItem(i, "user_id") + "   points=" + rsc.getIntItem(i, "points"));
-            if (i >= rsc.size()) break;
+            if (i >= rsc.size() || rsc.getItem(i, "points").getResultData() == null) break;
+            
             pi.setWinnerId(rsc.getLongItem(i, "user_id"));
             pi.setPoints(rsc.getIntItem(i, "points"));
             i++;
@@ -124,8 +125,8 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
     public class PrizeInfo implements Comparable {
         private int place;
         private double amount;
-        private long winnerId;
-        private int points;
+        private Long winnerId = null;
+        private Integer points =null;
         boolean isPaid;
         
         
@@ -143,7 +144,7 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
         public int getPlace() {
             return place;
         }
-        public long getWinnerId() {
+        public Long getWinnerId() {
             return winnerId;
         }
         
@@ -157,16 +158,16 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
             
             return ((PrizeInfo) obj).getPlace() == getPlace();
         }
-        public int getPoints() {
+        public Integer getPoints() {
             return points;
         }
-        public void setPoints(int points) {
+        public void setPoints(Integer points) {
             this.points = points;
         }
         public void setPaid(boolean isPaid) {
             this.isPaid = isPaid;
         }
-        public void setWinnerId(long winnerId) {
+        public void setWinnerId(Long winnerId) {
             this.winnerId = winnerId;
         }
         
