@@ -29,7 +29,7 @@ public class UpdateResults implements Map, java.io.Serializable {
     }
 
     private Map m_results;
-    private int m_status_id;
+    private long m_status_id;
     private String m_status_desc;
 
 //
@@ -44,12 +44,12 @@ public class UpdateResults implements Map, java.io.Serializable {
     }
 
 
-    public UpdateResults(int status_id) {
+    public UpdateResults(long status_id) {
         this(status_id, null);
     }
 
 
-    public UpdateResults(int status_id, String status_desc) {
+    public UpdateResults(long status_id, String status_desc) {
         m_results = new HashMap();
         m_status_id = status_id;
         m_status_desc = status_desc;
@@ -60,7 +60,7 @@ public class UpdateResults implements Map, java.io.Serializable {
         m_results = new HashMap();
         m_status_id = -1;
         m_status_desc = null;
-        for (int n = 0; n < ids.length; n++) put(new String().valueOf(ids[n]), new NoException());
+        for (int n = 0; n < ids.length; n++) put(String.valueOf(ids[n]), new NoException());
     }
 
 
@@ -72,25 +72,25 @@ public class UpdateResults implements Map, java.io.Serializable {
     }
 
 
-    public UpdateResults(long[] ids, int status_id) {
+    public UpdateResults(long[] ids, long status_id) {
         this(ids, status_id, null);
     }
 
 
-    public UpdateResults(long[] ids, int status_id, String status_desc) {
+    public UpdateResults(long[] ids, long status_id, String status_desc) {
         m_results = new HashMap();
         m_status_id = status_id;
         m_status_desc = status_desc;
-        for (int n = 0; n < ids.length; n++) put(new String().valueOf(ids[n]), new NoException());
+        for (int n = 0; n < ids.length; n++) put(String.valueOf(ids[n]), new NoException());
     }
 
 
-    public UpdateResults(String[] ids, int status_id) {
+    public UpdateResults(String[] ids, long status_id) {
         this(ids, status_id, null);
     }
 
 
-    public UpdateResults(String[] ids, int status_id, String status_desc) {
+    public UpdateResults(String[] ids, long status_id, String status_desc) {
         m_results = new HashMap();
         m_status_id = status_id;
         m_status_desc = status_desc;
@@ -104,7 +104,7 @@ public class UpdateResults implements Map, java.io.Serializable {
 //
 
 
-    public int getStatusId() {
+    public long getStatusId() {
         return m_status_id;
     }
 
@@ -122,8 +122,8 @@ public class UpdateResults implements Map, java.io.Serializable {
     }
 
 
-    public int setStatusId(int status_id) {
-        int old = m_status_id;
+    public long setStatusId(long status_id) {
+        long old = m_status_id;
         m_status_id = status_id;
         return old;
     }

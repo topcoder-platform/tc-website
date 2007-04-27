@@ -9,7 +9,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.StudioContestPayment;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.AvailableStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
@@ -111,7 +111,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         if (reasons.size() == 0) {
             // if there's no reason to stay in this state, move to the next
             log.debug("no reason to stay here!");
-            payment.setCurrentStatus(PaymentStatusManager.createStatus(AvailableStatus.ACCRUING_PAYMENT_STATUS));
+            payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.ACCRUING_PAYMENT_STATUS));
             try {
                 payment.getCurrentStatus().newPayment(payment);
             } catch (InvalidStateTransitionException iste) {

@@ -7,7 +7,7 @@ package com.topcoder.web.ejb.pacts.payments;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.AvailableStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -65,7 +65,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     @Override
     public void nextState(BasePayment payment) {
         log.debug("moving to the next state!");
-        payment.setCurrentStatus(PaymentStatusManager.createStatus(AvailableStatus.OWED_PAYMENT_STATUS));
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS));
     }
     
     @Override

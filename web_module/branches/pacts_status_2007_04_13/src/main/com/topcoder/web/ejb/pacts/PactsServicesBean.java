@@ -41,10 +41,11 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.AvailableStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -2331,9 +2332,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public List<BasePaymentStatus> getPaymentStatusList(Boolean onlyViewable) throws SQLException {
         if (onlyViewable) {
-            return PaymentStatusManager.getSelectableStatusList();
+            return PaymentStatusFactory.getSelectableStatusList();
         } else {
-            return PaymentStatusManager.getAllStatusList();
+            return PaymentStatusFactory.getAllStatusList();
         }
     }
 
@@ -4537,7 +4538,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             // Add address record if necessary
-            if (addressData != null && p.getCurrentStatus().getId().equals(AvailableStatus.ON_HOLD_PAYMENT_STATUS.getId())) {
+            if (addressData != null && p.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS))) {
                 paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
 
                 StringBuffer addAddress = new StringBuffer(300);
@@ -4569,7 +4570,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             String paymentDetailStr = paymentDetailId + "";
 
             // If the payment is deleted, set the most recent detail to null
-            if (p.getCurrentStatus().getId().equals(AvailableStatus.DELETED_PAYMENT_STATUS.getId())) {
+            if (p.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS))) {
                 paymentDetailStr = "null";
             }
 
@@ -4833,7 +4834,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // This is a lot like the helper function below, but requires payment-level granularity and
     // a record of each payment update outcome.  Also commits after each payment update to release
     // locks.
-    private UpdateResults batchUpdateStatus(Connection c, long paymentId[], int statusId)
+    private UpdateResults batchUpdateStatus(Connection c, long paymentId[], long statusId)
             throws SQLException, InvalidStatusException {
         ResultSetContainer addressData, detailData;
         int i;
@@ -4901,7 +4902,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             p.setNetAmount(TCData.getTCDouble(detailData.getRow(0), "net_amount", 0, false));
             p.setGrossAmount(TCData.getTCDouble(detailData.getRow(0), "gross_amount", 0, false));
             p.setTotalAmount(TCData.getTCDouble(detailData.getRow(0), "total_amount", 0, false));
-            p.setCurrentStatus(PaymentStatusManager.createStatusUsingId(new Long(statusId)));
+            p.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
             p.setRationaleId(MODIFICATION_STATUS);
             p.getHeader().setDescription(TCData.getTCString(detailData.getRow(0), "payment_desc", "", false));
             p.getHeader().setTypeId(TCData.getTCInt(detailData.getRow(0), "payment_type_id", 1, false));
@@ -4949,7 +4950,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     } // end batchUpdateStatus() function
 
     // Helper function, assumes autocommit false
-    private void updatePaymentStatus(Connection c, long paymentId[], int statusId) throws Exception {
+    private void updatePaymentStatus(Connection c, long paymentId[], long statusId) throws Exception {
         ResultSetContainer addressData = null, detailData = null;
         int i;
 
@@ -5004,7 +5005,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             p.setNetAmount(TCData.getTCDouble(detailData.getRow(i), "net_amount", 0, false));
             p.setGrossAmount(TCData.getTCDouble(detailData.getRow(i), "gross_amount", 0, false));
-            p.setCurrentStatus(PaymentStatusManager.createStatusUsingId(new Long(statusId)));
+            p.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
             p.setRationaleId(MODIFICATION_STATUS);
             p.getHeader().setDescription(TCData.getTCString(detailData.getRow(i), "payment_desc", "", false));
             p.getHeader().setTypeId(TCData.getTCInt(detailData.getRow(i), "payment_type_id", 1, false));
@@ -7131,7 +7132,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             payment.setTotalAmount(totalAmount);
             payment.setInstallmentNumber(installmentNumber);
             payment.setDueDate(dueDate);
-            payment.setCurrentStatus(PaymentStatusManager.createStatusUsingId(statusId));
+            payment.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
             // TODO: pulky: get reasons
 //            payment.setStatusDesc(statusDesc);
             payment.setDescription(description);
@@ -7206,7 +7207,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setTotalAmount(totalAmount);
         payment.setInstallmentNumber(installmentNumber);
         payment.setDueDate(dueDate);
-        payment.setCurrentStatus(PaymentStatusManager.createStatusUsingId(statusId));
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
         // TODO: pulky: get reasons
         
 //        payment.setStatusDesc(statusDesc);

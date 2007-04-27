@@ -23,8 +23,10 @@ import java.util.Map;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 
 public class Payment implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(Payment.class);
@@ -105,7 +107,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
         try {
             id = TCData.getTCLong(rRow, "payment_detail_id");
 //            statusDesc = TCData.getTCString(rRow, "status_desc");
-            currentStatus = PaymentStatusManager.createStatusUsingId(TCData.getTCLong(rRow, "status_id"));
+            currentStatus = PaymentStatusFactory.createStatus(TCData.getTCLong(rRow, "status_id"));
             rationale = TCData.getTCString(rRow, "modification_rationale_desc");
             rationaleId = TCData.getTCInt(rRow, "modification_rationale_id");
             grossAmount = TCData.getTCDouble(rRow, "gross_amount");
@@ -162,7 +164,7 @@ public class Payment implements PactsConstants, java.io.Serializable {
             }
             
 
-            if (!currentStatus.equals(PaymentStatusManager.AvailableStatus.PAID_PAYMENT_STATUS)) {
+            if (!currentStatus.equals(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS))) {
                 rsc = (ResultSetContainer) results.get(CURRENT_CODER_ADDRESS);
                 if (rsc != null) rRow = rsc.getRow(0);
             }

@@ -3,8 +3,6 @@ package com.topcoder.web.ejb.pacts.payments;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.AvailableStatus;
-
 public class PaymentStatusReason {
 
     public enum AvailableStatusReason {
