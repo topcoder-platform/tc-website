@@ -273,17 +273,17 @@
                 <img src="/i/home/srm346_nsa.png" alt="SRM 346 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
                 --%>
                 
-            <%-- 2 Registration Prototype contests open @ Studio --%>
+            <%-- 2 Registration Prototype contests open @ Studio 
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
-            
+            --%>
             
             <%-- TCO07 
             <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
             --%>
             
-            <%-- CSF 
-            <A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="csf_press_release"/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
-            --%>
+            <%-- CSF --%>
+            <A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005" refer="tc_Index"/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
+            
         </td>
     </tr>
 </table>

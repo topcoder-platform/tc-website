@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.24.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005">Connected Services "Wireless Cities" mashup competition open</A>
+        </span><br><br>
+        More than a dozen UK cities have had their city centers covered by 802.11b/g wireless networks. Your challenge: design a mashup application concept for businesses to make the most of these Wi-Fi environments. Winners will share $4,500 in prizes and see their ideas advance to the Assembly stage.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005">details</A> |
+        <A href="http://csf.topcoder.com/forums?module=ThreadList&forumID=7">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.27.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -102,7 +121,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=calendar&d2=may_07">view</A> | 
+         <A href="/tc?module=Static&d1=calendar&d2=may_07">details</A> | 
          <tc-webtag:forumLink forumID="515347" message="discuss this" /> | 
          <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
    </td></tr>
@@ -200,22 +219,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">details</A> | 
         <tc-webtag:forumLink forumID="514952" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.19.07<br>5:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm345">SRM 345 - Problem Set & Analysis</A></span><br><br>
-      Division 1 coders faced a very tricky easy problem, a straightforward medium, and a difficult hard.  The result: Many successful challenges and only one correct hard submission.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/rusolis_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="20289593" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm345">full story</A> | 
-        <tc-webtag:forumLink forumID="506235" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
