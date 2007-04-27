@@ -4,33 +4,34 @@ import java.sql.SQLException;
 import java.util.Date;
 
 /**
- * Payment for a Component Tournament Bonus (e.g. winning TCO 06 Design contest)
+ * Payment for an introductory event component contest.
  *
  * @author cucu
  *
  */
-public class ComponentTournamentBonusPayment extends ComponentContestReferencePayment {
+@SuppressWarnings("serial")
+public class IntroEventCompPayment extends ComponentContestReferencePayment {
 
     /**
-     * Create a payment for winning a tournament bonus in a component contest.
+     * Create a payment for an introductory event component contest.
      *
      * @param coderId coder to be paid.
      * @param grossAmount amount to be paid.
      * @param contestId contest that is being paid.
      * @param placed the placement of the coder in the contest
      */
-    public ComponentTournamentBonusPayment(long coderId, double grossAmount, long contestId, int placed) {
-        super(COMPONENT_TOURNAMENT_BONUS_PAYMENT, coderId, grossAmount, contestId, placed);
+    public IntroEventCompPayment(long coderId, double grossAmount, long contestId, int placed) {
+        super(INTRO_EVENT_COMP_PAYMENT, coderId, grossAmount, contestId, placed);
     }
 
     /**
-     * Create a payment for winning a tournament bonus in a component contest.
+     * Create a payment for an introductory event component contest.
      *
      * @param coderId coder to be paid.
      * @param grossAmount amount to be paid.
      * @param contestId contest that is being paid.
      */
-    public ComponentTournamentBonusPayment(long coderId, double grossAmount, long contestId) {
+    public IntroEventCompPayment(long coderId, double grossAmount, long contestId) {
         this(coderId, grossAmount, contestId, 0);
     }
 
@@ -44,7 +45,7 @@ public class ComponentTournamentBonusPayment extends ComponentContestReferencePa
     }
 
     /**
-     * Processor forthis payment.
+     * Processor for winning tournament bonus in component contests.
      *
      * @author Cucu
      */
