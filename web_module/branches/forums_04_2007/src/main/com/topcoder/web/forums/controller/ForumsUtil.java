@@ -18,6 +18,7 @@ import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.QueryResult;
+import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.RatingManager;
 import com.jivesoftware.forum.database.DbForumFactory;
@@ -36,14 +37,7 @@ import com.topcoder.web.forums.ForumConstants;
 import java.rmi.RemoteException;
 import java.text.NumberFormat;
 import java.text.DecimalFormat;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * @author mtong
@@ -412,8 +406,10 @@ public class ForumsUtil {
     }
     
     // Returns a table indicating if messages already read in a thread should be collapsed.
-    public static Hashtable<ForumMessage,Boolean> getCollapseReadPostTable(User user, ForumThread thread) {
-        log.info("*** Entered getCollapseReadPostTable()");
+    // In Thread.java, before the read tracker runs, the latest read post is found, passed to a jsp, then passed here. 
+    // Call the date of this post D. For each message, if its date is later than D, do not collapse it. 
+    // Time this to ensure that it runs quickly.
+    public static Hashtable<ForumMessage,Boolean> getCollapseReadPostTable(User user, ForumThread thread, Date lastReadDate) {
         if (user == null) return null;
         
         boolean collapse = getBoolean(user.getProperty("collapseRead"), ForumConstants.DEFAULT_COLLAPSE_READ);
@@ -431,29 +427,41 @@ public class ForumsUtil {
         Iterator<ForumMessage> itMessages = thread.getMessages();
         while (itMessages.hasNext()) {
             ForumMessage message = itMessages.next();
-            log.info("processing message: " + message.getID());
             if (table.containsKey(message)) {
-                log.info("table contains key: " + message.getID());
                 continue;
             }
             boolean collapseMessage = calendar.getTime().after(message.getModificationDate());
-            if (collapseMessage) {
-                log.info("collapsing message: " + message.getID());
-            } else {
-                log.info("opening message: " + message.getID());
+            if (message.getModificationDate().after(lastReadDate)) {    // new post, keep open
+                collapseMessage = false;
             }
             table.put(message, collapseMessage);
             if (showRepliedPosts && !collapseMessage) {
-                while (message.getParentMessage() != null && 
+                if (message.getParentMessage() != null && 
                         (table.get(message.getParentMessage()) == null || table.get(message.getParentMessage()) == true)) {
                     message = message.getParentMessage();
-                    log.info("(parent) opening message: " + message.getID());
                     table.put(message, false);
                 }
             }
         }
-        log.info("*** Exited getCollapseReadPostTable()");
         return table;        
+    }
+    
+    // Returns the time of the latest-read message in the given thread.
+    public static Date getLastReadDate(User user, ReadTracker readTracker, ForumThread thread) {
+         log.info("getLastReadDate() entered");
+         Calendar calendar = new GregorianCalendar(1970, Calendar.JANUARY, 1);
+         Date lastReadDate = calendar.getTime();
+         Iterator<ForumMessage> itMessages = thread.getMessages();
+         while (itMessages.hasNext()) {
+             ForumMessage message = itMessages.next();
+             if (readTracker.getReadStatus(user, message) == ReadTracker.READ) {
+                 if (message.getModificationDate().after(lastReadDate)) {
+                     lastReadDate = message.getModificationDate();
+                 }
+             }
+         }
+         log.info("getLastReadDate() exited");
+         return lastReadDate;
     }
 
     public static boolean showRatings(User user) {
