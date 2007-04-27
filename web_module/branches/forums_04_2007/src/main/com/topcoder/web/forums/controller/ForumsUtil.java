@@ -407,8 +407,7 @@ public class ForumsUtil {
     
     // Returns a table indicating if messages already read in a thread should be collapsed.
     // In Thread.java, before the read tracker runs, the latest read post is found, passed to a jsp, then passed here. 
-    // Call the date of this post D. For each message, if its date is later than D, do not collapse it. 
-    // Time this to ensure that it runs quickly.
+    // Call the date of this post D. For each message, if its date is later than D, it is not collapsed. 
     public static Hashtable<ForumMessage,Boolean> getCollapseReadPostTable(User user, ForumThread thread, Date lastReadDate) {
         if (user == null) return null;
         

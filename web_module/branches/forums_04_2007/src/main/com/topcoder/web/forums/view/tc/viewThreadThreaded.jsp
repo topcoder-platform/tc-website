@@ -33,7 +33,8 @@
     String prevTrackerClass = "", nextTrackerClass = "";
     ForumMessage prevPost = null, nextPost = null;
     Hashtable editCountTable = (Hashtable)request.getAttribute("editCountTable");
-    Hashtable<ForumMessage,Boolean> collapseReadPostTable = ForumsUtil.getCollapseReadPostTable(user, thread);
+    Date lastReadDate = (Date)request.getAttribute("lastReadDate");
+    Hashtable<ForumMessage,Boolean> collapseReadPostTable = ForumsUtil.getCollapseReadPostTable(user, thread, lastReadDate);
 
     String cmd = "";
     String watchMessage = "";
