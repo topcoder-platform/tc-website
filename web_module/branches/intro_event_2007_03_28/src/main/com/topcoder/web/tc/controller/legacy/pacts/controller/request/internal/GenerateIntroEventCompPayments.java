@@ -74,7 +74,7 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
         int i = 0;
         for (PrizeInfo pi : ci.getPrizes()) {
             if (i >= rsc.size()) break;
-            pi.setWinnerId(rsc.getLongItem(i, "coder_id"));
+            pi.setWinnerId(rsc.getLongItem(i, "user_id"));
             pi.setPoints(rsc.getIntItem(i, "points"));
             
         }      
