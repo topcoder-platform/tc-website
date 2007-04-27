@@ -68,15 +68,13 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
         
         ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("intro_event_comp_results");
         
-        int min = ci.getPrizes().size();
-        if (rsc.size() < min) min = rsc.size();
-        
         int i = 0;
         for (PrizeInfo pi : ci.getPrizes()) {
+            log.debug(" user_id=" + rsc.getLongItem(i, "user_id") + "   points=" + rsc.getIntItem(i, "points"));
             if (i >= rsc.size()) break;
             pi.setWinnerId(rsc.getLongItem(i, "user_id"));
             pi.setPoints(rsc.getIntItem(i, "points"));
-            
+            i++;
         }      
     }
 
