@@ -62,11 +62,14 @@ public class GenerateIntroEventCompPayments extends BaseProcessor implements Pac
     }
 
     private void fillResults(ContestInfo ci) throws Exception {
+        log.debug("fill results for " + ci.getName() + ", " + ci.getId());
         Request r = new Request();
         r.setContentHandle("intro_event_comp_results");
         r.setProperty("ct", ci.getId() + "");
         
         ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("intro_event_comp_results");
+        
+        log.debug("rsc size:" + rsc.size());
         
         int i = 0;
         for (PrizeInfo pi : ci.getPrizes()) {
