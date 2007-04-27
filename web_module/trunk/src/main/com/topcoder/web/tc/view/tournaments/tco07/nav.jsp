@@ -184,20 +184,20 @@
                 <li class="<% if (tabLev1.equals("component") && tabLev2.equals("design")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Design</span></a>
                     <ul>
                         <li class="stop"><a href="/tc?module=TCO07ContestDetails&amp;ct=286"<% if (tabLev1.equals("component") && tabLev2.equals("design") && tabLev3.equals("results")) {%> class="navHighlight"<% } %>><span>Results</span></a></li>
+                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desBracket"<% if (tabLev1.equals("component") && tabLev2.equals("design") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
                 <%--
                         <li class="stop"><a href=""><span>Finals</span></a></li>
                         <li class="stop"><a href=""><span>Summary</span></a></li>
-                        <li class="stop"><a href=""><span>Bracket</span></a></li>
                 --%>
                     </ul>
                 </li>
                 <li class="<% if (tabLev1.equals("component") && tabLev2.equals("development")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Development</span></a>
                     <ul>
                         <li class="stop"><a href="/tc?module=TCO07ContestDetails&amp;ct=287"<% if (tabLev1.equals("component") && tabLev2.equals("development") && tabLev3.equals("results")) {%> class="navHighlight"<% } %>><span>Results</span></a></li>
+                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devBracket"<% if (tabLev1.equals("component") && tabLev2.equals("development") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
                 <%--
                         <li class="stop"><a href=""><span>Finals</span></a></li>
                         <li class="stop"><a href=""><span>Summary</span></a></li>
-                        <li class="stop"><a href=""><span>Bracket</span></a></li>
                 --%>
                     </ul>
                 </li>
