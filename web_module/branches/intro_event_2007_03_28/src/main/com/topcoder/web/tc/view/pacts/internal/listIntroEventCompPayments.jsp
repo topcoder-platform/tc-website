@@ -54,8 +54,10 @@
 </table>       
 
 <br>
+<input type="submit" value="Generate Payments">
 <br>
-Contests that are not yet completed:<br>
+<br>
+<b>Contests that are not yet completed:</b><br>
 <table>
 	<c:forEach items="${incompleteContests}" var="contest">  
        <tr>
