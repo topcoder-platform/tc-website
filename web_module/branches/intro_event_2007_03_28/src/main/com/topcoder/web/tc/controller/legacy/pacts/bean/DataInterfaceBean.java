@@ -1778,5 +1778,10 @@ public class DataInterfaceBean implements PactsConstants {
         ps.affirmAssignmentDocument(ad);
     }
 
+    public ResultSetContainer getContestsInfo(Long eid) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getContestsInfo(eid);
+    }
+
 }
 
