@@ -30,11 +30,16 @@
 			   			<c:otherwise><input type="checkbox" name="pay" value="${contest.id},${prize.place}"></c:otherwise>
 			   		</c:choose>
 			   	</td>
-				<td> ${prize.place}	</td>
-				<td> ${prize.amount} </td>
+				<td> ${cf:ordinal(prize.place)} place	</td>
+				<td>$ ${prize.amount} </td>
 				<td> <tc-webtag:handle coderId="${prize.winnerId}" context='component'/> </td>
 			</tr>
 		</c:forEach>
+		<tr>
+			<td colspan="5">
+			&nbsp;
+			</td>
+		</tr>
    </c:forEach>
 </table>       
 
