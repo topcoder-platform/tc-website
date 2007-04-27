@@ -17,9 +17,10 @@
 
 <br>
 <br>
-<table>
 <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
     <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateIntroEventCompPayments"/>
+
+<table>
 
 	<c:forEach items="${completeContests}" var="contest">  
 		<c:forEach items="${contest.prizes}" var="prize" varStatus="status">
@@ -50,12 +51,13 @@
 			</td>
 		</tr>
    </c:forEach>
-</form>   
 </table>       
 
 <br>
 <input type="submit" value="Generate Payments">
 <br>
+</form>   
+
 <br>
 <b>Contests that are not yet completed:</b><br>
 <table>
