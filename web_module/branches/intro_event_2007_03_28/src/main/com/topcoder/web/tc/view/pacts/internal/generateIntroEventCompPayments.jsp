@@ -28,12 +28,16 @@
 			   	<td>
 			   		<c:choose>
 			   			<c:when test="${prize.paid}"><font color="#FF0000"> paid</font></c:when>
+			   			<c:when test="${empty prize.points}"><font color="#FF0000"> Vacant</font></c:when>
 			   			<c:otherwise><input type="checkbox" name="pay" value="${contest.id},${prize.place}"></c:otherwise>
 			   		</c:choose>
 			   	</td>
 				<td> ${cf:ordinal(prize.place)} place	</td>
 				<td>$ ${prize.amount} </td>
-				<td> <tc-webtag:handle coderId="${prize.winnerId}" context='component'/> </td>
+				<td> <c:if test="${not empty prize.winnerId}">
+						<tc-webtag:handle coderId="${prize.winnerId}" context='component'/> 
+					</c:if>
+				</td>
 			</tr>
 		</c:forEach>
 		<tr>
