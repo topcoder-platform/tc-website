@@ -45,8 +45,64 @@
                 </ul>
             </div>
             
-            <!-- Media Articles Archive -->
+            <!-- Media Resources -->
             <div>
+                <!-- Promotional Video and Audio begins-->
+                <div>
+                    <!-- Header Image -->
+                    <div>
+                        <img src="/i/pressroom/promo_vid_banner.png" alt="Promotional Video &amp; Audio banner" />
+                    </div>
+                    <!-- Featured Videos begins-->
+                    <div>
+                        <img src="/i/pressroom/featured_videos_banner.png" alt="Featured Videos banner" />
+                    </div>
+                    <!-- TopCoder featured on public radio's "Open Source" begins -->
+                    <div>
+                        <div>
+                            <img src="/i/pressroom/media_preview_img.png" alt="TopCoder featured on public radio's Open Source" />
+                        </div>
+                        <div>
+                            <p>TopCoder featured on public radio's "Open Source"</p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                            <p>Size: 6 mb | Format: avi | Player: Windows Media Player</p>
+                            <p><a href=""><img src="/i/pressroom/view_button.png" alt="View Button" /></a><a href="/i/pressroom/download_button.png"><img src="" alt="Download Button" /></a></p>
+                        </div>
+                    </div>
+                    <!-- TopCoder featured on public radio's "Open Source" ends -->
+                    
+                    <!-- TopCoder featured on public radio's "Open Source" begins -->
+                    <div>
+                        <div>
+                            <img src="/i/pressroom/media_preview_img.png" alt="TopCoder featured on public radio's Open Source" />
+                        </div>
+                        <div>
+                            <p>TopCoder featured on public radio's "Open Source"</p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                            <p>Size: 6 mb | Format: avi | Player: Windows Media Player</p>
+                            <p><a href=""><img src="/i/pressroom/view_button.png" alt="View Button" /></a><a href="/i/pressroom/download_button.png"><img src="" alt="Download Button" /></a></p>
+                        </div>
+                    </div>
+                    <!-- TopCoder featured on public radio's "Open Source" ends -->
+                    
+                    <!-- Media Resources Images -->
+                    <div>
+                        <div>
+                            <img src="/i/pressroom/tc_mediakit_button.png" alt="TopCoder Media Kit button" />
+                        </div>
+                        <div>
+                            <img src="/i/pressroom/tc_pr_button.png" alt="TopCoder Public Relations button" />
+                        </div>
+                    </div>
+                    <!-- Media Resources Images -->
+                    
+                    <!-- Featured Videos ends-->
+                    <div>
+                        <img src="/i/pressroom/featured_videos_footer.png" alt="Featured Videos footer" />
+                    </div>
+                </div>
+                <!-- Promotional Video and Audio ends -->
+                
                 <!-- 2007 begins -->
                 <div>
                     <div>
