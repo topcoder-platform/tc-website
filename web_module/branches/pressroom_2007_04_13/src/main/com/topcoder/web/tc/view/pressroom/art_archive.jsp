@@ -35,13 +35,13 @@
             </div>
             
             <!-- Navigation Tabs -->
-            <div>
+            <div id="tabHeader">
                 <ul>
                     <li><a href="/tc?module=Static&d1=pressroom&d2=index">Current News</a></li>
                     <li><a href="/tc?module=Static&d1=pressroom&d2=pr_archive">Press Releases Archive</a></li>
                     <li><a href="/tc?module=Static&d1=pressroom&d2=media_resources">Media Resources</a></li>
                     <li><a href="/tc?module=Static&d1=pressroom&d2=media_request_form">Media Request Form</a></li>
-                    <li><a href="/tc?module=Static&d1=pressroom&d2=art_archive">Media Articles Archive></a></li>
+                    <li id="tabCurrent"><a href="/tc?module=Static&d1=pressroom&d2=art_archive">Media Articles Archive></a></li>
                 </ul>
             </div>
             
