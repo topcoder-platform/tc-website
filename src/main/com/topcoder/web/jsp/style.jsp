@@ -47,4 +47,8 @@
 <% } else if (key.equals("csfforums")) { %>
 <link type="text/css" rel="stylesheet" href="/css/main.css">
 <link type="text/css" rel="stylesheet" href="/css/forums.css">
+<% } else if (key.equals("tc_pressroom")) { %>
+<link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
+<link type="text/css" rel="stylesheet" href="/css/coders.css">
+<link type="text/css" rel="stylesheet" href="/css/pressroomRemix.css">
 <% } %>
