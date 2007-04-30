@@ -42,7 +42,7 @@ public class GenerateIntroEventCompPayments extends ShortHibernateProcessor impl
             
             // add an entry in user_contest_prize
             User u = DAOUtil.getFactory().getUserDAO().find(winnerId);
-            ContestPrize cp = DAOUtil.getFactory().getContestPrizeDAO().find(contestId);
+            ContestPrize cp = DAOUtil.getFactory().getContestPrizeDAO().find(prizeId);
             
             UserContestPrize ucp = new UserContestPrize();
             ucp.setId(new UserContestPrize.Identifier(u,cp));
