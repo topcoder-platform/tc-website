@@ -89,8 +89,8 @@ function link() {
 	        		<tr class='${i.index % 2 == 0? "even" : "odd" }' style="font : small">
 	        			<td><input type="checkbox" name="pj" value="${project.id}"/></td>
 	        			<td>${project.projectName } ${project.projectVersion }</td>
-	        			<td><tc-webtag:format object="${project.registrationPhase.scheduledStart}" format="EEEE MM.dd.yyyy" /></td>
-	        			<td><tc-webtag:format object="${project.registrationPhase.scheduledEnd}" format="EEEE MM.dd.yyyy" /></td>
+	        			<td><tc-webtag:format object="${project.registrationPhase.scheduledStartTime}" format="EEEE MM.dd.yyyy" /></td>
+	        			<td><tc-webtag:format object="${project.registrationPhase.scheduledEndTime}" format="EEEE MM.dd.yyyy" /></td>
 	        			<td>
 				    	<td id="ct${project.id}">
 	        				<c:forEach items="${project.contests }" var="contest" varStatus="status">	        				
