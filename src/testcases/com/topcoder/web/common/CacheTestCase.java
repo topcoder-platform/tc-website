@@ -1,6 +1,7 @@
 package com.topcoder.web.common;
 
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import junit.framework.TestCase;
 import org.jboss.cache.CacheException;
@@ -21,7 +22,7 @@ public class CacheTestCase extends TestCase {
     public void testLookup() throws NamingException {
         InitialContext ctx=null;
         try {
-            ctx = TCContext.getInitial();
+            ctx = TCContext.getInitial(new TCResourceBundle("cache").getProperty("host_url"));
             TreeCacheMBean cache = (TreeCacheMBean)ctx.lookup("TCCache");
             assertTrue("could not find cache in jndi", cache!=null);
 
@@ -35,7 +36,7 @@ public class CacheTestCase extends TestCase {
         InitialContext ctx=null;
         try {
             log.debug("before getting context");
-            ctx = TCContext.getInitial();
+            ctx = TCContext.getInitial(new TCResourceBundle("cache").getProperty("host_url"));
             log.debug("after getting context");
             TreeCacheMBean  cache = (TreeCacheMBean)ctx.lookup("TCCache");
             log.debug("after lookup");
@@ -55,7 +56,7 @@ public class CacheTestCase extends TestCase {
         InitialContext ctx=null;
         try {
             log.debug("before getting context");
-            ctx = TCContext.getInitial();
+            ctx = TCContext.getInitial(new TCResourceBundle("cache").getProperty("host_url"));
             log.debug("after getting context");
             TreeCacheMBean cache = (TreeCacheMBean)ctx.lookup("TCCache");
             log.debug("after lookup");
