@@ -6754,6 +6754,35 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return payment;
     }
 
+    /**
+     * Update a payment.
+     * The payment must be already saved in the database, or an exception will be thrown.
+     *
+     * @param payment payment to update.
+     * @return the updated payment.
+     * @throws Exception
+     */
+    public BasePayment updatePayment(Connection c, BasePayment payment) throws Exception {
+        if (payment.getId() <= 0) {
+            throw new IllegalArgumentException("Payment is missing payment_id");
+        }
+
+        int rationale = payment.getModificationRationale();
+
+        // if nothing seems to be changed, set the rationale to multiple fields
+        // to be in the safe side.  It won't hurt.
+        if (rationale == 0) {
+            rationale = MODIFICATION_MULTIPLE_FIELDS;
+        }
+
+        Payment p = createPayment(payment);
+        p.setRationaleId(rationale);
+        updatePayment(c, p, null);
+        payment.resetModificationRationale();
+
+        return payment;
+    }
+    
     private int getProjectType(long projectId) throws SQLException {
         ResultSetContainer rsc = runSelectQuery("SELECT project_category_id FROM tcs_catalog:project WHERE project_id=" + projectId, false);
 
@@ -7092,72 +7121,92 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     
-  /**
-  * Find the payments of the specified type for a coder, referencing to a particular id.
-  * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
-  * If the payment is for review board, you must pass the project_id and so on.
-  *
-  * @param searchCriteria   map for the search filter
-  * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
-  * @throws SQLException
-  */
-    public List<BasePayment> findCoderPayments(Map searchCriteria) {
-        Connection conn = null;
-        ResultSetContainer rsc = null;
-        List l = new ArrayList();
+    /**
+     * Find the payments of the specified type for a coder, referencing to a particular id.
+     * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
+     * If the payment is for review board, you must pass the project_id and so on.
+     *
+     * @param searchCriteria   map for the search filter
+     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+     * @throws SQLException
+     */
+       public List<BasePayment> findCoderPayments(Map searchCriteria) {
+           Connection conn = null;
+           
+           try {
+               conn = DBMS.getConnection();
+               
+               return findCoderPayments(conn, searchCriteria);
+           } catch (SQLException e) {
+               DBMS.printSqlException(true, e);
+               throw (new EJBException(e.getMessage(), e));
+           } finally {
+               close(conn);
+           }
+       }
 
-        try {
-            conn = DBMS.getConnection();
+       /**
+        * Find the payments of the specified type for a coder, referencing to a particular id.
+        * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
+        * If the payment is for review board, you must pass the project_id and so on.
+        *
+        * @param searchCriteria   map for the search filter
+        * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+        * @throws SQLException
+        */
+          public List<BasePayment> findCoderPayments(Connection conn, Map searchCriteria) {
+              ResultSetContainer rsc = null;
+              List l = new ArrayList();
 
-            StringBuffer query = getCoderPaymentsSelect();
+              try {
+                  StringBuffer query = getCoderPaymentsSelect();
 
-            ArrayList objects = new ArrayList();
-            Iterator i = searchCriteria.keySet().iterator();
-            while (i.hasNext()) {
-                String key = (String) i.next();
-                String value = ((String) searchCriteria.get(key)).toUpperCase();
-                if (key.equals(PAYMENT_TYPE_ID)) {
-                    query.append(" AND pd.payment_type_id = ? ");
-                    objects.add(value);
-                } else if (key.equals(USER_ID)) {
-                    query.append(" AND p.user_id = ? ");
-                    objects.add(value);
-                } else if (key.equals(PAYMENT_REFERENCE_ID)) {
-                    query.append(" AND (");
-                    query.append("  pd.algorithm_round_id = ? OR ");
-                    query.append("  pd.component_project_id = ? OR ");
-                    query.append("  pd.algorithm_problem_id = ? OR ");
-                    query.append("  pd.studio_contest_id = ? OR ");
-                    query.append("  pd.component_contest_id = ? OR ");
-                    query.append("  pd.digital_run_stage_id = ? OR ");
-                    query.append("  pd.digital_run_season_id = ? OR ");
-                    query.append("  pd.parent_payment_id = ?)");
-                    for (int j = 0; j < 8; objects.add(value));
-                } else if (key.equals(PAYMENT_STATUS_ID)) {
-                    query.append("AND pd.payment_status_id = ? ");
-                    objects.add(value);
-                }
-            }
+                  ArrayList objects = new ArrayList();
+                  Iterator i = searchCriteria.keySet().iterator();
+                  while (i.hasNext()) {
+                      String key = (String) i.next();
+                      String value = ((String) searchCriteria.get(key)).toUpperCase();
+                      if (key.equals(PAYMENT_TYPE_ID)) {
+                          query.append(" AND pd.payment_type_id = ? ");
+                          objects.add(value);
+                      } else if (key.equals(USER_ID)) {
+                          query.append(" AND p.user_id = ? ");
+                          objects.add(value);
+                      } else if (key.equals(PAYMENT_REFERENCE_ID)) {
+                          query.append(" AND (");
+                          query.append("  pd.algorithm_round_id = ? OR ");
+                          query.append("  pd.component_project_id = ? OR ");
+                          query.append("  pd.algorithm_problem_id = ? OR ");
+                          query.append("  pd.studio_contest_id = ? OR ");
+                          query.append("  pd.component_contest_id = ? OR ");
+                          query.append("  pd.digital_run_stage_id = ? OR ");
+                          query.append("  pd.digital_run_season_id = ? OR ");
+                          query.append("  pd.parent_payment_id = ?)");
+                          for (int j = 0; j < 8; objects.add(value));
+                      } else if (key.equals(PAYMENT_STATUS_ID)) {
+                          query.append("AND pd.payment_status_id = ? ");
+                          objects.add(value);
+                      }
+                  }
 
-            rsc = runSearchQuery(conn, query.toString(), objects, true);
+                  rsc = runSearchQuery(conn, query.toString(), objects, true);
 
-            for (Iterator it = rsc.iterator(); it.hasNext();) {
-                ResultSetRow rsr = (ResultSetRow) it.next();
+                  for (Iterator it = rsc.iterator(); it.hasNext();) {
+                      ResultSetRow rsr = (ResultSetRow) it.next();
 
-                BasePayment payment = getBasePaymentBean(rsr);
+                      BasePayment payment = getBasePaymentBean(rsr);
 
-                l.add(payment);
-            }
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
-            throw (new EJBException(e.getMessage(), e));
-        } catch (Exception e) {
-            throw (new EJBException(e.getMessage(), e));
-        } finally {
-            close(conn);
-        }
-        return l;
-    }
+                      l.add(payment);
+                  }
+              } catch (SQLException e) {
+                  DBMS.printSqlException(true, e);
+                  throw (new EJBException(e.getMessage(), e));
+              } catch (Exception e) {
+                  throw (new EJBException(e.getMessage(), e));
+              } finally {
+              }
+              return l;
+          }
 
     private BasePayment getBasePaymentBean(ResultSetRow rsr) throws InvalidStatusException {
         long paymentId = rsr.getLongItem("payment_id");
