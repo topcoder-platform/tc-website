@@ -18,6 +18,15 @@
    font-style: italic;
    font-size: 15px;
 }
+.code
+{
+   width: 500;
+   padding: 10px;
+   margin: 20px;
+   font-size: 13px;
+   font-weight: normal;
+   line-height: 14px;
+}
 </style>
 </head>
 <body>
@@ -70,142 +79,152 @@
 <p>In Part 1, we looked at the basics of minimum cost flow. In this section, we'll look at three algorithms that can be applied to minimum cost flow problems.</p>
 
 <p><span class="bodySubtitle">Working with Residual Networks</span><br />
-Let's consider the  concept of residual networks from the perspective of min-cost flow theory. You should be familiar with this concept thanks to <a href="/tc?module=Static&d1=tutorials&d2=maxFlow" target="_blank">maximum</a> flow theory, so we'll just extend it to minimum cost flow theory.</p>
+Let's consider the  concept of residual networks from the perspective of min-cost flow theory. You should be familiar with this concept thanks to <a href="/tc?module=Static&d1=tutorials&d2=maxFlow" target="_blank">maximum flow</a> theory, so we'll just extend it to minimum cost flow theory.</p>
 
 <p>We start with the following intuitive idea. Let <span class="math">G</span> be a network and <span class="math">x</span> be a feasible solution of the minimum cost flow problem. Suppose that an edge <span class="math">(i,j)</span> in <span class="math">E</span> carries <span class="math">x<sub>ij</sub></span> units of flow. We define the residual capacity of the edge <span class="math">(i,j)</span> as <span class="math">r<sub>ij</sub> = u<sub>ij</sub> - x<sub>ij</sub></span>. This means that we can send an additional <span class="math">r<sub>ij</sub></span> units of flow from vertex <span class="math">i</span> to vertex <span class="math">j</span>. We can also cancel the existing flow <span class="math">x<sub>ij</sub></span> on the arc if we send up <span class="math">x<sub>ij</sub></span> units of flow from <span class="math">j</span> to <span class="math">i</span> over the arc <span class="math">(i,j)</span>. Now note that sending a unit of flow from <span class="math">i</span> to <span class="math">j</span> along the arc <span class="math">(i,j)</span> increases the objective function by <span class="math">c<sub>ij</sub></span>, while sending a unit of flow from <span class="math">j</span> to <span class="math">i</span> on the same arc decreases the flow cost by <span class="math">c<sub>ij</sub></span>.</p>
-<%-- LEFT OFF HERE, CHECK ABOVE IN BROWSER --%>
 
-<div align="center"><img src="/i/education/minimumCostFlow/Figure_2_1.png" alt="Figure 2_1" border="0" style="margin-top: 10px 10px 0px 10px;" /></a></div>
+<div align="center"><img src="/i/education/minimumCostFlow/Figure_2_1.png" alt="Figure 2_1" border="0" style="margin: 10px;" /></a></div>
 
-<p>Figure 1. The transportation network from Part 1. (a) A feasible solution. (b) The residual network with respect to the found feasible solution.</p>
+<blockquote><b>Figure 1</b>. The transportation network from Part 1. (a) A feasible solution. (b) The residual network with respect to the found feasible solution.</blockquote>
 
-<p>Based on these ideas we define the residual network with respect to the given flow x as follows. Suppose we have a transportation network G = (V,E). A feasible solution x engenders a new (residual) transportation network, which we are used to defining by Gx = (V,Ex), where Ex is a set of residual edges corresponding to the feasible solution x.</p>
+<p>Based on these ideas we define the residual network with respect to the given flow <span class="math">x</span> as follows. Suppose we have a transportation network <span class="math">G = (V,E)</span>. A feasible solution <span class="math">x</span> engenders a new (residual) transportation network, which we are used to defining by <span class="math">G<sub>x</sub> = (V,E<sub>x</sub>)</span>, where <span class="math">E<sub>x</sub></span> is a set of residual edges corresponding to the feasible solution <span class="math">x</span>.</p>
 
-<p>What is Ex? We replace each arc (i,j) in E by two arcs (i,j), (j,i): the arc (i,j) has cost cij and (residual) capacity rij = uij - xij, and the arc (j,i) has cost -cij and (residual) capacity rji=xij. Then we construct the set Ex from the new edges with a positive residual capacity. Look at Figure 1 to make sure that you understand the construction of the residual network.</p>
+<p>What is <span class="math">E<sub>x</sub></span>? We replace each arc <span class="math">(i,j)</span> in <span class="math">E</span> by two arcs <span class="math">(i,j)</span>, <span class="math">(j,i)</span>: the arc <span class="math">(i,j)</span> has cost <span class="math">c<sub>ij</sub></span> and (residual) capacity <span class="math">r<sub>ij</sub> = u<sub>ij</sub> - x<sub>ij</sub></span>, and the arc <span class="math">(j,i)</span> has cost <span class="math">-c<sub>ij</sub></span> and (residual) capacity <span class="math">r<sub>ji</sub>=x<sub>ij</sub></span>. Then we construct the set <span class="math">E<sub>x</sub></span> from the new edges with a positive residual capacity. Look at Figure 1 to make sure that you understand the construction of the residual network.</p>
 
 <p>You can notice immediately that such a definition of the residual network has some technical difficulties. Let's sum them up:</p>
 
 <ul>
-<li>If G contains both the edges (i,j) and (j,i) (remember assumption 2) the residual network may contain four edges between i and j (two parallel arcs from i to j and two contrary). To avoid this situation we have two options. First, transform the original network to one in which the network contains either edge (i,j) or edge (j,i), but not both, by splitting the vertexes i and j. Second, represent our network by the adjacency list, which is handling parallel arcs. We could even use two adjacency matrixes if it were more convenient.</li>
-<li>Let's imagine now that we have a lot of parallel edges from i to j with different costs. Unfortunately, we can't merge them by summarizing their capacities, as we could do while we were finding the maximum flow. So, we need to keep each of the parallel edges in our data structure separate.</li>
+<li>If <span class="math">G</span> contains both the edges <span class="math">(i,j)</span> and <span class="math">(j,i)</span> (remember assumption 2) the residual network may contain four edges between <span class="math">i</span> and <span class="math">j</span> (two parallel arcs from <span class="math">i</span> to <span class="math">j</span> and two contrary). To avoid this situation we have two options. First, transform the original network to one in which the network contains either edge <span class="math">(i,j)</span> or edge <span class="math">(j,i)</span>, but not both, by splitting the vertexes <span class="math">i</span> and <span class="math">j</span>. Second, represent our network by the adjacency list, which is handling parallel arcs. We could even use two adjacency matrixes if it were more convenient.</li>
+<li>Let's imagine now that we have a lot of parallel edges from <span class="math">i</span> to <span class="math">j</span> with different costs. Unfortunately, we can't merge them by summarizing their capacities, as we could do while we were finding the maximum flow. So, we need to keep each of the parallel edges in our data structure separate.</li>
 </ul>
 
-<p>The proof of the fact that there is a one-to-one correspondence between the original and residual networks is out the scope of this article, but you could prove all the necessary theorems as it was done within the maximum flow theory, or by reading [1].</p>
+<p>The proof of the fact that there is a one-to-one correspondence between the original and residual networks is out the scope of this article, but you could prove all the necessary theorems as it was done within the maximum flow theory, or by reading [<a href="#1">1</a>].</p>
 
 <p><span class="bodySubtitle">Cycle-canceling Algorithm</span><br />
 This section describes the negative cycle optimality conditions and, as a consequence, cycle-canceling algorithm. We are starting with this important theorem:</p>
 
-<p>Theorem 1 (Solution Existence). Let G be a transportation network. Suppose that G contains no uncapacitated negative cost cycle and there exists a feasible solution of the minimum cost flow problem. Then the optimal solution exists.</p>
+<p><i><b>Theorem 1 (Solution Existence)</b>. Let <span class="math">G</span> be a transportation network. Suppose that <span class="math">G</span> contains no uncapacitated negative cost cycle and there exists a feasible solution of the minimum cost flow problem. Then the optimal solution exists.</i></p>
 
-<p>Proof. One can see that the minimum cost flow problem is a special case of the linear programming problem. The latter is well known to have an optimal solution if it has a feasible solution and its objective function is bounded. Evidently, if G doesn't contain an uncapacitated negative cycle then the objective function of the minimum cost flow problem is bounded from below -- therefore, the assertion of the theorem follows forthwith.</p>
+<p><i>Proof</i>. One can see that the minimum cost flow problem is a special case of the linear programming problem. The latter is well known to have an optimal solution if it has a feasible solution and its objective function is bounded. Evidently, if <span class="math">G</span> doesn't contain an uncapacitated negative cycle then the objective function of the minimum cost flow problem is bounded from below -- therefore, the assertion of the theorem follows forthwith.</p>
 
-<p>We will use the following theorem without proof, because we don't want our article to be overloaded with difficult theory, but you can read the proof in [1].</p>
+<p>We will use the following theorem without proof, because we don't want our article to be overloaded with difficult theory, but you can read the proof in [<a href="#1">1</a>].</p>
 
-<p>Theorem 2 (Negative Cycle Optimality Conditions). Let x* be a feasible solution of a minimum cost flow problem. Then x* is an optimal solution if and only if the residual network Gx* contains no negative cost (directed) cycle.</p>
+<p><i><b>Theorem 2 (Negative Cycle Optimality Conditions)</b>. Let <span class="math">x*</span> be a feasible solution of a minimum cost flow problem. Then <span class="math">x*</span> is an optimal solution if and only if the residual network <span class="math">G<sub>x*</sub></span> contains no negative cost (directed) cycle.</i></p>
 
-<div align="center"><img src="/i/education/minimumCostFlow/Figure_2_2.png" alt="Figure 2_2" border="0" style="margin-top: 10px 10px 0px 10px;" /></a></div>
+<div align="center"><img src="/i/education/minimumCostFlow/Figure_2_2.png" alt="Figure 2_2" border="0" style="margin: 10px;" /></a></div>
 
-<p>Figure 2. Cycle-Canceling Algorithm, example of the network from Figure 1. (a) We have a feasible solution of cost 54. (b) A negative cycle 1-2-3-1 is detected in the residual network. Its cost is -1 and capacity is 1. (c) The residual network after augmentation along the cycle. (d) Another negative cost cycle 3-4-5-3 is detected. It has cost -2 and capacity 3. (e) The residual network after augmentation. It doesn't contain negative cycles. (f) Optimal flow cost value is equal to 47.</p>
+<blockquote><b>Figure 2</b>. Cycle-Canceling Algorithm, example of the network from Figure 1. (a) We have a feasible solution of cost 54. (b) A negative cycle 1-2-3-1 is detected in the residual network. Its cost is -1 and capacity is 1. (c) The residual network after augmentation along the cycle. (d) Another negative cost cycle 3-4-5-3 is detected. It has cost -2 and capacity 3. (e) The residual network after augmentation. It doesn't contain negative cycles. (f) Optimal flow cost value is equal to 47.</blockquote>
 
-<p>This theorem gives the cycle-canceling algorithm for solving the minimum cost flow problem. First, we use any maximum flow algorithm ([3]) to establish a feasible flow in the network (remember assumption 4). Then the algorithm attempts to improve the objective function by finding negative cost cycles in the residual network and augmenting the flow on these cycles. Let us specify a program in pseudo code like it is done in [1].</p>
+<p>This theorem gives the cycle-canceling algorithm for solving the minimum cost flow problem. First, we use any maximum flow algorithm [<a href="#3">3</a>] to establish a feasible flow in the network (remember assumption 4). Then the algorithm attempts to improve the objective function by finding negative cost cycles in the residual network and augmenting the flow on these cycles. Let us specify a program in pseudo code like it is done in [<a href="#1">1</a>].</p>
 
+<pre class="code">
 Cycle-Canceling
-1    Establish a feasible flow x in the network
-2    while ( Gx contains a negative cycle ) do
-3        identify a negative cycle W
-4             
-5        augment   units of flow along the cycle W
-6        update Gx
 
-<p>How many iterations does the algorithm perform? First, note that due to assumption 1 all the data is integral. After line 1 of the program we have an integral feasible solution x. It implies the integrality of Gx. In each iteration of the cycle in line 2 the algorithm finds the minimum residual capacity in the found negative cycle. In the first iteration   will be an integer. Therefore, the modified residual capacities will be integers, too. And in all subsequent iterations the residual capacities will be integers again. This reasoning implies:</p>
+<b>1</b>    Establish a feasible flow <span class="math">x</span> in the network
+<b>2</b>    <b>while</b> ( <span class="math">G<sub>x</sub></span> contains a negative cycle ) <b>do</b>
+<b>3</b>        identify a negative cycle <span class="math">W</span>
+<b>4</b>        <img alt="" src="/i/education/minimumCostFlow/02_001.png" align="top" style="padding: 0px 3px 0px 3px;">
+<b>5</b>        augment <img alt="" src="/i/education/minimumCostFlow/02_002.png" align="top" style="padding: 0px 3px 0px 3px;"> units of flow along the cycle <span class="math">W</span>
+<b>6</b>        update <span class="math">G<sub>x</sub></span> 
+</pre>
 
-<p>Theorem 3 (Integrality Property). If all edge capacities and supplies/demands on vertexes are integers, then the minimum cost flow problem always has an integer solution.</p>
+<p>How many iterations does the algorithm perform? First, note that due to assumption 1 all the data is integral. After line 1 of the program we have an integral feasible solution <span class="math">x</span>. It implies the integrality of <span class="math">G<sub>x</sub></span>. In each iteration of the cycle in line 2 the algorithm finds the minimum residual capacity in the found negative cycle. In the first iteration <img alt="" src="/i/education/minimumCostFlow/02_002.png" align="top" style="padding: 0px 3px 0px 3px;"> will be an integer. Therefore, the modified residual capacities will be integers, too. And in all subsequent iterations the residual capacities will be integers again. This reasoning implies:</p>
+
+<p><i><b>Theorem 3 (Integrality Property)</b>. If all edge capacities and supplies/demands on vertexes are integers, then the minimum cost flow problem always has an integer solution.</i></p>
 
 <p>The cycle-canceling algorithm works in cases when the minimum cost flow problem has an optimal solution and all the data is integral and we don't need any other assumptions.</p>
 
-<p>Now let us denote the maximum capacity of an arc by U and its maximum absolute value of cost by C. Suppose that m denotes the number of edges in G and n denotes the number of vertexes. For a minimum cost flow problem, the absolute value of the objective function is bounded by mCU. Any cycle canceling decreases the objective function by a strictly positive amount. Since we are assuming that all data is integral, the algorithm terminates within O(mCU) iterations. One can use O(nm) algorithm for identifying a negative cycle (for instance, Bellman-Ford's algorithm or label correcting algorithm [1]), and obtain complexity O(nm2CU) of the algorithm.</p>
+<p>Now let us denote the maximum capacity of an arc by <span class="math">U</span> and its maximum absolute value of cost by <span class="math">C</span>. Suppose that <span class="math">m</span> denotes the number of edges in <span class="math">G</span> and <span class="math">n</span> denotes the number of vertexes. For a minimum cost flow problem, the absolute value of the objective function is bounded by <span class="math">mCU</span>. Any cycle canceling decreases the objective function by a strictly positive amount. Since we are assuming that all data is integral, the algorithm terminates within <span class="math">O(mCU)</span> iterations. One can use <span class="math">O(nm)</span> algorithm for identifying a negative cycle (for instance, Bellman-Ford's algorithm or label correcting algorithm [<a href="#1">1</a>]), and obtain complexity <span class="math">O(nm<sup>2</sup>CU)</span> of the algorithm.</p>
 
 <p><span class="bodySubtitle">Successive Shortest Path Algorithm</span><br />
 The previous algorithm solves the maximum flow problem as a subtask. The successive shortest path algorithm searches for the maximum flow and optimizes the objective function simultaneously. It solves the so-called max-flow-min-cost problem by using the following idea.</p>
 
-<p>Suppose we have a transportation network G and we have to find an optimal flow across it. As it is described in the “Finding a Solution” section we transform the network by adding two vertexes s and t (source and sink) and some edges as follows. For each node i in V with bi > 0, we add a source arc (s,i) with capacity bi and cost 0. For each node i in V with bi < 0, we add a sink arc (i,t) with capacity -bi and cost 0.</p>
+<p>Suppose we have a transportation network <span class="math">G</span> and we have to find an optimal flow across it. As it is described in the "Finding a Solution" section we transform the network by adding two vertexes <span class="math">s</span> and <span class="math">t</span> (source and sink) and some edges as follows. For each node <span class="math">i</span> in <span class="math">V</span> with <span class="math">b<sub>i</sub> &gt; 0</span>, we add a source arc <span class="math">(s,i)</span> with capacity <span class="math">b<sub>i</sub></span> and cost <span class="math">0</span>. For each node <span class="math">i</span> in <span class="math">V</span> with <span class="math">b<sub>i</sub> &lt; 0</span>, we add a sink arc <span class="math">(i,t)</span> with capacity <span class="math">-b<sub>i</sub></span> and cost <span class="math">0</span>.</p>
 
-<p>Then, instead of searching for the maximum flow as usual, we send flow from s to t along the shortest path (with respect to arc costs). Next we update the residual network, find another shortest path and augment the flow again, etc. The algorithm terminates when the residual network contains no path from s to t (the flow is maximal). Since the flow is maximal, it corresponds to a feasible solution of the original minimum cost flow problem. Moreover, this solution will be optimal (and we are going to explain why).</p>
+<p>Then, instead of searching for the maximum flow as usual, we send flow from <span class="math">s</span> to <span class="math">t</span> along the shortest path (with respect to arc costs). Next we update the residual network, find another shortest path and augment the flow again, etc. The algorithm terminates when the residual network contains no path from <span class="math">s</span> to <span class="math">t</span> (the flow is maximal). Since the flow is maximal, it corresponds to a feasible solution of the original minimum cost flow problem. Moreover, this solution will be optimal (and we are going to explain why).</p>
 
-<p>The successive shortest path algorithm can be used when G contains no negative cost cycles. Otherwise, we cannot say exactly what “the shortest path” means. Now let us justify the successive shortest path approach. When the current flow has zero value, the transportation network G doesn't contain a negative cost cycle (by hypothesis). Suppose that after some augmenting steps we have flow x and Gx still contains no negative cycles. If x is maximal then it is optimal, according to theorem 2. Otherwise, let us denote the next successfully found shortest path in Gx by P.</p>
+<p>The successive shortest path algorithm can be used when <span class="math">G</span> contains no negative cost cycles. Otherwise, we cannot say exactly what "the shortest path" means. Now let us justify the successive shortest path approach. When the current flow has zero value, the transportation network <span class="math">G</span> doesn't contain a negative cost cycle (by hypothesis). Suppose that after some augmenting steps we have flow <span class="math">x</span> and <span class="math">G<sub>x</sub></span> still contains no negative cycles. If <span class="math">x</span> is maximal then it is optimal, according to theorem 2. Otherwise, let us denote the next successfully found shortest path in <span class="math">G<sub>x</sub></span> by <span class="math">P</span>.</p>
 
-<div align="center"><img src="/i/education/minimumCostFlow/Figure_2_3.png" alt="Figure 2_3" border="0" style="margin-top: 10px 10px 0px 10px;" /></a></div>
+<div align="center"><img src="/i/education/minimumCostFlow/Figure_2_3.png" alt="Figure 2_3" border="0" style="margin: 10px;" /></a></div>
 
-<p>Figure 3. How could a negative cycle appear in a residual network?</p>
+<blockquote><b>Figure 3</b>. How could a negative cycle appear in a residual network?</blockquote>
 
-<p>Suppose that after augmenting the current flow x along path P a negative cost cycle W turned up in the residual network. Before augmenting there were no negative cycles. This means that there was an edge (i,j) in P (or subpath (i,…,j) in P) the reversal of which (j,i) closed cycle W after the augmentation. Evidently, we could choose another path from s to t, which goes from s to i then from i to j along edges of W then from j to t. Moreover, the cost of this path is less than the cost of P. We have a contradiction to the supposition that P is the shortest.</p>
+<p>Suppose that after augmenting the current flow <span class="math">x</span> along path <span class="math">P</span> a negative cost cycle <span class="math">W</span> turned up in the residual network. Before augmenting there were no negative cycles. This means that there was an edge <span class="math">(i,j)</span> in <span class="math">P</span> (or subpath <span class="math">(i,&#8230;,j)</span> in <span class="math">P</span>) the reversal of which <span class="math">(j,i)</span> closed cycle <span class="math">W</span> after the augmentation. Evidently, we could choose another path from <span class="math">s</span> to <span class="math">t</span>, which goes from <span class="math">s</span> to <span class="math">i</span> then from <span class="math">i</span> to <span class="math">j</span> along edges of <span class="math">W</span> then from <span class="math">j</span> to <span class="math">t</span>. Moreover, the cost of this path is less than the cost of <span class="math">P</span>. We have a contradiction to the supposition that <span class="math">P</span> is the shortest.</p>
 
 <p>What do we have? After the last step we have a feasible solution and the residual network contains no negative cycle. The latter is the criterion of optimality.</p>
 
-<p>A simple analysis shows that the algorithm performs at most O(nB) augmentations, where B is assigned to an upper bound on the largest supply of any node. Really, each augmentation strictly decreases the residual capacity of a source arc (which is equal to the supply of the corresponding node). Thanks to the integrality property it decreases by at least one unit. By using an O(nm) algorithm for finding a shortest path (there may be negative edges), we achieve an O(n2mB) complexity of the successive shortest path algorithm.</p>
+<p>A simple analysis shows that the algorithm performs at most <span class="math">O(nB)</span> augmentations, where <span class="math">B</span> is assigned to an upper bound on the largest supply of any node. Really, each augmentation strictly decreases the residual capacity of a source arc (which is equal to the supply of the corresponding node). Thanks to the integrality property it decreases by at least one unit. By using an <span class="math">O(nm)</span> algorithm for finding a shortest path (there may be negative edges), we achieve an <span class="math">O(n<sup>2</sup>mB)</span> complexity of the successive shortest path algorithm.</p>
 
+<pre class="code">
 Successive Shortest Path
-1    Transform network G by adding source and sink
-2    Initial flow x is zero
-3    while ( Gx contains a path from s to t ) do
-4        Find any shortest path P from s to t
-5        Augment current flow x along P
-6        update Gx
+<b>1</b>    Transform network <span class="math">G</span> by adding source and sink
+<b>2</b>    Initial flow <span class="math">x</span> is zero
+<b>3</b>    <b>while</b> ( <span class="math">G<sub>x</sub></span> contains a path from <span class="math">s</span> to <span class="math">t</span> ) <b>do</b>
+<b>4</b>        Find any shortest path <span class="math">P</span> from <span class="math">s</span> to <span class="math">t</span>
+<b>5</b>        Augment current flow <span class="math">x</span> along <span class="math">P</span>
+<b>6</b>        update <span class="math">G<sub>x</sub></span>
+</pre>
 
 <p>Let us reveal the meaning of node potentials from assumption 3. As it is said within assumption 3, we are able to make all edge costs nonnegative by using, for instance, Bellman-Ford's algorithm. Since working with residual costs doesn't change shortest paths (by theorem 2, part 1) we can work with the transformed network and use Dijkstra's algorithm to find the successive shortest path more efficiently. However, we need to keep the edge costs nonnegative on each iteration -- for this purpose, we update node potentials and reduce costs right after the shortest path has been found. The reduce cost function could be written in the following manner:</p>
 
-Reduce Cost (   )
-1    For each (i,j) in Ex do
-2         
-3         
+<pre class="code">
+Reduce Cost ( <img alt="" src="/i/education/minimumCostFlow/02_003.png" align="top" style="padding: 0px 3px 0px 3px;"> )
+<b>1</b>    <b>For each</b> <span class="math">(i,j)</span> in <span class="math">E<sub>x</sub></span> <b>do</b>
+<b>2</b>         <img alt="" src="/i/education/minimumCostFlow/02_004.png" align="top" style="padding: 0px 3px 0px 3px;">
+<b>3</b>         <img alt="" src="/i/education/minimumCostFlow/02_005.png" align="top" style="padding: 0px 3px 0px 3px;">
+</pre>
 
-<p>Having found the successive shortest path we need to update node potentials. For each i in V the potential   is equal to the length of the shortest paths from s to t. After having reduced the cost of each arc, we will see that along the shortest path from s to i arcs will have zero cost while the arcs which lie out of any shortest path to any vertex will have a positive cost. That is why we assign zero cost to any reversal arc (crev(i,j)) in the Reduce Cost Procedure in line 3. The augmentation (along the found path) adds reversal arc (j,i) and due to the fact that (reduced) cost cij = 0 we make crev(i,j) = 0 beforehand.</p>
+<p>Having found the successive shortest path we need to update node potentials. For each <span class="math">i</span> in <span class="math">V</span> the potential <img alt="" src="/i/education/minimumCostFlow/02_006.png" align="top" style="padding: 0px 3px 0px 3px;"> is equal to the length of the shortest paths from <span class="math">s</span> to <span class="math">t</span>. After having reduced the cost of each arc, we will see that along the shortest path from <span class="math">s</span> to <span class="math">i</span> arcs will have zero cost while the arcs which lie out of any shortest path to any vertex will have a positive cost. That is why we assign zero cost to any reversal arc <span class="math">(c<sub>rev(i,j)</sub>)</span> in the Reduce Cost Procedure in line 3. The augmentation (along the found path) adds reversal arc <span class="math">(j,i)</span> and due to the fact that (reduced) cost <span class="math">c<sub>ij</sub> = 0</span> we make <span class="math">(c<sub>rev(i,j)</sub>) = 0</span> beforehand.</p>
 
-<p>Why have we denoted cost of reversal arc by crev(i,j) instead of cji? Because the network may contain both arcs (i,j) and (j,i) (remember assumption 2 and “Working with Residual Networks” section). For other arcs (which lie out of the augmenting path) this forcible assignment does nothing, because its reversal arcs will not appear in the residual network. Now we propose a pseudo-code program:</p>
-	
+<p>Why have we denoted cost of reversal arc by <span class="math">(c<sub>rev(i,j)</sub>)</span> instead of <span class="math">c<sub>ji</sub></span>? Because the network may contain both arcs <span class="math">(i,j)</span> and <span class="math">(j,i)</span> (remember assumption 2 and "Working with Residual Networks" section). For other arcs (which lie out of the augmenting path) this forcible assignment does nothing, because its reversal arcs will not appear in the residual network. Now we propose a pseudo-code program:</p>
+
+<pre class="code">
 Successive Shortest Path with potentials
-1    Transform network G by adding source and sink
-2    Initial flow x is zero
-3    Use Bellman-Ford's algorithm to establish potentials  
-4    Reduce Cost (   )
-5    while ( Gx contains a path from s to t ) do
-6        Find any shortest path P from s to t
-7        Reduce Cost (   )
-8        Augment current flow x along P
-9        update Gx
+<b>1</b>    Transform network <span class="math">G</span> by adding source and sink
+<b>2</b>    Initial flow <span class="math">x</span> is zero
+<b>3</b>    Use Bellman-Ford's algorithm to establish potentials <img alt="" src="/i/education/minimumCostFlow/02_003.png" align="top" style="padding: 0px 3px 0px 3px;">
+<b>4</b>    Reduce Cost ( <img alt="" src="/i/education/minimumCostFlow/02_003.png" align="top" style="padding: 0px 3px 0px 3px;"> )
+<b>5</b>    <b>while</b> ( <span class="math">G<sub>x</sub></span> contains a path from <span class="math">s</span> to <span class="math">t</span> ) <b>do</b>
+<b>6</b>        Find any shortest path <span class="math">P</span> from <span class="math">s</span> to <span class="math">t</span>
+<b>7</b>        Reduce Cost ( <img alt="" src="/i/education/minimumCostFlow/02_003.png" align="top" style="padding: 0px 3px 0px 3px;"> )
+<b>8</b>        Augment current flow <span class="math">x</span> along <span class="math">P</span>
+<b>9</b>        update <span class="math">G<sub>x</sub></span>
+</pre>
 
-<p>Before starting the cycle in line 5 we calculate node potentials   and obtain all costs to be nonnegative. We use the same massif of costs c when reducing. In line 6 we use Dijkstra's algorithm to establish a shortest path with respect to the reduced costs. Then we reduce costs and augment flow along the path. After the augmentation all costs will remain nonnegative and in the next iteration Dijkstra's algorithm will work correctly.</p>
+<p>Before starting the cycle in line 5 we calculate node potentials <img alt="" src="/i/education/minimumCostFlow/02_003.png" align="top" style="padding: 0px 3px 0px 3px;"> and obtain all costs to be nonnegative. We use the same massif of costs <span class="math">c</span> when reducing. In line 6 we use Dijkstra's algorithm to establish a shortest path with respect to the reduced costs. Then we reduce costs and augment flow along the path. After the augmentation all costs will remain nonnegative and in the next iteration Dijkstra's algorithm will work correctly.</p>
 
-<div align="center"><img src="/i/education/minimumCostFlow/Figure_2_4.png" alt="Figure 2_4" border="0" style="margin-top: 10px 10px 0px 10px;" /></a></div>
+<div align="center"><img src="/i/education/minimumCostFlow/Figure_2_4.png" alt="Figure 2_4" border="0" style="margin: 10px;" /></a></div>
 
-<p>Figure 4. The Successive shortest Path Algorithm. (a) Initial task. (b) Node potentials are calculated after line 3 of the program. (c) Reduced costs after line 4. (d) The first augmenting path s-1-2-3-4-t of capacity 2 is found and new node potentials are calculated. (e) The residual network with reduced costs. (f) The second augmenting path s-1-3-4-t of capacity 1 is found. (g) The residual network with reduced costs. (h) The third shortest augmenting path s-1-3-5-t and new node potentials are found. (i) The residual network contains no augmenting paths. (j) The reconstructed transportation network. Optimal flow has cost 12.</p>
+<blockquote><b>Figure 4</b>. The Successive shortest Path Algorithm. (a) Initial task. (b) Node potentials are calculated after line 3 of the program. (c) Reduced costs after line 4. (d) The first augmenting path s-1-2-3-4-t of capacity 2 is found and new node potentials are calculated. (e) The residual network with reduced costs. (f) The second augmenting path s-1-3-4-t of capacity 1 is found. (g) The residual network with reduced costs. (h) The third shortest augmenting path s-1-3-5-t and new node potentials are found. (i) The residual network contains no augmenting paths. (j) The reconstructed transportation network. Optimal flow has cost 12.</blockquote>
 
-<p>We use Bellman-Ford's algorithm only once to avoid negative costs on edges. It takes O(nm) time. Then O(nB) times we use Dijkstra algorithm, which takes either O(n2) (simple realization) or O(mlogn) (heap realization for sparse network, [4]) time. Summing up, we receive O(n3B) estimate working time for simple realization and O(nmBlogn) if using heap. One could even use Fibonacci Heaps to obtain O(nlogn+m) complexity of Dijkstra's shortest path algorithm; however I wouldn't recommend doing so because this case works badly in practice.</p>
+<p>We use Bellman-Ford's algorithm only once to avoid negative costs on edges. It takes <span class="math">O(nm)</span> time. Then <span class="math">O(nB)</span> times we use Dijkstra algorithm, which takes either <span class="math">O(n<sup>2</sup>)</span> (simple realization) or <span class="math">O(m</span>log<span class="math">n)</span> (heap realization for sparse network, [<a href="#4">4</a>]) time. Summing up, we receive <span class="math">O(n<sup>3</sup>B)</span> estimate working time for simple realization and <span class="math">O(nmB</span>log<span class="math">n)</span> if using heap. One could even use Fibonacci Heaps to obtain <span class="math">O(n</span>log<span class="math">n+m)</span> complexity of Dijkstra's shortest path algorithm; however I wouldn't recommend doing so because this case works badly in practice.</p>
 
 <p><span class="bodySubtitle">Primal-Dual Algorithm</span><br />
-The primal-dual algorithm for the minimum cost flow problem is similar to the successive shortest path algorithm in the sense that it also uses node potentials and shortest path algorithm to calculate them. Instead of augmenting the flow along one shortest path, however, this algorithm increases flow along all the shortest paths at once. For this purpose in each step it uses any maximum flow algorithm to find the maximum flow through the so called admissible network, which contains only those arcs in Gx with a zero reduced cost. We represent the admissible residual network with respect to flow x as  . Let's explain the idea by using a pseudo-code program.</p>
+The primal-dual algorithm for the minimum cost flow problem is similar to the successive shortest path algorithm in the sense that it also uses node potentials and shortest path algorithm to calculate them. Instead of augmenting the flow along one shortest path, however, this algorithm increases flow along all the shortest paths at once. For this purpose in each step it uses any maximum flow algorithm to find the maximum flow through the so called <strong>admissible network</strong>, which contains only those arcs in <span class="math">G<sub>x</sub></span> with a zero reduced cost. We represent the admissible residual network with respect to flow <span class="math">x</span> as <img alt="" src="/i/education/minimumCostFlow/02_007.png" align="top" style="padding: 0px 3px 0px 3px;">. Let's explain the idea by using a pseudo-code program.</p>
 
+<pre class="code">
 Primal-Dual
-1    Transform network G by adding source and sink
-2    Initial flow x is zero
-3    Use Bellman-Ford's algorithm to establish potentials  
-4    Reduce Cost (   )
-5    while ( Gx contains a path from s to t ) do
-6        Calculate node potential   using Dijkstra's algorithm
-7        Reduce Cost (   )
-8        Establish a maximum flow y from s to t in  
-9        x ﬂ x + y 
-10       update Gx
+<b>1</b>    Transform network <span class="math">G</span> by adding source and sink
+<b>2</b>    Initial flow <span class="math">x</span> is zero
+<b>3</b>    Use Bellman-Ford's algorithm to establish potentials <img alt="" src="/i/education/minimumCostFlow/02_003.png" align="top" style="padding: 0px 3px 0px 3px;">
+<b>4</b>    Reduce Cost ( <img alt="" src="/i/education/minimumCostFlow/02_003.png" align="top" style="padding: 0px 3px 0px 3px;"> )
+<b>5</b>    <b>while</b> ( <span class="math">G<sub>x</sub></span> contains a path from <span class="math">s</span> to <span class="math">t</span> ) <b>do</b>
+<b>6</b>        Calculate node potential <img alt="" src="/i/education/minimumCostFlow/02_003.png" align="top" style="padding: 0px 3px 0px 3px;"> using Dijkstra's algorithm
+<b>7</b>        Reduce Cost ( <img alt="" src="/i/education/minimumCostFlow/02_003.png" align="top" style="padding: 0px 3px 0px 3px;"> )
+<b>8</b>        Establish a maximum flow <span class="math">y</span> from <span class="math">s</span> to <span class="math">t</span> in <img alt="" src="/i/education/minimumCostFlow/02_007.png" align="top" style="padding: 0px 3px 0px 3px;">
+<b>9</b>        <span class="math">x <img alt="" src="/i/education/minimumCostFlow/02_008.png" align="top" style="padding: 0px 3px 0px 3px;"> x + y</span>
+<b>10</b>       update <span class="math">G<sub>x</sub></span>
+</pre>
 
 <p>For a better illustration look at Figure 5.</p>
 
-<div align="center"><img src="/i/education/minimumCostFlow/Figure_2_5.png" alt="Figure 2_5" border="0" style="margin-top: 10px 10px 0px 10px;" /></a></div>
+<div align="center"><img src="/i/education/minimumCostFlow/Figure_2_5.png" alt="Figure 2_5" border="0" style="margin: 10px;" /></a></div>
  
-<p>Figure 5. Primal-Dual algorithm. (a) Example network. (b) Node potentials are calculated. (c) The maximum flow in the admissible network. (d) Residual network and new node potentials. (e) The maximum flow in the admissible network. (f) Residual network with no augmenting paths. (g)  The optimal solution.</p>
+<blockquote><b>Figure 5</b>. Primal-Dual algorithm. (a) Example network. (b) Node potentials are calculated. (c) The maximum flow in the admissible network. (d) Residual network and new node potentials. (e) The maximum flow in the admissible network. (f) Residual network with no augmenting paths. (g)  The optimal solution.</blockquote>
 
 <p>As mentioned above, the primal-dual algorithm sends flow along all shortest paths at once; therefore, proof of correctness is similar to the successive shortest path one.</p>
 
-<p>First, the primal-dual algorithm guarantees that the number of iterations doesn't exceed O(nB) as well as the successive shortest path algorithm. Moreover, since we established a maximum flow in  , the residual network Gx contains no directed path from vertex s to vertex t consisting entirely of arcs of zero costs. Consequently, the distance between s and t increases by at least one unit. These observations give a bound of min{nB,nC} on the number of iterations which the primal-dual algorithm performs. Keep in mind, though, that the algorithm incurs the additional expense of solving a maximum flow problem at every iteration. However, in practice both the successive shortest path and the primal-dual algorithm work fast enough within the constraint of 50 vertexes and reasonable supply/demand values and costs.</p>
+<p>First, the primal-dual algorithm guarantees that the number of iterations doesn't exceed <span class="math">O(nB)</span> as well as the successive shortest path algorithm. Moreover, since we established a maximum flow in <img alt="" src="/i/education/minimumCostFlow/02_007.png" align="top" style="padding: 0px 3px 0px 3px;">, the residual network <span class="math">G<sub>x</sub></span> contains no directed path from vertex <span class="math">s</span> to vertex <span class="math">t</span> consisting entirely of arcs of zero costs. Consequently, the distance between <span class="math">s</span> and <span class="math">t</span> increases by at least one unit. These observations give a bound of <span class="math">min{nB,nC}</span> on the number of iterations which the primal-dual algorithm performs. Keep in mind, though, that the algorithm incurs the additional expense of solving a maximum flow problem at every iteration. However, in practice both the successive shortest path and the primal-dual algorithm work fast enough within the constraint of 50 vertexes and reasonable supply/demand values and costs.</p>
 
 <p>In the next section, we'll discuss some applications of the minimum cost flow problem.</p>
 

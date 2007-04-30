@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow2"><strong>Minimum Cost Flow, Part 2: Algorithms</strong></a>, by <tc-webtag:handle coderId="22671469" context="algorithm" /><br>
+In Part 1, we looked at the basics of minimum cost flow. In this section, we'll look at three algorithms that can be applied to minimum cost flow problems.</li>
 <li><a href="/tc?module=Static&d1=features&d2=042607"><strong>Test Drive: SandCastle</strong></a>, by <tc-webtag:handle coderId="10627428" /><br>
 TopCoder is currently using NDoc to generate documentation for .NET projects. NDoc, however, lacks support for the new features in .NET Framework version 2.0. In this article, we evaluate SandCastle, Microsoft's documentation tool, to see how it stands up.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow1"><strong>Minimum Cost Flow, Part 1: Key Concepts</strong></a>, by <tc-webtag:handle coderId="22671469" context="algorithm" /><br>
 This article covers the so-called "min-cost flow" problem, which has many applications for both TopCoder competitors and professional programmers. In Part 1, we'll look at the problem itself.</li>
-<li><a href="/tc?module=Static&d1=features&d2=041907"><strong>A Crash Course in SQL</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
-In the first two parts of this article series we looked at the basic components of relational databases.  We touched briefly on SQL -- the language we use to interact with the database -- but in this article we'll look at it in much more detail, with a specific focus on writing queries.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
