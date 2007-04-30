@@ -4,7 +4,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.24.07<br>4:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>04.30.07<br>2:20 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow2">Minimum Cost Flow, Part 2: Algorithms</A></span><br><br>
+      In Part 1, we looked at the basics of minimum cost flow. In this section, we'll look at three algorithms that can be applied to minimum cost flow problems.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22671469" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow2">full story</A> | 
+        <tc-webtag:forumLink forumID="515317" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.27.07<br>4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
@@ -202,22 +219,3 @@
         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.20.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 3 set for April 21</A>
-        </span><br><br>
-        Online Round 3 of the TCO07 Algorithm Competition, brought to you by NSA, is set for 1:00 PM EDT on April 21.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">details</A> | 
-        <tc-webtag:forumLink forumID="514952" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
