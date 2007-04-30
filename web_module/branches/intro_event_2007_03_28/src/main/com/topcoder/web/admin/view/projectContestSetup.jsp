@@ -86,6 +86,7 @@ function checkAll(check) {
         <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 <br><br>
+<form name="f" action="#">
         	<table>
         		<tr class="header">
         			<td>&nbsp;</td>
@@ -121,7 +122,8 @@ function checkAll(check) {
 			<br>
 			
         </td>
-    </tr>
+    </tr>    
 </table>
+</form>
 </body>
 </html>
