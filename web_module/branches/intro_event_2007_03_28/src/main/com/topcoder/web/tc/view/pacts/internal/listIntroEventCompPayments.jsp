@@ -38,7 +38,7 @@
 
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
-
+<br><br>
 <table>
 
 	<c:forEach items="${completeContests}" var="contest">  

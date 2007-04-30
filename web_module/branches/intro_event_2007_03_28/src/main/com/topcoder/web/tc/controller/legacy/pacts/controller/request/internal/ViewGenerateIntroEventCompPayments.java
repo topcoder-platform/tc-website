@@ -18,16 +18,12 @@ public class ViewGenerateIntroEventCompPayments extends ShortHibernateProcessor 
         List<IntroEvent> l = DAOUtil.getFactory().getIntroEventDAO().getList();
 
         // filter the events that have component competitions.
-        List<IntroEvent> compEvents = new ArrayList<IntroEvent>();         
+        List<Event> compEvents = new ArrayList<Event>();         
         for (IntroEvent ie : l) {
-            boolean hasComp = false;
             for (Event e : ie.getChildren()) {
                 if (e.getType().getId().equals(EventType.INTRO_EVENT_COMP_ID)) {
-                    hasComp = true;
+                    compEvents.add(e);
                 }
-            }
-            if (hasComp) {
-                compEvents.add(ie);
             }
         }
             

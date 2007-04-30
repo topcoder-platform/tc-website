@@ -21,12 +21,13 @@
 
 <br>
 <br>
-<form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
-    <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="ListIntroEventCompPayments"/>
+<form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="get">
+    <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="ListIntroEventCompPayments">
 
 <br>
             <tc-webtag:objectSelect name="eid" list="${events}" valueField="id" textField="description"  useTopValue="false" />
 
+<br>
 <br>
 <input type="submit" value="View Payments List">
 <br>
