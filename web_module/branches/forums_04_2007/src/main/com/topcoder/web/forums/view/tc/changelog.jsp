@@ -53,6 +53,14 @@
 <!-- Links to versions -->
 
 <p>
+    <b>2.0.3 - 2007.04.30</b>
+    <ul>
+		<li>Expanded search to include software categories.</li>
+		<li>Added an option to collapse read posts in the threaded view, to improve readability of long threads.</li>
+    </ul>
+</p>
+
+<p>
     <b>2.0.2 - 2007.04.16</b>
     <ul>
 		<li>Improved performance for users having many software permissions.</li>
