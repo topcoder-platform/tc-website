@@ -59,6 +59,8 @@
         <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
         <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
@@ -938,6 +940,26 @@
             </classpath>
             <formatter type="xml"/>
             <test name="com.topcoder.web.common.voting.VotingTests" todir="${testclasses}"/>
+        </junit>
+
+        <junitreport todir="${testclasses}">
+            <fileset dir="${testclasses}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${testclasses}/html"/>
+        </junitreport>
+    </target>
+
+
+
+    <target name="run_cache_tests" depends="compile_tests" description="run junit tests">
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath>
+                <pathelement path="${class.path}"/>
+                <pathelement location="resources"/>
+            </classpath>
+            <formatter type="xml"/>
+            <test name="com.topcoder.web.common.CacheTestCase" todir="${testclasses}"/>
         </junit>
 
         <junitreport todir="${testclasses}">
