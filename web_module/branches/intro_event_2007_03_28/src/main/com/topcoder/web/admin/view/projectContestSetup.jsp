@@ -45,6 +45,14 @@ function link() {
     ajaxRequest.sendRequest();
 }
 
+function checkAll(check) {
+    var elements = document.paymentForm.elements;
+    for (i=0; i<document.paymentForm.elements.length; i++) {
+      if (document.paymentForm.elements[i].type=="checkbox") {
+        document.paymentForm.elements[i].checked = (check==true);
+      }
+    }
+  }
 </script>
  
   
@@ -75,6 +83,9 @@ function link() {
         </c:choose>
         <br>
         <br>
+        <a href="Javascript:checkAll(true)">check all</a> -
+ <a href="Javascript:checkAll(false)">uncheck all</a> <br>
+<br><br>
         	<table>
         		<tr class="header">
         			<td>&nbsp;</td>
@@ -89,11 +100,11 @@ function link() {
 	        		<tr class='${i.index % 2 == 0? "even" : "odd" }' style="font : small">
 	        			<td><input type="checkbox" name="pj" value="${project.id}"/></td>
 	        			<td>${project.projectName } ${project.projectVersion }</td>
-	        			<td><tc-webtag:format object="${project.registrationPhase.scheduledStartTime}" format="EEEE MM.dd.yyyy" /></td>
-	        			<td><tc-webtag:format object="${project.registrationPhase.scheduledEndTime}" format="EEEE MM.dd.yyyy" /></td>
-	        			<td>
+	        			<td><tc-webtag:format object="${project.registrationPhase.scheduledStartTime}" format="MM.dd.yyyy" /></td>
+	        			<td><tc-webtag:format object="${project.registrationPhase.scheduledEndTime}" format="MM.dd.yyyy" /></td>
 				    	<td id="ct${project.id}">
-	        				<c:forEach items="${project.contests }" var="contest" varStatus="status">	        				
+	        				<c:forEach items="${project.contests }" var="contest" varStatus="status">	     
+	        				    <input type="checkbox" name="rmv" value="${project.id}:${contest.id}"/>   				
 	        					${contest.name }
 	        					<c:if test="${not status.last }"><br></c:if>
 	        				</c:forEach>
