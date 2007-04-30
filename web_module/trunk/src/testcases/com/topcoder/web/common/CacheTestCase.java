@@ -68,7 +68,8 @@ public class CacheTestCase extends TestCase {
                 i++;
             }
 
-            log.debug("nodes : " + cache.getKeys(f).size()+ " i " + i);
+            log.debug("nodes : " + cache.getKeys(f).size()+ " i " + i +
+                    "avg put time " + (end-start)/cache.getKeys(f).size());
 
             assertTrue("didn't put much stuff in the cache", cache.getKeys(f).size()>10);
 
