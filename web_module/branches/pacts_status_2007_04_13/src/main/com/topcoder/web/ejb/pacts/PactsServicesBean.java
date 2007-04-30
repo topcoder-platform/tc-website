@@ -7158,6 +7158,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
               ResultSetContainer rsc = null;
               List l = new ArrayList();
 
+              log.debug("findCoderPayments");
               try {
                   StringBuffer query = getCoderPaymentsSelect();
 
@@ -7169,9 +7170,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                       if (key.equals(PAYMENT_TYPE_ID)) {
                           query.append(" AND pd.payment_type_id = ? ");
                           objects.add(value);
+                          log.debug("newValue: " + value);
                       } else if (key.equals(USER_ID)) {
                           query.append(" AND p.user_id = ? ");
                           objects.add(value);
+                          log.debug("newValue: " + value);
                       } else if (key.equals(PAYMENT_REFERENCE_ID)) {
                           query.append(" AND (");
                           query.append("  pd.algorithm_round_id = ? OR ");
@@ -7183,12 +7186,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                           query.append("  pd.digital_run_season_id = ? OR ");
                           query.append("  pd.parent_payment_id = ?)");
                           for (int j = 0; j < 8; objects.add(value));
+                          log.debug("newValue: " + value);
                       } else if (key.equals(PAYMENT_STATUS_ID)) {
                           query.append("AND pd.payment_status_id = ? ");
                           objects.add(value);
+                          log.debug("newValue: " + value);
                       }
                   }
 
+                  log.debug("query: " + query.toString());
                   rsc = runSearchQuery(conn, query.toString(), objects, true);
 
                   for (Iterator it = rsc.iterator(); it.hasNext();) {
