@@ -7190,7 +7190,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                               log.debug("newValue: " + value);
                           }
                       } else if (key.equals(PAYMENT_STATUS_ID)) {
-                          query.append("AND pd.payment_status_id = ? ");
+                          query.append("AND pd.status_id = ? ");
                           objects.add(value);
                           log.debug("newValue: " + value);
                       }
