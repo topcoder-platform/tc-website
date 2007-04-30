@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.bean;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -1725,6 +1726,11 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.updatePayment(payment);
     }
 
+    public BasePayment updatePayment(Connection c, BasePayment payment) throws RemoteException, Exception {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.updatePayment(c, payment);
+    }
+
     public BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getBasePayment(paymentId);
@@ -1784,5 +1790,16 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.hasAffirmedAssignmentDocument(paymentTypeId, coderId, contestId);
     }
+    
+    public List<BasePayment> findCoderPayments(Map searchCriteria) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.findCoderPayments(searchCriteria);
+    }
+
+    public List<BasePayment> findCoderPayments(Connection c, Map searchCriteria) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.findCoderPayments(c, searchCriteria);
+    }
+
 }
 

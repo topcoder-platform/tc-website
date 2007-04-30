@@ -42,9 +42,9 @@ import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
+import com.topcoder.web.ejb.pacts.payments.StateTransitionFailureException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
@@ -56,7 +56,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 
@@ -3971,7 +3970,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.close();
 
             if (t.getHeader().getStatusId() == USER_TAX_FORM_STATUS_ACTIVE) {
-                updateOnHoldPayments(c, t.getHeader().getUser().getId());
+                PaymentStatusMediator psm = new PaymentStatusMediator(c);
+                psm.newTaxForm(t.getHeader().getUser().getId());
             }
 
             ps = null;
@@ -3995,36 +3995,42 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    /**
-     * This method updates the on hold payments when the user gets a tax form.
-     *
-     * @param c      connection to use
-     * @param userId user that has a tax form
-     * @throws SQLException
-     */
-    private void updateOnHoldPayments(Connection c, long userId) throws SQLException, InvalidStatusException {
-        StringBuffer getPayments = new StringBuffer(200);
-        getPayments.append(" SELECT p.payment_id, ");
-        getPayments.append(" case when exists ");
-        getPayments.append("(select 1 from affidavit where affirmed = 1 and user_id = p.user_id and payment_id = p.payment_id) then 1 else 0 end as affidavit_ind ");
-        getPayments.append(" FROM payment p, payment_detail pd ");
-        getPayments.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
-        getPayments.append(" AND p.user_id = " + userId);
-        getPayments.append(" AND pd.status_id = " + PAYMENT_ON_HOLD_STATUS);
-        ResultSetContainer rsc = runSelectQuery(c, getPayments.toString(), false);
-        List toPending = new ArrayList();
-        List toOwed = new ArrayList();
-        for (int i = 0; i < rsc.size(); i++) {
-            if (rsc.getIntItem(i, "affidavit_ind") == 1) {
-                toOwed.add(new Long(rsc.getLongItem(i, "payment_id")));
-            } else {
-                toPending.add(new Long(rsc.getLongItem(i, "payment_id")));
-            }
-        }
+//    /**
+//     * This method updates the on hold payments when the user gets a tax form.
+//     *
+//     * @param c      connection to use
+//     * @param userId user that has a tax form
+//     * @throws SQLException
+//     */
+//    private void updateOnHoldPayments(Connection c, long userId) throws SQLException, InvalidStatusException, StateTransitionFailureException {
+//
+//        PaymentStatusMediator psm = new PaymentStatusMediator(c);
+//        psm.newTaxForm(userId);
+//        
+//        // get all on hold payments for a particular user.
+//        
+//        StringBuffer getPayments = new StringBuffer(200);
+//        getPayments.append(" SELECT p.payment_id, ");
+//        getPayments.append(" case when exists ");
+//        getPayments.append("(select 1 from affidavit where affirmed = 1 and user_id = p.user_id and payment_id = p.payment_id) then 1 else 0 end as affidavit_ind ");
+//        getPayments.append(" FROM payment p, payment_detail pd ");
+//        getPayments.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+//        getPayments.append(" AND p.user_id = " + userId);
+//        getPayments.append(" AND pd.status_id = " + PAYMENT_ON_HOLD_STATUS);
+//        ResultSetContainer rsc = runSelectQuery(c, getPayments.toString(), false);
+//        List toPending = new ArrayList();
+//        List toOwed = new ArrayList();
+//        for (int i = 0; i < rsc.size(); i++) {
+//            if (rsc.getIntItem(i, "affidavit_ind") == 1) {
+//                toOwed.add(new Long(rsc.getLongItem(i, "payment_id")));
+//            } else {
+//                toPending.add(new Long(rsc.getLongItem(i, "payment_id")));
+//            }
+//        }
 
-        batchUpdateStatus(c, getLongArray(toOwed), PAYMENT_OWED_STATUS);
-        batchUpdateStatus(c, getLongArray(toPending), PAYMENT_PENDING_STATUS);
-    }
+//        batchUpdateStatus(c, getLongArray(toOwed), PAYMENT_OWED_STATUS);
+//        batchUpdateStatus(c, getLongArray(toPending), PAYMENT_PENDING_STATUS);
+//    }
 
     /**
      * Adds the specified note to the database, and also adds a cross-reference
@@ -4723,7 +4729,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = null;
 
             if (t.getHeader().getStatusId() == USER_TAX_FORM_STATUS_ACTIVE) {
-                updateOnHoldPayments(c, t.getHeader().getUser().getId());
+                PaymentStatusMediator psm = new PaymentStatusMediator(c);
+                psm.newTaxForm(t.getHeader().getUser().getId());
             }
 
             c.close();
@@ -4831,123 +4838,123 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return makeList(list);
     }
 
-    // This is a lot like the helper function below, but requires payment-level granularity and
-    // a record of each payment update outcome.  Also commits after each payment update to release
-    // locks.
-    private UpdateResults batchUpdateStatus(Connection c, long paymentId[], long statusId)
-            throws SQLException, InvalidStatusException {
-        ResultSetContainer addressData, detailData;
-        int i;
-
-        // Do in ascending order
-        Arrays.sort(paymentId);
-
-        // Get status name
-        String query = "SELECT status_desc FROM status_lu WHERE status_id = " + statusId;
-        ResultSetContainer statusName = runSelectQuery(c, query, false);
-
-        if (statusName.getRowCount() == 0) {
-            throw new SQLException("Status code " + statusId + " not found in database");
-        }
-
-        String statusDesc = statusName.getItem(0, 0).toString();
-        UpdateResults ur = new UpdateResults(paymentId, statusId, statusDesc);
-
-        for (i = 0; i < paymentId.length; i++) {
-            addressData = null;
-
-//            if (statusId == READY_TO_PRINT_STATUS) {
-//                StringBuffer selectAddress = new StringBuffer(2000);
-//                selectAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
-//                selectAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
-//                selectAddress.append("u.last_name, state.state_name, country.country_name, ");
-//                selectAddress.append("p.payment_id, a.address3, a.province ");
-//                selectAddress.append("FROM user u, address a, user_address_xref x, payment p, OUTER state, OUTER country ");
-//                selectAddress.append("WHERE p.payment_id = " + paymentId[i] + " ");
-//                selectAddress.append("AND u.user_id = p.user_id ");
-//                selectAddress.append("AND state.state_code = a.state_code ");
-//                selectAddress.append("AND country.country_code = a.country_code ");
-//                selectAddress.append("and u.user_id = x.user_id ");
-//                selectAddress.append("and x.address_id = a.address_id ");
-//                selectAddress.append("and a.address_type_id = 2 ");
+//    // This is a lot like the helper function below, but requires payment-level granularity and
+//    // a record of each payment update outcome.  Also commits after each payment update to release
+//    // locks.
+//    private UpdateResults batchUpdateStatus(Connection c, long paymentId[], long statusId)
+//            throws SQLException, InvalidStatusException {
+//        ResultSetContainer addressData, detailData;
+//        int i;
 //
-//                addressData = runSelectQuery(c, selectAddress.toString(), false);
-//                if (addressData.getRowCount() != 1) {
-//                    ur.put(paymentId[i], new NoObjectFoundException("Payment not found in database"));
-//                    continue;
-//                }
+//        // Do in ascending order
+//        Arrays.sort(paymentId);
+//
+//        // Get status name
+//        String query = "SELECT status_desc FROM status_lu WHERE status_id = " + statusId;
+//        ResultSetContainer statusName = runSelectQuery(c, query, false);
+//
+//        if (statusName.getRowCount() == 0) {
+//            throw new SQLException("Status code " + statusId + " not found in database");
+//        }
+//
+//        String statusDesc = statusName.getItem(0, 0).toString();
+//        UpdateResults ur = new UpdateResults(paymentId, statusId, statusDesc);
+//
+//        for (i = 0; i < paymentId.length; i++) {
+//            addressData = null;
+//
+////            if (statusId == READY_TO_PRINT_STATUS) {
+////                StringBuffer selectAddress = new StringBuffer(2000);
+////                selectAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
+////                selectAddress.append("a.address1, a.address2, u.first_name, u.middle_name, ");
+////                selectAddress.append("u.last_name, state.state_name, country.country_name, ");
+////                selectAddress.append("p.payment_id, a.address3, a.province ");
+////                selectAddress.append("FROM user u, address a, user_address_xref x, payment p, OUTER state, OUTER country ");
+////                selectAddress.append("WHERE p.payment_id = " + paymentId[i] + " ");
+////                selectAddress.append("AND u.user_id = p.user_id ");
+////                selectAddress.append("AND state.state_code = a.state_code ");
+////                selectAddress.append("AND country.country_code = a.country_code ");
+////                selectAddress.append("and u.user_id = x.user_id ");
+////                selectAddress.append("and x.address_id = a.address_id ");
+////                selectAddress.append("and a.address_type_id = 2 ");
+////
+////                addressData = runSelectQuery(c, selectAddress.toString(), false);
+////                if (addressData.getRowCount() != 1) {
+////                    ur.put(paymentId[i], new NoObjectFoundException("Payment not found in database"));
+////                    continue;
+////                }
+////            }
+//
+//            // Get all the payment detail data
+//            StringBuffer selectData = new StringBuffer(300);
+//            selectData.append("SELECT p.payment_id, pd.net_amount, pd.gross_amount, pd.status_id, ");
+//            selectData.append("pd.modification_rationale_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
+//            selectData.append(" pd.client, pd.date_due, ");
+//            selectData.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
+//            selectData.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
+//            selectData.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number  ");
+//            selectData.append("FROM payment p, payment_detail pd ");
+//            selectData.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+//            selectData.append("AND p.payment_id = " + paymentId[i]);
+//
+//            detailData = runSelectQuery(c, selectData.toString(), false);
+//            if (detailData.getRowCount() != 1) {
+//                ur.put(paymentId[i], new NoObjectFoundException("Payment not found in database"));
+//                continue;
 //            }
-
-            // Get all the payment detail data
-            StringBuffer selectData = new StringBuffer(300);
-            selectData.append("SELECT p.payment_id, pd.net_amount, pd.gross_amount, pd.status_id, ");
-            selectData.append("pd.modification_rationale_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, ");
-            selectData.append(" pd.client, pd.date_due, ");
-            selectData.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
-            selectData.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-            selectData.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number  ");
-            selectData.append("FROM payment p, payment_detail pd ");
-            selectData.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
-            selectData.append("AND p.payment_id = " + paymentId[i]);
-
-            detailData = runSelectQuery(c, selectData.toString(), false);
-            if (detailData.getRowCount() != 1) {
-                ur.put(paymentId[i], new NoObjectFoundException("Payment not found in database"));
-                continue;
-            }
-
-            Payment p = new Payment();
-            p.getHeader().setId(paymentId[i]);
-
-            p.setNetAmount(TCData.getTCDouble(detailData.getRow(0), "net_amount", 0, false));
-            p.setGrossAmount(TCData.getTCDouble(detailData.getRow(0), "gross_amount", 0, false));
-            p.setTotalAmount(TCData.getTCDouble(detailData.getRow(0), "total_amount", 0, false));
-            p.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
-            p.setRationaleId(MODIFICATION_STATUS);
-            p.getHeader().setDescription(TCData.getTCString(detailData.getRow(0), "payment_desc", "", false));
-            p.getHeader().setTypeId(TCData.getTCInt(detailData.getRow(0), "payment_type_id", 1, false));
-            p.getHeader().setMethodId(TCData.getTCInt(detailData.getRow(0), "payment_method_id", 1, false));
-            p.getHeader().setAlgorithmRoundId(TCData.getTCLong(detailData.getRow(0), "algorithm_round_id", 0, false));
-            p.getHeader().setComponentProjectId(TCData.getTCLong(detailData.getRow(0), "component_project_id", 0, false));
-            p.getHeader().setAlgorithmProblemId(TCData.getTCLong(detailData.getRow(0), "algorithm_problem_id", 0, false));
-            p.getHeader().setStudioContestId(TCData.getTCLong(detailData.getRow(0), "studio_contest_id", 0, false));
-            p.getHeader().setComponentContestId(TCData.getTCLong(detailData.getRow(0), "component_contest_id", 0, false));
-            p.getHeader().setDigitalRunStageId(TCData.getTCLong(detailData.getRow(0), "digital_run_stage_id", 0, false));
-            p.getHeader().setDigitalRunSeasonId(TCData.getTCLong(detailData.getRow(0), "digital_run_season_id", 0, false));
-            p.getHeader().setParentPaymentId(TCData.getTCLong(detailData.getRow(0), "parent_payment_id", 0, false));
-            p.getHeader().setClient(TCData.getTCString(detailData.getRow(0), "client", "", false));
-            p.setDueDate(TCData.getTCDate(detailData.getRow(0), "date_due", null, false));
-
-            // All the data modifications happen here
-            try {
-                if (addressData == null) {
-                    updatePayment(c, p, null);
-                } else {
-                    updatePayment(c, p, addressData.getRow(0));
-                }
-                // Commit after each payment update to release locks for anybody else waiting on the
-                // payment tables
-                c.commit();
-            } catch (Exception e) {
-                // Record error and keep going, unless there's a database problem
-                // dpecora 05/03 - a database problem is probably a lock timeout which
-                // is a transient problem.  Furthermore throwing an exception here will
-                // mean that earlier payment modifications in this loop which did go through
-                // will be incorrectly reported as having had this same exception thrown.
-                // (If the higher level functions get an exception from here, they construct
-                // an UpdateResults object with that same exception associated with ALL
-                // payments.)
-                //
-                // Therefore, this is now commented out.
-                //
-                //if (e instanceof SQLException)
-                //    throw (SQLException) e;
-                ur.put(paymentId[i], e);
-            }
-        } // end for loop over the payments
-
-        return ur;
-    } // end batchUpdateStatus() function
+//
+//            Payment p = new Payment();
+//            p.getHeader().setId(paymentId[i]);
+//
+//            p.setNetAmount(TCData.getTCDouble(detailData.getRow(0), "net_amount", 0, false));
+//            p.setGrossAmount(TCData.getTCDouble(detailData.getRow(0), "gross_amount", 0, false));
+//            p.setTotalAmount(TCData.getTCDouble(detailData.getRow(0), "total_amount", 0, false));
+//            p.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
+//            p.setRationaleId(MODIFICATION_STATUS);
+//            p.getHeader().setDescription(TCData.getTCString(detailData.getRow(0), "payment_desc", "", false));
+//            p.getHeader().setTypeId(TCData.getTCInt(detailData.getRow(0), "payment_type_id", 1, false));
+//            p.getHeader().setMethodId(TCData.getTCInt(detailData.getRow(0), "payment_method_id", 1, false));
+//            p.getHeader().setAlgorithmRoundId(TCData.getTCLong(detailData.getRow(0), "algorithm_round_id", 0, false));
+//            p.getHeader().setComponentProjectId(TCData.getTCLong(detailData.getRow(0), "component_project_id", 0, false));
+//            p.getHeader().setAlgorithmProblemId(TCData.getTCLong(detailData.getRow(0), "algorithm_problem_id", 0, false));
+//            p.getHeader().setStudioContestId(TCData.getTCLong(detailData.getRow(0), "studio_contest_id", 0, false));
+//            p.getHeader().setComponentContestId(TCData.getTCLong(detailData.getRow(0), "component_contest_id", 0, false));
+//            p.getHeader().setDigitalRunStageId(TCData.getTCLong(detailData.getRow(0), "digital_run_stage_id", 0, false));
+//            p.getHeader().setDigitalRunSeasonId(TCData.getTCLong(detailData.getRow(0), "digital_run_season_id", 0, false));
+//            p.getHeader().setParentPaymentId(TCData.getTCLong(detailData.getRow(0), "parent_payment_id", 0, false));
+//            p.getHeader().setClient(TCData.getTCString(detailData.getRow(0), "client", "", false));
+//            p.setDueDate(TCData.getTCDate(detailData.getRow(0), "date_due", null, false));
+//
+//            // All the data modifications happen here
+//            try {
+//                if (addressData == null) {
+//                    updatePayment(c, p, null);
+//                } else {
+//                    updatePayment(c, p, addressData.getRow(0));
+//                }
+//                // Commit after each payment update to release locks for anybody else waiting on the
+//                // payment tables
+//                c.commit();
+//            } catch (Exception e) {
+//                // Record error and keep going, unless there's a database problem
+//                // dpecora 05/03 - a database problem is probably a lock timeout which
+//                // is a transient problem.  Furthermore throwing an exception here will
+//                // mean that earlier payment modifications in this loop which did go through
+//                // will be incorrectly reported as having had this same exception thrown.
+//                // (If the higher level functions get an exception from here, they construct
+//                // an UpdateResults object with that same exception associated with ALL
+//                // payments.)
+//                //
+//                // Therefore, this is now commented out.
+//                //
+//                //if (e instanceof SQLException)
+//                //    throw (SQLException) e;
+//                ur.put(paymentId[i], e);
+//            }
+//        } // end for loop over the payments
+//
+//        return ur;
+//    } // end batchUpdateStatus() function
 
     // Helper function, assumes autocommit false
     private void updatePaymentStatus(Connection c, long paymentId[], long statusId) throws Exception {
@@ -5030,55 +5037,55 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    /**
-     * Updates the specified payments to the specified status. This function
-     * should only be called by the Pacts message handler upon receipt of a message
-     * passed in by the <tt>batchUpdatePaymentStatus</tt> function.
-     *
-     * @param paymentId The payments to update
-     * @param statusId  The new status
-     * @throws SQLException If there is some other problem updating the data
-     */
-    public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId) throws SQLException {
-        Connection c = null;
-        try {
-            log.debug("In doBatchUpdatePaymentStatus()");
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
-
-            UpdateResults ur = batchUpdateStatus(c, paymentId, statusId);
-
-            // Commits done after each payment in batchUpdateStatus()
-            // c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
-
-            return ur;
-        } catch (Exception e) {
-            printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
-            if (e instanceof SQLException)
-                throw (SQLException) e;
-            throw new SQLException(e.getMessage());
-        }
-    }
+//    /**
+//     * Updates the specified payments to the specified status. This function
+//     * should only be called by the Pacts message handler upon receipt of a message
+//     * passed in by the <tt>batchUpdatePaymentStatus</tt> function.
+//     *
+//     * @param paymentId The payments to update
+//     * @param statusId  The new status
+//     * @throws SQLException If there is some other problem updating the data
+//     */
+//    public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId) throws SQLException {
+//        Connection c = null;
+//        try {
+//            log.debug("In doBatchUpdatePaymentStatus()");
+//            c = DBMS.getConnection();
+//            c.setAutoCommit(false);
+//            setLockTimeout(c);
+//
+//            UpdateResults ur = batchUpdateStatus(c, paymentId, statusId);
+//
+//            // Commits done after each payment in batchUpdateStatus()
+//            // c.commit();
+//            c.setAutoCommit(true);
+//            c.close();
+//            c = null;
+//
+//            return ur;
+//        } catch (Exception e) {
+//            printException(e);
+//            try {
+//                c.rollback();
+//            } catch (Exception e1) {
+//                printException(e1);
+//            }
+//            try {
+//                c.setAutoCommit(true);
+//            } catch (Exception e1) {
+//                printException(e1);
+//            }
+//            try {
+//                if (c != null) c.close();
+//            } catch (Exception e1) {
+//                printException(e1);
+//            }
+//            c = null;
+//            if (e instanceof SQLException)
+//                throw (SQLException) e;
+//            throw new SQLException(e.getMessage());
+//        }
+//    }
 
     /**
      * Updates the status on all the given payments to the given status.
@@ -6023,7 +6030,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p[i] = payments.getLongItem(i, 0);
             }
 
-            batchUpdateStatus(c, p, PAYMENT_EXPIRED_STATUS);
+            // TODO: check this!
+            //batchUpdateStatus(c, p, PAYMENT_EXPIRED_STATUS);
 
             c.commit();
             c.setAutoCommit(true);
@@ -7006,8 +7014,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    public List findPayments(int paymentTypeId) throws SQLException, InvalidStatusException {
-        return findCoderPayments(0, paymentTypeId, 0);
+    public List findPayments(int paymentTypeId) throws SQLException {
+        Map searchCriteria = new HashMap();
+
+        searchCriteria.put(PAYMENT_TYPE_ID, String.valueOf(paymentTypeId));
+        return findCoderPayments(searchCriteria);
     }
 
     /**
@@ -7020,8 +7031,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    public List findPayments(int paymentTypeId, long referenceId) throws SQLException, InvalidStatusException {
-        return findCoderPayments(0, paymentTypeId, referenceId);
+    public List findPayments(int paymentTypeId, long referenceId) throws SQLException {
+        Map searchCriteria = new HashMap();
+
+        searchCriteria.put(PAYMENT_TYPE_ID, String.valueOf(paymentTypeId));
+        searchCriteria.put(PAYMENT_REFERENCE_ID, String.valueOf(paymentTypeId));
+        return findCoderPayments(searchCriteria);
     }
 
     /**
@@ -7032,7 +7047,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public List findCoderPayments(long coderId) throws SQLException, InvalidStatusException {
-        return findCoderPayments(coderId, 0, 0);
+        Map searchCriteria = new HashMap();
+
+        searchCriteria.put(USER_ID, String.valueOf(coderId));
+        return findCoderPayments(searchCriteria);
     }
 
     /**
@@ -7044,105 +7062,230 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public List findCoderPayments(long coderId, int paymentTypeId) throws SQLException, InvalidStatusException {
-        return findCoderPayments(coderId, paymentTypeId, 0);
+        Map searchCriteria = new HashMap();
+
+        searchCriteria.put(PAYMENT_TYPE_ID, String.valueOf(paymentTypeId));
+        searchCriteria.put(USER_ID, String.valueOf(coderId));
+        return findCoderPayments(searchCriteria);
     }
 
     /**
-     * Find the payments of the specified type for a coder, referencing to a particular id.
-     * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
-     * If the payment is for review board, you must pass the project_id and so on.
+     * Helper method to create the SQL select to find assignment document
      *
-     * @param coderId       the coder to find payments for.
-     * @param paymentTypeId type of payment to look for.
-     * @param referenceId   reference to look for
-     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
-     * @throws SQLException
+     * @return The SQL select to find assignment document
      */
-    public List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws SQLException, InvalidStatusException {
+    private StringBuffer getCoderPaymentsSelect() {
+        StringBuffer sb = new StringBuffer(100);
+        sb.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
+        sb.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, ");
+        sb.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
+        sb.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
+        sb.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number , ");
+        sb.append("    (SELECT reference_field_name   ");
+        sb.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
+        sb.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
+        sb.append("       AND pt.payment_reference_id = pr.payment_reference_id) as reference_field_name ");
+        sb.append(" FROM payment p, payment_detail pd, status_lu s ");
+        sb.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+        sb.append(" AND s.status_id = pd.status_id  ");
+        return sb;
+    }
 
-        StringBuffer query = new StringBuffer(500);
-        List list = new ArrayList();
+    
+  /**
+  * Find the payments of the specified type for a coder, referencing to a particular id.
+  * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
+  * If the payment is for review board, you must pass the project_id and so on.
+  *
+  * @param searchCriteria   map for the search filter
+  * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+  * @throws SQLException
+  */
+    public List<BasePayment> findCoderPayments(Map searchCriteria) {
+        Connection conn = null;
+        ResultSetContainer rsc = null;
+        List l = new ArrayList();
 
-        query.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
-        query.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, ");
-        query.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
-        query.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        query.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number , ");
-        query.append("    (SELECT reference_field_name   ");
-        query.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
-        query.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
-        query.append("       AND pt.payment_reference_id = pr.payment_reference_id) as reference_field_name ");
-        query.append(" FROM payment p, payment_detail pd, status_lu s ");
-        query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
-        query.append(" AND s.status_id = pd.status_id  ");
+        try {
+            conn = DBMS.getConnection();
 
-        if (paymentTypeId > 0) {
-            query.append(" AND pd.payment_type_id = " + paymentTypeId);
-        }
+            StringBuffer query = getCoderPaymentsSelect();
 
-        if (coderId > 0) {
-            query.append(" AND p.user_id = " + coderId);
-        }
-
-        if (referenceId > 0) {
-            query.append(" AND (");
-            query.append("  pd.algorithm_round_id=" + referenceId + " OR ");
-            query.append("  pd.component_project_id=" + referenceId + " OR ");
-            query.append("  pd.algorithm_problem_id=" + referenceId + " OR ");
-            query.append("  pd.studio_contest_id=" + referenceId + " OR ");
-            query.append("  pd.component_contest_id=" + referenceId + " OR ");
-            query.append("  pd.digital_run_stage_id=" + referenceId + " OR ");
-            query.append("  pd.digital_run_season_id=" + referenceId + " OR ");
-            query.append("  pd.parent_payment_id=" + referenceId + ")");
-        }
-
-        ResultSetContainer rsc = runSelectQuery(query.toString(), false);
-
-        for (int i = 0; i < rsc.getRowCount(); i++) {
-            ResultSetContainer.ResultSetRow rsr = rsc.getRow(i);
-
-
-            long paymentId = rsr.getLongItem("payment_id");
-            long coder = rsr.getLongItem("user_id");
-            double grossAmount = rsr.getDoubleItem("gross_amount");
-            double netAmount = rsr.getDoubleItem("net_amount");
-            double totalAmount = rsr.getDoubleItem("total_amount");
-            int paymentType = rsr.getIntItem("payment_type_id");
-            int installmentNumber = rsr.getIntItem("installment_number");
-            Date dueDate = rsr.getTimestampItem("date_due");
-            long statusId = rsr.getLongItem("status_id");
-//            String statusDesc = rsr.getStringItem("status_desc");
-            String description = rsr.getStringItem("payment_desc");
-
-            String referenceFieldName = rsr.getStringItem("reference_field_name");
-
-            long reference = 0;
-
-            if (referenceFieldName != null) {
-                try {
-                    reference = rsr.getLongItem(referenceFieldName);
-                } catch (Exception e) {
+            ArrayList objects = new ArrayList();
+            Iterator i = searchCriteria.keySet().iterator();
+            while (i.hasNext()) {
+                String key = (String) i.next();
+                String value = ((String) searchCriteria.get(key)).toUpperCase();
+                if (key.equals(PAYMENT_TYPE_ID)) {
+                    query.append(" AND pd.payment_type_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(USER_ID)) {
+                    query.append(" AND p.user_id = ? ");
+                    objects.add(value);
+                } else if (key.equals(PAYMENT_REFERENCE_ID)) {
+                    query.append(" AND (");
+                    query.append("  pd.algorithm_round_id = ? OR ");
+                    query.append("  pd.component_project_id = ? OR ");
+                    query.append("  pd.algorithm_problem_id = ? OR ");
+                    query.append("  pd.studio_contest_id = ? OR ");
+                    query.append("  pd.component_contest_id = ? OR ");
+                    query.append("  pd.digital_run_stage_id = ? OR ");
+                    query.append("  pd.digital_run_season_id = ? OR ");
+                    query.append("  pd.parent_payment_id = ?)");
+                    for (int j = 0; j < 8; objects.add(value));
+                } else if (key.equals(PAYMENT_STATUS_ID)) {
+                    query.append("AND pd.payment_status_id = ? ");
+                    objects.add(value);
                 }
             }
 
-            BasePayment payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
+            rsc = runSearchQuery(conn, query.toString(), objects, true);
 
-            payment.setId(paymentId);
-            payment.setNetAmount(netAmount);
-            payment.setTotalAmount(totalAmount);
-            payment.setInstallmentNumber(installmentNumber);
-            payment.setDueDate(dueDate);
-            payment.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
-            // TODO: pulky: get reasons
-//            payment.setStatusDesc(statusDesc);
-            payment.setDescription(description);
+            for (Iterator it = rsc.iterator(); it.hasNext();) {
+                ResultSetRow rsr = (ResultSetRow) it.next();
 
+                BasePayment payment = getBasePaymentBean(rsr);
 
-            list.add(payment);
+                l.add(payment);
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw (new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            throw (new EJBException(e.getMessage(), e));
+        } finally {
+            close(conn);
         }
-
-        return list;
+        return l;
     }
+
+    private BasePayment getBasePaymentBean(ResultSetRow rsr) throws InvalidStatusException {
+        long paymentId = rsr.getLongItem("payment_id");
+        long coder = rsr.getLongItem("user_id");
+        double grossAmount = rsr.getDoubleItem("gross_amount");
+        double netAmount = rsr.getDoubleItem("net_amount");
+        double totalAmount = rsr.getDoubleItem("total_amount");
+        int paymentType = rsr.getIntItem("payment_type_id");
+        int installmentNumber = rsr.getIntItem("installment_number");
+        Date dueDate = rsr.getTimestampItem("date_due");
+        long statusId = rsr.getLongItem("status_id");
+        String description = rsr.getStringItem("payment_desc");
+        String referenceFieldName = rsr.getStringItem("reference_field_name");
+        long reference = 0;
+        if (referenceFieldName != null) {
+            try {
+                reference = rsr.getLongItem(referenceFieldName);
+            } catch (Exception e) {
+            }
+        }
+    
+        BasePayment payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
+    
+        payment.setId(paymentId);
+        payment.setNetAmount(netAmount);
+        payment.setTotalAmount(totalAmount);
+        payment.setInstallmentNumber(installmentNumber);
+        payment.setDueDate(dueDate);
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
+        payment.setDescription(description);
+        return payment;
+    }
+
+//    /**
+//     * Find the payments of the specified type for a coder, referencing to a particular id.
+//     * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
+//     * If the payment is for review board, you must pass the project_id and so on.
+//     *
+//     * @param coderId       the coder to find payments for.
+//     * @param paymentTypeId type of payment to look for.
+//     * @param referenceId   reference to look for
+//     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+//     * @throws SQLException
+//     */
+//    public List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws SQLException, InvalidStatusException {
+//
+//        StringBuffer query = new StringBuffer(500);
+//        List list = new ArrayList();
+//
+//        query.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
+//        query.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, ");
+//        query.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
+//        query.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
+//        query.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number , ");
+//        query.append("    (SELECT reference_field_name   ");
+//        query.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
+//        query.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
+//        query.append("       AND pt.payment_reference_id = pr.payment_reference_id) as reference_field_name ");
+//        query.append(" FROM payment p, payment_detail pd, status_lu s ");
+//        query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+//        query.append(" AND s.status_id = pd.status_id  ");
+//
+//        if (paymentTypeId > 0) {
+//            query.append(" AND pd.payment_type_id = " + paymentTypeId);
+//        }
+//
+//        if (coderId > 0) {
+//            query.append(" AND p.user_id = " + coderId);
+//        }
+//
+//        if (referenceId > 0) {
+//            query.append(" AND (");
+//            query.append("  pd.algorithm_round_id=" + referenceId + " OR ");
+//            query.append("  pd.component_project_id=" + referenceId + " OR ");
+//            query.append("  pd.algorithm_problem_id=" + referenceId + " OR ");
+//            query.append("  pd.studio_contest_id=" + referenceId + " OR ");
+//            query.append("  pd.component_contest_id=" + referenceId + " OR ");
+//            query.append("  pd.digital_run_stage_id=" + referenceId + " OR ");
+//            query.append("  pd.digital_run_season_id=" + referenceId + " OR ");
+//            query.append("  pd.parent_payment_id=" + referenceId + ")");
+//        }
+//
+//        ResultSetContainer rsc = runSelectQuery(query.toString(), false);
+//
+//        for (int i = 0; i < rsc.getRowCount(); i++) {
+//            ResultSetContainer.ResultSetRow rsr = rsc.getRow(i);
+//
+//
+//            long paymentId = rsr.getLongItem("payment_id");
+//            long coder = rsr.getLongItem("user_id");
+//            double grossAmount = rsr.getDoubleItem("gross_amount");
+//            double netAmount = rsr.getDoubleItem("net_amount");
+//            double totalAmount = rsr.getDoubleItem("total_amount");
+//            int paymentType = rsr.getIntItem("payment_type_id");
+//            int installmentNumber = rsr.getIntItem("installment_number");
+//            Date dueDate = rsr.getTimestampItem("date_due");
+//            long statusId = rsr.getLongItem("status_id");
+////            String statusDesc = rsr.getStringItem("status_desc");
+//            String description = rsr.getStringItem("payment_desc");
+//
+//            String referenceFieldName = rsr.getStringItem("reference_field_name");
+//
+//            long reference = 0;
+//
+//            if (referenceFieldName != null) {
+//                try {
+//                    reference = rsr.getLongItem(referenceFieldName);
+//                } catch (Exception e) {
+//                }
+//            }
+//
+//            BasePayment payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
+//
+//            payment.setId(paymentId);
+//            payment.setNetAmount(netAmount);
+//            payment.setTotalAmount(totalAmount);
+//            payment.setInstallmentNumber(installmentNumber);
+//            payment.setDueDate(dueDate);
+//            payment.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
+//            // TODO: pulky: get reasons
+////            payment.setStatusDesc(statusDesc);
+//            payment.setDescription(description);
+//
+//            list.add(payment);
+//        }
+//
+//        return list;
+//    }
 
     /**
      * Get a BasePayment from the database.

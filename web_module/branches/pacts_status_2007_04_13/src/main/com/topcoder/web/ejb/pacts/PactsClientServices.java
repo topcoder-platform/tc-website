@@ -104,7 +104,7 @@ public interface PactsClientServices extends EJBObject {
      * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
      * @throws SQLException
      */
-    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception, InvalidStatusException;
+//    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception, InvalidStatusException;
 
     /**
      * Get a BasePayment from the database.

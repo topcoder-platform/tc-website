@@ -40,6 +40,10 @@ public abstract class BasePaymentStatus {
         throw new InvalidStateTransitionException();
     }
 
+    public void newTaxForm(BasePayment payment) {
+        // default implementation does nothing
+    }
+
     public List<PaymentStatusReason> getReasons() {
         return reasons;
     }

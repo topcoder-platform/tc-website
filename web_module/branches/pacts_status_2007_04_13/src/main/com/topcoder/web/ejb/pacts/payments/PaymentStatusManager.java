@@ -36,13 +36,13 @@ public class PaymentStatusManager {
         }
     }
 
-    public void newTaxForm() {
-        //payment.getCurrentStatus().newTaxForm();
+    public void newTaxForm(BasePayment payment) {
+        payment.getCurrentStatus().newTaxForm(payment);
     }
 
-    public void expiredAffidavit () {
-        //payment.getCurrentStatus().expiredAffidavit();
-    }
+//    public void expiredAffidavit () {
+//        //payment.getCurrentStatus().expiredAffidavit();
+//    }
 
 
     /* (non-Javadoc)

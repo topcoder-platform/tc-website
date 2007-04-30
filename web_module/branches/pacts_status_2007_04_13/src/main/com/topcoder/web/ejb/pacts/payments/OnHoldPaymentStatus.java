@@ -83,17 +83,21 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         }
     }
     
+    @Override
     public void newTaxForm(BasePayment payment) {
         // remove the reason
-        reasons.remove(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason());
+        if (reasons.contains(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason())) {
+            reasons.remove(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason());
 
-        nextState(payment);
+            nextState(payment);
+        }
     }
 
-    public void expiredAffidavit() {
-        //payment.setCurrentStatus(new CancelledPaymentStatus(payment));
-        //payment.getCurrentStatus().expiredAffidavit();
-    }
+//    @Override
+//    public void expiredAffidavit() {
+//        //payment.setCurrentStatus(new CancelledPaymentStatus(payment));
+//        //payment.getCurrentStatus().expiredAffidavit();
+//    }
 
     @Override
     public Boolean isSelectable() {

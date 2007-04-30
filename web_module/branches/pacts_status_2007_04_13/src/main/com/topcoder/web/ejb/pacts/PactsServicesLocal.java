@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -253,6 +254,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     BasePayment updatePayment(BasePayment payment) throws  Exception;
 
+    BasePayment updatePayment(Connection c, BasePayment payment) throws  Exception;
+
     List findPayments(int paymentTypeId) throws  SQLException, InvalidStatusException;
 
     List findPayments(int paymentTypeId, long referenceId) throws  SQLException, InvalidStatusException;
@@ -261,7 +264,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     List findCoderPayments(long coderId, int paymentTypeId) throws  SQLException, InvalidStatusException;
 
-    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws  SQLException, InvalidStatusException;
+//    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws  SQLException, InvalidStatusException;
     
     BasePayment getBasePayment(long paymentId) throws  SQLException, InvalidStatusException;
     
@@ -297,5 +300,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     boolean hasAffirmedAssignmentDocument(long paymentTypeId, long coderId, long contestId);
 
+    public List<BasePayment> findCoderPayments(Map searchCriteria);
+
+    public List<BasePayment> findCoderPayments(Connection c, Map searchCriteria);
 }
 
