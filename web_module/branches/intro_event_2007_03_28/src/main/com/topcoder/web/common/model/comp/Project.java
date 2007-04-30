@@ -69,6 +69,9 @@ public class Project extends Base {
     public void addContest(Contest contest) {
         contests.add(contest);
     }
+    public void removeContest(Contest contest) {
+        contests.remove(contest);
+    }
  
     public String getProjectName() {
         return getInfo(INFO_TYPE_PROJECT_NAME);

@@ -45,6 +45,14 @@ function link() {
     ajaxRequest.sendRequest();
 }
 
+function unlink() {
+	var ajaxRequest = new AjaxRequest('/admin/?module=UnlinkProjectContest');    
+    ajaxRequest.addNamedFormElements("rmv");
+    ajaxRequest.setPostRequest(loaded);
+    ajaxRequest.setPreRequest(loading);        
+    ajaxRequest.sendRequest();
+}
+
 function checkAll(check) {
     var elements = document.f.elements;
     for (i=0; i<document.f.elements.length; i++) {
@@ -115,9 +123,19 @@ function checkAll(check) {
         	</c:forEach>
         	</table>
 <br><br>
-
+<table>
+	<tr>
+		<td>
             <tc-webtag:objectSelect name="cid" list="${contests}" valueField="id" textField="name"  useTopValue="false"/>
 			<input type="button" value="Link" onclick="link()">
+		</td>
+		<td align="right">
+			<input type="button" value="Unlink selected" onclick="unlink()">
+		</td>
+	</tr>
+</table>	
+		
+
 			<br>
 			<br>
 			
