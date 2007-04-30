@@ -341,6 +341,7 @@
     <tr>
         <td class="homeArrow">&#160; </td>
         <td class="homeText"><br>
+            <%-- april --%>
             <b>04.03</b> - TCO07 Algo Qual Round 3 - AOL - 9 PM<br><br>
             <b>04.04</b> - TCO07 Marathon Match #3 - 12 NOON<br><br>
             <b>04.05</b> - CDDC Week 4 Projects Posted - 9 AM<br><br>
@@ -356,6 +357,18 @@
             <b>04.24</b> - SRM 346 - NSA - 9 PM<br><br>
             <b>04.28</b> - TCO07 Algo Round 4 - DRW - 1 PM<br><br>
             <b>04.30</b> - SDC Registration Closes - 6 PM<br><br>
+            
+            <%-- MAY EVENTS
+            <b>05.01</b> - SRM 347 - 7 AM<br><br>
+            <b>05.09</b> - SRM 348 - NSA - 9 PM<br><br>
+            <b>05.10</b> - CDDC Round 1 Projects Posted - 9 AM<br><br>
+            <b>05.15</b> - SRM 349 - UBS - 11 AM<br><br>
+            <b>05.16</b> - Marathon Match 17 - 12 NOON<br><br>
+            <b>05.19</b> - TCHS07 Semifinal Round - 10 AM<br><br>
+            <b>05.19</b> - TCHS07 Championship Round - 2:30 PM<br><br>
+            <b>05.23</b> - SRM 350 - DRW - 9 PM<br><br>
+            <b>05.24</b> - CDDC Round 2 Projects Posted - 9 AM<br><br>
+            <b>05.29</b> - SRM 351 - 7 AM<br><br> --%>
             <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
         </td>
     </tr>
