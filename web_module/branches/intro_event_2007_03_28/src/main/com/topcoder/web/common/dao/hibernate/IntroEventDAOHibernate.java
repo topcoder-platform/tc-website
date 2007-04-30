@@ -1,13 +1,12 @@
 package com.topcoder.web.common.dao.hibernate;
 
-import java.util.HashSet;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 import com.topcoder.web.common.dao.IntroEventDAO;
 import com.topcoder.web.common.model.IntroEvent;
-import com.topcoder.web.common.model.comp.Contest;
 
 
 /**
@@ -29,10 +28,18 @@ public class IntroEventDAOHibernate extends Base implements IntroEventDAO {
 
     @SuppressWarnings("unchecked")
     public List<IntroEvent> getList(int start, int maxRows) {
-        return session.createQuery("from IntroEvent ie left join fetch ie.children order by ie.id desc")
-            .setFirstResult(start)
-            .setMaxResults(maxRows)
-            .list();
+        Query q = session.createQuery("from IntroEvent ie left join fetch ie.children order by ie.id desc");
+        
+        q.setFirstResult(start);
+        
+        if (maxRows > 0) {
+            q.setMaxResults(maxRows);
+        }
+        return q.list();
+    }
+    
+    public List<IntroEvent> getList() {
+        return getList(0,0);
     }
     
     public void saveOrUpdate(IntroEvent e) {

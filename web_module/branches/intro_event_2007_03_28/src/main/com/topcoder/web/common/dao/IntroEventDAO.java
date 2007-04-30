@@ -12,6 +12,8 @@ public interface IntroEventDAO {
     IntroEvent find(Long id);
 
     List<IntroEvent> getList(int start, int maxRows);
-   
+
+    List<IntroEvent> getList();
+
     void saveOrUpdate(IntroEvent e);
 }

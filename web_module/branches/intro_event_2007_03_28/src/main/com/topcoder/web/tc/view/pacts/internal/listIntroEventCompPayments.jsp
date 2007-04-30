@@ -10,6 +10,21 @@
     <head>
         <title>PACTS</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+        
+<script type="text/javascript">
+<!--
+  function checkAll(check) {
+    var elements = document.paymentForm.elements;
+    for (i=0; i<document.paymentForm.elements.length; i++) {
+      if (document.paymentForm.elements[i].type=="checkbox") {
+        document.paymentForm.elements[i].checked = (check==true);
+      }
+    }
+  }
+-->
+</script>
+
+        
     </head>
     <body>
         <h1>PACTS</h1>
@@ -21,6 +36,9 @@
 <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
     <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateIntroEventCompPayments"/>
 
+<a href="Javascript:checkAll(true)">check all</a> -
+ <a href="Javascript:checkAll(false)">uncheck all</a> <br>
+
 <table>
 
 	<c:forEach items="${completeContests}" var="contest">  
@@ -31,9 +49,9 @@
 			   			<b>${contest.name}</b>
 			   		</c:if>
 			   	</td>
-			   	<td>
+			   	<td align="right">
 			   		<c:choose>
-			   			<c:when test="${not empty prize.paymentId}"><font color="#FF0000">Paid< /font><a href="${pacts:viewPayment(prize.paymentId)}">(view)</a></c:when>
+			   			<c:when test="${not empty prize.paymentId}"><font color="#00FF00">Paid </font><a href="${pacts:viewPayment(prize.paymentId)}">(view)</a></c:when>
 			   			<c:when test="${empty prize.points || not prize.passedMinimum}"><font color="#FF0000"> Vacant </font></c:when>
 			   			<c:otherwise><input type="checkbox" name="pay" value="${contest.id}:${prize.place}:${prize.winnerId}:${prize.amount}"></c:otherwise>
 			   		</c:choose>
@@ -61,7 +79,8 @@
 </form>   
 
 <br>
-<b>Contests that are not yet completed:</b><br>
+<h3>Contests that are not yet completed:</h3>
+<br>
 <table>
 	<c:forEach items="${incompleteContests}" var="contest">  
        <tr>
