@@ -22,6 +22,8 @@ import com.topcoder.web.common.model.comp.Contest;
 import com.topcoder.web.common.model.comp.ContestPrize;
 
 /**
+ * Update an introductory event and related classes.  Can be an insert or update.
+ * 
  * @author cucu
  */
 public class UpdateIntroEvent extends IntroEventBase {
@@ -197,6 +199,11 @@ public class UpdateIntroEvent extends IntroEventBase {
             return;
         }
         
+        if (getRequest().getParameter(EVENT_ID) != null) {
+            getRequest().setAttribute(EVENT_ID, getRequest().getParameter(EVENT_ID));
+            getRequest().setAttribute(ALGO_EVENT_ID, getRequest().getParameter(ALGO_EVENT_ID));
+            getRequest().setAttribute(COMP_EVENT_ID, getRequest().getParameter(COMP_EVENT_ID));
+        }
         factory.getIntroEventDAO().saveOrUpdate(ie);        
         if (algo != null) {
             factory.getEventDAO().saveOrUpdate(algo);

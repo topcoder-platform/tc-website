@@ -5,6 +5,11 @@ import java.util.List;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 
+/**
+ * Display a list of introductory events, where the user can do some actions on them.
+ * 
+ * @author Cucu
+ */
 public class IntroEventList extends ShortHibernateProcessor {
 
     

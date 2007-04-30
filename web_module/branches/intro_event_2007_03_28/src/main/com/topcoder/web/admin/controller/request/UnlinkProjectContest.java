@@ -10,6 +10,11 @@ import com.topcoder.web.common.dao.ProjectDAO;
 import com.topcoder.web.common.model.comp.Contest;
 import com.topcoder.web.common.model.comp.Project;
 
+/**
+ * Unlinks a project for a contest, i.e. removes a row from contest_project_xref
+ * 
+ * @author Cucu
+ */
 public class UnlinkProjectContest extends ShortHibernateProcessor {
 
     @Override

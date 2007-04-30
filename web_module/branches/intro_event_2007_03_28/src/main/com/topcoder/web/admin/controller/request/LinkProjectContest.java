@@ -9,6 +9,11 @@ import com.topcoder.web.common.dao.ProjectDAO;
 import com.topcoder.web.common.model.comp.Contest;
 import com.topcoder.web.common.model.comp.Project;
 
+/**
+ * Links a project for a contest, i.e. inserts a row in contest_project_xref
+ * 
+ * @author Cucu
+ */
 public class LinkProjectContest extends ShortHibernateProcessor {
 
     @Override
