@@ -16,7 +16,7 @@
   function checkAll(check) {
     var elements = document.paymentForm.elements;
     for (i=0; i<document.paymentForm.elements.length; i++) {
-      if (document.paymentForm.elements[i].type=="checkbox" && document.paymentForm.elements[i].name=="pay") {
+      if (document.paymentForm.elements[i].type=="checkbox") {
         document.paymentForm.elements[i].checked = (check==true);
       }
     }

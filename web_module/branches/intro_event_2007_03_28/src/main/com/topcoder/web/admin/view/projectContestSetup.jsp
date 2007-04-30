@@ -48,7 +48,7 @@ function link() {
 function checkAll(check) {
     var elements = document.f.elements;
     for (i=0; i<document.f.elements.length; i++) {
-      if (document.f.elements[i].type=="checkbox"  && document.f.elements[i].name=="pay") {
+      if (document.f.elements[i].type=="checkbox"  && document.f.elements[i].name=="pj") {
         document.f.elements[i].checked = (check==true);
       }
     }
