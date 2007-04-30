@@ -46,10 +46,10 @@ function link() {
 }
 
 function checkAll(check) {
-    var elements = document.paymentForm.elements;
-    for (i=0; i<document.paymentForm.elements.length; i++) {
-      if (document.paymentForm.elements[i].type=="checkbox") {
-        document.paymentForm.elements[i].checked = (check==true);
+    var elements = document.f.elements;
+    for (i=0; i<document.f.elements.length; i++) {
+      if (document.f.elements[i].type=="checkbox") {
+        document.f.elements[i].checked = (check==true);
       }
     }
   }
