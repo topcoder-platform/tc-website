@@ -76,7 +76,7 @@
 </div>
 
 <br clear="all">
-<p>In Part 1, we looked at the basics of minimum cost flow. In this section, we'll look at three algorithms that can be applied to minimum cost flow problems.</p>
+<p>In <a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow1">Part 1</a>, we looked at the basics of minimum cost flow. In this section, we'll look at three algorithms that can be applied to minimum cost flow problems.</p>
 
 <p><span class="bodySubtitle">Working with Residual Networks</span><br />
 Let's consider the  concept of residual networks from the perspective of min-cost flow theory. You should be familiar with this concept thanks to <a href="/tc?module=Static&d1=tutorials&d2=maxFlow" target="_blank">maximum flow</a> theory, so we'll just extend it to minimum cost flow theory.</p>

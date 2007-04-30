@@ -82,7 +82,7 @@ What is the minimum cost flow problem? Let's begin with some important terminolo
 
 <div align="center"><img src="/i/education/minimumCostFlow/Figure_1_1.png" alt="Figure 1_1" border="0" style="margin-top: 10px 10px 0px 10px;" /></a></div>
 
-<p>Figure 1. An example of the transportation network. In this we have 2 supply vertexes (with supply values 5 and 2), 3 demand vertexes (with demand values 1, 4 and 2), and 1 transshipment node. Each edge has two numbers, capacity and cost, divided by comma.</p>
+<blockquote><b>Figure 1</b>. An example of the transportation network. In this we have 2 supply vertexes (with supply values 5 and 2), 3 demand vertexes (with demand values 1, 4 and 2), and 1 transshipment node. Each edge has two numbers, capacity and cost, divided by comma.</blockquote>
 
 <p>Representing the flow on arc <img alt="" src="/i/education/minimumCostFlow/01_002.png" align="top" style="padding: 0px 3px 0px 3px;"> by <span class="math">x<sub>ij</sub></span>, we can obtain the optimization model for the minimum cost flow problem:</p>
 
@@ -109,7 +109,7 @@ When does the minimum cost flow problem have a feasible (though not necessarily 
 
 <div align="center"><img src="/i/education/minimumCostFlow/Figure_1_2.png" alt="Figure 1_2" border="0" style="margin-top: 10px 10px 0px 10px;" /></a></div>
 
-<p>Figure 2. Maximum flow in the transformed network. For simplicity we are ignoring the costs.</p>
+<blockquote><b>Figure 2</b>. Maximum flow in the transformed network. For simplicity we are ignoring the costs.</blockquote>
 
 <p>The new network is called a <b>transformed network</b>. Next, we solve a maximum flow problem from <span class="math">s</span> to <span class="math">t</span> (ignoring costs, see fig.2). If the maximum flow saturates all the source and sink arcs, then the problem has a feasible solution; otherwise, it is infeasible. As for why this approach works, we'll leave its proof to the reader.</p>
 
@@ -175,7 +175,7 @@ This assumption imposes a loss of generality. We will show below that if a netwo
 
 <p>By making these assumptions we do transform our original transportation network. However, many problems are often given in such a way which satisfies all the assumptions.</p>
 
-<p>Now that all the preparations are behind us, we can start to discuss the algorithms in Part 2.</p>
+<p>Now that all the preparations are behind us, we can start to discuss the algorithms in <a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow2">Part 2</a>.</p>
 
 <p><span class="bodySubtitle">References</span><br />
 [<a name="1">1</a>]&#160;&#160;Ravindra K. Ahuja, Thomas L. Magnanti, and James B. Orlin. <i>Network Flows: Theory, Algorithms, and Applications</i>.<br>
