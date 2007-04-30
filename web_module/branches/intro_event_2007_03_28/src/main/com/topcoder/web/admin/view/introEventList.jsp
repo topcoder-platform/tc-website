@@ -53,14 +53,20 @@ Create new Introductory Event: <a href="/admin/?module=AddIntroEvent&ha=1">algo<
 			</c:if>
 			<c:if test="${child.type.id == 13 }">
 				<a href="/tc?module=IntroEventCompOverview&eid=${child.id }">comp</a>
+				<c:set var="compId" value="${child.id }"/>
 			</c:if>
 		</c:forEach>
 	</td>
 	<td>
-		Passed Review Query
+		<c:if test="${not empty compId }">
+			<a href="/admin/?module=PassedReview&eid=${compId}">Passed Review</a>
+		</c:if>
+		
 	</td>
 	<td>
-		Create Payments
+		<c:if test="${not empty compId }">
+			<a href="/PactsInternalServlet?module=ListIntroEventCompPayments&eid=${compId}">Create Payments</a>
+		</c:if>
 	</td>
 </tr>
 	<% even = !even; %>
