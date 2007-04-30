@@ -1399,21 +1399,21 @@ public class DataInterfaceBean implements PactsConstants {
         ps.updateText(objectId, objectType, newText);
     }
 
-    /**
-     * Updates the specified payments to the specified status. This function
-     * should only be called by the Pacts message handler upon receipt of a message
-     * passed in by the <tt>batchUpdatePaymentStatus</tt> function.
-     *
-     * @param   paymentId The payments to update
-     * @param   statusId The new status
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some other problem updating the data
-     */
-    public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
-            throws RemoteException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.doBatchUpdatePaymentStatus(paymentId, statusId);
-    }
+//    /**
+//     * Updates the specified payments to the specified status. This function
+//     * should only be called by the Pacts message handler upon receipt of a message
+//     * passed in by the <tt>batchUpdatePaymentStatus</tt> function.
+//     *
+//     * @param   paymentId The payments to update
+//     * @param   statusId The new status
+//     * @throws  RemoteException If there is some communication problem with the EJB
+//     * @throws  SQLException If there is some other problem updating the data
+//     */
+//    public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
+//            throws RemoteException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.doBatchUpdatePaymentStatus(paymentId, statusId);
+//    }
 
     /**
      * Updates the status on all the given payments to the given status.

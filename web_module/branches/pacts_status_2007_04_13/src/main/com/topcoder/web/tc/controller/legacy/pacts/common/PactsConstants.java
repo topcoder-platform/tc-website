@@ -25,6 +25,7 @@ public interface PactsConstants extends Constants {
     public static final String UPDATE_TYPE_PROPERTY = "update_type";
 
     // Types of updates that are queued
+    // TODO: pulky: this shouldn't exist anymore.
     public static final int REVIEW_UPDATE_TYPE = 1;
     public static final int STATUS_UPDATE_TYPE = 2;
     public static final int PAID_UPDATE_TYPE = 3;

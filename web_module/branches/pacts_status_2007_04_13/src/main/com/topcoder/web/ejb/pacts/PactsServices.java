@@ -167,8 +167,8 @@ public interface PactsServices extends EJBObject {
     void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
             throws RemoteException, IllegalUpdateException, JMSException;
 
-    UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
-            throws RemoteException, SQLException;
+//    UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
+//            throws RemoteException, SQLException;
 
 //    void reviewPayments(long paymentId[])
 //            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;

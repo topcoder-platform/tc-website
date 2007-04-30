@@ -174,8 +174,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
             throws  IllegalUpdateException, JMSException;
 
-    UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
-            throws  SQLException;
+//    UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
+//            throws  SQLException;
 
 //    void reviewPayments(long paymentId[])
 //            throws  NoObjectFoundException, IllegalUpdateException, SQLException;

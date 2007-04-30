@@ -54,6 +54,9 @@ public class PactsMessageHandler implements MessageHandler, PactsConstants {
      * @return boolean        Processing status (true/false)
      */
     public boolean processMessage(ObjectMessage msg) {
+        
+        // TODO: pulky: this whole class doesn't have sense anymore, the three possible updates no longer exists.
+        
         boolean retVal = true;
 
         // Default the status flag
@@ -115,7 +118,7 @@ public class PactsMessageHandler implements MessageHandler, PactsConstants {
         if (validMessage) {
             if (updateType == STATUS_UPDATE_TYPE) {
                 try {
-                    results = dib.doBatchUpdatePaymentStatus(paymentIds, statusId);
+                    //results = dib.doBatchUpdatePaymentStatus(paymentIds, statusId);
                 } catch (Exception e) {
                     retVal = false;
                     log.error("ERROR: Exception Caught Trying to doBatchUpdatePaymentStatus()");

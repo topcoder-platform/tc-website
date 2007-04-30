@@ -3920,13 +3920,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    private long[] getLongArray(List l) {
-        long[] a = new long[l.size()];
-        for (int i = 0; i < a.length; i++) {
-            a[i] = ((Long) l.get(i)).longValue();
-        }
-        return a;
-    }
+//    private long[] getLongArray(List l) {
+//        long[] a = new long[l.size()];
+//        for (int i = 0; i < a.length; i++) {
+//            a[i] = ((Long) l.get(i)).longValue();
+//        }
+//        return a;
+//    }
 
     /**
      * Adds a user tax form.
