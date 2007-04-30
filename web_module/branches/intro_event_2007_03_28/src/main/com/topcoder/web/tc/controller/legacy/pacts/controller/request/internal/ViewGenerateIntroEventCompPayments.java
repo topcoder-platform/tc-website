@@ -9,7 +9,7 @@ import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.common.model.IntroEvent;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-
+             
 public class ViewGenerateIntroEventCompPayments extends ShortHibernateProcessor implements PactsConstants {
 
     @Override
