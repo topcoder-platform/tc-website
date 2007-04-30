@@ -22,7 +22,7 @@ public class ViewGenerateIntroEventCompPayments extends ShortHibernateProcessor 
         for (IntroEvent ie : l) {
             boolean hasComp = false;
             for (Event e : ie.getChildren()) {
-                if (e.getType().equals(EventType.INTRO_EVENT_COMP_ID)) {
+                if (e.getType().getId().equals(EventType.INTRO_EVENT_COMP_ID)) {
                     hasComp = true;
                 }
             }
