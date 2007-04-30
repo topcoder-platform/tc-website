@@ -447,7 +447,7 @@ public class ForumsUtil {
         Iterator<Boolean> itValues = table.values().iterator();
         int numCollapsedPosts = 0;
         while (itValues.hasNext()) {
-            if (itValues.next() == false) {
+            if (itValues.next() == true) {
                 numCollapsedPosts++;
             }
         }
