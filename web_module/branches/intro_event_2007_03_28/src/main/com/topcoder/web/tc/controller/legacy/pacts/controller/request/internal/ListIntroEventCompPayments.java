@@ -51,7 +51,6 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
         }
 
         for (ContestInfo ci : completeContests) {
-            log.debug("setting contest " + ci.getName());
             fillResults(ci);
             fillPaid(ci);
         }
@@ -81,6 +80,7 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
         }      
     }
 
+    @SuppressWarnings("unchecked")
     private void fillPaid(ContestInfo ci) throws Exception {
         DataInterfaceBean dib = new DataInterfaceBean();
         List<IntroEventCompPayment> l = dib.findPayments(INTRO_EVENT_COMP_PAYMENT, ci.getId());
@@ -88,9 +88,6 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
         for (PrizeInfo pi :ci.getPrizes()) {
             if (pi.getWinnerId() != null) {
                 for (IntroEventCompPayment payment : l) {
-                    log.debug("pi.getWinnerId()" + pi.getWinnerId());
-                    log.debug("payment.getCoderId()" + payment.getCoderId());
-                    log.debug("payment.getId()" + payment.getId());
                     if (pi.getWinnerId() == payment.getCoderId()) {
                         pi.setPaymentId(payment.getId());
                     }
@@ -146,7 +143,7 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
         private Long winnerId = null;
         private Integer points =null;
         private Long paymentId = null;
-        
+        private boolean passedMinimum;
         
         public PrizeInfo(int place, double amount) {
             super();
@@ -173,11 +170,13 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
             
             return ((PrizeInfo) obj).getPlace() == getPlace();
         }
+        
         public Integer getPoints() {
             return points;
         }
         public void setPoints(Integer points) {
             this.points = points;
+            passedMinimum = points >= INTRO_EVENT_MIN_POINTS;
         }
         public void setWinnerId(Long winnerId) {
             this.winnerId = winnerId;
@@ -189,6 +188,9 @@ public class ListIntroEventCompPayments extends BaseProcessor implements PactsCo
         
         public void setPaymentId(Long paymentId) {
             this.paymentId = paymentId;
+        }
+        public boolean isPassedMinimum() {
+            return passedMinimum;
         }
         
         

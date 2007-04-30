@@ -33,8 +33,8 @@
 			   	</td>
 			   	<td>
 			   		<c:choose>
-			   			<c:when test="${not empty prize.paymentId}"><font color="#FF0000">paid</font><a href="${pacts:viewPayment(prize.paymentId)}">(view)</a></c:when>
-			   			<c:when test="${empty prize.points}"><font color="#FF0000"> Vacant</font></c:when>
+			   			<c:when test="${not empty prize.paymentId}"><font color="#FF0000">Paid< /font><a href="${pacts:viewPayment(prize.paymentId)}">(view)</a></c:when>
+			   			<c:when test="${empty prize.points || not prize.passedMinimum}"><font color="#FF0000"> Vacant </font></c:when>
 			   			<c:otherwise><input type="checkbox" name="pay" value="${contest.id}:${prize.place}:${prize.winnerId}:${prize.amount}"></c:otherwise>
 			   		</c:choose>
 			   	</td>
@@ -42,6 +42,7 @@
 				<td>$ ${prize.amount} </td>
 				<td> <c:if test="${not empty prize.winnerId}">
 						<tc-webtag:handle coderId="${prize.winnerId}" context='component'/> 
+						(${prize.points } points)
 					</c:if>
 				</td>
 			</tr>
