@@ -79,6 +79,8 @@ function link() {
         		<tr class="header">
         			<td>&nbsp;</td>
         			<td>Project name</td>
+        			<td>Reg. Start</td>
+        			<td>Reg. End</td>        			
         			<td>Associated contests</td>
         		</tr>
         	
@@ -86,7 +88,10 @@ function link() {
         		<c:if test="${project.eligibilityOpen}">
 	        		<tr class='${i.index % 2 == 0? "even" : "odd" }' style="font : small">
 	        			<td><input type="checkbox" name="pj" value="${project.id}"/></td>
-	        			<td>${project.projectName }</td>
+	        			<td>${project.projectName } ${project.projectVersion }</td>
+	        			<td><tc-webtag:format object="${project.registrationPhase.scheduledStart}" format="EEEE MM.dd.yyyy" /></td>
+	        			<td><tc-webtag:format object="${project.registrationPhase.scheduledEnd}" format="EEEE MM.dd.yyyy" /></td>
+	        			<td>
 				    	<td id="ct${project.id}">
 	        				<c:forEach items="${project.contests }" var="contest" varStatus="status">	        				
 	        					${contest.name }

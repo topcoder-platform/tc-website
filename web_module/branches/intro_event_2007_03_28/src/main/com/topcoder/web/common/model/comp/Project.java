@@ -19,6 +19,7 @@ public class Project extends Base {
     public static final Integer STATUS_COMPLETED = 7;
     
     public static final Integer INFO_TYPE_PROJECT_NAME = 6;
+    public static final Integer INFO_TYPE_PROJECT_VERSION  = 7;
     public static final Integer INFO_TYPE_PROJECT_ELIGIBILITY = 14;
 
     public static final String ELIGIBILITY_OPEN = "Open";
@@ -27,6 +28,7 @@ public class Project extends Base {
     protected Integer statusId = null;
     protected Integer categoryId = null;
     protected Map<Integer, ProjectInfo> info = new HashMap<Integer, ProjectInfo>();
+    protected Map<Integer, ProjectPhase> phases = new HashMap<Integer, ProjectPhase>();
     protected Set<Contest> contests = new HashSet<Contest>();
     
     public Integer getCategoryId() {
@@ -71,11 +73,28 @@ public class Project extends Base {
     public String getProjectName() {
         return getInfo(INFO_TYPE_PROJECT_NAME);
     }
+    public String getProjectVersion() {
+        return getInfo(INFO_TYPE_PROJECT_VERSION);
+    }
+
     public String getProjectEligibility() {
         return getInfo(INFO_TYPE_PROJECT_ELIGIBILITY);
     }
     public boolean isEligibilityOpen() {
         return ELIGIBILITY_OPEN.equals(getProjectEligibility());
+    }
+    public Map<Integer, ProjectPhase> getPhases() {
+        return phases;
+    }
+    public void setPhases(Map<Integer, ProjectPhase> phases) {
+        this.phases = phases;
+    }
+    public ProjectPhase getPhase(Integer phaseTypeId) {
+        return phases.get(phaseTypeId);        
+    }
+
+    public ProjectPhase getRegistrationPhase() {
+        return getPhase(ProjectPhase.REGISTRATION);       
     }
 
 }
