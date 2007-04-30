@@ -10,5 +10,7 @@ import com.topcoder.web.common.model.comp.ContestPrize;
 public interface ContestPrizeDAO {
 
     List<ContestPrize> getPrizesForEvent(Long eventId);
+    
+    ContestPrize find(Long id);
         
 }

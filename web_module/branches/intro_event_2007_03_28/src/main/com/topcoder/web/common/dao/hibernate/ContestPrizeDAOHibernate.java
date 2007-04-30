@@ -22,5 +22,9 @@ public class ContestPrizeDAOHibernate extends Base implements ContestPrizeDAO {
         q.setLong("eventId", eventId);
         return q.list();
     }
+    
+    public ContestPrize find(Long id) {
+        return (ContestPrize) super.find(ContestPrize.class, id);
+    }
 
 }
