@@ -7120,7 +7120,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
         sb.append(" AND s.status_id = pd.status_id  ");
         sb.append(" AND pdsrx.payment_detail_id = pd.payment_detail_id ");
-        sb.append(" ORDER BY p.payment_id asc ");
         return sb;
     }
 
@@ -7203,10 +7202,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                           log.debug("newValue: " + value);
                       }
                   }
+                  query.append(" ORDER BY p.payment_id asc ");
 
                   log.debug("query: " + query.toString());
                   rsc = runSearchQuery(conn, query.toString(), objects, true);
 
+                  // use control-braek to get the reasons and then build and add the payment.
                   long lastProcessedPayment = -1;
                   List reasons = new ArrayList<Long>();
                   ResultSetRow rsr = null;
