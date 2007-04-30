@@ -41,10 +41,10 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusReasonException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
-import com.topcoder.web.ejb.pacts.payments.StateTransitionFailureException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
@@ -7109,14 +7109,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, ");
         sb.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         sb.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        sb.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number , ");
+        sb.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.client, ");
+        sb.append("    pdsrx.payment_status_reason_id, ");
         sb.append("    (SELECT reference_field_name   ");
         sb.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
         sb.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
         sb.append("       AND pt.payment_reference_id = pr.payment_reference_id) as reference_field_name ");
-        sb.append(" FROM payment p, payment_detail pd, status_lu s ");
+        sb.append(" FROM payment p, payment_detail pd, status_lu s, ");
+        sb.append(" OUTER payment_detail_status_reason_xref pdsrx ");
         sb.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
         sb.append(" AND s.status_id = pd.status_id  ");
+        sb.append(" AND pdsrx.payment_detail_id = pd.payment_detail_id ");
+        sb.append(" ORDER BY p.payment_id asc ");
         return sb;
     }
 
@@ -7175,6 +7179,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                           query.append(" AND p.user_id = ? ");
                           objects.add(value);
                           log.debug("newValue: " + value);
+                      } else if (key.equals(PAYMENT_ID)) {
+                          query.append(" AND p.payment_id = ? ");
+                          objects.add(value);
+                          log.debug("newValue: " + value);
                       } else if (key.equals(PAYMENT_REFERENCE_ID)) {
                           query.append(" AND (");
                           query.append("  pd.algorithm_round_id = ? OR ");
@@ -7199,11 +7207,24 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                   log.debug("query: " + query.toString());
                   rsc = runSearchQuery(conn, query.toString(), objects, true);
 
+                  long lastProcessedPayment = -1;
+                  List reasons = new ArrayList<Long>();
+                  ResultSetRow rsr = null;
                   for (Iterator it = rsc.iterator(); it.hasNext();) {
-                      ResultSetRow rsr = (ResultSetRow) it.next();
+                      rsr = (ResultSetRow) it.next();
 
-                      BasePayment payment = getBasePaymentBean(rsr);
+                      if (lastProcessedPayment != rsr.getLongItem("payment_id") && lastProcessedPayment != -1) {
+                          BasePayment payment = getBasePaymentBean(rsr, reasons);
+                          l.add(payment);
+                          reasons.clear();
+                      } else {
+                          reasons.add(rsr.getLongItem("payment_status_reason_id"));
+                      }
 
+                      lastProcessedPayment = rsr.getLongItem("payment_id");
+                  }
+                  if (rsr != null) {
+                      BasePayment payment = getBasePaymentBean(rsr, reasons);
                       l.add(payment);
                   }
               } catch (SQLException e) {
@@ -7216,7 +7237,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
               return l;
           }
 
-    private BasePayment getBasePaymentBean(ResultSetRow rsr) throws InvalidStatusException {
+    private BasePayment getBasePaymentBean(ResultSetRow rsr, List<Long> reasonsIds) throws InvalidStatusException, InvalidStatusReasonException {
         long paymentId = rsr.getLongItem("payment_id");
         long coder = rsr.getLongItem("user_id");
         double grossAmount = rsr.getDoubleItem("gross_amount");
@@ -7227,6 +7248,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Date dueDate = rsr.getTimestampItem("date_due");
         long statusId = rsr.getLongItem("status_id");
         String description = rsr.getStringItem("payment_desc");
+        String client = rsr.getStringItem("client");
         String referenceFieldName = rsr.getStringItem("reference_field_name");
         long reference = 0;
         if (referenceFieldName != null) {
@@ -7243,8 +7265,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setTotalAmount(totalAmount);
         payment.setInstallmentNumber(installmentNumber);
         payment.setDueDate(dueDate);
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
         payment.setDescription(description);
+
+        BasePaymentStatus currentStatus = PaymentStatusFactory.createStatus(statusId);
+        currentStatus.getReasons().clear();
+        for (Long l : reasonsIds) {
+            PaymentStatusReason psr = PaymentStatusReason.getStatusReasonUsingId(l);
+            log.debug("findCoderPayments() add reason: " + psr.getDesc());
+            currentStatus.getReasons().add(psr);
+        }
+
+        payment.setCurrentStatus(currentStatus);
+        
+        if (payment instanceof ComponentProjectReferencePayment) {
+            ((ComponentProjectReferencePayment) payment).setClient(client);
+        }
+
         return payment;
     }
 
@@ -7352,71 +7388,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public BasePayment getBasePayment(long paymentId) throws SQLException, InvalidStatusException {
-        StringBuffer query = new StringBuffer(500);
+        Map searchCriteria = new HashMap();
 
-        query.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
-        query.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, ");
-        query.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
-        query.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        query.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.client, ");
-        query.append("    (SELECT reference_field_name   ");
-        query.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
-        query.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
-        query.append("       AND pt.payment_reference_id = pr.payment_reference_id) as reference_field_name ");
-        query.append(" FROM payment p, payment_detail pd, status_lu s ");
-        query.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
-        query.append(" AND s.status_id = pd.status_id  ");
-        query.append(" AND p.payment_id = " + paymentId);
-
-        ResultSetContainer rsc = runSelectQuery(query.toString(), false);
-
-        if (rsc.size() == 0) {
-            return null;
-        }
-
-        ResultSetContainer.ResultSetRow rsr = rsc.getRow(0);
-
-
-        long coder = rsr.getLongItem("user_id");
-        double grossAmount = rsr.getDoubleItem("gross_amount");
-        double netAmount = rsr.getDoubleItem("net_amount");
-        double totalAmount = rsr.getDoubleItem("total_amount");
-        int paymentType = rsr.getIntItem("payment_type_id");
-        int installmentNumber = rsr.getIntItem("installment_number");
-        Date dueDate = rsr.getTimestampItem("date_due");
-        long statusId = rsr.getLongItem("status_id");
-//        String statusDesc = rsr.getStringItem("status_desc");
-        String description = rsr.getStringItem("payment_desc");
-        String client = rsr.getStringItem("client");
-
-        String referenceFieldName = rsr.getStringItem("reference_field_name");
-
-        long reference = 0;
-
-        if (referenceFieldName != null) {
-            try {
-                reference = rsr.getLongItem(referenceFieldName);
-            } catch (Exception e) {
-            }
-        }
-
-        BasePayment payment = BasePayment.createPayment(paymentType, coder, grossAmount, reference);
-
-        payment.setId(paymentId);
-        payment.setNetAmount(netAmount);
-        payment.setTotalAmount(totalAmount);
-        payment.setInstallmentNumber(installmentNumber);
-        payment.setDueDate(dueDate);
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(statusId));
-        // TODO: pulky: get reasons
-        
-//        payment.setStatusDesc(statusDesc);
-        payment.setDescription(description);
-
-        if (payment instanceof ComponentProjectReferencePayment) {
-            ((ComponentProjectReferencePayment) payment).setClient(client);
-        }
-        return payment;
+        searchCriteria.put(PAYMENT_ID, String.valueOf(paymentId));
+        return findCoderPayments(searchCriteria).get(0);
     }
 
 
@@ -7566,8 +7541,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         public String getRoundName() {
             return roundName;
         }
-
-
     }
 }
 
