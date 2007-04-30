@@ -40,6 +40,8 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">04.30.07 3:00 PM - </td><td width="100%"><A href="/to/?module=ViewBallot&rd=2036">TCCC07 Web Design Predictive Vote</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.30.07 3:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=17020">The Ball Logo &amp; Icon Design Vote</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.27.07 4:00 PM - </td><td width="100%"><A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005">Connected Services "Wireless Cities" mashup competition open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.24.07 2:20 PM - </td><td width="100%">Vote for the TCO07 t-shirt designs: 
         <a href="/tc?module=ViewSurvey&sid=16939">Studio Design</a>; 

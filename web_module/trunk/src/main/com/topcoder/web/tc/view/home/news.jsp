@@ -4,6 +4,44 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.30.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/to/?module=ViewBallot&rd=2036">TCCC07 Web Design Predictive Vote</A>
+        </span><br><br>
+        Which design for the TCCC07 site do you think TopCoder members will like? Vote now, and let your voice be heard. Voting closes at 2:00 PM EDT on Wednesday, <br>May 2. 
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/to/?module=ViewBallot&rd=2036">vote now</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=469&start=0">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.30.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=17020">The Ball Logo &amp; Icon Design Vote</A>
+        </span><br><br>
+        Logos &amp; icon designs for The Ball have been narrowed down to four finalists. Rank your favorites and help pick a winner! Voting closes at 2:00 PM EDT on Wednesday, May 2.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=17020">vote now</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=468&start=0">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>04.30.07<br>2:20 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -183,39 +221,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.23.07<br>5:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/to/?module=ViewBallot&rd=2032">"The Ball" Logo & Icon Prediction Contest Round 2</A>
-        </span><br><br>
-        Vote now to predict the winning look for The Ball's logo and icons.  This contest closes on April 26 at 2 PM EDT.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/to/?module=ViewBallot&rd=2032">vote now</A> |
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=48">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>04.23.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow1">Minimum Cost Flow, Part 1: Key Concepts</A></span><br><br>
-      This article covers the so-called "min-cost flow" problem, which has many applications for both TopCoder competitors and professional programmers. In Part 1, we'll look at the problem itself.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22671469" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow1">full story</A> | 
-        <tc-webtag:forumLink forumID="515317" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
