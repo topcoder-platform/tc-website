@@ -47,6 +47,7 @@ Create new Introductory Event: <a href="/admin/?module=AddIntroEvent&ha=1">algo<
 	</td>
 	<td><c:out value="${event.description}" /></td>
 	<td>
+		<c:set var="compId" value=""/>
 		<c:forEach items="${event.children}" var="child">
 			<c:if test="${child.type.id == 12 }">
 				<a href="/tc?module=IntroEventAlgoOverview&eid=${child.id }">algo</a>
