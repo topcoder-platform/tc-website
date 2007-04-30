@@ -258,10 +258,12 @@
                     <li class="stop"><a href="/tc?module=StudioLeaderboard&amp;d1=tournaments&amp;d3=studio&amp;d4=leaderboard&eid=2040&amp;d2=tco07"<% if (tabLev1.equals("studio") && tabLev2.equals("advancers") && tabLev3.equals("leaderboard")) {%> class="navHighlight"<% } %>><span>Leaderboard</span></a></li>
                     </ul>
                 </li>
+<%--
                 <li class="stop">
                     <a href="/tc?module=TCO07ViewRegistration&amp;ct=studio"<% if (tabLev1.equals("studio") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>>
                         <span>Register</span>
                     </a></li>
+--%>
                 <li class="stop">
                     <a href="/tc?module=TCO07ViewRegistrants&amp;ct=studio"<% if (tabLev1.equals("studio") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
                         <span>Registrants</span>
