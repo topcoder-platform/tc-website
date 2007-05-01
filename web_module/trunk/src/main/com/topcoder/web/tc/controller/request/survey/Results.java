@@ -1,12 +1,11 @@
 package com.topcoder.web.tc.controller.request.survey;
 
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.voting.*;
@@ -89,7 +88,7 @@ public class Results extends SurveyData {
         CondorcetSchulzeResults results = null;
         CacheClient cc = null;
         try {
-            cc = CacheClientFactory.createCacheClient();
+            cc = CacheClientFactory.create();
             results = (CondorcetSchulzeResults) (cc.get(key));
         } catch (Exception e) {
             log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
@@ -165,7 +164,7 @@ public class Results extends SurveyData {
             results = new CondorcetSchulzeResults(election);
             if (hasCacheConnection) {
                 try {
-                    cc.set(key, results, DataAccessConstants.DEFAULT_EXPIRE_TIME);
+                    cc.set(key, results);
                 } catch (Exception e) {
                     log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                 }

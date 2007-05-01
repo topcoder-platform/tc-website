@@ -4,14 +4,14 @@ import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.TCSAuthorization;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
@@ -44,7 +44,7 @@ public class SecurityHelper {
             boolean hasCacheConnection = true;
             CacheClient cc = null;
             try {
-                cc = CacheClientFactory.createCacheClient();
+                cc = CacheClientFactory.create();
                 if (!forceLoadFromDb)
                     ret = (TCSubject) (cc.get(key));
             } catch (Exception e) {
@@ -65,7 +65,7 @@ public class SecurityHelper {
                 }
                 if (hasCacheConnection) {
                     try {
-                        cc.set(key, ret, 1000 * 60 * 30);
+                        cc.set(key, ret);
                     } catch (Exception e) {
                         log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                     }

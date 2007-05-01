@@ -1,9 +1,9 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc06;
 
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.PreferenceValueDAO;
 import com.topcoder.web.common.dao.UserDAO;
@@ -98,7 +98,7 @@ public class SubmitAlgoRegistration extends ViewAlgoRegistration {
 
     protected void refreshCache() {
         try {
-            CacheClient cc = CacheClientFactory.createCacheClient();
+            CacheClient cc = CacheClientFactory.create();
             Request r = new Request();
             r.setContentHandle("tccc06_alg_registrants");
             cc.remove(r.getCacheKey());
