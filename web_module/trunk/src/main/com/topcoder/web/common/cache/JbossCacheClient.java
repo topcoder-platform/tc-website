@@ -1,12 +1,10 @@
 package com.topcoder.web.common.cache;
 
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCResourceBundle;
-import org.jboss.cache.TreeCacheMBean;
-import org.jboss.cache.Fqn;
 import org.jboss.cache.CacheException;
+import org.jboss.cache.Fqn;
+import org.jboss.cache.TreeCacheMBean;
 
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 /**
@@ -16,28 +14,26 @@ import javax.naming.NamingException;
  */
 public class JbossCacheClient implements CacheClient {
 
-    private TreeCacheMBean cache;
+    private static TreeCacheMBean cache;
 
     //just using the root path for now
-    private Fqn path;
+    private static final Fqn path = new Fqn();
+
 
     public JbossCacheClient() {
-        path = new Fqn();
+        init();
+    }
+
+
+    private synchronized void init() {
         TCResourceBundle b = new TCResourceBundle("cache");
-        //cache =
-        InitialContext ctx = null;
         try {
-            ctx = TCContext.getInitial(new TCResourceBundle("cache").getProperty("host_url"));
-            //todo consider moving this out to the factory so that we can have the cache named different things in jndi
-            cache = (TreeCacheMBean)ctx.lookup("TCCache");
+            cache = (TreeCacheMBean)new CacheLocator(TreeCacheMBean.class, b.getProperty("jndi_name"), b.getProperty("host_url")).getService();
         } catch (NamingException e) {
             throw new RuntimeException(e);
-        } finally {
-            TCContext.close(ctx);
         }
-
-
     }
+
 
     public void set(String key, Object value) throws TCCacheException {
         try {
