@@ -1,11 +1,19 @@
 package com.topcoder.web.corp.controller;
 
 import com.fx4m.plot13.HistoryPlot;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.RequestInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.RequestTracker;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.cache.CacheClient;
 import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
@@ -31,10 +39,10 @@ import java.util.Map;
 
 
 /**
- *  A servlet to generate graph images
+ * A servlet to generate graph images
  *
- * @version $Revision$
  * @author Greg Paul
+ * @version $Revision$
  */
 
 public final class GraphServlet extends HttpServlet {
@@ -48,11 +56,11 @@ public final class GraphServlet extends HttpServlet {
     private static final Color BLUE = new Color(0x66, 0x66, 0xff);
     private static final Color GRAY = new Color(0x99, 0x99, 0x99);
     private static final String[] rating_segments = {"0-99", "100-199", "200-299", "300-399",
-                                                     "400-499", "500-599", "600-699", "700-799", "800-899", "900-999",
-                                                     "1000-1099", "1100-1199", "1200-1299", "1300-1399", "1400-1499", "1500-1599",
-                                                     "1600-1699", "1700-1799", "1800-1899", "1900-1999", "2000-2099", "2100-2199",
-                                                     "2200-2299", "2300-2399", "2400-2499", "2500-2599", "2600-2699", "2700-2799",
-                                                     "2800-2899", "2900 & up"};
+            "400-499", "500-599", "600-699", "700-799", "800-899", "900-999",
+            "1000-1099", "1100-1199", "1200-1299", "1300-1399", "1400-1499", "1500-1599",
+            "1600-1699", "1700-1799", "1800-1899", "1900-1999", "2000-2099", "2100-2199",
+            "2200-2299", "2300-2399", "2400-2499", "2500-2599", "2600-2699", "2700-2799",
+            "2800-2899", "2900 & up"};
     private static final String LICENSE_KEY = "8C6BE93G3B21D6D";
 
     private static final Style axisStyle = new Style(YELLOW, "Verdana", Font.PLAIN, 10);
@@ -262,6 +270,7 @@ public final class GraphServlet extends HttpServlet {
      * returns the datawarehouse database to be used for
      * the authenticated user.  if it's not in the database
      * we'll return a default
+     *
      * @return
      * @throws java.lang.Exception
      */
