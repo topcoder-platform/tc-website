@@ -7,11 +7,11 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.corp.common.TCESConstants;
 
@@ -47,7 +47,7 @@ public class SearchTask extends ViewSearchTask {
                     DataRetrieverInt dr = null;
                     CacheClient cc = null;
                     try {
-                        cc = CacheClientFactory.createCacheClient();
+                        cc = CacheClientFactory.create();
                         map = (Map) (cc.get(key));
                     } catch (Exception e) {
                         log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
@@ -63,7 +63,7 @@ public class SearchTask extends ViewSearchTask {
                         /* attempt to add this object to the cache */
                         if (hasCacheConnection) {
                             try {
-                                cc.set(key, map, 10 * 60 * 1000);
+                                cc.set(key, map);
                             } catch (Exception e) {
                                 log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                             }

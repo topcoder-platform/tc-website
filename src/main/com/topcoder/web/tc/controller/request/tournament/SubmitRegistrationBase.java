@@ -1,21 +1,16 @@
 package com.topcoder.web.tc.controller.request.tournament;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
-import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
-import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.model.Response;
-import com.topcoder.web.common.model.Survey;
-import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
+import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.survey.Helper;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author dok, pulky
@@ -62,7 +57,7 @@ public abstract class SubmitRegistrationBase extends ViewRegistrationBase {
     
     protected void refreshCache(Event e) {
         try {
-            CacheClient cc = CacheClientFactory.createCacheClient();
+            CacheClient cc = CacheClientFactory.create();
             Request r = new Request();
             log.debug("removing " + e.getShortDescription() + "_registrants" + " from cache.");
             r.setContentHandle(e.getShortDescription() + "_registrants");
