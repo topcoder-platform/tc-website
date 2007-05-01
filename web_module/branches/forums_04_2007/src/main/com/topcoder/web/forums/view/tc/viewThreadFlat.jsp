@@ -369,8 +369,10 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 					int[] ratings = ForumsUtil.getRatings(ratingManager, message);
 					posRatings = ratings[0];
 					negRatings = ratings[1];
-					ratingCount = posRatings+negRatings; %>
-				| Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> | <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a> <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
+					ratingCount = posRatings+negRatings; 
+					Rating rating = ratingManager.getRating(user, message); 
+                    String ratingVal = (rating == null) ? "0" : rating.getScore() == 2 ? "+1":"-1"; %>
+				| Feedback: <span id="<%=ratingsID%>" class="pointer" title="Your vote: <%=ratingVal%>">(+<%=posRatings%>/-<%=negRatings%>)</span> | <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a> <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
         	<%  } %>
          | <A href="?module=Post&<%=ForumConstants.POST_MODE%>=Reply&<%=ForumConstants.MESSAGE_ID%>=<%=message.getID()%>" class="rtbcLink">Reply</A>
          <%  if (message.getUser() != null && message.getUser().equals(user)) { %>
