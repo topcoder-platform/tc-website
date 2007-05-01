@@ -7,20 +7,13 @@ import com.topcoder.shared.screening.common.ScreeningContext;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.messaging.WebResponsePool;
 import com.topcoder.web.codinginterface.techassess.controller.request.Base;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.Constants;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.LightAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.SecurityHelper;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
@@ -63,7 +56,6 @@ public class MainServlet extends BaseServlet {
                 "serverID = " + ScreeningApplicationServer.WEB_SERVER_ID,
                 new WebResponsePool());
         log.info("created queue response manager");
-
 
 /*
         Constants.initialize();
