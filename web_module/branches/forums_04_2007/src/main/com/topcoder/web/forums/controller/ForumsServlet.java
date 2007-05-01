@@ -114,7 +114,7 @@ public class ForumsServlet extends BaseServlet {
                 }
 
                 TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+                TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
 
                 if (throttleEnabled) {
                     if (throttle.throttle(request.getSession().getId())) {
