@@ -106,14 +106,18 @@ public class CacheLocator {
                     checkServiceLoaded();
                     return method.invoke(services, args);
                 } catch (UndeclaredThrowableException e) {
+                    log.debug("we got an UndeclaredThrowableException");
                     throw e.getUndeclaredThrowable();
                 } catch (InvocationTargetException e) {
+                    log.debug("we got an InvocationTargetException");
                     throw e.getTargetException();
                 }
             } catch (NamingException e) {
+                log.debug("we got an InvocationTargetException");
                 mustReload = true;
                 throw e;
             } catch (RemoteException e) {
+                log.debug("we got an InvocationTargetException");
                 mustReload = true;
                 throw e;
             }
