@@ -86,6 +86,7 @@ public class CacheLocator {
 
     private synchronized void createServiceInstance() throws NamingException {
         if (mustReload) {
+            log.info("LOADING CACHE FROM JNDI");
             mustReload = false;
             InitialContext ctx = null;
             try {
