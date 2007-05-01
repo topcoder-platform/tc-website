@@ -1,7 +1,6 @@
 package com.topcoder.web.common;
 
 import com.topcoder.security.RolePrincipal;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;

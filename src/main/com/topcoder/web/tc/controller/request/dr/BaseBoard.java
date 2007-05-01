@@ -4,7 +4,6 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -13,14 +12,15 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.BoardRowComparator;
 import com.topcoder.web.tc.model.dr.IBoardRow;
-import com.topcoder.web.common.model.SortInfo;
 
 import java.util.*;
 
@@ -54,7 +54,7 @@ public abstract class BaseBoard extends BaseProcessor {
 
     /**
      * The requested period
-     * 
+     *
      * @since 1.0.3
      */
     protected String period = null;
@@ -300,15 +300,15 @@ public abstract class BaseBoard extends BaseProcessor {
         }
         return (ResultSetContainer) m.get(query);
     }
-    
+
     /**
      * Queries placement points for a particular board
      * Retrieves an array of the placement points for a particualr period and phase
-     * 
+     *
      * @since 1.0.3
      */
-    protected double[] getPlacementPrize(String command, String period, String periodId, 
-        String phaseId) throws TCWebException {
+    protected double[] getPlacementPrize(String command, String period, String periodId,
+                                         String phaseId) throws TCWebException {
         double[] placementArray = null;
 
         Request r = new Request();
@@ -320,8 +320,8 @@ public abstract class BaseBoard extends BaseProcessor {
         try {
             m = dai.getData(r);
 
-            ResultSetContainer placementPoints = (ResultSetContainer) m.get(command);        
-        
+            ResultSetContainer placementPoints = (ResultSetContainer) m.get(command);
+
             placementArray = new double[placementPoints.size()];
             int i = 1;
             for (Iterator it = placementPoints.iterator(); it.hasNext(); i++) {
@@ -329,7 +329,7 @@ public abstract class BaseBoard extends BaseProcessor {
                 if (row.getIntItem("place") != i) {
                     throw new TCWebException("Wrong contest_prize for " + period + ": " + periodId + " phase " + phaseId);
                 }
-                placementArray[i-1] = row.getDoubleItem("prize_amount");
+                placementArray[i - 1] = row.getDoubleItem("prize_amount");
             }
         } catch (Exception e) {
             throw new TCWebException("Command " + command + " failed.", e);

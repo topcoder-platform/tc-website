@@ -6,13 +6,13 @@
 
 package com.topcoder.web.tc.controller.request.statistics;
 
-import com.topcoder.shared.dataAccess.CachedQueryDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.QueryRequest;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.CachedQueryDataAccess;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
@@ -23,8 +23,7 @@ import java.util.Map;
 import java.util.Vector;
 
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 public class RatingSim extends Base {
     protected void businessProcessing() throws TCWebException {
@@ -156,9 +155,9 @@ public class RatingSim extends Base {
     private int doIt(int roundId, int divisionId, long coderId, int rating, int vol, double score) throws Exception {
 
         StringBuffer sqlStr = new StringBuffer(400);
-        int room,newrating,newvol,coder,retVal,newratingnovol;
-        Vector names,ratings,volatilities,timesplayed,scores,endratings,endvols,endratingsnovol,ratingsplusprov,namesplusprov,
-                volatilitiesplusprov,timesplayedplusprov,scoresplusprov,stringnames,stringnamesplusprov;
+        int room, newrating, newvol, coder, retVal, newratingnovol;
+        Vector names, ratings, volatilities, timesplayed, scores, endratings, endvols, endratingsnovol, ratingsplusprov, namesplusprov,
+                volatilitiesplusprov, timesplayedplusprov, scoresplusprov, stringnames, stringnamesplusprov;
         ArrayList results = new ArrayList();
         ArrayList resultsplusprov = new ArrayList();
 
@@ -281,7 +280,6 @@ public class RatingSim extends Base {
 
             } // end while loop over endratings
 
-
 // All changes made
         } catch (Exception e) {
             throw e;
@@ -289,7 +287,7 @@ public class RatingSim extends Base {
         return 0;
     }
 
-//-------------FUNCTIONS AND VARIABLES USED BY QUBITS RATING SYSTEM-----------------------
+    //-------------FUNCTIONS AND VARIABLES USED BY QUBITS RATING SYSTEM-----------------------
     int STEPS = 100;
     double initialScore = 1200.0;
     double oneStdDevEquals = 1200.0; /* rating points */
@@ -298,7 +296,7 @@ public class RatingSim extends Base {
     double initialWeight = 0.60;
     double finalWeight = 0.18;
     double volatilityWeight = 0;
-    double matchStdDevEquals = 500.0;	/* rating points */
+    double matchStdDevEquals = 500.0;    /* rating points */
     int people = 0;
     double sqiv = 0.0;
     int people2 = 0;
@@ -310,14 +308,13 @@ public class RatingSim extends Base {
     double sqdf = 0.0;
 
     /**
-     *
      * @param names
      * @param ratings
      * @param volatilities
      * @param timesPlayed
      * @param scores
      * @param stringnames
-     * @param prov if true, the list includes people that have been never been rated before this round
+     * @param prov         if true, the list includes people that have been never been rated before this round
      * @return
      */
     private ArrayList rateEvent(Vector names, Vector ratings, Vector volatilities, Vector timesPlayed, Vector scores, Vector stringnames, boolean prov) {
@@ -329,7 +326,7 @@ public class RatingSim extends Base {
         Vector newRating = new Vector();
         Vector newRatingWithVol = new Vector();
         int i, j;
-        double aveVol = 0,rating,vol;
+        double aveVol = 0, rating, vol;
 
         /* COMPUTE AVERAGE RATING */
         double rave = 0.0;
@@ -456,20 +453,20 @@ public class RatingSim extends Base {
             if (!prov || (prov && ((Integer) timesPlayed.elementAt(i)).intValue() == 0))
                 log.info(
                         fS1((String) stringnames.elementAt(i)) + " " +
-                        ((String) names.elementAt(i)) + "  " +
-                        ((Integer) timesPlayed.elementAt(i)).intValue() + " " +
-                        in4((Double) ratings.elementAt(i)) + " " +
-                        ((Double) volatilities.elementAt(i)).intValue() + " " +
-                        rat((Double) eranks.elementAt(i)) + " " +
-                        fD2((Double) eperf.elementAt(i)) + " " +
-                        scr((Double) scores.elementAt(i)) + " " +
-                        rat((Double) ranks.elementAt(i)) + " " +
-                        fD2((Double) perf.elementAt(i)) + " " +
-                        fD2(new Double(((Double) perf.elementAt(i)).doubleValue() -
-                        ((Double) eperf.elementAt(i)).doubleValue())) +
-                        " " + in4((Double) newRating.elementAt(i)) + " " +
-                        ((Double) newVolatility.elementAt(i)).intValue()
-                        + " " + in4((Double) newRatingWithVol.elementAt(i))
+                                ((String) names.elementAt(i)) + "  " +
+                                ((Integer) timesPlayed.elementAt(i)).intValue() + " " +
+                                in4((Double) ratings.elementAt(i)) + " " +
+                                ((Double) volatilities.elementAt(i)).intValue() + " " +
+                                rat((Double) eranks.elementAt(i)) + " " +
+                                fD2((Double) eperf.elementAt(i)) + " " +
+                                scr((Double) scores.elementAt(i)) + " " +
+                                rat((Double) ranks.elementAt(i)) + " " +
+                                fD2((Double) perf.elementAt(i)) + " " +
+                                fD2(new Double(((Double) perf.elementAt(i)).doubleValue() -
+                                        ((Double) eperf.elementAt(i)).doubleValue())) +
+                                " " + in4((Double) newRating.elementAt(i)) + " " +
+                                ((Double) newVolatility.elementAt(i)).intValue()
+                                + " " + in4((Double) newRatingWithVol.elementAt(i))
                 );
         }
 

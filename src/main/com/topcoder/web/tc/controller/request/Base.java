@@ -1,10 +1,10 @@
 package com.topcoder.web.tc.controller.request;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.CachedDataAccess;
 
 abstract public class Base extends BaseProcessor {
 

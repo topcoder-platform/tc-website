@@ -1,10 +1,10 @@
 package com.topcoder.web.tc.controller.request.membercontact;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.UserPreference;

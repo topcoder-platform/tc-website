@@ -1,6 +1,5 @@
 package com.topcoder.web.corp.controller.request.tces;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -8,12 +7,14 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.CachedDataAccess;
 
 import java.util.*;
 
 
 /**
  * A basic implementation of Task.
+ *
  * @author bigjake <kitz@mit.edu>
  * @author swif0ne <dancohn1@yahoo.com>
  * @version $Revision$
@@ -37,7 +38,9 @@ public abstract class BaseTask extends BaseProcessor {
         this.trail = trail;
     }
 
-    /** Retreives and parses a date from a ResultSetRow
+    /**
+     * Retreives and parses a date from a ResultSetRow
+     *
      * @param row Row from which the date should be retreived
      * @param key Key for the date item within row
      */
@@ -72,6 +75,7 @@ public abstract class BaseTask extends BaseProcessor {
      * returns the transactional database to be used for the
      * authenticated user.  if it's not in the database,
      * we'll return a default.
+     *
      * @return
      * @throws java.lang.Exception
      */
@@ -87,6 +91,7 @@ public abstract class BaseTask extends BaseProcessor {
      * returns the datawarehouse database to be used for
      * the authenticated user.  if it's not in the database
      * we'll return a default
+     *
      * @return
      * @throws java.lang.Exception
      */

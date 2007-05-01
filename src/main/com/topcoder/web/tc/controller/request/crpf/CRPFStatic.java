@@ -1,8 +1,8 @@
 package com.topcoder.web.tc.controller.request.crpf;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.tc.controller.request.Static;
 
 import java.util.Map;

@@ -2,20 +2,20 @@ package com.topcoder.web.forums.util.filter;
 
 import com.jivesoftware.base.Filter;
 import com.jivesoftware.base.FilterChain;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.tag.HandleTag;
 
 /**
  * A filter that creates a handle tag for the username appearing between [handle][/handle] tags.
  */
 public class TCHandleTag implements Filter {
-    
+
     private final static String TAG_NAME = "handle";
     private final static String BEGIN_TAG = "[" + TAG_NAME + "]";
-    private final static String END_TAG = "[/" + TAG_NAME + "]";  
+    private final static String END_TAG = "[/" + TAG_NAME + "]";
     private final static int BEGIN_TAG_LEN = BEGIN_TAG.length();
     private final static int END_TAG_LEN = END_TAG.length();
 
@@ -57,8 +57,7 @@ public class TCHandleTag implements Filter {
                 }
 
                 endCodeTag = end + END_TAG_LEN;
-            }
-            else {
+            } else {
                 filtered.append(string.substring(endCodeTag, startCodeTag) + BEGIN_TAG);
                 endCodeTag = startCodeTag + BEGIN_TAG_LEN;
                 continue;
@@ -68,7 +67,7 @@ public class TCHandleTag implements Filter {
             String code = string.substring(startCodeTag + BEGIN_TAG_LEN, endCodeTag - END_TAG_LEN);
             code = code.replaceAll("<", "&lt;");
             code = code.replaceAll(">", "&gt;");
-            
+
             if (code.length() <= 0) {
                 continue;
             }
@@ -88,15 +87,15 @@ public class TCHandleTag implements Filter {
 
         return filtered.toString();
     }
-    
+
     private static final String[] lightStyles =
-        {"coderTextOrange", "coderTextWhite", "coderTextGray",
-         "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
+            {"coderTextOrange", "coderTextWhite", "coderTextGray",
+                    "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
     private static final String[] darkStyles =
-        {"coderTextOrange", "coderTextBlack", "coderTextGray",
-         "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
-    
+            {"coderTextOrange", "coderTextBlack", "coderTextGray",
+                    "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
+
 
     private long getCoderId(String handle) throws Exception {
         CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);

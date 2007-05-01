@@ -5,10 +5,6 @@
 package com.topcoder.web.tc.controller.request.statistics;
 
 
-import java.util.HashMap;
-import java.util.Map;
-
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -18,13 +14,13 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
@@ -70,7 +66,6 @@ public class PaymentDetail extends BaseProcessor {
         String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
-
         // Normalizes optional parameters and sets defaults
         if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
             startRank = "1";
@@ -110,32 +105,31 @@ public class PaymentDetail extends BaseProcessor {
         }
 
         if (typeId == PactsConstants.COMPONENT_PAYMENT) {
-        	// Add all the non Dev Support payment references to refIds list
-        	Map refIds = new HashMap();
-        	Map devSupport = new HashMap();
-        	//int []childs = new int[rsc.size()];
+            // Add all the non Dev Support payment references to refIds list
+            Map refIds = new HashMap();
+            Map devSupport = new HashMap();
+            //int []childs = new int[rsc.size()];
 
-        	// First pass: add all non dev support to the map
-        	for (int i = 0; i < details.size(); i++) {
-    		    if (details.getStringItem(i, "payment_desc").contains("- Design") &&
-    		    		details.getItem(i, "reference_id").getResultData() != null) {
-    		    	refIds.put(new Long(details.getLongItem(i, "reference_id")), new Integer(i));
-        		}
-        	}
-        	// Second pass: process the dev supports
-        	for (int i = 0; i < details.size(); i++) {
-    		    if (details.getStringItem(i, "payment_desc").contains("- Development Support")) {
-    		    	Integer parent = (Integer) refIds.get(new Long(details.getLongItem(i, "reference_id")));
-    		    	if (parent != null) {
-    		    		devSupport.put(new Long(details.getLongItem(i, "reference_id")), details.getRow(i));
-    		    	}
-    		    }
-        	}
+            // First pass: add all non dev support to the map
+            for (int i = 0; i < details.size(); i++) {
+                if (details.getStringItem(i, "payment_desc").contains("- Design") &&
+                        details.getItem(i, "reference_id").getResultData() != null) {
+                    refIds.put(new Long(details.getLongItem(i, "reference_id")), new Integer(i));
+                }
+            }
+            // Second pass: process the dev supports
+            for (int i = 0; i < details.size(); i++) {
+                if (details.getStringItem(i, "payment_desc").contains("- Development Support")) {
+                    Integer parent = (Integer) refIds.get(new Long(details.getLongItem(i, "reference_id")));
+                    if (parent != null) {
+                        devSupport.put(new Long(details.getLongItem(i, "reference_id")), details.getRow(i));
+                    }
+                }
+            }
 
-        	details = new ResultSetContainer(details, new DevSupportFilter(devSupport));
-        	getRequest().setAttribute("dev_support", devSupport);
+            details = new ResultSetContainer(details, new DevSupportFilter(devSupport));
+            getRequest().setAttribute("dev_support", devSupport);
         }
-
 
         // crops data
         ResultSetContainer rsc = new ResultSetContainer(details, Integer.parseInt(startRank),
@@ -147,7 +141,7 @@ public class PaymentDetail extends BaseProcessor {
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
 
-    	getRequest().setAttribute("payment_detail", rsc);
+        getRequest().setAttribute("payment_detail", rsc);
 
         setNextPage(Constants.VIEW_PAYMENT_DETAIL_PAGE);
         setIsNextPageInContext(true);
@@ -155,17 +149,17 @@ public class PaymentDetail extends BaseProcessor {
 
     private static class DevSupportFilter implements ResultFilter {
 
-    	private Map devSupport;
+        private Map devSupport;
 
-    	public DevSupportFilter(Map devSupport) {
-    		this.devSupport = devSupport;
-    	}
+        public DevSupportFilter(Map devSupport) {
+            this.devSupport = devSupport;
+        }
 
-		public boolean include(ResultSetRow rsr) {
-			return !(rsr.getStringItem("payment_desc").contains("- Development Support") &&
-				devSupport.containsKey(new Long(rsr.getLongItem("reference_id"))));
+        public boolean include(ResultSetRow rsr) {
+            return !(rsr.getStringItem("payment_desc").contains("- Development Support") &&
+                    devSupport.containsKey(new Long(rsr.getLongItem("reference_id"))));
 
-		}
+        }
 
     }
 }

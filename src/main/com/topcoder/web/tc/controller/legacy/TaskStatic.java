@@ -4,7 +4,6 @@ import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -15,6 +14,7 @@ import com.topcoder.shared.security.PathResource;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 
@@ -70,7 +70,8 @@ public final class TaskStatic {
             throw new NavigationException("Illegal task t: " + requestTask);
         } else if (!isLegal(requestCommand)) {
             throw new NavigationException("Illegal command c: " + requestCommand);
-        } else if (!isLegal(requestOther) || requestOther.equals(SECURE_DIR_NAME)) { //don't let folks get to supposedly "secure" files
+        } else
+        if (!isLegal(requestOther) || requestOther.equals(SECURE_DIR_NAME)) { //don't let folks get to supposedly "secure" files
             throw new NavigationException("Illegal other o: " + requestOther);
         }
 
@@ -229,7 +230,6 @@ public final class TaskStatic {
             log.error("failed to get tco03 advancers from db");
             e.printStackTrace();
         }
-
 
         /* getting this here for the tces/hiring page */
         try {

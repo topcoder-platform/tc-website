@@ -4,7 +4,6 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -12,6 +11,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
@@ -78,8 +78,8 @@ public class LeaderBoard extends BaseBoard {
     }
 
     /**
-     * Gets the top X prize factor. 
-     * 
+     * Gets the top X prize factor.
+     * <p/>
      * Top Third: 3.0
      * Top Half: 2.0
      *
@@ -87,35 +87,35 @@ public class LeaderBoard extends BaseBoard {
      * @param designBoard true if its a design board (false if development)
      */
     private double getTopPerformersFactor(String stageId, String phaseId) throws TCWebException {
-            double topPerformersFactor = 3.0;
+        double topPerformersFactor = 3.0;
 
-            Request r = new Request();
-            r.setContentHandle("dr_stage_top_performers_factor");
-            r.setProperty(Constants.PHASE_ID, phaseId);
-            r.setProperty(Constants.STAGE_ID, stageId);
-            DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
-            Map m = null;
-            try {
-                m = dai.getData(r);
+        Request r = new Request();
+        r.setContentHandle("dr_stage_top_performers_factor");
+        r.setProperty(Constants.PHASE_ID, phaseId);
+        r.setProperty(Constants.STAGE_ID, stageId);
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = null;
+        try {
+            m = dai.getData(r);
 
-                ResultSetContainer rscTopFactor = (ResultSetContainer) m.get("dr_stage_top_performers_factor");        
+            ResultSetContainer rscTopFactor = (ResultSetContainer) m.get("dr_stage_top_performers_factor");
 
-                if (rscTopFactor.size() != 1) {
-                    throw new TCWebException("Could not find top prize factor for the leader board.");
-                }
-                topPerformersFactor = rscTopFactor.getDoubleItem(0, "top_performers_factor"); 
-            } catch (Exception e) {
-                throw new TCWebException("Command " + "dr_stage_top_performers_factor" + " failed.", e);
+            if (rscTopFactor.size() != 1) {
+                throw new TCWebException("Could not find top prize factor for the leader board.");
             }
-
-            return topPerformersFactor;
+            topPerformersFactor = rscTopFactor.getDoubleItem(0, "top_performers_factor");
+        } catch (Exception e) {
+            throw new TCWebException("Command " + "dr_stage_top_performers_factor" + " failed.", e);
         }
-    
+
+        return topPerformersFactor;
+    }
+
     /**
      * First processing of the board
      *
-     * @param rsc         the ResultSetContainer retrieved from DB
-     * @param designBoard true if its a design board (false if development)
+     * @param rsc                 the ResultSetContainer retrieved from DB
+     * @param designBoard         true if its a design board (false if development)
      * @param topPerformersFactor the part of the board that will recieve top X prize.
      */
     private List processBoard(ResultSetContainer rsc, boolean designBoard, double topPerformersFactor) throws TCWebException {
@@ -177,7 +177,7 @@ public class LeaderBoard extends BaseBoard {
     /**
      * Queries pool prize for leader board
      * Retrieves the value of the pool prize for a particualr stage and phase
-     * 
+     *
      * @since 1.0.3
      */
     private double getPoolPrize(String stageId, String phaseId) throws TCWebException {
@@ -187,7 +187,7 @@ public class LeaderBoard extends BaseBoard {
     /**
      * Queries placement points for the leader board
      * Retrieves an array of the placement points for a particular stage and phase
-     * 
+     *
      * @since 1.0.3
      */
     private double[] getPlacementPrize(String stageId, String phaseId) throws TCWebException {

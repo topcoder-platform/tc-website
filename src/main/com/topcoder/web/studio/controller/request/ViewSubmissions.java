@@ -1,12 +1,12 @@
 package com.topcoder.web.studio.controller.request;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.Equals;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
@@ -54,7 +54,7 @@ public class ViewSubmissions extends ShortHibernateProcessor {
         r.setContentHandle("submissions");
         r.setProperty(Constants.CONTEST_ID, contestId);
 
-        if (c.getMaxSubmissions()!=null && c.getMaxSubmissions().getValue()!=null) {
+        if (c.getMaxSubmissions() != null && c.getMaxSubmissions().getValue() != null) {
             r.setProperty(Constants.SUBMISSION_RANK, c.getMaxSubmissions().getValue());
         }
 

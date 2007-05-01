@@ -10,27 +10,28 @@
 
 package com.topcoder.web.tc.controller.request.calendar;
 
-import com.topcoder.web.tc.controller.request.Base;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.tc.controller.request.Base;
 
 import javax.naming.Context;
 import java.util.Map;
+
 /**
- *
  * @author cstjohn
  */
 public abstract class MatchInfo extends Base {
     private static Logger log = Logger.getLogger(MatchInfo.class);
+
     protected abstract void setForwardPage(boolean isHSMatch);  // defined by subclasses
-    
+
     protected void businessProcessing() throws TCWebException {
         String result = null;
         Request dataRequest = null;
@@ -52,7 +53,7 @@ public abstract class MatchInfo extends Base {
             }
             getRequest().setAttribute("rsc", rsc);
 
-            ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow)rsc.get(0);
+            ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow) rsc.get(0);
             String time = "";
             time += "&day=" + rsr.getStringItem("day");
             time += "&month=" + rsr.getStringItem("month");
@@ -61,13 +62,13 @@ public abstract class MatchInfo extends Base {
             time += "&min=" + rsr.getStringItem("minute");
             time += "&sec=0";
             getRequest().setAttribute("time", time);
-            
-            setForwardPage(rsc.getIntItem(0, "round_type_id")==17);
+
+            setForwardPage(rsc.getIntItem(0, "round_type_id") == 17);
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
             throw we;
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-    }    
+    }
 }
