@@ -336,29 +336,11 @@
     </tr>
     <tr>
         <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">April Events:</A></td>
+        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">May Events:</A></td>
     </tr>
     <tr>
         <td class="homeArrow">&#160; </td>
         <td class="homeText"><br>
-            <%-- april --%>
-            <b>04.03</b> - TCO07 Algo Qual Round 3 - AOL - 9 PM<br><br>
-            <b>04.04</b> - TCO07 Marathon Match #3 - 12 NOON<br><br>
-            <b>04.05</b> - CDDC Week 4 Projects Posted - 9 AM<br><br>
-            <b>04.07</b> - TCO07 Algo Round 1A - UBS - 1 PM<br><br>
-            <b>04.10</b> - TCO07 Algo Round 1B - NSA - 9 PM<br><br>
-            <b>04.12</b> - TCO07 Algo Round 1C - DRW - 7 AM<br><br>
-            <b>04.12</b> - CDDC Registration Closes - 9 AM<br><br>
-            <b>04.12</b> - CDDC Week 5 Projects Posted - 9 AM<br><br>
-            <b>04.14</b> - TCO07 Algo Round 2 - UBS - 1 PM<br><br>
-            <b>04.18</b> - SRM 345 - AOL - 11 AM<br><br>
-            <b>04.18</b> - TCO07 Marathon Match #4 - 12 NOON<br><br>
-            <b>04.21</b> - TCO07 Algo Round 3 - NSA - 1 PM<br><br>
-            <b>04.24</b> - SRM 346 - NSA - 9 PM<br><br>
-            <b>04.28</b> - TCO07 Algo Round 4 - DRW - 1 PM<br><br>
-            <b>04.30</b> - SDC Registration Closes - 6 PM<br><br>
-            
-            <%-- MAY EVENTS
             <b>05.01</b> - SRM 347 - 7 AM<br><br>
             <b>05.09</b> - SRM 348 - NSA - 9 PM<br><br>
             <b>05.10</b> - CDDC Round 1 Projects Posted - 9 AM<br><br>
@@ -368,7 +350,7 @@
             <b>05.19</b> - TCHS07 Championship Round - 2:30 PM<br><br>
             <b>05.23</b> - SRM 350 - DRW - 9 PM<br><br>
             <b>05.24</b> - CDDC Round 2 Projects Posted - 9 AM<br><br>
-            <b>05.29</b> - SRM 351 - 7 AM<br><br> --%>
+            <b>05.29</b> - SRM 351 - 7 AM<br><br>
             <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
         </td>
     </tr>
