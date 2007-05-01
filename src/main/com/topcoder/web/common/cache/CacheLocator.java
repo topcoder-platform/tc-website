@@ -103,6 +103,10 @@ public class CacheLocator {
             try {
                 checkServiceLoaded();
                 return method.invoke(services, args);
+            } catch (NamingException e) {
+                log.info(e.getMessage() + " when calling proxied method.");
+                mustReload = true;
+                throw e;
             } catch (InvocationTargetException e) {
                 if (e.getTargetException() instanceof RemoteException) {
                     log.info(e.getTargetException().getClass().getName() + " when calling proxied method.");
