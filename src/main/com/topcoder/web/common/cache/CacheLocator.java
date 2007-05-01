@@ -9,6 +9,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.lang.reflect.UndeclaredThrowableException;
 import java.rmi.RemoteException;
 
 /**
@@ -103,6 +104,9 @@ public class CacheLocator {
             try {
                 checkServiceLoaded();
                 return method.invoke(services, args);
+            } catch (UndeclaredThrowableException e) {
+                log.info(e.getUndeclaredThrowable().getMessage());
+                throw e.getUndeclaredThrowable();
             } catch (NamingException e) {
                 log.info(e.getMessage() + " when calling proxied method.");
                 mustReload = true;
