@@ -16,6 +16,7 @@ import java.util.Set;
 public class JbossCacheClient implements CacheClient {
 
     private static TreeCacheMBean cache;
+    private static boolean initialized = false;
 
     //just using the root path for now
     private static final Fqn path = new Fqn();
@@ -27,11 +28,14 @@ public class JbossCacheClient implements CacheClient {
 
 
     private synchronized void init() {
-        TCResourceBundle b = new TCResourceBundle("cache");
-        try {
-            cache = (TreeCacheMBean)new CacheLocator(TreeCacheMBean.class, b.getProperty("jndi_name"), b.getProperty("host_url")).getService();
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
+        if (!initialized) {
+            TCResourceBundle b = new TCResourceBundle("cache");
+            try {
+                cache = (TreeCacheMBean) new CacheLocator(TreeCacheMBean.class, b.getProperty("jndi_name"), b.getProperty("host_url")).getService();
+                initialized = true;
+            } catch (NamingException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
