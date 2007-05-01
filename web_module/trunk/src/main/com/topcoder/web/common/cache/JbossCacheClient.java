@@ -6,6 +6,7 @@ import org.jboss.cache.Fqn;
 import org.jboss.cache.TreeCacheMBean;
 
 import javax.naming.NamingException;
+import java.util.Set;
 
 /**
  * @author dok
@@ -63,6 +64,14 @@ public class JbossCacheClient implements CacheClient {
     public void clearCache() throws TCCacheException {
         try {
             cache.remove(path);
+        } catch (CacheException e) {
+            throw new TCCacheException(e);
+        }
+    }
+
+    public Set getKeys() throws TCCacheException {
+        try {
+            return cache.getKeys(path);
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }
