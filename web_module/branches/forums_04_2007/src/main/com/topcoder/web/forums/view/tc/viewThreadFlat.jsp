@@ -147,7 +147,8 @@ function callbackRating() {
             var messageID = req.responseXML.getElementsByTagName("messageID")[0].firstChild.nodeValue;
             var posRatings = req.responseXML.getElementsByTagName("posRatings")[0].firstChild.nodeValue;
             var negRatings = req.responseXML.getElementsByTagName("negRatings")[0].firstChild.nodeValue;
-            displayVotes(messageID, posRatings, negRatings);
+            var userRating = req.responseXML.getElementsByTagName("userRating")[0].firstChild.nodeValue;
+            displayVotes(messageID, posRatings, negRatings, userRating);
         }
     }
 }
@@ -182,9 +183,18 @@ function callbackPollVote() {
 	}
 }
 
-function displayVotes(messageID, posVotes, negVotes) {
-    mspan = document.getElementById("ratings"+messageID);
+function displayVotes(messageID, posVotes, negVotes, userRating) {
+    var mspan = document.getElementById("ratings"+messageID);
     mspan.innerHTML = "(+"+posVotes+"/-"+negVotes+")";
+    var title = "Your vote: ";
+    if (userRating == 2) {
+    	title += "+1";
+    } else if (userRating == 1) {
+    	title += "-1";
+    } else {
+    	title += "0";
+    }
+    mspan.title = title;
 }
 
 function displayPoll(pollID, status) {
