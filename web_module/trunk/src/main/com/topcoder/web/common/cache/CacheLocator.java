@@ -103,8 +103,16 @@ public class CacheLocator {
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             try {
                 try {
-                    checkServiceLoaded();
-                    return method.invoke(services, args);
+                    try {
+                        checkServiceLoaded();
+                        return method.invoke(services, args);
+                    } catch (UndeclaredThrowableException e) {
+                        log.debug("we got an UndeclaredThrowableException");
+                        throw e.getUndeclaredThrowable();
+                    } catch (InvocationTargetException e) {
+                        log.debug("we got an InvocationTargetException");
+                        throw e.getTargetException();
+                    }
                 } catch (UndeclaredThrowableException e) {
                     log.debug("we got an UndeclaredThrowableException");
                     throw e.getUndeclaredThrowable();
