@@ -102,21 +102,20 @@ public class CacheLocator {
     private class ServiceFailureDetection implements InvocationHandler {
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
             try {
-                checkServiceLoaded();
-                return method.invoke(services, args);
-            } catch (UndeclaredThrowableException e) {
-                log.info("UndeclaredThrowableException source was " + e.getUndeclaredThrowable().getMessage());
-                throw e.getUndeclaredThrowable();
+                try {
+                    checkServiceLoaded();
+                    return method.invoke(services, args);
+                } catch (UndeclaredThrowableException e) {
+                    throw e.getUndeclaredThrowable();
+                } catch (InvocationTargetException e) {
+                    throw e.getTargetException();
+                }
             } catch (NamingException e) {
-                log.info("NamingException " + e.getMessage() + " when calling proxied method.");
                 mustReload = true;
                 throw e;
-            } catch (InvocationTargetException e) {
-                if (e.getTargetException() instanceof RemoteException) {
-                    log.info("InvocationTargetException " + e.getTargetException().getClass().getName() + " when calling proxied method.");
-                    mustReload = true;
-                }
-                throw e.getTargetException();
+            } catch (RemoteException e) {
+                mustReload = true;
+                throw e;
             }
         }
     }
