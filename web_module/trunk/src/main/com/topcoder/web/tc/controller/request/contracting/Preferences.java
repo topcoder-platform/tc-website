@@ -6,15 +6,15 @@
 
 package com.topcoder.web.tc.controller.request.contracting;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.Constants;
-import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.tc.model.Preference;
 import com.topcoder.web.tc.model.PreferenceGroup;
 import com.topcoder.web.tc.model.PreferenceValue;
@@ -22,8 +22,7 @@ import com.topcoder.web.tc.model.PreferenceValue;
 import java.util.ArrayList;
 
 /**
- *
- * @author  rfairfax
+ * @author rfairfax
  */
 public class Preferences extends ContractingBase {
     protected void contractingProcessing() throws TCWebException {

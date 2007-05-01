@@ -2,7 +2,6 @@ package com.topcoder.web.corp.model;
 
 import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.security.RolePrincipal;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -10,6 +9,7 @@ import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.HttpObjectFactory;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
@@ -63,17 +63,15 @@ public class TransactionInfo implements Serializable {
      * Creates CC transaction info bundle based on given request/response
      * pair.
      *
-     * @param req must have 'prod-id' & 'utype-id' parameters set
+     * @param req  must have 'prod-id' & 'utype-id' parameters set
      * @param resp used to get uathentification token which in turn, is used
-     * to decide what company is involved into transaction
-     *
+     *             to decide what company is involved into transaction
      * @throws javax.naming.NamingException errors when trying to get EJBs
-     * @throws java.rmi.RemoteException errors when trying to get EJBs / working with
-     * EJBs
-     * @throws javax.ejb.CreateException errors when trying to get remote EJBs
-     *
-     * @throws Exception there is certain inconsistency in CC transaction
-     * information
+     * @throws java.rmi.RemoteException     errors when trying to get EJBs / working with
+     *                                      EJBs
+     * @throws javax.ejb.CreateException    errors when trying to get remote EJBs
+     * @throws Exception                    there is certain inconsistency in CC transaction
+     *                                      information
      */
     public TransactionInfo(HttpServletRequest req, HttpServletResponse resp)
             throws NamingException, RemoteException, CreateException,
@@ -135,7 +133,7 @@ public class TransactionInfo implements Serializable {
      * throws Exception.
      *
      * @throws Exception when there is/are error(s) in transaction info
-     * fields preventing transaction from completion.
+     *                   fields preventing transaction from completion.
      */
     private void verify() throws Exception {
         String msg = "";
@@ -156,6 +154,7 @@ public class TransactionInfo implements Serializable {
      * figures out what unit is associated with the given product
      * for the given unit_type_id.  it will return the first
      * unit_id that matches those criteria.
+     *
      * @param unitTypeId
      * @param productId
      * @return
@@ -310,7 +309,7 @@ public class TransactionInfo implements Serializable {
 
     /**
      * by djFD 03/19/2003
-     *
+     * <p/>
      * Returns the roles to be assigned upon successful product purchase
      * completion.
      *
@@ -322,7 +321,7 @@ public class TransactionInfo implements Serializable {
 
     /**
      * by djFD 03/19/2003
-     *
+     * <p/>
      * Sets the rolesPerProduct based on productID given. Query tool along
      * with CachedDataAccess is used to retrieve it.
      *

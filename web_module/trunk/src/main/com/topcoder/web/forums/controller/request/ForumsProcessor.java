@@ -7,11 +7,11 @@ import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.User;
 import com.jivesoftware.forum.*;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.forums.ForumConstants;
 
 import javax.servlet.http.HttpServletRequest;
@@ -39,7 +39,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     protected void businessProcessing() throws Exception {
         getResponse().setContentType("text/html; charset=ISO-8859-1");
         getHttpResponse().setContentType("text/html; charset=ISO-8859-1");
-        
+
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
         getRequest().setAttribute("forumFactory", forumFactory);
@@ -62,8 +62,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
                 Forum forum = (Forum) itForums.next();
                 if (user != null && forum.getLatestMessage() != null
                         && readTracker.getReadStatus(user, forum.getLatestMessage()) != ReadTracker.READ
-                        && !("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread())))
-                {
+                        && !("true".equals(user.getProperty("markWatchesRead")) && watchManager.isWatched(user, forum.getLatestMessage().getForumThread()))) {
                     isCategoryRead = false;
                 }
             }

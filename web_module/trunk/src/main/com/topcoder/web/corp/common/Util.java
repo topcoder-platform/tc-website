@@ -1,8 +1,8 @@
 package com.topcoder.web.corp.common;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.web.common.CachedDataAccess;
 
 public class Util {
     public static DataAccessInt getDataAccess() throws Exception {

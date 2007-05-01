@@ -1,12 +1,10 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.language.BaseLanguage;
 import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.screening.common.TimeExpiredException;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.netCommon.screening.request.ScreeningBaseRequest;
@@ -14,24 +12,25 @@ import com.topcoder.shared.netCommon.screening.request.ScreeningLogoutRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningBaseResponse;
 import com.topcoder.shared.netCommon.screening.response.ScreeningTimeExpiredResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
+import com.topcoder.shared.screening.common.TimeExpiredException;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.ServerBusyException;
+import com.topcoder.web.codinginterface.messaging.WebQueueResponseManager;
 import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.ImageInfo;
 
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
 
 /**
- * @author  dok
+ * @author dok
  */
 public abstract class Base extends BaseProcessor {
 
@@ -60,12 +59,12 @@ public abstract class Base extends BaseProcessor {
             techAssessProcessing();
             getRequest().setAttribute(Constants.CURRENT_TIME, String.valueOf(System.currentTimeMillis()));
         } catch (TimeOutException e) {
-            if (sessionId>=0) unlock();
+            if (sessionId >= 0) unlock();
             closeProcessingPage(buildProcessorRequestString(Constants.RP_TIMEOUT, null, null));
         } catch (TimeExpiredException ex) {
-            if (sessionId>=0) unlock();
-            closeProcessingPage(buildProcessorRequestString(Constants.RP_TIME_EXPIRED, new String[] {Constants.LOGOUT, Constants.ERROR_MESSAGE},
-                        new String[] {String.valueOf(ex.isLogout()), ex.getMessage()}));
+            if (sessionId >= 0) unlock();
+            closeProcessingPage(buildProcessorRequestString(Constants.RP_TIME_EXPIRED, new String[]{Constants.LOGOUT, Constants.ERROR_MESSAGE},
+                    new String[]{String.valueOf(ex.isLogout()), ex.getMessage()}));
         }
     }
 
@@ -79,7 +78,7 @@ public abstract class Base extends BaseProcessor {
             DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Map resultMap = dai.getData(dataRequest);
             ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
-            if (rsc==null||rsc.isEmpty()) {
+            if (rsc == null || rsc.isEmpty()) {
                 sponsorImage = BLANK;
             } else {
                 sponsorImage = new ImageInfo();
@@ -119,17 +118,17 @@ public abstract class Base extends BaseProcessor {
         }
         String oldMessageId = this.messageId;
         this.messageId = sender.sendMessageGetID(new HashMap(), m);
-        if (oldMessageId!=null) {
+        if (oldMessageId != null) {
             //that means we already sent a message, so we should load up
             //anything in the session associated with that message and transfer
             //it to the new one
             HttpSession session = getRequest().getSession();
-            session.setAttribute(ERRORS_KEY+messageId, session.getAttribute(ERRORS_KEY+oldMessageId));
-            session.setAttribute(DEFAULTS_KEY+messageId, session.getAttribute(DEFAULTS_KEY+oldMessageId));
-            session.setAttribute(Constants.MESSAGE+messageId, session.getAttribute(Constants.MESSAGE+oldMessageId));
-            getRequest().removeAttribute(ERRORS_KEY+oldMessageId);
-            getRequest().removeAttribute(DEFAULTS_KEY+oldMessageId);
-            getRequest().removeAttribute(Constants.MESSAGE+oldMessageId);
+            session.setAttribute(ERRORS_KEY + messageId, session.getAttribute(ERRORS_KEY + oldMessageId));
+            session.setAttribute(DEFAULTS_KEY + messageId, session.getAttribute(DEFAULTS_KEY + oldMessageId));
+            session.setAttribute(Constants.MESSAGE + messageId, session.getAttribute(Constants.MESSAGE + oldMessageId));
+            getRequest().removeAttribute(ERRORS_KEY + oldMessageId);
+            getRequest().removeAttribute(DEFAULTS_KEY + oldMessageId);
+            getRequest().removeAttribute(Constants.MESSAGE + oldMessageId);
         }
 
     }
@@ -159,6 +158,7 @@ public abstract class Base extends BaseProcessor {
     /**
      * making this final so that someone doesn't override and not add the object
      * containing a sessionbindinglistener that auto logs out
+     *
      * @param sessionId
      */
     public final void setSessionId(long sessionId) {
@@ -301,19 +301,19 @@ public abstract class Base extends BaseProcessor {
 
     private static final String FULL_CONTENT =
             "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">" +
-            "<html>" +
-            "<head>" +
-            "<title>Technical Assessment</title>" +
-            "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >" +
-            "<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >" +
-            "</head>" +
-            "<body>" +
-            "<table class=bodyCenter cellspacing=0 cellpadding=0>" +
-            "<tr>" +
-            " <td align=center>" +
-            " <table cellspacing=0 cellpadding=0 class=tabTable>" +
-            " <tr>" +
-            " <td class=logoBox rowspan=2>";
+                    "<html>" +
+                    "<head>" +
+                    "<title>Technical Assessment</title>" +
+                    "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >" +
+                    "<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >" +
+                    "</head>" +
+                    "<body>" +
+                    "<table class=bodyCenter cellspacing=0 cellpadding=0>" +
+                    "<tr>" +
+                    " <td align=center>" +
+                    " <table cellspacing=0 cellpadding=0 class=tabTable>" +
+                    " <tr>" +
+                    " <td class=logoBox rowspan=2>";
     private static final String END_FULL_CONTENT = "</td>" +
             " <td class=titleBar><img src=\"/i/corp/screening/pbtcLogo.gif\" alt=\"\"/></td>" +
             " <td class=tabBarEnd align=right rowspan=2><img src=\"/i/corp/screening/tabBarEnd.gif\" alt=\"\"/></td>" +
@@ -409,9 +409,9 @@ public abstract class Base extends BaseProcessor {
 
         ScreeningBaseResponse m = (ScreeningBaseResponse) receiver.receive(waitTime, messageId, getResponse());
 
-        if(m instanceof ScreeningTimeExpiredResponse) {
+        if (m instanceof ScreeningTimeExpiredResponse) {
             //throw an exception so we can redirect them to a new page
-            ScreeningTimeExpiredResponse resp = (ScreeningTimeExpiredResponse)m;
+            ScreeningTimeExpiredResponse resp = (ScreeningTimeExpiredResponse) m;
             TimeExpiredException ex = new TimeExpiredException(resp.getMessage(), resp.forceLogout());
             throw ex;
         }
@@ -424,7 +424,6 @@ public abstract class Base extends BaseProcessor {
 
         return m;
     }
-
 
 
     protected static List getLanguages(ArrayList languageIds) {

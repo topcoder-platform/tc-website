@@ -2,7 +2,6 @@ package com.topcoder.web.tc.controller.legacy.stat.servlet;
 
 import com.topcoder.common.web.util.Data;
 import com.topcoder.security.TCSubject;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
@@ -25,7 +24,7 @@ import java.util.Properties;
 
 public class StatisticsHttpServlet extends BaseServlet {
     private static Logger log = Logger.getLogger(StatisticsHttpServlet.class);
-//    private static final String XML_FILE = ApplicationServer.BASE_DIR + "/resources/stat/statServlet.xml";
+    //    private static final String XML_FILE = ApplicationServer.BASE_DIR + "/resources/stat/statServlet.xml";
     private static final String XML_FILE = "statServlet.xml";
     private static final String LOGGED_IN_ONLY = "1";
     private static final String ACCESS_MAP_KEY = "ACCESSCTRL";
@@ -34,7 +33,7 @@ public class StatisticsHttpServlet extends BaseServlet {
     /**
      * This method returns the associated properties object
      *
-     * @return  Properties
+     * @return Properties
      */
     public Properties getProps() {
         return mProp;
@@ -43,7 +42,6 @@ public class StatisticsHttpServlet extends BaseServlet {
 
     /**
      * This method initializes global variables
-     *
      */
     public void init() {
         ServletContext srvctx = this.getServletContext();
@@ -60,6 +58,7 @@ public class StatisticsHttpServlet extends BaseServlet {
 
     /**
      * Reloads all the config info
+     *
      * @param srvctx the servlet context
      */
     public static void reload(ServletContext srvctx) {
@@ -84,10 +83,10 @@ public class StatisticsHttpServlet extends BaseServlet {
     /**
      * This method handles the actual request processing
      *
-     * @param request object
+     * @param request  object
      * @param response object
-     * @throws    ServletException
-     * @throws    IOException
+     * @throws ServletException
+     * @throws IOException
      */
     protected void process(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
@@ -175,8 +174,6 @@ public class StatisticsHttpServlet extends BaseServlet {
 
         }
     }
-
-
 
 
 }
