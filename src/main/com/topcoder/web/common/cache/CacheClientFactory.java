@@ -9,8 +9,9 @@ import com.topcoder.shared.util.TCResourceBundle;
  */
 public class CacheClientFactory {
 
+    private static TCResourceBundle b = new TCResourceBundle("cache");
+
     public static CacheClient create() {
-        TCResourceBundle b = new TCResourceBundle("cache");
         try {
             return (CacheClient)Class.forName(b.getProperty("cache_client_class",
                     JbossCacheClient.class.getName())).newInstance();
