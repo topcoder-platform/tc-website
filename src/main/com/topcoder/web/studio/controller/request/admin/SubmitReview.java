@@ -1,13 +1,13 @@
 package com.topcoder.web.studio.controller.request.admin;
 
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
@@ -20,10 +20,7 @@ import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionReview;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * @author dok
@@ -166,12 +163,12 @@ public class SubmitReview extends Base {
     private void refreshCache(Contest c) {
         try {
             log.debug("refreshing cache");
-            CacheClient cc = CacheClientFactory.createCacheClient();
+            CacheClient cc = CacheClientFactory.create();
             String tempKey;
             String key = Constants.CONTEST_ID + "=" + c.getId();
-            ArrayList list = cc.getKeys();
-            for (int i = 0; i < list.size(); i++) {
-                tempKey = (String) list.get(i);
+            Set list =  cc.getKeys();
+            for (Iterator it = list.iterator(); it.hasNext();) {
+                tempKey = (String) it.next();
                 if (tempKey.indexOf(key) > -1) {
                     cc.remove(tempKey);
                 }
