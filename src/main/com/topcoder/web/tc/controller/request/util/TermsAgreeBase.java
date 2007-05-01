@@ -1,11 +1,11 @@
 package com.topcoder.web.tc.controller.request.util;
 
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.cache.CacheClientFactory;
+import com.topcoder.web.common.cache.CacheClient;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 
 import java.util.Calendar;
@@ -49,7 +49,7 @@ abstract class TermsAgreeBase extends TermsBase {
     protected void refreshCache() {
         if (getCacheKey() != null) {
             try {
-                CacheClient cc = CacheClientFactory.createCacheClient();
+                CacheClient cc = CacheClientFactory.create();
                 cc.remove(getCacheKey());
             } catch (Exception ignore) {
                 ignore.printStackTrace();
