@@ -105,15 +105,15 @@ public class CacheLocator {
                 checkServiceLoaded();
                 return method.invoke(services, args);
             } catch (UndeclaredThrowableException e) {
-                log.info(e.getUndeclaredThrowable().getMessage());
+                log.info("UndeclaredThrowableException source was " + e.getUndeclaredThrowable().getMessage());
                 throw e.getUndeclaredThrowable();
             } catch (NamingException e) {
-                log.info(e.getMessage() + " when calling proxied method.");
+                log.info("NamingException " + e.getMessage() + " when calling proxied method.");
                 mustReload = true;
                 throw e;
             } catch (InvocationTargetException e) {
                 if (e.getTargetException() instanceof RemoteException) {
-                    log.info(e.getTargetException().getClass().getName() + " when calling proxied method.");
+                    log.info("InvocationTargetException " + e.getTargetException().getClass().getName() + " when calling proxied method.");
                     mustReload = true;
                 }
                 throw e.getTargetException();
