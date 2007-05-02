@@ -1355,4 +1355,23 @@
     </target>
 
 
+
+    <target name="build-cache-admin" depends="compile">
+        <jar jarfile="${sar.dir}/cachadmin.jar" basedir="${classes}"
+             includes="com/topcoder/ewb/common/cache/admin/*">
+        </jar>
+    </target>
+
+
 </project>
+
+
+
+
+
+
+
+
+
+
+
