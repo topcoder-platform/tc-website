@@ -10,5 +10,5 @@ import org.jboss.system.ServiceMBean;
 public interface CacheAdminMBean extends ServiceMBean {
     public void clear();
 
-    public int removelike(String s);
+    public String removelike(String s);
 }
