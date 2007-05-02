@@ -1357,6 +1357,7 @@
     <target name="build-cache-admin" depends="compile">
         <jar jarfile="${sar.dir}/cacheadmin.sar" basedir="${classes}"
              includes="com/topcoder/web/common/cache/admin/*">
+            <metainf dir="${java}/com/topcoder/web/common/cache/admin/" includes="*.xml"/>
         </jar>
     </target>
 
