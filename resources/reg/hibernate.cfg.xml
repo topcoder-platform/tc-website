@@ -139,8 +139,6 @@
         <mapping resource="com/topcoder/web/oracle/model/CandidateProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/CandidateRoomResult.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Contest.hbm.xml"/>
-        <mapping resource="com/topcoder/web/oracle/model/ContestConfig.hbm.xml"/>
-        <mapping resource="com/topcoder/web/oracle/model/ContestProperty.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/ContestStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/ContestType.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/Prediction.hbm.xml"/>
