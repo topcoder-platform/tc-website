@@ -12,12 +12,12 @@ import com.topcoder.web.common.tag.HandleTag;
  * A filter that creates a handle tag for the username appearing between [handle][/handle] tags.
  */
 public class TCHandleTag implements Filter {
-
-    private final static String TAG_NAME = "handle";
-    private final static String BEGIN_TAG = "[" + TAG_NAME + "]";
-    private final static String END_TAG = "[/" + TAG_NAME + "]";
-    private final static int BEGIN_TAG_LEN = BEGIN_TAG.length();
-    private final static int END_TAG_LEN = END_TAG.length();
+    
+    private final static String[] TAG_NAMES = {"handle", "h"};
+    private final static String[] BEGIN_TAGS = {"[" + TAG_NAMES[0] + "]", "[" + TAG_NAMES[1] + "]"};
+    private final static String[] END_TAGS = {"[/" + TAG_NAMES[0] + "]", "[/" + TAG_NAMES[1] + "]"};
+    private final static int[] BEGIN_TAGS_LEN = {BEGIN_TAGS[0].length(), BEGIN_TAGS[1].length()};
+    private final static int[] END_TAGS_LEN = {END_TAGS[0].length(), END_TAGS[1].length()};
 
     /**
      * Construct a new TCHandleTag filter.
@@ -41,13 +41,27 @@ public class TCHandleTag implements Filter {
         int endCodeTag = 0;
 
         // short circuit this filter if no [handle] found
-        if (string.indexOf(BEGIN_TAG) < 0) {
+        boolean tagNotFound = true;
+        for (int i=0; i<BEGIN_TAGS.length; i++) {
+            tagNotFound &= (string.indexOf(BEGIN_TAGS[i]) < 0);
+        }
+        if (tagNotFound) {
             return chain.applyFilters(currentIndex, string);
         }
-
+        
         // we have something to filter
-        while ((startCodeTag = string.indexOf(BEGIN_TAG, endCodeTag)) >= 0) {
-            int end = string.indexOf(END_TAG, startCodeTag + BEGIN_TAG_LEN);
+        while (true) {
+            int tagUsed = -1;
+            for (int i=0; i<BEGIN_TAGS.length; i++) {
+                int beginTagIdx = string.indexOf(BEGIN_TAGS[i], endCodeTag);
+                if (beginTagIdx >= 0 && (tagUsed == -1 || beginTagIdx < startCodeTag)) {
+                    tagUsed = i;
+                    startCodeTag = beginTagIdx;
+                }
+            }
+            if (tagUsed == -1) break;
+            
+            int end = string.indexOf(END_TAGS[tagUsed], startCodeTag + BEGIN_TAGS_LEN[tagUsed]);
 
             if (end > 0) {
                 if (endCodeTag < startCodeTag) {
@@ -55,16 +69,17 @@ public class TCHandleTag implements Filter {
                     filtered.append(chain.applyFilters(currentIndex,
                             string.substring(endCodeTag, startCodeTag)));
                 }
-
-                endCodeTag = end + END_TAG_LEN;
-            } else {
-                filtered.append(string.substring(endCodeTag, startCodeTag) + BEGIN_TAG);
-                endCodeTag = startCodeTag + BEGIN_TAG_LEN;
+                
+                endCodeTag = end + END_TAGS_LEN[tagUsed];
+            }
+            else {
+                filtered.append(string.substring(endCodeTag, startCodeTag) + BEGIN_TAGS[tagUsed]);
+                endCodeTag = startCodeTag + BEGIN_TAGS_LEN[tagUsed];
                 continue;
             }
 
             // since end > 0 we must be in a code section
-            String code = string.substring(startCodeTag + BEGIN_TAG_LEN, endCodeTag - END_TAG_LEN);
+            String code = string.substring(startCodeTag + BEGIN_TAGS_LEN[tagUsed], endCodeTag - END_TAGS_LEN[tagUsed]);
             code = code.replaceAll("<", "&lt;");
             code = code.replaceAll(">", "&gt;");
 
@@ -78,7 +93,6 @@ public class TCHandleTag implements Filter {
             } catch (Exception e) {
                 throw new RuntimeException("Failure loading handle tag.", e);
             }
-
         }
 
         if (endCodeTag < length) {

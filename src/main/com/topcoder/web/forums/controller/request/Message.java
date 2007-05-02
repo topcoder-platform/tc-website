@@ -4,8 +4,11 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveGlobals;
+import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumThread;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
 
@@ -22,8 +25,14 @@ public class Message extends ForumsProcessor {
 
         String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
 		long messageID = Long.parseLong(getRequest().getParameter(ForumConstants.MESSAGE_ID));
-		ForumMessage message = forumFactory.getMessage(messageID);
-		ForumThread thread = message.getForumThread();
+        ForumMessage message;
+        ForumThread thread;
+        try {
+            message = forumFactory.getMessage(messageID);
+            thread = message.getForumThread();
+        } catch (UnauthorizedException ue) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
 
 		StringBuffer urlNext = new StringBuffer(getSessionInfo().getServletPath());
 		urlNext.append("?module=Thread&").append(ForumConstants.THREAD_ID).append("=").append(thread.getID());

@@ -53,6 +53,25 @@
 <!-- Links to versions -->
 
 <p>
+	<b>>2.0.3 - 2007.05.02</b>
+	<ul>
+		<li>Updated the web cache.</li>
+		<li>Expanded search to include software categories.</li>
+		<li>Added an option to collapse read posts in the threaded view, to improve readability of long threads.</li>
+		<li>Added a [h] tag equivalent to the [handle] tag.</li>
+	 	<li>Added "Your vote: {score}" tooltip to message ratings.</li>
+	</ul>
+</p>
+
+<p>
+    <b>2.0.2 - 2007.04.16</b>
+    <ul>
+		<li>Improved performance for users having many software permissions.</li>
+		<li>Added software forums watches.</li>
+    </ul>
+</p>
+
+<p>
     <b>2.0.1 - 2007.03.14</b>
     <ul>
 		<li>Refactored code/EJBs/DB schema, improved response time for several pages.</li>

@@ -50,7 +50,7 @@ function toggleTabs(id) {
         document.getElementById('tabRate'+i).style.display = rateStyle;
     }
 
-    for (i=2; i<=11; i++) {
+    for (i=2; i<=13; i++) {
         document.getElementById('bodyGen'+i).style.display = genStyle;
     }
     for (i=2; i<=5; i++) {
@@ -138,7 +138,7 @@ function toggleTabs(id) {
       <td class="rtThreadCell" nowrap="nowrap"><strong>Forums per Category page:</strong></td>
       <td class="rtThreadCell" style="width:100%;">
       <select size="1" name="forumsPerPage">
-      <%  int[] forumCounts = { 10, 15, 25 };
+      <%  int[] forumCounts = { 10, 15, 25, 50 };
           int forumRange = ForumConstants.DEFAULT_FORUM_RANGE;
           try {
               forumRange = Integer.parseInt(user.getProperty("jiveForumRange"));
@@ -213,7 +213,7 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen6">
-      <td class="rtThreadCell" nowrap="nowrap"><strong>Results per Search page:</strong></td>
+      <td class="rtThreadCell" nowrap="nowrap"><strong>Messages/Categories per Search page:</strong></td>
       <td class="rtThreadCell">
         <select size="1" name="resultsPerSearchPage">
         <%  int[] searchCounts = { 10, 20, 30, 50 };
@@ -226,6 +226,20 @@ function toggleTabs(id) {
                     <option value="<%=searchCounts[i]%>" selected><%=searchCounts[i]%></option>
             <%  } else { %>
                     <option value="<%=searchCounts[i]%>"><%=searchCounts[i]%></option>
+            <%  }
+            } %>
+        </select><font size=+1>/</font>
+        <select size="1" name="categoryResultsPerSearchPage">
+        <%  int[] searchCategoryCounts = { 0, 5, 10, 20 };
+            int searchCategoryRange = ForumConstants.DEFAULT_SEARCH_CATEGORY_RANGE;
+            try {
+                searchCategoryRange = Integer.parseInt(user.getProperty("jiveSearchCategoryRange"));
+            } catch (Exception ignored) {}
+            for (int i=0; i<searchCategoryCounts.length; i++) {
+                if (searchCategoryCounts[i] == searchCategoryRange) { %>
+                    <option value="<%=searchCategoryCounts[i]%>" selected><%=searchCategoryCounts[i]%></option>
+            <%  } else { %>
+                    <option value="<%=searchCategoryCounts[i]%>"><%=searchCategoryCounts[i]%></option>
             <%  }
             } %>
         </select>
@@ -270,6 +284,55 @@ function toggleTabs(id) {
       </td>
    </tr>
    <tr id="bodyGen9">
+	  <td class="rtThreadCell" nowrap="nowrap"><strong>Collapse read messages:</strong></td>
+	  <td class="rtThreadCell">
+	  	  <input name="collapseRead" value="true" id="collapseRead" type="checkbox"
+       		  <%= ("false".equals(user.getProperty("collapseRead"))) ? "" : "checked"%>
+       		  onclick="document.form1.collapseReadShowReplied.disabled=!this.checked;
+       		  		if (document.form1.collapseReadShowReplied.disabled) {
+       		  			document.form1.collapseReadShowReplied.checked=false};">
+		  > <select size="1" name="collapseReadDays">
+	      <%  int[] arrCollapseReadDays = {0,1,2,3,7,15,30};
+	          int collapseReadDays = ForumConstants.DEFAULT_COLLAPSE_READ_DAYS;
+	          try {
+	              collapseReadDays = Integer.parseInt(user.getProperty("collapseReadDays"));
+	          } catch (Exception ignored) {}
+	          for (int i=0; i<arrCollapseReadDays.length; i++) {
+	            if (arrCollapseReadDays[i] == collapseReadDays) { %>
+	               <option value="<%=arrCollapseReadDays[i]%>" selected><%=arrCollapseReadDays[i]%></option>
+	         <%   } else { %>
+	               <option value="<%=arrCollapseReadDays[i]%>"><%=arrCollapseReadDays[i]%></option>
+	         <%   }
+	         } %>
+	      </select>
+	      days old in threads with
+	      <select size="1" name="collapseReadPosts">
+	      <%  int[] arrCollapseReadPosts = {0,10,25,50,100,250,500};
+	          int collapseReadPosts = ForumConstants.DEFAULT_COLLAPSE_READ_POSTS;
+	          try {
+	             collapseReadPosts = Integer.parseInt(user.getProperty("collapseReadPosts"));
+	          } catch (Exception ignored) {}
+	          for (int i=0; i<arrCollapseReadPosts.length; i++) {
+	            if (arrCollapseReadPosts[i] == collapseReadPosts) { %>
+	               <option value="<%=arrCollapseReadPosts[i]%>" selected><%=arrCollapseReadPosts[i]%></option>
+	         <%   } else { %>
+	               <option value="<%=arrCollapseReadPosts[i]%>"><%=arrCollapseReadPosts[i]%></option>
+	         <%   }
+	         } %>
+	      </select>
+	      or more messages (threaded view only)
+      </td>
+   </tr>
+   <tr id="bodyGen10">
+	  <td class="rtThreadCell" nowrap="nowrap"></td>
+	  <td class="rtThreadCell">
+	  	  <input name="collapseReadShowReplied" value="true" id="collapseReadShowReplied" type="checkbox"
+        	  <%= ("false".equals(user.getProperty("collapseReadShowReplied"))) ? "" : "checked"%>
+        	  <%= ("false".equals(user.getProperty("collapseRead"))) ? "disabled" : "" %>>
+	  	  Do not collapse posts with new replies
+	  </td>
+   </tr>
+   <tr id="bodyGen11">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Show previous/next threads:</strong></td>
       <td class="rtThreadCell">
         <input name="showPrevNextThreads" value="true" id="showPrevNextThreadsYes" type="radio"
@@ -281,7 +344,7 @@ function toggleTabs(id) {
         <label for="jiveShowPrevNextThreadsNo">No</label>
       </td>
    </tr>
-   <tr id="bodyGen10">
+   <tr id="bodyGen12">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Display my member photo:</strong></td>
       <td class="rtThreadCell">
       <input name="displayMemberPhoto" value="true" id="displayMemberPhotoYes" type="radio"
@@ -293,7 +356,7 @@ function toggleTabs(id) {
       <label for="jiveDisplayMemberPhotoNo">No</label>
       </td>
    </tr>
-   <tr id="bodyGen11">
+   <tr id="bodyGen13">
       <td class="rtThreadCell" nowrap="nowrap"><strong>Display member photos:</strong></td>
       <td class="rtThreadCell">
       <input name="displayAllMemberPhotos" value="true" id="displayAllMemberPhotosYes" type="radio"

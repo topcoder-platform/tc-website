@@ -115,6 +115,8 @@ public interface ForumConstants {
     public final static String SEARCH_SORT_FIELD = "sort";
     public final static String SEARCH_MODE = "mode";
     public final static String SEARCH_MODE_BASIC = "basic";
+    public final static String SEARCH_CATEGORY_RESULT_SIZE = "catResultSize";
+    public final static String SEARCH_CATEGORY_START_IDX = "catStart";
 
     public final static String SEARCH_DATE_YESTERDAY = "dateYesterday";
     public final static String SEARCH_DATE_LAST_7_DAYS = "dateLast7Days";
@@ -149,12 +151,20 @@ public interface ForumConstants {
     
     // Defaults
     public final static int DEFAULT_SEARCH_RANGE = 20;
+    public final static int DEFAULT_SEARCH_CATEGORY_RANGE = 5;
     public final static int DEFAULT_MESSAGE_RANGE = 15;
     public final static int DEFAULT_THREAD_RANGE = 15;
     public final static int DEFAULT_FORUM_RANGE = 15;
     public final static int DEFAULT_HISTORY_RANGE = 10;
+    
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     public final static String DEFAULT_FLAT_THREAD_VIEW = "flat";
+    
+    public final static boolean DEFAULT_COLLAPSE_READ = true;
+    public final static int DEFAULT_COLLAPSE_READ_DAYS = 3;
+    public final static int DEFAULT_COLLAPSE_READ_POSTS = 100;
+    public final static boolean DEFAULT_COLLAPSE_READ_SHOW_REPLIED = true;
+    
     public final static int DEFAULT_RATING_HIGHLIGHT_THRESHOLD = 80;
     public final static int DEFAULT_RATING_HIGHLIGHT_MIN_COUNT = 10;
     public final static int DEFAULT_RATING_COLLAPSE_THRESHOLD = 40;
@@ -166,6 +176,7 @@ public interface ForumConstants {
     public final static int MAX_THREADS_PER_PAGE = 100;
     public final static int MAX_MESSAGES_PER_PAGE = 100;
     public final static int MAX_SEARCH_RESULTS_PER_PAGE = 100;
+    public final static int MAX_SEARCH_CATEGORY_RESULTS_PER_PAGE = 50;
     public final static int MAX_THREAD_WATCHES = 2000;
     public final static int MAX_DISPLAYED_FORUMS_PER_CATEGORY = 15;
     public final static int MAX_POLL_CHOICES = 100;
@@ -254,4 +265,6 @@ public interface ForumConstants {
         JiveGlobals.getJiveIntProperty("skin.default.maxMessagesPerPage", ForumConstants.MAX_MESSAGES_PER_PAGE);
     public static int maxSearchResultsPerPage =
         JiveGlobals.getJiveIntProperty("skin.default.maxSearchResultsPerPage", ForumConstants.MAX_SEARCH_RESULTS_PER_PAGE);
+    public static int maxSearchCategoryResultsPerPage =
+        JiveGlobals.getJiveIntProperty("skin.default.maxSearchCategoryResultsPerPage", ForumConstants.MAX_SEARCH_CATEGORY_RESULTS_PER_PAGE);
 }

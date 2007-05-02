@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
+                 com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.Query,
                  com.jivesoftware.util.StringUtils,
@@ -88,9 +89,24 @@ function noenter(e)
 </tr>
 </table>
 
-<% if ("search".equals(status)) { %>
-    <jsp:include page="searchResults.jsp"/>
-<% } %>
+<%	if ("search".equals(status)) { %>
+	<%	boolean displayPerThread = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
+    	int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); 
+		int categoriesCount = (request.getAttribute("categoriesCount") != null) ? ((Integer)request.getAttribute("categoriesCount")).intValue() : 0;
+		if (categoriesCount > 0) { %>
+		<jsp:include page="searchCategoryResults.jsp"/><p>
+	<%	} %>
+	<%	if (resultCount > 0) { %>
+    	<jsp:include page="searchResults.jsp"/>
+    <%	} %>
+    <%	if (categoriesCount == 0 && resultCount == 0) { %>
+	    <table cellpadding="0" cellspacing="0" class="rtbcTable">
+		    <tr>
+		        <td class="rtbc">No search results for "<%=StringUtils.escapeHTMLTags(query.getQueryString())%>". Please try a less restrictive search.</td>
+		    </tr>
+		</table>
+	<%	} %>
+<%  } %>
 
 </td>
 <!-- Center Column Ends -->

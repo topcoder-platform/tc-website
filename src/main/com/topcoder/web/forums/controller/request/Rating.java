@@ -36,20 +36,23 @@ public class Rating extends ForumsProcessor {
         int[] ratings = ForumsUtil.getRatings(ratingManager, message);
         int posRatings = ratings[0];
         int negRatings = ratings[1];
+        com.jivesoftware.forum.Rating rating = ratingManager.getRating(user, message); 
+        int userRating = (rating == null) ? 0 : rating.getScore();
         
         getResponse().setContentType("text/xml");
         getResponse().addHeader("Cache-Control", "no-cache");
         getResponse().getOutputStream().write(ForumsUtil.asciiGetBytes
-                (getXML(messageID, posRatings, negRatings)));
+                (getXML(messageID, posRatings, negRatings, userRating)));
         getResponse().flushBuffer();
     }
     
-    private String getXML(long messageID, int posRatings, int negRatings) {
+    private String getXML(long messageID, int posRatings, int negRatings, int userRating) {
         String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
             "<response>\n" +
                 "<messageID>"+messageID+"</messageID>\n" +
                 "<posRatings>"+posRatings+"</posRatings>\n" + 
                 "<negRatings>"+negRatings+"</negRatings>\n" +
+                "<userRating>"+userRating+"</userRating>\n" +
             "</response>";
         return xml;
     }

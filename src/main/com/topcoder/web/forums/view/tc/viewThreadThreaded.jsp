@@ -33,6 +33,8 @@
     String prevTrackerClass = "", nextTrackerClass = "";
     ForumMessage prevPost = null, nextPost = null;
     Hashtable editCountTable = (Hashtable)request.getAttribute("editCountTable");
+    Date lastReadDate = (Date)request.getAttribute("lastReadDate");
+    Hashtable<ForumMessage,Boolean> collapseReadPostTable = ForumsUtil.getCollapseReadPostTable(user, thread, lastReadDate);
 
     String cmd = "";
     String watchMessage = "";
@@ -99,14 +101,24 @@ function callback() {
             var messageID = req.responseXML.getElementsByTagName("messageID")[0].firstChild.nodeValue;
             var posRatings = req.responseXML.getElementsByTagName("posRatings")[0].firstChild.nodeValue;
             var negRatings = req.responseXML.getElementsByTagName("negRatings")[0].firstChild.nodeValue;
-            displayVotes(messageID, posRatings, negRatings);
+            var userRating = req.responseXML.getElementsByTagName("userRating")[0].firstChild.nodeValue;
+            displayVotes(messageID, posRatings, negRatings, userRating);
         }
     }
 }
 
-function displayVotes(messageID, posVotes, negVotes) {
+function displayVotes(messageID, posVotes, negVotes, userRating) {
     var mspan = document.getElementById("ratings"+messageID);
     mspan.innerHTML = "(+"+posVotes+"/-"+negVotes+")";
+    var title = "Your vote: ";
+    if (userRating == 2) {
+    	title += "+1";
+    } else if (userRating == 1) {
+    	title += "-1";
+    } else {
+    	title += "0";
+    }
+    mspan.title = title;
 }
 //-->
 </script>
@@ -144,7 +156,7 @@ function displayVotes(messageID, posVotes, negVotes) {
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="forums"/>
             <jsp:param name="title" value="&#160;"/>
-        </jsp:include>
+        </jsp:include> 
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
@@ -244,8 +256,10 @@ function displayVotes(messageID, posVotes, negVotes) {
                     int[] ratings = ForumsUtil.getRatings(ratingManager, message);
                     posRatings = ratings[0];
                     negRatings = ratings[1];
-                    ratingCount = posRatings+negRatings; %>
-            | Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> 
+                    ratingCount = posRatings+negRatings; 
+                    Rating rating = ratingManager.getRating(user, message); 
+                    String ratingVal = (rating == null) ? "0" : rating.getScore() == 2 ? "+1":"-1"; %>
+            | Feedback: <span id="<%=ratingsID%>" class="pointer" title="Your vote: <%=ratingVal%>">(+<%=posRatings%>/-<%=negRatings%>)</span> 
             | <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a> 
               <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
             <%  } %>
@@ -270,6 +284,9 @@ function displayVotes(messageID, posVotes, negVotes) {
       <% } %>
       <%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);
            String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
+           if (collapseReadPostTable != null && collapseReadPostTable.get(message)) {
+           		msgBodyDisplay = "display:none";
+           }
       %>
       <tr id="<%=msgBodyID%>" style="<%=msgBodyDisplay%>">
       <td class="rtPosterCell">
