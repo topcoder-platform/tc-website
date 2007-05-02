@@ -131,10 +131,10 @@
 </p>
 
     <ul>
-	    <c:set var="i" value="1"/>
-	    <c:forEach items="${weeklyPrizes}" var="prizeAmount">
-	        <li>${cf:ordinal(i)} place weekly prize - $<tc-webtag:format object="${prizeAmount}" format="###,##0" /> </li>
-	        <c:set var="i" value="${i+1 }"/>
+        <c:set var="i" value="1"/>
+        <c:forEach items="${weeklyPrizes}" var="prizeAmount">
+            <li>${cf:ordinal(i)} place weekly prize - $<tc-webtag:format object="${prizeAmount}" format="###,##0" /> </li>
+            <c:set var="i" value="${i+1 }"/>
         </c:forEach>
     </ul>
 
@@ -144,12 +144,16 @@
 </p>
 
     <ul>
-    	<c:set var="i" value="1"/>
-	    <c:forEach items="${overallPrizes}" var="prizeAmount">
-	        <li>${cf:ordinal(i)} place prize - $<tc-webtag:format object="${prizeAmount}" format="###,##0" /> </li>
-	        <c:set var="i" value="${i+1 }"/>
+        <c:set var="i" value="1"/>
+        <c:forEach items="${overallPrizes}" var="prizeAmount">
+            <li>${cf:ordinal(i)} place prize - $<tc-webtag:format object="${prizeAmount}" format="###,##0" /> </li>
+            <c:set var="i" value="${i+1 }"/>
         </c:forEach>
     </ul>
+
+<p>
+    <strong>NOTE:</strong> Competitors must have a minimum of <strong>5 placement points</strong> earned during the ${weeks } weeks of competition to be eligible to win a Series Prize.
+</p>
 
     <h3>Eligibility</h3>
     You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements.
