@@ -32,7 +32,12 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
             Method[] methods = o.getClass().getDeclaredMethods();
             for (Method m : methods) {
                 if ("removeData".equals(m.getName())) {
-                    m.invoke(o, new Fqn());
+                    for (Class c : m.getParameterTypes()) {
+                        if ("Fqn".equals(c.getName())) {
+                            log.debug("found it");
+                            m.invoke(o, new Fqn());
+                        }
+                    }
                 }
             }
 
