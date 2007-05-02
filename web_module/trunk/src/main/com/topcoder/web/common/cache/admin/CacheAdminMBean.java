@@ -8,7 +8,9 @@ import org.jboss.system.ServiceMBean;
  *          Create Date: May 2, 2007
  */
 public interface CacheAdminMBean extends ServiceMBean {
-    public void clear();
+    void clearRoot();
 
-    public String removelike(String s);
+    String removelike(String s);
+
+    int rootSize();
 }
