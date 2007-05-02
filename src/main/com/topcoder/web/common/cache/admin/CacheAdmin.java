@@ -17,7 +17,7 @@ import java.util.Set;
  *          Create Date: May 2, 2007
  */
 public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
-    public void clear() {
+    public void clearRoot() {
         InitialContext ctx = null;
         TCResourceBundle b = new TCResourceBundle("cache");
         try {
@@ -62,6 +62,27 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         }
 
     }
+
+
+    public int rootSize() {
+        InitialContext ctx = null;
+        TCResourceBundle b = new TCResourceBundle("cache");
+        try {
+            ctx = new InitialContext();
+            //todo replace so that we can specify the jndi name
+            TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
+
+            return cache.getKeys(new Fqn()).size();
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        } catch (CacheException e) {
+            throw new RuntimeException("Couldn't remove the root ", e);
+        } finally {
+            TCContext.close(ctx);
+        }
+
+    }
+
 
     public String getName() {
         return "JBoss Cache Admin";
