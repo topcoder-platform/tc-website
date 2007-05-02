@@ -951,7 +951,6 @@
     </target>
 
 
-
     <target name="run_cache_tests" depends="compile_tests" description="run junit tests">
         <junit printsummary="${junitsummary}" fork="yes">
             <classpath>
@@ -1251,8 +1250,8 @@
             <fileset dir="${sar.dir}">
                 <include name="expireOldAffidavitsAndPayments.sar"/>
             </fileset>
-		</copy>
-    	<unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
+        </copy>
+        <unwar src="${war.dir}/tc.war" dest="${jboss_deploy}/tc.war/" overwrite="yes"/>
         <delete dir="${jboss_deploy}/tc.war/META-INF"/>
     </target>
 
@@ -1355,9 +1354,8 @@
     </target>
 
 
-
     <target name="build-cache-admin" depends="compile">
-        <jar jarfile="${sar.dir}/cachadmin.jar" basedir="${classes}"
+        <jar jarfile="${sar.dir}/cacheadmin.jar" basedir="${classes}"
              includes="com/topcoder/ewb/common/cache/admin/*">
         </jar>
     </target>
