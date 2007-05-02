@@ -13,7 +13,7 @@
         </id>
         <property name="fileName" column="file_name" access="field"/>
         <property name="imageTypeId" column="image_type_id" access="field"/>
-        <many-to-one name="path" column="path_id" class="Path" access="field" cascade="none"/>
+        <many-to-one name="path" column="path_id" class="Path" access="field" cascade="none" fetch="join"/>
         <property name="link" access="field"/>
         <property name="height" access="field"/>
         <property name="width" access="field"/>

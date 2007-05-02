@@ -67,6 +67,10 @@
             <key column="user_id" not-null="true"/>
             <one-to-many class="com.topcoder.web.common.voting.RankBallot"/>
         </set>
+        <set name="compPrizes" table="tcs_catalog:user_contest_prize" cascade="save-update" inverse="true" access="field">
+            <key column="user_id" not-null="true"/>
+            <one-to-many class="com.topcoder.web.common.model.comp.UserContestPrize"/>
+        </set>
     </class>
 
 
