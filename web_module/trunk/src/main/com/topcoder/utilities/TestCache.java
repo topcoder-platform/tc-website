@@ -1,8 +1,8 @@
 package com.topcoder.utilities;
 
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
 
 public class TestCache {
     private static Logger log = Logger.getLogger(TestCache.class);
@@ -10,7 +10,7 @@ public class TestCache {
     public static void main(String[] args) {
         CacheClient cc = null;
         try {
-            cc = CacheClientFactory.createCacheClient();
+            cc = CacheClientFactory.create();
         } catch (Exception e) {
             log.error("error", e);
         }
@@ -25,7 +25,7 @@ public class TestCache {
             long start = System.currentTimeMillis();
             log.debug("add " + 50 + " size " + big.toString().getBytes().length + " items to the cache, and get every 5th, cache for 50 hours");
             for (int i = 0; i < 50; i++) {
-                cc.set("anothernewkey" + i, big.toString(), 1000 * 60 * 60 * 50);
+                cc.set("anothernewkey" + i, big.toString());
                 if (i % 5 == 0) {
                     log.debug("get key " + i);
                     cc.get("mynewkey" + i);
@@ -34,12 +34,12 @@ public class TestCache {
 
             log.debug("add " + max + " items to the cache, cache for 50 hours");
             for (int i = 0; i < max; i++) {
-                cc.set("mykey" + i, s, 1000 * 60 * 60 * 50);
+                cc.set("mykey" + i, s);
                 log.debug("added item " + i);
             }
             log.debug("add " + max + " items to the cache, and get every 5th, cache for a minute");
             for (int i = 0; i < max; i++) {
-                cc.set("mynewkey" + i, s, 1000 * 60);
+                cc.set("mynewkey" + i, s);
                 if (i % 5 == 0) {
                     log.debug("get key " + i);
                     cc.get("mynewkey" + i);
