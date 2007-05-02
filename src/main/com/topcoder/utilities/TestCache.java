@@ -23,8 +23,8 @@ public class TestCache {
             int max = 10000;
 
             long start = System.currentTimeMillis();
-            log.debug("add " + 500 + " size " + big.toString().getBytes().length + " items to the cache, and get every 20th");
-            for (int i = 0; i < 500; i++) {
+            log.debug("add " + 50 + " size " + big.toString().getBytes().length + " items to the cache, and get every 20th");
+            for (int i = 0; i < 50; i++) {
                 cc.set("anothernewkey" + i, big);
                 if (i % 20 == 0) {
                     log.debug("get key " + i);
