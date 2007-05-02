@@ -6,6 +6,7 @@ import com.topcoder.web.common.cache.CacheClientFactory;
 
 public class TestCache {
     private static Logger log = Logger.getLogger(TestCache.class);
+    final static String s ="af;lkjadf;lkjasdlkfjasl;kfjaslkfjas;lkdjfas;lkfjas;lkdjflaksdjf;laksdjf;lkadsjfl;kasjf;lkasjfl;kasjfl;kasjf;lkasdjflkasjflk;sdjal;kfjasd;lkfjasdlk;fjas;lkfjasdk;lfjlkasjf;laksjf;klasdjf;lkasjf;lkasdjfl;kasjf;lkasjf;lkasjf;klasjdf;klasjdf;lkajs;lfkjsa;lkfjaslk;fjaslkfjalskfja;klsdjfa;klsjf;alskdjf;lkasjfl;kadsfja;lksjf;lkasdjf;laksjf;lkasjf;lkasdjf;lkadsjf;lkasdjfl;kasdjf;lkasdjf;l";
 
     public static void main(String[] args) {
         CacheClient cc = null;
@@ -14,7 +15,6 @@ public class TestCache {
         } catch (Exception e) {
             log.error("error", e);
         }
-        String s = new String("af;lkjadf;lkjasdlkfjasl;kfjaslkfjas;lkdjfas;lkfjas;lkdjflaksdjf;laksdjf;lkadsjfl;kasjf;lkasjfl;kasjfl;kasjf;lkasdjflkasjflk;sdjal;kfjasd;lkfjasdlk;fjas;lkfjasdk;lfjlkasjf;laksjf;klasdjf;lkasjf;lkasdjfl;kasjf;lkasjf;lkasjf;klasjdf;klasjdf;lkajs;lfkjsa;lkfjaslk;fjaslkfjalskfja;klsdjfa;klsjf;alskdjf;lkasjfl;kadsfja;lksjf;lkasdjf;laksjf;lkasjf;lkasdjf;lkadsjf;lkasdjfl;kasdjf;lkasdjf;l");
         StringBuffer big = new StringBuffer(10000);
         for (int i = 0; i < 100000; i++) {
             big.append(String.valueOf(i));
@@ -23,21 +23,21 @@ public class TestCache {
             int max = 1000;
 
             long start = System.currentTimeMillis();
-            log.debug("add " + 50 + " size " + big.toString().getBytes().length + " items to the cache, and get every 5th, cache for 50 hours");
-            for (int i = 0; i < 50000; i++) {
-                cc.set("anothernewkey" + i, big.toString());
-                if (i % 5 == 0) {
+            log.debug("add " + 500 + " size " + big.toString().getBytes().length + " items to the cache, and get every 20th");
+            for (int i = 0; i < 500; i++) {
+                cc.set("anothernewkey" + i, big);
+                if (i % 20 == 0) {
                     log.debug("get key " + i);
                     cc.get("mynewkey" + i);
                 }
             }
 
-            log.debug("add " + max + " items to the cache, cache for 50 hours");
+            log.debug("add " + max + " items to the cache");
             for (int i = 0; i < max; i++) {
                 cc.set("mykey" + i, s);
                 log.debug("added item " + i);
             }
-            log.debug("add " + max + " items to the cache, and get every 5th, cache for a minute");
+            log.debug("add " + max + " items to the cache, and get every 5th");
             for (int i = 0; i < max; i++) {
                 cc.set("mynewkey" + i, s);
                 if (i % 5 == 0) {
