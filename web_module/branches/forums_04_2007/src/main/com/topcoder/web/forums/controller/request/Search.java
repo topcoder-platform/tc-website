@@ -308,10 +308,12 @@ public class Search extends ForumsProcessor {
         Paginator categoriesPaginator = new Paginator(paging);
         
         ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
-        ArrayList<ForumCategory> categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
-        Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, categoryPageList);
+        ArrayList<ForumCategory> categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);       
+        if (categoryPageList.size() > 0) {
+            Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, categoryPageList);
+            getRequest().setAttribute("imageDataTable", imageDataTable);
+        }
         
-        getRequest().setAttribute("imageDataTable", imageDataTable);
         getRequest().setAttribute("categoriesPage", categoryPageList.iterator());
         getRequest().setAttribute("categoriesCount", new Integer(categoryResultsList.size()));
         getRequest().setAttribute("categoriesPaginator", categoriesPaginator);
