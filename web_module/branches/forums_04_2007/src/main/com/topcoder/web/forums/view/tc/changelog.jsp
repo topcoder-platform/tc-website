@@ -53,11 +53,14 @@
 <!-- Links to versions -->
 
 <p>
-    <b>2.0.3 - 2007.04.30</b>
-    <ul>
+	<b>>2.0.3 - 2007.05.02</b>
+	<ul>
+		<li>Updated the web cache.</li>
 		<li>Expanded search to include software categories.</li>
 		<li>Added an option to collapse read posts in the threaded view, to improve readability of long threads.</li>
-    </ul>
+		<li>Added a [h] tag equivalent to the [handle] tag.</li>
+	 	<li>Added "Your vote: {score}" tooltip to message ratings.</li>
+	</ul>
 </p>
 
 <p>
