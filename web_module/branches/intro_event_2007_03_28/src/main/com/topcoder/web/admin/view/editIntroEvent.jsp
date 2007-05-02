@@ -235,7 +235,7 @@ p.explain {
 		<td>Forum:</td>
 		<td>
           <tc-webtag:rscSelect name="<%= UpdateIntroEvent.FORUM_ID %>" list="${forums}" 
-                    fieldText="name" fieldValue="id" topText="[Select one]" topValue="-1"  />
+                    fieldText="name" fieldValue="forumid" topText="[Select one]" topValue="-1"  />
 		</td>
 	</tr>
 	<tr>
