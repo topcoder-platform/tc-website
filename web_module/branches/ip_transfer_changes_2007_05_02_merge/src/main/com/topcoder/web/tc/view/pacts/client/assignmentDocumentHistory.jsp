@@ -218,7 +218,7 @@
     </c:when>
     <c:otherwise>
         <div align="center">
-        <strong>No Assignment Documents Found</strong>
+        <strong>No IP Transfer Documents Found</strong>
         </div>
     </c:otherwise>
 </c:choose>

@@ -1895,6 +1895,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         "Updated " + rc + ", should have updated 1."));
             }
 
+            if (ad.isHardCopy() != null && ad.isHardCopy().booleanValue()) {
+                // need to update status
+                newHardCopyAssignmentDocument(c, ad);
+            }
+            
             return ad;
         } catch (IDGenerationException e) {
             throw new EJBException(e);
@@ -1997,10 +2002,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(),
                 ad.getType().getId().longValue());
 
-        if (!hasHardCopy.booleanValue()) {
-            throw new IllegalArgumentException("You must send a hard copy of the Assignment Document " +
-                    "before you can use this system to affirm");
-        }
+//        if (!hasHardCopy.booleanValue()) {
+//            throw new IllegalArgumentException("You must send a hard copy of the Assignment Document " +
+//                    "before you can use this system to affirm");
+//        }
 
         ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
         ad.setAffirmedDate(null);
@@ -2012,7 +2017,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
 
             addAssignmentDocument(c, ad);
-            updateAssignmentDocumentPaymentStatus(c, ad, PAYMENT_OWED_STATUS);
+            
+            // The payment can advance to owed only if we have received the signed hard copy.
+            if (hasHardCopy) {
+                updateAssignmentDocumentPaymentStatus(c, ad);
+            }
 
             c.commit();
             c.setAutoCommit(true);
@@ -2045,13 +2054,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param c        the Connection to use
      * @param ad       the Assignment Document to update
-     * @param statusId the status id to update to
      * @throws Exception If there's an error
      */
-    private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad, int statusId) throws Exception {
+    private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad) throws Exception {
         StringBuffer updatePaymentStatus = new StringBuffer(300);
         if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
-            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
+            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id, (SELECT COUNT(*) FROM user_tax_form_xref WHERE user_id = p.user_id) as tax_form ");
             updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
             updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
             updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
@@ -2060,7 +2068,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             updatePaymentStatus.append("AND pd.component_project_id = ad.component_project_id ");
             updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
         } else if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
-            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
+            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id, (SELECT COUNT(*) FROM user_tax_form_xref WHERE user_id = p.user_id) as tax_form ");
             updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
             updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
             updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
@@ -2073,27 +2081,131 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ResultSetContainer rscComponent = runSelectQuery(c, updatePaymentStatus.toString(), false);
 
         List changeToOnHold = new ArrayList();
+        List changeToOwed = new ArrayList();
 
         for (Iterator it = rscComponent.iterator(); it.hasNext();) {
             ResultSetRow rsr = (ResultSetRow) it.next();
             Long paymentId = (Long) rsr.getItem(0).getResultData();
             Long referId = (Long) rsr.getItem(1).getResultData();
+            Long taxForm = (Long) rsr.getItem(2).getResultData();
 
-            changeToOnHold.add(paymentId);
+            if (taxForm > 0) {
+                changeToOwed.add(paymentId);
+            } else {
+                changeToOnHold.add(paymentId);
+            }
 
             if (referId != null) {
-                changeToOnHold.add(referId);
+                if (taxForm > 0) {
+                    changeToOwed.add(referId);
+                } else {
+                    changeToOnHold.add(referId);
+                }
             }
         }
 
         int i = 0;
-        long pid[] = new long[changeToOnHold.size()];
+        long onHold[] = new long[changeToOnHold.size()];
         for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
-            pid[i] = ((Long) it.next()).longValue();
+            onHold[i] = ((Long) it.next()).longValue();
+        }
+
+        int j = 0;
+        long owed[] = new long[changeToOwed.size()];
+        for (Iterator it = changeToOwed.iterator(); it.hasNext(); j++) {
+            owed[j] = ((Long) it.next()).longValue();
         }
 
         if (i > 0) {
-            updatePaymentStatus(c, pid, statusId);
+            updatePaymentStatus(c, onHold, PAYMENT_ON_HOLD_STATUS);
+        }
+
+        if (j > 0) {
+            updatePaymentStatus(c, owed, PAYMENT_OWED_STATUS);
+        }
+    }
+
+    /**
+     * Helper method to update assignment document's related payments status.
+     *
+     * @param c        the Connection to use
+     * @param ad       the Assignment Document to update
+     * @throws Exception If there's an error
+     */
+    private void newHardCopyAssignmentDocument(Connection c, AssignmentDocument ad) throws Exception {
+        StringBuffer updatePaymentStatus = new StringBuffer(300);
+        if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id, (SELECT COUNT(*) FROM user_tax_form_xref WHERE user_id = p.user_id) as tax_form ");
+            updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
+            updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
+            updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+            updatePaymentStatus.append("AND p.user_id = ad.user_id ");
+            updatePaymentStatus.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
+
+            updatePaymentStatus.append("AND ad.assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID);
+            updatePaymentStatus.append("AND pd.status_id = " + PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS);
+            
+            updatePaymentStatus.append("AND pd.component_project_id = ad.component_project_id ");
+            updatePaymentStatus.append("AND ad.user_id = " + ad.getUser().getId().longValue());
+        } else if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
+            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id, (SELECT COUNT(*) FROM user_tax_form_xref WHERE user_id = p.user_id) as tax_form ");
+            updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
+            updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
+            updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+            updatePaymentStatus.append("AND p.user_id = ad.user_id ");
+            updatePaymentStatus.append("AND pd.payment_type_id = " + TC_STUDIO_PAYMENT + " ");
+
+            updatePaymentStatus.append("AND ad.assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID);
+            updatePaymentStatus.append("AND pd.status_id = " + PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS);
+
+            updatePaymentStatus.append("AND pd.studio_contest_id = ad.studio_contest_id ");
+            updatePaymentStatus.append("AND ad.user_id = " + ad.getUser().getId().longValue());
+        }
+
+        ResultSetContainer rscComponent = runSelectQuery(c, updatePaymentStatus.toString(), false);
+
+        List changeToOnHold = new ArrayList();
+        List changeToOwed = new ArrayList();
+
+        for (Iterator it = rscComponent.iterator(); it.hasNext();) {
+            ResultSetRow rsr = (ResultSetRow) it.next();
+            Long paymentId = (Long) rsr.getItem(0).getResultData();
+            Long referId = (Long) rsr.getItem(1).getResultData();
+            Long taxForm = (Long) rsr.getItem(2).getResultData();
+
+            if (taxForm > 0) {
+                changeToOwed.add(paymentId);
+            } else {
+                changeToOnHold.add(paymentId);
+            }
+
+            if (referId != null) {
+                if (taxForm > 0) {
+                    changeToOwed.add(referId);
+                } else {
+                    changeToOnHold.add(referId);
+                }
+            }
+        }
+
+        int i = 0;
+        long onHold[] = new long[changeToOnHold.size()];
+        for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
+            onHold[i] = ((Long) it.next()).longValue();
+        }
+
+        int j = 0;
+        long owed[] = new long[changeToOwed.size()];
+        for (Iterator it = changeToOwed.iterator(); it.hasNext(); j++) {
+            owed[j] = ((Long) it.next()).longValue();
+        }
+
+        if (i > 0) {
+            updatePaymentStatus(c, onHold, PAYMENT_ON_HOLD_STATUS);
+        }
+
+        if (j > 0) {
+            updatePaymentStatus(c, owed, PAYMENT_OWED_STATUS);
         }
     }
 
@@ -5222,7 +5334,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getHoldComponentPayments.append("AND p.user_id = ad.user_id ");
         getHoldComponentPayments.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
         getHoldComponentPayments.append("AND pd.component_project_id = ad.component_project_id ");
-        getHoldComponentPayments.append("AND (ad.assignment_document_status_id is null or ad.assignment_document_status_id <> " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID + ") ");
+        getHoldComponentPayments.append("AND (ad.assignment_document_status_id is null ");
+        getHoldComponentPayments.append("or ad.assignment_document_hard_copy_ind = 0 or ad.assignment_document_status_id <> " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID + ") ");
         ResultSetContainer rscComponent = runSelectQuery(c, getHoldComponentPayments.toString(), false);
 
         List changeToOnHold = new ArrayList();
@@ -5248,7 +5361,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getHoldStudioPayments.append("AND p.user_id = ad.user_id ");
         getHoldStudioPayments.append("AND pd.payment_type_id = " + TC_STUDIO_PAYMENT + " ");
         getHoldStudioPayments.append("AND pd.studio_contest_id = ad.studio_contest_id ");
-        getHoldStudioPayments.append("AND (ad.assignment_document_status_id is null or ad.assignment_document_status_id <> " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID + ") ");
+        getHoldStudioPayments.append("AND (ad.assignment_document_status_id is null ");
+        getHoldStudioPayments.append("or ad.assignment_document_hard_copy_ind = 0 or ad.assignment_document_status_id <> " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID + ") ");
         ResultSetContainer rscStudio = runSelectQuery(c, getHoldStudioPayments.toString(), false);
 
         for (Iterator it = rscStudio.iterator(); it.hasNext();) {
