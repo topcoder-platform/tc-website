@@ -2,6 +2,7 @@ package com.topcoder.web.common.cache.admin;
 
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.logging.Logger;
 import org.jboss.cache.CacheException;
 import org.jboss.cache.Fqn;
 import org.jboss.cache.TreeCacheMBean;
@@ -17,6 +18,7 @@ import java.util.Set;
  *          Create Date: May 2, 2007
  */
 public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
+    private static final Logger log = Logger.getLogger(CacheAdmin.class);
     public void clearRoot() {
         InitialContext ctx = null;
         TCResourceBundle b = new TCResourceBundle("cache");
@@ -24,6 +26,8 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
             ctx = new InitialContext();
             //todo replace so that we can specify the jndi name
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
+            log.debug("object class " + ctx.lookup(b.getProperty("jndi_name")).getClass());
+
             cache.removeData(new Fqn());
         } catch (NamingException e) {
             throw new RuntimeException(e);
