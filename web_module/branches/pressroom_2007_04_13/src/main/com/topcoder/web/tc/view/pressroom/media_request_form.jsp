@@ -1,33 +1,35 @@
-<%@  page language="java"  %>
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
 <html>
 <head>
-<title>TopCoder Press Room</title>
-
-<jsp:include page="../script.jsp" />
-<jsp:include page="../style.jsp">
+    <title>TopCoder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <jsp:include page="../script.jsp" />
+    <jsp:include page="../style.jsp">
     <jsp:param name="key" value="tc_pressroom"/>
-</jsp:include>
+    </jsp:include>
 </head>
-
 <body>
 
 <jsp:include page="../top.jsp" >
-    <jsp:param name="level1" value=""/>
+<jsp:param name="level1" value=""/>
 </jsp:include>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
     <tr valign="top">
-<!-- Left Column Begins-->
+<%-- Left Column Begins--%>
         <td width="180">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="node" value="press_room"/>
             </jsp:include>
         </td>
-<!-- Left Column ends -->
+<%-- Left Column Ends --%>
 
-<!-- Center Column begins -->
-        <td width="100%" align="center">
+<%-- Center Column Begins --%>
+        <td width="100%" align="center" class="bodyColumn">
             
             <div id="pressContainer">
                 <!-- Press Room Banner -->
@@ -47,77 +49,79 @@
                         </ul>
                     </div>
                     
+
                     <!-- Media Request Form -->
-                    <div>
-                        <table>
+                    <div align="center">
+
+                        <p>Please use the following form to request information from our Public Relations department.</p>
+
+                        <table cellpadding="4" cellspacing="0" style="clear: both; width:500px; border: 1px solid green;">
                             <tr>
-                                <td>Please use the following form to request information from our Public Relations department.</td>
+                                <td nowrap="nowrap">First Name</td><td width="100%"><input name="first" size="20" maxlength="15" value="" type="text"></td>
                             </tr>
                             <tr>
-                                <td>First Name</td><td>>></td><td> </td>
+                                <td nowrap="nowrap">Last Name</td><td><input name="last" size="20" maxlength="15" value="" type="text"></td>
                             </tr>
                             <tr>
-                                <td>Last Name</td><td>>></td><td> </td>
+                                <td nowrap="nowrap">Email address</td><td><input name="email" size="20" maxlength="15" value="" type="text"></td>
                             </tr>
                             <tr>
-                                <td>Email address</td><td>>></td><td> </td>
+                                <td nowrap="nowrap">Phone number</td><td><input name="phone" size="20" maxlength="15" value="" type="text"></td>
                             </tr>
                             <tr>
-                                <td>Phone number</td><td>>></td><td> </td>
+                                <td nowrap="nowrap">Fax</td><td><input name="fax" size="20" maxlength="15" value="" type="text"></td>
                             </tr>
                             <tr>
-                                <td>Phone number</td><td>>></td><td> </td>
+                                <td nowrap="nowrap">Type of Media</td>
+                                <td>
+                                    <select name="cc">
+                                    <option value=""></option>
+                                    <option value="01">Bla 1</option>
+                                    <option value="02">Bla 2</option>
+                                    <option value="03">Bla 3</option>
+                                    <option value="04">Bla 4</option>
+                                    </select>
+                                </td>
                             </tr>
                             <tr>
-                                <td>Fax</td><td>>></td><td> </td>
+                                <td nowrap="nowrap">Media Outlet</td><td><input name="mediaoutlet" size="20" maxlength="15" value="" type="text"></td>
                             </tr>
                             <tr>
-                                <td>Type of Media</td><td>>></td><td> </td>
+                                <td nowrap="nowrap">Your Title</td><td><input name="title" size="20" maxlength="15" value="" type="text"></td>
                             </tr>
                             <tr>
-                                <td>Media Outlet</td><td>>></td><td> </td>
+                                <td nowrap="nowrap">Are you on assignment?</td><td><input name="onassignment" size="20" maxlength="15" value="" type="text"></td>
                             </tr>
                             <tr>
-                                <td>Your Title</td><td>>></td><td> </td>
+                                <td nowrap="nowrap">Comments or Questions:</td><td><textarea cols="40" rows="6" name="comments"></textarea></td>
                             </tr>
                             <tr>
-                                <td>Are you on assignment?</td><td>>></td><td> </td>
-                            </tr>
-                            <tr>
-                                <td>Comments or Questions:</td><td>>></td><td> </td>
-                            </tr>
-                            <tr>
-                                <td> </td><td> </td><td><a href=""><img src="/i/pressroom/submit_button.png" alt="Submit Button" /></a></td>
+                                <td>&nbsp;</td><td><a href="" class="button" style="width: 60px;">Submit</a></td>
                             </tr>
                         </table>
-                        <div>
-                            <img src="/i/pressroom/year_footer.png" alt="Year footer" />
-                            <div>
-                                <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
-                            </div>
+
+                        <img src="/i/pressroom/year_footer.png" alt="Year footer" />
+                        <div align="left">
+                            <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
                         </div>
                     </div>
                 </div>
             </div>
         </td>
-<!-- Center Column ends -->
-
-<!-- Right Column begins -->
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
         <td width="170">
             <jsp:include page="../public_right.jsp">
-                <jsp:param name="level1" value="privatelabel"/>
+                <jsp:param name="level1" value="default"/>
             </jsp:include>
         </td>
-<!-- Right Column ends -->
-
-<!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
-<!-- Gutter ends -->
+<%-- Right Column Ends --%>
+        
     </tr>
+    </tbody>
 </table>
 
 <jsp:include page="../foot.jsp" />
-
 </body>
-
 </html>
