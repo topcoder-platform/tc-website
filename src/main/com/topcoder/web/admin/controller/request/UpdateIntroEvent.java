@@ -127,7 +127,7 @@ public class UpdateIntroEvent extends IntroEventBase {
             algo.setRegistrationEnd(getDateTime(ALGO_REG_END, sdfDateTime, tz));
             
             algo.setDescription(ie.getDescription());
-            algo.setShortDescription(ie.getShortDescription() + "Algo");
+            algo.setShortDescription(ie.getShortDescription() + "algorithm");
 
         }
 
@@ -139,7 +139,7 @@ public class UpdateIntroEvent extends IntroEventBase {
             comp.setParent(ie);
             comp.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_COMP_ID));       
             comp.setDescription(ie.getDescription());
-            comp.setShortDescription(ie.getShortDescription() + "Algo");
+            comp.setShortDescription(ie.getShortDescription() + "component");
             
             TimeZone tz = getRequest().getParameter(COMP_REG_USE_TIMEZONE) != null? timeZone : null;
             
