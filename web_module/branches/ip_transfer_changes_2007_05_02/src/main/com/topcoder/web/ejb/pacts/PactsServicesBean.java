@@ -2054,10 +2054,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param c        the Connection to use
      * @param ad       the Assignment Document to update
-     * @param statusId the status id to update to
      * @throws Exception If there's an error
      */
-    private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad, int statusId) throws Exception {
+    private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad) throws Exception {
         StringBuffer updatePaymentStatus = new StringBuffer(300);
         if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
             updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id, (SELECT COUNT(*) FROM user_tax_form_xref WHERE user_id = p.user_id) as tax_form ");
@@ -2131,7 +2130,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param c        the Connection to use
      * @param ad       the Assignment Document to update
-     * @param statusId the status id to update to
      * @throws Exception If there's an error
      */
     private void newHardCopyAssignmentDocument(Connection c, AssignmentDocument ad) throws Exception {
