@@ -985,9 +985,14 @@
             <classpath>
                 <pathelement location="${classes}"/>
                 <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
+                <pathelement location="${jars.dir}/jboss/xalan.jar"/>
+                <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
+                <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
+                <pathelement location="${jars.dir}/jboss/mail.jar"/>
+                <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
                 <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
                 <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
-                <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
                 <pathelement location="${resources}"/>
             </classpath>
         </java>
