@@ -11,8 +11,6 @@ import org.jboss.system.ServiceMBeanSupport;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Set;
-import java.lang.reflect.Method;
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author dok
@@ -25,34 +23,33 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         InitialContext ctx = null;
         TCResourceBundle b = new TCResourceBundle("cache");
         try {
-            ctx = new InitialContext();
-            //todo replace so that we can specify the jndi name
-            //TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
+            ctx = TCContext.getInitial(b.getProperty("host_url"));
+            TreeCacheMBean cache = (TreeCacheMBean)ctx.lookup(b.getProperty("jndi_name"));
+            cache.removeData(new Fqn());
+/*
+            ctx = TCContext.getInitial(b.getProperty("host_url"));
+            //using reflection so that we don't a lot of nasty dependencies when using the class.
             Object o = ctx.lookup(b.getProperty("jndi_name"));
             Method[] methods = o.getClass().getDeclaredMethods();
             for (Method m : methods) {
                 if ("removeData".equals(m.getName())) {
                     for (Class c : m.getParameterTypes()) {
-                        log.debug("class " + c.getName());
                         if ("org.jboss.cache.Fqn".equals(c.getName())) {
-                            log.debug("found it");
                             m.invoke(o, new Fqn());
                         }
                     }
                 }
             }
-
-
-            //cache.removeData(new Fqn());
+*/
         } catch (NamingException e) {
             throw new RuntimeException(e);
 /*
-        } catch (CacheException e) {
-            throw new RuntimeException("Couldn't remove the root ", e);
-*/
         } catch (IllegalAccessException e) {
             throw new RuntimeException(e);
         } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+*/
+        } catch (CacheException e) {
             throw new RuntimeException(e);
         } finally {
             TCContext.close(ctx);
@@ -63,8 +60,7 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         InitialContext ctx = null;
         TCResourceBundle b = new TCResourceBundle("cache");
         try {
-            ctx = new InitialContext();
-            //todo replace so that we can specify the jndi name
+            ctx = TCContext.getInitial(b.getProperty("host_url"));
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
 
             Set keys = cache.getKeys(new Fqn());
@@ -93,10 +89,8 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         InitialContext ctx = null;
         TCResourceBundle b = new TCResourceBundle("cache");
         try {
-            ctx = new InitialContext();
-            //todo replace so that we can specify the jndi name
+            ctx = TCContext.getInitial(b.getProperty("host_url"));
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
-
             return cache.getKeys(new Fqn()).size();
         } catch (NamingException e) {
             throw new RuntimeException(e);
