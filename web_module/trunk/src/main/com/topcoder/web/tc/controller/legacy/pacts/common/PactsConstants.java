@@ -567,6 +567,6 @@ public interface PactsConstants extends Constants {
     public static final int ASSIGNMENT_DOCUMENT_HISTORY_PAGE_SIZE = 20;
     
     // Minimum points in order to win a prize
-    public static final int INTRO_EVENT_MIN_POINTS = 10;
+    public static final int INTRO_EVENT_MIN_POINTS = 5;
 }
 
