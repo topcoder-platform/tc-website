@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Set;
 import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * @author dok
@@ -26,20 +27,27 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         try {
             ctx = new InitialContext();
             //todo replace so that we can specify the jndi name
-            TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
+            //TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
             Object o = ctx.lookup(b.getProperty("jndi_name"));
             Method[] methods = o.getClass().getDeclaredMethods();
             for (Method m : methods) {
-                log.debug("method " + m.getName());    
+                if ("removeData".equals(m.getName())) {
+                    m.invoke(o, new Fqn());
+                }
             }
 
 
-
-            cache.removeData(new Fqn());
+            //cache.removeData(new Fqn());
         } catch (NamingException e) {
             throw new RuntimeException(e);
+/*
         } catch (CacheException e) {
             throw new RuntimeException("Couldn't remove the root ", e);
+*/
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
         } finally {
             TCContext.close(ctx);
         }
