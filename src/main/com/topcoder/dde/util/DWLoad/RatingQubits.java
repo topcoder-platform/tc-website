@@ -1,5 +1,6 @@
 package com.topcoder.dde.util.DWLoad;
 
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.UnknownNamespaceException;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Vector;
 
@@ -223,6 +225,10 @@ public class RatingQubits {
                 histories.add(null);
             }
 
+            HashMap<String, Integer> oldRatingsMap = getOldRatingsMap(conn);
+            HashMap<String, Integer> newRatingsMap = getNewRatingsMap(conn);
+
+
             while (rs.next()) {
                 //new project
                 int processed = 0;
@@ -344,6 +350,9 @@ public class RatingQubits {
 
                 }
 
+
+                String key;
+
                 while (er.size() > 0) {
                     int newrating = Math.round(((Double) er.remove(0)).floatValue());
                     int newratingnovol = Math.round(((Double) ernv.remove(0)).floatValue());
@@ -357,19 +366,34 @@ public class RatingQubits {
                     sqlStr.replace(0, sqlStr.length(), "UPDATE project_result SET old_rating = ?, new_rating = ? ");
                     sqlStr.append(" WHERE project_id = ? and user_id = ? ");
 
-                    ps = conn.prepareStatement(sqlStr.toString());
+                    key = rs.getInt("project_id") + "-" + coder;
+                    boolean doit = false;
                     if (r.num_ratings == 0) {
-                        ps.setNull(1, Types.DOUBLE);
+                        if (oldRatingsMap.get(key) != null || !newRatingsMap.get(key).equals(newrating)) {
+                            doit = true;
+                        }
                     } else {
-                        ps.setDouble(1, r.rating);
+                        if (!oldRatingsMap.get(key).equals((int) Math.round(r.rating)) || !newRatingsMap.get(key).equals(newrating)) {
+                            doit = true;
+                        }
                     }
-                    ps.setInt(2, newrating);
-                    ps.setInt(3, rs.getInt("project_id"));
-                    ps.setInt(4, coder);
 
-                    ps.execute();
-                    ps.close();
-                    ps = null;
+                    //only update the db if something actually changed
+                    if (doit) {
+                        ps = conn.prepareStatement(sqlStr.toString());
+                        if (r.num_ratings == 0) {
+                            ps.setNull(1, Types.DOUBLE);
+                        } else {
+                            ps.setDouble(1, r.rating);
+                        }
+                        ps.setInt(2, newrating);
+                        ps.setInt(3, rs.getInt("project_id"));
+                        ps.setInt(4, coder);
+
+                        ps.execute();
+                        ps.close();
+                        ps = null;
+                    }
 
                     //update user_rating
                     r.rating = newrating;
@@ -455,6 +479,70 @@ public class RatingQubits {
         }
     }
 
+
+    private final String OLD_RATINGS = "select pr.project_id, pr.user_id, pr.old_rating from project_result pr, project p " +
+            "where p.project_id = pr.project_id " +
+            "and p.project_status_id in (4, 7)  " +
+            "and p.project_category_id in (1,2) " +
+            "and pr.rating_ind =1 " +
+            "and pr.final_score is not null ";
+
+    /**
+     * return a mapping between project id/user id and what's currently in the database for old rating
+     * the key will be <project_id>-<user_id>
+     *
+     * @return
+     */
+    private HashMap<String, Integer> getOldRatingsMap(Connection conn) throws SQLException {
+        HashMap<String, Integer> ret = new HashMap<String, Integer>();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement(OLD_RATINGS);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ret.put(rs.getString("project_id") + "-" + rs.getString("user_id"), rs.getString("old_rating") == null ? null : rs.getInt("old_rating"));
+            }
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(ps);
+        }
+        return ret;
+
+    }
+
+    private final String NEW_RATINGS = "select pr.project_id, pr.user_id, pr.new_rating from project_result pr, project p " +
+            "where p.project_id = pr.project_id " +
+            "and p.project_status_id in (4, 7)  " +
+            "and p.project_category_id in (1,2) " +
+            "and pr.rating_ind =1 " +
+            "and pr.final_score is not null ";
+
+    /**
+     * return a mapping between project id/user id and what's currently in the database for new rating
+     * the key will be <project_id>-<user_id>
+     *
+     * @return
+     */
+    private HashMap<String, Integer> getNewRatingsMap(Connection conn) throws SQLException {
+        HashMap<String, Integer> ret = new HashMap<String, Integer>();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement(NEW_RATINGS);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ret.put(rs.getString("project_id") + "-" + rs.getString("user_id"), rs.getString("new_rating") == null ? null : rs.getInt("new_rating"));
+            }
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(ps);
+        }
+        return ret;
+
+    }
 
     private void updateRatingOrder(Connection conn) throws Exception {
         // update rating_order column
