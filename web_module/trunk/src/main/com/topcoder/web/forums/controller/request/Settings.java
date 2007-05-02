@@ -39,6 +39,7 @@ public class Settings extends ForumsProcessor {
             int messagesPerPage = Integer.parseInt(getRequest().getParameter("messagesPerPage"));
             int messagesPerHistoryPage = Integer.parseInt(getRequest().getParameter("messagesPerHistoryPage"));
             int resultsPerSearchPage = Integer.parseInt(getRequest().getParameter("resultsPerSearchPage"));
+            int categoryResultsPerSearchPage = Integer.parseInt(getRequest().getParameter("categoryResultsPerSearchPage"));
             String threadMode = getRequest().getParameter("threadMode");
             String flatMode = getRequest().getParameter("flatMode");
             String showPrevNextThreads = getRequest().getParameter("showPrevNextThreads");
@@ -56,11 +57,19 @@ public class Settings extends ForumsProcessor {
             String ratingCollapseMinCount = getRequest().getParameter("ratingCollapseMinCount");
             String ratingCollapseMinMessages = getRequest().getParameter("ratingCollapseMinMessages");
             
+            String collapseRead = getRequest().getParameter("collapseRead");
+            if (collapseRead == null) collapseRead = "false";
+            String collapseReadDays = getRequest().getParameter("collapseReadDays");
+            String collapseReadPosts = getRequest().getParameter("collapseReadPosts");
+            String collapseReadShowReplied = getRequest().getParameter("collapseReadShowReplied");
+            if (collapseReadShowReplied == null) collapseReadShowReplied = "false";
+            
             checkMax(forumsPerPage, ForumConstants.maxForumsPerPage, "jiveForumRange", ForumConstants.ERR_FORUM_RANGE_EXCEEDED);
             checkMax(threadsPerPage, ForumConstants.maxThreadsPerPage, "jiveThreadRange", ForumConstants.ERR_THREAD_RANGE_EXCEEDED);
             checkMax(messagesPerPage, ForumConstants.maxMessagesPerPage, "jiveMessageRange", ForumConstants.ERR_MESSAGE_RANGE_EXCEEDED);
             checkMax(messagesPerHistoryPage, ForumConstants.maxMessagesPerPage, "jiveHistoryRange", ForumConstants.ERR_MESSAGE_HISTORY_RANGE_EXCEEDED);
             checkMax(resultsPerSearchPage, ForumConstants.maxSearchResultsPerPage, "jiveSearchRange", ForumConstants.ERR_SEARCH_RANGE_EXCEEDED);
+            checkMax(categoryResultsPerSearchPage, ForumConstants.maxSearchCategoryResultsPerPage, "jiveSearchCategoryRange", ForumConstants.ERR_SEARCH_RANGE_EXCEEDED);
             
             if (hasErrors()) {
                 status = "error";
@@ -74,6 +83,7 @@ public class Settings extends ForumsProcessor {
             user.setProperty("jiveAutoWatchNewTopics", autoWatchNewTopics);
             user.setProperty("jiveAutoWatchReplies", autoWatchReplies);
             user.setProperty("markWatchesRead", markWatchesRead);
+            
             user.setProperty("showRatings", showRatings);
             user.setProperty("ratingHighlightThreshold", ratingHighlightThreshold);
             user.setProperty("ratingHighlightMinCount", ratingHighlightMinCount);
@@ -81,6 +91,11 @@ public class Settings extends ForumsProcessor {
             user.setProperty("ratingCollapseMinCount", ratingCollapseMinCount);
             user.setProperty("ratingCollapseMinMessages", ratingCollapseMinMessages);
 
+            user.setProperty("collapseRead", collapseRead);
+            user.setProperty("collapseReadDays", collapseReadDays);
+            user.setProperty("collapseReadPosts", collapseReadPosts);
+            user.setProperty("collapseReadShowReplied", collapseReadShowReplied);
+            
             CronTimer current = forumFactory.getWatchManager().getBatchTimer(user);
             if (current == null && watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {
                 // We've received a request to create a new batch timer

@@ -88,6 +88,7 @@ public class Thread extends ForumsProcessor {
         
         ReadTracker readTracker = forumFactory.getReadTracker();
         if (user != null && !authToken.isAnonymous()) {
+            getRequest().setAttribute("lastReadDate", ForumsUtil.getLastReadDate(user, readTracker, thread));
             readTracker.markRead(user, ForumsUtil.getLatestMessage(thread));
         }
         
