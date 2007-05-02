@@ -6,12 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 /**
  * Represents basic payment information, without reference information.
@@ -123,6 +121,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             return REFERENCE_STUDIO_CONTEST_ID;
 
         case COMPONENT_TOURNAMENT_BONUS_PAYMENT:
+        case INTRO_EVENT_COMP_PAYMENT:
             return REFERENCE_COMPONENT_CONTEST_ID;
 
         case DIGITAL_RUN_PRIZE_PAYMENT:
@@ -164,6 +163,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         case PROBLEM_TESTING_PAYMENT: return new ProblemTestingPayment(coderId, grossAmount, referenceId);
         case TC_STUDIO_PAYMENT: return new StudioContestPayment(coderId, grossAmount, referenceId, placed);
         case COMPONENT_TOURNAMENT_BONUS_PAYMENT: return new ComponentTournamentBonusPayment(coderId, grossAmount, referenceId, placed);
+        case INTRO_EVENT_COMP_PAYMENT: return new IntroEventCompPayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_PRIZE_PAYMENT: return new DigitalRunPrizePayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_TOP_THIRD_PAYMENT: return new DigitalRunTopThirdPayment(coderId, grossAmount, referenceId, placed);
         case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT: return new DigitalRunRockiePrizePayment(coderId, grossAmount, referenceId, placed);

@@ -292,5 +292,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     void affirmAssignmentDocument(AssignmentDocument ad);
 
+    ResultSetContainer getContestsInfo(long eid) throws  SQLException;
+
 }
 

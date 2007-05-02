@@ -7240,6 +7240,33 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return runSelectQuery(query.toString(), false);
     }
 
+    public ResultSetContainer getContestsInfo(long eid) throws SQLException {
+        StringBuffer query = new StringBuffer(300);
+
+        query.append("select e.event_desc ");
+        query.append("  ,c.contest_id ");
+        query.append("  ,c.contest_name ");
+        query.append("  ,end_date < current as time_over "); 
+        query.append("  ,(select count(*)  ");
+        query.append("    from tcs_catalog:project p, ");
+        query.append("    tcs_catalog:contest_project_xref x ");
+        query.append("    where p.project_id = x.project_id ");
+        query.append("    and x.contest_id = c.contest_id ");
+        query.append("    and p.project_status_id = 1) as active_projects ");   
+        query.append("   ,cp.place ");
+        query.append("   ,cp.contest_prize_id ");
+        query.append("   ,cp.place ");
+        query.append("   ,cp.prize_amount ");
+        query.append("from tcs_catalog:contest c, tcs_catalog:contest_prize cp, event e ");
+        query.append("where  c.contest_id = cp.contest_id ");
+        query.append("and c.event_id = e.event_id ");
+        query.append("and c.event_id = " + eid);
+        query.append(" order by contest_name  ");
+
+        return runSelectQuery(query.toString(), false);
+        
+    }
+
 
     class AlgorithmContestPaymentDataRetriever extends AlgorithmContestPayment {
         private final String roundName;

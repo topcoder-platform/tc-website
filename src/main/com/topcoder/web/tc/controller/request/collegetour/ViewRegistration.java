@@ -7,8 +7,12 @@ package com.topcoder.web.tc.controller.request.collegetour;
  */
 public class ViewRegistration extends Base {
     protected void collegeTourProcessing() throws Exception {
-        setNextPage("/collegetour/confirm.jsp");
+/*        setNextPage("/collegetour/confirm.jsp");
         setIsNextPageInContext(true);
+  */      
+        setNextPage("tc?module=IntroEventViewRegister&eid=" + (getEventId() * 3 + 1001));
+        setIsNextPageInContext(false);
+
     }
 
 }

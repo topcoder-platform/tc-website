@@ -34,6 +34,7 @@ public interface Constants {
     public static final int SPECIFICATION_REVIEW_PAYMENT = 27;
     public static final int ASSEMBLY_COMPETITION_REVIEW = 28;
     public static final int ARCHITECTURE_PAYMENT = 29;
+    public static final int INTRO_EVENT_COMP_PAYMENT = 30;
 
     public static final int NO_REFERENCE = 0;
     public static final int REFERENCE_ALGORITHM_ROUND_ID = 1;
