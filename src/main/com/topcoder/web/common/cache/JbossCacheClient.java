@@ -67,7 +67,7 @@ public class JbossCacheClient implements CacheClient {
 
     public void clearCache() throws TCCacheException {
         try {
-            cache.remove(path);
+            cache.removeData(path);
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }
