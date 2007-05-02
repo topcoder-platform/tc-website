@@ -24,7 +24,7 @@ public class TestCache {
 
             long start = System.currentTimeMillis();
             log.debug("add " + 50 + " size " + big.toString().getBytes().length + " items to the cache, and get every 5th, cache for 50 hours");
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 50000; i++) {
                 cc.set("anothernewkey" + i, big.toString());
                 if (i % 5 == 0) {
                     log.debug("get key " + i);
