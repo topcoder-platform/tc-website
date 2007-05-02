@@ -60,18 +60,21 @@
 
                 <c:if test="${assignment_document.status.id == PENDING_STATUS_ID}">
                     <c:choose>
-                        <c:when test="${has_hard_copy}">
-                            <form action="/PactsMemberServlet" method="post">
-                                <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
-                                <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
-                                <input type="submit" value="Affirm"/>
-                            </form>
+                        <form action="/PactsMemberServlet" method="post">
+                            <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
+                            <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
+                            <input type="submit" value="Affirm"/>
+                        </form>
 
-                            <p>If the personal information in this document is incorrect,<br>please <A href="/reg/?nrg=false">update your profile</A> before affirming.</p>
+                        <p>If the personal information in this document is incorrect,<br>please <A href="/reg/?nrg=false">update your profile</A> before affirming.</p>
+                        <c:when test="${has_hard_copy}">
                         </c:when>
+                            <p>
+                                You have already sent a a signed hard copy of the IP Transfer Document.
+                            </p>
                         <c:otherwise>
                             <p>
-                                You'll need to send a signed hard copy of the Assignment Document in order to be able to affirm it in the future. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
+                                You'll need to send a signed hard copy of the IP Transfer Document in order to be able to affirm it in the future. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
                             </p>
                         </c:otherwise>
                     </c:choose>

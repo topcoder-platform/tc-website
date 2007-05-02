@@ -34,12 +34,12 @@ public class AffirmAssignmentDocument extends BaseProcessor implements PactsCons
                     throw new IllegalArgumentException("Assignment Document should be pending");  
                 }
     
-                Boolean hasHardCopy = bean.hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
-                        ad.getType().getId().longValue());
-    
-                if (!hasHardCopy.booleanValue()) {
-                    throw new IllegalArgumentException("You must send a hard copy of the Assignment Document before you can use this system to affirm");  
-                }
+//                Boolean hasHardCopy = bean.hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
+//                        ad.getType().getId().longValue());
+//    
+//                if (!hasHardCopy.booleanValue()) {
+//                    throw new IllegalArgumentException("You must send a hard copy of the Assignment Document before you can use this system to affirm");  
+//                }
     
                 bean.affirmAssignmentDocument(ad);
                 
