@@ -69,7 +69,7 @@ public class TCHandleTag implements Filter {
                     filtered.append(chain.applyFilters(currentIndex,
                             string.substring(endCodeTag, startCodeTag)));
                 }
-                
+
                 endCodeTag = end + END_TAGS_LEN[tagUsed];
             }
             else {
@@ -88,8 +88,13 @@ public class TCHandleTag implements Filter {
             }
 
             try {
-                filtered.append(HandleTag.getLink(getCoderId(code), null, null,
-                        null, null, lightStyles, darkStyles, false));
+                long coderId = getCoderId(code);
+                String link = code;
+                if (coderId != -1) {
+                    link = HandleTag.getLink(coderId, null, null,
+                            null, null, lightStyles, darkStyles, false);
+                }
+                filtered.append(link);
             } catch (Exception e) {
                 throw new RuntimeException("Failure loading handle tag.", e);
             }
