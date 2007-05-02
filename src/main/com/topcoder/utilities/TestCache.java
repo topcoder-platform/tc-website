@@ -20,7 +20,7 @@ public class TestCache {
             big.append(String.valueOf(i));
         }
         try {
-            int max = 1000;
+            int max = 10000;
 
             long start = System.currentTimeMillis();
             log.debug("add " + 500 + " size " + big.toString().getBytes().length + " items to the cache, and get every 20th");
