@@ -11,6 +11,7 @@ import org.jboss.system.ServiceMBeanSupport;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Set;
+import java.lang.reflect.Method;
 
 /**
  * @author dok
@@ -26,7 +27,13 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
             ctx = new InitialContext();
             //todo replace so that we can specify the jndi name
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
-            log.debug("object class " + ctx.lookup(b.getProperty("jndi_name")).getClass());
+            Object o = ctx.lookup(b.getProperty("jndi_name"));
+            Method[] methods = o.getClass().getDeclaredMethods();
+            for (Method m : methods) {
+                log.debug("method " + m.getName());    
+            }
+
+
 
             cache.removeData(new Fqn());
         } catch (NamingException e) {
