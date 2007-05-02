@@ -50,7 +50,7 @@ public class UpdateIntroEvent extends IntroEventBase {
         String sname = getString(EVENT_SHORT_NAME, true);
         Integer schoolType = getInteger(SCHOOL_TYPE);
         
-        Long forumId = getLong(FORUM_ID);
+        Integer forumId = getSelect(FORUM_ID);
         Integer timezoneId = getSelect(TIMEZONE_ID);
         Integer imageId = getSelect(IMAGE_ID);
 
@@ -62,7 +62,7 @@ public class UpdateIntroEvent extends IntroEventBase {
         ie.setDescription(name);
         ie.setType(factory.getEventTypeDAO().find(EventType.INTRO_EVENT_ID));        
         ie.setShortDescription(sname);
-        if (forumId != null) ie.setForumId(forumId);
+        if (forumId != null) ie.setForumId(forumId.longValue());
         if (timezoneId != null) { 
             timeZone = factory.getTimeZoneDAO().find(timezoneId);
             ie.setTimezone(timeZone);

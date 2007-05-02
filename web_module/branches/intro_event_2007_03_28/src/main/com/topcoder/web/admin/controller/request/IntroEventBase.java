@@ -3,6 +3,9 @@ package com.topcoder.web.admin.controller.request;
 import java.util.Date;
 import java.util.List;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -71,8 +74,13 @@ public abstract class IntroEventBase extends ShortHibernateProcessor {
         
         if (hasAlgo) {
             List rounds = factory.getRoundDAO().getRoundsAfter(new Date());            
-            getRequest().setAttribute("rounds", rounds);
+            getRequest().setAttribute("rounds", rounds);        
         }            
+        
+        Request r = new Request();
+        r.setContentHandle("find_forums");
+        getRequest().setAttribute("forums", new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("find_forums"));
+        
     }
 
 

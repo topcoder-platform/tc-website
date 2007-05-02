@@ -233,7 +233,8 @@ p.explain {
 	</tr>			
 	<tr>
 		<td>Forum Id:</td>
-		<td><tc-webtag:textInput name="<%= UpdateIntroEvent.FORUM_ID %>" size="6" editable="true" />
+		<td>
+           <tc-webtag:objectSelect name="<%= UpdateIntroEvent.FORUM_ID %>" list="${forums}" valueField="id" textField="name"  topText="[Select one]" topValue="-1" />
 		</td>
 	</tr>
 	<tr>
