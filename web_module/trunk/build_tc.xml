@@ -1355,7 +1355,7 @@
 
 
     <target name="build-cache-admin" depends="compile">
-        <jar jarfile="${sar.dir}/cacheadmin.jar" basedir="${classes}"
+        <jar jarfile="${sar.dir}/cacheadmin.sar" basedir="${classes}"
              includes="com/topcoder/web/common/cache/admin/*">
         </jar>
     </target>

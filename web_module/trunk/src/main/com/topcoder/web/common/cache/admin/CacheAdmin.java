@@ -34,7 +34,7 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         }
     }
 
-    public int removelike(String s) {
+    public String removelike(String s) {
         InitialContext ctx = null;
         TCResourceBundle b = new TCResourceBundle("cache");
         try {
@@ -52,7 +52,7 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
                     count++;
                 }
             }
-            return count;
+            return count + " items removed from cache";
         } catch (NamingException e) {
             throw new RuntimeException(e);
         } catch (CacheException e) {
