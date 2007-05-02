@@ -137,6 +137,9 @@
             <c:set var="i" value="${i+1 }"/>
         </c:forEach>
     </ul>
+<p>
+    <strong>NOTE:</strong> Competitors must submit a submission that <strong>passes review</strong> to be eligible to win a Weekly Prize.
+</p>
 
 <p>
     <strong>Series Prize</strong>: The three competitors with the highest cumulative placement points across all ${weeks } weeks
