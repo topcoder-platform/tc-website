@@ -10,7 +10,6 @@
 
         <property name="connection.datasource">java:/JTS_OLTP</property>
         <!--
-<<<<<<< hibernate.cfg.xml
     <session-factory>
         <property name="connection.username">coder</property>
         <property name="connection.password">altec</property>
@@ -19,13 +18,6 @@
         </property>
         <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
 
-=======
-            <session-factory>
-                        <property name="connection.username">coder</property>
-                        <property name="connection.password">altec</property>
-                        <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/csf_oltp:INFORMIXSERVER=devinformix10_shm</property>
-                        <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
->>>>>>> 1.5.90.2
         -->
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
