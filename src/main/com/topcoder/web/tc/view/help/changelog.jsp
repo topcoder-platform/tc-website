@@ -42,6 +42,12 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+<p>
+    5.9.0 - 2007.05.02
+    <ul>
+        <li>Replace custom distrubuted cache with jboss cache -dok</li>
+    </ul>
+</p>
 
 <p>
     5.8.11 - 2007.04.26
