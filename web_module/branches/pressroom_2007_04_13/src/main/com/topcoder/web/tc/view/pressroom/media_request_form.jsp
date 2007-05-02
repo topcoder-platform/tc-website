@@ -29,47 +29,73 @@
 <!-- Center Column begins -->
         <td width="100%" align="center">
             
-            <!-- Press Room Banner -->
-            <div id="pressRoom">
-                <img src="/i/pressroom/press_banner.png" alt"Press Room Banner" />
-            </div>
-            
-            <!-- Navigation Tabs -->
-            <div id="tabHeader">
-                <ul>
-                    <li><a href="/tc?module=Static&d1=pressroom&d2=index">Current News</a></li>
-                    <li><a href="/tc?module=Static&d1=pressroom&d2=pr_archive">Press Releases Archive</a></li>
-                    <li><a href="/tc?module=Static&d1=pressroom&d2=media_resources">Media Resources</a></li>
-                    <li id="tabCurrent"><a href="/tc?module=Static&d1=pressroom&d2=media_request_form">Media Request Form</a></li>
-                    <li><a href="/tc?module=Static&d1=pressroom&d2=art_archive">Media Articles Archive></a></li>
-                </ul>
-            </div>
-            
-            <!-- Media Request Form -->
-            <div>
-                <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                    <tr valign="top">
-                        <td>Please use the following form to request information from our Public Relations department.</td>
-                    </tr>
-                    <tr valign="top">
-                        <td>First Name</td><td>>></td><td> </td>
-                        <td>Last Name</td><td>>></td><td> </td>
-                        <td>Email address</td><td>>></td><td> </td>
-                        <td>Phone number</td><td>>></td><td> </td>
-                        <td>Phone number</td><td>>></td><td> </td>
-                        <td>Fax</td><td>>></td><td> </td>
-                        <td>Type of Media</td><td>>></td><td> </td>
-                        <td>Media Outlet</td><td>>></td><td> </td>
-                        <td>Your Title</td><td>>></td><td> </td>
-                        <td>Are you on assignment?</td><td>>></td><td> </td>
-                        <td>Comments or Questions:</td><td>>></td><td> </td>
-                        <td> </td><td> </td><td><a href=""><img src="/i/pressroom/submit_button.png" alt="Submit Button" /></a></td>
-                    </tr>
-                </table>
-                <div>
-                    <img src="/i/pressroom/year_footer.png" alt"Year footer" />
+            <div id="pressContainer">
+                <!-- Press Room Banner -->
+                <div id="pressRoom">
+                    <img src="/i/pressroom/press_banner.png" alt="Press Room Banner" />
+                </div>
+                
+                <div id="pressContainer2">
+                    <!-- Navigation Tabs -->
+                    <div id="tabHeader">
+                        <ul>
+                            <li><a href="/tc?module=Static&d1=pressroom&d2=index">Current News</a></li>
+                            <li><a href="/tc?module=Static&d1=pressroom&d2=pr_archive">Press Releases Archive</a></li>
+                            <li><a href="/tc?module=Static&d1=pressroom&d2=media_resources">Media Resources</a></li>
+                            <li id="tabCurrent"><a href="/tc?module=Static&d1=pressroom&d2=media_request_form">Media Request Form</a></li>
+                            <li><a href="/tc?module=Static&d1=pressroom&d2=art_archive">Media Articles Archive</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Media Request Form -->
                     <div>
-                        <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
+                        <table>
+                            <tr>
+                                <td>Please use the following form to request information from our Public Relations department.</td>
+                            </tr>
+                            <tr>
+                                <td>First Name</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td>Last Name</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td>Email address</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td>Phone number</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td>Phone number</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td>Fax</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td>Type of Media</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td>Media Outlet</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td>Your Title</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td>Are you on assignment?</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td>Comments or Questions:</td><td>>></td><td> </td>
+                            </tr>
+                            <tr>
+                                <td> </td><td> </td><td><a href=""><img src="/i/pressroom/submit_button.png" alt="Submit Button" /></a></td>
+                            </tr>
+                        </table>
+                        <div>
+                            <img src="/i/pressroom/year_footer.png" alt="Year footer" />
+                            <div>
+                                <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
