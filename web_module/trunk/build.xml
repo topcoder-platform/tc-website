@@ -965,6 +965,18 @@
         </java>
     </target>
 
+        <target name="testcache" depends="compile">
+        <java classname="com.topcoder.utilities.TestCache" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${jars.dir}/jboss/jbossall-cache.jar"/>
+                <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
     <target name="run_loader_tests" depends="compile_tests" description="run junit tests">
         <junit printsummary="${junitsummary}" fork="yes">
             <classpath>
