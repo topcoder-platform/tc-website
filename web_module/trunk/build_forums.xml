@@ -55,6 +55,8 @@
         <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
         <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
+    	<pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+    	<pathelement location="${jars.dir}/jboss/jgroups.jar"/>
 
         <pathelement location="${jive.dir}/jivebase.jar"/>
         <pathelement location="${jive.dir}/jiveforums.jar"/>
