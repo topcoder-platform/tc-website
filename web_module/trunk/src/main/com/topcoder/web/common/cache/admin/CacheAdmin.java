@@ -24,7 +24,7 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
             ctx = new InitialContext();
             //todo replace so that we can specify the jndi name
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
-            cache.remove(new Fqn());
+            cache.removeData(new Fqn());
         } catch (NamingException e) {
             throw new RuntimeException(e);
         } catch (CacheException e) {
