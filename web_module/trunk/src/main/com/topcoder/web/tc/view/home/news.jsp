@@ -4,6 +4,44 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>05.02.07<br>5:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=17060">Vote now for the final TCCC07 Web design</A>
+        </span><br><br>
+        The designs for the 2007 TopCoder Collegiate Challenge site have been narrowed down to the final four. Vote now to rank your favorites -- the vote ends Friday, May 4 at 2:00 PM EDT.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=17060">vote now</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=49">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>05.02.07<br>5:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=17020">The Ball Logo &amp; Icons: We have a winner</A>
+        </span><br><br>
+        Congratulations to <tc-webtag:handle coderId="22673857" />, whose submission came out on top in The Ball Logo &amp; Icons design vote.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=17020">details</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=486&start=0">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.01.07<br>12:25 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -183,38 +221,3 @@
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/marathon.png" alt="Marathon Match News" border="0" /><br>04.24.07<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">
-      <A href="/tc?module=Static&d1=calendar&d2=may_07">Two new Marathon Matches added to Event Calendar</A>
-      </span><br><br>
-      Check out May and June for the new Marathon Match dates.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=calendar&d2=may_07">details</A> | 
-         <tc-webtag:forumLink forumID="515347" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_long">archive</A>
-   </td></tr>
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.24.07<br>2:20 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        Vote for the TCO07 t-shirt designs
-        </span><br><br>
-        Now that the submissions have been narrowed down, it all comes down to a simple ranking vote to pick the t-shirts for these competition categories: 
-        <a href="/tc?module=ViewSurvey&sid=16939">Studio Design</a>; 
-        <a href="/tc?module=ViewSurvey&sid=16934">Component Design &amp; Development</a>; 
-        <a href="/tc?module=ViewSurvey&sid=16923">Marathon Match</a>; 
-        <a href="/tc?module=ViewSurvey&sid=16928">Algorithm</a>. Voting ends at 2:00 PM EDT on April 26.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Category&categoryID=3">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
