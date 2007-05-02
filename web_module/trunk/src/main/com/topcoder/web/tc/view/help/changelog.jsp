@@ -46,6 +46,7 @@
     5.9.0 - 2007.05.02
     <ul>
         <li>Replace custom distrubuted cache with jboss cache -dok</li>
+        <li>Add Introductory Events Component pages, as well as admin and PACTS pages for those events - cucu</li>
     </ul>
 </p>
 
