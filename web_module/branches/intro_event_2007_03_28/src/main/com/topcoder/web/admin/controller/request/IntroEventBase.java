@@ -79,6 +79,7 @@ public abstract class IntroEventBase extends ShortHibernateProcessor {
         
         Request r = new Request();
         r.setContentHandle("find_forums");
+        r.setProperty("fcid", "18"); // college tour category
         getRequest().setAttribute("forums", new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("find_forums"));
         
     }
