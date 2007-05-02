@@ -88,7 +88,7 @@
       <td class="value">7
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC Online Round 3 Projects Posted</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC Online Championship Round 3 Projects Posted</A></strong><br>
          9:00 AM 
          </div>
          <div class="des_dev">
