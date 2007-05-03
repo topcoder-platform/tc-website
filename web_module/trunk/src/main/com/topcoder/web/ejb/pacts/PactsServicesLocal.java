@@ -294,5 +294,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     ResultSetContainer getContestsInfo(long eid) throws  SQLException;
 
+    public long performPaymentsChecks(long statusId) throws SQLException;
 }
 
