@@ -1,6 +1,7 @@
 package com.topcoder.dde.util.DWLoad;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.UnknownNamespaceException;
@@ -18,6 +19,7 @@ import java.util.TreeMap;
 import java.util.Vector;
 
 public class RatingQubits {
+    private static final Logger log = Logger.getLogger(RatingQubits.class);
 
     public static final String DRIVER_KEY = "DriverClass";
     public static final String CONNECTION_URL_KEY = "ConnectionURL";
@@ -79,7 +81,7 @@ public class RatingQubits {
             try {
                 if (c != null) c.close();
             } catch (Exception e1) {
-                System.out.println("exception B: " + e1);
+                log.error("exception B: ", e1);
             }
         }
     }
@@ -276,10 +278,10 @@ public class RatingQubits {
                 ps = null;
 
                 if (processed == 0) {
-                    System.out.println("PROCESSING ERROR: NO RECORDS FOR PROJECT " + rs.getLong("project_id"));
+                    log.info("PROCESSING ERROR: NO RECORDS FOR PROJECT " + rs.getLong("project_id"));
                 }
 
-                System.out.println("Running ratings for project: " + rs.getLong("project_id") + " (" + processed + " ratings)");
+                log.info("Running ratings for project: " + rs.getLong("project_id") + " (" + processed + " ratings)");
 
                 Vector n = new Vector();
                 Vector er = new Vector();
@@ -290,7 +292,7 @@ public class RatingQubits {
                 for (int x = 0; x < namesplusprov.size(); x++) {
                     //lookup user info
                     String userId = (String) namesplusprov.get(x);
-                    System.out.println("RATING " + userId);
+                    log.info("RATING " + userId);
 
                     Vector npp = new Vector();
                     Vector tppprov = new Vector();
@@ -317,7 +319,7 @@ public class RatingQubits {
                             continue;
                         }
                         if (h.user_id == Integer.parseInt(userId)) {
-                            System.out.println("THROWING OUT SAME USER");
+                            log.debug("THROWING OUT SAME USER " + userId);
                             continue;
                         }
 
@@ -330,7 +332,7 @@ public class RatingQubits {
                         rpp.add(new Double(h.rating));
                     }
 
-                    System.out.println("History length is " + processed);
+                    log.debug("History length is " + processed);
 
                     resultsplusprov = rateEvent(npp, rpp, vpp, tppprov, spp);
 
@@ -373,8 +375,12 @@ public class RatingQubits {
                             doit = true;
                         }
                     } else {
-                        if (!oldRatingsMap.get(key).equals((int) Math.round(r.rating)) || !newRatingsMap.get(key).equals(newrating)) {
-                            doit = true;
+                        try {
+                            if (!oldRatingsMap.get(key).equals((int) Math.round(r.rating)) || !newRatingsMap.get(key).equals(newrating)) {
+                                doit = true;
+                            }
+                        } catch (NullPointerException e) {
+
                         }
                     }
 
@@ -406,14 +412,14 @@ public class RatingQubits {
 
                     //insert history
                     history h = new history(coder, score, newrating, newvol);
-                    System.out.println("HISTORY UPDATE: " + coder + ", " + score + ", " + newrating + ", " + newvol);
+                    log.info("HISTORY UPDATE: " + coder + ", " + score + ", " + newrating + ", " + newvol);
 
                     //rotate history
                     histories.add(0, h);
                     //Collections.rotate(histories, 1);
                     //histories.set(0, h);
 
-                    System.out.println("HISTORY IS NOW " + histories.size());
+                    log.debug("HISTORY IS NOW " + histories.size());
                 }
 
             }
@@ -546,7 +552,7 @@ public class RatingQubits {
 
     private void updateRatingOrder(Connection conn) throws Exception {
         // update rating_order column
-        System.out.println("UPDATING rating_order COLUMN....");
+        log.info("UPDATING rating_order COLUMN....");
         ResultSet rs2 = null;
         PreparedStatement ps = null;
         PreparedStatement psUpd = null;
@@ -593,7 +599,7 @@ public class RatingQubits {
                 }
                 ratingOrder++;
             }
-            System.out.println("updated rating_order in " + processed + " rows");
+            log.info("updated rating_order in " + processed + " rows");
         } finally {
             try {
                 if (rs2 != null) {
@@ -773,9 +779,9 @@ public class RatingQubits {
             newScores.addElement(new Double(score));
         }
 
-        System.out.println("Handle   Player  # Rate Vol Es.R E.SD  Score  Ac.R A.SD D.SD N.RT N.V N.VR");
+        log.info("Handle   Player  # Rate Vol Es.R E.SD  Score  Ac.R A.SD D.SD N.RT N.V N.VR");
         for (i = 0; i < names.size(); i++) {
-            System.out.println(
+            log.info(
                     fS1((String) names.elementAt(i)) + " " +
                             ((String) names.elementAt(i)) + "  " +
                             ((Integer) timesPlayed.elementAt(i)).intValue() + " " +
