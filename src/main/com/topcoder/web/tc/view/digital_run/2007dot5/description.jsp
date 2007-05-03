@@ -58,7 +58,7 @@ return false;
 <FORM ACTION="../cgi-bin/redirect.pl" METHOD="POST" onChange="return dropdown(this.season)">
 <div style="margin-bottom: 10px;">
     <select NAME="season">
-      <option value="/tc?module=Static&d1=digital_run&d2=2007&d3=description">2007 Season</option>
+      <option value="/tc?module=Static&d1=digital_run&d2=2006description">2007 Season</option>
       <option value="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description" selected>2007.5 Season</option>
     </select>
 </div>
