@@ -1,0 +1,78 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+  
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<body class="body" marginheigh="0" marginwidth="0">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navNone.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td valign="middle" width="1%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><a href="c_register.jsp" class="breadcrumbLinks">Register New Account</a> > <strong>New Account Activated</strong></td>
+		<td valign="middle" width="98%" class="breadcrumb"><img src="images/clear.gif" alt="" width="10" height="1" border="0"/></td>
+	</tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="middle">
+	<tr valign="top">
+
+<!-- Left Column begins -->
+		<td width="165" class="leftColumn">
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="images/clear.gif" alt="" width="165" height="5" border="0" /></td></tr>
+			</table>
+		</td>
+		<td width="5" class="leftColumn"><img src="images/clear.gif" alt="" width="5" height="10" border="0"></td>
+<!-- Left Column ends -->
+
+<!-- Gutter 1 begins -->
+		<td width="15"><img src="images/clear.gif" alt="" width="15" height="10" border="0"></td>
+<!-- Gutter 1 ends -->
+
+<!-- Middle Column begins -->
+		<td width="100%">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+				<tr><td height="15"><img src="images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
+				<tr><td class="normal"><img src="images/headRegNewAcct.gif" alt="Register New Account" width="545" height="35" border="0" /></td></tr>
+				<tr><td class="subhead">New Account Activated</td></tr>
+			</table>
+				
+			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
+				<tr valign="top">
+					<td class="normal">
+						<p><strong>Congratulations! Your new TopCoder Software Account has been activated.</strong></p>
+
+						<p>Start experiencing the TopCoder Difference today! Visit our <a href="c_showroom.jsp">Component Catalog,</a> 
+						participate in an online <a href="c_active_collab.jsp">Collaboration Forum</a> or purchase a 
+						<a href="s_subscriptions.jsp">subscription package</a> so you can start downloading components.</p>
+
+						<p>If you have any questions about your TopCoder Software Account, call us at 860-633-5540.</p>
+					</td>
+				</tr>
+				<tr><td height="40"><img src="images/clear.gif" alt="" width="10" height="40" border="0"/></td></tr>
+			</table>
+<!--Middle Column ends -->
+
+<!-- Gutter 3 begins -->
+		<td width="10"><img src="images/clear.gif" alt="" width="10" height="10" border="0"></td></form>
+<!-- Gutter 3 ends -->
+	</tr>
+</table>
+	
+<!-- Footer begins -->
+<!--#include virtual="includes/footer.shtml" -->
+<!-- Footer ends -->
+
+</body>
+</html>
