@@ -2733,7 +2733,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         String message = "<h2>Verification results:</h2>\n";
 
-        long count = performPaymentsChecks(PAYMENT_OWED_STATUS);
+        long count = dib.performPaymentsChecks(PAYMENT_OWED_STATUS);
 
         message += count + " payments moved back to On Hold.\n";
 
