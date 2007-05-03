@@ -6,9 +6,18 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.Answer;
+import com.topcoder.web.common.model.CoderSessionInfo;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventType;
+import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServices;
 import com.topcoder.web.ejb.ComponentRegistrationServices.ComponentRegistrationServicesLocal;
 import com.topcoder.web.ejb.project.Project;
@@ -163,7 +172,10 @@ public class ViewRegistration extends Base {
             if (log.isDebugEnabled()) {
                 log.debug(curr.getDescription() + " " + curr.getType().getDescription());
             }
-            if (curr.getType().equals(et) && curr.getRegistrationStart().before(now) && curr.getRegistrationEnd().after(now)) {
+            if (curr.getType().equals(et) && curr.getRegistrationStart() != null
+                    && curr.getRegistrationStart().before(now)
+                    && curr.getRegistrationEnd() != null
+                    && curr.getRegistrationEnd().after(now)) {
                 ret = true;
             }
         }
