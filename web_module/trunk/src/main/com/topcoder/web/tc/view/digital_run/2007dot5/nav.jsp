@@ -27,12 +27,11 @@
     <% } else { %>
          | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=desRules">Rules</A>
     <% } %>
+
+    | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description">Go back</A><br>
 <%--
-    <br>
-    <A class="bcLink" href="">Leaderboard</A> | 
+    <A class="bcLink" href="">Current Leaderboard</A>
 --%>
-    <br>
-    <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description" class="bcLink">back</A>
 
 <% } else if (tabLev1.equals("development")) { %>
 
@@ -56,41 +55,39 @@
     <% } else { %>
          | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devRules">Rules</A>
     <% } %>
+
+    | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description">Go back</A><br>
 <%--
-    <br>
-    <A class="bcLink" href="">Leaderboard</A> | 
+    <A class="bcLink" href="">Current Leaderboard</A>
 --%>
-    <br>
-    <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description" class="bcLink">back</A>
 
 <% } else if (tabLev1.equals("assembly")) { %>
 
     <% if (tabLev2.equals("overview")) {%>
         Overview
     <% } else { %>
-        <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devOverview">Overview</A>
+        <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmOverview">Overview</A>
     <% } %>
     <% if (tabLev2.equals("schedule")) {%>
         | Schedule
     <% } else { %>
-         | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devSchedule">Schedule</A>
+         | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmSchedule">Schedule</A>
     <% } %>
     <% if (tabLev2.equals("prizes")) {%>
         | Prizes
     <% } else { %>
-         | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devPrizes">Prizes</A>
+         | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmPrizes">Prizes</A>
     <% } %>
     <% if (tabLev2.equals("rules")) {%>
         | Rules
     <% } else { %>
-         | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devRules">Rules</A>
+         | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmRules">Rules</A>
     <% } %>
+
+    | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description">Go back</A><br>
 <%--
-    <br>
-    <A class="bcLink" href="">Leaderboard</A> | 
+    <A class="bcLink" href="">Current Leaderboard</A>
 --%>
-    <br>
-    <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description" class="bcLink">back</A>
 
 <% } %>
 
