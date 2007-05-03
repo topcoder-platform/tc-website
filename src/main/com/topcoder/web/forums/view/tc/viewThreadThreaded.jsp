@@ -253,9 +253,11 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
                (response to <A href="#<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
             <%   } %>
             <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
-                    int[] ratings = ForumsUtil.getRatings(ratingManager, message);
-                    posRatings = ratings[0];
-                    negRatings = ratings[1];
+            		try {
+                    	int[] ratings = ForumsUtil.getRatings(ratingManager, message);
+                    	posRatings = ratings[0];
+                    	negRatings = ratings[1];
+                    } catch (NullPointerException ne) {}
                     ratingCount = posRatings+negRatings; 
                     Rating rating = ratingManager.getRating(user, message); 
                     String ratingVal = (rating == null) ? "0" : rating.getScore() == 2 ? "+1":"-1"; %>
