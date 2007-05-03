@@ -87,6 +87,10 @@
                <tc-webtag:handle coderId="10445079" context="development"/></td>
                <td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=netConfigurationMgr"><strong>Using the .Net Configuration Manager</strong></a></td>
             </tr>
+            <tr valign="top"><td class="bodyText">
+               <tc-webtag:handle coderId="22498968" context="design"/></td>
+               <td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=rationalPerformanceTester"><strong>Rational&#174; Performance Tester: An Introduction</strong></a></td>
+            </tr>
             <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write component tutorials for TopCoder.com</a></td>
             </tr>
