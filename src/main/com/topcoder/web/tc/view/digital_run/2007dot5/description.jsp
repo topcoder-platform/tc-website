@@ -70,34 +70,30 @@ return false;
 <span class="subtitle">Design Cup</span><br>
 <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=desOverview" class="bcLink">Details</A><br>
 <span class="grayedOut">
-Leaderboard<br>
-ROTY leaderboard
+Current Leaderboard<br>
 </span>
 <%--
-<A href="" class="bcLink">Leaderboard</A><br>
-<A href="" class="bcLink">ROTY leaderboard</A>
+<A href="" class="bcLink">Current Leaderboard</A><br>
 --%>
 </td>
 <td align="left" style="padding: 0 10px; border-right: 1px solid #999999;" valign="top">
 <span class="subtitle" class="bcLink">Development Cup</span><br>
 <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devOverview" class="bcLink">Details</A><br>
 <span class="grayedOut">
-Leaderboard<br>
-ROTY leaderboard
+Current Leaderboard<br>
 </span>
 <%--
-<A href="" class="bcLink">Leaderboard</A><br>
-<A href="" class="bcLink">ROTY leaderboard</A>
+<A href="" class="bcLink">Current Leaderboard</A><br>
 --%>
 </td>
 <td align="left" style="padding-left:10px;" valign="top">
 <span class="subtitle" class="bcLink">Assembly Cup</span> <span class="bigRed">NEW!</span><br>
 <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=asmOverview" class="bcLink">Details</A><br>
 <span class="grayedOut">
-Leaderboard
+Current Leaderboard
 </span>
 <%--
-<A href="" class="bcLink">Leaderboard</A><br>
+<A href="" class="bcLink">Current Leaderboard</A><br>
 --%>
 
 </td>
@@ -119,9 +115,6 @@ If you're an active competitor in Software Design or Development, you are alread
 <br><br>
 <span class="subtitle">How to win</span><br>
 Each component posted for a competition will carry placement points. Points will be awarded to competitors based on the number of submissions that pass review. The members with the highest point totals at the end of each Stage win big.
-<br><br>
-<span class="subtitle">Rookie of the Year</span><br>
-New competitors can also make a run for the Rookie of the Year title, given to the member with the best performance in his/her first year of competition.
 <br><br>
 
 </div>
