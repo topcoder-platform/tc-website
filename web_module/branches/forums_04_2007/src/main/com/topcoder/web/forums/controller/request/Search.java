@@ -45,6 +45,8 @@ public class Search extends ForumsProcessor {
 	protected void businessProcessing() throws Exception {
 		super.businessProcessing();
 
+        long start = System.currentTimeMillis();
+        
         ResultFilter resultFilter = new ResultFilter();
         resultFilter.setSortField(JiveConstants.FORUM_NAME);
         resultFilter.setSortOrder(ResultFilter.ASCENDING);
@@ -187,6 +189,10 @@ public class Search extends ForumsProcessor {
             if (searchCategories) {
                 searchCategories(query);
             }
+            
+            long elapsedTimeMillis = System.currentTimeMillis()-start;
+            log.info("Search query " + query.getQueryString() + ": returned " + totalItemCount + " results in " +
+                    elapsedTimeMillis/1000 + "." + elapsedTimeMillis%1000 + "s");
         }
 	}
     
@@ -298,7 +304,7 @@ public class Search extends ForumsProcessor {
         }
         
         Collections.sort(categoryResultsList, 
-                new CategoryResultComparator(categoryRankTable, optMatchesTable));
+                new CategoryResultComparator(categoryRankTable, optMatchesTable, query.getSortField(), query.getSortOrder()));
         
         ResultFilter pageFilter = new ResultFilter();
         pageFilter.setStartIndex(categoryStartIdx);
@@ -322,22 +328,36 @@ public class Search extends ForumsProcessor {
     class CategoryResultComparator implements Comparator<ForumCategory> {
         private Hashtable<ForumCategory,Integer> rankTable;
         private Hashtable<ForumCategory,Integer> optMatchesTable;    // number of optional tokens matched
+        private int sortField;
+        private int sortOrder;
         
         public CategoryResultComparator(Hashtable<ForumCategory,Integer> rankTable,
-                Hashtable<ForumCategory,Integer> optMatchesTable) {
+                Hashtable<ForumCategory,Integer> optMatchesTable, int sortField, int sortOrder) {
             this.rankTable = rankTable;
             this.optMatchesTable = optMatchesTable;
+            this.sortField = sortField;
+            this.sortOrder = sortOrder;
         }
         
         public final int compare(ForumCategory c1, ForumCategory c2) {           
             int retVal = 0;
-            retVal = rankTable.get(c1).compareTo(rankTable.get(c2));
-            if (retVal == 0 && optMatchesTable.containsKey(c1) && optMatchesTable.containsKey(c2)) {
-                retVal = -(optMatchesTable.get(c1).compareTo(optMatchesTable.get(c2)));
-            }
-            if (retVal == 0) {
-                retVal = c1.getName().compareTo(c2.getName());
-            }            
+            switch(sortField) {
+            case Query.RELEVANCE:
+                retVal = rankTable.get(c1).compareTo(rankTable.get(c2));
+                if (retVal == 0 && optMatchesTable.containsKey(c1) && optMatchesTable.containsKey(c2)) {
+                    retVal = -(optMatchesTable.get(c1).compareTo(optMatchesTable.get(c2)));
+                }
+                if (retVal == 0) {
+                    retVal = c1.getName().compareTo(c2.getName());
+                }
+                break;
+            case Query.DATE:
+                retVal = c1.getModificationDate().compareTo(c2.getModificationDate());
+                if (sortOrder == Query.DESCENDING) {
+                    retVal = -retVal;
+                }
+                break;
+            } 
             return retVal;
         }
     }
