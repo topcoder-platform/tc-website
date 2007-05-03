@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.03.07<br>12:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=rationalPerformanceTester">Rational&#174; Performance Tester: An Introduction</A></span><br><br>
+      As you might have noticed, last week TopCoder posted a component design competition that involves Rational&#174; Performance Tester (RPT), and more RPT component competitions are launching today. This article includes a quick start to get you familiar with RPT basic concepts, plus a section on extending RPT's functionality through custom Java code.
+        </td>
+      <td class="newsPhoto"><%--<img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/>--%><br>by <tc-webtag:handle coderId="22498968" context="design"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=rationalPerformanceTester">full story</A> | 
+        <tc-webtag:forumLink forumID="515619" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>05.02.07<br>5:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -202,22 +219,5 @@
         <A href="/tc?module=Static&d1=features&d2=042607">full story</A> | 
         <tc-webtag:forumLink forumID="515472" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.25.07<br>1:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd3">TCO07 Algorithm Round 3 - Problem Set &amp; Analysis</A></span><br><br>
-      The third Online Round for the TCO07 reduced the number of coders competing for the title from 300 to 150. The round started with an easy "do what it says" problem, which more than 90% of the coders had no problems with.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/krijgertje_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="9906197" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd3">full story</A> | 
-        <tc-webtag:forumLink forumID="514952" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    

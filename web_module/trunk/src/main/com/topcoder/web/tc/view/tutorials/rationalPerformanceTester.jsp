@@ -84,15 +84,15 @@
 </div>
 
 <br clear="all">
-<p>As you might have already noticed, last week TopCoder posted a component design competition that involves Rational&#174; Performance Tester (RPT) - <a href="/tc?module=ProjectDetail&pj=30001526">RPT Logging Adapter</a> -- and, in fact, a series of more RPT component competitions are launching today. Are you ready?</p>
+<p>As you might have already noticed, last week TopCoder posted a component design competition that involves Rational&#174; Performance Tester (RPT) -- <a href="/tc?module=ProjectDetail&pj=30001526">RPT Logging Adapter</a> -- and, in fact, a series of more RPT component competitions are launching today. Are you ready?</p>
 
 <p>This article includes a quick start to get you familiar with RPT basic concepts and workflow, as well as a section on extending RPT's out-of-the-box functionality through the use of custom Java code.</p>
 
 <p><span class="bodySubtitle">1. Overview</span><br>
-Rational&#174; Performance Tester is a load and performance testing tool for web-based applications; it helps development teams validate the scalability and reliability of their on-going web applications before deployment and production. RPT allows you to capture your interactions to test your web-based applications, recording them and examining them later to measure your applicantion's performance. You can also use RPT to further identify the root causes of poor performance issues from the hardware- or software-component level through advanced resource monitoring and response-time tracking.</p>
+Rational&#174; Performance Tester is a load and performance testing tool for web-based applications; it helps development teams validate the scalability and reliability of their on-going web applications before deployment and production. RPT allows you to capture your interactions to test your web-based applications, recording them and examining them later to measure your application's performance. You can also use RPT to further identify the root causes of poor performance issues from the hardware- or software-component level through advanced resource monitoring and response-time tracking.</p>
 
 <p><i>Download</i><br>
-At IBM's website, you can <a target="_blank" href="<tc-webtag:linkTracking link='http://www-128.ibm.com/developerworks/downloads/r/rpt/?S_TACT=105AGX23&S_CMP=rnav' refer='rationalPerformanceTester' />">download</a> an evaluation copy of RPT. Note that you need have an IBM ID to download it.</p>
+At IBM's website, you can <a target="_blank" href="<tc-webtag:linkTracking link='http://www-128.ibm.com/developerworks/downloads/r/rpt/?S_TACT=105AGX23&S_CMP=rnav' refer='rationalPerformanceTester' />">download</a> an evaluation copy of RPT. Note that you need to have an IBM ID to download it.</p>
 
 <p><i>Installation</i><br>
 RPT is built on top of the Eclipse framework, so if you already have Eclipse installed in your system, you may choose to install RPT as an extension (options are available in the installation wizard). A fresh installation will have a dedicated copy of Eclipse installed as well.</p>
@@ -101,7 +101,7 @@ RPT is built on top of the Eclipse framework, so if you already have Eclipse ins
 In RPT, performance testing has five stages: test creation, test editing, workload emulation with schedules, schedule execution, and evaluation of results.</p>
 <ul>
 <li>Test Creation.<br>
-In this stage, test scenarios (<i>Test</i> in RPT term) will be created. Generally tests are created by recording representative interactions (generally through web browser) with an application, these actions are saved and a test is generated from these recorded actions. One can also create tests from scratch, custom Java code we'll discuss later is a good example.</li>
+In this stage, test scenarios (<i>Test</i> in RPT term) will be created. Generally tests are created by recording representative interactions (generally through a web browser) with an application, these actions are saved and a test is generated from these recorded actions. One can also create tests from scratch: the custom Java code we'll discuss later is a good example.</li>
 <li>Test Editing.<br>
 After recording a test, run it individually and inspect the results to make sure that the tests are doing what you expect. You may also want to edit your tests. Typical changes that you might make are:
 	<ul>
@@ -111,7 +111,7 @@ After recording a test, run it individually and inspect the results to make sure
 	</ul>
 </li>
 <li>Workload Emulation with Schedules.<br>
-A schedule can be seen as the "engine" that runs tests, it can be as simple as one virtual user running one test, or as complicated as hundreds of virtual users in different groups, each running different tests at different times.<br>
+A schedule can be seen as the "engine" that runs tests. This can be as simple as one virtual user running one test, or as complicated as hundreds of virtual users, in different groups, each running different tests at different times.<br>
 With a schedule, you can:
 	<ul>
 		<li>Group tests to emulate the actions of different users (with User Groups).</li>
@@ -119,7 +119,7 @@ With a schedule, you can:
 		<li>Set the number of times each test runs.</li>
 		<li>Run tests at a certain rate.</li>
 	</ul>
-After you editing test, you create a schedule. You add user groups to the schedule, add appropriate tests to each group to emulate a task.<br>
+After you edit a test, you create a schedule. You add user groups to the schedule and add appropriate tests to each group to emulate a task.<br>
 A typical schedule contains the following:<br>
 	<ul>
 		<li>User groups and tests. A schedule requires at least these items to run.</li>
@@ -129,21 +129,21 @@ A typical schedule contains the following:<br>
 <li>Schedule Execution.<br>
 The created schedules could be executed on demand.</li>
 <li>Evaluation of Results.<br>
-Reports are displayed during and after the schedule execution. You can also regenerate reports after the execution, customize reports, and export reports in HTML format, so that others who do not have RPT can see them. Those reports help you make your evaluation and find out the root cause of poor performance issues.</li>
+Reports are displayed during and after the schedule execution. You can also regenerate reports after the execution, customize reports, and export reports in HTML format, so that others who do not have RPT can see them. Those reports help you make your evaluation and determine the root cause of poor performance.</li>
 </ul>
 
 <p><strong>Case Study: Struts MailReader Demo Application</strong><br>
-Now let's go through a step-by-step case study on abovementioned stages. This demonstration is based on the <a href="">MailReader Demo Application</a> shipped with Apache Struts 1.3.8, a simple application that maintains email information of registered users. In this case study, we will test performance of both viewing pages and editing the email information.</p>
+Now let's go through a step-by-step case study that covers the abovementioned stages. This demonstration is based on the <a href="/i/education/downloads/rpt/RPT_webapp4test.zip">MailReader Demo Application</a> shipped with Apache Struts 1.3.8, a simple application that maintains email information of registered users. In this case study, we will test performance of both viewing pages and editing the email information.</p>
 
 <p><i>Prerequisites</i><br>
-(1) Deploy struts-faces-example2-1.3.8.war to Tomcat or other containers.<br>
+(1) Deploy struts-faces-example2-1.3.8.war to Tomcat or another container.<br>
 (2) Visit the deployed application, register a user with username "test" and password "test".</p>
 	
 <p><i>Test Plan</i><br>
 Let's assume a scenario like this:
 <ul>
-	<li>There're two groups of users, one group just view the web pages (viewing group, 70% of all users) while the other group edit their email information (editing group, 30% of all users).</li>
-	<li>In the scenario, each group will perform their operations for 20 times, viewing group perform 5 operations per minute, editing group perform 4 operations per minute.</li>
+	<li>There are two groups of users, one group who just views the web pages (viewing group, 70% of all users) while the other group edits their email information (editing group, 30% of all users).</li>
+	<li>In the scenario, each group will perform their operations 20 times: the viewing group performs 5 operations per minute, while the editing group performs 4 operations per minute.</li>
 </ul>
 
 <ul>
@@ -158,7 +158,7 @@ Fig 2.2 Enter project name and location</div>
 </li>
 
 <li>Record Tests<br>
-Click File &gt; New &gt; Test from Recording, choose HTTP Recording in the dialog, click Next, enter the test name "View", click Finish.<br>
+Click File &gt; New &gt; Test from Recording, choose HTTP Recording in the dialog, click Next, enter the test name "View", and click Finish.<br>
 
 <div align="center"><img src="/i/education/rpt/Fig_2_3.png" alt="Figure 2.3" border="0" style="margin: 10px;" /></a><br>
 Fig 2.3 Start an HTTP Recording</div>
@@ -166,7 +166,7 @@ Fig 2.3 Start an HTTP Recording</div>
 <div align="center"><img src="/i/education/rpt/Fig_2_4.png" alt="Figure 2.4" border="0" style="margin: 10px;" /></a><br>
 Fig 2.4 Enter Test Name</div>
 
-Now your browser will be launched through which you'll start interactions with your application, enter the address of your deployed MailReader Demo Application. Note that if the application is deployed on the same machine as RPT, make sure not use "localhost" or "127.0.0.1" as the host name because by default connections to local addresses will not pass through RPT proxy, you can simply bind an IP address with your application container.<br>
+Now your browser will be launched, through which you'll start to interact with your application. Enter the address of your deployed MailReader Demo Application to begin. Note that if the application is deployed on the same machine as RPT, make sure not to use "localhost" or "127.0.0.1" as the host name -- by default, connections to local addresses will not pass through the RPT proxy, so you should simply bind an IP address with your application container.<br>
 
 <div align="center"><img src="/i/education/rpt/Fig_2_5.png" alt="Figure 2.5" border="0" style="margin: 10px;" /></a><br>
 Fig 2.5 Initial Web Page of HTTP Recording</div>
@@ -181,14 +181,14 @@ Now your will see a test named "View" in Test Navigator view.<br>
 <div align="center"><img src="/i/education/rpt/Fig_2_7.png" alt="Figure 2.7" border="0" style="margin: 10px;" /></a><br>
 Fig 2.7 Created Tests</div>
 
-We also need to create a test named "Edit" in similar steps, whose testing interactions include logging on, editing email address and logging out.
+We also need to create a test named "Edit," using similar steps, whose testing interactions will include logging on, editing email addresses and logging out.
 </li>
 
 <li>Execute Tests and Make Changes<br>
 Now you can execute the created tests by right-clicking them and selecting Run As &gt; Performance Test to see if the tests behave as expected. You can make changes to the tests as necessary.</li>
 
 <li>Create Performance Schedule<br>
-Right-click the project, and then click New &gt; Performance Schedule, enter the schedule name "Schedule" in the dialog, click Finish.<br>
+Right-click the project, and then click New &gt; Performance Schedule, enter the schedule name "Schedule" in the dialog, and click Finish.<br>
 
 <div align="center"><img src="/i/education/rpt/Fig_2_8.png" alt="Figure 2.8" border="0" style="margin: 10px;" /></a><br>
 Fig 2.8 Create Performance Schedule</div>
@@ -198,7 +198,7 @@ A new schedule is displayed with one user group. Since we need two user groups, 
 <div align="center"><img src="/i/education/rpt/Fig_2_9.png" alt="Figure 2.9" border="0" style="margin: 10px;" /></a><br>
 Fig 2.9 Newly Created Schedule</div>
 
-Change Group Size of "User Group 1" to 70%, right-click it, then click Add &gt; Loop to add a loop to the user group. Change the iteration number of the loop to 20, check "Control the rate of iterations", and change rate to 5 per minute. Right-click the loop, then click Add > Test, then choose test "View" to add the test to current loop.<br>
+Change the Group Size of "User Group 1" to 70%, right-click it, then click Add &gt; Loop to add a loop to the user group. Change the iteration number of the loop to 20, check "Control the rate of iterations", and change the rate to 5 per minute. Right-click the loop, then click Add > Test, then choose test "View" to add the test to the current loop.<br>
 
 <div align="center"><img src="/i/education/rpt/Fig_2_10.png" alt="Figure 2.10" border="0" style="margin: 10px;" /></a><br>
 Fig 2.10 Adjust Properties of User Group</div>
@@ -206,14 +206,14 @@ Fig 2.10 Adjust Properties of User Group</div>
 <div align="center"><img src="/i/education/rpt/Fig_2_11.png" alt="Figure 2.11" border="0" style="margin: 10px;" /></a><br>
 Fig 2.11 Adjust Properties of Loop</div>
 
-Adjust "User Group 2" similarly and finally save the project. Now we have a schedule created successfully.
+Adjust "User Group 2" similarly and finally save the project. Now we have successfully created a schedule.
 </li>
 
 <li>Execute Test Schedule<br>
 Right-click the Schedule, and then click Run As &gt; Performance Schedule. Now the schedule will be executed.</li>
 
 <li>Check Reports<br>
-Once the schedule execution completes, reports will be generated automatically, there're various performance counters grouped as "Page Performance", "Response vs. Time", "Page Throughput", etc. By analyzing the reports, you can make the performance evaluations as well as locate the performance bottleneck.<br>
+Once the schedule execution completes, reports will be generated automatically. There are various performance counters grouped as "Page Performance", "Response vs. Time", "Page Throughput", etc. By analyzing the reports, you can make the performance evaluations as well as locate the performance bottleneck.<br>
 
 <div align="center"><img src="/i/education/rpt/Fig_2_12.png" alt="Figure 2.12" border="0" style="margin: 10px;" /></a><br>
 Fig 2.12 Summary of Schedule Execution</div>
@@ -235,9 +235,9 @@ Like its foundation Eclipse, extensions are welcome by RPT. Basically you can ex
 </ul>
 
 <p><strong>Test Execution Services</strong><br>
-The essential extension support of RPT comes from Test Execution Services (TES), which include a number of interfaces and classes defined in the <i>com.ibm.rational.test.lt.kernel</i> and its sub-packages.</p>
+The essential extension support of RPT comes from Test Execution Services (TES), which includes a number of interfaces and classes defined in the <i>com.ibm.rational.test.lt.kernel</i> and its sub-packages.</p>
 
-<p>Important interfaces and classes are briefly described in the following table, for more details please refer to TES API reference shipped with RPT documentation.</p>
+<p>Important interfaces and classes are briefly described in the following table, for more details please refer to the TES API reference shipped with the RPT documentation.</p>
 
 <table class="formFrame" width="400" cellpadding="6" cellspacing="2" align="center">
    <tr class="sidebarTitle" nowrap="nowrap">
@@ -250,7 +250,7 @@ The essential extension support of RPT comes from Test Execution Services (TES),
    </tr>
    <tr class="GAtableText">
       <td>ITestExecutionServices</td>
-      <td>Provides information for adding custom test execution features to tests. This interface is the primary interface for execution services. ITestExecutionServices provides access point to the following interfaces: IDataArea, IARM, ILoopControl, IPDLogManager, IStatisticsManager, ITestLogManager, ITime, and ITransaction.</td>
+      <td>Provides information for adding custom test execution features to tests. This interface is the primary interface for execution services. ITestExecutionServices provides access points to the following interfaces: IDataArea, IARM, ILoopControl, IPDLogManager, IStatisticsManager, ITestLogManager, ITime, and ITransaction.</td>
    </tr>
    <tr class="GAtableText">
       <td>IDataArea</td>
@@ -287,13 +287,13 @@ The essential extension support of RPT comes from Test Execution Services (TES),
 </table>
 
 <p><strong>ICustomCode2</strong><br>
-There's only one method defined in interface ICustomCode2, which will be called by test engine while executing the tests:</p>
+There's only one method defined in interface ICustomCode2, which will be called by the test engine while executing the tests:</p>
 
 <pre class="code">	
 	public String exec(ITestExecutionService tes, String[] args);
 </pre>
 
-<p>Parameter tes is provided by RPT test engine, and used by custom Java code to interact with TES. Parameter args is provided through references or field references, these references must be included in the tests; within the tests, the references must precede the code that they affect.</p>
+<p>Parameter tes is provided by RPT test engine, and used by custom Java code to interact with TES. Parameter args is provided through references or field references, which must be included in the tests; within the tests, the references must precede the code that they affect.</p>
 	
 <p><strong>Steps to Create Your Custom Code</strong><br>
 The following are typical steps to create custom code:</p>
@@ -306,7 +306,7 @@ The following are typical steps to create custom code:</p>
 </ul>
 
 <p><strong>Case Study #1: Log JVM Heap Size</strong><br>
-In this case study, we'll create custom code to log the maximum JVM heap size, though it is not very useful here we just use it to demonstrate how to create a simplest piece of custom code inside a test element.</p>
+In this case study, we'll create custom code to log the maximum JVM heap size. Though it is not very useful here, we're just using this to demonstrate how to create a simple piece of custom code inside a test element.</p>
 
 <ul>
 <li>Create a Performance Test Project with name "RPTTest2".</li>
@@ -386,13 +386,13 @@ Fig 3.9 Logged message for JVM heap</div>
 </ul>
 
 <p><strong>Case Study #2: Loop Controlling</strong><br>
-In this case study, we'll go back to the "Edit" test that was recorded in Section 2. We'll add all interactions in "Edit" to a 10 times loop, and then use custom code to control the loop - the loop will be broken if the user name shown in editing page is not as expected. With this case study, you'll familiar yourself with various TES interfaces.</p>
+In this case study, we'll go back to the "Edit" test that was recorded in Section 2. We'll add all the interactions in "Edit" to a 10 times loop, and then use custom code to control the loop -- the loop will be broken if the user name shown in editing page is not as expected. With this case study, you'll familiar yourself with various TES interfaces.</p>
 
 <ul>
 <li>Record a test "Edit"<br>
 Repeat steps in MailReader Demo case study to record the test "Edit".</li>
 <li>Add interactions of "Edit" to a loop<br>
-Select all interactions (test elements) inside "Edit", right-click them and select Insert &gt; Loop. Change "Number of iterations" of the loop to 10.<br>
+Select all interactions (test elements) inside "Edit", right-click them, and select Insert &gt; Loop. Change "Number of iterations" of the loop to 10.<br>
 
 <div align="center"><img src="/i/education/rpt/Fig_3_10.png" alt="Figure 3.10" border="0" style="margin: 10px;" /></a><br>
 Fig 3.10 Add test elements of "Edit" to a loop</div>
@@ -401,7 +401,7 @@ Fig 3.10 Add test elements of "Edit" to a loop</div>
 Fig 3.11 Adjusted test "Edit"</div>
 </li>
 
-<li>Add 3 pieces of custom code to the loop, with name "test.Initialize", "test.UsernameCheck" and "test.LoopCheck" respectively. Use Up/Down buttons to adjust their positions as depicted in Fig 3.12.<br>
+<li>Add 3 pieces of custom code to the loop, with the names "test.Initialize", "test.UsernameCheck" and "test.LoopCheck" respectively. Use Up/Down buttons to adjust their positions as depicted in Fig 3.12.<br>
 
 <div align="center"><img src="/i/education/rpt/Fig_3_12.png" alt="Figure 3.12" border="0" style="margin: 10px;" /></a><br>
 Fig 3.12 Loop with custom code</div>
@@ -479,20 +479,22 @@ public String exec(ITestExecutionServices tes, String[] args) {
 <li>Execute the test<br>
 Execute the test "Edit" by right-clicking it, then selecting Run As &gt; Performance Test.</li>
 <li>Check test log<br>
-Check the test log of "Edit" run, the log will indicate that 10 iterations were all executed, and a message "User name correct" was logged for each iteration.<br>
+Check the test log of "Edit" run. The log will indicate that 10 iterations were all executed, and a message "User name correct" was logged for each iteration.<br>
 
 <div align="center"><img src="/i/education/rpt/Fig_3_15.png" alt="Figure 3.15" border="0" style="margin: 10px;" /></a><br>
 Fig 3.15 Test log of "Edit" run</div>
 
-The loop was not interrupted because "test" was always used to log onto the application, thus condition <i>arg[0].equals("test")</i> was always met. If we change the condition to <i>arg[0].equals("test1")</i>, then only one iteration would be executed and a message "Username incorrect" will be logged.<br>
+The loop was not interrupted because "test" was always used to log onto the application, thus the condition <i>arg[0].equals("test")</i> was always met. If we change the condition to <i>arg[0].equals("test1")</i>, then only one iteration would be executed and a message "Username incorrect" would be logged.<br>
 
 <div align="center"><img src="/i/education/rpt/Fig_3_16.png" alt="Figure 3.16" border="0" style="margin: 10px;" /></a><br>
 Fig 3.16 Test log of an interrupted loop</div>
 </li>
 </ul>
 
+<p>Download the files for these two <a href="/i/education/downloads/rpt/RPT_casestudyprojects.zip">case studies</a>.</p>
+
 <p><span class="bodySubtitle">4. Resources</span><br>
-It is impossible to cover all aspects of RPT in such a short article, in case you're interested to dig deeper, check out the resources below.</p>
+It is impossible to cover all of the aspects of RPT in such a short article. If you'd like to dig deeper, check out the resources below.</p>
 
 <ul>
 <li>RPT Official Documentation<br>
