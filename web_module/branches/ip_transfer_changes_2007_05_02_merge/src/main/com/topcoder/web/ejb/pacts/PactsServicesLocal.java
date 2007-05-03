@@ -292,5 +292,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     void affirmAssignmentDocument(AssignmentDocument ad);
 
+    public long performPaymentsChecks(long statusId) throws SQLException;
+
 }
 
