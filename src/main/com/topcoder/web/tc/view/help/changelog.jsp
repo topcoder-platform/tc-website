@@ -46,6 +46,7 @@
     5.9.1 - 2007.05.xx
     <ul>
         <li>Avoid NPE in component registration if a event has no dates associated -dok</li>
+        <li>Show friendly message on the component current contests page if the user has none -dok</li>
     </ul>
 </p>
 
