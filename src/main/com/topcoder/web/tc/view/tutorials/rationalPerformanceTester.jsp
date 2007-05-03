@@ -79,7 +79,7 @@
 </div>
 --%>
 <div class="authorText">
-  By&#160;<tc-webtag:handle coderId="22498968" context="development"/> <br />
+  By&#160;<tc-webtag:handle coderId="22498968" context="design"/> <br />
       <em>TopCoder Member</em>
 </div>
 
