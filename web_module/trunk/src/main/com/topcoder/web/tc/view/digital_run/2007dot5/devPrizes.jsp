@@ -44,30 +44,30 @@
 
 <span class="title">Prizes</span>
 <br><br>
-For each Stage, competitors will accumulate placement points according to the points table.  In addition to the component earnings, the top five (5) finishers will win large prizes and the top 1/3 of the point-getters in each Stage will receive a smaller prize.  A total of $37,500 will be awarded in bonus prizes each Stage and will be distributed as follows:
+For each Stage, competitors will accumulate placement points according to the <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devOverview">points table</A>. In addition to the component earnings, the top five (5) finishers will win large prizes and the top 1/2 of the point-getters in each Stage will receive a smaller prize. A total of $75,000 will be awarded in bonus prizes each Stage and will be distributed as follows:
 <br><br>
 <strong>Top Five Stage Prizes</strong><br>
-<strong>1st</strong> - $12,500<br>
-<strong>2nd</strong> - $5,000<br>
-<strong>3rd</strong> - $3,500<br>
-<strong>4th</strong> - $1,500<br>
-<strong>5th</strong> - $1,000
+<strong>1st</strong> - $15,000<br>
+<strong>2nd</strong> - $8,000<br>
+<strong>3rd</strong> - $5,000<br>
+<strong>4th</strong> - $3,000<br>
+<strong>5th</strong> - $2,000
 <br><br>
 If there is a tie for a position among the top 5 finishers, the tie will be resolved in the following manner (in order):
 <ol>
-<li>The competitor who has the most higher-placed submissions in the Stage.</li>
-<li>If a tie still remains, then the competitor with the highest average individual component score of the lesser number of components used to develop the placement scores for the tied competitors.</li>
+<li>The win will go to the competitor whose submissions placed higher, on average, during the Stage.</li>
+<li>If a tie still remains, the win will then go to the competitor with the highest average per-component score over the course of the Stage.</li>
 <li>If a tie still remains, then the tied competitors will share equally the prize money at hand.</li>
 </ol>
 <strong>Top Third Stage Prizes</strong><br>
-The remaining $14,000 will be distributed among the top 1/3 of point-getters (all people tied for the last spot will be included), and will be allocated based on the value of each placement point.  
+The remaining $42,000 will be distributed among the top ½ of point-getters (all competitors tied for the last spot included), and will be allocated based on the value of each placement point.
 <br><br>
 For example:<br>
-A total of 120 developers accumulate placement points during the Stage.  We will sum the total number of placement points accumulated by the top 40 developers and divide $14,000 by that number to find the dollar per placement point bonus that is available to those 40 developers.  If the total placement points of those 40 developers are 7,000, then each point is worth $2 ($14,000/7,000 = $2 per placement point).  Each of the top 40 developers, including the top 5, will receive $2 for each placement point received during the Stage.  In addition, the top 5 point-getters each Stage will receive the Top Five Stage prizes outlined above.
+A total of 120 developers accumulate placement points during the Stage. We will sum the total number of placement points accumulated by the top 60 developers and divide $42,000 by that number to find the dollar per placement point bonus that is available to those 60 developers. If the total placement points of those 60 developers are 7,000, then each point is worth $6 ($42,000/7,000 = $6 per placement point). Each of the top 60 developers, including the top 5, will receive $6 for each placement point they earned during the Stage. In addition, the top 5 point-getters in each Stage will receive the Top Five Stage prizes outlined above.
 <br><br>
-As an added prize, the top 5 point-getters from each Stage will win a trip to the TCO finals to be recognized.  At the TCO awards presentation, the overall highest point-getter for the entire year will be recognized as the winner of the TopCoder&#174; Development Cup.
+As an added prize, the top 5 point-getters from each Stage will win a trip to the TCO finals to be recognized. At the TCO awards presentation, the overall highest point-getter for the entire year will be recognized as the winner of the TopCoder&#174; Development Cup.
 <br><br>
-Digital Run prize money will be paid at the end of each Stage within 60 days of announcing the Top Five and Top Third money winners.
+Digital Run prize money will be paid at the end of each Stage within 60 days of announcing the Top Five and Top Half money winners.
 <br><br>
 </div>
 
