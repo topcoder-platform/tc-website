@@ -2735,7 +2735,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
         long count = performPaymentsChecks(PAYMENT_OWED_STATUS);
 
-        message += count " payments moved back to On Hold.\n";
+        message += count + " payments moved back to On Hold.\n";
 
         request.setAttribute(BaseServlet.MESSAGE_KEY, message);
         forward(INTERNAL_ERROR_JSP, request, response);
