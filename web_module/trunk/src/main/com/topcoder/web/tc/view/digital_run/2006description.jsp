@@ -6,11 +6,11 @@
 <head>
 <title>TopCoder - The Digital Run</title>
 
-<jsp:include page="../../script.jsp" />
-<jsp:include page="../../style.jsp">
+<jsp:include page="/script.jsp" />
+<jsp:include page="/style.jsp">
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <SCRIPT TYPE="text/javascript">
 <!--
 function dropdown(mySel)
@@ -31,7 +31,7 @@ return false;
 </head>
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -39,7 +39,7 @@ return false;
    <tr valign="top">
 <%-- Left Column Begins--%>
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="/includes/global_left.jsp">
                 <jsp:param name="node" value="digital_run"/>
             </jsp:include>
         </td>
@@ -50,43 +50,50 @@ return false;
 
 <div class="fixedWidthBody">
 <div align="center" style="margin-bottom: 20px;">
-<A href="/tc?module=Static&d1=digital_run&d2=2007&d3=description"><img src="/i/digital_run/digital_run_logo.png" alt="Digital Run" style="border-bottom: 1px solid #999999;"/></A>
+<A href="/digitalrun"><img src="/i/digital_run/digital_run_logo.png" alt="Digital Run" style="border-bottom: 1px solid #999999;"/></A>
 </div>
 
-<div align="center" style="margin-bottom: 10px;">
+<div align="center">
 
+<%--
 <FORM ACTION="../cgi-bin/redirect.pl" METHOD="POST" onChange="return dropdown(this.season)">
 <div style="margin-bottom: 10px;">
     <select NAME="season">
-      <option value="/tc?module=Static&d1=digital_run&d2=2007&d3=description" selected>2007 Season</option>
-      <option value="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description">2007.5 Season</option>
+      <option value="/tc?module=Static&d1=digital_run&d2=2007&d3=description">2007 Season</option>
+      <option value="/tc?module=Static&d1=digital_run&d2=description" selected>2008 Season</option>
     </select>
 </div>
 </FORM>
+--%>
 
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText" style="margin-bottom: 10px;">
 <tr>
 <td align="left" style="padding-right:10px;border-right: 1px solid #999999;">
 <span class="subtitle">Design Cup Series</span><br>
-<A href="/tc?module=Static&d1=digital_run&d2=2007&d3=desOverview" class="bcLink">Details</A><br>
-<A href="" class="bcLink">Leaderboard</A><br>
-<A href="" class="bcLink">ROTY leaderboard</A>
+<A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview" class="bcLink">Details</A><br>
+<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Current leaderboard</A><br>
+<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Current ROTY leaderboard</A>
 </td>
 <td align="left" style="padding-left:10px;">
 <span class="subtitle" class="bcLink">Development Cup Series</span><br>
-<A href="/tc?module=Static&d1=digital_run&d2=2007&d3=devOverview" class="bcLink">Details</A><br>
-<A href="" class="bcLink">Leaderboard</A><br>
-<A href="" class="bcLink">ROTY leaderboard</A>
+<A href="/tc?module=Static&d1=digital_run&d2=2006_dev_overview" class="bcLink">Details</A><br>
+<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Current leaderboard</A><br>
+<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Current ROTY leaderboard</A>
 </td>
 </tr>
 </table>
 
-<A href="/tc?module=Static&d1=digital_run&d2=2007&d3=stage1Winners" class="bcLink">Stage 1 Winners</A><br>
-<A href="/tc?module=Static&d1=digital_run&d2=2007&d3=stage2Winners" class="bcLink">Stage 2 Winners</A><br>
-<A href="/tc?module=Static&d1=digital_run&d2=2007&d3=stage3Winners" class="bcLink">Stage 3 Winners</A>
+<strong>
+<A href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners" class="bcLink">Stage 1 Winners</A><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2006Stage2Winners" class="bcLink">Stage 2 Winners</A><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners" class="bcLink">Stage 3 Winners</A>
+</strong>
 
 </div>
-
+<%--
+<div align="center"><A href="/tc?module=Static&d1=digital_run&d2=2006_des_prizes"><img src="/i/digital_run/designPrizesDoubled.png" alt="Design Prizes Doubled!" border="0" /></A></div>
+--%>
+<br>
 The Digital Run marks another stride for TopCoder in recognizing talent through competition. The Digital Run will reward the top software designers and developers, giving them placement points based on their performance. Place well in a competition, you earn points. Accumulate lots of points over the course of a Stage (4 per year) or year, you win. It's that simple.
 <br><br>
 <span class="subtitle">How to compete</span><br>
@@ -106,7 +113,7 @@ New competitors can also make a run for the Rookie of the Year title, given to t
 
 <%-- Right Column Begins --%>
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="default"/>
             </jsp:include>
          </td>
@@ -118,7 +125,7 @@ New competitors can also make a run for the Rookie of the Year title, given to t
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 
