@@ -5676,7 +5676,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c.setAutoCommit(false);
             setLockTimeout(c);
     
-            count = performPaymentsChecks(c, READY_TO_PRINT_STATUS);
+            count = performPaymentsChecks(c, statusId);
         } catch (Exception e) {
             printException(e);
             try {

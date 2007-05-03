@@ -49,6 +49,12 @@ Searches<br>
 <%
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
+   out.print(PactsConstants.CMD_STRING+"="+PactsConstants.VERIFY_CMD+"\">");
+   out.print("Verify Owed Payments</a><br>");
+%>
+<%
+   out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
+   out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.PRINT_CMD+"\">");
    out.print("Print Payments</a><br>");
 %>
