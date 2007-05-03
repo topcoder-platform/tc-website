@@ -198,7 +198,7 @@ public interface PactsConstants extends Constants {
     public static final String USER_CURRENT_SCHOOL = "user_current_school";
     public static final String COMPONENT_DATA = "component_data";
 
-    public static final int ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD = 7;
+    public static final int ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD = 5;
     public static final int ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD = 30;
 
     /*
@@ -422,6 +422,7 @@ public interface PactsConstants extends Constants {
     public static final String NOTE_LINK_CMD = "note_link";
     public static final String PAID_CMD = "Mark Selected Payments Paid";
     public static final String PRINT_CMD = "print";
+    public static final String VERIFY_CMD = "verify";
     public static final String REVIEW_CMD = "Review Selected Payments";
     public static final String STATUS_CMD = "Update Selected Payments' Status";
     public static final String FILE_CMD = "file";
