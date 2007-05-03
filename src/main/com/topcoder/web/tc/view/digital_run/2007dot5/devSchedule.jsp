@@ -46,10 +46,8 @@
 <br><br>
 Includes components posted within the following date range, inclusive:
 <br><br>
-<strong>Stage #1:</strong> May 11, 2006 - August 3, 2006<br>
-<strong>Stage #2:</strong> August 4, 2006 - November 2, 2006<br>
-<strong>Stage #3:</strong> November 3, 2006 - February 1, 2007<br>
-<strong>Stage #4:</strong> February 2, 2007 - May 3, 2007
+<strong>Stage #1:</strong> May 4, 2007 - August 31, 2007<br>
+<strong>Stage #2:</strong> September 1, 2006 - December 31, 2007<br>
 <br><br>
 </div>
 

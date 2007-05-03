@@ -22,11 +22,13 @@
     <% } else { %>
          | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=desPrizes">Prizes</A>
     <% } %>
+<%--
     <% if (tabLev2.equals("roty")) {%>
         | Rookie of the Year
     <% } else { %>
          | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=desRoty">Rookie of the Year</A>
     <% } %>
+--%>
     <% if (tabLev2.equals("rules")) {%>
         | Rules
     <% } else { %>
@@ -55,11 +57,13 @@
     <% } else { %>
          | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devPrizes">Prizes</A>
     <% } %>
+<%--
     <% if (tabLev2.equals("roty")) {%>
         | Rookie of the Year
     <% } else { %>
          | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devRoty">Rookie of the Year</A>
     <% } %>
+--%>
     <% if (tabLev2.equals("rules")) {%>
         | Rules
     <% } else { %>
@@ -88,11 +92,13 @@
     <% } else { %>
          | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devPrizes">Prizes</A>
     <% } %>
+<%--
     <% if (tabLev2.equals("roty")) {%>
         | Rookie of the Year
     <% } else { %>
          | <A class="bcLink" href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devRoty">Rookie of the Year</A>
     <% } %>
+--%>
     <% if (tabLev2.equals("rules")) {%>
         | Rules
     <% } else { %>
