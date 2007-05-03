@@ -376,7 +376,8 @@ public class RatingQubits {
                         }
                     } else {
                         try {
-                            if (!oldRatingsMap.get(key).equals((int) Math.round(r.rating)) || !newRatingsMap.get(key).equals(newrating)) {
+                            if (!new Integer((int) Math.round(r.rating)).equals(oldRatingsMap.get(key)) ||
+                                    !new Integer(newrating).equals(newRatingsMap.get(key))) {
                                 doit = true;
                             }
                         } catch (NullPointerException e) {
