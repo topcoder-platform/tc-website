@@ -104,6 +104,13 @@
             </TD>
             <TD CLASS="headerR" width="20%">&#160;</TD>
         </tr>
+        <% if (rsc2.isEmpty()) {%>
+        <tr class="light">
+            <TD class="value" colspan="5">
+                <tc-webtag:handle coderId='<%=coderId%>' context='<%=type%>'/> has no current contests.
+            </TD>
+        </tr>
+        <% } else { %>
         <%boolean even = false;%>
         <rsc:iterator list="<%=rsc2%>" id="resultRow">
             <tr class="<%=even?"dark":"light"%>">
@@ -129,6 +136,7 @@
             </tr>
             <%even = !even;%>
         </rsc:iterator>
+        <% } %>
     </TABLE>
     * Assuming first place finish with all current contests with all competitors passing review
 
