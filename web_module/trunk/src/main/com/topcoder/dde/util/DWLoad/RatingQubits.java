@@ -380,7 +380,8 @@ public class RatingQubits {
                                 doit = true;
                             }
                         } catch (NullPointerException e) {
-
+                            log.error("BAD KEY " + key);
+                            throw e;
                         }
                     }
 
