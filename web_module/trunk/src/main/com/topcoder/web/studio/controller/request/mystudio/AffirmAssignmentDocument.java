@@ -32,13 +32,13 @@ public class AffirmAssignmentDocument extends BaseProcessor  {
                     throw new IllegalArgumentException("Assignment Document should be pending");  
                 }
     
-                Boolean hasHardCopy = PactsServicesLocator.getService()
-                    .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
-                        ad.getType().getId().longValue());
-    
-                if (!hasHardCopy.booleanValue()) {
-                    throw new IllegalArgumentException("You must send a hard copy of the Assignment Document before you can use this system to affirm");  
-                }
+//                Boolean hasHardCopy = PactsServicesLocator.getService()
+//                    .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
+//                        ad.getType().getId().longValue());
+//    
+//                if (!hasHardCopy.booleanValue()) {
+//                    throw new IllegalArgumentException("You must send a hard copy of the Assignment Document before you can use this system to affirm");  
+//                }
                 
                 PactsServicesLocator.getService().affirmAssignmentDocument(ad);
                 

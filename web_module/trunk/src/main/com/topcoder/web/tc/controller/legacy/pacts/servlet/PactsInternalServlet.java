@@ -590,6 +590,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         doPrintPayments(request, response);
                         return;
                     }
+                    if (command.equals(VERIFY_CMD)) {
+                        doVerifyPayments(request, response);
+                        return;
+                    }
                     if (command.equals(REVIEW_CMD)) {
                         doReviewPayments(request, response);
                         return;
@@ -2717,6 +2721,22 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
         }
+        request.setAttribute(BaseServlet.MESSAGE_KEY, message);
+        forward(INTERNAL_ERROR_JSP, request, response);
+    }
+
+    private void doVerifyPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        log.debug("doVerifyPayments called...");
+        HttpSession session = request.getSession(true);
+
+        DataInterfaceBean dib = new DataInterfaceBean();
+
+        String message = "<h2>Verification results:</h2>\n";
+
+        long count = dib.performPaymentsChecks(PAYMENT_OWED_STATUS);
+
+        message += count + " payments moved back to On Hold.\n";
+
         request.setAttribute(BaseServlet.MESSAGE_KEY, message);
         forward(INTERNAL_ERROR_JSP, request, response);
     }
