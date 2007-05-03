@@ -2,16 +2,32 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-
+<%---------------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.03.07<br>2:05 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm347">TCO07 Algorithm Round 4 - Problem Set &amp; Analysis</A></span><br><br>
+      One hundred and forty-eight of the top algorithm coders gathered in a rumble for one of 48 spots in the 2007 TCO finals. As expected, the competition was vicious, denying three of the top 10 rated coders a place in the finals.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/lovro_big3.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7390467" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm347">full story</A> | 
+        <tc-webtag:forumLink forumID="514953" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   -----------%>
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.03.07<br>12:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.03.07<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=rationalPerformanceTester">Rational&#174; Performance Tester: An Introduction</A></span><br><br>
       As you might have noticed, last week TopCoder posted a component design competition that involves Rational&#174; Performance Tester (RPT), and more RPT component competitions are launching today. This article includes a quick start to get you familiar with RPT basic concepts, plus a section on extending RPT's functionality through custom Java code.
         </td>
-      <td class="newsPhoto"><%--<img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/>--%><br>by <tc-webtag:handle coderId="22498968" context="design"/></td></tr></table>
+      <td class="newsPhoto"><%--<img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/>--%><br>by <tc-webtag:handle coderId="22498968" context="component"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -203,22 +219,5 @@
         <A href="/tc?module=Static&d1=match_editorials&d2=srm346">full story</A> | 
         <tc-webtag:forumLink forumID="506236" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>04.26.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=042607">Test Drive: SandCastle</A></span><br><br>
-        TopCoder is currently using NDoc to generate documentation for .NET projects. NDoc, however, lacks support for the new features in .NET Framework version 2.0. In this article, we evaluate SandCastle, Microsoft's documentation tool, to see how it stands up.
-        </td>
-      <td class="newsPhoto">&#160;<%--<img src="/i/m/dcp_big2.jpg" alt="" width="55" height="61"/>--%><br>by <tc-webtag:handle coderId="10627428" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=042607">full story</A> | 
-        <tc-webtag:forumLink forumID="515472" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
