@@ -47,6 +47,7 @@
     <ul>
         <li>Avoid NPE in component registration if a event has no dates associated -dok</li>
         <li>Show friendly message on the component current contests page if the user has none -dok</li>
+        <li>Make result sets sort nulls a bit more intelligently.  Always sort them to the bottom -dok</li>
     </ul>
 </p>
 
