@@ -43,6 +43,13 @@
 </jsp:include>
 
 <p>
+    5.9.1 - 2007.05.xx
+    <ul>
+        <li>Avoid NPE in component registration if a event has no dates associated -dok</li>
+    </ul>
+</p>
+
+<p>
     5.9.0 - 2007.05.02
     <ul>
         <li>Replace custom distrubuted cache with jboss cache -dok</li>
@@ -53,7 +60,9 @@
 <p>
     5.8.11 - 2007.04.26
     <ul>
-        <li>Marathon Match enhancement to allow us to rerun / rescore any type of marathon submission -competition team</li>
+        <li>Marathon Match enhancement to allow us to rerun / rescore any type of marathon submission -competition
+            team
+        </li>
         <li>Category column added to competition history page -pulky</li>
         <%--<li>TCSLoad bugfix: project with deleted status are processed and all related data in the dw is fisically deleted -pulky</li>--%>
         <li>Fix in pacts: installment was set to 1 when doing a batch status -cucu</li>
@@ -73,8 +82,8 @@
     5.8.9 - 2007.04.03
     <ul>
         <li>Take advantage of generics for general in-memory data container -dok</li>
-        <li>Fix bug in algorithm consecutive rating increase -cucu</li> 
-        <li>Fix bug in affirm affidavits for HS coders -cucu</li>         
+        <li>Fix bug in algorithm consecutive rating increase -cucu</li>
+        <li>Fix bug in affirm affidavits for HS coders -cucu</li>
         <li>Add "and climbing" in stat pages for consecutive ranks -cucu, nick</li>
         <!-- <li>Add is current flag in record books -cucu</li>  -->
     </ul>
