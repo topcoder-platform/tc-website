@@ -5751,6 +5751,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             for (; i < holdArray.length; i++) {
                 try {
                     pid[0] = holdArray[i];
+                    log.debug("attempting to move back to on hold payment id: " + pid[i] + " (inactive account)");
                     updatePaymentStatus(c, pid, PAYMENT_ON_HOLD_STATUS);
                 } catch (PaymentPaidException e) {
                     log.warn("Payment " + pid[0] + " is a referral payment for an inactive coder.\n" +
