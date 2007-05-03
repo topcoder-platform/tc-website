@@ -129,7 +129,7 @@ A typical schedule contains the following:<br>
 <li>Schedule Execution.<br>
 The created schedules could be executed on demand.</li>
 <li>Evaluation of Results.<br>
-Reports are displayed during and after the schedule execution. You can also regenerate reports after the execution, customize reports, and export reports in HTML format, so that others who do not have RPT can see them. Those reports help you make your evaluation and determine the root cause of poor performance.</li>
+Reports are displayed during and after the schedule execution. You can also regenerate reports after the execution, customize reports, and export reports in HTML format, so that others who do not have RPT can see them. Those reports help you make your evaluation and determine the root causes of poor performance.</li>
 </ul>
 
 <p><strong>Case Study: Struts MailReader Demo Application</strong><br>
