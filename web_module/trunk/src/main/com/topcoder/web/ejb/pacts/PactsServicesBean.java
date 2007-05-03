@@ -5669,7 +5669,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public long performPaymentsChecks(long statusId) throws SQLException {
         log.debug("printPayments called...");
         Connection c = null;
-        PreparedStatement ps = null;
         long count = 0;
         try {
             c = DBMS.getConnection();
@@ -5677,14 +5676,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
     
             count = performPaymentsChecks(c, statusId);
+
+            c.commit();
+            c.setAutoCommit(true);
+            c.close();
+            c = null;
+
         } catch (Exception e) {
             printException(e);
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            ps = null;
             try {
                 c.rollback();
             } catch (Exception e1) {
