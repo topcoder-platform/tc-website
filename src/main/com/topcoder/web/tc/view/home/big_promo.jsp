@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%-- digital run --%>
-<A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digitalrun20070503.png" border="0" alt="The Digital Run - 2007.5 Season" /></A>
+<A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digitalrun20070504.png" border="0" alt="The Digital Run - 2007.5 Season" /></A>
 
 <%-- TCHS  
 <map name="tchs07">
