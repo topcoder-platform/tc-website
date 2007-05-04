@@ -191,7 +191,7 @@ public class Search extends ForumsProcessor {
             }
             
             long elapsedTimeMillis = System.currentTimeMillis()-start;
-            log.info("Search query " + query.getQueryString() + ": returned " + totalItemCount + " results in " +
+            log.info("Search on \"" + query.getQueryString() + "\": returned " + totalItemCount + " results in " +
                     elapsedTimeMillis/1000 + "." + elapsedTimeMillis%1000 + "s");
         }
 	}

@@ -160,7 +160,7 @@ public interface ForumConstants {
     public final static String DEFAULT_GUEST_THREAD_VIEW = "flat";
     public final static String DEFAULT_FLAT_THREAD_VIEW = "flat";
     
-    public final static boolean DEFAULT_COLLAPSE_READ = true;
+    public final static boolean DEFAULT_COLLAPSE_READ = false;
     public final static int DEFAULT_COLLAPSE_READ_DAYS = 3;
     public final static int DEFAULT_COLLAPSE_READ_POSTS = 100;
     public final static boolean DEFAULT_COLLAPSE_READ_SHOW_REPLIED = true;
