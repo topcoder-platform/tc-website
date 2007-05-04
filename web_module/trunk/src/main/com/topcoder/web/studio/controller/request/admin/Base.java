@@ -19,7 +19,6 @@ import com.topcoder.web.studio.model.StudioFileType;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -40,10 +39,14 @@ public abstract class Base extends ShortHibernateProcessor {
 
         getRequest().setAttribute("forums", getForumList());
         getRequest().setAttribute("events", DAOUtil.getFactory().getEventDAO().getEvents(EventType.STUDIO_TOURNAMENT_ID));
-        ArrayList viewSubmissionAnswers = new ArrayList();
+
+        ArrayList<ListSelectTag.Option> viewSubmissionAnswers = new ArrayList<ListSelectTag.Option>();
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
         getRequest().setAttribute("viewSubmissionAnswers", viewSubmissionAnswers);
+
+        //ok to reuse since it's just a true/false question
+        getRequest().setAttribute("viewSubmitterAnswers", viewSubmissionAnswers);
 
     }
 
@@ -51,7 +54,7 @@ public abstract class Base extends ShortHibernateProcessor {
         Request r = new Request();
         r.setContentHandle("forum_list");
         DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
-        return (ResultSetContainer) da.getData(r).get("forum_list");
+        return da.getData(r).get("forum_list");
 
     }
 
@@ -66,17 +69,17 @@ public abstract class Base extends ShortHibernateProcessor {
 
         ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
         ContestConfig temp;
-        for (int i = 0; i < CONTEST_PROPS.length; i++) {
-            temp = contest.getConfig(dao.find(CONTEST_PROPS[i]));
+        for (Integer aCONTEST_PROPS : CONTEST_PROPS) {
+            temp = contest.getConfig(dao.find(aCONTEST_PROPS));
             if (temp != null) {
-                setDefault(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i], temp.getValue());
+                setDefault(Constants.CONTEST_PROPERTY + aCONTEST_PROPS, temp.getValue());
             }
         }
 
         Set a = contest.getFileTypes();
-        ArrayList fileTypes = new ArrayList(a.size());
-        for (Iterator it = a.iterator(); it.hasNext();) {
-            fileTypes.add(((StudioFileType) it.next()).getId().toString());
+        ArrayList<String> fileTypes = new ArrayList<String>(a.size());
+        for (Object anA : a) {
+            fileTypes.add(((StudioFileType) anA).getId().toString());
         }
         setDefault(Constants.FILE_TYPE, fileTypes);
 
