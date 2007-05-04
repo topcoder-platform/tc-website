@@ -1,0 +1,122 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+ 
+<script language="JavaScript" src="scripts/javascript.js">
+</script>
+
+</head>
+
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+
+<body class="body" marginheight="0" marginwidth="0">
+
+<form action="#" method="#">
+
+<!--#include virtual="includes/headerNotLogged.shtml" -->
+<!--#include virtual="includes/navCatalog.shtml" -->
+
+<!-- breadcrumb begins -->
+<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#001B35" border="0">
+	<tr>
+		<td valign="middle" width="1%"><img src="images/clear.gif" alt="" width="10" height="20" border="0"/></td>
+		<td valign="middle" width="1%" class="breadcrumb" nowrap><a href="Index.shtml" class="breadcrumb">Home</a> > <a href="catalogIndex.shtml" class="breadcrumb">Catalog</a> > <strong>Infrastructure</strong></td>
+		<td valign="middle"><img src="images/clear.gif" alt="" width="10" height="20" border="0"/></td>
+	</tr>
+	<tr><td colspan="3" bgcolor="#000000"><img src="images/clear.gif" alt="" height="1" border="0"/></td></tr>
+</table>
+<!-- breadcrumb ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<!--l col-->
+		<td width="140" height="96" valign="top" bgcolor="#b2b2b2" background="images/lColGraphic.gif">
+			<table width="100%" cellpadding="4" cellspacing="0" align="center" border="0">
+				<tr><td align="left" class="leftColTitle">Questions</td></tr>
+				<tr><td align="left" class="leftColText">
+					<a href="aboutIndex.shtml" class="leftColLink">Why Components?</a><br />
+					<a href="compDef.shtml" class="leftColLink">What is a Component?</a><br />
+					<a href="compBuild.shtml" class="leftColLink">How do we build them?</a><br />
+					<a href="aboutResources.shtml" class="leftColLink">Who builds them?</a></td></tr>
+			</table>
+			<img src="images/clear.gif" alt="" width="140" height="1" border="0"/><br/>
+		</td>
+	
+	<!--col vert line-->
+		<td width="1" valign="top" bgcolor="#000000"><img src="images/clear.gif" alt="" width="1" height="1" border="0"/></td>
+	
+	<!--m col-->
+		<td valign="top" bgcolor="#FFFFFF">
+			<img src="images/clear.gif" alt="" width="1" height="1" border="0"/><br/>
+
+<!--Search-->
+
+			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
+				<tr><td colspan="3" height="35"><img src="images/catalogHeader.gif" alt="Component Catalog" width="400" height="35" border="0" /></td></tr>
+				<tr>
+					<td height="8"><img src="images/clear.gif" alt="" width="150" height="8" border="0" /></td>
+					<td height="8"><img src="images/clear.gif" alt="" width="150" height="8" border="0" /></td>
+					<td height="8"><img src="images/clear.gif" alt="" width="150" height="8" border="0" /></td>
+				</tr>
+
+<!--categories-->
+
+				<tr><td colspan="3" height="16"><img src="images/headChooseCat.gif" alt="now Choose a Category" width="158" height="16" border="0" /></td></tr>
+			</table>
+				
+			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
+
+				<tr><td colspan="2" bgcolor="#CCCCCC"><img src="images/clear.gif" alt="" width="1" height="1" border="0" /></td></tr>
+
+				<tr valign="middle">
+					<td class="smallText" width="70%"><span class="smallText"><strong>Search results for "Infrastructure"</td>
+					<td align="right" width="30%">
+						<table cellpadding="0" cellspacing="6" border="0" class="catSearch">
+							<tr>
+								<td class="catSearch"><a href="catalogSearch.shtml" class="catSearch">> Advanced Search</a></td>
+							</tr>
+						</table></td>
+				</tr>
+
+				<tr><td colspan="2" bgcolor="#CCCCCC"><img src="images/clear.gif" alt="" width="1" height="1" border="0" /></td></tr>
+			</table>
+
+			<table width="100%" cellpadding="0" cellspacing="6" align="center" border="0">
+				<tr valign="middle">
+					<td class="catCategoryTitle" width="33%"><a href="catalogCategory.shtml" class="catCategoryTitle"><strong>> Application Management</strong></a></td>
+					<td class="catCategoryTitle" width="33%"><a href="catalogCategory.shtml" class="catCategoryTitle"><strong>> Communication</strong></a></td>
+					<td class="catCategoryTitle" width="33%"><a href="catalogCategory.shtml" class="catCategoryTitle"><strong>> Data Management</strong></a></td>
+				</tr>
+				
+				<tr valign="middle">
+					<td class="catCategoryTitle" width="33%"><a href="catalogCategory.shtml" class="catCategoryTitle"><strong>> Date/Time Management</strong></a></td>
+					<td class="catCategoryTitle" width="33%"><a href="catalogCategory.shtml" class="catCategoryTitle"><strong>> Developer Tools</strong></a></td>
+					<td class="catCategoryTitle" width="33%"><a href="catalogCategory.shtml" class="catCategoryTitle"><strong>> Document Management</strong></a></td>
+				</tr>
+				
+				<tr valign="middle">
+					<td class="catCategoryTitle" width="33%"><a href="catalogCategory.shtml" class="catCategoryTitle"><strong>> Work Flow Management</strong></a></td>
+					<td class="catCategoryTitle" width="33%"><a href="catalogCategory.shtml" class="catCategoryTitle"><strong>> Utilities</strong></a></td>
+					<td class="catCategoryTitle" width="33%">&nbsp;</td>
+				</tr>
+				
+				<tr><td colspan="3" height="40"><img src="images/clear.gif" alt="" width="1" height="40" border="0"/></td></tr>
+			</table>
+		</td>
+	<!--r col-->
+		<td width="150" valign="top" bgcolor="#547584">
+			<table width="100%" cellpadding="0" cellspacing="0" align="center" border="0">
+				<tr><td align="left" valign="top"><a href="testdriveIndex.shtml"><img src="images/promotion.gif" alt="" width="150" height="135" border="0"/></a></td></tr>
+				<tr><td align="left" valign="top"><a href="testdriveIndex.shtml"><img src="images/promotion.gif" alt="" width="150" height="135" border="0"/></a></td></tr>
+				<tr><td align="left" valign="top"><a href="testdriveIndex.shtml"><img src="images/promotion.gif" alt="" width="150" height="135" border="0"/></a></td></tr>
+				<tr><td align="left" valign="top"><a href="testdriveIndex.shtml"><img src="images/promotion.gif" alt="" width="150" height="135" border="0"/></a></td></tr>
+			</table>
+		</td>
+	</tr>
+</table>
+	
+<!--#include virtual="includes/footer.shtml" -->
+
+</form>
+</body>
+</html>
