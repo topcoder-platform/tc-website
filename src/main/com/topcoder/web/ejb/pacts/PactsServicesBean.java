@@ -5380,12 +5380,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // make all of them on hold.
         // There's a small chance that a referral payment in this set has
         // already been paid.  So we can't update all at once.
-        int i = 0;
-        long pid[] = new long[changeToOnHold.size()];
-        for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
+        long pid[] = new long[1];
+        for (Iterator it = changeToOnHold.iterator(); it.hasNext();) {
             try {
-                pid[i] = ((Long) it.next()).longValue();
-                log.debug("attempting to move back to on hold payment id: " + pid[i] + " (no affirmed AD)");
+                pid[0] = ((Long) it.next()).longValue();
+                log.debug("attempting to move back to on hold payment id: " + pid[0] + " (no affirmed AD)");
                 updatePaymentStatus(c, pid, PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS);
             } catch (PaymentPaidException e) {
                 log.warn("Payment " + pid[0] + " is a referral payment.\n" +
@@ -5393,7 +5392,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
         }
         
-        return i;
+        return changeToOnHold.size();
     }
 
     /**
@@ -5750,7 +5749,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             for (; i < holdArray.length; i++) {
                 try {
                     pid[0] = holdArray[i];
-                    log.debug("attempting to move back to on hold payment id: " + pid[i] + " (inactive account)");
+                    log.debug("attempting to move back to on hold payment id: " + pid[0] + " (inactive account)");
                     updatePaymentStatus(c, pid, PAYMENT_ON_HOLD_STATUS);
                 } catch (PaymentPaidException e) {
                     log.warn("Payment " + pid[0] + " is a referral payment for an inactive coder.\n" +
