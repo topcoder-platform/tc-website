@@ -20,9 +20,10 @@ public class TestCache {
             big.append(String.valueOf(i));
         }
         try {
-            int max = 10000;
+            int max = 6000;
 
             long start = System.currentTimeMillis();
+/*
             log.debug("add " + 50 + " size " + big.toString().getBytes().length + " items to the cache, and get every 20th");
             for (int i = 0; i < 50; i++) {
                 cc.set("anothernewkey" + i, big);
@@ -31,6 +32,7 @@ public class TestCache {
                     cc.get("mynewkey" + i);
                 }
             }
+*/
 
             log.debug("add " + max + " items to the cache");
             for (int i = 0; i < max; i++) {
