@@ -5,8 +5,8 @@ import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import junit.framework.TestCase;
 import org.jboss.cache.CacheException;
-import org.jboss.cache.TreeCacheMBean;
 import org.jboss.cache.Fqn;
+import org.jboss.cache.TreeCacheMBean;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -20,11 +20,11 @@ public class CacheTestCase extends TestCase {
     private static final Logger log = Logger.getLogger(CacheTestCase.class);
 
     public void testLookup() throws NamingException {
-        InitialContext ctx=null;
+        InitialContext ctx = null;
         try {
             ctx = TCContext.getInitial(new TCResourceBundle("cache").getProperty("host_url"));
-            TreeCacheMBean cache = (TreeCacheMBean)ctx.lookup("TCCache");
-            assertTrue("could not find cache in jndi", cache!=null);
+            TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup("TCCache");
+            assertTrue("could not find cache in jndi", cache != null);
 
 
         } finally {
@@ -33,18 +33,17 @@ public class CacheTestCase extends TestCase {
     }
 
     public void testPutAndGet() throws NamingException, CacheException {
-        InitialContext ctx=null;
+        InitialContext ctx = null;
         try {
             log.debug("before getting context");
             ctx = TCContext.getInitial(new TCResourceBundle("cache").getProperty("host_url"));
             log.debug("after getting context");
-            TreeCacheMBean  cache = (TreeCacheMBean)ctx.lookup("TCCache");
+            TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup("TCCache");
             log.debug("after lookup");
-            Fqn f = new Fqn();
             log.debug("before put");
-            cache.put(f, "crumb", "ball");
+            cache.put(Fqn.ROOT, "crumb", "ball");
             log.debug("after put");
-            assertTrue("could not find our object", "ball".equals(cache.get(f,"crumb")));
+            assertTrue("could not find our object", "ball".equals(cache.get(Fqn.ROOT, "crumb")));
 
 
         } finally {
@@ -53,26 +52,26 @@ public class CacheTestCase extends TestCase {
     }
 
     public void testLotsOfPuts() throws NamingException, CacheException {
-        InitialContext ctx=null;
+        InitialContext ctx = null;
         try {
             log.debug("before getting context");
             ctx = TCContext.getInitial(new TCResourceBundle("cache").getProperty("host_url"));
             log.debug("after getting context");
-            TreeCacheMBean cache = (TreeCacheMBean)ctx.lookup("TCCache");
+            TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup("TCCache");
             log.debug("after lookup");
             Fqn f = new Fqn();
             long start = System.currentTimeMillis();
-            long end = start+1000*10;
-            int i=0;
-            while (System.currentTimeMillis()<end) {
-                cache.put(f, "crumb"+i, "ball"+i);
+            long end = start + 1000 * 10;
+            int i = 0;
+            while (System.currentTimeMillis() < end) {
+                cache.put(f, "crumb" + i, "ball" + i);
                 i++;
             }
 
-            log.debug("nodes : " + cache.getKeys(f).size()+ " i " + i +
-                    " avg put time " + (float)(end-start)/i);
+            log.debug("nodes : " + cache.getKeys(f).size() + " i " + i +
+                    " avg put time " + (float) (end - start) / i);
 
-            assertTrue("didn't put much stuff in the cache", cache.getKeys(f).size()>10);
+            assertTrue("didn't put much stuff in the cache", cache.getKeys(f).size() > 10);
 
 
         } finally {

@@ -18,10 +18,6 @@ public class JbossCacheClient implements CacheClient {
     private static TreeCacheMBean cache;
     private static boolean initialized = false;
 
-    //just using the root path for now
-    private static final Fqn path = new Fqn();
-
-
     public JbossCacheClient() {
         init();
     }
@@ -42,7 +38,7 @@ public class JbossCacheClient implements CacheClient {
 
     public void set(String key, Object value) throws TCCacheException {
         try {
-            cache.put(path, key, value);
+            cache.put(Fqn.ROOT, key, value);
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }
@@ -50,7 +46,7 @@ public class JbossCacheClient implements CacheClient {
 
     public Object get(String key) throws TCCacheException {
         try {
-            return cache.get(path, key);
+            return cache.get(Fqn.ROOT, key);
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }
@@ -59,7 +55,7 @@ public class JbossCacheClient implements CacheClient {
     public Object remove(String key) throws TCCacheException {
 
         try {
-            return cache.remove(path, key);
+            return cache.remove(Fqn.ROOT, key);
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }
@@ -67,7 +63,7 @@ public class JbossCacheClient implements CacheClient {
 
     public void clearCache() throws TCCacheException {
         try {
-            cache.removeData(path);
+            cache.removeData(Fqn.ROOT);
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }
@@ -75,7 +71,7 @@ public class JbossCacheClient implements CacheClient {
 
     public Set getKeys() throws TCCacheException {
         try {
-            return cache.getKeys(path);
+            return cache.getKeys(Fqn.ROOT);
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }

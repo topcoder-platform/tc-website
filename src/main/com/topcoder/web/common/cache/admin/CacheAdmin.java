@@ -19,13 +19,14 @@ import java.util.Set;
  */
 public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
     private static final Logger log = Logger.getLogger(CacheAdmin.class);
+
     public void clearRoot() {
         InitialContext ctx = null;
         TCResourceBundle b = new TCResourceBundle("cache");
         try {
             ctx = TCContext.getInitial(b.getProperty("host_url"));
-            TreeCacheMBean cache = (TreeCacheMBean)ctx.lookup(b.getProperty("jndi_name"));
-            cache.removeData(new Fqn());
+            TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
+            cache.removeData(Fqn.ROOT);
 /*
             ctx = TCContext.getInitial(b.getProperty("host_url"));
             //using reflection so that we don't a lot of nasty dependencies when using the class.
@@ -63,13 +64,13 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
             ctx = TCContext.getInitial(b.getProperty("host_url"));
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
 
-            Set keys = cache.getKeys(new Fqn());
+            Set keys = cache.getKeys(Fqn.ROOT);
             String key;
             int count = 0;
             for (Object key1 : keys) {
                 key = (String) key1;
                 if (key.indexOf(s) >= 0) {
-                    cache.remove(new Fqn(), key);
+                    cache.remove(Fqn.ROOT, key);
                     count++;
                 }
             }
@@ -91,7 +92,7 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         try {
             ctx = TCContext.getInitial(b.getProperty("host_url"));
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
-            return cache.getKeys(new Fqn()).size();
+            return cache.getKeys(Fqn.ROOT).size();
         } catch (NamingException e) {
             throw new RuntimeException(e);
         } catch (CacheException e) {
