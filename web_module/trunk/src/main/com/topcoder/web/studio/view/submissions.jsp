@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page contentType="text/html;charset=utf-8" %>
@@ -11,6 +12,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <% ResultSetContainer submissions = (ResultSetContainer) request.getAttribute("submissions");%>
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMITTERS%>" var="viewSubmitters"/>
 
 <html>
 <head>
@@ -29,7 +32,7 @@
         myForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getStartRow()-1+Constants.VIEW_SUBMISSIONS_SCROLL_SIZE*2%>;
         myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-    <c:if test="${isOver}">
+    <c:if test="${contest.configMap[viewSubmitters]}">
         myForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
     </c:if>
         myForm.submit();
@@ -40,7 +43,7 @@
         myForm.<%=DataAccessConstants.END_RANK%>.value =<%=submissions.getStartRow()-1%>;
         myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
         myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
-    <c:if test="${isOver}">
+    <c:if test="${contest.configMap[viewSubmitters]}">
         myForm.<%=Constants.HANDLE%>.value = '<%=request.getParameter(Constants.HANDLE)==null?"":request.getParameter(Constants.HANDLE)%>';
     </c:if>
         myForm.submit();
@@ -88,7 +91,7 @@
 <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
 <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
 <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
-<c:if test="${isOver}">
+<c:if test="${contest.configMap[viewSubmitters]}">
     You can enter a handle here to see only submissions by that competitor:
     <tc-webtag:textInput name="<%=Constants.HANDLE%>"/>
     <button name="handleSubmit" value="submit" type="submit">Submit</button>
@@ -104,7 +107,7 @@
         <tr>
             <td class="NW">&nbsp;</td>
             <c:choose>
-                <c:when test="${isOver}">
+                <c:when test="${contest.configMap[viewSubmitters]}">
                     <td class="title" colspan="4">Submissions</td>
                 </c:when>
                 <c:otherwise>
@@ -116,7 +119,7 @@
         <tr>
             <td class="headerW"><div>&nbsp;</div></td>
             <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
-            <c:if test="${isOver}">
+            <c:if test="${contest.configMap[viewSubmitters]}">
                 <td class="header">
                     <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("handle_lower")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
                     Handle</a>
@@ -140,7 +143,7 @@
         <rsc:iterator list="<%=submissions%>" id="resultRow">
             <tr class="<%=even?"light":"dark"%>">
                 <td class="valueW"><div>&nbsp;</div></td>
-                <c:if test="${isOver}">
+                <c:if test="${contest.configMap[viewSubmitters]}">
                     <td class="value">
                         <studio:handle coderId="<%=resultRow.getLongItem("user_id")%>"/>
                     </td>
@@ -179,7 +182,7 @@
         </rsc:iterator>
         <tr>
             <c:choose>
-                <c:when test="${isOver}">
+                <c:when test="${contest.configMap[viewSubmitters]}">
                     <td class="SW" colspan="5">&nbsp;</td>
                 </c:when>
                 <c:otherwise>
