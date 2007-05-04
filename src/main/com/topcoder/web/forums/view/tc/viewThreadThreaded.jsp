@@ -151,7 +151,7 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td width="100%" class="rtBody">
+        <td width="100%" align="left" class="bodyColumn">
 
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="forums"/>
@@ -211,7 +211,7 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
 	<%      if (!itCategories.hasNext() && showComponentLink) { %>
 	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
 	<%	} %>
-	<img src="/i/interface/exp_w.gif" align="absmiddle"/>
+	<img src="/i/interface/exp_w.gif" alt="" align="absmiddle"/>
    <%	} %>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
    <%    String linkStr = ForumsUtil.createLinkString(forum);
@@ -227,8 +227,9 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
   <%  int depth=thread.getTreeWalker().getMessageDepth(message);
       int width=Math.round(Math.min(500,500-((depth-50)*(depth-50))/5)); %>
-<div style="padding:0px 0px 0px <%=width%>px;">
-<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
+<div style="padding-left: <%=width%>px; position: relative;">
+<div style="position: relative; width: 100%;">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom: 6px;">
       <tr>
           <td class="rtHeader" colspan="2">
             <%  String msgBodyID = "msgBody" + message.getID();
@@ -236,7 +237,7 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
                 int ratingCount = -1;
                 int posRatings = -1; 
                 int negRatings = -1; %> 
-            <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
+            <div style="float: right; padding-left: 5px; white-space: nowrap;">
                   <%  int editCount = editCountTable.containsKey(String.valueOf(message.getID())) ? 
             			Integer.parseInt((String)editCountTable.get(String.valueOf(message.getID()))) : 0;
                   if (editCount > 0) { %> 
@@ -245,7 +246,7 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
                <a name=<%=message.getID()%>><tc-webtag:format object="${message.creationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
             </div>
             <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) { %>
-                <a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";><%=message.getSubject()%></a>
+                <a class="pointer" onMouseOver="this.style.color='#FF0000';" onMouseOut="this.style.color='#333333';" onclick="toggle('<%=msgBodyID%>');"><%=message.getSubject()%></a>
             <%  } else { %>
                 <%=message.getSubject()%>
             <%  } %>
@@ -305,11 +306,8 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
       <td class="rtTextCell" width="100%"><%=message.getBody()%></td>
       <%   } %>
       </tr>
-      <tr>
-          <td></td>
-          <td width="100%"></td>
-      </tr>
 </table>
+</div>
 </div>
 </tc-webtag:iterator>
 <%-------------POSTS END---------------%>
