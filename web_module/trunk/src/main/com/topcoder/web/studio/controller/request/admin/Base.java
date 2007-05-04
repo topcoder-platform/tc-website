@@ -45,8 +45,10 @@ public abstract class Base extends ShortHibernateProcessor {
         viewSubmissionAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
         getRequest().setAttribute("viewSubmissionAnswers", viewSubmissionAnswers);
 
-        //ok to reuse since it's just a true/false question
-        getRequest().setAttribute("viewSubmitterAnswers", viewSubmissionAnswers);
+        ArrayList<ListSelectTag.Option> viewSubmittersAnswers = new ArrayList<ListSelectTag.Option>();
+        viewSubmittersAnswers.add(new ListSelectTag.Option(String.valueOf(false), "No"));
+        viewSubmittersAnswers.add(new ListSelectTag.Option(String.valueOf(true), "Yes"));
+        getRequest().setAttribute("viewSubmitterAnswers", viewSubmittersAnswers);
 
     }
 
