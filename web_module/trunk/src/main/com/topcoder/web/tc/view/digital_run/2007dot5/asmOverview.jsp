@@ -146,7 +146,7 @@ NOTE: Coaches may earn digital run points.
 <br><br>
 <strong>For example:</strong>
 <br><br>
-Team A, with three participants, places second and Team B, with two participants, places first in a $10,000 contest; both teams had agreed to split their prizes equally.  The participants on Team A would receive (10,000 * .35)/3 = 1116.67 points per person and Team B would receive (10,000 *.65)/2 = 3250.00 per person.
+Team A, with three participants, places second and Team B, with two participants, places first in a $10,000 contest; both teams had agreed to split their prizes equally.  The participants on Team A would receive (10,000 * .35)/3 = 1166.67 points per person and Team B would receive (10,000 *.65)/2 = 3250.00 per person.
 <br><br>
 [question: why are there only 7500 points for a $10,000 contest?]
 <br><br>
