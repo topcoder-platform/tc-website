@@ -36,7 +36,7 @@
             <one-to-many  class="Event"/>
         </set>
 
-         <joined-subclass name="IntroEvent" table="intro_event">
+         <joined-subclass name="IntroEvent" table="informixoltp:intro_event">
             <key column="event_id" not-null="true" />
             <many-to-one name="school" column="school_id" class="School" access="field" fetch="join"/>
             <property name="roundId" column="round_id" access="field"/>
