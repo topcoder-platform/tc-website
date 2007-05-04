@@ -34,6 +34,7 @@
         <li>Rework forums packaging to reduce inapproriate dependencies -mktong</li>
         <li>Fix bug to allow admins to set submissions as belonging to cheaters successfully. -dok</li>
         <li>Add admin control over whether or not submitter names are viewable -dok</li>
+        <li>Enhancements to the IP Transfer functionality in order to accelerate the process -pulky</li>
     </ul>
 </p>
 
