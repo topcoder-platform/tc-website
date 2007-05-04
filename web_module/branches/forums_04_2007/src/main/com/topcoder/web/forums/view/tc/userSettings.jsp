@@ -327,7 +327,7 @@ function toggleTabs(id) {
 	  <td class="rtThreadCell" nowrap="nowrap"></td>
 	  <td class="rtThreadCell">
 	  	  <input name="collapseReadShowReplied" value="true" id="collapseReadShowReplied" type="checkbox"
-        	  <%= ("false".equals(user.getProperty("collapseReadShowReplied"))) ? "" : "checked"%>
+        	  <%= ("true".equals(user.getProperty("collapseReadShowReplied"))) ? "checked" : "" %>
         	  <%= ("true".equals(user.getProperty("collapseRead"))) ? "" : "disabled" %>>
 	  	  Do not collapse posts with new replies
 	  </td>
