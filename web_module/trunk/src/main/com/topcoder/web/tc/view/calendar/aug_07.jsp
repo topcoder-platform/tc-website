@@ -60,12 +60,12 @@
       <td class="empty">&#160;</td>
       <td class="value">1
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 361</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10773">SRM 361</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
          9:00 PM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10655">TCHS SRM 35</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10774">TCHS SRM 36</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
          9:00 PM
          </div>
@@ -96,11 +96,11 @@
       </td>
       <td class="value">7
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 362</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10775">SRM 362</A></strong><br>
          7:00 AM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10655">TCHS SRM 36</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10776">TCHS SRM 37</A></strong><br>
          7:00 AM
          </div>
       <%--
@@ -137,7 +137,7 @@
       </td>
       <td class="value">11
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 363</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10777">SRM 363</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
          12:00 Noon
          </div>
