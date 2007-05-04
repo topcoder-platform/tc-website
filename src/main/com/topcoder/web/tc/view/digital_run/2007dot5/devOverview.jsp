@@ -44,7 +44,7 @@
 
 <span class="title">Overview</span>
 <br><br>
-Each component posted for a development competition will carry a point value of 500 placement points.  Placement points will be awarded based on the number of submissions that pass review, as follows:
+Each component posted for a development competition will carry a point value - equivalent to the prize money for the component - in placement points. Placement points will be awarded based on the number of submissions that pass review, as follows:
 <br><br>
 <A class="bcLink" name="point_table"></A>
 <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">

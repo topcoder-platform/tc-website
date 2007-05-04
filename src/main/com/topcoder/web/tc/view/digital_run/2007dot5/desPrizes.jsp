@@ -44,14 +44,14 @@
 
 <span class="title">Prizes</span>
 <br><br>
-For each Stage, competitors will accumulate placement points according to the <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=desOverview">points table</A>. In addition to the component earnings, the top five (5) finishers will win large prizes and the top 1/2 of the point-getters in each Stage will receive a smaller prize. A total of $150,000 will be awarded in bonus prizes each Stage and will be distributed as follows:
+For each Stage, competitors will accumulate placement points according to the <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=desOverview">points table</A>. In addition to the component earnings, the top five (5) finishers will win large prizes and the top 1/2 of the point-getters in each Stage will receive a smaller prize. A total of $300,000 will be awarded in bonus prizes each Stage and will be distributed as follows:
 <br><br>
 <strong>Top Five Stage Prizes</strong><br>
-<strong>1st</strong> - $50,000<br>
-<strong>2nd</strong> - $28,000<br>
-<strong>3rd</strong> - $18,000<br>
-<strong>4th</strong> - $8,000<br>
-<strong>5th</strong> - $6,000
+<strong>1st</strong> - $60,000<br>
+<strong>2nd</strong> - $30,000<br>
+<strong>3rd</strong> - $20,000<br>
+<strong>4th</strong> - $12,000<br>
+<strong>5th</strong> - $8,000
 <br><br>
 If there is a tie for a position among the top 5 finishers, the tie will be resolved in the following manner (in order):
 <ol>
@@ -60,10 +60,10 @@ If there is a tie for a position among the top 5 finishers, the tie will be reso
 <li>If a tie still remains, then the tied competitors will share equally the prize money at hand.</li>
 </ol>
 <strong>Top Half Stage Prizes</strong><br>
-The remaining $140,000 will be distributed among the top ½ of point-getters (all competitors tied for the last spot will be included), and will be allocated based on the value of each placement point.
+The remaining $170,000 will be distributed among the top ½ of point-getters (all competitors tied for the last spot will be included), and will be allocated based on the value of each placement point.
 <br><br>
 <strong>For example:</strong><br>
-A total of 120 designers accumulate placement points during the Stage. We will sum the total number of placement points accumulated by the top 60 designers and divide $140,000 by that number to find the dollar per placement point bonus that is available to those 60 designers. If the total placement points of those 60 designers are 7,000, then each point is worth $20 ($140,000/7,000 = $20 per placement point). Each of the top 60 designers, including the top 5, will receive $20 for each placement point they earned during the Stage. In addition, the top 5 point-getters in each Stage will receive the Top Five Stage prizes outlined above.
+A total of 120 designers accumulate placement points during the Stage. We will sum the total number of placement points accumulated by the top 60 designers and divide $170,000 by that number to find the dollar per placement point bonus that is available to those 60 designers. If the total placement points of those 60 designers are 8,500, then each point is worth $20 ($170,000/8,500 = $20 per placement point). Each of the top 60 designers, including the top 5, will receive $20 for each placement point they earned during the Stage. In addition, the top 5 point-getters in each Stage will receive the Top Five Stage prizes outlined above.
 <br><br>
 As an added prize, the top 5 point-getters from each Stage will win a trip to the TCO finals to be recognized. At the TCO awards presentation, the overall highest point-getter for the entire year will be recognized as the winner of the TopCoder&#174; Design Cup.
 <br><br>
