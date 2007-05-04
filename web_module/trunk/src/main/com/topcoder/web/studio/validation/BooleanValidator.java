@@ -10,7 +10,7 @@ import com.topcoder.web.common.validation.Validator;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Aug 31, 2006
  */
-public class ViewableSubmissionsValidator implements Validator {
+public class BooleanValidator implements Validator {
     public ValidationResult validate(ValidationInput input) {
         if (String.valueOf(true).equals(input.getInput()) || String.valueOf(false).equals(input.getInput())) {
             return ValidationResult.SUCCESS;
