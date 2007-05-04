@@ -59,7 +59,7 @@
       </td>
       <td class="value">2
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10671">SRM 356</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10765">SRM 356</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=verisign">VeriSign</A><br>--%>
          9:00 PM
          </div>
@@ -99,12 +99,12 @@
          9:00 AM
          </div>
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 357</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10766">SRM 357</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=yodlee">Yodlee</A><br>--%>
          9:00 PM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10655">TCHS SRM 32</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10767">TCHS SRM 33</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=yodlee">Yodlee</A><br>--%>
          9:00 PM
          </div>
@@ -122,11 +122,11 @@
       </td>
       <td class="value">17
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 358</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10768">SRM 358</A></strong><br>
          7:00 AM
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10655">TCHS SRM 33</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10769">TCHS SRM 34</A></strong><br>
          7:00 AM
          </div>
       </td>
@@ -142,11 +142,11 @@
       </td>
       <td class="value">21
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 359</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10770">SRM 359</A></strong><br>
          12:00 Noon
          </div>
          <div class="hs">
-         <strong><A href="/tc?module=MatchDetails&rd=10655">TCHS SRM 34</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10771">TCHS SRM 35</A></strong><br>
          12:00 Noon
          </div>
       </td>
@@ -166,7 +166,7 @@
       </td>
       <td class="value">24
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 360</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10772">SRM 360</A></strong><br>
          <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
          11:00 AM
          </div>
