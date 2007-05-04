@@ -168,7 +168,7 @@ The points would be awarded as follows:
       <td class="sidebarTitle" align="center">Points earned</td>
    </tr>
    <tr>
-      <td class="sidebarText" rowspan="2">Team A</td>
+      <td class="sidebarText" rowspan="2"nowrap="nowrap">Team A</td>
       <td class="sidebarText" align="center">54%</td>
       <td class="sidebarText" align="center">6480</td>
       <td class="sidebarText" align="center">50%</td>
@@ -181,7 +181,7 @@ The points would be awarded as follows:
       <td class="sidebarText" align="center">3240</td>
     </tr>
    <tr>
-      <td class="sidebarText" rowspan="3">Team B</td>
+      <td class="sidebarText" rowspan="3"nowrap="nowrap">Team B</td>
       <td class="sidebarText" align="center">30%</td>
       <td class="sidebarText" align="center">3600</td>
       <td class="sidebarText" align="center">40%</td>
@@ -200,7 +200,7 @@ The points would be awarded as follows:
       <td class="sidebarText" align="center">720</td>
     </tr>
    <tr>
-      <td class="sidebarText" rowspan="3">Team C</td>
+      <td class="sidebarText" rowspan="3"nowrap="nowrap">Team C</td>
       <td class="sidebarText" align="center">16%</td>
       <td class="sidebarText" align="center">1920</td>
       <td class="sidebarText" align="center">50%</td>
@@ -243,8 +243,8 @@ The points would be awarded as follows:
       <td class="sidebarTitle" align="center">Points earned</td>
    </tr>
    <tr>
-      <td class="sidebarText" rowspan="2">Team A</td>
-      <td class="sidebarText" align="center">54%[DBM1]</td>
+      <td class="sidebarText" rowspan="2"nowrap="nowrap">Team A</td>
+      <td class="sidebarText" align="center">54%</td>
       <td class="sidebarText" align="center">3%</td>
       <td class="sidebarText" align="center">6285.6</td>
       <td class="sidebarText" align="center">50%</td>
@@ -258,7 +258,7 @@ The points would be awarded as follows:
       <td class="sidebarText" align="center">3142.8</td>
     </tr>
    <tr>
-      <td class="sidebarText" rowspan="3">Team B</td>
+      <td class="sidebarText" rowspan="3"nowrap="nowrap">Team B</td>
       <td class="sidebarText" align="center">30%</td>
       <td class="sidebarText" align="center">0%</td>
       <td class="sidebarText" align="center">3600</td>
@@ -280,7 +280,7 @@ The points would be awarded as follows:
       <td class="sidebarText" align="center">720</td>
     </tr>
    <tr>
-      <td class="sidebarText" rowspan="3">Team C</td>
+      <td class="sidebarText" rowspan="3"nowrap="nowrap">Team C</td>
       <td class="sidebarText" align="center">16%</td>
       <td class="sidebarText" align="center">0%</td>
       <td class="sidebarText" align="center">1920</td>
