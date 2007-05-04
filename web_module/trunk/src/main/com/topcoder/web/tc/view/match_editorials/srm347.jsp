@@ -321,7 +321,7 @@ Here are the subproblems you needed to solve:
 <li>How long will it take to deliver a given subset of customers, starting from <b>i</b> and ending at <b>0</b>?</li>
 <li>What is the best way to distribute the load between two cars?</li></ul>
 
-If you have any ambition of doing well in programming contests, make the Bellman-Ford algorithm second nature.  If you've got a weighted graph with a small number (less than 100) of nodes and you want to store a matrix of shortest paths between any pair of points, Bellman-Ford is your friend for ease of implementation.  Set all non-existent paths to a very large integer, and run the following line of code:
+If you have any ambition of doing well in programming contests, make the Floyd-Warshall algorithm second nature.  If you've got a weighted graph with a small number (less than 100) of nodes and you want to store a matrix of shortest paths between any pair of points, Floyd-Warshall is your friend for ease of implementation.  Set all non-existent paths to a very large integer, and run the following line of code:
 
 <pre>
     <font color="blue">for</font> (<font color="blue">int</font> i=0;i&lt;N;i++) <font color="blue">for</font> (<font color="blue">int</font> j=0;j&lt;N;j++) <font color="blue">for</font> (<font color="blue">int</font> k=0;k&lt;N;k++) {
@@ -538,7 +538,7 @@ return best;</pre>
 We simply return the minimum estimated time of all <i>useful</i> and connected destinations.
 <br /><br />
 
-You'll have noticed the <b>travelTime</b> helper function I referred to earlier.  It is important to pre-calculate all travel times between points based on different states of delay.  This is very easy to do by iterating over every <b>delayed</b> bitmask, generating the path lengths along each line, and then using Bellman-Ford to fill in the shortest paths.  Checking every combination of <b>delayed</b> and <b>known</b> generates too many sets of data, and it's unnecessary.  By calling the <b>travelTime</b> function with <b>delayed & ~known</b> we simple ensure that all unknown lines are counted as delayed, and we get a worst-case for the travel time between two points.
+You'll have noticed the <b>travelTime</b> helper function I referred to earlier.  It is important to pre-calculate all travel times between points based on different states of delay.  This is very easy to do by iterating over every <b>delayed</b> bitmask, generating the path lengths along each line, and then using Floyd-Warshall to fill in the shortest paths.  Checking every combination of <b>delayed</b> and <b>known</b> generates too many sets of data, and it's unnecessary.  By calling the <b>travelTime</b> function with <b>delayed & ~known</b> we simple ensure that all unknown lines are counted as delayed, and we get a worst-case for the travel time between two points.
 <br /><br />
 
 Calling <b>estTime(start,0,0)</b> returns us the final answer.  It almost seems like cheating, considering the complexity of the question.
