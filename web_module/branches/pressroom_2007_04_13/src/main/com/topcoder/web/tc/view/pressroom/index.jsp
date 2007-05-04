@@ -32,7 +32,10 @@
             <div id="pressContainer">
                 <!-- Press Room Banner -->
                 <div id="pressRoom">
-                    <img src="/i/pressroom/press_banner.png" alt"Press Room Banner" />
+                    <img class="floatR" src="/i/pressroom/press_banner_newspaper.png" alt="Press Room Banner Newspaper" />
+                    <div id="pressRoom2">
+                        <img class="floatL" src="/i/pressroom/press_banner_logo.png" alt="Press Room Banner Logo" />
+                    </div>
                 </div>
                 
                 <div id="pressContainer2">
@@ -48,34 +51,55 @@
                     </div>
                     
                     <!-- Big Promo & Newsletter Sign Up -->
-                    <div>
-                        <%-- digital run 
-                        <a href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20070202.png" border="0" alt="The Digital Run - Stage 4 underway" /></a>
-                        --%>
-                        <%-- TCHS  
-                        <map name="tchs07">
-                            <area shape="rect" alt="" coords="1,1,285,149" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview" />
-                            <area shape="rect" alt="" coords="286,1,499,90" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview" />
-                            <area shape="rect" alt="" coords="286,95,499,149" href="/tc?module=TCHS07ViewRegistration" />
-                        </map>
-                        <img src="/i/home/tchs07registration.png" alt="TCHS07" border="0" style="display:block;" usemap="#tchs07"/>
-                        --%>
-                        <%-- TCO07 --%>
-                        <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open"/></a>
-                        <%-- homepage design prediction 
-                        <a href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></a>
-                        --%>
-                    </div>
-                    <div>
-                    
+                    <div>&nbsp;</div><div>&nbsp;</div>
+                    <div align="center">
+                        <div class="floatR newsletter">
+                            <div align="center" style="padding:10px 10px 10px 0px;">
+                                <p style="font-weight:bold; text-align:center;" >NEWSLETTER SIGN UP</p>
+                                <form>
+                                    <div>
+                                        <a href="" class="button floatR" style="width: 30px;">>> GO</a>
+                                        <input type="text" size="25" />
+                                    </div>
+                                    <div>
+                                        <br />
+                                        <span style="font-weight:bold"><input type="radio" name="Articles" />Articles</span>
+                                        <span style="font-weight:bold"><input type="radio" name="Press Releases" />Press Releases</span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="floatL newsletterPromo">
+                            <%-- digital run 
+                            <a href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20070202.png" border="0" alt="The Digital Run - Stage 4 underway" /></a>
+                            --%>
+                            <%-- TCHS  
+                            <map name="tchs07">
+                                <area shape="rect" alt="" coords="1,1,285,149" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview" />
+                                <area shape="rect" alt="" coords="286,1,499,90" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview" />
+                                <area shape="rect" alt="" coords="286,95,499,149" href="/tc?module=TCHS07ViewRegistration" />
+                            </map>
+                            <img src="/i/home/tchs07registration.png" alt="TCHS07" border="0" style="display:block;" usemap="#tchs07"/>
+                            --%>
+                            <%-- TCO07 --%>
+                            <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open"/></a>
+                            <%-- homepage design prediction 
+                            <a href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></a>
+                            --%>
+                        </div>
                     </div>
                     
                     <!-- Press Releases Archive -->
                     <div>
                         <!-- 2007 begins -->
                         <div id="pressContainer3">
-                            <div>
-                                <img src="/i/pressroom/header_2007.png" alt"2007 Header image" />
+                            <!-- Press Room Banner -->
+                            <div id="headerYear">
+                                <img class="floatR" src="/i/pressroom/header_right.png" alt="Right Header" />
+                                <div id="headerYear2">
+                                    <img class="floatL" src="/i/pressroom/header_2007_left.png" alt="2007 Header" />
+                                </div>
                             </div>
                             <div id="pressContainer4">
                                 <!-- TopCoder Appoints Russ Malz Vice President of Sales begins -->
@@ -173,10 +197,17 @@
                                     </div>
                                 </div>
                                 <!-- MS CSF ends -->
-                            <div>
-                                <img src="/i/pressroom/year_footer.png" alt"Year footer" />
-                                <div>
+                                
+                                <!-- Back to Top Button begins -->
+                                <div class="topButton">
                                     <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
+                                </div>
+                                <!-- Back to Top Button ends-->
+                            
+                            <div id="headerYearFooter">
+                                <img class="floatR" src="/i/pressroom/year_footer_right.png" alt="Right Footer" />
+                                <div id="headerYearFooter2">
+                                    <img class="floatL" src="/i/pressroom/year_footer_left.png" alt="Left Footer" />
                                 </div>
                             </div>
                         </div>
@@ -184,8 +215,11 @@
                         
                         <!-- 2006 begins -->
                         <div id="pressContainer3">
-                            <div>
-                                <img src="/i/pressroom/header_2006.png" alt"2006 Header image" />
+                            <div id="headerYear">
+                                <img class="floatR" src="/i/pressroom/header_right.png" alt="Right Header" />
+                                <div id="headerYear2">
+                                    <img class="floatL" src="/i/pressroom/header_2006_left.png" alt="2006 Header" />
+                                </div>
                             </div>
                             <div id="pressContainer4">
                                 <!-- HRE Magazine begins -->
@@ -881,10 +915,16 @@
                                     </div>
                                 </div>
                                 <!-- INC ends -->
-                            <div>
-                                <img src="/i/pressroom/year_footer.png" alt"Year footer" />
-                                <div>
+                                <!-- Back to Top Button begins -->
+                                <div class="topButton">
                                     <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
+                                </div>
+                                <!-- Back to Top Button ends-->
+                            
+                            <div id="headerYearFooter">
+                                <img class="floatR" src="/i/pressroom/year_footer_right.png" alt="Right Footer" />
+                                <div id="headerYearFooter2">
+                                    <img class="floatL" src="/i/pressroom/year_footer_left.png" alt="Left Footer" />
                                 </div>
                             </div>
                         </div>
@@ -892,8 +932,11 @@
                         
                         <!-- 2005 begins -->
                         <div id="pressContainer3">
-                            <div>
-                                <img src="/i/pressroom/header_2005.png" alt"2005 Header image" />
+                            <div id="headerYear">
+                                <img class="floatR" src="/i/pressroom/header_right.png" alt="Right Header" />
+                                <div id="headerYear2">
+                                    <img class="floatL" src="/i/pressroom/header_2005_left.png" alt="2005 Header" />
+                                </div>
                             </div>
                             <div id="pressContainer4">
                                 <!-- TCO06 VeriSign begins -->
@@ -1425,10 +1468,17 @@
                                     </div>
                                 </div>
                                 <!-- NVIDIA TCCC ends -->
-                            <div>
-                                <img src="/i/pressroom/year_footer.png" alt"Year footer" />
-                                <div>
+                                
+                                <!-- Back to Top Button begins -->
+                                <div class="topButton">
                                     <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
+                                </div>
+                                <!-- Back to Top Button ends-->
+                            
+                            <div id="headerYearFooter">
+                                <img class="floatR" src="/i/pressroom/year_footer_right.png" alt="Right Footer" />
+                                <div id="headerYearFooter2">
+                                    <img class="floatL" src="/i/pressroom/year_footer_left.png" alt="Left Footer" />
                                 </div>
                             </div>
                         </div>

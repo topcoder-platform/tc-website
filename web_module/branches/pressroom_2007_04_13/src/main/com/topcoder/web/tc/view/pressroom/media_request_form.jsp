@@ -34,7 +34,10 @@
             <div id="pressContainer">
                 <!-- Press Room Banner -->
                 <div id="pressRoom">
-                    <img src="/i/pressroom/press_banner.png" alt="Press Room Banner" />
+                    <img class="floatR" src="/i/pressroom/press_banner_newspaper.png" alt="Press Room Banner Newspaper" />
+                    <div id="pressRoom2">
+                        <img class="floatL" src="/i/pressroom/press_banner_logo.png" alt="Press Room Banner Logo" />
+                    </div>
                 </div>
                 
                 <div id="pressContainer2">
@@ -52,10 +55,10 @@
 
                     <!-- Media Request Form -->
                     <div align="center">
-
+                        <div>&nbsp;</div>
                         <p>Please use the following form to request information from our Public Relations department.</p>
 
-                        <table cellpadding="4" cellspacing="0" style="clear: both; width:500px; border: 1px solid green;">
+                        <table cellpadding="4" cellspacing="0" style="clear: both; width:500px;">
                             <tr>
                                 <td nowrap="nowrap">First Name</td><td width="100%"><input name="first" size="20" maxlength="15" value="" type="text"></td>
                             </tr>
@@ -100,9 +103,17 @@
                             </tr>
                         </table>
 
-                        <img src="/i/pressroom/year_footer.png" alt="Year footer" />
-                        <div align="left">
+                        <!-- Back to Top Button begins -->
+                        <div class="topButton">
                             <a href=""><img src="/i/pressroom/top_button.png" alt="Back to Top" /></a>
+                        </div>
+                        <!-- Back to Top Button ends-->
+                            
+                        <div id="headerYearFooter">
+                            <img class="floatR" src="/i/pressroom/year_footer_right.png" alt="Right Footer" />
+                            <div id="headerYearFooter2">
+                                <img class="floatL" src="/i/pressroom/year_footer_left.png" alt="Left Footer" />
+                            </div>
                         </div>
                     </div>
                 </div>
