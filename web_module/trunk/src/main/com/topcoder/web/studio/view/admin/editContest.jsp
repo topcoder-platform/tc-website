@@ -241,6 +241,26 @@
     </td>
 </tr>
 
+
+<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMITTERS%>" var="viewSubmitters"/>
+
+<tr>
+    <td colspan="2">
+                <span class="bigRed"><tc-webtag:errorIterator id="err" name="${viewSubmitters}">${err}
+                    <br /></tc-webtag:errorIterator></span>
+    </td>
+</tr>
+<tr>
+    <td class="name">
+        Are submitter user names viewable?:
+    </td>
+    <td class="value">
+        <tc-webtag:listSelect name="${viewSubmitters}" useTopValue="false" list="${viewSubmitternAnswers}"/>
+    </td>
+</tr>
+
+
+
 <c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.MAX_SUBMISSIONS%>" var="maxSubmissions"/>
 
 <tr>
