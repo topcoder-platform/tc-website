@@ -255,7 +255,7 @@
         Are submitter user names viewable?:
     </td>
     <td class="value">
-        <tc-webtag:listSelect name="${viewSubmitters}" useTopValue="false" list="${viewSubmitternAnswers}"/>
+        <tc-webtag:listSelect name="${viewSubmitters}" useTopValue="false" list="${viewSubmitterAnswers}"/>
     </td>
 </tr>
 
