@@ -9,14 +9,15 @@ import com.topcoder.web.common.model.Base;
  */
 public class ContestProperty extends Base {
 
-    public static final Integer CONTEST_OVERVIEW_TEXT = new Integer(1);
-    public static final Integer PRIZE_DESCRIPTION = new Integer(2);
-    public static final Integer VIEWABLE_SUBMISSIONS = new Integer(3);
-    public static final Integer MIN_WIDTH = new Integer(4);
-    public static final Integer MAX_WIDTH = new Integer(5);
-    public static final Integer MIN_HEIGHT = new Integer(6);
-    public static final Integer MAX_HEIGHT = new Integer(7);
-    public static final Integer MAX_SUBMISSIONS = new Integer(8);
+    public static final Integer CONTEST_OVERVIEW_TEXT = 1;
+    public static final Integer PRIZE_DESCRIPTION = 2;
+    public static final Integer VIEWABLE_SUBMISSIONS = 3;
+    public static final Integer MIN_WIDTH = 4;
+    public static final Integer MAX_WIDTH = 5;
+    public static final Integer MIN_HEIGHT = 6;
+    public static final Integer MAX_HEIGHT = 7;
+    public static final Integer MAX_SUBMISSIONS = 8;
+    public static final Integer VIEWABLE_SUBMITTERS = 9;
 
 
     private Integer id;
