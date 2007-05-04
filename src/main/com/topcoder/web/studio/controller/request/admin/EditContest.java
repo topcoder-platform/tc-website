@@ -14,11 +14,16 @@ import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestConfig;
 import com.topcoder.web.studio.model.ContestProperty;
 import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.validation.*;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author dok
@@ -55,9 +60,9 @@ public class EditContest extends Base {
         if (hasErrors()) {
             loadGeneralEditContestData();
 
-            for (int i = 0; i < CONTEST_PROPS.length; i++) {
-                setDefault(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i],
-                        getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]));
+            for (Integer aCONTEST_PROPS : CONTEST_PROPS) {
+                setDefault(Constants.CONTEST_PROPERTY + aCONTEST_PROPS,
+                        getRequest().getParameter(Constants.CONTEST_PROPERTY + aCONTEST_PROPS));
             }
 
             if (!"".equals(StringUtils.checkNull(contestId))) {
@@ -98,8 +103,8 @@ public class EditContest extends Base {
             ContestConfig currConfig;
             ContestPropertyDAO dao = StudioDAOUtil.getFactory().getContestPropertyDAO();
             ContestProperty curr;
-            for (int i = 0; i < CONTEST_PROPS.length; i++) {
-                curr = dao.find(CONTEST_PROPS[i]);
+            for (Integer aCONTEST_PROPS : CONTEST_PROPS) {
+                curr = dao.find(aCONTEST_PROPS);
                 if (contest.isNew() || contest.getConfig(curr) == null) {
                     currConfig = new ContestConfig();
                     currConfig.setContest(contest);
@@ -110,14 +115,14 @@ public class EditContest extends Base {
                 } else {
                     currConfig = contest.getConfig(curr);
                 }
-                String val = getRequest().getParameter(Constants.CONTEST_PROPERTY + CONTEST_PROPS[i]);
+                String val = getRequest().getParameter(Constants.CONTEST_PROPERTY + aCONTEST_PROPS);
                 currConfig.setValue(StringUtils.checkNull(val).trim().length() == 0 ? null : val.trim());
             }
 
             FileTypeDAO fDao = StudioDAOUtil.getFactory().getFileTypeDAO();
-            HashSet fts = new HashSet();
-            for (Iterator it = fileTypes.iterator(); it.hasNext();) {
-                fts.add(fDao.find(new Integer((String) it.next())));
+            HashSet<StudioFileType> fts = new HashSet<StudioFileType>();
+            for (Object fileType : fileTypes) {
+                fts.add(fDao.find(new Integer((String) fileType)));
             }
             contest.setFileTypes(fts);
             if (!"".equals(StringUtils.checkNull(eventId))) {
@@ -153,6 +158,7 @@ public class EditContest extends Base {
         String minHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MIN_HEIGHT);
         String maxHeight = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_HEIGHT);
         String viewableSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMISSIONS);
+        String viewableSubmitters = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMITTERS);
         String maxSubmissions = getRequest().getParameter(Constants.CONTEST_PROPERTY + ContestProperty.MAX_SUBMISSIONS);
         String forumId = getRequest().getParameter(Constants.FORUM_ID);
         String eventId = getRequest().getParameter(Constants.EVENT_ID);
@@ -208,9 +214,15 @@ public class EditContest extends Base {
         }
 
         ValidationResult viewableSubmissionsResult =
-                new ViewableSubmissionsValidator().validate(new StringInput(viewableSubmissions));
+                new BooleanValidator().validate(new StringInput(viewableSubmissions));
         if (!viewableSubmissionsResult.isValid()) {
             addError(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMISSIONS, viewableSubmissionsResult.getMessage());
+        }
+
+        ValidationResult viewableSubmittersResult =
+                new BooleanValidator().validate(new StringInput(viewableSubmitters));
+        if (!viewableSubmittersResult.isValid()) {
+            addError(Constants.CONTEST_PROPERTY + ContestProperty.VIEWABLE_SUBMITTERS, viewableSubmittersResult.getMessage());
         }
 
         ValidationResult maxSubmissionsResult =
@@ -227,15 +239,15 @@ public class EditContest extends Base {
             addError(Constants.FILE_TYPE, fileTypeResult.getMessage());
         }
 
-        int fid = 0;
+        int fid;
         if (!"".equals(StringUtils.checkNull(forumId))) {
             try {
                 fid = Integer.parseInt(forumId);
                 ResultSetContainer rsc = getForumList();
                 boolean found = false;
                 ResultSetContainer.ResultSetRow row;
-                for (Iterator it = rsc.iterator(); it.hasNext() && !found;) {
-                    row = (ResultSetContainer.ResultSetRow) it.next();
+                for (Iterator<ResultSetContainer.ResultSetRow> it = rsc.iterator(); it.hasNext() && !found;) {
+                    row = it.next();
                     found = row.getLongItem("forum_id") == fid;
                 }
                 if (!found) {
