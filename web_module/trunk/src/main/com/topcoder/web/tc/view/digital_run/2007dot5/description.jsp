@@ -116,6 +116,9 @@ If you're an active competitor in Software Design or Development, you are alread
 <span class="subtitle">How to win</span><br>
 Each component posted for a competition will carry placement points. Points will be awarded to competitors based on the number of submissions that pass review. The members with the highest point totals at the end of each Stage win big.
 <br><br>
+<span class="subtitle">Why are there only 2 stages this time?</span><br>
+We wanted to align the Digital Run seasons with the calendar year (January 1 to December 31) for various reasons, but we didn't want to have to wait until January to start the next season.  As a result, we have the "2007.5 Season", spanning two stages instead of four.
+<br><br>
 
 </div>
 
