@@ -42,6 +42,7 @@ public class SecurityHelper {
         TCSubject ret = null;
 
         CacheAddress address = AddressFactory.create(new TCSubject(l), dataSource);
+        log.debug("address " + address.toString());
 
         Context ctx = null;
         try {
@@ -49,8 +50,9 @@ public class SecurityHelper {
             CacheClient cc = null;
             try {
                 cc = CacheClientFactory.create();
-                if (!forceLoadFromDb)
+                if (!forceLoadFromDb) {
                     ret = (TCSubject) (cc.get(address));
+                }
             } catch (Exception e) {
                 log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 hasCacheConnection = false;
@@ -74,15 +76,14 @@ public class SecurityHelper {
                         log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                     }
                 }
+            } else {
+                log.debug("ret was not null");
             }
             return ret;
         } catch (Exception e) {
             throw e;
         } finally {
-            try {
-                if (ctx != null) ctx.close();
-            } catch (Exception e) {
-            }
+            TCContext.close(ctx);
         }
     }
 
