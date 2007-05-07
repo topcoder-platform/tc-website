@@ -8,6 +8,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.CachedQueryDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.tc.model.MemberSearch;
@@ -55,19 +56,19 @@ public class SimpleSearch extends Base {
 
         String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         if (start.equals(""))
-            ret.setStart(new Integer(1));
+            ret.setStart(1);
         else
             ret.setStart(new Integer(start));
 
         String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
-        if (end.equals(""))
+        if (end.equals("")) {
             ret.setEnd(new Integer(Constants.SEARCH_SCROLL_SIZE));
-        else
+        } else
             ret.setEnd(new Integer(end));
 
         //make sure we like the size they they're searching for
         if (ret.getEnd().intValue() - ret.getStart().intValue() > (Constants.SEARCH_SCROLL_SIZE - 1)) {
-            ret.setEnd(new Integer(ret.getStart().intValue() + (Constants.SEARCH_SCROLL_SIZE - 1)));
+            ret.setEnd(ret.getStart().intValue() + (Constants.SEARCH_SCROLL_SIZE - 1));
         }
 
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE));
@@ -310,18 +311,17 @@ public class SimpleSearch extends Base {
         r.setProperty("member_search" + DataAccessConstants.END_RANK, m.getEnd().toString());
 
 
-        CachedQueryDataAccess cda = new CachedQueryDataAccess(DBMS.DW_DATASOURCE_NAME);
-        cda.setExpireTime(15 * 60 * 1000); //cache for 15 minutes
+        CachedQueryDataAccess cda = new CachedQueryDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
         Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("member_search");
         ResultSetContainer count = (ResultSetContainer) res.get("count");
         m.setResults(rsc);
         m.setTotal(count.getIntItem(0, "count"));
-        if (m.getEnd().intValue() > m.getTotal()) {
-            m.setEnd(new Integer(m.getTotal()));
+        if (m.getEnd() > m.getTotal()) {
+            m.setEnd(m.getTotal());
         }
         if (m.getTotal() == 0) {
-            m.setStart(new Integer(0));
+            m.setStart(0);
         }
         return m;
     }
@@ -330,7 +330,7 @@ public class SimpleSearch extends Base {
         if (from == null && to == null) return "";
 
         StringBuffer str = new StringBuffer(100);
-        str.append(" AND " + field + " BETWEEN ");
+        str.append(" AND ").append(field).append(" BETWEEN ");
         str.append(from == null ? "0" : from.toString());
         str.append(" AND ");
         str.append(to == null ? String.valueOf(Integer.MAX_VALUE) : to.toString());
