@@ -10,7 +10,11 @@ import org.jboss.system.ServiceMBean;
 public interface CacheAdminMBean extends ServiceMBean {
     void clearRoot();
 
+    void clearAll();
+
+    void clear(String fqn);
+
     String removelike(String s);
 
-    int rootSize();
+    int size();
 }
