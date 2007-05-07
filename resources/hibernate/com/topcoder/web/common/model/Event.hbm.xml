@@ -26,55 +26,55 @@
 
         <set name="contests" table="tcs_catalog:contest" inverse="true" access="field" cascade="save-update">
             <key column="event_id"/>
-            <one-to-many  class="com.topcoder.web.common.model.comp.Contest"/>
+            <one-to-many class="com.topcoder.web.common.model.comp.Contest"/>
         </set>
 
         <many-to-one name="parent" column="parent_event_id" class="Event" access="field"/>
-        
+
         <set name="children" table="Event" inverse="true" access="field">
             <key column="parent_event_id"/>
-            <one-to-many  class="Event"/>
+            <one-to-many class="Event"/>
         </set>
 
-         <joined-subclass name="IntroEvent" table="informixoltp:intro_event">
-            <key column="event_id" not-null="true" />
+        <joined-subclass name="IntroEvent" table="informixoltp:intro_event">
+            <key column="event_id" not-null="true"/>
             <many-to-one name="school" column="school_id" class="School" access="field" fetch="join"/>
             <property name="roundId" column="round_id" access="field"/>
             <property name="forumId" column="forum_id" access="field"/>
             <many-to-one name="timeZone" column="timezone_id" class="TimeZone" access="field"/>
             <many-to-one name="image" column="image_id" class="Image" access="field" fetch="join"/>
-            <property name="eligibilityCommandId" column="eligibility_command_id" access="field"/>                        
+            <property name="eligibilityCommandId" column="eligibility_command_id" access="field"/>
             <map name="config" cascade="all" inverse="true" access="field">
-                <key column="event_id" not-null="true" />
+                <key column="event_id" not-null="true"/>
                 <map-key column="property_id" type="integer"/>
                 <one-to-many class="IntroEventConfig"/>
             </map>
             <property name="roundStart" access="field">
                 <formula>
-                        (select rs.start_time 
-                        from round_segment rs
-                        where rs.segment_id = 2
-                        and rs.round_id = round_id)
+                    (select rs.start_time
+                    from informixoltp:round_segment rs
+                    where rs.segment_id = 2
+                    and rs.round_id = round_id)
                 </formula>
             </property>
             <property name="roundEnd" access="field">
                 <formula>
-                        (select rs.start_time 
-                        from round_segment rs
-                        where rs.segment_id = 5
-                        and rs.round_id = round_id)
+                    (select rs.start_time
+                    from informixoltp:round_segment rs
+                    where rs.segment_id = 5
+                    and rs.round_id = round_id)
                 </formula>
             </property>
 
             <property name="roundName" access="field">
                 <formula>
-                        (select c.name
-                        from contest c, round r
-                        where c.contest_id = r.contest_id
-                        and r.round_id = round_id)
+                    (select c.name
+                    from informixoltp:contest c, informixoltp:round r
+                    where c.contest_id = r.contest_id
+                    and r.round_id = round_id)
                 </formula>
             </property>
-        
+
         </joined-subclass>
     </class>
 </hibernate-mapping>
