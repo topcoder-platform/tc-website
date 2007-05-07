@@ -30,9 +30,11 @@ public class RequestAddress implements JbossCacheAddress {
             b.append("/").append(request.getProperty(DataAccessConstants.COMMAND));
         }
 
-        TreeMap<String, String> t = new TreeMap<String, String>(request.getProperties());
+        TreeMap t = new TreeMap(request.getProperties());
 
-        for (Map.Entry<String, String> entry : t.entrySet()) {
+        Map.Entry entry;
+        for (Object o : t.entrySet()) {
+            entry = (Map.Entry) o;
             if (!entry.getKey().equals(DataAccessConstants.COMMAND)) {
                 b.append("/");
                 b.append(entry.getKey());
