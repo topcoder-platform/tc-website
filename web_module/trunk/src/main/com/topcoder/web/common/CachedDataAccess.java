@@ -57,7 +57,7 @@ public class CachedDataAccess extends DataAccess {
     /**
      * Construtor that takes a data source to be used.
      *
-     * @param dataSourceName
+     * @param dataSourceName the datasource to connect to, to retrieve data
      */
     public CachedDataAccess(String dataSourceName) {
         this(MaxAge.MAX);
@@ -70,12 +70,27 @@ public class CachedDataAccess extends DataAccess {
      *
      * @param expireTime
      * @param dataSourceName
+     * @deprecated
      */
     public CachedDataAccess(long expireTime, String dataSourceName) {
         //this(expireTime);
         //ignore for now, todo fix this so that it takes a MaxAge
         this.dataSourceName = dataSourceName;
     }
+
+    /**
+     * Construtor that takes the timeout for the object should it need to
+     * be cached, and a data source.
+     *
+     * @param maxAge         how long it should live in the cache
+     * @param dataSourceName the datasource to connect to, to retrieve data
+     * @deprecated
+     */
+    public CachedDataAccess(MaxAge maxAge, String dataSourceName) {
+        this(maxAge);
+        this.dataSourceName = dataSourceName;
+    }
+
 
     /**
      * This method passes a query command request and a connection
@@ -145,10 +160,15 @@ public class CachedDataAccess extends DataAccess {
 
     /**
      * @param expireTime
+     * @deprecated
      */
     public void setExpireTime(long expireTime) {
         //this.expireTime = expireTime;
         //ignore for now, todo fix this so that it takes a MaxAge
+    }
+
+    public void setMaxAge(MaxAge maxAge) {
+        this.maxAge = maxAge;
     }
 
 

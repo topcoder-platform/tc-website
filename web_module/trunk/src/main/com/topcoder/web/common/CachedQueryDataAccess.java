@@ -1,10 +1,10 @@
 package com.topcoder.web.common;
 
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataRetrieverInt;
 import com.topcoder.shared.dataAccess.QueryDataAccess;
 import com.topcoder.shared.dataAccess.QueryRunner;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.cache.MaxAge;
 
 import java.sql.Connection;
 
@@ -16,37 +16,67 @@ public class CachedQueryDataAccess extends CachedDataAccess {
      * cached, to 1 week.
      */
     public CachedQueryDataAccess() {
-        this(DataAccessConstants.DEFAULT_EXPIRE_TIME);
+        this(MaxAge.MAX);
     }
 
     /**
      * Construtor that takes the timeout for the object should it need to
      * be cached.  The object will be removed from the cache atfter
      * <code>expireTime</code> milliseconds.
+     *
      * @param expireTime
+     * @deprecated
      */
     public CachedQueryDataAccess(long expireTime) {
         super();
-        this.expireTime = expireTime;
+        //this.expireTime = expireTime;
     }
 
     /**
+     * Construtor that takes the timeout for the object should it need to
+     * be cached.  The object will be removed from the cache atfter
+     * <code>maxAge.age()</code> milliseconds.
+     *
+     * @param maxAge how long to cache the item for
+     */
+    public CachedQueryDataAccess(MaxAge maxAge) {
+        super(maxAge);
+    }
+
+
+    /**
      * Construtor that takes a data source to be used.
-     * @param dataSourceName
+     *
+     * @param dataSourceName the datasource to connect to, to retrieve data
      */
     public CachedQueryDataAccess(String dataSourceName) {
-        this(DataAccessConstants.DEFAULT_EXPIRE_TIME);
+        this();
         this.dataSourceName = dataSourceName;
     }
 
     /**
      * Construtor that takes the timeout for the object should it need to
      * be cached, and a data source.
+     *
      * @param expireTime
-     * @param dataSourceName
+     * @param dataSourceName the datasource to connect to, to retrieve data
+     * @deprecated
      */
     public CachedQueryDataAccess(long expireTime, String dataSourceName) {
-        this(expireTime);
+        //this(expireTime);
+        this();
+        this.dataSourceName = dataSourceName;
+    }
+
+    /**
+     * Construtor that takes the timeout for the object should it need to
+     * be cached, and a data source.
+     *
+     * @param maxAge         how long to cache the item for
+     * @param dataSourceName the datasource to connect to, to retrieve data
+     */
+    public CachedQueryDataAccess(MaxAge maxAge, String dataSourceName) {
+        this(maxAge);
         this.dataSourceName = dataSourceName;
     }
 
