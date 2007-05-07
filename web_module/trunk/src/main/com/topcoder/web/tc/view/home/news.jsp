@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.07.07<br>1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3">Minimum Cost Flow, Part 3: Applications</A></span><br><br>
+      Parts 1 &amp; 2 considered the basics of minimum cost flow problems, as well as some algorithms that can applied to them. In the last part of this article, we'll look at some real-world applications of minimum cost flow.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22671469" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3">full story</A> | 
+        <tc-webtag:forumLink forumID="515317" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>05.04.07<br>5:35 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -203,22 +220,3 @@
         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.27.07<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005">Connected Services "Wireless Cities" mashup competition open</A>
-        </span><br><br>
-        More than a dozen UK cities have had their city centers covered by 802.11b/g wireless networks. Your challenge: design a mashup application concept for businesses to make the most of these Wi-Fi environments. Winners will share $4,500 in prizes and see their ideas advance to the Assembly stage.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005">details</A> |
-        <A href="http://csf.topcoder.com/forums?module=ThreadList&forumID=7">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
