@@ -36,15 +36,15 @@ public class TestCache {
 
             log.debug("add " + max + " items to the cache");
             for (int i = 0; i < max; i++) {
-                cc.set("/node" + i, "mykey" + i, s);
+                cc.set("mykey" + i, s);
                 log.debug("added item " + i);
             }
             log.debug("add " + max + " items to the cache, and get every 5th");
             for (int i = 0; i < max; i++) {
-                cc.set("/node" + i, "mynewkey" + i, s);
+                cc.set("mynewkey" + i, s);
                 if (i % 5 == 0) {
                     log.debug("get key " + i);
-                    cc.get("/node" + i, "mynewkey" + i);
+                    cc.get("mynewkey" + i);
                 }
             }
             long end = System.currentTimeMillis();
