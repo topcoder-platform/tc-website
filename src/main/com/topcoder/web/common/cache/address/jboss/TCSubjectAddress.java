@@ -28,8 +28,8 @@ public class TCSubjectAddress implements JbossCacheAddress {
 
     public TCSubjectAddress(TCSubject sub, String dataSource, MaxAge maxAge) {
         this.key = "subject";
-        this.fqn = parseFqn(sub, dataSource);
         this.maxAge = maxAge;
+        this.fqn = parseFqn(sub, dataSource);
     }
 
     private String parseFqn(TCSubject sub, String dataSource) {

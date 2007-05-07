@@ -41,7 +41,7 @@ public class SecurityHelper {
         //log.debug("get " + l + " from db " + forceLoadFromDb);
         TCSubject ret = null;
 
-        CacheAddress address = AddressFactory.create(new TCSubject(l), dataSource);
+        CacheAddress address = AddressFactory.create(new TCSubject(l), dataSource, MaxAge.HOUR);
         log.debug("address " + address.toString());
 
         Context ctx = null;
@@ -71,7 +71,7 @@ public class SecurityHelper {
                 }
                 if (hasCacheConnection) {
                     try {
-                        cc.set(address, ret, MaxAge.HOUR);
+                        cc.set(address, ret);
                     } catch (Exception e) {
                         log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                     }
