@@ -61,7 +61,7 @@
 	<title>TopCoder Software</title>
 
 <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
-
+<link rel="stylesheet" type="text/css" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css" />
 <script language="JavaScript" type="text/javascript" src="/scripts/javascriptAdmin.js">
 </script>
 <script language="JavaScript" type="text/javascript" >
@@ -2010,7 +2010,7 @@ if (action != null) {
             </table>
 
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">		
-                <tr><td>Moderators: 
+                <tr><td><b>Moderators:</b> 
                 	<%  for (int i=0; i<forumModeratorIDs.size()-1; i++) { %>
                 		<tc-webtag:handle coderId='<%=((Long)forumModeratorIDs.get(i)).longValue()%>'/>,
                 	<%	}
@@ -2018,7 +2018,7 @@ if (action != null) {
              			<tc-webtag:handle coderId='<%=((Long)forumModeratorIDs.get(forumModeratorIDs.size()-1)).longValue()%>'/>
              		<%	} %>
                 </td></tr>
-                <tr><td>Users: 
+                <tr><td><b>Users:</b> 
                 	<%  for (int i=0; i<forumUserIDs.size()-1; i++) { %>
                 		<tc-webtag:handle coderId='<%=((Long)forumUserIDs.get(i)).longValue()%>'/>,
                 	<%	}

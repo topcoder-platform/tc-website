@@ -10,7 +10,6 @@ import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
-import com.topcoder.web.forums.controller.request.Search.CategoryResultComparator;
 import com.topcoder.web.forums.model.TCAuthToken;
 
 import javax.ejb.EJBException;
