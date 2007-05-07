@@ -76,4 +76,48 @@ public class JbossCacheClient implements CacheClient {
             throw new TCCacheException(e);
         }
     }
+
+
+    public void set(String path, String key, Object value) throws TCCacheException {
+        try {
+            cache.put(Fqn.fromString(path), key, value);
+        } catch (CacheException e) {
+            throw new TCCacheException(e);
+        }
+    }
+
+    public Object get(String path, String key) throws TCCacheException {
+        try {
+            return cache.get(Fqn.fromString(path), key);
+        } catch (CacheException e) {
+            throw new TCCacheException(e);
+        }
+    }
+
+    public Object remove(String path, String key) throws TCCacheException {
+
+        try {
+            return cache.remove(Fqn.fromString(path), key);
+        } catch (CacheException e) {
+            throw new TCCacheException(e);
+        }
+    }
+
+    public void clearCache(String path) throws TCCacheException {
+        try {
+            cache.removeData(Fqn.fromString(path));
+        } catch (CacheException e) {
+            throw new TCCacheException(e);
+        }
+    }
+
+    public Set getKeys(String path) throws TCCacheException {
+        try {
+            return cache.getKeys(Fqn.fromString(path));
+        } catch (CacheException e) {
+            throw new TCCacheException(e);
+        }
+    }
+
+
 }

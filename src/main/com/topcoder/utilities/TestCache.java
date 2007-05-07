@@ -1,17 +1,17 @@
 package com.topcoder.utilities;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.cache.CacheClient;
-import com.topcoder.web.common.cache.CacheClientFactory;
+import com.topcoder.web.common.cache.JbossCacheClient;
 
 public class TestCache {
     private static Logger log = Logger.getLogger(TestCache.class);
-    final static String s ="af;lkjadf;lkjasdlkfjasl;kfjaslkfjas;lkdjfas;lkfjas;lkdjflaksdjf;laksdjf;lkadsjfl;kasjf;lkasjfl;kasjfl;kasjf;lkasdjflkasjflk;sdjal;kfjasd;lkfjasdlk;fjas;lkfjasdk;lfjlkasjf;laksjf;klasdjf;lkasjf;lkasdjfl;kasjf;lkasjf;lkasjf;klasjdf;klasjdf;lkajs;lfkjsa;lkfjaslk;fjaslkfjalskfja;klsdjfa;klsjf;alskdjf;lkasjfl;kadsfja;lksjf;lkasdjf;laksjf;lkasjf;lkasdjf;lkadsjf;lkasdjfl;kasdjf;lkasdjf;l";
+    final static String s = "af;lkjadf;lkjasdlkfjasl;kfjaslkfjas;lkdjfas;lkfjas;lkdjflaksdjf;laksdjf;lkadsjfl;kasjf;lkasjfl;kasjfl;kasjf;lkasdjflkasjflk;sdjal;kfjasd;lkfjasdlk;fjas;lkfjasdk;lfjlkasjf;laksjf;klasdjf;lkasjf;lkasdjfl;kasjf;lkasjf;lkasjf;klasjdf;klasjdf;lkajs;lfkjsa;lkfjaslk;fjaslkfjalskfja;klsdjfa;klsjf;alskdjf;lkasjfl;kadsfja;lksjf;lkasdjf;laksjf;lkasjf;lkasdjf;lkadsjf;lkasdjfl;kasdjf;lkasdjf;l";
 
     public static void main(String[] args) {
-        CacheClient cc = null;
+        JbossCacheClient cc = null;
         try {
-            cc = CacheClientFactory.create();
+            //cc = CacheClientFactory.create();
+            cc = new JbossCacheClient();
         } catch (Exception e) {
             log.error("error", e);
         }
@@ -36,15 +36,15 @@ public class TestCache {
 
             log.debug("add " + max + " items to the cache");
             for (int i = 0; i < max; i++) {
-                cc.set("mykey" + i, s);
+                cc.set("/test", "mykey" + i, s);
                 log.debug("added item " + i);
             }
             log.debug("add " + max + " items to the cache, and get every 5th");
             for (int i = 0; i < max; i++) {
-                cc.set("mynewkey" + i, s);
+                cc.set("/test", "mynewkey" + i, s);
                 if (i % 5 == 0) {
                     log.debug("get key " + i);
-                    cc.get("mynewkey" + i);
+                    cc.get("/test", "mynewkey" + i);
                 }
             }
             long end = System.currentTimeMillis();
