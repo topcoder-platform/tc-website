@@ -19,9 +19,9 @@ public class RequestAddress implements JbossCacheAddress {
     private MaxAge maxAge;
 
     public RequestAddress(RequestInt request) {
+        this.maxAge = MaxAge.MAX;
         fqn = parseFqn(request);
         key = "data";
-        this.maxAge = MaxAge.MAX;
     }
 
     public RequestAddress(RequestInt request, MaxAge maxAge) {
