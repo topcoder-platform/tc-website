@@ -9,9 +9,12 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.cache.CacheClient;
 import com.topcoder.web.common.cache.CacheClientFactory;
+import com.topcoder.web.common.cache.MaxAge;
+import com.topcoder.web.common.cache.address.AddressFactory;
+import com.topcoder.web.common.cache.address.CacheAddress;
+import com.topcoder.web.common.security.TCSAuthorization;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
@@ -38,7 +41,8 @@ public class SecurityHelper {
         //log.debug("get " + l + " from db " + forceLoadFromDb);
         TCSubject ret = null;
 
-        String key = KEY_PREFIX + dataSource == null ? "" : dataSource + String.valueOf(l);
+        CacheAddress address = AddressFactory.create(new TCSubject(l), dataSource);
+
         Context ctx = null;
         try {
             boolean hasCacheConnection = true;
@@ -46,7 +50,7 @@ public class SecurityHelper {
             try {
                 cc = CacheClientFactory.create();
                 if (!forceLoadFromDb)
-                    ret = (TCSubject) (cc.get(key));
+                    ret = (TCSubject) (cc.get(address));
             } catch (Exception e) {
                 log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 hasCacheConnection = false;
@@ -65,7 +69,7 @@ public class SecurityHelper {
                 }
                 if (hasCacheConnection) {
                     try {
-                        cc.set(key, ret);
+                        cc.set(address, ret, MaxAge.HOUR);
                     } catch (Exception e) {
                         log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                     }

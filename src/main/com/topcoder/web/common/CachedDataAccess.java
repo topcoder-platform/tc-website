@@ -4,15 +4,17 @@ package com.topcoder.web.common;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 */
+
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataRetrieverInt;
+import com.topcoder.shared.dataAccess.RequestInt;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.RequestInt;
-import com.topcoder.shared.dataAccess.DataRetrieverInt;
-import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
+import com.topcoder.web.common.cache.MaxAge;
+import com.topcoder.web.common.cache.address.AddressFactory;
 
 import java.sql.Connection;
 import java.util.Map;
@@ -21,52 +23,56 @@ import java.util.Map;
  * This bean processes a {@link com.topcoder.shared.dataAccess.RequestInt} and returns the data from either the cache if it's available
  * or the data source if what we're looking for is not in the cache.  If we got it from the data source, it is added to the cache.
  *
- * @author  Lars Backstrom
+ * @author Lars Backstrom
  * @version $Revision$
- * @see     com.topcoder.shared.dataAccess.RequestInt
+ * @see com.topcoder.shared.dataAccess.RequestInt
  */
 public class CachedDataAccess extends DataAccess {
     private static Logger log = Logger.getLogger(CachedDataAccess.class);
-    protected long expireTime;
+    private MaxAge maxAge;
 //    protected static final int DEFAULT_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 3;
     //protected static final int DEFAULT_EXPIRE_TIME = 1000 * 60 * 60 * 4;
 
     /**
      * Constructor that sets the timeout for the object should it need to be
-     * cached, to 1 week.
+     * cached, default to <code>MaxAge.MAX</code>.
      */
     public CachedDataAccess() {
-        this(DataAccessConstants.DEFAULT_EXPIRE_TIME);
+        this(MaxAge.MAX);
     }
 
     /**
      * Construtor that takes the timeout for the object should it need to
      * be cached.  The object will be removed from the cache atfter
-     * <code>expireTime</code> milliseconds.
-     * @param expireTime
+     * <code>maxAge.age()</code> milliseconds.
+     *
+     * @param maxAge how long it should live in the cache
      */
-    public CachedDataAccess(long expireTime) {
+    public CachedDataAccess(MaxAge maxAge) {
         super();
-        this.expireTime = expireTime;
+        this.maxAge = maxAge;
     }
 
     /**
      * Construtor that takes a data source to be used.
+     *
      * @param dataSourceName
      */
     public CachedDataAccess(String dataSourceName) {
-        this(DataAccessConstants.DEFAULT_EXPIRE_TIME);
+        this(MaxAge.MAX);
         this.dataSourceName = dataSourceName;
     }
 
     /**
      * Construtor that takes the timeout for the object should it need to
      * be cached, and a data source.
+     *
      * @param expireTime
      * @param dataSourceName
      */
     public CachedDataAccess(long expireTime, String dataSourceName) {
-        this(expireTime);
+        //this(expireTime);
+        //ignore for now, todo fix this so that it takes a MaxAge
         this.dataSourceName = dataSourceName;
     }
 
@@ -74,12 +80,12 @@ public class CachedDataAccess extends DataAccess {
      * This method passes a query command request and a connection
      * to the data retriever and receives and passes on the results.
      *
-     * @param   request A <tt>RequestInt</tt> request object containing a number
-     * of input property values.
-     * @return  A map of the query results, where the keys are strings
-     * of query names and the values are <tt>ResultSetContainer</tt> objects.
-     * @throws  Exception if there was an error encountered while retrieving
-     * the data from the EJB.
+     * @param request A <tt>RequestInt</tt> request object containing a number
+     *                of input property values.
+     * @return A map of the query results, where the keys are strings
+     *         of query names and the values are <tt>ResultSetContainer</tt> objects.
+     * @throws Exception if there was an error encountered while retrieving
+     *                   the data from the EJB.
      */
     public Map<String, ResultSetContainer> getData(RequestInt request) throws Exception {
         Connection conn = null;
@@ -110,7 +116,7 @@ public class CachedDataAccess extends DataAccess {
                 /* attempt to add this object to the cache */
                 if (hasCacheConnection) {
                     try {
-                        cc.set(key, map);
+                        cc.set(AddressFactory.create(request), map, maxAge);
                     } catch (Exception e) {
 
                         if (log.isDebugEnabled()) {
@@ -130,27 +136,20 @@ public class CachedDataAccess extends DataAccess {
                 try {
                     conn.close();
                 } catch (Exception ce) {
-                log.error("Failed to close connection");
-               }
+                    log.error("Failed to close connection");
+                }
             }
         }
     }
 
     /**
-     *
      * @param expireTime
      */
     public void setExpireTime(long expireTime) {
-        this.expireTime = expireTime;
+        //this.expireTime = expireTime;
+        //ignore for now, todo fix this so that it takes a MaxAge
     }
 
-    /**
-     *
-     * @return
-     */
-    public long getExpireTime() {
-        return expireTime;
-    }
 
 }
 
