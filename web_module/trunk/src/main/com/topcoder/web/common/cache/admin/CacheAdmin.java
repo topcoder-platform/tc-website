@@ -83,7 +83,7 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
                 count++;
             } else {
                 Set kids = cache.getChildrenNames(fqn);
-                if (!kids.isEmpty()) {
+                if (kids != null && !kids.isEmpty()) {
                     count += removelike(key, fqn, cache, count);
                 }
             }
