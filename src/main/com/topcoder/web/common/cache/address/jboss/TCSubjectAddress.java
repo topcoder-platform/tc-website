@@ -39,4 +39,8 @@ public class TCSubjectAddress implements JbossCacheAddress {
     public String getKey() {
         return key;
     }
+
+    public String toString() {
+        return fqn + "/" + key;
+    }
 }
