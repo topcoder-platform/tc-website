@@ -15,6 +15,7 @@ import com.topcoder.web.common.cache.CacheClient;
 import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.cache.address.AddressFactory;
+import com.topcoder.web.common.cache.address.CacheAddress;
 
 import java.sql.Connection;
 import java.util.Map;
@@ -91,14 +92,14 @@ public class CachedDataAccess extends DataAccess {
         Connection conn = null;
         try {
             boolean hasCacheConnection = true;
-            String key = request.getCacheKey();
+            CacheAddress address = AddressFactory.create(request);
             Map<String, ResultSetContainer> map = null;
             DataRetrieverInt dr = null;
             CacheClient cc = null;
             try {
                 //cc = CacheClientFactory.createCacheClient();
                 cc = CacheClientFactory.create();
-                map = (Map<String, ResultSetContainer>) (cc.get(key));
+                map = (Map<String, ResultSetContainer>) (cc.get(address));
             } catch (Exception e) {
 
                 if (log.isDebugEnabled()) {
@@ -116,7 +117,7 @@ public class CachedDataAccess extends DataAccess {
                 /* attempt to add this object to the cache */
                 if (hasCacheConnection) {
                     try {
-                        cc.set(AddressFactory.create(request), map, maxAge);
+                        cc.set(address, map, maxAge);
                     } catch (Exception e) {
 
                         if (log.isDebugEnabled()) {
