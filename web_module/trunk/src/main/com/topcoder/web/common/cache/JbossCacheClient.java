@@ -46,17 +46,17 @@ public class JbossCacheClient implements CacheClient {
         }
     }
 
-    public void set(String key, Object value, MaxAge maxAge) throws TCCacheException {
+/*    public void set(String key, Object value, MaxAge maxAge) throws TCCacheException {
         try {
             cache.put(Fqn.fromString("/" + maxAge.name() + "/" + key), key, value);
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }
-    }
+    }*/
 
     public void set(CacheAddress address, Object value) throws TCCacheException {
         try {
-            cache.put(Fqn.fromString("/" + MaxAge.MAX.name() + ((JbossCacheAddress) address).getFqn()), address.getKey(), value);
+            cache.put(Fqn.fromString(((JbossCacheAddress) address).getFqn()), address.getKey(), value);
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }
@@ -64,7 +64,7 @@ public class JbossCacheClient implements CacheClient {
 
     public void set(CacheAddress address, Object value, MaxAge maxAge) throws TCCacheException {
         try {
-            cache.put(Fqn.fromString("/" + maxAge.name() + ((JbossCacheAddress) address).getFqn()), address.getKey(), value);
+            cache.put(Fqn.fromString(((JbossCacheAddress) address).getFqn()), address.getKey(), value);
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }
@@ -80,7 +80,7 @@ public class JbossCacheClient implements CacheClient {
 
     public Object get(CacheAddress address) throws TCCacheException {
         try {
-            return cache.get(Fqn.fromString("/" + MaxAge.MAX.name() + ((JbossCacheAddress) address).getFqn()), address.getKey());
+            return cache.get(Fqn.fromString(((JbossCacheAddress) address).getFqn()), address.getKey());
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }
@@ -96,7 +96,7 @@ public class JbossCacheClient implements CacheClient {
 
     public Object remove(CacheAddress address) throws TCCacheException {
         try {
-            return cache.remove(Fqn.fromString("/" + MaxAge.MAX.name() + ((JbossCacheAddress) address).getFqn()), address.getKey());
+            return cache.remove(Fqn.fromString(((JbossCacheAddress) address).getFqn()), address.getKey());
         } catch (CacheException e) {
             throw new TCCacheException(e);
         }

@@ -22,16 +22,6 @@ public interface CacheClient {
     /**
      * set a key/value pair
      *
-     * @param key    the key for the cached value
-     * @param value  the value to be stored
-     * @param maxAge how long (at most) the value should exist in the cache
-     * @throws TCCacheException if there is a problem
-     */
-    public void set(String key, Object value, MaxAge maxAge) throws TCCacheException;
-
-    /**
-     * set a key/value pair
-     *
      * @param address where the value goes in the cache
      * @param value   the value to be stored
      * @throws TCCacheException if there is a problem
