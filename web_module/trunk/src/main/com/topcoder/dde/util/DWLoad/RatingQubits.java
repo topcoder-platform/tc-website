@@ -371,7 +371,7 @@ public class RatingQubits {
                     key = rs.getInt("project_id") + "-" + coder;
                     boolean doit = false;
                     if (r.num_ratings == 0) {
-                        if (oldRatingsMap.get(key) != null || !newRatingsMap.get(key).equals(newrating)) {
+                        if (oldRatingsMap.get(key) != null || !new Integer(newrating).equals(newRatingsMap.get(key))) {
                             doit = true;
                         }
                     } else {
