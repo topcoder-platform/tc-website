@@ -11,23 +11,18 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <jsp:include page="../script.jsp" />
-<SCRIPT TYPE="text/javascript">
+<script language="javascript" type="text/javascript">
 <!--
-function dropdown(mySel)
+function menu_goto( menuform )
 {
-var myWin, myVal;
-myVal = mySel.options[mySel.selectedIndex].value;
-if(myVal)
-   {
-   if(mySel.form.target)myWin = parent[mySel.form.target];
-   else myWin = window;
-   if (! myWin) return true;
-   myWin.location = myVal;
-   }
-return false;
+    selecteditem = menuform.newurl.selectedIndex ;
+    newurl = menuform.newurl.options[ selecteditem ].value ;
+    if (newurl.length != 0) {
+      location.href = newurl ;
+    }
 }
 //-->
-</SCRIPT>
+</script>
 </head>
 <body>
 
@@ -55,14 +50,12 @@ return false;
 
 <div align="center" style="margin-bottom: 10px;">
 
-<FORM ACTION="../cgi-bin/redirect.pl" METHOD="POST" onChange="return dropdown(this.season)">
-<div style="margin-bottom: 10px;">
-    <select NAME="season">
-      <option value="/tc?module=Static&d1=digital_run&d2=2006description">2007 Season</option>
-      <option value="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description" selected>2007.5 Season</option>
-    </select>
-</div>
-</FORM>
+<form action="dummyvalue">
+<select name="newurl" onchange="menu_goto(this.form)">
+  <option value="/tc?module=Static&d1=digital_run&d2=2006description">2007 Season</option>
+  <option value="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=description" selected="selected">2007.5 Season</option>
+</select>
+</form>
 
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText" style="margin-bottom: 10px;">
 <tr>
