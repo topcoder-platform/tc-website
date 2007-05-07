@@ -59,8 +59,8 @@ If there is a tie for a position among the top 5 finishers, the tie will be reso
 <li>If a tie still remains, the win will then go to the competitor with the highest average per-component score over the course of the Stage.</li>
 <li>If a tie still remains, then the tied competitors will share equally the prize money at hand.</li>
 </ol>
-<strong>Top Third Stage Prizes</strong><br>
-The remaining $42,000 will be distributed among the top ½ of point-getters (all competitors tied for the last spot included), and will be allocated based on the value of each placement point.
+<strong>Top Half Stage Prizes</strong><br>
+The remaining $42,000 will be distributed among the top half of point-getters (all competitors tied for the last spot included), and will be allocated based on the value of each placement point.
 <br><br>
 <strong>For example:</strong><br>
 A total of 120 developers accumulate placement points during the Stage. We will sum the total number of placement points accumulated by the top 60 developers and divide $42,000 by that number to find the dollar per placement point bonus that is available to those 60 developers. If the total placement points of those 60 developers are 7,000, then each point is worth $6 ($42,000/7,000 = $6 per placement point). Each of the top 60 developers, including the top 5, will receive $6 for each placement point they earned during the Stage. In addition, the top 5 point-getters in each Stage will receive the Top Five Stage prizes outlined above.
