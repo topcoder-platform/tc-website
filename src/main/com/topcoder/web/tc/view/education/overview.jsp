@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3"><strong>Minimum Cost Flow, Part 3: Applications</strong></a>, by <tc-webtag:handle coderId="22671469" context="algorithm" /><br>
+Parts 1 & 2 considered the basics of minimum cost flow problems, as well as some algorithms that can applied to them. In the last part of this article, we'll look at some real-world applications of minimum cost flow.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=rationalPerformanceTester"><strong>Rational&#174; Performance Tester: An Introduction</strong></a>, by <tc-webtag:handle coderId="22498968" context="component"/><br>
 As you might have noticed, last week TopCoder posted a component design competition that involves Rational&#174; Performance Tester (RPT), and more RPT component competitions are launching today. This article includes a quick start to get you familiar with RPT basic concepts, plus a section on extending RPT's functionality through custom Java code.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow2"><strong>Minimum Cost Flow, Part 2: Algorithms</strong></a>, by <tc-webtag:handle coderId="22671469" context="algorithm" /><br>
 In Part 1, we looked at the basics of minimum cost flow. In this section, we'll look at three algorithms that can be applied to minimum cost flow problems.</li>
-<li><a href="/tc?module=Static&d1=features&d2=042607"><strong>Test Drive: SandCastle</strong></a>, by <tc-webtag:handle coderId="10627428" /><br>
-TopCoder is currently using NDoc to generate documentation for .NET projects. NDoc, however, lacks support for the new features in .NET Framework version 2.0. In this article, we evaluate SandCastle, Microsoft's documentation tool, to see how it stands up.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>

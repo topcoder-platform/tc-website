@@ -226,7 +226,7 @@ Primal-Dual
 
 <p>First, the primal-dual algorithm guarantees that the number of iterations doesn't exceed <span class="math">O(nB)</span> as well as the successive shortest path algorithm. Moreover, since we established a maximum flow in <img alt="" src="/i/education/minimumCostFlow/02_007.png" align="top" style="padding: 0px 3px 0px 3px;">, the residual network <span class="math">G<sub>x</sub></span> contains no directed path from vertex <span class="math">s</span> to vertex <span class="math">t</span> consisting entirely of arcs of zero costs. Consequently, the distance between <span class="math">s</span> and <span class="math">t</span> increases by at least one unit. These observations give a bound of <span class="math">min{nB,nC}</span> on the number of iterations which the primal-dual algorithm performs. Keep in mind, though, that the algorithm incurs the additional expense of solving a maximum flow problem at every iteration. However, in practice both the successive shortest path and the primal-dual algorithm work fast enough within the constraint of 50 vertexes and reasonable supply/demand values and costs.</p>
 
-<p>In the next section, we'll discuss some applications of the minimum cost flow problem.</p>
+<p>In the <a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3">next section</a>, we'll discuss some applications of the minimum cost flow problem.</p>
 
 <p><span class="bodySubtitle">References</span><br />
 [<a name="1">1</a>]&#160;&#160;Ravindra K. Ahuja, Thomas L. Magnanti, and James B. Orlin. <i>Network Flows: Theory, Algorithms, and Applications</i>.<br>
