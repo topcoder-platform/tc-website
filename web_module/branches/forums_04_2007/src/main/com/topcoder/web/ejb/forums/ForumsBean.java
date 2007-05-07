@@ -897,7 +897,7 @@ class UserIDComparator implements Comparator<Long> {
         try {
             User user1 = userManager.getUser(userId1);
             User user2 = userManager.getUser(userId2);
-            return user1.getUsername().compareTo(user2.getUsername());
+            return user1.getUsername().toLowerCase().compareTo(user2.getUsername().toLowerCase());
         } catch (UserNotFoundException unfe) {
             return 0;
         }
