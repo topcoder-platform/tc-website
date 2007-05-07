@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.07.07 2:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=17090">Vote now for the TCO07 bloggers</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.04.07 5:35 PM - </td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=thisMonth">Event Calendar updated through December 2007</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.04.07 4:40 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=17060">TCCC07 Web Design vote results</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.02.07 5:15 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=17060">Vote now for the final TCCC07 Web design</A></td></tr>
