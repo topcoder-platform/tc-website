@@ -1992,7 +1992,22 @@ if (action != null) {
                     <td class="forumText" colspan="2"><input class="adminSearchForm" type="text" size="150" maxlength="254" name="txtTeamMemberDescription" value=""></td>
                     <td class="forumTextCenter"><input class="adminButton" type="submit" name="a" value="Add Role"></input></td>
                 </tr>
+            </table><br>
+
+<!-- Forums Data begins -->
+			<%	com.topcoder.dde.catalog.ForumCategory forumCategory = null;
+	        	try {
+	            	forumCategory = componentManager.getForumCategory();
+	        	} catch (CatalogException ce) {} %>
+
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                <tr><td class="adminSubhead"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=forumCategory.getId()%>">Component Forums</a></td></tr>
             </table>
+
+			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">		
+                <tr><td>Forum Moderators: </td></tr>
+                <tr><td>Forum Users: </td></tr>
+            </table><br>
 
 <!-- Permission Roles begins -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
@@ -2012,7 +2027,7 @@ if (action != null) {
                         <input class="adminButton" type="submit" name="a" value="Download Role">
                     </td>
                 </tr>
-            </table>
+            </table><br>
 
 <!-- Notifications begins -->
 <%if (ver.getPhase() != ver.COLLABORATION) {%>
