@@ -168,6 +168,7 @@
                </td><td class="bodyText" nowrap=nowrap><strong>Minimum Cost Flow</a> <br />
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow1"><strong>Part 1 - Key Concepts</strong></a><br>
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow2"><strong>Part 2 - Algorithms</strong></a><br>
+               &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3"><strong>Part 3 - Applications</strong></a><br>
             </td></tr>
            <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
