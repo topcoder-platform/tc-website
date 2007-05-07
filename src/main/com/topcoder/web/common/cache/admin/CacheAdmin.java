@@ -20,22 +20,6 @@ import java.util.Set;
 public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
     private static final Logger log = Logger.getLogger(CacheAdmin.class);
 
-    public void clearRoot() {
-        InitialContext ctx = null;
-        TCResourceBundle b = new TCResourceBundle("cache");
-        try {
-            ctx = TCContext.getInitial(b.getProperty("host_url"));
-            TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
-            cache.removeData(Fqn.ROOT);
-        } catch (NamingException e) {
-            throw new RuntimeException(e);
-        } catch (CacheException e) {
-            throw new RuntimeException(e);
-        } finally {
-            TCContext.close(ctx);
-        }
-    }
-
     public void clearAll() {
         InitialContext ctx = null;
         TCResourceBundle b = new TCResourceBundle("cache");
@@ -76,25 +60,8 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
             ctx = TCContext.getInitial(b.getProperty("host_url"));
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
 
-/*
-            Set children = cache.getChildrenNames(Fqn.ROOT);
-            for (Object child : children) {
-                if ((((String)child).indexOf(s)>=0)) {
-                                    
-                }
-            }
-*/
+            int count = removelike(s, "/", cache, 0);
 
-            Set keys = cache.getKeys(Fqn.ROOT);
-            String key;
-            int count = 0;
-            for (Object key1 : keys) {
-                key = (String) key1;
-                if (key.indexOf(s) >= 0) {
-                    cache.remove(Fqn.ROOT, key);
-                    count++;
-                }
-            }
             return count + " items removed from cache";
         } catch (NamingException e) {
             throw new RuntimeException(e);
@@ -103,7 +70,25 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         } finally {
             TCContext.close(ctx);
         }
+    }
 
+    public int removelike(String key, String parent, TreeCacheMBean cache, int count) throws CacheException {
+        String kid;
+        String fqn;
+        for (Object child : cache.getChildrenNames(parent)) {
+            kid = (String) child;
+            fqn = parent + Fqn.SEPARATOR + kid;
+            if (kid.indexOf(key) >= 0) {
+                cache.remove(fqn);
+                count++;
+            } else {
+                Set kids = cache.getChildrenNames(fqn);
+                if (!kids.isEmpty()) {
+                    count += removelike(key, fqn, cache, count);
+                }
+            }
+        }
+        return count;
     }
 
 
