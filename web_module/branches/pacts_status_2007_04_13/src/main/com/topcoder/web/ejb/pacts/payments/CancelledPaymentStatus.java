@@ -34,6 +34,11 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
         return ID;
     }
 
+    @Override
+    public void activate(BasePayment payment) {
+        // TODO: pulky: do something   
+    }
+    
     public void expiredAffidavit() {
         reasons.add(AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason());
     }

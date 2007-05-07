@@ -34,6 +34,11 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
+    public void activate(BasePayment payment) {
+        // TODO: pulky: do something   
+    }
+
+    @Override
     public Boolean isSelectable() {
         return false;
     }

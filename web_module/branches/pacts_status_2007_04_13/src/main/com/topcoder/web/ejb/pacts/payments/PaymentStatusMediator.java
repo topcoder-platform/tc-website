@@ -23,6 +23,8 @@ public class PaymentStatusMediator {
     private PaymentStatusManager statusManager = null;
     private Connection conn;
 
+    private DataInterfaceBean dib = new DataInterfaceBean();
+    
     public PaymentStatusMediator() {
         statusManager = new PaymentStatusManager();
     }
@@ -49,7 +51,6 @@ public class PaymentStatusMediator {
     public void newTaxForm(long userId) throws StateTransitionFailureException {
         try {
             // every on hold payment should be notified of the new taxform.
-            DataInterfaceBean dib = new DataInterfaceBean();
             Map criteria = new HashMap();
             criteria.put(PactsConstants.USER_ID, String.valueOf(userId));
             criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()));
@@ -66,7 +67,68 @@ public class PaymentStatusMediator {
         }
     }
 
-//    public void expiredAffidavit () {
+    public void hardCopyIPTransfer(long userId, long paymentTypeId) throws StateTransitionFailureException {
+        try {
+            // every on hold payment should be notified of the new hard copy IP Transfer.
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.USER_ID, String.valueOf(userId));
+            criteria.put(PactsConstants.PAYMENT_TYPE_ID, String.valueOf(paymentTypeId));
+
+            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            
+            // notify the status manager and update each payment
+            for (BasePayment payment : payments) {
+                statusManager.hardCopyIPTransfer(payment);
+                dib.updatePayment(conn, payment);
+            }            
+        } catch (Exception e) {
+            throw new StateTransitionFailureException(e);
+        }
+    }
+
+    public void affirmedAffidavit(Long paymentId) throws StateTransitionFailureException {
+        try {
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.PAYMENT_ID, paymentId.toString());
+
+            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            
+            // if not exactly one result, throw exception
+            if (payments.size() != 1) {
+                
+            }
+            
+            // notify the status manager and update the payment
+            BasePayment payment = payments.get(0);
+            statusManager.affirmedAffidavit(payment);
+            dib.updatePayment(conn, payment);
+        } catch (Exception e) {
+            throw new StateTransitionFailureException(e);
+        }
+    }
+
+    public void affirmedIPTransfer(Long ipTransferId) throws StateTransitionFailureException {
+        try {
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.IP_TRANSFER_ID, ipTransferId.toString());
+
+            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            
+            // if not exactly one result, throw exception
+            if (payments.size() != 1) {
+                
+            }
+            
+            // notify the status manager and update the payment
+            BasePayment payment = payments.get(0);
+            statusManager.affirmedIPTransfer(payment);
+            dib.updatePayment(conn, payment);
+        } catch (Exception e) {
+            throw new StateTransitionFailureException(e);
+        }
+    }
+
+    //    public void expiredAffidavit () {
 //        statusManager.expiredAffidavit();
 //    }
 

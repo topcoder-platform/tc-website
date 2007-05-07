@@ -42,6 +42,11 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
+    public void activate(BasePayment payment) {
+        // TODO: pulky: do something   
+    }
+
+    @Override
     public Boolean isValid(BasePayment payment) {
         // since this is a system managed status, it's always valid
         return true;

@@ -36,7 +36,17 @@ public abstract class BasePaymentStatus {
     
     public abstract void nextState(BasePayment payment);
     
-    public void newPayment(BasePayment payment) throws InvalidStateTransitionException {
+    public abstract void activate(BasePayment payment);
+
+    public void affirmedAffidavit(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException();
+    }
+
+    public void affirmedIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException();
+    }
+
+    public void hardCopyIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
         throw new InvalidStateTransitionException();
     }
 

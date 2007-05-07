@@ -1806,10 +1806,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ad.setHardCopy(Boolean.FALSE);
         }
 
-        if (ad.getExpireDate() == null) {
-            Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(),
-                    ad.getType().getId().longValue());
+        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(),
+                ad.getType().getId().longValue());
 
+        if (ad.getExpireDate() == null) {
             Calendar dueDateCal = Calendar.getInstance();
             dueDateCal.add(Calendar.DAY_OF_YEAR, hasHardCopy.booleanValue() ? ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD : ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD);
             ad.setExpireDate(new Timestamp(dueDateCal.getTimeInMillis()));
@@ -1944,6 +1944,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         "Updated " + rc + ", should have updated 1."));
             }
 
+            if (!hasHardCopy && ad.isHardCopy()) {
+                PaymentStatusMediator psm = new PaymentStatusMediator(c);
+                psm.hardCopyIPTransfer(ad.getUser().getId(), ad.getComponentProject() == null ? COMPONENT_PAYMENT : TC_STUDIO_PAYMENT);
+            }
+            
             return ad;
         } catch (IDGenerationException e) {
             throw new EJBException(e);
@@ -2073,13 +2078,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw new IllegalArgumentException("Assignment Document should be pending");
         }
 
-        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(),
-                ad.getType().getId().longValue());
+//        Boolean hasHardCopy = hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(),
+//                ad.getType().getId().longValue());
 
-        if (!hasHardCopy.booleanValue()) {
-            throw new IllegalArgumentException("You must send a hard copy of the Assignment Document " +
-                    "before you can use this system to affirm");
-        }
+//        if (!hasHardCopy.booleanValue()) {
+//            throw new IllegalArgumentException("You must send a hard copy of the Assignment Document " +
+//                    "before you can use this system to affirm");
+//        }
 
         ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
         ad.setAffirmedDate(null);
@@ -2091,7 +2096,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
 
             addAssignmentDocument(c, ad);
-            updateAssignmentDocumentPaymentStatus(c, ad, PAYMENT_OWED_STATUS);
+            
+            PaymentStatusMediator psm = new PaymentStatusMediator(c);
+            psm.affirmedIPTransfer(ad.getId());
+
+//            updateAssignmentDocumentPaymentStatus(c, ad, PAYMENT_OWED_STATUS);
 
             c.commit();
             c.setAutoCommit(true);
@@ -2119,62 +2128,62 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    /**
-     * Helper method to update assignment document's related payments status.
-     *
-     * @param c        the Connection to use
-     * @param ad       the Assignment Document to update
-     * @param statusId the status id to update to
-     * @throws Exception If there's an error
-     */
-    private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad, int statusId) throws Exception {
-        StringBuffer updatePaymentStatus = new StringBuffer(300);
-        if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
-            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
-            updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
-            updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
-            updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
-            updatePaymentStatus.append("AND p.user_id = ad.user_id ");
-            updatePaymentStatus.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
-            updatePaymentStatus.append("AND pd.component_project_id = ad.component_project_id ");
-            updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
-        } else if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
-            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
-            updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
-            updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
-            updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
-            updatePaymentStatus.append("AND p.user_id = ad.user_id ");
-            updatePaymentStatus.append("AND pd.payment_type_id = " + TC_STUDIO_PAYMENT + " ");
-            updatePaymentStatus.append("AND pd.studio_contest_id = ad.studio_contest_id ");
-            updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
-        }
-
-        ResultSetContainer rscComponent = runSelectQuery(c, updatePaymentStatus.toString(), false);
-
-        List changeToOnHold = new ArrayList();
-
-        for (Iterator it = rscComponent.iterator(); it.hasNext();) {
-            ResultSetRow rsr = (ResultSetRow) it.next();
-            Long paymentId = (Long) rsr.getItem(0).getResultData();
-            Long referId = (Long) rsr.getItem(1).getResultData();
-
-            changeToOnHold.add(paymentId);
-
-            if (referId != null) {
-                changeToOnHold.add(referId);
-            }
-        }
-
-        int i = 0;
-        long pid[] = new long[changeToOnHold.size()];
-        for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
-            pid[i] = ((Long) it.next()).longValue();
-        }
-
-        if (i > 0) {
-            updatePaymentStatus(c, pid, statusId);
-        }
-    }
+//    /**
+//     * Helper method to update assignment document's related payments status.
+//     *
+//     * @param c        the Connection to use
+//     * @param ad       the Assignment Document to update
+//     * @param statusId the status id to update to
+//     * @throws Exception If there's an error
+//     */
+//    private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad, int statusId) throws Exception {
+//        StringBuffer updatePaymentStatus = new StringBuffer(300);
+//        if (ad.getType().getId().equals(AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
+//            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
+//            updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
+//            updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
+//            updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+//            updatePaymentStatus.append("AND p.user_id = ad.user_id ");
+//            updatePaymentStatus.append("AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
+//            updatePaymentStatus.append("AND pd.component_project_id = ad.component_project_id ");
+//            updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
+//        } else if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
+//            updatePaymentStatus.append("SELECT p.payment_id, p2.payment_id ");
+//            updatePaymentStatus.append("FROM payment p, payment_detail pd, assignment_document ad, OUTER payment p2 ");
+//            updatePaymentStatus.append("WHERE p.referral_payment_id = p2.payment_id ");
+//            updatePaymentStatus.append("AND p.most_recent_detail_id = pd.payment_detail_id ");
+//            updatePaymentStatus.append("AND p.user_id = ad.user_id ");
+//            updatePaymentStatus.append("AND pd.payment_type_id = " + TC_STUDIO_PAYMENT + " ");
+//            updatePaymentStatus.append("AND pd.studio_contest_id = ad.studio_contest_id ");
+//            updatePaymentStatus.append("AND ad.assignment_document_id = " + ad.getId().longValue());
+//        }
+//
+//        ResultSetContainer rscComponent = runSelectQuery(c, updatePaymentStatus.toString(), false);
+//
+//        List changeToOnHold = new ArrayList();
+//
+//        for (Iterator it = rscComponent.iterator(); it.hasNext();) {
+//            ResultSetRow rsr = (ResultSetRow) it.next();
+//            Long paymentId = (Long) rsr.getItem(0).getResultData();
+//            Long referId = (Long) rsr.getItem(1).getResultData();
+//
+//            changeToOnHold.add(paymentId);
+//
+//            if (referId != null) {
+//                changeToOnHold.add(referId);
+//            }
+//        }
+//
+//        int i = 0;
+//        long pid[] = new long[changeToOnHold.size()];
+//        for (Iterator it = changeToOnHold.iterator(); it.hasNext(); i++) {
+//            pid[i] = ((Long) it.next()).longValue();
+//        }
+//
+//        if (i > 0) {
+//            updatePaymentStatus(c, pid, statusId);
+//        }
+//    }
 
 
     /**
@@ -4223,32 +4232,37 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             Long paymentId = (Long) rsc.getItem(0, "payment_id").getResultData();
 
             // Change to not update the associated payment if the payment is on hold or canceled.
-            Integer paymentStatusId = (Integer) rsc.getItem(0, "payment_status_id").getResultData();
-            boolean okToUpdate = false;
+//            Integer paymentStatusId = (Integer) rsc.getItem(0, "payment_status_id").getResultData();
+//            boolean okToUpdate = false;
+//            if (paymentId != null) {
+//                if (paymentStatusId == null) {
+//                    log.error("Null payment status id found for payment " + paymentId.longValue());
+//                    okToUpdate = true;
+//                } else {
+//                    long statusIdValue = paymentStatusId.longValue();
+//                    if (statusIdValue != PAYMENT_CANCELED_STATUS && statusIdValue != PAYMENT_ON_HOLD_STATUS) {
+//                        okToUpdate = true;
+//                    }
+//                }
+//            }
+//
+//            if (okToUpdate) {
+//                long inputs[] = new long[1];
+//                inputs[0] = paymentId.longValue();
+//                try {
+//                    updatePaymentStatus(c, inputs, PAYMENT_OWED_STATUS);
+//                } catch (Exception e) {
+//                    // If the payment has already been paid, ignore the error.  Otherwise, there is a problem.
+//                    if (!(e instanceof PaymentPaidException))
+//                        throw e;
+//                }
+//            }
+
             if (paymentId != null) {
-                if (paymentStatusId == null) {
-                    log.error("Null payment status id found for payment " + paymentId.longValue());
-                    okToUpdate = true;
-                } else {
-                    long statusIdValue = paymentStatusId.longValue();
-                    if (statusIdValue != PAYMENT_CANCELED_STATUS && statusIdValue != PAYMENT_ON_HOLD_STATUS) {
-                        okToUpdate = true;
-                    }
-                }
+                PaymentStatusMediator psm = new PaymentStatusMediator(c);
+                psm.affirmedAffidavit(paymentId);
             }
-
-            if (okToUpdate) {
-                long inputs[] = new long[1];
-                inputs[0] = paymentId.longValue();
-                try {
-                    updatePaymentStatus(c, inputs, PAYMENT_OWED_STATUS);
-                } catch (Exception e) {
-                    // If the payment has already been paid, ignore the error.  Otherwise, there is a problem.
-                    if (!(e instanceof PaymentPaidException))
-                        throw e;
-                }
-            }
-
+            
             StringBuffer updateAffidavit = new StringBuffer(300);
             updateAffidavit.append("UPDATE affidavit SET affirmed = 1, date_affirmed = ?, text = ?, ");
             updateAffidavit.append(" status_id = " + AFFIDAVIT_AFFIRMED_STATUS);
@@ -7176,6 +7190,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                           log.debug("newValue: " + value);
                       } else if (key.equals(USER_ID)) {
                           query.append(" AND p.user_id = ? ");
+                          objects.add(value);
+                          log.debug("newValue: " + value);
+                      } else if (key.equals(IP_TRANSFER_ID)) {
+                          query.append(" AND exists (select 'exists' from assignment_document ad where ad.assignment_document_id = ? ");
+                          query.append(" and ((ad.component_project_id = pd.component_project_id and pd.payment_type_id = " + COMPONENT_PAYMENT + ") or ");
+                          query.append(" (pd.studio_contest_id = ad.studio_contest_id and pd.payment_type_id = " + TC_STUDIO_PAYMENT + "))) ");
                           objects.add(value);
                           log.debug("newValue: " + value);
                       } else if (key.equals(PAYMENT_ID)) {

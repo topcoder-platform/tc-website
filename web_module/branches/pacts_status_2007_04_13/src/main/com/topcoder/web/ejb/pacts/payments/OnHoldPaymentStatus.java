@@ -43,7 +43,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void newPayment(BasePayment payment) throws InvalidStateTransitionException {
+    public void activate(BasePayment payment) {
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
     
@@ -79,7 +79,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
              }
             nextState(payment);
         } catch (Exception e) {
-            throw new InvalidStateTransitionException(e);
+            // TODO: do something
         }
     }
     
@@ -93,6 +93,34 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         }
     }
 
+    @Override
+    public void affirmedAffidavit(BasePayment payment) throws InvalidStateTransitionException {
+        if (reasons.contains(AvailableStatusReason.NO_AFFIRMED_AFFIDAVIT_REASON.getStatusReason())) {
+            reasons.remove(AvailableStatusReason.NO_AFFIRMED_AFFIDAVIT_REASON.getStatusReason());
+
+            nextState(payment);
+        }
+    }
+
+    @Override
+    public void affirmedIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
+        if (reasons.contains(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason())) {
+            reasons.remove(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
+
+            nextState(payment);
+        }
+    }
+
+    @Override
+    public void hardCopyIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
+        if (reasons.contains(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason())) {
+            reasons.remove(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
+
+            nextState(payment);
+        }
+    }
+
+    
 //    @Override
 //    public void expiredAffidavit() {
 //        //payment.setCurrentStatus(new CancelledPaymentStatus(payment));
@@ -117,8 +145,8 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
             log.debug("no reason to stay here!");
             payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.ACCRUING_PAYMENT_STATUS));
             try {
-                payment.getCurrentStatus().newPayment(payment);
-            } catch (InvalidStateTransitionException iste) {
+                payment.getCurrentStatus().activate(payment);
+            } catch (Exception e) {
                 // do nothing
             }
        } else {

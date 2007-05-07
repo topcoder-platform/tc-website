@@ -49,17 +49,8 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void newPayment(BasePayment payment) throws InvalidStateTransitionException {
-        try {
-//            DataInterfaceBean dib = new DataInterfaceBean();
-    
-            // check for accruing amount
-
-            // if no need for accruing, go to the next state
-            nextState(payment);
-        } catch (Exception e) {
-            throw new InvalidStateTransitionException(e);
-        }
+    public void activate(BasePayment payment) {
+        nextState(payment);
     }
 
     @Override

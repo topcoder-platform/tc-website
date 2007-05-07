@@ -263,6 +263,7 @@ public interface PactsConstants extends Constants {
     // Shared across searches
     public static final String USER_ID = "user_id";
     public static final String PAYMENT_STATUS_ID = "payment_status_id";
+    public static final String IP_TRANSFER_ID = "ip_transfer_id";
     public static final String STATUS_CODE = "status_code";
     public static final String TYPE_CODE = "type_code";
     public static final String METHOD_CODE = "method_code";

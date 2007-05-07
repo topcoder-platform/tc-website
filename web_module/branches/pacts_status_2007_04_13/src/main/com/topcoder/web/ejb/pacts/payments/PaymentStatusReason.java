@@ -10,6 +10,7 @@ public class PaymentStatusReason {
         NO_TAX_FORM_REASON (new PaymentStatusReason(10l, "No Tax Form")),
         NO_AFFIRMED_AFFIDAVIT_REASON (new PaymentStatusReason(11l, "No affirmed Affidavit")),
         NO_AFFIRMED_IP_TRANSFER_REASON (new PaymentStatusReason(12l, "No affirmed IP Transfer")),
+        NO_HARD_COPY_IP_TRANSFER_REASON (new PaymentStatusReason(13l, "No hard copy IP Transfer")),
         EXPIRED_AFFIDAVIT_REASON (new PaymentStatusReason(50l, "Expired Affidavit")),
         EXPIRED_IP_TRANSFER_REASON (new PaymentStatusReason(51l, "Expired IP Transfer")),
         ACCOUNT_STATUS_REASON (new PaymentStatusReason(52l, "Account Status"));
