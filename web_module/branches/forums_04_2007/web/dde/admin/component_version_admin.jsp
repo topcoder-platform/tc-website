@@ -27,10 +27,13 @@
 <%@ page import="com.topcoder.servlet.request.*" %>
 <%@ page import="com.topcoder.shared.util.TCContext" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ page import="com.topcoder.web.common.WebConstants" %>
 
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
+
+<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
     // STANDARD PAGE VARIABLES
@@ -1998,15 +2001,31 @@ if (action != null) {
 			<%	com.topcoder.dde.catalog.ForumCategory forumCategory = null;
 	        	try {
 	            	forumCategory = componentManager.getForumCategory();
-	        	} catch (CatalogException ce) {} %>
+	        	} catch (CatalogException ce) {} 
+	        	ArrayList forumModeratorIDs = forums.getSoftwareUserIDs(WebConstants.FORUM_MODERATOR, forumCategory.getId());
+	        	ArrayList forumUserIDs = forums.getSoftwareUserIDs(WebConstants.FORUM_USER, forumCategory.getId()); %>
 
 			<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td class="adminSubhead"><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Category&categoryID=<%=forumCategory.getId()%>">Component Forums</a></td></tr>
             </table>
 
 			<table width="100%" border="0" cellpadding="0" cellspacing="1" align="center" bgcolor="#FFFFFF">		
-                <tr><td>Forum Moderators: </td></tr>
-                <tr><td>Forum Users: </td></tr>
+                <tr><td>Moderators: 
+                	<%  for (int i=0; i<forumModeratorIDs.size()-1; i++) { %>
+                		<tc-webtag:handle coderId='<%=((Long)forumModeratorIDs.get(i)).longValue()%>'/>,
+                	<%	}
+             			if (forumModeratorIDs.size() > 0) { %>
+             			<tc-webtag:handle coderId='<%=((Long)forumModeratorIDs.get(forumModeratorIDs.size()-1)).longValue()%>'/>
+             		<%	} %>
+                </td></tr>
+                <tr><td>Users: 
+                	<%  for (int i=0; i<forumUserIDs.size()-1; i++) { %>
+                		<tc-webtag:handle coderId='<%=((Long)forumUserIDs.get(i)).longValue()%>'/>,
+                	<%	}
+             			if (forumUserIDs.size() > 0) { %>
+             			<tc-webtag:handle coderId='<%=((Long)forumUserIDs.get(forumUserIDs.size()-1)).longValue()%>'/>
+             		<%	} %>
+                </td></tr>
             </table><br>
 
 <!-- Permission Roles begins -->

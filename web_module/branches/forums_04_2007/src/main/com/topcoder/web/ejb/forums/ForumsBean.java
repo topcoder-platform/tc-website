@@ -10,6 +10,7 @@ import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.forums.ForumConstants;
 import com.topcoder.web.forums.controller.ForumsUtil;
+import com.topcoder.web.forums.controller.request.Search.CategoryResultComparator;
 import com.topcoder.web.forums.model.TCAuthToken;
 
 import javax.ejb.EJBException;
@@ -394,6 +395,8 @@ public class ForumsBean extends BaseEJB {
             }
         }
         
+        Collections.sort(userIDList, 
+                new UserIDComparator(forumFactory.getUserManager()));
         return userIDList;
     }
 
@@ -881,5 +884,23 @@ class JiveGroupComparator implements Comparator {
             retVal = -retVal;
         }
         return retVal;
+    }
+}
+
+class UserIDComparator implements Comparator<Long> {
+    private UserManager userManager;
+    
+    public UserIDComparator(UserManager userManager) {
+        this.userManager = userManager;
+    }
+    
+    public final int compare(Long userId1, Long userId2) {
+        try {
+            User user1 = userManager.getUser(userId1);
+            User user2 = userManager.getUser(userId2);
+            return user1.getUsername().compareTo(user2.getUsername());
+        } catch (UserNotFoundException unfe) {
+            return 0;
+        }
     }
 }
