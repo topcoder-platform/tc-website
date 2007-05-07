@@ -15,15 +15,15 @@ public class TCSubjectAddress implements JbossCacheAddress {
     private MaxAge maxAge;
 
     public TCSubjectAddress(TCSubject sub) {
+        this.maxAge = MaxAge.MAX;
         this.key = "subject";
         this.fqn = parseFqn(sub, null);
-        this.maxAge = MaxAge.MAX;
     }
 
     public TCSubjectAddress(TCSubject sub, String dataSource) {
+        this.maxAge = MaxAge.MAX;
         this.key = "subject";
         this.fqn = parseFqn(sub, dataSource);
-        this.maxAge = MaxAge.MAX;
     }
 
     public TCSubjectAddress(TCSubject sub, String dataSource, MaxAge maxAge) {
