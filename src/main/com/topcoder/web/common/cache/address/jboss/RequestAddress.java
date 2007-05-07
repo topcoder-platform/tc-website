@@ -2,6 +2,7 @@ package com.topcoder.web.common.cache.address.jboss;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.RequestInt;
+import com.topcoder.web.common.cache.MaxAge;
 
 import java.util.Map;
 import java.util.TreeMap;
@@ -15,15 +16,24 @@ public class RequestAddress implements JbossCacheAddress {
 
     private String fqn;
     private String key;
+    private MaxAge maxAge;
 
     public RequestAddress(RequestInt request) {
         fqn = parseFqn(request);
         key = "data";
+        this.maxAge = MaxAge.MAX;
+    }
+
+    public RequestAddress(RequestInt request, MaxAge maxAge) {
+        fqn = parseFqn(request);
+        key = "data";
+        this.maxAge = maxAge;
     }
 
     private String parseFqn(RequestInt request) {
         StringBuilder b = new StringBuilder(100);
-        //"/" should really be Fqn.SEPERATOR but i don't want to add the dependency right now
+        // "/" should really be Fqn.SEPERATOR but i don't want to add the dependency right now
+        b.append("/").append(maxAge.name());
         b.append(Root.GENERAL_DATA.path());
         String command = request.getProperty(DataAccessConstants.COMMAND);
         if (command != null) {
