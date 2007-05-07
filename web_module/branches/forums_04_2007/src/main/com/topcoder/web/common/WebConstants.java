@@ -130,6 +130,8 @@ public interface WebConstants {
 
     public static final long TCS_FORUMS_ROOT_CATEGORY_ID = 22;
 
-    public static final String CANDIDATE_IDS = "cids";
+    public static final long FORUM_USER = 1;
+    public static final long FORUM_MODERATOR = 2;
     
+    public static final String CANDIDATE_IDS = "cids";
 }

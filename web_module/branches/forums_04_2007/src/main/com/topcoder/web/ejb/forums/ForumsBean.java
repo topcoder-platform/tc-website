@@ -348,6 +348,54 @@ public class ForumsBean extends BaseEJB {
         }
         return softwareGroupData;
     }
+    
+    public ArrayList<Long> getSoftwareUserIDs(long permissionType, long forumCategoryID) throws Exception {
+        ArrayList<Long> userIDList = new ArrayList<Long>();
+        
+        ForumCategory forumCategory = forumFactory.getForumCategory(forumCategoryID);
+        try {
+            GroupManager groupManager = forumFactory.getGroupManager();
+            Group group = null;
+            if (permissionType == WebConstants.FORUM_MODERATOR) {
+                group = groupManager.getGroup(ForumConstants.GROUP_SOFTWARE_MODERATORS_PREFIX+forumCategoryID);
+            } else if (permissionType == WebConstants.FORUM_USER) {
+                group = groupManager.getGroup(ForumConstants.GROUP_SOFTWARE_USERS_PREFIX+forumCategoryID);
+            }
+            if (group != null) {
+                Iterator<User> itUsers = group.getMembers();
+                while (itUsers.hasNext()) {
+                    userIDList.add(itUsers.next().getID());
+                }
+            }
+        } catch (GroupNotFoundException gnfe) {}
+        
+        // Jive's API does not provide a convenient mechanism for obtaining all users who have a certain set of 
+        // permissions for a category. Thus, we assume that a user who has the CREATE_MESSAGE_ATTACHMENT
+        // permission is a moderator, and that a user who has the CREATE_MESSAGE permission, but not the 
+        // CREATE_MESSAGE_ATTACHMENT permission is a user.
+        PermissionsManager fcPermManager = forumCategory.getPermissionsManager();
+        Iterator<User> itModerators = fcPermManager.usersWithPermission(PermissionType.ADDITIVE, 
+                ForumPermissions.CREATE_MESSAGE_ATTACHMENT); 
+        if (permissionType == WebConstants.FORUM_MODERATOR) {
+            while (itModerators.hasNext()) {
+                userIDList.add(itModerators.next().getID());
+            }
+        } else if (permissionType == WebConstants.FORUM_USER) {
+            Iterator<User> itUsers = fcPermManager.usersWithPermission(PermissionType.ADDITIVE, 
+                    ForumPermissions.CREATE_MESSAGE);
+            while (itUsers.hasNext()) {
+                userIDList.add(itUsers.next().getID());
+            }
+            while (itModerators.hasNext()) {
+                User moderator = itModerators.next();
+                if (userIDList.contains(moderator.getID())) {
+                    userIDList.remove(moderator.getID());
+                }
+            }
+        }
+        
+        return userIDList;
+    }
 
     /* 
     * Create a new component category and constituent forums.
