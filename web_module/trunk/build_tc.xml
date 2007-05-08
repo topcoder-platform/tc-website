@@ -187,6 +187,7 @@
             <fileset dir="${classes}">
                 <include name="com/topcoder/web/common/**/*.class"/>
                 <include name="com/topcoder/common/**/*.class"/>
+                <exclude name="com/topcoder/web/common/cache/admin/**/*"/>
             </fileset>
         </jar>
     </target>
