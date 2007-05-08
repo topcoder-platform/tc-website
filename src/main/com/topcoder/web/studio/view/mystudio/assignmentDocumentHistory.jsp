@@ -53,7 +53,7 @@
 <div id="contentOut" class="contentOut">
 <jsp:include page="../top.jsp"/>
 <jsp:include page="../topNav.jsp">
-    <jsp:param name="node" value=""/>
+    <jsp:param name="node" value="myStudio"/>
 </jsp:include>
 <div id="contentIn" class="contentIn">
 <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
