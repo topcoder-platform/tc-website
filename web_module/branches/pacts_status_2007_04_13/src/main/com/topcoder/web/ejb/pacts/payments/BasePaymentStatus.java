@@ -47,7 +47,7 @@ public abstract class BasePaymentStatus {
     }
 
     public void hardCopyIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException();
+        // default implementation does nothing
     }
 
     public void newTaxForm(BasePayment payment) {
