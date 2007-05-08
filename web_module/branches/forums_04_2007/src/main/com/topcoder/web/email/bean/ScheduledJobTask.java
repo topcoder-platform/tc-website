@@ -159,8 +159,8 @@ public class ScheduledJobTask
         job.setEndDate(calendar.getTime());
 
         job.setSendTest("x");
-        job.setSendReport("x");
-        job.setSendReminder("x");
+        //job.setSendReport("x");
+        //job.setSendReminder("x");
 
         // clear error list
         request.setAttribute("Error", null);
