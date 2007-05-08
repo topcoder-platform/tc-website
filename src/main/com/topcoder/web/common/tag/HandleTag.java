@@ -102,7 +102,6 @@ public class HandleTag extends TagSupport {
 
         //lookup ratings from cache
         CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-        da.setExpireTime(24 * 60 * 60 * 1000);
 
         Request r = new Request();
         r.setContentHandle("coder_all_ratings");
