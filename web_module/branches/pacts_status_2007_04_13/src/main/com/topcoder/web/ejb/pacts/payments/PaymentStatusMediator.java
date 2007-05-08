@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
@@ -22,6 +23,8 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 public class PaymentStatusMediator {
     private PaymentStatusManager statusManager = null;
     private Connection conn;
+
+    private static final Logger log = Logger.getLogger(PaymentStatusMediator.class);
 
     private DataInterfaceBean dib = new DataInterfaceBean();
     
@@ -50,12 +53,14 @@ public class PaymentStatusMediator {
 
     public void newTaxForm(long userId) throws StateTransitionFailureException {
         try {
+            log.debug("newTaxForm called for userId: " + userId);
             // every on hold payment should be notified of the new taxform.
             Map criteria = new HashMap();
             criteria.put(PactsConstants.USER_ID, String.valueOf(userId));
             criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()));
 
             List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            log.debug("need to notify " + payments.size() + " payments");
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
@@ -68,6 +73,7 @@ public class PaymentStatusMediator {
     }
 
     public void hardCopyIPTransfer(long userId, long paymentTypeId) throws StateTransitionFailureException {
+        log.debug("hardCopyIPTransfer called for userId: " + userId + " paymentTypeId: " + paymentTypeId);
         try {
             // every on hold payment should be notified of the new hard copy IP Transfer.
             Map criteria = new HashMap();
@@ -75,6 +81,7 @@ public class PaymentStatusMediator {
             criteria.put(PactsConstants.PAYMENT_TYPE_ID, String.valueOf(paymentTypeId));
 
             List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            log.debug("need to notify " + payments.size() + " payments");
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
@@ -87,6 +94,7 @@ public class PaymentStatusMediator {
     }
 
     public void affirmedAffidavit(Long paymentId) throws StateTransitionFailureException {
+        log.debug("affirmedAffidavit called for paymentId: " + paymentId);
         try {
             Map criteria = new HashMap();
             criteria.put(PactsConstants.PAYMENT_ID, paymentId.toString());
@@ -95,7 +103,7 @@ public class PaymentStatusMediator {
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
-                
+                log.debug("not exactly one result");
             }
             
             // notify the status manager and update the payment
@@ -108,6 +116,7 @@ public class PaymentStatusMediator {
     }
 
     public void affirmedIPTransfer(Long ipTransferId) throws StateTransitionFailureException {
+        log.debug("affirmedIPTransfer called for ipTransferId: " + ipTransferId);
         try {
             Map criteria = new HashMap();
             criteria.put(PactsConstants.IP_TRANSFER_ID, ipTransferId.toString());
@@ -116,7 +125,7 @@ public class PaymentStatusMediator {
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
-                
+                log.debug("not exactly one result");
             }
             
             // notify the status manager and update the payment

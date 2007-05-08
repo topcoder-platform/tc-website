@@ -45,6 +45,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
     @Override
     public void activate(BasePayment payment) {
+        log.debug("activate called for payment: " + payment.getId());
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
     
@@ -71,13 +72,13 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                          reasons.add(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
                      }
                      if (!dib.hasHardCopyAssignmentDocumentByUserId(payment.getCoderId(), AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
-                         reasons.add(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
+                         reasons.add(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
                      }
                  }
         
                  if (payment.getPaymentType() == BasePayment.TC_STUDIO_PAYMENT) {
                      if (!dib.hasAffirmedAssignmentDocument(payment.getPaymentType(), payment.getCoderId(), ((StudioContestPayment) payment).getContestId())) {
-                         reasons.add(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
+                         reasons.add(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
                      }
                      if (!dib.hasHardCopyAssignmentDocumentByUserId(payment.getCoderId(), AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
                          reasons.add(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
@@ -94,6 +95,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     
     @Override
     public void newTaxForm(BasePayment payment) {
+        log.debug("newTaxForm called for payment: " + payment.getId());
         // remove the reason
         if (reasons.contains(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason())) {
             reasons.remove(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason());
@@ -104,6 +106,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
     @Override
     public void affirmedAffidavit(BasePayment payment) throws InvalidStateTransitionException {
+        log.debug("affirmedAffidavit called for payment: " + payment.getId());
         if (reasons.contains(AvailableStatusReason.NO_AFFIRMED_AFFIDAVIT_REASON.getStatusReason())) {
             reasons.remove(AvailableStatusReason.NO_AFFIRMED_AFFIDAVIT_REASON.getStatusReason());
 
@@ -113,6 +116,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
     @Override
     public void affirmedIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
+        log.debug("affirmedIPTransfer called for payment: " + payment.getId());
         if (reasons.contains(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason())) {
             reasons.remove(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
 
@@ -122,6 +126,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
 
     @Override
     public void hardCopyIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
+        log.debug("hardCopyIPTransfer called for payment: " + payment.getId());
         if (reasons.contains(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason())) {
             reasons.remove(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
 
