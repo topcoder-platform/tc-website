@@ -298,6 +298,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            Belarus All College Programming Event
+            <A target="_blank" href="/tc?module=Static&d1=features&d2=050807">...more</A><br>[May 8]<br><br>
+
             TopCoder Appoints Russ Malz Vice President of Sales
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040907">...more</A><br>[April 9]<br><br>
 
@@ -324,13 +327,6 @@
             </div>
             TopCoder Announces TopCoder Open 2007 Sponsored by AOL
             <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">...more</A><br>[February 22]<br><br>
-
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" width="67" height="15" border="0"/>
-            </div>
-            Ideagora, a Marketplace for Minds
-            <A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">...more</A><br>[February 15]<br><br>
-
 
         </td>
     </tr>

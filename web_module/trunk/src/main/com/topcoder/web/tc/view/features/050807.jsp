@@ -53,12 +53,12 @@
     <img src="/i/m/dcp_big2.jpg" alt="Author" />
 </div>
 --%>
-<%--
+
 <div class="authorText">
-  By&#160;<tc-webtag:handle coderId="10627428" /><br />
+  By&#160;<tc-webtag:handle coderId="8365955" /><br />
       <em>TopCoder Member</em>
 </div>
---%>
+
 <br clear="all">
 
 <p>On the 26th of April about 80 coders from Belarusian colleges simultaneously pressed the "open a problem" button to start All Belarus Programming Event sponsored by TopCoder. For a great deal of them it was their first competition with TopCoder and actually their ever first contest of the kind. The contest sites were set at two Minsk leading Computer Science universities  - the Belarusian State University and the Belarusian State University of Informatics and Radioelectronics. The students from other Belarusian colleges were invited to compete at the BSU.</p>
