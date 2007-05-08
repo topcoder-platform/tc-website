@@ -192,7 +192,7 @@
 <!-- Password -->
                             <tr valign="middle">
                                 <td nowrap class="bodyText" align="right">Password:</td>
-                                <td align="left"><input onkeypress="submitEnter(event,document.frmLogin)" type="password" name="txtPassword" value ="" size="12" maxlength="15"></td>
+                                <td align="left"><input onkeypress="submitEnter(event,document.frmLogin)" type="password" name="txtPassword" value ="" size="12" maxlength="30"></td>
                                 <td nowrap class="bodyText">&#160;&#160;<a href="javascript:document.frmLogin.submit()">Login &gt;</a></td>
                             </tr>
 
