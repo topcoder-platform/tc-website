@@ -113,7 +113,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     setIsNextPageInContext(true);
                 } else {
                     // affirm the AD.
-                    if (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID) && hasHardCopy.booleanValue()) {
+                    if (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
                         PactsServicesLocator.getService().affirmAssignmentDocument(ad);
                     }
                     
