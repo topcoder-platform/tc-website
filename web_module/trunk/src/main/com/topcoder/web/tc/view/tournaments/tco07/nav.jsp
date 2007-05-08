@@ -224,6 +224,7 @@
                 <li class="<% if (tabLev1.equals("marathon") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Advancers</span></a>
                     <ul>
                     <li class="stop"><a href="/tc?module=SimpleStats&amp;c=tco07_mm_adv_overview&amp;trans=true&amp;d1=tournaments&amp;d2=tco07&amp;d3=marathon&amp;d4=advOverview"<% if (tabLev1.equals("marathon") && tabLev2.equals("advancers") && tabLev3.equals("overview")) {%> class="navHighlight"<% } %>><span>Overview</span></a></li>
+                    <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=marathon&amp;d4=bracket"<% if (tabLev1.equals("marathon") && tabLev2.equals("advancers") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
                     </ul>
                 </li>
                 <%--
