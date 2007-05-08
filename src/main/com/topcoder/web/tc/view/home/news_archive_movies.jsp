@@ -37,6 +37,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">01.31.07 12:00 PM - </td><td width="100%"><A href="/movies/promotional/TopCoder_software_01.31.07.mov">Building Software through Competition</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.08.07 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">Watch the full TCCC06 Webcast</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">12.08.06 5:00 PM - </td><td width="100%"><A href="/movies/tournament/tccc06/final_webcast_preview.mov">TCCC06 Webcast Highlights</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.15.06 2:00 PM - </td><td width="100%"><A href="/movies/press/cnbc_051506.mov">CNBC's Jane's Addiction and Squawk Box at the TCO06</A></td></tr>
