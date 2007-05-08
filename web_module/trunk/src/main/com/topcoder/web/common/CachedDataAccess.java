@@ -84,7 +84,6 @@ public class CachedDataAccess extends DataAccess {
      *
      * @param maxAge         how long it should live in the cache
      * @param dataSourceName the datasource to connect to, to retrieve data
-     * @deprecated
      */
     public CachedDataAccess(MaxAge maxAge, String dataSourceName) {
         this(maxAge);
