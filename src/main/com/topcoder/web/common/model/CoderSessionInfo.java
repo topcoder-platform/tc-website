@@ -8,6 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.security.WebAuthentication;
 
 import java.util.Map;
@@ -63,8 +64,7 @@ public class CoderSessionInfo extends SessionInfo {
             }
         }
 
-        CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-        countDai.setExpireTime(15 * 60 * 1000);
+        CachedDataAccess countDai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
         Request countReq = new Request();
         countReq.setContentHandle("member_count");
         memberCount = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");

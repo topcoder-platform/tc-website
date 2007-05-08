@@ -6,10 +6,15 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.security.WebAuthentication;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.TimeZone;
 
 public class SessionInfo implements Serializable {
     private static Logger log = Logger.getLogger(SessionInfo.class);
@@ -165,8 +170,7 @@ public class SessionInfo implements Serializable {
     }
 
     private int loadMemberCount() throws Exception {
-        CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-        countDai.setExpireTime(15 * 60 * 1000);
+        CachedDataAccess countDai = new CachedDataAccess(MaxAge.QUARTER_HOUR, DBMS.DW_DATASOURCE_NAME);
         Request countReq = new Request();
         countReq.setContentHandle("member_count");
         return ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
