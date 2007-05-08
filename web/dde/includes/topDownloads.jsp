@@ -1,13 +1,14 @@
 <%@ page import="com.topcoder.shared.dataAccess.Request,
                  com.topcoder.shared.dataAccess.DataAccessInt,
-                 com.topcoder.shared.dataAccess.CachedDataAccess,
+                 com.topcoder.web.common.CachedDataAccess,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Iterator"%>
+<%@ page import="com.topcoder.web.common.cache.MaxAge" %>
 <%
     Request r = new Request();
     r.setContentHandle("top_downloads");
-    DataAccessInt dai = new CachedDataAccess(60*60*1000, "java:InformixDS");
-    ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("top_downloads");
+    DataAccessInt dai = new com.topcoder.web.common.CachedDataAccess(MaxAge.HOUR, "java:InformixDS");
+    ResultSetContainer rsc = (ResultSetContainer) dai.getData(r).get("top_downloads");
 %>
 
 

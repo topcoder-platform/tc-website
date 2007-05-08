@@ -25,7 +25,7 @@
 <%@ page import="com.topcoder.dde.catalog.*" %>
 <%@ page import="com.topcoder.shared.dataAccess.Request"%>
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessInt"%>
-<%@ page import="com.topcoder.shared.dataAccess.CachedDataAccess"%>
+<%@ page import="com.topcoder.web.common.CachedDataAccess"%>
 <%@ page import="com.topcoder.shared.util.DBMS"%>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ include file="/includes/clsCategoryNode.jsp" %>

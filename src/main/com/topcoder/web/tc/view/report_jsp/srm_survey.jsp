@@ -10,18 +10,14 @@
 		  java.text.NumberFormat,
 		  java.text.DecimalFormat,
 		  java.math.BigInteger,
-
-          com.topcoder.web.common.TCRequest,
-          com.topcoder.web.common.HttpObjectFactory,
-          com.topcoder.web.common.TCResponse,
           com.topcoder.web.common.security.WebAuthentication,
           com.topcoder.web.common.security.BasicAuthentication,
           com.topcoder.web.common.security.SessionPersistor,
           com.topcoder.security.admin.PrincipalMgrRemote,
-          com.topcoder.security.TCSubject,
-          com.topcoder.web.common.SessionInfo"
+          com.topcoder.security.TCSubject"
 
 %>
+<%@ page import="com.topcoder.web.common.*" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
@@ -37,19 +33,19 @@
         return;
     }
 
-                com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-				dataRequest.setContentHandle("srm_survey_report");
-				dataRequest.setProperty("rd", request.getParameter("rd"));
+    com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
+    dataRequest.setContentHandle("srm_survey_report");
+    dataRequest.setProperty("rd", request.getParameter("rd"));
 
-				           DataAccessInt dai = new CachedDataAccess(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
-                    Map dataMap = null;
-                    dataMap = dai.getData(dataRequest);
+    DataAccessInt dai = new com.topcoder.web.common.CachedDataAccess(
+            dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
+    Map dataMap = null;
+    dataMap = dai.getData(dataRequest);
 
-					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_survey_question");
-					ResultSetContainer rsc2 = (ResultSetContainer)dataMap.get("srm_survey_groups");
-					ResultSetContainer rsc3 = (ResultSetContainer)dataMap.get("srm_survey_total");
-					ResultSetContainer rsc4 = (ResultSetContainer)dataMap.get("srm_survey_answers");
+    ResultSetContainer rsc = (ResultSetContainer) dataMap.get("srm_survey_question");
+    ResultSetContainer rsc2 = (ResultSetContainer) dataMap.get("srm_survey_groups");
+    ResultSetContainer rsc3 = (ResultSetContainer) dataMap.get("srm_survey_total");
+    ResultSetContainer rsc4 = (ResultSetContainer) dataMap.get("srm_survey_answers");
 %>
 
 

@@ -7,16 +7,13 @@
 		  com.topcoder.shared.dataAccess.*,
 		  com.topcoder.shared.dataAccess.resultSet.*,
 		  com.topcoder.shared.util.TCContext,
-          com.topcoder.web.common.TCRequest,
-          com.topcoder.web.common.HttpObjectFactory,
-          com.topcoder.web.common.TCResponse,
           com.topcoder.web.common.security.WebAuthentication,
           com.topcoder.web.common.security.BasicAuthentication,
           com.topcoder.web.common.security.SessionPersistor,
           com.topcoder.security.admin.PrincipalMgrRemote,
-          com.topcoder.security.TCSubject,
-          com.topcoder.web.common.SessionInfo"
+          com.topcoder.security.TCSubject"
 %>
+<%@ page import="com.topcoder.web.common.*" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 	    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
@@ -32,17 +29,16 @@
     }
 
 
-	String round = request.getParameter("rd");
+    String round = request.getParameter("rd");
 
     com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-	dataRequest.setContentHandle("srm_match_info");
-	dataRequest.setProperty("rd", round);
-	DataAccessInt dai = new CachedDataAccess(
-    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
+    dataRequest.setContentHandle("srm_match_info");
+    dataRequest.setProperty("rd", round);
+    DataAccessInt dai = new com.topcoder.web.common.CachedDataAccess(
+            dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
     Map dataMap = null;
     dataMap = dai.getData(dataRequest);
-	ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_match_info");
-
+    ResultSetContainer rsc = (ResultSetContainer) dataMap.get("srm_match_info");
 
 
 %>

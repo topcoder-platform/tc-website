@@ -6,19 +6,15 @@
           com.topcoder.common.web.data.report.Query,
 		  com.topcoder.shared.dataAccess.*,
 		  com.topcoder.shared.dataAccess.resultSet.*,
-		  com.topcoder.shared.util.TCContext
-          ,
-          com.topcoder.web.common.TCRequest,
-          com.topcoder.web.common.HttpObjectFactory,
-          com.topcoder.web.common.TCResponse,
+		  com.topcoder.shared.util.TCContext,
           com.topcoder.web.common.security.WebAuthentication,
           com.topcoder.web.common.security.BasicAuthentication,
           com.topcoder.web.common.security.SessionPersistor,
           com.topcoder.security.admin.PrincipalMgrRemote,
-          com.topcoder.security.TCSubject,
-          com.topcoder.web.common.SessionInfo"
+          com.topcoder.security.TCSubject"
 
 %>
+<%@ page import="com.topcoder.web.common.*" %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%
 
@@ -34,26 +30,26 @@
         return;
     }
 
-                com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-				dataRequest.setContentHandle("srm_demo_new_part_aging_stud");
-				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
+    com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
+    dataRequest.setContentHandle("srm_demo_new_part_aging_stud");
+    dataRequest.setProperty("rd", request.getParameter("rd") == null ? "4445" : request.getParameter("rd"));
 
-				           DataAccessInt dai = new CachedDataAccess(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
-                    Map dataMap = null;
-                    dataMap = dai.getData(dataRequest);
+    DataAccessInt dai = new com.topcoder.web.common.CachedDataAccess(
+            dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
+    Map dataMap = null;
+    dataMap = dai.getData(dataRequest);
 
-					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demo_new_part_aging_student");
+    ResultSetContainer rsc = (ResultSetContainer) dataMap.get("srm_demo_new_part_aging_student");
 
-long zerotwo_total = 0;
-long threeseven_total = 0;
-long eightfourteen_total = 0;
-long fifteenthirty_total = 0;
-long thirtyonesixty_total = 0;
-long sixtyoneninety_total = 0;
-long ninetyplus_total = 0;
-long total = 0;
-long row_total =0;
+    long zerotwo_total = 0;
+    long threeseven_total = 0;
+    long eightfourteen_total = 0;
+    long fifteenthirty_total = 0;
+    long thirtyonesixty_total = 0;
+    long sixtyoneninety_total = 0;
+    long ninetyplus_total = 0;
+    long total = 0;
+    long row_total = 0;
 %>
 <table width="100%" class="srmFrame">
 <tr><td colspan="9" class="srmQuestion">Students</td></tr>
