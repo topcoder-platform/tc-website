@@ -7,12 +7,18 @@ import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.*;
+import com.topcoder.shared.security.LoginException;
+import com.topcoder.shared.security.Persistor;
+import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.cache.MaxAge;
 
 import javax.servlet.http.Cookie;
 import java.security.MessageDigest;
@@ -258,8 +264,7 @@ public class BasicAuthentication implements WebAuthentication {
      */
     private String hashForUser(long uid) throws Exception {
         //log.debug("hash for user: " + uid);
-        CachedDataAccess dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-        dai.setExpireTime(30 * 60 * 1000);   //cache their password for 30 minutes, this should help db load
+        CachedDataAccess dai = new CachedDataAccess(MaxAge.HALF_HOUR, DBMS.OLTP_DATASOURCE_NAME);
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
         dataRequest.setProperty("uid", Long.toString(uid));
