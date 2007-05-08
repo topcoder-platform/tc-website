@@ -12,6 +12,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.CoderSessionInfo;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.Constants;
@@ -90,8 +91,7 @@ public class Preferences extends ContractingBase {
 
             getRequest().setAttribute("isRated", String.valueOf(isRated));
             if (!isRated) {
-                CachedDataAccess nextRoundDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-                nextRoundDai.setExpireTime(30 * 60 * 1000);
+                CachedDataAccess nextRoundDai = new CachedDataAccess(MaxAge.HALF_HOUR, DBMS.OLTP_DATASOURCE_NAME);
                 Request nextRoundReq = new Request();
                 nextRoundReq.setContentHandle("next_srm");
                 getRequest().setAttribute("Next_SRM", nextRoundDai.getData(nextRoundReq).get("Next_SRM"));

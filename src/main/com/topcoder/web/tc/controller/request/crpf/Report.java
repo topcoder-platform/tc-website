@@ -28,7 +28,6 @@ public class Report extends Base {
 
         try {
             CachedDataAccess da = (CachedDataAccess) getDataAccess(true);
-            da.setExpireTime(30 * 60 * 1000); //30 minutes should be sufficient
             Map m = da.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) m.get("crpf_donation_list");
             SortInfo s = new SortInfo();
