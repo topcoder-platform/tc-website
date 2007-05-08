@@ -91,14 +91,14 @@
             <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
             <div align="center">
-                <c:choose>
-                    <c:when test="${!has_hard_copy}">
+                    <c:if test="${!has_hard_copy}">
                         <p><strong>Remember that in order to get paid you must send a signed copy of the Assignment document</strong></p>
-                    </c:when>
+                    </c:if>
+                <c:choose>
                     <c:when test="${assignment_document.status.id == PENDING_STATUS_ID}">
                         <p><a href="/?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click here for a printer friendly version of the assignment document</a></p>
                         <p><iframe  width="100%" height="300" marginWidth="5"
-                            src="/?module=Static&d1=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
+                            src="/?module=Static&d1=mystudio&d2=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                         </p>
                         <p>
                         <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD_ERROR%>"><span class="bigRed">${err}</span>
