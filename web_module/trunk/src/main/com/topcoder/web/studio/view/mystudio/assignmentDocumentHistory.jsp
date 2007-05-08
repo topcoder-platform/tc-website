@@ -60,7 +60,7 @@
 
 <div class="contentSpacer" style="padding-bottom:100px;">
 
-<h1>IP Transfers</h1>
+<h1>Assignment Documents</h1>
 
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
@@ -93,7 +93,7 @@
 
     <tr>
         <td class="NW">&nbsp;</td>
-        <td class="title" colspan="4">IP Transfers</td>
+        <td class="title" colspan="4">Assignment Documents</td>
         <td class="NE">&nbsp;</td>
     </tr>
     <tr>
