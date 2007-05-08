@@ -106,7 +106,7 @@ public class CachedDataAccess extends DataAccess {
         Connection conn = null;
         try {
             boolean hasCacheConnection = true;
-            CacheAddress address = AddressFactory.create(request);
+            CacheAddress address = AddressFactory.create(request, maxAge);
             Map<String, ResultSetContainer> map = null;
             DataRetrieverInt dr = null;
             CacheClient cc = null;
