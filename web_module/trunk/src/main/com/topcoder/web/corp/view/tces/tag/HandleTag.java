@@ -88,7 +88,6 @@ public class HandleTag extends TagSupport {
 
             if ("".equals(db)) {
                 CachedDataAccess da1 = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-                da1.setExpireTime(24 * 60 * 60 * 1000);
                 Request r1 = new Request();
                 r1.setContentHandle("company_datasource");
                 r1.setProperty("cm", String.valueOf(companyId));
