@@ -41,7 +41,7 @@
 
 <div class="contentSpacer">
 
-<h1>IP Transfers</h1>
+<h1>Assignment Documents</h1>
 
     
                 <p align="right"><a href="/?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">Printer friendly version</a></p>
@@ -60,12 +60,12 @@
                     <c:choose>
                         <c:when test="${has_hard_copy}">
                             <p>
-                                You have already sent a a signed hard copy of the IP Transfer Document.
+                                You have already sent a a signed hard copy of the Assignment Document Document.
                             </p>
                         </c:when>
                         <c:otherwise>
                             <p>
-                                You will need to send a signed hard copy of the IP Transfer Document in order to be able to affirm it in the future with the system. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
+                                You will need to send a signed hard copy of the Assignment Document Document in order to be able to affirm it in the future with the system. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
                             </p>
                         </c:otherwise>
                     </c:choose>

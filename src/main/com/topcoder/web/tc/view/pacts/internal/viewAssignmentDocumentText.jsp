@@ -7,7 +7,7 @@
 <head>
     <jsp:include page="/script.jsp"/>
 
-    <title>IP Transfer Text</title>
+    <title>Assignment Document Text</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <STYLE TYPE="text/css">
         html.termsHTML, body.termsBody {

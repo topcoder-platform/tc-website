@@ -32,7 +32,7 @@
                 <h3>Documents:</h3>
 
                 <p style="margin-bottom: 80px;">
-                    <A href="/?module=AssignmentDocumentHistory">IP Transfers</A>
+                    <A href="/?module=AssignmentDocumentHistory">Assignment Documents</A>
                 </p>
 
 

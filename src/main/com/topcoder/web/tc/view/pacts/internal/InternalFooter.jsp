@@ -28,7 +28,7 @@ Searches<br>
 
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.MODULE_KEY+"=SearchAssignmentDocument\">");
-   out.print("IP Transfers</a> | ");
+   out.print("Assignment Documents</a> | ");
 
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
@@ -63,7 +63,7 @@ Searches<br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewGenerateComponentPayments">Generate Component Payments</a><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewGenerateIntroEventCompPayments">Generate Intro Event Payments</a><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewCreateAffidavitTemplate">Create an Affidavit Template</a><br>
-<a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewCreateAssignmentDocumentTemplate">Create an IP Transfer Template</a><br>
+<a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewCreateAssignmentDocumentTemplate">Create an Assignment Document Template</a><br>
 
 
 <br><br>
