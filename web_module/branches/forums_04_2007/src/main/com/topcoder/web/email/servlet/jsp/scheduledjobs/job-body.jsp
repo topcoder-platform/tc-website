@@ -159,14 +159,14 @@ Schedule Test Message</td>
 <tr>
 <td class="bodyText"></td>
 <td class="bodyText"><input type="checkbox" name="sendReminder"
-value="x" <jsp:getProperty name="ScheduledJob" property="sendReminder"/>/>
+<jsp:getProperty name="ScheduledJob" property="sendReminder"/>/>
 Schedule Reminder</td>
 </tr>
 
 <tr>
 <td class="bodyText"></td>
 <td class="bodyText"><input type="checkbox" name="sendReport"
-value="x" <jsp:getProperty name="ScheduledJob" property="sendReport"/>/>
+<jsp:getProperty name="ScheduledJob" property="sendReport"/>/>
 Schedule Report</td>
 </tr>
 
