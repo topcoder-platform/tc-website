@@ -8,9 +8,9 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=bracket">TCO07 Marathon Finalists announced</A>
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=bracket">TCO07 Marathon Match Finalists announced</A>
         </span><br><br>
-        Meet the eight Marathon Finalists who will battle it out in Las Vegas at TopCoder's first onsite Marathon Competition.
+        Meet the eight Marathon Match Finalists who will battle it out in Las Vegas at TopCoder's first onsite Marathon Competition.
         </td>
       </tr></table>
       </td>
