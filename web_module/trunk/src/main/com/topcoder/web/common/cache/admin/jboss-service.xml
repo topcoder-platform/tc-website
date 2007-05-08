@@ -2,7 +2,9 @@
 
 <server>
 
-    <classpath codebase="./lib" archives="cacheadmin.jar"/>
+    <!--
+        <classpath codebase="./lib" archives="cacheadmin.jar"/>
+    -->
     <mbean code="com.topcoder.web.common.cache.admin.CacheAdmin"
            name="topcoder.admin:service=CacheAdmin">
         <depends>jboss:service=Naming</depends>
