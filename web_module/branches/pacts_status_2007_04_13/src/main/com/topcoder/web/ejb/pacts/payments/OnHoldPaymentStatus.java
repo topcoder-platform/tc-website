@@ -6,6 +6,7 @@
 package com.topcoder.web.ejb.pacts.payments;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.model.AssignmentDocumentType;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.StudioContestPayment;
@@ -60,20 +61,28 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                  // if the payment is new, it's not possible that it has an affirmed affidavit
                  reasons.add(AvailableStatusReason.NO_AFFIRMED_AFFIDAVIT_REASON.getStatusReason());
              }
-    
+
              // check for affirmed IP document (component contests, studio contests)
+             log.debug("com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER: " + com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER);
              if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER)) {
+                 log.debug("payment.getPaymentType(): " + payment.getPaymentType());
                  if (payment.getPaymentType() == BasePayment.COMPONENT_PAYMENT) {
                      if (!dib.hasAffirmedAssignmentDocument(payment.getPaymentType(), payment.getCoderId(), ((ComponentWinningPayment) payment).getProjectId())) {
+                         reasons.add(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
+                     }
+                     if (!dib.hasHardCopyAssignmentDocumentByUserId(payment.getCoderId(), AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID)) {
                          reasons.add(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
                      }
                  }
         
                  if (payment.getPaymentType() == BasePayment.TC_STUDIO_PAYMENT) {
                      if (!dib.hasAffirmedAssignmentDocument(payment.getPaymentType(), payment.getCoderId(), ((StudioContestPayment) payment).getContestId())) {
-                         reasons.add(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
+                         reasons.add(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
                      }
-                 }        
+                     if (!dib.hasHardCopyAssignmentDocumentByUserId(payment.getCoderId(), AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
+                         reasons.add(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
+                     }
+                 }
              } else {
                  log.debug("IP transfer inactive, avoid checking IP Transfer Documents...");
              }

@@ -1432,6 +1432,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         return sb;
     }
 
+
+    public List findAssignmentDocument(Map searchCriteria) {
+        Connection conn = null;
+        try {
+            conn = DBMS.getConnection();
+            return findAssignmentDocument(conn, searchCriteria);
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw (new EJBException(e.getMessage(), e));
+        } finally {
+            close(conn);
+        }
+    }
+    
     /**
      * Find assignment documents
      *
@@ -1439,13 +1453,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return The list of assignment document status
      * @throws SQLException If there is some problem retrieving the data
      */
-    public List findAssignmentDocument(Map searchCriteria) {
-        Connection conn = null;
+    public List findAssignmentDocument(Connection c, Map searchCriteria) {
         ResultSetContainer rsc = null;
         List l = new ArrayList();
 
         try {
-            conn = DBMS.getConnection();
 
             StringBuffer getAssignmentDocument = getAssignmentDocumentSelect();
 
@@ -1508,12 +1520,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            rsc = runSearchQuery(conn, getAssignmentDocument.toString(), objects, true);
+            rsc = runSearchQuery(c, getAssignmentDocument.toString(), objects, true);
 
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 ResultSetRow rsr = (ResultSetRow) it.next();
 
-                AssignmentDocument ad = createAssignmentDocumentBean(conn, rsr);
+                AssignmentDocument ad = createAssignmentDocumentBean(c, rsr);
 
                 l.add(ad);
             }
@@ -1522,8 +1534,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throw (new EJBException(e.getMessage(), e));
         } catch (Exception e) {
             throw (new EJBException(e.getMessage(), e));
-        } finally {
-            close(conn);
         }
         return l;
     }
@@ -1597,6 +1607,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             searchCriteria.put(HARD_COPY, "1");
 
             return new Boolean(findAssignmentDocument(searchCriteria).size() > 0);
+        } catch (Exception e) {
+            throw (new EJBException(e.getMessage(), e));
+        }
+    }
+
+    public Boolean hasHardCopyAssignmentDocumentByUserId(Connection c, long userId, long assignmentDocumentTypeId) {
+        log.debug("check if user has a hard copy assignment document (project_id)");
+
+        try {
+            Map searchCriteria = new HashMap();
+
+            searchCriteria.put(USER_ID, String.valueOf(userId));
+            searchCriteria.put(TYPE, String.valueOf(assignmentDocumentTypeId));
+            searchCriteria.put(HARD_COPY, "1");
+
+            return new Boolean(findAssignmentDocument(c, searchCriteria).size() > 0);
         } catch (Exception e) {
             throw (new EJBException(e.getMessage(), e));
         }
