@@ -44,7 +44,7 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
-               <td class="bodyText">&#160;</td>
+               <td class="bodyText"><tc-webtag:handle coderId="8365955" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=050807"><strong>Belarus All College Programming Event</strong></A></td>
                <td class="bodyText" nowrap=nowrap>May 8, 2007</td> 
             </tr>

@@ -4,10 +4,10 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.08.07<br>5:45 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.08.07<br>6:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=050807">TopCoder College Tour comes to Belarus</A></span><br><br>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=050807">Belarus All College Programming Event</A></span><br><br>
       On April 26, about 80 coders from Belarusian colleges simultaneously pressed the "open a problem" button to start All Belarus Programming Event, sponsored by TopCoder.
         </td>
       <td class="newsPhoto"><%--<img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/>--%><br>by <tc-webtag:handle coderId="8365955" /></td></tr></table>
