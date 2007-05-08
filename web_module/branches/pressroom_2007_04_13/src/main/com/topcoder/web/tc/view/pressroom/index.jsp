@@ -59,12 +59,12 @@
                                 <form>
                                     <div>
                                         <a href="" class="button floatR" style="width: 30px;">>> GO</a>
-                                        <input type="text" size="25" />
+                                        <input type="text" size="20" />
                                     </div>
                                     <div>
                                         <br />
-                                        <span style="font-weight:bold"><input type="radio" name="Articles" />Articles</span>
-                                        <span style="font-weight:bold"><input type="radio" name="Press Releases" />Press Releases</span>
+                                        <span style="font-weight:bold;"><input type="radio" name="Articles" />Articles</span>
+                                        <span style="font-weight:bold;"><input type="radio" name="Press Releases" />Press Releases</span>
                                     </div>
                                 </form>
                             </div>

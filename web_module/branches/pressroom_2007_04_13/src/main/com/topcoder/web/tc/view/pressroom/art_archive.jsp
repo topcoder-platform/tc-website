@@ -63,45 +63,49 @@
                             <div id="pressContainer4">
                                 <!-- DIVISION begins -->
                                 <p class="chevronHeader"><span class="maroon">>> </span>DIVISION</p>
-                                <ul><span class="maroonHeader">TCO (TopCoder Open)</span>
-                                    <li><a href="">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">TCHS (TopCoder High School)</span>
-                                    <li><a href="">Registration Opens for First TopCoder High School Global Programming Tournament</a><span class="dateBracket">&nbsp;&nbsp;[February 13]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 11]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">TCCC (TopCoder Collegiate Challenge)</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Corporate</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 15]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 14]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Software</span>
-                                    <li><a href="">Ideagora, a Marketplace for Minds</a><span class="dateBracket">&nbsp;&nbsp;[February 15 - BusinessWeek]</span></li>
-                                    <li><a href="">Microsoft launches 'mashup' competition for developers</a><span class="dateBracket">&nbsp;&nbsp;[February 14 - ComputerWorld]</span></li>
-                                </ul>
+                                <div style="padding-left:20px;">
+                                    <ul><span class="maroonHeader">TCO (TopCoder Open)</span>
+                                        <li><a href="">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">TCHS (TopCoder High School)</span>
+                                        <li><a href="">Registration Opens for First TopCoder High School Global Programming Tournament</a><span class="dateBracket">&nbsp;&nbsp;[February 13]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 11]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">TCCC (TopCoder Collegiate Challenge)</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Corporate</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 15]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 14]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Software</span>
+                                        <li><a href="">Ideagora, a Marketplace for Minds</a><span class="dateBracket">&nbsp;&nbsp;[February 15 - BusinessWeek]</span></li>
+                                        <li><a href="">Microsoft launches 'mashup' competition for developers</a><span class="dateBracket">&nbsp;&nbsp;[February 14 - ComputerWorld]</span></li>
+                                    </ul>
+                                </div>
                                 <!-- DIVISION ends -->
         
                                 <!-- FUNCTION begins -->
                                 <p class="chevronHeader"><span class="maroon">>> </span>FUNCTION</p>
-                                <ul><span class="maroonHeader">Legal</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 9]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 7]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Financial</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 6]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 5]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 4]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Client Wins</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 3]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 2]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 1]</span></li>
-                                </ul>
+                                <div style="padding-left:20px;">
+                                    <ul><span class="maroonHeader">Legal</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 9]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 7]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Financial</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 6]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 5]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 4]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Client Wins</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 3]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 2]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 1]</span></li>
+                                    </ul>
+                                </div>
                                 <!-- FUNCTION ends -->
                             </div>
                             <!-- Back to Top Button begins -->
@@ -130,45 +134,49 @@
                             <div id="pressContainer4">
                                 <!-- DIVISION begins -->
                                 <p class="chevronHeader"><span class="maroon">>> </span>DIVISION</p>
-                                <ul><span class="maroonHeader">TCO (TopCoder Open)</span>
-                                    <li><a href="">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">TCHS (TopCoder High School)</span>
-                                    <li><a href="">Registration Opens for First TopCoder High School Global Programming Tournament</a><span class="dateBracket">&nbsp;&nbsp;[February 13]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 11]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">TCCC (TopCoder Collegiate Challenge)</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Corporate</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 15]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 14]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Software</span>
-                                    <li><a href="">Ideagora, a Marketplace for Minds</a><span class="dateBracket">&nbsp;&nbsp;[February 15 - BusinessWeek]</span></li>
-                                    <li><a href="">Microsoft launches 'mashup' competition for developers</a><span class="dateBracket">&nbsp;&nbsp;[February 14 - ComputerWorld]</span></li>
-                                </ul>
+                                <div style="padding-left:20px;">
+                                    <ul><span class="maroonHeader">TCO (TopCoder Open)</span>
+                                        <li><a href="">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">TCHS (TopCoder High School)</span>
+                                        <li><a href="">Registration Opens for First TopCoder High School Global Programming Tournament</a><span class="dateBracket">&nbsp;&nbsp;[February 13]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 11]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">TCCC (TopCoder Collegiate Challenge)</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Corporate</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 15]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 14]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Software</span>
+                                        <li><a href="">Ideagora, a Marketplace for Minds</a><span class="dateBracket">&nbsp;&nbsp;[February 15 - BusinessWeek]</span></li>
+                                        <li><a href="">Microsoft launches 'mashup' competition for developers</a><span class="dateBracket">&nbsp;&nbsp;[February 14 - ComputerWorld]</span></li>
+                                    </ul>
+                                </div>
                                 <!-- DIVISION ends -->
         
                                 <!-- FUNCTION begins -->
                                 <p class="chevronHeader"><span class="maroon">>> </span>FUNCTION</p>
-                                <ul><span class="maroonHeader">Legal</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 9]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 7]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Financial</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 6]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 5]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 4]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Client Wins</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 3]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 2]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 1]</span></li>
-                                </ul>
+                                <div style="padding-left:20px;">
+                                    <ul><span class="maroonHeader">Legal</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 9]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 7]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Financial</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 6]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 5]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 4]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Client Wins</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 3]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 2]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 1]</span></li>
+                                    </ul>
+                                </div>
                                 <!-- FUNCTION ends -->
                             </div>
                             <!-- Back to Top Button begins -->
@@ -197,45 +205,49 @@
                             <div id="pressContainer4">
                                 <!-- DIVISION begins -->
                                 <p class="chevronHeader"><span class="maroon">>> </span>DIVISION</p>
-                                 <ul><span class="maroonHeader">TCO (TopCoder Open)</span>
-                                    <li><a href="">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">TCHS (TopCoder High School)</span>
-                                    <li><a href="">Registration Opens for First TopCoder High School Global Programming Tournament</a><span class="dateBracket">&nbsp;&nbsp;[February 13]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 11]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">TCCC (TopCoder Collegiate Challenge)</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Corporate</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 15]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 14]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Software</span>
-                                    <li><a href="">Ideagora, a Marketplace for Minds</a><span class="dateBracket">&nbsp;&nbsp;[February 15 - BusinessWeek]</span></li>
-                                    <li><a href="">Microsoft launches 'mashup' competition for developers</a><span class="dateBracket">&nbsp;&nbsp;[February 14 - ComputerWorld]</span></li>
-                                </ul>
+                                <div style="padding-left:20px;">
+                                     <ul><span class="maroonHeader">TCO (TopCoder Open)</span>
+                                        <li><a href="">TopCoder Announces TopCoder Open 2007 Sponsored by AOL</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">TCHS (TopCoder High School)</span>
+                                        <li><a href="">Registration Opens for First TopCoder High School Global Programming Tournament</a><span class="dateBracket">&nbsp;&nbsp;[February 13]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 11]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">TCCC (TopCoder Collegiate Challenge)</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 22]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[February 20]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Corporate</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 15]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 14]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Software</span>
+                                        <li><a href="">Ideagora, a Marketplace for Minds</a><span class="dateBracket">&nbsp;&nbsp;[February 15 - BusinessWeek]</span></li>
+                                        <li><a href="">Microsoft launches 'mashup' competition for developers</a><span class="dateBracket">&nbsp;&nbsp;[February 14 - ComputerWorld]</span></li>
+                                    </ul>
+                                </div>
                                 <!-- DIVISION ends -->
         
                                 <!-- FUNCTION begins -->
                                 <p class="chevronHeader"><span class="maroon">>> </span>FUNCTION</p>
-                                <ul><span class="maroonHeader">Legal</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 9]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 7]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Financial</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 6]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 5]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 4]</span></li>
-                                </ul>
-                                <ul><span class="maroonHeader">Client Wins</span>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 3]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 2]</span></li>
-                                    <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 1]</span></li>
-                                </ul>
+                                <div style="padding-left:20px;">
+                                    <ul><span class="maroonHeader">Legal</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 9]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 8]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 7]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Financial</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 6]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 5]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 4]</span></li>
+                                    </ul>
+                                    <ul><span class="maroonHeader">Client Wins</span>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 3]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 2]</span></li>
+                                        <li><a href="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis at neque.</a><span class="dateBracket">&nbsp;&nbsp;[January 1]</span></li>
+                                    </ul>
+                                </div>
                                 <!-- FUNCTION ends -->
                             </div>
                             <!-- Back to Top Button begins -->

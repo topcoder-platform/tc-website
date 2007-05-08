@@ -3,7 +3,7 @@
 
 <html>
 <head>
-    <title>TopCoder</title>
+    <title>TopCoder Press Room</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../script.jsp" />
@@ -58,7 +58,7 @@
                         <div>&nbsp;</div>
                         <p>Please use the following form to request information from our Public Relations department.</p>
 
-                        <table cellpadding="4" cellspacing="0" style="clear: both; width:500px;">
+                        <table cellpadding="4" cellspacing="4" style="clear: both; width:500px;">
                             <tr>
                                 <td nowrap="nowrap">First Name</td><td width="100%"><input name="first" size="20" maxlength="15" value="" type="text"></td>
                             </tr>
@@ -87,7 +87,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td nowrap="nowrap">Media Outlet</td><td><input name="mediaoutlet" size="20" maxlength="15" value="" type="text"></td>
+                                <td nowrap="nowrap">Media Outlet</td><td><input name="mediaoutlet" value="Yes" type="radio">Yes</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td><td><input name="mediaoutlet" value="No" type="radio">No</td>
                             </tr>
                             <tr>
                                 <td nowrap="nowrap">Your Title</td><td><input name="title" size="20" maxlength="15" value="" type="text"></td>
