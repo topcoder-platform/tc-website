@@ -161,8 +161,12 @@
             	<%	int colspan = (paginator.getNumPages () > 1) ? 2 : 3; %>
             	<td colspan="<%=colspan%>" style="padding-bottom:3px;"><b>
                 <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
-                    <% if (category.getID() != forumCategory.getID()) { %>
-                    	<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+                    <% 	if (category.getID() != forumCategory.getID()) { 
+                    		if (category.getID() == 1) { %>
+                    			<A href="?module=Main" class="rtbcLink"><%=category.getName()%></A>
+                    	<%	} else { %> 	
+                    			<A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+                    	<%	} %>
                     	<img src="/i/interface/exp_w.gif" align="absmiddle"/>
                     <% } else { %>
                     	<%=category.getName()%>

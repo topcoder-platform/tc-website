@@ -311,10 +311,14 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
    <%	boolean showComponentLink = "true".equals((String)request.getAttribute("showComponentLink"));
    		Iterator itCategories = ForumsUtil.getCategoryTree(forum.getForumCategory());
     	while (itCategories.hasNext()) {
-    		ForumCategory category = (ForumCategory)itCategories.next(); %>
-	        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
-	<%      if (!itCategories.hasNext() && showComponentLink) { %>
-	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
+    		ForumCategory category = (ForumCategory)itCategories.next(); 
+    		if (category.getID() == 1) { %>
+    			<A href="?module=Main" class="rtbcLink"><%=category.getName()%></A>
+    	<%	} else { %>	
+		        <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A>
+			<%  if (!itCategories.hasNext() && showComponentLink) { %>
+		        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
+			<%	} %>
 		<%	} %>
 			<img src="/i/interface/exp_w.gif" align="absmiddle"/>
    <%	} %>
