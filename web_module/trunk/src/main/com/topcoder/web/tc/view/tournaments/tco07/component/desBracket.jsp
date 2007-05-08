@@ -33,7 +33,9 @@
                     <div id="pageBody">
 
                         <h1><span>Component Design Finalist Bracket</span></h1>
-                        <p>
+                        <p align="center">
+                            The finalists are sorted alphabetically.
+                        </p>
 
 <div align="center" style="margin:20px;">
 <table cellpadding="0" cellspacing="0" border="0" class="bodyText">
