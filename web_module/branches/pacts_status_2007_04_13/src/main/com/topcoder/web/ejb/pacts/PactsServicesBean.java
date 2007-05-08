@@ -1970,6 +1970,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         "Updated " + rc + ", should have updated 1."));
             }
 
+            log.debug("hasHardCopy: " + hasHardCopy);
+            log.debug("ad.isHardCopy(): " + ad.isHardCopy());
             if (!hasHardCopy && ad.isHardCopy()) {
                 PaymentStatusMediator psm = new PaymentStatusMediator(c);
                 psm.hardCopyIPTransfer(ad.getUser().getId(), ad.getComponentProject() == null ? COMPONENT_PAYMENT : TC_STUDIO_PAYMENT);
