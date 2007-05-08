@@ -16,7 +16,7 @@ public class TCSubjectAddress implements CacheAddress {
     }
 
     public TCSubjectAddress(TCSubject sub, String dataSource) {
-        this.key = "subject:" + dataSource == null ? "" : dataSource + sub.getUserId();
+        this.key = "subject:" + (dataSource == null ? "" : dataSource) + sub.getUserId();
     }
 
     public String getKey() {
