@@ -7253,7 +7253,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                   log.debug("query: " + query.toString());
                   rsc = runSearchQuery(conn, query.toString(), objects, true);
 
-                  // use control-braek to get the reasons and then build and add the payment.
+                  // use control-break to get the reasons and then build and add the payment.
                   long lastProcessedPayment = -1;
                   List reasons = new ArrayList<Long>();
                   ResultSetRow rsr = null;
@@ -7265,7 +7265,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                           l.add(payment);
                           reasons.clear();
                       } else {
-                          reasons.add(rsr.getLongItem("payment_status_reason_id"));
+                          // if there's a reason, add it.
+                          if (rsr.getItem("payment_status_reason_id").getResultData() != null) {
+                              reasons.add(rsr.getLongItem("payment_status_reason_id"));
+                          }
                       }
 
                       lastProcessedPayment = rsr.getLongItem("payment_id");
