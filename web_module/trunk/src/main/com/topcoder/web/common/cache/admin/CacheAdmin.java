@@ -79,6 +79,9 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
             kid = (String) child;
             fqn = parent + Fqn.SEPARATOR + kid;
             if (kid.indexOf(key) >= 0) {
+                if (log.isDebugEnabled()) {
+                    log.debug("removing " + fqn);
+                }
                 cache.remove(fqn);
                 count++;
             } else {
