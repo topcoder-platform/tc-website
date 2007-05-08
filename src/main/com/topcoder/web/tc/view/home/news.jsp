@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.08.07<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=bracket">TCO07 Marathon Finalists announced</A>
+        </span><br><br>
+        Meet the eight Marathon Finalists who will battle it out in Las Vegas at TopCoder's first onsite Marathon Competition.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=bracket">details</A> |
+        <A href="http://forums.topcoder.com/?module=Thread&threadID=574966&start=0">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.07.07<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -200,25 +219,6 @@
    <tr><td class="newsLinksCell">
         <A href="/to/?module=ViewBallot&rd=2036">vote now</A> |
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=469&start=0">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.30.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=17020">The Ball Logo &amp; Icon Design Vote</A>
-        </span><br><br>
-        Logos &amp; icon designs for The Ball have been narrowed down to four finalists. Rank your favorites and help pick a winner! Voting closes at 2:00 PM EDT on Wednesday, May 2.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=17020">vote now</A> |
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=468&start=0">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
 
