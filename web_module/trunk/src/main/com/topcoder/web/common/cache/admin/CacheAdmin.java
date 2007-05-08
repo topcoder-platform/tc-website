@@ -72,7 +72,7 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         }
     }
 
-    public int removelike(String key, String parent, TreeCacheMBean cache, int count) throws CacheException {
+    private int removelike(String key, String parent, TreeCacheMBean cache, int count) throws CacheException {
         String kid;
         String fqn;
         for (Object child : cache.getChildrenNames(parent)) {
