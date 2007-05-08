@@ -79,6 +79,7 @@ public class PaymentStatusMediator {
             Map criteria = new HashMap();
             criteria.put(PactsConstants.USER_ID, String.valueOf(userId));
             criteria.put(PactsConstants.PAYMENT_TYPE_ID, String.valueOf(paymentTypeId));
+            criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()));
 
             List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
             log.debug("need to notify " + payments.size() + " payments");
