@@ -30,7 +30,7 @@
 
 <%-- Center Column Begins --%>
         <td width="100%" align="center" class="bodyColumn">
-            <jsp:include page="../../page_title.jsp" >
+            <jsp:include page="../page_title.jsp" >
             <jsp:param name="image" value="pact_s"/>
             <jsp:param name="title" value="Assignment Documents"/>
             </jsp:include>
