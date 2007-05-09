@@ -2,8 +2,6 @@ package com.topcoder.web.common.cache;
 
 import com.topcoder.web.common.cache.address.CacheAddress;
 
-import java.util.Set;
-
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
@@ -77,6 +75,5 @@ public interface CacheClient {
      */
     public void clearCache() throws TCCacheException;
 
-    public Set getKeys() throws TCCacheException;
 
 }
