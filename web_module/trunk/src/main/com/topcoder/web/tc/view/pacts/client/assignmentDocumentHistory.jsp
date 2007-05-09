@@ -116,6 +116,10 @@
     
     <br>
     
+    <div align="left">
+        <a class="bcLink" href="/tc?module=Static&d1=help&d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
+    </div>
+    
     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
     <tbody>
         <tr>
