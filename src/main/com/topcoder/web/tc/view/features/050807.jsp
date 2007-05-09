@@ -89,7 +89,7 @@
 <blockquote>TopCoder College Tour Poster</blockquote>
 
 <div align="center"><img src="/i/education/050807_06.jpg" alt="" border="0" style="margin: 10px;" /><br clear="all"></div>
-First place winner <tc-webtag:handle coderId="21659750" /> is congratulated by <tc-webtag:handle coderId="10481120" /></blockquote>
+<blockquote>First place winner <tc-webtag:handle coderId="21659750" /> is congratulated by <tc-webtag:handle coderId="10481120" /></blockquote>
 
 <p><br></p>
         </td>
