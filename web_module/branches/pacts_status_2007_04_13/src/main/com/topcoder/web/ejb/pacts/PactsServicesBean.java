@@ -7258,19 +7258,30 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                   // use control-break to get the reasons and then build and add the payment.
                   
                   long lastProcessedPayment = -1;
-                  List reasons = new ArrayList<Long>();
+                  List<Long> reasons = new ArrayList<Long>();
                   ResultSetRow rsr = null;
+                  BasePayment payment = null;
                   for (Iterator it = rsc.iterator(); it.hasNext();) {
                       rsr = (ResultSetRow) it.next();
 
+                      if (lastProcessedPayment == -1) {
+                          payment = getBasePaymentBean(rsr);
+                      }
+                      
                       if (lastProcessedPayment != rsr.getLongItem("payment_id") && lastProcessedPayment != -1) {
-                          BasePayment payment = getBasePaymentBean(rsr, reasons);
                           log.debug("(1) Adding paymentId " + payment.getId() + " to the list.");
+                          for (Long reasonId : reasons) {
+                              PaymentStatusReason psr = PaymentStatusReason.getStatusReasonUsingId(reasonId);
+                              log.debug("findCoderPayments() add reason: " + psr.getDesc());
+                              payment.getCurrentStatus().getReasons().add(psr);
+                          }
                           l.add(payment);
                           reasons.clear();
+                          payment = getBasePaymentBean(rsr);
                       } else {
                           // if there's a reason, add it.
                           if (rsr.getItem("payment_status_reason_id").getResultData() != null) {
+                              log.debug("(1) Adding reason " + rsr.getLongItem("payment_status_reason_id") + " to the list.");
                               reasons.add(rsr.getLongItem("payment_status_reason_id"));
                           }
                       }
@@ -7278,7 +7289,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                       lastProcessedPayment = rsr.getLongItem("payment_id");
                   }
                   if (rsr != null) {
-                      BasePayment payment = getBasePaymentBean(rsr, reasons);
+                      for (Long reasonId : reasons) {
+                          PaymentStatusReason psr = PaymentStatusReason.getStatusReasonUsingId(reasonId);
+                          log.debug("(2) findCoderPayments() add reason: " + psr.getDesc());
+                          payment.getCurrentStatus().getReasons().add(psr);
+                      }
                       log.debug("(2) Adding paymentId " + payment.getId() + " to the list.");
                       l.add(payment);
                   }
@@ -7292,7 +7307,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
               return l;
           }
 
-    private BasePayment getBasePaymentBean(ResultSetRow rsr, List<Long> reasonsIds) throws InvalidStatusException, InvalidStatusReasonException {
+    private BasePayment getBasePaymentBean(ResultSetRow rsr) throws InvalidStatusException, InvalidStatusReasonException {
         long paymentId = rsr.getLongItem("payment_id");
         long coder = rsr.getLongItem("user_id");
         double grossAmount = rsr.getDoubleItem("gross_amount");
@@ -7324,11 +7339,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         BasePaymentStatus currentStatus = PaymentStatusFactory.createStatus(statusId);
         currentStatus.getReasons().clear();
-        for (Long l : reasonsIds) {
-            PaymentStatusReason psr = PaymentStatusReason.getStatusReasonUsingId(l);
-            log.debug("findCoderPayments() add reason: " + psr.getDesc());
-            currentStatus.getReasons().add(psr);
-        }
 
         payment.setCurrentStatus(currentStatus);
         

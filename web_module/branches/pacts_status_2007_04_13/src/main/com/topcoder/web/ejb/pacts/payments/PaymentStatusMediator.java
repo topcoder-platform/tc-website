@@ -128,6 +128,7 @@ public class PaymentStatusMediator {
             criteria.put(PactsConstants.PAYMENT_TYPE_ID, 
                     ad.getComponentProject() == null ? String.valueOf(PactsConstants.TC_STUDIO_PAYMENT) : 
                         String.valueOf(PactsConstants.COMPONENT_PAYMENT));
+            criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()));
             
             List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
             
