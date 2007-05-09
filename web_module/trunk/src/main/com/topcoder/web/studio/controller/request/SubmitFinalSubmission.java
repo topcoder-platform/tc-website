@@ -1,5 +1,17 @@
 package com.topcoder.web.studio.controller.request;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;
@@ -10,27 +22,19 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.validation.IntegerValidator;
 import com.topcoder.web.common.validation.ObjectInput;
-import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.*;
+import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.FilePath;
+import com.topcoder.web.studio.model.MimeType;
+import com.topcoder.web.studio.model.StudioFileType;
+import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionType;
 import com.topcoder.web.studio.validation.SubmissionValidator;
-
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 /**
  * @author pulky
@@ -48,7 +52,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                 throw new NavigationException("Invalid contest specified.");
             }
 
-            String rank = getRequest().getParameter(Constants.SUBMISSION_RANK);
+//            String rank = getRequest().getParameter(Constants.SUBMISSION_RANK);
 
             StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
             DAOFactory factory = DAOUtil.getFactory();
@@ -80,10 +84,10 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     addError(Constants.SUBMISSION, submissionResult.getMessage());
                 }
 
-                ValidationResult rankResult = new IntegerValidator("Please input a valid integer for rank.").validate(new StringInput(rank));
-                if (!rankResult.isValid()) {
-                    addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
-                }
+//                ValidationResult rankResult = new IntegerValidator("Please input a valid integer for rank.").validate(new StringInput(rank));
+//                if (!rankResult.isValid()) {
+//                    addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
+//                }
 
                 if (!"on".equals(getRequest().getParameter(Constants.ACCEPT_AD))) {
                     addError(Constants.ACCEPT_AD_ERROR, "You must accept the Assignment Document in order to upload your final submission");
@@ -106,7 +110,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     setDefault(Constants.ACCEPT_AD, String.valueOf("on".equals(getRequest().getParameter(Constants.ACCEPT_AD))));
 
                     setDefault(Constants.CONTEST_ID, contestId.toString());
-                    setDefault(Constants.SUBMISSION_RANK, rank);
+//                    setDefault(Constants.SUBMISSION_RANK, rank);
                     loadSubmissionData(u, c, dao, SubmissionType.FINAL_SUBMISSION_TYPE);
                     getRequest().setAttribute("contest", c);
                     setNextPage("/submitFinalSubmission.jsp");
@@ -171,24 +175,24 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                         s.setHeight(new Integer(image.getHeight()));
                     }
 
-                    Integer maxRank = dao.getMaxRank(c, u);
-                    Integer one = new Integer(1);
-                    getRequest().setAttribute("maxRank", maxRank);
-                    if (maxRank == null) {
-                        s.setRank(one);
+//                    Integer maxRank = dao.getMaxRank(c, u);
+//                    Integer one = new Integer(1);
+//                    getRequest().setAttribute("maxRank", maxRank);
+//                    if (maxRank == null) {
+//                        s.setRank(one);
                         dao.saveOrUpdate(s);
-                    } else {
-                        Integer newRank = new Integer(rank);
-                        if (newRank.compareTo(maxRank) > 0) {
-                            s.setRank(new Integer(maxRank.intValue() + 1));
-                            dao.saveOrUpdate(s);
-                        } else if (newRank.compareTo(one) < 0) {
-                            dao.changeRank(one, s);
-                        } else {
-                            dao.changeRank(newRank, s);
-                        }
-                    }
-
+//                    } else {
+//                        Integer newRank = new Integer(rank);
+//                        if (newRank.compareTo(maxRank) > 0) {
+//                            s.setRank(new Integer(maxRank.intValue() + 1));
+//                            dao.saveOrUpdate(s);
+//                        } else if (newRank.compareTo(one) < 0) {
+//                            dao.changeRank(one, s);
+//                        } else {
+//                            dao.changeRank(newRank, s);
+//                        }
+//                    }
+//
 
                     StringBuffer nextPage = new StringBuffer(50);
                     nextPage.append(getSessionInfo().getServletPath());

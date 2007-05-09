@@ -81,7 +81,7 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
 
             
             setDefault(Constants.CONTEST_ID, contestId.toString());
-            setDefault(Constants.SUBMISSION_RANK, "1");
+//            setDefault(Constants.SUBMISSION_RANK, "1");
             loadSubmissionData(u, c, cFactory.getSubmissionDAO(), SubmissionType.FINAL_SUBMISSION_TYPE);
             setNextPage("/submitFinalSubmission.jsp");
             setIsNextPageInContext(true);
