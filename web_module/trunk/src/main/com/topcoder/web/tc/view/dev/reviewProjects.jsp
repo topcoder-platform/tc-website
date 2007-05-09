@@ -123,6 +123,8 @@
          <img src="/i/development/flashSm.gif" border="0"/>
          <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
          <img src="/i/development/smApp.gif" border="0"/>
+          <% } else if ((resultRow.getLongItem("category_id"))==Constants.CPP_CATALOG_ID) { %>
+          <img src="/i/development/smCpp.png" border="0"/>
          <% } else { %>
          <rsc:item row="<%=resultRow%>" name="catalog"/>
          <% } %>
@@ -206,6 +208,9 @@
       <img src="/i/development/flashSm.gif" border="0"/>
       <% } else if ((resultRow.getLongItem("category_id"))==Constants.APPLICATIONS_CATALOG_ID) { %>
       <img src="/i/development/smApp.gif" border="0"/>
+          <% } else if ((resultRow.getLongItem("category_id"))==Constants.CPP_CATALOG_ID) { %>
+          <img src="/i/development/smCpp.png" border="0"/>
+          
       <% } else { %>
       <rsc:item row="<%=resultRow%>" name="catalog"/>
       <% } %>
