@@ -42,6 +42,15 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+
+<p>
+    5.9.1 - 2007.05.09
+    <ul>
+        <li>Enable C++ components -dok</li>
+    </ul>
+</p>
+
+
 <p>
     5.9.1 - 2007.05.07
     <ul>
