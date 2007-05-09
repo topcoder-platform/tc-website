@@ -116,7 +116,7 @@
     
     <br>
     
-    <div align="left">
+    <div align="center">
         <a class="bcLink" href="/tc?module=Static&d1=help&d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
     </div>
     

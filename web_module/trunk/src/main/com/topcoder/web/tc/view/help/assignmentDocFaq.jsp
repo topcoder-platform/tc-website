@@ -38,7 +38,7 @@
             <div class="fixedWidthBody">
 
                 <div style="width: 500px; padding: 5px; margin: 0px auto";>
-                    <p class="bigTitle" style="text-align:center;">What is an Assignment Document?</p>
+                    <div class="bigTitle">What is an Assignment Document?</div>
                     
                     <div>
                         <p><strong>1.<span style="padding-left:20px;">What is the Assignment?</span></strong></p>
