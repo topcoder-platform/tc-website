@@ -164,7 +164,7 @@ Show submissions by (Enter Handle):
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
         </td>
         <td class="value">
-            <rsc:item name="submitter_rank" row="<%=resultRow%>"/>
+            <rsc:item name="submitter_rank" row="<%=resultRow%>" ifNull="FINAL"/>
         </td>
         <td class="value">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
