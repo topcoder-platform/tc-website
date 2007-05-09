@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.09.07<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA chat scheduled before SRM 348</A>
+        </span><br><br>
+        Before SRM 348, NSA representatives will join TopCoder members in the Arena at 8:00 PM EDT to discuss career opportunities at the agency.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">details</A> |
+        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.08.07<br>6:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -201,22 +220,5 @@
         <A href="/tc?module=SurveyResults&sid=17020">details</A> |
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=486&start=0">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.01.07<br>12:25 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd4">TCO07 Algorithm Round 4 - Problem Set &amp; Analysis</A></span><br><br>
-      One hundred and forty-eight of the top algorithm coders gathered in a rumble for one of 48 spots in the 2007 TCO finals. As expected, the competition was vicious, denying three of the top 10 rated coders a place in the finals.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/lovro_big3.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7390467" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd4">full story</A> | 
-        <tc-webtag:forumLink forumID="514953" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    

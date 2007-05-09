@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.09.07 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA chat scheduled before SRM 348</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.08.07 12:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=bracket">TCO07 Marathon Match Finalists announced</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.07.07 2:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=17090">Vote now for the TCO07 bloggers</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.27.07 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 4 set for April 27</A></td></tr>
