@@ -220,8 +220,8 @@ public class ScheduledJobTask
                     throw new ServletException(e.toString());
                 }
 
-                SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' h:mm a z"); 
-                testJob.setSubject("TEST: " + testJob.getSubject() + " [scheduled for " + 
+                SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d yyyy, h:mm a z"); 
+                testJob.setSubject("TEST: " + testJob.getSubject() + " [" + 
                         formatter.format(job.getStartDate()) + "]");
 
                 // set address list to test address list
