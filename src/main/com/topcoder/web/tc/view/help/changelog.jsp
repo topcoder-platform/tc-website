@@ -44,7 +44,7 @@
 
 
 <p>
-    5.9.1 - 2007.05.09
+    5.9.2 - 2007.05.09
     <ul>
         <li>Enable C++ components -dok</li>
     </ul>
