@@ -38,50 +38,50 @@
             <div class="fixedWidthBody">
 
                 <div style="width: 500px; padding: 5px; margin: 0px auto";>
-                    <div align="center">What is an Assignment Document?</div>
+                    <div class="bigTitle">What is an Assignment Document?</div>
                     
                     <div>
-                        <p>1.<span>What is the Assignment?</span></p>
+                        <p class="bodySubhead">1.<span style="padding-left:20px; text-decoration:underline;">What is the Assignment?</span></p>
                         <p>ANSWER:  The Assignment is a document by which you confirm that you transfer your rights in a winning entry to TopCoder, Inc.  The Assignment has three purposes: (i) to confirm that you assigned all rights in all of your previous winning entries, if any; (ii) to confirm that you assign all rights in your current winning entry in exchange for receiving the applicable prize; and (iii) to establish a procedure by which you will be able to easily confirm that you assign rights in any future winning entry (for details on the Assignment as it relates to future winning entries, please see Question 8).  The Assignment does NOT cover any entries for which you are not compensated, and you still retain the ownership of such entries.</p>
                     </div>
                     <div>
-                        <p>2.<span>Why do I need to sign the Assignment?</span></p>
+                        <p class="bodySubhead">2.<span style="padding-left:20px; text-decoration:underline;">Why do I need to sign the Assignment?</span></p>
                         <p>ANSWER:  Our legal department has asked that we require this document for all winning entries beginning on ________________, 2007.  It has advised us that our clients may begin to require written assignments from our members in order to do business with us.  If you do not sign and return the Assignment you will face consequences including, but not limited to, not receiving your prize.</p>
                     </div>
                     <div>
-                        <p>3.<span>What happens if I don't sign and return the Assignment?</span></p>
+                        <p class="bodySubhead">3.<span style="padding-left:20px; text-decoration:underline;">What happens if I don't sign and return the Assignment?</span></p>
                         <p>ANSWER:  If you don't sign and return the Assignment, you will not receive your prize.  In addition, TopCoder reserves the right to take additional steps including, but not limited to, restricting your participation in future competitions.</p>
                     </div>
                     <div>
-                        <p>4.<span>How much time do I have to return the Assignment?</span></p>
+                        <p class="bodySubhead">4.<span style="padding-left:20px; text-decoration:underline;">How much time do I have to return the Assignment?</span></p>
                         <p>ANSWER:  You have ____ days from the date on which you were notified that you won to sign and return the Assignment.  We must receive the signed Assignment before the expiration of ____ days.  Simply putting the Assignment in the mail is not sufficient.</p>
                     </div>
                     <div>
-                        <p>5.<span>How do I return the Assignment?</span></p>
+                        <p class="bodySubhead">5.<span style="padding-left:20px; text-decoration:underline;">How do I return the Assignment?</span></p>
                         <p>ANSWER:  The assignment may be signed and scanned as a PDF file and either (i) emailed to _________@topcoder.com or (ii) mailed to:  TopCoder, Inc., Attn: _________________, 703 Hebron Avenue, Glastonbury, CT 06033.  However, please keep in mind that we must actually receive the Assignment before the expiration of ____ days.</p>
                     </div>
                     <div>
-                        <p>6.<span>Can I make changes to the Assignment?</span></p>
+                        <p class="bodySubhead">6.<span style="padding-left:20px; text-decoration:underline;">Can I make changes to the Assignment?</span></p>
                         <p>ANSWER:  No.  Assignments which are returned with changes, additions, or words crossed out are not valid and will not be accepted.  The terms of the Assignment are not negotiable.</p>
                     </div>
                     <div>
-                        <p>7.<span>Why does the Assignment cover all of my past winning entries?</span></p>
+                        <p class="bodySubhead">7.<span style="padding-left:20px; text-decoration:underline;">Why does the Assignment cover all of my past winning entries?</span></p>
                         <p>ANSWER:  We may use previous winning entries in developing software for a client.  Because these clients may request written proof that we own rights in the components used in the software, we need the Assignment.</p>
                     </div>
                     <div>
-                        <p>8.<span>Why does the Assignment cover all of my future winning entries?</span></p>
+                        <p class="bodySubhead">8.<span style="padding-left:20px; text-decoration:underline;">Why does the Assignment cover all of my future winning entries?</span></p>
                         <p>ANSWER:  To be clear, the Assignment covers your future entries only if you agree.  In our effort to make this process as streamlined as possible, the Assignment has been written so that it only needs to be signed once.  You will be given the opportunity to confirm/ratify the Assignment if/when you win in the future.  If you do not confirm/ratify the Assignment at that time, you will face consequences including, but not limited to, not receiving your prize.</p>
                     </div>
                     <div>
-                        <p>9.<span>Do I have to sign the Assignment every time I win?</span></p>
+                        <p class="bodySubhead">9.<span style="padding-left:20px; text-decoration:underline;">Do I have to sign the Assignment every time I win?</span></p>
                         <p>ANSWER:  No.  You are only required to sign and return the assignment the first time you win a competition after _____________, 2007.  Once you have signed and returned the Assignment, the next time you win a competition you will be given the opportunity to confirm/ratify the terms of the Assignment.  You only have to sign and return the Assignment once.</p>
                     </div>
                     <div>
-                        <p>10.<span>Do I still own my past winning entries?</span></p>
+                        <p class="bodySubhead">10.<span style="padding-left:20px; text-decoration:underline;">Do I still own my past winning entries?</span></p>
                         <p>ANSWER:  No.  Under the rules for each competition, you assigned your rights in any previous winning entries by participating in the competition.  The Assignment is a confirmation that you assigned those rights.</p>
                     </div>
                     <div>
-                        <p>11.<span>Will all previous winners need to sign the Assignment?</span></p>
+                        <p class="bodySubhead">11.<span style="padding-left:20px; text-decoration:underline;">Will all previous winners need to sign the Assignment?</span></p>
                         <p>ANSWER:  Eventually all previous winners will need to sign the Assignment.  However, at this time we are requiring a signed Assignment only for winning entries after ________________, 2007.</p>
                     </div>
                 </div>
