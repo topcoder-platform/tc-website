@@ -7220,12 +7220,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                           query.append(" AND p.user_id = ? ");
                           objects.add(value);
                           log.debug("newValue: " + value);
-                      } else if (key.equals(IP_TRANSFER_ID)) {
-                          query.append(" AND exists (select 'exists' from assignment_document ad where ad.assignment_document_id = ? ");
-                          query.append(" and ((ad.component_project_id = pd.component_project_id and pd.payment_type_id = " + COMPONENT_PAYMENT + ") or ");
-                          query.append(" (pd.studio_contest_id = ad.studio_contest_id and pd.payment_type_id = " + TC_STUDIO_PAYMENT + "))) ");
-                          objects.add(value);
-                          log.debug("newValue: " + value);
+//                      } else if (key.equals(IP_TRANSFER_ID)) {
+//                          query.append(" AND exists (select 'exists' from assignment_document ad where ad.assignment_document_id = ? ");
+//                          query.append(" and ((ad.component_project_id = pd.component_project_id and pd.payment_type_id = " + COMPONENT_PAYMENT + ") or ");
+//                          query.append(" (pd.studio_contest_id = ad.studio_contest_id and pd.payment_type_id = " + TC_STUDIO_PAYMENT + "))) ");
+//                          objects.add(value);
+//                          log.debug("newValue: " + value);
                       } else if (key.equals(PAYMENT_ID)) {
                           query.append(" AND p.payment_id = ? ");
                           objects.add(value);

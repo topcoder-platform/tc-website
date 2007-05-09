@@ -121,9 +121,14 @@ public class PaymentStatusMediator {
         log.debug("affirmedIPTransfer called for ipTransferId: " + ad.getId());
         try {
             Map criteria = new HashMap();
-            criteria.put(PactsConstants.IP_TRANSFER_ID, ad.getId().toString());
-            criteria.put(PactsConstants.USER_ID, ad.getUser().getId());
-
+            criteria.put(PactsConstants.PAYMENT_REFERENCE_ID, 
+                    ad.getComponentProject() == null ? ad.getStudioContest().toString() : 
+                        ad.getComponentProject().toString());
+            criteria.put(PactsConstants.USER_ID, ad.getUser().getId().toString());
+            criteria.put(PactsConstants.PAYMENT_TYPE_ID, 
+                    ad.getComponentProject() == null ? String.valueOf(PactsConstants.TC_STUDIO_PAYMENT) : 
+                        String.valueOf(PactsConstants.COMPONENT_PAYMENT));
+            
             List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
             
             // if not exactly one result, throw exception
