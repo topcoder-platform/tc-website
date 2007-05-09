@@ -229,6 +229,7 @@ public class Constants implements WebConstants {
     public static int CUSTOM_DOT_NET_CATALOG_ID;
     public static int FLASH_CATALOG_ID;
     public static int APPLICATIONS_CATALOG_ID;
+    public static int CPP_CATALOG_ID;
     public static int INTERNAL_NOTE_TYPE_ID;
     //public static int LANGUAGE_NOTE_TYPE_ID;
     //public static int TECH_NOTE_TYPE_ID;
