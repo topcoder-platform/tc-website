@@ -30,6 +30,11 @@
 <div class="contentSpacer">
     <h2>Individual Results</h2>
 
+<p>
+    Online Rounds
+    | <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">Finals</A>
+</p>
+
     <table cellspacing="0" cellpadding="0" class="stat" style="width: 625px;">
         <thead>
             <tr>
