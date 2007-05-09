@@ -2,12 +2,11 @@ package com.topcoder.web.studio.controller.request.admin;
 
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.cache.CacheClient;
-import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Email;
 import com.topcoder.web.common.model.User;
@@ -20,7 +19,9 @@ import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionReview;
 
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.TimeZone;
 
 /**
  * @author dok
@@ -81,7 +82,6 @@ public class SubmitReview extends Base {
             Long submitterId = s.getSubmitter().getId();
 
 
-
             closeConversation();
             //have to wrap up the last stuff, and get into new stuff.  we don't want
             //sending email to be in the transaction
@@ -117,7 +117,7 @@ public class SubmitReview extends Base {
             mail.setSubject("Your TopCoder(R) Studio submission passed review");
         } else if (ReviewStatus.FAILED.equals(status.getId())) {
             mail.setSubject("Your TopCoder(R) Studio submission failed review");
-        } else if (ReviewStatus.CHEATED.equals(status.getId())){
+        } else if (ReviewStatus.CHEATED.equals(status.getId())) {
             //don't send email 
             return;
         }
@@ -163,16 +163,8 @@ public class SubmitReview extends Base {
     private void refreshCache(Contest c) {
         try {
             log.debug("refreshing cache");
-            CacheClient cc = CacheClientFactory.create();
-            String tempKey;
             String key = Constants.CONTEST_ID + "=" + c.getId();
-            Set list =  cc.getKeys();
-            for (Iterator it = list.iterator(); it.hasNext();) {
-                tempKey = (String) it.next();
-                if (tempKey.indexOf(key) > -1) {
-                    cc.remove(tempKey);
-                }
-            }
+            CacheClearer.removelike(key);
         } catch (Exception ignore) {
             ignore.printStackTrace();
         }
