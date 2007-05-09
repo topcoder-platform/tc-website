@@ -60,7 +60,11 @@
 
 <div class="contentSpacer" style="padding-bottom:100px;">
 
+
 <h1>Assignment Documents</h1>
+    <div align="right">
+        <a class="bcLink" href="/?module=Static&d1=support&d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
+    </div>
 
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
@@ -108,7 +112,7 @@
         </td>
         <td class="headerC">
             <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Time Left</a>
-	   </td>
+       </td>
         <td class="headerC">
             <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Status</a>
         </td>
