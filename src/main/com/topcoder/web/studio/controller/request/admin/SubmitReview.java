@@ -162,6 +162,7 @@ public class SubmitReview extends Base {
 
     private void refreshCache(Contest c) {
         try {
+            //todo fix this to work with both caches
             log.debug("refreshing cache");
             String key = Constants.CONTEST_ID + "=" + c.getId();
             CacheClearer.removelike(key);
