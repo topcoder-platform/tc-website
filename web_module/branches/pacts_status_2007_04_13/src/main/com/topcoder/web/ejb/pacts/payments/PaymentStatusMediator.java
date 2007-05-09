@@ -122,8 +122,8 @@ public class PaymentStatusMediator {
         try {
             Map criteria = new HashMap();
             criteria.put(PactsConstants.PAYMENT_REFERENCE_ID, 
-                    ad.getComponentProject() == null ? ad.getStudioContest().toString() : 
-                        ad.getComponentProject().toString());
+                    ad.getComponentProject() == null ? ad.getStudioContest().getId().toString() : 
+                        ad.getComponentProject().getId().toString());
             criteria.put(PactsConstants.USER_ID, ad.getUser().getId().toString());
             criteria.put(PactsConstants.PAYMENT_TYPE_ID, 
                     ad.getComponentProject() == null ? String.valueOf(PactsConstants.TC_STUDIO_PAYMENT) : 
