@@ -147,6 +147,8 @@
             <img src="/i/development/smNetCustom.gif"/>
             <% } else if ("Flash".equals(registrants.getStringItem(0, "catalog_name"))) { %>
             <img src="/i/development/flashSm.gif"/>
+            <% } else if ("C++".equals(registrants.getStringItem(0, "catalog_name"))) { %>
+            <img src="/i/development/smCpp.png"/>
             <% } else { %>
             <rsc:item name="catalog_name" set="<%=registrants%>"/>
             <% } %>
