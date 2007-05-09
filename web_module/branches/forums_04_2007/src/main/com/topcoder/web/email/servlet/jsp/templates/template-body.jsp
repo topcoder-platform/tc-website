@@ -54,4 +54,4 @@ function validate()
         <p class="bodyText">
 	Template:<br>
 	<textarea name="template" cols="80" rows="20"><jsp:getProperty name="EmailTemplate" property="template" /></textarea>
-        </p>;
+        </p>

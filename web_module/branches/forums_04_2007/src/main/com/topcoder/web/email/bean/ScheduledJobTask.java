@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -149,9 +150,10 @@ public class ScheduledJobTask
         // create a new scheduled job form bean
         ScheduledJobForm job = new ScheduledJobForm();
 
-        // set default start/end times to current time/tomorrow
-        // current date
+        // set default start/end times to current time/tomorrow, +1 hour (since test email(s) should be reviewed first)
+        // current date, +1h
         Calendar calendar = new GregorianCalendar();
+        calendar.add(Calendar.HOUR, 1);
         job.setStartDate(calendar.getTime());
 
         // next day
@@ -218,7 +220,9 @@ public class ScheduledJobTask
                     throw new ServletException(e.toString());
                 }
 
-                testJob.setSubject("TEST: " + testJob.getSubject());
+                SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' h:mm a z"); 
+                testJob.setSubject("TEST: " + testJob.getSubject() + " [scheduled for " + 
+                        formatter.format(job.getStartDate()) + "]");
 
                 // set address list to test address list
                 testJob.setListId(testJob.getTestId());
