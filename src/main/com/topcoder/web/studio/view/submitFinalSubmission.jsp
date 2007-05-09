@@ -23,39 +23,9 @@
     </jsp:include>
     <script type="text/javascript" src="/js/popup.js"></script>
     <script language="javascript" type="text/javascript">
-        <!--
-        function changeRank(newRank, submissionId) {
-        var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
-            ajaxRequest.setPostRequest(fader);
-        <%--
-                    ajaxRequest.setPreRequest(yellower);
-        --%>
-        ajaxRequest.sendRequest();
-        }
-        function fader() {
-            Fat.fade_element('fade0');
-            Fat.fade_element('fade1');
-            Fat.fade_element('fade2');
-            Fat.fade_element('fade3');
-            Fat.fade_element('fade4');
-            Fat.fade_element('fade5');
-            Fat.fade_element('fade6');
-            Fat.fade_element('fade7');
-            Fat.fade_element('fade8');
-        }
-        function batchUpdate() {
-            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}&<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.FINAL_SUBMISSION_TYPE%>');
-        <c:forEach items="${submissions}" var="submission">
-            ajaxRequest.addNamedFormElements("<%=Constants.SUBMISSION_ID%>${submission.id}");
-        </c:forEach>
-            ajaxRequest.sendRequest();
-        }
-        new Image().src="/i/layout/processing.gif";
         function showProcessing() {
             document.getElementById("submitButton").innerHTML='<img src="/i/layout/processing.gif" alt=""/>';
         }
-
-        // -->
     </script>
 </head>
 
@@ -125,11 +95,6 @@
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
                                         <br></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
-                </p>
-                <p>
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
-                        <br></tc-webtag:errorIterator>
-                    as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
                 </p>
                 <p id="submitButton">
                     <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
