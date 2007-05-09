@@ -13,7 +13,7 @@
 
 <% ResultSetContainer submissions = (ResultSetContainer) request.getAttribute("submissions");%>
 
-<c:set value="<%=Constants.CONTEST_PROPERTY+ContestProperty.VIEWABLE_SUBMITTERS%>" var="viewSubmitters"/>
+<c:set value="<%=ContestProperty.VIEWABLE_SUBMITTERS%>" var="viewSubmitters"/>
 
 <html>
 <head>
