@@ -108,6 +108,8 @@ public class ComponentWinningPayment extends ComponentProjectReferencePayment {
          * @throws SQLException
          */
         public int lookupStatus(BasePayment payment) throws SQLException {
+            // TODO: pulky: change this.
+            
             if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER)) {
                 if (!hasAffirmedAssignmentDocument(payment.getCoderId(), ((ComponentProjectReferencePayment) payment).getProjectId())) {
                     return PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS;

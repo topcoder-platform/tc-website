@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
@@ -116,11 +117,12 @@ public class PaymentStatusMediator {
         }
     }
 
-    public void affirmedIPTransfer(Long ipTransferId) throws StateTransitionFailureException {
-        log.debug("affirmedIPTransfer called for ipTransferId: " + ipTransferId);
+    public void affirmedIPTransfer(AssignmentDocument ad) throws StateTransitionFailureException {
+        log.debug("affirmedIPTransfer called for ipTransferId: " + ad.getId());
         try {
             Map criteria = new HashMap();
-            criteria.put(PactsConstants.IP_TRANSFER_ID, ipTransferId.toString());
+            criteria.put(PactsConstants.IP_TRANSFER_ID, ad.getId().toString());
+            criteria.put(PactsConstants.USER_ID, ad.getUser().getId());
 
             List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
             

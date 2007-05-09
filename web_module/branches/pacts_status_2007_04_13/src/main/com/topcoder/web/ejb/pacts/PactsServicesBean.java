@@ -2126,7 +2126,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             addAssignmentDocument(c, ad);
             
             PaymentStatusMediator psm = new PaymentStatusMediator(c);
-            psm.affirmedIPTransfer(ad.getId());
+            psm.affirmedIPTransfer(ad);
 
 //            updateAssignmentDocumentPaymentStatus(c, ad, PAYMENT_OWED_STATUS);
 
@@ -7256,6 +7256,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                   rsc = runSearchQuery(conn, query.toString(), objects, true);
 
                   // use control-break to get the reasons and then build and add the payment.
+                  
                   long lastProcessedPayment = -1;
                   List reasons = new ArrayList<Long>();
                   ResultSetRow rsr = null;
@@ -7264,6 +7265,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                       if (lastProcessedPayment != rsr.getLongItem("payment_id") && lastProcessedPayment != -1) {
                           BasePayment payment = getBasePaymentBean(rsr, reasons);
+                          log.debug("(1) Adding paymentId " + payment.getId() + " to the list.");
                           l.add(payment);
                           reasons.clear();
                       } else {
@@ -7277,6 +7279,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                   }
                   if (rsr != null) {
                       BasePayment payment = getBasePaymentBean(rsr, reasons);
+                      log.debug("(2) Adding paymentId " + payment.getId() + " to the list.");
                       l.add(payment);
                   }
               } catch (SQLException e) {

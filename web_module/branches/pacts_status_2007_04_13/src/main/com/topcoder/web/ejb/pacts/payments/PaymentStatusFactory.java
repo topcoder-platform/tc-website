@@ -57,7 +57,7 @@ public class PaymentStatusFactory {
                 return createStatus(availableStatus); 
             }
         }
-        throw new InvalidStatusException();
+        throw new InvalidStatusException("Invalid status id: " + statusId);
     }
 
     public static List<BasePaymentStatus> getAllStatusList() {
