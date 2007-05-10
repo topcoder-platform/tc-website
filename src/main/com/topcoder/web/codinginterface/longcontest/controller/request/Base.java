@@ -10,11 +10,21 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.ImageInfo;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author dok
@@ -198,6 +208,16 @@ public abstract class Base extends BaseProcessor {
         DataAccessInt dAccess = null;
         if (cached)
             dAccess = new CachedDataAccess(datasource);
+        else
+            dAccess = new DataAccess(datasource);
+        return dAccess;
+    }
+
+    public DataAccessInt getDataAccess(String datasource, boolean cached, MaxAge maxAge) throws Exception {
+        if (datasource == null) return null;
+        DataAccessInt dAccess = null;
+        if (cached)
+            dAccess = new CachedDataAccess(maxAge, datasource);
         else
             dAccess = new DataAccess(datasource);
         return dAccess;
