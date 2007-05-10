@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.10.07<br>1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=051007">TCO Preview: The Marathon Match Competition</A></span><br><br>
+      With this year's addition of Marathon Matches to the TopCoder Open, and a chance for 8 finalists to take a free trip to Las Vegas -- not to mention the hope of winning $15,000 -- it's no wonder that competitors came from far and wide to try their coding skills.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=051007">full story</A> | 
+        <tc-webtag:forumLink forumID="515781" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.09.07<br>7:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -204,22 +221,3 @@
         <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>05.02.07<br>5:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=17060">Vote now for the final TCCC07 Web design</A>
-        </span><br><br>
-        The designs for the 2007 TopCoder Collegiate Challenge site have been narrowed down to the final four. Vote now to rank your favorites -- the vote ends Friday, May 4 at 2:00 PM EDT.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=17060">vote now</A> |
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=49">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
