@@ -61,4 +61,30 @@ public abstract class BasePaymentStatus {
     public List<PaymentStatusReason> getReasons() {
         return reasons;
     }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public final int hashCode() {
+        return getId() == null ? 0 : getId().hashCode();
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public final boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof BasePaymentStatus))
+            return false;
+        final BasePaymentStatus other = (BasePaymentStatus) obj;
+        if (getId() == null) {
+            if (other.getId() != null)
+                return false;
+        } else if (!getId().equals(other.getId()))
+            return false;
+        return true;
+    }
 }
