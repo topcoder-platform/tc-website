@@ -145,11 +145,10 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         try {
             ctx = TCContext.getInitial(b.getProperty("host_url"));
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
-            int size = 0;
             Set kids = cache.getChildrenNames("/");
             StringBuilder sb = new StringBuilder(100);
             for (Object kid : kids) {
-                sb.append(kid).append(": ").append(size("/" + kid + "    "));
+                sb.append(kid).append(": ").append(size("/" + kid)).append("    ");
             }
             return sb.toString();
         } catch (NamingException e) {
