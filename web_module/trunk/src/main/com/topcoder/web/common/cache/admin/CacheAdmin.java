@@ -124,7 +124,10 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
                     size += size(fqn + Fqn.SEPARATOR + (String) kid);
                 }
             } else {
-                size += cache.getKeys(fqn).size();
+                Set s = cache.getKeys(fqn);
+                if (s != null) {
+                    size += cache.getKeys(fqn).size();
+                }
             }
             return size;
         } catch (NamingException e) {
