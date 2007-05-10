@@ -17,4 +17,7 @@ public interface CacheAdminMBean extends ServiceMBean {
     int size();
 
     int size(String fqn);
+
+    String sizeOverview();
+
 }
