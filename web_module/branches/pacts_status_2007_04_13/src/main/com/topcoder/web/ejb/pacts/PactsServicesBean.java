@@ -1385,7 +1385,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public double getUserAccruingPaymentsTotal(Connection conn, long userId) throws SQLException {
         StringBuffer sb = new StringBuffer(300);
         
-        sb.append("select sum(pd.gross_amount) as total from payment p, payment_detail pd where "); 
+        sb.append("select nvl(sum(pd.gross_amount), 0) as total from payment p, payment_detail pd where "); 
         sb.append("p.most_recent_detail_id = pd.payment_detail_id ");
         sb.append("and p.user_id = " + userId);
         sb.append("and pd.status_id = " + PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()); 
