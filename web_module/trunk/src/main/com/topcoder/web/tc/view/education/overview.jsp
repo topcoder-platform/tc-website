@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=051007"><strong>TCO Preview: The Marathon Match Competition</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
+With this year's addition of Marathon Matches to the TopCoder Open, and a chance for 8 finalists to take a free trip to Las Vegas -- not to mention the hope of winning $15,000 -- it's no wonder that competitors came from far and wide to try their coding skills.</li>
+<li><a href="/tc?module=Static&d1=features&d2=050807"><strong>Belarus All College Programming Event</strong></a>, by <tc-webtag:handle coderId="8365955" /><br>
+On April 26, about 80 coders from Belarusian colleges simultaneously pressed the "open a problem" button to start All Belarus Programming Event, sponsored by TopCoder.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3"><strong>Minimum Cost Flow, Part 3: Applications</strong></a>, by <tc-webtag:handle coderId="22671469" context="algorithm" /><br>
 Parts 1 & 2 considered the basics of minimum cost flow problems, as well as some algorithms that can applied to them. In the last part of this article, we'll look at some real-world applications of minimum cost flow.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=rationalPerformanceTester"><strong>Rational&#174; Performance Tester: An Introduction</strong></a>, by <tc-webtag:handle coderId="22498968" context="component"/><br>
-As you might have noticed, last week TopCoder posted a component design competition that involves Rational&#174; Performance Tester (RPT), and more RPT component competitions are launching today. This article includes a quick start to get you familiar with RPT basic concepts, plus a section on extending RPT's functionality through custom Java code.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow2"><strong>Minimum Cost Flow, Part 2: Algorithms</strong></a>, by <tc-webtag:handle coderId="22671469" context="algorithm" /><br>
-In Part 1, we looked at the basics of minimum cost flow. In this section, we'll look at three algorithms that can be applied to minimum cost flow problems.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
