@@ -2,6 +2,23 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%------------------------------------------POST FRIDAY AM
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.11.07<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm348">SRM 348 - Problem Set &amp; Analysis</A></span><br><br>
+      The turnout for this match -- 839 competitors -- was the lowest since January, however that couldn't stop it from being very exciting, as usual.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10574855" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm348">full story</A> | 
+        <tc-webtag:forumLink forumID="506238" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+--------------%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.10.07<br>1:00 PM</td>
