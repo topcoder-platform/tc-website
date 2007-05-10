@@ -48,14 +48,12 @@
    </tr>
    <tr>
       <td style="padding: 15px" valign="middle" align="center">
-      <tc-webtag:handle coderId="11838998" context="development" /><br><br>
-      <tc-webtag:handle coderId="14926554" context="development" /><br><br>
       <tc-webtag:handle coderId="7210680" context="development" /><br><br>
       <tc-webtag:handle coderId="20092786" context="development" /><br><br>
       <tc-webtag:handle coderId="15214882" context="development" /><br><br>
-      <tc-webtag:handle coderId="14788013" context="development" /><br><br>
       <tc-webtag:handle coderId="9998760" context="development" /><br><br>
-      <tc-webtag:handle coderId="14820574" context="development" />
+      <tc-webtag:handle coderId="15763373" context="development" /><br><br>
+      <tc-webtag:handle coderId="7359397" context="development" />
       </td>
    </tr>
    <tr>
