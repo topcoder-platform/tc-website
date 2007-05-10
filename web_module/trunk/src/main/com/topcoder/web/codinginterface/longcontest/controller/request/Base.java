@@ -213,14 +213,9 @@ public abstract class Base extends BaseProcessor {
         return dAccess;
     }
 
-    public DataAccessInt getDataAccess(String datasource, boolean cached, MaxAge maxAge) throws Exception {
+    public DataAccessInt getDataAccess(String datasource, MaxAge maxAge) throws Exception {
         if (datasource == null) return null;
-        DataAccessInt dAccess = null;
-        if (cached)
-            dAccess = new CachedDataAccess(maxAge, datasource);
-        else
-            dAccess = new DataAccess(datasource);
-        return dAccess;
+        return new CachedDataAccess(maxAge, datasource);
     }
 
     protected User getUser() {
