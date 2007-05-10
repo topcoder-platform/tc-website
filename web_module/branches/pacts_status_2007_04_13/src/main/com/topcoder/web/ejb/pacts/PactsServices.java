@@ -136,7 +136,7 @@ public interface PactsServices extends EJBObject {
     long addTaxForm(TaxForm t, String taxFormText)
             throws RemoteException, IllegalUpdateException, SQLException;
 
-    void addUserTaxForm(TaxForm t) throws RemoteException, SQLException;
+    void addUserTaxForm(TaxForm t) throws RemoteException, SQLException, EventFailureException;
 
     long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
             throws RemoteException, SQLException;
@@ -165,8 +165,8 @@ public interface PactsServices extends EJBObject {
             throws RemoteException, NoObjectFoundException, SQLException;
 
     // Special payment update routines
-    void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
-            throws RemoteException, IllegalUpdateException, JMSException;
+//    void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
+//            throws RemoteException, IllegalUpdateException, JMSException;
 
 //    UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
 //            throws RemoteException, SQLException;

@@ -1160,7 +1160,7 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  RemoteException If there is some communication problem with the EJB
      * @throws  SQLException If there is some other problem updating the data
      */
-    public void addUserTaxForm(TaxForm t) throws RemoteException, SQLException {
+    public void addUserTaxForm(TaxForm t) throws RemoteException, SQLException, EventFailureException {
         PactsServicesLocal ps = getEjbHandle();
         ps.addUserTaxForm(t);
     }
@@ -1415,29 +1415,29 @@ public class DataInterfaceBean implements PactsConstants {
 //        return ps.doBatchUpdatePaymentStatus(paymentId, statusId);
 //    }
 
-    /**
-     * Updates the status on all the given payments to the given status.
-     * Because this is a payment modification, this process creates a new
-     * detail record for each payment involved, and a new address record if
-     * called with &quot;Ready to Print&quot; status.  This function should be called
-     * with the &quot;Ready to Print&quot; status to ready payments for printing. <p>
-     *
-     * This function actually just puts a message on the JMS queue.  The message handler,
-     * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt>
-     * which performs the modifications.
-     *
-     * @param   paymentId The payments to update
-     * @param   statusId The new status
-     * @param   userId The ID of the user submitting the request
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user is attempting to update the status to Printed or Paid
-     * @throws  JMSException If there is some problem putting the message on the queue
-     */
-    public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
-            throws RemoteException, IllegalUpdateException, JMSException {
-        PactsServicesLocal ps = getEjbHandle();
-        ps.batchUpdatePaymentStatus(paymentId, statusId, userId);
-    }
+//    /**
+//     * Updates the status on all the given payments to the given status.
+//     * Because this is a payment modification, this process creates a new
+//     * detail record for each payment involved, and a new address record if
+//     * called with &quot;Ready to Print&quot; status.  This function should be called
+//     * with the &quot;Ready to Print&quot; status to ready payments for printing. <p>
+//     *
+//     * This function actually just puts a message on the JMS queue.  The message handler,
+//     * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt>
+//     * which performs the modifications.
+//     *
+//     * @param   paymentId The payments to update
+//     * @param   statusId The new status
+//     * @param   userId The ID of the user submitting the request
+//     * @throws  RemoteException If there is some communication problem with the EJB
+//     * @throws  IllegalUpdateException If the user is attempting to update the status to Printed or Paid
+//     * @throws  JMSException If there is some problem putting the message on the queue
+//     */
+//    public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
+//            throws RemoteException, IllegalUpdateException, JMSException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        ps.batchUpdatePaymentStatus(paymentId, statusId, userId);
+//    }
 
 //    /**
 //     * Marks the given payments as reviewed.  This function should be called if the

@@ -143,7 +143,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
     long addTaxForm(TaxForm t, String taxFormText)
             throws  IllegalUpdateException, SQLException;
 
-    void addUserTaxForm(TaxForm t) throws  SQLException;
+    void addUserTaxForm(TaxForm t) throws  SQLException, EventFailureException;
 
     long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
             throws  SQLException;
@@ -172,8 +172,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
             throws  NoObjectFoundException, SQLException;
 
     // Special payment update routines
-    void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
-            throws  IllegalUpdateException, JMSException;
+//    void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
+//            throws  IllegalUpdateException, JMSException;
 
 //    UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
 //            throws  SQLException;

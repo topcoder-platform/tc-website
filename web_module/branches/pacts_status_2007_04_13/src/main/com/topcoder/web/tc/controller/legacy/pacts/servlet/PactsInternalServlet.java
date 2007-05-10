@@ -594,10 +594,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 //                        doReviewPayments(request, response);
 //                        return;
 //                    }
-                    if (command.equals(STATUS_CMD)) {
-                        doPaymentStatus(request, response);
-                        return;
-                    }
+//                    if (command.equals(STATUS_CMD)) {
+//                        doPaymentStatus(request, response);
+//                        return;
+//                    }
 //                    if (command.equals(FILE_CMD)) {
 //                        if (checkParam(INT_TYPE, request.getParameter("file_num"), true))
 //                            doFile(request, response);
@@ -2739,33 +2739,33 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         return paymentsArray;
     }
     
-    private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        try {
-            WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
-                    HttpObjectFactory.createResponse(response));
-
-            long userId = auth.getActiveUser().getId();
-
-            log.debug("doPaymentStatus<br>");
-
-            String[] values = request.getParameterValues(PAYMENT_ID);
-
-            long[] payments = parsePayments(values);     
-
-            DataInterfaceBean dib = new DataInterfaceBean();
-
-            dib.batchUpdatePaymentStatus(payments, Integer.parseInt(request.getParameter("status_id")), userId);
-
-            request.setAttribute("message", "Payments Being Updated in the Background");
-            if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
-                forward(request.getParameter("query"), request, response);
-            else
-                throw new NavigationException("Payments Being Updated in the Background");
-
-        } catch (NumberFormatException e) {
-            throw new NavigationException("One or more of the Payment IDs specified is invalid.");
-        }
-    }
+//    private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
+//        try {
+//            WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
+//                    HttpObjectFactory.createResponse(response));
+//
+//            long userId = auth.getActiveUser().getId();
+//
+//            log.debug("doPaymentStatus<br>");
+//
+//            String[] values = request.getParameterValues(PAYMENT_ID);
+//
+//            long[] payments = parsePayments(values);     
+//
+//            DataInterfaceBean dib = new DataInterfaceBean();
+//
+//            dib.batchUpdatePaymentStatus(payments, Integer.parseInt(request.getParameter("status_id")), userId);
+//
+//            request.setAttribute("message", "Payments Being Updated in the Background");
+//            if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
+//                forward(request.getParameter("query"), request, response);
+//            else
+//                throw new NavigationException("Payments Being Updated in the Background");
+//
+//        } catch (NumberFormatException e) {
+//            throw new NavigationException("One or more of the Payment IDs specified is invalid.");
+//        }
+//    }
 
 //    private void doReviewPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //        try {
