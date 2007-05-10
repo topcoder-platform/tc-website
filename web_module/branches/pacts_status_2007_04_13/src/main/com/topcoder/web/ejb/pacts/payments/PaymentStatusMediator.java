@@ -54,7 +54,11 @@ public class PaymentStatusMediator {
             conn.setAutoCommit(false);
             setLockTimeout(conn);
 
-            if (payment.getCurrentStatus().equals(PaymentStatus.OWED_PAYMENT_STATUS) && 
+            log.debug("check if we need to notify accruing payments");
+            log.debug("payment.getCurrentStatus(): " + payment.getCurrentStatus());
+            log.debug("dib.getUserAccrualThreshold(conn, payment.getCoderId()): " + dib.getUserAccrualThreshold(conn, payment.getCoderId()));
+            
+            if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS)) && 
                     dib.getUserAccrualThreshold(conn, payment.getCoderId()) > 0) {
 
                 log.debug("need to notify all accruing payments");
