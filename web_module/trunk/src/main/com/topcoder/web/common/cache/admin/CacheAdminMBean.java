@@ -15,4 +15,6 @@ public interface CacheAdminMBean extends ServiceMBean {
     String removelike(String s);
 
     int size();
+
+    int size(String fqn);
 }
