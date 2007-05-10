@@ -44,6 +44,13 @@
 
 
 <p>
+    5.9.3 - 2007.05.xx
+    <ul>
+        <li>Don't cache marathon match data for too long, it's too big-dok</li>
+    </ul>
+</p>
+
+<p>
     5.9.2 - 2007.05.09
     <ul>
         <li>Enable C++ components -dok</li>

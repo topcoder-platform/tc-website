@@ -15,7 +15,13 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.MaxAge;
 
 import java.util.HashMap;
 import java.util.ListIterator;
@@ -84,28 +90,29 @@ public class ViewSystemTestResults extends Base {
             rScores.setProperty(Constants.PROBLEM_ID, request.getParameter(Constants.PROBLEM_ID));
 
             log.debug("get scores");
-            Map scoresMap = getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(rScores);
+            //too much data to store for very long.
+            Map scoresMap = getDataAccess(DBMS.DW_DATASOURCE_NAME, MaxAge.HALF_HOUR).getData(rScores);
             log.debug("got scores");
 
             ResultSetContainer rsc = (ResultSetContainer) result.get("long_contest_test_results_coders");
             rsc.sortByColumn(sortCol, !"desc".equals(sortDir));
-            if ("".equals(startRowStr)&&"".equals(sortColStr)&&request.getParameter(Constants.CODER_ID) != null) {
+            if ("".equals(startRowStr) && "".equals(sortColStr) && request.getParameter(Constants.CODER_ID) != null) {
                 //go to the specified coder's row
                 long coderId = Long.parseLong(request.getParameter(Constants.CODER_ID));
-                for (int i=0; i<rsc.size(); i++) {
-                    if (coderId==rsc.getLongItem(i, "coder_id")) {
-                        startRow = i+1;
-                        endRow = startRow+rowCount-1;
+                for (int i = 0; i < rsc.size(); i++) {
+                    if (coderId == rsc.getLongItem(i, "coder_id")) {
+                        startRow = i + 1;
+                        endRow = startRow + rowCount - 1;
                         break;
                     }
                 }
 
             }
-            rsc = (ResultSetContainer)rsc.subList(startRow-1, endRow);
+            rsc = (ResultSetContainer) rsc.subList(startRow - 1, endRow);
             result.put("long_contest_test_results_coders", rsc);
 
             ResultSetContainer rscCol = (ResultSetContainer) result.get("long_contest_test_results_cases");
-            rscCol = (ResultSetContainer)rscCol.subList(startCol-1, endCol);
+            rscCol = (ResultSetContainer) rscCol.subList(startCol - 1, endCol);
             result.put("long_contest_test_results_cases", rscCol);
 
 
@@ -116,8 +123,8 @@ public class ViewSystemTestResults extends Base {
             HashMap testCases = null;
             for (ListIterator iter = rscScores.listIterator(); iter.hasNext();) {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) iter.next();
-                testCases = (HashMap)hash.get(row.getItem("coder_id").getResultData());
-                if (testCases==null){
+                testCases = (HashMap) hash.get(row.getItem("coder_id").getResultData());
+                if (testCases == null) {
                     testCases = new HashMap();
                 }
                 testCases.put(row.getItem("test_case_id").getResultData(), row.getItem("score").getResultData());
