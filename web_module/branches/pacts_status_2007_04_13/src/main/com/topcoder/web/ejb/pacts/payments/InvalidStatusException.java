@@ -15,7 +15,6 @@ public class InvalidStatusException extends Exception {
      * 
      */
     public InvalidStatusException() {
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -23,7 +22,6 @@ public class InvalidStatusException extends Exception {
      */
     public InvalidStatusException(String message) {
         super(message);
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -31,7 +29,6 @@ public class InvalidStatusException extends Exception {
      */
     public InvalidStatusException(Throwable cause) {
         super(cause);
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -40,7 +37,6 @@ public class InvalidStatusException extends Exception {
      */
     public InvalidStatusException(String message, Throwable cause) {
         super(message, cause);
-        // TODO Auto-generated constructor stub
     }
 
 }

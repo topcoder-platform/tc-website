@@ -80,7 +80,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             
             if (results.length != 1) {
 //                setDefault("status_id", PactsConstants.READY_TO_PRINT_STATUS + "");
-                // TODO: pulky: change for entered into payment system status
 //                setDefault("status_id",  "");
             	
 //                getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());                

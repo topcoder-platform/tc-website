@@ -32,11 +32,11 @@ public class PaymentStatusFactory {
             this.id = id;
         }
         
-        protected String getClassName() {
+        public String getClassName() {
             return className;
         }
 
-        protected Long getId() {
+        public Long getId() {
             return id;
         }
     }

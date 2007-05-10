@@ -10,6 +10,7 @@ import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
@@ -195,11 +196,11 @@ public interface PactsServices extends EJBObject {
 //            throws IllegalUpdateException, RemoteException, SQLException;
     
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-    	throws IllegalUpdateException, RemoteException, SQLException;
+    	throws IllegalUpdateException, RemoteException, SQLException, EventFailureException;
 
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException;
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException, EventFailureException;
 
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException, RemoteException;
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException, RemoteException, EventFailureException;
 
     int expireOldPayments() throws RemoteException, SQLException;
 

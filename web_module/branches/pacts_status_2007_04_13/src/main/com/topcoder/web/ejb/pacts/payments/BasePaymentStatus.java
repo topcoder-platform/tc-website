@@ -54,6 +54,10 @@ public abstract class BasePaymentStatus {
         // default implementation does nothing
     }
 
+    public void accrualThresholdReached(BasePayment payment) {
+        // default implementation does nothing
+    }
+
     public List<PaymentStatusReason> getReasons() {
         return reasons;
     }

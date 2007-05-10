@@ -26,6 +26,7 @@ import com.topcoder.web.ejb.pacts.PactsServices;
 import com.topcoder.web.ejb.pacts.PactsServicesBean;
 import com.topcoder.web.ejb.pacts.PactsServicesLocal;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
@@ -40,7 +41,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
 
 /**
  * This class receives incoming requests from the dispatch beans
@@ -1576,17 +1576,17 @@ public class DataInterfaceBean implements PactsConstants {
 //    }
 
     public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-        throws IllegalUpdateException, RemoteException, SQLException {
+        throws IllegalUpdateException, RemoteException, SQLException, EventFailureException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.generateComponentPayments(projectId, status, client, devSupportCoderId);
     }
 
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws RemoteException, SQLException {
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws RemoteException, SQLException, EventFailureException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed);    
     }
 
-    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws RemoteException, SQLException {
+    public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws RemoteException, SQLException, EventFailureException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId);    
     }
@@ -1799,6 +1799,26 @@ public class DataInterfaceBean implements PactsConstants {
     public List<BasePayment> findCoderPayments(Connection c, Map searchCriteria) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.findCoderPayments(c, searchCriteria);
+    }
+
+    public double getUserAccrualThreshold(Connection conn, long userId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getUserAccrualThreshold(conn, userId);
+    }
+
+    public double getUserAccrualThreshold(long userId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getUserAccrualThreshold(userId);
+    }
+
+    public double getUserAccruingPaymentsTotal(Connection conn, long userId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getUserAccruingPaymentsTotal(conn, userId);
+    }
+
+    public double getUserAccruingPaymentsTotal(long userId) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.getUserAccruingPaymentsTotal(userId);
     }
 
 }

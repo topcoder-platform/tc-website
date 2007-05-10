@@ -84,7 +84,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
+//import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
 
 public class PactsInternalServlet extends BaseServlet implements PactsConstants {
 
@@ -110,17 +110,17 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     public synchronized void init(ServletConfig config) throws ServletException {
         super.init(config);
         //start up a thread to read off the queue and process async requests
-        Thread t = new Thread() {
-            public void run() {
-                try {
-                    QueueRequest qr = new QueueRequest(DBMS.PACTS_QUEUE);
-                    qr.listen();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        t.start();
+//        Thread t = new Thread() {
+//            public void run() {
+//                try {
+//                    QueueRequest qr = new QueueRequest(DBMS.PACTS_QUEUE);
+//                    qr.listen();
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        };
+//        t.start();
 
         // Thread for expiring old payments
         Thread tExpired = new Thread() {

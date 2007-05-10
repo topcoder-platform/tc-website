@@ -15,7 +15,6 @@ public class InvalidStateTransitionException extends Exception {
      * 
      */
     public InvalidStateTransitionException() {
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -23,7 +22,6 @@ public class InvalidStateTransitionException extends Exception {
      */
     public InvalidStateTransitionException(String arg0) {
         super(arg0);
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -31,7 +29,6 @@ public class InvalidStateTransitionException extends Exception {
      */
     public InvalidStateTransitionException(Throwable arg0) {
         super(arg0);
-        // TODO Auto-generated constructor stub
     }
 
     /**
@@ -40,7 +37,6 @@ public class InvalidStateTransitionException extends Exception {
      */
     public InvalidStateTransitionException(String arg0, Throwable arg1) {
         super(arg0, arg1);
-        // TODO Auto-generated constructor stub
     }
 
 }

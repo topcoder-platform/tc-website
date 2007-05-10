@@ -5,9 +5,13 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import java.rmi.RemoteException;
+import java.sql.SQLException;
+
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -50,13 +54,40 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
 
     @Override
     public void activate(BasePayment payment) {
-        nextState(payment);
+        DataInterfaceBean dib = new DataInterfaceBean();
+        try {
+            // check the user's accrual threshold
+            double accrualThreshold = dib.getUserAccrualThreshold(payment.getCoderId());
+            
+            if (accrualThreshold > 0) {
+                // check total amount for currently accruing payments for this user
+                double totalAmount = dib.getUserAccruingPaymentsTotal(payment.getCoderId());
+                if (totalAmount + payment.getGrossAmount() > accrualThreshold) {
+                    // we have reached the amount, move to the next status
+                    nextState(payment);
+                }
+            }
+        } catch (Exception e) {
+            // do nothing
+        }
+        
     }
 
     @Override
+    public void accrualThresholdReached(BasePayment payment) {
+        nextState(payment);
+        
+    }   
+    
+    @Override
     public void nextState(BasePayment payment) {
-        log.debug("moving to the next state!");
+        log.debug("moving to the next status!");
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS));
+        try {
+            payment.getCurrentStatus().activate(payment);
+        } catch (Exception e) {
+            // do nothing
+        }
     }
     
     @Override

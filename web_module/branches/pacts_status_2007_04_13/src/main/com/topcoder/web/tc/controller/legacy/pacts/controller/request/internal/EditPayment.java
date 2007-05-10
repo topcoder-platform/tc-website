@@ -149,8 +149,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 	setReference(payment);                
                     
                     payment.setDescription(desc);
-//                    payment.setCurrentStatus(PaymentStatusManager.getStatusUsingId(statusId));
-                    // TODO: pulky: add reasons
                     
                     payment.setTotalAmount(totalAmount);
                     payment.setGrossAmount(grossAmount > 0 && payment instanceof ComponentWinningPayment? grossAmount : totalAmount);
@@ -183,10 +181,10 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                                 // manage payment status
                                 log.debug("editpayment: 1- ");
                                 log.debug("editpayment: 1- " + ((p.getCurrentStatus() == null) ? "null" : p.getCurrentStatus().getReasons().size()));
-                                PaymentStatusMediator psm = new PaymentStatusMediator(payment); 
+                                PaymentStatusMediator psm = new PaymentStatusMediator(); 
                                 log.debug("editpayment: 2- ");
                                 log.debug("editpayment: 2- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
-                                psm.newPayment();
+                                psm.newPayment(payment);
                                 log.debug("editpayment: 3- ");
                                 log.debug("editpayment: 3- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
                             	payment = dib.addPayment(payment);
@@ -198,10 +196,10 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                                 for (Iterator it = l.iterator(); it.hasNext();) {
                                     log.debug("editpayment: b1- ");
                                     log.debug("editpayment: b1- " + ((p.getCurrentStatus() == null) ? "null" : p.getCurrentStatus().getReasons().size()));
-                                    PaymentStatusMediator psm = new PaymentStatusMediator(payment); 
+                                    PaymentStatusMediator psm = new PaymentStatusMediator(); 
                                     log.debug("editpayment: b2- ");
                                     log.debug("editpayment: b2- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
-                                    psm.newPayment();
+                                    psm.newPayment(payment);
                                     log.debug("editpayment: b3- ");
                                     log.debug("editpayment: b3- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
                                 }
@@ -213,10 +211,10 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                             log.debug("editpayment: c1- ");
                             log.debug("editpayment: c1- payment.getCurrentStatus(): " + payment.getCurrentStatus());
                             log.debug("editpayment: c1- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
-                            PaymentStatusMediator psm = new PaymentStatusMediator(payment); 
+                            PaymentStatusMediator psm = new PaymentStatusMediator(); 
                             log.debug("editpayment: c2- ");
                             log.debug("editpayment: c2- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
-                            psm.newPayment();
+                            psm.newPayment(payment);
                             log.debug("editpayment: c3- ");
                             log.debug("editpayment: c3- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
                         	payment = dib.addPayment(payment);
@@ -281,10 +279,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     }
 
 
-                    // TODO: pulky: change the object
-//                    statusId = payment.getCurrentStatus().getId();
-                    // TODO: pulky: get reasons
-                    
                     totalAmount = payment.getTotalAmount();
                     grossAmount = payment.getGrossAmount();
                     netAmount = payment.getNetAmount();

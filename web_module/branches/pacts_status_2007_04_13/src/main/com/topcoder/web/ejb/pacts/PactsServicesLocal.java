@@ -11,6 +11,7 @@ import javax.jms.JMSException;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
@@ -202,11 +203,11 @@ public interface PactsServicesLocal extends EJBLocalObject {
 //            throws IllegalUpdateException,  SQLException;
 
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-    		throws IllegalUpdateException,  SQLException;
+    		throws IllegalUpdateException,  SQLException, EventFailureException;
 
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException;
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, EventFailureException;
 
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException;
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException, EventFailureException;
 
     int expireOldPayments() throws  SQLException;
 
@@ -303,5 +304,13 @@ public interface PactsServicesLocal extends EJBLocalObject {
     public List<BasePayment> findCoderPayments(Map searchCriteria);
 
     public List<BasePayment> findCoderPayments(Connection c, Map searchCriteria);
+    
+    public double getUserAccrualThreshold(Connection conn, long userId) throws SQLException;
+
+    public double getUserAccrualThreshold(long userId) throws SQLException;
+
+    public double getUserAccruingPaymentsTotal(Connection conn, long userId) throws SQLException;
+
+    public double getUserAccruingPaymentsTotal(long userId) throws SQLException;
 }
 
