@@ -49,7 +49,7 @@
                 <li><strong>Submission End Date:</strong> April 23, 2007</li>
                 <li><strong>Review Start Date:</strong> April 27, 2007</li>
                 <li><strong>Review End Date:</strong> May 8, 2007</li>
-                <li><strong>Winner Announced:</strong> May 14, 2007</li>
+                <li><strong>Winner Announced:</strong> May 16, 2007</li>
             </ul>
 
             <h2>Competition #1: BT Business CSF Mashup Design Competition</h2>
