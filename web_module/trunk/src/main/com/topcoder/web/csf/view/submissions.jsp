@@ -111,7 +111,7 @@
         <tr>
             <c:choose>
                 <c:when test="${isOver}">
-                    <td class="title" colspan="4"><span class="title">Submissions</span></td>
+                    <td class="title" colspan="3"><span class="title">Submissions</span></td>
                 </c:when>
                 <c:otherwise>
                     <td class="title" colspan="3"><span class="title">Submissions</span></td>
@@ -133,9 +133,11 @@
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submit
                     Date</a>
             </td>
+<%--
             <td class="headerC" width="100%">
                 Submission
             </td>
+--%>
         </tr>
         <% boolean even = true;
             int i = 0; %>
@@ -152,6 +154,7 @@
                 <td class="valueC" nowrap="nowrap">
                     <rsc:item name="create_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
+<%--
                 <td class="valueC">
 
                     <c:choose>
@@ -170,6 +173,7 @@
                         </c:otherwise>
                     </c:choose>
                 </td>
+--%>
             </tr>
             <% even = !even;
                 i++; %>
