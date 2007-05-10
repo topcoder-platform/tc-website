@@ -111,9 +111,9 @@
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
                 --%>
 
-                <%-- TCO07 
+                <%-- TCO07 --%>
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
-               --%>
+               
 
                 <%-- Marathon Match Sponsor 
                 <map name="mm">
@@ -123,13 +123,13 @@
                 <img src="/i/home/mmtco4_verisign.png" alt="TCO07 Marathon Match 4 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR --%>
+                <%-- SRM SPONSOR
                 <map name="mm">
                 <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10672" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa" />
                 </map>
                 <img src="/i/home/srm348_nsa.png" alt="SRM 348 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
-                
+                 --%>
 
             </td>
         </tr>
@@ -277,9 +277,12 @@
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
             --%>
             
-            <%-- TCO07 --%>
+            <%-- TCO07 
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
-               
+             --%>
+             
+            <%-- TCHS07 --%>
+               <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"><img src="/i/home/tchs07_promo_051007.png" alt="TCHS07" border="0" style="display:block;"/></A>
             
             <%-- CSF 
             <A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005" refer="tc_Index"/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>

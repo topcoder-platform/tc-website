@@ -38,7 +38,7 @@
 <jsp:param name="title" value="Active Contests"/>
 </jsp:include>
 
-<p><span class="bigTitle">Sales IM Chat</span></p>
+<p><span class="bigTitle">Sales IM Chat Testing Competition</span></p>
 <div class="sectionHeader">Overview</div>
 <p><span class="bodySubtitle">Application Overview</span><br>
 The Sales IM application is being assembled in another competition. The goal of this testing competition is to verify the correctness of the application according to the requirement specifications.  It will consist of the creation of a set of automated test cases. The test cases should represent end-to-end real scenarios.</p>
@@ -145,7 +145,10 @@ Interactions between multiple users are involved when two or more users particip
 <p>TopCoder will compensate the first place submission. The payment for the winning competitor will be distributed when the winning solution is submitted after the review phase is completed and the winner is selected.</p>
 <p>
 <strong>Winning Test Solution</strong><br>
-Total Payment - $1,000</p>
+Total Payment - $1,200</p>
+<p>
+<strong>Second Place Test Solution</strong><br>
+Total Payment - $600</p>
 
 <div class="sectionHeader">Eligibility</div>
 <p>You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition, you must fit into one of the following categories.<br>
@@ -188,7 +191,7 @@ If you do not reside in the United States:<br>
 <div class="sectionHeader">Registration</div>
 <%--<p>Registration is closed.</p>--%>
 
-<p>To sign up as a participant, send an email to <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Chat">TestingCompetitions@topcoder.com</A>.  In the email, include the following information:
+<p>To sign up as a participant, send an email to <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Chat Testing Competition">TestingCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
 <li>First & Last Name</li>
@@ -198,7 +201,7 @@ TopCoder staff will respond as to whether you are registered or not.
 </p>
 
 <div class="sectionHeader">Submission</div>
-<p>Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingSubmissions@topcoder.com?subject=Submit: Sales IM Chat">TestingSubmissions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.</p>
+<p>Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingSubmissions@topcoder.com?subject=Submit: Sales IM Chat Testing Competition">TestingSubmissions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.</p>
 
 </div>
 </td>
