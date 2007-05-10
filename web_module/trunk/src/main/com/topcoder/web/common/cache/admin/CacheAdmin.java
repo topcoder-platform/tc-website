@@ -139,6 +139,28 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         }
     }
 
+    public String sizeOverview() {
+        InitialContext ctx = null;
+        TCResourceBundle b = new TCResourceBundle("cache");
+        try {
+            ctx = TCContext.getInitial(b.getProperty("host_url"));
+            TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
+            int size = 0;
+            Set kids = cache.getChildrenNames("/");
+            StringBuilder sb = new StringBuilder(100);
+            for (Object kid : kids) {
+                sb.append(kid).append(": ").append(size("/" + kid + "    "));
+            }
+            return sb.toString();
+        } catch (NamingException e) {
+            throw new RuntimeException(e);
+        } catch (CacheException e) {
+            throw new RuntimeException(e);
+        } finally {
+            TCContext.close(ctx);
+        }
+    }
+
 
     public String getName() {
         return "JBoss Cache Admin";
