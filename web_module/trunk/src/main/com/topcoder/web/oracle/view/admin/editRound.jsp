@@ -272,7 +272,7 @@
 
     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="studioContestForm">
         <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddCandidatesFromStudio"/>
-        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+        <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
 
         <tc-webtag:errorIterator id="err" name="<%=Constants.STUDIO_CONTEST_ID%>"><span class="bigRed">${err}
             <br/></span></tc-webtag:errorIterator>
