@@ -4606,8 +4606,7 @@ public class TCLoadTCS extends TCLoad {
             "      project_info pidr, " +
             "      comp_versions cv,  " +
             "      comp_catalog cc  " +
-            " where pr.modify_date > mdy(1,1,2007) " +
-            " and p.project_id = pr.project_id  " +
+            " where p.project_id = pr.project_id  " +
             " and p.project_id = pi.project_id  " +
             " and p.project_status_id <> 3  " +
             " and p.project_category_id in (1, 2)  " +
@@ -4729,7 +4728,7 @@ public class TCLoadTCS extends TCLoad {
         PreparedStatement selectResults = null;
         
         
-        selectResults = prepareStatement(SELECT_RESULTS, TARGET_DB);
+        selectResults = prepareStatement(SELECT_RESULTS, SOURCE_DB);
         selectResults.setInt(1, phaseId - 111); 
         selectResults.setTimestamp(2, startDate);
         selectResults.setTimestamp(3, endDate);
