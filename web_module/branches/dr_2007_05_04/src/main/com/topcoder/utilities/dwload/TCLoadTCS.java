@@ -4597,23 +4597,17 @@ public class TCLoadTCS extends TCLoad {
     
     private void doLoadStageResults() throws Exception {
         log.debug("load stage results");
+.        
         final String SELECT_STAGES =
             " select distinct s.stage_id, s.start_date, s.end_date " +
             " from project_result pr, " +
             "      stage s, " +
             "      project p,  " +
-            "      project_info pi,  " +
             "      project_info piel, " +
-            "      project_info pidr, " +
-            "      comp_versions cv,  " +
-            "      comp_catalog cc  " +
+            "      project_info pidr " +
             " where p.project_id = pr.project_id  " +
-            " and p.project_id = pi.project_id  " +
             " and p.project_status_id <> 3  " +
             " and p.project_category_id in (1, 2)  " +
-            " and pi.project_info_type_id = 1  " +
-            " and cv.comp_vers_id= pi.value  " +
-            " and cc.component_id = cv.component_id  " +
             " and piel.project_info_type_id = 14  " +
             " and piel.value = 'Open'  " +
             " and p.project_id = piel.project_id  " +
@@ -4621,9 +4615,6 @@ public class TCLoadTCS extends TCLoad {
             " and pidr.project_info_type_id = 26  " + 
             " and pidr.value = 'On' " + 
             " and (p.modify_date > ? " +
-            "     OR cv.modify_date > ? " +
-            "     OR pi.modify_date > ? " +
-            "     OR cc.modify_date > ? " +
             "     OR pr.modify_date > ?) " +
             " and ( " +
             " select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
@@ -4657,9 +4648,6 @@ public class TCLoadTCS extends TCLoad {
 
             selectStages.setTimestamp(1, fLastLogTime);
             selectStages.setTimestamp(2, fLastLogTime);
-            selectStages.setTimestamp(3, fLastLogTime);
-            selectStages.setTimestamp(4, fLastLogTime);
-            selectStages.setTimestamp(5, fLastLogTime);
             
             rsStages = selectStages.executeQuery();
             
@@ -4689,7 +4677,7 @@ public class TCLoadTCS extends TCLoad {
     }
     
     private void loadDRContestResults(Timestamp startDate, Timestamp endDate, int phaseId, int contestId, int contestTypeId, String className) throws Exception {
-        log.debug("load contest result for contest_id=" + contestId);
+        log.debug("load contest_result for contest_id=" + contestId);
         final String SELECT_RESULTS = 
             " select p.project_id " +
             "       ,p.project_status_id " +
@@ -4745,6 +4733,7 @@ public class TCLoadTCS extends TCLoad {
                     rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
                     rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
                                     
+            log.debug("add pj="+ res.getProjectId() + " usr=" + res.getUserId() + "  pl=" + res.getPlaced());
             pr.add(res);
         }
         close(rs);
