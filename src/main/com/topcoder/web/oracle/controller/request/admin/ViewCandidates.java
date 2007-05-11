@@ -21,7 +21,7 @@ public class ViewCandidates extends Base {
 
         OracleDAOFactory f = OracleDAOUtil.getFactory();
 
-        Round round = null;
+        Round round;
 
         if ("".equals(StringUtils.checkNull(roundId))) {
             throw new NavigationException("Invalid round specified.");
@@ -31,6 +31,7 @@ public class ViewCandidates extends Base {
                 throw new NavigationException("Invalid round specified.");
             } else {
                 getRequest().setAttribute("candidates", f.getCandidateDAO().getCandidates(round));
+                getRequest().setAttribute("round", round);
             }
         }
 

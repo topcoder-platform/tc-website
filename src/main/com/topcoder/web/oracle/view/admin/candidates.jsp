@@ -50,7 +50,7 @@
                             <td class="value">${candidate.id}</td>
                             <td class="value"><strong>${candidate.name}</strong></td>
                             <td class="valueC">
-                                <a href="${sessionInfo.servletPath}?module=AdminViewCandidate&amp;<%=Constants.CANDIDATE_ID%>=${candidate.id}">edit</a>
+                                <a href="${sessionInfo.servletPath}?module=AdminViewCandidate&amp;<%=Constants.CANDIDATE_ID%>=${candidate.id}&amp;<%=Constants.ROUND_ID%>=${round.id}">edit</a>
                             </td>
                         </tr>
                         <% even = !even;%>
