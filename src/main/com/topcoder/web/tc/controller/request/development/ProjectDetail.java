@@ -11,9 +11,9 @@ import java.util.Map;
 
 /**
  * Added some code to permit other projects different from component competitions.
- * 
+ *
  * @author dok, pulky
- * Date: Mar 1, 2004
+ *         Date: Mar 1, 2004
  */
 public class ProjectDetail extends Base {
 
@@ -22,17 +22,17 @@ public class ProjectDetail extends Base {
 
         try {
             String projectId = StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID));
-            
-            if (projectId == "") {
+
+            if (projectId.equals("")) {
                 throw new TCWebException("parameter " + Constants.PROJECT_ID + " expected.");
             }
-            
-            int projectTypeId = getProjectTypeId(Long.parseLong(projectId)); 
-            
+
+            int projectTypeId = getProjectTypeId(Long.parseLong(projectId));
+
             if (projectTypeId == -1) {
                 throw new TCWebException("Could not find project information.");
             }
-            
+
             Request r = new Request();
             r.setContentHandle("project_detail");
             r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
@@ -46,13 +46,13 @@ public class ProjectDetail extends Base {
             boolean full = false;  //projects are never full in our current rules
             getRequest().setAttribute("projectFull", String.valueOf(full));
             getRequest().setAttribute("projectId", StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
-            
+
             if (details.isEmpty()) {
                 throw new NavigationException("Could not find project information.");
             }
 
             String projectDetailPage = getProjectDetailPage(projectTypeId);
-            if (projectDetailPage == "") {
+            if (projectDetailPage.equals("")) {
                 throw new TCWebException("Invalid phase found: " + (projectTypeId + 111));
             }
 
