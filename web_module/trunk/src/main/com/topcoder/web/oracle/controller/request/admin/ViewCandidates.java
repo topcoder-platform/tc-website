@@ -34,7 +34,7 @@ public class ViewCandidates extends Base {
             }
         }
 
-        setNextPage("/admin/viewCandidates.jsp");
+        setNextPage("/admin/candidates.jsp");
         setIsNextPageInContext(true);
     }
 }
