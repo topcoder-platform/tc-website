@@ -21,7 +21,7 @@ public class Constants implements WebConstants {
     public static final String ROUND_STATUS_ID = "rdstid";
     public static final String ROUND_PROPERTY = "rdprop";
     public static final String STUDIO_CONTEST_ID = "studio" + CONTEST_ID;
-    public static final String PRIOR_ROUND_ID = "prior"+ROUND_ID;
+    public static final String PRIOR_ROUND_ID = "prior" + ROUND_ID;
     public static final String CONTEST_TYPE_ID = "ctttid";
 
     public static int CONTEST_TERMS_OF_USE_ID;
@@ -30,6 +30,7 @@ public class Constants implements WebConstants {
     public static int MAX_ROUND_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
     public static String JAVA_DATE_FORMAT;
+    public static String CANDIDATE_ID = "cid";
 
 
     public static String DEFAULT_PAGE;
