@@ -115,6 +115,36 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
+    public void expiredAffidavit(BasePayment payment) throws InvalidStateTransitionException {
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
+        try {
+            payment.getCurrentStatus().expiredAffidavit(payment);
+        } catch (Exception e) {
+            // do nothing
+        }
+    }
+
+    @Override
+    public void expiredIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
+        try {
+            payment.getCurrentStatus().expiredIPTransfer(payment);
+        } catch (Exception e) {
+            // do nothing
+        }
+    }
+
+    @Override
+    public void expiredPayment(BasePayment payment) throws InvalidStateTransitionException {
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS));
+        try {
+            payment.getCurrentStatus().activate(payment);
+        } catch (Exception e) {
+            // do nothing
+        }
+    }
+
+    @Override
     public void affirmedIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
         log.debug("affirmedIPTransfer called for payment: " + payment.getId());
         if (reasons.contains(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason())) {

@@ -42,6 +42,18 @@ public abstract class BasePaymentStatus {
         throw new InvalidStateTransitionException();
     }
 
+    public void expiredAffidavit(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException();
+    }
+
+    public void expiredIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException();
+    }
+
+    public void expiredPayment(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException();
+    }
+
     public void affirmedIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
         throw new InvalidStateTransitionException();
     }

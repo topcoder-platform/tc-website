@@ -46,6 +46,7 @@ import com.topcoder.web.ejb.pacts.payments.InvalidStatusReasonException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
+import com.topcoder.web.ejb.pacts.payments.StateTransitionFailureException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
@@ -6141,17 +6142,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             c = DBMS.getConnection();
-            c.setAutoCommit(false);
+            c.setAutoCommit(false); 
             setLockTimeout(c);
 
             StringBuffer query = new StringBuffer(300);
-
+            
             query.append(" SELECT p.payment_id ");
             query.append(" from payment_detail pd, payment p");
             query.append(" WHERE payment_type_id = " + ALGORITHM_CONTEST_PAYMENT);
             query.append(" AND pd.payment_detail_id = p.most_recent_detail_id");
-            query.append(" AND status_id IN (" + PAYMENT_ON_HOLD_STATUS + ",");
-            query.append(PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," + PAYMENT_PENDING_STATUS + ") ");
+            query.append(" AND status_id = " + PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId());
             query.append(" AND today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
             ResultSetContainer payments = runSelectQuery(c, query.toString(), false);
 
@@ -6162,8 +6162,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p[i] = payments.getLongItem(i, 0);
             }
 
-            // TODO: check this!
-            //batchUpdateStatus(c, p, PAYMENT_EXPIRED_STATUS);
+            // notify payments
+            PaymentStatusMediator psm = new PaymentStatusMediator(c);
+            long paymentId = 0;
+            for (int i = 0; i < payments.getRowCount(); i++) {
+                try {
+                    paymentId = payments.getLongItem(i, 0);
+                    psm.expiredPayment(paymentId);
+                } catch (StateTransitionFailureException e) {
+                    // TODO: pulky: change to a better message from the exception
+                    log.warn("Payment ID " + paymentId + " would have been expired\n" +
+                            "but has already been paid");
+                }
+            }
 
             c.commit();
             c.setAutoCommit(true);
@@ -6204,7 +6215,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int expireOldAffidavits() throws SQLException {
-        // TODO: pulky: change this so it use the PaymentStatusMediator.
         Connection c = null;
 
         try {
@@ -6228,15 +6238,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             updateAffidavits.append(" AND status_id = " + AFFIDAVIT_PENDING_STATUS);
             int rowsUpdated = runUpdateQuery(c, updateAffidavits.toString(), false);
 
-            int i, rowCount = payments.getRowCount();
-            long j[] = new long[1];
-            for (i = 0; i < rowCount; i++) {
+            // notify payments
+            PaymentStatusMediator psm = new PaymentStatusMediator(c);
+            long paymentId = 0;
+            for (int i = 0; i < payments.getRowCount(); i++) {
                 try {
-                    j[0] = Integer.parseInt(payments.getItem(i, 0).toString());
-                    log.debug("updating payment id " + j[0]);
-                    updatePaymentStatus(c, j, PAYMENT_CANCELED_STATUS);
-                } catch (PaymentPaidException e) {
-                    log.warn("Payment ID " + j[0] + " would have been canceled due to expired affidavit\n" +
+                    paymentId = payments.getLongItem(i, 0);
+                    psm.expiredAffidavit(paymentId);
+                } catch (StateTransitionFailureException e) {
+                    // TODO: pulky: change to a better message from the exception
+                    log.warn("Payment ID " + paymentId + " would have been canceled due to expired affidavit\n" +
                             "but has already been paid");
                 }
             }
@@ -6258,12 +6269,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
+            close(c);
             throw new SQLException(e.getMessage());
         }
     }
@@ -6278,11 +6284,21 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int expireOldAssignmentDocuments() throws SQLException {
-        // TODO: pulky: change this so it use the PaymentStatusMediator.
         Connection c = null;
 
         try {
             c = DBMS.getConnection();
+            c.setAutoCommit(false);
+            setLockTimeout(c);
+
+            StringBuffer getPayments = new StringBuffer(300);
+            getPayments.append("select p.payment_id from payment p, payment_detail pd, assignment_document ad ");
+            getPayments.append("where p.most_recent_detail_id = pd.payment_detail_id ");
+            getPayments.append("and date(ad.expire_date) <= date(current) ");
+            getPayments.append("and ad.assignment_document_status_id = " + AssignmentDocumentStatus.PENDING_STATUS_ID);
+            getPayments.append("and (pd.studio_contest_id = ad.studio_contest_id or pd.component_project_id = ad.component_project_id) ");
+            getPayments.append("and pd.status_id = " + PaymentStatus.ON_HOLD_PAYMENT_STATUS);
+            ResultSetContainer payments = runSelectQuery(c, getPayments.toString(), false);
 
             StringBuffer updateAssignmentDocuments = new StringBuffer(300);
             updateAssignmentDocuments.append(" update assignment_document ");
@@ -6293,17 +6309,38 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             int rowsUpdated = runUpdateQuery(c, updateAssignmentDocuments.toString(), false);
 
+            // notify payments
+            PaymentStatusMediator psm = new PaymentStatusMediator(c);
+            long paymentId = 0;
+            for (int i = 0; i < payments.getRowCount(); i++) {
+                try {
+                    paymentId = payments.getLongItem(i, 0);
+                    psm.expiredIPTransfer(paymentId);
+                } catch (StateTransitionFailureException e) {
+                    // TODO: pulky: change to a better message from the exception
+                    log.warn("Payment ID " + paymentId + " would have been canceled due to expired IP Transfer Document\n" +
+                            "but has already been paid");
+                }
+            }
+
+            c.commit();
+            c.setAutoCommit(true);
             c.close();
             c = null;
             return rowsUpdated;
         } catch (Exception e) {
             printException(e);
             try {
-                if (c != null) c.close();
+                c.rollback();
             } catch (Exception e1) {
                 printException(e1);
             }
-            c = null;
+            try {
+                c.setAutoCommit(true);
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            close(c);
             throw new SQLException(e.getMessage());
         }
     }

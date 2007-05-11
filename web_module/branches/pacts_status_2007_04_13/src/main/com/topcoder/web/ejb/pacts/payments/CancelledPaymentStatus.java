@@ -36,11 +36,17 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
 
     @Override
     public void activate(BasePayment payment) {
-        // TODO: pulky: do something   
+        // nothing to do   
     }
     
-    public void expiredAffidavit() {
+    @Override
+    public void expiredAffidavit(BasePayment payment) {
         reasons.add(AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason());
+    }
+    
+    @Override
+    public void expiredIPTransfer(BasePayment payment) {
+        reasons.add(AvailableStatusReason.EXPIRED_IP_TRANSFER_REASON.getStatusReason());
     }
 
     @Override

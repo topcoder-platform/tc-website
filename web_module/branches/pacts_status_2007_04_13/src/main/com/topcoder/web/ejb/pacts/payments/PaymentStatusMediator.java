@@ -187,9 +187,73 @@ public class PaymentStatusMediator {
         }
     }
 
-    //    public void expiredAffidavit () {
-//        statusManager.expiredAffidavit();
-//    }
+    public void expiredAffidavit(Long paymentId) throws StateTransitionFailureException {
+        log.debug("expiredAffidavit called for paymentId: " + paymentId);
+        try {
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.PAYMENT_ID, paymentId.toString());
+
+            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            
+            // if not exactly one result, throw exception
+            if (payments.size() != 1) {
+                log.debug("not exactly one result");
+            }
+            
+            // notify the status manager and update the payment
+            BasePayment payment = payments.get(0);
+            statusManager.expiredAffidavit(payment);
+            dib.updatePayment(conn, payment);
+        } catch (Exception e) {
+            throw new StateTransitionFailureException(e);
+        }
+    }
+
+
+    public void expiredIPTransfer(Long paymentId) throws StateTransitionFailureException {
+        log.debug("expiredIPTransfer called for paymentId: " + paymentId);
+        try {
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.PAYMENT_ID, paymentId.toString());
+
+            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            
+            // if not exactly one result, throw exception
+            if (payments.size() != 1) {
+                log.debug("not exactly one result");
+            }
+            
+            // notify the status manager and update the payment
+            BasePayment payment = payments.get(0);
+            statusManager.expiredIPTransfer(payment);
+            dib.updatePayment(conn, payment);
+        } catch (Exception e) {
+            throw new StateTransitionFailureException(e);
+        }
+    }
+
+
+    public void expiredPayment(Long paymentId) throws StateTransitionFailureException {
+        log.debug("expiredIPTransfer called for paymentId: " + paymentId);
+        try {
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.PAYMENT_ID, paymentId.toString());
+
+            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            
+            // if not exactly one result, throw exception
+            if (payments.size() != 1) {
+                log.debug("not exactly one result");
+            }
+            
+            // notify the status manager and update the payment
+            BasePayment payment = payments.get(0);
+            statusManager.expiredPayment(payment);
+            dib.updatePayment(conn, payment);
+        } catch (Exception e) {
+            throw new StateTransitionFailureException(e);
+        }
+    }
 
     private void setLockTimeout(Connection c) throws SQLException {
         PreparedStatement ps = null;

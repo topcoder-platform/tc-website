@@ -21,14 +21,6 @@ public class PaymentStatusManager {
     public PaymentStatusManager() {
     }
 
-//    public PaymentStatusManager(BasePayment payment) {
-//        setPayment(payment);
-//    }
-//
-//    public void setPayment(BasePayment payment) {
-//        this.payment = payment;
-//    }
-
     public void newPayment(BasePayment payment) {
         log.debug("newPayment called...");
         // the start point for a new payment is the on hold state
@@ -67,8 +59,18 @@ public class PaymentStatusManager {
         payment.getCurrentStatus().accrualThresholdReached(payment);
     }
 
-//    public void expiredAffidavit () {
-//        //payment.getCurrentStatus().expiredAffidavit();
-//    }
+    public void expiredAffidavit(BasePayment payment) throws InvalidStateTransitionException  {
+        log.debug("expiredAffidavit called for payment: " + payment.getId());
+        payment.getCurrentStatus().expiredAffidavit(payment);
+    }
 
+    public void expiredIPTransfer(BasePayment payment) throws InvalidStateTransitionException  {
+        log.debug("expiredIPTransfer called for payment: " + payment.getId());
+        payment.getCurrentStatus().expiredIPTransfer(payment);
+    }
+
+    public void expiredPayment(BasePayment payment) throws InvalidStateTransitionException  {
+        log.debug("expiredPayment called for payment: " + payment.getId());
+        payment.getCurrentStatus().expiredPayment(payment);
+    }
 }
