@@ -4419,6 +4419,14 @@ public class TCLoadTCS extends TCLoad {
         }
     }
 
+    private void setCalendar(PreparedStatement ps, int parameterNumber, Timestamp value) {
+        if (value != null) {
+            ps.setInt(parameterNumber, lookupCalendarId(value, TARGET_DB));
+        } else {
+            ps.setNull(parameterNumber, Types.INTEGER);
+        }
+    }
+    
     public void doLoadSeason() throws Exception {
         log.info("load season");
         ResultSet rs;
@@ -4460,8 +4468,8 @@ public class TCLoadTCS extends TCLoad {
 
                 update.clearParameters();
 
-                update.setInt(1, lookupCalendarId(rs.getTimestamp("start_date"), TARGET_DB));
-                update.setInt(2, lookupCalendarId(rs.getTimestamp("end_date"), TARGET_DB));
+                setCalendar(update, 1, rs.getTimestamp("start_date"));
+                setCalendar(update, 2, rs.getTimestamp("end_date"));
                 update.setString(3, rs.getString("name"));
                 update.setInt(4, rs.getInt("rookie_competition_ind"));
                 update.setInt(5, rs.getInt("next_rookie_season_id"));
@@ -4472,8 +4480,8 @@ public class TCLoadTCS extends TCLoad {
                 if (retVal == 0) {
                     insert.clearParameters();
 
-                    insert.setInt(1, lookupCalendarId(rs.getTimestamp("start_date"), TARGET_DB));
-                    insert.setInt(2, lookupCalendarId(rs.getTimestamp("end_date"), TARGET_DB));
+                    setCalendar(insert, 1, rs.getTimestamp("start_date"));
+                    setCalendar(insert, 2, rs.getTimestamp("end_date"));
                     insert.setString(3, rs.getString("name"));
                     insert.setInt(4, rs.getInt("rookie_competition_ind"));
                     insert.setInt(5, rs.getInt("next_rookie_season_id"));
