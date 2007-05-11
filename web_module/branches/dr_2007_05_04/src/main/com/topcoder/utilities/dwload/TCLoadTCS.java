@@ -24,9 +24,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.shared.util.dwload.TCLoad;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.utilities.dwload.stageresult.PointsCalculator;
-import com.topcoder.utilities.dwload.stageresult.ProjectResult;
-import com.topcoder.utilities.dwload.stageresult.StageResult;
 
 /**
  * <strong>Purpose</strong>:
