@@ -4420,6 +4420,7 @@ public class TCLoadTCS extends TCLoad {
     }
 
     private void setCalendar(PreparedStatement ps, int parameterNumber, Timestamp value) throws SQLException {
+        log.debug("setCalendar " + value);
         if (value != null) {
             ps.setInt(parameterNumber, lookupCalendarId(value, TARGET_DB));
         } else {
