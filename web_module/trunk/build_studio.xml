@@ -277,6 +277,7 @@
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
+        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
 
         <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>
