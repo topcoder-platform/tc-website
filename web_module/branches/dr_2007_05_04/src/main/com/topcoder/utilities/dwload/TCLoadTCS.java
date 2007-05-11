@@ -24,6 +24,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.shared.util.dwload.TCLoad;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.utilities.dwload.contestresult.ContestResult;
+import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
+import com.topcoder.utilities.dwload.contestresult.ProjectResult;
 
 /**
  * <strong>Purpose</strong>:
@@ -286,6 +289,7 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadStage();
 
+            doLoadStageResults();
             //doLoadContestResult();
             
 //            doClearCache();
@@ -4423,13 +4427,13 @@ public class TCLoadTCS extends TCLoad {
     }
 
     private void setCalendar(PreparedStatement ps, int parameterNumber, Timestamp value) throws SQLException {
-        log.debug("setCalendar " + value);
         if (value != null) {
             ps.setInt(parameterNumber, lookupCalendarId(value, TARGET_DB));
         } else {
             ps.setNull(parameterNumber, Types.INTEGER);
         }
     }
+    
     
     public void doLoadSeason() throws Exception {
         log.info("load season");
@@ -4591,6 +4595,176 @@ public class TCLoadTCS extends TCLoad {
 
     
     
+    private void doLoadStageResults() throws Exception {
+        final String SELECT_STAGES =
+            " select distinct s.stage_id, s.start_date, s.end_date " +
+            " from project_result pr, " +
+            "      stage s, " +
+            "      project p,  " +
+            "      project_info pi,  " +
+            "      project_info piel, " +
+            "      project_info pidr " +
+            "      comp_versions cv,  " +
+            "      comp_catalog cc  " +
+            " where pr.modify_date > mdy(1,1,2007) " +
+            " and p.project_id = pr.project_id  " +
+            " and p.project_id = pi.project_id  " +
+            " and p.project_status_id <> 3  " +
+            " and p.project_category_id in (1, 2)  " +
+            " and pi.project_info_type_id = 1  " +
+            " and cv.comp_vers_id= pi.value  " +
+            " and cc.component_id = cv.component_id  " +
+            " and piel.project_info_type_id = 14  " +
+            " and piel.value = 'Open'  " +
+            " and p.project_id = piel.project_id  " +
+            " and p.project_id = pidr.project_id  " + 
+            " and pidr.project_info_type_id = 26  " + 
+            " and pidr.value = 'On' " + 
+            " and (p.modify_date > ? " +
+            "     OR cv.modify_date > ? " +
+            "     OR pi.modify_date > ? " +
+            "     OR cc.modify_date > ? " +
+            "     OR pr.modify_date > ?) " +
+            " and ( " +
+            " select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
+            " from project p " +
+            "     , OUTER project_phase psd " +
+            "     , OUTER project_phase ppd " +
+            " where  psd.project_id = p.project_id  " +
+            " and psd.phase_type_id = 2  " +
+            " and ppd.project_id = p.project_id  " +
+            " and ppd.phase_type_id = 1  " +
+            " and p.project_id = pr.project_id) between s.start_date and s.end_date ";
+        
+        final String SELECT_CONTESTS = 
+                " select c.contest_id, c.phase_id, c.contest_type_id, crc.class_name " +
+                " from contest_stage_xref x " +
+                " ,contest c " +
+                " ,contest_result_calculator_lu crc " +
+                " where c.contest_id = x.contest_id " +
+                " and c.contest_result_calculator_id = crc.contest_result_calculator_id  " +
+                " and x.stage_id = ? ";
+
+        
+        PreparedStatement selectStages = null;
+        PreparedStatement selectContests = null;
+        ResultSet rsStages = null;
+        ResultSet rsContests = null;
+        
+        try {
+            selectStages = prepareStatement(SELECT_STAGES, SOURCE_DB);
+            selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
+
+            selectStages.setTimestamp(1, fLastLogTime);
+            selectStages.setTimestamp(2, fLastLogTime);
+            selectStages.setTimestamp(3, fLastLogTime);
+            selectStages.setTimestamp(4, fLastLogTime);
+            selectStages.setTimestamp(5, fLastLogTime);
+            
+            rsStages = selectStages.executeQuery();
+            
+            while (rsStages.next()) {
+                selectContests.clearParameters();
+                selectContests.setInt(1, rsStages.getInt("stage_id"));
+                rsContests = selectContests.executeQuery();
+                
+                Timestamp startDate = rsStages.getTimestamp("start_date");
+                Timestamp endDate = rsStages.getTimestamp("end_date");
+                while (rsContests.next()) {
+                    loadDRContestResults(startDate, endDate, rsContests.getInt("contest_id"), rsContests.getInt("phase_id"), 
+                            rsContests.getInt("contest_type_id"), rsContests.getString("class_name"));
+                }
+                
+            }
+            
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'contest_result' table for stages failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(selectStages);
+            close(rsStages);
+        }
+
+    }
+    
+    private void loadDRContestResults(Timestamp startDate, Timestamp endDate, int phaseId, int contestId, int contestTypeId, String className) throws Exception {
+        final String SELECT_RESULTS = 
+            " select p.project_id " +
+            "       ,p.project_status_id " +
+            "       ,pr.user_id " +
+            "       ,pr.placed " +
+            "       ,pr.point_adjustment " +
+            "       ,pr.passed_review_ind " +
+            "       ,pi_amount.value as amount " +
+            "       ,(select count(*) from submission s, upload u  " +
+            "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
+            "         and submission_status_id in (1, 4) " +
+            "        ) as num_submissions_passed_review  " +
+            " from project p " +
+            "    ,project_info pi_amount " +
+            "    ,project_info pi_dr " +
+            "    ,project_result pr " +
+            " where pi_amount.project_id = p.project_id " +
+            " and pi_amount.project_info_type_id = 16 " +
+            " and pi_dr.project_id = p.project_id " +
+            " and pi_dr.project_info_type_id = 26 " +
+            " and pi_dr.value = 'On' " +
+            " and p.project_id = pr.project_id " +
+            " and p.project_category_id = ? " +
+            " and ( " +
+            "      select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
+            "      from project p1 " +
+            "        , OUTER project_phase psd " +
+            "        , OUTER project_phase ppd " +
+            "        where  psd.project_id = p1.project_id  " +
+            "        and psd.phase_type_id = 2  " +
+            "        and ppd.project_id = p1.project_id  " +
+            "        and ppd.phase_type_id = 1  " +
+            "        and p1.project_id = p.project_id) between ? and ? ";
+          
+
+        
+        ResultSet rs = null;
+        PreparedStatement selectResults = null;
+        
+        
+        selectResults = prepareStatement(SELECT_RESULTS, TARGET_DB);
+        selectResults.setInt(1, phaseId - 111); 
+        selectResults.setTimestamp(2, startDate);
+        selectResults.setTimestamp(3, endDate);
+        
+        ContestResultCalculator calc = (ContestResultCalculator) Class.forName(className).newInstance();
+
+        rs = selectResults.executeQuery();
+        
+        List<ProjectResult> pr = new ArrayList<ProjectResult>();
+        while (rs.next()) {
+            ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
+                    rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
+                    rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
+                                    
+            pr.add(res);
+        }
+        close(rs);
+
+        List<ContestResult> results = calc.calculatePoints(pr, getContestPrizesAmount(contestId));
+        
+        for(ContestResult result : results) {
+            // write in db!
+            log.debug(result.getCoderId() + " place: " + result.getPlace() + " points: " + result.getFinalPoints());
+        }
+        
+    }
+
+    
+    private List<Double> getContestPrizesAmount(long contestId) {
+        /* TO DO
+        select place, contest_prize_id from contest_prize where contest_id = 253
+        order by place
+        */ 
+        return new ArrayList<Double>();
+    }
 /*
     private void doLoadContestResult() throws Exception {
         log.info("load contest_result");
@@ -4685,6 +4859,7 @@ public class TCLoadTCS extends TCLoad {
     */
 
     
+
     /**
      * Represents a Streak of rating or placement.
      *
