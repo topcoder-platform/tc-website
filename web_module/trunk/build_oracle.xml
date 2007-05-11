@@ -48,6 +48,12 @@
         <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
         <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
 
@@ -164,7 +170,6 @@
     </target>
 
 
-
     <target name="war-oracle" depends="compile">
         <war warfile="${war.dir}/oracle.war" webxml="${resources}/oracle/web.xml">
             <classes dir="${classes}">
@@ -184,11 +189,11 @@
             <webinf dir="${resources}/oracle">
                 <include name="jboss-web.xml"/>
             </webinf>
-<!--we'll use the reg one for now while they live in the same jvm
-            <classes dir="${resources}/oracle">
-                <include name="hibernate.cfg.xml"/>
-            </classes>
--->
+            <!--we'll use the reg one for now while they live in the same jvm
+                        <classes dir="${resources}/oracle">
+                            <include name="hibernate.cfg.xml"/>
+                        </classes>
+            -->
             <classes dir="${resources}/reg">
                 <include name="hibernate.cfg.xml"/>
             </classes>
@@ -207,13 +212,12 @@
         <delete dir="${jboss_deploy}/oracle.war/META-INF"/>
     </target>
 
-<!--
-    <target name="deploy-oracle" depends="war-oracle,build-security">
-        <antcall target="expand-oracle"/>
-    </target>
--->
+    <!--
+        <target name="deploy-oracle" depends="war-oracle,build-security">
+            <antcall target="expand-oracle"/>
+        </target>
+    -->
     <target name="deploy-oracle" depends="war-oracle">
-        <antcall target="deploy-security"/>
         <antcall target="expand-oracle"/>
     </target>
 
@@ -338,7 +342,8 @@
 
     <target name="create_studio_round" depends="compile">
         <java classname="com.topcoder.web.oracle.CreateRoundFromStudioContest" fork="true">
-            <arg value="2065"/>  <!-- 2065-->
+            <arg value="5007"/>
+            <!-- 2065-->
             <arg value="100"/>
             <classpath>
                 <pathelement location="${classes}"/>
@@ -367,8 +372,6 @@
             </classpath>
         </java>
     </target>
-
-
 
 
 </project>
