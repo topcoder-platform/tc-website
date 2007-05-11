@@ -71,7 +71,7 @@
 
 
                             <c:forEach items="${properties}" var="property">
-                                <c:set value="${candidatePropertyKey+property.id}" var="currKey"/>
+                                <c:set value="${candidatePropertyKey}${property.id}" var="currKey"/>
                                 <tr>
                                     <td colspan="2">
                                         <tc-webtag:errorIterator id="err" name="${currKey}"><span class="bigRed">${err}
