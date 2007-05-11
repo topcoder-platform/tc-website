@@ -4596,6 +4596,7 @@ public class TCLoadTCS extends TCLoad {
     
     
     private void doLoadStageResults() throws Exception {
+        log.debug("load stage results");
         final String SELECT_STAGES =
             " select distinct s.stage_id, s.start_date, s.end_date " +
             " from project_result pr, " +
@@ -4688,6 +4689,7 @@ public class TCLoadTCS extends TCLoad {
     }
     
     private void loadDRContestResults(Timestamp startDate, Timestamp endDate, int phaseId, int contestId, int contestTypeId, String className) throws Exception {
+        log.debug("load contest result for contest_id=" + contestId);
         final String SELECT_RESULTS = 
             " select p.project_id " +
             "       ,p.project_status_id " +
