@@ -15,7 +15,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
      */    
     private static final int STATUS_ACTIVE = 1;
     
-    
+    // todo: change name (calculateResult?)
     public  List<ContestResult> calculatePoints(List<ProjectResult> pr, List<Double> prizesAmount) {
         Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
         
@@ -61,11 +61,13 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         }
         
         // TO DO: assign prizes.
-        
+        assignPrizes(l, prizesAmount);
         return l;        
     }
     
     public abstract double calculatePointsAwarded(ProjectResult pr);
+
+    protected abstract void assignPrizes(List<ContestResult> pr, List<Double> prizesAmount);
 
     protected abstract long calculatePotentialPoints(ProjectResult pr);
 

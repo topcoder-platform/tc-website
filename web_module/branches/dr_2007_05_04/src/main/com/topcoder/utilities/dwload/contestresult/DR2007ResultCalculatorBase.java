@@ -2,7 +2,7 @@ package com.topcoder.utilities.dwload.contestresult;
 
 import java.util.Comparator;
 
-public class DR2007ResultCalculator extends DRResultCalculatorBase {
+public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase {
 
     private static final int[][] placementPoints = 
      {{500, 325, 270, 250, 245, 240, 235},
