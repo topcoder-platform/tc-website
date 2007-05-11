@@ -4603,7 +4603,7 @@ public class TCLoadTCS extends TCLoad {
             "      project p,  " +
             "      project_info pi,  " +
             "      project_info piel, " +
-            "      project_info pidr " +
+            "      project_info pidr, " +
             "      comp_versions cv,  " +
             "      comp_catalog cc  " +
             " where pr.modify_date > mdy(1,1,2007) " +
