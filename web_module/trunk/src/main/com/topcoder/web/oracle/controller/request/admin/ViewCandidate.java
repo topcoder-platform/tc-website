@@ -46,6 +46,7 @@ public class ViewCandidate extends Base {
                     getRequest().setAttribute("candidate", c);
                     setDefault(Constants.ROUND_ID, round.getId());
                     setDefault(Constants.CANDIDATE_ID, c.getId());
+                    setDefault(Constants.CANDIDATE_NAME, c.getName());
                     getRequest().setAttribute("round", round);
                     for (CandidateInfo info : c.getInfo()) {
                         setDefault(Constants.CANDIDATE_PROPERTY + info.getProperty().getId(), info.getValue());
