@@ -4597,7 +4597,7 @@ public class TCLoadTCS extends TCLoad {
     
     private void doLoadStageResults() throws Exception {
         log.debug("load stage results");
-.        
+        
         final String SELECT_STAGES =
             " select distinct s.stage_id, s.start_date, s.end_date " +
             " from project_result pr, " +
