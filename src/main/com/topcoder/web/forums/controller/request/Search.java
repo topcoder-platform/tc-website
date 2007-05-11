@@ -123,16 +123,21 @@ public class Search extends ForumsProcessor {
             boolean searchCategories = false;
             if (searchScope.equals("all")) {
                 query = forumFactory.createQuery();
-                searchCategories = true;
+                try {
+                    ForumCategory category = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID);
+                    searchCategories = (category.getCategoryCount() > 0);
+                } catch (ForumCategoryNotFoundException e) {
+                    searchCategories = false;
+                }
             } else if (searchScope.startsWith("f")) {
             	long forumID = Long.parseLong(searchScope.substring(1));
                 Forum forum = forumFactory.getForum(forumID);
                 query = forum.createQuery();
             } else if (searchScope.startsWith("c")) {
                 long categoryID = Long.parseLong(searchScope.substring(1));
-                searchCategories = (categoryID == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID);
                 ArrayList forumList = new ArrayList();
                 ForumCategory category = forumFactory.getForumCategory(categoryID);
+                searchCategories = (categoryID == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID && category.getCategoryCount() > 0);
                 Iterator itCategoryForums = category.getRecursiveForums(resultFilter);
                 while (itCategoryForums.hasNext()) {
                     Forum f = (Forum)itCategoryForums.next();
@@ -259,69 +264,65 @@ public class Search extends ForumsProcessor {
             unquotedQueryString = queryString.substring(1, queryString.length()-1).trim();
         }
         
-        try {
-            Iterator<ForumCategory> itSearchCategories = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
-            ArrayList<ForumCategory> categoryResultsList = new ArrayList<ForumCategory>();
-            Hashtable<ForumCategory,Integer> categoryRankTable = new Hashtable<ForumCategory,Integer>();
-            Hashtable<ForumCategory,Integer> optMatchesTable = new Hashtable<ForumCategory,Integer>();
-            while (itSearchCategories.hasNext()) {
-                ForumCategory category = itSearchCategories.next();
-                String categoryName = category.getName().toLowerCase().trim();
-                String[] categoryNameTokens = categoryName.split(" ");
-                int rank = -1;
-                if (categoryName.equals(queryString) ||
-                        (unquotedQueryString.length() > 0 && categoryName.equals(unquotedQueryString))) {
-                    rank = 1;
-                } else if (categoryNameTokens.length > 0 && (categoryNameTokens[0].equals(queryString) ||
-                        (unquotedQueryString.length() > 0 && categoryNameTokens[0].equals(unquotedQueryString)))) {
-                    rank = 2;
-                } else {
-                    boolean hasAllReq = true;
-                    for (int i=0; i<reqTokens.size(); i++) {
-                        hasAllReq &= ForumsUtil.inArray(reqTokens.get(i), categoryNameTokens);
-                    }
-                    if (hasAllReq) {
-                        int optTokensCNT = 0;
-                        for (int i=0; i<optTokens.size(); i++) {
-                            if (ForumsUtil.inArray(optTokens.get(i), categoryNameTokens)) {
-                                optTokensCNT++;
-                            }
-                        }
-                        if (optTokensCNT > 0 || reqTokens.size() > 0) {
-                            optMatchesTable.put(category, optTokensCNT);
-                            rank = 3;
+        Iterator<ForumCategory> itSearchCategories = forumFactory.getForumCategory(WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID).getCategories();
+        ArrayList<ForumCategory> categoryResultsList = new ArrayList<ForumCategory>();
+        Hashtable<ForumCategory,Integer> categoryRankTable = new Hashtable<ForumCategory,Integer>();
+        Hashtable<ForumCategory,Integer> optMatchesTable = new Hashtable<ForumCategory,Integer>();
+        while (itSearchCategories.hasNext()) {
+            ForumCategory category = itSearchCategories.next();
+            String categoryName = category.getName().toLowerCase().trim();
+            String[] categoryNameTokens = categoryName.split(" ");
+            int rank = -1;
+            if (categoryName.equals(queryString) ||
+                    (unquotedQueryString.length() > 0 && categoryName.equals(unquotedQueryString))) {
+                rank = 1;
+            } else if (categoryNameTokens.length > 0 && (categoryNameTokens[0].equals(queryString) ||
+                    (unquotedQueryString.length() > 0 && categoryNameTokens[0].equals(unquotedQueryString)))) {
+                rank = 2;
+            } else {
+                boolean hasAllReq = true;
+                for (int i=0; i<reqTokens.size(); i++) {
+                    hasAllReq &= ForumsUtil.inArray(reqTokens.get(i), categoryNameTokens);
+                }
+                if (hasAllReq) {
+                    int optTokensCNT = 0;
+                    for (int i=0; i<optTokens.size(); i++) {
+                        if (ForumsUtil.inArray(optTokens.get(i), categoryNameTokens)) {
+                            optTokensCNT++;
                         }
                     }
-                }
-                if (rank > 0) {                    
-                    categoryRankTable.put(category, rank);
-                    categoryResultsList.add(category);
+                    if (optTokensCNT > 0 || reqTokens.size() > 0) {
+                        optMatchesTable.put(category, optTokensCNT);
+                        rank = 3;
+                    }
                 }
             }
-            
-            Collections.sort(categoryResultsList, 
-                    new CategoryResultComparator(categoryRankTable, optMatchesTable));
-            
-            ResultFilter pageFilter = new ResultFilter();
-            pageFilter.setStartIndex(categoryStartIdx);
-            pageFilter.setNumResults(categoryResultSize);
-            
-            Paging paging = new Paging(pageFilter, categoryResultsList.size());
-            Paginator categoriesPaginator = new Paginator(paging);
-            
-            ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
-            ArrayList<ForumCategory> categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
-            if (categoryPageList.size() > 0) {
-                Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, categoryPageList);
-                getRequest().setAttribute("imageDataTable", imageDataTable);
+            if (rank > 0) {                    
+                categoryRankTable.put(category, rank);
+                categoryResultsList.add(category);
             }
-            
-            getRequest().setAttribute("categoriesPage", categoryPageList.iterator());
-            getRequest().setAttribute("categoriesCount", new Integer(categoryResultsList.size()));
-            getRequest().setAttribute("categoriesPaginator", categoriesPaginator);
-        } catch (ForumCategoryNotFoundException fcnfe) {
-            // Not forums.topcoder.com - software category search disabled
         }
+        
+        Collections.sort(categoryResultsList, 
+                new CategoryResultComparator(categoryRankTable, optMatchesTable));
+        
+        ResultFilter pageFilter = new ResultFilter();
+        pageFilter.setStartIndex(categoryStartIdx);
+        pageFilter.setNumResults(categoryResultSize);
+        
+        Paging paging = new Paging(pageFilter, categoryResultsList.size());
+        Paginator categoriesPaginator = new Paginator(paging);
+        
+        ForumsLocal forumsBean = (ForumsLocal)createLocalEJB(getInitialContext(), Forums.class);
+        ArrayList<ForumCategory> categoryPageList = ForumsUtil.getPage(categoryResultsList, categoryStartIdx, categoryResultSize);
+        if (categoryPageList.size() > 0) {
+            Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, categoryPageList);
+            getRequest().setAttribute("imageDataTable", imageDataTable);
+        }
+        
+        getRequest().setAttribute("categoriesPage", categoryPageList.iterator());
+        getRequest().setAttribute("categoriesCount", new Integer(categoryResultsList.size()));
+        getRequest().setAttribute("categoriesPaginator", categoriesPaginator);
     }
     
     class CategoryResultComparator implements Comparator<ForumCategory> {
