@@ -4501,7 +4501,7 @@ public class TCLoadTCS extends TCLoad {
             close(select);
         }
     }
-
+/*
     private void doLoadContestResult() throws Exception {
         log.info("load contest_result");
         
@@ -4592,6 +4592,7 @@ public class TCLoadTCS extends TCLoad {
         }
         
     }
+    */
 
     
     /**
