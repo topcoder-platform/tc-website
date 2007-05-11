@@ -283,6 +283,9 @@ public class TCLoadTCS extends TCLoad {
 */
 
             doLoadSeason();
+
+            doLoadStage();
+
             //doLoadContestResult();
             
 //            doClearCache();
@@ -4507,6 +4510,87 @@ public class TCLoadTCS extends TCLoad {
             close(select);
         }
     }
+    
+    public void doLoadStage() throws Exception {
+        log.info("load stage");
+        ResultSet rs;
+
+        PreparedStatement select = null;
+        PreparedStatement update = null;
+        PreparedStatement insert = null;
+
+        final String SELECT = 
+                " select stage_id, season_id, name, start_date, end_date, top_performers_factor " + 
+                " from stage " + 
+                " where modify_date > ? ";
+
+        
+        final String UPDATE =
+                "update stage set season_id=?, start_calendar_id=?, end_calendar_id=?, name=?, top_performers_factor=? " +
+                " where stage_id=?";
+
+        final String INSERT =
+                "insert into stage (season_id, start_calendar_id, end_calendar_id, name, top_performers_factor, stage_id) " +
+                " values (?,?,?,?,?,?)";
+
+
+        try {
+            long start = System.currentTimeMillis();
+
+            select = prepareStatement(SELECT, SOURCE_DB);
+            update = prepareStatement(UPDATE, TARGET_DB);
+            insert = prepareStatement(INSERT, TARGET_DB);
+
+            int count = 0;
+
+            select.setTimestamp(1, fLastLogTime);
+            rs = select.executeQuery();
+
+            while (rs.next()) {
+
+                update.clearParameters();
+
+                update.setInt(1, rs.getInt("season_id"));
+                setCalendar(update, 2, rs.getTimestamp("start_date"));
+                setCalendar(update, 3, rs.getTimestamp("end_date"));
+                update.setString(4, rs.getString("name"));
+                update.setDouble(5, rs.getDouble("top_performers_factor"));
+                update.setInt(6, rs.getInt("stage_id"));
+
+                int retVal = update.executeUpdate();
+
+                if (retVal == 0) {
+                    insert.clearParameters();
+
+                    insert.setInt(1, rs.getInt("season_id"));
+                    setCalendar(insert, 2, rs.getTimestamp("start_date"));
+                    setCalendar(insert, 3, rs.getTimestamp("end_date"));
+                    insert.setString(4, rs.getString("name"));
+                    insert.setDouble(5, rs.getDouble("top_performers_factor"));
+                    insert.setInt(6, rs.getInt("stage_id"));
+
+                    insert.executeUpdate();
+                }
+                count++;
+
+            }
+
+            log.info("loaded " + count + " records in " + (System.currentTimeMillis() - start) / 1000 + " seconds");
+
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'stage' table failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(insert);
+            close(update);
+            close(select);
+        }
+    }
+
+    
+    
 /*
     private void doLoadContestResult() throws Exception {
         log.info("load contest_result");
