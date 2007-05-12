@@ -6297,7 +6297,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getPayments.append("and date(ad.expire_date) <= date(current) ");
             getPayments.append("and ad.assignment_document_status_id = " + AssignmentDocumentStatus.PENDING_STATUS_ID);
             getPayments.append("and (pd.studio_contest_id = ad.studio_contest_id or pd.component_project_id = ad.component_project_id) ");
-            getPayments.append("and pd.status_id = " + PaymentStatus.ON_HOLD_PAYMENT_STATUS);
+            getPayments.append("and pd.status_id = " + PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId());
             ResultSetContainer payments = runSelectQuery(c, getPayments.toString(), false);
 
             StringBuffer updateAssignmentDocuments = new StringBuffer(300);
