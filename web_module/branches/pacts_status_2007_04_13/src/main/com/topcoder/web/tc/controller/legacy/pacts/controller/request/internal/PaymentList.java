@@ -90,22 +90,22 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
 
                 // mirror parameters
-                getRequest().setAttribute("filter_payment_id", StringUtils.htmlEncode((String) getRequest().getAttribute("filter_payment_id")));
-                getRequest().setAttribute(PactsConstants.PROJECT_ID, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.PROJECT_ID)));
-                getRequest().setAttribute(PactsConstants.HANDLE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.HANDLE)));
-                getRequest().setAttribute(PactsConstants.EARLIEST_CREATION_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.EARLIEST_CREATION_DATE)));
-                getRequest().setAttribute(PactsConstants.LATEST_CREATION_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.LATEST_CREATION_DATE)));
-                getRequest().setAttribute(PactsConstants.EARLIEST_MODIFICATION_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.EARLIEST_MODIFICATION_DATE)));
-                getRequest().setAttribute(PactsConstants.LATEST_MODIFICATION_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.LATEST_MODIFICATION_DATE)));
-                getRequest().setAttribute(PactsConstants.EARLIEST_PAY_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.EARLIEST_PAY_DATE)));
-                getRequest().setAttribute(PactsConstants.LATEST_PAY_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.LATEST_PAY_DATE)));
-                getRequest().setAttribute(PactsConstants.EARLIEST_DUE_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.EARLIEST_DUE_DATE)));
-                getRequest().setAttribute(PactsConstants.LATEST_DUE_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.LATEST_DUE_DATE)));
-                getRequest().setAttribute(PactsConstants.LOWEST_NET_AMOUNT, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.LOWEST_NET_AMOUNT)));
-                getRequest().setAttribute(PactsConstants.HIGHEST_NET_AMOUNT, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.HIGHEST_NET_AMOUNT)));
-                getRequest().setAttribute(PactsConstants.STATUS_CODE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.STATUS_CODE)));
-                getRequest().setAttribute(PactsConstants.TYPE_CODE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.TYPE_CODE)));
-                getRequest().setAttribute(PactsConstants.METHOD_CODE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.METHOD_CODE)));
+                getRequest().setAttribute("filter_payment_id", StringUtils.htmlEncode(getRequest().getParameter("filter_payment_id")));
+                getRequest().setAttribute(PactsConstants.PROJECT_ID, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.PROJECT_ID)));
+                getRequest().setAttribute(PactsConstants.HANDLE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.HANDLE)));
+                getRequest().setAttribute(PactsConstants.EARLIEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.EARLIEST_CREATION_DATE)));
+                getRequest().setAttribute(PactsConstants.LATEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.LATEST_CREATION_DATE)));
+                getRequest().setAttribute(PactsConstants.EARLIEST_MODIFICATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.EARLIEST_MODIFICATION_DATE)));
+                getRequest().setAttribute(PactsConstants.LATEST_MODIFICATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.LATEST_MODIFICATION_DATE)));
+                getRequest().setAttribute(PactsConstants.EARLIEST_PAY_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.EARLIEST_PAY_DATE)));
+                getRequest().setAttribute(PactsConstants.LATEST_PAY_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.LATEST_PAY_DATE)));
+                getRequest().setAttribute(PactsConstants.EARLIEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.EARLIEST_DUE_DATE)));
+                getRequest().setAttribute(PactsConstants.LATEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.LATEST_DUE_DATE)));
+                getRequest().setAttribute(PactsConstants.LOWEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.LOWEST_NET_AMOUNT)));
+                getRequest().setAttribute(PactsConstants.HIGHEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.HIGHEST_NET_AMOUNT)));
+                getRequest().setAttribute(PactsConstants.STATUS_CODE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.STATUS_CODE)));
+                getRequest().setAttribute(PactsConstants.TYPE_CODE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.TYPE_CODE)));
+                getRequest().setAttribute(PactsConstants.METHOD_CODE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.METHOD_CODE)));
 
                 
                 String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
