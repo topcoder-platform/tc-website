@@ -2,7 +2,6 @@ package com.topcoder.utilities.dwload.contestresult;
 
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 
 public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase {
@@ -45,41 +44,6 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
     }
 
     
-    protected void assignTopNPrizes(List<ContestResult> cr, List<Double> prizesAmount) {
-        int n = prizesAmount.size();
-        int [] placeCount = new int[n+1];
-        double [] placeAmount = new double[n+1];
-        
-        for (int i = 0; i < n; i ++) {
-            placeCount[i] = 0;
-        }
-        
-        Iterator prize = prizesAmount.iterator();
-        // get the number of people in each place and the total prize
-        for (ContestResult result : cr) {
-            int place = result.getPlace();
-            
-            // up to n prizes
-            if (place > n) break;
-            
-            placeCount[place]++;
-            
-            if (prize.hasNext()) {
-                placeAmount[place] += ((Double) prize.next());
-            }
-        }
-
-        // set the amounts
-        for (ContestResult result : cr) {
-            int place = result.getPlace();
-            
-            // up to n prizes
-            if (place > n) break;
-
-            result.setPrize(placeAmount[place] /  placeCount[place]);
-        }
-
-    }
 
     
     /**
@@ -109,11 +73,9 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
     private class ResultsComparator implements Comparator<ContestResult> {
 
         public int compare(ContestResult o1, ContestResult o2) {
-            System.out.println("compare results " + o1.getCoderId() + " vs " +o2.getCoderId());
             if (o1.getFinalPoints() > o2.getFinalPoints()) return -1;
             if (o1.getFinalPoints() < o2.getFinalPoints()) return 1;
             
-            System.out.println("tie in points!");
 
             // Break tie with rule #1:
             // The competitor who has the most higher-placed submissions in the Stage.
@@ -124,12 +86,11 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
             Collections.sort(r1, new ProjectResult.PlaceComparator());
             Collections.sort(r2, new ProjectResult.PlaceComparator());
             
-            System.out.println("n=" + n);
             
             for (int i = 0; i < n; i++) {
                 int p1 = r1.get(i).getPlaced();
                 int p2 = r2.get(i).getPlaced();
-                System.out.println(p1 + " vs " + p2);
+
                 if (p1 < p2) return -1;
                 if (p1 > p2) return 1;
             }

@@ -4832,7 +4832,7 @@ public class TCLoadTCS extends TCLoad {
             
             int expectedPlace = 1;
             while (rs.next()) {
-                if (rs.getInt("place") != expectedPlace) {
+                if (rs.getString("place")!= null && rs.getInt("place") != expectedPlace) {
                     throw new Exception("Error in prizes for contest " + contestId + " expected a prize for place " + expectedPlace);
                 }
                 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -65,6 +66,47 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         // TO DO: assign prizes.
         assignPrizes(l, prizesAmount);
         return l;        
+    }
+    
+    protected void assignTopNPrizes(List<ContestResult> cr, List<Double> prizesAmount) {
+        int n = prizesAmount.size();
+        int [] placeCount = new int[n+1];
+        double [] placeAmount = new double[n+1];
+        
+        for (int i = 0; i < n; i ++) {
+            placeCount[i] = 0;
+        }
+        
+        Iterator prize = prizesAmount.iterator();
+        // get the number of people in each place and the total prize
+        for (ContestResult result : cr) {
+            int place = result.getPlace();
+            
+            // up to n prizes
+            if (place > n) break;
+            
+            placeCount[place]++;
+            
+            if (prize.hasNext()) {
+                placeAmount[place] += ((Double) prize.next());
+            }
+        }
+
+        // set the amounts
+        for (ContestResult result : cr) {
+            int place = result.getPlace();
+            
+            // up to n prizes
+            if (place > n) break;
+
+            result.setPrize(placeAmount[place] /  placeCount[place]);
+        }
+
+    }
+
+    protected void assingTopPerformersPrize(List<ContestResult> cr, double prizePool, double factor) {
+        // testing
+        cr.get(0).setPrize(factor);
     }
     
     public abstract double calculatePointsAwarded(ProjectResult pr);

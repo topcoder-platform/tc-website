@@ -2,9 +2,19 @@ package com.topcoder.utilities.dwload.contestresult;
 
 import java.util.List;
 
-public class DR2007TopPerformersCalculator extends DR2007ResultCalculatorBase {
+public class DR2007TopPerformersCalculator extends DR2007ResultCalculatorBase  implements TopPerformersCalculator{
     
-    protected void assignPrizes(List<ContestResult> pr, List<Double> prizesAmount) {
+    private double factor = 0;
+    
+    protected void assignPrizes(List<ContestResult> cr, List<Double> prizesAmount) {
+        if (factor <= 0) {
+            throw new IllegalArgumentException("factor expected to be positive!");
+        }
+        assingTopPerformersPrize(cr, prizesAmount.get(0), factor);
+    }
+
+    public void setFactor(double factor) {
+        this.factor = factor;
         
     }
 
