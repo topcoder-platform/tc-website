@@ -562,7 +562,7 @@ public class RatingQubits {
             StringBuffer sqlStr = new StringBuffer(300);
             sqlStr.append("select user_id, project_category_id, p.project_id, rating_order ");
             sqlStr.append("        ,substr(pi.value, 1, 2) as month, substr(pi.value, 4, 2) as day, substr(pi.value, 7, 4) as year").append(
-                    ",  case when substr(pi_rd.value, 18,2)='PM' then round(substr(pi_rd.value, 12, 2)) +12 else round(substr(pi_rd.value, 12, 2))  end as hour ");
+                    ",  case when substr(pi.value, 18,2)='PM' then round(substr(pi.value, 12, 2)) +12 else round(substr(pi.value, 12, 2))  end as hour ");
             sqlStr.append("from project_result pr, project_info pi, project p ");
             sqlStr.append("where pi.project_info_type_id =22  ");
             sqlStr.append("and pi.project_id = pr.project_id ");
