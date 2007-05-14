@@ -4744,7 +4744,7 @@ public class TCLoadTCS extends TCLoad {
     
             simpleDelete("contest_result", "contest_id", contestId);
             
-            List<ContestResult> results = calc.calculatePoints(pr, getContestPrizesAmount(contestId));
+            List<ContestResult> results = calc.calculateResults(pr, getContestPrizesAmount(contestId));
             
             int count = 0;
             

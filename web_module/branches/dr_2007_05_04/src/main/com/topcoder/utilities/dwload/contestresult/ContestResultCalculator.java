@@ -9,7 +9,7 @@ import java.util.List;
  *
  */
 public interface ContestResultCalculator {
-    List<ContestResult> calculatePoints(List<ProjectResult> pr, List<Double> prizesAmount);
+    List<ContestResult> calculateResults(List<ProjectResult> pr, List<Double> prizesAmount);
     
     double calculatePointsAwarded(ProjectResult pr);
 }
