@@ -1,5 +1,8 @@
 package com.topcoder.utilities.dwload.contestresult;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Class to store the result of a contest.
  * 
@@ -13,6 +16,20 @@ public class ContestResult {
     private double potentialPoints = 0.0;
     private int place = 0;
     private Double prize = null;
+    
+    private List<ProjectResult> results = new ArrayList<ProjectResult>(); 
+        
+    public List<ProjectResult> getResults() {
+        return new ArrayList<ProjectResult>(results);
+    }
+
+    public void setResults(List<ProjectResult> results) {
+        this.results = results;
+    }
+
+    public void addResult(ProjectResult result) {
+        this.results.add(result);
+    }
     
     public ContestResult(long coderId) {
         this.coderId = coderId;

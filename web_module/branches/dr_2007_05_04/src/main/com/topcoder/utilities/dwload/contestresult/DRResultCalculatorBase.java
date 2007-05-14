@@ -27,6 +27,8 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
                 results.put(p.getUserId(), cr);
             }
 
+            cr.addResult(p);
+            
             if (p.getStatusId() == STATUS_ACTIVE) {
                 cr.addPotentialPoints(calculatePotentialPoints(p));
             } else {

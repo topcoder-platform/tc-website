@@ -4684,6 +4684,7 @@ public class TCLoadTCS extends TCLoad {
             "       ,pr.user_id " +
             "       ,pr.placed " +
             "       ,pr.point_adjustment " +
+            "       ,pr.final_score " +            
             "       ,pr.passed_review_ind " +
             "       ,pi_amount.value as amount " +
             "       ,(select count(*) from submission s, upload u  " +
@@ -4735,7 +4736,7 @@ public class TCLoadTCS extends TCLoad {
             List<ProjectResult> pr = new ArrayList<ProjectResult>();
             while (rs.next()) {
                 ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
-                        rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
+                        rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
                         rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
                                         
                 pr.add(res);

@@ -1,5 +1,6 @@
 package com.topcoder.utilities.dwload.contestresult;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
@@ -104,13 +105,53 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
         return (placementPoints[placed - 1][numSubmissionsPassedReview - 1]);
     }
     
+    
     private class ResultsComparator implements Comparator<ContestResult> {
 
         public int compare(ContestResult o1, ContestResult o2) {
+            System.out.println("compare results " + o1.getCoderId() + " vs " +o2.getCoderId());
             if (o1.getFinalPoints() > o2.getFinalPoints()) return -1;
             if (o1.getFinalPoints() < o2.getFinalPoints()) return 1;
             
-            // fix: break ties!
+            System.out.println("tie in points!");
+
+            // Break tie with rule #1:
+            // The competitor who has the most higher-placed submissions in the Stage.
+            List<ProjectResult> r1 = o1.getResults();
+            List<ProjectResult> r2 = o2.getResults();
+            int n = r1.size() < r2.size()? r1.size() : r2.size();
+            
+            Collections.sort(r1, new ProjectResult.PlaceComparator());
+            Collections.sort(r2, new ProjectResult.PlaceComparator());
+            
+            System.out.println("n=" + n);
+            
+            for (int i = 0; i < n; i++) {
+                int p1 = r1.get(i).getPlaced();
+                int p2 = r2.get(i).getPlaced();
+                System.out.println(p1 + " vs " + p2);
+                if (p1 < p2) return -1;
+                if (p1 > p2) return 1;
+            }
+            
+            
+            // Break tie with rule #2:
+            // The competitor with the highest average individual component score of the lesser number of components 
+            // used to develop the placement scores for the tied competitors.
+            
+            Collections.sort(r1, new ProjectResult.ScoreComparator());
+            Collections.sort(r2, new ProjectResult.ScoreComparator());
+
+            double score1 = 0;
+            double score2 = 0;
+            
+            for (int i = 0; i < n; i++) {
+                score1 += r1.get(i).getFinalScore();
+                score2 += r2.get(i).getFinalScore(); 
+            }
+            
+            if (score1 > score2) return -1;
+            if (score1 < score2) return 1;
             
             
             return 0;
