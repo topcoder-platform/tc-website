@@ -14,11 +14,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.dwload.CacheClearer;
@@ -27,6 +29,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.dwload.contestresult.ContestResult;
 import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
 import com.topcoder.utilities.dwload.contestresult.ProjectResult;
+import com.topcoder.utilities.dwload.contestresult.RookieContest;
 import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
 
 /**
@@ -4600,7 +4603,7 @@ public class TCLoadTCS extends TCLoad {
         log.debug("load stage results");
         
         final String SELECT_STAGES =
-            " select distinct s.stage_id, s.start_date, s.end_date, s.top_performers_factor " +
+            " select distinct s.season_id, s.stage_id, s.start_date, s.end_date, s.top_performers_factor " +
             " from project_result pr, " +
             "      stage s, " +
             "      project p,  " +
@@ -4660,9 +4663,11 @@ public class TCLoadTCS extends TCLoad {
                 Timestamp startDate = rsStages.getTimestamp("start_date");
                 Timestamp endDate = rsStages.getTimestamp("end_date");
                 double factor = rsStages.getDouble("top_performers_factor");
+                int seasonId = rsStages.getInt("season_id"); 
+                    
                 while (rsContests.next()) {
-                    loadDRContestResults(startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),  
-                            rsContests.getInt("contest_type_id"), rsContests.getString("class_name"), factor);
+                    loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),  
+                             rsContests.getString("class_name"), factor);
                 }
                 
             }
@@ -4713,9 +4718,61 @@ public class TCLoadTCS extends TCLoad {
             " and p.project_id = pr.project_id) between  " +
             "      (select min(start_date) from stage st where st.season_id = s.season_id) and " +
             "      (select max(end_date) from stage st where st.season_id = s.season_id)  ";
+/*
+        final String SELECT_CONTESTS = 
+            " select c.contest_id, c.phase_id, c.contest_type_id, crc.class_name " +
+            " from contest_stage_xref x " +
+            " ,contest c " +
+            " ,contest_result_calculator_lu crc " +
+            " where c.contest_id = x.contest_id " +
+            " and c.contest_result_calculator_id = crc.contest_result_calculator_id  " +
+            " and x.stage_id = ? ";
 
+    
+    PreparedStatement selectStages = null;
+    PreparedStatement selectContests = null;
+    ResultSet rsStages = null;
+    ResultSet rsContests = null;
+    
+    try {
+        selectStages = prepareStatement(SELECT_SEASONS, SOURCE_DB);
+        selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
+
+        selectStages.setTimestamp(1, fLastLogTime);
+        selectStages.setTimestamp(2, fLastLogTime);
+        
+        rsStages = selectStages.executeQuery();
+        
+        while (rsStages.next()) {
+            selectContests.clearParameters();
+            selectContests.setInt(1, rsStages.getInt("stage_id"));
+            rsContests = selectContests.executeQuery();
+            
+            Timestamp startDate = rsStages.getTimestamp("start_date");
+            Timestamp endDate = rsStages.getTimestamp("end_date");
+            double factor = rsStages.getDouble("top_performers_factor");
+            while (rsContests.next()) {
+                loadDRContestResults(startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),  
+                         rsContests.getString("class_name"), factor);
+            }
+            
+        }
+        
+    } catch (SQLException sqle) {
+        DBMS.printSqlException(true, sqle);
+        throw new Exception("Load of 'contest_result' table for stages failed.\n" +
+                sqle.getMessage());
+    } finally {
+        close(selectStages);
+        close(rsStages);
     }
-    private void loadDRContestResults(Timestamp startDate, Timestamp endDate, int phaseId, int contestId, int contestTypeId, String className, double factor) throws Exception {
+*/
+    }
+
+    
+    private void loadDRContestResults(int seasonId, Timestamp startDate, Timestamp endDate, int phaseId, 
+            int contestId, String className, double factor) throws Exception {
+        
         log.debug("load contest_result for contest_id=" + contestId);
         final String SELECT_RESULTS = 
             " select p.project_id " +
@@ -4772,6 +4829,9 @@ public class TCLoadTCS extends TCLoad {
             if (calc instanceof TopPerformersCalculator) {
                 ((TopPerformersCalculator) calc).setFactor(factor);
             }
+            if (calc instanceof RookieContest) {
+                ((RookieContest) calc).setRookies(getRookies(seasonId, phaseId));
+            }
             
             rs = selectResults.executeQuery();
             
@@ -4820,6 +4880,29 @@ public class TCLoadTCS extends TCLoad {
     }
 
     
+    private Set<Long> getRookies(int seasonId, int phaseId) throws Exception {
+        PreparedStatement st = null;
+        Set<Long> rookies = new HashSet<Long>();
+        ResultSet rs = null;
+        
+        try {
+            st = prepareStatement("select user_id from rookie where season_id = ? and phase_id = ? and confirmed_ind = 1", TARGET_DB);
+            st.setInt(1, seasonId);
+            st.setInt(2, phaseId);
+            
+            rs = st.executeQuery();
+            
+            while (rs.next()) {
+                rookies.add(rs.getLong("user_id"));
+            }
+            
+        } finally {
+            close(rs);
+            close(st);
+        }
+        return rookies;
+    }
+
     private List<Double> getContestPrizesAmount(long contestId) throws Exception {
         final String SELECT = 
             "select  place, prize_amount " +
