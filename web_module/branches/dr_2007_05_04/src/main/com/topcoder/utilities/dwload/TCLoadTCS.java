@@ -4713,36 +4713,60 @@ public class TCLoadTCS extends TCLoad {
             "        and p1.project_id = p.project_id) between ? and ? ";
           
 
+        final String INSERT = "insert into contest_result(contest_id, coder_id, initial_points, final_points, potential_points, current_place, current_prize " +
+                " values(?,?,?,?,?,?,?)";
         
         ResultSet rs = null;
         PreparedStatement selectResults = null;
+        PreparedStatement insert = null;
         
-        
-        selectResults = prepareStatement(SELECT_RESULTS, SOURCE_DB);
-        selectResults.setInt(1, phaseId - 111); 
-        selectResults.setTimestamp(2, startDate);
-        selectResults.setTimestamp(3, endDate);
-        
-        ContestResultCalculator calc = (ContestResultCalculator) Class.forName(className).newInstance();
-
-        rs = selectResults.executeQuery();
-        
-        List<ProjectResult> pr = new ArrayList<ProjectResult>();
-        while (rs.next()) {
-            ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
-                    rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
-                    rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
-                                    
-            log.debug("add pj="+ res.getProjectId() + " usr=" + res.getUserId() + "  pl=" + res.getPlaced());
-            pr.add(res);
-        }
-        close(rs);
-
-        List<ContestResult> results = calc.calculatePoints(pr, getContestPrizesAmount(contestId));
-        
-        for(ContestResult result : results) {
-            // write in db!
-            log.debug(result.getCoderId() + " place: " + result.getPlace() + " points: " + result.getFinalPoints());
+        try {
+            selectResults = prepareStatement(SELECT_RESULTS, SOURCE_DB);
+            selectResults.setInt(1, phaseId - 111); 
+            selectResults.setTimestamp(2, startDate);
+            selectResults.setTimestamp(3, endDate);
+            
+            insert = prepareStatement(INSERT, TARGET_DB);
+            
+            ContestResultCalculator calc = (ContestResultCalculator) Class.forName(className).newInstance();
+    
+            rs = selectResults.executeQuery();
+            
+            List<ProjectResult> pr = new ArrayList<ProjectResult>();
+            while (rs.next()) {
+                ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
+                        rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
+                        rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
+                                        
+                log.debug("add pj="+ res.getProjectId() + " usr=" + res.getUserId() + "  pl=" + res.getPlaced());
+                pr.add(res);
+            }
+            close(rs);
+    
+            simpleDelete("contest_result", "contest_id", contestId);
+            
+            List<ContestResult> results = calc.calculatePoints(pr, getContestPrizesAmount(contestId));
+            
+            int count = 0;
+            
+            for(ContestResult result : results) {
+                insert.clearParameters();
+                insert.setInt(1, contestId);
+                insert.setLong(2, result.getCoderId());
+                insert.setDouble(3, result.getInitialPoints());
+                insert.setDouble(4, result.getFinalPoints());
+                insert.setDouble(5, result.getPotentialPoints());
+                insert.setInt(6, result.getPlace());
+                insert.setDouble(7, result.getPrize());
+                insert.executeUpdate();
+                
+                count++;
+            }
+            
+            log.debug(count + " results added for contest " + contestId);
+        } finally {
+            close(selectResults);
+            close(insert);
         }
         
     }
