@@ -4659,7 +4659,7 @@ public class TCLoadTCS extends TCLoad {
                 Timestamp startDate = rsStages.getTimestamp("start_date");
                 Timestamp endDate = rsStages.getTimestamp("end_date");
                 while (rsContests.next()) {
-                    loadDRContestResults(startDate, endDate, rsContests.getInt("contest_id"), rsContests.getInt("phase_id"), 
+                    loadDRContestResults(startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),  
                             rsContests.getInt("contest_type_id"), rsContests.getString("class_name"));
                 }
                 
