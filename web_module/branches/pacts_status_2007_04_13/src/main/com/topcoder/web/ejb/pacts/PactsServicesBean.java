@@ -6040,8 +6040,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there was some error updating the data.
      */
     public int expireOldPayments() throws SQLException {
-        // TODO: pulky: change this so it use the PaymentStatusMediator.
-        
         Connection c = null;
 
         try {
