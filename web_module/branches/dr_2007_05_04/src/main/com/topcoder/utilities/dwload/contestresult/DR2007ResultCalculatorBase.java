@@ -46,8 +46,8 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
     
     protected void assignTopNPrizes(List<ContestResult> cr, List<Double> prizesAmount) {
         int n = prizesAmount.size();
-        int [] placeCount = new int[n];
-        double [] placeAmount = new double[n];
+        int [] placeCount = new int[n+1];
+        double [] placeAmount = new double[n+1];
         
         for (int i = 0; i < n; i ++) {
             placeCount[i] = 0;
@@ -62,7 +62,10 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
             if (place > n) break;
             
             placeCount[place]++;
-            placeAmount[place] += ((Double) prize.next());
+            
+            if (prize.hasNext()) {
+                placeAmount[place] += ((Double) prize.next());
+            }
         }
 
         // set the amounts
