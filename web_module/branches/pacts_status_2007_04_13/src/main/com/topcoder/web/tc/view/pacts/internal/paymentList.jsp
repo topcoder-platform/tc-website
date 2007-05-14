@@ -42,21 +42,21 @@ ${fn:length(paymentList)} records. <br />
    <input type=hidden name="query" value="${query}">
 
     <tc-webtag:hiddenInput name="filter_payment_id"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.PROJECT_ID%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.HANDLE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_CREATION_DATE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_CREATION_DATE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_MODIFICATION_DATE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_MODIFICATION_DATE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_PAY_DATE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_PAY_DATE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_DUE_DATE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_DUE_DATE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.LOWEST_NET_AMOUNT%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.HIGHEST_NET_AMOUNT%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.STATUS_CODE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.TYPE_CODE%>"/>
-    <tc-webtag:hiddenInput name="<%=PactsConstants.METHOD_CODE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.PROJECT_ID%>" value="<%=request.getAttribute(PactsConstants.PROJECT_ID).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.HANDLE%>" value="<%=request.getAttribute(PactsConstants.HANDLE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_CREATION_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_CREATION_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_CREATION_DATE%>" value="<%=request.getAttribute(PactsConstants.LATEST_CREATION_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_MODIFICATION_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_MODIFICATION_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_MODIFICATION_DATE%>" value="<%=request.getAttribute(PactsConstants.LATEST_MODIFICATION_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_PAY_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_PAY_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_PAY_DATE%>" value="<%=request.getAttribute(PactsConstants.LATEST_PAY_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_DUE_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_DUE_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_DUE_DATE%>" value="<%=request.getAttribute(PactsConstants.LATEST_DUE_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LOWEST_NET_AMOUNT%>" value="<%=request.getAttribute(PactsConstants.LOWEST_NET_AMOUNT).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.HIGHEST_NET_AMOUNT%>" value="<%=request.getAttribute(PactsConstants.HIGHEST_NET_AMOUNT).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.STATUS_CODE%>" value="<%=request.getAttribute(PactsConstants.STATUS_CODE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.TYPE_CODE%>" value="<%=request.getAttribute(PactsConstants.TYPE_CODE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.METHOD_CODE%>" value="<%=request.getAttribute(PactsConstants.METHOD_CODE).toString()%>"/>
 
 	<input type=hidden name="query" value="${query}">
 
