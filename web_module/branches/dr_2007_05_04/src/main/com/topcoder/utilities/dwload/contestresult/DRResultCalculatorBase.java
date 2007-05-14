@@ -16,11 +16,13 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
      */    
     private static final int STATUS_ACTIVE = 1;
     
-    // todo: change name (calculateResult?)
     public  List<ContestResult> calculateResults(List<ProjectResult> pr, List<Double> prizesAmount) {
         Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
         
         for(ProjectResult p : pr) {
+            // enables filtering by subclasses
+            if (!processProjectResult(p)) continue;
+            
             ContestResult cr = results.get(p.getUserId());
             
             if (cr == null)  {
@@ -68,6 +70,10 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         return l;        
     }
     
+    protected boolean processProjectResult(ProjectResult p) {
+        return true;
+    }
+
     protected void assignTopNPrizes(List<ContestResult> cr, List<Double> prizesAmount) {
         int n = prizesAmount.size();
         int [] placeCount = new int[n+1];

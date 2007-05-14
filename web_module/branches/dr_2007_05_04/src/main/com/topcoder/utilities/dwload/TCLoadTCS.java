@@ -293,10 +293,11 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadStage();
 
-            doLoadStageResults();
-            //doLoadContestResult();
+            doLoadSeasonResults();
             
-//            doClearCache();
+            doLoadStageResults();
+            
+            doClearCache();
 
             setLastUpdateTime();
 
@@ -4683,7 +4684,7 @@ public class TCLoadTCS extends TCLoad {
 
     }
     
-    public void loadSeasonResults() throws Exception {
+    public void doLoadSeasonResults() throws Exception {
         log.debug("load season results");
         
         final String SELECT_SEASONS =
@@ -4718,55 +4719,56 @@ public class TCLoadTCS extends TCLoad {
             " and p.project_id = pr.project_id) between  " +
             "      (select min(start_date) from stage st where st.season_id = s.season_id) and " +
             "      (select max(end_date) from stage st where st.season_id = s.season_id)  ";
-/*
+
         final String SELECT_CONTESTS = 
             " select c.contest_id, c.phase_id, c.contest_type_id, crc.class_name " +
-            " from contest_stage_xref x " +
+            " from contest_season_xref x " +
             " ,contest c " +
             " ,contest_result_calculator_lu crc " +
             " where c.contest_id = x.contest_id " +
             " and c.contest_result_calculator_id = crc.contest_result_calculator_id  " +
-            " and x.stage_id = ? ";
+            " and x.season_id = ? ";
 
     
-    PreparedStatement selectStages = null;
+    PreparedStatement selectSeason = null;
     PreparedStatement selectContests = null;
-    ResultSet rsStages = null;
+    ResultSet rsSeasons = null;
     ResultSet rsContests = null;
     
     try {
-        selectStages = prepareStatement(SELECT_SEASONS, SOURCE_DB);
+        selectSeason = prepareStatement(SELECT_SEASONS, SOURCE_DB);
         selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
 
-        selectStages.setTimestamp(1, fLastLogTime);
-        selectStages.setTimestamp(2, fLastLogTime);
+        selectSeason.setTimestamp(1, fLastLogTime);
+        selectSeason.setTimestamp(2, fLastLogTime);
         
-        rsStages = selectStages.executeQuery();
+        rsSeasons = selectSeason.executeQuery();
         
-        while (rsStages.next()) {
+        while (rsSeasons.next()) {
+            int seasonId = rsSeasons.getInt("season_id");
             selectContests.clearParameters();
-            selectContests.setInt(1, rsStages.getInt("stage_id"));
+            selectContests.setInt(1, seasonId);
             rsContests = selectContests.executeQuery();
             
-            Timestamp startDate = rsStages.getTimestamp("start_date");
-            Timestamp endDate = rsStages.getTimestamp("end_date");
-            double factor = rsStages.getDouble("top_performers_factor");
+            Timestamp startDate = rsSeasons.getTimestamp("start_date");
+            Timestamp endDate = rsSeasons.getTimestamp("end_date");
+
             while (rsContests.next()) {
-                loadDRContestResults(startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),  
-                         rsContests.getString("class_name"), factor);
+                loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),  
+                         rsContests.getString("class_name"), 0.0);
             }
             
         }
         
     } catch (SQLException sqle) {
         DBMS.printSqlException(true, sqle);
-        throw new Exception("Load of 'contest_result' table for stages failed.\n" +
+        throw new Exception("Load of 'contest_result' table for seasons failed.\n" +
                 sqle.getMessage());
     } finally {
-        close(selectStages);
-        close(rsStages);
+        close(selectSeason);
+        close(rsSeasons);
     }
-*/
+
     }
 
     
@@ -4932,100 +4934,7 @@ public class TCLoadTCS extends TCLoad {
         }
         return prizes;
     }
-/*
-    private void doLoadContestResult() throws Exception {
-        log.info("load contest_result");
-        
-        final String SELECT_CONTESTS = 
-            "select distinct c.contest_id, pc.class_name " +
-            " from project_result pr " + 
-            " ,contest_project_xref x " +
-            " ,contest c " +
-            " ,points_calculator_lu pc " +
-            " where pr.project_id = x.project_id "  +
-            " and x.contest_id = c.contest_id " +
-            " and c.points_calculator_id = pc.points_calculator_id " +
-            " and pr.modify_date > ? ";
 
-        final String SELECT_RESULTS = 
-            " select p.project_id " +
-            "       ,p.project_status_id " +
-            "       ,pr.user_id " +
-            "       ,pr.placed " +
-            "       ,pr.point_adjustment " +
-            "       ,pr.passed_review_ind " +
-            "       ,pi_amount.value as amount " +
-            "       ,(select count(*) from submission s, upload u  " +
-            "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
-            "         and submission_status_id in (1, 4) " +
-            "        ) as num_submissions_passed_review  " +
-            " from project p " +
-            "    ,contest_project_xref cp " +
-            "    ,project_info pi_amount " +
-            "    ,project_result pr " +
-            " where cp.project_id = p.project_id " +
-            " and pi_amount.project_id = p.project_id " +
-            " and pi_amount.project_info_type_id = 16 " +
-            " and p.project_id = pr.project_id " +
-            " and cp.contest_id = ?"; 
-        
-        PreparedStatement selectContests = null;
-        PreparedStatement selectResults = null;
-        ResultSet rsContests = null;
-        ResultSet rsResults = null;
-        
-        try {
-            selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
-
-            selectContests.setTimestamp(1, fLastLogTime);
-            
-            rsContests = selectContests.executeQuery();
-            
-            selectResults = prepareStatement(SELECT_RESULTS, SOURCE_DB);
-
-            while (rsContests.next()) {
-                int contestId = rsContests.getInt("contest_id");
-                String className = rsContests.getString("class_name");
-                PointsCalculator pc = (PointsCalculator) Class.forName(className).newInstance();
-                
-                log.debug("Calculating points for contest " + contestId + " using " + className);
-                
-                selectResults.clearParameters();
-                selectResults.setInt(1, contestId);
-                
-                rsResults = selectResults.executeQuery();
-                
-                List<ProjectResult> pr = new ArrayList<ProjectResult>();
-                while (rsResults.next()) {
-                    ProjectResult res = new ProjectResult(rsResults.getLong("project_id"), rsResults.getInt("project_status_id"), rsResults.getLong("user_id"),
-                            rsResults.getInt("placed"), rsResults.getInt("point_adjustment"), rsResults.getDouble("amount"), 
-                            rsResults.getInt("num_submissions_passed_review"), rsResults.getBoolean("passed_review_ind"));
-                                            
-                    pr.add(res);
-                    log.debug(rsResults.getLong("project_id") + "  " + rsResults.getLong("user_id") + "  " + rsResults.getInt("placed"));
-                }
-                close(rsResults);
-                
-                List<StageResult> sr = pc.calculatePoints(pr);
-                for(StageResult s : sr) {
-                    // write in db!
-                    log.debug(s.getCoderId() + " place: " + s.getPlace() + " points: " + s.getFinalPoints());
-                }
-            }
-            
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'streak' table failed.\n" +
-                    sqle.getMessage());
-        } finally {
-            close(selectContests);
-            close(selectResults);
-        }
-        
-    }
-    */
-
-    
 
     /**
      * Represents a Streak of rating or placement.
