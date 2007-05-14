@@ -1,16 +1,25 @@
 package com.topcoder.dde.util.DWLoad;
 
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.UnknownNamespaceException;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Types;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Vector;
 
 public class RatingQubits {
+    private static final Logger log = Logger.getLogger(RatingQubits.class);
 
     public static final String DRIVER_KEY = "DriverClass";
     public static final String CONNECTION_URL_KEY = "ConnectionURL";
@@ -72,7 +81,7 @@ public class RatingQubits {
             try {
                 if (c != null) c.close();
             } catch (Exception e1) {
-                System.out.println("exception B: " + e1);
+                log.error("exception B: ", e1);
             }
         }
     }
@@ -86,7 +95,7 @@ public class RatingQubits {
             //design
             String sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
                     "round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year," +
-                    "round(substr(pi_rd.value, 12, 2)) as hour " +
+                    "  case when substr(pi_rd.value, 18,2)='PM' then round(substr(pi_rd.value, 12, 2)) +12 else round(substr(pi_rd.value, 12, 2))  end as hour " +
                     //"pi_vi.value as comp_vers_id " +
                     "from project_result pr, project p" +
 //                    ", project_info pi_vi" +
@@ -115,7 +124,7 @@ public class RatingQubits {
 
             sqlStr = "select distinct pr.project_id, round(substr(pi_rd.value, 1, 2)) as month, " +
                     "round(substr(pi_rd.value, 4, 2)) as day, round(substr(pi_rd.value, 7, 4)) as year," +
-                    "round(substr(pi_rd.value, 12, 2)) as hour " +
+                    "  case when substr(pi_rd.value, 18,2)='PM' then round(substr(pi_rd.value, 12, 2)) +12 else round(substr(pi_rd.value, 12, 2))  end as hour " +
                     //"pi_vi.value as comp_vers_id " +
                     "from project_result pr, project p" +
                     //", project_info pi_vi" +
@@ -139,7 +148,7 @@ public class RatingQubits {
             rs = null;
             ps.close();
             ps = null;
-            
+
             this.updateRatingOrder(conn);
         } catch (SQLException sqe) {
             sqe.printStackTrace();
@@ -218,6 +227,10 @@ public class RatingQubits {
                 histories.add(null);
             }
 
+            HashMap<String, Integer> oldRatingsMap = getOldRatingsMap(conn);
+            HashMap<String, Integer> newRatingsMap = getNewRatingsMap(conn);
+
+
             while (rs.next()) {
                 //new project
                 int processed = 0;
@@ -265,10 +278,10 @@ public class RatingQubits {
                 ps = null;
 
                 if (processed == 0) {
-                    System.out.println("PROCESSING ERROR: NO RECORDS FOR PROJECT " + rs.getLong("project_id"));
+                    log.info("PROCESSING ERROR: NO RECORDS FOR PROJECT " + rs.getLong("project_id"));
                 }
 
-                System.out.println("Running ratings for project: " + rs.getLong("project_id") + " (" + processed + " ratings)");
+                log.info("Running ratings for project: " + rs.getLong("project_id") + " (" + processed + " ratings)");
 
                 Vector n = new Vector();
                 Vector er = new Vector();
@@ -279,7 +292,7 @@ public class RatingQubits {
                 for (int x = 0; x < namesplusprov.size(); x++) {
                     //lookup user info
                     String userId = (String) namesplusprov.get(x);
-                    System.out.println("RATING " + userId);
+                    log.info("RATING " + userId);
 
                     Vector npp = new Vector();
                     Vector tppprov = new Vector();
@@ -306,7 +319,7 @@ public class RatingQubits {
                             continue;
                         }
                         if (h.user_id == Integer.parseInt(userId)) {
-                            System.out.println("THROWING OUT SAME USER");
+                            log.debug("THROWING OUT SAME USER " + userId);
                             continue;
                         }
 
@@ -319,7 +332,7 @@ public class RatingQubits {
                         rpp.add(new Double(h.rating));
                     }
 
-                    System.out.println("History length is " + processed);
+                    log.debug("History length is " + processed);
 
                     resultsplusprov = rateEvent(npp, rpp, vpp, tppprov, spp);
 
@@ -339,6 +352,9 @@ public class RatingQubits {
 
                 }
 
+
+                String key;
+
                 while (er.size() > 0) {
                     int newrating = Math.round(((Double) er.remove(0)).floatValue());
                     int newratingnovol = Math.round(((Double) ernv.remove(0)).floatValue());
@@ -352,19 +368,40 @@ public class RatingQubits {
                     sqlStr.replace(0, sqlStr.length(), "UPDATE project_result SET old_rating = ?, new_rating = ? ");
                     sqlStr.append(" WHERE project_id = ? and user_id = ? ");
 
-                    ps = conn.prepareStatement(sqlStr.toString());
+                    key = rs.getInt("project_id") + "-" + coder;
+                    boolean doit = false;
                     if (r.num_ratings == 0) {
-                        ps.setNull(1, Types.DOUBLE);
+                        if (oldRatingsMap.get(key) != null || !new Integer(newrating).equals(newRatingsMap.get(key))) {
+                            doit = true;
+                        }
                     } else {
-                        ps.setDouble(1, r.rating);
+                        try {
+                            if (!new Integer((int) Math.round(r.rating)).equals(oldRatingsMap.get(key)) ||
+                                    !new Integer(newrating).equals(newRatingsMap.get(key))) {
+                                doit = true;
+                            }
+                        } catch (NullPointerException e) {
+                            log.error("BAD KEY " + key);
+                            throw e;
+                        }
                     }
-                    ps.setInt(2, newrating);
-                    ps.setInt(3, rs.getInt("project_id"));
-                    ps.setInt(4, coder);
 
-                    ps.execute();
-                    ps.close();
-                    ps = null;
+                    //only update the db if something actually changed
+                    if (doit) {
+                        ps = conn.prepareStatement(sqlStr.toString());
+                        if (r.num_ratings == 0) {
+                            ps.setNull(1, Types.DOUBLE);
+                        } else {
+                            ps.setDouble(1, r.rating);
+                        }
+                        ps.setInt(2, newrating);
+                        ps.setInt(3, rs.getInt("project_id"));
+                        ps.setInt(4, coder);
+
+                        ps.execute();
+                        ps.close();
+                        ps = null;
+                    }
 
                     //update user_rating
                     r.rating = newrating;
@@ -377,20 +414,18 @@ public class RatingQubits {
 
                     //insert history
                     history h = new history(coder, score, newrating, newvol);
-                    System.out.println("HISTORY UPDATE: " + coder + ", " + score + ", " + newrating + ", " + newvol);
+                    log.info("HISTORY UPDATE: " + coder + ", " + score + ", " + newrating + ", " + newvol);
 
                     //rotate history
                     histories.add(0, h);
                     //Collections.rotate(histories, 1);
                     //histories.set(0, h);
 
-                    System.out.println("HISTORY IS NOW " + histories.size());
+                    log.debug("HISTORY IS NOW " + histories.size());
                 }
 
             }
 
-         
-            
             //commit final ratings to DB
             Object[] vals = ratings.values().toArray();
             for (i = 0; i < vals.length; i++) {
@@ -451,41 +486,106 @@ public class RatingQubits {
 
         }
     }
-    
-    
+
+
+    private final String OLD_RATINGS = "select pr.project_id, pr.user_id, pr.old_rating from project_result pr, project p " +
+            "where p.project_id = pr.project_id " +
+            "and p.project_status_id in (4, 7)  " +
+            "and p.project_category_id in (1,2) " +
+            "and pr.rating_ind =1 " +
+            "and pr.final_score is not null ";
+
+    /**
+     * return a mapping between project id/user id and what's currently in the database for old rating
+     * the key will be <project_id>-<user_id>
+     *
+     * @return
+     */
+    private HashMap<String, Integer> getOldRatingsMap(Connection conn) throws SQLException {
+        HashMap<String, Integer> ret = new HashMap<String, Integer>();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement(OLD_RATINGS);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ret.put(rs.getString("project_id") + "-" + rs.getString("user_id"), rs.getString("old_rating") == null ? null : rs.getInt("old_rating"));
+            }
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(ps);
+        }
+        return ret;
+
+    }
+
+    private final String NEW_RATINGS = "select pr.project_id, pr.user_id, pr.new_rating from project_result pr, project p " +
+            "where p.project_id = pr.project_id " +
+            "and p.project_status_id in (4, 7)  " +
+            "and p.project_category_id in (1,2) " +
+            "and pr.rating_ind =1 " +
+            "and pr.final_score is not null ";
+
+    /**
+     * return a mapping between project id/user id and what's currently in the database for new rating
+     * the key will be <project_id>-<user_id>
+     *
+     * @return
+     */
+    private HashMap<String, Integer> getNewRatingsMap(Connection conn) throws SQLException {
+        HashMap<String, Integer> ret = new HashMap<String, Integer>();
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = conn.prepareStatement(NEW_RATINGS);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                ret.put(rs.getString("project_id") + "-" + rs.getString("user_id"), rs.getString("new_rating") == null ? null : rs.getInt("new_rating"));
+            }
+        } finally {
+            DBMS.close(rs);
+            DBMS.close(ps);
+        }
+        return ret;
+
+    }
+
     private void updateRatingOrder(Connection conn) throws Exception {
         // update rating_order column
-        System.out.println("UPDATING rating_order COLUMN....");
+        log.info("UPDATING rating_order COLUMN....");
         ResultSet rs2 = null;
         PreparedStatement ps = null;
         PreparedStatement psUpd = null;
-        try {        
+        try {
             StringBuffer sqlStr = new StringBuffer(300);
             sqlStr.append("select user_id, project_category_id, p.project_id, rating_order ");
-            sqlStr.append("        ,substr(pi.value, 1, 2) as month, substr(pi.value, 4, 2) as day, substr(pi.value, 7, 4) as year ");
+            sqlStr.append("        ,substr(pi.value, 1, 2) as month, substr(pi.value, 4, 2) as day, substr(pi.value, 7, 4) as year").append(
+                    ",  case when substr(pi.value, 18,2)='PM' then round(substr(pi.value, 12, 2)) +12 else round(substr(pi.value, 12, 2))  end as hour ");
             sqlStr.append("from project_result pr, project_info pi, project p ");
             sqlStr.append("where pi.project_info_type_id =22  ");
             sqlStr.append("and pi.project_id = pr.project_id ");
             sqlStr.append("and pi.project_id = p.project_id  ");
             sqlStr.append("and p.project_category_id in (1,2) ");
             sqlStr.append("and p.project_status_id in (4,5,6, 7) ");
-            sqlStr.append("order by user_id, project_category_id, year, month, day, p.project_id ");
-            
+            sqlStr.append("order by user_id, project_category_id, year, month, day,hour, p.project_id ");
+
             ps = conn.prepareStatement(sqlStr.toString());
-            rs2 = ps.executeQuery();            
-            
+            rs2 = ps.executeQuery();
+
             psUpd = conn.prepareStatement("UPDATE project_result SET rating_order=? where user_id=? and project_id=?");
-            
+
             long prevUser = -1;
             int prevCategory = -1;
             int ratingOrder = 1;
             int processed = 0;
-            
+
             while (rs2.next()) {
                 if (rs2.getLong("user_id") != prevUser || rs2.getInt("project_category_id") != prevCategory) {
                     ratingOrder = 1;
                     prevUser = rs2.getLong("user_id");
-                    prevCategory = rs2.getInt("project_category_id"); 
+                    prevCategory = rs2.getInt("project_category_id");
                 }
                 if (ratingOrder != rs2.getInt("rating_order")) {
                     psUpd.clearParameters();
@@ -493,16 +593,16 @@ public class RatingQubits {
                     psUpd.setLong(2, rs2.getLong("user_id"));
                     psUpd.setLong(3, rs2.getLong("project_id"));
                     int retVal = psUpd.executeUpdate();
-                    
+
                     if (retVal != 1) {
-                        throw new Exception("Expected 1 row to be updated for user_id=" +rs2.getLong("user_id") + 
-                                 " project_id=" + rs2.getLong("project_id") + " but there were " + retVal);
+                        throw new Exception("Expected 1 row to be updated for user_id=" + rs2.getLong("user_id") +
+                                " project_id=" + rs2.getLong("project_id") + " but there were " + retVal);
                     }
                     processed++;
                 }
                 ratingOrder++;
             }
-            System.out.println("updated rating_order in " + processed + " rows");
+            log.info("updated rating_order in " + processed + " rows");
         } finally {
             try {
                 if (rs2 != null) {
@@ -524,8 +624,8 @@ public class RatingQubits {
             }
 
         }
-        
-        
+
+
     }
 
     int STEPS = 100;
@@ -682,9 +782,9 @@ public class RatingQubits {
             newScores.addElement(new Double(score));
         }
 
-        System.out.println("Handle   Player  # Rate Vol Es.R E.SD  Score  Ac.R A.SD D.SD N.RT N.V N.VR");
+        log.info("Handle   Player  # Rate Vol Es.R E.SD  Score  Ac.R A.SD D.SD N.RT N.V N.VR");
         for (i = 0; i < names.size(); i++) {
-            System.out.println(
+            log.info(
                     fS1((String) names.elementAt(i)) + " " +
                             ((String) names.elementAt(i)) + "  " +
                             ((Integer) timesPlayed.elementAt(i)).intValue() + " " +

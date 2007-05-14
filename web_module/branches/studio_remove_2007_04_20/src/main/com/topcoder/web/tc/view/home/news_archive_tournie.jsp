@@ -39,6 +39,14 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.09.07 7:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">TCHS07 Finalists announced</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.09.07 10:00 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA chat scheduled before SRM 348</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.08.07 12:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=bracket">TCO07 Marathon Match Finalists announced</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.07.07 2:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=17090">Vote now for the TCO07 bloggers</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.27.07 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 4 set for April 27</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.27.07 12:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=description">TCO07 Component Design &amp; Development finalists announced</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.24.07 1:20 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA chat scheduled before SRM 346</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.20.07 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule">TCO07 Algorithm Round 3 set for April 21</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.18.07 12:45 PM - </td><td width="100%"><A href="/longcontest/?module=ViewActiveContests">TCO07 Marathon Match Online Round 3 starts today</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.17.07 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely">AOL Boxely chat scheduled before SRM 345</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.13.07 4:00 PM - </td><td width="100%"><A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">New TCO-eligible contests open at Studio</A></td></tr>

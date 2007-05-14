@@ -229,6 +229,7 @@ public class Constants implements WebConstants {
     public static int CUSTOM_DOT_NET_CATALOG_ID;
     public static int FLASH_CATALOG_ID;
     public static int APPLICATIONS_CATALOG_ID;
+    public static int CPP_CATALOG_ID;
     public static int INTERNAL_NOTE_TYPE_ID;
     //public static int LANGUAGE_NOTE_TYPE_ID;
     //public static int TECH_NOTE_TYPE_ID;
@@ -302,8 +303,16 @@ public class Constants implements WebConstants {
     public static final int EVENT_START_PROP_ID = 6;
     public static final int EVENT_END_PROP_ID = 7;
     public static final int RESULTS_PROP_ID = 8;
+  
+    @Deprecated
     public static final int ROUND_START_PROP_ID = 9;
+    
+    @Deprecated
     public static final int ROUND_END_PROP_ID = 10;
+    
+    public static final int PAGES_BASE_PROP_ID = 11;
+
+    public static final String EVENT_ID = "eid";
 
     public static final int ACHIEVEMENT_TYPE_COM = 1;
     public static final int ACHIEVEMENT_TYPE_NAUGHTY = 2;

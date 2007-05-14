@@ -85,7 +85,7 @@
     <%  } %>
 </table>
 
-<table cellpadding="0" cellspacing="0" class="rtTable">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
     <tr>
         <td class="rtHeader" width="70%">Message</td>
         <td class="rtHeader" width="10%">Author</td>
@@ -116,12 +116,12 @@
             <%  pages = paginator.getPages(5);
                 for (int i=0; i<pages.length; i++) {
             %>  <%  if (pages[i] != null) { %>
-                        <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
-                                <span class="currentPage"><%= pages[i].getNumber() %></span>
-                        <%  } else { %>
-                                <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
-                                <%= pages[i].getNumber() %></A>
-                        <%  } %>
+                    <%  if (pages[i].getNumber() == paginator.getPageIndex()+1) { %>
+                            <span class="currentPage"><%= pages[i].getNumber() %></span>
+                    <%  } else { %>
+                            <A href="<%=link%>&<%=ForumConstants.START_IDX%>=<%=pages[i].getStart()%>" class="rtbcLink">
+                            <%= pages[i].getNumber() %></A>
+                    <%  } %>
                 <%  } else { %> ... <%  } %>
             <%  } %> ]
             <%  if (paginator.getNextPage()) { %>
@@ -132,10 +132,4 @@
     <%  } %>
 </table>
 
-<%  } else { %>
-<table cellpadding="0" cellspacing="0" class="rtbcTable">
-    <tr>
-        <td class="rtbc">No search results for "<%=StringUtils.escapeHTMLTags(query.getQueryString())%>". Please try a less restrictive search.</td>
-    </tr>
-</table>
 <%  } %>

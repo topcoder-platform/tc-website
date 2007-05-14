@@ -1,6 +1,5 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -12,13 +11,20 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.ServerBusyException;
 import com.topcoder.web.codinginterface.longcontest.Constants;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.cache.MaxAge;
 import com.topcoder.web.common.model.ImageInfo;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author dok
@@ -205,6 +211,11 @@ public abstract class Base extends BaseProcessor {
         else
             dAccess = new DataAccess(datasource);
         return dAccess;
+    }
+
+    public DataAccessInt getDataAccess(String datasource, MaxAge maxAge) throws Exception {
+        if (datasource == null) return null;
+        return new CachedDataAccess(maxAge, datasource);
     }
 
     protected User getUser() {

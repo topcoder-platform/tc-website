@@ -198,7 +198,7 @@ public interface PactsConstants extends Constants {
     public static final String USER_CURRENT_SCHOOL = "user_current_school";
     public static final String COMPONENT_DATA = "component_data";
 
-    public static final int ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD = 7;
+    public static final int ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD = 5;
     public static final int ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD = 30;
 
     /*
@@ -422,6 +422,7 @@ public interface PactsConstants extends Constants {
     public static final String NOTE_LINK_CMD = "note_link";
     public static final String PAID_CMD = "Mark Selected Payments Paid";
     public static final String PRINT_CMD = "print";
+    public static final String VERIFY_CMD = "verify";
     public static final String REVIEW_CMD = "Review Selected Payments";
     public static final String STATUS_CMD = "Update Selected Payments' Status";
     public static final String FILE_CMD = "file";
@@ -507,6 +508,8 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_AJAX_VALIDATE_ASSIGNMENT_DOCUMENT = INTERNAL_AJAX_JSP_DIR + "/validateAssignmentDocument.jsp";
     public static final String INTERNAL_AJAX_FILL_PAYMENT_DATA = INTERNAL_AJAX_JSP_DIR + "/fillPaymentData.jsp";
     public static final String INTERNAL_AJAX_DISPLAY_AMOUNTS = INTERNAL_AJAX_JSP_DIR + "/displayAmounts.jsp";
+    public static final String INTERNAL_LIST_INTRO_EVENT_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/listIntroEventCompPayments.jsp";
+    public static final String INTERNAL_VIEW_GENERATE_INTRO_EVENT_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/viewGenerateIntroEventCompPayments.jsp";
 
     /*
       veredox - Don't get your panties in a knot.
@@ -564,5 +567,7 @@ public interface PactsConstants extends Constants {
     public static final int AFFIDAVIT_HISTORY_PAGE_SIZE = 20;
     public static final int ASSIGNMENT_DOCUMENT_HISTORY_PAGE_SIZE = 20;
     
+    // Minimum points in order to win a prize
+    public static final int INTRO_EVENT_MIN_POINTS = 5;
 }
 

@@ -6,8 +6,6 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
@@ -16,6 +14,8 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
@@ -745,7 +745,7 @@ public class TransactionServlet extends HttpServlet {
 
     private TransactionInfo getTransaction(HttpServletRequest request) throws Exception {
         log.debug("get transaction");
-        CacheClient cc = CacheClientFactory.createCacheClient();
+        CacheClient cc = CacheClientFactory.create();
         //keying based on the session id from the original request
         //verisign gives this back to us useing a parameter
         return (TransactionInfo) cc.get(KEY_TRANSACTION_INFO + transactionKey(request));
@@ -754,14 +754,14 @@ public class TransactionServlet extends HttpServlet {
 
     private void addTransaction(HttpServletRequest request, TransactionInfo info) throws Exception {
         log.debug("add transaction for " + info.getBuyerID() + " " + info.getProductID());
-        CacheClient cc = CacheClientFactory.createCacheClient();
+        CacheClient cc = CacheClientFactory.create();
         //keying based on the session id from the original request
-        cc.set(KEY_TRANSACTION_INFO + transactionKey(request), info, 1000 * 60 * 60);
+        cc.set(KEY_TRANSACTION_INFO + transactionKey(request), info);
     }
 
     private void removeTransaction(HttpServletRequest request) throws Exception {
         log.debug("remove transaction");
-        CacheClient cc = CacheClientFactory.createCacheClient();
+        CacheClient cc = CacheClientFactory.create();
         cc.remove(KEY_TRANSACTION_INFO + transactionKey(request));
 
 

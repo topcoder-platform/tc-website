@@ -44,9 +44,49 @@
 
 
 <p>
-    5.8.11 - 2007.04.xx
+    5.9.3 - 2007.05.xx
     <ul>
-        <li>Marathon Match enhancement to allow us to rerun / rescore any type of marathon submission -competition team</li>
+        <li>Don't cache marathon match data for too long, it's too big-dok</li>
+    </ul>
+</p>
+
+<p>
+    5.9.2 - 2007.05.09
+    <ul>
+        <li>Enable C++ components -dok</li>
+    </ul>
+</p>
+
+
+<p>
+    5.9.1 - 2007.05.07
+    <ul>
+        <li>Avoid NPE in component registration if a event has no dates associated -dok</li>
+        <li>Show friendly message on the component current contests page if the user has none -dok</li>
+        <li>Make result sets sort nulls a bit more intelligently. Always sort them to the bottom -dok</li>
+        <li>Enhancements to the Assignment Document functionality in order to accelerate the process -pulky</li>
+        <%--    <li>New button in pact that verifies owed payments before printing -pulky</li>--%>
+    </ul>
+</p>
+
+<p>
+    5.9.0 - 2007.05.02
+    <ul>
+        <li>Replace custom distrubuted cache with jboss cache -dok</li>
+        <li>Add Introductory Events Component pages, as well as admin and PACTS pages for those events - cucu</li>
+    </ul>
+</p>
+
+<p>
+    5.8.11 - 2007.04.26
+    <ul>
+        <li>Marathon Match enhancement to allow us to rerun / rescore any type of marathon submission -competition
+            team
+        </li>
+        <li>Category column added to competition history page -pulky</li>
+        <%--<li>TCSLoad bugfix: project with deleted status are processed and all related data in the dw is fisically deleted -pulky</li>--%>
+        <li>Fix in pacts: installment was set to 1 when doing a batch status -cucu</li>
+        <li>Cluster application servers -dok</li>
     </ul>
 </p>
 
@@ -62,8 +102,8 @@
     5.8.9 - 2007.04.03
     <ul>
         <li>Take advantage of generics for general in-memory data container -dok</li>
-        <li>Fix bug in algorithm consecutive rating increase -cucu</li> 
-        <li>Fix bug in affirm affidavits for HS coders -cucu</li>         
+        <li>Fix bug in algorithm consecutive rating increase -cucu</li>
+        <li>Fix bug in affirm affidavits for HS coders -cucu</li>
         <li>Add "and climbing" in stat pages for consecutive ranks -cucu, nick</li>
         <!-- <li>Add is current flag in record books -cucu</li>  -->
     </ul>
@@ -93,7 +133,7 @@
         <li>TCO07 marathon registrants page updated to show seed -pulky</li>
         <li>TCO07 marathon match results - dok</li>
         <li>TCO07 Component results pages - dok</li>
-        <li>Add IP Transfer functionality -pulky</li>
+        <li>Add Assignment Document functionality -pulky</li>
         <li>Add handle in the recovery password email. - cucu</li>
         <li>Allow members that are only registered for TCHS to be found in Pacts -dok</li>
         <li>Add division placed to algorithm competition history -dok</li>

@@ -51,11 +51,107 @@
    <% boolean even = false; %>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_smcEventTemplate">SMC Testing Competition - Event Template</A>
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMAdmin">Sales IM Admin Testing Competition</A>
       </td>
       <td class="valueC">
       <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Event Template">register</A>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Admin Testing Competition">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_salesIMAdmin">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_salesIMAdmin">standings</A>
+      --%>
+      </td>
+      <td class="valueC">$1,200</td>
+      <td class="valueC">
+      05.16.2007 9:00 AM EDT
+      </td>
+      <td class="valueC">
+      05.23.2007 9:00 AM EDT
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <tc-webtag:forumLink forumID="515778" message="discuss" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMChat">Sales IM Chat Testing Competition</A>
+      </td>
+      <td class="valueC">
+      <%--registration closed--%>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Chat Testing Competition">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_salesIMChat">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_salesIMChat">standings</A>
+      --%>
+      </td>
+      <td class="valueC">$1,200</td>
+      <td class="valueC">
+      05.16.2007 9:00 AM EDT
+      </td>
+      <td class="valueC">
+      05.23.2007 9:00 AM EDT
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <tc-webtag:forumLink forumID="515779" message="discuss" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMPrechat">Sales IM Pre-Chat Testing Competition</A>
+      </td>
+      <td class="valueC">
+      <%--registration closed--%>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Pre-Chat Testing Competition">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_salesIMPrechat">results</A>
+      --%>
+      </td>
+      <td class="valueC">
+      &#160;
+      <%--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_salesIMPrechat">standings</A>
+      --%>
+      </td>
+      <td class="valueC">$1,200</td>
+      <td class="valueC">
+      05.16.2007 9:00 AM EDT
+      </td>
+      <td class="valueC">
+      05.25.2007 9:00 AM EDT
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <tc-webtag:forumLink forumID="515780" message="discuss" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_smcEventTemplate">SMC Testing Competition - Event Template</A>
+      </td>
+      <td class="valueC">
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Event Template">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -86,8 +182,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_smcEventView">SMC Testing Competition - Event View</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Event View">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Event View">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -118,8 +214,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_smcKeyEvent">SMC Testing Competition - Key Event</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Key Event">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Key Event">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -150,8 +246,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_smcLandingPage">SMC Testing Competition - Landing Page</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Landing Page">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Landing Page">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -182,8 +278,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_smcNonLandingPage">SMC Testing Competition - Non-Landing Page</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Non-Landing Page">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Non-Landing Page">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -214,8 +310,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_smcReporting">SMC Testing Competition - Reporting</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Reporting">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: SMC Testing Competition - Reporting">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -238,70 +334,6 @@
       </td>
       <td class="valueC" nowrap="nowrap">
       <tc-webtag:forumLink forumID="515100" message="discuss" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_metricReporting">Metric Reporting Testing Competition - Manage Metric Group</A>
-      </td>
-      <td class="valueC">
-      registration closed      
-      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Metric Reporting Testing Competition - Manage Metric Group">register</A>--%>
-      </td>
-      <td class="valueC">
-      &#160;
-      <%--
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewProjectAdmin">results</A>
-      --%>
-      </td>
-      <td class="valueC">
-      &#160;
-      <%--
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewProjectAdmin">standings</A>
-      --%>
-      </td>
-      <td class="valueC">$300</td>
-      <td class="valueC">
-      03.21.2007 3:00 PM EST
-      </td>
-      <td class="valueC">
-      03.24.2007 9:00 AM EST
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      <tc-webtag:forumLink forumID="514773" message="discuss" />
-      </td>
-   </tr>
-   <% even = !even;%>
-   <tr class="<%=even?"dark":"light"%>">
-      <td class="value">
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_metricData">Metric Reporting Testing Competition - Metric Data</A>
-      </td>
-      <td class="valueC">
-      registration closed
-      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Metric Reporting Testing Competition - Metric Data">register</A>--%>
-      </td>
-      <td class="valueC">
-      &#160;
-      <%--
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_reviewProjectAdmin">results</A>
-      --%>
-      </td>
-      <td class="valueC">
-      &#160;
-      <%--
-      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_reviewProjectAdmin">standings</A>
-      --%>
-      </td>
-      <td class="valueC">$300</td>
-      <td class="valueC">
-      03.21.2007 3:00 PM EST
-      </td>
-      <td class="valueC">
-      03.24.2007 9:00 AM EST
-      </td>
-      <td class="valueC" nowrap="nowrap">
-      <tc-webtag:forumLink forumID="514774" message="discuss" />
       </td>
    </tr>
    <% even = !even;%>

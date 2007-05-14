@@ -1,13 +1,17 @@
 package com.topcoder.web.corp.model;
 
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.common.PermissionDeniedException;
 import com.topcoder.web.corp.common.ScreeningException;
-import com.topcoder.web.common.StringUtils;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -17,7 +21,7 @@ import java.util.Map;
 public class ProblemInfo extends BaseModel {
     private static Logger log = Logger.getLogger(ProblemInfo.class);
 
-//    private static DataAccessInt nonCached;
+    //    private static DataAccessInt nonCached;
     private static DataAccessInt cached;
     private static DataAccessInt dwAccess;
 
@@ -377,8 +381,6 @@ public class ProblemInfo extends BaseModel {
         }
 
 
-
-
         accuracyInfo.setContentHandle("problem_statistics_by_company");
 
         accuracyInfo.setProperty("pid", String.valueOf(problemId));
@@ -407,14 +409,18 @@ public class ProblemInfo extends BaseModel {
     }
 
 
-    /** Getter for property roundName.
+    /**
+     * Getter for property roundName.
+     *
      * @return Value of property roundName.
      */
     public String getRoundName() {
         return this.roundName;
     }
 
-    /** Setter for property roundName.
+    /**
+     * Setter for property roundName.
+     *
      * @param roundName New value of property roundName.
      */
     public void setRoundName(String roundName) {

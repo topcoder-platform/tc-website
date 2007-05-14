@@ -4,7 +4,13 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.TCHibernateTestCase;
-import com.topcoder.web.oracle.model.*;
+import com.topcoder.web.oracle.model.Candidate;
+import com.topcoder.web.oracle.model.CandidateInfo;
+import com.topcoder.web.oracle.model.Contest;
+import com.topcoder.web.oracle.model.Room;
+import com.topcoder.web.oracle.model.RoomResult;
+import com.topcoder.web.oracle.model.Round;
+import com.topcoder.web.oracle.model.RoundRegistration;
 
 import java.util.List;
 
@@ -43,11 +49,11 @@ public class CandidateDAOTestCase extends TCHibernateTestCase {
         for (Contest contest : OracleDAOUtil.getFactory().getContestDAO().getContests()) {
             log.debug("contest: " + contest.getId());
             for (Round round : contest.getRounds()) {
-                log.debug("round: "  + contest.getId());
+                log.debug("round: " + contest.getId());
                 for (Room room : round.getRooms()) {
                     log.debug("room: " + room.getId());
-                    if (room.getCandidateResults().size()>0) {
-                        if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round, dok)==null) {
+                    if (room.getCandidateResults().size() > 0) {
+                        if (OracleDAOUtil.getFactory().getRoundRegistrationDAO().find(round, dok) == null) {
                             found = true;
                             RoundRegistration rr = new RoundRegistration();
                             rr.setRound(round);
@@ -65,11 +71,39 @@ public class CandidateDAOTestCase extends TCHibernateTestCase {
                                 log.debug(c.getName());
                             }
                             log.debug("candidates " + candidates);
-                            assertFalse("candidates was null", candidates==null);
+                            assertFalse("candidates was null", candidates == null);
                             assertFalse("candidates empty", candidates.isEmpty());
                         }
                     }
                     if (found) break;
+                }
+                if (found) break;
+            }
+            if (found) break;
+        }
+        assertTrue("could not find anything", found);
+
+    }
+
+
+    public void testGetCandidatesByRound() {
+        boolean found = false;
+        for (Contest contest : OracleDAOUtil.getFactory().getContestDAO().getContests()) {
+            log.debug("contest: " + contest.getId());
+            for (Round round : contest.getRounds()) {
+                log.debug("round: " + contest.getId());
+                for (Room room : round.getRooms()) {
+                    log.debug("room: " + room.getId());
+                    if (room.getCandidateResults().size() > 0) {
+                        found = true;
+                        List<Candidate> candidates = OracleDAOUtil.getFactory().getCandidateDAO().getCandidates(round);
+                        for (Candidate c : candidates) {
+                            log.debug(c.getName());
+                        }
+                        log.debug("candidates " + candidates);
+                        assertFalse("candidates was null", candidates == null);
+                        assertFalse("candidates empty", candidates.isEmpty());
+                    }
                 }
                 if (found) break;
             }

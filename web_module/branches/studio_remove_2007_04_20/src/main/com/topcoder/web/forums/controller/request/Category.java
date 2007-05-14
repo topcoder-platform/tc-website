@@ -95,27 +95,7 @@ public class Category extends ForumsProcessor {
             
             // create image data for software components
             if (forumCategory.getID() == WebConstants.TCS_FORUMS_ROOT_CATEGORY_ID) {
-                Hashtable imageDataTable = new Hashtable();
-                long[] compVersIDs = new long[pageList.size()];
-                long[] compIDs = new long[pageList.size()];
-                for (int i=0; i<pageList.size(); i++) {
-                    ForumCategory subcategory = (ForumCategory)pageList.get(i);
-                    compVersIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
-                    compIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
-                }
-                Hashtable compVersPhasesTable = forumsBean.getComponentVersionPhases(compVersIDs);
-                Hashtable rootCategoriesTable = forumsBean.getComponentRootCategories(compIDs);
-                for (int i=0; i<pageList.size(); i++) {
-                    ForumCategory subcategory = (ForumCategory)pageList.get(i);
-                    long compVersPhase = -1, rootCategoryID = -1;
-                    if (compVersPhasesTable.containsKey(String.valueOf(compVersIDs[i]))) {
-                        compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(compVersIDs[i])));
-                    }
-                    if (rootCategoriesTable.containsKey(String.valueOf(compIDs[i]))) {
-                        rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(compIDs[i])));
-                    }
-                    imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
-                }
+                Hashtable<String,ImageData> imageDataTable = ForumsUtil.getImageDataTable(forumsBean, pageList);
                 getRequest().setAttribute("imageDataTable", imageDataTable);
             }
         } else {

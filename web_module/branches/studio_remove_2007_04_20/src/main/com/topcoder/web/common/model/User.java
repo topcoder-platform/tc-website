@@ -1,9 +1,17 @@
 package com.topcoder.web.common.model;
 
-import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.common.voting.RankBallot;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
-import java.util.*;
+import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.model.comp.ContestPrize;
+import com.topcoder.web.common.model.comp.UserContestPrize;
+import com.topcoder.web.common.voting.RankBallot;
 
 /**
  * A class containing user information.
@@ -39,6 +47,8 @@ public class User extends Base {
     private SecretQuestion secretQuestion;
     private Set responses;
     private Set ballots;
+    private Set<UserContestPrize> compPrizes;
+    
     /**
      * hoke: used for making changes
      */
@@ -63,6 +73,7 @@ public class User extends Base {
         terms = new HashSet();
         responses = new HashSet();
         ballots = new HashSet();
+        compPrizes = new HashSet<UserContestPrize>();
     }
 
     public Long getId() {
@@ -386,6 +397,17 @@ public class User extends Base {
         eventRegistrations.add(er);
     }
 
+    public Set<UserContestPrize> getCompPrizes() {
+        return Collections.unmodifiableSet(compPrizes);        
+    }
+    
+    public void setCompPrizes(Set<UserContestPrize> compContestPrizes) {
+        this.compPrizes = compContestPrizes;        
+    }
+    public void addCompPrizes(UserContestPrize prize) {
+        this.compPrizes.add(prize);        
+    }
+    
     public EventRegistration getEventRegistration(Event e) {
         EventRegistration curr;
         for (Iterator it = getEventRegistrations().iterator(); it.hasNext();) {

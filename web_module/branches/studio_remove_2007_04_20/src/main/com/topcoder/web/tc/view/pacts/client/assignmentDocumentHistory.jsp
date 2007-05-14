@@ -59,7 +59,7 @@
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="ip_transfers"/>
+            <jsp:param name="node" value="assignment_docs"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -69,7 +69,7 @@
 
 <jsp:include page="../../page_title.jsp" >
 <jsp:param name="image" value="pact_s"/>
-<jsp:param name="title" value="IP Transfers"/>
+<jsp:param name="title" value="Assignment Documents"/>
 </jsp:include>
 
 
@@ -77,7 +77,7 @@
     <div style="float:right;">
        <A href="/tc?module=Static&d1=help&d2=getPaid&node=algo_get_paid"><img src="/i/pacts/howToGetPaid.png" alt="How to get paid" /></A>
     </div>
-    <span class="bodySubtitle">IP Transfers > </span><br>
+    <span class="bodySubtitle">Assignment Documents > </span><br>
     <c:if test="${full_list}" >
         View all | <a href="/PactsMemberServlet?module=AssignmentDocumentHistory&full_list=false" class="bcLink">View pending</a>
     </c:if>
@@ -116,11 +116,15 @@
     
     <br>
     
+    <div align="center">
+        <a class="bcLink" href="/tc?module=Static&d1=help&d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
+    </div>
+    
     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
     <tbody>
         <tr>
             <td class="title" colspan="4">
-                IP Transfers
+                Assignment Documents
             </td>
         </tr>
         <tr>
@@ -218,7 +222,7 @@
     </c:when>
     <c:otherwise>
         <div align="center">
-        <strong>No Assignment Documents Found</strong>
+        <strong>No Assignment Document Documents Found</strong>
         </div>
     </c:otherwise>
 </c:choose>

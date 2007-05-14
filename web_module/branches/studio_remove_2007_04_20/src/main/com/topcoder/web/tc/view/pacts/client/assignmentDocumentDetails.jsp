@@ -37,7 +37,7 @@
 <!-- Left Column Begins-->
         <td width="180">
          <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="ip_transfers"/>
+            <jsp:param name="node" value="assignment_docs"/>
          </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -48,7 +48,7 @@
         
             <jsp:include page="/page_title.jsp" >
             <jsp:param name="image" value="pact_s"/>
-            <jsp:param name="title" value="IP Transfers"/>
+            <jsp:param name="title" value="Assignment Documents"/>
             </jsp:include>
     
                 <p align="right"><a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">Printer friendly version</a></p>
@@ -59,24 +59,27 @@
                 <div align="center">
 
                 <c:if test="${assignment_document.status.id == PENDING_STATUS_ID}">
+                    <form action="/PactsMemberServlet" method="post">
+                        <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
+                        <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
+                        <input type="submit" value="Affirm"/>
+                    </form>
+
+                    <p>If the personal information in this document is incorrect,<br>please <A href="/reg/?nrg=false">update your profile</A> before affirming.</p>
                     <c:choose>
                         <c:when test="${has_hard_copy}">
-                            <form action="/PactsMemberServlet" method="post">
-                                <input type="hidden" name="<%=PactsConstants.ASSIGNMENT_DOCUMENT_ID%>" value="${assignment_document.id}"/>
-                                <input type="hidden" name="module" value="AffirmAssignmentDocument"/> 
-                                <input type="submit" value="Affirm"/>
-                            </form>
-
-                            <p>If the personal information in this document is incorrect,<br>please <A href="/reg/?nrg=false">update your profile</A> before affirming.</p>
+                            <p>
+                                You have already sent a a signed hard copy of the Assignment Document Document.
+                            </p>
                         </c:when>
                         <c:otherwise>
                             <p>
-                                You'll need to send a signed hard copy of the Assignment Document in order to be able to affirm it in the future. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
+                                You will need to send a signed hard copy of the Assignment Document Document in order to be able to affirm it in the future. You can get a printer friendly version <a href="/PactsMemberServlet?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">here</a>.
                             </p>
                         </c:otherwise>
                     </c:choose>
                 </c:if>
-                </div>
+         </div>
 </div>
 </TD>
 <!-- Center Column Ends -->

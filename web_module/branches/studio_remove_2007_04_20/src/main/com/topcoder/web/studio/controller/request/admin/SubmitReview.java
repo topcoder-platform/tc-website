@@ -1,9 +1,8 @@
 package com.topcoder.web.studio.controller.request.admin;
 
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.NavigationException;
@@ -20,7 +19,6 @@ import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionReview;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -84,7 +82,6 @@ public class SubmitReview extends Base {
             Long submitterId = s.getSubmitter().getId();
 
 
-
             closeConversation();
             //have to wrap up the last stuff, and get into new stuff.  we don't want
             //sending email to be in the transaction
@@ -120,7 +117,7 @@ public class SubmitReview extends Base {
             mail.setSubject("Your TopCoder(R) Studio submission passed review");
         } else if (ReviewStatus.FAILED.equals(status.getId())) {
             mail.setSubject("Your TopCoder(R) Studio submission failed review");
-        } else if (ReviewStatus.CHEATED.equals(status.getId())){
+        } else if (ReviewStatus.CHEATED.equals(status.getId())) {
             //don't send email 
             return;
         }
@@ -165,17 +162,10 @@ public class SubmitReview extends Base {
 
     private void refreshCache(Contest c) {
         try {
+            //todo fix this to work with both caches
             log.debug("refreshing cache");
-            CacheClient cc = CacheClientFactory.createCacheClient();
-            String tempKey;
             String key = Constants.CONTEST_ID + "=" + c.getId();
-            ArrayList list = cc.getKeys();
-            for (int i = 0; i < list.size(); i++) {
-                tempKey = (String) list.get(i);
-                if (tempKey.indexOf(key) > -1) {
-                    cc.remove(tempKey);
-                }
-            }
+            CacheClearer.removelike(key);
         } catch (Exception ignore) {
             ignore.printStackTrace();
         }

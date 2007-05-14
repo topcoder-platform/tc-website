@@ -48,6 +48,9 @@
         <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
         <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
         <pathelement location="${jars.dir}/jboss/mail.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-system.jar"/>
+        <pathelement location="${jars.dir}/jboss/jboss-cache.jar"/>
+        <pathelement location="${jars.dir}/jboss/jgroups.jar"/>
         <pathelement location="${jars.dir}/httpunit.jar"/>
 
         <pathelement location="${jars.dir}/PactsServices.jar"/>
@@ -274,6 +277,7 @@
         <copy todir="${jboss_deploy}" file="${ejb_jars}/messagehistory.jar"/>
         <copy todir="${jboss_deploy}" file="${ejb_jars}/forums.jar"/>
         <copy todir="${jboss_deploy}" file="${ear.dir}/security.ear"/>
+        <copy todir="${jboss_deploy}" file="${jive.dir}/jive4.war"/>
 
         <copy todir="${jboss_conf}" file="${resources}/forums/studio/jive_init.xml"/>
         <copy todir="${jboss_conf}" file="${resources}/cache.properties"/>

@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<li><a href="/tc?module=Static&d1=features&d2=041907"><strong>A Crash Course in SQL</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
-In the first two parts of this article series we looked at the basic components of relational databases.  We touched briefly on SQL -- the language we use to interact with the database -- but in this article we'll look at it in much more detail, with a specific focus on writing queries.</li>
-<li><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely"><strong>Introducing Boxely</strong></a>, by AOL's Boxely Team<%--<tc-webtag:handle coderId="15635590" />--%><br>
-Boxely is a next-generation, standards-based development platform for creating rich desktop applications. Combining the benefits of a box-based layout scheme with an advanced rendering engine, Boxely is designed to enable the creation of rich desktop applications with the same ease, flexibility, and extensibility as authoring internet applications today.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=netConfigurationMgr"><strong>Using the .Net Configuration Manager</strong></a>, by <tc-webtag:handle coderId="10445079" context="development" /><br>
-Most TopCoder members who have participated in at least one .NET design or development competition will tell you that the first component they needed to learn was the Configuration Manager. Simply put, it's a key to unlocking the potential of the component catalog.</li>
+<li><a href="/tc?module=Static&d1=features&d2=051407"><strong>A Crash Course in SQL, Part 2</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
+In this last installment of this article series on relational databases, we'll take a look at some more of the "core" SQL concepts any good programmer needs to know, and we'll take a look at how to interact with relational databases using Java.</li>
+<li><a href="/tc?module=Static&d1=features&d2=051007"><strong>TCO Preview: The Marathon Match Competition</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
+With this year's addition of Marathon Matches to the TopCoder Open, and a chance for 8 finalists to take a free trip to Las Vegas -- not to mention the hope of winning $15,000 -- it's no wonder that competitors came from far and wide to try their coding skills.</li>
+<li><a href="/tc?module=Static&d1=features&d2=050807"><strong>Belarus All College Programming Event</strong></a>, by <tc-webtag:handle coderId="8365955" /><br>
+On April 26, about 80 coders from Belarusian colleges simultaneously pressed the "open a problem" button to start All Belarus Programming Event, sponsored by TopCoder.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>

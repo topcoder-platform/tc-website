@@ -8,6 +8,7 @@
 
 <title>2006 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
 <link type="text/css" rel="stylesheet" href="/css/TCCC06style.css"/>
+<script src="/js/tcscript.js" type="text/javascript"></script>
 </head>
 <body>
 
@@ -41,13 +42,20 @@ previous chapter
 </c:if>
 
 <div align="left" style="margin-top: 20px;">
-<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="360" height="280" id="webcast" align="middle">
-<param name="allowScriptAccess" value="always" />
-<param name="movie" value="/flash/tournament/tccc06/webcast.swf?&clip=part<c:out value="${param['clip']}" escapeXml="true"/>" />
-<param name="quality" value="high" />
-<param name="bgcolor" value="#083A3A" />
-<embed src="/flash/tournament/tccc06/webcast.swf?&clip=part<c:out value="${param['clip']}" escapeXml="true"/>" quality="high" bgcolor="#083A3A" width="360" height="280" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
-</object>
+
+<script language="JavaScript">
+var s='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="360" height="280" id="webcast" align="middle">'
++ '<param name="allowScriptAccess" value="always" />'
++ '<param name="movie" value="/flash/tournament/tccc06/webcast.swf?&clip=part<c:out value="${param['clip']}" escapeXml="true"/>" />'
++ '<param name="quality" value="high" />'
++ '<param name="bgcolor" value="#083A3A" />'
++ '<param name="allowFullScreen" value="true" />'
++ '<embed src="/flash/tournament/tccc06/webcast.swf?&clip=part<c:out value="${param['clip']}" escapeXml="true"/>" quality="high" bgcolor="#083A3A" allowFullScreen="true" width="360" height="280" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'
++ '</object>';
+
+doWrite(s);
+</script>
+
 </div>
 <br><br>
 <tc-webtag:forumLink forumID="506218" message="Discuss the webcast" />

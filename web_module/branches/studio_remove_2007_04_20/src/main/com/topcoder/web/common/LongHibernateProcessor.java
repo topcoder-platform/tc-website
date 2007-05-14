@@ -5,7 +5,7 @@ import org.hibernate.Session;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * This implementation uses the session-per-conversation strategy.
@@ -93,7 +93,36 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
                 }
             }
         }
+
+/*        FileOutputStream fos = null;
+        FileInputStream fis = null;
+        String fileName = "temp"+System.currentTimeMillis()+".txt";
+        HibernateSessionHouse house=null;
+        try {
+            fos = new FileOutputStream(fileName);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(new HibernateSessionHouse(hibernateSession));
+            oos.flush();
+            oos.close();
+
+            fis = new FileInputStream(fileName);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            house = (HibernateSessionHouse)ois.readObject();
+            ois.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (IOException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }*/
+
+
+//        getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, house);
         getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, new HibernateSessionHouse(hibernateSession));
+
+
         //getRequest().getSession().setAttribute(HIBERNATE_SESSION_KEY, hibernateSession);
     }
 
@@ -141,6 +170,8 @@ public abstract class LongHibernateProcessor extends BaseProcessor {
             if (house != null) {
                 log.debug("bind existing hibernate session");
                 ExtendedThreadLocalSessionContext.bind(house.getSession());
+            } else {
+                log.debug("didn't fine the hibernate session, we'll have to create one");
             }
 /*
             Session session =

@@ -1,6 +1,5 @@
 package com.topcoder.web.codinginterface.longcontest.controller.request;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -10,10 +9,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.codinginterface.longcontest.Constants;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.model.Answer;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.ejb.roundregistration.RoundRegistration;

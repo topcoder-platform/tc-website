@@ -147,6 +147,8 @@
             <img src="/i/development/smNetCustom.gif"/>
             <% } else if ("Flash".equals(registrants.getStringItem(0, "catalog_name"))) { %>
             <img src="/i/development/flashSm.gif"/>
+            <% } else if ("C++".equals(registrants.getStringItem(0, "catalog_name"))) { %>
+            <img src="/i/development/smCpp.png"/>
             <% } else { %>
             <rsc:item name="catalog_name" set="<%=registrants%>"/>
             <% } %>
@@ -159,7 +161,11 @@
         <tr><td class="tableTitle" colspan="10">Registrants</td></tr>
         <tr>
             <td CLASS="tableHeader">Handle</td>
-            <td CLASS="tableHeader" align="center">Registration Date</td>
+            <%if (projectTypeId==Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE||projectTypeId==Base.COMPONENT_DESIGN_PROJECT_TYPE) { %>
+            <td CLASS="tableHeader" align="right">Rating</td>
+            <td CLASS="tableHeader" align="right">Reliability</td>
+            <% }%>
+              <td CLASS="tableHeader" align="center">Registration Date</td>
             <td CLASS="tableHeader" align="center">Submission Date</td>
          </tr>
           <rsc:iterator list="<%=registrants%>" id="resultRow">
@@ -179,6 +185,14 @@
                     }
                 %>
               </td>
+              <%if (projectTypeId==Base.COMPONENT_DEVELOPMENT_PROJECT_TYPE||projectTypeId==Base.COMPONENT_DESIGN_PROJECT_TYPE) { %>
+              <td class="statDk" align="right" nowrap="0">
+                  <rsc:item name="rating" row="<%=resultRow%>" format="####" ifNull="not rated"/>
+              </td>
+              <td class="statDk" align="right" nowrap="0">
+                  <rsc:item name="reliability" row="<%=resultRow%>" format="#.##%" ifNull="n/a"/>
+              </td>
+              <% } %>
               <td class="statDk" align="center" nowrap="0">
                   <rsc:item name="inquiry_date" row="<%=resultRow%>" format="MM.dd.yyyy hh:mm a z" timeZone="America/New_York"/>
               </td>

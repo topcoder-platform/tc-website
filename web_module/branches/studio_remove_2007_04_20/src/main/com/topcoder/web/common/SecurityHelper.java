@@ -4,13 +4,16 @@ import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
+import com.topcoder.web.common.cache.MaxAge;
+import com.topcoder.web.common.cache.address.AddressFactory;
+import com.topcoder.web.common.cache.address.CacheAddress;
 import com.topcoder.web.common.security.TCSAuthorization;
 
 import javax.naming.Context;
@@ -38,15 +41,18 @@ public class SecurityHelper {
         //log.debug("get " + l + " from db " + forceLoadFromDb);
         TCSubject ret = null;
 
-        String key = KEY_PREFIX + dataSource == null ? "" : dataSource + String.valueOf(l);
+        CacheAddress address = AddressFactory.create(new TCSubject(l), dataSource, MaxAge.HOUR);
+        log.debug("address " + address.toString());
+
         Context ctx = null;
         try {
             boolean hasCacheConnection = true;
             CacheClient cc = null;
             try {
-                cc = CacheClientFactory.createCacheClient();
-                if (!forceLoadFromDb)
-                    ret = (TCSubject) (cc.get(key));
+                cc = CacheClientFactory.create();
+                if (!forceLoadFromDb) {
+                    ret = (TCSubject) (cc.get(address));
+                }
             } catch (Exception e) {
                 log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 hasCacheConnection = false;
@@ -65,20 +71,19 @@ public class SecurityHelper {
                 }
                 if (hasCacheConnection) {
                     try {
-                        cc.set(key, ret, 1000 * 60 * 30);
+                        cc.set(address, ret);
                     } catch (Exception e) {
                         log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                     }
                 }
+            } else {
+                log.debug("ret was not null");
             }
             return ret;
         } catch (Exception e) {
             throw e;
         } finally {
-            try {
-                if (ctx != null) ctx.close();
-            } catch (Exception e) {
-            }
+            TCContext.close(ctx);
         }
     }
 

@@ -71,7 +71,7 @@ border: 4px solid #cc6600;
             </div>
 
             <div style="margin-bottom: 10px;">
-                <img src="/i/tournament/tco07/rsvp/tournamentLogo.png" alt="2007 TopCoder Open Sponsored by AOL" />
+                <A href="/tco07"><img src="/i/tournament/tco07/rsvp/tournamentLogo.png" alt="2007 TopCoder Open Sponsored by AOL" /></A>
             </div>
 
             <div style="margin-bottom: 15px;">
@@ -79,7 +79,7 @@ border: 4px solid #cc6600;
             </div>
 
 <p>
-We invite you to attend the TCO07 to marvel at the four competition tracks of<br>Algorithm, Component Design &amp; Development, Marathon Match and Studio Design,<br>and participate in educationalDeveloper Forums and Customer Round Table.
+We invite you to attend the TCO07 to marvel at the four competition tracks of<br>Algorithm, Component Design &amp; Development, Marathon Match and Studio Design,<br>and participate in educational Developer Forums and Customer Round Table.
 </p>
 <p>
 Please also join us for the TopCoder Casino Night Cocktail Party.

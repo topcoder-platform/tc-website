@@ -23,39 +23,9 @@
     </jsp:include>
     <script type="text/javascript" src="/js/popup.js"></script>
     <script language="javascript" type="text/javascript">
-        <!--
-        function changeRank(newRank, submissionId) {
-        var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
-            ajaxRequest.setPostRequest(fader);
-        <%--
-                    ajaxRequest.setPreRequest(yellower);
-        --%>
-        ajaxRequest.sendRequest();
-        }
-        function fader() {
-            Fat.fade_element('fade0');
-            Fat.fade_element('fade1');
-            Fat.fade_element('fade2');
-            Fat.fade_element('fade3');
-            Fat.fade_element('fade4');
-            Fat.fade_element('fade5');
-            Fat.fade_element('fade6');
-            Fat.fade_element('fade7');
-            Fat.fade_element('fade8');
-        }
-        function batchUpdate() {
-            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}&<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.FINAL_SUBMISSION_TYPE%>');
-        <c:forEach items="${submissions}" var="submission">
-            ajaxRequest.addNamedFormElements("<%=Constants.SUBMISSION_ID%>${submission.id}");
-        </c:forEach>
-            ajaxRequest.sendRequest();
-        }
-        new Image().src="/i/layout/processing.gif";
         function showProcessing() {
             document.getElementById("submitButton").innerHTML='<img src="/i/layout/processing.gif" alt=""/>';
         }
-
-        // -->
     </script>
 </head>
 
@@ -91,14 +61,14 @@
             <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
 
             <div align="center">
-                <c:choose>
-                    <c:when test="${!has_hard_copy}">
+                    <c:if test="${!has_hard_copy}">
                         <p><strong>Remember that in order to get paid you must send a signed copy of the Assignment document</strong></p>
-                    </c:when>
-                    <c:when test="${has_hard_copy and assignment_document.status.id == PENDING_STATUS_ID}">
+                    </c:if>
+                <c:choose>
+                    <c:when test="${assignment_document.status.id == PENDING_STATUS_ID}">
                         <p><a href="/?module=ViewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}">click here for a printer friendly version of the assignment document</a></p>
                         <p><iframe  width="100%" height="300" marginWidth="5"
-                            src="/?module=Static&d1=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
+                            src="/?module=Static&d1=mystudio&d2=viewAssignmentDocumentText&${ASSIGNMENT_DOCUMENT_ID}=${assignment_document.id}"></iframe>
                         </p>
                         <p>
                         <tc-webtag:errorIterator id="err" name="<%=Constants.ACCEPT_AD_ERROR%>"><span class="bigRed">${err}</span>
@@ -125,11 +95,6 @@
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
                                         <br></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
-                </p>
-                <p>
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
-                        <br></tc-webtag:errorIterator>
-                    as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
                 </p>
                 <p id="submitButton">
                     <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">

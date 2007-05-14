@@ -2,14 +2,10 @@ package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.security.TCPrincipal;
 import com.topcoder.security.TCSubject;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.*;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;

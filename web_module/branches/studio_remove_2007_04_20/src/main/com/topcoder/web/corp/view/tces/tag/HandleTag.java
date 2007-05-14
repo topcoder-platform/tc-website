@@ -1,10 +1,10 @@
 package com.topcoder.web.corp.view.tces.tag;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.corp.common.TCESConstants;
 
 import javax.servlet.jsp.JspException;
@@ -12,9 +12,9 @@ import javax.servlet.jsp.tagext.TagSupport;
 import java.util.Map;
 
 /**
- * @author  dok
- * @version  $Revision$ $Date$
- * Create Date: Aug 11, 2005
+ * @author dok
+ * @version $Revision$ $Date$
+ *          Create Date: Aug 11, 2005
  */
 
 public class HandleTag extends TagSupport {
@@ -37,7 +37,7 @@ public class HandleTag extends TagSupport {
 
     private static final String[] darkStyles =
             {"coderTextOrange", "coderTextBlack", "coderTextGray",
-             "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
+                    "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
     public void setCoderId(long coderId) {
         this.coderId = coderId;
@@ -88,7 +88,6 @@ public class HandleTag extends TagSupport {
 
             if ("".equals(db)) {
                 CachedDataAccess da1 = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-                da1.setExpireTime(24 * 60 * 60 * 1000);
                 Request r1 = new Request();
                 r1.setContentHandle("company_datasource");
                 r1.setProperty("cm", String.valueOf(companyId));

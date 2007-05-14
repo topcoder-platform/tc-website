@@ -17,10 +17,11 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
 	
     private static Logger logger = Logger.getLogger(ExpireOldAffidavitsAndPayments.class);
     private static final String NAME = "ExpireOldAffidavits";
-    private Timer timer;
+    private Timer timer = null;
     private static String status = "Not Initialized";
     private String runningTime = null;
-    
+    private boolean isMasterNode = false;
+
     /* (non-Javadoc)
      * @see org.jboss.system.ServiceMBean#getName()
      */
@@ -46,7 +47,7 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
         	Date start = getStartTime();
         	
             timer = new Timer();
-            timer.scheduleAtFixedRate(new ExpireTask(), start, 24 * 60 * 60 * 1000); // Run daily 
+            timer.scheduleAtFixedRate(new ExpireTask(), start, 24 * 60 * 60 * 1000); // Run daily
 
             logger.info("ExpireOldAffidavitsAndPayments will run daily at " + getRunningTime() + " starting at " + start);
         } catch (Exception e) {
@@ -73,6 +74,10 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
 
     private class ExpireTask extends TimerTask {
         public void run() {
+            if (!isMasterNode()) {
+                logger.info("This is not the master, process ExpireOldAffidavitsAndPayments skipped.");
+                return;
+            }
             logger.info("ExpireOldAffidavitsAndPayments Fired");
 
             try {
@@ -93,6 +98,30 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
         }
     }
 
+
+    
+    public void startSingleton() {
+        isMasterNode = true;
+        logger.debug("StartSingleton");
+        try {
+            if (timer == null) {
+                startService();
+            }
+        } catch (Exception e) {
+            logger.error(e);
+        }
+    }
+
+    public boolean isMasterNode() {
+        return isMasterNode;  
+    }
+
+    public void stopSingleton() {
+        isMasterNode = false;  
+        timer.cancel();
+        timer = null;
+        logger.debug("StopSingleton");
+    }
 
 
 }

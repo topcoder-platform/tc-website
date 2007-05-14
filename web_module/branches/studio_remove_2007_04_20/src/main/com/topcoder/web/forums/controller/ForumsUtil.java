@@ -18,6 +18,7 @@ import com.jivesoftware.forum.ForumMessage;
 import com.jivesoftware.forum.ForumPermissions;
 import com.jivesoftware.forum.ForumThread;
 import com.jivesoftware.forum.QueryResult;
+import com.jivesoftware.forum.ReadTracker;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.RatingManager;
 import com.jivesoftware.forum.database.DbForumFactory;
@@ -36,11 +37,7 @@ import com.topcoder.web.forums.ForumConstants;
 import java.rmi.RemoteException;
 import java.text.NumberFormat;
 import java.text.DecimalFormat;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * @author mtong
@@ -317,8 +314,8 @@ public class ForumsUtil {
     }
 
     // Returns one page of items in a list
-    public static ArrayList getPage(ArrayList list, int startIdx, int forumRange) {
-        int endIdx = Math.min(startIdx+forumRange, list.size());
+    public static ArrayList getPage(ArrayList list, int startIdx, int range) {
+        int endIdx = Math.min(startIdx+range, list.size());
         ArrayList pageList = new ArrayList();
         for (int i=startIdx; i<endIdx; i++) {
             pageList.add(list.get(i));
@@ -406,6 +403,73 @@ public class ForumsUtil {
                 pct <= Integer.parseInt(user.getProperty("ratingCollapseThreshold")) &&
                 ratingCount >= Integer.parseInt(user.getProperty("ratingCollapseMinCount")) &&
                 messageCount >= Integer.parseInt(user.getProperty("ratingCollapseMinMessages")));
+    }
+    
+    // Returns a table indicating if messages already read in a thread should be collapsed.
+    // In Thread.java, before the read tracker runs, the latest read post is found, passed to a jsp, then passed here. 
+    // Call the date of this post D. For each message, if its date is later than D, it is not collapsed. 
+    // If all of the posts are collapsed, they will all be automatically opened.
+    public static Hashtable<ForumMessage,Boolean> getCollapseReadPostTable(User user, ForumThread thread, Date lastReadDate) {
+        if (user == null) return null;
+        
+        boolean collapse = getBoolean(user.getProperty("collapseRead"), ForumConstants.DEFAULT_COLLAPSE_READ);
+        int days = getInt(user.getProperty("collapseReadDays"), ForumConstants.DEFAULT_COLLAPSE_READ_DAYS);
+        int posts = getInt(user.getProperty("collapseReadPosts"), ForumConstants.DEFAULT_COLLAPSE_READ_POSTS);
+        boolean showRepliedPosts = getBoolean(user.getProperty("collapseReadShowReplied"), 
+                ForumConstants.DEFAULT_COLLAPSE_READ_SHOW_REPLIED);
+
+        if (!collapse || (thread.getMessageCount() < posts)) return null;
+        Hashtable<ForumMessage,Boolean> table = new Hashtable<ForumMessage,Boolean>();
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(Calendar.DAY_OF_MONTH, -days);
+
+        Iterator<ForumMessage> itMessages = thread.getMessages();
+        while (itMessages.hasNext()) {
+            ForumMessage message = itMessages.next();
+            if (table.containsKey(message)) {
+                continue;
+            }
+            boolean collapseMessage = calendar.getTime().after(message.getModificationDate());
+            if (message.getModificationDate().after(lastReadDate)) {    // new post, keep open
+                collapseMessage = false;
+            }
+            table.put(message, collapseMessage);
+            if (showRepliedPosts && !collapseMessage) {
+                if (message.getParentMessage() != null && 
+                        (table.get(message.getParentMessage()) == null || table.get(message.getParentMessage()) == true)) {
+                    message = message.getParentMessage();
+                    table.put(message, false);
+                }
+            }
+        }
+        
+        Iterator<Boolean> itValues = table.values().iterator();
+        int numCollapsedPosts = 0;
+        while (itValues.hasNext()) {
+            if (itValues.next() == true) {
+                numCollapsedPosts++;
+            }
+        }
+        if (numCollapsedPosts == thread.getMessageCount()) return null;
+        
+        return table;        
+    }
+    
+    // Returns the time of the latest-read message in the given thread.
+    public static Date getLastReadDate(User user, ReadTracker readTracker, ForumThread thread) {
+         Calendar calendar = new GregorianCalendar(1970, Calendar.JANUARY, 1);
+         Date lastReadDate = calendar.getTime();
+         Iterator<ForumMessage> itMessages = thread.getMessages();
+         while (itMessages.hasNext()) {
+             ForumMessage message = itMessages.next();
+             if (readTracker.getReadStatus(user, message) == ReadTracker.READ) {
+                 if (message.getModificationDate().after(lastReadDate)) {
+                     lastReadDate = message.getModificationDate();
+                 }
+             }
+         }
+         return lastReadDate;
     }
 
     public static boolean showRatings(User user) {
@@ -617,6 +681,74 @@ public class ForumsUtil {
             return imageData.hasComponentLink();
         }
         return false;
+    }
+    
+    public static Hashtable<String,ImageData> getImageDataTable(ForumsLocal forumsBean, ArrayList<ForumCategory> pageList) {
+        Hashtable<String,ImageData> imageDataTable = new Hashtable<String,ImageData>();
+        long[] compVersIDs = new long[pageList.size()];
+        long[] compIDs = new long[pageList.size()];
+        for (int i=0; i<pageList.size(); i++) {
+            ForumCategory subcategory = pageList.get(i);
+            compVersIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_VERSION_ID));
+            compIDs[i] = Long.parseLong(subcategory.getProperty(ForumConstants.PROPERTY_COMPONENT_ID));
+        }
+        Hashtable compVersPhasesTable = forumsBean.getComponentVersionPhases(compVersIDs);
+        Hashtable rootCategoriesTable = forumsBean.getComponentRootCategories(compIDs);
+        for (int i=0; i<pageList.size(); i++) {
+            ForumCategory subcategory = pageList.get(i);
+            long compVersPhase = -1, rootCategoryID = -1;
+            if (compVersPhasesTable.containsKey(String.valueOf(compVersIDs[i]))) {
+                compVersPhase = Long.parseLong((String)compVersPhasesTable.get(String.valueOf(compVersIDs[i])));
+            }
+            if (rootCategoriesTable.containsKey(String.valueOf(compIDs[i]))) {
+                rootCategoryID = Long.parseLong((String)rootCategoriesTable.get(String.valueOf(compIDs[i])));
+            }
+            imageDataTable.put(String.valueOf(subcategory.getID()), new ImageData(compVersPhase, rootCategoryID));
+        }
+        return imageDataTable;
+    }
+    
+    // Search if a string is contained in an array. The string tokens may be separated into consecutive elements
+    // within the array; for instance, "bar graph" is in {"bar","graph","v2.0"}.
+    public static boolean inArray(String s, String[] array) {
+        String[] ss = s.split(" ");
+        for (int i=0; i<array.length-ss.length+1; i++) {
+            boolean contained = true;
+            for (int j=0; j<ss.length; j++) {
+                contained &= ss[j].equals(array[i+j]);
+            }
+            if (contained) return true;
+        }
+        return false;
+    }
+    
+    public static boolean getBoolean(String s, boolean defaultVal) {
+        if (s != null) {
+            return Boolean.parseBoolean(s);
+        } else {
+            return defaultVal;
+        }
+    }
+    public static double getDouble(String s, double defaultVal) {
+        try {
+            return Double.parseDouble(s);
+        } catch (NumberFormatException nfe) {
+            return defaultVal;
+        }
+    }
+    public static int getInt(String s, int defaultVal) {
+        try {
+            return Integer.parseInt(s);
+        } catch (NumberFormatException nfe) {
+            return defaultVal;
+        }
+    }
+    public static long getLong(String s, long defaultVal) {
+        try {
+            return Long.parseLong(s);
+        } catch (NumberFormatException nfe) {
+            return defaultVal;
+        }
     }
 }
 

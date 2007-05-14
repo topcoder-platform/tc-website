@@ -1,9 +1,9 @@
 package com.topcoder.web.tc.controller.request.crpf;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
@@ -28,7 +28,6 @@ public class Report extends Base {
 
         try {
             CachedDataAccess da = (CachedDataAccess) getDataAccess(true);
-            da.setExpireTime(30 * 60 * 1000); //30 minutes should be sufficient
             Map m = da.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) m.get("crpf_donation_list");
             SortInfo s = new SortInfo();

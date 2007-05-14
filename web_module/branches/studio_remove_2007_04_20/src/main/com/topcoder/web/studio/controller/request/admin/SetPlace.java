@@ -1,9 +1,9 @@
 package com.topcoder.web.studio.controller.request.admin;
 
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
@@ -69,7 +69,7 @@ public class SetPlace extends Base {
                 factory.getSubmissionDAO().saveOrUpdate(s);
 
                 try {
-                    CacheClient cc = CacheClientFactory.createCacheClient();
+                    CacheClient cc = CacheClientFactory.create();
                     Request r = new Request();
                     r.setContentHandle("studio_home_data");
                     cc.remove(r.getCacheKey());

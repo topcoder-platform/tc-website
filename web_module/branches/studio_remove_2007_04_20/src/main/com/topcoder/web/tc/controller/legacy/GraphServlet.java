@@ -2,13 +2,22 @@ package com.topcoder.web.tc.controller.legacy;
 
 import com.fx4m.plot13.HistoryPlot;
 import com.topcoder.security.TCSubject;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.RequestInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.cache.CacheClient;
+import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.security.WebAuthentication;
 import org.faceless.graph.BarGraph;
 import org.faceless.graph.Graph;
@@ -218,7 +227,7 @@ public final class GraphServlet extends BaseServlet {
     private static void connectToCache() {
         if (client == null) {
             try {
-                client = CacheClientFactory.createCacheClient();
+                client = CacheClientFactory.create();
             } catch (Exception e) {
                 log.error("ERROR INITIALIZING CACHE CLIENT");
             }
@@ -232,7 +241,7 @@ public final class GraphServlet extends BaseServlet {
     private static void addToCache(RequestInt dataRequest, byte[] value) {
         connectToCache();
         try {
-            client.set(getCacheKey(dataRequest), value, 1000 * 60 * 60 * 24 * 7); //1 week
+            client.set(getCacheKey(dataRequest), value); //1 week
         } catch (Exception e) {
             log.error("ERROR GETTING OBJECT FROM CACHE");
         }

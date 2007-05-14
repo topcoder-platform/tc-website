@@ -24,8 +24,16 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new CompanyDAOHibernate();
     }
 
+    public CompContestDAO getCompContestDAO() {
+        return new CompContestDAOHibernate();
+    }
+    
     public ContactDAO getContactDAO() {
         return new ContactDAOHibernate();
+    }
+    
+    public ContestPrizeDAO getContestPrizeDAO() {
+        return new ContestPrizeDAOHibernate();
     }
 
     public CountryDAO getCountryDAO() {
@@ -48,6 +56,13 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new EventDAOHibernate();
     }
 
+    public IntroEventDAO getIntroEventDAO() {
+        return new IntroEventDAOHibernate();
+    }
+    public IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO(){
+        return new IntroEventPropertyTypeDAOHibernate();
+    }
+
     public EventRegistrationDAO getEventRegistrationDAO() {
         return new EventRegistrationDAOHibernate();
     }
@@ -58,6 +73,10 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     public FileTypeDAO getFileTypeDAO() {
         return new FileTypeDAOHibernate();
+    }
+
+    public ImageDAO getImageDAO() {
+        return new ImageDAOHibernate();
     }
 
     public MemberContactMessageDAO getMemberContactMessageDAO() {
@@ -88,6 +107,9 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new PreferenceGroupDAOHibernate();
     }
 
+    public ProjectDAO getProjectDAO() {
+        return new ProjectDAOHibernate();
+    }
 
     public RegistrationTypeDAO getRegistrationTypeDAO() {
         return new RegistrationTypeDAOHibernate();
@@ -95,6 +117,10 @@ public class DAOFactoryHibernate implements DAOFactory {
 
     public ReferralDAO getReferralDAO() {
         return new ReferralDAOHibernate();
+    }
+
+    public RoundDAO getRoundDAO() {
+        return new RoundDAOHibernate();
     }
 
     public SchoolDAO getSchoolDAO() {

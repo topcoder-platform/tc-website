@@ -33,6 +33,13 @@ abstract public class Base extends BaseProcessor {
 
     protected final void businessProcessing() throws Exception {
         String eid = getRequest().getParameter(Constants.COLLEGE_TOUR_EVENT_ID);
+        if (eid==null) {
+            throw new TCWebException("invalid request no event id specified");
+        }
+         eventId = Long.parseLong(eid);
+         
+        /*
+        String eid = getRequest().getParameter(Constants.COLLEGE_TOUR_EVENT_ID);
         getRequest().setAttribute(Constants.COLLEGE_TOUR_EVENT_ID, eid);
         if (eid==null) {
             throw new TCWebException("invalid request no event id specified");
@@ -77,7 +84,7 @@ abstract public class Base extends BaseProcessor {
                     getRequest().setAttribute("image", image);
                 }
             }
-        }
+        }*/
         collegeTourProcessing();
     }
 

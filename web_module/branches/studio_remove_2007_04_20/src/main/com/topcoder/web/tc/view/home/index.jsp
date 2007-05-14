@@ -66,9 +66,9 @@
         <A href="/"><img src="/i/home/topcoder.png" alt="TopCoder" style="display: block;" /></A>
     </td>
     <td align="center" style="padding: 10px 10px 10px 10px">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open" style="display: block;" /></A>
+        <A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digitalrun20070504.png" border="0" alt="The Digital Run - 2007.5 Season" /></A>
 <%--
-        <A href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners" style="display: block;" /></A>
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open" style="display: block;" /></A>
 --%>
     </td>
     <td align="right" valign="top">
@@ -111,9 +111,9 @@
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
                 --%>
 
-                <%-- TCO07
-               <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
-                --%>
+                <%-- TCO07 --%>
+               <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
+               
 
                 <%-- Marathon Match Sponsor 
                 <map name="mm">
@@ -123,13 +123,13 @@
                 <img src="/i/home/mmtco4_verisign.png" alt="TCO07 Marathon Match 4 brought to you by VeriSign" border="0" style="display:block;" usemap="#mm"/>
                 --%>
 
-                <%-- SRM SPONSOR --%>
+                <%-- SRM SPONSOR
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=schedule" />
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10672" />
                 <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa" />
                 </map>
-                <img src="/i/home/tco07Rd3_nsa.png" alt="TCO07 Round 3 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
-                
+                <img src="/i/home/srm348_nsa.png" alt="SRM 348 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
+                 --%>
 
             </td>
         </tr>
@@ -200,7 +200,7 @@
     <table border="0" cellpadding="0" cellspacing="0">
         <tr>
             <td class="homeBigPromo">
-                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_aol.png" alt="TopCoder & AOL" border="0" style="display:block;"/></A>
+                <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/customers/index.jsp"><img src="/i/home/tcs_client_nej.png" alt="TopCoder & NEJ" border="0" style="display:block;"/></A>
             </td>
         </tr>
     </table>
@@ -265,24 +265,26 @@
             <img src="/i/home/tco07Rd1-B_nsa.png" alt="TCO07 Round 1-B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
             --%>
 
-            <%-- SRM SPONSOR
-            <map name="srm">
-            <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10669" />
-            <area shape="rect" alt="" coords="1,100,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol" />
-            </map>
-            <img src="/i/home/srm345_aol.png" alt="SRM 345 brought to you by AOL" border="0" style="display:block;" usemap="#srm"/>
-             --%>
-            
-            <%-- TCCC07 Web Design @ Studio --%>
-            <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2079" target="_blank"><img src="/i/home/tccc07_studiopromo.png" alt="TCCC07 Web Design @ Studio" border="0" style="display:block;" /></A>
-            
-            
-            <%-- TCO07 
-            <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07Registration.png" alt="TCO07" border="0" style="display:block;"/></A>
+            <%-- SRM SPONSOR --%>
+                <map name="mm">
+                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10673" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs" />
+                </map>
+                <img src="/i/home/srm349_ubs.png" alt="SRM 349 brought to you by UBS" border="0" style="display:block;" usemap="#mm"/>
+                
+            <%-- 2 Registration Prototype contests open @ Studio 
+            <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
             --%>
             
+            <%-- TCO07 
+               <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
+             --%>
+             
+            <%-- TCHS07 
+               <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"><img src="/i/home/tchs07_promo_051007.png" alt="TCHS07" border="0" style="display:block;"/></A>
+            --%>
             <%-- CSF 
-            <A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/" refer="csf_press_release"/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
+            <A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005" refer="tc_Index"/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
             --%>
         </td>
     </tr>
@@ -297,6 +299,9 @@
     <tr>
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
+
+            Belarus All College Programming Event
+            <A target="_blank" href="/tc?module=Static&d1=features&d2=050807">...more</A><br>[May 8]<br><br>
 
             TopCoder Appoints Russ Malz Vice President of Sales
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040907">...more</A><br>[April 9]<br><br>
@@ -325,37 +330,25 @@
             TopCoder Announces TopCoder Open 2007 Sponsored by AOL
             <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">...more</A><br>[February 22]<br><br>
 
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/businessweek_logo.gif" alt="BusinessWeek" width="67" height="15" border="0"/>
-            </div>
-            Ideagora, a Marketplace for Minds
-            <A target="_blank" href="http://www.businessweek.com/print/innovate/content/feb2007/id20070215_251519.htm">...more</A><br>[February 15]<br><br>
-
-
         </td>
     </tr>
     <tr>
         <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">April Events:</A></td>
+        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">May Events:</A></td>
     </tr>
     <tr>
         <td class="homeArrow">&#160; </td>
         <td class="homeText"><br>
-            <b>04.03</b> - TCO07 Algo Qual Round 3 - AOL - 9 PM<br><br>
-            <b>04.04</b> - TCO07 Marathon Match #3 - 12 NOON<br><br>
-            <b>04.05</b> - CDDC Week 4 Projects Posted - 9 AM<br><br>
-            <b>04.07</b> - TCO07 Algo Round 1A - UBS - 1 PM<br><br>
-            <b>04.10</b> - TCO07 Algo Round 1B - NSA - 9 PM<br><br>
-            <b>04.12</b> - TCO07 Algo Round 1C - DRW - 7 AM<br><br>
-            <b>04.12</b> - CDDC Registration Closes - 9 AM<br><br>
-            <b>04.12</b> - CDDC Week 5 Projects Posted - 9 AM<br><br>
-            <b>04.14</b> - TCO07 Algo Round 2 - UBS - 1 PM<br><br>
-            <b>04.18</b> - SRM 345 - AOL - 11 AM<br><br>
-            <b>04.18</b> - TCO07 Marathon Match #4 - 12 NOON<br><br>
-            <b>04.21</b> - TCO07 Algo Round 3 - NSA - 1 PM<br><br>
-            <b>04.24</b> - SRM 346 - NSA - 9 PM<br><br>
-            <b>04.28</b> - TCO07 Algo Round 4 - DRW - 1 PM<br><br>
-            <b>04.30</b> - SDC Registration Closes - 6 PM<br><br>
+            <b>05.01</b> - SRM 347 - 7 AM<br><br>
+            <b>05.09</b> - SRM 348 - NSA - 9 PM<br><br>
+            <b>05.10</b> - CDDC Round 1 Projects Posted - 9 AM<br><br>
+            <b>05.15</b> - SRM 349 - UBS - 11 AM<br><br>
+            <b>05.16</b> - Marathon Match 17 - 12 NOON<br><br>
+            <b>05.19</b> - TCHS07 Semifinal Round - 10 AM<br><br>
+            <b>05.19</b> - TCHS07 Championship Round - 2:30 PM<br><br>
+            <b>05.23</b> - SRM 350 - DRW - 9 PM<br><br>
+            <b>05.24</b> - CDDC Round 2 Projects Posted - 9 AM<br><br>
+            <b>05.29</b> - SRM 351 - 7 AM<br><br>
             <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
         </td>
     </tr>

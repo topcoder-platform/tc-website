@@ -1,10 +1,10 @@
 package com.topcoder.web.studio.view.tag;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -29,7 +29,6 @@ public class HandleTag extends TagSupport {
             StringBuffer output = new StringBuffer();
             //lookup ratings from cache
             CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-            da.setExpireTime(24 * 60 * 60 * 1000);
 
             Request r = new Request();
             r.setContentHandle("coder_all_ratings");

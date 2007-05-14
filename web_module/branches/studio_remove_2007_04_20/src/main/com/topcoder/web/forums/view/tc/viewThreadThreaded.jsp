@@ -33,6 +33,8 @@
     String prevTrackerClass = "", nextTrackerClass = "";
     ForumMessage prevPost = null, nextPost = null;
     Hashtable editCountTable = (Hashtable)request.getAttribute("editCountTable");
+    Date lastReadDate = (Date)request.getAttribute("lastReadDate");
+    Hashtable<ForumMessage,Boolean> collapseReadPostTable = ForumsUtil.getCollapseReadPostTable(user, thread, lastReadDate);
 
     String cmd = "";
     String watchMessage = "";
@@ -99,14 +101,24 @@ function callback() {
             var messageID = req.responseXML.getElementsByTagName("messageID")[0].firstChild.nodeValue;
             var posRatings = req.responseXML.getElementsByTagName("posRatings")[0].firstChild.nodeValue;
             var negRatings = req.responseXML.getElementsByTagName("negRatings")[0].firstChild.nodeValue;
-            displayVotes(messageID, posRatings, negRatings);
+            var userRating = req.responseXML.getElementsByTagName("userRating")[0].firstChild.nodeValue;
+            displayVotes(messageID, posRatings, negRatings, userRating);
         }
     }
 }
 
-function displayVotes(messageID, posVotes, negVotes) {
+function displayVotes(messageID, posVotes, negVotes, userRating) {
     var mspan = document.getElementById("ratings"+messageID);
     mspan.innerHTML = "(+"+posVotes+"/-"+negVotes+")";
+    var title = "Your vote: ";
+    if (userRating == 2) {
+    	title += "+1";
+    } else if (userRating == 1) {
+    	title += "-1";
+    } else {
+    	title += "0";
+    }
+    mspan.title = title;
 }
 //-->
 </script>
@@ -139,12 +151,12 @@ function displayVotes(messageID, posVotes, negVotes) {
 <!-- Left Column Ends -->
 
 <!-- Center Column Begins -->
-         <td width="100%" class="rtBody">
+        <td width="100%" align="left" class="bodyColumn">
 
         <jsp:include page="page_title.jsp" >
             <jsp:param name="image" value="forums"/>
             <jsp:param name="title" value="&#160;"/>
-        </jsp:include>
+        </jsp:include> 
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
@@ -199,7 +211,7 @@ function displayVotes(messageID, posVotes, negVotes) {
 	<%      if (!itCategories.hasNext() && showComponentLink) { %>
 	        	(<a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<%=forum.getForumCategory().getProperty(ForumConstants.PROPERTY_COMPONENT_ID)%>" class="rtbcLink">Component</a>)	
 	<%	} %>
-	<img src="/i/interface/exp_w.gif" align="absmiddle"/>
+	<img src="/i/interface/exp_w.gif" alt="" align="absmiddle"/>
    <%	} %>
    <A href="?module=ThreadList&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>&mc=<%=forum.getMessageCount()%>" class="rtbcLink"><%=forum.getName()%></A>
    <%    String linkStr = ForumsUtil.createLinkString(forum);
@@ -215,8 +227,9 @@ function displayVotes(messageID, posVotes, negVotes) {
 <tc-webtag:iterator id="message" type="com.jivesoftware.forum.ForumMessage" iterator='<%=(Iterator)request.getAttribute("messages")%>'>
   <%  int depth=thread.getTreeWalker().getMessageDepth(message);
       int width=Math.round(Math.min(500,500-((depth-50)*(depth-50))/5)); %>
-<div style="padding:0px 0px 0px <%=width%>px;">
-<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom:6px;">
+<div style="padding-left: <%=width%>px; position: relative;">
+<div style="position: relative; width: 100%;">
+<table cellpadding="0" cellspacing="0" class="rtTable" style="margin-bottom: 6px;">
       <tr>
           <td class="rtHeader" colspan="2">
             <%  String msgBodyID = "msgBody" + message.getID();
@@ -224,7 +237,7 @@ function displayVotes(messageID, posVotes, negVotes) {
                 int ratingCount = -1;
                 int posRatings = -1; 
                 int negRatings = -1; %> 
-            <div valign="top" style="float: right; padding-left: 5px; white-space: nowrap;">
+            <div style="float: right; padding-left: 5px; white-space: nowrap;">
                   <%  int editCount = editCountTable.containsKey(String.valueOf(message.getID())) ? 
             			Integer.parseInt((String)editCountTable.get(String.valueOf(message.getID()))) : 0;
                   if (editCount > 0) { %> 
@@ -233,7 +246,7 @@ function displayVotes(messageID, posVotes, negVotes) {
                <a name=<%=message.getID()%>><tc-webtag:format object="${message.creationDate}" format="EEE, MMM d, yyyy 'at' h:mm a z" timeZone="${sessionInfo.timezone}"/></a>
             </div>
             <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) { %>
-                <a class="pointer" onMouseOver="this.style.color='#FF0000'"; onMouseOut="this.style.color='#333'"; onclick="toggle('<%=msgBodyID%>')";><%=message.getSubject()%></a>
+                <a class="pointer" onMouseOver="this.style.color='#FF0000';" onMouseOut="this.style.color='#333333';" onclick="toggle('<%=msgBodyID%>');"><%=message.getSubject()%></a>
             <%  } else { %>
                 <%=message.getSubject()%>
             <%  } %>
@@ -241,11 +254,15 @@ function displayVotes(messageID, posVotes, negVotes) {
                (response to <A href="#<%=message.getParentMessage().getID()%>" class="rtbcLink">post</A><%if (message.getParentMessage().getUser() != null) {%> by <tc-webtag:handle coderId="<%=message.getParentMessage().getUser().getID()%>"/><%}%>)
             <%   } %>
             <%  if (ratingManager.isRatingsEnabled() && user != null && ForumsUtil.showRatings(user)) {
-                    int[] ratings = ForumsUtil.getRatings(ratingManager, message);
-                    posRatings = ratings[0];
-                    negRatings = ratings[1];
-                    ratingCount = posRatings+negRatings; %>
-            | Feedback: <span id="<%=ratingsID%>">(+<%=posRatings%>/-<%=negRatings%>)</span> 
+            		try {
+                    	int[] ratings = ForumsUtil.getRatings(ratingManager, message);
+                    	posRatings = ratings[0];
+                    	negRatings = ratings[1];
+                    } catch (NullPointerException ne) {}
+                    ratingCount = posRatings+negRatings; 
+                    Rating rating = ratingManager.getRating(user, message); 
+                    String ratingVal = (rating == null) ? "0" : rating.getScore() == 2 ? "+1":"-1"; %>
+            | Feedback: <span id="<%=ratingsID%>" class="pointer" title="Your vote: <%=ratingVal%>">(+<%=posRatings%>/-<%=negRatings%>)</span> 
             | <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','2')" class="rtbcLink">[+]</a> 
               <a href="javascript:void(0)" onclick="rate('<%=message.getID()%>','1')" class="rtbcLink">[-]</a>
             <%  } %>
@@ -270,6 +287,9 @@ function displayVotes(messageID, posVotes, negVotes) {
       <% } %>
       <%   double pct = ratingCount<=0 ? 0 : 100*(double)(posRatings)/(double)(ratingCount);
            String msgBodyDisplay = ForumsUtil.collapsePost(user, pct, ratingCount, thread.getMessageCount())?"display:none":"";
+           if (collapseReadPostTable != null && collapseReadPostTable.get(message)) {
+           		msgBodyDisplay = "display:none";
+           }
       %>
       <tr id="<%=msgBodyID%>" style="<%=msgBodyDisplay%>">
       <td class="rtPosterCell">
@@ -286,11 +306,8 @@ function displayVotes(messageID, posVotes, negVotes) {
       <td class="rtTextCell" width="100%"><%=message.getBody()%></td>
       <%   } %>
       </tr>
-      <tr>
-          <td></td>
-          <td width="100%"></td>
-      </tr>
 </table>
+</div>
 </div>
 </tc-webtag:iterator>
 <%-------------POSTS END---------------%>

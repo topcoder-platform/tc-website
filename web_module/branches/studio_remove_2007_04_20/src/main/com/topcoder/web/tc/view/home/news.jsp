@@ -4,214 +4,217 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.19.07<br>5:45 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.14.07<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm345">SRM 345 - Problem Set & Analysis</A></span><br><br>
-      Division 1 coders faced a very tricky easy problem, a straightforward medium, and a difficult hard.  The result: Many successful challenges and only one correct hard submission.
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=051407">A Crash Course in SQL, Part 2</A></span><br><br>
+      In this last installment of this article series on relational databases, we'll take a look at some more of the "core" SQL concepts any good programmer needs to know, and we'll take a look at how to interact with relational databases using Java.
         </td>
-      <td class="newsPhoto"><img src="/i/m/rusolis_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="20289593" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/dcp_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21684580" /></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm345">full story</A> | 
-        <tc-webtag:forumLink forumID="506235" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.19.07<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_13_tco07_rd_1">TCO07 Round 1 Analysis / Marathon Match 13</A></span><br><br>
-      In DensityImaging, a mining company wants to determine if a particular mountain has heavy metals in it by imaging it with electromagnetic waves, rather than digging. Coders were asked to model the problem and come up with a solution to determine the density of the mountain.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/venco_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="274023" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_13_tco07_rd_1">full story</A> | 
-        <tc-webtag:forumLink forumID="515307" message="discuss this" /> | 
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>04.19.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=041907">A Crash Course in SQL</A></span><br><br>
-        In the first two parts of this article series we looked at the basic components of relational databases.  We touched briefly on SQL -- the language we use to interact with the database -- but in this article we'll look at it in much more detail, with a specific focus on writing queries.
-        </td>
-      <td class="newsPhoto">&#160;<img src="/i/m/dcp_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21684580" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=041907">full story</A> | 
+        <A href="/tc?module=Static&d1=features&d2=051407">full story</A> | 
         <tc-webtag:forumLink forumID="515215" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
-   
+
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.19.07<br>2:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>05.11.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        Predict the TCO T-shirt winners
-        </span><br><br>
-        Don't let bad fashion happen to good people. Vote now to predict the winning TCO07 T-shirt designs, in these categories: <a href="/to/?module=ViewBallot&rd=2016">Algorithm</a>; <a href="/to/?module=ViewBallot&rd=2020">Component</a>; <a href="/to/?module=ViewBallot&rd=2012">Studio</a>; and <a href="/to/?module=ViewBallot&rd=2024">Marathon Match</a>.  The prediction contests close on April 21 at 2 PM EDT.
+      <td valign="top"><span class="newsTitle">Downtime for scheduled maintenance: Sunday, May 13</span><br><br>
+        Due to maintenance, the TopCoder site will be down for approximately 30 minutes starting at 6:00 PM EDT on Sunday, May 13.
         </td>
       </tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Category&categoryID=3">discuss this</a> |
+        <tc-webtag:forumLink forumID="515782" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>04.19.07<br>2:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.11.07<br>10:15 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/to/?module=ViewBallot&rd=2028">"The Ball" Logo & Icon Prediction Contest Round 1</A>
-        </span><br><br>
-        Vote now to predict the winning look for The Ball's logo and icons.  This contest closes on April 21 at 2 PM EDT.
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm348">SRM 348 - Problem Set &amp; Analysis</A></span><br><br>
+      The turnout for this match -- 839 competitors -- was the lowest since January, however that couldn't stop it from being very exciting, as usual.
         </td>
-      </tr></table>
+      <td class="newsPhoto"><img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10574855" context="algorithm"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/to/?module=ViewBallot&rd=2028">vote now</A> |
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=48">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm348">full story</A> | 
+        <tc-webtag:forumLink forumID="506238" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
-   
+
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.18.07<br>12:45 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.10.07<br>1:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/longcontest/?module=ViewActiveContests">TCO07 Marathon Match Online Round 4 starts today</A>
-        </span><br><br>
-        Online Round 4 of the TCO07 Marathon Match competition, brought to you by VeriSign, is now underway. Good luck!
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=051007">TCO Preview: The Marathon Match Competition</A></span><br><br>
+      With this year's addition of Marathon Matches to the TopCoder Open, and a chance for 8 finalists to take a free trip to Las Vegas -- not to mention the hope of winning $15,000 -- it's no wonder that competitors came from far and wide to try their coding skills.
         </td>
-      </tr></table>
+      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" /></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=ViewActiveContests">details</A> | 
-        <tc-webtag:forumLink forumID="515204" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.17.07<br>5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely">AOL Boxely chat scheduled before SRM 345</A></span><br><br>
-      Before SRM 345, representatives from AOL will join TopCoder members in the Arena at 10:00 AM EDT to discuss Boxely, AOL's next-generation, standards-based development platform for creating rich desktop applications.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aolBoxely">full story</A> | 
-        <tc-webtag:forumLink forumID="506075" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=051007">full story</A> | 
+        <tc-webtag:forumLink forumID="515781" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
-   
+
 <%--------------------------------------------------------%>
-<tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>04.17.07<br>3:15 PM</td>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.09.07<br>7:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
-        Arena maintenance scheduled for April 17
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">TCHS07 Finalists announced</A>
         </span><br><br>
-        The TopCoder Arena will be down for scheduled maintenance at 5:00 PM EDT on April 17 for approximately one hour.
+        The final competitors and teams for TopCoder's first High School Tournament are now online. Congratulations!
         </td>
       </tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <%--<A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">details</A> |--%>
-        <tc-webtag:forumLink forumID="515169" message="discuss this" /> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.17.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1c">TCO07 - Algorithm Round 1C - Problem Set & Analysis</A></span><br><br>
-      TCO07 online Round 1 concluded with section C, which was probably the easiest of the three sections. No targets participated in this section, but that didn't mean things would be easy. With only 300 coders advancing to round 2, people did their utmost best to be one of them.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Jan_Kuipers_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="309453" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1c">full story</A> | 
-        <tc-webtag:forumLink forumID="514950" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>04.17.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1b">TCO07 - Algorithm Round 1B - Problem Set & Analysis</A></span><br><br>
-      Round 1B of the TCO07 was characterized by three very approachable problems, but all of them had pitfalls that were very easy to stumble into.  With pass rates of 41%, 21% and 29%, this round was about careful coding, thinking through your algorithms, and massive opportunities during the challenge phase.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/HiltonLange_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10428762" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=tco07_rd1b">full story</A> | 
-        <tc-webtag:forumLink forumID="514949" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>04.16.07<br>3:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=netConfigurationMgr">Using the .Net Configuration Manager</A></span><br><br>
-      Most TopCoder members who have participated in at least one .NET design or development competition will tell you that the first component they needed to learn was the Configuration Manager. Simply put, it's a key to unlocking the potential of the component catalog.
-        </td>
-      <td class="newsPhoto"><%--<img src="/i/m/bmerry_big2.jpg" alt="" width="55" height="61"/>--%><br>by <tc-webtag:handle coderId="10445079" context="development"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tutorials&d2=netConfigurationMgr">full story</A> | 
-        <tc-webtag:forumLink forumID="515168" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=tutorials&d2=comp_index">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>04.13.07<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">New TCO-eligible contests open at Studio</A>
-        </span><br><br>
-        With the Online Brokerage Storyboard Design Contest, which launched today, there are now four TCO-eligible contests open at Studio. There's less than three weeks before the TCO07 Studio Design Competition closes - don't miss out!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests">details</A> | 
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Main">discuss this</a> |
+        <a href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">individuals</a> |
+        <a href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketTeam">teams</a> |
+        <tc-webtag:forumLink forumID="515701" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.09.07<br>10:00 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA chat scheduled before SRM 348</A>
+        </span><br><br>
+        Before SRM 348, NSA representatives will join TopCoder members in the Arena at 8:00 PM EDT to discuss career opportunities at the agency.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">details</A> |
+        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.08.07<br>6:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=050807">Belarus All College Programming Event</A></span><br><br>
+      On April 26, about 80 coders from Belarusian colleges simultaneously pressed the "open a problem" button to start All Belarus Programming Event, sponsored by TopCoder.
+        </td>
+      <td class="newsPhoto"><%--<img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/>--%><br>by <tc-webtag:handle coderId="8365955" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=050807">full story</A> | 
+        <tc-webtag:forumLink forumID="515651" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.08.07<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=bracket">TCO07 Marathon Match Finalists announced</A>
+        </span><br><br>
+        Meet the eight Marathon Match Finalists who will battle it out in Las Vegas at TopCoder's first onsite Marathon Competition.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=bracket">details</A> |
+        <A href="http://forums.topcoder.com/?module=Thread&threadID=574966&start=0">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.07.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=ViewSurvey&sid=17090">Vote now for the TCO07 bloggers</A>
+        </span><br><br>
+        We've picked our favorites, and now it's up to you -- vote now to rank your favorite blog entries! Note: only the first parts of their entries are shown; click "view their full submission" to read their full stories. Voting ends Friday at 2:00 PM EDT.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=ViewSurvey&sid=17090">vote now</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=43">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.07.07<br>1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3">Minimum Cost Flow, Part 3: Applications</A></span><br><br>
+      Parts 1 &amp; 2 considered the basics of minimum cost flow problems, as well as some algorithms that can applied to them. In the last part of this article, we'll look at some real-world applications of minimum cost flow.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22671469" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3">full story</A> | 
+        <tc-webtag:forumLink forumID="515317" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>05.04.07<br>5:35 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=calendar&d2=thisMonth">Event Calendar updated through December 2007</A>
+        </span><br><br>
+        The TopCoder calendar has been updated with events through the end of 2007.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=calendar&d2=thisMonth">details</A> |
+        <tc-webtag:forumLink forumID="515638" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>05.04.07<br>4:40 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=17060">TCCC07 Web Design vote results</A>
+        </span><br><br>
+        Congratulations to <tc-webtag:handle coderId="14947661" />, whose submission came out on top in the TopCoder Collegiate Challenge Web Design contest.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=17060">details</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=49">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    

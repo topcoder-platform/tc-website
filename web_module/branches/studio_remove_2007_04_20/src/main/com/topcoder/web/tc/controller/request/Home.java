@@ -1,6 +1,6 @@
 package com.topcoder.web.tc.controller.request;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;

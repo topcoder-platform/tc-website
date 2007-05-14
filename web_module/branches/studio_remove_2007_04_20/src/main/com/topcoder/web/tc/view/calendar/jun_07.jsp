@@ -38,7 +38,7 @@
 
 <div style="float:right;white-space:nowrap;">All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.  &#160; &#160; </div>
 
-<strong><A href="/tc?module=Static&d1=calendar&d2=may_07" class="prevNext">&lt; prev</A> <%--| <A href="/tc?module=Static&d1=calendar&d2=jul_07" class="prevNext">next &gt;</A></strong>--%>
+<strong><A href="/tc?module=Static&d1=calendar&d2=may_07" class="prevNext">&lt; prev</A> | <A href="/tc?module=Static&d1=calendar&d2=jul_07" class="prevNext">next &gt;</A></strong>
 <jsp:include page="dropdown.jsp" >
 <jsp:param name="currMonth" value="jun_07"/>
 </jsp:include>
@@ -79,11 +79,16 @@
       <td class="value">5
       </td>
       <td class="value">6
+        <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 18</A></strong><br>
+         12:00 NOON<br>
+         1 week
+         </div>
       </td>
       <td class="value">7
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC Online Round 3 Projects Posted</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC Online Championship Round 3 Projects Posted</A></strong><br>
          9:00 AM 
          </div>
          <div class="des_dev">

@@ -59,8 +59,8 @@
       </td>
       <td class="value">2
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10671">SRM 356</A></strong><br>
-         <%--<A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign">VeriSign</A><br>--%>
+         <strong><A href="/tc?module=MatchDetails&rd=10765">SRM 356</A></strong><br>
+         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=verisign">VeriSign</A><br>--%>
          9:00 PM
          </div>
       </td>
@@ -90,10 +90,6 @@
       <td class="value">9
       </td>
       <td class="value">10
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 357</A></strong><br>
-         7:00 AM
-         </div>
       </td>
       <td class="value">11
       </td>
@@ -103,7 +99,13 @@
          9:00 AM
          </div>
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 358</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10766">SRM 357</A></strong><br>
+         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=yodlee">Yodlee</A><br>--%>
+         9:00 PM
+         </div>
+         <div class="hs">
+         <strong><A href="/tc?module=MatchDetails&rd=10767">TCHS SRM 33</A></strong><br>
+         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=yodlee">Yodlee</A><br>--%>
          9:00 PM
          </div>
       </td>
@@ -119,6 +121,14 @@
       <td class="value">16
       </td>
       <td class="value">17
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10768">SRM 358</A></strong><br>
+         7:00 AM
+         </div>
+         <div class="hs">
+         <strong><A href="/tc?module=MatchDetails&rd=10769">TCHS SRM 34</A></strong><br>
+         7:00 AM
+         </div>
       </td>
       <td class="value">18
       </td>
@@ -127,14 +137,18 @@
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 359</A></strong><br>
-         11:00 AM
-         </div>
       </td>
       <td class="value">20
       </td>
       <td class="value">21
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10770">SRM 359</A></strong><br>
+         12:00 Noon
+         </div>
+         <div class="hs">
+         <strong><A href="/tc?module=MatchDetails&rd=10771">TCHS SRM 35</A></strong><br>
+         12:00 Noon
+         </div>
       </td>
    </tr>
 
@@ -142,8 +156,20 @@
       <td class="value">22
       </td>
       <td class="value">23
+      <%--
+         <div class="tccc07">
+         <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about">TCCC07 Registration Opens</A></strong><br>
+         9:00 AM 
+         </div>
+      --%>
       </td>
       <td class="value">24
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10772">SRM 360</A></strong><br>
+         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=XXX">XXX</A><br>--%>
+         11:00 AM
+         </div>
       </td>
       <td class="value">25
       </td>
@@ -156,10 +182,6 @@
       <td class="value">27
       </td>
       <td class="value">28
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 360</A></strong><br>
-         12:00 NOON
-         </div>
       </td>
    </tr>
 
@@ -169,10 +191,6 @@
       <td class="value">30
       </td>
       <td class="value">31
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10675">SRM 361</A></strong><br>
-         9:00 PM
-         </div>
       </td>
       <td class="empty">&#160;<br><br><br><br><br></td>
       <td class="empty">&#160;</td>

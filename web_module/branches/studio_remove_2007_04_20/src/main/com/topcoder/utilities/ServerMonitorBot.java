@@ -47,7 +47,7 @@ public class ServerMonitorBot {
                         "http://www.topcoder.com",
                         "--header=Host: www.topcoder.com",
                         "--timeout=30",
-                        "-t1",
+                        "-t3",
                         ""};
 
                 Process p = r.exec(callAndArgs);
@@ -84,7 +84,7 @@ public class ServerMonitorBot {
                 String[] callAndArgs2 = {"wget",
                         "http://192.168.12.151:8080/index.jsp",
                         "--timeout=30",
-                        "-t1",
+                        "-t3",
                         ""};
 
                 p = r.exec(callAndArgs2);
@@ -119,7 +119,7 @@ public class ServerMonitorBot {
                 String[] callAndArgs3 = {"wget",
                         "http://192.168.10.91",
                         "--timeout=30",
-                        "-t1",
+                        "-t3",
                         ""};
 
                 p = r.exec(callAndArgs3);
@@ -154,7 +154,7 @@ public class ServerMonitorBot {
                 String[] callAndArgs4 = {"wget",
                         "http://192.168.10.93",
                         "--timeout=30",
-                        "-t1",
+                        "-t3",
                         ""};
 
                 p = r.exec(callAndArgs4);

@@ -96,6 +96,8 @@
                 <img src="/i/development/smNetCustom.gif"/>
                 <% } else if ("Flash".equals(resultRow.getStringItem("catalog_name"))) { %>
                 <img src="/i/development/flashSm.gif"/>
+                <% } else if ("C++".equals(resultRow.getStringItem("catalog_name"))) { %>
+                <img src="/i/development/smCpp.png"/>
                 <% } else { %>
                 <rsc:item name="catalog_name" row="<%=resultRow%>"/>
                 <% } %>

@@ -40,6 +40,20 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.11.07 3:00 PM - </td><td width="100%">Downtime for scheduled maintenance: Sunday, May 13</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.04.07 5:35 PM - </td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=thisMonth">Event Calendar updated through December 2007</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.04.07 4:40 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=17060">TCCC07 Web Design vote results</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.02.07 5:15 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=17060">Vote now for the final TCCC07 Web design</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">05.02.07 5:15 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=17020">The Ball Logo &amp; Icons: We have a winner</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.30.07 3:00 PM - </td><td width="100%"><A href="/to/?module=ViewBallot&rd=2036">TCCC07 Web Design Predictive Vote</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.30.07 3:00 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=17020">The Ball Logo &amp; Icon Design Vote</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.27.07 4:00 PM - </td><td width="100%"><A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005">Connected Services "Wireless Cities" mashup competition open</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.24.07 2:20 PM - </td><td width="100%">Vote for the TCO07 t-shirt designs: 
+        <a href="/tc?module=ViewSurvey&sid=16939">Studio Design</a>; 
+        <a href="/tc?module=ViewSurvey&sid=16934">Component Design &amp; Development</a>; 
+        <a href="/tc?module=ViewSurvey&sid=16923">Marathon Match</a>; 
+        <a href="/tc?module=ViewSurvey&sid=16928">Algorithm</a></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">04.23.07 5:45 PM - </td><td width="100%"><A href="/to/?module=ViewBallot&rd=2032">"The Ball" Logo & Icon Prediction Contest Round 2</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%">Predict the TCO T-shirt winners</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.19.07 2:00 PM - </td><td width="100%"><A href="/to/?module=ViewBallot&rd=2028">"The Ball" Logo & Icon Prediction Contest Round 1</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">04.13.07 10:00 AM - </td><td width="100%"><A href="<tc-webtag:linkTracking link='/belarus' refer='news item' />">TopCoder College Tour comes to Belarus</A></td></tr>

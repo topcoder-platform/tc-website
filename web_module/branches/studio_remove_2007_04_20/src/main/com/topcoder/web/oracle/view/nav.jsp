@@ -39,19 +39,26 @@
     <A href="?module=Static&d1=scoring"<% if (selectedTab.equals("scoring")) {%> class="on"<% } %>>Scoring</A>
 
     <div class="section">TCO07 Algorithm T-Shirt Design</div>
-    <strong><A href="?module=ViewBallot&rd=2016">Make your prediction!</A></strong>
+    <A href="?module=ViewSimpleResults&rm=2012"<% if (selectedTab.equals("2012Pred")) {%> class="on"<% } %>>Prediction Results</A>
+    <A href="?module=ViewCandidateResults&rm=2012"<% if (selectedTab.equals("2012Cand")) {%> class="on"<% } %>>Candidate Results</A>
 
     <div class="section">TCO07 Component T-Shirt Design</div>
-    <strong><A href="?module=ViewBallot&rd=2020">Make your prediction!</A></strong>
+    <A href="?module=ViewSimpleResults&rm=2016"<% if (selectedTab.equals("2016Pred")) {%> class="on"<% } %>>Prediction Results</A>
+    <A href="?module=ViewCandidateResults&rm=2016"<% if (selectedTab.equals("2016Cand")) {%> class="on"<% } %>>Candidate Results</A>
 
     <div class="section">TCO07 Marathon T-Shirt Design</div>
-    <strong><A href="?module=ViewBallot&rd=2024">Make your prediction!</A></strong>
+    <A href="?module=ViewSimpleResults&rm=2020"<% if (selectedTab.equals("2020Pred")) {%> class="on"<% } %>>Prediction Results</A>
+    <A href="?module=ViewCandidateResults&rm=2020"<% if (selectedTab.equals("2020Cand")) {%> class="on"<% } %>>Candidate Results</A>
 
     <div class="section">TCO07 Studio T-Shirt Design</div>
-    <strong><A href="?module=ViewBallot&rd=2012">Make your prediction!</A></strong>
+    <A href="?module=ViewSimpleResults&rm=2008"<% if (selectedTab.equals("2008Pred")) {%> class="on"<% } %>>Prediction Results</A>
+    <A href="?module=ViewCandidateResults&rm=2008"<% if (selectedTab.equals("2008Cand")) {%> class="on"<% } %>>Candidate Results</A>
+
+    <div class="section">"The Ball" Logo & Icons Round 2</div>
+    <span class="grayedOut">Registration closed</span>
 
     <div class="section">"The Ball" Logo & Icons Round 1</div>
-    <strong><A href="?module=ViewBallot&rd=2028">Make your prediction!</A></strong>
+    <span class="grayedOut">Registration closed</span>
 
     <div class="section">Homepage Redesign Round 2</div>
     <A href="?module=ViewSimpleResults&rm=1999"<% if (selectedTab.equals("1999Pred")) {%> class="on"<% } %>>Prediction Results</A>

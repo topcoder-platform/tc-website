@@ -45,6 +45,26 @@
             </tr>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21684580" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=051407"><strong>A Crash Course in SQL, Part 2</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>May 14, 2007</td> 
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10407399" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=051007"><strong>TCO Preview: The Marathon Match Competition</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>May 10, 2007</td> 
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="8365955" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=050807"><strong>Belarus All College Programming Event</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>May 8, 2007</td> 
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="10627428" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=042607"><strong>Test Drive: SandCastle</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Apr 26, 2007</td> 
+            </tr>
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21684580" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=041907"><strong>A Crash Course in SQL</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Apr 19, 2007</td> 
             </tr>

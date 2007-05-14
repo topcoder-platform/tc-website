@@ -5,7 +5,9 @@ import com.topcoder.web.common.model.Event;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 
 import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -93,6 +95,15 @@ public class Contest extends Base {
         }
         return null;
     }
+
+    public Map<Integer, String> getConfigMap() {
+        HashMap<Integer, String> m = new HashMap<Integer, String>();
+        for (ContestConfig anInfo : config) {
+            m.put(anInfo.getProperty().getId(), anInfo.getValue());
+        }
+        return m;
+    }
+
 
     public ContestConfig getOverview() {
         return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));

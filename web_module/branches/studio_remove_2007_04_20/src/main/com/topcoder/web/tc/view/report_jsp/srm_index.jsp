@@ -1,5 +1,5 @@
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessInt,
-                 com.topcoder.shared.dataAccess.CachedDataAccess,
+                 com.topcoder.web.common.CachedDataAccess,
                  com.topcoder.common.web.data.report.Constants,
                  java.util.Map,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,

@@ -53,14 +53,18 @@
 <div id="contentOut" class="contentOut">
 <jsp:include page="../top.jsp"/>
 <jsp:include page="../topNav.jsp">
-    <jsp:param name="node" value=""/>
+    <jsp:param name="node" value="myStudio"/>
 </jsp:include>
 <div id="contentIn" class="contentIn">
 <img src="/i/layout/contentInN.gif" alt="" style="display:block;"/>
 
 <div class="contentSpacer" style="padding-bottom:100px;">
 
-<h1>IP Transfers</h1>
+
+<h1>Assignment Documents</h1>
+    <div align="right">
+        <a class="bcLink" href="/?module=Static&d1=support&d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
+    </div>
 
 <table cellpadding="0" cellspacing="0" border="0" style="clear:both; margin-left: 10px;">
     <tr>
@@ -93,7 +97,7 @@
 
     <tr>
         <td class="NW">&nbsp;</td>
-        <td class="title" colspan="4">IP Transfers</td>
+        <td class="title" colspan="4">Assignment Documents</td>
         <td class="NE">&nbsp;</td>
     </tr>
     <tr>
@@ -108,7 +112,7 @@
         </td>
         <td class="headerC">
             <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="2" includeParams="true"/>">Time Left</a>
-	   </td>
+       </td>
         <td class="headerC">
             <a href="${sessionInfo.servletPath}?<tc-webtag:sort column="3" includeParams="true"/>">Status</a>
         </td>
