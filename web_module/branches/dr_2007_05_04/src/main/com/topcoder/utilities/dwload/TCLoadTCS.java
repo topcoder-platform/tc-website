@@ -27,6 +27,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.dwload.contestresult.ContestResult;
 import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
 import com.topcoder.utilities.dwload.contestresult.ProjectResult;
+import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
 
 /**
  * <strong>Purpose</strong>:
@@ -4599,7 +4600,7 @@ public class TCLoadTCS extends TCLoad {
         log.debug("load stage results");
         
         final String SELECT_STAGES =
-            " select distinct s.stage_id, s.start_date, s.end_date " +
+            " select distinct s.stage_id, s.start_date, s.end_date, s.top_performers_factor " +
             " from project_result pr, " +
             "      stage s, " +
             "      project p,  " +
@@ -4658,9 +4659,10 @@ public class TCLoadTCS extends TCLoad {
                 
                 Timestamp startDate = rsStages.getTimestamp("start_date");
                 Timestamp endDate = rsStages.getTimestamp("end_date");
+                double factor = rsStages.getDouble("top_performers_factor");
                 while (rsContests.next()) {
                     loadDRContestResults(startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),  
-                            rsContests.getInt("contest_type_id"), rsContests.getString("class_name"));
+                            rsContests.getInt("contest_type_id"), rsContests.getString("class_name"), factor);
                 }
                 
             }
@@ -4713,7 +4715,7 @@ public class TCLoadTCS extends TCLoad {
             "      (select max(end_date) from stage st where st.season_id = s.season_id)  ";
 
     }
-    private void loadDRContestResults(Timestamp startDate, Timestamp endDate, int phaseId, int contestId, int contestTypeId, String className) throws Exception {
+    private void loadDRContestResults(Timestamp startDate, Timestamp endDate, int phaseId, int contestId, int contestTypeId, String className, double factor) throws Exception {
         log.debug("load contest_result for contest_id=" + contestId);
         final String SELECT_RESULTS = 
             " select p.project_id " +
@@ -4767,7 +4769,10 @@ public class TCLoadTCS extends TCLoad {
             insert = prepareStatement(INSERT, TARGET_DB);
             
             ContestResultCalculator calc = (ContestResultCalculator) Class.forName(className).newInstance();
-    
+            if (calc instanceof TopPerformersCalculator) {
+                ((TopPerformersCalculator) calc).setFactor(factor);
+            }
+            
             rs = selectResults.executeQuery();
             
             List<ProjectResult> pr = new ArrayList<ProjectResult>();
