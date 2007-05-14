@@ -4757,7 +4757,13 @@ public class TCLoadTCS extends TCLoad {
                 insert.setDouble(4, result.getFinalPoints());
                 insert.setDouble(5, result.getPotentialPoints());
                 insert.setInt(6, result.getPlace());
-                insert.setDouble(7, result.getPrize());
+               
+                if (result.getPrize() != null) {
+                    insert.setDouble(7, result.getPrize());
+                } else {
+                    insert.setNull(7, Types.DOUBLE);
+                }
+                
                 insert.executeUpdate();
                 
                 count++;
