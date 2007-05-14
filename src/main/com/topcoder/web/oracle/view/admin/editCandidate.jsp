@@ -44,7 +44,7 @@
 
                 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditCandidate"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.ROOM_ID%>"/>
                     <tc-webtag:hiddenInput name="<%=Constants.CANDIDATE_ID%>"/>
 
                     <div class="header">Candidate Details</div>
