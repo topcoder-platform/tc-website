@@ -54,6 +54,7 @@
 
 <h2>Match summary</h2> 
 
+<p>
 The turnout for this match -- 839 competitors -- was the lowest since January, however
 that couldn't stop it from being very exciting, as usual. Division 1 was 
 won by <tc-webtag:handle coderId="10574855" context="algorithm"/>, with
@@ -77,106 +78,57 @@ jumping well into division 1 for the next match. He was followed
 by <tc-webtag:handle coderId="21348911" context="algorithm"/>
 and <tc-webtag:handle coderId="22660722" context="algorithm"/>.
 <br /><br />
-
-<H1> 
-The Problems 
-</H1>
-
+</p> 
  
-<font size="+2"> 
-<b><a href="/stat?c=problem_statement&amp;pm=7752&amp;rd=10672" name="7752">OptimalList</a></b> 
-</font> 
+<H1>
+The Problems
+</H1>
+</p> 
 
-<A href="Javascript:openProblemRating(7752)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506238" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
-<br> 
-
-Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
-
+<font size="+2">
+<b><a href="/stat?c=problem_statement&amp;pm=7752&amp;rd=10672" name="7752">OptimalList</a></b> </font> <A href="Javascript:openProblemRating(7752)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506238" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Division Two - Level One: <blockquote><table cellspacing="2">
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       250 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      404 / 437 (92.45%) 
-
-    </td> 
-
-  </tr> 
-
+      401 / 434 (92.40%) 
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      364 / 404 (90.10%) 
-
-    </td> 
-
-  </tr> 
-
+      361 / 401 (90.02%) 
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Samlik</b> for 247.72 points (2 mins 44 secs) 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      199.84 (for 364 correct submissions) 
-
-    </td> 
-
-  </tr> 
-
-</table></blockquote> 
-
+      200.23 (for 361 correct submissions) 
+    </td>
+  </tr>
+</table></blockquote>
+<p>
 This problem is strongly tied with the notion of the 
 <a href="http://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian coordinate system</a>.
 That is, no matter how complicated the sequence of instructions is, the location of the
@@ -213,187 +165,97 @@ the current instructions string contains both 'W's and 'E's, remove one of each,
 do the same for 'N's and 'S's. Sort the result and return as an answer. For an
 implementation, see <tc-webtag:handle coderId="22647273" context="algorithm"/>'s <a href="/stat?c=problem_solution&rm=264735&rd=10672&pm=7752&cr=22647273">code</a>.
 <br /><br />
+</p>
 
-<font size="+2"> 
-
-<b><a href="/stat?c=problem_statement&amp;pm=7754&amp;rd=10672" name="7754">LostParentheses</a></b> 
-
-</font> 
-
-<A href="Javascript:openProblemRating(7754)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506238" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
-<br> 
-
-Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
-
+<font size="+2">
+<b><a href="/stat?c=problem_statement&amp;pm=7754&amp;rd=10672" name="7754">LostParentheses</a></b>
+</font>
+<A href="Javascript:openProblemRating(7754)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506238" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Division Two - Level Two: <blockquote><table cellspacing="2">
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       500 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      271 / 437 (62.01%) 
-
-    </td> 
-
-  </tr> 
-
+      270 / 434 (62.21%) 
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      180 / 271 (66.42%) 
-
-    </td> 
-
-  </tr> 
-
+      188 / 270 (69.63%) 
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>mi6091</b> for 486.14 points (4 mins 49 secs) 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      312.31 (for 180 correct submissions) 
-
-    </td> 
-
-  </tr> 
-
+      310.43 (for 188 correct submissions) 
+    </td>
+  </tr>
 </table></blockquote> 
 
-Used as: Division One - Level One: <blockquote><table cellspacing="2"> 
-
+Used as: Division One - Level One: <blockquote><table cellspacing="2">
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       250 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      390 / 402 (97.01%) 
-
-    </td> 
-
-  </tr> 
-
+      389 / 401 (97.01%) 
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      330 / 390 (84.62%) 
-
-    </td> 
-
-  </tr> 
-
+      344 / 389 (88.43%) 
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>gevak</b> for 248.75 points (2 mins 1 secs) 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      198.75 (for 330 correct submissions) 
-
-    </td> 
-
-  </tr> 
-
-</table></blockquote> 
-
+      197.36 (for 344 correct submissions) 
+    </td>
+  </tr>
+</table></blockquote>
+<p>
 This problem had several possible correct approaches. Arguably the easiest of
 those was the following: the numbers before the first minus sign should
 be added to the result, and the numbers after should be subtracted, as 
@@ -432,103 +294,54 @@ subtracting two minima, and still succeed because the method of putting brackets
 that was discussed above when proving the greedy algorithm can indeed
 be obtained by considering only minima.
 <br /><br />
+</p>
 
-<font size="+2"> 
-
-<b><a href="/stat?c=problem_statement&amp;pm=7753&amp;rd=10672" name="7753">IncreasingSubsequences</a></b> 
-
-</font> 
-
-<A href="Javascript:openProblemRating(7753)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506238" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
-<br> 
-
-Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
-
+<font size="+2">
+<b><a href="/stat?c=problem_statement&amp;pm=7753&amp;rd=10672" name="7753">IncreasingSubsequences</a></b>
+</font>
+<A href="Javascript:openProblemRating(7753)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506238" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       1000 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      47 / 437 (10.76%) 
-
-    </td> 
-
-  </tr> 
-
+      47 / 434 (10.83%) 
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       21 / 47 (44.68%) 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>macs</b> for 784.26 points (15 mins 50 secs) 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       572.72 (for 21 correct submissions) 
-
-    </td> 
-
-  </tr> 
-
-</table></blockquote> 
-
+    </td>
+  </tr>
+</table></blockquote>
+<p>
 To solve this problem, one needed to think about how to tell if a
 given increasing subsequence is maximal. The answer is not so complicated,
 and is obtained by trying to unerase any other number: an increasing
@@ -564,103 +377,54 @@ end a maximal subsequence &mdash; that is, for which no following number is grea
 See <tc-webtag:handle coderId="22680746" context="algorithm"/>'s <a href="/stat?c=problem_solution&rm=264742&rd=10672&pm=7753&cr=22680746">solution</a>
 for an implementation of this approach.
 <br /><br />
+</p>
 
-<font size="+2"> 
-
-<b><a href="/stat?c=problem_statement&amp;pm=7760&amp;rd=10672" name="7760">RailwayTickets</a></b> 
-
-</font> 
-
-<A href="Javascript:openProblemRating(7760)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506238" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
-<br> 
-
-Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
-
+<font size="+2">
+<b><a href="/stat?c=problem_statement&amp;pm=7760&amp;rd=10672" name="7760">RailwayTickets</a></b>
+</font>
+<A href="Javascript:openProblemRating(7760)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506238" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Division One - Level Two: <blockquote><table cellspacing="2">
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       500 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      249 / 402 (61.94%) 
-
-    </td> 
-
-  </tr> 
-
+      249 / 401 (62.09%) 
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       122 / 249 (49.00%) 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>abikbaev</b> for 475.20 points (6 mins 33 secs) 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       313.73 (for 122 correct submissions) 
-
-    </td> 
-
-  </tr> 
-
-</table></blockquote> 
-
+    </td>
+  </tr>
+</table></blockquote>
+<p>
 The first thing to understand in this problem is that we should not
 be overconcerned with assigning seats to passengers. The only thing that really
 matters is that, at any time, there should be no more than <b>seats</b> than passengers
@@ -724,104 +488,54 @@ incorrect. To avoid falling into that trap, one needed to be either lucky or
 capable of proving her solution. This is really a situation where one can't
 be too careful.
 <br /><br />
+</p>
 
-
-<font size="+2"> 
-
-<b><a href="/stat?c=problem_statement&amp;pm=7751&amp;rd=10672" name="7751">NormalizingTrees</a></b> 
-
-</font> 
-
-<A href="Javascript:openProblemRating(7751)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> 
-
-<A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506238" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A>
-
-<br> 
-
-Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
-
+<font size="+2">
+<b><a href="/stat?c=problem_statement&amp;pm=7751&amp;rd=10672" name="7751">NormalizingTrees</a></b>
+</font>
+<A href="Javascript:openProblemRating(7751)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506238" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Division One - Level Three: <blockquote><table cellspacing="2">
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Value</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       1000 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Submission Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
-      55 / 402 (13.68%) 
-
-    </td> 
-
-  </tr> 
-
+      55 / 401 (13.72%) 
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Success Rate</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       12 / 55 (21.82%) 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>High Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Petr</b> for 770.47 points (16 mins 34 secs) 
-
-    </td> 
-
-  </tr> 
-
+    </td>
+  </tr>
   <tr> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       <b>Average Score</b> 
-
     </td> 
-
     <td class="bodyText" style="background: #eee;"> 
-
       549.84 (for 12 correct submissions) 
-
-    </td> 
-
-  </tr> 
-
-</table></blockquote> 
-
+    </td>
+  </tr>
+</table></blockquote>
+<p>
 The first, straightforward step in the solution of this problem is to construct
 the tree (the list of adjacent vertices for each vertex) given the 
 input array.
@@ -874,8 +588,7 @@ the sequences for the children.
 <tc-webtag:handle coderId="144400" context="algorithm"/>'s <a href="/stat?c=problem_solution&rm=264703&rd=10672&pm=7751&cr=144400">solution</a>
 is an excellent implementation of the above approach, refer to it for the details.
 <br /><br />
-
-
+</p>
 
 
 
