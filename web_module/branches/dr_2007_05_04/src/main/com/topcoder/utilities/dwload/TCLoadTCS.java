@@ -4738,7 +4738,6 @@ public class TCLoadTCS extends TCLoad {
                         rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
                         rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
                                         
-                log.debug("add pj="+ res.getProjectId() + " usr=" + res.getUserId() + "  pl=" + res.getPlaced());
                 pr.add(res);
             }
             close(rs);

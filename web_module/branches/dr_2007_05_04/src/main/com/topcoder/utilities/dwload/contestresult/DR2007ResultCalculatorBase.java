@@ -1,6 +1,7 @@
 package com.topcoder.utilities.dwload.contestresult;
 
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase {
@@ -52,6 +53,7 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
             placeCount[i] = 0;
         }
         
+        Iterator prize = prizesAmount.iterator();
         // get the number of people in each place and the total prize
         for (ContestResult result : cr) {
             int place = result.getPlace();
@@ -60,7 +62,7 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
             if (place > n) break;
             
             placeCount[place]++;
-            placeAmount[place] += result.getPrize();
+            placeAmount[place] += ((Double) prize.next());
         }
 
         // set the amounts
