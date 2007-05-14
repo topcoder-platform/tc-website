@@ -43,7 +43,7 @@
                 <h1>Edit Candidate Details</h1>
 
                 <p><a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${room.round.id}">edit round</a></p>
-                <p><a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${room.round.id}">view rooms</a></p>
+                <p><a href="${sessionInfo.servletPath}?module=AdminViewRooms&amp;<%=Constants.ROUND_ID%>=${room.round.id}">view rooms</a></p>
                 <p><a href="${sessionInfo.servletPath}?module=AdminViewCandidates&amp;<%=Constants.ROOM_ID%>=${room.id}">view candidates</a></p>
 
                 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">

@@ -44,6 +44,8 @@
 
 <h1>Edit Round Details</h1>
 
+<p><a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${round.contest.id}">edit contest</a></p>
+
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="editForm">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminEditRound"/>
 <tc-webtag:hiddenInput name="<%=Constants.ROUND_ID%>"/>
