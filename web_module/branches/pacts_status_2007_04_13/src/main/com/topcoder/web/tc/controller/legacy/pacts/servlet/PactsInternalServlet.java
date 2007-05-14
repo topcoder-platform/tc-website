@@ -1922,6 +1922,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         log.debug("doPaymentList<br>");
         String query = request.getQueryString();
         query = INTERNAL_SERVLET_URL + "?" + query;
+        log.debug("QueryString: " + query);
         request.setAttribute("query", query);
 
         InternalDispatchPaymentList bean =
