@@ -30,11 +30,9 @@
                 <span class="pageName">Candidates</span>
             </div>
 
-            <c:if test="${room!=null}">
                 <div align="right">
                     <a href="${sessionInfo.servletPath}?module=AdminViewCandidate&amp;<%=Constants.ROOM_ID%>=${room.id}" class="button" style="width: 90px;">Add
                         Candidate</a></div>
-            </c:if>
 
             <table class="stat" cellpadding="0" cellspacing="0" style="width: 100%;">
                 <tbody>
@@ -52,15 +50,7 @@
                             <td class="value">${candidate.id}</td>
                             <td class="value"><strong>${candidate.name}</strong></td>
                             <td class="valueC">
-                                <c:choose>
-                                    <c:when test="${room!=null}">
-                                        <a href="${sessionInfo.servletPath}?module=AdminViewCandidate&amp;<%=Constants.CANDIDATE_ID%>=${candidate.id}&amp;<%=Constants.ROOM_ID%>=${room.id}">edit</a>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <a href="${sessionInfo.servletPath}?module=AdminViewCandidate&amp;<%=Constants.CANDIDATE_ID%>=${candidate.id}&amp;<%=Constants.ROUND_ID%>=${round.id}">edit</a>
-                                    </c:otherwise>
-                                </c:choose>
-
+                                <a href="${sessionInfo.servletPath}?module=AdminViewCandidate&amp;<%=Constants.CANDIDATE_ID%>=${candidate.id}&amp;<%=Constants.ROOM_ID%>=${room.id}">edit</a>
                             </td>
                         </tr>
                         <% even = !even;%>

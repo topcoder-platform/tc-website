@@ -18,7 +18,7 @@ public class ViewCandidate extends Base {
 
     protected void dbProcessing() throws Exception {
 
-        String roomId = getRequest().getParameter(Constants.ROUND_ID);
+        String roomId = getRequest().getParameter(Constants.ROOM_ID);
         String candidateId = getRequest().getParameter(Constants.CANDIDATE_ID);
 
         OracleDAOFactory f = OracleDAOUtil.getFactory();
