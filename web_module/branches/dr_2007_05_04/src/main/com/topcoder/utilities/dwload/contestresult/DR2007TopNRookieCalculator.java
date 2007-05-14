@@ -16,7 +16,6 @@ public class DR2007TopNRookieCalculator extends DR2007ResultCalculatorBase imple
     }
 
     protected boolean processProjectResult(ProjectResult p) {
-        System.out.println("processProjectResult for " + p.getUserId() + " : " + rookieIds.contains(p.getUserId()));
         return rookieIds.contains(p.getUserId());
     }
 

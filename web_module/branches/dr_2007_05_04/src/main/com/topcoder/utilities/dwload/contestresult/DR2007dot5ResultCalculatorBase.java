@@ -1,19 +1,17 @@
 package com.topcoder.utilities.dwload.contestresult;
 
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
-public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase {
+public abstract class DR2007dot5ResultCalculatorBase extends DRResultCalculatorBase {
 
-    private static final int[][] placementPoints = 
-     {{500, 325, 270, 250, 245, 240, 235},
-        {0, 175, 150, 145, 135, 130, 130},
-        {0, 0, 80, 75, 75, 75, 75},
-        {0, 0, 0, 30, 30, 30, 30},
-        {0, 0, 0, 0, 15, 15, 15},
-        {0, 0, 0, 0, 0, 10, 10},
-        {0, 0, 0, 0, 0, 0, 5}
+    private static final double[][] amountFraction = 
+     {{ 1.00, 0.65, 0.54, 0.50, 0.49, 0.48, 0.47},
+        {0  , 0.35, 0.30, 0.29, 0.27, 0.26, 0.26},
+        {0  , 0   , 0.16, 0.15, 0.15, 0.15, 0.15},
+        {0  , 0   , 0   , 0.06, 0.06, 0.06, 0.06},
+        {0  , 0   , 0   , 0   , 0.03, 0.03, 0.03},
+        {0  , 0   , 0   , 0   , 0   , 0.02, 0.02},
+        {0  , 0   , 0   , 0   , 0   , 0   , 0.01}
      };
         
     /**
@@ -30,12 +28,12 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
 
     @Override
     public double calculatePointsAwarded(ProjectResult pr) {
-        return calculatePointsAwarded(pr.isPassedReview(), pr.getPlaced(), pr.getNumSubmissions());
+        return calculatePointsAwarded(pr.isPassedReview(), pr.getPlaced(), pr.getNumSubmissions(), pr.getAmount());
     }
 
     @Override
     protected double calculatePotentialPoints(ProjectResult pr) {
-        return calculatePointsAwarded(true, 1, pr.getNumSubmissions());        
+        return calculatePointsAwarded(true, 1, pr.getNumSubmissions(), pr.getAmount());        
     }
 
     @Override
@@ -55,7 +53,7 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
      * @param placed       The submission placement
      * @return the points awarded.
      */
-    private long calculatePointsAwarded(boolean passedReview, int placed, int numSubmissionsPassedReview) {
+    private double calculatePointsAwarded(boolean passedReview, int placed, int numSubmissionsPassedReview, double amount) {
         // If not passed review or placed too far, there are no chances of winning points
         if (numSubmissionsPassedReview == 0 || !passedReview || placed > MAX_PLACE_REWARDED || placed == 0) {
             return 0;
@@ -66,7 +64,7 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
             numSubmissionsPassedReview = MAX_NUM_SUBMISSIONS;
         }
 
-        return placementPoints[placed - 1][numSubmissionsPassedReview - 1];
+        return amount * amountFraction[placed - 1][numSubmissionsPassedReview - 1];
     }
     
     
