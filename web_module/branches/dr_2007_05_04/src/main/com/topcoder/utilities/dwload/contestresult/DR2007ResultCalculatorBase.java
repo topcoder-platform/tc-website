@@ -1,6 +1,7 @@
 package com.topcoder.utilities.dwload.contestresult;
 
 import java.util.Comparator;
+import java.util.List;
 
 public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase {
 
@@ -39,6 +40,39 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
     @Override
     protected Comparator<ContestResult> getResultComparator() {
         return new ResultsComparator();
+    }
+
+    
+    protected void assignTopNPrizes(List<ContestResult> cr, List<Double> prizesAmount) {
+        int n = prizesAmount.size();
+        int [] placeCount = new int[n];
+        double [] placeAmount = new double[n];
+        
+        for (int i = 0; i < n; i ++) {
+            placeCount[i] = 0;
+        }
+        
+        // get the number of people in each place and the total prize
+        for (ContestResult result : cr) {
+            int place = result.getPlace();
+            
+            // up to n prizes
+            if (place > n) break;
+            
+            placeCount[place]++;
+            placeAmount[place] += result.getPrize();
+        }
+
+        // set the amounts
+        for (ContestResult result : cr) {
+            int place = result.getPlace();
+            
+            // up to n prizes
+            if (place > n) break;
+
+            result.setPrize(placeAmount[place] /  placeCount[place]);
+        }
+
     }
 
     

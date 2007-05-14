@@ -22,7 +22,7 @@ public class ContestResult {
         return coderId;
     }
 
-
+ 
     public double getFinalPoints() {
         return finalPoints;
     }
