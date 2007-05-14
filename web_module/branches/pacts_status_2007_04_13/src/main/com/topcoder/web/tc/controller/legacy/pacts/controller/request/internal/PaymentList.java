@@ -90,7 +90,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
 
                 // mirror parameters
-                getRequest().setAttribute(PactsConstants.PAYMENT_ID, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.PAYMENT_ID)));
+                getRequest().setAttribute("filter_payment_id", StringUtils.htmlEncode((String) getRequest().getAttribute("filter_payment_id")));
                 getRequest().setAttribute(PactsConstants.PROJECT_ID, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.PROJECT_ID)));
                 getRequest().setAttribute(PactsConstants.HANDLE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.HANDLE)));
                 getRequest().setAttribute(PactsConstants.EARLIEST_CREATION_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.EARLIEST_CREATION_DATE)));
@@ -149,8 +149,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         if (param != null && !param.equals("")) query.put(LOWEST_NET_AMOUNT, param);
         param = request.getParameter(HIGHEST_NET_AMOUNT);
         if (param != null && !param.equals("")) query.put(HIGHEST_NET_AMOUNT, param);                
-        param = createValuesStr(request.getParameterValues(PAYMENT_ID));
-        if (!param.equals("")) query.put(PAYMENT_ID, param);        
+        param = createValuesStr(request.getParameterValues("filter_payment_id"));
+        if (!param.equals("")) query.put("filter_payment_id", param);        
         param = request.getParameter(AFFIDAVIT_ID);
         if (param != null && !param.equals("")) query.put(AFFIDAVIT_ID, param);
         param = request.getParameter(CONTRACT_ID);

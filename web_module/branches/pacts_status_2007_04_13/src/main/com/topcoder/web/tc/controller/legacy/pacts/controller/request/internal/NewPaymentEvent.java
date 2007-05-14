@@ -29,6 +29,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         for (String paymentId : values) {
             criteria.clear();
             criteria.put(PactsConstants.PAYMENT_ID, paymentId);
+            log.debug("looking for paymentId : " + paymentId);
             BasePayment payment = null;
             try {
                 payment = dib.findCoderPayments(criteria).get(0);

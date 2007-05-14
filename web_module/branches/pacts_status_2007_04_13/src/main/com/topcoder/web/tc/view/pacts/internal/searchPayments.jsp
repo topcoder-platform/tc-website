@@ -50,7 +50,7 @@
         <table border="0" cellpadding="5" cellspacing="0">
           <tr>
             <td>Payment ID:</td>
-<% out.println("            <td><input type=\"text\" name=\""+PactsConstants.PAYMENT_ID+"\" size=\"20\"></td>"); %>
+<% out.println("            <td><input type=\"text\" name=\""+"filter_payment_id"+"\" size=\"20\"></td>"); %>
           </tr>
           <tr>
             <td>Project ID:</td>
