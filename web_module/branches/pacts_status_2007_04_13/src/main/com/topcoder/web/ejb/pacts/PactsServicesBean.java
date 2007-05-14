@@ -7612,5 +7612,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return roundName;
         }
     }
+    
+    private void restoreAutoCommit(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.setAutoCommit(true);
+            } catch (Exception ignore) {
+                log.error("FAILED to restore autocommit.");
+                ignore.printStackTrace();
+            }
+        }
+    }
 }
 

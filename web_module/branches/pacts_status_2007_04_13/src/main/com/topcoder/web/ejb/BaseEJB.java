@@ -537,16 +537,4 @@ public abstract class BaseEJB implements SessionBean {
         }
 
     }
-
-    protected void restoreAutoCommit(Connection conn) {
-        if (conn != null) {
-            try {
-                conn.setAutoCommit(true);
-            } catch (Exception ignore) {
-                log.error("FAILED to restore autocommit.");
-                ignore.printStackTrace();
-            }
-        }
-    }
-
 }
