@@ -1866,23 +1866,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             AssignmentDocument retAD = addAssignmentDocument(conn, ad);
             conn.commit();
-            conn.setAutoCommit(true);
 
             return retAD;
-        } catch (SQLException e) {
-            DBMS.printSqlException(true, e);
-            throw (new EJBException(e.getMessage(), e));
-        } finally {
+        } catch (Exception e) {
             try {
                 conn.rollback();
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                conn.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            printException(e);
+            throw (new EJBException(e.getMessage(), e));
+        } finally {
+            restoreAutoCommit(conn);
             close(conn);
         }
     }
@@ -2221,9 +2216,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 //            updateAssignmentDocumentPaymentStatus(c, ad, PAYMENT_OWED_STATUS);
 
             c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
         } catch (Exception e) {
             printException(e);
             try {
@@ -2231,18 +2223,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
             throw (new EJBException(e.getMessage(), e));
+        } finally {
+            restoreAutoCommit(c);
+            close(c);            
         }
     }
 
@@ -3279,9 +3263,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             long affidavitId = makeAffidavitPayment(c, a, affidavitText, p)[1];
 
             c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
 
             return affidavitId;
         } catch (Exception e) {
@@ -3291,20 +3272,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
             throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);
+            close(c);            
         }
     }
 
@@ -3885,9 +3858,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
             long paymentId = makeNewPayment(c, p, payReferrer);
             c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
             return paymentId;
         } catch (Exception e) {
             printException(e);
@@ -3896,20 +3866,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
             throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);
+            close(c);            
         }
     }
 
@@ -4111,20 +4073,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c.setAutoCommit(true);
             c.close();
             c = null;
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw sqle;
-        } finally {
+        } catch (Exception e) {
+            printException(e);
             try {
                 c.rollback();
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);
             close(ps);
             close(c);            
         }
@@ -4237,36 +4195,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = null;
 
             c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
 
             return noteId;
         } catch (Exception e) {
             printException(e);
             try {
-                if (ps != null) ps.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            ps = null;
-            try {
                 c.rollback();
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
             throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);
+            close(ps);            
+            close(c);            
         }
     }
 
@@ -4412,9 +4354,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
         } catch (Exception e) {
             printException(e);
             try {
@@ -4422,19 +4361,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            close(ps);
-            close(c);
             if (e instanceof NoObjectFoundException)
                 throw (NoObjectFoundException) e;
             else if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
             else
                 throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);            
+            close(ps);
+            close(c);
         }
     }
 
@@ -4620,33 +4556,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             updatePayment(c, p, addressData);
 
             c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
         } catch (Exception e) {
             printException(e);
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            ps = null;
             try {
                 c.rollback();
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
             if (e instanceof NoObjectFoundException)
                 throw (NoObjectFoundException) e;
             else if (e instanceof IllegalUpdateException)
@@ -4654,6 +4570,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             else if (e instanceof PaymentPaidException)
                 throw (PaymentPaidException) e;
             throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);
+            close(c);
         }
     }
 
@@ -4865,9 +4784,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
         } catch (Exception e) {
             printException(e);
             try {
@@ -4875,14 +4791,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);
             close(ps);
             close(c);            
-            throw new SQLException(e.getMessage());
         }
 
         if (rowsModified == 0) {
@@ -5986,18 +5899,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 } catch (Exception e1) {
                     printException(e1);
                 }
-                try {
-                    c.setAutoCommit(true);
-                } catch (Exception e1) {
-                    printException(e1);
-                }
+                restoreAutoCommit(c);
             }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
+            close(c);            
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
             throw new SQLException(e.getMessage());
@@ -6177,9 +6081,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
             return rowCount;
         } catch (Exception e) {
             printException(e);
@@ -6188,18 +6089,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
             throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);
+            close(c);            
         }
     }
 
@@ -6253,9 +6146,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
             return rowsUpdated;
         } catch (Exception e) {
             printException(e);
@@ -6264,13 +6154,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            close(c);
             throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);
+            close(c);
         }
     }
 
@@ -6324,9 +6211,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
             return rowsUpdated;
         } catch (Exception e) {
             printException(e);
@@ -6335,13 +6219,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             } catch (Exception e1) {
                 printException(e1);
             }
-            try {
-                c.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            close(c);
             throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);
+            close(c);
         }
     }
 
