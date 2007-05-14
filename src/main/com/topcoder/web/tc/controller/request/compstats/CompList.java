@@ -12,20 +12,21 @@ package com.topcoder.web.tc.controller.request.compstats;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.Contains;
+import com.topcoder.shared.dataAccess.resultSet.ResultFilter;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.Constants;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 /**
- *
  * @author cucu
  */
 public class CompList extends Base {
-
 
 
     protected void businessProcessing() throws TCWebException {
@@ -41,14 +42,24 @@ public class CompList extends Base {
             String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
 
+            ArrayList<ResultFilter> filters = new ArrayList<ResultFilter>(1);
+            String contestName = StringUtils.checkNull(getRequest().getParameter(Constants.CONTEST_NAME));
+            if (!contestName.equals("")) {
+                if (log.isDebugEnabled()) {
+                    log.debug("add contest name filter: " + contestName);
+                }
+                filters.add(new Contains(contestName, "component_name"));
+                setDefault(Constants.CONTEST_NAME, contestName);
+            }
+
             if (!"112".equals(phaseId) && !"113".equals(phaseId)) {
                 throw new TCWebException("Invalid phase_id (" + Constants.PHASE_ID + ") parameter)");
             }
 
             if ("".equals(numRecords)) {
                 numRecords = "50";
-            } else if (Integer.parseInt(numRecords)>200) {
-                numRecords="200";
+            } else if (Integer.parseInt(numRecords) > 200) {
+                numRecords = "200";
             }
 
             if (startRank.equals("") || Integer.parseInt(startRank) <= 0) {
@@ -69,7 +80,10 @@ public class CompList extends Base {
                 setDefault(DataAccessConstants.SORT_DIRECTION, sortDir);
             }
 
-            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank),endRank);
+            if (filters.size() > 0) {
+                rsc = new ResultSetContainer(rsc, filters.toArray(new ResultFilter[0]));
+            }
+            rsc = new ResultSetContainer(rsc, Integer.parseInt(startRank), endRank);
 
             result.put("comp_list", rsc);
 
