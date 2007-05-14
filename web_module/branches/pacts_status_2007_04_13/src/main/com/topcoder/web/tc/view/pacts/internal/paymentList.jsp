@@ -137,12 +137,12 @@ ${fn:length(paymentList)} records. <br />
         <td colspan=3>
         </td>
         <td colspan=11>
-        </td>
             <span class="bigRed">
                 <tc-webtag:errorIterator id="err"
                     name="err_${payment.id}"><%=err%><br/>
                 </tc-webtag:errorIterator>
             </span>
+        </td>
         </tr>
 	</c:forEach>
 	<tr>
