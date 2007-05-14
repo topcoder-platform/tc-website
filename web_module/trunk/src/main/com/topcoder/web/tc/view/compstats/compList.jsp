@@ -115,7 +115,9 @@ function submitEnter(e) {
             Contest Details
             </td></tr>
             <tr>
-               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a></td>
+               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a>
+                    <%--<br><input type="text" name="filter" value="Filter" size="16" style="border: 1px solid #999999; color: #999999;">--%>
+                </td>
                <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />" class="statLink">Category</a></td>
                <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />" class="statLink">Complete Date</a></td>
                <TD CLASS="tableHeader" align="right"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr" />" class="statLink">Registrants</a></td>
