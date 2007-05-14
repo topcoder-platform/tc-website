@@ -63,7 +63,10 @@ public class CandidateDAOHibernate extends Base implements CandidateDAO {
         query.append(" and crr.id.candidate.id = c.id");
         Query q = session.createQuery(query.toString());
         q.setInteger(0, r.getId());
-        List res = q.list();
+        //we only want a list of distinct candidates.  but we also want it to
+        //fetch all the candidate info in one shot.  so, using a set here
+        //is what i came up with to do the unique part
+        HashSet res = new HashSet(q.list());
         ArrayList<Candidate> ret = new ArrayList<Candidate>(res.size());
         for (Object aL : res) {
             ret.add((Candidate) aL);
@@ -80,7 +83,10 @@ public class CandidateDAOHibernate extends Base implements CandidateDAO {
         query.append(" and crr.id.candidate.id = c.id");
         Query q = session.createQuery(query.toString());
         q.setInteger(0, r.getId());
-        List res = q.list();
+        //we only want a list of distinct candidates.  but we also want it to
+        //fetch all the candidate info in one shot.  so, using a set here
+        //is what i came up with to do the unique part
+        HashSet res = new HashSet(q.list());
         ArrayList<Candidate> ret = new ArrayList<Candidate>(res.size());
         for (Object aL : res) {
             ret.add((Candidate) aL);
