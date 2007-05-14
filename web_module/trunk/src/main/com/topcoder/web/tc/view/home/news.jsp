@@ -10,7 +10,7 @@
       <td valign="top"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">UBS chat scheduled before SRM 349</A>
         </span><br><br>
-        Before SRM 349, UBS representatives will join TopCoder members in the Arena at 10:00 AM EDT to discuss career opportunities at the agency. 
+        Before SRM 349, UBS representatives will join TopCoder members in the Arena at 10:00 AM EDT to discuss career opportunities at the company. 
         </td>
       </tr></table>
       </td>
