@@ -4713,7 +4713,7 @@ public class TCLoadTCS extends TCLoad {
             "        and p1.project_id = p.project_id) between ? and ? ";
           
 
-        final String INSERT = "insert into contest_result(contest_id, coder_id, initial_points, final_points, potential_points, current_place, current_prize " +
+        final String INSERT = "insert into contest_result(contest_id, coder_id, initial_points, final_points, potential_points, current_place, current_prize) " +
                 " values(?,?,?,?,?,?,?)";
         
         ResultSet rs = null;
