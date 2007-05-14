@@ -28,6 +28,7 @@ public class Constants implements WebConstants {
     public static int CONTEST_TERMS_OF_USE_ID;
 
     public static int MAX_CONTEST_NAME_LENGTH;
+    public static int MAX_CANDIDATE_NAME_LENGTH;
     public static int MAX_ROUND_NAME_LENGTH;
     public static String JS_DATE_FORMAT;
     public static String JAVA_DATE_FORMAT;
