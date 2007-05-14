@@ -1,5 +1,9 @@
 package com.topcoder.web.oracle.controller.request.admin;
 
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
@@ -7,10 +11,6 @@ import com.topcoder.web.oracle.model.Contest;
 import com.topcoder.web.oracle.model.Phase;
 import com.topcoder.web.oracle.model.Round;
 import com.topcoder.web.oracle.model.RoundProperty;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.util.DBMS;
 
 import java.text.SimpleDateFormat;
 
@@ -23,7 +23,6 @@ abstract class Base extends ShortHibernateProcessor {
     protected static final Integer[] ROUND_PROPS = {RoundProperty.MAX_SELECTED_CANDIDATES,
             RoundProperty.NUMBER_OF_CANDIDDATE_ADVANCERS, RoundProperty.MAX_ROOM_SIZE};
 
-    
 
     protected void loadGeneralEditContestData() throws Exception {
         getRequest().setAttribute("contestStatuses", OracleDAOUtil.getFactory().getContestStatusDAO().getContestStatuses());
@@ -46,10 +45,9 @@ abstract class Base extends ShortHibernateProcessor {
     }
 
 
-
     protected void loadGeneralEditRoundData() throws Exception {
         getRequest().setAttribute("roundStatuses", OracleDAOUtil.getFactory().getRoundStatusDAO().getRoundStatuses());
-        
+
         Request r = new Request();
         r.setContentHandle("oracle_admin_contest_list");
         DataAccessInt da = new DataAccess(DBMS.STUDIO_DATASOURCE_NAME);
@@ -75,16 +73,20 @@ abstract class Base extends ShortHibernateProcessor {
         setDefault(Constants.ROUND_NAME, round.getName());
         setDefault(Constants.CONTEST_ID, round.getContest().getId());
 
-        setDefault(Constants.START_TIME+ Phase.REGISTRATION,
+        setDefault(Constants.START_TIME + Phase.REGISTRATION,
                 sdf.format(round.getPhaseMap().get(Phase.REGISTRATION).getStartTime()));
-        setDefault(Constants.END_TIME+Phase.REGISTRATION,
+        setDefault(Constants.END_TIME + Phase.REGISTRATION,
                 sdf.format(round.getPhaseMap().get(Phase.REGISTRATION).getEndTime()));
-        setDefault(Constants.START_TIME+Phase.SUBMISSION,
+        setDefault(Constants.START_TIME + Phase.SUBMISSION,
                 sdf.format(round.getPhaseMap().get(Phase.SUBMISSION).getStartTime()));
-        setDefault(Constants.END_TIME+Phase.SUBMISSION,
+        setDefault(Constants.END_TIME + Phase.SUBMISSION,
                 sdf.format(round.getPhaseMap().get(Phase.SUBMISSION).getEndTime()));
 
     }
 
+
+    protected void loadGeneralEditCandidateData() {
+        getRequest().setAttribute("properties", OracleDAOUtil.getFactory().getCandidatePropertyDAO().getProperties());
+    }
 
 }
