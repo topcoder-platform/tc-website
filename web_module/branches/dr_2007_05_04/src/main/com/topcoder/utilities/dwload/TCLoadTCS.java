@@ -4676,6 +4676,43 @@ public class TCLoadTCS extends TCLoad {
 
     }
     
+    public void loadSeasonResults() throws Exception {
+        log.debug("load season results");
+        
+        final String SELECT_SEASONS =
+            " select distinct s.season_id, " +
+            "    (select min(start_date) from stage st where st.season_id = s.season_id) as start_date, " +
+            "    (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " +
+            " from project_result pr,  " + 
+            "      season s,   " +
+            "      project p,    " +
+            "      project_info piel,   " +
+            "      project_info pidr   " +
+            " where p.project_id = pr.project_id    " +
+            " and p.project_status_id <> 3    " +
+            " and p.project_category_id in (1, 2)    " +
+            " and piel.project_info_type_id = 14   " +
+            " and piel.value = 'Open'   " +
+            " and p.project_id = piel.project_id  " +
+            " and p.project_id = pidr.project_id   " +
+            " and pidr.project_info_type_id = 26   " +
+            " and pidr.value = 'On'  " +
+            " and (p.modify_date > ? " +
+            "     OR pr.modify_date > ?)  " +
+            " and (  " +
+            " select NVL(ppd.actual_start_time, psd.actual_start_time)   " +
+            " from project p  " +
+            "     , OUTER project_phase psd  " +
+            "     , OUTER project_phase ppd  " +
+            " where  psd.project_id = p.project_id   " +
+            " and psd.phase_type_id = 2   " +
+            " and ppd.project_id = p.project_id   " +
+            " and ppd.phase_type_id = 1   " +
+            " and p.project_id = pr.project_id) between  " +
+            "      (select min(start_date) from stage st where st.season_id = s.season_id) and " +
+            "      (select max(end_date) from stage st where st.season_id = s.season_id)  ";
+
+    }
     private void loadDRContestResults(Timestamp startDate, Timestamp endDate, int phaseId, int contestId, int contestTypeId, String className) throws Exception {
         log.debug("load contest_result for contest_id=" + contestId);
         final String SELECT_RESULTS = 
