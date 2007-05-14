@@ -10,16 +10,14 @@ import com.topcoder.web.ejb.pacts.payments.InvalidStateTransitionException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator.UserEvents;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPaymentList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 
 /**
  * Add or update a payment.
  *
  * @author  cucu
  */
-public class NewPaymentEvent extends PactsBaseProcessor implements PactsConstants {
+public class NewPaymentEvent extends PaymentList implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
         String[] values = getRequest().getParameterValues(PAYMENT_ID);
@@ -60,33 +58,8 @@ public class NewPaymentEvent extends PactsBaseProcessor implements PactsConstant
         if (!hasErrors()) {
             // notify payments and update them
         } 
-        
-        String query = getRequest().getQueryString();
-        query = INTERNAL_SERVLET_URL + "?" + query;
-        getRequest().setAttribute("query", query);
 
-        log.debug("QueryString: " + query);
-        
-        InternalDispatchPaymentList bean =
-                new InternalDispatchPaymentList(getRequest(), getResponse());
-        
-        PaymentHeader[] results;
-        try {
-            results = bean.get();
-        } catch (Exception e) {
-            throw new TCWebException(e);            
-        }
-        
-        if (results.length != 1) {
-            try {
-                getRequest().setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
-            } catch (Exception e) {
-                throw new TCWebException(e);            
-            }
-            getRequest().setAttribute(PACTS_INTERNAL_RESULT, results);
-        }
-        setNextPage(INTERNAL_PAYMENT_LIST_JSP);
-        setIsNextPageInContext(true);
+        super.businessProcessing();
     }
 }
 

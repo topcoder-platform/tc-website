@@ -6,6 +6,7 @@ import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
@@ -34,7 +35,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         	boolean groupRel = !"false".equals(getRequest().getParameter(GROUP_RELIABILITY));
         	String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
             getRequest().setAttribute("query", requestQuery);
-            
+            log.debug("QueryString: " + requestQuery);
+                    
             DataInterfaceBean dib = new DataInterfaceBean();
 
             Map query = getQuery(getRequest());
@@ -87,6 +89,25 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 getRequest().setAttribute(RELIABILITY, reliability);
                 getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
 
+                // mirror parameters
+                getRequest().setAttribute(PactsConstants.PAYMENT_ID, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.PAYMENT_ID)));
+                getRequest().setAttribute(PactsConstants.PROJECT_ID, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.PROJECT_ID)));
+                getRequest().setAttribute(PactsConstants.HANDLE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.HANDLE)));
+                getRequest().setAttribute(PactsConstants.EARLIEST_CREATION_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.EARLIEST_CREATION_DATE)));
+                getRequest().setAttribute(PactsConstants.LATEST_CREATION_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.LATEST_CREATION_DATE)));
+                getRequest().setAttribute(PactsConstants.EARLIEST_MODIFICATION_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.EARLIEST_MODIFICATION_DATE)));
+                getRequest().setAttribute(PactsConstants.LATEST_MODIFICATION_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.LATEST_MODIFICATION_DATE)));
+                getRequest().setAttribute(PactsConstants.EARLIEST_PAY_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.EARLIEST_PAY_DATE)));
+                getRequest().setAttribute(PactsConstants.LATEST_PAY_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.LATEST_PAY_DATE)));
+                getRequest().setAttribute(PactsConstants.EARLIEST_DUE_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.EARLIEST_DUE_DATE)));
+                getRequest().setAttribute(PactsConstants.LATEST_DUE_DATE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.LATEST_DUE_DATE)));
+                getRequest().setAttribute(PactsConstants.LOWEST_NET_AMOUNT, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.LOWEST_NET_AMOUNT)));
+                getRequest().setAttribute(PactsConstants.HIGHEST_NET_AMOUNT, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.HIGHEST_NET_AMOUNT)));
+                getRequest().setAttribute(PactsConstants.STATUS_CODE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.STATUS_CODE)));
+                getRequest().setAttribute(PactsConstants.TYPE_CODE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.TYPE_CODE)));
+                getRequest().setAttribute(PactsConstants.METHOD_CODE, StringUtils.htmlEncode((String) getRequest().getAttribute(PactsConstants.METHOD_CODE)));
+
+                
                 String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
                 getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
                 

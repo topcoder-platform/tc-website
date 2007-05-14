@@ -39,8 +39,25 @@ ${fn:length(paymentList)} records. <br />
 
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
    <input type="hidden" name="module" value="NewPaymentEvent">
-<%-- <form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST"> 
-	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">--%>
+   <input type=hidden name="query" value="${query}">
+
+    <tc-webtag:hiddenInput name="<%=PactsConstants.PAYMENT_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.PROJECT_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.HANDLE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_CREATION_DATE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_CREATION_DATE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_MODIFICATION_DATE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_MODIFICATION_DATE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_PAY_DATE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_PAY_DATE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_DUE_DATE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_DUE_DATE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LOWEST_NET_AMOUNT%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.HIGHEST_NET_AMOUNT%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.STATUS_CODE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.TYPE_CODE%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.METHOD_CODE%>"/>
+
 	<input type=hidden name="query" value="${query}">
 
 	<a href="${toggleGroupReliability}">

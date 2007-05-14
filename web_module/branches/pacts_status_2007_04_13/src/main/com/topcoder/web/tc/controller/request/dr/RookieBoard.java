@@ -4,6 +4,10 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
@@ -12,10 +16,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.RookieBoardRow;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * <strong>Purpose</strong>:
