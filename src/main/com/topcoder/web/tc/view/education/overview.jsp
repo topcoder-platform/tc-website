@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=051407"><strong>A Crash Course in SQL, Part 2</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
+In this last installment of this article series on relational databases, we'll take a look at some more of the "core" SQL concepts any good programmer needs to know, and we'll take a look at how to interact with relational databases using Java.</li>
 <li><a href="/tc?module=Static&d1=features&d2=051007"><strong>TCO Preview: The Marathon Match Competition</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
 With this year's addition of Marathon Matches to the TopCoder Open, and a chance for 8 finalists to take a free trip to Las Vegas -- not to mention the hope of winning $15,000 -- it's no wonder that competitors came from far and wide to try their coding skills.</li>
 <li><a href="/tc?module=Static&d1=features&d2=050807"><strong>Belarus All College Programming Event</strong></a>, by <tc-webtag:handle coderId="8365955" /><br>
 On April 26, about 80 coders from Belarusian colleges simultaneously pressed the "open a problem" button to start All Belarus Programming Event, sponsored by TopCoder.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3"><strong>Minimum Cost Flow, Part 3: Applications</strong></a>, by <tc-webtag:handle coderId="22671469" context="algorithm" /><br>
-Parts 1 & 2 considered the basics of minimum cost flow problems, as well as some algorithms that can applied to them. In the last part of this article, we'll look at some real-world applications of minimum cost flow.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>

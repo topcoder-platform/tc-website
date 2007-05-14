@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.14.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=051407">A Crash Course in SQL, Part 2</A></span><br><br>
+      In this last installment of this article series on relational databases, we'll take a look at some more of the "core" SQL concepts any good programmer needs to know, and we'll take a look at how to interact with relational databases using Java.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/dcp_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21684580" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=051407">full story</A> | 
+        <tc-webtag:forumLink forumID="515215" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>05.11.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -201,21 +218,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>05.04.07<br>10:00 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=digital_run&d2=description">Announcing the Digital Run 2007.5 Season</A>
-        </span><br><br>
-        The Digital Run is back for another season and bigger than before. We've got bigger prizes for Design & Development and a whole new series: the Assembly Cup.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=digital_run&d2=description">details</A> | 
-        <tc-webtag:forumLink forumID="515624" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
