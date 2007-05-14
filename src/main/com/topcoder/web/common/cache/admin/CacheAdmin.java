@@ -60,7 +60,7 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
             ctx = TCContext.getInitial(b.getProperty("host_url"));
             TreeCacheMBean cache = (TreeCacheMBean) ctx.lookup(b.getProperty("jndi_name"));
 
-            int count = removelike(s, "/", cache, 0);
+            int count = removelike(s, "/", cache);
 
             return count + " items removed from cache";
         } catch (NamingException e) {
@@ -72,9 +72,10 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
         }
     }
 
-    private int removelike(String key, String parent, TreeCacheMBean cache, int count) throws CacheException {
+    private int removelike(String key, String parent, TreeCacheMBean cache) throws CacheException {
         String kid;
         String fqn;
+        int ret = 0;
         for (Object child : cache.getChildrenNames(parent)) {
             kid = (String) child;
             fqn = parent + Fqn.SEPARATOR + kid;
@@ -83,15 +84,15 @@ public class CacheAdmin extends ServiceMBeanSupport implements CacheAdminMBean {
                     log.debug("removing " + fqn);
                 }
                 cache.remove(fqn);
-                count++;
+                ret++;
             } else {
                 Set kids = cache.getChildrenNames(fqn);
                 if (kids != null && !kids.isEmpty()) {
-                    removelike(key, fqn, cache, count);
+                    ret += removelike(key, fqn, cache);
                 }
             }
         }
-        return count;
+        return ret;
     }
 
 
