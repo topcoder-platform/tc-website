@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.14.07<br>5:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=bracket">TCO07 Studio Finalists announced</A>
+        </span><br><br>
+        Meet the eight competitors who will attend TopCoder's first on-site Studio Design Competition. Congratulations! 
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=bracket">details</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=516&start=0">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.14.07<br>4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -201,20 +220,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.07.07<br>1:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3">Minimum Cost Flow, Part 3: Applications</A></span><br><br>
-      Parts 1 &amp; 2 considered the basics of minimum cost flow problems, as well as some algorithms that can applied to them. In the last part of this article, we'll look at some real-world applications of minimum cost flow.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Zealint_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22671469" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3">full story</A> | 
-        <tc-webtag:forumLink forumID="515317" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
