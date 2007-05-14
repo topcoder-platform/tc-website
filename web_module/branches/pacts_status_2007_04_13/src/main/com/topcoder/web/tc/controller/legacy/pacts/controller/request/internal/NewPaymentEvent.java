@@ -65,6 +65,8 @@ public class NewPaymentEvent extends PactsBaseProcessor implements PactsConstant
         query = INTERNAL_SERVLET_URL + "?" + query;
         getRequest().setAttribute("query", query);
 
+        log.debug("QueryString: " + query);
+        
         InternalDispatchPaymentList bean =
                 new InternalDispatchPaymentList(getRequest(), getResponse());
         
@@ -82,10 +84,9 @@ public class NewPaymentEvent extends PactsBaseProcessor implements PactsConstant
                 throw new TCWebException(e);            
             }
             getRequest().setAttribute(PACTS_INTERNAL_RESULT, results);
-
-            setNextPage(INTERNAL_PAYMENT_LIST_JSP);
-            setIsNextPageInContext(true);
         }
+        setNextPage(INTERNAL_PAYMENT_LIST_JSP);
+        setIsNextPageInContext(true);
     }
 }
 
