@@ -105,8 +105,38 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
     }
 
     protected void assingTopPerformersPrize(List<ContestResult> cr, double prizePool, double factor) {
-        // testing
-        cr.get(0).setPrize(factor);
+        
+        // count how many coders won points.
+        int codersWithPoints = 0;
+        for (ContestResult result : cr) {
+            if (result.getFinalPoints() <=0) break;
+            
+            codersWithPoints++;
+        }
+        int maxPlace = (int) Math.round(Math.ceil(codersWithPoints / factor));
+        System.out.println("codersWithPoints="+codersWithPoints);
+        System.out.println("maxPlace="+maxPlace);
+        
+        
+        // sum the total points won by the top performers
+        double totalPoints = 0;
+        
+        for (ContestResult result : cr) {
+            if (result.getPlace() > maxPlace) break;
+            
+            totalPoints += result.getFinalPoints();
+        }
+        
+        
+        // Set prizes
+        double amountPerPoint = prizePool / totalPoints;
+        for (ContestResult result : cr) {
+            if (result.getPlace() > maxPlace) break;
+            
+            result.setPrize(amountPerPoint * result.getFinalPoints());
+        }
+        
+        
     }
     
     public abstract double calculatePointsAwarded(ProjectResult pr);
