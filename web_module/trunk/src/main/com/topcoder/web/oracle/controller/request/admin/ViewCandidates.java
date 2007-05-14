@@ -5,7 +5,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.oracle.Constants;
 import com.topcoder.web.oracle.dao.OracleDAOFactory;
 import com.topcoder.web.oracle.dao.OracleDAOUtil;
-import com.topcoder.web.oracle.model.Round;
+import com.topcoder.web.oracle.model.Room;
 
 /**
  * @author dok
@@ -14,24 +14,23 @@ import com.topcoder.web.oracle.model.Round;
  */
 public class ViewCandidates extends Base {
     protected void dbProcessing() throws Exception {
-        //load up all the candidates in the rounds
+        //load up all the candidates in the round
 
-
-        String roundId = getRequest().getParameter(Constants.ROUND_ID);
+        String roomId = getRequest().getParameter(Constants.ROOM_ID);
 
         OracleDAOFactory f = OracleDAOUtil.getFactory();
 
-        Round round;
+        Room room;
 
-        if ("".equals(StringUtils.checkNull(roundId))) {
-            throw new NavigationException("Invalid round specified.");
+        if ("".equals(StringUtils.checkNull(roomId))) {
+            throw new NavigationException("Invalid room specified.");
         } else {
-            round = f.getRoundDAO().find(new Integer(roundId));
-            if (round == null) {
-                throw new NavigationException("Invalid round specified.");
+            room = f.getRoomDAO().find(new Integer(roomId));
+            if (room == null) {
+                throw new NavigationException("Invalid room specified.");
             } else {
-                getRequest().setAttribute("candidates", f.getCandidateDAO().getCandidates(round));
-                getRequest().setAttribute("round", round);
+                getRequest().setAttribute("candidates", f.getCandidateDAO().getCandidates(room));
+                getRequest().setAttribute("room", room);
             }
         }
 
