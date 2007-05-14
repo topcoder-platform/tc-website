@@ -31,7 +31,7 @@
             </div>
 
             <p><a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${room.round.id}">edit round</a></p>
-            <p><a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${room.round.id}">view rooms</a></p>
+            <p><a href="${sessionInfo.servletPath}?module=AdminViewRooms&amp;<%=Constants.ROUND_ID%>=${room.round.id}">view rooms</a></p>
                 <div align="right">
                     <a href="${sessionInfo.servletPath}?module=AdminViewCandidate&amp;<%=Constants.ROOM_ID%>=${room.id}" class="button" style="width: 90px;">Add
                         Candidate</a></div>
