@@ -70,4 +70,21 @@ public class CandidateDAOHibernate extends Base implements CandidateDAO {
         }
         return ret;
     }
+
+    public List<Candidate> getCandidates(Room r) {
+        StringBuffer query = new StringBuffer(100);
+        query.append(" select c");
+        query.append(" from com.topcoder.web.oracle.model.CandidateRoomResult crr");
+        query.append("    , com.topcoder.web.oracle.model.Candidate c left join fetch c.info");
+        query.append(" where crr.id.room.id = ?");
+        query.append(" and crr.id.candidate.id = c.id");
+        Query q = session.createQuery(query.toString());
+        q.setInteger(0, r.getId());
+        List res = q.list();
+        ArrayList<Candidate> ret = new ArrayList<Candidate>(res.size());
+        for (Object aL : res) {
+            ret.add((Candidate) aL);
+        }
+        return ret;
+    }
 }

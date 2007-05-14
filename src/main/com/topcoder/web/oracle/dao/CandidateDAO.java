@@ -22,4 +22,6 @@ public interface CandidateDAO {
     List<Candidate> getCandidates(Integer roomId, Long userId);
 
     List<Candidate> getCandidates(Round r);
+
+    List<Candidate> getCandidates(Room r);
 }
