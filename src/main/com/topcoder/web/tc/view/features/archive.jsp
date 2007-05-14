@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21684580" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=051407"><strong>A Crash Course in SQL, Part 2</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>May 14, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="10407399" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=051007"><strong>TCO Preview: The Marathon Match Competition</strong></A></td>
                <td class="bodyText" nowrap=nowrap>May 10, 2007</td> 
