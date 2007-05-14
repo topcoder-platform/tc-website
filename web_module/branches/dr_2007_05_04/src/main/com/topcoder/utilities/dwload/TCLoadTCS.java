@@ -4778,12 +4778,34 @@ public class TCLoadTCS extends TCLoad {
     }
 
     
-    private List<Double> getContestPrizesAmount(long contestId) {
-        /* TO DO
-        select place, contest_prize_id from contest_prize where contest_id = 253
-        order by place
-        */ 
-        return new ArrayList<Double>();
+    private List<Double> getContestPrizesAmount(long contestId) throws Exception {
+        final String SELECT = 
+            "select  place, prize_amount " +
+            "from contest_prize  " +
+            "where contest_id = ? " +
+            "order by place";
+            
+        List<Double> prizes = new ArrayList<Double>();        
+        PreparedStatement select = null;
+        
+        try {
+            select = prepareStatement(SELECT, SOURCE_DB);
+            select.setLong(1, contestId);
+            ResultSet rs = select.executeQuery();
+            
+            int expectedPlace = 1;
+            while (rs.next()) {
+                if (rs.getInt("place") != expectedPlace) {
+                    throw new Exception("Error in prizes for contest " + contestId + " expected a prize for place " + expectedPlace);
+                }
+                
+                prizes.add(rs.getDouble("prize_amount"));
+                expectedPlace++;
+            }
+        } finally {
+            close(select);
+        }
+        return prizes;
     }
 /*
     private void doLoadContestResult() throws Exception {

@@ -11,7 +11,7 @@ public class ContestResult {
     private double initialPoints = 0.0;
     private double finalPoints = 0.0;
     private double potentialPoints = 0.0;
-    private Integer place = null;
+    private int place = 0;
     private Double prize = null;
     
     public ContestResult(long coderId) {
@@ -60,11 +60,11 @@ public class ContestResult {
         this.potentialPoints += points;
     }
 
-    public Integer getPlace() {
+    public int getPlace() {
         return place;
     }
 
-    public void setPlace(Integer place) {
+    public void setPlace(int place) {
         this.place = place;
     }
 
