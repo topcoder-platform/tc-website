@@ -183,6 +183,17 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
+    public void delete(BasePayment payment) throws InvalidStateTransitionException {
+        log.debug("moving to deleted!");
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS));
+        try {
+            payment.getCurrentStatus().activate(payment);
+        } catch (Exception e) {
+            // do nothing
+        }
+    }
+
+    @Override
     public void nextState(BasePayment payment) {
         if (reasons.size() == 0) {
             // if there's no reason to stay in this state, move to the next

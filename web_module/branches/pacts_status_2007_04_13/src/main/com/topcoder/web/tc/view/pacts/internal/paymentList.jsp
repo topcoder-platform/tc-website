@@ -37,8 +37,10 @@
 <h2>Payment List</h2>
 ${fn:length(paymentList)} records. <br />
 
-<form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST">
-	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
+<form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+   <input type="hidden" name="module" value="NewPaymentEvent">
+<%-- <form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST"> 
+	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">--%>
 	<input type=hidden name="query" value="${query}">
 
 	<a href="${toggleGroupReliability}">
@@ -110,6 +112,17 @@ ${fn:length(paymentList)} records. <br />
 			</c:choose>
 		</td> --%>
 		</tr>
+        <tr>
+        <td colspan=3>
+        </td>
+        <td colspan=11>
+        </td>
+            <span class="bigRed">
+                <tc-webtag:errorIterator id="err"
+                    name="err_${payment.id}"><%=err%><br/>
+                </tc-webtag:errorIterator>
+            </span>
+        </tr>
 	</c:forEach>
 	<tr>
 		<td colspan="7"><b>Total Net Amount:</b>
@@ -126,7 +139,22 @@ ${fn:length(paymentList)} records. <br />
 <%--<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.REVIEW_CMD  %>"><br><br> --%>
 
 <%-- TODO: Change to events --%>
-<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.STATUS_CMD  %>">
+
+<SELECT CLASS="dropdown" NAME="status_id">
+        <OPTION value='1' selected>
+            Enter into payment system
+        </OPTION>
+        <OPTION value='2'>
+            Pay
+        </OPTION>
+        <OPTION value='3'>
+            Delete
+        </OPTION>
+</SELECT>
+                
+<%--<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.STATUS_CMD  %>">--%>
+
+<input type="submit" value="Apply Event">
 
     <%--       <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" /> <br><br>--%>
 

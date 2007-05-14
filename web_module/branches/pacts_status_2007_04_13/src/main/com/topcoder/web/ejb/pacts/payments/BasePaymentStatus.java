@@ -58,6 +58,18 @@ public abstract class BasePaymentStatus {
         throw new InvalidStateTransitionException();
     }
 
+    public void enterIntoPaymentSystem(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException("Cannot enter into payment system a payment with status " + payment.getCurrentStatus().getDesc());
+    }
+
+    public void pay(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException("Cannot pay into payment system a payment with status " + payment.getCurrentStatus().getDesc());
+    }
+
+    public void delete(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException("Cannot delete into payment system a payment with status " + payment.getCurrentStatus().getDesc());
+    }
+    
     public void hardCopyIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
         // default implementation does nothing
     }

@@ -33,7 +33,6 @@ import javax.servlet.http.HttpSession;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
@@ -48,6 +47,10 @@ import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.payments.InvalidStateTransitionException;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator.UserEvents;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchAffidavit;
@@ -84,7 +87,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
-//import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
 
 public class PactsInternalServlet extends BaseServlet implements PactsConstants {
 
@@ -2739,34 +2741,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         return paymentsArray;
     }
     
-//    private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
-//        try {
-//            WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
-//                    HttpObjectFactory.createResponse(response));
-//
-//            long userId = auth.getActiveUser().getId();
-//
-//            log.debug("doPaymentStatus<br>");
-//
-//            String[] values = request.getParameterValues(PAYMENT_ID);
-//
-//            long[] payments = parsePayments(values);     
-//
-//            DataInterfaceBean dib = new DataInterfaceBean();
-//
-//            dib.batchUpdatePaymentStatus(payments, Integer.parseInt(request.getParameter("status_id")), userId);
-//
-//            request.setAttribute("message", "Payments Being Updated in the Background");
-//            if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
-//                forward(request.getParameter("query"), request, response);
-//            else
-//                throw new NavigationException("Payments Being Updated in the Background");
-//
-//        } catch (NumberFormatException e) {
-//            throw new NavigationException("One or more of the Payment IDs specified is invalid.");
-//        }
-//    }
-
 //    private void doReviewPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //        try {
 //            log.debug("doReviewPayments<br>");

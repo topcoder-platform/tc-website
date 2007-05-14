@@ -28,6 +28,12 @@ public class PaymentStatusMediator {
     private PaymentStatusManager statusManager = null;
     private Connection conn = null;
 
+    public enum UserEvents {
+        ENTER_INTO_PAYMENT_SYSTEM_EVENT,
+        DELETE_EVENT,
+        PAY_EVENT
+    }
+
     private static final Logger log = Logger.getLogger(PaymentStatusMediator.class);
 
     private DataInterfaceBean dib = new DataInterfaceBean();
@@ -275,6 +281,20 @@ public class PaymentStatusMediator {
             }
         } catch (Exception ex) {
             log.error("PACTS Payment Status Manager: Error printing exception!");
+        }
+    }
+
+    public void newUserEvent(BasePayment payment, UserEvents event) throws InvalidStateTransitionException {
+        switch (event) {
+        case ENTER_INTO_PAYMENT_SYSTEM_EVENT:
+            payment.getCurrentStatus().enterIntoPaymentSystem(payment);
+            break;
+        case PAY_EVENT:
+            payment.getCurrentStatus().pay(payment);
+            break;
+        case DELETE_EVENT:
+            payment.getCurrentStatus().delete(payment);
+            break;
         }
     }
 

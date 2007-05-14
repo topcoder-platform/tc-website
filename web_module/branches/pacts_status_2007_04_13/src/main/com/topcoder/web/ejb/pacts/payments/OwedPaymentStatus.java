@@ -7,6 +7,7 @@ package com.topcoder.web.ejb.pacts.payments;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -39,6 +40,28 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     @Override
     public Long getId() {
         return ID;
+    }
+
+    @Override
+    public void enterIntoPaymentSystem(BasePayment payment) throws InvalidStateTransitionException {
+        log.debug("moving to enterIntoPaymentSystem!");
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS));
+        try {
+            payment.getCurrentStatus().activate(payment);
+        } catch (Exception e) {
+            // do nothing
+        }
+    }
+
+    @Override
+    public void delete(BasePayment payment) throws InvalidStateTransitionException {
+        log.debug("moving to deleted!");
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS));
+        try {
+            payment.getCurrentStatus().activate(payment);
+        } catch (Exception e) {
+            // do nothing
+        }
     }
 
     @Override
