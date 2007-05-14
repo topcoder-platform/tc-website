@@ -38,7 +38,7 @@
                         </p>
 
 <div align="center" style="margin:20px;">
-<table cellpadding="0" cellspacing="0" border="0" class="bodyText">
+<table cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 40px;">
    <tr>
       <td align="right"><img src="/i/tournament/tco07/bracket_NW.png" alt="" border="0" /></td>
       <td rowspan="3" style="background-color: #000000;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
@@ -61,6 +61,13 @@
       <td align="right"><img src="/i/tournament/tco07/bracket_SW.png" alt="" border="0" /></td>
    </tr>
 </table>
+
+<p align="center">
+    The Review Board for the<br>TCO07 Component Design Finals:<br><br>
+    <tc-webtag:handle coderId="278342" context="design" /><br>
+    <tc-webtag:handle coderId="15179224" context="design" /><br>
+    <tc-webtag:handle coderId="10348862" context="design" />
+</p>
 </div>
 
                     </div>
