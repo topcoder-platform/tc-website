@@ -30,6 +30,7 @@
                 <span class="pageName">Candidates</span>
             </div>
 
+            <p><a href="${sessionInfo.servletPath}?module=AdminViewRound&amp;<%=Constants.ROUND_ID%>=${room.round.id}">edit round</a></p>
                 <div align="right">
                     <a href="${sessionInfo.servletPath}?module=AdminViewCandidate&amp;<%=Constants.ROOM_ID%>=${room.id}" class="button" style="width: 90px;">Add
                         Candidate</a></div>
