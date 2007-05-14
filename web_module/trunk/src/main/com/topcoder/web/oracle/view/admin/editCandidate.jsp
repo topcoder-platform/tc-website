@@ -85,7 +85,7 @@
                                             ${property.description}:
                                     </td>
                                     <td class="value">
-                                        <tc-webtag:textInput name="${currKey}" size="50"/>
+                                        <tc-webtag:textArea name="${currKey}" rows="4" cols="60"/>
                                     </td>
                                 </tr>
 
