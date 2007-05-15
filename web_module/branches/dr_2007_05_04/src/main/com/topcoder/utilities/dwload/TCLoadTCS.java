@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -1241,6 +1242,37 @@ public class TCLoadTCS extends TCLoad {
      * @return a list containing the DR project IDs.
      * @since 1.1.0
      */
+    private Map<Long, Integer> getDRProjects() throws Exception {
+        PreparedStatement select = null;
+        ResultSet rs = null;
+
+        Map<Long, Integer>  dRProjects = new HashMap<Long, Integer>();
+        try {
+            //get data from source DB
+            final String SELECT = "select " +
+                    "   project_id, stage_id " +
+                    "from " +
+                    "   project " +
+                    "where " +
+                    "   stage_id is not null and digital_run_ind = 1";
+
+            select = prepareStatement(SELECT, TARGET_DB);
+
+            rs = select.executeQuery();
+            while (rs.next()) {
+                dRProjects.put(rs.getLong("project_id"), rs.getInt("stage_id"));
+            }
+
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("could not get DR projects.");
+        } finally {
+            close(rs);
+            close(select);
+        }
+        return dRProjects;
+    }
+/*
     private List getDRProjects() throws Exception {
         PreparedStatement select = null;
         ResultSet rs = null;
@@ -1271,7 +1303,8 @@ public class TCLoadTCS extends TCLoad {
         }
         return (dRProjects);
     }
-
+*/
+    
 
     /**
      * <p/>
@@ -1362,6 +1395,7 @@ public class TCLoadTCS extends TCLoad {
                         "	 , pr.current_reliability_ind " +
                         "	 , pr.reliable_submission_ind " +
                         "    , pr.rating_order " +
+                        "    , (select value from project_info pi_amount where pi_amount.project_id = p.project_id) and project_info_type_id = 16) as amount" +
                         "    from project_result pr" +
                         "    	,project p" +
                         "		,project_info pi" +
@@ -1414,7 +1448,9 @@ public class TCLoadTCS extends TCLoad {
         try {
             long start = System.currentTimeMillis();
 
-            List dRProjects = getDRProjects();
+            Map<Integer, ContestResultCalculator> stageCalculators = getStageCalculators();
+            
+            Map<Long,Integer> dRProjects = getDRProjects();
 
 
             projectSelect = prepareStatement(PROJECTS_SELECT, SOURCE_DB);
@@ -1502,11 +1538,22 @@ public class TCLoadTCS extends TCLoad {
 
                     count++;
 
-                    long pointsAwarded = 0;
-                    if (projectResults.getInt("project_stat_id") == 7 &&  // COMPLETED
-                            dRProjects.contains(new Long(project_id)) &&
-                            projectResults.getInt("rating_ind") == 1) {
-                        pointsAwarded = calculatePointsAwarded(passedReview, placed, numSubmissionsPassedReview);
+                    double pointsAwarded = 0;
+                    Integer stage = dRProjects.get(project_id);
+                    boolean hasDR = false;
+                    
+                    if (stage != null &&
+                         projectResults.getInt("project_stat_id") == 7 &&  // COMPLETED                            
+                         projectResults.getInt("rating_ind") == 1) {
+                    
+                        hasDR = true;
+                        ContestResultCalculator crc = stageCalculators.get(stage);
+                        if (crc != null) {
+                            ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
+                                       projectResults.getDouble("final_score"),  projectResults.getInt("placed"), 
+                                      0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview); 
+                            pointsAwarded = crc.calculatePointsAwarded(pr);
+                        }
                     }
                     resultInsert.clearParameters();
 
@@ -1538,11 +1585,9 @@ public class TCLoadTCS extends TCLoad {
                     resultInsert.setObject(17, projectResults.getObject("reliability_ind"));
                     resultInsert.setObject(18, projectResults.getObject("passed_review_ind"));
 
-                    if (projectResults.getInt("project_stat_id") == 7 &&
-                            dRProjects.contains(new Long(project_id)) &&
-                            projectResults.getInt("rating_ind") == 1) {
-                        resultInsert.setLong(19, pointsAwarded);
-                        resultInsert.setLong(20, pointsAwarded + projectResults.getInt("point_adjustment"));
+                    if (hasDR) {
+                        resultInsert.setDouble(19, pointsAwarded);
+                        resultInsert.setDouble(20, pointsAwarded + projectResults.getInt("point_adjustment"));
                     } else {
                         resultInsert.setNull(19, Types.DECIMAL);
                         resultInsert.setNull(20, Types.DECIMAL);
@@ -4937,7 +4982,86 @@ public class TCLoadTCS extends TCLoad {
         return prizes;
     }
 
+    private Map<Integer, ContestResultCalculator> getStageCalculators() throws Exception {
+        final String SELECT = 
+            " select  s.stage_id, min(class_name) as class_name " +
+            " from stage s " +
+            "      , contest_stage_xref x " +
+            "      , contest c " +
+            "      , contest_result_calculator_lu calc " +
+            " where s.stage_id = x.stage_id " +
+            " and x.contest_id = c.contest_id " +
+            " and c.contest_result_calculator_id = calc.contest_result_calculator_id " +
+            " and c.contest_type_id = 19 " + 
+            " group by  s.stage_id ";
+        
+        Map<Integer, ContestResultCalculator> result = new HashMap<Integer, ContestResultCalculator>();  
+        PreparedStatement select = null;
+        
+        try {
+            select = prepareStatement(SELECT, SOURCE_DB);
+            ResultSet rs = select.executeQuery();
+            
+            while (rs.next()) {
+                String className = rs.getString("class_name");
+                ContestResultCalculator calc = (ContestResultCalculator) Class.forName(className).newInstance();
+                result.put(rs.getInt("stage_id"), calc);
+            }
+        } finally {
+            close(select);
+        }
+        return result;
+    }
+/*
+    private ContestResultCalculator getStageCalculatorForDate(List<StageCalculator> calculators, Date date) throws Exception {
+        ContestResultCalculator calc = null;
+        
+        for (StageCalculator sc : calculators) {
+            if (!sc.getStart().after(date) && !sc.getEnd().before(date)) {
+                if (calc != null) {
+                    throw new Exception("More than one DR stage found for date " + date);
+                }
+                calc = sc.getCalculator();
+            }
+        }
+        return calc;
+    }
+  */  
+    /**
+     * Holds the stage start and end dates and an instance of the object used to calculate points.
+     * It's used to find which calculator must use a project that was posted on a certain date.
+     * 
+     * @author Cucu
+     *
+     */
+    /*
+    private static class StageCalculator {
+        private Date start;
+        private Date end;
+        private ContestResultCalculator calculator;
+        
+        
+        public StageCalculator(Date start, Date end, ContestResultCalculator calculator)  {
+            super();
+            this.start = start;
+            this.end = end;
+            this.calculator = calculator; 
+        }
+        
+        public ContestResultCalculator getCalculator() {
+            return calculator;
+        }
+        public Date getEnd() {
+            return end;
+        }
+        public Date getStart() {
+            return start;
+        }
+        
 
+    }
+    */
+    
     /**
      * Represents a Streak of rating or placement.
      *
