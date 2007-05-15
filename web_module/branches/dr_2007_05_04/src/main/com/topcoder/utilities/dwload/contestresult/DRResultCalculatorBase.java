@@ -30,6 +30,9 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
         
         for(ProjectResult p : pr) {
+            // don't process results where the coder didn't pass review
+            if (!p.isPassedReview()) continue;
+            
             // enables filtering by subclasses
             if (!processProjectResult(p)) continue;
             
@@ -187,7 +190,6 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
             for (int i = 0; i < n; i++) {
                 int p1 = r1.get(i).getPlaced();
                 int p2 = r2.get(i).getPlaced();
-
 
                 if (p1 < p2) return -1;
                 if (p1 > p2) return 1;
