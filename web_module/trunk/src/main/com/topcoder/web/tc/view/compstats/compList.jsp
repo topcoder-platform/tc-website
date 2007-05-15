@@ -116,7 +116,7 @@ function submitEnter(e) {
             </td></tr>
             <tr>
                <td CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a>
-                    <br /><tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';"/>
+                    <br /><tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';" maxlength="100"/>
                 </td>
                <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />" class="statLink">Category</a></td>
                <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />" class="statLink">Complete Date</a></td>
