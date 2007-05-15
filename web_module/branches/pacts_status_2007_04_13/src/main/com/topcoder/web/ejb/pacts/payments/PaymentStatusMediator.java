@@ -82,20 +82,19 @@ public class PaymentStatusMediator {
                 }
             }
             conn.commit();
-            conn.setAutoCommit(true);
         } catch (Exception e) {
             try {
                 conn.rollback();
             } catch (Exception e1) {
                 printException(e1);
             }
+            throw new EventFailureException(e);
+        } finally {
             try {
                 conn.setAutoCommit(true);
-            } catch (Exception e1) {
-                printException(e1);
+            } catch (Exception e) {
             }
             DBMS.close(conn);
-            throw new EventFailureException(e);
         }
     }
 

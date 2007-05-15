@@ -13,11 +13,23 @@
 <c:set var="groupReliability" value="<%= request.getAttribute(PaymentList.GROUP_RELIABILITY) %>" />
 <c:set var="toggleGroupReliability" value="<%= request.getAttribute(PaymentList.TOGGLE_GROUP_RELIABILITY) %>" />
 
+
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>PACTS - Payment List</title>
+
+<style type="text/css">
+.bigRed
+{
+        color: #FF0000;
+        font-size: 12px;
+        font-weight: bold;
+        text-decoration: none;
+}
+</style>
 </head>
 <body>
 <script type="text/javascript">
