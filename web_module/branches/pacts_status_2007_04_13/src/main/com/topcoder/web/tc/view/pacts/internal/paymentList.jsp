@@ -122,7 +122,7 @@ ${fn:length(paymentList)} records. <br />
 		<td> <c:choose>
 				<c:when test="${composed}">
                     <c:choose>
-                    <c:when test="${cf:contains(checked_payments, payment.id)}">
+                    <c:when test="${not empty checked_payments && cf:contains(checked_payments, payment.id)}">
 					   <input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}" checked></c:when>
                     <c:otherwise>
 					   <input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}"></c:otherwise>
@@ -130,7 +130,7 @@ ${fn:length(paymentList)} records. <br />
                 </c:when>
 				<c:otherwise>
                     <c:choose>
-                    <c:when test="${cf:contains(checked_payments, payment.id)}">
+                    <c:when test="${not empty checked_payments && cf:contains(checked_payments, payment.id)}">
 	       				<input type="checkbox" name="payment_id" value="${payment.id}" checked></c:when>
                     <c:otherwise>
     					<input type="checkbox" name="payment_id" value="${payment.id}"></c:otherwise>
