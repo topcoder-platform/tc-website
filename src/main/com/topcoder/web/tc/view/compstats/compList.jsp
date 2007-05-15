@@ -151,7 +151,7 @@
    <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
    &#160;at a time starting with &#160;
    <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
-    <button name="nameSubmit" value="submit" type="submit">Submit</button>
+    <button name="nameSubmit" value="submit" type="submit">Go</button>
 </div>
 
 </form>
