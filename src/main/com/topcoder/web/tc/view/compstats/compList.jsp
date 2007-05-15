@@ -161,7 +161,8 @@ function submitEnter(e) {
    <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
    &#160;at a time starting with &#160;
    <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-   <a href="javascript:document.compListForm.submit();" class="bcLink">&#160;[ submit ]</a>
+   <%--<a href="javascript:document.compListForm.submit();" class="bcLink">&#160;[ submit ]</a>--%>
+    <button name="nameSubmit" value="submit" type="submit">Submit</button>
 </div>
 
 </form>
