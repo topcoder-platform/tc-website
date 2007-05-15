@@ -16,6 +16,11 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
      */    
     private static final int STATUS_ACTIVE = 1;
     
+    /**
+     * Maximum difference between points to consider them equals
+     */
+    private static final double DELTA = 0.01;
+    
     public  List<ContestResult> calculateResults(List<ProjectResult> pr, List<Double> prizesAmount) {
         Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
         
@@ -157,8 +162,10 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
     protected class ResultsComparator implements Comparator<ContestResult> {
 
         public int compare(ContestResult o1, ContestResult o2) {
-            if (o1.getFinalPoints() > o2.getFinalPoints()) return -1;
-            if (o1.getFinalPoints() < o2.getFinalPoints()) return 1;
+            if (Math.abs(o1.getFinalPoints() - o2.getFinalPoints()) > DELTA) {
+                if (o1.getFinalPoints() > o2.getFinalPoints()) return -1;
+                if (o1.getFinalPoints() < o2.getFinalPoints()) return 1;
+            }
             
 
             // Break tie with rule #1:
