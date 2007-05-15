@@ -8,7 +8,10 @@ public class DR2007dot5TopPerformersCalculator extends DR2007dot5ResultCalculato
     
     protected void assignPrizes(List<ContestResult> cr, List<Double> prizesAmount) {
         if (factor <= 0) {
-            throw new IllegalArgumentException("factor expected to be positive!");
+            throw new IllegalArgumentException("factor expected to be positive");
+        }
+        if (prizesAmount.size() == 0) {
+            throw new IllegalArgumentException("Prize missing for the contest");
         }
         assingTopPerformersPrize(cr, prizesAmount.get(0), factor);
     }
