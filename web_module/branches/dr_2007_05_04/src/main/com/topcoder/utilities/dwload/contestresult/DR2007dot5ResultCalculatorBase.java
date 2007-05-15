@@ -64,6 +64,7 @@ public abstract class DR2007dot5ResultCalculatorBase extends DRResultCalculatorB
             numSubmissionsPassedReview = MAX_NUM_SUBMISSIONS;
         }
 
+        System.out.println("amount= " + amount +  "  placed = " + placed + "  points = " + (amount * amountFraction[placed - 1][numSubmissionsPassedReview - 1]));
         return amount * amountFraction[placed - 1][numSubmissionsPassedReview - 1];
     }
     
