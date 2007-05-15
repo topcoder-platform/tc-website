@@ -22,16 +22,6 @@
   <jsp:param name="key" value="tc_stats"/>
 </jsp:include>
 <script type="text/javascript">
-function submitEnter(e) {
-    var keycode;
-    if (window.event) keycode = window.event.keyCode;
-    else if (e) keycode = e.which;
-    else return true;
-    if (keycode == 13) {
-     document.compListForm.submit();
-     return false;
-    } else return true;
-  }
   function next() {
     var myForm = document.compListForm;
     myForm.<%=DataAccessConstants.START_RANK%>.value=<c:out value="${requestScope[defaults][startRank]}"/>+parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
@@ -158,10 +148,9 @@ function submitEnter(e) {
    <br>
 
    View &#160;
-   <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+   <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4"/>
    &#160;at a time starting with &#160;
-   <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
-   <%--<a href="javascript:document.compListForm.submit();" class="bcLink">&#160;[ submit ]</a>--%>
+   <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4"/>
     <button name="nameSubmit" value="submit" type="submit">Submit</button>
 </div>
 
