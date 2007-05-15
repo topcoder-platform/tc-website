@@ -84,11 +84,11 @@ function submitEnter(e) {
 </jsp:include>
 
 
-<span class="bodySubtitle">Component Statistics >
+
 <% if ("112".equals(phaseId)) { %>
-    Design Contests</span><br>
+    <span class="bodySubtitle">Component Statistics &gt; Design Contests</span><br>
 <% } else { %>
-    Development Contests</span><br>
+    <span class="bodySubtitle">Component Statistics &gt; Development Contests</span><br>
 <% } %>
 
 
@@ -115,8 +115,8 @@ function submitEnter(e) {
             Contest Details
             </td></tr>
             <tr>
-               <TD CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a>
-                    <%--<br><input type="text" name="filter" value="Filter" size="16" style="border: 1px solid #999999; color: #999999;" onclick="this.style.color='#333333';">--%>
+               <td CLASS="tableHeader"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr" />" class="statLink">Component</a>
+                    <br /><tc-webtag:textInput name="<%=Constants.CONTEST_NAME%>" style="border: 1px solid #999999; color: #999999;" onClick="this.style.color='#333333';"/>
                 </td>
                <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr" />" class="statLink">Category</a></td>
                <TD CLASS="tableHeader" align="center"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="10" includeParams="true" excludeParams="sr" />" class="statLink">Complete Date</a></td>
