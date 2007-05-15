@@ -200,9 +200,9 @@ public class TCLoadTCS extends TCLoad {
             doLoadContestPrize();
   /*          
             doLoadUserContestPrize();
-*/
+
             doLoadProjects();
-/*
+            
             // load scorecard template before subission review because submission_review will use this table
             doLoadScorecardTemplate();
 
