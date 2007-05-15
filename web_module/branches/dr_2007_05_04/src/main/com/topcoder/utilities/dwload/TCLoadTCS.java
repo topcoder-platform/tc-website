@@ -1505,7 +1505,7 @@ public class TCLoadTCS extends TCLoad {
                 HashMap ratingsMap;
                 while (projectResults.next()) {
                     long project_id = projectResults.getLong("project_id");
-
+log.debug("loading results for project " + project_id);
                     psNumRatings.clearParameters();
                     psNumRatings.setLong(1, project_id);
                     numRatings = psNumRatings.executeQuery();
@@ -1546,7 +1546,7 @@ public class TCLoadTCS extends TCLoad {
                     if (stage != null &&
                          projectResults.getInt("project_stat_id") == 7 &&  // COMPLETED                            
                          projectResults.getInt("rating_ind") == 1) {
-                    
+                    log.debug( "has dr!");
                         hasDR = true;
                         ContestResultCalculator crc = stageCalculators.get(stage);
                         if (crc != null) {
