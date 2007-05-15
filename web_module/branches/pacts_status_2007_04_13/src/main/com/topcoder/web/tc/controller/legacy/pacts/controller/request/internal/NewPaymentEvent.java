@@ -96,12 +96,11 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
                 DBMS.close(conn);
             }
             getRequest().setAttribute("message_result", updatePayments.size() + " payments successfully updated");
+        } else {
             for (int i = 0; i < values.length; i++) {
                 checkedIds[i] = Long.parseLong(values[i]);
             }
-
             getRequest().setAttribute("checked_payments", checkedIds);
-        } else {
             getRequest().setAttribute("message_result", "Your request could not be processed because " + wrongPayments + " errors have been found found, please try again");            
         }
 
