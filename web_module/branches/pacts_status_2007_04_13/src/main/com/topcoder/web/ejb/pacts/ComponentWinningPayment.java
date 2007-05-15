@@ -96,32 +96,6 @@ public class ComponentWinningPayment extends ComponentProjectReferencePayment {
             }
 
         }
-
-//        /**
-//         * Get the status of the payment.
-//         * Extends the base functionality.
-//         *
-//         * If the user/projectId don't have a corresponding affirmed Assignment Document
-//         * the status is set to on hold.  
-//         *
-//         * @return the status of the payment.
-//         * @throws SQLException
-//         */
-//        public int lookupStatus(BasePayment payment) throws SQLException {
-//            // TODO: pulky: change this.
-//            
-//            if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER)) {
-//                if (!hasAffirmedAssignmentDocument(payment.getCoderId(), ((ComponentProjectReferencePayment) payment).getProjectId())) {
-//                    return PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS;
-//                }
-//            }
-//            
-//            if (!hasTaxForm(payment.getCoderId())) {
-//                return PAYMENT_ON_HOLD_STATUS;
-//            }
-//
-//            return PAYMENT_PENDING_STATUS;
-//        }
         
         /**
          * Returns whether the user has already affirmed the corresponding Assignment Document

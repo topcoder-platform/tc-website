@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.InvalidStateTransitionException;
@@ -26,7 +27,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         String[] values = getRequest().getParameterValues(PAYMENT_ID);
         DataInterfaceBean dib = new DataInterfaceBean();
         List<BasePayment> updatePayments = new ArrayList<BasePayment>();
-
+        int wrongPayments = 0;
         int event = Integer.parseInt(getRequest().getParameter("status_id"));
         
         Map criteria = new HashMap();
@@ -56,6 +57,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
                     break;
                 }
             } catch (InvalidStateTransitionException iste) {
+                wrongPayments++;
                 addError("err_" + payment.getId(), iste.getMessage());
             }
             updatePayments.add(payment);
@@ -91,8 +93,11 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
                 }
                 DBMS.close(conn);
             }
-
-        } 
+            getRequest().setAttribute("message_result", updatePayments.size() + " payments successfully updated");
+            getRequest().setAttribute("checked_payments", values);
+        } else {
+            getRequest().setAttribute("message_result", wrongPayments + " errors found, please try again");            
+        }
 
         super.businessProcessing();
     }

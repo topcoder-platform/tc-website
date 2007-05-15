@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
@@ -47,6 +48,10 @@
 
 <h1>PACTS</h1>
 <h2>Payment List</h2>
+<p class="bigRed">
+    ${message_result}
+</p>
+
 ${fn:length(paymentList)} records. <br />
 
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
@@ -116,9 +121,21 @@ ${fn:length(paymentList)} records. <br />
 		<tr>
 		<td> <c:choose>
 				<c:when test="${composed}">
-					<input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}" checked></c:when>
+                    <c:choose>
+                    <c:when test="${cf:contains(checked_payments, payment.id)}">
+					   <input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}" checked></c:when>
+                    <c:otherwise>
+					   <input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}"></c:otherwise>
+                    </c:choose>                       
+                </c:when>
 				<c:otherwise>
-					<input type="checkbox" name="payment_id" value="${payment.id}" checked></c:otherwise>
+                    <c:choose>
+                    <c:when test="${cf:contains(checked_payments, payment.id)}">
+	       				<input type="checkbox" name="payment_id" value="${payment.id}" checked></c:when>
+                    <c:otherwise>
+    					<input type="checkbox" name="payment_id" value="${payment.id}"></c:otherwise>
+                    </c:choose>                       
+                </c:otherwise>
 			</c:choose>
 		
 		</td>

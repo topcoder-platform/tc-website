@@ -5764,17 +5764,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             setLockTimeout(c);
 
-//            // Get list of users with taxforms
-//            StringBuffer getUsers = new StringBuffer(300);
-//            getUsers.append(" SELECT u.user_id FROM user u, user_tax_form_xref utfx ")
-//                    .append(" , room_result rr where u.user_id = utfx.user_id and u.user_id = rr.coder_id ")
-//                    .append(" and utfx.user_id = rr.coder_id and rr.round_id = " + roundId);
-//            ResultSetContainer rscUser = runSelectQuery(c, getUsers.toString(), false);
-//            HashSet userTaxFormSet = new HashSet();
-//            for (i = 0; i < rscUser.getRowCount(); i++) {
-//                userTaxFormSet.add(new Long(rscUser.getItem(i, 0).toString()));
-//            }
-
             // Make sure we haven't done this before for this round.
             StringBuffer checkNew = new StringBuffer(300);
             checkNew.append("SELECT COUNT(*) FROM affidavit WHERE round_id = " + roundId);
@@ -5832,7 +5821,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 Payment p = new Payment();
                 p.setGrossAmount(TCData.getTCDouble(winners.getRow(i), "paid"));
 
-                // TODO: pulky: check if this can be changed somehow.
                 AlgorithmContestPayment acp = new AlgorithmContestPayment(userId, 0.01, roundId);
                 new PaymentStatusMediator().newPayment(acp);
                 p.setCurrentStatus(acp.getCurrentStatus());
