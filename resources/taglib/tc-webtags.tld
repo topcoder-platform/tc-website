@@ -49,6 +49,16 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
+            <name>style</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>onClick</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
             <name>onKeyPress</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
