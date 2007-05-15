@@ -188,8 +188,6 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
             Collections.sort(r1, new ProjectResult.PlaceComparator());
             Collections.sort(r2, new ProjectResult.PlaceComparator());
             
-            System.out.println("Breaking tie #1 " + o1.getCoderId() + " vs " + o2.getCoderId());
-            
             for (int i = 0; i < n; i++) {
                 int p1 = r1.get(i).getPlaced();
                 int p2 = r2.get(i).getPlaced();
@@ -206,7 +204,6 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
             Collections.sort(r1, new ProjectResult.ScoreComparator());
             Collections.sort(r2, new ProjectResult.ScoreComparator());
 
-            System.out.println("Breaking tie #2 " + o1.getCoderId() + " vs " + o2.getCoderId());
 
             double score1 = 0;
             double score2 = 0;
@@ -215,13 +212,11 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
                 score1 += r1.get(i).getFinalScore();
                 score2 += r2.get(i).getFinalScore(); 
             }
-            System.out.println("total score " + score1 + " vs " + score2);
 
             if (Math.abs(score1 - score2) > DELTA_SCORE) {
                 if (score1 > score2) return -1;
                 if (score1 < score2) return 1;
             }
-            System.out.println("Tied!");
             
             return 0;
         }
