@@ -118,7 +118,10 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
             // up to n prizes
             if (place > n) break;
 
-            result.setPrize(placeAmount[place] /  placeCount[place]);
+            // just give prizes to people that won points
+            if (result.getFinalPoints() > 0) {
+                result.setPrize(placeAmount[place] /  placeCount[place]);
+            }
         }
 
     }
