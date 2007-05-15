@@ -30,6 +30,8 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         int wrongPayments = 0;
         int event = Integer.parseInt(getRequest().getParameter("status_id"));
         
+        Long[] checkedIds = new Long[values.length];
+        
         Map criteria = new HashMap();
         for (String paymentId : values) {
             criteria.clear();
@@ -94,9 +96,13 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
                 DBMS.close(conn);
             }
             getRequest().setAttribute("message_result", updatePayments.size() + " payments successfully updated");
-            getRequest().setAttribute("checked_payments", values);
+            for (int i = 0; i < values.length; i++) {
+                checkedIds[i] = Long.parseLong(values[i]);
+            }
+
+            getRequest().setAttribute("checked_payments", checkedIds);
         } else {
-            getRequest().setAttribute("message_result", wrongPayments + " errors found, please try again");            
+            getRequest().setAttribute("message_result", "Your request could not be processed because " + wrongPayments + " errors have been found found, please try again");            
         }
 
         super.businessProcessing();

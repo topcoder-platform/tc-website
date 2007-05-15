@@ -119,7 +119,10 @@ ${fn:length(paymentList)} records. <br />
 			</c:if>
 		<c:set var="totalNet" value="${totalNet + payment.recentNetAmount}" />
 		<tr>
-		<td> <c:choose>
+		<td> 
+            empty: ${empty checked_payments}  contains: ${cf:contains(checked_payments, payment.id)}
+            paymentId: ${payment.id}
+            <c:choose>
 				<c:when test="${composed}">
                     <c:choose>
                     <c:when test="${empty checked_payments || cf:contains(checked_payments, payment.id)}">
