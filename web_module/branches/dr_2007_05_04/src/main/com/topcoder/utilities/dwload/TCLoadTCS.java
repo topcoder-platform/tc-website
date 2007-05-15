@@ -194,8 +194,10 @@ public class TCLoadTCS extends TCLoad {
 
             doLoadEvent();
             doLoadUserEvent();
+*/
             doLoadContests();
             doLoadContestPrize();
+  /*          
             doLoadUserContestPrize();
 
             doLoadProjects();

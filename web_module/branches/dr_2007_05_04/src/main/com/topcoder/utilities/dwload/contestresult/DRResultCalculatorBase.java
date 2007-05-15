@@ -120,8 +120,6 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
             codersWithPoints++;
         }
         int maxPlace = (int) Math.round(Math.ceil(codersWithPoints / factor));
-        System.out.println("codersWithPoints="+codersWithPoints);
-        System.out.println("maxPlace="+maxPlace);
         
         
         // sum the total points won by the top performers
