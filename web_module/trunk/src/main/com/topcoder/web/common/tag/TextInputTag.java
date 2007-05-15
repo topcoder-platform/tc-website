@@ -23,6 +23,8 @@ public class TextInputTag extends BaseTag {
     private String format = null;
     private String timeZone = null;
     private boolean escapeHtml = true;
+    private String onClick = null;
+    private String style = null;
 
     public int doStartTag() {
         //log.debug("XXXX TextInputTag called for " + name);
@@ -40,6 +42,12 @@ public class TextInputTag extends BaseTag {
             }
             if (styleClass != null) {
                 ret.append("class=\"").append(styleClass).append("\" ");
+            }
+            if (style != null) {
+                ret.append("style=\"").append(style).append("\" ");
+            }
+            if (onClick!=null) {
+                ret.append("onClick=\"").append(onClick).append("\" ");
             }
             if (id != null) {
                 ret.append("id=\"").append(id).append("\" ");
@@ -178,6 +186,15 @@ public class TextInputTag extends BaseTag {
         this.escapeHtml = String.valueOf(true).equalsIgnoreCase(escapeHtml);
     }
 
+
+    public void setOnClick(String onClick) {
+        this.onClick = onClick;
+    }
+
+    public void setStyle(String style) {
+        this.style = style;
+    }
+
     protected void init() {
         this.value = null;
         this.size = -1;
@@ -188,6 +205,8 @@ public class TextInputTag extends BaseTag {
         this.editable = true;
         this.format = null;
         this.escapeHtml = true;
+        this.style = null;
+        this.onClick = null;
     }
 
 
