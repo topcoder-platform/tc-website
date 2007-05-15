@@ -258,7 +258,7 @@ values (
 );
 </pre>
 
-<p>The way this form of the INSERT statement works is that the values in your values clause correspond to the order of the columns in the table.  So the 1234 corresponds to coder_id, 'foobar' corresponds to handle, etc.  This is an extremely bad way to write an INSERT statement, because if the order of the columns in the table ever changes your code will break -- if you're lucky. If you're unlucky, the values will be inserted into the wrong columns but your code will continue to work.  Then you end up with bad data in the database but you probably won't find out until your irate users discover it.  The moral here is to always specify a column list.  The only time I use the second form of the INSERT statement is if I'm writing interactive (i.e. "on the fly") SQL to manipulate data.  But you would never want to use this form of an INSERT statement when writing PL/SQL module or in a production piece of SQL code.</p>
+<p>The way this form of the INSERT statement works is that the values in your values clause correspond to the order of the columns in the table.  So the 1234 corresponds to coder_id, 'foobar' corresponds to handle, etc.  This is an extremely bad way to write an INSERT statement, because if the order of the columns in the table ever changes your code will break -- if you're lucky. If you're unlucky, the values will be inserted into the wrong columns but your code will continue to work.  Then you end up with bad data in the database but you probably won't find out until your irate users discover it.  The moral here is to always specify a column list.  The only time I use the second form of the INSERT statement is if I'm writing interactive (i.e. "on the fly") SQL to manipulate data.  But you would never want to use this form of an INSERT statement when writing a PL/SQL module or in a production piece of SQL code.</p>
 
 <p>Another powerful way to use the INSERT statement is to use it in conjunction with a SELECT  statement.  This technique works much like the CREATE TABLE AS command we saw previously.  So let's go ahead and truncate our coder2 table, and then insert all records from our coder table where the handle begins with the letter 'D' (without regard for case). </p>
 
@@ -333,7 +333,7 @@ Commit complete.
 
 <p>Remember that our coder2 table is just a copy of the coder table, and doesn't have any of the referential integrity set up on it as our coder table does.  If we tried this same delete from the <strong>real</strong> coder table, we would get an integrity constraint violation.</p>
 
-<p>Note that you can use correlated subqueries, etc. in the WHERE CAUSE of the DELETE statement which allows you to join to other tables if you need to lookup information to determine which rows to delete.</p>
+<p>Note that you can use correlated subqueries, etc. in the WHERE CLAUSE of the DELETE statement which allows you to join to other tables if you need to lookup information to determine which rows to delete.</p>
 
 <p><span class="bodySubtitle">IV. Interacting with the Database using Java</span><br>
 In this section, we'll take a look at how to use Java to interact with the database.   I'm going to assume you are familiar with Java IDEs (Integrated Development Environment) so I won't be spending time discussing how to set up a Java project, etc.  If you don't have a Java IDE there are many free ones available.  Personally, I use <a target="_blank" href="<tc-webtag:linkTracking link='http://www.eclipse.org' refer='feature_051407' />">Eclipse</a>.</p>
@@ -568,7 +568,7 @@ cstmt.close();
   leap_year_rate
 </pre>
 
-<p>In the shipping rate table we're keeping track of the country, state, and a threshold amount, which we use to determine whether to apply the "below threshold rate" or "above threshold rate".  In other words, if the customer purchases the threshold amount or greater, they get the above threshold rate.  Otherwise they get the below threshold rate.  The exception to this rule (there are almost always exceptions to business rules) is occurs when we find a shipping_exception_rate record for the county corresponding to the country and state.  In that case, we must determine whether to use the flat rate or leap year rate, depending on whether or not it's a leap year.  You can see in the PL/SQL code that we're determining the rate with a single SQL statement!  Let's look at the case statement part of the SQL to get a better idea of how it works: </p>
+<p>In the shipping rate table we're keeping track of the country, state, and a threshold amount, which we use to determine whether to apply the "below threshold rate" or "above threshold rate".  In other words, if the customer purchases the threshold amount or greater, they get the above threshold rate.  Otherwise they get the below threshold rate.  The exception to this rule (there are almost always exceptions to business rules) occurs when we find a shipping_exception_rate record for the county corresponding to the country and state.  In that case, we must determine whether to use the flat rate or leap year rate, depending on whether or not it's a leap year.  You can see in the PL/SQL code that we're determining the rate with a single SQL statement!  Let's look at the case statement part of the SQL to get a better idea of how it works: </p>
 
 <pre class="code">
 case
@@ -589,7 +589,7 @@ end
 
 <p>Note that we are also using referential integrity through a foreign key and we're also using unique indexes to ensure the integrity of the data in these tables.</p>
 
-<p>Here are some examples of how we could call the get_shipping_rate procedure from Java.  In the first example, we're checking the rate or Los Angeles county for a purchase amount of $500.56.  In the second example we changed the county to Orange and the purchase amount to $123.98.  The key thing to realize is that the business logic is kept in the database, <strong>not</strong> in our Java code.  So whenever you want to rewrite this application in another language next month or 10 years from now, the business rule can be used over and over and never has to be rewritten, regardless of which high-level language you use.</p>
+<p>Here are some examples of how we could call the get_shipping_rate procedure from Java.  In the first example, we're checking the rate for Los Angeles county for a purchase amount of $500.56.  In the second example we changed the county to Orange and the purchase amount to $123.98.  The key thing to realize is that the business logic is kept in the database, <strong>not</strong> in our Java code.  So whenever you want to rewrite this application in another language next month or 10 years from now, the business rule can be used over and over and never has to be rewritten, regardless of which high-level language you use.</p>
 
 <pre class="code">
 OracleCallableStatement cstmt = <b>null</b>;
