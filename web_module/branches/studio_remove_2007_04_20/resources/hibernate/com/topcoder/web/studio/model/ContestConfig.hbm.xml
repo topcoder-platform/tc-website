@@ -11,13 +11,13 @@
             <key-many-to-one name="contest" class="Contest" column="contest_id"/>
         </composite-id>
 
-        <many-to-one name="contest" column="contest_id" class="Contest" access="field"
+        <many-to-one name="contest" column="contest_id" class="Contest"
                      cascade="none" insert="false" update="false"/>
 
-        <many-to-one name="property" column="property_id" class="ContestProperty" access="field"
+        <many-to-one name="property" column="property_id" class="ContestProperty"
                      cascade="none" insert="false"
                      update="false" outer-join="true"/>
-        <property name="value" column="property_value" access="field"/>
+        <property name="value" column="property_value" />
 
     </class>
 
