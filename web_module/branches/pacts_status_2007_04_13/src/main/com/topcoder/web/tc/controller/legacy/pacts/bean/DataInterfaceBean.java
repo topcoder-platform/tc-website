@@ -1625,6 +1625,13 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.expireOldPayments();
     }
 
+    /**
+     */
+    public int checkInactiveCoders() throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.checkInactiveCoders();
+    }
+
 
     /**
      * Sets the status on all affidavits older than a specified time

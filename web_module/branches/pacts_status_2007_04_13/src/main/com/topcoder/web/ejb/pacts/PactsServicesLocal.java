@@ -213,6 +213,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     int expireOldAssignmentDocuments() throws  SQLException;
 
+    int checkInactiveCoders() throws  SQLException;
+    
     void createAffidavitTemplate(int affidavitTypeId, String text) throws  SQLException;
 
     void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text);
