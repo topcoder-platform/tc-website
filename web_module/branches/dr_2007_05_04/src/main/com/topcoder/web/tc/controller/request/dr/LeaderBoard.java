@@ -22,6 +22,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 
 /**
@@ -99,7 +100,7 @@ public class LeaderBoard extends BaseBoard {
             
         }
         sortResult(results, sortCol, invert);
-        cropResult(results, startRank, numRecords);
+        List<IBoardRow> cropped = cropResult(results, startRank, numRecords);
         
         boolean hasRookie = false;
         for (ResultSetContainer.ResultSetRow row : stages) {
@@ -109,7 +110,7 @@ public class LeaderBoard extends BaseBoard {
         }
         
         getRequest().setAttribute("hasRookieCompetition", hasRookie);
-        getRequest().setAttribute("results", results);
+        getRequest().setAttribute("results", cropped);
         getRequest().setAttribute("isDesign", phase == 112);
         getRequest().setAttribute("isDevelopment", phase == 113);
         setNextPage("/dr/view_leaders_20075.jsp");

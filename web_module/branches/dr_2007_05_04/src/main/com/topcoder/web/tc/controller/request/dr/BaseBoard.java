@@ -140,9 +140,9 @@ public abstract class BaseBoard extends BaseProcessor {
      * @param boardResult the original board list.
      * @return the cropped list.
      */
-    protected void cropResult(List<? extends IBoardRow> boardResult, int startRank, int numRecords) {
+    protected List<IBoardRow> cropResult(List<? extends IBoardRow> boardResult, int startRank, int numRecords) {
         if (boardResult.size() == 0) {
-            return;
+            return new ArrayList<IBoardRow>();
         }
         
         setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
@@ -157,7 +157,7 @@ public abstract class BaseBoard extends BaseProcessor {
         getRequest().setAttribute("croppedDataBefore", new Boolean(startRank > 1));
         getRequest().setAttribute("croppedDataAfter", new Boolean(boardResult.size() > startRank + cropped.size()));
 
-        boardResult = cropped;
+       return cropped;
     }
 
     /**
