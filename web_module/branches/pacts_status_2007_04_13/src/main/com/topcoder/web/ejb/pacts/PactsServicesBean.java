@@ -7315,12 +7315,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                           l.add(payment);
                           reasons.clear();
                           payment = getBasePaymentBean(rsr);
-                      } else {
-                          // if there's a reason, add it.
-                          if (rsr.getItem("payment_status_reason_id").getResultData() != null) {
-                              log.debug("(1) Adding reason " + rsr.getLongItem("payment_status_reason_id") + " to the list.");
-                              reasons.add(rsr.getLongItem("payment_status_reason_id"));
-                          }
+                      }
+
+                      // if there's a reason, add it.
+                      if (rsr.getItem("payment_status_reason_id").getResultData() != null) {
+                          log.debug("(1) Adding reason " + rsr.getLongItem("payment_status_reason_id") + " to the list.");
+                          reasons.add(rsr.getLongItem("payment_status_reason_id"));
                       }
 
                       lastProcessedPayment = rsr.getLongItem("payment_id");
