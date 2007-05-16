@@ -7543,40 +7543,40 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         deletePayment(payment.getId());
     }
 
-    /**
-     * Get the payments for an user.
-     *
-     * @param userId        user to retrieve its payments
-     * @param pendingOnly   whether to retrieve just the pending payments
-     * @param sortColumn    number of column for sort
-     * @param sortAscending whether to sort ascending
-     * @return a ResultSetContainer with the payments
-     * @throws SQLException
-     */
-    public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException {
-        StringBuffer query = new StringBuffer(300);
-        query.append("SELECT pd.payment_desc,pt.payment_type_desc, pd.date_due, pd.net_amount, pd.gross_amount, s.status_desc, date_paid, pd.payment_type_id, ");
-        query.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
-        query.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
-        query.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number ");
-        query.append("FROM payment p, payment_detail pd, status_lu s, payment_type_lu pt ");
-        query.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
-        query.append("AND s.status_id = pd.status_id ");
-        query.append("AND pd.payment_type_id = pt.payment_type_id ");
-        query.append("AND pd.payment_type_id not in (3,5) "); // deprecated payments
-        query.append("AND p.user_id = " + userId);
-
-        if (pendingOnly) {
-            query.append(" AND pd.status_id IN (" + PactsConstants.PAYMENT_ON_HOLD_STATUS + ",");
-            query.append(PactsConstants.PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + ",");
-            query.append(PactsConstants.PAYMENT_OWED_STATUS + "," + PactsConstants.PAYMENT_PENDING_STATUS + ")");
-        }
-
-        query.append("ORDER BY " + sortColumn + (sortAscending ? " ASC" : " DESC"));
-
-        return runSelectQuery(query.toString(), false);
-    }
-
+//    /**
+//     * Get the payments for an user.
+//     *
+//     * @param userId        user to retrieve its payments
+//     * @param pendingOnly   whether to retrieve just the pending payments
+//     * @param sortColumn    number of column for sort
+//     * @param sortAscending whether to sort ascending
+//     * @return a ResultSetContainer with the payments
+//     * @throws SQLException
+//     */
+//    public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException {
+//        StringBuffer query = new StringBuffer(300);
+//        query.append("SELECT pd.payment_desc,pt.payment_type_desc, pd.date_due, pd.net_amount, pd.gross_amount, s.status_desc, date_paid, pd.payment_type_id, ");
+//        query.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
+//        query.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
+//        query.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number ");
+//        query.append("FROM payment p, payment_detail pd, status_lu s, payment_type_lu pt ");
+//        query.append("WHERE p.most_recent_detail_id = pd.payment_detail_id ");
+//        query.append("AND s.status_id = pd.status_id ");
+//        query.append("AND pd.payment_type_id = pt.payment_type_id ");
+//        query.append("AND pd.payment_type_id not in (3,5) "); // deprecated payments
+//        query.append("AND p.user_id = " + userId);
+//
+//        if (pendingOnly) {
+//            query.append(" AND pd.status_id IN (" + PactsConstants.PAYMENT_ON_HOLD_STATUS + ",");
+//            query.append(PactsConstants.PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + ",");
+//            query.append(PactsConstants.PAYMENT_OWED_STATUS + "," + PactsConstants.PAYMENT_PENDING_STATUS + ")");
+//        }
+//
+//        query.append("ORDER BY " + sortColumn + (sortAscending ? " ASC" : " DESC"));
+//
+//        return runSelectQuery(query.toString(), false);
+//    }
+//
 
     /**
      * Get the affidavits for an user.

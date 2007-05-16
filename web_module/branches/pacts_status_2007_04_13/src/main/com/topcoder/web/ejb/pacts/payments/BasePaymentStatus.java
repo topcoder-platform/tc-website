@@ -90,6 +90,24 @@ public abstract class BasePaymentStatus {
         return reasons;
     }
 
+    public String getReasonsText() {
+        if (reasons.size() == 0) {
+            return "";
+        }
+        String reasonsText = "(";
+        boolean first = true;
+        for (PaymentStatusReason reason : reasons) {
+            if (first) {
+                first = false;
+            } else {
+                reasonsText += ",";
+            }
+            reasonsText += reason.getDesc();            
+        }
+        reasonsText += ")";
+        return reasonsText;
+    }
+
     /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */

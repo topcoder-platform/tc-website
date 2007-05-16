@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.ejb.EJBLocalObject;
-import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.model.AssignmentDocument;
@@ -21,7 +20,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
 
 /**
  * The local interface for the PACTS EJB.  See the <tt>PactsServicesBean</tt>
@@ -243,7 +241,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     Map findStudioContests(String search) throws  SQLException;
     
-    ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws   SQLException;
+//    ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws   SQLException;
     
     ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws   SQLException;
     

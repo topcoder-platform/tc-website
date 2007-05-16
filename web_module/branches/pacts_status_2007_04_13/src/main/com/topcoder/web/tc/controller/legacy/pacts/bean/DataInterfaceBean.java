@@ -13,7 +13,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.jms.JMSException;
 import javax.naming.InitialContext;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -1603,10 +1602,10 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getPaymentComponentData(paymentIds);
     }
 
-    public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.getPaymentHistory(userId, pendingOnly, sortColumn, sortAscending);    	
-    }
+//    public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.getPaymentHistory(userId, pendingOnly, sortColumn, sortAscending);    	
+//    }
 
     public ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
