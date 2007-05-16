@@ -32,6 +32,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private double grossAmount;
     private double netAmount = 0;
     private Date dueDate = null;
+    private Date paidDate = null;
 //    private int statusId = 0;
     private BasePaymentStatus currentStatus;
     private String description = null;
@@ -234,6 +235,47 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         return paymentTypeId;
     }
 
+    /**
+     * Get the type desc for this payment.
+     *
+     * @return the type desc for this payment.
+     */
+    public String getPaymentTypeDesc() {
+        switch(paymentTypeId) {
+            case ALGORITHM_CONTEST_PAYMENT: return "Algorithm Contest Payment";
+            case CONTRACT_PAYMENT: return "Contract Payment";
+            case PROBLEM_PAYMENT: return "Problem Payment";
+            case CODER_REFERRAL_PAYMENT: return "Coder Referral Payment";
+            case CHARITY_PAYMENT: return "Charity Payment";
+            case COMPONENT_PAYMENT: return "Component Payment";
+            case REVIEW_BOARD_PAYMENT: return "Review Board Payment";
+            case ONE_OFF_PAYMENT: return "One-off Payment";
+            case ARTICLE_PAYMENT: return "Article Payment";
+            case ASSEMBLY_PAYMENT: return "Assembly Payment";
+            case TESTING_PAYMENT: return "Testing Payment";
+            case LOGO_CONTEST_PAYMENT: return "Logo Contest Payment";
+            case TC_STUDIO_PAYMENT: return "Topcoder Studio Contest Payment";
+            case PROBLEM_TESTING_PAYMENT: return "Problem Testing Payment";
+            case PROBLEM_WRITING_PAYMENT: return "Problem Writing Payment";
+            case CCIP_PAYMENT: return "CCIP Payment";
+            case DIGITAL_RUN_PRIZE_PAYMENT: return "Digital Run Payment";
+            case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT: return "Digital Run Rookie Payment";
+            case COMPONENT_TOURNAMENT_BONUS_PAYMENT: return "Component Tournament Bonus Payment";
+            case ROYALTY_PAYMENT: return "Royalty Payment";
+            case MARATHON_MATCH_PAYMENT: return "Marathon Match Payment";
+            case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT:; return "Algorithm Tournament Prize Payment";
+            case BUG_FIXES_PAYMENT: return "Bug Fixes Payment";
+            case RELIABILITY_BONUS_PAYMENT: return "Reliability Bonus Payment";
+            case DIGITAL_RUN_TOP_THIRD_PAYMENT: return "Digital Run Top Performers Payment";
+            case ARCHITECTURE_REVIEW_PAYMENT: return "Architecture Review Payment";
+            case SPECIFICATION_REVIEW_PAYMENT: return "Specification Review Payment";
+            case ASSEMBLY_COMPETITION_REVIEW: return "Assembly Competition Review ";
+            case ARCHITECTURE_PAYMENT: return "Architecture Payment";
+            case PREDICTIVE_CONTEST_PAYMENT: return "Predictive Contest Payment";
+            case INTRODUCTORY_EVENT_COMPONENT_CONTEST_PAYMENT: return "Introductory Event Component Contest Payment";
+            default: return "Other Payment";
+        }
+    }
 
     /**
      * Get a processor for filling necessary information in the payment.
@@ -268,6 +310,15 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     public void setDueDate(Date dueDate) {
         fieldChanged(MODIFICATION_DATE_PAID, dueDate != null && !dueDate.equals(this.dueDate));
         this.dueDate = dueDate;
+    }
+
+    public Date getPaidDate() {
+        return paidDate;
+    }
+
+    public void setPaidDate(Date paidDate) {
+        fieldChanged(MODIFICATION_DATE_PAID, paidDate != null && !paidDate.equals(this.paidDate));
+        this.paidDate = paidDate;
     }
 
     public double getGrossAmount() {
