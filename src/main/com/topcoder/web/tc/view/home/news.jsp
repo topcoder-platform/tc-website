@@ -10,7 +10,7 @@
       <td valign="top"><span class="newsTitle">
         <A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep1">Introducing the new TC Channel!</A>
         </span><br><br>
-        The first episode of the TC Channel, TopCoder online video news magazine, is now online. Comments? Have a video clip you'd like to share? We want your feedback -- drop us an email at <a href="mailto:tcchannel@topcoder.com">tcchannel@topcoder.com</a>.
+        The first episode of the TC Channel, TopCoder's online video news magazine, is now online. Comments? Have a video clip you'd like to share? We want your feedback -- drop us an email at <a href="mailto:tcchannel@topcoder.com">tcchannel@topcoder.com</a>.
         </td>
       </tr></table>
       </td>
