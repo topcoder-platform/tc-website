@@ -22,9 +22,9 @@
 </head>
 
 <body>
-
+Board:
 <table>
-	<rsc:iterator list="${param.results}" id="row"> 
+	<rsc:iterator list="${results}" id="row"> 
 		<tr>
 			<td><rsc:item name="current_place" row="<%=row %>" /> </td>
 			<td><tc-webtag:handle coderId='<%= row.getLongItem("coder_id") %>' context='design'/></td>
