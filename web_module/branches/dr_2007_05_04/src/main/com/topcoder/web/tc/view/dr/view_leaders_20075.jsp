@@ -34,7 +34,7 @@ Board:
 			<td><rsc:item name="final_points" row="<%=row %>" format="###,##0.00"/></td>
 			<td><rsc:item name="current_top_n_prize" row="<%=row %>" /></td>
 			<td><rsc:item name="current_top_performer_prize" row="<%=row %>" /></td>
-			<td><%= row.getDouble("current_top_n_prize") + row.getDouble("current_top_performer_prize") %></td>
+			<td><%= row.getDoubleItem("current_top_n_prize") + row.getDoubleItem("current_top_performer_prize") %></td>
 			<td><rsc:item name="potential_points" row="<%=row %>" format="###,##0.00"/></td>
 		</tr>
 	</rsc:iterator>
