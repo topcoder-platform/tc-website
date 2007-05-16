@@ -60,7 +60,7 @@ public class RookieBoard extends BaseBoard {
                 "dr_rookie_tie_break_placement", "dr_rookie_tie_break_score", Constants.SEASON_ID);
 
         // sort
-        sortResult(rookieBoardResult, invert);
+//        sortResult(rookieBoardResult, invert);
 
         // crop
         List resultBoard = cropResult(rookieBoardResult);

@@ -4,6 +4,15 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -21,8 +30,6 @@ import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.BoardRowComparator;
 import com.topcoder.web.tc.model.dr.IBoardRow;
-
-import java.util.*;
 
 /**
  * <strong>Purpose</strong>:
@@ -290,7 +297,7 @@ public abstract class BaseBoard extends BaseProcessor {
     protected ResultSetContainer runQuery(String command, String query) throws TCWebException {
         Request r = new Request();
         r.setContentHandle(command);
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); // TODO: use cached data access
         Map m = null;
         try {
             m = dai.getData(r);

@@ -113,9 +113,10 @@
 		    <A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
         </c:otherwise>
     </c:choose>
-    CHECK HERE IF THERE IS ROTY
-    <A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
-    <A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+	<c:if test="${hasRookieCompetition }" >
+	    <A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+    	<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+    </c:if>
 </div>
 
 <br><br>
@@ -141,6 +142,10 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         <% } %>
     </rsc:iterator>
 </SELECT>
+
+<tc-webtag:rscSelect fieldText="complete_name"  />
+
+<tc-webtag:rscSelect name="<%=Constants.STAGE_ID%>" list="<%=stages%>" fieldText="country_name" fieldValue="stage_id"/>
 
 <c:choose>
 <c:when test="${fn:length(results) > 0}">

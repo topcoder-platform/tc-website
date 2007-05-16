@@ -44,9 +44,12 @@ public class LeaderBoard extends BaseBoard {
             throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
         }
 
+        // Stage list for combo box
+        ResultSetContainer stages = runQuery(Constants.DR_STAGE_COMMAND, Constants.DR_STAGE_QUERY);
+        getRequest().setAttribute("stages", stages);
 
-        int stage = Integer.parseInt(hasParameter(Constants.STAGE_ID) ? getRequest().getParameter(Constants.STAGE_ID) : getCurrentPeriod(Constants.STAGE_ID));
-        setDefault(Constants.STAGE_ID, stage);
+        int stageId = Integer.parseInt(hasParameter(Constants.STAGE_ID) ? getRequest().getParameter(Constants.STAGE_ID) : getCurrentPeriod(Constants.STAGE_ID));
+        setDefault(Constants.STAGE_ID, stageId);
 
         int phase = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
@@ -65,7 +68,7 @@ public class LeaderBoard extends BaseBoard {
         List<LeaderBoardRow> results = new ArrayList<LeaderBoardRow>();
         
         for (ResultSetContainer.ResultSetRow row : rsc) {
-            LeaderBoardRow lbr = new LeaderBoardRow(stage, phase, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
+            LeaderBoardRow lbr = new LeaderBoardRow(stageId, phase, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
                      row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
                      row.getStringItem("current_top_performer_prize") == null? 0.0 : row.getDoubleItem("current_top_performer_prize"),
                      row.getStringItem("current_top_n_prize") == null? 0.0 : row.getDoubleItem("current_top_n_prize"));
@@ -75,6 +78,15 @@ public class LeaderBoard extends BaseBoard {
         }
         sortResult(results, sortCol, invert);
 
+        
+        boolean hasRookie = false;
+        for (ResultSetContainer.ResultSetRow row : stages) {
+            if (row.getIntItem("stage_id") == stageId) {
+                hasRookie = row.getBooleanItem("rookie_competition_ind");
+            }
+        }
+        
+        getRequest().setAttribute("hasRookieCompetition", hasRookie);
         getRequest().setAttribute("results", results);
         getRequest().setAttribute("isDesign", phase == 112);
         getRequest().setAttribute("isDevelopment", phase == 113);
@@ -89,12 +101,6 @@ public class LeaderBoard extends BaseBoard {
      */
     protected void businessProcessing() throws Exception {
         
-        // Prepare request for data retrieval
-        ResultSetContainer stages = runQuery(Constants.DR_STAGE_COMMAND, Constants.DR_STAGE_QUERY);
-        if (log.isDebugEnabled()) {
-            log.debug("Got " + stages.size() + " rows for stages");
-        }
-        getRequest().setAttribute(Constants.STAGE_LIST_KEY, stages);
 
         leaderBoard2007dot5();
 if (!"1".equals(getRequest().getParameter("force20075"))) return;
