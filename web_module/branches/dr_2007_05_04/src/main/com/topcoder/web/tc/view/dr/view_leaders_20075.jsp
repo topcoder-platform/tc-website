@@ -129,23 +129,8 @@
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
 Please select a <strong>season</strong> and <strong>stage</strong><br>
-<SELECT CLASS="dropdown" NAME="<%=Constants.STAGE_ID%>" onchange="changePeriod()">
-    <rsc:iterator list="<%=stages%>" id="resultRow">
-        <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals((String) defaults.get(Constants.STAGE_ID))) { %>
-        <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>" selected>
-            <rsc:item name="season_name" row="<%=resultRow%>"/> &gt;
-            <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
-        <% } else { %>
-        <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>">
-            <rsc:item name="season_name" row="<%=resultRow%>"/> &gt;
-            <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
-        <% } %>
-    </rsc:iterator>
-</SELECT>
 
-<tc-webtag:rscSelect fieldText="complete_name"  />
-
-<tc-webtag:rscSelect name="<%=Constants.STAGE_ID%>" list="<%=stages%>" fieldText="country_name" fieldValue="stage_id"/>
+<tc-webtag:rscSelect name="<%=Constants.STAGE_ID%>" list="<%=stages%>" fieldText="complete_name" fieldValue="stage_id"/>
 
 <c:choose>
 <c:when test="${fn:length(results) > 0}">
