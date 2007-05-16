@@ -227,8 +227,8 @@ Please select a <strong>season</strong><br>
         &#160;
     </c:if>
 </td>
-<td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
-    <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&seid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
+<td class="valueR"><c:if test="${boardRow.potentialPoints>0}">
+    <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&seid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.potentialPoints}</a>
 </c:if></td>
 <td class="valueR">${boardRow.totalPoints}</td>
 </tr>

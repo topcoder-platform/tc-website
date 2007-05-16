@@ -90,7 +90,7 @@ public class RookieBoard extends BaseBoard {
         
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); // change to cached
         Map m = dai.getData(r);
-        ResultSetContainer rsc = (ResultSetContainer) m.get("dr_results");
+        ResultSetContainer rsc = (ResultSetContainer) m.get("dr_rookie_results");
         
         List<RookieBoardRow> results = new ArrayList<RookieBoardRow>();
         
