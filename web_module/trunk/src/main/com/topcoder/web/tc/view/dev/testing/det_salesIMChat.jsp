@@ -142,7 +142,7 @@ Interactions between multiple users are involved when two or more users particip
 </ol>
 
 <div class="sectionHeader">Payment</div>
-<p>TopCoder will compensate the first place submission. The payment for the winning competitor will be distributed when the winning solution is submitted after the review phase is completed and the winner is selected.</p>
+<p>TopCoder will compensate the first and second place submissions. The payment for the winning competitors will be distributed when the winning solutions are submitted after the review phase is completed and the winners are selected.</p>
 <p>
 <strong>Winning Test Solution</strong><br>
 Total Payment - $1,200</p>

@@ -134,10 +134,10 @@ The testing scenarios for the above use cases will be provided. The response tim
 <p>TopCoder will compensate the first and second place submissions. The payment for the winning competitors will be distributed when the winning solutions are submitted after the review phase is completed and the winners are selected.</p>
 <p>
 <strong>Winning Test Solution</strong><br>
-Total Payment - $800</p>
+Total Payment - $600</p>
 <p>
 <strong>Second Place Test Solution</strong><br>
-Total Payment - $400</p>
+Total Payment - $300</p>
 
 <div class="sectionHeader">Eligibility</div>
 <p>You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements. In addition, you must fit into one of the following categories.<br>

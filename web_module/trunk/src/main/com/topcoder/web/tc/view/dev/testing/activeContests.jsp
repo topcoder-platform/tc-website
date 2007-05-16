@@ -70,7 +70,7 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_salesIMPerformance">standings</A>
       -->
       </td>
-      <td class="valueC">$800</td>
+      <td class="valueC">$600</td>
       <td class="valueC">
       05.22.2007 9:00 AM EDT
       </td>
@@ -82,7 +82,7 @@
       </td>
    </tr>
    <% even = !even;%>
-   --%>
+--%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMAdmin">Sales IM Admin Testing Competition</A>

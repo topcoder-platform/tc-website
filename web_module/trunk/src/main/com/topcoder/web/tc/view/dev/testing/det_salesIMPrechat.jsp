@@ -136,7 +136,7 @@ For JSP pages, the test cases will verify the HTML output. The prototype convers
 <p>Note that the AJAX request and response are in XML format. A clear understanding of the XSD is required to write the test cases. The XSD for each type of request and response will be provided.</p>
 
 <div class="sectionHeader">Payment</div>
-<p>TopCoder will compensate the first place submission. The payment for the winning competitor will be distributed when the winning solution is submitted after the review phase is completed and the winner is selected.</p>
+<p>TopCoder will compensate the first and second place submissions. The payment for the winning competitors will be distributed when the winning solutions are submitted after the review phase is completed and the winners are selected.</p>
 <p>
 <strong>Winning Test Solution</strong><br>
 Total Payment - $1,200</p>
