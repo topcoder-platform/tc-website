@@ -4,53 +4,43 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
-import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 import com.topcoder.web.tc.model.dr.RookieBoardRow;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
  * A processor to retrieve dr rookie board.
  *
- * @author pulky
+ * @author pulky, cucu
  * @version 1.0.2
  */
 public class RookieBoard extends BaseBoard {
-
-    /**
-     * The logger to log to.
-     */
-    private static final Logger log = Logger.getLogger(RookieBoard.class);
 
     /**
      * Process the dr rookie board request.
      * Retrieves rookie list for development or design for a particular season.
      */
     protected void businessProcessing() throws Exception {
-        // Season list. FIX: skip seasons without rookies
+        // Season list.
         ResultSetContainer seasons = runQuery(Constants.DR_SEASON_COMMAND, Constants.DR_SEASON_QUERY);
-        getRequest().setAttribute(Constants.SEASON_LIST_KEY, seasons);
+        getRequest().setAttribute("seasons", seasons);
 
 
-        int seasonId = 1; // fix
-//        int seasonId = Integer.parseInt(hasParameter(Constants.STAGE_ID) ? getRequest().getParameter(Constants.STAGE_ID) : getCurrentPeriod(Constants.STAGE_ID));
-      setDefault(Constants.STAGE_ID, seasonId);
+        int seasonId = Integer.parseInt(hasParameter(Constants.SEASON_ID) ? getRequest().getParameter(Constants.SEASON_ID) : getCurrentPeriod(Constants.SEASON_ID));
+        setDefault(Constants.SEASON_ID, seasonId);
 
         int phase = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
         setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
@@ -80,7 +70,7 @@ public class RookieBoard extends BaseBoard {
         }
 
         
-        int ct = 274; //fix
+        int ct = getContestForSeason(seasonId, phase);
         
         Request r = new Request();
         r.setContentHandle("dr_rookie_results");
@@ -113,6 +103,20 @@ public class RookieBoard extends BaseBoard {
         
         setNextPage(Constants.VIEW_ROOKIE_BOARD_PAGE);
         setIsNextPageInContext(true);
+    }
+
+    private int getContestForSeason(int seasonId, int phaseId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("dr_contests_for_season");
+        r.setProperty(Constants.STAGE_ID, seasonId + "");
+        r.setProperty(Constants.PHASE_ID, phaseId + "");
+        
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME); 
+        ResultSetContainer contests= dai.getData(r).get("dr_contests_for_season");
+
+        if (contests.size() == 0) throw new Exception("Missing a contest type rookie for season id " + seasonId  + " phase " + phaseId);
+
+        return contests.getIntItem(0, "contest_id");
     }
 
 

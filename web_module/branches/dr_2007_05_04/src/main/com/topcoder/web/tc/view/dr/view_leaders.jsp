@@ -1,9 +1,7 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.shared.dataAccess.DataAccessConstants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.common.BaseProcessor,
-                 com.topcoder.web.tc.Constants,
-                 java.util.HashMap" %>
+                 com.topcoder.web.tc.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -14,11 +12,6 @@
 
 <c:set var="phaseName" value='${isDevelopment? "Development" : "Design" }' />
 <c:set var="context" value='${isDevelopment? "development" : "design" }' />
-
-<%
-    ResultSetContainer stages = (ResultSetContainer) request.getAttribute(Constants.STAGE_LIST_KEY);
-    HashMap defaults = (HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY);
-%>
 
 <html>
 <head>
@@ -124,14 +117,13 @@
 <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LeaderBoard"/>
 <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
-<!--tc-webtag:hiddenInput name="<%=Constants.STAGE_ID%>"/-->
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
 Please select a <strong>season</strong> and <strong>stage</strong><br>
 
 <tc-webtag:rscSelect name="<%=Constants.STAGE_ID%>" styleClass="dropdown" onChange="changePeriod()" 
-          list="<%=stages%>" fieldText="complete_name" fieldValue="stage_id" useTopValue="false" />
+          list="${stages}" fieldText="complete_name" fieldValue="stage_id" useTopValue="false" />
 
 <c:choose>
 <c:when test="${fn:length(results) > 0}">
