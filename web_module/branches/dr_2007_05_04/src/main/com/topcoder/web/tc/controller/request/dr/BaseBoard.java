@@ -140,38 +140,24 @@ public abstract class BaseBoard extends BaseProcessor {
      * @param boardResult the original board list.
      * @return the cropped list.
      */
-    protected List cropResult(List boardResult) {
+    protected void cropResult(List<? extends IBoardRow> boardResult, int startRank, int numRecords) {
         if (boardResult.size() == 0) {
-            return boardResult;
+            return;
         }
-
-        String startRank = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-        String numRecords = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-
-        if ("".equals(numRecords)) {
-            numRecords = String.valueOf(Constants.DEFAULT_LEADERS);
-        } else if (Integer.parseInt(numRecords) > Constants.MAX_LEADERS) {
-            numRecords = String.valueOf(Constants.MAX_LEADERS);
-        }
+        
         setDefault(DataAccessConstants.NUMBER_RECORDS, numRecords);
-
-        if ("".equals(startRank) || Integer.parseInt(startRank) <= 0) {
-            startRank = "1";
-        }
         setDefault(DataAccessConstants.START_RANK, startRank);
 
-        List resultBoard = new ArrayList(Integer.parseInt(numRecords));
-        for (int j = 0; j < Integer.parseInt(numRecords) && j + Integer.parseInt(startRank) <= boardResult.size(); j++)
+        List<IBoardRow> cropped = new ArrayList<IBoardRow>(numRecords);
+        for (int j = 0; j < numRecords && j + startRank <= boardResult.size(); j++)
         {
-            Object rookieBoardRow = boardResult.get(Integer.parseInt(startRank) + j - 1);
-            resultBoard.add(rookieBoardRow);
+            cropped.add(boardResult.get(startRank + j - 1));
         }
 
-        getRequest().setAttribute("croppedDataBefore", new Boolean(Integer.parseInt(startRank) > 1));
-        getRequest().setAttribute("croppedDataAfter", new Boolean(boardResult.size() > Integer
-                .parseInt(startRank) + resultBoard.size()));
+        getRequest().setAttribute("croppedDataBefore", new Boolean(startRank > 1));
+        getRequest().setAttribute("croppedDataAfter", new Boolean(boardResult.size() > startRank + cropped.size()));
 
-        return resultBoard;
+        boardResult = cropped;
     }
 
     /**
@@ -188,35 +174,31 @@ public abstract class BaseBoard extends BaseProcessor {
 
         // all other columns are already sorted (rank)
         if (sortCol.equals(CODER_HANDLE_COLUMN)) {
-            Collections.sort(boardResult, new Comparator() {
-                public int compare(Object arg0, Object arg1) {
-                    return ((IBoardRow) arg0).getUserName().compareTo(((IBoardRow) arg1).getUserName());
+            Collections.sort(boardResult, new Comparator<IBoardRow>() {
+                public int compare(IBoardRow arg0, IBoardRow arg1) {
+                    return arg0.getUserName().compareTo(arg1.getUserName());
                 }
             });
-            if (invert) {
-                Collections.reverse(boardResult);
-            }
         }
         if (sortCol.equals(OUTSTANDING_POINTS_COLUMN)) {
-            Collections.sort(boardResult, new Comparator() {
-                public int compare(Object arg0, Object arg1) {
-                    return new Double(((IBoardRow) arg0).getPotentialPoints()).compareTo(new Double(((IBoardRow) arg1).getPotentialPoints()));
+            Collections.sort(boardResult, new Comparator<IBoardRow>() {
+                public int compare(IBoardRow arg0, IBoardRow arg1) {
+                    return new Double(arg0.getPotentialPoints()).compareTo(new Double(arg1.getPotentialPoints()));
                 }
             });
-            if (invert) {
-                Collections.reverse(boardResult);
-            }
         }
         if (sortCol.equals(TOTAL_POINTS_COLUMN)) {
-            Collections.sort(boardResult, new Comparator() {
-                public int compare(Object arg0, Object arg1) {
-                    return new Double(((IBoardRow) arg0).getTotalPoints()).compareTo(new Double(((IBoardRow) arg1).getTotalPoints()));
+            Collections.sort(boardResult, new Comparator<IBoardRow>() {
+                public int compare(IBoardRow arg0, IBoardRow arg1) {
+                    return new Double(arg0.getTotalPoints()).compareTo(new Double(arg1.getTotalPoints()));
                 }
             });
-            if (invert) {
-                Collections.reverse(boardResult);
-            }
         }
+
+        if (invert) {
+            Collections.reverse(boardResult);
+        }
+        
         SortInfo s = new SortInfo();
         s.addDefault(Integer.parseInt(CODER_HANDLE_COLUMN), "asc");
         s.addDefault(Integer.parseInt(OUTSTANDING_POINTS_COLUMN), "desc");

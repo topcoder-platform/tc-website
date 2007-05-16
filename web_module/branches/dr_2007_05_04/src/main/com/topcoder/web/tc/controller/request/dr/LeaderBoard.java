@@ -57,6 +57,28 @@ public class LeaderBoard extends BaseBoard {
         boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
         String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
 
+        String startRankStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        String numRecordsStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+        int startRank;
+        int numRecords;
+        
+        if ("".equals(numRecordsStr)) {
+            numRecords = Constants.DEFAULT_LEADERS;
+        } else {
+            numRecords = Integer.parseInt(numRecordsStr); 
+
+            if (numRecords > Constants.MAX_LEADERS) {
+                numRecords = Constants.MAX_LEADERS;
+            }
+        }
+
+        if ("".equals(startRankStr) || Integer.parseInt(startRankStr) <= 0) {
+            startRank = 1;
+        } else {
+            startRank = Integer.parseInt(startRankStr);
+        }
+
+        
         Request r = new Request();
         r.setContentHandle("dr_results");
         r.setProperty("ct", "252"); // fix!
@@ -77,7 +99,7 @@ public class LeaderBoard extends BaseBoard {
             
         }
         sortResult(results, sortCol, invert);
-
+        cropResult(results, startRank, numRecords);
         
         boolean hasRookie = false;
         for (ResultSetContainer.ResultSetRow row : stages) {
@@ -127,9 +149,9 @@ if (!"1".equals(getRequest().getParameter("force20075"))) return;
  //       String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
  
         // crop
-        List resultBoard = cropResult(leaderBoardResult);
+//        List resultBoard = cropResult(leaderBoardResult);
 
-        getRequest().setAttribute("boardList", resultBoard);
+        //getRequest().setAttribute("boardList", resultBoard);
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);
 
