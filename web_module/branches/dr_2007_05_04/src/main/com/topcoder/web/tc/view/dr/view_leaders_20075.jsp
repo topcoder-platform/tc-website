@@ -12,8 +12,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-<c:set var="phaseName" value="${isDevelopment? "Development" : "Design" }" />
-<c:set var="context" value="${isDevelopment? "development" : "design" }" />
+<c:set var="phaseName" value='${isDevelopment? "Development" : "Design" }' />
+<c:set var="context" value='${isDevelopment? "development" : "design" }' />
 
 <html>
 <head>
