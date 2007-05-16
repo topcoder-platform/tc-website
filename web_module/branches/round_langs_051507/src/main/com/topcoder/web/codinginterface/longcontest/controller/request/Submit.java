@@ -138,7 +138,6 @@ public class Submit extends Base {
             int language = 0;
             if (getParameter(request, Constants.LANGUAGE_ID) != null) {
                 language = Integer.parseInt(getParameter(request, Constants.LANGUAGE_ID));
-                setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
             } else if (!lastCompilation.isEmpty()) {
                 if (!isNull(lastCompilation, 0, "language_id")) {
                     language = lastCompilation.getIntItem(0, "language_id");
@@ -149,7 +148,8 @@ public class Submit extends Base {
                 language = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
             }
 
-            if (language > 0) {
+            List allowedLanguages = getLanguages(rid);
+            if (language > 0 && allowedLanguages.contains(BaseLanguage.getLanguage(language))) {
                 setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
                 getRequest().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
             }
@@ -184,7 +184,6 @@ public class Submit extends Base {
             request.setAttribute(Constants.ARG_TYPES, paramTypes);
 
             request.setAttribute(Constants.CODE, code);
-            List allowedLanguages = getLanguages(rid);
             if (action == null) { // no action specified
                 // any code in session?
                 if (code == null) { // try and load the most recent code
