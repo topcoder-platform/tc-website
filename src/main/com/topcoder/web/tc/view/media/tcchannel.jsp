@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -56,8 +57,11 @@
                     doWrite(s);
                     </script>
                 </div>
+                <p align="right">
+                    <tc-webtag:forumLink forumID="515804" message="Discuss this episode" />
+                </p>
 
-                <p style="margin-top: 40px;">
+                <p style="margin-top: 30px;">
                     Comments? Ideas? Have a video clip you'd like to share? We want your feedback so drop us an email at <A href="mailto:tcchannel@topcoder.com">tcchannel@topcoder.com</A>.
                     If we use your suggestion or material we'll send you a limited edition TC Channel T-shirt.
                 </p>

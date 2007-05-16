@@ -66,10 +66,7 @@
         <A href="/"><img src="/i/home/topcoder.png" alt="TopCoder" style="display: block;" /></A>
     </td>
     <td align="center" style="padding: 10px 10px 10px 10px">
-        <A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digitalrun20070504.png" border="0" alt="The Digital Run - 2007.5 Season" /></A>
-<%--
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open" style="display: block;" /></A>
---%>
+        <A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep1"><img src="/i/home/tcchannelEp1.jpg" alt="TC Channel: Episode 1" /></A>
     </td>
     <td align="right" valign="top">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/"><img src="/i/home/studioDogEarStandard.png" style="display: block;" alt="TopCoder Studio" /></A>
