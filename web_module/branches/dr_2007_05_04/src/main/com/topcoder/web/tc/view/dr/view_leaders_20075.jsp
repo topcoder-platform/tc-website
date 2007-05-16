@@ -15,6 +15,11 @@
 <c:set var="phaseName" value='${isDevelopment? "Development" : "Design" }' />
 <c:set var="context" value='${isDevelopment? "development" : "design" }' />
 
+<%
+    ResultSetContainer stages = (ResultSetContainer) request.getAttribute(Constants.STAGE_LIST_KEY);
+    HashMap defaults = (HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY);
+%>
+
 <html>
 <head>
     <TITLE>TopCoder Statistics</TITLE>
@@ -22,6 +27,43 @@
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <script type="text/javascript" src="/js/popup.js"></script>
+    <script type="text/javascript">
+        function changePeriod() {
+            var myForm = document.leaderBoardForm;
+            <c:if test="${fn:length(results) > 0}">
+            myForm.<%=DataAccessConstants.START_RANK%>.value = '';
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
+            </c:if>
+            document.leaderBoardForm.submit()
+        }
+        function submitEnter(e) {
+            var keycode;
+            if (window.event) keycode = window.event.keyCode;
+            else if (e) keycode = e.which;
+            else return true;
+            if (keycode == 13) {
+                document.leaderBoardForm.submit();
+                return false;
+            } else return true;
+        }
+        function next() {
+            var myForm = document.leaderBoardForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = <c:out value="${requestScope[defaults][startRank]}"/> + parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+        function previous() {
+            var myForm = document.leaderBoardForm;
+            myForm.<%=DataAccessConstants.START_RANK%>.value = <c:out value="${requestScope[defaults][startRank]}"/> - parseInt(myForm.<%=DataAccessConstants.NUMBER_RECORDS%>.value);
+            myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '<%=request.getParameter(DataAccessConstants.SORT_COLUMN)==null?"":request.getParameter(DataAccessConstants.SORT_COLUMN)%>';
+            myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)==null?"":request.getParameter(DataAccessConstants.SORT_DIRECTION)%>';
+            myForm.submit();
+        }
+    </script>
+    
 </head>
     
 <body>
@@ -78,8 +120,27 @@
 
 <br><br>
 
-SELCT STAGE HERE
+<form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
+<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LeaderBoard"/>
+<tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
+<!--tc-webtag:hiddenInput name="<%=Constants.STAGE_ID%>"/-->
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+<tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
+Please select a <strong>season</strong> and <strong>stage</strong><br>
+<SELECT CLASS="dropdown" NAME="<%=Constants.STAGE_ID%>" onchange="changePeriod()">
+    <rsc:iterator list="<%=stages%>" id="resultRow">
+        <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals((String) defaults.get(Constants.STAGE_ID))) { %>
+        <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>" selected>
+            <rsc:item name="season_name" row="<%=resultRow%>"/> &gt;
+            <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
+        <% } else { %>
+        <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>">
+            <rsc:item name="season_name" row="<%=resultRow%>"/> &gt;
+            <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
+        <% } %>
+    </rsc:iterator>
+</SELECT>
 
 <c:choose>
 <c:when test="${fn:length(results) > 0}">
