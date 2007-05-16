@@ -1,4 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <%-- digital run 
 <A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digitalrun20070504.png" border="0" alt="The Digital Run - 2007.5 Season" /></A>
 --%>
@@ -18,4 +20,4 @@
 --%>
 
 <%-- TC Channel --%>
-<A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep1"><img src="/i/home/tcchannelEp1.jpg" alt="TC Channel: Episode 1" /></A>
+<A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep1' refer='/tc' />"><img src="/i/home/tcchannelEp1.jpg" alt="TC Channel: Episode 1" /></A>
