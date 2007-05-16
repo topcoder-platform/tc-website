@@ -66,7 +66,7 @@
         <A href="/"><img src="/i/home/topcoder.png" alt="TopCoder" style="display: block;" /></A>
     </td>
     <td align="center" style="padding: 10px 10px 10px 10px">
-        <A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep1"><img src="/i/home/tcchannelEp1.jpg" alt="TC Channel: Episode 1" /></A>
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep1' refer='homepage' />"><img src="/i/home/tcchannelEp1.jpg" alt="TC Channel: Episode 1" /></A>
     </td>
     <td align="right" valign="top">
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/"><img src="/i/home/studioDogEarStandard.png" style="display: block;" alt="TopCoder Studio" /></A>
