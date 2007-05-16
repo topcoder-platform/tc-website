@@ -36,11 +36,37 @@ public class LeaderBoard extends BaseBoard {
      */
     private static final Logger log = Logger.getLogger(LeaderBoard.class);
 
+    protected void leaderBoard2007dot5() throws Exception {
+        
+        // TODO find the contest
+        
+        Request r = new Request();
+        r.setContentHandle("dr_results");
+        r.setProperty("ct", "252"); // fix!
+        r.setProperty("tpct", "254"); // fix!
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        Map m = dai.getData(r);
+        ResultSetContainer rsc = (ResultSetContainer) m.get("dr_results");
+        /*
+        List<LeaderBoardRow> results = new ArrayList<LeaderBoardRow>();
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            LeaderBoardRow row = new LeaderBoardRow(stage, phase, row.getInteger("current_place"), row.getLongItem("coder_id"),
+                    "userName", row.getDouble("final_points"));
+            results.add(row);
+            
+        }*/
+        getRequest().setAttribute("results", rsc);
+        setNextPage("view_leaders_20075");
+        setIsNextPageInContext(true);
+        
+    }
+    
     /**
      * Process the dr rookie board request.
      * Retrieves rookie list for development or design for a particular season.
      */
     protected void businessProcessing() throws Exception {
+        
         // Prepare request for data retrieval
         ResultSetContainer stages = runQuery(Constants.DR_STAGE_COMMAND, Constants.DR_STAGE_QUERY);
         if (log.isDebugEnabled()) {
@@ -48,6 +74,10 @@ public class LeaderBoard extends BaseBoard {
         }
         getRequest().setAttribute(Constants.STAGE_LIST_KEY, stages);
 
+        leaderBoard2007dot5();
+if (!"1".equals(getRequest().getParameter("force20075"))) return;
+        
+            
         boolean designBoard = getRequest().getParameter(Constants.PHASE_ID).equals("112");
 
         if (log.isDebugEnabled()) {

@@ -2,6 +2,11 @@ package com.topcoder.utilities.dwload.contestresult;
 
 import java.util.List;
 
+/**
+ * Calculator for DR 2007 top performers.
+ * 
+ * @author Cucu
+ */
 public class DR2007TopPerformersCalculator extends DR2007ResultCalculatorBase  implements TopPerformersCalculator{
     
     private double factor = 0;

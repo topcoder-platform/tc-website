@@ -2,6 +2,12 @@ package com.topcoder.utilities.dwload.contestresult;
 
 import java.util.Comparator;
 
+/**
+ * Base class for calculating points for DR 2007.5
+ * 
+ * @author Cucu
+ *
+ */
 public abstract class DR2007dot5ResultCalculatorBase extends DRResultCalculatorBase {
 
     private static final double[][] amountFraction = 
@@ -46,7 +52,7 @@ public abstract class DR2007dot5ResultCalculatorBase extends DRResultCalculatorB
     
     /**
      * <p/>
-     * Calculates points awarded based on the defined placementPoints matrix.
+     * Calculates points awarded based on the defined amountFraction matrix and the project amount
      * </p>
      *
      * @param passedReview true if submission passed review
@@ -64,7 +70,6 @@ public abstract class DR2007dot5ResultCalculatorBase extends DRResultCalculatorB
             numSubmissionsPassedReview = MAX_NUM_SUBMISSIONS;
         }
 
-        System.out.println("amount= " + amount +  "  placed = " + placed + "  points = " + (amount * amountFraction[placed - 1][numSubmissionsPassedReview - 1]));
         return amount * amountFraction[placed - 1][numSubmissionsPassedReview - 1];
     }
     

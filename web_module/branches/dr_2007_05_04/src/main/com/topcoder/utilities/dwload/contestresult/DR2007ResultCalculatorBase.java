@@ -1,8 +1,6 @@
 package com.topcoder.utilities.dwload.contestresult;
 
-import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase {
 

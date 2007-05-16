@@ -8,6 +8,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Base class for calculating results for DR.
+ * 
+ * @author Cucu
+ *
+ */
 public abstract class DRResultCalculatorBase implements ContestResultCalculator {
 
         
@@ -26,6 +32,9 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
      */
     private static final double DELTA_SCORE = 0.01;
 
+    /**
+     * Calculate the contest results from the results of individual projects, and assign the prizes. 
+     */
     public  List<ContestResult> calculateResults(List<ProjectResult> pr, List<Double> prizesAmount) {
         Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
         
@@ -78,11 +87,18 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
             
         }
         
-        // TO DO: assign prizes.
+        // inheriting classes must implement this method.
         assignPrizes(l, prizesAmount);
+
         return l;        
     }
     
+    /**
+     * Filter that can be overriden in inherited classes to skip some results.
+     * 
+     * @param p project result.
+     * @return whether the project result must be considered.
+     */
     protected boolean processProjectResult(ProjectResult p) {
         return true;
     }
