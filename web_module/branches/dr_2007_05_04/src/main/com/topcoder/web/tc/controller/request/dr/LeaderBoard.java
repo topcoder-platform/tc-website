@@ -83,8 +83,8 @@ public class LeaderBoard extends BaseBoard {
         
         Request r = new Request();
         r.setContentHandle("dr_results");
-        r.setProperty("ct", ct[0] + ""); // fix!
-        r.setProperty("tpct", ct[1] + ""); // fix!
+        r.setProperty("ct", ct[0] + ""); 
+        r.setProperty("tpct", ct[1] + ""); 
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); // change to cached
         Map m = dai.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) m.get("dr_results");

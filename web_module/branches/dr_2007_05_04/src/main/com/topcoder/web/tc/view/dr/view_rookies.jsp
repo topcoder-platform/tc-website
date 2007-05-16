@@ -29,7 +29,7 @@
     <script type="text/javascript">
         function changePeriod() {
             var myForm = document.rookieBoardForm;
-            <c:if test="${fn:length(boardList) > 0}">
+            <c:if test="${fn:length(results) > 0}">
             myForm.<%=DataAccessConstants.START_RANK%>.value = '';
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
@@ -133,7 +133,7 @@ Please select a <strong>season</strong><br>
     </rsc:iterator>
 </SELECT>
 <c:choose>
-<c:when test="${fn:length(boardList) > 0}">
+<c:when test="${fn:length(results) > 0}">
 
 <!-- crop -->
 <div class="pagingBox" style="width:300px;">
@@ -197,7 +197,7 @@ Please select a <strong>season</strong><br>
 
         <%boolean even = false;%>
         <% int i = 0;%>
-    <c:forEach items="${boardList}" var="boardRow">
+    <c:forEach items="${results}" var="boardRow">
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC">${boardRow.rank}</td>
         <td class="value" style="border-right: 1px solid #999999;">
