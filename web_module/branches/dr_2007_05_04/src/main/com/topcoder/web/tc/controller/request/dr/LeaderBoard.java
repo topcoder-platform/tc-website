@@ -82,7 +82,7 @@ public class LeaderBoard extends BaseBoard {
         boolean hasRookie = false;
         for (ResultSetContainer.ResultSetRow row : stages) {
             if (row.getIntItem("stage_id") == stageId) {
-                hasRookie = row.getBooleanItem("rookie_competition_ind");
+                hasRookie = row.getIntItem("rookie_competition_ind") == 1;
             }
         }
         

@@ -130,7 +130,8 @@
 
 Please select a <strong>season</strong> and <strong>stage</strong><br>
 
-<tc-webtag:rscSelect name="<%=Constants.STAGE_ID%>" list="<%=stages%>" fieldText="complete_name" fieldValue="stage_id"/>
+<tc-webtag:rscSelect name="<%=Constants.STAGE_ID%>" styleClass="dropdown" onChange="changePeriod()" 
+          list="<%=stages%>" fieldText="complete_name" fieldValue="stage_id" useTopValue="false" />
 
 <c:choose>
 <c:when test="${fn:length(results) > 0}">
