@@ -55,13 +55,15 @@ public class LeaderBoard extends BaseBoard {
         for (ResultSetContainer.ResultSetRow row : rsc) {
             LeaderBoardRow lbr = new LeaderBoardRow(stage, phase, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
                      row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
-                     row.getStringItem("current_top_n_prize") == null? 0.0 : row.getDoubleItem("current_top_n_prize"), 
-                     row.getStringItem("current_top_performer_prize") == null? 0.0 : row.getDoubleItem("current_top_performer_prize"));
+                     row.getStringItem("current_top_performer_prize") == null? 0.0 : row.getDoubleItem("current_top_performer_prize"),
+                     row.getStringItem("current_top_n_prize") == null? 0.0 : row.getDoubleItem("current_top_n_prize"));
             
             results.add(lbr);
             
         }
         getRequest().setAttribute("results", results);
+        getRequest().setAttribute("isDesign", phase == 112);
+        getRequest().setAttribute("isDevelopment", phase == 112);
         setNextPage("/dr/view_leaders_20075.jsp");
         setIsNextPageInContext(true);
         

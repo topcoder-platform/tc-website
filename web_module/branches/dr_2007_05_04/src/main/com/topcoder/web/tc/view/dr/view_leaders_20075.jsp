@@ -12,6 +12,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
+<c:set var="phaseName" value="${isDevelopment? "Development" : "Design" }" />
+<c:set var="context" value="${isDevelopment? "development" : "design" }" />
+
 <html>
 <head>
     <TITLE>TopCoder Statistics</TITLE>
@@ -20,37 +23,148 @@
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
 </head>
-<%
-    String type = "design";
-%>
     
 <body>
+<jsp:include page="/top.jsp"/>
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+<TR valign="top">
+<TD WIDTH="180">
+    <!-- Left nav begins -->
+    <jsp:include page="/includes/global_left.jsp">
+        <jsp:param name="node" value="digital_run"/>
+    </jsp:include>
+    <!-- Left nav ends -->
+</TD>
 
-<table>
+<!-- Center Column Begins -->
+<td width="100%" align="center" class="bodyColumn">
 
-        <% boolean even = false;%>
-        <% int i = 0;%>
+<div align="center">
+<div class="maxWidthBody">
+    <c:choose>
+    	<c:when test="${isDevelopment}">
+		    <jsp:include page="/page_title.jsp">
+		        <jsp:param name="image" value="digital_run_20061031"/>
+		        <jsp:param name="title" value="Development Cup Series Leaderboard"/>
+		    </jsp:include>
+	    </c:when>
+	    <c:otherwise>
+		    <jsp:include page="/page_title.jsp">
+		        <jsp:param name="image" value="digital_run_20061031"/>
+		        <jsp:param name="title" value="Design Cup Series Leaderboard"/>
+		    </jsp:include>
+	    </c:otherwise>
+	</c:choose>
+
+    <div class="fixedWidthBody">
+        <div style="float:right; text-align:left; white-space: nowrap;">
+            <A href="/stat?c=top_designers" class="bcLink">Top Ranked Designers</a><br>
+            <A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
+        </div>
+    <c:choose>
+    	<c:when test="${isDevelopment}">
+	        <A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Cup Series Leaderboard</a><br>
+    	    Development Cup Series Leaderboard</a><br>
+    	</c:when>
+    	<c:otherwise>
+    		Design Cup Series Leaderboard<br>
+		    <A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
+        </c:otherwise>
+    </c:choose>
+    CHECK HERE IF THERE IS ROTY
+    <A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+    <A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+</div>
+
+<br><br>
+
+SELCT STAGE HERE
+
+
+<c:choose>
+<c:when test="${fn:length(boardList) > 0}">
+
+<div class="pagingBox" style="width:300px;">
+    <c:choose>
+        <c:when test="${croppedDataBefore}">
+            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+        </c:when>
+        <c:otherwise>
+            &lt;&lt; prev
+        </c:otherwise>
+    </c:choose>
+    |
+    <c:choose>
+        <c:when test="${croppedDataAfter}">
+            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+        </c:when>
+        <c:otherwise>
+            next &gt;&gt;
+        </c:otherwise>
+    </c:choose>
+</div>
+
+<table class="stat" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+        <td class="title" colspan="11">
+            ${phaseName } Cup Series Leaderboard
+        </td>
+    </tr>
+    <tr>
+        <td class="header" colspan="2" style="border-right: 1px solid #999999;">&#160;</td>
+        <td class="headerC" colspan="7" style="border-right: 1px solid #999999;">Completed Contests</td>
+        <td class="headerC" colspan="2" nowrap="nowrap">Current Contests</td>
+    </tr>
+    <tr>
+        <td class="headerC">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Rank</a>
+        </td>
+        <td class="header" style="border-right: 1px solid #999999;" width="16%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true"/>">Handle</a>
+        </td>
+        <td class="headerR" colspan="4">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Points</a>
+        </td>
+        <td class="headerR" nowrap="nowrap" width="16%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
+                Five<br>Prize</a>*</td>
+        <td class="headerR" nowrap="nowrap" width="16%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Top
+                Performer<br>Prize</a>*</td>
+        <td class="headerR" style="border-right: 1px solid #999999;" width="16%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>">Total<br>
+                Prizes</a>*</td>
+        <td class="headerR" width="16%">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true"/>">Potential<br>
+                Points</a>**
+        </td>
+        <td class="headerR" width="16%" nowrap="nowrap">
+            <a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="7" includeParams="true"/>">Potential
+                Total<br>Points</a>**
+        </td>
+    </tr>
+
     <c:forEach items="${results}" var="boardRow" varStatus="status">
     <tr class='${status.index % 2 == 1? "even" : "odd" }'>
         <td class="valueC">${boardRow.rank}</td>
         <td class="value" style="border-right: 1px solid #999999;">
-            <tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/></td>
+            <tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/></td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
-                <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top Five</strong></div></div>
+                <div id="pop${status.index }a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top Five</strong></div></div>
                 <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }a')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
-                <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top Five</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>b')" onmouseout="popHide()" /></div>
+                <div id="pop${status.index }b" class="popUp"><div>Cash prize for placing in the <strong>Top Five</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }b')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.topPerformer}">
-                <div id="pop<%=i%>c" class="popUp"><div>Cash prize for placing in the <strong>Top Performers</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>c')" onmouseout="popHide()" /></div>
+                <div id="pop${status.index }c" class="popUp"><div>Cash prize for placing in the <strong>Top Performers</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }c')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueR">
@@ -79,10 +193,48 @@
 		</td>
 		<td class="valueR">${boardRow.totalPoints}</td>
 	</tr>
-<%i++;%>
-<%even = !even;%>
 	</c:forEach>
 </table>
+
+<div class="pagingBox" style="width:300px;">
+    <c:choose>
+        <c:when test="${croppedDataBefore}">
+            <a href="Javascript:previous()" class="bcLink">&lt;&lt; prev</a>
+        </c:when>
+        <c:otherwise>
+            &lt;&lt; prev
+        </c:otherwise>
+    </c:choose>
+    |
+    <c:choose>
+        <c:when test="${croppedDataAfter}">
+            <a href="Javascript:next()" class="bcLink">next &gt;&gt;</a>
+        </c:when>
+        <c:otherwise>
+            next &gt;&gt;
+        </c:otherwise>
+    </c:choose>
+</div>
+<p class="small" align="left">
+    * Prizes are based on current earned points and the dollar per point value for completed projects. Current and
+    future projects may affect the final results.<br>
+    ** Assuming first place finish with all current contests with all competitors passing review
+</p>
+
+<div class="pagingBox" style="width:300px;">
+    View
+    <tc-webtag:textInput name="<%=DataAccessConstants.NUMBER_RECORDS%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+    at a time starting with
+    <tc-webtag:textInput name="<%=DataAccessConstants.START_RANK%>" size="4" maxlength="4" onKeyPress="submitEnter(event)"/>
+    <a href="javascript:document.leaderBoardForm.submit();" class="bcLink">[submit]</a>
+</div>
+
+</c:when>
+<c:otherwise>
+    <br><br>
+    The selected stage is underway and results will start coming in soon.
+</c:otherwise>
+</c:choose>
 
 
 </table>
