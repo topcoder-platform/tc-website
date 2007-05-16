@@ -39,6 +39,8 @@ public class LeaderBoard extends BaseBoard {
     protected void leaderBoard2007dot5() throws Exception {
         
         // TODO find the contest
+        int stage=1;
+        int phase = 112;
         
         Request r = new Request();
         r.setContentHandle("dr_results");
@@ -47,14 +49,16 @@ public class LeaderBoard extends BaseBoard {
         DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
         Map m = dai.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) m.get("dr_results");
-        /*
+        
         List<LeaderBoardRow> results = new ArrayList<LeaderBoardRow>();
         for (ResultSetContainer.ResultSetRow row : rsc) {
-            LeaderBoardRow row = new LeaderBoardRow(stage, phase, row.getInteger("current_place"), row.getLongItem("coder_id"),
-                    "userName", row.getDouble("final_points"));
-            results.add(row);
+            LeaderBoardRow lbr = new LeaderBoardRow(stage, phase, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
+                     row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
+                     row.getDoubleItem("current_top_n_prize"), row.getDoubleItem("current_top_performer_prize"));
             
-        }*/
+            results.add(lbr);
+            
+        }
         getRequest().setAttribute("results", rsc);
         setNextPage("/dr/view_leaders_20075.jsp");
         setIsNextPageInContext(true);
@@ -180,12 +184,12 @@ if (!"1".equals(getRequest().getParameter("force20075"))) return;
             }
 
             long phase = new Long(getRequest().getParameter(Constants.PHASE_ID)).longValue();
-
+/*
             leaderBoardResult.add(new LeaderBoardRow(row.getLongItem("stage_id"), phase, row
                     .getLongItem("rank"), row.getLongItem("user_id"), row
                     .getStringItem("handle_lower"), totalPoints, inTopBoard,
                     false, inTopBoard ? totalPoints : 0, 0, 0, row.getLongItem("outstanding_points")));
-            i++;
+  */          i++;
         }
 
         double prizePerPoint = 0;

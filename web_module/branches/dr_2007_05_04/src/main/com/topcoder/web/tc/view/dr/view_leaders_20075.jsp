@@ -20,24 +20,70 @@
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
 </head>
-
+<%
+    String type = "design";
+%>
+    
 <body>
-Board:
+
 <table>
-	<rsc:iterator list="${results}" id="row"> 
-		<tr>
-			<td><rsc:item name="current_place" row="<%=row %>" /> </td>
-			<td><tc-webtag:handle coderId='<%= row.getLongItem("coder_id") %>' context='design'/></td>
-			<td>trip</td>
-			<td>top n</td>
-			<td>top perf</td>
-			<td><rsc:item name="final_points" row="<%=row %>" format="###,##0.00"/></td>
-			<td><rsc:item name="current_top_n_prize" row="<%=row %>" /></td>
-			<td><rsc:item name="current_top_performer_prize" row="<%=row %>" /></td>
-			<td><%= row.getDoubleItem("current_top_n_prize") + row.getDoubleItem("current_top_performer_prize") %></td>
-			<td><rsc:item name="potential_points" row="<%=row %>" format="###,##0.00"/></td>
-		</tr>
-	</rsc:iterator>
+
+        <% boolean even = false;%>
+        <% int i = 0;%>
+    <c:forEach items="${results}" var="boardRow">
+    <tr class="<%=even?"dark":"light"%>">
+        <td class="valueC">${boardRow.rank}</td>
+        <td class="value" style="border-right: 1px solid #999999;">
+            <tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/></td>
+        <td class="valueC">
+            <c:if test="${boardRow.winTrip}">
+                <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top Five</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>a')" onmouseout="popHide()" /></div>
+            </c:if>
+        </td>
+        <td class="valueC">
+            <c:if test="${boardRow.winTrip}">
+                <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top Five</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>b')" onmouseout="popHide()" /></div>
+            </c:if>
+        </td>
+        <td class="valueC">
+            <c:if test="${boardRow.topPerformer}">
+                <div id="pop<%=i%>c" class="popUp"><div>Cash prize for placing in the <strong>Top Performers</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>c')" onmouseout="popHide()" /></div>
+            </c:if>
+        </td>
+        <td class="valueR">
+            <c:if test="${boardRow.points>0}">
+            <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a>
+            </c:if>
+        </td>
+</c:if></td>
+<td class="valueR"><c:if test="${boardRow.placementPrize>0}">
+    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
+</c:if></td>
+<td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
+    <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
+</c:if></td>
+<td class="valueR" style="border-right: 1px solid #999999;">
+    <c:if test="${boardRow.totalPrize>0}">
+        <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
+    </c:if>
+    <c:if test="${boardRow.totalPrize==0}">
+        &#160;
+    </c:if>
+</td>
+<td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
+    <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
+</c:if></td>
+<td class="valueR">${boardRow.totalPoints}</td>
+</tr>
+<%i++;%>
+<%even = !even;%>
+</c:forEach>
+</table>
+
+
 </table>
 
 </BODY>
