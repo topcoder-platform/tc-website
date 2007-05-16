@@ -92,9 +92,15 @@ public class Settings extends ForumsProcessor {
             user.setProperty("ratingCollapseMinMessages", ratingCollapseMinMessages);
 
             user.setProperty("collapseRead", collapseRead);
-            user.setProperty("collapseReadDays", collapseReadDays);
-            user.setProperty("collapseReadPosts", collapseReadPosts);
-            user.setProperty("collapseReadShowReplied", collapseReadShowReplied);
+            if (collapseReadDays != null) {
+                user.setProperty("collapseReadDays", collapseReadDays);
+            }
+            if (collapseReadPosts != null) {
+                user.setProperty("collapseReadPosts", collapseReadPosts);
+            }
+            if (collapseReadShowReplied != null) {
+                user.setProperty("collapseReadShowReplied", collapseReadShowReplied);
+            }
             
             CronTimer current = forumFactory.getWatchManager().getBatchTimer(user);
             if (current == null && watchFrequency != UserSettingsAction.FREQUENCY_IMMEDIATELY) {
