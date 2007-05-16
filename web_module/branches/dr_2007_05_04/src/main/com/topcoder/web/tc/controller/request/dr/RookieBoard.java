@@ -108,7 +108,7 @@ public class RookieBoard extends BaseBoard {
     private int getContestForSeason(int seasonId, int phaseId) throws Exception {
         Request r = new Request();
         r.setContentHandle("dr_contests_for_season");
-        r.setProperty(Constants.STAGE_ID, seasonId + "");
+        r.setProperty(Constants.SEASON_ID, seasonId + "");
         r.setProperty(Constants.PHASE_ID, phaseId + "");
         
         DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME); 

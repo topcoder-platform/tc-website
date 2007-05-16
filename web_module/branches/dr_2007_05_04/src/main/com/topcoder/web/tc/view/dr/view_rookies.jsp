@@ -16,6 +16,8 @@
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+<c:set var="phaseName" value='${isDevelopment? "Development" : "Design" }' />
+<c:set var="context" value='${isDevelopment? "development" : "design" }' />
 
 
 <html>
@@ -82,17 +84,20 @@
 <div align="center">
 <div class="maxWidthBody">
 
-<% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
-<jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="digital_run_20061031"/>
-    <jsp:param name="title" value="Development Cup Series ROTY Leaderboard"/>
-</jsp:include>
-<% } else { %>
-<jsp:include page="/page_title.jsp">
-    <jsp:param name="image" value="digital_run_20061031"/>
-    <jsp:param name="title" value="Design Cup Series ROTY Leaderboard"/>
-</jsp:include>
-<% } %>
+    <c:choose>
+    	<c:when test="${isDevelopment}">
+			<jsp:include page="/page_title.jsp">
+			    <jsp:param name="image" value="digital_run_20061031"/>
+			    <jsp:param name="title" value="Development Cup Series ROTY Leaderboard"/>
+			</jsp:include>
+	    </c:when>
+	    <c:otherwise>
+			<jsp:include page="/page_title.jsp">
+			    <jsp:param name="image" value="digital_run_20061031"/>
+			    <jsp:param name="title" value="Design Cup Series ROTY Leaderboard"/>
+			</jsp:include>
+	    </c:otherwise>
+	</c:choose>
 
 
 <div class="fixedWidthBody">
@@ -102,14 +107,18 @@
     </div>
     <A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Cup Series Leaderboard</a><br>
     <A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
-    <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
-    <A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
-    Development Cup Series ROTY Leaderboard
-    <% } else { %>
-    Design Cup Series ROTY Leaderboard<br>
-    <A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
-    <% } %>
+    <c:choose>
+    	<c:when test="${isDevelopment}">
+			    <A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+			    Development Cup Series ROTY Leaderboard
+	    </c:when>
+	    <c:otherwise>
+			    Design Cup Series ROTY Leaderboard<br>
+			    <A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+	    </c:otherwise>
+	</c:choose>
 </div>
+
 
 <br><br>
 
@@ -121,17 +130,10 @@
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
 Please select a <strong>season</strong><br>
-<SELECT CLASS="dropdown" NAME="<%=Constants.SEASON_ID%>" onchange="changePeriod()">
-    <rsc:iterator list="<%=seasons%>" id="resultRow">
-        <% if (String.valueOf(resultRow.getLongItem("season_id")).equals(request.getParameter(Constants.SEASON_ID))) { %>
-        <OPTION value="<rsc:item name="season_id" row="<%=resultRow%>"/>" selected>
-            <rsc:item name="name" row="<%=resultRow%>"/></OPTION>
-        <% } else { %>
-        <OPTION value="<rsc:item name="season_id" row="<%=resultRow%>"/>">
-            <rsc:item name="name" row="<%=resultRow%>"/></OPTION>
-        <% } %>
-    </rsc:iterator>
-</SELECT>
+<tc-webtag:rscSelect name="<%=Constants.SEASON_ID%>" styleClass="dropdown" onChange="changePeriod()" 
+          list="${seasons}" fieldText="name" fieldValue="season_id" useTopValue="false" />
+
+
 <c:choose>
 <c:when test="${fn:length(results) > 0}">
 
@@ -159,11 +161,7 @@ Please select a <strong>season</strong><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td class="title" colspan="8">
-            <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
-            Development Cup Series Rookie of the Year Leaderboard
-            <% } else { %>
-            Design Cup Series Rookie of the Year Leaderboard
-            <% } %>
+             ${phaseName }  Cup Series Rookie of the Year Leaderboard
         </td>
     </tr>
     <tr>

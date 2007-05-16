@@ -235,7 +235,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
 		    	<A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.potentialPoints}</a>
 			</c:if>
 		</td>
-		<td class="valueR">${boardRow.totalPoints}</td>
+		<td class="valueR"><fmt:formatNumber value="${boardRow.totalPoints}" maxFractionDigits="2"/></td>
 	</tr>
 	</c:forEach>
 </table>
