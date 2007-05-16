@@ -148,8 +148,7 @@ public class Submit extends Base {
                 language = coder.getLanguageId(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME);
             }
 
-            List allowedLanguages = getLanguages(rid);
-            if (language > 0 && allowedLanguages.contains(BaseLanguage.getLanguage(language))) {
+            if (language > 0) {
                 setDefault(Constants.LANGUAGE_ID, String.valueOf(language));
                 getRequest().setAttribute(Constants.LANGUAGE_ID, String.valueOf(language));
             }
@@ -182,8 +181,8 @@ public class Submit extends Base {
             request.setAttribute(Constants.METHOD_NAME, methodNames);
             request.setAttribute(Constants.RETURN_TYPE, returnTypes);
             request.setAttribute(Constants.ARG_TYPES, paramTypes);
-
             request.setAttribute(Constants.CODE, code);
+            List allowedLanguages = getLanguages(rid);
             if (action == null) { // no action specified
                 // any code in session?
                 if (code == null) { // try and load the most recent code
@@ -208,9 +207,9 @@ public class Submit extends Base {
             } else if (action.equals("submit")) { // user is submiting code
 
                 // Language specified?
-                if (language <= 0) {
-                    log.debug("set message in request to please select a language");
-                    request.setAttribute(Constants.MESSAGE, "Please select a language.");
+                if (!allowedLanguages.contains(BaseLanguage.getLanguage(language))) {
+                    log.debug("set message in request to please select a valid language");
+                    request.setAttribute(Constants.MESSAGE, "Please select a valid language.");
                     request.setAttribute(Constants.LANGUAGES, allowedLanguages);
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
@@ -221,14 +220,7 @@ public class Submit extends Base {
                     setNextPage(Constants.SUBMISSION_JSP);
                     setIsNextPageInContext(true);
                     return;
-                } else if (!allowedLanguages.contains(BaseLanguage.getLanguage(language))) {
-                    request.setAttribute(Constants.MESSAGE, "Language not allowed.");
-                    request.setAttribute(Constants.LANGUAGES, allowedLanguages);
-                    setNextPage(Constants.SUBMISSION_JSP);
-                    setIsNextPageInContext(true);
-                    return;
                 }
-
 
                 ResultSetContainer lastExampleCompilation =
                         (ResultSetContainer) m.get("long_contest_recent_example_compilation");
