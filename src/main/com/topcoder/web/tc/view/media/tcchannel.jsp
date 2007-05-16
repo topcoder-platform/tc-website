@@ -57,7 +57,7 @@
                     </script>
                 </div>
 
-                <p>
+                <p style="margin-top: 40px;">
                     Comments? Ideas? Have a video clip you'd like to share? We want your feedback so drop us an email at <A href="mailto:tcchannel@topcoder.com">tcchannel@topcoder.com</A>.
                     If we use your suggestion or material we'll send you a limited edition TC Channel T-shirt.
                 </p>
