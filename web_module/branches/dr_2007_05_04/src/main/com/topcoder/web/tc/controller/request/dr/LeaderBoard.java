@@ -79,11 +79,12 @@ public class LeaderBoard extends BaseBoard {
             startRank = Integer.parseInt(startRankStr);
         }
 
+        int []ct = getContestsForStage(stageId, phase);
         
         Request r = new Request();
         r.setContentHandle("dr_results");
-        r.setProperty("ct", "252"); // fix!
-        r.setProperty("tpct", "254"); // fix!
+        r.setProperty("ct", ct[0] + ""); // fix!
+        r.setProperty("tpct", ct[1] + ""); // fix!
         DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); // change to cached
         Map m = dai.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) m.get("dr_results");
@@ -116,6 +117,34 @@ public class LeaderBoard extends BaseBoard {
         setNextPage("/dr/view_leaders_20075.jsp");
         setIsNextPageInContext(true);
         
+    }
+    
+    private int[] getContestsForStage(int stageId, int phaseId) throws Exception {
+        
+        Request r = new Request();
+        r.setContentHandle("dr_contests_for_stage");
+        r.setProperty(Constants.STAGE_ID, stageId + "");
+        r.setProperty(Constants.PHASE_ID, phaseId + "");
+        
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME); 
+        ResultSetContainer contests= dai.getData(r).get("dr_contests_for_stage");
+        
+        
+        
+        int []result = new int[2];
+        result[0] = -1;
+        result[1] = -1;
+        
+        for(ResultSetContainer.ResultSetRow row : contests) {
+            if (row.getIntItem("contest_type_id") == DR_STAGE_CONTEST_TYPE) result[0] = row.getIntItem("contest__id");
+            if (row.getIntItem("contest_type_id") == DR_TOP_PERFORMERS_CONTEST_TYPE) result[1] = row.getIntItem("contest_id");
+        }
+        
+        if (result[0] < 0) throw new Exception("Missing a contest type dr stage for stage id " + stageId + " phase " + phaseId);
+        if (result[1] < 0) throw new Exception("Missing a contest type top performers for stage id " + stageId + " phase " + phaseId);
+        
+        return result;
+
     }
     
     /**

@@ -60,6 +60,13 @@ public abstract class BaseBoard extends BaseProcessor {
     private static final String TOTAL_POINTS_COLUMN = "7";
 
     /**
+     * Constants for contest.contest_type_lu
+     */
+    public static final int DR_TOP_PERFORMERS_CONTEST_TYPE = 18;
+    public static final int DR_STAGE_CONTEST_TYPE = 19;
+    public static final int DR_ROOKIE_CONTEST_TYPE = 20;
+    
+    /**
      * The requested period
      *
      * @since 1.0.3
