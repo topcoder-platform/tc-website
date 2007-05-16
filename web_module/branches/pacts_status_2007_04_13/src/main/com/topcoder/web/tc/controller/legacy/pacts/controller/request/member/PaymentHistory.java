@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.member;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -145,7 +146,13 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             case DUE_DATE_COL:
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
-                        return ((BasePayment) arg0).getDueDate().compareTo(((BasePayment) arg1).getDueDate());
+                        Date date0 = ((BasePayment) arg0).getDueDate();
+                        Date date1 = ((BasePayment) arg1).getDueDate();
+                        if (date0 == null && date1 == null) return 0; 
+                        if (date0 == null && date1 != null) return -1; 
+                        if (date0 != null && date1 == null) return 1; 
+                        
+                        return date0.compareTo(date1);
                     }
                 });
                 break;
@@ -168,9 +175,15 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 });
                 break;
             case PAID_DATE_COL:
-                Collections.sort(result, new Comparator() {
+                Collections.sort(result, new Comparator() {                    
                     public int compare(Object arg0, Object arg1) {
-                        return ((BasePayment) arg0).getPaidDate().compareTo(((BasePayment) arg1).getPaidDate());
+                        Date date0 = ((BasePayment) arg0).getPaidDate();
+                        Date date1 = ((BasePayment) arg1).getPaidDate();
+                        if (date0 == null && date1 == null) return 0; 
+                        if (date0 == null && date1 != null) return -1; 
+                        if (date0 != null && date1 == null) return 1; 
+                        
+                        return date0.compareTo(date1);
                     }
                 });
                 break;
