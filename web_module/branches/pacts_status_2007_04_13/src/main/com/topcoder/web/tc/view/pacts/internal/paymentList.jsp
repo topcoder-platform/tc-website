@@ -114,17 +114,12 @@ ${fn:length(paymentList)} records. <br />
 			<c:set var="composed" value="false" />	
 			<c:set var="mark" value="" />
 			<c:if test="${not empty reliabilityMap[payment.id]}"> 	
-				<c:set var="composed" value="true" />			
-				<c:set var="mark" value="*" />
+				<c:set var="composed" value="true" />
+                <c:set var="mark" value="*" />
 			</c:if>
 		<c:set var="totalNet" value="${totalNet + payment.recentNetAmount}" />
 		<tr>
 		<td> 
-            empty: ${empty checked_payments}  
-            <c:if test="${not empty checked_payments}">   
-                contains: ${cf:contains(checked_payments, payment.id)}
-            </c:if>
-            paymentId: ${payment.id}
             <c:choose>
 				<c:when test="${composed}">
                     <c:choose>
@@ -132,7 +127,7 @@ ${fn:length(paymentList)} records. <br />
 					   <input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}" checked></c:when>
                     <c:otherwise>
 					   <input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}"></c:otherwise>
-                    </c:choose>                       
+                    </c:choose>
                 </c:when>
 				<c:otherwise>
                     <c:choose>

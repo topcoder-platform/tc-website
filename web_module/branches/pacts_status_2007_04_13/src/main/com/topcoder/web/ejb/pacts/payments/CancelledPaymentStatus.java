@@ -6,7 +6,7 @@
 package com.topcoder.web.ejb.pacts.payments;
 
 import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -41,12 +41,23 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
     
     @Override
     public void expiredAffidavit(BasePayment payment) {
-        reasons.add(AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason());
+        if (!reasons.contains(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason())) {
+            reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
+        }
     }
     
     @Override
     public void expiredIPTransfer(BasePayment payment) {
-        reasons.add(AvailableStatusReason.EXPIRED_IP_TRANSFER_REASON.getStatusReason());
+        if (!reasons.contains(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason())) {
+            reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
+        }
+    }
+
+    @Override
+    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+        if (!reasons.contains(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason())) {
+            reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
+        }
     }
 
     @Override

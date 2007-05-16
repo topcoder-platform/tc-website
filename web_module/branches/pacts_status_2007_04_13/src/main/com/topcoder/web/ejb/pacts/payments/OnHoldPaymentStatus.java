@@ -125,6 +125,19 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
+    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+        log.debug("moving to cancelled (account status)!");
+        BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS);
+        newStatus.reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
+        payment.setCurrentStatus(newStatus);
+        try {
+            payment.getCurrentStatus().activate(payment);
+        } catch (Exception e) {
+            // do nothing
+        }
+    }
+
+    @Override
     public void expiredIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
         try {

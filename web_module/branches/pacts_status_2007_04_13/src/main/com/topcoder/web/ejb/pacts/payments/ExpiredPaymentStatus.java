@@ -6,6 +6,8 @@
 package com.topcoder.web.ejb.pacts.payments;
 
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -48,6 +50,12 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
         // since this is a system managed status, it's always valid
         return true;
     }
+
+    @Override
+    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+        // do nothing
+    }
+
 
     @Override
     public void nextState(BasePayment payment) {

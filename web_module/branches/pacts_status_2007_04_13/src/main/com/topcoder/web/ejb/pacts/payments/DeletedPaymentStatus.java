@@ -54,6 +54,11 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
     }
     
     @Override
+    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+        // do nothing
+    }
+
+    @Override
     public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new DeletedPaymentStatus();
         return newPaymentStatus;  

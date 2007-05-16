@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.ejb.EJBException;
-import javax.jms.JMSException;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
@@ -6060,9 +6059,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     paymentId = payments.getLongItem(i, 0);
                     psm.expiredPayment(paymentId);
                 } catch (StateTransitionFailureException e) {
-                    // TODO: pulky: change to a better message from the exception
-                    log.warn("Payment ID " + paymentId + " would have been expired\n" +
-                            "but has already been paid");
+                    log.warn("Payment ID " + paymentId + " expiration could not be completed due to\n" +
+                            e.getMessage());
                 }
             }
 
@@ -6125,14 +6123,59 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     paymentId = payments.getLongItem(i, 0);
                     psm.expiredAffidavit(paymentId);
                 } catch (StateTransitionFailureException e) {
-                    // TODO: pulky: change to a better message from the exception
-                    log.warn("Payment ID " + paymentId + " would have been canceled due to expired affidavit\n" +
-                            "but has already been paid");
+                    log.warn("Payment ID " + paymentId + " cancellation (expired Affidavit) could not be completed due to\n" +
+                            e.getMessage());
                 }
             }
 
             c.commit();
             return rowsUpdated;
+        } catch (Exception e) {
+            printException(e);
+            try {
+                c.rollback();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            throw new SQLException(e.getMessage());
+        } finally {
+            restoreAutoCommit(c);
+            close(c);
+        }
+    }
+
+
+    /**
+     */
+    public int checkInactiveCoders() throws SQLException {
+        Connection c = null;
+
+        try {
+            c = DBMS.getConnection();
+            c.setAutoCommit(false);
+            setLockTimeout(c);
+
+            StringBuffer getHoldPayments = new StringBuffer(300);
+            getHoldPayments.append("SELECT u.user_id ");
+            getHoldPayments.append("FROM user u ");
+            getHoldPayments.append("WHERE u.status != '" + ACTIVE_CODER_STATUS + "' ");
+            ResultSetContainer payments = runSelectQuery(c, getHoldPayments.toString(), false);
+
+            // notify payments
+            PaymentStatusMediator psm = new PaymentStatusMediator(c);
+            long paymentId = 0;
+            for (int i = 0; i < payments.getRowCount(); i++) {
+                try {
+                    paymentId = payments.getLongItem(i, 0);
+                    psm.inactiveCoder(paymentId);
+                } catch (StateTransitionFailureException e) {
+                    log.warn("Payment ID " + paymentId + " cancellation (account status) could not be completed due to\n" +
+                            e.getMessage());
+                }
+            }
+
+            c.commit();
+            return payments.size();
         } catch (Exception e) {
             printException(e);
             try {
@@ -6190,9 +6233,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     paymentId = payments.getLongItem(i, 0);
                     psm.expiredIPTransfer(paymentId);
                 } catch (StateTransitionFailureException e) {
-                    // TODO: pulky: change to a better message from the exception
-                    log.warn("Payment ID " + paymentId + " would have been canceled due to expired IP Transfer Document\n" +
-                            "but has already been paid");
+                    log.warn("Payment ID " + paymentId + " cancellation (expired IPTransfer) could not be completed due to\n" +
+                            e.getMessage());
                 }
             }
 

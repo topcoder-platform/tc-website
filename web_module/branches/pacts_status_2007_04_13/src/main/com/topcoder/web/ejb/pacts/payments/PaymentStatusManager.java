@@ -73,4 +73,9 @@ public class PaymentStatusManager {
         log.debug("expiredPayment called for payment: " + payment.getId());
         payment.getCurrentStatus().expiredPayment(payment);
     }
+
+    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException  {
+        log.debug("inactiveCoder called for payment: " + payment.getId());
+        payment.getCurrentStatus().inactiveCoder(payment);
+    }
 }

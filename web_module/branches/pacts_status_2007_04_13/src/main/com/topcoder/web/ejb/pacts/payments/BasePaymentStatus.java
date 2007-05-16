@@ -46,6 +46,10 @@ public abstract class BasePaymentStatus {
         throw new InvalidStateTransitionException();
     }
 
+    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException();
+    }
+
     public void expiredIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
         throw new InvalidStateTransitionException();
     }

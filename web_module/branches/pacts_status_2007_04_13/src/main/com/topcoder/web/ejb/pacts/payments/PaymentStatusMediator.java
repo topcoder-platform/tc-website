@@ -260,6 +260,24 @@ public class PaymentStatusMediator {
         }
     }
 
+    public void inactiveCoder(Long coderId) throws StateTransitionFailureException {
+        log.debug("inactiveCoder called for coderId: " + coderId);
+        try {
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.USER_ID, coderId.toString());
+
+            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+
+            for (BasePayment payment : payments) {
+                // notify the status manager and update the payment
+                statusManager.inactiveCoder(payment);
+                dib.updatePayment(conn, payment);
+            }
+        } catch (Exception e) {
+            throw new StateTransitionFailureException(e);
+        }
+    }
+
     private void setLockTimeout(Connection c) throws SQLException {
         PreparedStatement ps = null;
         try {

@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.InvalidStateTransitionException;

@@ -8,6 +8,7 @@ package com.topcoder.web.ejb.pacts.payments;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -40,6 +41,19 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     @Override
     public Long getId() {
         return ID;
+    }
+
+    @Override
+    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+        log.debug("moving to cancelled (account status)!");
+        BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS);
+        newStatus.reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
+        payment.setCurrentStatus(newStatus);
+        try {
+            payment.getCurrentStatus().activate(payment);
+        } catch (Exception e) {
+            // do nothing
+        }
     }
 
     @Override
