@@ -139,6 +139,8 @@
 
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=pressroom&d2=index", "Press Room", "press_room"));
 
+   nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&d1=media&d2=tcchannel", "TC Channel", "tc_channel"));
+
    nav.addRoot(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?&module=SurveyList", "Surveys", "competitor_surveys"));
 
    nav.addRoot(new NavNode("javascript:void(0)", "Javascript:toggleMenu(this.parentNode,'m_my_tc')", "My TopCoder", "m_my_tc"));
