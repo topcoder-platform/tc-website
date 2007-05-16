@@ -39,7 +39,6 @@ public class Settings extends ForumsProcessor {
             int messagesPerPage = Integer.parseInt(getRequest().getParameter("messagesPerPage"));
             int messagesPerHistoryPage = Integer.parseInt(getRequest().getParameter("messagesPerHistoryPage"));
             int resultsPerSearchPage = Integer.parseInt(getRequest().getParameter("resultsPerSearchPage"));
-            int categoryResultsPerSearchPage = Integer.parseInt(getRequest().getParameter("categoryResultsPerSearchPage"));
             String threadMode = getRequest().getParameter("threadMode");
             String flatMode = getRequest().getParameter("flatMode");
             String showPrevNextThreads = getRequest().getParameter("showPrevNextThreads");
@@ -69,7 +68,11 @@ public class Settings extends ForumsProcessor {
             checkMax(messagesPerPage, ForumConstants.maxMessagesPerPage, "jiveMessageRange", ForumConstants.ERR_MESSAGE_RANGE_EXCEEDED);
             checkMax(messagesPerHistoryPage, ForumConstants.maxMessagesPerPage, "jiveHistoryRange", ForumConstants.ERR_MESSAGE_HISTORY_RANGE_EXCEEDED);
             checkMax(resultsPerSearchPage, ForumConstants.maxSearchResultsPerPage, "jiveSearchRange", ForumConstants.ERR_SEARCH_RANGE_EXCEEDED);
-            checkMax(categoryResultsPerSearchPage, ForumConstants.maxSearchCategoryResultsPerPage, "jiveSearchCategoryRange", ForumConstants.ERR_SEARCH_RANGE_EXCEEDED);
+            
+            if (getRequest().getParameter("categoryResultsPerSearchPage") != null) {
+                int categoryResultsPerSearchPage = Integer.parseInt(getRequest().getParameter("categoryResultsPerSearchPage"));
+                checkMax(categoryResultsPerSearchPage, ForumConstants.maxSearchCategoryResultsPerPage, "jiveSearchCategoryRange", ForumConstants.ERR_SEARCH_RANGE_EXCEEDED);
+            }
             
             if (hasErrors()) {
                 status = "error";
