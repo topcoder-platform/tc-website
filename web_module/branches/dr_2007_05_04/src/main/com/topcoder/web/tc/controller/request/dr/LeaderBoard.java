@@ -4,6 +4,12 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
@@ -16,11 +22,6 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
 
 /**
  * <strong>Purpose</strong>:
@@ -46,7 +47,7 @@ public class LeaderBoard extends BaseBoard {
         r.setContentHandle("dr_results");
         r.setProperty("ct", "252"); // fix!
         r.setProperty("tpct", "254"); // fix!
-        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME);
+        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); // change to cached
         Map m = dai.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) m.get("dr_results");
         
