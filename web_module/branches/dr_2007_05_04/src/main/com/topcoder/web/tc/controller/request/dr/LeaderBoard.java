@@ -136,7 +136,7 @@ public class LeaderBoard extends BaseBoard {
         result[1] = -1;
         
         for(ResultSetContainer.ResultSetRow row : contests) {
-            if (row.getIntItem("contest_type_id") == DR_STAGE_CONTEST_TYPE) result[0] = row.getIntItem("contest__id");
+            if (row.getIntItem("contest_type_id") == DR_STAGE_CONTEST_TYPE) result[0] = row.getIntItem("contest_id");
             if (row.getIntItem("contest_type_id") == DR_TOP_PERFORMERS_CONTEST_TYPE) result[1] = row.getIntItem("contest_id");
         }
         
