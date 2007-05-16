@@ -12,6 +12,7 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
@@ -102,6 +103,16 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute(PAYMENTS, payments);
             getRequest().setAttribute(CODER, getUser().getId() + "");
         	getRequest().setAttribute(FULL_LIST, Boolean.valueOf(fullList));
+            
+            SortInfo s = new SortInfo();
+            s.addDefault(DESCRIPTION_COL, "asc");
+            s.addDefault(TYPE_COL, "asc");
+            s.addDefault(DUE_DATE_COL, "desc");
+            s.addDefault(NET_PAYMENT_COL, "desc");
+            s.addDefault(STATUS_COL, "asc");
+            s.addDefault(PAID_DATE_COL, "desc");
+            getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
+            
             setNextPage(PactsConstants.PAYMENT_HISTORY_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {
