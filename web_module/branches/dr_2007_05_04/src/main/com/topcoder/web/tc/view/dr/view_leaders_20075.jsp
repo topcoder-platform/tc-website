@@ -30,15 +30,15 @@
 
         <% boolean even = false;%>
         <% int i = 0;%>
-    <c:forEach items="${results}" var="boardRow">
-    <tr class="<%=even?"dark":"light"%>">
+    <c:forEach items="${results}" var="boardRow" varStatus="status">
+    <tr class='${status.index % 2 == 1? "even" : "odd" }'>
         <td class="valueC">${boardRow.rank}</td>
         <td class="value" style="border-right: 1px solid #999999;">
             <tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/></td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
                 <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top Five</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>a')" onmouseout="popHide()" /></div>
+                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }a')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
@@ -58,29 +58,30 @@
             <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a>
             </c:if>
         </td>
-</c:if></td>
-<td class="valueR"><c:if test="${boardRow.placementPrize>0}">
-    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
-</c:if></td>
-<td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
-    <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
-</c:if></td>
-<td class="valueR" style="border-right: 1px solid #999999;">
-    <c:if test="${boardRow.totalPrize>0}">
-        <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
-    </c:if>
-    <c:if test="${boardRow.totalPrize==0}">
-        &#160;
-    </c:if>
-</td>
-<td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
-    <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
-</c:if></td>
-<td class="valueR">${boardRow.totalPoints}</td>
-</tr>
+		<td class="valueR"><c:if test="${boardRow.placementPrize>0}">
+		    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
+		</c:if></td>
+		<td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
+		    <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
+		</c:if></td>
+		<td class="valueR" style="border-right: 1px solid #999999;">
+		    <c:if test="${boardRow.totalPrize>0}">
+		        <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
+		    </c:if>
+		    <c:if test="${boardRow.totalPrize==0}">
+		        &#160;
+		    </c:if>
+		</td>
+		<td class="valueR">
+			<c:if test="${boardRow.potentialPoints>0}">
+		    	<A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.potentialPoints}</a>
+			</c:if>
+		</td>
+		<td class="valueR">${boardRow.totalPoints}</td>
+	</tr>
 <%i++;%>
 <%even = !even;%>
-</c:forEach>
+	</c:forEach>
 </table>
 
 

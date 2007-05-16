@@ -194,7 +194,7 @@ public abstract class BaseBoard extends BaseProcessor {
         if (sortCol.equals(OUTSTANDING_POINTS_COLUMN)) {
             Collections.sort(boardResult, new Comparator() {
                 public int compare(Object arg0, Object arg1) {
-                    return new Long(((IBoardRow) arg0).getOutstandingPoints()).compareTo(new Long(((IBoardRow) arg1).getOutstandingPoints()));
+                    return new Double(((IBoardRow) arg0).getPotentialPoints()).compareTo(new Double(((IBoardRow) arg1).getPotentialPoints()));
                 }
             });
             if (invert) {
@@ -204,7 +204,7 @@ public abstract class BaseBoard extends BaseProcessor {
         if (sortCol.equals(TOTAL_POINTS_COLUMN)) {
             Collections.sort(boardResult, new Comparator() {
                 public int compare(Object arg0, Object arg1) {
-                    return new Long(((IBoardRow) arg0).getTotalPoints()).compareTo(new Long(((IBoardRow) arg1).getTotalPoints()));
+                    return new Double(((IBoardRow) arg0).getTotalPoints()).compareTo(new Double(((IBoardRow) arg1).getTotalPoints()));
                 }
             });
             if (invert) {
