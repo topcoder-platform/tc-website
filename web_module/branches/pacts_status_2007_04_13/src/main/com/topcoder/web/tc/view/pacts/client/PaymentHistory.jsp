@@ -129,18 +129,14 @@
             <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr"/>" >Status</a></td>
             <td class="headerC">
                 <c:if test="${fullList}" >
-                    <b><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true" excludeParams="sr"/>" >Date Paid</a>       
+                    <b><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" excludeParams="sr"/>" >Date Paid</a>       
                 </c:if>&nbsp;
             </td>
         </tr>
         
         <c:forEach items="${payments}" var="payment">
         
-    	<c:set var="typeId" value="${payments.paymentTypeId}" />
-    <%-- 	<c:set var="algorithmRoundId" value="<%= resultRow.getStringItem("algorithm_round_id") %>" />
-    	<c:set var="componentProjectId" value="<%= resultRow.getStringItem("component_project_id") %>" />
-    	<c:set var="digitalRunStageId" value="<%= resultRow.getStringItem("digital_run_stage_id") %>" />
-    	<c:set var="digitalRunSeasonId" value="<%= resultRow.getStringItem("digital_run_season_id") %>" />			--%>
+    	<c:set var="typeId" value="${payment.paymentType}" />
     	<c:choose>
     <c:when test="${typeId == 4}"><!-- coder referral --></c:when>
     <c:otherwise>
@@ -154,12 +150,11 @@
                     <c:when test="${(typeId == 6 || typeId == 7) && payment.projectId > 0}">
                         <A href="/tc?module=CompContestDetails&pj=${payment.projectId}" class="bcLink">${payment.description}
                         <c:if test="${payment.grossAmount != payment.totalAmount}">
-                            (${payment.installmentNumber}
                             <c:choose>
-                                <c:when test="${payment.installmentNumber == 1}">st</c:when>
-                                <c:when test="${payment.installmentNumber == 2}">nd</c:when>
-                                <c:when test="${payment.installmentNumber == 3}">rd</c:when>
-                                <c:otherwise>th</c:otherwise>
+                                <c:when test="${payment.installmentNumber == 1}">(${payment.installmentNumber}st</c:when>
+                                <c:when test="${payment.installmentNumber == 2}">(${payment.installmentNumber}nd</c:when>
+                                <c:when test="${payment.installmentNumber == 3}">(${payment.installmentNumber}rd</c:when>
+                                <c:otherwise>(${payment.installmentNumber}th</c:otherwise>
                             </c:choose>
                             installment, total amount=${payment.totalAmount})                    
                         </c:if>
@@ -181,14 +176,13 @@
             
             
             </td>
-            <td class="value">${payment.typeId}</td>
+            <td class="value">${payment.paymentTypeDesc}</td>
             <td class="valueC"><fmt:formatDate value="${payment.dueDate}" pattern="MM/dd/yyyy"/></td>
             <td class="valueR"><fmt:formatNumber value="${payment.netAmount}" type="currency" currencySymbol="$"/></td>
             <td class="valueC">${payment.currentStatus.desc}</td>
             <td class="valueC">
                 <c:if test="${fullList}" >
-                    TODO
-    <%--                 <b><fmt:formatDate value="${payment.dueDate}" pattern="MM/dd/yyyy"/></b> --%>
+                     <b><fmt:formatDate value="${payment.paidDate}" pattern="MM/dd/yyyy"/></b>
                 </c:if>&nbsp;
             </td>
          </tr>

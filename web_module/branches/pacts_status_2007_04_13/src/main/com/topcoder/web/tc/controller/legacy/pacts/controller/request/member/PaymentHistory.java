@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -33,6 +32,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
     private static final int DUE_DATE_COL = 3;
     private static final int NET_PAYMENT_COL = 4;
     private static final int STATUS_COL = 5;
+    private static final int PAID_DATE_COL = 6;
 	
     protected void businessProcessing() throws TCWebException {
         try {
@@ -63,7 +63,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
 
             
             DataInterfaceBean dib = new DataInterfaceBean();
-            ResultSetContainer rsc = new ResultSetContainer(dib.getPaymentHistory(getUser().getId(), !fullList, sortCol, sortAscending), Integer.parseInt(startRank), Integer.parseInt(endRank));
+//            ResultSetContainer rsc = new ResultSetContainer(dib.getPaymentHistory(getUser().getId(), !fullList, sortCol, sortAscending), Integer.parseInt(startRank), Integer.parseInt(endRank));
             
             Map criteria = new HashMap();
             criteria.put(PactsConstants.USER_ID, String.valueOf(getUser().getId()));
@@ -96,7 +96,7 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             payments = cropResult(payments, Integer.parseInt(startRank), Integer.parseInt(endRank));
             
             setDefault(DataAccessConstants.SORT_COLUMN, sortCol + "");
-            setDefault(DataAccessConstants.SORT_DIRECTION, sortAscending + "");
+            setDefault(DataAccessConstants.SORT_DIRECTION, getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
             
             getRequest().setAttribute(PAYMENTS, payments);
             getRequest().setAttribute(CODER, getUser().getId() + "");
@@ -136,12 +136,11 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 });
                 break;
             case TYPE_COL:
-                // TODO: pulky: change for the type's description.
-//                Collections.sort(result, new Comparator() {
-//                    public int compare(Object arg0, Object arg1) {
-//                        return ((BasePayment) arg0).getPaymentType().compareTo(((BasePayment) arg1).getPaymentType());
-//                    }
-//                });
+                Collections.sort(result, new Comparator() {
+                    public int compare(Object arg0, Object arg1) {
+                        return ((BasePayment) arg0).getPaymentTypeDesc().compareTo(((BasePayment) arg1).getPaymentTypeDesc());
+                    }
+                });
                 break;
             case DUE_DATE_COL:
                 Collections.sort(result, new Comparator() {
@@ -165,6 +164,13 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
                 Collections.sort(result, new Comparator() {
                     public int compare(Object arg0, Object arg1) {
                         return ((BasePayment) arg0).getCurrentStatus().getDesc().compareTo(((BasePayment) arg1).getCurrentStatus().getDesc());
+                    }
+                });
+                break;
+            case PAID_DATE_COL:
+                Collections.sort(result, new Comparator() {
+                    public int compare(Object arg0, Object arg1) {
+                        return ((BasePayment) arg0).getPaidDate().compareTo(((BasePayment) arg1).getPaidDate());
                     }
                 });
                 break;

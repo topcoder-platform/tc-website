@@ -7185,7 +7185,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private StringBuffer getCoderPaymentsSelect() {
         StringBuffer sb = new StringBuffer(100);
         sb.append(" SELECT p.payment_id, p.user_id, pd.payment_desc, pd.payment_type_id, ");
-        sb.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, pd.date_paid ");
+        sb.append("    pd.gross_amount, pd.net_amount, pd.status_id, s.status_desc, pd.date_due, pd.date_paid, ");
         sb.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         sb.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
         sb.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.client, ");
