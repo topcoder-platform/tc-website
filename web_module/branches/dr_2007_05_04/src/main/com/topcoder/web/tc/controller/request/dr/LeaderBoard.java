@@ -20,6 +20,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
 
@@ -38,11 +39,21 @@ public class LeaderBoard extends BaseBoard {
     private static final Logger log = Logger.getLogger(LeaderBoard.class);
 
     protected void leaderBoard2007dot5() throws Exception {
+        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
+                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
+            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
+        }
+
+
+        int stage = Integer.parseInt(hasParameter(Constants.STAGE_ID) ? getRequest().getParameter(Constants.STAGE_ID) : getCurrentPeriod(Constants.STAGE_ID));
+        setDefault(Constants.STAGE_ID, stage);
+
+        int phase = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
+        setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
         
-        // TODO find the contest
-        int stage=1;
-        int phase = 112;
-        
+        boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
         Request r = new Request();
         r.setContentHandle("dr_results");
         r.setProperty("ct", "252"); // fix!
@@ -52,6 +63,7 @@ public class LeaderBoard extends BaseBoard {
         ResultSetContainer rsc = (ResultSetContainer) m.get("dr_results");
         
         List<LeaderBoardRow> results = new ArrayList<LeaderBoardRow>();
+        
         for (ResultSetContainer.ResultSetRow row : rsc) {
             LeaderBoardRow lbr = new LeaderBoardRow(stage, phase, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
                      row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
@@ -61,9 +73,11 @@ public class LeaderBoard extends BaseBoard {
             results.add(lbr);
             
         }
+        sortResult(results, sortCol, invert);
+
         getRequest().setAttribute("results", results);
         getRequest().setAttribute("isDesign", phase == 112);
-        getRequest().setAttribute("isDevelopment", phase == 112);
+        getRequest().setAttribute("isDevelopment", phase == 113);
         setNextPage("/dr/view_leaders_20075.jsp");
         setIsNextPageInContext(true);
         
@@ -104,8 +118,8 @@ if (!"1".equals(getRequest().getParameter("force20075"))) return;
                 "dr_leader_tie_break_placement", "dr_leader_tie_break_score", Constants.STAGE_ID);
 
         // sort
-        sortResult(leaderBoardResult, invert);
-
+ //       String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+ 
         // crop
         List resultBoard = cropResult(leaderBoardResult);
 

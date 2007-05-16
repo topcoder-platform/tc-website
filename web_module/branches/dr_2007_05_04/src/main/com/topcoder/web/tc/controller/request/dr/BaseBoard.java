@@ -174,12 +174,11 @@ public abstract class BaseBoard extends BaseProcessor {
      * @param invert      true if the order is descending.
      * @return the sorted list.
      */
-    protected void sortResult(List boardResult, boolean invert) {
+    protected void sortResult(List<? extends IBoardRow> boardResult, String sortCol, boolean invert) {
         if (boardResult.size() == 0) {
             return;
         }
 
-        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         // all other columns are already sorted (rank)
         if (sortCol.equals(CODER_HANDLE_COLUMN)) {
             Collections.sort(boardResult, new Comparator() {
