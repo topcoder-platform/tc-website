@@ -82,7 +82,7 @@ SELCT STAGE HERE
 
 
 <c:choose>
-<c:when test="${fn:length(boardList) > 0}">
+<c:when test="${fn:length(results) > 0}">
 
 <div class="pagingBox" style="width:300px;">
     <c:choose>
