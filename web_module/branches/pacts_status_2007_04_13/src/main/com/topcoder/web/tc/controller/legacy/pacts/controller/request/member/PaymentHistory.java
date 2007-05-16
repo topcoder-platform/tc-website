@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.member;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -69,20 +70,24 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
 
             List<BasePayment> payments = dib.findCoderPayments(criteria);
             
+            List<BasePayment> removePayments = new ArrayList<BasePayment>();
+
             for (BasePayment payment : payments) {
                 if (payment.getPaymentType() == 3 || payment.getPaymentType() == 5) {
-                    payments.remove(payment);
+                    removePayments.add(payment);
                 } else {
                     if (!fullList) {
                         if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS)) ||
                             payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS)) ||
                             payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS)) ||
                             payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS))) {
-                            payments.remove(payment);
+                            removePayments.add(payment);
                         }
                     }
                 }
             }
+            
+            payments.removeAll(removePayments);
             
             // sort the result in the first place
             sortResult(payments, sortCol, sortAscending);
