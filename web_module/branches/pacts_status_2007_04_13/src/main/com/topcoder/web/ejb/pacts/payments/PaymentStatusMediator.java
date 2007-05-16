@@ -5,6 +5,7 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -113,6 +114,11 @@ public class PaymentStatusMediator {
             for (BasePayment payment : payments) {
                 statusManager.newTaxForm(payment);
                 dib.updatePayment(conn, payment);
+                
+                // if the payment changed its status, notify the possible childrens
+                if (!payment.getCurrentStatus().equals(this)) {
+                    notifyChildPayments("new", payment);
+                }
             }            
         } catch (Exception e) {
             throw new EventFailureException(e);
@@ -135,6 +141,11 @@ public class PaymentStatusMediator {
             for (BasePayment payment : payments) {
                 statusManager.hardCopyIPTransfer(payment);
                 dib.updatePayment(conn, payment);
+
+                // if the payment changed its status, notify the possible childrens
+                if (!payment.getCurrentStatus().equals(this)) {
+                    notifyChildPayments("new", payment);
+                }
             }            
         } catch (Exception e) {
             throw new EventFailureException(e);
@@ -158,6 +169,11 @@ public class PaymentStatusMediator {
             BasePayment payment = payments.get(0);
             statusManager.affirmedAffidavit(payment);
             dib.updatePayment(conn, payment);
+
+            // if the payment changed its status, notify the possible childrens
+            if (!payment.getCurrentStatus().equals(this)) {
+                notifyChildPayments("new", payment);
+            }
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
         }
@@ -182,11 +198,16 @@ public class PaymentStatusMediator {
             if (payments.size() != 1) {
                 log.debug("not exactly one result");
             }
-            
+
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
             statusManager.affirmedIPTransfer(payment);
             dib.updatePayment(conn, payment);
+
+            // if the payment changed its status, notify the possible childrens
+            if (!payment.getCurrentStatus().equals(this)) {
+                notifyChildPayments("new", payment);
+            }
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
         }
@@ -209,6 +230,11 @@ public class PaymentStatusMediator {
             BasePayment payment = payments.get(0);
             statusManager.expiredAffidavit(payment);
             dib.updatePayment(conn, payment);
+
+            // if the payment was cancelled, notify the possible childrens
+            if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
+                notifyChildPayments("cancel", payment);
+            }
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
         }
@@ -232,6 +258,11 @@ public class PaymentStatusMediator {
             BasePayment payment = payments.get(0);
             statusManager.expiredIPTransfer(payment);
             dib.updatePayment(conn, payment);
+
+            // if the payment was cancelled, notify the possible childrens
+            if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
+                notifyChildPayments("cancel", payment);
+            }
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
         }
@@ -255,6 +286,11 @@ public class PaymentStatusMediator {
             BasePayment payment = payments.get(0);
             statusManager.expiredPayment(payment);
             dib.updatePayment(conn, payment);
+
+            // if the payment was expired, notify the possible childrens
+            if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS))) {
+                notifyChildPayments("cancel", payment);
+            }
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
         }
@@ -272,6 +308,11 @@ public class PaymentStatusMediator {
                 // notify the status manager and update the payment
                 statusManager.inactiveCoder(payment);
                 dib.updatePayment(conn, payment);
+
+                // if the payment was cancelled, notify the possible childrens
+                if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
+                    notifyChildPayments("cancel", payment);
+                }
             }
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
@@ -315,4 +356,19 @@ public class PaymentStatusMediator {
         }
     }
 
+    private void notifyChildPayments(String notifType, BasePayment payment) throws RemoteException, Exception {
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.PARENT_PAYMENT_ID, String.valueOf(payment.getId()));
+   
+            List<BasePayment> childPayments = dib.findCoderPayments(conn, criteria);
+            for (BasePayment childPayment : childPayments) {
+                if ("new".equals(notifType)) {
+                statusManager.newPayment(childPayment);
+            }
+            if ("cancel".equals(notifType)) {
+                statusManager.parentCancelled(childPayment);
+            }
+            dib.updatePayment(conn, childPayment);
+        }                
+    }
 }

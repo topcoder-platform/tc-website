@@ -21,8 +21,15 @@ public abstract class BasePaymentStatus {
         super();
     }
     
-//    @Override
-//    public abstract BasePaymentStatus clone();
+    public BasePaymentStatus clone() {
+        BasePaymentStatus newPaymentStatus = newInstance();
+        
+        for (PaymentStatusReason reason : reasons) {
+            newPaymentStatus.reasons.add(reason);
+        }
+        
+        return newPaymentStatus;  
+    }
     
     public abstract BasePaymentStatus newInstance();
 
@@ -55,6 +62,10 @@ public abstract class BasePaymentStatus {
     }
 
     public void expiredPayment(BasePayment payment) throws InvalidStateTransitionException {
+        throw new InvalidStateTransitionException();
+    }
+
+    public void parentCancelled(BasePayment payment) throws InvalidStateTransitionException {
         throw new InvalidStateTransitionException();
     }
 

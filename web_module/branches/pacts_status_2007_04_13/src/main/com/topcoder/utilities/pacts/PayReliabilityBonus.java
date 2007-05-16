@@ -13,6 +13,7 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.ejb.pacts.ReliabilityBonusPayment;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
@@ -73,6 +74,8 @@ public class PayReliabilityBonus extends DBUtility {
             if (onlyAnalyze.equalsIgnoreCase("false")) {
             	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, paymentId);
             	bp.setNetAmount(bonusAmount);
+
+                new PaymentStatusMediator().newPayment(bp);
 
             	BasePayment p = ejb.addPayment(bp);
             }

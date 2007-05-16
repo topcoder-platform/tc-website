@@ -47,6 +47,7 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.ejb.pacts.payments.StateTransitionFailureException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -3712,51 +3713,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             fillPaymentNetAmount(c, p);
 
-            // If the user is creating the payment with Ready to Print status, we need
-            // to create the payment_address entry
-//            if (p.getStatusId() == READY_TO_PRINT_STATUS) {
-//                StringBuffer selectAddress = new StringBuffer(300);
-//                selectAddress.append("SELECT a.country_code, a.zip, a.state_code, a.city, ");
-//                selectAddress.append("a.address1, a.address2, a.address3, a.province, u.first_name, u.middle_name, ");
-//                selectAddress.append("u.last_name, state.state_name, country.country_name ");
-//                selectAddress.append("FROM user u, address a, user_address_xref x, OUTER state, OUTER country ");
-//                selectAddress.append("WHERE u.user_id = " + p.getHeader().getUser().getId() + " ");
-//                selectAddress.append("AND state.state_code = a.state_code ");
-//                selectAddress.append("AND country.country_code = a.country_code ");
-//                selectAddress.append("and u.user_id = x.user_id ");
-//                selectAddress.append("and x.address_id = a.address_id ");
-//                selectAddress.append("and a.address_type_id = 2 ");
-//
-//                ResultSetContainer rsc = runSelectQuery(c, selectAddress.toString(), false);
-//                if (rsc.getRowCount() == 0)
-//                    throw new NoObjectFoundException("Coder " + p.getHeader().getUser().getId() + " not found in database");
-//
-//                paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
-//
-//                StringBuffer addAddress = new StringBuffer(300);
-//                addAddress.append("INSERT INTO payment_address ");
-//                addAddress.append(" (payment_address_id, first_name, middle_name, last_name, ");
-//                addAddress.append("  address1, address2, city, state_code, zip, country_code, address3, province) ");
-//                addAddress.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
-//                ps = c.prepareStatement(addAddress.toString());
-//                ps.setLong(1, paymentAddressId);
-//                ps.setString(2, (String) rsc.getItem(0, "first_name").getResultData());
-//                ps.setString(3, (String) rsc.getItem(0, "middle_name").getResultData());
-//                ps.setString(4, (String) rsc.getItem(0, "last_name").getResultData());
-//                ps.setString(5, (String) rsc.getItem(0, "address1").getResultData());
-//                ps.setString(6, (String) rsc.getItem(0, "address2").getResultData());
-//                ps.setString(7, (String) rsc.getItem(0, "city").getResultData());
-//                ps.setString(8, (String) rsc.getItem(0, "state_code").getResultData());
-//                ps.setString(9, (String) rsc.getItem(0, "zip").getResultData());
-//                ps.setString(10, (String) rsc.getItem(0, "country_code").getResultData());
-//                ps.setString(11, (String) rsc.getItem(0, "address3").getResultData());
-//                ps.setString(12, (String) rsc.getItem(0, "province").getResultData());
-//
-//                ps.executeUpdate();
-//                ps.close();
-//                ps = null;
-//            }
-
             String referralStr = "null";
 
             // Create the referral payment if requested and if we can find a referring user
@@ -3768,7 +3724,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     Payment referPay = new Payment();
                     referPay.setGrossAmount(amount * REFERRAL_PERCENTAGE);
                     referPay.setNetAmount(0);
-                    referPay.setCurrentStatus(p.getCurrentStatus());
+                    
+                    // referral gets the same status with attached to parent reason
+                    BasePaymentStatus bps = p.getCurrentStatus().clone();
+                    bps.getReasons().add(AvailableStatusReason.ATTACHED_TO_PARENT_REASON.getStatusReason());
+                    referPay.setCurrentStatus(bps);
                     long referId = Long.parseLong(rsc.getItem(0, "reference_id").toString());
                     String handle = rsc.getItem(0, "coder_handle").toString();
                     referPay.getHeader().setDescription("Referral bonus for " + handle + " " + p.getHeader().getDescription());
@@ -7265,6 +7225,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 //                          log.debug("newValue: " + value);
                       } else if (key.equals(PAYMENT_ID)) {
                           query.append(" AND p.payment_id = ? ");
+                          objects.add(value);
+                          log.debug("newValue: " + value);
+                      } else if (key.equals(PARENT_PAYMENT_ID)) {
+                          query.append(" AND p.parent_payment_id = ? ");
                           objects.add(value);
                           log.debug("newValue: " + value);
                       } else if (key.equals(PAYMENT_REFERENCE_ID)) {

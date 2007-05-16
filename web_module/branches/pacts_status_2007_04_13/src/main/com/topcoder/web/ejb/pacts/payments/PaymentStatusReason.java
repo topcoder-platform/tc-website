@@ -13,7 +13,8 @@ public class PaymentStatusReason {
         NO_HARD_COPY_IP_TRANSFER_REASON (new PaymentStatusReason(13l, "No hard copy IP Transfer")),
         EXPIRED_AFFIDAVIT_REASON (new PaymentStatusReason(50l, "Expired Affidavit")),
         EXPIRED_IP_TRANSFER_REASON (new PaymentStatusReason(51l, "Expired IP Transfer")),
-        ACCOUNT_STATUS_REASON (new PaymentStatusReason(52l, "Account Status"));
+        ACCOUNT_STATUS_REASON (new PaymentStatusReason(52l, "Account Status")),
+        ATTACHED_TO_PARENT_REASON (new PaymentStatusReason(100l, "Attached to Parent"));
         
         private PaymentStatusReason paymentStatusReason;
          

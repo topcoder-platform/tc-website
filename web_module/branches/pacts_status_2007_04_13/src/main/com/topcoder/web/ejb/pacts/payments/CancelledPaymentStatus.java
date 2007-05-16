@@ -6,6 +6,7 @@
 package com.topcoder.web.ejb.pacts.payments;
 
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 
 /**
@@ -46,6 +47,13 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
         }
     }
     
+    @Override
+    public void parentCancelled(BasePayment payment) {
+        if (!reasons.contains(AvailableStatusReason.ATTACHED_TO_PARENT_REASON.getStatusReason())) {
+            reasons.add(AvailableStatusReason.ATTACHED_TO_PARENT_REASON.getStatusReason());
+        }
+    }
+
     @Override
     public void expiredIPTransfer(BasePayment payment) {
         if (!reasons.contains(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason())) {

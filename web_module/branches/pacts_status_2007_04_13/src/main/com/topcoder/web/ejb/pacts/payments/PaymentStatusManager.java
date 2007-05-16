@@ -78,4 +78,9 @@ public class PaymentStatusManager {
         log.debug("inactiveCoder called for payment: " + payment.getId());
         payment.getCurrentStatus().inactiveCoder(payment);
     }
+
+    public void parentCancelled(BasePayment payment) throws InvalidStateTransitionException  {
+        log.debug("parentCancelled called for payment: " + payment.getId());
+        payment.getCurrentStatus().parentCancelled(payment);
+    }
 }
