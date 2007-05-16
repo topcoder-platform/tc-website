@@ -56,7 +56,7 @@ public class LeaderBoard extends BaseBoard {
             
         }*/
         getRequest().setAttribute("results", rsc);
-        setNextPage("view_leaders_20075");
+        setNextPage("/dr/view_leaders_20075.jsp");
         setIsNextPageInContext(true);
         
     }
