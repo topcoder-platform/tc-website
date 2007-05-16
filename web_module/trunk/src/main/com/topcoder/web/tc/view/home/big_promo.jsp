@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%-- digital run --%>
+<%-- digital run 
 <A href="/tc?module=Static&d1=digital_run&d2=description"><IMG SRC="/i/home/digitalrun20070504.png" border="0" alt="The Digital Run - 2007.5 Season" /></A>
-
+--%>
 <%-- TCHS  
 <map name="tchs07">
 <area shape="rect" alt="" coords="1,1,285,149" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview" />
@@ -17,3 +17,5 @@
 <A href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></A>
 --%>
 
+<%-- TC Channel --%>
+<A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep1"><img src="/i/home/tcchannelEp1.jpg" alt="TC Channel: Episode 1" /></A>
