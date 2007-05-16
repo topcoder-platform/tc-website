@@ -28,7 +28,14 @@ Board:
 		<tr>
 			<td><rsc:item name="current_place" row="<%=row %>" /> </td>
 			<td><tc-webtag:handle coderId='<%= row.getLongItem("coder_id") %>' context='design'/></td>
-			
+			<td>trip</td>
+			<td>top n</td>
+			<td>top perf</td>
+			<td><rsc:item name="final_points" row="<%=row %>" format="###,##0.00"/></td>
+			<td><rsc:item name="current_top_n_prize" row="<%=row %>" /></td>
+			<td><rsc:item name="current_top_performer_prize" row="<%=row %>" /></td>
+			<td><%= row.getDouble("current_top_n_prize") + row.getDouble("current_top_performer_prize") %></td>
+			<td><rsc:item name="potential_points" row="<%=row %>" format="###,##0.00"/></td>
 		</tr>
 	</rsc:iterator>
 </table>
