@@ -2,6 +2,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.SubmissionStatus" %>
+<%@ page import="com.topcoder.web.studio.model.SubmissionType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -174,7 +175,12 @@ Show submissions by (Enter Handle):
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
         </td>
         <td class="value">
+            <%if (resultRow.getIntItem("submission_type_id")== SubmissionType.FINAL_SUBMISSION_TYPE) { %>
+            Final
+            <% } else { %>
             <rsc:item name="submitter_rank" row="<%=resultRow%>"/>
+            <% } %>
+
         </td>
         <td class="value">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
