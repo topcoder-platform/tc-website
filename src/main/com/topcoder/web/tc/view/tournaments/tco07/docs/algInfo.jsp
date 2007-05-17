@@ -41,7 +41,7 @@
     Congratulations on your performance in the 2007 TopCoder&#174; Open, Sponsored by AOL&#174;.
 </p>
 
-<p><strong>To be completed by 5:00PM EDT (GMT/UTC -4) Friday, May 19, 2007:</strong></p>
+<p><strong>To be completed by 5:00PM EDT (GMT/UTC -4) Friday, May 18, 2007:</strong></p>
 
 <ol>
     <li>
@@ -67,7 +67,7 @@
     <li>
         <p>
             <strong>AFFIDAVIT</strong> - must be affirmed online or notarized
-            and postmarked on or before Friday, May 19. Documents that are sent must arrive at
+            and postmarked on or before Friday, May 18. Documents that are sent must arrive at
             TopCoder by June 3, 2007. See <a href="/PactsMemberServlet?module=AffidavitHistory">Affidavits
             page</a>
             for status of affidavits due.
@@ -76,10 +76,9 @@
 
     <li>
         <% if (info.getIntItem(0, "has_tax_form") == 0) {%>
-        <p><strong>TAX FORM</strong> - must be faxed (to 860.657.4276), scanned and
-            sent via email (<a href="mailto:payments@topcoder.com">payments@topcoder.com</a>), or
-            postmarked on or before Friday, May 19. If sent by mail,
-            it must be received at TopCoder by June 3, 2007.</p>
+        <p><strong>TAX FORM</strong> - must be mailed to TopCoder Payments and postmarked on or before Friday, May 18.
+            They can be mailed to:  TopCoder, Inc., Attn:  Payments, 703 Hebron Avenue, Glastonbury, CT 06033, USA.
+        </p>
 
         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN). If you don't
             know which form
@@ -127,7 +126,7 @@
 
 <p>
                             <strong>Reminder, you will not advance as an onsite finalist unless all above
-                            items are completed by 5:00 PM EDT on Friday, May 19, 2007.</strong>
+                            items are completed by 5:00 PM EDT on Friday, May 18, 2007.</strong>
 </p>
 
 <p>If you have questions, please contact <a href="mailto:jdamato@topcoder.com">Jessie D'Amato Ford</a>.</p>
