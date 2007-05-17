@@ -356,7 +356,7 @@ public class TCLoadTCS extends TCLoad {
                 "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
                 "comp_contest_details", "dr_leader_board", "dr_rookie_board", "competition_history", "algo_competition_history",
                 "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
-                "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages"
+                "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages", "dr_contests_for_stage"
         };
 
         for (String key : keys) {
@@ -5059,55 +5059,6 @@ log.debug("loading results for project " + project_id);
         }
         return result;
     }
-/*
-    private ContestResultCalculator getStageCalculatorForDate(List<StageCalculator> calculators, Date date) throws Exception {
-        ContestResultCalculator calc = null;
-        
-        for (StageCalculator sc : calculators) {
-            if (!sc.getStart().after(date) && !sc.getEnd().before(date)) {
-                if (calc != null) {
-                    throw new Exception("More than one DR stage found for date " + date);
-                }
-                calc = sc.getCalculator();
-            }
-        }
-        return calc;
-    }
-  */  
-    /**
-     * Holds the stage start and end dates and an instance of the object used to calculate points.
-     * It's used to find which calculator must use a project that was posted on a certain date.
-     * 
-     * @author Cucu
-     *
-     */
-    /*
-    private static class StageCalculator {
-        private Date start;
-        private Date end;
-        private ContestResultCalculator calculator;
-        
-        
-        public StageCalculator(Date start, Date end, ContestResultCalculator calculator)  {
-            super();
-            this.start = start;
-            this.end = end;
-            this.calculator = calculator; 
-        }
-        
-        public ContestResultCalculator getCalculator() {
-            return calculator;
-        }
-        public Date getEnd() {
-            return end;
-        }
-        public Date getStart() {
-            return start;
-        }
-        
-
-    }
-    */
     
     /**
      * Represents a Streak of rating or placement.
