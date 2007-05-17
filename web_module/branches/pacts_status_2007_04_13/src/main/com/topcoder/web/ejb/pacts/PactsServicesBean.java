@@ -6723,7 +6723,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         p.getHeader().setTypeId(payment.getPaymentType());
         p.setEventDate(payment.getEventDate());
         p.setDueDate(format.format(payment.getDueDate()));
-        p.setPayDate(format.format(payment.getPaidDate()));
+        if (payment.getPaidDate() != null) {
+            p.setPayDate(format.format(payment.getPaidDate()));
+        }
         p.getHeader().getUser().setId(payment.getCoderId());
         p.setId(payment.getId());
         p.getHeader().setId(payment.getId());

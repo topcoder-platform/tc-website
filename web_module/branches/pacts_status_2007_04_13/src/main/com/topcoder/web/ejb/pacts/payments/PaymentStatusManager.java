@@ -32,8 +32,6 @@ public class PaymentStatusManager {
         }
     }
 
-    // TODO: pulky: what about referral payments?!??!
-    
     public void newTaxForm(BasePayment payment) {
         log.debug("newTaxForm called for payment: " + payment.getId());
         payment.getCurrentStatus().newTaxForm(payment);

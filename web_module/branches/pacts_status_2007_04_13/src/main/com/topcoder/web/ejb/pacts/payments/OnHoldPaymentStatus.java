@@ -58,6 +58,8 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
             DataInterfaceBean dib = new DataInterfaceBean();
     
             if (payment instanceof ParentReferencePayment) {
+                log.debug("instanceof ParentReferencePayment");                
+                
                 // if the payment has a reference to the parent it should get the parent's status
                 // until the parent reaches accruing.
                 
@@ -73,9 +75,13 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                 
                 BasePayment parentPayment = payments.get(0);
                 
+                log.debug("Parent: " + parentPayment.getId() + " - " + parentPayment.getDescription());
+                log.debug("Parent status: " + parentPayment.getCurrentStatus().getDesc());
+                
                 if (parentPayment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS)) ||
                     parentPayment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
                     
+                    log.debug("Clone status");
                     // clone the status and returns
                     BasePaymentStatus bps = clone();
                     bps.getReasons().clear();
