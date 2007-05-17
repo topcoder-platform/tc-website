@@ -47,7 +47,7 @@ public class DownloadDocument extends ShortHibernateProcessor {
         if (!isAdmin()) {
 
             // check if the user is registered for any contest that uses this documentation, or any of those contests is over.
-            User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+            User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
 
             Set contests = d.getContests();
             boolean isRegistered = false;
@@ -75,7 +75,11 @@ public class DownloadDocument extends ShortHibernateProcessor {
         FileInputStream fis = new FileInputStream(d.getPath().getPath() + d.getSystemFileName());
 
         int b;
+<<<<<<< DownloadDocument.java
         int size =0;
+=======
+        int size = 0;
+>>>>>>> 1.6.22.2
         while ((b = fis.read()) >= 0) {
             sos.write(b);
             size++;

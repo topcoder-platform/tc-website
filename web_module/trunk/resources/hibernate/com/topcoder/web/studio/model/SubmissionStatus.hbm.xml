@@ -5,8 +5,8 @@
 
 <hibernate-mapping package="com.topcoder.web.studio.model">
 
-    <class name="DocumentType" table="document_type_lu" mutable="false">
-        <id name="id" column="document_type_id" />
-        <property name="description" column="document_type_desc" />
+    <class name="SubmissionStatus" table="submission_status_lu" mutable="false">
+        <id name="id" column="submission_status_id"/>
+        <property name="description" column="submission_status_desc"/>
     </class>
 </hibernate-mapping>

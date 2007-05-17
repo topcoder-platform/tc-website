@@ -16,7 +16,13 @@ import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
-import com.topcoder.web.studio.model.*;
+import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.studio.model.FilePath;
+import com.topcoder.web.studio.model.MimeType;
+import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionStatus;
+import com.topcoder.web.studio.model.SubmissionType;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
 import javax.imageio.ImageIO;
@@ -25,7 +31,6 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -59,7 +64,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     !ContestStatus.ACTIVE.equals(c.getStatus().getId())) {
                 throw new NavigationException("Inactive contest specified.");
             }
-            User u = factory.getUserDAO().find(new Long(getUser().getId()));
+            User u = factory.getUserDAO().find(getUser().getId());
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                 //not registered
@@ -101,6 +106,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     s.setOriginalFileName(submissionFile.getRemoteFileName());
                     s.setSubmitter(u);
                     s.setMimeType(mt);
+                    s.setStatus(cFactory.getSubmissionStatusDAO().find(SubmissionStatus.ACTIVE));
 
                     StringBuffer buf = new StringBuffer(80);
                     buf.append(Constants.ROOT_STORAGE_PATH);
@@ -128,7 +134,6 @@ public class Submit extends BaseSubmissionDataProcessor {
                     s.setPath(p);
                     s.setSystemFileName(System.currentTimeMillis() + ext);
                     s.setType(cFactory.getSubmissionTypeDAO().find(SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE));
-                    s.setSubmissionDate(new Timestamp(System.currentTimeMillis()));
 
                     if (log.isDebugEnabled()) {
                         log.debug("creating file: " + p.getPath() + s.getSystemFileName());
@@ -144,12 +149,12 @@ public class Submit extends BaseSubmissionDataProcessor {
                     if (mt.getFileType().isImageFile()) {
                         ImageInputStream iis = ImageIO.createImageInputStream(new ByteArrayInputStream(fileBytes));
                         BufferedImage image = ImageIO.read(iis);
-                        s.setWidth(new Integer(image.getWidth()));
-                        s.setHeight(new Integer(image.getHeight()));
+                        s.setWidth(image.getWidth());
+                        s.setHeight(image.getHeight());
                     }
 
                     Integer maxRank = dao.getMaxRank(c, u);
-                    Integer one = new Integer(1);
+                    Integer one = 1;
                     getRequest().setAttribute("maxRank", maxRank);
                     if (maxRank == null) {
                         s.setRank(one);
@@ -157,7 +162,7 @@ public class Submit extends BaseSubmissionDataProcessor {
                     } else {
                         Integer newRank = new Integer(rank);
                         if (newRank.compareTo(maxRank) > 0) {
-                            s.setRank(new Integer(maxRank.intValue() + 1));
+                            s.setRank(maxRank + 1);
                             dao.saveOrUpdate(s);
                         } else if (newRank.compareTo(one) < 0) {
                             dao.changeRank(one, s);

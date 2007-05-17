@@ -1,7 +1,6 @@
 package com.topcoder.web.studio.controller.request;
 
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.controller.request.admin.Base;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
@@ -32,13 +31,13 @@ public class DownloadSubmission extends Base {
 
         Submission s = StudioDAOUtil.getFactory().getSubmissionDAO().find(submissionId);
 
-        boolean isOwner = s.getSubmitter().getId().longValue() == getUser().getId();
+        boolean isOwner = s.getSubmitter().getId().equals(getUser().getId());
 
         boolean isWinner = false;
         ContestResult curr;
         for (Iterator it = s.getContest().getResults().iterator(); it.hasNext() && !isWinner;) {
             curr = (ContestResult) it.next();
-            isWinner = s.equals(curr.getSubmission()) && curr.getPrize().getPlace().intValue() == 1;
+            isWinner = s.equals(curr.getSubmission()) && curr.getPrize().getPlace() == 1;
         }
 
         boolean isOver = new Date().after(s.getContest().getEndTime());
@@ -51,8 +50,10 @@ public class DownloadSubmission extends Base {
             //create the file input stream first so that if there is a problem, we'll get the error and be able to go
             //to an error page.  if we work with the output stream, we won't be able to do that.
 
+/*
             String width = StringUtils.checkNull(getRequest().getParameter(Constants.WIDTH));
             String height = StringUtils.checkNull(getRequest().getParameter(Constants.HEIGHT));
+*/
 
             FileInputStream fis = new FileInputStream(s.getPath().getPath() + s.getSystemFileName());
 
@@ -65,7 +66,7 @@ public class DownloadSubmission extends Base {
             getResponse().setContentType(s.getMimeType().getDescription());
             ServletOutputStream sos = getResponse().getOutputStream();
             int b;
-            int size=0;
+            int size = 0;
             while ((b = fis.read()) >= 0) {
                 sos.write(b);
                 size++;

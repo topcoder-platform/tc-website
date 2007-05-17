@@ -2,7 +2,15 @@ package com.topcoder.web.studio.dao;
 
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.studio.TCHibernateTestCase;
-import com.topcoder.web.studio.model.*;
+import com.topcoder.web.studio.model.Contest;
+import com.topcoder.web.studio.model.ContestConfig;
+import com.topcoder.web.studio.model.ContestProperty;
+import com.topcoder.web.studio.model.ContestStatus;
+import com.topcoder.web.studio.model.Document;
+import com.topcoder.web.studio.model.DocumentType;
+import com.topcoder.web.studio.model.FilePath;
+import com.topcoder.web.studio.model.Prize;
+import com.topcoder.web.studio.model.PrizeType;
 
 import java.sql.Timestamp;
 import java.util.Date;
@@ -45,18 +53,12 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
 
         ContestConfig conf1 = new ContestConfig();
-        conf1.setContest(c);
         conf1.setProperty(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));
         conf1.setValue("this is my contest description");
-        conf1.getId().setContest(c);
-        conf1.getId().setProperty(conf1.getProperty());
 
         ContestConfig conf2 = new ContestConfig();
-        conf2.setContest(c);
         conf2.setProperty(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PRIZE_DESCRIPTION));
         conf2.setValue("this is my prize description");
-        conf2.getId().setContest(c);
-        conf2.getId().setProperty(conf2.getProperty());
 
         c.addConfig(conf1);
         c.addConfig(conf2);
@@ -97,18 +99,12 @@ public class ContestDAOTestCase extends TCHibernateTestCase {
         c.setStatus(StudioDAOUtil.getFactory().getContestStatusDAO().find(ContestStatus.UNACTIVE));
 
         ContestConfig conf1 = new ContestConfig();
-        conf1.setContest(c);
         conf1.setProperty(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.CONTEST_OVERVIEW_TEXT));
         conf1.setValue("this is my contest description");
-        conf1.getId().setContest(c);
-        conf1.getId().setProperty(conf1.getProperty());
 
         ContestConfig conf2 = new ContestConfig();
-        conf2.setContest(c);
         conf2.setProperty(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.PRIZE_DESCRIPTION));
         conf2.setValue("this is my prize description");
-        conf2.getId().setContest(c);
-        conf2.getId().setProperty(conf2.getProperty());
 
         c.addConfig(conf1);
         c.addConfig(conf2);

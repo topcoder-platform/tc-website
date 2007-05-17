@@ -51,13 +51,13 @@ public class ViewContestDetails extends ShortHibernateProcessor {
             }
             boolean registered = false;
             if (userIdentified()) {
-                User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+                User u = DAOUtil.getFactory().getUserDAO().find(getUser().getId());
                 if (StudioDAOUtil.getFactory().getContestRegistrationDAO().find(contest, u) != null) {
                     registered = true;
                 }
             }
 
-            getRequest().setAttribute("registered", Boolean.valueOf(registered));
+            getRequest().setAttribute("registered", registered);
 
             getRequest().setAttribute("currentTime", new Date());
 

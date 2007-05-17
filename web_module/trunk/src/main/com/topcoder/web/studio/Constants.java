@@ -22,6 +22,7 @@ public class Constants implements WebConstants {
     public static final String SUBMISSION = "sbm";
     public static final String SUBMISSION_ID = "sbmid";
     public static final String REVIEW_STATUS_ID = "rstid";
+    public static final String SUBMISSION_STATUS_ID = "sbstid";
     public static final String SUBMISSION_REVIEW_TEXT = "sbmrtx";
     public static final String CONTEST_PROPERTY = "ctprop";
     public static final String PRIZE_DESCRIPTION = "przdesc";

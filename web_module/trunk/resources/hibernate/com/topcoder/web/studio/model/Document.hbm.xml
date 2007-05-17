@@ -11,15 +11,14 @@
                 <param name="sequence_name">STUDIO_DOCUMENT_SEQ</param>
             </generator>
         </id>
-        <set name="contests" table="contest_document_xref" inverse="true" access="field">
+        <set name="contests" table="contest_document_xref" inverse="true">
             <key column="document_id"/>
             <many-to-many column="contest_id" class="Contest"/>
         </set>
-        <property name="originalFileName" column="original_file_name" access="field"/>
-        <property name="systemFileName" column="system_file_name" access="field"/>
-        <many-to-one name="path" column="path_id" class="FilePath" cascade="save-update" access="field"/>
-        <many-to-one name="mimeType" column="mime_type_id" class="MimeType" access="field"
+        <property name="systemFileName" column="system_file_name"/>
+        <many-to-one name="path" column="path_id" class="FilePath" cascade="save-update"/>
+        <many-to-one name="mimeType" column="mime_type_id" class="MimeType"
                      cascade="none"/>
-        <many-to-one name="type" column="document_type_id" class="DocumentType" access="field"/>
+        <many-to-one name="type" column="document_type_id" class="DocumentType"/>
     </class>
 </hibernate-mapping>

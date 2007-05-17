@@ -6,12 +6,11 @@
 <hibernate-configuration>
 
     <!--
-            <session-factory>
-                <property name="connection.username">coder</property>
-                <property name="connection.password">altec</property>
-                <property name="connection.url">
-                    jdbc:informix-sqli://65.112.118.221:1526/creative_oltp:INFORMIXSERVER=devinformix10_shm</property>
-                <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
+                <session-factory>
+                    <property name="connection.username">coder</property>
+                    <property name="connection.password">altec</property>
+                    <property name="connection.url">jdbc:informix-sqli://63.118.154.190:1526/creative_oltp:INFORMIXSERVER=devinformix10_shm</property>
+                    <property name="connection.driver_class">com.informix.jdbc.IfxDriver</property>
     -->
 
     <session-factory name="java:comp/env/hibernate/SessionFactory">
@@ -20,9 +19,7 @@
 
         <!-- SQL dialect -->
         <property name="dialect">org.hibernate.dialect.InformixDialect</property>
-        <property name="current_session_context_class">
-            com.topcoder.web.common.ExtendedThreadLocalSessionContext
-        </property>
+        <property name="current_session_context_class">com.topcoder.web.common.ExtendedThreadLocalSessionContext</property>
 
 
         <!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
@@ -117,6 +114,7 @@
         <mapping resource="com/topcoder/web/studio/model/StudioFileType.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/Submission.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionReview.hbm.xml"/>
+        <mapping resource="com/topcoder/web/studio/model/SubmissionStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/studio/model/SubmissionType.hbm.xml"/>
 
         <mapping resource="com/topcoder/web/common/voting/Candidate.hbm.xml"/>

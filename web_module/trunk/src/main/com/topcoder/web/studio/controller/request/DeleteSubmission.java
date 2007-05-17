@@ -6,15 +6,16 @@ import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.ContestStatus;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionStatus;
 
 import java.util.Date;
 
 /**
  * @author dok
  * @version $Revision$ Date: 2005/01/01 00:00:00
- *          Create Date: Nov 20, 2006
+ *          Create Date: May 16, 2007
  */
-public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
+public class DeleteSubmission extends BaseSubmissionDataProcessor {
     protected void dbProcessing() throws Exception {
 
         String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
@@ -28,13 +29,11 @@ public class UpdateSubmissionRank extends BaseSubmissionDataProcessor {
                     !ContestStatus.ACTIVE.equals(s.getContest().getStatus().getId())) {
                 addError(Constants.SUBMISSION_ID + submissionId, "Sorry, you can not make a change to a submission for a contest that is not active.");
             } else if (s.getSubmitter().getId().equals(getUser().getId())) {
-                int newRank = Integer.parseInt(getRequest().getParameter(Constants.SUBMISSION_RANK));
-                getRequest().setAttribute("newRank", getRequest().getParameter(Constants.SUBMISSION_RANK));
-                if (newRank > 0 && newRank <= maxRank) {
-                    dao.changeRank(newRank, s);
-                    closeConversation();
-                    beginCommunication();
-                }
+                s.setStatus(StudioDAOUtil.getFactory().getSubmissionStatusDAO().find(SubmissionStatus.DELETED));
+                dao.changeRank(null, s);
+                closeConversation();
+                beginCommunication();
+
             } else {
                 throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
             }

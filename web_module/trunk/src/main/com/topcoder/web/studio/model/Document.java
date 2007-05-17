@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public class Document extends Base {
     private Long id;
-    private Set contests;
+    private Set<Contest> contests;
     private String originalFileName;
     private String systemFileName;
     private FilePath path;
@@ -28,11 +28,11 @@ public class Document extends Base {
         this.id = id;
     }
 
-    public Set getContests() {
+    public Set<Contest> getContests() {
         return Collections.unmodifiableSet(contests);
     }
 
-    public void setContests(Set contests) {
+    public void setContests(Set<Contest> contests) {
         this.contests = contests;
     }
 

@@ -21,12 +21,16 @@
     <script language="javascript" type="text/javascript">
         <!--
         function changeRank(newRank, submissionId) {
-        var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
+            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=UpdateSubmissionRank&<%=Constants.SUBMISSION_RANK%>=' + newRank + '&<%=Constants.SUBMISSION_ID%>=' + submissionId);
             ajaxRequest.setPostRequest(fader);
-        <%--
-                    ajaxRequest.setPreRequest(yellower);
-        --%>
-        ajaxRequest.sendRequest();
+            ajaxRequest.sendRequest();
+        }
+        function remove(submissionId) {
+            var confirmed = confirm("Are you sure you want to delete this submission?");
+            if (confirmed) {
+                var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=DeleteSubmission&<%=Constants.SUBMISSION_ID%>=' + submissionId);
+                ajaxRequest.sendRequest();
+            }
         }
         function fader() {
             Fat.fade_element('fade0');
@@ -38,6 +42,7 @@
             Fat.fade_element('fade6');
             Fat.fade_element('fade7');
             Fat.fade_element('fade8');
+            Fat.fade_element('fade9');
         }
         function batchUpdate() {
             var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}&<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE%>');
@@ -46,9 +51,9 @@
         </c:forEach>
             ajaxRequest.sendRequest();
         }
-        new Image().src="/i/layout/processing.gif";
+        new Image().src = "/i/layout/processing.gif";
         function showProcessing() {
-            document.getElementById("submitButton").innerHTML='<img src="/i/layout/processing.gif" alt=""/>';
+            document.getElementById("submitButton").innerHTML = '<img src="/i/layout/processing.gif" alt=""/>';
         }
 
         // -->
@@ -87,30 +92,32 @@
 
         <p>The maximum file size per submission is 2MB.</p>
 
-            <p>Only the following file types will be accepted:</p>
-            <ul>
-                <c:forEach items="${contest.fileTypes}" var="fileType">
-                    <li>
-                            ${fileType.description}
-                    </li>
-                </c:forEach>
-            </ul>
+        <p>Only the following file types will be accepted:</p>
+        <ul>
+            <c:forEach items="${contest.fileTypes}" var="fileType">
+                <li>
+                        ${fileType.description}
+                </li>
+            </c:forEach>
+        </ul>
 
         <div align="center">
             <form action="${sessionInfo.servletPath}" method="POST" name="submitForm" enctype="multipart/form-data" onsubmit="showProcessing()">
                 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Submit"/>
                 <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-            	<p>
+                <p>
                     <b>My design:</b><br/>
-                                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
-                                        <br></tc-webtag:errorIterator>
+                    <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION%>"><span class="bigRed">${err}</span>
+                        <br></tc-webtag:errorIterator>
                     <input type="file" name="<%=Constants.SUBMISSION%>">
                 </p>
+
                 <p>
                     <tc-webtag:errorIterator id="err" name="<%=Constants.SUBMISSION_RANK%>"><span class="bigRed">${err}</span>
                         <br></tc-webtag:errorIterator>
                     as rank:&nbsp;<tc-webtag:textInput name="<%=Constants.SUBMISSION_RANK%>" maxlength="3" size="2"/>
                 </p>
+
                 <p id="submitButton">
                     <input type="image" src="/i/layout/btnSubmit.png" onmouseover="this.src='/i/layout/btnSubmitOn.png'" onmouseout="this.src='/i/layout/btnSubmit.png'">
                 </p>
@@ -122,67 +129,73 @@
 
 
 <div style="margin: 40px 0px 20px 0px;">
-<form name="submissionForm" action="#">
-<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
-<tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
-<tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_TYPE_ID%>" value="<%=SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE.toString()%>"/>
+    <form name="submissionForm" action="#">
+        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="BatchUpdateRank"/>
+        <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>" value="${contest.id}"/>
+        <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_TYPE_ID%>" value="<%=SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE.toString()%>"/>
 
-<div align="center">
-   <strong>In the table below</strong> you can rank your submissions.
-   <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for this contest.
-   <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved to the bottom of the page.
-   <br>If one of your preferred submissions fails after the submission phase, the next passing submission will take its place.
-</div>
+        <div align="center">
+            <strong>In the table below</strong> you can rank your submissions.
+            <br><span style="background: #a2d0a2;">Green rows</span> indicate preferred submissions that will count for
+            this contest.
+            <br>Submissions that have <span class="bigRed">Failed</span> can not be ranked, and are automatically moved
+            to the bottom of the page.
+            <br>If one of your preferred submissions fails after the submission phase, the next passing submission will
+            take its place.
+        </div>
 
-<br><br>
-<table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
-<thead>
-    <tr>
-        <td class="NW">&nbsp;</td>
-        <td class="title" colspan="7">My Favorites</td>
-        <td class="NE">&nbsp;</td>
-    </tr>
-    <tr>
-        <td class="headerW">
-            <div>&nbsp;</div>
-        </td>
-        <td class="headerC">
-            Ranking
-            <div>
-                <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
-            </div>
-        </td>
-        <td class="header" colspan="2" width="33%">
-            Submission
-        </td>
-        <td class="headerC" width="33%">
-            Date Submitted
-        </td>
-        <td class="headerC" width="33%">
-            Passed / Failed
-        </td>
-        <td class="headerC" nowrap>
-            Move Up /<br>Move Down
-        </td>
-        <td class="headerC" nowrap>
-            Move to<br>Top
-        </td>
-        <td class="headerE">
-            <div>&nbsp;</div>
-        </td>
-    </tr>
-</thead>
-<tbody id="submissions">
-    <jsp:include page="submitTableBody.jsp"/>
-</tbody>
-<tfoot>
-    <tr>
-        <td class="SW" colspan="8">&nbsp;</td>
-        <td class="SE">&nbsp;</td>
-    </tr>
-</tfoot>
-</table>
-</form>
+        <br><br>
+        <table class="stat" cellpadding="0" cellspacing="0" style="width:740px;">
+            <thead>
+                <tr>
+                    <td class="NW">&nbsp;</td>
+                    <td class="title" colspan="8">My Favorites</td>
+                    <td class="NE">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="headerW">
+                        <div>&nbsp;</div>
+                    </td>
+                    <td class="headerC">
+                        Ranking
+                        <div>
+                            <A href="#" onclick="batchUpdate();return false;"><img src="/i/layout/btnUpdateDk.png" alt="Update ranking" onmouseover="this.src = '/i/layout/btnUpdateDkOn.png';" onmouseout="this.src = '/i/layout/btnUpdateDk.png';"/></A>
+                        </div>
+                    </td>
+                    <td class="header" colspan="2" width="33%">
+                        Submission
+                    </td>
+                    <td class="headerC" width="33%">
+                        Date Submitted
+                    </td>
+                    <td class="headerC" width="33%">
+                        Passed / Failed
+                    </td>
+                    <td class="headerC" nowrap>
+                        Move Up /<br>Move Down
+                    </td>
+                    <td class="headerC" nowrap>
+                        Move to<br>Top
+                    </td>
+                    <td class="headerC">
+                        Remove
+                    </td>
+                    <td class="headerE">
+                        <div>&nbsp;</div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="submissions">
+                <jsp:include page="submitTableBody.jsp"/>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="SW" colspan="9">&nbsp;</td>
+                    <td class="SE">&nbsp;</td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
 </div>
 
 </div>

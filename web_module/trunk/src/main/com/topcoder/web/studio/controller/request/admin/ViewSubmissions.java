@@ -11,6 +11,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
+import com.topcoder.web.studio.model.SubmissionStatus;
 
 /**
  * @author dok
@@ -22,6 +23,7 @@ public class ViewSubmissions extends Base {
     protected void dbProcessing() throws Exception {
         Long contestId;
         String handle = StringUtils.checkNull(getRequest().getParameter(Constants.HANDLE)).trim().toLowerCase();
+        Integer reviewStatus = null;
         Integer status = null;
         boolean unMarkedOnly;
 
@@ -31,11 +33,21 @@ public class ViewSubmissions extends Base {
             throw new NavigationException("Invalid Contest Specified");
         }
 
+        if ("".equals(StringUtils.checkNull(getRequest().getParameter(Constants.SUBMISSION_STATUS_ID)))) {
+            status = SubmissionStatus.ACTIVE;
+        } else {
+            try {
+                status = new Integer(getRequest().getParameter(Constants.SUBMISSION_STATUS_ID));
+            } catch (NumberFormatException e) {
+                throw new NavigationException("Invalid status Specified");
+            }
+        }
+
         try {
             unMarkedOnly = "null".equals(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
             if (!unMarkedOnly &&
                     !"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.REVIEW_STATUS_ID)))) {
-                status = new Integer(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
+                reviewStatus = new Integer(getRequest().getParameter(Constants.REVIEW_STATUS_ID));
             }
         } catch (NumberFormatException e) {
             throw new NavigationException("Invalid Review Status Specified");
@@ -57,6 +69,7 @@ public class ViewSubmissions extends Base {
             query.append(" , s.submission_date as submit_date ");
             query.append(" , s.submission_id ");
             query.append(" , s.rank as submitter_rank");
+            query.append(" , s.submission_type_id");
 
             from.append(" from submission s ");
             from.append(" , user u ");
@@ -65,6 +78,7 @@ public class ViewSubmissions extends Base {
                 from.append(" and u.handle_lower = '").append(handle).append("'");
             }
             from.append("  and s.contest_id = ").append(contestId);
+            from.append("  and s.submission_status_id = ").append(status);
             from.append(" and not exists (select '1'  ");
             from.append(" from submission_review ");
             from.append(" where submission_id = s.submission_id)");
@@ -80,10 +94,11 @@ public class ViewSubmissions extends Base {
             query.append(" , rs.review_status_desc");
             query.append(" , s.rank as submitter_rank");
             query.append(" , s.submission_id");
+            query.append(" , s.submission_type_id");
 
             from.append(" from submission s");
             from.append(" , user u");
-            if (status == null) {
+            if (reviewStatus == null) {
                 from.append(" , outer (submission_review sr, user u1, review_status_lu rs)");
             } else {
                 from.append(" , submission_review sr");
@@ -93,13 +108,14 @@ public class ViewSubmissions extends Base {
             from.append(" where u.user_id = s.submitter_id");
             from.append("  and sr.submission_id = s.submission_id");
             from.append("  and sr.reviewer_id = u1.user_id");
+            from.append("  and s.submission_status_id = ").append(status);
             from.append("  and sr.review_status_id = rs.review_status_id");
             from.append("  and s.contest_id = ").append(contestId);
             if (!"".equals(handle)) {
                 from.append(" and u.handle_lower = '").append(handle).append("'");
             }
-            if (status != null) {
-                from.append(" and sr.review_status_id = ").append(status);
+            if (reviewStatus != null) {
+                from.append(" and sr.review_status_id = ").append(reviewStatus);
             }
         }
         query.append(from);

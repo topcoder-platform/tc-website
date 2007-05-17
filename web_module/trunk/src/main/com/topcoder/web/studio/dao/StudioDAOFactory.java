@@ -33,4 +33,5 @@ public interface StudioDAOFactory {
 
     MimeTypeDAO getMimeTypeDAO();
 
+    SubmissionStatusDAO getSubmissionStatusDAO();
 }
