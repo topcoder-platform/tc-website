@@ -30,7 +30,7 @@ public class DeleteSubmission extends BaseSubmissionDataProcessor {
                 addError(Constants.SUBMISSION_ID + submissionId, "Sorry, you can not make a change to a submission for a contest that is not active.");
             } else if (s.getSubmitter().getId().equals(getUser().getId())) {
                 s.setStatus(StudioDAOUtil.getFactory().getSubmissionStatusDAO().find(SubmissionStatus.DELETED));
-                dao.saveOrUpdate(s);
+                dao.changeRank(null, s);
                 closeConversation();
                 beginCommunication();
 
