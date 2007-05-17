@@ -4564,7 +4564,7 @@ log.debug("loading results for project " + project_id);
 
             int count = 0;
 
-            if (FULL_DR_LOAD) {
+            if (!FULL_DR_LOAD) {
                 select.setTimestamp(1, fLastLogTime);
             }
             
@@ -4646,7 +4646,7 @@ log.debug("loading results for project " + project_id);
 
             int count = 0;
 
-            if (FULL_DR_LOAD) {
+            if (!FULL_DR_LOAD) {
                 select.setTimestamp(1, fLastLogTime);
             }
             rs = select.executeQuery();
