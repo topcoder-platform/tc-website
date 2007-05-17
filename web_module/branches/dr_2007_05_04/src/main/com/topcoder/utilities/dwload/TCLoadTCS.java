@@ -13,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -68,6 +69,7 @@ public class TCLoadTCS extends TCLoad {
 
     protected java.sql.Timestamp fStartTime = null;
     protected java.sql.Timestamp fLastLogTime = null;
+    protected java.sql.Timestamp fDRTime = null;
     private int TCS_LOG_TYPE = 4;
 
     private static final String PROJECT_SELECT =
@@ -207,6 +209,8 @@ public class TCLoadTCS extends TCLoad {
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
             getLastUpdateTime();
                         
+            fDRTime = FULL_DR_LOAD? new Timestamp(new GregorianCalendar(1990,0,1).getTime().getTime()) : fLastLogTime; 
+            
 /*
             doLoadReviewResp();
 
@@ -4542,8 +4546,7 @@ log.debug("loading results for project " + project_id);
                 "       , (select min(start_date) from stage st where st.season_id = s.season_id) as start_date " + 
                 "       , (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " + 
                 " from season s " + 
-                (FULL_DR_LOAD? "" : 
-                    " where modify_date > ? ");
+                " where modify_date > ? ";
 
         
         final String UPDATE =
@@ -4564,9 +4567,7 @@ log.debug("loading results for project " + project_id);
 
             int count = 0;
 
-            if (!FULL_DR_LOAD) {
-                select.setTimestamp(1, fLastLogTime);
-            }
+            select.setTimestamp(1, fDRTime);
             
             rs = select.executeQuery();
 
@@ -4624,8 +4625,7 @@ log.debug("loading results for project " + project_id);
         final String SELECT = 
                 " select stage_id, season_id, name, start_date, end_date, top_performers_factor " + 
                 " from stage " + 
-                (FULL_DR_LOAD? "" : 
-                " where modify_date > ? ");
+                " where modify_date > ? ";
 
         
         final String UPDATE =
@@ -4646,9 +4646,7 @@ log.debug("loading results for project " + project_id);
 
             int count = 0;
 
-            if (!FULL_DR_LOAD) {
-                select.setTimestamp(1, fLastLogTime);
-            }
+            select.setTimestamp(1, fDRTime);
             rs = select.executeQuery();
 
             while (rs.next()) {
@@ -4747,8 +4745,8 @@ log.debug("loading results for project " + project_id);
             selectStages = prepareStatement(SELECT_STAGES, SOURCE_DB);
             selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
 
-            selectStages.setTimestamp(1, fLastLogTime);
-            selectStages.setTimestamp(2, fLastLogTime);
+            selectStages.setTimestamp(1, fDRTime);
+            selectStages.setTimestamp(2, fDRTime);
             
             rsStages = selectStages.executeQuery();
             
@@ -4835,8 +4833,8 @@ log.debug("loading results for project " + project_id);
         selectSeason = prepareStatement(SELECT_SEASONS, SOURCE_DB);
         selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
 
-        selectSeason.setTimestamp(1, fLastLogTime);
-        selectSeason.setTimestamp(2, fLastLogTime);
+        selectSeason.setTimestamp(1, fDRTime);
+        selectSeason.setTimestamp(2, fDRTime);
         
         rsSeasons = selectSeason.executeQuery();
         
