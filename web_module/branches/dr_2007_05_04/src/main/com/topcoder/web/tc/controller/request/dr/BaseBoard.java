@@ -74,11 +74,57 @@ public abstract class BaseBoard extends BaseProcessor {
     protected String period = null;
 
     /**
-     * Child must implement businessProcessing.
+     * Common parameters for board.
      */
+    protected int phaseId;
+    protected boolean invert;
+    protected String sortCol; 
+    protected int startRank;
+    protected int numRecords;
+    
     protected void businessProcessing() throws Exception {
-    }
+        
+        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
+                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
+            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
+        }
 
+        
+        phaseId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
+        
+        invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+        sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+        String startRankStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
+        String numRecordsStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
+
+        
+        if ("".equals(numRecordsStr)) {
+            numRecords = Constants.DEFAULT_LEADERS;
+        } else {
+            numRecords = Integer.parseInt(numRecordsStr); 
+
+            if (numRecords > Constants.MAX_LEADERS) {
+                numRecords = Constants.MAX_LEADERS;
+            }
+        }
+
+        if ("".equals(startRankStr) || Integer.parseInt(startRankStr) <= 0) {
+            startRank = 1;
+        } else {
+            startRank = Integer.parseInt(startRankStr);
+        }
+
+        
+        setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
+        getRequest().setAttribute("isDesign", phaseId == 112);
+        getRequest().setAttribute("isDevelopment", phaseId == 113);
+        
+        boardProcessing();
+    }
+    
+    protected abstract void boardProcessing() throws Exception;
+    
     /**
      * private method to retrieve from DB current periods ids.
      *

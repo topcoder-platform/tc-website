@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.shared.dataAccess.DataAccessConstants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.tc.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -98,12 +97,12 @@
         </div>
     <c:choose>
     	<c:when test="${isDevelopment}">
-	        <A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Cup Series Leaderboard</a><br>
+	        <A href="/tc?&ph=112&module=LeaderBoard&staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br>
     	    Development Cup Series Leaderboard</a><br>
     	</c:when>
     	<c:otherwise>
     		Design Cup Series Leaderboard<br>
-		    <A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
+		    <A href="/tc?&ph=113&module=LeaderBoard&staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br>
         </c:otherwise>
     </c:choose>
 	<c:if test="${hasRookieCompetition }" >

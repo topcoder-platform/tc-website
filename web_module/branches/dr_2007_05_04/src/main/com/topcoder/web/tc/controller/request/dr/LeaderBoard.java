@@ -5,22 +5,14 @@
 package com.topcoder.web.tc.controller.request.dr;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.CachedDataAccess;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.LeaderBoardRow;
@@ -29,22 +21,15 @@ import com.topcoder.web.tc.model.dr.LeaderBoardRow;
  * <strong>Purpose</strong>:
  * A processor to retrieve dr leader board.
  *
- * @author pulky
+ * @author pulky, cucu
  * @version 1.0.3
  */
 public class LeaderBoard extends BaseBoard {
 
-    /**
-     * The logger to log to.
-     */
-    private static final Logger log = Logger.getLogger(LeaderBoard.class);
-
-    protected void businessProcessing() throws Exception {
-        if (!getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DEV_PHASE)) &&
-                !getRequest().getParameter(Constants.PHASE_ID).equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
-            throw new TCWebException("invalid " + Constants.PHASE_ID + " parameter.");
-        }
-
+    
+    
+    protected void boardProcessing() throws Exception {
+        
         // Stage list for combo box
         ResultSetContainer stages = runQuery(Constants.DR_STAGE_COMMAND, Constants.DR_STAGE_QUERY);
         getRequest().setAttribute("stages", stages);
@@ -52,47 +37,25 @@ public class LeaderBoard extends BaseBoard {
         int stageId = Integer.parseInt(hasParameter(Constants.STAGE_ID) ? getRequest().getParameter(Constants.STAGE_ID) : getCurrentPeriod(Constants.STAGE_ID));
         setDefault(Constants.STAGE_ID, stageId);
 
-        int phase = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
-        setDefault(Constants.PHASE_ID, getRequest().getParameter(Constants.PHASE_ID));
+        // Get the stage and top performer contests
+        int []ct = getContestsForStage(stageId, phaseId);
         
-        boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
-
-        String startRankStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
-        String numRecordsStr = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.NUMBER_RECORDS));
-        int startRank;
-        int numRecords;
-        
-        if ("".equals(numRecordsStr)) {
-            numRecords = Constants.DEFAULT_LEADERS;
-        } else {
-            numRecords = Integer.parseInt(numRecordsStr); 
-
-            if (numRecords > Constants.MAX_LEADERS) {
-                numRecords = Constants.MAX_LEADERS;
-            }
-        }
-
-        if ("".equals(startRankStr) || Integer.parseInt(startRankStr) <= 0) {
-            startRank = 1;
-        } else {
-            startRank = Integer.parseInt(startRankStr);
-        }
-
-        int []ct = getContestsForStage(stageId, phase);
-        
+        // Get the results from database
         Request r = new Request();
         r.setContentHandle("dr_results");
+        
         r.setProperty("ct", ct[0] + ""); 
         r.setProperty("tpct", ct[1] + ""); 
-        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); // change to cached
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
         Map m = dai.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) m.get("dr_results");
         
+        
+        // Put the results in a list
         List<LeaderBoardRow> results = new ArrayList<LeaderBoardRow>();
         
         for (ResultSetContainer.ResultSetRow row : rsc) {
-            LeaderBoardRow lbr = new LeaderBoardRow(stageId, phase, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
+            LeaderBoardRow lbr = new LeaderBoardRow(stageId, phaseId, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
                      row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
                      row.getStringItem("current_top_performer_prize") == null? 0.0 : row.getDoubleItem("current_top_performer_prize"),
                      row.getStringItem("current_top_n_prize") == null? 0.0 : row.getDoubleItem("current_top_n_prize"));
@@ -100,9 +63,12 @@ public class LeaderBoard extends BaseBoard {
             results.add(lbr);
             
         }
+        
+        // Sort and crop the list
         sortResult(results, sortCol, invert);
         List<IBoardRow> cropped = cropResult(results, startRank, numRecords);
         
+        // Find whether the season has rookie competition (needed for hidding links).
         boolean hasRookie = false;
         for (ResultSetContainer.ResultSetRow row : stages) {
             if (row.getIntItem("stage_id") == stageId) {
@@ -110,16 +76,23 @@ public class LeaderBoard extends BaseBoard {
             }
         }
         
+        getRequest().setAttribute(Constants.STAGE_ID, stageId);
         getRequest().setAttribute("hasRookieCompetition", hasRookie);
         getRequest().setAttribute("results", cropped);
-        getRequest().setAttribute("isDesign", phase == 112);
-        getRequest().setAttribute("isDevelopment", phase == 113);
 
         setNextPage(Constants.VIEW_LEADER_BOARD_PAGE);
         setIsNextPageInContext(true);        
     }
     
     
+    /**
+     * Get the stage and top performers contest for the specified stage and phase
+     * 
+     * @param stageId
+     * @param phaseId
+     * @return an array with element 0 being the contest_id for the stage contest and element 1 for top performers contest
+     * @throws Exception
+     */
     private int[] getContestsForStage(int stageId, int phaseId) throws Exception {
         
         Request r = new Request();
