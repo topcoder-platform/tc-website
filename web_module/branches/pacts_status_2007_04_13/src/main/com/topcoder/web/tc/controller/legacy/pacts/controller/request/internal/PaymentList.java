@@ -40,7 +40,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             DataInterfaceBean dib = new DataInterfaceBean();
 
             Map query = getQuery(getRequest());
-            
+            log.debug("query.size(): " + query.size());
             if (query.size() > 0) {
                 Map paymentMap = dib.findPayments(query);
     
@@ -92,7 +92,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
     
                     // mirror parameters
-                    getRequest().setAttribute(FILTER_PAYMENT_ID, StringUtils.htmlEncode(getRequest().getParameter(FILTER_PAYMENT_ID)));
+                    getRequest().setAttribute(PAYMENT_ID, StringUtils.htmlEncode(getRequest().getParameter(PAYMENT_ID)));
                     getRequest().setAttribute(PROJECT_ID, StringUtils.htmlEncode(getRequest().getParameter(PROJECT_ID)));
                     getRequest().setAttribute(HANDLE, StringUtils.htmlEncode(getRequest().getParameter(HANDLE)));
                     getRequest().setAttribute(EARLIEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_CREATION_DATE)));
@@ -157,8 +157,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         if (param != null && !param.equals("")) query.put(LOWEST_NET_AMOUNT, param);
         param = request.getParameter(HIGHEST_NET_AMOUNT);
         if (param != null && !param.equals("")) query.put(HIGHEST_NET_AMOUNT, param);                
-        param = createValuesStr(request.getParameterValues("filter_payment_id"));
-        if (!param.equals("")) query.put(FILTER_PAYMENT_ID, param);        
+        param = createValuesStr(request.getParameterValues(PAYMENT_ID));
+        if (!param.equals("")) query.put(PAYMENT_ID, param);        
         param = request.getParameter(AFFIDAVIT_ID);
         if (param != null && !param.equals("")) query.put(AFFIDAVIT_ID, param);
         param = request.getParameter(CONTRACT_ID);

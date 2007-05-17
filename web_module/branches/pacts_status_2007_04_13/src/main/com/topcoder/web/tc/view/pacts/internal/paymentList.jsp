@@ -58,7 +58,7 @@ ${fn:length(paymentList)} records. <br />
    <input type="hidden" name="module" value="NewPaymentEvent">
    <input type=hidden name="query" value="${query}">
 
-    <tc-webtag:hiddenInput name="filter_payment_id" value="<%=request.getAttribute("filter_payment_id").toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.CHECKED_PAYMENT_ID%>" value="<%=request.getAttribute(PactsConstants.CHECKED_PAYMENT_ID).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.PROJECT_ID%>" value="<%=request.getAttribute(PactsConstants.PROJECT_ID).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.HANDLE%>" value="<%=request.getAttribute(PactsConstants.HANDLE).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_CREATION_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_CREATION_DATE).toString()%>"/>
@@ -124,17 +124,17 @@ ${fn:length(paymentList)} records. <br />
 				<c:when test="${composed}">
                     <c:choose>
                     <c:when test="${empty checked_payments || cf:contains(checked_payments, payment.id)}">
-					   <input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}" checked></c:when>
+					   <input type="checkbox" name="checked_payment_id" value="${payment.id},${reliabilityMap[payment.id]}" checked></c:when>
                     <c:otherwise>
-					   <input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}"></c:otherwise>
+					   <input type="checkbox" name="checked_payment_id" value="${payment.id},${reliabilityMap[payment.id]}"></c:otherwise>
                     </c:choose>
                 </c:when>
 				<c:otherwise>
                     <c:choose>
                     <c:when test="${empty checked_payments || cf:contains(checked_payments, payment.id)}">
-	       				<input type="checkbox" name="payment_id" value="${payment.id}" checked></c:when>
+	       				<input type="checkbox" name="checked_payment_id" value="${payment.id}" checked></c:when>
                     <c:otherwise>
-    					<input type="checkbox" name="payment_id" value="${payment.id}"></c:otherwise>
+    					<input type="checkbox" name="checked_payment_id" value="${payment.id}"></c:otherwise>
                     </c:choose>                       
                 </c:otherwise>
 			</c:choose>

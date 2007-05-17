@@ -23,7 +23,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 public class NewPaymentEvent extends PaymentList implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
-        String[] values = getRequest().getParameterValues(PAYMENT_ID);
+        String[] values = getRequest().getParameterValues(CHECKED_PAYMENT_ID);
         DataInterfaceBean dib = new DataInterfaceBean();
         List<BasePayment> updatePayments = new ArrayList<BasePayment>();
         int wrongPayments = 0;
@@ -34,7 +34,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         Map criteria = new HashMap();
         for (String paymentId : values) {
             criteria.clear();
-            criteria.put(PactsConstants.PAYMENT_ID, paymentId);
+            criteria.put(CHECKED_PAYMENT_ID, paymentId);
             log.debug("looking for paymentId : " + paymentId);
             BasePayment payment = null;
             try {

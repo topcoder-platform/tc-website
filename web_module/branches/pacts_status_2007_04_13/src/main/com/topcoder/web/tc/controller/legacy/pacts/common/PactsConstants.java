@@ -273,7 +273,7 @@ public interface PactsConstants extends Constants {
     public static final String LATEST_MODIFICATION_DATE = "latest_modification_date";
     public static final String CREATION_DATE = "creation_date";
     public static final String PAYMENT_ID = "payment_id";
-    public static final String FILTER_PAYMENT_ID = "filter_payment_id";
+    public static final String CHECKED_PAYMENT_ID = "checked_payment_id";
     public static final String PARENT_PAYMENT_ID = "parent_payment_id";
     public static final String CONTRACT_ID = "contract_id";
     public static final String AFFIDAVIT_ID = "affidavit_id";

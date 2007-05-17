@@ -59,7 +59,7 @@ public class Links implements PactsConstants {
     }
 
     public static String viewPayment(long paymentId) {
-        return createLink("ViewPayment", FILTER_PAYMENT_ID, paymentId + "");
+        return createLink("ViewPayment", PAYMENT_ID, paymentId + "");
     }
 
     public static String viewPayments(List paymentsId) {
