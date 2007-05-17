@@ -80,18 +80,18 @@
     <h3>Prizes</h3>
 
     <ul>
-    	<c:if test="${not empty mainEvent.firstPlacePrize }">
-	        <li>1st place prize - ${mainEvent.firstPlacePrize}
-    	    </li>
-    	</c:if>
-    	<c:if test="${not empty mainEvent.secondPlacePrize }">
-	        <li>1st place prize - ${mainEvent.secondPlacePrize}
-    	    </li>
-    	</c:if>
-    	<c:if test="${not empty mainEvent.thirdPlacePrize }">
-	        <li>1st place prize - ${mainEvent.thirdPlacePrize}
-    	    </li>
-    	</c:if>
+        <c:if test="${not empty mainEvent.firstPlacePrize }">
+            <li>1st place prize - ${mainEvent.firstPlacePrize}
+            </li>
+        </c:if>
+        <c:if test="${not empty mainEvent.secondPlacePrize }">
+            <li>2nd place prize - ${mainEvent.secondPlacePrize}
+            </li>
+        </c:if>
+        <c:if test="${not empty mainEvent.thirdPlacePrize }">
+            <li>3rd place prize - ${mainEvent.thirdPlacePrize}
+            </li>
+        </c:if>
     </ul>
 
     All competitors will receive a TopCoder t-shirt. Placement in the SRM will be determined by the
