@@ -363,7 +363,6 @@ public class TCLoadTCS extends TCLoad {
             String s = (String) o;
             for (String key : keys) {
                 if (s.contains(key)) {
-                    log.debug("clear " + s);
                     cc.remove(s.toString());
                     break;
                 }
