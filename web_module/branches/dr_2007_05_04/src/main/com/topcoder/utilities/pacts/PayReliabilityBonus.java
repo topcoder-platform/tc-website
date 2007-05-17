@@ -28,8 +28,9 @@ public class PayReliabilityBonus extends DBUtility {
 
     /**
      * Date when the reliability schema changes.  
+     * Remember that month it's 0 based.
      */
-    private static final Date SCHEMA_CHANGE_DATE = new GregorianCalendar(2007,1,1).getTime();
+    private static final Date SCHEMA_CHANGE_DATE = new GregorianCalendar(2007,0,1).getTime();
     
     /**
      * This variable tells if only an analysis is wanted.
@@ -88,9 +89,14 @@ public class PayReliabilityBonus extends DBUtility {
             
     		double bonusAmount;
             
+            log.debug("posting date: " + postingDate);
+            log.debug("SCHEMA_CHANGE_DATE : " + SCHEMA_CHANGE_DATE);
+            
             if (postingDate.before(SCHEMA_CHANGE_DATE)) {
+                log.debug("before");
                 bonusAmount = getReliabilityPercent(reliability) * amount;
             } else {
+                log.debug("after");
                 bonusAmount = getReliabilityPercent2(reliability) * amount;               
             }
 
