@@ -42,6 +42,7 @@
             Fat.fade_element('fade6');
             Fat.fade_element('fade7');
             Fat.fade_element('fade8');
+            Fat.fade_element('fade9');
         }
         function batchUpdate() {
             var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=BatchUpdateRank&<%=Constants.CONTEST_ID%>=${contest.id}&<%=Constants.SUBMISSION_TYPE_ID%>=<%=SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE%>');
