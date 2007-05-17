@@ -58,7 +58,7 @@ ${fn:length(paymentList)} records. <br />
    <input type="hidden" name="module" value="NewPaymentEvent">
    <input type=hidden name="query" value="${query}">
 
-    <tc-webtag:hiddenInput name="<%=PactsConstants.CHECKED_PAYMENT_ID%>" value="<%=request.getAttribute(PactsConstants.CHECKED_PAYMENT_ID)%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.CHECKED_PAYMENT_ID%>" value="<%=request.getAttribute(PactsConstants.CHECKED_PAYMENT_ID).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.PROJECT_ID%>" value="<%=request.getAttribute(PactsConstants.PROJECT_ID).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.HANDLE%>" value="<%=request.getAttribute(PactsConstants.HANDLE).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_CREATION_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_CREATION_DATE).toString()%>"/>
