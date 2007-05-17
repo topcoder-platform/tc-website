@@ -175,16 +175,11 @@ Show submissions by (Enter Handle):
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
         </td>
         <td class="value">
-<<<<<<< submissions.jsp
-            <rsc:item name="submitter_rank" row="<%=resultRow%>" ifNull="FINAL"/>
-=======
             <%if (resultRow.getIntItem("submission_type_id")==SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             Final
             <% } else { %>
             <rsc:item name="submitter_rank" row="<%=resultRow%>"/>
             <% } %>
-
->>>>>>> 1.9.78.8
         </td>
         <td class="value">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
