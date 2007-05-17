@@ -112,7 +112,11 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     getRequest().setAttribute(AFFIDAVIT_ID, StringUtils.htmlEncode(getRequest().getParameter(AFFIDAVIT_ID)));
                     getRequest().setAttribute(CONTRACT_ID, StringUtils.htmlEncode(getRequest().getParameter(CONTRACT_ID)));
                     getRequest().setAttribute(USER_ID, StringUtils.htmlEncode(getRequest().getParameter(USER_ID)));
-    
+                    
+                    if (getRequest().getAttribute(CHECKED_PAYMENT_ID) == null) {
+                        getRequest().setAttribute(CHECKED_PAYMENT_ID, "");                        
+                    }                    
+                    
                     String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
                     getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
                     
