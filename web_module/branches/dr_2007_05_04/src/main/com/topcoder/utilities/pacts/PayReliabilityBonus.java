@@ -75,6 +75,7 @@ public class PayReliabilityBonus extends DBUtility {
         
 		log.info("user_id;project_id;bonus_amount;old_reliability;total_amount");
 
+
         int count = 0;
         ResultSet rs = psSelProjects.executeQuery();
         while (rs.next()) {
@@ -88,14 +89,10 @@ public class PayReliabilityBonus extends DBUtility {
             
     		double bonusAmount;
             
-            log.debug("posting date: " + postingDate);
-            log.debug("SCHEMA_CHANGE_DATE : " + SCHEMA_CHANGE_DATE);
             
             if (postingDate.before(SCHEMA_CHANGE_DATE)) {
-                log.debug("before");
                 bonusAmount = getReliabilityPercent(reliability) * amount;
             } else {
-                log.debug("after");
                 bonusAmount = getReliabilityPercent2(reliability) * amount;               
             }
 

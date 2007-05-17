@@ -1535,7 +1535,7 @@ public class TCLoadTCS extends TCLoad {
                 HashMap ratingsMap;
                 while (projectResults.next()) {
                     long project_id = projectResults.getLong("project_id");
-log.debug("loading results for project " + project_id);
+
                     psNumRatings.clearParameters();
                     psNumRatings.setLong(1, project_id);
                     numRatings = psNumRatings.executeQuery();
