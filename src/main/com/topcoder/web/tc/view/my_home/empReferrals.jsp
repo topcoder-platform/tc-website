@@ -6,7 +6,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>Member Referrals</title>
+<title>TopCoder Employee Referrals</title>
 
 <jsp:include page="/script.jsp" />
 <jsp:include page="/style.jsp">
@@ -42,7 +42,7 @@
 <div class="fixedWidthBody">
 
 <div align="center" style="margin-bottom: 10px;">
-<img src="/i/my_home/empReferrals.jpg" alt="" border="0" />
+<img src="/i/my_home/empReferrals20070517.jpg" alt="" border="0" />
 </div>
 
 <span class="bigTitle">Overview</span>
