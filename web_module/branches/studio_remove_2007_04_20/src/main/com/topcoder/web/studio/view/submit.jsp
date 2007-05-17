@@ -26,8 +26,11 @@
             ajaxRequest.sendRequest();
         }
         function remove(submissionId) {
-            var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=DeleteSubmission&<%=Constants.SUBMISSION_ID%>=' + submissionId);
-            ajaxRequest.sendRequest();
+            var confirmed = confirm("Are you sure you want to delete this submission?");
+            if (confirmed) {
+                var ajaxRequest = new AjaxRequest('${sessionInfo.servletPath}?module=DeleteSubmission&<%=Constants.SUBMISSION_ID%>=' + submissionId);
+                ajaxRequest.sendRequest();
+            }
         }
         function fader() {
             Fat.fade_element('fade0');
