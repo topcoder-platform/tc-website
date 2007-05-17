@@ -21,6 +21,7 @@ import com.topcoder.web.studio.model.FilePath;
 import com.topcoder.web.studio.model.MimeType;
 import com.topcoder.web.studio.model.StudioFileType;
 import com.topcoder.web.studio.model.Submission;
+import com.topcoder.web.studio.model.SubmissionStatus;
 import com.topcoder.web.studio.model.SubmissionType;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
@@ -118,6 +119,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     s.setOriginalFileName(submissionFile.getRemoteFileName());
                     s.setSubmitter(u);
                     s.setMimeType(mt);
+                    s.setStatus(cFactory.getSubmissionStatusDAO().find(SubmissionStatus.ACTIVE));
 
                     StringBuffer buf = new StringBuffer(80);
                     buf.append(Constants.ROOT_STORAGE_PATH);
