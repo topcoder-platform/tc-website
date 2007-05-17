@@ -34,7 +34,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         Map criteria = new HashMap();
         for (String paymentId : values) {
             criteria.clear();
-            criteria.put(CHECKED_PAYMENT_ID, paymentId);
+            criteria.put(PAYMENT_ID, paymentId);
             log.debug("looking for paymentId : " + paymentId);
             BasePayment payment = null;
             try {
