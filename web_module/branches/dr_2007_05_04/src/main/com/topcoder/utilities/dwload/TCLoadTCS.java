@@ -364,6 +364,10 @@ public class TCLoadTCS extends TCLoad {
         }
 
         cc.clearCache();
+        for (Object o : cc.getKeys()) {
+            log.debug(o);
+        }
+        
 /*
 
         ArrayList list = cc.getKeys();
