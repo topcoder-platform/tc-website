@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Map;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -11,7 +12,6 @@ import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
-import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.ejb.pacts.ReliabilityBonusPayment;
@@ -134,6 +134,10 @@ public class PayReliabilityBonus extends DBUtility {
 
     public static Object createEJB() throws NamingException, Exception {
         InitialContext initial = TCContext.getInitial();
+        log.debug("context: ");
+        for (Map.Entry m : initial.getEnvironment().entrySet()) {
+            log.debug(m.getKey() +  " - " + m.getValue());
+        }
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
         PactsClientServicesHome home = (PactsClientServicesHome) 
             PortableRemoteObject.narrow(objref, PactsClientServicesHome.class);
