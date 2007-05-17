@@ -208,12 +208,12 @@ public class TCLoadTCS extends TCLoad {
 
             //load submission review before project result because the project result load will use the submission review table
             doLoadSubmissionReview();
-*/
+
             
             doLoadProjectResults();
-/*
+*/
             doLoadRookies();
-
+/*
             doLoadSubmissionScreening();
 
             doLoadContestProject();
@@ -1779,6 +1779,8 @@ log.debug("loading results for project " + project_id);
             // the process will delete all rookies and reload them again completly.
             delete.executeUpdate();
 
+            Map<Integer, Integer> nextSeason = getRookieNextSeasonMap();
+            
             // Stationary state:
             // - if the user had in his first season more than PASSED_REVIEW_THRESHOLD submissions,
             //   he is confirmed for that season.
@@ -1787,9 +1789,8 @@ log.debug("loading results for project " + project_id);
             int count = 0;
             while (rsUsers.next()) {
                 long subFirstSeason = 0;
-                long subSecondSeason = 0;
-                long firstSeason = rsUsers.getLong("first_season");
-                long secondSeason = getNextSeason(seasons, firstSeason);
+                int firstSeason = rsUsers.getInt("first_season");
+                Integer secondSeason = nextSeason.get(firstSeason);
                 long userId = rsUsers.getLong("user_id");
                 long phaseId = rsUsers.getLong("phase_id");
 
@@ -1805,11 +1806,6 @@ log.debug("loading results for project " + project_id);
                 // this should be always, since if it's the first season, it must have submissions.
                 if (rsSubmissions.next()) {
                     subFirstSeason = rsSubmissions.getLong("num_submissions");
-                }
-
-                // if there's no next record, second season has no submissions.
-                if (rsSubmissions.next()) {
-                    subSecondSeason = rsSubmissions.getLong("num_submissions");
                 }
 
                 // if in his first season, he had more than PASSED_REVIEW_THRESHOLD submissions, he is confirmed for that season.
@@ -1828,10 +1824,16 @@ log.debug("loading results for project " + project_id);
                     insert.setLong(3, phaseId);
                     insert.setInt(4, POTENTIAL);
                     insert.executeUpdate();
-                    insert.setLong(2, secondSeason);
-                    insert.setInt(4, CONFIRMED);
-                    insert.executeUpdate();
-                    count += 2;
+                    count ++;
+                    
+                    if (secondSeason != null) {
+                        insert.setLong(2, secondSeason);
+                        insert.setInt(4, CONFIRMED);
+                        insert.executeUpdate();
+                        
+                        count++;
+                    }
+                    
                     // log.info("(2) First submissions: "  + subFirstSeason + " - Second submissions: " + subSecondSeason);
                 }
             }
@@ -1866,6 +1868,25 @@ log.debug("loading results for project " + project_id);
             close(insert);
             close(delete);
         }
+    }
+
+    private Map<Integer, Integer> getRookieNextSeasonMap() throws Exception {
+        Map<Integer, Integer> result = new HashMap<Integer, Integer> ();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        try {
+            ps = prepareStatement("select season_id, next_rookie_season_id from season", SOURCE_DB);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                if (rs.getString("next_rookie_season_id") != null) {
+                    result.put(rs.getInt("season_id"), rs.getInt("next_rookie_season_id"));
+                }
+            }
+        } finally {
+            
+        }
+        return null;
     }
 
     public void doLoadSubmissionReview() throws Exception {
