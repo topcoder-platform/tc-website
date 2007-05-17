@@ -211,15 +211,16 @@ public class TCLoadTCS extends TCLoad {
                         
             fDRTime = FULL_DR_LOAD? new Timestamp(new GregorianCalendar(1990,0,1).getTime().getTime()) : fLastLogTime; 
             
-/*
+
             doLoadReviewResp();
 
             doLoadEvent();
             doLoadUserEvent();
-*/
+
             doLoadContests();
+            
             doLoadContestPrize();
-  /*          
+           
             doLoadUserContestPrize();
 
             doLoadProjects();
@@ -277,7 +278,7 @@ public class TCLoadTCS extends TCLoad {
             loadCountryRatingRank(112, OVERALL_RATING_RANK_TYPE_ID, list);
             loadCountryRatingRank(113, ACTIVE_RATING_RANK_TYPE_ID, list);
             loadCountryRatingRank(113, OVERALL_RATING_RANK_TYPE_ID, list);
-*/
+
             //fix problems with submission date
 
             //todo what the hell is this?  do we need it?
@@ -4539,6 +4540,11 @@ log.debug("loading results for project " + project_id);
     }
     
     
+    /**
+     * Load the season table
+     * 
+     * @throws Exception
+     */
     public void doLoadSeason() throws Exception {
         log.info("load season");
         ResultSet rs;
@@ -4620,6 +4626,11 @@ log.debug("loading results for project " + project_id);
         }
     }
     
+    /**
+     * Load the stage table
+     * 
+     * @throws Exception
+     */
     public void doLoadStage() throws Exception {
         log.info("load stage");
         ResultSet rs;
@@ -4699,7 +4710,11 @@ log.debug("loading results for project " + project_id);
     }
 
     
-    
+    /**
+     * Load the contest_result table for the contests belonging to stages whose results were modified.
+     * 
+     * @throws Exception
+     */    
     private void doLoadStageResults() throws Exception {
         log.debug("load stage results");
         
@@ -4784,6 +4799,11 @@ log.debug("loading results for project " + project_id);
 
     }
     
+    /**
+     * Load the contest_result table for the contests belonging to season whose results were modified (rookie contests)
+     * 
+     * @throws Exception
+     */    
     public void doLoadSeasonResults() throws Exception {
         log.debug("load season results");
         
@@ -4872,6 +4892,18 @@ log.debug("loading results for project " + project_id);
     }
 
     
+    /**
+     * Helper m ethod to load contest results for the specified contest.
+     * 
+     * @param seasonId
+     * @param startDate
+     * @param endDate
+     * @param phaseId
+     * @param contestId
+     * @param className
+     * @param factor
+     * @throws Exception
+     */
     private void loadDRContestResults(int seasonId, Timestamp startDate, Timestamp endDate, int phaseId, 
             int contestId, String className, double factor) throws Exception {
         
@@ -4982,6 +5014,14 @@ log.debug("loading results for project " + project_id);
     }
 
     
+    /**
+     * Get a list of the rookies for a season and phase.
+     * 
+     * @param seasonId
+     * @param phaseId
+     * @return
+     * @throws Exception
+     */
     private Set<Long> getRookies(int seasonId, int phaseId) throws Exception {
         PreparedStatement st = null;
         Set<Long> rookies = new HashSet<Long>();
@@ -5005,6 +5045,13 @@ log.debug("loading results for project " + project_id);
         return rookies;
     }
 
+    /**
+     * Get the prizes for the specified contest.
+     * 
+     * @param contestId
+     * @return
+     * @throws Exception
+     */
     private List<Double> getContestPrizesAmount(long contestId) throws Exception {
         final String SELECT = 
             "select  place, prize_amount " +
@@ -5035,6 +5082,11 @@ log.debug("loading results for project " + project_id);
         return prizes;
     }
 
+    /**
+     * Get a map with the class for calculating points and prizes for each stage id
+     * @return
+     * @throws Exception
+     */
     private Map<Integer, ContestResultCalculator> getStageCalculators() throws Exception {
         final String SELECT = 
             " select  s.stage_id, min(class_name) as class_name " +
