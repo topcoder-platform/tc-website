@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.17.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=051707">TCO Preview: Component Design and Development Competition</A></span><br><br>
+      While not the most popular or spectator-friendly tournament track, the component contest always proves to be a tough five-week competition. This year was no exception, with hundreds of members registered and more than 100 submitting.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/sql_lall_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="275640" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=051707">full story</A> | 
+        <tc-webtag:forumLink forumID="515805" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>05.16.07<br>1:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -200,23 +217,3 @@
         <tc-webtag:forumLink forumID="515651" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.08.07<br>12:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=bracket">TCO07 Marathon Match Finalists announced</A>
-        </span><br><br>
-        Meet the eight Marathon Match Finalists who will battle it out in Las Vegas at TopCoder's first onsite Marathon Competition.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=bracket">details</A> |
-        <A href="http://forums.topcoder.com/?module=Thread&threadID=574966&start=0">discuss this</a> |
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
