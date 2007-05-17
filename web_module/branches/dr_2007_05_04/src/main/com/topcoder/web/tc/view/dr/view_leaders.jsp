@@ -106,8 +106,8 @@
         </c:otherwise>
     </c:choose>
 	<c:if test="${hasRookieCompetition }" >
-	    <A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
-    	<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+	    <A href="/tc?module=RookieBoard&ph=112&seid=${seid}" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+    	<A href="/tc?module=RookieBoard&ph=113&seid=${seid}" class="bcLink">Development Cup Series ROTY Leaderboard</a>
     </c:if>
 </div>
 

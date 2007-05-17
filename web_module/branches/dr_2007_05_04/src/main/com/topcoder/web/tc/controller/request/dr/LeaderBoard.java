@@ -73,6 +73,7 @@ public class LeaderBoard extends BaseBoard {
         for (ResultSetContainer.ResultSetRow row : stages) {
             if (row.getIntItem("stage_id") == stageId) {
                 hasRookie = row.getIntItem("rookie_competition_ind") == 1;
+                getRequest().setAttribute(Constants.SEASON_ID, row.getStringItem("season_id"));
             }
         }
         
