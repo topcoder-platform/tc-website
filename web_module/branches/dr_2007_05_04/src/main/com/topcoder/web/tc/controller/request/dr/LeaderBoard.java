@@ -34,7 +34,24 @@ public class LeaderBoard extends BaseBoard {
         ResultSetContainer stages = runQuery(Constants.DR_STAGE_COMMAND, Constants.DR_STAGE_QUERY);
         getRequest().setAttribute("stages", stages);
 
-        int stageId = Integer.parseInt(hasParameter(Constants.STAGE_ID) ? getRequest().getParameter(Constants.STAGE_ID) : getCurrentPeriod(Constants.STAGE_ID));
+        int stageId = -1; 
+        
+        if (hasParameter(Constants.STAGE_ID)) {
+            stageId = Integer.parseInt(getRequest().getParameter(Constants.STAGE_ID));
+        } else if (hasParameter(Constants.SEASON_ID)) {
+            int seasonId = Integer.parseInt(getRequest().getParameter(Constants.SEASON_ID));
+
+            for (ResultSetContainer.ResultSetRow row : stages) {
+                if (row.getIntItem("season_id") == seasonId) {
+                    stageId = row.getIntItem("stage_id");
+                    break;
+                }
+            }
+        }
+            
+        if (stageId < 0) {
+            stageId = Integer.parseInt(getCurrentPeriod(Constants.STAGE_ID));
+        }
         setDefault(Constants.STAGE_ID, stageId);
 
         // Get the stage and top performer contests

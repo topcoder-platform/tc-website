@@ -69,9 +69,7 @@ return false;
 <td align="left" style="padding-right:10px; border-right: 1px solid #999999;" valign="top">
 <span class="subtitle">Design Cup</span><br>
 <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=desOverview" class="bcLink">Details</A><br>
-<span class="grayedOut">
-Current Leaderboard<br>
-</span>
+<A href="/tc?&ph=112&module=LeaderBoard&seid=2" class="bcLink">Current Leaderboard</A><br>
 <%--
 <A href="" class="bcLink">Current Leaderboard</A><br>
 --%>
@@ -79,9 +77,7 @@ Current Leaderboard<br>
 <td align="left" style="padding: 0 10px; border-right: 1px solid #999999;" valign="top">
 <span class="subtitle" class="bcLink">Development Cup</span><br>
 <A href="/tc?module=Static&d1=digital_run&d2=2007dot5&d3=devOverview" class="bcLink">Details</A><br>
-<span class="grayedOut">
-Current Leaderboard<br>
-</span>
+<A href="/tc?&ph=113&module=LeaderBoard&seid=2" class="bcLink">Current Leaderboard</A><br>
 <%--
 <A href="" class="bcLink">Current Leaderboard</A><br>
 --%>
