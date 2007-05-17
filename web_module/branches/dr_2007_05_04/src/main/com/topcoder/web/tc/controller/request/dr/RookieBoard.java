@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.CachedDataAccess;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.RookieBoardRow;
@@ -37,7 +37,7 @@ public class RookieBoard extends BaseBoard {
         getRequest().setAttribute("seasons", seasons);
 
 
-        int seasonId = Integer.parseInt(hasParameter(Constants.SEASON_ID) ? getRequest().getParameter(Constants.SEASON_ID) : getCurrentPeriod(Constants.SEASON_ID));
+        int seasonId = hasParameter(Constants.SEASON_ID) ? Integer.parseInt(getRequest().getParameter(Constants.SEASON_ID)) : getCurrentRookieSeason();
         setDefault(Constants.SEASON_ID, seasonId);
        
         // Get the rookie contest for the season
@@ -51,7 +51,7 @@ public class RookieBoard extends BaseBoard {
         r.setProperty("seid", seasonId + "");
         
         // Put the results in a list
-        DataAccessInt dai = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME); // change to cached
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
         Map m = dai.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) m.get("dr_rookie_results");
         
@@ -77,6 +77,17 @@ public class RookieBoard extends BaseBoard {
         setIsNextPageInContext(true);
     }
 
+    /**
+     * Get the most recent season having rookie contest.
+     * @return
+     * @throws TCWebException
+     */
+    protected int getCurrentRookieSeason() throws TCWebException {
+        ResultSetContainer currentPeriod = runQuery("dr_current_rookie_season", "dr_current_rookie_season");
+        return currentPeriod.getIntItem(0, 0);
+    }
+
+    
     /**
      * Get the rookie contest for the specified season and phase
      * 
