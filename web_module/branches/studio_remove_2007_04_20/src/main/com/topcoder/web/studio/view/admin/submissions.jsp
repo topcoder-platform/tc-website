@@ -187,7 +187,9 @@ Show submissions by (Enter Handle):
                 <rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
         </td>
         <td class="valueC">
+            <%if (resultRow.getIntItem("submission_type_id")!=SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
+            <% } %>
         </td>
         <td class="valueC">
             <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
