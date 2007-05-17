@@ -112,7 +112,7 @@
                     <thead>
                         <tr>
                             <td class="NW">&nbsp;</td>
-                            <td class="title" colspan="7">My Favorites</td>
+                            <td class="title" colspan="8">My Favorites</td>
                             <td class="NE">&nbsp;</td>
                         </tr>
                         <tr>
@@ -140,6 +140,9 @@
                             <td class="headerC" nowrap>
                                 Move to<br>Top
                             </td>
+                            <td class="headerC">
+                                Remove
+                            </td>
                             <td class="headerE">
                                 <div>&nbsp;</div>
                             </td>
@@ -150,7 +153,7 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td class="SW" colspan="8">&nbsp;</td>
+                            <td class="SW" colspan="9">&nbsp;</td>
                             <td class="SE">&nbsp;</td>
                         </tr>
                     </tfoot>
