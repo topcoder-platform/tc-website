@@ -50,11 +50,7 @@ public class PaymentStatusMediator {
 
     public void newPayment(BasePayment payment) throws EventFailureException {
         log.debug("newPayment called... ");
-        // when a payment is created, the possible status can be any on hold, accruing and owed
-        statusManager.newPayment(payment);
         
-        // if user is accruing and the payment is set to owed, it means we have reached accrual threshold
-        // so we need to notify all accruing payments
         
         boolean closeConn = false;
         try {
@@ -65,6 +61,12 @@ public class PaymentStatusMediator {
                 setLockTimeout(conn);
             }
             
+            // when a payment is created, the possible status can be any on hold, accruing and owed
+            statusManager.newPayment(conn, payment);
+
+            // if user is accruing and the payment is set to owed, it means we have reached accrual threshold
+            // so we need to notify all accruing payments
+
             log.debug("check if we need to notify accruing payments");
             log.debug("payment.getCurrentStatus(): " + payment.getCurrentStatus().getDesc());
             log.debug("dib.getUserAccrualThreshold(conn, payment.getCoderId()): " + dib.getUserAccrualThreshold(conn, payment.getCoderId()));
@@ -373,7 +375,7 @@ public class PaymentStatusMediator {
             List<BasePayment> childPayments = dib.findCoderPayments(conn, criteria);
             for (BasePayment childPayment : childPayments) {
                 if ("new".equals(notifType)) {
-                statusManager.newPayment(childPayment);
+                statusManager.newPayment(conn, childPayment);
             }
             if ("cancel".equals(notifType)) {
                 statusManager.parentCancelled(childPayment);

@@ -5,6 +5,7 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +44,13 @@ public abstract class BasePaymentStatus {
     
     public abstract void nextState(BasePayment payment);
     
-    public abstract void activate(BasePayment payment);
+    public void activate(Connection conn, BasePayment payment) {
+        // default implementation does nothing...
+    }
+
+    public void activate(BasePayment payment) {
+        activate(null, payment);
+    }
 
     public void affirmedAffidavit(BasePayment payment) throws InvalidStateTransitionException {
         throw new InvalidStateTransitionException();

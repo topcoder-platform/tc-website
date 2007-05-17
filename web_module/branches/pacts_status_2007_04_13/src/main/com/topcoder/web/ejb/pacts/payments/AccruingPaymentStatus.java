@@ -5,6 +5,8 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import java.sql.Connection;
+
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
@@ -51,7 +53,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void activate(BasePayment payment) {
+    public void activate(Connection conn, BasePayment payment) {
         DataInterfaceBean dib = new DataInterfaceBean();
         try {
             // check the user's accrual threshold

@@ -5,6 +5,8 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import java.sql.Connection;
+
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
@@ -21,12 +23,12 @@ public class PaymentStatusManager {
     public PaymentStatusManager() {
     }
 
-    public void newPayment(BasePayment payment) {
+    public void newPayment(Connection conn, BasePayment payment) {
         log.debug("newPayment called...");
         // the start point for a new payment is the on hold state
         try {
             payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS));
-            payment.getCurrentStatus().activate(payment);
+            payment.getCurrentStatus().activate(conn, payment);
         } catch (Exception e) {
             // do nothing
         }

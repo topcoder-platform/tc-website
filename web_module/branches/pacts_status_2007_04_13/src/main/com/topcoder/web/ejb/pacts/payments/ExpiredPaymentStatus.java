@@ -6,8 +6,6 @@
 package com.topcoder.web.ejb.pacts.payments;
 
 import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -33,11 +31,6 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
     @Override
     public Long getId() {
         return ID;
-    }
-
-    @Override
-    public void activate(BasePayment payment) {
-        // nothing to do here for now...   
     }
 
     @Override

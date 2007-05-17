@@ -6,6 +6,7 @@
 package com.topcoder.web.ejb.pacts.payments;
 
 import java.rmi.RemoteException;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -52,7 +53,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void activate(BasePayment payment) {
+    public void activate(Connection conn, BasePayment payment) {
         log.debug("activate called for payment: " + payment.getId());
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -66,7 +67,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                 Map criteria = new HashMap();
                 criteria.put(PactsConstants.PAYMENT_ID, String.valueOf(((ParentReferencePayment) payment).getParentId()));
 
-                List<BasePayment> payments = dib.findCoderPayments(criteria);
+                List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
                 
                 // if not exactly one result, throw exception
                 if (payments.size() != 1) {

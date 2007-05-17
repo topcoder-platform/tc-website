@@ -79,10 +79,6 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void activate(BasePayment payment) {
-    }
-
-    @Override
     public Boolean isValid(BasePayment payment) {
         // since this is a system managed status, it's always valid
         return true;
