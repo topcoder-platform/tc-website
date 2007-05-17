@@ -3718,6 +3718,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             // Create the referral payment if requested and if we can find a referring user
             if (createReferralPayment && p.getInstallmentNumber() == 1) {
                 ResultSetContainer rsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());
+                
                 if (rsc.getRowCount() > 0) {
 
                     double amount = p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount();
@@ -3725,11 +3726,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referPay.setGrossAmount(amount * REFERRAL_PERCENTAGE);
                     referPay.setNetAmount(0);
                     
-                    // referral gets the same status with attached to parent reason
-                    BasePaymentStatus bps = p.getCurrentStatus().clone();
-                    bps.getReasons().add(AvailableStatusReason.ATTACHED_TO_PARENT_REASON.getStatusReason());
-                    referPay.setCurrentStatus(bps);
+                    log.debug("saving referral payment");
                     long referId = Long.parseLong(rsc.getItem(0, "reference_id").toString());
+
+                    BasePayment bp = BasePayment.createPayment(CODER_REFERRAL_PAYMENT, referId, 
+                            referPay.getGrossAmount(), 0); 
+                    new PaymentStatusMediator().newPayment(bp);
+
+                    referPay.setCurrentStatus(bp.getCurrentStatus());
+
                     String handle = rsc.getItem(0, "coder_handle").toString();
                     referPay.getHeader().setDescription("Referral bonus for " + handle + " " + p.getHeader().getDescription());
                     referPay.getHeader().setTypeId(CODER_REFERRAL_PAYMENT);
