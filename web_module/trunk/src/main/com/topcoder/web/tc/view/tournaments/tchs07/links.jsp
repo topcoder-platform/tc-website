@@ -23,6 +23,7 @@
 
 <div id="leftnav">
     <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"<% if (tabLev1.equals("overview")) {%> class="on"<% } %>>OVERVIEW</A>
+    <a href="/pdfs/tournaments/tchs07_webprogram.pdf" alt="TCHS 2007 Web Program" target="_blank" />TOURNAMENT PROGRAM (PDF)</a>
     <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineSchedule"<% if (tabLev1.equals("onlineSchedule")) {%> class="on"<% } %>>ONLINE
         SCHEDULE</A>
     <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"<% if (tabLev1.equals("onsiteSchedule")) {%> class="on"<% } %>>ONSITE
