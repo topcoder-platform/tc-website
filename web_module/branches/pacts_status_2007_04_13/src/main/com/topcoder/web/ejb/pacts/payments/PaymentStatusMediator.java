@@ -50,7 +50,12 @@ public class PaymentStatusMediator {
 
     public void newPayment(BasePayment payment) throws EventFailureException {
         log.debug("newPayment called... ");
-
+        // when a payment is created, the possible status can be any on hold, accruing and owed
+        statusManager.newPayment(payment);
+        
+        // if user is accruing and the payment is set to owed, it means we have reached accrual threshold
+        // so we need to notify all accruing payments
+        
         boolean closeConn = false;
         try {
             if (conn == null) {
