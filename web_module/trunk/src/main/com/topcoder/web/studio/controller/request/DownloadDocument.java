@@ -75,11 +75,7 @@ public class DownloadDocument extends ShortHibernateProcessor {
         FileInputStream fis = new FileInputStream(d.getPath().getPath() + d.getSystemFileName());
 
         int b;
-<<<<<<< DownloadDocument.java
-        int size =0;
-=======
         int size = 0;
->>>>>>> 1.6.22.2
         while ((b = fis.read()) >= 0) {
             sos.write(b);
             size++;
