@@ -39,7 +39,7 @@
 
 <div class="breadcrumb">
     <a href="/?module=Static&d1=competitions">Competitions</a>
-    > <a href="/?module=Static&d1=assembly&d2=activeContests">Active Assembly Competitions</a>
+    > <a href="/?module=Static&d1=assembly&d2=pastContests">Past Assembly Competitions</a>
     > BT Business CSF Mashup Assembly Competition
 </div>
 

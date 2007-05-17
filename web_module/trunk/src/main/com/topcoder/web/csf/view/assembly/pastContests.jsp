@@ -36,8 +36,8 @@
             <div class="breadcrumb">
                 <div style="float:left;"><A href="/?module=Static&amp;d1=competitions">Competitions</A> >&nbsp;</div>
                 <div style="float:left; margin-bottom: 10px;">
-                <strong>Active Assembly Competitions</strong><br>
-                <A href="/?module=Static&d1=assembly&d2=pastContests">Past Assembly Competitions</A>
+                <A href="/?module=Static&d1=assembly&d2=activeContests">Active Assembly Competitions</A><br>
+                <strong>Past Assembly Competitions</strong>
                 </div>
             </div>
 
@@ -52,14 +52,8 @@
                         <td class="header" width="100%">
                             Project
                         </td>
-                        <td class="headerC" nowrap="nowrap">
-                            Registration opens
-                        </td>
-                        <td class="headerC" nowrap="nowrap">
-                            Submit by
-                        </td>
-                        <td class="headerR">
-                            Prize
+                        <td class="header">
+                            Winner
                         </td>
                         <td class="headerC">
                             Registrants
@@ -67,22 +61,23 @@
                         <td class="headerC">
                             Submissions
                         </td>
-                        <td class="header">&nbsp;</td>
+                        <td class="headerR">
+                            Prize
+                        </td>
+                        <td class="headerC" nowrap="nowrap">
+                            Start Date
+                        </td>
+                        <td class="headerC">
+                            End Date
+                        </td>
                     </tr>
-<%--
                     <% boolean even = true;%>
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
                             <A href="/?module=Static&d1=assembly&d2=btBusinessDetails">BT Business CSF Mashup Assembly Competition</A>
                         </td>
-                        <td class="valueC" nowrap="nowrap">
-                             <strong>04.10.2007</strong><br>16:00 EST
-                        </td>
-                        <td class="valueC" nowrap="nowrap">
-                             <strong>04.23.2007</strong><br>17:00 EST
-                        </td>
-                        <td class="valueR" nowrap="nowrap">
-                            $6,750.00
+                        <td class="value">
+                            <strong>dsdirect</strong>
                         </td>
                         <td class="valueC">
                             31
@@ -91,24 +86,16 @@
                             3
                         </td>
                         <td class="valueR" nowrap="nowrap">
-                            registration closed
-                            <A href="/?module=SecureStatic&d1=assembly&d2=reg" class="button" style="margin: 4px;">Register</A>
-                            <A href="/?module=Static&d1=assembly&d2=orIntro" class="button" style="margin: 4px;">Submit</A>
+                            $6,750.00
+                        </td>
+                        <td class="valueC" nowrap="nowrap">
+                             <strong>04.10.2007</strong><br>16:00 EST
+                        </td>
+                        <td class="valueC" nowrap="nowrap">
+                             <strong>04.23.2007</strong><br>17:00 EST
                         </td>
                     </tr>
                     <% even = !even;%>
---%>
-
-                <tr class="light">
-
-                    <td class="valueC" colspan="7">
-                        <div align="center" style="margin: 40px 0px 40px 0px;">
-                            There are currently no active contests, but check back soon.<br>
-                            In the meantime, take a look at our <A href="/?module=Static&d1=assembly&d2=pastContests">Past Competitions</A>.
-                        </div>
-                    </td>
-                </tr>
-
                 </tbody>
             </table>
 
