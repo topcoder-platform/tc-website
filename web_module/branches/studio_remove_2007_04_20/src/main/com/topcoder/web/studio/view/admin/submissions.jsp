@@ -175,7 +175,7 @@ Show submissions by (Enter Handle):
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
         </td>
         <td class="value">
-            <%if (SubmissionType.FINAL_SUBMISSION_TYPE.equals(resultRow.getIntItem("submission_type_id"))) { %>
+            <%if (resultRow.getIntItem("submission_type_id")==SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             Final
             <% } else { %>
             <rsc:item name="submitter_rank" row="<%=resultRow%>"/>
