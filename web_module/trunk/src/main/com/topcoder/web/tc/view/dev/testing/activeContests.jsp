@@ -49,26 +49,25 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
-<%--
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMPerformance">Sales IM Performance Testing Competition</A>
       </td>
       <td class="valueC">
-      <!--registration closed-->
+      <%--registration closed--%>
       <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Performance Testing Competition">register</A>
       </td>
       <td class="valueC">
       &#160;
-      <!--
+      <%--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_salesIMPerformance">results</A>
-      -->
+      --%>
       </td>
       <td class="valueC">
       &#160;
-      <!--
+      <%--
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_salesIMPerformance">standings</A>
-      -->
+      --%>
       </td>
       <td class="valueC">$600</td>
       <td class="valueC">
@@ -82,7 +81,6 @@
       </td>
    </tr>
    <% even = !even;%>
---%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMAdmin">Sales IM Admin Testing Competition</A>
