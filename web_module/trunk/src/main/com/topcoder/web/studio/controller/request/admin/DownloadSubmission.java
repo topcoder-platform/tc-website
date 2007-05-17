@@ -11,11 +11,7 @@ import java.io.FileInputStream;
 
 /**
  * @author dok
-<<<<<<< DownloadSubmission.java
  * @version $Revision$ Date: 2005/01/01 00:00:00
-=======
- * @version $Revision$ Date: 2005/01/01 00:00:00
->>>>>>> 1.7.2.1
  *          Create Date: Jul 20, 2006
  */
 public class DownloadSubmission extends Base {

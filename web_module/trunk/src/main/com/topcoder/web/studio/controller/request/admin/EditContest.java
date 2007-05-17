@@ -27,11 +27,7 @@ import java.util.List;
 
 /**
  * @author dok
-<<<<<<< EditContest.java
  * @version $Revision$ Date: 2005/01/01 00:00:00
-=======
- * @version $Revision$ Date: 2005/01/01 00:00:00
->>>>>>> 1.17.6.2
  *          Create Date: Jul 17, 2006
  */
 public class EditContest extends Base {
