@@ -50,17 +50,16 @@ public class PaymentStatusMediator {
 
     public void newPayment(BasePayment payment) throws EventFailureException {
         log.debug("newPayment called... ");
-        // when a payment is created, the possible status can be any on hold, accruing and owed
-        statusManager.newPayment(payment);
-        
-        // if user is accruing and the payment is set to owed, it means we have reached accrual threshold
-        // so we need to notify all accruing payments
-        
-        try {
-            conn = DBMS.getConnection();
-            conn.setAutoCommit(false);
-            setLockTimeout(conn);
 
+        boolean closeConn = false;
+        try {
+            if (conn == null) {
+                closeConn = true;
+                conn = DBMS.getConnection();
+                conn.setAutoCommit(false);
+                setLockTimeout(conn);
+            }
+            
             log.debug("check if we need to notify accruing payments");
             log.debug("payment.getCurrentStatus(): " + payment.getCurrentStatus().getDesc());
             log.debug("dib.getUserAccrualThreshold(conn, payment.getCoderId()): " + dib.getUserAccrualThreshold(conn, payment.getCoderId()));
@@ -82,20 +81,26 @@ public class PaymentStatusMediator {
                     dib.updatePayment(conn, notifyPayment);
                 }
             }
-            conn.commit();
+            if (closeConn) {
+                conn.commit();
+            }
         } catch (Exception e) {
-            try {
-                conn.rollback();
-            } catch (Exception e1) {
-                printException(e1);
+            if (closeConn) {
+                try {
+                    conn.rollback();
+                } catch (Exception e1) {
+                    printException(e1);
+                }
             }
             throw new EventFailureException(e);
         } finally {
-            try {
-                conn.setAutoCommit(true);
-            } catch (Exception e) {
+            if (closeConn) {
+                try {
+                    conn.setAutoCommit(true);
+                } catch (Exception e) {
+                }
+                DBMS.close(conn);
             }
-            DBMS.close(conn);
         }
     }
 

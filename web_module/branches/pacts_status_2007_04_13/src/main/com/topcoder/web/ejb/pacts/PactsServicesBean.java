@@ -47,7 +47,6 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.ejb.pacts.payments.StateTransitionFailureException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
@@ -3760,7 +3759,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                     CoderReferralPayment crp = new CoderReferralPayment(referId,
                             referPay.getGrossAmount(), paymentId);
-                    new PaymentStatusMediator().newPayment(crp);
+                    new PaymentStatusMediator(c).newPayment(crp);
 
                     referPay.setCurrentStatus(crp.getCurrentStatus());
 
@@ -5794,7 +5793,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 p.setGrossAmount(TCData.getTCDouble(winners.getRow(i), "paid"));
 
                 AlgorithmContestPayment acp = new AlgorithmContestPayment(userId, 0.01, roundId);
-                new PaymentStatusMediator().newPayment(acp);
+                new PaymentStatusMediator(c).newPayment(acp);
                 p.setCurrentStatus(acp.getCurrentStatus());
                 
                 p.getHeader().setDescription(roundName + " winnings");
@@ -5982,8 +5981,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             double amount = rsc.getDoubleItem(i, "paid");
             ReviewBoardPayment rbp = new ReviewBoardPayment(coderId, amount, client, projectId);
             
-            // delegate payment status logic to the PaymentStatusMediator
-            new PaymentStatusMediator().newPayment(rbp);
             payments.add(rbp);
         }
 
@@ -6865,10 +6862,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         processor.fillData(payment);
 
+        // delegate status to the mediator
+        new PaymentStatusMediator(conn).newPayment(payment);
+        
         Payment p = createPayment(payment);
 
-        log.debug("1) BasePayment.status.getreasons:" + payment.getCurrentStatus().getReasons().size());
-        log.debug("1) payment.status.getreasons:" + p.getCurrentStatus().getReasons().size());
+        log.debug("1) payment.getCurrentStatus().getDesc():" + payment.getCurrentStatus().getDesc());
+        log.debug("1) payment.getCurrentStatus().getReasons().size():" + payment.getCurrentStatus().getReasons().size());
 
         long paymentId;
 
@@ -7021,8 +7021,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         // If it's not first place, just add the payment to the list and return it.
         if (placed != 1) {
             ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
-            // delegate payment status logic to the PaymentStatusMediator
-            new PaymentStatusMediator().newPayment(cwp);
             l.add(cwp);
             return l;
         }
@@ -7030,16 +7028,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         if (projectType == DESIGN_PROJECT) {
             BasePayment p = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
             p.setGrossAmount(grossAmount * DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT);
-            // delegate payment status logic to the PaymentStatusMediator
-            new PaymentStatusMediator().newPayment(p);
             l.add(p);
         } else if (projectType == DEVELOPMENT_PROJECT) {
             long designProject = getDesignProject(projectId);
 
             // add the development payment as it is
             ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
-            // delegate payment status logic to the PaymentStatusMediator
-            new PaymentStatusMediator().newPayment(cwp);
             l.add(cwp);
 
             if (designProject > 0) {
@@ -7074,8 +7068,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         BasePayment p = new ComponentWinningPayment(coderId2, totalAmount, client2, designProject, 1);
                         p.setGrossAmount(totalAmount - paid);
                         p.setInstallmentNumber(installment);
-                        // delegate payment status logic to the PaymentStatusMediator
-                        new PaymentStatusMediator().newPayment(p);
 
                         if (devSupportCoderId == 0) {
                             p.setMethodId(methodId);

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +20,6 @@ import com.topcoder.web.ejb.pacts.DigitalRunSeasonReferencePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunStageReferencePayment;
 import com.topcoder.web.ejb.pacts.ParentReferencePayment;
 import com.topcoder.web.ejb.pacts.StudioContestReferencePayment;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
@@ -172,14 +170,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed, devSupportId); 
 
                             // manage payment status
-                            log.debug("editpayment: 1- ");
-                            log.debug("editpayment: 1- " + ((p.getCurrentStatus() == null) ? "null" : p.getCurrentStatus().getReasons().size()));
-                            PaymentStatusMediator psm = new PaymentStatusMediator(); 
-                            log.debug("editpayment: 2- ");
-                            log.debug("editpayment: 2- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
-                            psm.newPayment(payment);
-                            log.debug("editpayment: 3- ");
-                            log.debug("editpayment: 3- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
 
                             if (p.isDesign() && grossAmount == 0) {
                         		BasePayment aux = (BasePayment) l.get(0);
@@ -198,15 +188,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                         		payments.addAll(l);
                         	}
                         } else {
-                            log.debug("editpayment: c1- ");
-                            log.debug("editpayment: c1- payment.getCurrentStatus(): " + payment.getCurrentStatus());
-                            log.debug("editpayment: c1- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
-                            PaymentStatusMediator psm = new PaymentStatusMediator(); 
-                            log.debug("editpayment: c2- ");
-                            log.debug("editpayment: c2- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
-                            psm.newPayment(payment);
-                            log.debug("editpayment: c3- ");
-                            log.debug("editpayment: c3- " + ((payment.getCurrentStatus() == null) ? "null" : payment.getCurrentStatus().getReasons().size()));
                         	payment = dib.addPayment(payment);
                         	payments.add(payment);
                         }               
