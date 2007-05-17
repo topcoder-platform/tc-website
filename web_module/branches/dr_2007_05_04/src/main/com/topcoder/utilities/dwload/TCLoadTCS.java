@@ -30,6 +30,7 @@ import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
 import com.topcoder.utilities.dwload.contestresult.ProjectResult;
 import com.topcoder.utilities.dwload.contestresult.RookieContest;
 import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
+import com.topcoder.web.common.cache.CacheClient;
 import com.topcoder.web.common.cache.CacheClientFactory;
 
 /**
@@ -138,6 +139,11 @@ public class TCLoadTCS extends TCLoad {
 
     private static final long DELETED_PROJECT_STATUS = 3;
 
+    /**
+     * If set to true, all the Digital Run related data will be fully loaded
+     */
+    private boolean FULL_DR_LOAD = false;
+
     public TCLoadTCS() {
         DEBUG = false;
     }
@@ -169,6 +175,18 @@ public class TCLoadTCS extends TCLoad {
             }
             submissionDir = temp;
         }
+     
+        try {
+            Boolean tmpBool = retrieveBooleanParam("fulldrload", params, true);
+            if (tmpBool != null) {
+                FULL_DR_LOAD = tmpBool.booleanValue();
+                log.info("New fullload flag is " + FULL_DR_LOAD);
+            }
+        } catch (Exception ex) {
+            setReasonFailed(ex.getMessage());
+            return false;
+        }
+        
         return true;
     }
 
@@ -318,14 +336,14 @@ public class TCLoadTCS extends TCLoad {
 
 
     public void doClearCache() throws Exception {
-        CacheClientFactory.create().clearCache();
+        CacheClient cc = CacheClientFactory.create();
         
 /*
         CacheClient cc = CacheClientFactory.createCacheClient();
 
         String tempKey;
 */
-/*
+
         String[] keys = new String[]{"tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
                 "member_profile", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
                 "public_home_data", "top_designers", "top_developers", "tco04",
@@ -334,13 +352,13 @@ public class TCLoadTCS extends TCLoad {
                 "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
                 "comp_contest_details", "dr_leader_board", "dr_rookie_board", "competition_history", "algo_competition_history",
                 "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
-                "season_outstanding_projects"
+                "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages"
         };
 
         for (String key : keys) {
-            CacheClearer.removelike(key);
+            cc.remove(key);
         }
-*/
+
 /*
 
         ArrayList list = cc.getKeys();
@@ -4524,7 +4542,8 @@ log.debug("loading results for project " + project_id);
                 "       , (select min(start_date) from stage st where st.season_id = s.season_id) as start_date " + 
                 "       , (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " + 
                 " from season s " + 
-                " where modify_date > ? ";
+                (FULL_DR_LOAD? "" : 
+                    " where modify_date > ? ");
 
         
         final String UPDATE =
@@ -4545,7 +4564,10 @@ log.debug("loading results for project " + project_id);
 
             int count = 0;
 
-            select.setTimestamp(1, fLastLogTime);
+            if (FULL_DR_LOAD) {
+                select.setTimestamp(1, fLastLogTime);
+            }
+            
             rs = select.executeQuery();
 
             while (rs.next()) {
@@ -4602,7 +4624,8 @@ log.debug("loading results for project " + project_id);
         final String SELECT = 
                 " select stage_id, season_id, name, start_date, end_date, top_performers_factor " + 
                 " from stage " + 
-                " where modify_date > ? ";
+                (FULL_DR_LOAD? "" : 
+                " where modify_date > ? ");
 
         
         final String UPDATE =
@@ -4623,7 +4646,9 @@ log.debug("loading results for project " + project_id);
 
             int count = 0;
 
-            select.setTimestamp(1, fLastLogTime);
+            if (FULL_DR_LOAD) {
+                select.setTimestamp(1, fLastLogTime);
+            }
             rs = select.executeQuery();
 
             while (rs.next()) {
