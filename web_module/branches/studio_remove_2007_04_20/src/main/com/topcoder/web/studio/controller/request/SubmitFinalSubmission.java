@@ -1,17 +1,5 @@
 package com.topcoder.web.studio.controller.request;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.MultipartRequest;
@@ -36,12 +24,23 @@ import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionType;
 import com.topcoder.web.studio.validation.SubmissionValidator;
 
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * @author pulky
  */
 public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
     private File f = null;
 
+    @SuppressWarnings({"ResultOfMethodCallIgnored"})
     protected void dbProcessing() throws Exception {
         if (userLoggedIn()) {
             Long contestId;
@@ -52,17 +51,15 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                 throw new NavigationException("Invalid contest specified.");
             }
 
-//            String rank = getRequest().getParameter(Constants.SUBMISSION_RANK);
-
             StudioDAOFactory cFactory = StudioDAOUtil.getFactory();
             DAOFactory factory = DAOUtil.getFactory();
             SubmissionDAO dao = cFactory.getSubmissionDAO();
 
             Contest c = cFactory.getContestDAO().find(contestId);
-            User u = factory.getUserDAO().find(new Long(getUser().getId()));
+            User u = factory.getUserDAO().find(getUser().getId());
 
-            
-            if (cFactory.getContestRegistrationDAO().find(c, u) == null) { 
+
+            if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                 throw new NavigationException("User not registered for the contest");
             } else if (!isWinner(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE)) {
                 throw new NavigationException("User cannot upload final submissions");
@@ -75,7 +72,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
 
                 // for final submissions only zip files are allowed.
                 StudioFileType sft = cFactory.getFileTypeDAO().find(StudioFileType.ZIP_ARCHIVE_TYPE_ID);
-                Set ft = new HashSet();
+                Set<StudioFileType> ft = new HashSet<StudioFileType>();
                 ft.add(sft);
                 c.setFileTypes(ft);
                 //do validation
@@ -84,23 +81,17 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     addError(Constants.SUBMISSION, submissionResult.getMessage());
                 }
 
-//                ValidationResult rankResult = new IntegerValidator("Please input a valid integer for rank.").validate(new StringInput(rank));
-//                if (!rankResult.isValid()) {
-//                    addError(Constants.SUBMISSION_RANK, rankResult.getMessage());
-//                }
-
                 if (!"on".equals(getRequest().getParameter(Constants.ACCEPT_AD))) {
                     addError(Constants.ACCEPT_AD_ERROR, "You must accept the Assignment Document in order to upload your final submission");
                 }
 
                 List adList = PactsServicesLocator.getService()
-                .getAssignmentDocumentByUserIdStudioContestId(u.getId().longValue(), c.getId().longValue());
+                        .getAssignmentDocumentByUserIdStudioContestId(u.getId(), c.getId());
 
                 AssignmentDocument ad = (AssignmentDocument) adList.get(0);
 
                 Boolean hasHardCopy = PactsServicesLocator.getService()
-                .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
-                ad.getType().getId().longValue());
+                        .hasHardCopyAssignmentDocumentByUserId(ad.getType().getId(), ad.getUser().getId());
 
                 if (hasErrors()) {
                     getRequest().setAttribute("assignment_document", ad);
@@ -110,7 +101,6 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     setDefault(Constants.ACCEPT_AD, String.valueOf("on".equals(getRequest().getParameter(Constants.ACCEPT_AD))));
 
                     setDefault(Constants.CONTEST_ID, contestId.toString());
-//                    setDefault(Constants.SUBMISSION_RANK, rank);
                     loadSubmissionData(u, c, dao, SubmissionType.FINAL_SUBMISSION_TYPE);
                     getRequest().setAttribute("contest", c);
                     setNextPage("/submitFinalSubmission.jsp");
@@ -120,7 +110,7 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     if (ad.getStatus().getId().equals(AssignmentDocumentStatus.PENDING_STATUS_ID)) {
                         PactsServicesLocator.getService().affirmAssignmentDocument(ad);
                     }
-                    
+
                     // accept the file
                     MimeType mt = cFactory.getMimeTypeDAO().find(submissionFile.getContentType());
                     Submission s = new Submission();
@@ -155,7 +145,6 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     s.setPath(p);
                     s.setSystemFileName(System.currentTimeMillis() + ext);
                     s.setType(cFactory.getSubmissionTypeDAO().find(SubmissionType.FINAL_SUBMISSION_TYPE));
-                    s.setSubmissionDate(new Timestamp(System.currentTimeMillis()));
 
                     if (log.isDebugEnabled()) {
                         log.debug("creating file: " + p.getPath() + s.getSystemFileName());
@@ -171,28 +160,11 @@ public class SubmitFinalSubmission extends BaseSubmissionDataProcessor {
                     if (mt.getFileType().isImageFile()) {
                         ImageInputStream iis = ImageIO.createImageInputStream(new ByteArrayInputStream(fileBytes));
                         BufferedImage image = ImageIO.read(iis);
-                        s.setWidth(new Integer(image.getWidth()));
-                        s.setHeight(new Integer(image.getHeight()));
+                        s.setWidth(image.getWidth());
+                        s.setHeight(image.getHeight());
                     }
 
-//                    Integer maxRank = dao.getMaxRank(c, u);
-//                    Integer one = new Integer(1);
-//                    getRequest().setAttribute("maxRank", maxRank);
-//                    if (maxRank == null) {
-//                        s.setRank(one);
-                        dao.saveOrUpdate(s);
-//                    } else {
-//                        Integer newRank = new Integer(rank);
-//                        if (newRank.compareTo(maxRank) > 0) {
-//                            s.setRank(new Integer(maxRank.intValue() + 1));
-//                            dao.saveOrUpdate(s);
-//                        } else if (newRank.compareTo(one) < 0) {
-//                            dao.changeRank(one, s);
-//                        } else {
-//                            dao.changeRank(newRank, s);
-//                        }
-//                    }
-//
+                    dao.saveOrUpdate(s);
 
                     StringBuffer nextPage = new StringBuffer(50);
                     nextPage.append(getSessionInfo().getServletPath());

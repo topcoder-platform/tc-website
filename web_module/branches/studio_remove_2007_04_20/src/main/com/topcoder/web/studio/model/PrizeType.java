@@ -9,7 +9,7 @@ import com.topcoder.web.common.model.Base;
  */
 public class PrizeType extends Base {
 
-    public static final Integer CONTEST = new Integer(1);
+    public static final Integer CONTEST = 1;
 
     private Integer id;
     private String description;
@@ -22,4 +22,11 @@ public class PrizeType extends Base {
         return description;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
