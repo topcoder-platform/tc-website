@@ -358,15 +358,16 @@ public class TCLoadTCS extends TCLoad {
                 "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
                 "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages", "dr_contests_for_stage"
         };
+log.debug("keys in cache: ");
+        for (Object o : cc.getKeys()) {
+            log.debug(o);
+        }
 
         for (String key : keys) {
             cc.remove(key);
         }
 
         cc.clearCache();
-        for (Object o : cc.getKeys()) {
-            log.debug(o);
-        }
         
 /*
 
