@@ -47,12 +47,13 @@ public class PayReliabilityBonus extends DBUtility {
 		// someone deletes a reliability bonus, it is not created again.
 		query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.total_amount, p.payment_id, ");
         query.append("       (select NVL(ppd.actual_start_time, psd.actual_start_time)   ");
-        query.append("          from project p  ");
+        query.append("          from project proj  ");
         query.append("               , OUTER project_phase psd  ");
         query.append("               , OUTER project_phase ppd  ");
-        query.append("          where  psd.project_id = p.project_id   ");
+        query.append("          where  psd.project_id = proj.project_id   ");
         query.append("          and psd.phase_type_id = 2   ");
-        query.append("          and ppd.project_id = p.project_id   ");
+        query.append("          and ppd.project_id = proj.project_id   ");
+        query.append("          and proj.project_id = pr.project_id   ");
         query.append("          and ppd.phase_type_id = 1) as posting_date ");
         query.append("FROM tcs_catalog:project pro, tcs_catalog:project_result pr, ");
         query.append("payment p, ");
