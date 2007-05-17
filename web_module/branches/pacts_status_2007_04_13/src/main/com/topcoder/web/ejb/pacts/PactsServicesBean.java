@@ -3729,11 +3729,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     log.debug("saving referral payment");
                     long referId = Long.parseLong(rsc.getItem(0, "reference_id").toString());
 
-                    BasePayment bp = BasePayment.createPayment(CODER_REFERRAL_PAYMENT, referId, 
-                            referPay.getGrossAmount(), 0); 
-                    new PaymentStatusMediator().newPayment(bp);
+                    CoderReferralPayment crp = new CoderReferralPayment(referId,
+                            referPay.getGrossAmount(), p.getId());
+                    new PaymentStatusMediator().newPayment(crp);
 
-                    referPay.setCurrentStatus(bp.getCurrentStatus());
+                    referPay.setCurrentStatus(crp.getCurrentStatus());
 
                     String handle = rsc.getItem(0, "coder_handle").toString();
                     referPay.getHeader().setDescription("Referral bonus for " + handle + " " + p.getHeader().getDescription());
