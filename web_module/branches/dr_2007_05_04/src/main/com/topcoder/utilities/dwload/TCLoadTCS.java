@@ -1884,9 +1884,10 @@ log.debug("loading results for project " + project_id);
                 }
             }
         } finally {
-            
+            close(rs);
+            close(ps);
         }
-        return null;
+        return result;
     }
 
     public void doLoadSubmissionReview() throws Exception {
