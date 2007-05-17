@@ -13,7 +13,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -24,7 +23,6 @@ import java.util.Map;
 import java.util.Set;
 
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.shared.util.dwload.TCLoad;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.dwload.contestresult.ContestResult;
@@ -32,6 +30,7 @@ import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
 import com.topcoder.utilities.dwload.contestresult.ProjectResult;
 import com.topcoder.utilities.dwload.contestresult.RookieContest;
 import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
+import com.topcoder.web.common.cache.CacheClientFactory;
 
 /**
  * <strong>Purpose</strong>:
@@ -211,9 +210,9 @@ public class TCLoadTCS extends TCLoad {
 
             
             doLoadProjectResults();
-*/
+
             doLoadRookies();
-/*
+
             doLoadSubmissionScreening();
 
             doLoadContestProject();
@@ -319,12 +318,14 @@ public class TCLoadTCS extends TCLoad {
 
 
     public void doClearCache() throws Exception {
+        CacheClientFactory.create().clearCache();
+        
 /*
         CacheClient cc = CacheClientFactory.createCacheClient();
 
         String tempKey;
 */
-
+/*
         String[] keys = new String[]{"tccc05_", "tccc06_", "tco07_", "usdc_", "component_history", "tcs_ratings_history",
                 "member_profile", "Coder_Dev_Data", "Coder_Des_Data", "Component_",
                 "public_home_data", "top_designers", "top_developers", "tco04",
@@ -339,7 +340,7 @@ public class TCLoadTCS extends TCLoad {
         for (String key : keys) {
             CacheClearer.removelike(key);
         }
-
+*/
 /*
 
         ArrayList list = cc.getKeys();

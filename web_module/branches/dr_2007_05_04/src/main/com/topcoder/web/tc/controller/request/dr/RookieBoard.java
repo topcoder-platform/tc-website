@@ -96,6 +96,7 @@ public class RookieBoard extends BaseBoard {
         sortResult(results, sortCol, invert);
         List<IBoardRow> cropped = cropResult(results, startRank, numRecords);
         
+        getRequest().setAttribute("seid", seasonId);
         getRequest().setAttribute("results", cropped);
         getRequest().setAttribute("isDesign", phase == 112);
         getRequest().setAttribute("isDevelopment", phase == 113);

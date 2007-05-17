@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Map;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -74,7 +73,7 @@ public class PayReliabilityBonus extends DBUtility {
         
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
         
-		log.info("user_id;project_id;reliability_percent;bonus_amount;old_reliability;total_amount");
+		log.info("user_id;project_id;bonus_amount;old_reliability;total_amount");
 
         int count = 0;
         ResultSet rs = psSelProjects.executeQuery();
@@ -107,7 +106,7 @@ public class PayReliabilityBonus extends DBUtility {
             	ejb.addPayment(bp);
             }
 
-    		log.info("" + userId + ";" + projectId + ";" + getReliabilityPercent(reliability) + ";" + bonusAmount + ";" + reliability + ";" + amount);
+    		log.info("" + userId + ";" + projectId + ";" + bonusAmount + ";" + reliability + ";" + amount);
 			count++;			
         }
         log.info("Done. Bonus rows inserted: " + count);

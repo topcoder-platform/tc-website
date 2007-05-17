@@ -109,12 +109,12 @@
     <A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
     <c:choose>
     	<c:when test="${isDevelopment}">
-			    <A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+			    <A href="/tc?module=RookieBoard&ph=112&seid=${seid}" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
 			    Development Cup Series ROTY Leaderboard
 	    </c:when>
 	    <c:otherwise>
 			    Design Cup Series ROTY Leaderboard<br>
-			    <A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+			    <A href="/tc?module=RookieBoard&ph=113&seid=${seid}" class="bcLink">Development Cup Series ROTY Leaderboard</a>
 	    </c:otherwise>
 	</c:choose>
 </div>
@@ -125,7 +125,6 @@
 <form name="rookieBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="RookieBoard"/>
 <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
-<!--tc-webtag:hiddenInput name="<%=Constants.SEASON_ID%>"/-->
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
