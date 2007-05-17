@@ -35,7 +35,7 @@ public class RookieBoard extends BaseBoard {
      */
     protected void businessProcessing() throws Exception {
         // Season list.
-        ResultSetContainer seasons = runQuery(Constants.DR_SEASON_COMMAND, Constants.DR_SEASON_QUERY);
+        ResultSetContainer seasons = runQuery("dr_rookie_seasons", "dr_rookie_seasons");
         getRequest().setAttribute("seasons", seasons);
 
 

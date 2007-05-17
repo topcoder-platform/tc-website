@@ -193,45 +193,46 @@ Please select a <strong>season</strong><br>
         </td>
     </tr>
 
-        <%boolean even = false;%>
-        <% int i = 0;%>
-    <c:forEach items="${results}" var="boardRow">
-    <tr class="<%=even?"dark":"light"%>">
+    <c:forEach items="${results}" var="boardRow" varStatus="status">
+    <tr class='${status.index % 2 == 1? "even" : "odd" }'>
         <td class="valueC">${boardRow.rank}</td>
         <td class="value" style="border-right: 1px solid #999999;">
             <tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/>
             <c:if test="${boardRow.potential}">***</c:if></td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
-                <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for finishing as the <strong>Rookie of the Year</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>a')" onmouseout="popHide()" /></div>
+                <div id="pop${status.index }a" class="popUp"><div>Trip to the next TCO Finals for finishing as the <strong>Rookie of the Year</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }a')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.placementPrize>0}">
-                <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top Ten</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>b')" onmouseout="popHide()" /></div>
+                <div id="pop${status.index }b" class="popUp"><div>Cash prize for placing in the <strong>Top Ten</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }b')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
-            <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a>
-        </td>
-</c:if></td>
-<td class="valueR" style="border-right: 1px solid #999999;"><c:if test="${boardRow.placementPrize>0}">
-    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
-</c:if>
-    <c:if test="${boardRow.placementPrize==0}">
-        &#160;
-    </c:if>
-</td>
-<td class="valueR"><c:if test="${boardRow.potentialPoints>0}">
-    <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&seid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.potentialPoints}</a>
-</c:if></td>
-<td class="valueR">${boardRow.totalPoints}</td>
+            <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">
+	            <fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
+            </a>
+            </c:if>
+	        </td>
+	<td class="valueR" style="border-right: 1px solid #999999;"><c:if test="${boardRow.placementPrize>0}">
+	    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
+	</c:if>
+	    <c:if test="${boardRow.placementPrize==0}">
+	        &#160;
+	    </c:if>
+	</td>
+	<td class="valueR"><c:if test="${boardRow.potentialPoints>0}">
+	    <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&seid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">
+	    <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/></a>
+	</c:if></td>
+	<td class="valueR">
+		<fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
+	</td>
 </tr>
-<%i++;%>
-<%even = !even;%>
 </c:forEach>
 </table>
 <div class="pagingBox" style="width:300px;">

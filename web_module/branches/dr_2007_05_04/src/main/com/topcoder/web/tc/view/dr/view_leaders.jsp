@@ -213,7 +213,9 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         </td>
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
-            <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a>
+	            <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">
+            		    		<fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
+            	</a>
             </c:if>
         </td>
 		<td class="valueR"><c:if test="${boardRow.placementPrize>0}">
@@ -232,10 +234,12 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
 		</td>
 		<td class="valueR">
 			<c:if test="${boardRow.potentialPoints>0}">
-		    	<A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.potentialPoints}</a>
+		    	<A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">
+		    		<fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
+		    		</a>
 			</c:if>
 		</td>
-		<td class="valueR"><fmt:formatNumber value="${boardRow.totalPoints}" maxFractionDigits="2"/></td>
+		<td class="valueR"><fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></td>
 	</tr>
 	</c:forEach>
 </table>
