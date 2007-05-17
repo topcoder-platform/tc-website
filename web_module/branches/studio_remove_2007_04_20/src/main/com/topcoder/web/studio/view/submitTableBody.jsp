@@ -80,10 +80,10 @@ Pending
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<div align="center" style="margin:2px;">
-<img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
+<div align="center" style="margin: 2px;">
+<img src="/i/layout/btnMoveUpNA.png" alt="Move up"/>
 </div>
-<div align="center" style="margin:2px;">
+<div align="center" style="margin: 2px;">
 <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
 </div>
 </td>
@@ -95,25 +95,25 @@ Pending
 </c:when>
 <c:otherwise>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
-<div align="center" style="margin:2px;">
+<div align="center" style="margin: 2px;">
 <c:choose>
 <c:when test="${submission.rank==1}">
-<img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
+<img src="/i/layout/btnMoveUpNA.png" alt="Move up"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();">
+<A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
 <img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/>
 </A>
 </c:otherwise>
 </c:choose>
 </div>
-<div align="center" style="margin:2px;">
+<div align="center" style="margin: 2px;">
 <c:choose>
 <c:when test="${submission.rank==maxRank}">
 <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();">
+<A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
 <img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
 </A>
 </c:otherwise>
@@ -127,7 +127,7 @@ Pending
 <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();">
+<A href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
 <img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
 </A>
 </c:otherwise>
@@ -136,7 +136,7 @@ Pending
 </td>
 <td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center">
-<A href="#" onclick="remove(${submission.id});return false;" onfocus="this.blur();">
+<A href="#" onclick="remove(${submission.id});return false;" onfocus="this.blur();" style="display: block;">
 <img src="/i/layout/btnRemove.png" alt="Remove" onmouseover="this.src = '/i/layout/btnRemoveOn.png';" onmouseout="this.src = '/i/layout/btnRemove.png';"/>
 </A>
 </div>
