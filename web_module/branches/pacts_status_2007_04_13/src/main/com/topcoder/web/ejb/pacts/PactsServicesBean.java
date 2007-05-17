@@ -3715,6 +3715,35 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             String referralStr = "null";
 
+            p.setRationaleId(MODIFICATION_NEW);
+            paymentDetailId = insertPaymentDetail(c, p, paymentAddressId);
+
+            // Add the payment record
+            StringBuffer insertPayment = new StringBuffer(300);
+            insertPayment.append("INSERT INTO payment ");
+            insertPayment.append(" (payment_id, user_id, most_recent_detail_id,  ");
+            insertPayment.append("  referral_payment_id) ");
+            insertPayment.append(" VALUES(?,?,?," + referralStr + ")");
+            ps = c.prepareStatement(insertPayment.toString());
+            ps.setLong(1, paymentId);
+            ps.setLong(2, p.getHeader().getUser().getId());
+            ps.setLong(3, paymentDetailId);
+            ps.executeUpdate();
+            ps.close();
+            ps = null;
+
+            // Add the xref record
+            StringBuffer insertXref = new StringBuffer(300);
+            insertXref.append("INSERT INTO payment_detail_xref ");
+            insertXref.append(" (payment_id, payment_detail_id) ");
+            insertXref.append(" VALUES(?,?)");
+            ps = c.prepareStatement(insertXref.toString());
+            ps.setLong(1, paymentId);
+            ps.setLong(2, paymentDetailId);
+            ps.executeUpdate();
+            ps.close();
+            ps = null;
+
             // Create the referral payment if requested and if we can find a referring user
             if (createReferralPayment && p.getInstallmentNumber() == 1) {
                 ResultSetContainer rsc = getReferrer(c, p.getHeader().getUser().getId(), p.getEventDate());
@@ -3730,7 +3759,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     long referId = Long.parseLong(rsc.getItem(0, "reference_id").toString());
 
                     CoderReferralPayment crp = new CoderReferralPayment(referId,
-                            referPay.getGrossAmount(), p.getId());
+                            referPay.getGrossAmount(), paymentId);
                     new PaymentStatusMediator().newPayment(crp);
 
                     referPay.setCurrentStatus(crp.getCurrentStatus());
@@ -3748,39 +3777,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     referralStr = "" + referralId;
                 }
             }
-
-            p.setRationaleId(MODIFICATION_NEW);
-            paymentDetailId = insertPaymentDetail(c, p, paymentAddressId);
-
-            // Add the payment record
-            StringBuffer insertPayment = new StringBuffer(300);
-            insertPayment.append("INSERT INTO payment ");
-//            insertPayment.append(" (payment_id, user_id, most_recent_detail_id, print_count, review, ");
-            insertPayment.append(" (payment_id, user_id, most_recent_detail_id,  ");
-            insertPayment.append("  referral_payment_id) ");
-            insertPayment.append(" VALUES(?,?,?," + referralStr + ")");
-            ps = c.prepareStatement(insertPayment.toString());
-            ps.setLong(1, paymentId);
-            ps.setLong(2, p.getHeader().getUser().getId());
-            ps.setLong(3, paymentDetailId);
-//            ps.setInt(4, 0); // print_count
-//            ps.setInt(5, 0); // review
+            
+            // update referral_payment_id
+            StringBuffer updatePayment = new StringBuffer(300);
+            updatePayment.append("UPDATE payment set referral_payment_id = ? ");
+            updatePayment.append(" where payment_id = ?");
+            ps = c.prepareStatement(updatePayment.toString());
+            ps.setString(1, referralStr);
+            ps.setLong(2, paymentId);
             ps.executeUpdate();
             ps.close();
             ps = null;
-
-            // Add the xref record
-            StringBuffer insertXref = new StringBuffer(300);
-            insertXref.append("INSERT INTO payment_detail_xref ");
-            insertXref.append(" (payment_id, payment_detail_id) ");
-            insertXref.append(" VALUES(?,?)");
-            ps = c.prepareStatement(insertXref.toString());
-            ps.setLong(1, paymentId);
-            ps.setLong(2, paymentDetailId);
-            ps.executeUpdate();
-            ps.close();
-            ps = null;
-
+            
             return paymentId;
         } catch (Exception e) {
             try {
