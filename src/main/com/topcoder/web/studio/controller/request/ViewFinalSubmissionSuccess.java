@@ -18,7 +18,7 @@ public class ViewFinalSubmissionSuccess extends BaseSubmissionDataProcessor {
             String submissionId = getRequest().getParameter(Constants.SUBMISSION_ID);
             SubmissionDAO dao = StudioDAOUtil.getFactory().getSubmissionDAO();
             Submission s = dao.find(new Long(submissionId));
-            if (s.getSubmitter().getId().longValue() == getUser().getId()) {
+            if (s.getSubmitter().getId().equals(getUser().getId())) {
                 loadSubmissionData(s.getSubmitter(), s.getContest(), dao, s.getType().getId());
                 setIsNextPageInContext(true);
                 setNextPage("finalSubmissionSuccess.jsp");

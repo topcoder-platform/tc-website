@@ -59,4 +59,8 @@ public class StudioDAOFactoryHibernate implements StudioDAOFactory {
     public MimeTypeDAO getMimeTypeDAO() {
         return new MimeTypeDAOHibernate();
     }
+
+    public SubmissionStatusDAO getSubmissionStatusDAO() {
+        return new SubmissionStatusDAOHibernate();
+    }
 }

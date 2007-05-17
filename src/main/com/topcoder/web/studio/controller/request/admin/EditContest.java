@@ -27,7 +27,11 @@ import java.util.List;
 
 /**
  * @author dok
+<<<<<<< EditContest.java
  * @version $Revision$ Date: 2005/01/01 00:00:00
+=======
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+>>>>>>> 1.17.6.2
  *          Create Date: Jul 17, 2006
  */
 public class EditContest extends Base {
@@ -107,10 +111,7 @@ public class EditContest extends Base {
                 curr = dao.find(aCONTEST_PROPS);
                 if (contest.isNew() || contest.getConfig(curr) == null) {
                     currConfig = new ContestConfig();
-                    currConfig.setContest(contest);
                     currConfig.setProperty(curr);
-                    currConfig.getId().setContest(contest);
-                    currConfig.getId().setProperty(curr);
                     contest.addConfig(currConfig);
                 } else {
                     currConfig = contest.getConfig(curr);

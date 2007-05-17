@@ -14,11 +14,11 @@ import java.util.Set;
 public class StudioFileType extends Base {
     private Integer id;
     private String description;
-    private Set mimeTypes = new HashSet();
+    private Set<MimeType> mimeTypes = new HashSet<MimeType>();
     private Integer sort;
     private Boolean imageFile;
 
-    public static final Integer ZIP_ARCHIVE_TYPE_ID = new Integer(14);
+    public static final Integer ZIP_ARCHIVE_TYPE_ID = 14;
 
     public Integer getId() {
         return id;
@@ -36,11 +36,11 @@ public class StudioFileType extends Base {
         this.description = description;
     }
 
-    public Set getMimeTypes() {
+    public Set<MimeType> getMimeTypes() {
         return Collections.unmodifiableSet(mimeTypes);
     }
 
-    public void setMimeTypes(Set mimeTypes) {
+    public void setMimeTypes(Set<MimeType> mimeTypes) {
         this.mimeTypes = mimeTypes;
     }
 
@@ -61,7 +61,7 @@ public class StudioFileType extends Base {
     }
 
     public boolean isImageFile() {
-        return imageFile.booleanValue();
+        return imageFile;
     }
 
 }

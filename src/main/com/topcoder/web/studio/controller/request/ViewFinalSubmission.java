@@ -1,9 +1,5 @@
 package com.topcoder.web.studio.controller.request;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
@@ -19,6 +15,10 @@ import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.SubmissionType;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author pulky
@@ -37,21 +37,21 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
             }
 
             Contest c = cFactory.getContestDAO().find(contestId);
-            User u = factory.getUserDAO().find(new Long(getUser().getId()));
+            User u = factory.getUserDAO().find(getUser().getId());
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                 throw new NavigationException("User not registered for the contest");
             }
-                        
+
             if (!isWinner(u, c, cFactory.getSubmissionDAO(), SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE)) {
                 throw new NavigationException("User cannot upload final submissions");
             }
 
             List adList = PactsServicesLocator.getService()
-                .getAssignmentDocumentByUserIdStudioContestId(u.getId().longValue(), c.getId().longValue());
-        
+                    .getAssignmentDocumentByUserIdStudioContestId(u.getId(), c.getId());
+
             // if there's no AD, we must create it
-            AssignmentDocument ad = null;
+            AssignmentDocument ad;
             if (adList.size() == 0) {
                 ad = new AssignmentDocument();
 
@@ -60,7 +60,7 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 ad.setStudioContest(contest);
 
                 ad.setSubmissionTitle(c.getName() + " - " + new SimpleDateFormat("MM/dd/yyyy").format(new Date(c.getStartTime().getTime())));
-                
+
                 User user = new User();
                 user.setId(u.getId());
                 ad.setUser(user);
@@ -74,12 +74,11 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
 
             getRequest().setAttribute("assignment_document", ad);
             Boolean hasHardCopy = PactsServicesLocator.getService()
-                .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId().longValue(), 
-                ad.getType().getId().longValue());
+                    .hasHardCopyAssignmentDocumentByUserId(ad.getUser().getId(), ad.getType().getId());
 
             getRequest().setAttribute("has_hard_copy", hasHardCopy);
 
-            
+
             setDefault(Constants.CONTEST_ID, contestId.toString());
 //            setDefault(Constants.SUBMISSION_RANK, "1");
             loadSubmissionData(u, c, cFactory.getSubmissionDAO(), SubmissionType.FINAL_SUBMISSION_TYPE);

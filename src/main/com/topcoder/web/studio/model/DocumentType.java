@@ -9,8 +9,8 @@ import com.topcoder.web.common.model.Base;
  */
 public class DocumentType extends Base {
 
-    public static final Integer SPECIFICTION = new Integer(1);
-    public static final Integer TEMPLATE = new Integer(2);
+    public static final Integer SPECIFICTION = 1;
+    public static final Integer TEMPLATE = 2;
 
     private Integer id;
     private String description;
@@ -23,4 +23,12 @@ public class DocumentType extends Base {
         return description;
     }
 
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

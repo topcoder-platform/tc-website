@@ -22,13 +22,13 @@ public class Contest extends Base {
     private Timestamp startTime;
     private Timestamp endTime;
     private Set<ContestConfig> config = new HashSet<ContestConfig>();
-    private Set prizes = new TreeSet();
-    private Set documents = new HashSet();
+    private Set<Prize> prizes = new TreeSet<Prize>();
+    private Set<Document> documents = new HashSet<Document>();
     private ContestStatus status;
     private Integer forumId;
-    private Set submissions = new HashSet();
-    private Set fileTypes = new HashSet();
-    private Set results = new TreeSet();
+    private Set<Submission> submissions = new HashSet<Submission>();
+    private Set<StudioFileType> fileTypes = new HashSet<StudioFileType>();
+    private Set<ContestResult> results = new TreeSet<ContestResult>();
     private Event event;
 
     public Long getId() {
@@ -67,7 +67,7 @@ public class Contest extends Base {
         return config;
     }
 
-    public void setConfig(Set config) {
+    public void setConfig(Set<ContestConfig> config) {
         this.config = config;
     }
 
@@ -75,11 +75,12 @@ public class Contest extends Base {
         return prizes;
     }
 
-    public void setPrizes(Set prizes) {
+    public void setPrizes(Set<Prize> prizes) {
         this.prizes = prizes;
     }
 
     public void addConfig(ContestConfig config) {
+        config.setContest(this);
         this.config.add(config);
     }
 
@@ -125,7 +126,7 @@ public class Contest extends Base {
         return documents;
     }
 
-    public void setDocuments(Set documents) {
+    public void setDocuments(Set<Document> documents) {
         this.documents = documents;
     }
 
@@ -149,20 +150,24 @@ public class Contest extends Base {
         this.forumId = forumId;
     }
 
-
     public Set getSubmissions() {
         return submissions;
     }
 
-    public void setSubmissions(Set submissions) {
+    public void setSubmissions(Set<Submission> submissions) {
         this.submissions = submissions;
     }
 
-    public Set getFileTypes() {
+    public void addSubmission(Submission submission) {
+        submission.setContest(this);
+        submissions.add(submission);
+    }
+
+    public Set<StudioFileType> getFileTypes() {
         return fileTypes;
     }
 
-    public void setFileTypes(Set fileTypes) {
+    public void setFileTypes(Set<StudioFileType> fileTypes) {
         this.fileTypes = fileTypes;
     }
 
@@ -170,14 +175,18 @@ public class Contest extends Base {
         this.fileTypes.add(fileType);
     }
 
-    public Set getResults() {
+    public Set<ContestResult> getResults() {
         return results;
     }
 
-    public void setResults(Set results) {
+    public void setResults(Set<ContestResult> results) {
         this.results = results;
     }
 
+    public void addResult(ContestResult result) {
+        result.setContest(this);
+        results.add(result);
+    }
 
     public Event getEvent() {
         return event;

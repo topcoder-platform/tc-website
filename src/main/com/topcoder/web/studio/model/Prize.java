@@ -13,7 +13,7 @@ import java.util.Set;
 public class Prize extends Base implements Comparable {
     private Integer place;
     private Float amount;
-    private Set contests;
+    private Set<Contest> contests;
     private Long id;
     private PrizeType type;
 
@@ -45,7 +45,7 @@ public class Prize extends Base implements Comparable {
         return Collections.unmodifiableSet(contests);
     }
 
-    public void setContests(Set contests) {
+    public void setContests(Set<Contest> contests) {
         this.contests = contests;
     }
 

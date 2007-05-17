@@ -6,15 +6,15 @@
 <hibernate-mapping package="com.topcoder.web.studio.model">
 
     <class name="ContestResult" table="contest_result">
-        <id name="id" column="submission_id" access="field">
+        <id name="id" column="submission_id">
             <generator class="foreign">
                 <param name="property">submission</param>
             </generator>
         </id>
 
         <one-to-one name="submission" class="Submission" constrained="true"/>
-        <many-to-one name="contest" column="contest_id" class="Contest" access="field"/>
-        <many-to-one name="prize" column="prize_id" class="Prize" access="field"/>
+        <many-to-one name="contest" column="contest_id" class="Contest" />
+        <many-to-one name="prize" column="prize_id" class="Prize" />
     </class>
 
 </hibernate-mapping>

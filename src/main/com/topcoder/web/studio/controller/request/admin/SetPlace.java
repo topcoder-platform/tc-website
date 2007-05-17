@@ -17,7 +17,11 @@ import java.util.Set;
 
 /**
  * @author dok
+<<<<<<< SetPlace.java
  * @version $Revision$ Date: 2005/01/01 00:00:00
+=======
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+>>>>>>> 1.4.144.1
  *          Create Date: Aug 29, 2006
  */
 public class SetPlace extends Base {

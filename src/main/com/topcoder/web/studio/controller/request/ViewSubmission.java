@@ -41,7 +41,7 @@ public class ViewSubmission extends BaseSubmissionDataProcessor {
                 throw new NavigationException("Inactive contest specified.");
             }
 
-            User u = factory.getUserDAO().find(new Long(getUser().getId()));
+            User u = factory.getUserDAO().find(getUser().getId());
 
             if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                 throw new NavigationException("User not registered for the contest");

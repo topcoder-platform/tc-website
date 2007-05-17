@@ -25,7 +25,11 @@ import java.util.TimeZone;
 
 /**
  * @author dok
+<<<<<<< SubmitReview.java
  * @version $Revision$ Date: 2005/01/01 00:00:00
+=======
+ * @version $Revision$ Date: 2005/01/01 00:00:00
+>>>>>>> 1.12.6.1
  *          Create Date: Jul 21, 2006
  */
 public class SubmitReview extends Base {

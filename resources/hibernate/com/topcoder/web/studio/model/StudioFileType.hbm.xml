@@ -6,13 +6,13 @@
 <hibernate-mapping package="com.topcoder.web.studio.model">
 
     <class name="StudioFileType" table="file_type_lu" mutable="false">
-        <id name="id" column="file_type_id" access="field"/>
-        <property name="description" column="file_type_desc" access="field"/>
-        <set name="mimeTypes" cascade="none" inverse="true" access="field">
+        <id name="id" column="file_type_id" />
+        <property name="description" column="file_type_desc" />
+        <set name="mimeTypes" cascade="none" inverse="true" >
             <key column="file_type_id" not-null="true"/>
             <one-to-many class="MimeType"/>
         </set>
-        <property name="sort" access="field"/>
-        <property name="imageFile" type="boolean" column="image_file_ind" access="field"/>
+        <property name="sort" />
+        <property name="imageFile" type="boolean" column="image_file_ind" />
     </class>
 </hibernate-mapping>

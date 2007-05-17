@@ -11,6 +11,6 @@
                 <param name="sequence_name">STUDIO_PATH_SEQ</param>
             </generator>
         </id>
-        <property name="path" access="field"/>
+        <property name="path" />
     </class>
 </hibernate-mapping>

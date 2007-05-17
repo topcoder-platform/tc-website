@@ -12,8 +12,6 @@ import java.io.Serializable;
  *          Create Date: Jul 19, 2006
  */
 public class ContestRegistration extends Base {
-    private Contest contest;
-    private User user;
     private TermsOfUse terms;
     private Identifier id = new Identifier();
 
@@ -26,19 +24,19 @@ public class ContestRegistration extends Base {
     }
 
     public Contest getContest() {
-        return contest;
+        return id.getContest();
     }
 
     public void setContest(Contest contest) {
-        this.contest = contest;
+        id.setContest(contest);
     }
 
     public User getUser() {
-        return user;
+        return id.getUser();
     }
 
     public void setUser(User user) {
-        this.user = user;
+        id.setUser(user);
     }
 
     public TermsOfUse getTerms() {

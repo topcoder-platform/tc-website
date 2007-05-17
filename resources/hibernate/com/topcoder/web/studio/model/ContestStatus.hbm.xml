@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.topcoder.web.studio.model">
 
     <class name="ContestStatus" table="contest_status_lu" mutable="false">
-        <id name="id" column="contest_status_id" access="field"/>
-        <property name="description" column="contest_status_desc" access="field"/>
+        <id name="id" column="contest_status_id" />
+        <property name="description" column="contest_status_desc" />
     </class>
 </hibernate-mapping>

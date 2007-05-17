@@ -6,7 +6,7 @@
 <hibernate-mapping package="com.topcoder.web.studio.model">
 
     <class name="SubmissionType" table="submission_type_lu" mutable="false">
-        <id name="id" column="submission_type_id" access="field"/>
-        <property name="description" column="submission_type_desc" access="field"/>
+        <id name="id" column="submission_type_id" />
+        <property name="description" column="submission_type_desc" />
     </class>
 </hibernate-mapping>

@@ -1,6 +1,8 @@
 <%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.web.studio.model.SubmissionStatus" %>
+<%@ page import="com.topcoder.web.studio.model.SubmissionType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -91,7 +93,9 @@ Show submissions by (Enter Handle):
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.REVIEW_STATUS_ID%>=null&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Only
     show submissions that are unmarked</a><br>
 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">Show
-    all submissions</a>
+    all active submissions</a><br>
+<a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}&amp;<%=Constants.SUBMISSION_STATUS_ID%>=<%=SubmissionStatus.DELETED%>">Show
+    deleted submissions only</a>
 
 <div class="pagingBox">
     <%=(submissions.croppedDataBefore() ? "<a href=\"Javascript:previous()\">&lt;&lt; prev</a>" : "&lt;&lt; prev")%>
@@ -106,14 +110,17 @@ Show submissions by (Enter Handle):
     <td class="NE">&nbsp;</td>
 </tr>
 <tr>
-    <td class="headerW"><div>&nbsp;</div></td>
+    <td class="headerW">
+        <div>&nbsp;</div>
+    </td>
     <% String exclude = Constants.MODULE_KEY + " " + DataAccessConstants.START_RANK + " " + DataAccessConstants.END_RANK;%>
     <%-- need to add 1 for all the sorts because the resultsetcontainer is 0 based, and sql is 1 based--%>
     <td class="header">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
     </td>
     <td class="header">
-        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_rank")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter Rank</a>
+        <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_rank")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter
+            Rank</a>
     </td>
     <td class="header">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("original_file_name")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submission</a>
@@ -154,24 +161,39 @@ Show submissions by (Enter Handle):
             </c:otherwise>
         </c:choose>
     </td>
-    <td class="headerE"><div>&nbsp;</div></td>
+    <td class="headerE">
+        <div>&nbsp;</div>
+    </td>
 </tr>
 <rsc:iterator list="<%=submissions%>" id="resultRow">
 
     <tr class="light">
-        <td class="valueW"><div>&nbsp;</div></td>
+        <td class="valueW">
+            <div>&nbsp;</div>
+        </td>
         <td class="value">
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
         </td>
         <td class="value">
+<<<<<<< submissions.jsp
             <rsc:item name="submitter_rank" row="<%=resultRow%>" ifNull="FINAL"/>
+=======
+            <%if (resultRow.getIntItem("submission_type_id")==SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
+            Final
+            <% } else { %>
+            <rsc:item name="submitter_rank" row="<%=resultRow%>"/>
+            <% } %>
+
+>>>>>>> 1.9.78.8
         </td>
         <td class="value">
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
                 <rsc:item name="original_file_name" row="<%=resultRow%>"/></a>
         </td>
         <td class="valueC">
+            <%if (resultRow.getIntItem("submission_type_id")!=SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissionDetail&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">details</a>
+            <% } %>
         </td>
         <td class="valueC">
             <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
@@ -206,7 +228,9 @@ Show submissions by (Enter Handle):
                 </c:otherwise>
             </c:choose>
         </td>
-        <td class="valueE"><div>&nbsp;</div></td>
+        <td class="valueE">
+            <div>&nbsp;</div>
+        </td>
     </tr>
 </rsc:iterator>
 <tr>

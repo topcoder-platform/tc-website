@@ -1,9 +1,9 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ReviewStatus" %>
+<%@ page import="com.topcoder.web.studio.model.SubmissionType" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page contentType="text/xml" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 
 
 <%--
@@ -13,7 +13,7 @@ crappy looking to save space on the transmission
 --%>
 
 <c:if test="${param.ts!=null}">
-<taconite-root xml:space="preserve">
+    <taconite-root xml:space="preserve">
     <taconite-replace-children contextNodeID="submissions" parseInBrowser="true">
 </c:if>
 
@@ -34,10 +34,10 @@ crappy looking to save space on the transmission
 </c:choose>
 <tc-webtag:errorIterator id="err" name="${submissionId}${submission.id}"><tr class="${cssClass}"><td class="value" colspan="9"><span class="bigRed">${err}</span></td></tr></tc-webtag:errorIterator>
 <tr class="${cssClass}">
-<td class="valueW" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
+<td class="valueW"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div>&#160;</div>
 </td>
-<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
+<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
 <%-- doesn't matter what goes in here, we're not populating it because it failed--%>
@@ -48,21 +48,21 @@ crappy looking to save space on the transmission
 </c:otherwise>
 </c:choose>
 </td>
-<td class="value" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
+<td class="value"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 ${submission.originalFileName}
 </td>
-<td class="value" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
-
-<div id="pop${submission.id}" class="popUp"><div>View submission</div></div>
+<td class="value"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
+<div id="pop${submission.id}" class="popUp">
+<div>View submission</div>
+</div>
 <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">
-<img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()" />
+<img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop${submission.id}')" onmouseout="popHide()"/>
 </A>
-
 </td>
-<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
-<tc-webtag:format object="${submission.submissionDate}" format="EEEE, MMMM d, yyyy '<br />' HH:mm z" timeZone="${sessionInfo.timezone}"/>
+<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
+<tc-webtag:format object="${submission.createDate}" format="EEEE, MMMM d, yyyy '<br />' HH:mm z" timeZone="${sessionInfo.timezone}"/>
 </td>
-<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
+<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <c:choose>
 <c:when test="${submission.review.status==null}">
 Pending
@@ -79,58 +79,71 @@ Pending
 </td>
 <c:choose>
 <c:when test="${submission.review.status.id==failed}">
-<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
-<div align="center" style="margin:2px;">
-<img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
+<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
+<div align="center" style="margin: 2px;">
+<img src="/i/layout/btnMoveUpNA.png" alt="Move up"/>
 </div>
-<div align="center" style="margin:2px;">
+<div align="center" style="margin: 2px;">
 <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
 </div>
 </td>
-<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
+<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center">
 <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
 </div>
 </td>
 </c:when>
 <c:otherwise>
-<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
-<div align="center" style="margin:2px;">
+<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
+<div align="center" style="margin: 2px;">
 <c:choose>
 <c:when test="${submission.rank==1}">
-<img src="/i/layout/btnMoveUpNA.png" alt="Raise priority"/>
+<img src="/i/layout/btnMoveUpNA.png" alt="Move up"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/></A>
+<A href="#" onclick="changeRank(${submission.rank-1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<img src="/i/layout/btnMoveUp.png" alt="Move up" onmouseover="this.src = '/i/layout/btnMoveUpOn.png';" onmouseout="this.src = '/i/layout/btnMoveUp.png';"/>
+</A>
 </c:otherwise>
 </c:choose>
 </div>
-<div align="center" style="margin:2px;">
+<div align="center" style="margin: 2px;">
 <c:choose>
 <c:when test="${submission.rank==maxRank}">
 <img src="/i/layout/btnMoveDownNA.png" alt="Move down"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/></A>
+<A href="#" onclick="changeRank(${submission.rank+1}, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<img src="/i/layout/btnMoveDown.png" alt="Move down" onmouseover="this.src = '/i/layout/btnMoveDownOn.png';" onmouseout="this.src = '/i/layout/btnMoveDown.png';"/>
+</A>
 </c:otherwise>
 </c:choose>
 </div>
 </td>
-<td class="valueC" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
+<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div align="center">
 <c:choose>
 <c:when test="${submission.rank==1}">
 <img src="/i/layout/btnMoveToTopNA.png" alt="Move to top"/>
 </c:when>
 <c:otherwise>
-<A href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();"><img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/></A>
+<A href="#" onclick="changeRank(1, ${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<img src="/i/layout/btnMoveToTop.png" alt="Move to top" onmouseover="this.src = '/i/layout/btnMoveToTopOn.png';" onmouseout="this.src = '/i/layout/btnMoveToTop.png';"/>
+</A>
 </c:otherwise>
 </c:choose>
 </div>
 </td>
+<td class="valueC"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
+<div align="center">
+<A href="#" onclick="remove(${submission.id});return false;" onfocus="this.blur();" style="display: block;">
+<img src="/i/layout/btnRemove.png" alt="Remove" onmouseover="this.src = '/i/layout/btnRemoveOn.png';" onmouseout="this.src = '/i/layout/btnRemove.png';"/>
+</A>
+</div>
+</td>
 </c:otherwise>
 </c:choose>
-<td class="valueE" <c:if test="${newRank==submission.rank}">id="fade<%=col++%>"</c:if>>
+<td class="valueE"<c:if test="${newRank==submission.rank}"> id="fade<%=col++%>"</c:if>>
 <div>&#160;</div>
 </td>
 </tr>
@@ -139,5 +152,5 @@ Pending
 
 <c:if test="${param.ts!=null}">
     </taconite-replace-children>
-</taconite-root>
+    </taconite-root>
 </c:if>

@@ -1,14 +1,13 @@
 package com.topcoder.web.studio.dao.hibernate;
 
-import java.util.List;
-
-import org.hibernate.Query;
-
 import com.topcoder.web.common.dao.hibernate.Base;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.studio.dao.SubmissionDAO;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.Submission;
+import org.hibernate.Query;
+
+import java.util.List;
 
 /**
  * @author dok
@@ -26,8 +25,8 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
     public Integer getMaxRank(Contest contest, User submitter) {
         Query q = session.createQuery("select max(s.rank) from Submission s where s.contest.id = ? and s.submitter.id = ?");
-        q.setLong(0, contest.getId().longValue());
-        q.setLong(1, submitter.getId().longValue());
+        q.setLong(0, contest.getId());
+        q.setLong(1, submitter.getId());
         return (Integer) q.uniqueResult();
     }
 
@@ -38,27 +37,27 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
 
         StringBuffer buf = new StringBuffer(100);
         buf.append("update Submission s set rank = ");
-        if (newRank==null) {
+        if (newRank == null) {
             buf.append("rank-1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank > ?");
 
             Query q = session.createQuery(buf.toString());
-            q.setLong(0, s.getSubmitter().getId().longValue());
-            q.setLong(1, s.getContest().getId().longValue());
-            q.setInteger(2, s.getRank().intValue());
+            q.setLong(0, s.getSubmitter().getId());
+            q.setLong(1, s.getContest().getId());
+            q.setInteger(2, s.getRank());
             q.executeUpdate();
 
             s.setRank(newRank);
             saveOrUpdate(s);
             session.flush();
-        } else if (s.getRank()==null) {
+        } else if (s.getRank() == null) {
             buf.append("rank+1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
 
             Query q = session.createQuery(buf.toString());
-            q.setLong(0, s.getSubmitter().getId().longValue());
-            q.setLong(1, s.getContest().getId().longValue());
-            q.setInteger(2, newRank.intValue());
+            q.setLong(0, s.getSubmitter().getId());
+            q.setLong(1, s.getContest().getId());
+            q.setInteger(2, newRank);
             q.setInteger(3, Integer.MAX_VALUE);
             q.executeUpdate();
 
@@ -71,10 +70,10 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
 
             Query q = session.createQuery(buf.toString());
-            q.setLong(0, s.getSubmitter().getId().longValue());
-            q.setLong(1, s.getContest().getId().longValue());
-            q.setInteger(2, newRank.intValue());
-            q.setInteger(3, s.getRank().intValue()-1);
+            q.setLong(0, s.getSubmitter().getId());
+            q.setLong(1, s.getContest().getId());
+            q.setInteger(2, newRank);
+            q.setInteger(3, s.getRank() - 1);
             q.executeUpdate();
 
             s.setRank(newRank);
@@ -85,10 +84,10 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
             buf.append("rank-1 ");
             buf.append("where s.submitter.id = ? and s.contest.id = ? and rank between ? and ?");
             Query q = session.createQuery(buf.toString());
-            q.setLong(0, s.getSubmitter().getId().longValue());
-            q.setLong(1, s.getContest().getId().longValue());
-            q.setInteger(2, s.getRank().intValue()+1);
-            q.setInteger(3, newRank.intValue());
+            q.setLong(0, s.getSubmitter().getId());
+            q.setLong(1, s.getContest().getId());
+            q.setInteger(2, s.getRank() + 1);
+            q.setInteger(3, newRank);
             q.executeUpdate();
 
             s.setRank(newRank);
@@ -105,11 +104,27 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
                 "and s.contest.id = ? " +
                 "and s.type.id = ? " +
                 "order by case when s.rank is null then 10000 else s.rank end asc");
-        q.setLong(0, u.getId().longValue());
-        q.setLong(1, c.getId().longValue());
-        q.setInteger(2, submissionTypeId.intValue());
+        q.setLong(0, u.getId());
+        q.setLong(1, c.getId());
+        q.setInteger(2, submissionTypeId);
         return q.list();
 
+    }
+
+    public List getSubmissions(User u, Contest c, Integer submissionTypeId, Integer submissionStatusId) {
+        Query q = session.createQuery("from Submission s " +
+                "left join fetch s.review " +
+                "left join fetch s.result " +
+                "where s.submitter.id = ? " +
+                "and s.contest.id = ? " +
+                "and s.type.id = ? " +
+                "and s.status.id = ? " +
+                "order by case when s.rank is null then 10000 else s.rank end asc");
+        q.setLong(0, u.getId());
+        q.setLong(1, c.getId());
+        q.setInteger(2, submissionTypeId);
+        q.setInteger(3, submissionStatusId);
+        return q.list();
     }
 
     public List getSubmissions(Long contestId, Long submitterId, Integer submissionTypeId) {
@@ -120,43 +135,11 @@ public class SubmissionDAOHibernate extends Base implements SubmissionDAO {
                 "and s.contest.id = ? " +
                 "and s.type.id = ? " +
                 "order by case when s.rank is null then 10000 else s.rank end asc");
-        q.setLong(0, submitterId.longValue());
-        q.setLong(1, contestId.longValue());
-        q.setInteger(2, submissionTypeId.intValue());
+        q.setLong(0, submitterId);
+        q.setLong(1, contestId);
+        q.setInteger(2, submissionTypeId);
         return q.list();
 
     }
 
-    /*
-    public void changeRank(Integer newRank, Long submissionId, Long userId) {
-            Query submissionQuery = session.createQuery("select s.rank, s.contest.id from Submission s where s.id=? and s.submitter.id=?");
-        submissionQuery.setLong(0, submissionId.longValue());
-        submissionQuery.setLong(1, userId.longValue());
-
-        Object[] result = (Object[])submissionQuery.uniqueResult();
-        log.debug("here");
-        Integer oldRank = (Integer)result[0];
-        Long contestId = (Long)result[1];
-        StringBuffer buf = new StringBuffer(100);
-
-            buf.append("update Submission s set rank = ");
-            if (newRank.compareTo(oldRank)<0) {
-                buf.append("rank-1 ");
-            } else if (newRank.compareTo(oldRank)>0) {
-                buf.append("rank+1 ");
-            }
-            buf.append("where s.submitter.id = ? and s.contest.id = ? ");
-            if (newRank.compareTo(oldRank)!=0) {
-                Query q = session.createQuery(buf.toString());
-                q.setLong(0, userId.longValue());
-                q.setLong(1, contestId.longValue());
-                q.executeUpdate();
-                log.debug("after first");
-
-                Query update = session.createQuery("update Submission set rank = ? where submission_id = ?");
-                update.setInteger(0, newRank.intValue());
-                update.setLong(1, submissionId.longValue());
-                update.executeUpdate();
-            }
-    }*/
 }

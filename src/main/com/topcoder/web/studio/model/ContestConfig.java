@@ -10,26 +10,24 @@ import java.io.Serializable;
  *          Create Date: Jul 28, 2006
  */
 public class ContestConfig extends Base {
-    private Contest contest;
-    private ContestProperty property;
     private String value;
     private Identifier id = new Identifier();
 
 
     public Contest getContest() {
-        return contest;
+        return id.getContest();
     }
 
     public void setContest(Contest contest) {
-        this.contest = contest;
+        this.id.setContest(contest);
     }
 
     public ContestProperty getProperty() {
-        return property;
+        return id.getProperty();
     }
 
     public void setProperty(ContestProperty property) {
-        this.property = property;
+        this.id.setProperty(property);
     }
 
     public String getValue() {

@@ -22,4 +22,12 @@ public class ReviewStatus extends Base {
         return description;
     }
 
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

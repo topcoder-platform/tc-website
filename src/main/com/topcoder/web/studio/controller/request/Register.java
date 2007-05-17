@@ -33,7 +33,7 @@ public class Register extends ShortHibernateProcessor {
                 DAOFactory factory = DAOUtil.getFactory();
 
                 Contest c = cFactory.getContestDAO().find(contestId);
-                User u = factory.getUserDAO().find(new Long(getUser().getId()));
+                User u = factory.getUserDAO().find(getUser().getId());
 
                 if (cFactory.getContestRegistrationDAO().find(c, u) == null) {
                     if ("on".equals(getRequest().getParameter(Constants.TERMS_AGREE))) {
@@ -45,7 +45,7 @@ public class Register extends ShortHibernateProcessor {
 
                         if (c.getEvent() != null) {
                             log.debug("event not null");
-                            if (factory.getEventRegistrationDAO().find(new Long(getUser().getId()), c.getEvent().getId()) == null) {
+                            if (factory.getEventRegistrationDAO().find(getUser().getId(), c.getEvent().getId()) == null) {
                                 log.debug("user not registered");
                                 if (String.valueOf(true).equals(getRequest().getParameter(Constants.REG_CONFIRM))) {
                                     log.debug("user confirmed");
@@ -64,7 +64,7 @@ public class Register extends ShortHibernateProcessor {
                             ContestRegistration cr = new ContestRegistration();
                             cr.setContest(c);
                             cr.setUser(u);
-                            cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(new Integer(Constants.CONTEST_TERMS_OF_USE_ID)));
+                            cr.setTerms(DAOUtil.getFactory().getTermsOfUse().find(Constants.CONTEST_TERMS_OF_USE_ID));
                             cr.getId().setContest(c);
                             cr.getId().setUser(u);
 

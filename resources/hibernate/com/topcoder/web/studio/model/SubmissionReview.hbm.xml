@@ -6,14 +6,14 @@
 <hibernate-mapping package="com.topcoder.web.studio.model">
 
     <class name="SubmissionReview" table="submission_review">
-        <id name="id" column="submission_id" access="field">
+        <id name="id" column="submission_id" >
             <generator class="foreign">
                 <param name="property">submission</param>
             </generator>
         </id>
         <one-to-one name="submission" class="Submission" constrained="true"/>
-        <many-to-one name="reviewer" column="reviewer_id" class="com.topcoder.web.common.model.User" access="field"/>
-        <property name="text" access="field"/>
-        <many-to-one name="status" column="review_status_id" class="ReviewStatus" access="field"/>
+        <many-to-one name="reviewer" column="reviewer_id" class="com.topcoder.web.common.model.User" />
+        <property name="text" />
+        <many-to-one name="status" column="review_status_id" class="ReviewStatus" />
     </class>
 </hibernate-mapping>
