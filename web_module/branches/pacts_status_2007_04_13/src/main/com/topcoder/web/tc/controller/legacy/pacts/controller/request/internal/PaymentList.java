@@ -50,7 +50,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 
             // Add all the payment id's to a set
             for (int i = 0; i < results.length; i++) {
-            	if (results[i].getTypeId() != PactsConstants.RELIABILITY_BONUS_PAYMENT) {
+            	if (results[i].getTypeId() != RELIABILITY_BONUS_PAYMENT) {
             		ids.put(new Long(results[i].getId()), results[i]);
             	}
             }
@@ -65,7 +65,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 	results[i].setType(results[i].getType().substring(0, pos) );
                 }
                 
-            	if (!groupRel || results[i].getTypeId() != PactsConstants.RELIABILITY_BONUS_PAYMENT) {
+            	if (!groupRel || results[i].getTypeId() != RELIABILITY_BONUS_PAYMENT) {
             		payments.add(results[i]);
             	} else {
             		Long parentId = new Long(results[i].getParentPaymentId());
@@ -81,7 +81,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             }
             
             if (results.length != 1) {
-//                setDefault("status_id", PactsConstants.READY_TO_PRINT_STATUS + "");
+//                setDefault("status_id", READY_TO_PRINT_STATUS + "");
 //                setDefault("status_id",  "");
             	
 //                getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());                
@@ -90,26 +90,26 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
 
                 // mirror parameters
-                getRequest().setAttribute("filter_payment_id", StringUtils.htmlEncode(getRequest().getParameter("filter_payment_id")));
-                getRequest().setAttribute(PactsConstants.PROJECT_ID, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.PROJECT_ID)));
-                getRequest().setAttribute(PactsConstants.HANDLE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.HANDLE)));
-                getRequest().setAttribute(PactsConstants.EARLIEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.EARLIEST_CREATION_DATE)));
-                getRequest().setAttribute(PactsConstants.LATEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.LATEST_CREATION_DATE)));
-                getRequest().setAttribute(PactsConstants.EARLIEST_MODIFICATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.EARLIEST_MODIFICATION_DATE)));
-                getRequest().setAttribute(PactsConstants.LATEST_MODIFICATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.LATEST_MODIFICATION_DATE)));
-                getRequest().setAttribute(PactsConstants.EARLIEST_PAY_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.EARLIEST_PAY_DATE)));
-                getRequest().setAttribute(PactsConstants.LATEST_PAY_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.LATEST_PAY_DATE)));
-                getRequest().setAttribute(PactsConstants.EARLIEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.EARLIEST_DUE_DATE)));
-                getRequest().setAttribute(PactsConstants.LATEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.LATEST_DUE_DATE)));
-                getRequest().setAttribute(PactsConstants.LOWEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.LOWEST_NET_AMOUNT)));
-                getRequest().setAttribute(PactsConstants.HIGHEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.HIGHEST_NET_AMOUNT)));
-                getRequest().setAttribute(PactsConstants.STATUS_CODE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.STATUS_CODE)));
-                getRequest().setAttribute(PactsConstants.TYPE_CODE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.TYPE_CODE)));
-                getRequest().setAttribute(PactsConstants.METHOD_CODE, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.METHOD_CODE)));
+                getRequest().setAttribute(FILTER_PAYMENT_ID, StringUtils.htmlEncode(getRequest().getParameter(FILTER_PAYMENT_ID)));
+                getRequest().setAttribute(PROJECT_ID, StringUtils.htmlEncode(getRequest().getParameter(PROJECT_ID)));
+                getRequest().setAttribute(HANDLE, StringUtils.htmlEncode(getRequest().getParameter(HANDLE)));
+                getRequest().setAttribute(EARLIEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_CREATION_DATE)));
+                getRequest().setAttribute(LATEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_CREATION_DATE)));
+                getRequest().setAttribute(EARLIEST_MODIFICATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_MODIFICATION_DATE)));
+                getRequest().setAttribute(LATEST_MODIFICATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_MODIFICATION_DATE)));
+                getRequest().setAttribute(EARLIEST_PAY_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_PAY_DATE)));
+                getRequest().setAttribute(LATEST_PAY_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_PAY_DATE)));
+                getRequest().setAttribute(EARLIEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_DUE_DATE)));
+                getRequest().setAttribute(LATEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_DUE_DATE)));
+                getRequest().setAttribute(LOWEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(LOWEST_NET_AMOUNT)));
+                getRequest().setAttribute(HIGHEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(HIGHEST_NET_AMOUNT)));
+                getRequest().setAttribute(STATUS_CODE, StringUtils.htmlEncode(getRequest().getParameter(STATUS_CODE)));
+                getRequest().setAttribute(TYPE_CODE, StringUtils.htmlEncode(getRequest().getParameter(TYPE_CODE)));
+                getRequest().setAttribute(METHOD_CODE, StringUtils.htmlEncode(getRequest().getParameter(METHOD_CODE)));
 
-                getRequest().setAttribute(PactsConstants.AFFIDAVIT_ID, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.AFFIDAVIT_ID)));
-                getRequest().setAttribute(PactsConstants.CONTRACT_ID, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.CONTRACT_ID)));
-                getRequest().setAttribute(PactsConstants.USER_ID, StringUtils.htmlEncode(getRequest().getParameter(PactsConstants.USER_ID)));
+                getRequest().setAttribute(AFFIDAVIT_ID, StringUtils.htmlEncode(getRequest().getParameter(AFFIDAVIT_ID)));
+                getRequest().setAttribute(CONTRACT_ID, StringUtils.htmlEncode(getRequest().getParameter(CONTRACT_ID)));
+                getRequest().setAttribute(USER_ID, StringUtils.htmlEncode(getRequest().getParameter(USER_ID)));
 
                 String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
                 getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
@@ -153,7 +153,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         param = request.getParameter(HIGHEST_NET_AMOUNT);
         if (param != null && !param.equals("")) query.put(HIGHEST_NET_AMOUNT, param);                
         param = createValuesStr(request.getParameterValues("filter_payment_id"));
-        if (!param.equals("")) query.put("filter_payment_id", param);        
+        if (!param.equals("")) query.put(FILTER_PAYMENT_ID, param);        
         param = request.getParameter(AFFIDAVIT_ID);
         if (param != null && !param.equals("")) query.put(AFFIDAVIT_ID, param);
         param = request.getParameter(CONTRACT_ID);
