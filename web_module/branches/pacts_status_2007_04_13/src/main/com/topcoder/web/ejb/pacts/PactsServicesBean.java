@@ -3779,11 +3779,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             // update referral_payment_id
             StringBuffer updatePayment = new StringBuffer(300);
-            updatePayment.append("UPDATE payment set referral_payment_id = ? ");
+            updatePayment.append("UPDATE payment set referral_payment_id = " + referralStr);
             updatePayment.append(" where payment_id = ?");
             ps = c.prepareStatement(updatePayment.toString());
-            ps.setString(1, referralStr);
-            ps.setLong(2, paymentId);
+            ps.setLong(1, paymentId);
             ps.executeUpdate();
             ps.close();
             ps = null;
