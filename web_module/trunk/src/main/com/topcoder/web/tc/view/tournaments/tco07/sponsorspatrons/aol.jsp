@@ -35,7 +35,8 @@
                         <h2 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h2>
                         <strong>
                         <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolChat20070220">SRM 340</A><br />
-                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolChat20070314">SRM 342</A>
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolChat20070314">SRM 342</A><br />
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolChat20070418">SRM 345</A>
                         </strong>
                         <h2 style="border-bottom: 1px solid #999999; margin-top: 10px;">AOL Products & Services</h2>
                         <strong>
