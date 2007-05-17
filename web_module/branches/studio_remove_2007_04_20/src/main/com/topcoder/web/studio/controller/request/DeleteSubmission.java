@@ -31,10 +31,8 @@ public class DeleteSubmission extends BaseSubmissionDataProcessor {
             } else if (s.getSubmitter().getId().equals(getUser().getId())) {
                 s.setStatus(StudioDAOUtil.getFactory().getSubmissionStatusDAO().find(SubmissionStatus.DELETED));
                 dao.saveOrUpdate(s);
-/*
                 closeConversation();
                 beginCommunication();
-*/
 
             } else {
                 throw new NavigationException("Illegal operation attempted, submission doesn't belong to current user.");
