@@ -47,9 +47,9 @@ public class PayReliabilityBonus extends DBUtility {
 		// someone deletes a reliability bonus, it is not created again.
 		query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.total_amount, p.payment_id, ");
         query.append("       (select NVL(ppd.actual_start_time, psd.actual_start_time)   ");
-        query.append("          from project proj  ");
-        query.append("               , OUTER project_phase psd  ");
-        query.append("               , OUTER project_phase ppd  ");
+        query.append("          from tcs_catalog:project proj  ");
+        query.append("               , OUTER tcs_catalog:project_phase psd  ");
+        query.append("               , OUTER tcs_catalog:project_phase ppd  ");
         query.append("          where  psd.project_id = proj.project_id   ");
         query.append("          and psd.phase_type_id = 2   ");
         query.append("          and ppd.project_id = proj.project_id   ");
@@ -134,10 +134,7 @@ public class PayReliabilityBonus extends DBUtility {
 
     public static Object createEJB() throws NamingException, Exception {
         InitialContext initial = TCContext.getInitial();
-        log.debug("context: ");
-        for (Map.Entry m : initial.getEnvironment().entrySet()) {
-            log.debug(m.getKey() +  " - " + m.getValue());
-        }
+
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
         PactsClientServicesHome home = (PactsClientServicesHome) 
             PortableRemoteObject.narrow(objref, PactsClientServicesHome.class);
