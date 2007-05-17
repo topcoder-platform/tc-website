@@ -77,6 +77,7 @@ public class ViewSubmissions extends Base {
                 from.append(" and u.handle_lower = '").append(handle).append("'");
             }
             from.append("  and s.contest_id = ").append(contestId);
+            from.append("  and s.submission_status_id = ").append(status);
             from.append(" and not exists (select '1'  ");
             from.append(" from submission_review ");
             from.append(" where submission_id = s.submission_id)");
