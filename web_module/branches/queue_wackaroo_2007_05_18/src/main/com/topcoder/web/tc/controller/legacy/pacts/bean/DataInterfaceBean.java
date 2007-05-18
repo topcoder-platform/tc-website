@@ -1409,9 +1409,6 @@ public class DataInterfaceBean implements PactsConstants {
      * called with &quot;Ready to Print&quot; status.  This function should be called
      * with the &quot;Ready to Print&quot; status to ready payments for printing. <p>
      * <p/>
-     * This function actually just puts a message on the JMS queue.  The message handler,
-     * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt>
-     * which performs the modifications.
      *
      * @param paymentId The payments to update
      * @param statusId  The new status
