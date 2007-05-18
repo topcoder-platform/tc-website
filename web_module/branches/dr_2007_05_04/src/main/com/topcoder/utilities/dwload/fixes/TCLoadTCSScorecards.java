@@ -8,6 +8,13 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.dwload.TCLoadTCS;
 
+/**
+ * Does a full load of scorecard questions.
+ * Created to fix rounding problems in weights.
+ * 
+ * @author Cucu
+ *
+ */
 public class TCLoadTCSScorecards extends TCLoadTCS {
     
     private static Logger log = Logger.getLogger(TCLoadTCS.class);
@@ -23,6 +30,8 @@ public class TCLoadTCSScorecards extends TCLoadTCS {
             doLoadScorecardTemplate();
             
             doLoadScorecardQuestion();
+            
+            doClearCache();
             
             log.info("scorecard questions succesfully loaded!");
             

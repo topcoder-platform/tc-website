@@ -68,7 +68,7 @@ public class TCLoadTCS extends TCLoad {
 
     protected java.sql.Timestamp fStartTime = null;
     protected java.sql.Timestamp fLastLogTime = null;
-    protected java.sql.Timestamp fDRTime = null;
+
     private int TCS_LOG_TYPE = 4;
 
     private static final String PROJECT_SELECT =
@@ -113,11 +113,6 @@ public class TCLoadTCS extends TCLoad {
 
     private static final long DELETED_PROJECT_STATUS = 3;
 
-    /**
-     * If set to true, all the Digital Run related data will be fully loaded
-     */
-    private boolean FULL_DR_LOAD = false;
-
     public TCLoadTCS() {
         DEBUG = false;
     }
@@ -149,18 +144,7 @@ public class TCLoadTCS extends TCLoad {
             }
             submissionDir = temp;
         }
-     
-        try {
-            Boolean tmpBool = retrieveBooleanParam("fulldrload", params, true);
-            if (tmpBool != null) {
-                FULL_DR_LOAD = tmpBool.booleanValue();
-                log.info("New fullload flag is " + FULL_DR_LOAD);
-            }
-        } catch (Exception ex) {
-            setReasonFailed(ex.getMessage());
-            return false;
-        }
-        
+            
         return true;
     }
 
@@ -181,9 +165,6 @@ public class TCLoadTCS extends TCLoad {
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
             getLastUpdateTime();
                         
-            fDRTime = FULL_DR_LOAD? new Timestamp(new GregorianCalendar(1990,0,1).getTime().getTime()) : fLastLogTime; 
-            
-
             doLoadReviewResp();
 
             doLoadEvent();
@@ -4475,7 +4456,7 @@ public class TCLoadTCS extends TCLoad {
 
             int count = 0;
 
-            select.setTimestamp(1, fDRTime);
+            select.setTimestamp(1, fLastLogTime);
             
             rs = select.executeQuery();
 
@@ -4559,7 +4540,7 @@ public class TCLoadTCS extends TCLoad {
 
             int count = 0;
 
-            select.setTimestamp(1, fDRTime);
+            select.setTimestamp(1, fLastLogTime);
             rs = select.executeQuery();
 
             while (rs.next()) {
@@ -4662,8 +4643,8 @@ public class TCLoadTCS extends TCLoad {
             selectStages = prepareStatement(SELECT_STAGES, SOURCE_DB);
             selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
 
-            selectStages.setTimestamp(1, fDRTime);
-            selectStages.setTimestamp(2, fDRTime);
+            selectStages.setTimestamp(1, fLastLogTime);
+            selectStages.setTimestamp(2, fLastLogTime);
             
             rsStages = selectStages.executeQuery();
             
@@ -4755,8 +4736,8 @@ public class TCLoadTCS extends TCLoad {
         selectSeason = prepareStatement(SELECT_SEASONS, SOURCE_DB);
         selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
 
-        selectSeason.setTimestamp(1, fDRTime);
-        selectSeason.setTimestamp(2, fDRTime);
+        selectSeason.setTimestamp(1, fLastLogTime);
+        selectSeason.setTimestamp(2, fLastLogTime);
         
         rsSeasons = selectSeason.executeQuery();
         
