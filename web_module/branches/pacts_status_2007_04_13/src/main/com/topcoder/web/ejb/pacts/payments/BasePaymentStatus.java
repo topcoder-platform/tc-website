@@ -42,8 +42,14 @@ public abstract class BasePaymentStatus {
     
     public abstract Boolean isValid(BasePayment payment);
     
-    public abstract void nextState(BasePayment payment);
-    
+    public void nextState(Connection conn, BasePayment payment) {
+        // default implementation does nothing...
+    }
+
+    public void nextState(BasePayment payment) {
+        nextState(null, payment);
+    }
+
     public void activate(Connection conn, BasePayment payment) {
         // default implementation does nothing...
     }

@@ -102,7 +102,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
              // check for affirmed IP document (component contests, studio contests)
              checkAffirmedIPTransferDocument(payment, dib);
              
-             nextState(payment);
+             nextState(conn, payment);
         } catch (Exception e) {
             // TODO: do something
         }
@@ -225,13 +225,13 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void nextState(BasePayment payment) {
+    public void nextState(Connection conn, BasePayment payment) {
         if (reasons.size() == 0) {
             // if there's no reason to stay in this state, move to the next
             log.debug("no reason to stay here!");
             payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.ACCRUING_PAYMENT_STATUS));
             try {
-                payment.getCurrentStatus().activate(payment);
+                payment.getCurrentStatus().activate(conn, payment);
             } catch (Exception e) {
                 // do nothing
             }
