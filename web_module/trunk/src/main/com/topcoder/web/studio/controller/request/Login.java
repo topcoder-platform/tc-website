@@ -6,7 +6,13 @@ import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.ShortHibernateProcessor;
+import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 
@@ -101,7 +107,7 @@ public class Login extends ShortHibernateProcessor {
                 } catch (TCWebException e) {
                     throw e;
                 } catch (Exception e) {
-                    throw(new TCWebException(e));
+                    throw (new TCWebException(e));
                 }
             }
 
@@ -114,11 +120,26 @@ public class Login extends ShortHibernateProcessor {
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name and password.");
         }
 */
-        String nextpage = (String) getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
-        if (nextpage == null) nextpage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
-        if (nextpage == null) nextpage = getRequest().getHeader("Referer");
-        if (nextpage == null) nextpage = getSessionInfo().getAbsoluteServletPath();
-        getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextpage);
+        String nextPage = (String) getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY);
+        if (nextPage == null) {
+            nextPage = getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY);
+        } else {
+            log.debug("next page from attribute");
+        }
+        if (nextPage == null) {
+            nextPage = getRequest().getHeader("Referer");
+        } else {
+            log.debug("next page from parameter");
+        }
+        if (nextPage == null) {
+            nextPage = getSessionInfo().getAbsoluteServletPath();
+        } else {
+            log.debug("next page from referer header");
+        }
+        if (nextPage != null) {
+            log.debug("next page from session info");
+        }
+        getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, nextPage);
         setNextPage("/login.jsp");
         setIsNextPageInContext(true);
     }
