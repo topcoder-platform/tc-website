@@ -1,5 +1,20 @@
 package com.topcoder.web.tc.controller.legacy.pacts.bean;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
+import com.topcoder.web.ejb.pacts.PactsServices;
+import com.topcoder.web.ejb.pacts.PactsServicesBean;
+import com.topcoder.web.ejb.pacts.PactsServicesLocal;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+
+import javax.jms.JMSException;
+import javax.naming.InitialContext;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
@@ -12,39 +27,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.jms.JMSException;
-import javax.naming.InitialContext;
-
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.model.AssignmentDocument;
-import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
-import com.topcoder.web.ejb.pacts.PactsServices;
-import com.topcoder.web.ejb.pacts.PactsServicesBean;
-import com.topcoder.web.ejb.pacts.PactsServicesLocal;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
-import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
-import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.InvalidSearchInputException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
-
 /**
  * This class receives incoming requests from the dispatch beans
  * and passes them on to the EJB. <p>
- *
+ * <p/>
  * Each data retrieval function in this class returns a Map in
  * which each key is an object description in <tt>PactsConstants.java</tt>
  * and each value is a <tt>ResultSetContainer</tt> object with the
@@ -53,7 +39,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
  * function prototypes do not have to change if, for example, it is
  * subsequently desired to have a particular function return two
  * <tt>ResultSetContainer</tt> objects instead of one. <p>
- *
+ * <p/>
  * Each search function in this class takes in a Map of search criteria,
  * in which each key is a criterion description in <tt>PactsConstants.java</tt>
  * and each value is a <tt>String</tt> corresponding to the desired value
@@ -62,16 +48,15 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
  * The search routines will throw exceptions if any criterion is invalid or not
  * applicable to the particular search.  For convenience, an input validator is
  * provided here that checks integer, decimal, date, and boolean input. <p>
- *
+ * <p/>
  * For all update functions, it is assumed that the user has authority
  * to execute the update in question. <p>
- *
+ * <p/>
  * The database access routines in this class throw an <tt>SQLException</tt>
  * if there is some problem executing their associated database queries.
  *
- * @author  Dave Pecora
+ * @author Dave Pecora
  * @version 1.00, 03/06/2002
- *
  * @see ResultSetContainer
  * @see PactsServicesBean
  * @see PactsConstants
@@ -138,10 +123,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the affidavit specified by the given affidavit ID.  <p>
      *
-     * @param   affidavitId  The ID of the affidavit to retrieve.
-     * @return  The affidavit data.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param affidavitId The ID of the affidavit to retrieve.
+     * @return The affidavit data.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getAffidavit(long affidavitId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -151,10 +136,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the contract specified by the given contract ID.  <p>
      *
-     * @param   contractId  The ID of the contract to retrieve.
-     * @return  The contract data.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param contractId The ID of the contract to retrieve.
+     * @return The contract data.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getContract(long contractId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -164,10 +149,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the note specified by the given note ID.  <p>
      *
-     * @param   noteId  The ID of the note to retrieve.
-     * @return  The note data.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param noteId The ID of the note to retrieve.
+     * @return The note data.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getNote(long noteId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -179,10 +164,10 @@ public class DataInterfaceBean implements PactsConstants {
      * of the payment header, the most recent payment detail record (with print address, if
      * applicable), and the current coder address information. <p>
      *
-     * @param   paymentId  The ID of the payment to retrieve.
-     * @return  The payment data.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param paymentId The ID of the payment to retrieve.
+     * @return The payment data.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getPayment(long paymentId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -194,10 +179,10 @@ public class DataInterfaceBean implements PactsConstants {
      * Data returned will include the payment header, all payment detail records (with print
      * addresses, if applicable), and the current coder address. <p>
      *
-     * @param   paymentId  The ID of the payment to retrieve.
-     * @return  The payment audit trail data.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param paymentId The ID of the payment to retrieve.
+     * @return The payment audit trail data.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getPaymentAuditTrail(long paymentId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -207,10 +192,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the user profile corresponding to the given user ID.  <p>
      *
-     * @param   userId  The user ID for which to retrieve the user profile.
-     * @return  The user profile data.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The user ID for which to retrieve the user profile.
+     * @return The user profile data.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getUserProfile(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -220,10 +205,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the user profile header corresponding to the given user ID.  <p>
      *
-     * @param   userId  The user ID for which to retrieve the user profile header.
-     * @return  The user profile header data.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The user ID for which to retrieve the user profile header.
+     * @return The user profile header data.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getUserProfileHeader(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -233,10 +218,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the generic tax form specified by the given tax form ID.  <p>
      *
-     * @param   taxFormId  The ID of the generic tax form to retrieve.
-     * @return  The tax form data.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param taxFormId The ID of the generic tax form to retrieve.
+     * @return The tax form data.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getTaxForm(long taxFormId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -246,11 +231,11 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the user-specific tax form specified by the given tax form ID.  <p>
      *
-     * @param   userId  The user ID of the tax form to retrieve.
-     * @param   taxFormId  The tax form ID of the tax form to retrieve.
-     * @return  The tax form data.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId    The user ID of the tax form to retrieve.
+     * @param taxFormId The tax form ID of the tax form to retrieve.
+     * @return The tax form data.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getUserTaxForm(long userId, long taxFormId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -264,10 +249,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of affidavits for the given user.
      *
-     * @param   userId  The coder ID of the affidavits.
-     * @return  The affidavit header list.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The coder ID of the affidavits.
+     * @return The affidavit header list.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getUserAffidavitList(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -277,10 +262,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of contracts for the given user.
      *
-     * @param   userId  The contracted user ID of the contracts.
-     * @return  The contract header list.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The contracted user ID of the contracts.
+     * @return The contract header list.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getUserContractList(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -290,10 +275,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of payments to the given user.
      *
-     * @param   userId  The coder ID of the payments.
-     * @return  The payment header list.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The coder ID of the payments.
+     * @return The payment header list.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getUserPaymentList(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -303,12 +288,12 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of payment details of the given type(s) for the given user.
      *
-     * @param   userId  The coder ID of the payments.
-     * @param   paymentTypes  The payment type(s) to filter on.
-     * @param   pendingOnly  True when only pending/owed details should be returned.
-     * @return  The payment header list.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId       The coder ID of the payments.
+     * @param paymentTypes The payment type(s) to filter on.
+     * @param pendingOnly  True when only pending/owed details should be returned.
+     * @return The payment header list.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getUserPaymentDetailsList(long userId, int[] paymentTypes, boolean pendingOnly) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -318,10 +303,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of tax forms for the given user.
      *
-     * @param   userId  The user ID of the tax forms.
-     * @return  The tax form header list.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param userId The user ID of the tax forms.
+     * @return The tax form header list.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getUserTaxFormList(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -333,15 +318,15 @@ public class DataInterfaceBean implements PactsConstants {
      * which can be an affidavit, contract, user tax form, payment, or
      * user profile.
      *
-     * @param   objectId  The ID of the object.
-     * @param   objectType The type of the object, as defined in
-     * <tt>PactsConstants.java</tt>
-     * @param   taxFormUserId If the object is a tax form, the user ID of
-     * the tax form.  This parameter is otherwise disregarded.
-     * @return  The note header list.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalArgumentException if the object type does not exist or does not have notes.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param objectId      The ID of the object.
+     * @param objectType    The type of the object, as defined in
+     *                      <tt>PactsConstants.java</tt>
+     * @param taxFormUserId If the object is a tax form, the user ID of
+     *                      the tax form.  This parameter is otherwise disregarded.
+     * @return The note header list.
+     * @throws RemoteException          If there is some communication problem with the EJB
+     * @throws IllegalArgumentException if the object type does not exist or does not have notes.
+     * @throws SQLException             If there is some problem retrieving the data
      */
     public Map getNoteList(long objectId, int objectType, long taxFormUserId)
             throws RemoteException, SQLException {
@@ -355,10 +340,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of payments associated with the given contract.
      *
-     * @param   contractId  The contract ID of the payments.
-     * @return  The payment header list.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param contractId The contract ID of the payments.
+     * @return The payment header list.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getContractPaymentList(long contractId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -368,14 +353,14 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the text of an affidavit, contract, note, or tax form.
      *
-     * @param   objectId  The ID of the object.
-     * @param   objectType The type of the object, as defined in
-     * <tt>PactsConstants.java</tt>
-     * @return  The text associated with the object.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalArgumentException if the object type does not exist or does not have
-     * associated text.
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param objectId   The ID of the object.
+     * @param objectType The type of the object, as defined in
+     *                   <tt>PactsConstants.java</tt>
+     * @return The text associated with the object.
+     * @throws RemoteException          If there is some communication problem with the EJB
+     * @throws IllegalArgumentException if the object type does not exist or does not have
+     *                                  associated text.
+     * @throws SQLException             If there is some problem retrieving the data
      */
     public Map getText(long objectId, int objectType) throws RemoteException, SQLException {
         if (!objectTypeHasText(objectType))
@@ -392,9 +377,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all affidavit types.
      *
-     * @return  The list of affidavit types
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of affidavit types
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getAffidavitTypes() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -404,9 +389,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all assignment document types.
      *
-     * @return  The list of assignment document types
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of assignment document types
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public List getAssignmentDocumentTypes() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -416,8 +401,8 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the requested assignment document.
      *
-     * @return  The requested assignment document
-     * @throws  RemoteException If there is some communication problem with the EJB
+     * @return The requested assignment document
+     * @throws RemoteException If there is some communication problem with the EJB
      */
     public AssignmentDocument getAssignmentDocument(long assignmentDocumentId) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
@@ -427,7 +412,7 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * deletes the provided assignment document
      *
-     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws RemoteException If there is some communication problem with the EJB
      */
     public void deleteAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException {
         PactsServicesLocal ps = getEjbHandle();
@@ -437,8 +422,8 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * adds the provided assignment document
      *
-     * @return  The added assignment document
-     * @throws  RemoteException If there is some communication problem with the EJB
+     * @return The added assignment document
+     * @throws RemoteException If there is some communication problem with the EJB
      */
     public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException {
         PactsServicesLocal ps = getEjbHandle();
@@ -448,21 +433,21 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all assignment document status.
      *
-     * @return  The list of assignment document status
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of assignment document status
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public List getAssignmentDocumentStatus() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getAssignmentDocumentStatus();
     }
-    
+
     /**
      * Returns the list of all contract types.
      *
-     * @return  The list of contract types
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of contract types
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getContractTypes() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -472,9 +457,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all note types.
      *
-     * @return  The list of note types
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of note types
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getNoteTypes() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -484,9 +469,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all payment types.
      *
-     * @return  The list of payment types
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of payment types
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getPaymentTypes() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -496,9 +481,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all payment methods.
      *
-     * @return  The list of payment methods
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of payment methods
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getPaymentMethods() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -508,9 +493,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all project termination status types.
      *
-     * @return  The list of project termination status types
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of project termination status types
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getProjectTerminationStatusTypes() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -520,9 +505,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all payment modification rationales.
      *
-     * @return  The list of rationales
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of rationales
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getModificationRationales() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -532,9 +517,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all status codes.
      *
-     * @return  The list of status codes
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of status codes
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getStatusCodes() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -544,12 +529,12 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all status codes for a given object type.
      *
-     * @param   objectType The object type
-     * @return  The list of status codes
-     * @throws  IllegalArgumentException If the specified object type does
-     * not exist.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param objectType The object type
+     * @return The list of status codes
+     * @throws IllegalArgumentException If the specified object type does
+     *                                  not exist.
+     * @throws RemoteException          If there is some communication problem with the EJB
+     * @throws SQLException             If there is some problem retrieving the data
      */
     public Map getStatusCodes(int objectType) throws RemoteException, SQLException {
         if (!objectTypeExists(objectType))
@@ -561,9 +546,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all user types.
      *
-     * @return  The list of user types
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of user types
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getUserTypes() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -573,9 +558,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the list of all rounds.
      *
-     * @return  The list of all rounds
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The list of all rounds
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getRounds() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -585,9 +570,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the demographic data for a given user.
      *
-     * @return  The demographic data
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The demographic data
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getDemographicData(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -597,9 +582,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Returns the created dates for the given payments.
      *
-     * @return  The created dates
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @return The created dates
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map getCreationDates(long[] paymentIds) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -615,10 +600,10 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws SQLException
      */
     public Date getCreationDate(long paymentId) throws RemoteException, SQLException {
-        Map results = getCreationDates(new long[] {paymentId});
-        ResultSetContainer rsc = (ResultSetContainer)results.get(CREATION_DATE_LIST);
+        Map results = getCreationDates(new long[]{paymentId});
+        ResultSetContainer rsc = (ResultSetContainer) results.get(CREATION_DATE_LIST);
 
-         return rsc.getRowCount() > 0? rsc.getTimestampItem(0, "date_created") : null;
+        return rsc.getRowCount() > 0 ? rsc.getTimestampItem(0, "date_created") : null;
     }
 
     /*****************************************************
@@ -629,12 +614,12 @@ public class DataInterfaceBean implements PactsConstants {
      * Checks to see if the specified string input can be parsed to a
      * valid example of the specified input type.
      *
-     * @param   input  The input in question.
-     * @param   inputType  Criterion input type as specified in
-     * <tt>PactsConstants.java</tt>.  Currently integer, decimal,
-     * boolean, and date inputs can be checked for compliance.
-     * @return  Whether or not the given input is valid.
-     * @throws  IllegalArgumentException if the input type is not a valid type.
+     * @param input     The input in question.
+     * @param inputType Criterion input type as specified in
+     *                  <tt>PactsConstants.java</tt>.  Currently integer, decimal,
+     *                  boolean, and date inputs can be checked for compliance.
+     * @return Whether or not the given input is valid.
+     * @throws IllegalArgumentException if the input type is not a valid type.
      */
     public boolean validateInput(String input, int inputType) {
         if (inputType == INTEGER) {
@@ -681,13 +666,13 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Finds affidavits that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of affidavit headers for the affidavits that satisfy the criteria.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
-     * @throws  UnsupportedSearchException If attempting to search by a criterion unsupported
-     * by the search routine.
-     * @throws  InvalidSearchInputException If any particular criterion fails validation.
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of affidavit headers for the affidavits that satisfy the criteria.
+     * @throws RemoteException             If there is some communication problem with the EJB
+     * @throws SQLException                If there is some problem retrieving the data
+     * @throws UnsupportedSearchException  If attempting to search by a criterion unsupported
+     *                                     by the search routine.
+     * @throws InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findAffidavits(Map searchCriteria)
             throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
@@ -728,13 +713,13 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Finds contracts that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of contract headers for the contracts that satisfy the criteria.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
-     * @throws  UnsupportedSearchException If attempting to search by a criterion unsupported
-     * by the search routine.
-     * @throws  InvalidSearchInputException If any particular criterion fails validation.
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of contract headers for the contracts that satisfy the criteria.
+     * @throws RemoteException             If there is some communication problem with the EJB
+     * @throws SQLException                If there is some problem retrieving the data
+     * @throws UnsupportedSearchException  If attempting to search by a criterion unsupported
+     *                                     by the search routine.
+     * @throws InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findContracts(Map searchCriteria)
             throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
@@ -777,10 +762,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Finds objects that a given note is associated with.
      *
-     * @param   noteId  The note ID for which to find associated objects.
-     * @return  A list of headers for the objects that are associated with the given note.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
+     * @param noteId The note ID for which to find associated objects.
+     * @return A list of headers for the objects that are associated with the given note.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem retrieving the data
      */
     public Map findNoteObjects(long noteId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -790,14 +775,14 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Finds notes that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of note headers for the notes that
-     * satisfy the criteria.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
-     * @throws  UnsupportedSearchException If attempting to search by a criterion unsupported
-     * by the search routine.
-     * @throws  InvalidSearchInputException If any particular criterion fails validation.
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of note headers for the notes that
+     *         satisfy the criteria.
+     * @throws RemoteException             If there is some communication problem with the EJB
+     * @throws SQLException                If there is some problem retrieving the data
+     * @throws UnsupportedSearchException  If attempting to search by a criterion unsupported
+     *                                     by the search routine.
+     * @throws InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findNotes(Map searchCriteria)
             throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
@@ -841,14 +826,14 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Finds payments that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of payment headers for the payments that
-     * satisfy the criteria.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
-     * @throws  UnsupportedSearchException If attempting to search by a criterion unsupported
-     * by the search routine.
-     * @throws  InvalidSearchInputException If any particular criterion fails validation.
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of payment headers for the payments that
+     *         satisfy the criteria.
+     * @throws RemoteException             If there is some communication problem with the EJB
+     * @throws SQLException                If there is some problem retrieving the data
+     * @throws UnsupportedSearchException  If attempting to search by a criterion unsupported
+     *                                     by the search routine.
+     * @throws InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findPayments(Map searchCriteria)
             throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
@@ -884,13 +869,13 @@ public class DataInterfaceBean implements PactsConstants {
                 inputOk = validateInput(value, STRING);
             else if (key.equals(IS_REVIEWED))
                 inputOk = validateInput(value, BOOLEAN);
-           else if (key.equals(PAYMENT_ID)) {
-			   String []s = value.split(",");
-			   inputOk = true;
-			   for (int j = 0; j < s.length && inputOk; j++) {
-				   inputOk = validateInput(s[j], INTEGER);
-			   }
-		   } else throw new UnsupportedSearchException("Search by " + key + " not supported");
+            else if (key.equals(PAYMENT_ID)) {
+                String[] s = value.split(",");
+                inputOk = true;
+                for (int j = 0; j < s.length && inputOk; j++) {
+                    inputOk = validateInput(s[j], INTEGER);
+                }
+            } else throw new UnsupportedSearchException("Search by " + key + " not supported");
 
             if (!inputOk)
                 throw new InvalidSearchInputException("Value " + value + " invalid for " + key);
@@ -902,14 +887,14 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Finds generic tax forms that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of tax form headers for the generic tax forms that
-     * satisfy the criteria.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
-     * @throws  UnsupportedSearchException If attempting to search by a criterion unsupported
-     * by the search routine.
-     * @throws  InvalidSearchInputException If any particular criterion fails validation.
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of tax form headers for the generic tax forms that
+     *         satisfy the criteria.
+     * @throws RemoteException             If there is some communication problem with the EJB
+     * @throws SQLException                If there is some problem retrieving the data
+     * @throws UnsupportedSearchException  If attempting to search by a criterion unsupported
+     *                                     by the search routine.
+     * @throws InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findTaxForms(Map searchCriteria)
             throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
@@ -944,14 +929,14 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Finds user-specific tax forms that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of tax form headers for the user-specific tax forms that
-     * satisfy the criteria.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
-     * @throws  UnsupportedSearchException If attempting to search by a criterion unsupported
-     * by the search routine.
-     * @throws  InvalidSearchInputException If any particular criterion fails validation.
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of tax form headers for the user-specific tax forms that
+     *         satisfy the criteria.
+     * @throws RemoteException             If there is some communication problem with the EJB
+     * @throws SQLException                If there is some problem retrieving the data
+     * @throws UnsupportedSearchException  If attempting to search by a criterion unsupported
+     *                                     by the search routine.
+     * @throws InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findUserTaxForms(Map searchCriteria)
             throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
@@ -992,14 +977,14 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Finds user profiles that match the specified search criteria.
      *
-     * @param   searchCriteria  The crtieria to search by.
-     * @return  A list of user profile headers for the user profiles that
-     * satisfy the criteria.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem retrieving the data
-     * @throws  UnsupportedSearchException If attempting to search by a criterion unsupported
-     * by the search routine.
-     * @throws  InvalidSearchInputException If any particular criterion fails validation.
+     * @param searchCriteria The crtieria to search by.
+     * @return A list of user profile headers for the user profiles that
+     *         satisfy the criteria.
+     * @throws RemoteException             If there is some communication problem with the EJB
+     * @throws SQLException                If there is some problem retrieving the data
+     * @throws UnsupportedSearchException  If attempting to search by a criterion unsupported
+     *                                     by the search routine.
+     * @throws InvalidSearchInputException If any particular criterion fails validation.
      */
     public Map findUsers(Map searchCriteria)
             throws RemoteException, SQLException, UnsupportedSearchException, InvalidSearchInputException {
@@ -1046,11 +1031,11 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Adds a new affidavit to the database without any corresponding payment.
      *
-     * @param   a Data for the new affidavit.
-     * @param   affidavitText The new affidavit's text
-     * @throws  IllegalUpdateException If the user is trying to make an illegal update.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new affidavit's ID.
+     * @param a             Data for the new affidavit.
+     * @param affidavitText The new affidavit's text
+     * @return The new affidavit's ID.
+     * @throws IllegalUpdateException If the user is trying to make an illegal update.
+     * @throws SQLException           If there is some problem updating the data
      */
     public long addAffidavit(Affidavit a, String affidavitText)
             throws RemoteException, IllegalUpdateException, SQLException {
@@ -1062,17 +1047,17 @@ public class DataInterfaceBean implements PactsConstants {
      * Adds the specified affidavit and payment to the database, and associates the two.
      * Also adds a correpsonding referral payment if the affidavit is a contest winnings
      * affidavit and someone referred the winning coder. <p>
-     *
+     * <p/>
      * If the payment input parameter is null, the affidavit will still be created, but
      * without being associated with a payment.
      *
-     * @param   a Data for the new affidavit.
-     * @param   affidavitText The new affidavit's text
-     * @param   p Data for the new payment
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new affidavit's ID.
+     * @param a             Data for the new affidavit.
+     * @param affidavitText The new affidavit's text
+     * @param p             Data for the new payment
+     * @return The new affidavit's ID.
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws SQLException           If there is some problem updating the data
      */
     public long addAffidavit(Affidavit a, String affidavitText, Payment p)
             throws RemoteException, IllegalUpdateException, SQLException {
@@ -1083,11 +1068,11 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Adds the specified contract to the database.
      *
-     * @param   c Data for the new contract.
-     * @param   contractText The new contract text.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new contract's ID.
+     * @param c            Data for the new contract.
+     * @param contractText The new contract text.
+     * @return The new contract's ID.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem updating the data
      */
     public long addContract(Contract c, String contractText) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1098,11 +1083,11 @@ public class DataInterfaceBean implements PactsConstants {
      * Adds the specified payment to the database.  Does not add a corresponding
      * referral payment.
      *
-     * @param   p Data for the new payment.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new payment's ID.
+     * @param p Data for the new payment.
+     * @return The new payment's ID.
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws SQLException           If there is some problem updating the data
      */
     public long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1110,13 +1095,13 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
     /**
-     * Adds the specified payment to the database.  
+     * Adds the specified payment to the database.
      *
-     * @param   p Data for the new payment.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new payment's ID.
+     * @param p Data for the new payment.
+     * @return The new payment's ID.
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws SQLException           If there is some problem updating the data
      */
     public long addPayment(Payment p, boolean payReferrer) throws RemoteException, IllegalUpdateException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1128,12 +1113,12 @@ public class DataInterfaceBean implements PactsConstants {
      * Adds the specified payment to the database, and to the specified contract.  Does
      * not add a corresponding referral payment.
      *
-     * @param   contractId The ID of the contract to which to add the payment.
-     * @param   p The payment data to add.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some other problem updating the data
-     * @return  The new payment's ID.
+     * @param contractId The ID of the contract to which to add the payment.
+     * @param p          The payment data to add.
+     * @return The new payment's ID.
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws SQLException           If there is some other problem updating the data
      */
     public long addContractPayment(long contractId, Payment p) throws RemoteException, IllegalUpdateException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1143,12 +1128,12 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Adds a tax form.
      *
-     * @param   t The tax form to add.
-     * @param   taxFormText The tax form text.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some other problem updating the data
-     * @return  The new tax form's ID.
+     * @param t           The tax form to add.
+     * @param taxFormText The tax form text.
+     * @return The new tax form's ID.
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws SQLException           If there is some other problem updating the data
      */
     public long addTaxForm(TaxForm t, String taxFormText) throws RemoteException, IllegalUpdateException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1158,9 +1143,9 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Adds a user tax form.
      *
-     * @param   t The user tax form to add.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some other problem updating the data
+     * @param t The user tax form to add.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some other problem updating the data
      */
     public void addUserTaxForm(TaxForm t) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1171,19 +1156,19 @@ public class DataInterfaceBean implements PactsConstants {
      * Adds the specified note to the database, and also adds a cross-reference
      * attaching the note to the specified object.
      *
-     * @param   objectId The ID of the object with which to associate the new note.
-     * @param   objectType The type of the object with which to associate the new note.
-     * Must be a type defined in <tt>PactsConstants.java</tt> and must be an object that
-     * can have associated notes.
-     * @param   taxFormUserId If the object is a tax form, the user ID of
-     * the tax form.  This parameter is otherwise disregarded.
-     * @param   n Data for the new note.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalArgumentException If the specified object type does not exist or does
-     * not allow notes.
-     * @throws  SQLException If the specified object does not exist or if there is some other
-     * problem updating the data
-     * @return  The new note's ID.
+     * @param objectId      The ID of the object with which to associate the new note.
+     * @param objectType    The type of the object with which to associate the new note.
+     *                      Must be a type defined in <tt>PactsConstants.java</tt> and must be an object that
+     *                      can have associated notes.
+     * @param taxFormUserId If the object is a tax form, the user ID of
+     *                      the tax form.  This parameter is otherwise disregarded.
+     * @param n             Data for the new note.
+     * @return The new note's ID.
+     * @throws RemoteException          If there is some communication problem with the EJB
+     * @throws IllegalArgumentException If the specified object type does not exist or does
+     *                                  not allow notes.
+     * @throws SQLException             If the specified object does not exist or if there is some other
+     *                                  problem updating the data
      */
     public long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
             throws RemoteException, SQLException {
@@ -1197,16 +1182,16 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Adds a cross-reference attaching the specified note to the specified object.
      *
-     * @param   objectId The ID of the object with which to associate the note.
-     * @param   objectType The type of the object with which to associate the note.
-     * Must be a type defined in <tt>PactsConstants.java</tt> and must allow notes.
-     * @param   taxFormUserId If the object is a tax form, the user ID of
-     * the tax form.  This parameter is otherwise disregarded.
-     * @param   noteId The ID of the note to attach.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalArgumentException If the specified object type is invalid or does
-     * not allow notes.
-     * @throws  SQLException If there is some other problem updating the data
+     * @param objectId      The ID of the object with which to associate the note.
+     * @param objectType    The type of the object with which to associate the note.
+     *                      Must be a type defined in <tt>PactsConstants.java</tt> and must allow notes.
+     * @param taxFormUserId If the object is a tax form, the user ID of
+     *                      the tax form.  This parameter is otherwise disregarded.
+     * @param noteId        The ID of the note to attach.
+     * @throws RemoteException          If there is some communication problem with the EJB
+     * @throws IllegalArgumentException If the specified object type is invalid or does
+     *                                  not allow notes.
+     * @throws SQLException             If there is some other problem updating the data
      */
     public void addObjectNoteLink(long objectId, int objectType, long taxFormUserId, long noteId)
             throws RemoteException, SQLException {
@@ -1224,14 +1209,14 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Affirms the specified affidavit.
      *
-     * @param   affidavitId The ID of the affidavit to affirm.
-     * @param   finalText The finalized affidavit text
-     * @param   coderBirthDate The birth date of the coder
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  NoObjectFoundException If the specified affidavit does not exist.
-     * @throws  IllegalUpdateException If the affidavit has expired or has already
-     * been affirmed.
-     * @throws  SQLException If there is some other problem updating the data
+     * @param affidavitId    The ID of the affidavit to affirm.
+     * @param finalText      The finalized affidavit text
+     * @param coderBirthDate The birth date of the coder
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws NoObjectFoundException If the specified affidavit does not exist.
+     * @throws IllegalUpdateException If the affidavit has expired or has already
+     *                                been affirmed.
+     * @throws SQLException           If there is some other problem updating the data
      */
     public void affirmAffidavit(long affidavitId, String finalText, String coderBirthDate)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
@@ -1243,15 +1228,15 @@ public class DataInterfaceBean implements PactsConstants {
      * Affirms the specified affidavit, searching the affidavit text and doing the replacements.
      * This method should be used for Indian coders, since they require the family name and age.
      *
-     * @param   affidavitId The ID of the affidavit to affirm.
-     * @param   birthday The birth date of the coder
-     * @param   familyName family name of the coder
-     * @param   aged age of the couder
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  NoObjectFoundException If the specified affidavit does not exist.
-     * @throws  IllegalUpdateException If the affidavit has expired or has already
-     * been affirmed.
-     * @throws  SQLException If there is some other problem updating the data
+     * @param affidavitId The ID of the affidavit to affirm.
+     * @param birthday    The birth date of the coder
+     * @param familyName  family name of the coder
+     * @param aged        age of the couder
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws NoObjectFoundException If the specified affidavit does not exist.
+     * @throws IllegalUpdateException If the affidavit has expired or has already
+     *                                been affirmed.
+     * @throws SQLException           If there is some other problem updating the data
      */
     public void affirmAffidavit(long affidavitId, Date birthday, String familyName, int aged)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
@@ -1283,13 +1268,13 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Affirms the specified affidavit, searching the affidavit text.
      *
-     * @param   affidavitId The ID of the affidavit to affirm.
-     * @param   birthday The birth date of the coder
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  NoObjectFoundException If the specified affidavit does not exist.
-     * @throws  IllegalUpdateException If the affidavit has expired or has already
-     * been affirmed.
-     * @throws  SQLException If there is some other problem updating the data
+     * @param affidavitId The ID of the affidavit to affirm.
+     * @param birthday    The birth date of the coder
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws NoObjectFoundException If the specified affidavit does not exist.
+     * @throws IllegalUpdateException If the affidavit has expired or has already
+     *                                been affirmed.
+     * @throws SQLException           If there is some other problem updating the data
      */
     public void affirmAffidavit(long affidavitId, Date birthday)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
@@ -1309,10 +1294,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Updates the given affidavit (excluding text updates and affirmations).
      *
-     * @param   a The updated affidavit information
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  NoObjectFoundException If the specified object does not exist.
-     * @throws  SQLException If there is some problem updating the data
+     * @param a The updated affidavit information
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws NoObjectFoundException If the specified object does not exist.
+     * @throws SQLException           If there is some problem updating the data
      */
     public void updateAffidavit(Affidavit a) throws RemoteException, NoObjectFoundException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1322,10 +1307,10 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Updates the given contract (excluding text updates).
      *
-     * @param   c The updated affidavit information
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  NoObjectFoundException If the specified object does not exist.
-     * @throws  SQLException If there is some problem updating the data
+     * @param c The updated affidavit information
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws NoObjectFoundException If the specified object does not exist.
+     * @throws SQLException           If there is some problem updating the data
      */
     public void updateContract(Contract c) throws RemoteException, NoObjectFoundException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1338,12 +1323,12 @@ public class DataInterfaceBean implements PactsConstants {
      * IllegalUpdateException if the payment's status is "Printed" or "Paid" - these status
      * updates are done automatically by the system.
      *
-     * @param   p The updated payment information
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  NoObjectFoundException If the specified object does not exist.
-     * @throws  IllegalUpdateException If the user tried to make an update that is not allowed.
-     * @throws  PaymentPaidException If the payment has already been paid.
-     * @throws  SQLException If there is some problem updating the data
+     * @param p The updated payment information
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws NoObjectFoundException If the specified object does not exist.
+     * @throws IllegalUpdateException If the user tried to make an update that is not allowed.
+     * @throws PaymentPaidException   If the payment has already been paid.
+     * @throws SQLException           If there is some problem updating the data
      */
     public void updatePayment(Payment p)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException {
@@ -1354,11 +1339,11 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Updates the given tax form (excluding text updates).
      *
-     * @param   t The updated tax form information
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  NoObjectFoundException If the specified object does not exist.
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some problem updating the data
+     * @param t The updated tax form information
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws NoObjectFoundException If the specified object does not exist.
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws SQLException           If there is some problem updating the data
      */
     public void updateTaxForm(TaxForm t) throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1369,11 +1354,11 @@ public class DataInterfaceBean implements PactsConstants {
      * Updates the given user tax form (user_tax_form_xref table only;
      * to update data in tax_form, use <tt>updateTaxForm()</tt>)
      *
-     * @param   t The updated tax form information
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  NoObjectFoundException If the specified object does not exist.
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some problem updating the data
+     * @param t The updated tax form information
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws NoObjectFoundException If the specified object does not exist.
+     * @throws IllegalUpdateException If the user is trying to make an update that is not allowed.
+     * @throws SQLException           If there is some problem updating the data
      */
     public void updateUserTaxForm(TaxForm t) throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1383,14 +1368,14 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      * Updates the text for the given contract or tax form.
      *
-     * @param   objectId The object ID to update
-     * @param   objectType The object type to update
-     * @param   newText The updated text
-     * @throws  IllegalArgumentException If the specified object type does not exist or does not
-     * have updatable text.
-     * @throws  NoObjectFoundException If the specified object does not exist.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some other problem updating the data
+     * @param objectId   The object ID to update
+     * @param objectType The object type to update
+     * @param newText    The updated text
+     * @throws IllegalArgumentException If the specified object type does not exist or does not
+     *                                  have updatable text.
+     * @throws NoObjectFoundException   If the specified object does not exist.
+     * @throws RemoteException          If there is some communication problem with the EJB
+     * @throws SQLException             If there is some other problem updating the data
      */
     public void updateText(long objectId, int objectType, String newText)
             throws NoObjectFoundException, RemoteException, SQLException {
@@ -1406,10 +1391,10 @@ public class DataInterfaceBean implements PactsConstants {
      * should only be called by the Pacts message handler upon receipt of a message
      * passed in by the <tt>batchUpdatePaymentStatus</tt> function.
      *
-     * @param   paymentId The payments to update
-     * @param   statusId The new status
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some other problem updating the data
+     * @param paymentId The payments to update
+     * @param statusId  The new status
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some other problem updating the data
      */
     public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
             throws RemoteException, SQLException {
@@ -1423,22 +1408,19 @@ public class DataInterfaceBean implements PactsConstants {
      * detail record for each payment involved, and a new address record if
      * called with &quot;Ready to Print&quot; status.  This function should be called
      * with the &quot;Ready to Print&quot; status to ready payments for printing. <p>
+     * <p/>
      *
-     * This function actually just puts a message on the JMS queue.  The message handler,
-     * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt>
-     * which performs the modifications.
-     *
-     * @param   paymentId The payments to update
-     * @param   statusId The new status
-     * @param   userId The ID of the user submitting the request
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user is attempting to update the status to Printed or Paid
-     * @throws  JMSException If there is some problem putting the message on the queue
+     * @param paymentId The payments to update
+     * @param statusId  The new status
+     * @param userId    The ID of the user submitting the request
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws IllegalUpdateException If the user is attempting to update the status to Printed or Paid
+     * @throws JMSException           If there is some problem putting the message on the queue
      */
     public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
-            throws RemoteException, IllegalUpdateException, JMSException {
+            throws RemoteException, IllegalUpdateException, JMSException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        ps.batchUpdatePaymentStatus(paymentId, statusId, userId);
+        ps.doBatchUpdatePaymentStatus(paymentId, statusId);
     }
 
     /**
@@ -1447,11 +1429,11 @@ public class DataInterfaceBean implements PactsConstants {
      * reprint request.  Its purpose is to ensure that payments don't get printed
      * multiple times without good reason.
      *
-     * @param   paymentId The payments to mark as reviewed.
-     * @throws  NoObjectFoundException If any payment does not exist
-     * @throws  IllegalUpdateException If any payment has not been printed
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some other problem updating the data
+     * @param paymentId The payments to mark as reviewed.
+     * @throws NoObjectFoundException If any payment does not exist
+     * @throws IllegalUpdateException If any payment has not been printed
+     * @throws RemoteException        If there is some communication problem with the EJB
+     * @throws SQLException           If there is some other problem updating the data
      */
     public void reviewPayments(long paymentId[])
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
@@ -1470,11 +1452,11 @@ public class DataInterfaceBean implements PactsConstants {
      * member profile demographic information.  If the user does not exist in
      * the database, the method returns false.
      *
-     * @param   userId The user ID to check.
-     * @param   affidavitTypeId The type of the affidavit.
-     * @return  Whether or not the user can affirm an affidavit.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  SQLException If there is some problem querying the database
+     * @param userId          The user ID to check.
+     * @param affidavitTypeId The type of the affidavit.
+     * @return Whether or not the user can affirm an affidavit.
+     * @throws RemoteException If there is some communication problem with the EJB
+     * @throws SQLException    If there is some problem querying the database
      */
     public boolean canAffirmAffidavit(long userId, int affidavitTypeId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1504,11 +1486,11 @@ public class DataInterfaceBean implements PactsConstants {
      * The payment information, and the separate payee or "vendor" information, are returned
      * in a two-element string array, the payment information coming first.
      *
-     * @return  The payment and vendor information in String form
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  PaymentNotReviewedException If any of the payments to print has been
-     * previously printed and not subsequently reviewed
-     * @throws  SQLException If there is some problem updating the database
+     * @return The payment and vendor information in String form
+     * @throws RemoteException             If there is some communication problem with the EJB
+     * @throws PaymentNotReviewedException If any of the payments to print has been
+     *                                     previously printed and not subsequently reviewed
+     * @throws SQLException                If there is some problem updating the database
      */
     public String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException {
         log.debug("printPayments called...");
@@ -1522,14 +1504,14 @@ public class DataInterfaceBean implements PactsConstants {
      * money in the given contest round.  Returns the number of
      * affidavit/payment pairs generated.
      *
-     * @param roundId The ID of the round
+     * @param roundId     The ID of the round
      * @param makeChanges If true, updates the database; if false, logs
-     * the changes that would have been made had this parameter been true.
+     *                    the changes that would have been made had this parameter been true.
      * @return The number of affidavit/payment pairs generated.
-     * @throws  RemoteException If there is some communication problem with the EJB
+     * @throws RemoteException        If there is some communication problem with the EJB
      * @throws IllegalUpdateException If the affidavit/payment information
-     * has already been generated for this round.
-     * @throws SQLException If there was some error updating the data.
+     *                                has already been generated for this round.
+     * @throws SQLException           If there was some error updating the data.
      */
     public int generateRoundPayments(long roundId, boolean makeChanges)
             throws RemoteException, IllegalUpdateException, SQLException {
@@ -1544,53 +1526,53 @@ public class DataInterfaceBean implements PactsConstants {
     }
 
     public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
-    		throws RemoteException, IllegalUpdateException, SQLException {
-    	PactsServicesLocal ps = getEjbHandle();
-    	return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges, paymentTypeId);
+            throws RemoteException, IllegalUpdateException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges, paymentTypeId);
     }
 
 
     public int generateRoundPayments(long roundId, boolean makeChanges, int paymentTypeId)
-			throws RemoteException, IllegalUpdateException, SQLException {
-    	PactsServicesLocal ps = getEjbHandle();
-    	return ps.generateRoundPayments(roundId, makeChanges, paymentTypeId);
+            throws RemoteException, IllegalUpdateException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.generateRoundPayments(roundId, makeChanges, paymentTypeId);
     }
 
     /**
      * Generates all the payments for the people who won money for the given project (designers, developers,
      * and review board members). If it is a development project, it may pay the missing 25% to the designer.
      * It doesn't insert the payments in the DB, just generates and return them.
-     * 
-     * @param projectId The ID of the project
-     * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
-     * @param client The project's client (optional)
+     *
+     * @param projectId   The ID of the project
+     * @param status      The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
+     * @param client      The project's client (optional)
      * @param makeChanges If true, updates the database; if false, logs
-     * the changes that would have been made had this parameter been true.
+     *                    the changes that would have been made had this parameter been true.
      * @return The generated payments in a List of BasePayment
      * @throws IllegalUpdateException If the affidavit/payment information
-     * has already been generated for this round.
-     * @throws SQLException If there was some error updating the data.
+     *                                has already been generated for this round.
+     * @throws SQLException           If there was some error updating the data.
      */
     public List generateComponentPayments(long projectId, long status, String client)
-        throws IllegalUpdateException, RemoteException, SQLException {
+            throws IllegalUpdateException, RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.generateComponentPayments(projectId, status, client);
     }
 
     public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-    throws IllegalUpdateException, RemoteException, SQLException {
-    PactsServicesLocal ps = getEjbHandle();
-    return ps.generateComponentPayments(projectId, status, client, devSupportCoderId);
-}
+            throws IllegalUpdateException, RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.generateComponentPayments(projectId, status, client, devSupportCoderId);
+    }
 
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed);    
+        return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed);
     }
 
     public List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId);    
+        return ps.generateComponentUserPayments(coderId, grossAmount, client, projectId, placed, devSupportCoderId);
     }
 
     /**
@@ -1607,12 +1589,12 @@ public class DataInterfaceBean implements PactsConstants {
 
     public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.getPaymentHistory(userId, pendingOnly, sortColumn, sortAscending);    	
+        return ps.getPaymentHistory(userId, pendingOnly, sortColumn, sortAscending);
     }
 
     public ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.getAffidavitHistory(userId, pendingOnly, sortColumn, sortAscending);    	
+        return ps.getAffidavitHistory(userId, pendingOnly, sortColumn, sortAscending);
     }
 
     /**
@@ -1656,12 +1638,12 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.expireOldAssignmentDocuments();
     }
-    
+
     public void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         ps.createAffidavitTemplate(affidavitTypeId, text);
     }
-    
+
     public void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
         ps.createAssignmentDocumentTemplate(assignmentdocumentTypeId, text);
@@ -1693,9 +1675,9 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.findStudioContests(search);
     }
 
-    public Map findRounds(String search, int []roundTypes) throws RemoteException, SQLException {
+    public Map findRounds(String search, int[] roundTypes) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.findRounds(search,roundTypes);
+        return ps.findRounds(search, roundTypes);
     }
 
     public Map getDigitalRunSeasonList() throws RemoteException, SQLException {
@@ -1733,10 +1715,10 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getBasePayment(paymentId);
     }
 
-	public List addPayments(List payments) throws RemoteException, SQLException {
-	    PactsServicesLocal ps = getEjbHandle();
-	    return ps.addPayments(payments);
-	}
+    public List addPayments(List payments) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.addPayments(payments);
+    }
 
     public List findPayments(int paymentTypeId, long referenceId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1748,31 +1730,31 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.findAssignmentDocument(searchCriteria);
     }
 
-    public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending)  throws RemoteException{
+    public List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getAssignmentDocumentByUserId(userId, assignmentDocumentTypeId, onlyPending);
     }
 
-    public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad)  throws RemoteException, SQLException {
+    public String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getAssignmentDocumentTransformedText(assignmentDocumentTypeId, ad);
     }
 
-    public List getAssignmentDocumentByUserIdProjectId(long userId,  long projectId)  throws RemoteException {
+    public List getAssignmentDocumentByUserIdProjectId(long userId, long projectId) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getAssignmentDocumentByUserIdProjectId(userId, projectId);
     }
 
-    public List getAssignmentDocumentByUserIdStudioContestId(long studioContestId,  long projectId)  throws RemoteException {
+    public List getAssignmentDocumentByUserIdStudioContestId(long studioContestId, long projectId) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getAssignmentDocumentByUserIdStudioContestId(studioContestId, projectId);
     }
 
-    public Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId)  throws RemoteException {
+    public Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.hasHardCopyAssignmentDocumentByUserId(userId, assignmentDocumentTypeId);
     }
-    
+
     public void affirmAssignmentDocument(AssignmentDocument ad) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
         ps.affirmAssignmentDocument(ad);
