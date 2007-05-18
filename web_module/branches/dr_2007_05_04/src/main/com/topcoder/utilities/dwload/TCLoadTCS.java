@@ -4611,7 +4611,7 @@ public class TCLoadTCS extends TCLoad {
      * 
      * @throws Exception
      */    
-    private void doLoadStageResults() throws Exception {
+    public void doLoadStageResults() throws Exception {
         log.debug("load stage results");
         
         final String SELECT_STAGES =

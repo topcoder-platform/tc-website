@@ -4,5 +4,5 @@ CP=$CP:/home/branch4/web/lib/jars/log4j-1.2.7.jar
 CP=$CP:/home/branch4/web/lib/jars/ifxjdbc.jar
 CP=$CP:/home/branch4/web/build/classes
 
-nohup java -cp $CP com.topcoder.shared.util.dwload.TCLoadUtility -xmlfile fixscorecards.xml >> nohup.out 2>&1 &
+nohup java -cp $CP com.topcoder.shared.util.dwload.TCLoadUtility -xmlfile fixdr.xml >> nohup.out 2>&1 &
 tail -f nohup.out
