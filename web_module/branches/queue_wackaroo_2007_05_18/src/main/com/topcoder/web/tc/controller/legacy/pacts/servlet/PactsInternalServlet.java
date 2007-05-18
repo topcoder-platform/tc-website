@@ -2738,11 +2738,11 @@ forward(INTERNAL_PAYMENT_JSP, request, response);
 
             dib.batchUpdatePaymentStatus(payments, Integer.parseInt(request.getParameter("status_id")), userId);
 
-            request.setAttribute("message", "Payments Being Updated in the Background");
+            request.setAttribute("message", "Payments Updated");
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
                 forward(request.getParameter("query"), request, response);
             else
-                throw new NavigationException("Payments Being Updated in the Background");
+                throw new NavigationException("Payments Updated");
 
         } catch (NumberFormatException e) {
             throw new NavigationException("One or more of the Payment IDs specified is invalid.");
