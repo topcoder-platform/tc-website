@@ -30,11 +30,10 @@ public class ServerMonitorBot {
         client.run();
     }
 
-    public boolean fiveone = true;
-    public boolean fivetwo = true;
-    public boolean software = true;
-    public boolean studio = true;
-    public boolean forums = true;
+    private boolean isTCAlive = true;
+    private boolean isSoftwareAlive = true;
+    private boolean isStudioAlive = true;
+    private boolean isForumsAlive = true;
 
     public void run() {
 
@@ -60,22 +59,22 @@ public class ServerMonitorBot {
                 log.info("1:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
-                    if (fiveone) {
-                        fiveone = false;
+                    if (isTCAlive) {
+                        isTCAlive = false;
                         log.warn("FAILED, SENDING MAIL");
                         addError("connection to wwww.topcoder.com failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
-                    if (fiveone) {
-                        fiveone = false;
+                    if (isTCAlive) {
+                        isTCAlive = false;
                         log.warn("FAILED, SENDING MAIL");
                         addError("response from wwww.topcoder.com failed");
                         addErrorLarge(ret);
                         sendError();
                     }
                 } else {
-                    fiveone = true;
+                    isTCAlive = true;
                 }
 
                 //delete file
@@ -96,22 +95,22 @@ public class ServerMonitorBot {
                 log.info("2:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
-                    if (software) {
-                        software = false;
+                    if (isSoftwareAlive) {
+                        isSoftwareAlive = false;
                         log.warn("FAILED, SENDING MAIL");
                         addError("connection to 12.151 failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
-                    if (software) {
-                        software = false;
+                    if (isSoftwareAlive) {
+                        isSoftwareAlive = false;
                         log.warn("FAILED, SENDING MAIL");
                         addError("response from 12.151 failed");
                         addError(ret);
                         sendError();
                     }
                 } else {
-                    software = true;
+                    isSoftwareAlive = true;
                 }
 
                 wack();
@@ -131,22 +130,22 @@ public class ServerMonitorBot {
                 log.info("2:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
-                    if (forums) {
-                        forums = false;
+                    if (isForumsAlive) {
+                        isForumsAlive = false;
                         log.warn("FAILED, SENDING MAIL");
                         addError("connection to forums failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
-                    if (forums) {
-                        forums = false;
+                    if (isForumsAlive) {
+                        isForumsAlive = false;
                         log.warn("FAILED, SENDING MAIL");
                         addError("response from forums failed");
                         addError(ret);
                         sendError();
                     }
                 } else {
-                    forums = true;
+                    isForumsAlive = true;
                 }
 
                 wack();
@@ -166,22 +165,22 @@ public class ServerMonitorBot {
                 log.info("2:" + ret + "\n" + p.exitValue());
 
                 if (ret.indexOf("failed") != -1) {
-                    if (studio) {
-                        studio = false;
+                    if (isStudioAlive) {
+                        isStudioAlive = false;
                         log.warn("FAILED, SENDING MAIL");
                         addError("connection to studio failed");
                         sendError();
                     }
                 } else if (ret.indexOf("200 OK") == -1) {
-                    if (studio) {
-                        studio = false;
+                    if (isStudioAlive) {
+                        isStudioAlive = false;
                         log.warn("FAILED, SENDING MAIL");
                         addError("response from studio failed");
                         addError(ret);
                         sendError();
                     }
                 } else {
-                    studio = true;
+                    isStudioAlive = true;
                 }
 
                 wack();
@@ -224,15 +223,11 @@ public class ServerMonitorBot {
 
     public void sendError() {
         if (!errorText.equals("")) {
-            log.info("SENDING ERROR LOG");
+            log.info("short text \n" + errorText);
+            log.info("long text \n" + errorTextLarge);
             try {
                 TCSEmailMessage em = new TCSEmailMessage();
                 em.addToAddress("mobile_on_call@topcoder.com", TCSEmailMessage.TO);
-                //em.addToAddress("8604626228@vtext.com", TCSEmailMessage.TO);
-                //em.addToAddress("6508045266@vtext.com", TCSEmailMessage.TO);
-                //em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
-                //em.addToAddress("8606144043@vtext.com", TCSEmailMessage.TO);
-                //em.addToAddress("9196197120@vtext.com", TCSEmailMessage.TO); //fogle
 
                 em.setSubject("Server Error");
                 em.setBody(errorText);
@@ -242,14 +237,6 @@ public class ServerMonitorBot {
 
                 em = new TCSEmailMessage();
                 em.addToAddress("email_on_call@topcoder.com", TCSEmailMessage.TO);
-                //em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);
-                //em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
-                //em.addToAddress("thaas@topcoder.com", TCSEmailMessage.TO);
-                //em.addToAddress("ivern@topcoder.com", TCSEmailMessage.TO);
-                //em.addToAddress("mtong@topcoder.com", TCSEmailMessage.TO);
-                //em.addToAddress("mfogleman@topcoder.com", TCSEmailMessage.TO);
-                //em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
-
                 em.setSubject("Server Error");
                 em.setBody(errorTextLarge);
                 em.setFromAddress("rfairfax@topcoder.com");
