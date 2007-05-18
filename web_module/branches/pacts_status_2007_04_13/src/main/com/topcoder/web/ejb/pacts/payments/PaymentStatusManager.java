@@ -20,15 +20,22 @@ public class PaymentStatusManager {
 
     private static final Logger log = Logger.getLogger(PaymentStatusManager.class);
 
+    private Connection conn = null;
+    
     public PaymentStatusManager() {
     }
 
-    public void newPayment(Connection conn, BasePayment payment) {
+    public PaymentStatusManager(Connection conn) {
+        this.conn = conn;
+    }
+
+    public void newPayment(BasePayment payment) {
         log.debug("newPayment called...");
         // the start point for a new payment is the on hold state
         try {
-            payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS));
-            payment.getCurrentStatus().activate(conn, payment);
+            payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.ON_HOLD_PAYMENT_STATUS));
+            
+            payment.getCurrentStatus().activate(payment);
         } catch (Exception e) {
             // do nothing
         }

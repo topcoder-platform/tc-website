@@ -53,7 +53,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void activate(Connection conn, BasePayment payment) {
+    public void activate(BasePayment payment) {
         DataInterfaceBean dib = new DataInterfaceBean();
         try {
             // check the user's accrual threshold
@@ -82,7 +82,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     @Override
     public void nextState(BasePayment payment) {
         log.debug("moving to the next status!");
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS));
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.OWED_PAYMENT_STATUS));
         try {
             payment.getCurrentStatus().activate(payment);
         } catch (Exception e) {
@@ -93,7 +93,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     @Override
     public void delete(BasePayment payment) throws InvalidStateTransitionException {
         log.debug("moving to deleted!");
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS));
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.DELETED_PAYMENT_STATUS));
         try {
             payment.getCurrentStatus().activate(payment);
         } catch (Exception e) {
@@ -104,7 +104,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     @Override
     public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
         log.debug("moving to cancelled (account status)!");
-        BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS);
+        BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(conn, PaymentStatus.CANCELLED_PAYMENT_STATUS);
         newStatus.reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
         payment.setCurrentStatus(newStatus);
         try {

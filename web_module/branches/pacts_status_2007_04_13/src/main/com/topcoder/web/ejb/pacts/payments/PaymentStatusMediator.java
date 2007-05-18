@@ -45,7 +45,7 @@ public class PaymentStatusMediator {
     
     public PaymentStatusMediator(Connection c) {
         this.conn = c;
-        this.statusManager = new PaymentStatusManager();
+        this.statusManager = new PaymentStatusManager(conn);
     }
 
     public void newPayment(BasePayment payment) throws EventFailureException {
@@ -62,7 +62,7 @@ public class PaymentStatusMediator {
             }
             
             // when a payment is created, the possible status can be any on hold, accruing and owed
-            statusManager.newPayment(conn, payment);
+            statusManager.newPayment(payment);
 
             // if user is accruing and the payment is set to owed, it means we have reached accrual threshold
             // so we need to notify all accruing payments
@@ -375,7 +375,7 @@ public class PaymentStatusMediator {
             List<BasePayment> childPayments = dib.findCoderPayments(conn, criteria);
             for (BasePayment childPayment : childPayments) {
                 if ("new".equals(notifType)) {
-                statusManager.newPayment(conn, childPayment);
+                statusManager.newPayment(childPayment);
             }
             if ("cancel".equals(notifType)) {
                 statusManager.parentCancelled(childPayment);

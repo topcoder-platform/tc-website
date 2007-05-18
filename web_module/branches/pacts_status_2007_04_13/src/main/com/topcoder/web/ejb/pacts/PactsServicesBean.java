@@ -1894,6 +1894,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
+        // TODO: pulky: make a transaction for this.
+        
         boolean addOperation = false;
         if (ad.getId() == null) {
             addOperation = true;

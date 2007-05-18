@@ -5,6 +5,7 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,9 +43,15 @@ public class PaymentStatusFactory {
     }
     
     public static BasePaymentStatus createStatus(PaymentStatus status) {
+        return createStatus(null, status);
+    }
+    
+    public static BasePaymentStatus createStatus(Connection conn, PaymentStatus status) {
         try {
             Class c = Class.forName(status.getClassName());
-            return (BasePaymentStatus) c.newInstance();
+            BasePaymentStatus bps = (BasePaymentStatus) c.newInstance();
+            bps.conn = conn;
+            return bps;
         } catch (Exception e) {
             // do nothing - can't happen.
         }
@@ -52,9 +59,13 @@ public class PaymentStatusFactory {
     }
 
     public static BasePaymentStatus createStatus(Long statusId) throws InvalidStatusException {
+        return createStatus(null, statusId);
+    }
+    
+    public static BasePaymentStatus createStatus(Connection conn, Long statusId) throws InvalidStatusException {
         for (PaymentStatus availableStatus : PaymentStatus.values()) {
             if (availableStatus.getId().equals(statusId)) {
-                return createStatus(availableStatus); 
+                return createStatus(conn, availableStatus); 
             }
         }
         throw new InvalidStatusException("Invalid status id: " + statusId);

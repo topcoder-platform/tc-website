@@ -18,6 +18,8 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 public abstract class BasePaymentStatus {
     protected List<PaymentStatusReason> reasons = new ArrayList<PaymentStatusReason>();
     
+    public Connection conn = null;
+    
     public BasePaymentStatus() {
         super();
     }
@@ -28,6 +30,7 @@ public abstract class BasePaymentStatus {
         for (PaymentStatusReason reason : reasons) {
             newPaymentStatus.reasons.add(reason);
         }
+        newPaymentStatus.conn = this.conn;
         
         return newPaymentStatus;  
     }
@@ -42,20 +45,10 @@ public abstract class BasePaymentStatus {
     
     public abstract Boolean isValid(BasePayment payment);
     
-    public void nextState(Connection conn, BasePayment payment) {
-        // default implementation does nothing...
-    }
-
     public void nextState(BasePayment payment) {
-        nextState(null, payment);
-    }
-
-    public void activate(Connection conn, BasePayment payment) {
-        // default implementation does nothing...
     }
 
     public void activate(BasePayment payment) {
-        activate(null, payment);
     }
 
     public void affirmedAffidavit(BasePayment payment) throws InvalidStateTransitionException {
