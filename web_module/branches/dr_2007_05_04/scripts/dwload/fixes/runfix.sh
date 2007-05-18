@@ -10,5 +10,5 @@ CP=$CP:$DIR/web/lib/jars/jboss/jbossall-client.jar
 CP=$CP:$DIR/web/lib/jars/jboss/jboss-system.jar
 CP=$CP:$DIR/web/lib/jars/jboss/jgroups.jar
 
-nohup java -cp $CP com.topcoder.shared.util.dwload.TCLoadUtility -xmlfile %1 >> nohup.out 2>&1 &
+nohup java -cp $CP com.topcoder.shared.util.dwload.TCLoadUtility -xmlfile $1 >> nohup.out 2>&1 &
 tail -f nohup.out
