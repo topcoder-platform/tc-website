@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.shared.util.dwload.TCLoad;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.utilities.dwload.contestresult.ContestResult;
@@ -31,8 +32,6 @@ import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
 import com.topcoder.utilities.dwload.contestresult.ProjectResult;
 import com.topcoder.utilities.dwload.contestresult.RookieContest;
 import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
-import com.topcoder.web.common.cache.CacheClient;
-import com.topcoder.web.common.cache.CacheClientFactory;
 
 /**
  * <strong>Purpose</strong>:
@@ -111,33 +110,6 @@ public class TCLoadTCS extends TCLoad {
     private static final int POTENTIAL = 0;
 
 
-    /**
-     * Max place reworded for placement points.
-     *
-     * @since 1.1.0
-     */
-    private static final int MAX_PLACE_REWORDED = 7;
-
-    /**
-     * Max number of submissions for placement points matrix.
-     *
-     * @since 1.1.0
-     */
-    private static final int MAX_NUM_SUBMISSIONS = 7;
-
-    /**
-     * Placement points matrix
-     *
-     * @since 1.1.0
-     */
-    private static final int[][] placementPoints = {{500, 325, 270, 250, 245, 240, 235},
-            {0, 175, 150, 145, 135, 130, 130},
-            {0, 0, 80, 75, 75, 75, 75},
-            {0, 0, 0, 30, 30, 30, 30},
-            {0, 0, 0, 0, 15, 15, 15},
-            {0, 0, 0, 0, 0, 10, 10},
-            {0, 0, 0, 0, 0, 0, 5},
-    };
 
     private static final long DELETED_PROJECT_STATUS = 3;
 
@@ -341,7 +313,6 @@ public class TCLoadTCS extends TCLoad {
 
 
     public void doClearCache() throws Exception {
-        CacheClient cc = CacheClientFactory.create();
         
 /*
         CacheClient cc = CacheClientFactory.createCacheClient();
@@ -360,16 +331,12 @@ public class TCLoadTCS extends TCLoad {
                 "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages", "dr_contests_for_stage"
         };
 
-        for (Object o : cc.getKeys()) {
-            String s = (String) o;
-            for (String key : keys) {
-                if (s.contains(key)) {
-                    cc.remove(s.toString());
-                    break;
-                }
-            }
+        HashSet<String> s = new HashSet<String>();
+        for (String key : keys) {
+            s.add(key);
         }
-        
+        CacheClearer.removelike(s);
+
 /*
 
         ArrayList list = cc.getKeys();
@@ -1239,31 +1206,6 @@ public class TCLoadTCS extends TCLoad {
         return null;
     }
 
-    /**
-     * <p/>
-     * Calculates points awarded based on the defined placementPoints matrix.
-     * </p>
-     *
-     * @param passedReview true if submission passed review
-     * @param placed       The submission placement
-     * @return the points awarded.
-     * @since 1.1.0
-     */
-    private long calculatePointsAwarded(boolean passedReview, int placed, int numSubmissionsPassedReview) {
-        // If not passed review or placed too far, there are no chances of winning points
-        if (numSubmissionsPassedReview == 0 || !passedReview || placed > MAX_PLACE_REWORDED || placed == 0) {
-            return 0;
-        }
-
-        // If there are more submissions, stick to the last points
-        if (numSubmissionsPassedReview > MAX_NUM_SUBMISSIONS) {
-            numSubmissionsPassedReview = MAX_NUM_SUBMISSIONS;
-        }
-
-        //log.debug("passedReviewCount: " + numSubmissionsPassedReview);
-        //log.debug("placed: " + placed);
-        return (placementPoints[placed - 1][numSubmissionsPassedReview - 1]);
-    }
 
     /**
      * <p/>
@@ -1303,39 +1245,6 @@ public class TCLoadTCS extends TCLoad {
         }
         return dRProjects;
     }
-/*
-    private List getDRProjects() throws Exception {
-        PreparedStatement select = null;
-        ResultSet rs = null;
-
-        ArrayList dRProjects = new ArrayList();
-        try {
-            //get data from source DB
-            final String SELECT = "select " +
-                    "   project_id, stage_id " +
-                    "from " +
-                    "   project " +
-                    "where " +
-                    "   stage_id is not null and digital_run_ind = 1";
-
-            select = prepareStatement(SELECT, TARGET_DB);
-
-            rs = select.executeQuery();
-            while (rs.next()) {
-                dRProjects.add(new Long(rs.getLong("project_id")));
-            }
-
-        } catch (SQLException sqle) {
-            DBMS.printSqlException(true, sqle);
-            throw new Exception("could not get DR projects.");
-        } finally {
-            close(rs);
-            close(select);
-        }
-        return (dRProjects);
-    }
-*/
-    
 
     /**
      * <p/>
@@ -1576,12 +1485,11 @@ public class TCLoadTCS extends TCLoad {
                     if (stage != null &&
                          projectResults.getInt("project_stat_id") == 7 &&  // COMPLETED                            
                          projectResults.getInt("rating_ind") == 1) {
-                    log.debug( "has dr!");
                         hasDR = true;
                         ContestResultCalculator crc = stageCalculators.get(stage);
                         if (crc != null) {
                             ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
-                                       projectResults.getDouble("final_score"),  projectResults.getInt("placed"), 
+                                       projectResults.getDouble("final_score"),  placed, 
                                       0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview); 
                             pointsAwarded = crc.calculatePointsAwarded(pr);
                         }
@@ -1715,20 +1623,7 @@ public class TCLoadTCS extends TCLoad {
         return (arrayList);
     }
 
-    /**
-     * <p/>
-     * Retrieves next season id based on a particular season.
-     * </p>
-     *
-     * @param seasons The seasons list
-     * @param season  The season to retrieve the next one
-     * @return the next season after season.
-     * @since 1.1.0
-     */
-    private long getNextSeason(List seasons, long season) throws Exception {
-        int i = seasons.indexOf(new Long(season));
-        return (((Long) seasons.get(i + 1)).longValue());
-    }
+
 
     /**
      * <p/>
@@ -1747,8 +1642,6 @@ public class TCLoadTCS extends TCLoad {
         ResultSet rsEdge = null;
         ResultSet rsUsers = null;
         ResultSet rsSubmissions = null;
-
-        List seasons = getSeasons();
 
         try {
             long start = System.currentTimeMillis();
@@ -2613,8 +2506,11 @@ public class TCLoadTCS extends TCLoad {
 
         try {
             long start = System.currentTimeMillis();
-            final String SELECT = "select e.event_desc, e.event_id " +
-                    "from event e where modify_date > ?";
+
+            final String SELECT = 
+                "select e.event_desc as event_name, e.event_id " +
+                "from event e where e.event_type_id = 5 and modify_date > ?";
+            
             final String UPDATE = "update event set event_name = ? " +
                     " where event_id = ? ";
 
@@ -2635,7 +2531,7 @@ public class TCLoadTCS extends TCLoad {
 
                 //update record, if 0 rows affected, insert record
                 update.clearParameters();
-                update.setObject(1, rs.getObject("event_desc"));
+                update.setObject(1, rs.getObject("event_name"));
                 update.setLong(2, rs.getLong("event_id"));
 
                 int retVal = update.executeUpdate();
@@ -2644,7 +2540,7 @@ public class TCLoadTCS extends TCLoad {
                     //need to insert
                     insert.clearParameters();
                     insert.setLong(1, rs.getLong("event_id"));
-                    insert.setObject(2, rs.getObject("event_desc"));
+                    insert.setObject(2, rs.getObject("event_name"));
 
                     insert.executeUpdate();
                 }
@@ -3346,10 +3242,10 @@ public class TCLoadTCS extends TCLoad {
                 "select qt.scorecard_question_id " +
                         "	,sg.scorecard_id as scorecard_template_id " +
                         "	,qt.description || qt.guideline as question_text " +
-                        "	,round(qt.weight) as question_weight " +
+                        "	,qt.weight as question_weight " +
                         "	,qt.scorecard_section_id as section_id " +
                         "	,ss.name as section_desc " +
-                        "	,round(ss.weight*sg.weight/100) as section_weight " +
+                        "	,(ss.weight*sg.weight/100) as section_weight " +
                         "	,ss.scorecard_group_id as section_group_id " +
                         "	,sg.name as section_group_desc " +
                         "	,(sg.sort + 1) || '.' || (ss.sort + 1) || '.' || (qt.sort + 1)  as question_desc " +
