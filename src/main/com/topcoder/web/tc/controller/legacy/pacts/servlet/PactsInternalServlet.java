@@ -12,28 +12,9 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
  *
  \******************************************************************************/
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.MissingResourceException;
-import java.util.StringTokenizer;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseServlet;
@@ -50,41 +31,25 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchAffidavit;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchAffidavitList;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchContract;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchContractList;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchNote;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchNoteList;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPactsEntryList;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPaymentAuditTrail;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchPaymentList;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchTaxForm;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchTaxFormList;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchText;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserProfile;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserProfileHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserProfileList;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserTaxForm;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.InternalDispatchUserTaxFormList;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
-import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
-import com.topcoder.web.tc.controller.legacy.pacts.common.ContractHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
-import com.topcoder.web.tc.controller.legacy.pacts.common.NoteHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsEntry;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfile;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.*;
+import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.MissingResourceException;
+import java.util.StringTokenizer;
 
 public class PactsInternalServlet extends BaseServlet implements PactsConstants {
 
@@ -110,7 +75,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     public synchronized void init(ServletConfig config) throws ServletException {
         super.init(config);
         //start up a thread to read off the queue and process async requests
-        Thread t = new Thread() {
+/*        Thread t = new Thread() {
             public void run() {
                 try {
                     QueueRequest qr = new QueueRequest(DBMS.PACTS_QUEUE);
@@ -120,7 +85,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 }
             }
         };
-        t.start();
+        t.start();*/
 
         // Thread for expiring old payments
         Thread tExpired = new Thread() {
@@ -166,8 +131,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     }
 
     protected WebAuthentication createAuthentication(TCRequest request, TCResponse response) throws Exception {
-		return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
-				BasicAuthentication.PACTS_INTERNAL_SITE);
+        return new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response,
+                BasicAuthentication.PACTS_INTERNAL_SITE);
     }
 
 
@@ -185,7 +150,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         PassedParam pp = new PassedParam();
         try {
             trace(request, response);
-            
+
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
             if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
                 process(request, response);
@@ -285,39 +250,39 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
                         boolean checked = true;
                         if (statusValues != null) {
-                            for (int i=0; i<statusValues.length; i++) {
+                            for (int i = 0; i < statusValues.length; i++) {
                                 checked &= checkParam(LONG_TYPE, statusValues[i], false, pp);
                             }
                         }
                         if (typeValues != null) {
-                            for (int i=0; i<typeValues.length; i++) {
+                            for (int i = 0; i < typeValues.length; i++) {
                                 checked &= checkParam(INT_TYPE, typeValues[i], false, pp);
                             }
                         }
                         if (methodValues != null) {
-                            for (int i=0; i<methodValues.length; i++) {
+                            for (int i = 0; i < methodValues.length; i++) {
                                 checked &= checkParam(INT_TYPE, methodValues[i], false, pp);
                             }
                         }
 
                         if (
                                 checked
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(PROJECT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
-                                && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_NET_AMOUNT), false, pp)
-                                && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_NET_AMOUNT), false, pp)
-                                && checkParam(BOOL_TYPE, request.getParameter(IS_REVIEWED), false, pp)
-                                && pp.get()) {
+                                        && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
+                                        && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
+                                        && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
+                                        && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
+                                        && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
+                                        && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
+                                        && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
+                                        && checkParam(LONG_TYPE, request.getParameter(PROJECT_ID), false, pp)
+                                        && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
+                                        && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
+                                        && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
+                                        && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
+                                        && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_NET_AMOUNT), false, pp)
+                                        && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_NET_AMOUNT), false, pp)
+                                        && checkParam(BOOL_TYPE, request.getParameter(IS_REVIEWED), false, pp)
+                                        && pp.get()) {
                             doPaymentList(request, response);
                         } else {
                             throw new NavigationException("Invalid Search Parameter or No Search Parameter Specified");
@@ -330,8 +295,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                                         && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_WITHHOLDING_AMOUNT), false)
                                         && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_WITHHOLDING_AMOUNT), false)
                                         && checkParam(FLOAT_TYPE, request.getParameter(LOWEST_WITHHOLDING_PERCENTAGE), false)
-                                        && checkParam(FLOAT_TYPE, request.getParameter(HIGHEST_WITHHOLDING_PERCENTAGE), false))
-                        {
+                                        && checkParam(FLOAT_TYPE, request.getParameter(HIGHEST_WITHHOLDING_PERCENTAGE), false)) {
 
                             doTaxFormList(request, response);
                         } else {
@@ -656,7 +620,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         try {
             trace(request, response);
 
-
             //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
             if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
                 process(request, response);
@@ -664,7 +627,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             }
 
             if (!doAuthenticate(request, response)) return;
-            
+
             String task = null;
             String command = null;
 
@@ -1264,7 +1227,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     Long.parseLong(request.getParameter(PAYMENT_ID))), request, response);
         }
 
-
 /*
         log.debug("doAddAffidavit<br>");
 
@@ -1768,7 +1730,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
      * Override to use getUser instead of getActiveUser, so that it just looks in the sesion and not in the cookie,
      */
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
-    	log.debug("PactsInternalServlet.hasPermission, user=" + auth.getUser().getUserName());
+        log.debug("PactsInternalServlet.hasPermission, user=" + auth.getUser().getUserName());
         return createAuthorization(auth.getUser()).hasPermission(r);
     }
 
@@ -1777,7 +1739,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     the user to a login page if there is an error.
     */
     private boolean doAuthenticate(HttpServletRequest request, HttpServletResponse response) throws Exception {
-    	TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+        TCRequest tcRequest = HttpObjectFactory.createRequest(request);
         WebAuthentication auth = createAuthentication(tcRequest,
                 HttpObjectFactory.createResponse(response));
         ClassResource resource = new ClassResource(this.getClass());
@@ -1787,14 +1749,14 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             return true;
         } else {
             TCSubject user = getUser(auth.getActiveUser().getId());
-        	SessionInfo info = createSessionInfo(tcRequest, auth, user.getPrincipals());
+            SessionInfo info = createSessionInfo(tcRequest, auth, user.getPrincipals());
 
             if (auth.getUser().isAnonymous()) {
                 handleLogin(request, response, info);
             } else {
                 handleException(request, response, new PermissionException(auth.getActiveUser(), resource));
             }
-        	
+
             return false;
         }
     }
@@ -1936,18 +1898,18 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
             forward(INTERNAL_PAYMENT_LIST_JSP, request, response);
         } else {
-        	forward(Links.viewPayment(results[0].getId()), request, response);        	
+            forward(Links.viewPayment(results[0].getId()), request, response);
 /*            
- 			InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
-            Map search = new HashMap();
-            search.put(PAYMENT_ID, "" + results[0].getId());
-            request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
+ InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
+Map search = new HashMap();
+search.put(PAYMENT_ID, "" + results[0].getId());
+request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
-            InternalDispatchPayment pb = new InternalDispatchPayment(request, response);
-            request.setAttribute(PACTS_INTERNAL_RESULT, pb.get(results[0].getId()));
-            request.setAttribute(CREATION_DATE, creationDates[0]);
-            forward(INTERNAL_PAYMENT_JSP, request, response);
-            */
+InternalDispatchPayment pb = new InternalDispatchPayment(request, response);
+request.setAttribute(PACTS_INTERNAL_RESULT, pb.get(results[0].getId()));
+request.setAttribute(CREATION_DATE, creationDates[0]);
+forward(INTERNAL_PAYMENT_JSP, request, response);
+*/
         }
     }
 
@@ -2745,20 +2707,20 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         List payments = new ArrayList();
 
         for (int n = 0; n < values.length; n++) {
-        	String s[] = values[n].split(",");
-        	for (int i = 0; i < s.length; i++) {
-        		payments.add(s[i]);
-        	}
+            String s[] = values[n].split(",");
+            for (int i = 0; i < s.length; i++) {
+                payments.add(s[i]);
+            }
         }
-        
+
         long[] paymentsArray = new long[payments.size()];
         for (int n = 0; n < payments.size(); n++) {
-        	paymentsArray[n] = Long.parseLong((String) payments.get(n));
+            paymentsArray[n] = Long.parseLong((String) payments.get(n));
         }
-        
+
         return paymentsArray;
     }
-    
+
     private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
             WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
@@ -2770,17 +2732,17 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             String[] values = request.getParameterValues(PAYMENT_ID);
 
-            long[] payments = parsePayments(values);     
+            long[] payments = parsePayments(values);
 
             DataInterfaceBean dib = new DataInterfaceBean();
 
             dib.batchUpdatePaymentStatus(payments, Integer.parseInt(request.getParameter("status_id")), userId);
 
-            request.setAttribute("message", "Payments Being Updated in the Background");
+            request.setAttribute("message", "Payments Updated");
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
                 forward(request.getParameter("query"), request, response);
             else
-                throw new NavigationException("Payments Being Updated in the Background");
+                throw new NavigationException("Payments Updated");
 
         } catch (NumberFormatException e) {
             throw new NavigationException("One or more of the Payment IDs specified is invalid.");

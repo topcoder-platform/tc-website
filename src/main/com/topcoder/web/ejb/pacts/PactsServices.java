@@ -1,33 +1,21 @@
 package com.topcoder.web.ejb.pacts;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import javax.ejb.EJBObject;
-import javax.jms.JMSException;
-
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.model.AssignmentDocument;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
-import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentNotReviewedException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UpdateResults;
-
 /**
  * The remote interface for the PACTS EJB.  See the <tt>PactsServicesBean</tt>
  * or <tt>DataInterfaceBean</tt> classes for API details.
  *
- * @author  Dave Pecora
+ * @author Dave Pecora
  * @version 1.00, 03/06/2002
- *
  * @see PactsServicesBean
  * @see com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean
  */
@@ -164,8 +152,10 @@ public interface PactsServices extends EJBObject {
             throws RemoteException, NoObjectFoundException, SQLException;
 
     // Special payment update routines
+/*
     void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
             throws RemoteException, IllegalUpdateException, JMSException;
+*/
 
     UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
             throws RemoteException, SQLException;
@@ -183,19 +173,19 @@ public interface PactsServices extends EJBObject {
             throws IllegalUpdateException, RemoteException, SQLException;
 
     int generateRoundPayments(long roundId, boolean makeChanges, int paymentTypeI)
-    		throws IllegalUpdateException, RemoteException, SQLException;
+            throws IllegalUpdateException, RemoteException, SQLException;
 
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws IllegalUpdateException, RemoteException, SQLException;
 
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
-    	throws IllegalUpdateException, RemoteException, SQLException;
+            throws IllegalUpdateException, RemoteException, SQLException;
 
     List generateComponentPayments(long projectId, long status, String client)
             throws IllegalUpdateException, RemoteException, SQLException;
-    
+
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-    	throws IllegalUpdateException, RemoteException, SQLException;
+            throws IllegalUpdateException, RemoteException, SQLException;
 
     List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException;
 
@@ -222,7 +212,7 @@ public interface PactsServices extends EJBObject {
     Map findProjects(String search) throws RemoteException, SQLException;
 
     Map findPaymentsByDescription(String search) throws RemoteException, SQLException;
-    
+
     Map getDigitalRunSeasonList() throws RemoteException, SQLException;
 
     Map getDigitalRunStageList() throws RemoteException, SQLException;
@@ -230,17 +220,17 @@ public interface PactsServices extends EJBObject {
     Map findComponentContests(String search) throws RemoteException, SQLException;
 
     Map findStudioContests(String search) throws RemoteException, SQLException;
-    
-    ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException,  SQLException;
-    
-    ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException,  SQLException;
-    
+
+    ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException;
+
+    ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException;
+
     // ================== Methods from the Client Service ================== 
-    
-    BasePayment addPayment(BasePayment payment)  throws RemoteException, SQLException;
-    
+
+    BasePayment addPayment(BasePayment payment) throws RemoteException, SQLException;
+
     List addPayments(List payments) throws RemoteException, SQLException;
-    
+
     BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception;
 
     List findPayments(int paymentTypeId) throws RemoteException, Exception;
@@ -266,7 +256,7 @@ public interface PactsServices extends EJBObject {
     AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws RemoteException, DeleteAffirmedAssignmentDocumentException;
 
     List getAssignmentDocumentByProjectId(long projectId) throws RemoteException;
-    
+
     String getAssignmentDocumentTransformedText(long assignmentDocumentTypeId, AssignmentDocument ad) throws RemoteException;
 
     List getAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId, boolean onlyPending) throws RemoteException;

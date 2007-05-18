@@ -2,26 +2,35 @@ package com.topcoder.web.ejb.pacts;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
-import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.common.model.AssignmentDocumentStatus;
+import com.topcoder.web.common.model.AssignmentDocumentTemplate;
+import com.topcoder.web.common.model.AssignmentDocumentType;
+import com.topcoder.web.common.model.ComponentProject;
+import com.topcoder.web.common.model.DemographicQuestion;
+import com.topcoder.web.common.model.StudioContest;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.ejb.EJBException;
 import javax.jms.JMSException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.sql.Types;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.Date;
 
 
 /**
@@ -34,13 +43,15 @@ import java.util.Date;
 
 public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final Logger log = Logger.getLogger(PactsServicesBean.class);
-    private static QueueMessageSender pactsMsgSender = null;
+    /*
+        private static QueueMessageSender pactsMsgSender = null;
+    */
     private static final int DESIGN_PROJECT = 1;
     private static final int DEVELOPMENT_PROJECT = 2;
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
 
     // Initialize the message queue
-    static {
+/*    static {
         log.info("Initializing PACTS message queue...");
         try {
             pactsMsgSender = new QueueMessageSender(ApplicationServer.JMS_FACTORY, DBMS.PACTS_QUEUE);
@@ -52,9 +63,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.error("Could not initialize PACTS message queue", e);
             pactsMsgSender = null;
         }
-    }
+    }*/
 
-    public void ejbRemove() {
+/*    public void ejbRemove() {
         super.ejbRemove();
         // Tear down the message queue if necessary
         if (pactsMsgSender != null) {
@@ -64,7 +75,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 //            pactsMsgSender.close();
 //            pactsMsgSender = null;
         }
-    }
+    }*/
 
     private void printException(Exception e) {
         try {
@@ -1899,7 +1910,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 // need to update status
                 newHardCopyAssignmentDocument(c, ad);
             }
-            
+
             return ad;
         } catch (IDGenerationException e) {
             throw new EJBException(e);
@@ -2017,7 +2028,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
 
             addAssignmentDocument(c, ad);
-            
+
             // The payment can advance to owed only if we have received the signed hard copy.
             if (hasHardCopy) {
                 updateAssignmentDocumentPaymentStatus(c, ad);
@@ -2052,8 +2063,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Helper method to update assignment document's related payments status.
      *
-     * @param c        the Connection to use
-     * @param ad       the Assignment Document to update
+     * @param c  the Connection to use
+     * @param ad the Assignment Document to update
      * @throws Exception If there's an error
      */
     private void updateAssignmentDocumentPaymentStatus(Connection c, AssignmentDocument ad) throws Exception {
@@ -2128,8 +2139,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Helper method to update assignment document's related payments status.
      *
-     * @param c        the Connection to use
-     * @param ad       the Assignment Document to update
+     * @param c  the Connection to use
+     * @param ad the Assignment Document to update
      * @throws Exception If there's an error
      */
     private void newHardCopyAssignmentDocument(Connection c, AssignmentDocument ad) throws Exception {
@@ -2144,7 +2155,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             updatePaymentStatus.append("AND ad.assignment_document_status_id = " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID);
             updatePaymentStatus.append("AND pd.status_id = " + PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS);
-            
+
             updatePaymentStatus.append("AND pd.component_project_id = ad.component_project_id ");
             updatePaymentStatus.append("AND ad.user_id = " + ad.getUser().getId().longValue());
         } else if (ad.getType().getId().equals(AssignmentDocumentType.STUDIO_CONTEST_TYPE_ID)) {
@@ -5018,7 +5029,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             p.getHeader().setParentPaymentId(TCData.getTCLong(detailData.getRow(0), "parent_payment_id", 0, false));
             p.getHeader().setClient(TCData.getTCString(detailData.getRow(i), "client", "", false));
             p.setDueDate(TCData.getTCDate(detailData.getRow(i), "date_due", null, false));
- 
+
             // All the data modifications happen here
             if (addressData == null) {
                 updatePayment(c, p, null);
@@ -5095,7 +5106,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws IllegalUpdateException If the user is attempting to update the status to Printed or Paid
      * @throws JMSException           If there is some problem putting the message on the queue
      */
-    public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
+/*    public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
             throws IllegalUpdateException, JMSException {
         try {
             log.debug("In batchUpdatePaymentStatus()");
@@ -5124,7 +5135,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw (IllegalUpdateException) e;
             throw (JMSException) e;
         }
-    }
+    }*/
 
     /**
      * Marks the given payments as reviewed.  This function should be called if the
@@ -5227,11 +5238,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         StringBuffer query = new StringBuffer(300);
         query.append("SELECT dq.demographic_question_id ");
-        query.append(" , CASE WHEN EXISTS "); 
+        query.append(" , CASE WHEN EXISTS ");
         query.append("         (SELECT registration_type_id   ");
-        query.append("          FROM user_group_xref x, "); 
-        query.append("               registration_type_lu r "); 
-        query.append("          WHERE x.group_id = r.security_group_id "); 
+        query.append("          FROM user_group_xref x, ");
+        query.append("               registration_type_lu r ");
+        query.append("          WHERE x.group_id = r.security_group_id ");
         query.append("          AND x.login_id = " + userId);
         query.append("          AND r.registration_type_id =3) ");
         query.append("          THEN 1 ELSE 0 END as is_registered_hs ");
@@ -5244,7 +5255,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append("  (SELECT demographic_question_id FROM demographic_response ");
         query.append("   WHERE user_id = " + userId + ") ");
         query.append(" AND da.registration_type_id in ( ");
-        query.append("        SELECT registration_type_id "); 
+        query.append("        SELECT registration_type_id ");
         query.append("        FROM user_group_xref x, ");
         query.append("             registration_type_lu r ");
         query.append("        WHERE x.group_id = r.security_group_id ");
@@ -5256,23 +5267,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             c = DBMS.getConnection();
             ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
-            
-            
+
+
             if (rsc.size() == 0) {
                 log.debug("User " + userId + " has all demographic answers (no questions without reply)");
                 return true;
             }
-            
+
             // not registered for hs, should have all the questions answered
             if (rsc.getIntItem(0, "is_registered_hs") == 0) {
                 log.debug("User " + userId + " is missing demographic answers");
                 return false;
             }
- 
+
             // the coder is in hs, can have some questions unanswered
             for (int i = 0; i < rsc.size(); i++) {
                 Long l = rsc.getLongItem(i, "demographic_question_id");
-                if (!(l.equals(DemographicQuestion.COLLEGE_MAJOR) || 
+                if (!(l.equals(DemographicQuestion.COLLEGE_MAJOR) ||
                         l.equals(DemographicQuestion.COLLEGE_MAJOR_DESC) ||
                         l.equals(DemographicQuestion.DEGREE_PROGRAM))) {
 
@@ -5335,7 +5346,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         getHoldComponentPayments.append(" AND pd.payment_type_id = " + COMPONENT_PAYMENT + " ");
         getHoldComponentPayments.append(" AND pd.component_project_id = ad.component_project_id ");
         getHoldComponentPayments.append(" AND (ad.assignment_document_status_id is null ");
-        getHoldComponentPayments.append(" or ad.assignment_document_status_id <> " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID );
+        getHoldComponentPayments.append(" or ad.assignment_document_status_id <> " + AssignmentDocumentStatus.AFFIRMED_STATUS_ID);
         getHoldComponentPayments.append(" or not exists (select 'hardCopy' from assignment_document ");
         getHoldComponentPayments.append(" where assignment_document_hard_copy_ind = 1 and assignment_document_type_id = " + AssignmentDocumentType.COMPONENT_COMPETITION_TYPE_ID);
         getHoldComponentPayments.append(" and user_id = ad.user_id)) ");
@@ -5398,7 +5409,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         "It should go on hold but has already been paid.");
             }
         }
-        
+
         return changeToOnHold.size();
     }
 
@@ -5680,7 +5691,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             c = DBMS.getConnection();
             c.setAutoCommit(false);
             setLockTimeout(c);
-    
+
             count = performPaymentsChecks(c, statusId);
 
             c.commit();
@@ -5709,7 +5720,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
         return count;
     }
-    
+
     private long performPaymentsChecks(Connection c, long statusId) throws SQLException, Exception {
         // First we have to put payments on hold if they belong to inactive coders.
         // This also includes the corresponding referral payments.
@@ -7416,13 +7427,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append("select e.event_desc ");
         query.append("  ,c.contest_id ");
         query.append("  ,c.contest_name ");
-        query.append("  ,end_date < current as time_over "); 
+        query.append("  ,end_date < current as time_over ");
         query.append("  ,(select count(*)  ");
         query.append("    from tcs_catalog:project p, ");
         query.append("    tcs_catalog:contest_project_xref x ");
         query.append("    where p.project_id = x.project_id ");
         query.append("    and x.contest_id = c.contest_id ");
-        query.append("    and p.project_status_id = 1) as active_projects ");   
+        query.append("    and p.project_status_id = 1) as active_projects ");
         query.append("   ,cp.place ");
         query.append("   ,cp.contest_prize_id ");
         query.append("   ,cp.place ");
@@ -7434,7 +7445,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         query.append(" order by contest_name  ");
 
         return runSelectQuery(query.toString(), false);
-        
+
     }
 
 
