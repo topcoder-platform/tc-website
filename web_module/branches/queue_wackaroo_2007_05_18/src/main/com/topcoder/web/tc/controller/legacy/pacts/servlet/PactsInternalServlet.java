@@ -33,7 +33,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.*;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-import com.topcoder.web.tc.controller.legacy.pacts.messaging.request.QueueRequest;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
