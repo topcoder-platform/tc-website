@@ -27,15 +27,15 @@
 <div class="contentSpacer">
 
 
+
 <p>
     1.3.2 - 2007.05.xx
     <ul>
         <li>Use create date for submission date, and remove submission date field -dok</li>
         <li>Add the ability for a competitor to remove a submission -dok</li>
+        <li>Go to the page the user is looking at after successful login -dok</li>
     </ul>
 </p>
-
-
 <p>
     1.3.2 - 2007.05.07
     <ul>
