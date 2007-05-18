@@ -29,7 +29,7 @@ public class PayReliabilityBonus extends DBUtility {
      * Date when the reliability schema changes.  
      * Remember that month it's 0 based.
      */
-    private static final Date SCHEMA_CHANGE_DATE = new GregorianCalendar(2007,0,1).getTime();
+    private static final Date SCHEMA_CHANGE_DATE = new GregorianCalendar(2007,4,24).getTime();
     
     /**
      * This variable tells if only an analysis is wanted.
