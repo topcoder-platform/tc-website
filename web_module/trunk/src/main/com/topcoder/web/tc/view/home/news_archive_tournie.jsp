@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.19.07 12:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">TCHS07 semifinals advancers</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.19.07 10:45 AM - </td><td width="100%">Watch the LIVE video feed of the TCHS competitors</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.14.07 5:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=bracket">TCO07 Studio Finalists announced</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.14.07 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">UBS chat scheduled before SRM 349</A></td></tr>
