@@ -69,7 +69,11 @@
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep1' refer='homepage' />"><img src="/i/home/tcchannelEp1.jpg" alt="TC Channel: Episode 1" /></A>
     </td>
     <td align="right" valign="top">
+<%-- STUDIO DOGEAR 
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/"><img src="/i/home/studioDogEarStandard.png" style="display: block;" alt="TopCoder Studio" /></A>
+--%>
+<%-- TCO DOGEAR --%>
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/dogTCO07.png" style="display: block;" alt="TCO07 Sponsored by AOL" /></A>
     </td>
 </tr>
 <tr>
@@ -108,9 +112,9 @@
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
                 --%>
 
-                <%-- TCO07 --%>
+                <%-- TCO07
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
-               
+               --%>
 
                 <%-- Marathon Match Sponsor 
                 <map name="mm">
@@ -127,6 +131,9 @@
                 </map>
                 <img src="/i/home/srm348_nsa.png" alt="SRM 348 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
                  --%>
+
+                <%-- LICENSE ID --%>
+                <A href="<tc-webtag:linkTracking link='http://studio.topcoder.com/?module=ViewContestDetails&ct=2093' refer='homepage' />"><img src="/i/home/licenseIDProject.jpg" alt="License ID Project" border="0" style="display:block;"/></A>
 
             </td>
         </tr>
