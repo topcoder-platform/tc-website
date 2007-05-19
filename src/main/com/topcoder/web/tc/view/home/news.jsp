@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.19.07<br>10:45 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        Watch the LIVE video feed of the TCHS competitors
+        </span><br><br>
+        Purdue University setup webcams in both labs where we're holding the TCHS semifinals and finals.  Have a look.  <a href="http://lwsnb158-cam.cs.purdue.edu/view/index.shtml">Lab 1 video</A>. <a href="http://lwsnb160-cam.cs.purdue.edu/view/index.shtml">Lab 2 video</A>.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule">onsite schedule</A> |
+        <tc-webtag:forumLink forumID="515859" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.18.07<br>11:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -198,23 +217,3 @@
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.09.07<br>7:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">TCHS07 Finalists announced</A>
-        </span><br><br>
-        The final competitors and teams for TopCoder's first High School Tournament are now online. Congratulations!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">individuals</a> |
-        <a href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketTeam">teams</a> |
-        <tc-webtag:forumLink forumID="515701" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
