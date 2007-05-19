@@ -1350,7 +1350,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public double getUserAccrualThreshold(Connection conn, long userId) throws SQLException {
-        ResultSetContainer rsc = runSelectQuery(conn, "SELECT accrual_amount FROM user_accrual where user_id = " + userId, true);
+        ResultSetContainer rsc = runSelectQuery(conn, "SELECT accrual_amount FROM user_accrual where user_id = " + userId, false);
 
         if (rsc.iterator().hasNext()) {
             return ((ResultSetRow) rsc.iterator().next()).getDoubleItem("accrual_amount");
@@ -1390,7 +1390,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("and p.user_id = " + userId);
         sb.append("and pd.status_id = " + PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()); 
         
-        ResultSetContainer rsc = runSelectQuery(conn, sb.toString(), true);
+        ResultSetContainer rsc = runSelectQuery(conn, sb.toString(), false);
 
         if (rsc.iterator().hasNext()) {
             return ((ResultSetRow) rsc.iterator().next()).getDoubleItem("total");

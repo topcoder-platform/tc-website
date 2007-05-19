@@ -54,20 +54,27 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
 
     @Override
     public void activate(BasePayment payment) {
+        log.debug("Activate called");
         DataInterfaceBean dib = new DataInterfaceBean();
         try {
             // check the user's accrual threshold
             double accrualThreshold = dib.getUserAccrualThreshold(conn, payment.getCoderId());
+
+            log.debug("accrualThreshold: " + accrualThreshold);            
             
             if (accrualThreshold > 0) {
                 // check total amount for currently accruing payments for this user
                 double totalAmount = dib.getUserAccruingPaymentsTotal(conn, payment.getCoderId());
+                log.debug("totalAmount: " + totalAmount);
+                log.debug("payment.getGrossAmount(): " + payment.getGrossAmount());
+                
                 if (totalAmount + payment.getGrossAmount() > accrualThreshold) {
                     // we have reached the amount, move to the next status
                     nextState(payment);
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace();
             // do nothing
         }
         

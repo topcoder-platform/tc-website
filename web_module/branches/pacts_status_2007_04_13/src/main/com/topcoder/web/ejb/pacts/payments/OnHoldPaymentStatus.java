@@ -230,11 +230,11 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
             // if there's no reason to stay in this state, move to the next
             log.debug("no reason to stay here!");
             payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.ACCRUING_PAYMENT_STATUS));
-            try {
+//            try {
                 payment.getCurrentStatus().activate(payment);
-            } catch (Exception e) {
-                // do nothing
-            }
+//            } catch (Exception e) {
+//                // do nothing
+//            }
        } else {
            log.debug("staying in this state!");
        }
