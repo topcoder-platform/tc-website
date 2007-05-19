@@ -4,6 +4,24 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.19.07<br>12:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">TCHS07 semifinals advancers</A>
+        </span><br><br>
+        The semifinals are over and we've got our 10 competitors ready for the final round of the TCHS07.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">details</A> |
+        <tc-webtag:forumLink forumID="514496" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   <%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.19.07<br>10:45 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -198,22 +216,5 @@
         <A href="/tc?module=Static&d1=match_editorials&d2=srm348">full story</A> | 
         <tc-webtag:forumLink forumID="506238" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.10.07<br>1:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=051007">TCO Preview: The Marathon Match Competition</A></span><br><br>
-      With this year's addition of Marathon Matches to the TopCoder Open, and a chance for 8 finalists to take a free trip to Las Vegas -- not to mention the hope of winning $15,000 -- it's no wonder that competitors came from far and wide to try their coding skills.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=051007">full story</A> | 
-        <tc-webtag:forumLink forumID="515781" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
