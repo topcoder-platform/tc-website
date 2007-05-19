@@ -38,6 +38,9 @@
    <tr>
       <td align="right"><img src="/i/tournament/tchs07/bracket_NW.png" alt="" border="0" /></td>
       <td rowspan="3" style="background-color: #000000;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
+      <td rowspan="3"><img src="/i/tournament/tchs07/bracket_bar.png" alt="" /></td>
+      <td align="right"><img src="/i/tournament/tchs07/bracket_NW.png" alt="" border="0" /></td>
+      <td rowspan="3" style="background-color: #000000;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td rowspan="3" valign="middle"><img src="/i/tournament/tchs07/bracket_R.png" alt="" border="0" /></td>
       <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tchs07/champion.png" alt="" border="0" /><%--<br><span class="bigTitle"><tc-webtag:handle coderId="293874" context="design"/></span>--%></td>
    </tr>
@@ -73,8 +76,21 @@
       <tc-webtag:handle coderId="13298470" context="hs_algorithm" /><br><br>
       <tc-webtag:handle coderId="22630769" context="hs_algorithm" />
       </td>
+      <td style="padding: 15px" valign="middle" align="center">
+      <tc-webtag:handle coderId="10039742" context="hs_algorithm" /><br><br>
+      <tc-webtag:handle coderId="21111148" context="hs_algorithm" /><br><br>
+      <tc-webtag:handle coderId="21468741" context="hs_algorithm" /><br><br>
+      <tc-webtag:handle coderId="12005484" context="hs_algorithm" /><br><br>
+      <tc-webtag:handle coderId="10399429" context="hs_algorithm" /><br><br>
+      <tc-webtag:handle coderId="20246344" context="hs_algorithm" /><br><br>
+      <tc-webtag:handle coderId="15092597" context="hs_algorithm" /><br><br>
+      <tc-webtag:handle coderId="15117368" context="hs_algorithm" /><br><br>
+      <tc-webtag:handle coderId="22663117" context="hs_algorithm" /><br><br>
+      <tc-webtag:handle coderId="15604398" context="hs_algorithm" />
+      </td>
    </tr>
    <tr>
+      <td align="right"><img src="/i/tournament/tchs07/bracket_SW.png" alt="" border="0" /></td>
       <td align="right"><img src="/i/tournament/tchs07/bracket_SW.png" alt="" border="0" /></td>
    </tr>
 </table>
