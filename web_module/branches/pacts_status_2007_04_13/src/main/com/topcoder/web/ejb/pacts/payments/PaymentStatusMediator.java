@@ -374,18 +374,20 @@ public class PaymentStatusMediator {
     }
 
     private void notifyChildPayments(String notifType, BasePayment payment) throws RemoteException, Exception {
-            Map criteria = new HashMap();
-            criteria.put(PactsConstants.PARENT_PAYMENT_ID, String.valueOf(payment.getId()));
-   
-            List<BasePayment> childPayments = dib.findCoderPayments(conn, criteria);
-            for (BasePayment childPayment : childPayments) {
-                if ("new".equals(notifType)) {
+        Map criteria = new HashMap();
+        criteria.put(PactsConstants.PARENT_PAYMENT_ID, String.valueOf(payment.getId()));
+
+        log.debug("notify children of parent: " + payment.getId());
+        List<BasePayment> childPayments = dib.findCoderPayments(conn, criteria);
+        for (BasePayment childPayment : childPayments) {
+            log.debug("notifying children: " + childPayment.getId());
+            if ("new".equals(notifType)) {
                 statusManager.newPayment(childPayment);
             }
             if ("cancel".equals(notifType)) {
                 statusManager.parentCancelled(childPayment);
             }
             dib.updatePayment(conn, childPayment);
-        }                
+        }
     }
 }

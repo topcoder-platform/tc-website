@@ -54,7 +54,8 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
 
     @Override
     public void activate(BasePayment payment) {
-        log.debug("Activate called");
+        log.debug("Activate called for payment " + payment.getId());
+        log.debug("Payment coder" + payment.getCoderId());
         DataInterfaceBean dib = new DataInterfaceBean();
         try {
             // check the user's accrual threshold
@@ -72,6 +73,8 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
                     // we have reached the amount, move to the next status
                     nextState(payment);
                 }
+            } else {
+                nextState(payment);
             }
         } catch (Exception e) {
             e.printStackTrace();
