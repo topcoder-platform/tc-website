@@ -26,6 +26,11 @@ public class PaymentStatusManager {
     }
 
     public PaymentStatusManager(Connection conn) {
+        if (conn != null) {
+            log.debug("Created with a valid connection");
+        } else {
+            log.debug("Created with a null connection");
+        }
         this.conn = conn;
     }
 
@@ -43,51 +48,61 @@ public class PaymentStatusManager {
 
     public void newTaxForm(BasePayment payment) {
         log.debug("newTaxForm called for payment: " + payment.getId());
+        payment.getCurrentStatus().conn = conn;
         payment.getCurrentStatus().newTaxForm(payment);
     }
 
     public void affirmedAffidavit(BasePayment payment) throws InvalidStateTransitionException  {
         log.debug("affirmedAffidavit called for payment: " + payment.getId());
+        payment.getCurrentStatus().conn = conn;
         payment.getCurrentStatus().affirmedAffidavit(payment);
     }
 
     public void affirmedIPTransfer(BasePayment payment) throws InvalidStateTransitionException  {
         log.debug("affirmedIPTransfer called for payment: " + payment.getId());
+        payment.getCurrentStatus().conn = conn;
         payment.getCurrentStatus().affirmedIPTransfer(payment);
     }
 
     public void hardCopyIPTransfer(BasePayment payment) throws InvalidStateTransitionException  {
         log.debug("hardCopyIPTransfer called for payment: " + payment.getId());
+        payment.getCurrentStatus().conn = conn;
         payment.getCurrentStatus().hardCopyIPTransfer(payment);
     }
 
     public void accrualThresholdReached(BasePayment payment) throws InvalidStateTransitionException  {
         log.debug("accrualThresholdReached called for payment: " + payment.getId());
+        payment.getCurrentStatus().conn = conn;
         payment.getCurrentStatus().accrualThresholdReached(payment);
     }
 
     public void expiredAffidavit(BasePayment payment) throws InvalidStateTransitionException  {
         log.debug("expiredAffidavit called for payment: " + payment.getId());
+        payment.getCurrentStatus().conn = conn;
         payment.getCurrentStatus().expiredAffidavit(payment);
     }
 
     public void expiredIPTransfer(BasePayment payment) throws InvalidStateTransitionException  {
         log.debug("expiredIPTransfer called for payment: " + payment.getId());
+        payment.getCurrentStatus().conn = conn;
         payment.getCurrentStatus().expiredIPTransfer(payment);
     }
 
     public void expiredPayment(BasePayment payment) throws InvalidStateTransitionException  {
         log.debug("expiredPayment called for payment: " + payment.getId());
+        payment.getCurrentStatus().conn = conn;
         payment.getCurrentStatus().expiredPayment(payment);
     }
 
     public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException  {
         log.debug("inactiveCoder called for payment: " + payment.getId());
+        payment.getCurrentStatus().conn = conn;
         payment.getCurrentStatus().inactiveCoder(payment);
     }
 
     public void parentCancelled(BasePayment payment) throws InvalidStateTransitionException  {
         log.debug("parentCancelled called for payment: " + payment.getId());
+        payment.getCurrentStatus().conn = conn;
         payment.getCurrentStatus().parentCancelled(payment);
     }
 }

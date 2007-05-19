@@ -44,6 +44,11 @@ public class PaymentStatusMediator {
     }
     
     public PaymentStatusMediator(Connection c) {
+        if (c != null) {
+            log.debug("Created with a valid connection");
+        } else {
+            log.debug("Created with a null connection");
+        }
         this.conn = c;
         this.statusManager = new PaymentStatusManager(conn);
     }
