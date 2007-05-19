@@ -4319,7 +4319,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = c.prepareStatement(updateCoder.toString());
             ps.setTimestamp(1, makeTimestamp(coderBirthDate, false, false));
             rowsModified = ps.executeUpdate();
-            ps.close();
 
             if (rowsModified == 0) {
                 throw new NoObjectFoundException("User for affidavit " + affidavitId + " not found in database");
