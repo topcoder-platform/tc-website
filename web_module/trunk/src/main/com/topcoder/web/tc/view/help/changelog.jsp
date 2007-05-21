@@ -49,6 +49,7 @@
         <li>Don't cache marathon match data for too long, it's too big -dok</li>
         <li>Add component name filter on component past contests page -dok</li>
         <li>Remove queue from PACTS -dok</li>
+        <li>New Poseidon license key in the component registration email -dok</li>
     </ul>
 </p>
 
