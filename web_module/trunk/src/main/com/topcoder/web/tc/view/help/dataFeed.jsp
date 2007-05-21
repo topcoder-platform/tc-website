@@ -170,6 +170,7 @@
         <li>new rating</li>
         <li>volatility</li>
         <li>rank</li>
+        <li>percentile</li>
     </ul>
 
     <strong>FEED: http://<%=ApplicationServer.SERVER_NAME%>/tc?module=BasicData&amp;c=dd_rating_history&amp;cr=USER_ID</strong>
