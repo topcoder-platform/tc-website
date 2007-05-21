@@ -175,7 +175,7 @@ position pos;
 </table>
 
 <p>It can be seen that whether a position is winning or losing depends only on the last k positions, where k is the maximum number of coins we can take away. While there are only 2k possible values for the sequences of the length k, our sequence will become periodic. You can try to use this observation to solve the following problem: <br>
-<a href="/stat?c=problem_statement&pm=6856">http://www.topcoder.com/stat?c=problem_statement&pm=6856</a> </p>
+<a href="/stat?c=problem_statement&pm=6856">SRM 330: LongLongNim</a> </p>
 
 <p><span class="bodySubtitle">The Game of Nim </span><br />
 The most famous mathematical game is probably the Game of Nim. This is the game that you will probably encounter the most times and there are many variations on it, as well as games that can be solved by using the knowledge of how to play the game. Usually you will meet them as Division I 1000 pointers (though hopefully your next encounter will seem much easier). Although these problems often require a clever idea, they are usually very easy to code. </p>
@@ -214,8 +214,8 @@ Position (1, 2, 3) is losing because 1 xor 2 xor 3 = (1)<sub>2</sub> xor (10)<su
 Position (7, 4, 1) is winning because 7 xor 4 xor 1 = (111)<sub>2</sub> xor (10)<sub>2</sub> xor (1)<sub>2</sub> = (10)<sub>2</sub> = 2 </p>
 
 <p>Example problems: <br>
-<a href="/stat?c=problem_statement&pm=7424">http://www.topcoder.com/stat?c=problem_statement&pm=7424</a> <br>
-<a href="/stat?c=problem_statement&pm=6239">http://www.topcoder.com/stat?c=problem_statement&pm=6239</a></p>
+<a href="/stat?c=problem_statement&pm=7424">SRM 338: CakeParty</a> <br>
+<a href="/stat?c=problem_statement&pm=6239">SRM 309: StoneGameStrategist</a></p>
 
 <p>The last one example problem is harder, because it is not so easy to identify where the sizes of piles are hidden. Small hint: Notice the differences between the sizes of piles. If you would not be able to figure it out you can find the solution in the <a href="/tc?module=Static&d1=match_editorials&d2=srm309">SRM 309 Problem set & Analysis</a>. </p>
 
@@ -255,8 +255,7 @@ Position (7, 4, 1) is winning because 7 xor 4 xor 1 = (111)<sub>2</sub> xor (10)
 </ul>
 
 <p>Example problems:<br>
-<a href="/stat?c=problem_statement&pm=3093&rd=5864">http://www.topcoder.com/stat?c=problem_statement&pm=3093&rd=5864</a><br>
-<a href="/stat?c=problem_statement&pm=2987&rd=5862">http://www.topcoder.com/stat?c=problem_statement&pm=2987&rd=5862</a></p>
+<a href="/stat?c=problem_statement&pm=2987&rd=5862">SRM 216: Roxor</a></p>
 
 <p><span class="bodySubtitle">Other composite games </span><br />
 It doesn't happen often, but you can occasionally encounter games with a slightly different set of rules. For example, you might see the following changes: </p>
@@ -273,11 +272,6 @@ It doesn't happen often, but you can occasionally encounter games with a slightl
 
 <p><span class="bodySubtitle">Conclusion </span><br />
 Don't worry if you see a game problem during SRM -- it might be similar to one the games described above, or it could be reduced to one of them. If not, just think about it on concrete examples. Once you figure it out the coding part is usually very simple and straightforward. Good luck and have fun. </p>
-
-<p><b>Summary</b> of links to sample problems:<br>
-<a href="/stat?c=problem_statement&pm=6856">http://www.topcoder.com/stat?c=problem_statement&pm=6856</a><br>
-<a href="/stat?c=problem_statement&pm=7424">http://www.topcoder.com/stat?c=problem_statement&pm=7424</a><br>
-<a href="/stat?c=problem_statement&pm=6239">http://www.topcoder.com/stat?c=problem_statement&pm=6239</a></p>
 
 <p><b>Other resources:</b><br>
 <a target="_blank" href="<tc-webtag:linkTracking link='http://www.madras.fife.sch.uk/maths/games/' refer='algorithmGames' />">Collection of many mathematical games</a><br>
