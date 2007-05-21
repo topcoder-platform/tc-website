@@ -41,7 +41,7 @@
 	<h3>Development phase not yet completed: ${devActiveCount } still active.</h3>
 </c:if>
 
-<c:forEach list="${contests}" var="c">
+<c:forEach  items="${contests}" var="c">
 contest: ${c }<br>
 </c:forEach>
 
