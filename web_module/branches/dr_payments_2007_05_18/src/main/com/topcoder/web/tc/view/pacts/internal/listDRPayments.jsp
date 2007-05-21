@@ -47,7 +47,7 @@
 
 <c:forEach  items="${contests}" var="c">
 <h3>${c.name }</h3>
-<table>
+<table cellpadding="3">
 	<tr>
 		<td>Place</td>
 		<td>Coder</td>
@@ -56,9 +56,9 @@
 	</tr>
 	<c:forEach items="${c.results }" var="r">
 		<tr>
-			<td>${r.place }</td>
+			<td align="right">${r.place }</td>
 			<td><tc-webtag:handle coderId="${r.coderId}" context='component'/> </td>
-			<td align="right">$ <fmt:formatNumber value="${r.prize}" type="currency" currencySymbol="$"/> </td>
+			<td align="right"><fmt:formatNumber value="${r.prize}" type="currency" currencySymbol="$"/> </td>
 			<td>
 			   		<c:choose>
 			   			<c:when test="${not empty r.paymentId}"><font color="#00A000">Paid </font><a href="${pacts:viewPayment(r.paymentId)}">(view)</a></c:when>
