@@ -8,7 +8,11 @@ import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.util.format.ObjectFormatter;
 import com.topcoder.util.format.ObjectFormatterFactory;
 import com.topcoder.web.common.PermissionException;
@@ -33,7 +37,14 @@ import javax.transaction.Status;
 import javax.transaction.TransactionManager;
 import java.rmi.RemoteException;
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Enumeration;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.TimeZone;
 
 /**
  * @author dok
@@ -369,7 +380,10 @@ public class Register extends ViewRegistration {
                     new CalendarDateFormatMethod("MM.dd.yyyy HH:mm a z"), true);
             String date = formatter.format(cal);
 
-            String key = getUser().getId() % 2 == 1 ? "l96uJ8gb3yeVyljcqJv94kt2XcxPaVPcEBJQfNV3r/qfNTr0l+HHooRklk/J2sxyXw22fyIbN4YMzkr+m7yxi4nykHn4XF504ned5q6B3i5BVTrn8mxDHf5jNdbloaXPd/fsMTrRU3x4ljWuMrZ7IcU5y8Kp4X9UeSQhFxgqlZE" : "IzlKZkULNt8Y9+qZZe+FIajyifIL+7zapP11VZrSSC9NHKKrKTUUG4ATDdo/bubQBDcn25U0EGcBICe5sSJoNprrIPpz8DtVJgBGQrvkbe+HnF6O3vUEdIeH2KARRqKX6bB0vfcEUPfbCjADCIGkotVJllATF696T0CxBg1+ia0";
+            //String key = getUser().getId() % 2 == 1 ? "l96uJ8gb3yeVyljcqJv94kt2XcxPaVPcEBJQfNV3r/qfNTr0l+HHooRklk/J2sxyXw22fyIbN4YMzkr+m7yxi4nykHn4XF504ned5q6B3i5BVTrn8mxDHf5jNdbloaXPd/fsMTrRU3x4ljWuMrZ7IcU5y8Kp4X9UeSQhFxgqlZE" : "IzlKZkULNt8Y9+qZZe+FIajyifIL+7zapP11VZrSSC9NHKKrKTUUG4ATDdo/bubQBDcn25U0EGcBICe5sSJoNprrIPpz8DtVJgBGQrvkbe+HnF6O3vUEdIeH2KARRqKX6bB0vfcEUPfbCjADCIGkotVJllATF696T0CxBg1+ia0";
+
+            String key = "WGLuGTUg2IuqXUBnHQqVU9BOsrZq0BfB3vGGJGjD/bzpPAXm+65fmoJ9GISfW+4fOmPG1GQVE3Ibdc661Bxb5oVo/oHqNLNcyB1jHJkWxfivLySEqUAFba+ws/ep09AAbmd6k6mGQDWUTux4YcY5ODk/dW72NiTR83TNY5MZoOM";
+
 
             if (phase == ComponentVersionInfo.SPECIFICATION) {
                 mail.setBody(getUser().getUserName() + ", \n\nRegistration Complete. \n\n" +
