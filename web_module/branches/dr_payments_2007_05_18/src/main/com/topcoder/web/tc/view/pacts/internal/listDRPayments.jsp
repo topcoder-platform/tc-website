@@ -68,7 +68,7 @@
 			<td>
 			   		<c:choose>
 			   			<c:when test="${not empty r.paymentId}"><font color="#00A000">Paid </font><a href="${pacts:viewPayment(r.paymentId)}">(view)</a></c:when>
-			   			<c:otherwise><input type="checkbox" name="pay" value="${c.contestTypeId}:${r.place}:${r.coderId}:${r.amount}"> Pay</c:otherwise>
+			   			<c:otherwise><input type="checkbox" name="pay" value="${c.typeId}:${r.place}:${r.coderId}:${r.amount}"> Pay</c:otherwise>
 			   		</c:choose>			
 			</td>
 		</tr>			
