@@ -510,6 +510,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_AJAX_DISPLAY_AMOUNTS = INTERNAL_AJAX_JSP_DIR + "/displayAmounts.jsp";
     public static final String INTERNAL_LIST_INTRO_EVENT_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/listIntroEventCompPayments.jsp";
     public static final String INTERNAL_VIEW_GENERATE_INTRO_EVENT_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/viewGenerateIntroEventCompPayments.jsp";
+    public static final String INTERNAL_VIEW_GENERATE_DR_PAYMENTS = INTERNAL_JSP_DIR + "/viewGenerateDRPayments.jsp";
 
     /*
       veredox - Don't get your panties in a knot.
