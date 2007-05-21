@@ -45,6 +45,11 @@
 
 <c:forEach  items="${contests}" var="c">
 contest: ${c.id }, ${c.typeId }, ${c.name }<br>
+<c:forEach items="${c.results }" var="r">
+	${r.place }, ${r.coderId }, $ ${r.prize }, ${r.paymentId }
+</c:forEach>
+${c.totalPrizes }
+
 </c:forEach>
 
 <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">

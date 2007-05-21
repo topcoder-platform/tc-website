@@ -9,7 +9,10 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.IntroEventCompPayment;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
@@ -20,20 +23,21 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {        
         try {
+            int periodId = 0;
             int desActiveCount = 0;
             int devActiveCount = 0;
             List<Contest> contests = new ArrayList<Contest>();
             
             if (getRequest().getParameter(Constants.STAGE_ID) != null) {
-                int stageId = Integer.parseInt(getRequest().getParameter(Constants.STAGE_ID));
-                 desActiveCount = getStageActiveProjects(stageId, 112);
+                 periodId = Integer.parseInt(getRequest().getParameter(Constants.STAGE_ID));
+                 desActiveCount = getStageActiveProjects(periodId, 112);
                  if (desActiveCount == 0) {
-                     contests.addAll(getStageContests(stageId, 112));
+                     contests.addAll(getStageContests(periodId, 112));
                  }
                  
-                 devActiveCount = getStageActiveProjects(stageId, 113);
+                 devActiveCount = getStageActiveProjects(periodId, 113);
                  if (devActiveCount == 0) {
-                     contests.addAll(getStageContests(stageId, 113));
+                     contests.addAll(getStageContests(periodId, 113));
                  }
                  
             } else if (getRequest().getParameter(Constants.SEASON_ID) != null) {
@@ -42,8 +46,12 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
                 throw new TCWebException("Either " + Constants.STAGE_ID + " or " + Constants.SEASON_ID + " expected.");
             }
             
+            for (Contest c : contests) {
+                loadResults(c);
+                fillPaid(c, periodId);
+            }
             
-getRequest().setAttribute("contests", contests);
+            getRequest().setAttribute("contests", contests);
             getRequest().setAttribute("desActiveCount", desActiveCount);
             getRequest().setAttribute("devActiveCount", devActiveCount);
             setNextPage(INTERNAL_LIST_DR_PAYMENTS);
@@ -90,6 +98,50 @@ getRequest().setAttribute("contests", contests);
         
     }
     
+    
+    @SuppressWarnings("unchecked")
+    private void fillPaid(Contest contest, int periodId) throws Exception {
+        DataInterfaceBean dib = new DataInterfaceBean();
+        
+        int paymentType;
+        if (contest.getTypeId() == 19) {
+            paymentType = DIGITAL_RUN_PRIZE_PAYMENT;
+        } else  if (contest.getTypeId() == 18) {
+            paymentType = DIGITAL_RUN_TOP_THIRD_PAYMENT;
+        } else  if (contest.getTypeId() == 20) {
+            paymentType = DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT;
+        } else {
+            throw new Exception("Invalid contest type: " + contest.getTypeId());
+        }
+            
+        List<IntroEventCompPayment> l = dib.findPayments(paymentType, contest.getId());
+
+        for (ContestResult cr :contest.getResults()) {
+            for (BasePayment payment : l) {
+                if (cr.getCoderId() == payment.getCoderId()) {
+                    cr.setPaymentId(payment.getId());
+                }
+            }
+        }
+    }
+    
+
+    private void loadResults(Contest contest) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("dr_contest_payments");
+        r.setProperty(Constants.CONTEST_ID, contest.getId() + "");
+        
+        ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_contest_payments");
+        
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            double prize = Math.round(row.getDoubleItem("prize") * 100) / 100.0;
+            ContestResult cr = new ContestResult(row.getIntItem("place"), row.getLongItem("coder_id"), prize);
+            
+            contest.addResult(cr);
+        }
+        
+    }
+    
     /**
      * Class to hold data of a contest and its results.
      * 
@@ -101,7 +153,12 @@ getRequest().setAttribute("contests", contests);
         private int typeId;
         private String name;
         private List<ContestResult> results;
+        private double totalPrizes = 0.0;
         
+        public double getTotalPrizes() {
+            return totalPrizes;
+        }
+
         public Contest(int id, int typeId, String name) {
             this.id = id;
             this.typeId = typeId;
@@ -127,12 +184,41 @@ getRequest().setAttribute("contests", contests);
         
         public void addResult(ContestResult result) {
             results.add(result);
+            totalPrizes += result.getPrize();
         }
         
     }
     
     public static class ContestResult {
-    
+        int place;
+        long coderId;
+        double prize;
+        Long paymentId;
+        
+        
+        public ContestResult(int place, long coderId, double prize) {
+            super();
+            this.place = place;
+            this.coderId = coderId;
+            this.prize = prize;
+        }
+        
+        public Long getPaymentId() {
+            return paymentId;
+        }
+        public void setPaymentId(Long paymentId) {
+            this.paymentId = paymentId;
+        }
+        public int getPlace() {
+            return place;
+        }
+        public double getPrize() {
+            return prize;
+        }
+        public long getCoderId() {
+            return coderId;
+        }
+        
     }
     
 }
