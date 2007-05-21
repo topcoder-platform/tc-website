@@ -40,6 +40,8 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
                      contests.addAll(getStageContests(periodId, 113));
                  }
                  
+                 getRequest().setAttribute(Constants.STAGE_ID, getRequest().getParameter(Constants.STAGE_ID));
+                 
             } else if (getRequest().getParameter(Constants.SEASON_ID) != null) {
                 periodId = Integer.parseInt(getRequest().getParameter(Constants.SEASON_ID));
                 desActiveCount = getSeasonActiveProjects(periodId, 112);
@@ -51,6 +53,9 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
                 if (devActiveCount == 0) {
                     contests.addAll(getSeasonContests(periodId, 113));
                 }
+
+                getRequest().setAttribute(Constants.SEASON_ID, getRequest().getParameter(Constants.SEASON_ID));
+
             } else {
                 throw new TCWebException("Either " + Constants.STAGE_ID + " or " + Constants.SEASON_ID + " expected.");
             }

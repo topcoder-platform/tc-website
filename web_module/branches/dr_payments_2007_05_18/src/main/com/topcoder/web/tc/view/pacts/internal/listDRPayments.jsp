@@ -1,4 +1,6 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
+<%@ page import="com.topcoder.web.tc.Constants" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -46,6 +48,8 @@
 
 <form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
     <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GeneratDRPayments"/>
+    <input type="hidden" name="<%=Constants.STAGE_ID%>" value="<%= request.getAttribute(Constants.STAGE_ID) %> }"/>
+    <input type="hidden" name="<%=Constants.SEASON_ID%>" value="<%= request.getAttribute(Constants.SEASON_ID) %>"/>
 
 <c:forEach  items="${contests}" var="c">
 <h3>${c.name }</h3>
@@ -64,7 +68,7 @@
 			<td>
 			   		<c:choose>
 			   			<c:when test="${not empty r.paymentId}"><font color="#00A000">Paid </font><a href="${pacts:viewPayment(r.paymentId)}">(view)</a></c:when>
-			   			<c:otherwise><input type="checkbox" name="pay" value="TO-DO"> Pay</c:otherwise>
+			   			<c:otherwise><input type="checkbox" name="pay" value="${c.contestTypeId}:${r.place}:${r.coderId}:${r.amount}"> Pay</c:otherwise>
 			   		</c:choose>			
 			</td>
 		</tr>			
