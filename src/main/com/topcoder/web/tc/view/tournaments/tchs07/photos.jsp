@@ -132,6 +132,12 @@
         <div class="contentSpacer">
             <h2>Photos from the onsite event</h2>
 
+            <form name="blah" action="/tc">
+                <input type="hidden" name="module" value="Static"/>
+                <input type="hidden" name="d1" value="tournaments"/>
+                <input type="hidden" name="d2" value="tchs07"/>
+                <input type="hidden" name="d3" value="photos"/>
+
             <div id="slideShow" align="center">
             
                 <a name="spot"></a>
@@ -147,7 +153,7 @@
                 </div>
 
             </div>
-
+            </form>
         </div>
         <div class="footer">
             Copyright &#169; 2000-2006, TopCoder, Inc. All rights reserved.
