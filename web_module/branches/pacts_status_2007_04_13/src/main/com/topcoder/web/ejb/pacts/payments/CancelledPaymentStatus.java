@@ -56,7 +56,7 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+    public void inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
         if (!reasons.contains(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason())) {
             reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
         }

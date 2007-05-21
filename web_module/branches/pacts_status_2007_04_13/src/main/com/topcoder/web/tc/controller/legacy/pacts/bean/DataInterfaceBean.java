@@ -3,7 +3,6 @@ package com.topcoder.web.tc.controller.legacy.pacts.bean;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
@@ -1049,11 +1048,11 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      * @return  The new affidavit's ID.
      */
-    public long addAffidavit(Affidavit a, String affidavitText)
-            throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.addAffidavit(a, affidavitText);
-    }
+//    public long addAffidavit(Affidavit a, String affidavitText)
+//            throws RemoteException, IllegalUpdateException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.addAffidavit(a, affidavitText);
+//    }
 
     /**
      * Adds the specified affidavit and payment to the database, and associates the two.
@@ -1101,10 +1100,10 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      * @return  The new payment's ID.
      */
-    public long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.addPayment(p);
-    }
+//    public long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.addPayment(p);
+//    }
 
     /**
      * Adds the specified payment to the database.  
@@ -1115,10 +1114,10 @@ public class DataInterfaceBean implements PactsConstants {
      * @throws  SQLException If there is some problem updating the data
      * @return  The new payment's ID.
      */
-    public long addPayment(Payment p, boolean payReferrer) throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.addPayment(p, payReferrer);
-    }
+//    public long addPayment(Payment p, boolean payReferrer) throws RemoteException, IllegalUpdateException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.addPayment(p, payReferrer);
+//    }
 
 
 //    /**
@@ -1732,10 +1731,10 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.updatePayment(payment);
     }
 
-    public BasePayment updatePayment(Connection c, BasePayment payment) throws RemoteException, Exception {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.updatePayment(c, payment);
-    }
+//    public BasePayment updatePayment(Connection c, BasePayment payment) throws RemoteException, Exception {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.updatePayment(c, payment);
+//    }
 
     public BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1802,25 +1801,25 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.findCoderPayments(searchCriteria);
     }
 
-    public List<BasePayment> findCoderPayments(Connection c, Map searchCriteria) throws RemoteException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.findCoderPayments(c, searchCriteria);
-    }
+//    public List<BasePayment> findCoderPayments(Connection c, Map searchCriteria) throws RemoteException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.findCoderPayments(c, searchCriteria);
+//    }
 
-    public double getUserAccrualThreshold(Connection conn, long userId) throws RemoteException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.getUserAccrualThreshold(conn, userId);
-    }
+//    public double getUserAccrualThreshold(Connection conn, long userId) throws RemoteException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.getUserAccrualThreshold(conn, userId);
+//    }
 
     public double getUserAccrualThreshold(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getUserAccrualThreshold(userId);
     }
 
-    public double getUserAccruingPaymentsTotal(Connection conn, long userId) throws RemoteException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.getUserAccruingPaymentsTotal(conn, userId);
-    }
+//    public double getUserAccruingPaymentsTotal(Connection conn, long userId) throws RemoteException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.getUserAccruingPaymentsTotal(conn, userId);
+//    }
 
     public double getUserAccruingPaymentsTotal(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();

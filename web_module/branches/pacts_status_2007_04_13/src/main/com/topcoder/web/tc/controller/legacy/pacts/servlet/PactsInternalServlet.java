@@ -48,7 +48,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.payments.InvalidStateTransitionException;
+import com.topcoder.web.ejb.pacts.payments.InvalidPaymentEventException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator.UserEvents;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;

@@ -38,9 +38,9 @@ public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
     }
     
     @Override
-    public void pay(BasePayment payment) throws InvalidStateTransitionException {
+    public void pay(BasePayment payment) throws InvalidPaymentEventException {
         log.debug("moving to paid!");
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.PAID_PAYMENT_STATUS));
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS));
         try {
             payment.getCurrentStatus().activate(payment);
         } catch (Exception e) {

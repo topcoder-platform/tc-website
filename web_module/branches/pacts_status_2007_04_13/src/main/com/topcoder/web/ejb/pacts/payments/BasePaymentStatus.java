@@ -19,7 +19,7 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
     protected List<PaymentStatusReason> reasons = new ArrayList<PaymentStatusReason>();
     
     
-    public transient Connection conn = null;
+    //public transient Connection conn = null;
     
     public BasePaymentStatus() {
         super();
@@ -31,7 +31,7 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
         for (PaymentStatusReason reason : reasons) {
             newPaymentStatus.reasons.add(reason);
         }
-        newPaymentStatus.conn = this.conn;
+//        newPaymentStatus.conn = this.conn;
         
         return newPaymentStatus;  
     }
@@ -46,57 +46,57 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
     
     public abstract Boolean isValid(BasePayment payment);
     
-    public void nextState(BasePayment payment) {
+    public void nextState(BasePayment payment) throws StateTransitionFailureException {
     }
 
-    public void activate(BasePayment payment) {
+    public void activate(BasePayment payment) throws StateTransitionFailureException {
     }
 
-    public void affirmedAffidavit(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException();
+    public void affirmedAffidavit(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+        throw new InvalidPaymentEventException();
     }
 
-    public void expiredAffidavit(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException();
+    public void expiredAffidavit(BasePayment payment) throws InvalidPaymentEventException {
+        throw new InvalidPaymentEventException();
     }
 
-    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException();
+    public void inactiveCoder(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+        throw new InvalidPaymentEventException();
     }
 
-    public void expiredIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException();
+    public void expiredIPTransfer(BasePayment payment) throws InvalidPaymentEventException {
+        throw new InvalidPaymentEventException();
     }
 
-    public void expiredPayment(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException();
+    public void expiredPayment(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+        throw new InvalidPaymentEventException();
     }
 
-    public void parentCancelled(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException();
+    public void parentCancelled(BasePayment payment) throws InvalidPaymentEventException {
+        throw new InvalidPaymentEventException();
     }
 
-    public void affirmedIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException();
+    public void affirmedIPTransfer(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+        throw new InvalidPaymentEventException();
     }
 
-    public void enterIntoPaymentSystem(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException("Cannot enter into payment system a payment with status " + payment.getCurrentStatus().getDesc());
+    public void enterIntoPaymentSystem(BasePayment payment) throws InvalidPaymentEventException {
+        throw new InvalidPaymentEventException("Cannot enter into payment system a payment with status " + payment.getCurrentStatus().getDesc());
     }
 
-    public void pay(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException("Cannot pay a payment with status " + payment.getCurrentStatus().getDesc());
+    public void pay(BasePayment payment) throws InvalidPaymentEventException {
+        throw new InvalidPaymentEventException("Cannot pay a payment with status " + payment.getCurrentStatus().getDesc());
     }
 
-    public void delete(BasePayment payment) throws InvalidStateTransitionException {
-        throw new InvalidStateTransitionException("Cannot delete a payment with status " + payment.getCurrentStatus().getDesc());
+    public void delete(BasePayment payment)throws StateTransitionFailureException, InvalidPaymentEventException {
+        throw new InvalidPaymentEventException("Cannot delete a payment with status " + payment.getCurrentStatus().getDesc());
     }
     
-    public void hardCopyIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
+    public void hardCopyIPTransfer(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         // default implementation does nothing
     }
 
-    public void newTaxForm(BasePayment payment) {
+    public void newTaxForm(BasePayment payment) throws StateTransitionFailureException {
         // default implementation does nothing
     }
 

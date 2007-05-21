@@ -1,18 +1,19 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.rmi.RemoteException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.topcoder.shared.util.DBMS;
+import javax.transaction.Status;
+import javax.transaction.SystemException;
+import javax.transaction.TransactionManager;
+
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.payments.InvalidStateTransitionException;
+import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator.UserEvents;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
@@ -57,42 +58,27 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
                     psm.newUserEvent(payment, UserEvents.DELETE_EVENT);
                     break;
                 }
-            } catch (InvalidStateTransitionException iste) {
+            } catch (EventFailureException efe) {
                 wrongPayments++;
-                addError("err_" + payment.getId(), iste.getMessage());
+                addError("err_" + payment.getId(), efe.getMessage());
             }
             updatePayments.add(payment);
         }
         
         if (!hasErrors()) {            
             // update payments
-            Connection conn = null;
+            TransactionManager tm = null;
             try {
-                conn = DBMS.getConnection();
-                conn.setAutoCommit(false);
-                setLockTimeout(conn);
+                tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                tm.begin();
                 
                 for (BasePayment payment : updatePayments) {
-                    dib.updatePayment(conn, payment);    
+                    dib.updatePayment(payment);    
                 }
-                conn.commit();
+
+                tm.commit();
             } catch (Exception e) {
-                try {
-                    conn.rollback();
-                } catch (Exception e1) {
-                    printException(e1);
-                }
-                try {
-                    conn.setAutoCommit(true);
-                } catch (Exception e1) {
-                    printException(e1);
-                }
-            } finally {
-                try {
-                    conn.setAutoCommit(true);
-                } catch (Exception e) {
-                }
-                DBMS.close(conn);
+                rollback(tm);
             }
             getRequest().setAttribute("message_result", updatePayments.size() + " payments successfully updated");
         } else {
@@ -105,27 +91,14 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
 
         super.businessProcessing();
     }
-    
-    private void setLockTimeout(Connection c) throws SQLException {
-        PreparedStatement ps = null;
-        try {
-            ps = c.prepareStatement("SET LOCK MODE TO WAIT " + PactsConstants.LOCK_TIMEOUT_VALUE);
-            ps.executeUpdate();
-        } finally {
-            DBMS.close(ps);
-        }
-    }
 
-    private void printException(Exception e) {
+    private void rollback(TransactionManager tm) {
         try {
-            if (e instanceof SQLException) {
-                String sqlErrorDetails = DBMS.getSqlExceptionString((SQLException) e);
-                log.error("PACTS Payment Status Manager: SQLException caught\n" + sqlErrorDetails, e);
-            } else {
-                log.error("PACTS Payment Status Manager: Exception caught", e);
+            if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
+                tm.rollback();
             }
-        } catch (Exception ex) {
-            log.error("PACTS Payment Status Manager: Error printing exception!");
+        } catch (SystemException se) {
+            //do nothing
         }
     }
 }

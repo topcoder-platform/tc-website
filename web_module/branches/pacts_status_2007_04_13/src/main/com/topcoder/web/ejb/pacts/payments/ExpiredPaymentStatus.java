@@ -45,7 +45,7 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+    public void inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
         // do nothing
     }
 

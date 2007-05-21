@@ -6,7 +6,6 @@
 package com.topcoder.web.ejb.pacts.payments;
 
 import java.rmi.RemoteException;
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -53,11 +52,12 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void activate(BasePayment payment) {
+    public void activate(BasePayment payment) throws StateTransitionFailureException {
         log.debug("activate called for payment: " + payment.getId());
+
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
-    
+   
             if (payment instanceof ParentReferencePayment) {
                 log.debug("instanceof ParentReferencePayment");                
                 
@@ -67,11 +67,11 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                 Map criteria = new HashMap();
                 criteria.put(PactsConstants.PAYMENT_ID, String.valueOf(((ParentReferencePayment) payment).getParentId()));
 
-                List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+                List<BasePayment> payments = dib.findCoderPayments(criteria);
                 
                 // if not exactly one result, throw exception
                 if (payments.size() != 1) {
-                    log.debug("not exactly one result");
+                    throw new StateTransitionFailureException("Not exactly one result found for payment: " + payment.getId());
                 }
                 
                 BasePayment parentPayment = payments.get(0);
@@ -95,7 +95,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
             
             // check for tax form (every payment type)
              checkUserTaxForm(payment, dib);
-    
+
              // check for affirmed affidavit (alg contests, alg tournaments, marathon matrches)
              checkAffirmedAffidavit(payment);
 
@@ -104,12 +104,12 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
              
              nextState(payment);
         } catch (Exception e) {
-            // TODO: do something
+            throw new StateTransitionFailureException(e);
         }
     }
 
     @Override
-    public void newTaxForm(BasePayment payment) {
+    public void newTaxForm(BasePayment payment) throws StateTransitionFailureException {
         log.debug("newTaxForm called for payment: " + payment.getId());
         // remove the reason
         if (reasons.contains(AvailableStatusReason.NO_TAX_FORM_REASON.getStatusReason())) {
@@ -120,7 +120,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void affirmedAffidavit(BasePayment payment) throws InvalidStateTransitionException {
+    public void affirmedAffidavit(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("affirmedAffidavit called for payment: " + payment.getId());
         if (reasons.contains(AvailableStatusReason.NO_AFFIRMED_AFFIDAVIT_REASON.getStatusReason())) {
             reasons.remove(AvailableStatusReason.NO_AFFIRMED_AFFIDAVIT_REASON.getStatusReason());
@@ -130,60 +130,40 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void expiredAffidavit(BasePayment payment) throws InvalidStateTransitionException {
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.CANCELLED_PAYMENT_STATUS));
-        try {
-            payment.getCurrentStatus().expiredAffidavit(payment);
-        } catch (Exception e) {
-            // do nothing
-        }
+    public void expiredAffidavit(BasePayment payment) throws InvalidPaymentEventException {
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
+        payment.getCurrentStatus().expiredAffidavit(payment);
     }
 
     @Override
-    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+    public void inactiveCoder(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("moving to cancelled (account status)!");
-        BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(conn, PaymentStatus.CANCELLED_PAYMENT_STATUS);
+        BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS);
         newStatus.reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
         payment.setCurrentStatus(newStatus);
-        try {
-            payment.getCurrentStatus().activate(payment);
-        } catch (Exception e) {
-            // do nothing
-        }
+        payment.getCurrentStatus().activate(payment);
     }
 
     @Override
-    public void expiredIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.CANCELLED_PAYMENT_STATUS));
-        try {
-            payment.getCurrentStatus().expiredIPTransfer(payment);
-        } catch (Exception e) {
-            // do nothing
-        }
+    public void expiredIPTransfer(BasePayment payment) throws InvalidPaymentEventException {
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
+        payment.getCurrentStatus().expiredIPTransfer(payment);
     }
 
     @Override
-    public void expiredPayment(BasePayment payment) throws InvalidStateTransitionException {
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.EXPIRED_PAYMENT_STATUS));
-        try {
-            payment.getCurrentStatus().activate(payment);
-        } catch (Exception e) {
-            // do nothing
-        }
+    public void expiredPayment(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS));
+        payment.getCurrentStatus().activate(payment);
     }
 
     @Override
-    public void parentCancelled(BasePayment payment) throws InvalidStateTransitionException {
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.CANCELLED_PAYMENT_STATUS));
-        try {
-            payment.getCurrentStatus().parentCancelled(payment);
-        } catch (Exception e) {
-            // do nothing
-        }
+    public void parentCancelled(BasePayment payment) throws InvalidPaymentEventException {
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
+        payment.getCurrentStatus().parentCancelled(payment);
     }
 
     @Override
-    public void affirmedIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
+    public void affirmedIPTransfer(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("affirmedIPTransfer called for payment: " + payment.getId());
         if (reasons.contains(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason())) {
             reasons.remove(AvailableStatusReason.NO_AFFIRMED_IP_TRANSFER_REASON.getStatusReason());
@@ -193,7 +173,7 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void hardCopyIPTransfer(BasePayment payment) throws InvalidStateTransitionException {
+    public void hardCopyIPTransfer(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("hardCopyIPTransfer called for payment: " + payment.getId());
         if (reasons.contains(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason())) {
             reasons.remove(AvailableStatusReason.NO_HARD_COPY_IP_TRANSFER_REASON.getStatusReason());
@@ -214,27 +194,19 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void delete(BasePayment payment) throws InvalidStateTransitionException {
+    public void delete(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("moving to deleted!");
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.DELETED_PAYMENT_STATUS));
-        try {
-            payment.getCurrentStatus().activate(payment);
-        } catch (Exception e) {
-            // do nothing
-        }
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS));
+        payment.getCurrentStatus().activate(payment);
     }
 
     @Override
-    public void nextState(BasePayment payment) {
+    public void nextState(BasePayment payment) throws StateTransitionFailureException {
         if (reasons.size() == 0) {
             // if there's no reason to stay in this state, move to the next
             log.debug("no reason to stay here!");
-            payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.ACCRUING_PAYMENT_STATUS));
-//            try {
-                payment.getCurrentStatus().activate(payment);
-//            } catch (Exception e) {
-//                // do nothing
-//            }
+            payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.ACCRUING_PAYMENT_STATUS));
+            payment.getCurrentStatus().activate(payment);
        } else {
            log.debug("staying in this state!");
        }

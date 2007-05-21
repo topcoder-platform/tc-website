@@ -59,13 +59,13 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
         DataInterfaceBean dib = new DataInterfaceBean();
         try {
             // check the user's accrual threshold
-            double accrualThreshold = dib.getUserAccrualThreshold(conn, payment.getCoderId());
+            double accrualThreshold = dib.getUserAccrualThreshold(payment.getCoderId());
 
             log.debug("accrualThreshold: " + accrualThreshold);            
             
             if (accrualThreshold > 0) {
                 // check total amount for currently accruing payments for this user
-                double totalAmount = dib.getUserAccruingPaymentsTotal(conn, payment.getCoderId());
+                double totalAmount = dib.getUserAccruingPaymentsTotal(payment.getCoderId());
                 log.debug("totalAmount: " + totalAmount);
                 log.debug("payment.getGrossAmount(): " + payment.getGrossAmount());
                 
@@ -92,7 +92,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     @Override
     public void nextState(BasePayment payment) {
         log.debug("moving to the next status!");
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.OWED_PAYMENT_STATUS));
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS));
         try {
             payment.getCurrentStatus().activate(payment);
         } catch (Exception e) {
@@ -101,9 +101,9 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     }
     
     @Override
-    public void delete(BasePayment payment) throws InvalidStateTransitionException {
+    public void delete(BasePayment payment) throws InvalidPaymentEventException {
         log.debug("moving to deleted!");
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.DELETED_PAYMENT_STATUS));
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS));
         try {
             payment.getCurrentStatus().activate(payment);
         } catch (Exception e) {
@@ -112,9 +112,9 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+    public void inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
         log.debug("moving to cancelled (account status)!");
-        BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(conn, PaymentStatus.CANCELLED_PAYMENT_STATUS);
+        BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS);
         newStatus.reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
         payment.setCurrentStatus(newStatus);
         try {

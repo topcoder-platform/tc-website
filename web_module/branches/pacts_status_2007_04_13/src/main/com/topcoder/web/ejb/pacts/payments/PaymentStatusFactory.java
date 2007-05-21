@@ -43,29 +43,19 @@ public class PaymentStatusFactory {
     }
     
     public static BasePaymentStatus createStatus(PaymentStatus status) {
-        return createStatus(null, status);
-    }
-    
-    public static BasePaymentStatus createStatus(Connection conn, PaymentStatus status) {
         try {
             Class c = Class.forName(status.getClassName());
             BasePaymentStatus bps = (BasePaymentStatus) c.newInstance();
-            bps.conn = conn;
             return bps;
         } catch (Exception e) {
-            // do nothing - can't happen.
         }
         return null;
     }
 
     public static BasePaymentStatus createStatus(Long statusId) throws InvalidStatusException {
-        return createStatus(null, statusId);
-    }
-    
-    public static BasePaymentStatus createStatus(Connection conn, Long statusId) throws InvalidStatusException {
         for (PaymentStatus availableStatus : PaymentStatus.values()) {
             if (availableStatus.getId().equals(statusId)) {
-                return createStatus(conn, availableStatus); 
+                return createStatus(availableStatus); 
             }
         }
         throw new InvalidStatusException("Invalid status id: " + statusId);

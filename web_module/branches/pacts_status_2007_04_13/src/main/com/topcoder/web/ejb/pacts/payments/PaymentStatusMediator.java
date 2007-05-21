@@ -5,15 +5,10 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
-import java.rmi.RemoteException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
@@ -27,14 +22,13 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  */
 public class PaymentStatusMediator {
     private PaymentStatusManager statusManager = null;
-    private Connection conn = null;
 
     public enum UserEvents {
         ENTER_INTO_PAYMENT_SYSTEM_EVENT,
         DELETE_EVENT,
         PAY_EVENT
     }
-
+    
     private static final Logger log = Logger.getLogger(PaymentStatusMediator.class);
 
     private DataInterfaceBean dib = new DataInterfaceBean();
@@ -43,28 +37,11 @@ public class PaymentStatusMediator {
         statusManager = new PaymentStatusManager();
     }
     
-    public PaymentStatusMediator(Connection c) {
-        if (c != null) {
-            log.debug("Created with a valid connection");
-        } else {
-            log.debug("Created with a null connection");
-        }
-        this.conn = c;
-        this.statusManager = new PaymentStatusManager(conn);
-    }
-
     public void newPayment(BasePayment payment) throws EventFailureException {
         log.debug("newPayment called... ");
         
-        
-        boolean closeConn = false;
         try {
-            if (conn == null) {
-                closeConn = true;
-                conn = DBMS.getConnection();
-                conn.setAutoCommit(false);
-                setLockTimeout(conn);
-            }
+            
             
             // when a payment is created, the possible status can be any on hold, accruing and owed
             statusManager.newPayment(payment);
@@ -74,45 +51,27 @@ public class PaymentStatusMediator {
 
             log.debug("check if we need to notify accruing payments");
             log.debug("payment.getCurrentStatus(): " + payment.getCurrentStatus().getDesc());
-            log.debug("dib.getUserAccrualThreshold(conn, payment.getCoderId()): " + dib.getUserAccrualThreshold(conn, payment.getCoderId()));
+            log.debug("dib.getUserAccrualThreshold(conn, payment.getCoderId()): " + dib.getUserAccrualThreshold(payment.getCoderId()));
             
             if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS)) && 
-                    dib.getUserAccrualThreshold(conn, payment.getCoderId()) > 0) {
+                    dib.getUserAccrualThreshold(payment.getCoderId()) > 0) {
 
                 log.debug("need to notify all accruing payments");
                 Map criteria = new HashMap();
                 criteria.put(PactsConstants.USER_ID, String.valueOf(payment.getCoderId()));
                 criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()));
     
-                List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+                List<BasePayment> payments = dib.findCoderPayments(criteria);
                 log.debug("need to notify " + payments.size() + " payments");
                 
                 // notify the status manager and update each payment
                 for (BasePayment notifyPayment : payments) {
                     statusManager.accrualThresholdReached(notifyPayment);
-                    dib.updatePayment(conn, notifyPayment);
+                    dib.updatePayment(notifyPayment);
                 }
-            }
-            if (closeConn) {
-                conn.commit();
             }
         } catch (Exception e) {
-            if (closeConn) {
-                try {
-                    conn.rollback();
-                } catch (Exception e1) {
-                    printException(e1);
-                }
-            }
             throw new EventFailureException(e);
-        } finally {
-            if (closeConn) {
-                try {
-                    conn.setAutoCommit(true);
-                } catch (Exception e) {
-                }
-                DBMS.close(conn);
-            }
         }
     }
 
@@ -124,13 +83,13 @@ public class PaymentStatusMediator {
             criteria.put(PactsConstants.USER_ID, String.valueOf(userId));
             criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()));
 
-            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            List<BasePayment> payments = dib.findCoderPayments(criteria);
             log.debug("need to notify " + payments.size() + " payments");
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
                 statusManager.newTaxForm(payment);
-                dib.updatePayment(conn, payment);
+                dib.updatePayment(payment);
                 
                 // if the payment changed its status, notify the possible childrens
                 if (!payment.getCurrentStatus().equals(this)) {
@@ -151,13 +110,13 @@ public class PaymentStatusMediator {
             criteria.put(PactsConstants.PAYMENT_TYPE_ID, String.valueOf(paymentTypeId));
             criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()));
 
-            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            List<BasePayment> payments = dib.findCoderPayments(criteria);
             log.debug("need to notify " + payments.size() + " payments");
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
                 statusManager.hardCopyIPTransfer(payment);
-                dib.updatePayment(conn, payment);
+                dib.updatePayment(payment);
 
                 // if the payment changed its status, notify the possible childrens
                 if (!payment.getCurrentStatus().equals(this)) {
@@ -169,13 +128,13 @@ public class PaymentStatusMediator {
         }
     }
 
-    public void affirmedAffidavit(Long paymentId) throws StateTransitionFailureException {
+    public void affirmedAffidavit(Long paymentId) throws EventFailureException {
         log.debug("affirmedAffidavit called for paymentId: " + paymentId);
         try {
             Map criteria = new HashMap();
             criteria.put(PactsConstants.PAYMENT_ID, paymentId.toString());
 
-            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            List<BasePayment> payments = dib.findCoderPayments(criteria);
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
@@ -185,18 +144,18 @@ public class PaymentStatusMediator {
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
             statusManager.affirmedAffidavit(payment);
-            dib.updatePayment(conn, payment);
+            dib.updatePayment(payment);
 
             // if the payment changed its status, notify the possible childrens
             if (!payment.getCurrentStatus().equals(this)) {
                 notifyChildPayments("new", payment);
             }
         } catch (Exception e) {
-            throw new StateTransitionFailureException(e);
+            throw new EventFailureException(e);
         }
     }
 
-    public void affirmedIPTransfer(AssignmentDocument ad) throws StateTransitionFailureException {
+    public void affirmedIPTransfer(AssignmentDocument ad) throws EventFailureException {
         log.debug("affirmedIPTransfer called for ipTransferId: " + ad.getId());
         try {
             Map criteria = new HashMap();
@@ -209,7 +168,7 @@ public class PaymentStatusMediator {
                         String.valueOf(PactsConstants.COMPONENT_PAYMENT));
             criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId()));
             
-            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            List<BasePayment> payments = dib.findCoderPayments(criteria);
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
@@ -219,24 +178,24 @@ public class PaymentStatusMediator {
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
             statusManager.affirmedIPTransfer(payment);
-            dib.updatePayment(conn, payment);
+            dib.updatePayment(payment);
 
             // if the payment changed its status, notify the possible childrens
             if (!payment.getCurrentStatus().equals(this)) {
                 notifyChildPayments("new", payment);
             }
         } catch (Exception e) {
-            throw new StateTransitionFailureException(e);
+            throw new EventFailureException(e);
         }
     }
 
-    public void expiredAffidavit(Long paymentId) throws StateTransitionFailureException {
+    public void expiredAffidavit(Long paymentId) throws EventFailureException {
         log.debug("expiredAffidavit called for paymentId: " + paymentId);
         try {
             Map criteria = new HashMap();
             criteria.put(PactsConstants.PAYMENT_ID, paymentId.toString());
 
-            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            List<BasePayment> payments = dib.findCoderPayments(criteria);
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
@@ -246,25 +205,25 @@ public class PaymentStatusMediator {
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
             statusManager.expiredAffidavit(payment);
-            dib.updatePayment(conn, payment);
+            dib.updatePayment(payment);
 
             // if the payment was cancelled, notify the possible childrens
             if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
                 notifyChildPayments("cancel", payment);
             }
         } catch (Exception e) {
-            throw new StateTransitionFailureException(e);
+            throw new EventFailureException(e);
         }
     }
 
 
-    public void expiredIPTransfer(Long paymentId) throws StateTransitionFailureException {
+    public void expiredIPTransfer(Long paymentId) throws EventFailureException {
         log.debug("expiredIPTransfer called for paymentId: " + paymentId);
         try {
             Map criteria = new HashMap();
             criteria.put(PactsConstants.PAYMENT_ID, paymentId.toString());
 
-            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            List<BasePayment> payments = dib.findCoderPayments(criteria);
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
@@ -274,25 +233,25 @@ public class PaymentStatusMediator {
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
             statusManager.expiredIPTransfer(payment);
-            dib.updatePayment(conn, payment);
+            dib.updatePayment(payment);
 
             // if the payment was cancelled, notify the possible childrens
             if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
                 notifyChildPayments("cancel", payment);
             }
         } catch (Exception e) {
-            throw new StateTransitionFailureException(e);
+            throw new EventFailureException(e);
         }
     }
 
 
-    public void expiredPayment(Long paymentId) throws StateTransitionFailureException {
+    public void expiredPayment(Long paymentId) throws EventFailureException {
         log.debug("expiredIPTransfer called for paymentId: " + paymentId);
         try {
             Map criteria = new HashMap();
             criteria.put(PactsConstants.PAYMENT_ID, paymentId.toString());
 
-            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            List<BasePayment> payments = dib.findCoderPayments(criteria);
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
@@ -302,29 +261,29 @@ public class PaymentStatusMediator {
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
             statusManager.expiredPayment(payment);
-            dib.updatePayment(conn, payment);
+            dib.updatePayment(payment);
 
             // if the payment was expired, notify the possible childrens
             if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS))) {
                 notifyChildPayments("cancel", payment);
             }
         } catch (Exception e) {
-            throw new StateTransitionFailureException(e);
+            throw new EventFailureException(e);
         }
     }
 
-    public void inactiveCoder(Long coderId) throws StateTransitionFailureException {
+    public void inactiveCoder(Long coderId) throws EventFailureException {
         log.debug("inactiveCoder called for coderId: " + coderId);
         try {
             Map criteria = new HashMap();
             criteria.put(PactsConstants.USER_ID, coderId.toString());
 
-            List<BasePayment> payments = dib.findCoderPayments(conn, criteria);
+            List<BasePayment> payments = dib.findCoderPayments(criteria);
 
             for (BasePayment payment : payments) {
                 // notify the status manager and update the payment
                 statusManager.inactiveCoder(payment);
-                dib.updatePayment(conn, payment);
+                dib.updatePayment(payment);
 
                 // if the payment was cancelled, notify the possible childrens
                 if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
@@ -332,62 +291,47 @@ public class PaymentStatusMediator {
                 }
             }
         } catch (Exception e) {
-            throw new StateTransitionFailureException(e);
+            throw new EventFailureException(e);
         }
     }
 
-    private void setLockTimeout(Connection c) throws SQLException {
-        PreparedStatement ps = null;
+    public void newUserEvent(BasePayment payment, UserEvents event) throws EventFailureException {
         try {
-            ps = c.prepareStatement("SET LOCK MODE TO WAIT " + PactsConstants.LOCK_TIMEOUT_VALUE);
-            ps.executeUpdate();
-        } finally {
-            DBMS.close(ps);
-        }
-    }
-
-    private void printException(Exception e) {
-        try {
-            if (e instanceof SQLException) {
-                String sqlErrorDetails = DBMS.getSqlExceptionString((SQLException) e);
-                log.error("PACTS Payment Status Manager: SQLException caught\n" + sqlErrorDetails, e);
-            } else {
-                log.error("PACTS Payment Status Manager: Exception caught", e);
+            switch (event) {
+            case ENTER_INTO_PAYMENT_SYSTEM_EVENT:
+                payment.getCurrentStatus().enterIntoPaymentSystem(payment);
+                break;
+            case PAY_EVENT:
+                payment.getCurrentStatus().pay(payment);
+                break;
+            case DELETE_EVENT:
+                payment.getCurrentStatus().delete(payment);
+                break;
             }
-        } catch (Exception ex) {
-            log.error("PACTS Payment Status Manager: Error printing exception!");
+        } catch (Exception e) {
+            throw new EventFailureException(e);
         }
     }
 
-    public void newUserEvent(BasePayment payment, UserEvents event) throws InvalidStateTransitionException {
-        switch (event) {
-        case ENTER_INTO_PAYMENT_SYSTEM_EVENT:
-            payment.getCurrentStatus().enterIntoPaymentSystem(payment);
-            break;
-        case PAY_EVENT:
-            payment.getCurrentStatus().pay(payment);
-            break;
-        case DELETE_EVENT:
-            payment.getCurrentStatus().delete(payment);
-            break;
-        }
-    }
-
-    private void notifyChildPayments(String notifType, BasePayment payment) throws RemoteException, Exception {
+    private void notifyChildPayments(String notifType, BasePayment payment) throws EventFailureException {
         Map criteria = new HashMap();
         criteria.put(PactsConstants.PARENT_PAYMENT_ID, String.valueOf(payment.getId()));
 
         log.debug("notify children of parent: " + payment.getId());
-        List<BasePayment> childPayments = dib.findCoderPayments(conn, criteria);
-        for (BasePayment childPayment : childPayments) {
-            log.debug("notifying children: " + childPayment.getId());
-            if ("new".equals(notifType)) {
-                statusManager.newPayment(childPayment);
+        try {
+            List<BasePayment> childPayments = dib.findCoderPayments(criteria);
+            for (BasePayment childPayment : childPayments) {
+                log.debug("notifying children: " + childPayment.getId());
+                if ("new".equals(notifType)) {
+                    statusManager.newPayment(childPayment);
+                }
+                if ("cancel".equals(notifType)) {
+                    statusManager.parentCancelled(childPayment);
+                }
+                dib.updatePayment(childPayment);
             }
-            if ("cancel".equals(notifType)) {
-                statusManager.parentCancelled(childPayment);
-            }
-            dib.updatePayment(conn, childPayment);
+        } catch (Exception e) {
+            throw new EventFailureException(e);
         }
     }
 }

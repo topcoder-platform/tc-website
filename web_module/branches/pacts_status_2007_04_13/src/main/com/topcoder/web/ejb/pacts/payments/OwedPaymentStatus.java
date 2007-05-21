@@ -44,9 +44,9 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void inactiveCoder(BasePayment payment) throws InvalidStateTransitionException {
+    public void inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
         log.debug("moving to cancelled (account status)!");
-        BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(conn, PaymentStatus.CANCELLED_PAYMENT_STATUS);
+        BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS);
         newStatus.reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
         payment.setCurrentStatus(newStatus);
         try {
@@ -57,9 +57,9 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void enterIntoPaymentSystem(BasePayment payment) throws InvalidStateTransitionException {
+    public void enterIntoPaymentSystem(BasePayment payment) throws InvalidPaymentEventException {
         log.debug("moving to enterIntoPaymentSystem!");
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS));
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS));
         try {
             payment.getCurrentStatus().activate(payment);
         } catch (Exception e) {
@@ -68,9 +68,9 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public void delete(BasePayment payment) throws InvalidStateTransitionException {
+    public void delete(BasePayment payment) throws InvalidPaymentEventException {
         log.debug("moving to deleted!");
-        payment.setCurrentStatus(PaymentStatusFactory.createStatus(conn, PaymentStatus.DELETED_PAYMENT_STATUS));
+        payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS));
         try {
             payment.getCurrentStatus().activate(payment);
         } catch (Exception e) {
