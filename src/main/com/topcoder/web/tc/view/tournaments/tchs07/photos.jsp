@@ -134,7 +134,7 @@
 
             <form name="blah" action="/tc">
                 <input type="hidden" name="module" value="Static"/>
-                <input type="hidden" name="d1" value="tournaments"/>
+                <input type="hidden" name="d1" value="tournaments"/>    
                 <input type="hidden" name="d2" value="tchs07"/>
                 <input type="hidden" name="d3" value="photos"/>
 
@@ -146,7 +146,7 @@
                 of <strong><script type="text/javascript">document.write(images.length);</script></strong>
                 
                 <a href="#spot" onClick="changeImage(getNextIdx());">next</a>
-                <br>Go to <input type="text" value="" name="" size="3"/>
+                <br>Go to <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/>
                 
                 <div id="slideImage" style="margin: 6px 0px;">
                     <img src="#" id="slideImg" alt=""/>
