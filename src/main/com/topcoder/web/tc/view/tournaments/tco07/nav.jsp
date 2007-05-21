@@ -133,9 +133,7 @@
                         <li class="stop"><a href="/tc?module=SimpleStats&d1=tournaments&d2=tco07&d3=algorithm&&d4=qualification&c=tco07_alg_qual&trans=true"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("qualification")) {%> class="navHighlight"<% } %>><span>Qualification</span></a></li>
                         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=sectionA"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("sections")) {%> class="navHighlight"<% } %>><span>Sections</span></a></li>
                         <li class="stop"><a href="/tc?module=SimpleStats&c=tco07_alg_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=algorithm&d4=advancers"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("overview")) {%> class="navHighlight"<% } %>><span>Overview</span></a></li>
-                <%--
-                        <li class="stop"><a href=""><span>Bracket</span></a></li>
-                --%>
+                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=bracket"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
                     </ul>
                 </li>
                 <%--
