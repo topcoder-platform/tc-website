@@ -199,4 +199,9 @@ function flipMenu(myMenuName){
 <jsp:include page="/includes/modules/simpleSearch.jsp"/>
 </div>
 <div style="float: left; clear:left; padding: 0px 0px 23px 0px;"><img src="/i/interface/leftnav_bottom.gif" alt="" /></div>
-<div align="center" style="float: left; clear:left; width: 170px; margin: 0px 0px 23px 0px;"><img src="/i/interface/brackets.png" alt="" /></div>
+
+<%
+    String node = request.getParameter("node") == null ? "" : request.getParameter("node");
+    if (!node.equals("competition_home")) {%>
+    <div align="center" style="float: left; clear:left; width: 170px; margin: 0px 0px 23px 0px;"><img src="/i/interface/brackets.png" alt="" /></div>
+<% } %>
