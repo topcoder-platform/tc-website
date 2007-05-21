@@ -15,10 +15,10 @@
 <script type="text/javascript">
 <!--
   function checkAll(check) {
-    var elements = document.paymentForm.elements;
-    for (i=0; i<document.paymentForm.elements.length; i++) {
-      if (document.paymentForm.elements[i].type=="checkbox") {
-        document.paymentForm.elements[i].checked = (check==true);
+    var elements = document.f.elements;
+    for (i=0; i<document.f.elements.length; i++) {
+      if (document.f.elements[i].type=="checkbox") {
+        document.f.elements[i].checked = (check==true);
       }
     }
   }
@@ -44,6 +44,8 @@
 
 <br>
 
+<form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+    <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GeneratDRPayments"/>
 
 <c:forEach  items="${contests}" var="c">
 <h3>${c.name }</h3>
@@ -70,19 +72,17 @@
 	<tr>
 		<td colspan="2" align="right">Total:</td>
 		<td align="right"><b><fmt:formatNumber value="${c.totalPrizes}" type="currency" currencySymbol="$"/></b></td>
-		<td>Status</td>
+		<td></td>
 	</tr>
 </table>
 
 
 </c:forEach>
 
-<form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
-    <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateIntroEventCompPayments"/>
 
+<br><br>
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
-<br><br>
 
 
 <br>
