@@ -59,9 +59,9 @@ public class WidthHeightSetter {
         BufferedImage image = ImageIO.read(iis);
 
         ps.clearParameters();
-        ps.setInt(0, image.getWidth());
-        ps.setInt(1, image.getHeight());
-        ps.setInt(2, id);
+        ps.setInt(1, image.getWidth());
+        ps.setInt(2, image.getHeight());
+        ps.setInt(3, id);
         ps.executeUpdate();
 
     }
