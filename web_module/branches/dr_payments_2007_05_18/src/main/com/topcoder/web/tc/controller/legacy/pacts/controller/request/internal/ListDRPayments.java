@@ -3,7 +3,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
@@ -13,6 +13,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
+ * USE CACHED DATA ACCESS!
  * @author Cucu
  */
 public class ListDRPayments extends BaseProcessor implements PactsConstants {
@@ -66,7 +67,7 @@ getRequest().setAttribute("contests", contests);
         r.setProperty(Constants.PHASE_ID, phaseId + "");
         r.setProperty(Constants.STAGE_ID, stageId + "");
         
-        ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_stage_active_projects");
+        ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_stage_active_projects"); 
 
         return rsc.getIntItem(0, 0);        
     }
@@ -77,7 +78,7 @@ getRequest().setAttribute("contests", contests);
         r.setProperty(Constants.PHASE_ID, phaseId + "");
         r.setProperty(Constants.STAGE_ID, stageId + "");
         
-        ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_contests_for_stage");
+        ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_contests_for_stage");
 
         List<Contest> contests = new ArrayList<Contest>();
         
