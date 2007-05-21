@@ -48,7 +48,7 @@ public class GenerateDRPayments extends ShortHibernateProcessor implements Pacts
                 long stageId = Long.parseLong(getRequest().getParameter(Constants.STAGE_ID));
                 payment = new DigitalRunTopThirdPayment(coderId, amount,stageId, place);
                 
-            } else if (contestTypeId.equals(19)) {
+            } else if (contestTypeId.equals(20)) {
                 long seasonId = Long.parseLong(getRequest().getParameter(Constants.SEASON_ID));
                 
                 payment = new DigitalRunRockiePrizePayment(coderId, amount, seasonId, place); 
