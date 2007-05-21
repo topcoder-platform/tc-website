@@ -41,7 +41,16 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
                  }
                  
             } else if (getRequest().getParameter(Constants.SEASON_ID) != null) {
+                periodId = Integer.parseInt(getRequest().getParameter(Constants.SEASON_ID));
+                desActiveCount = getSeasonActiveProjects(periodId, 112);
+                if (desActiveCount == 0) {
+                    contests.addAll(getSeasonContests(periodId, 112));
+                }
                 
+                devActiveCount = getSeasonActiveProjects(periodId, 113);
+                if (devActiveCount == 0) {
+                    contests.addAll(getSeasonContests(periodId, 113));
+                }
             } else {
                 throw new TCWebException("Either " + Constants.STAGE_ID + " or " + Constants.SEASON_ID + " expected.");
             }
@@ -79,6 +88,27 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
 
         return rsc.getIntItem(0, 0);        
     }
+
+    /**
+     * Get the number of active projects for a season and a phase
+     * 
+     * @param seasonId
+     * @param phaseId
+     * @return
+     * @throws Exception
+     */
+    private int getSeasonActiveProjects(int seasonId, int phaseId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("dr_season_active_projects");
+        r.setProperty(Constants.PHASE_ID, phaseId + "");
+        r.setProperty(Constants.SEASON_ID, seasonId + "");
+        
+        ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_season_active_projects"); 
+
+        return rsc.getIntItem(0, 0);        
+    }
+
+    
     
     private List<Contest> getStageContests(int stageId, int phaseId) throws Exception {
         Request r = new Request();
@@ -97,7 +127,25 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         return contests;
         
     }
-    
+
+    private List<Contest> getSeasonContests(int seasonId, int phaseId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("dr_contests_for_season");
+        r.setProperty(Constants.PHASE_ID, phaseId + "");
+        r.setProperty(Constants.SEASON_ID, seasonId + "");
+        
+        ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_contests_for_season");
+
+        List<Contest> contests = new ArrayList<Contest>();
+        
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            contests.add(new Contest(row.getIntItem("contest_id"), row.getIntItem("contest_type_id"), row.getStringItem("contest_name")));
+        }
+        
+        return contests;
+        
+    }
+
     
     @SuppressWarnings("unchecked")
     private void fillPaid(Contest contest, int periodId) throws Exception {
@@ -115,9 +163,10 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         }
             
         List<IntroEventCompPayment> l = dib.findPayments(paymentType, contest.getId());
+log.debug(l.size() + " payments found for contest " + contest.getId());
 
         for (ContestResult cr :contest.getResults()) {
-            for (BasePayment payment : l) {
+            for (BasePayment payment : l) {                
                 if (cr.getCoderId() == payment.getCoderId()) {
                     cr.setPaymentId(payment.getId());
                 }

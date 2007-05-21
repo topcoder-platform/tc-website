@@ -49,10 +49,10 @@
 <h3>${c.name }</h3>
 <table cellpadding="3">
 	<tr>
-		<td>Place</td>
-		<td>Coder</td>
-		<td>Amount</td>
-		<td>Status</td>
+		<td><b>Place</b></td>
+		<td><b>Coder</b></td>
+		<td><b>Amount</b></td>
+		<td><b>Status</b></td>
 	</tr>
 	<c:forEach items="${c.results }" var="r">
 		<tr>
@@ -69,7 +69,7 @@
 	</c:forEach>
 	<tr>
 		<td colspan="2" align="right">Total:</td>
-		<td align="right"><fmt:formatNumber value="${c.totalPrizes}" type="currency" currencySymbol="$"/></td>
+		<td align="right"><b><fmt:formatNumber value="${c.totalPrizes}" type="currency" currencySymbol="$"/></b></td>
 		<td>Status</td>
 	</tr>
 </table>
