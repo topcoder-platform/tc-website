@@ -31,11 +31,10 @@ function viewList() {
 
 <br>
 <br>
-<form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="get">
-    <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="ListDRPayments">
+<form name="f" action="#" method="get">
 
 <br>
-            <tc-webtag:rscSelect name="period" list="${periods}" fieldText="name" fieldValue="value" topValue="[Select a Period]" />
+            <tc-webtag:rscSelect name="period" list="${periods}" fieldText="name" fieldValue="value" useTopValue="false" />
 
 <br>
 <br>
