@@ -77,7 +77,7 @@
     <% for (int n = 0; n < payments.length; n++) {
         out.print("<tr>\n");
         out.print("<td>" + payments[n].getDescription() + "</td>\n");
-        out.print("<td>" + payments[n].getStatusDesc() + "</td>\n");
+        out.print("<td>" + payments[n].getCurrentStatus().getDesc() + "</td>\n");
         out.print("<td>" + payments[n].getType() + "</td>\n");
         out.print("<td>" + payments[n].getMethod() + "</td>\n");
         out.print("<td>" + df.format(payments[n].getNetAmount()) + "</td>\n");
@@ -86,18 +86,18 @@
         out.print("<td>" + payments[n].getDueDate() + "</td>\n");
         out.print("<td>" + payments[n].getPayDate() + "</td>\n");
         out.print("<td>" + payments[n].getRationale() + "</td>\n");
-        if (payments[n].getStatusId() == PactsConstants.PAID_STATUS) {
-            out.print("<td><pre>");
-            out.println(payments[n].getLastName() + ", " + payments[n].getFirstName() + " " + payments[n].getMiddleName());
-            out.println(payments[n].getAddress1());
-            out.println(payments[n].getAddress2());
-            out.println(payments[n].getAddress3());
-            out.print(payments[n].getCity() + ", " + payments[n].getState() + " (");
-            out.println(payments[n].getStateCode() + ") " + payments[n].getZip() + " " + payments[n].getProvince());
-            out.print(payments[n].getCountry() + " (" + payments[n].getCountryCode() + ")");
-            out.print("</pre></td>\n");
-        }
-        out.print("</tr>\n");
+//        if (payments[n].getCurrentStatus().getDesc() == PactsConstants.PAID_STATUS) {
+//            out.print("<td><pre>");
+//            out.println(payments[n].getLastName() + ", " + payments[n].getFirstName() + " " + payments[n].getMiddleName());
+//            out.println(payments[n].getAddress1());
+//            out.println(payments[n].getAddress2());
+//            out.println(payments[n].getAddress3());
+//            out.print(payments[n].getCity() + ", " + payments[n].getState() + " (");
+//            out.println(payments[n].getStateCode() + ") " + payments[n].getZip() + " " + payments[n].getProvince());
+//            out.print(payments[n].getCountry() + " (" + payments[n].getCountryCode() + ")");
+//            out.print("</pre></td>\n");
+//        }
+//        out.print("</tr>\n");
     }
     %>
 
