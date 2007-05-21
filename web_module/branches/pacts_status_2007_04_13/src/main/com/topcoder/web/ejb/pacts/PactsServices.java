@@ -118,15 +118,15 @@ public interface PactsServices extends EJBObject {
 
     // Data update routines
     // Additions
-    long addAffidavit(Affidavit a, String affidavitText)
-            throws RemoteException, IllegalUpdateException, SQLException;
+//    long addAffidavit(Affidavit a, String affidavitText)
+//            throws RemoteException, IllegalUpdateException, SQLException;
 
     long addAffidavit(Affidavit a, String affidavitText, Payment p)
             throws RemoteException, IllegalUpdateException, SQLException;
 
     long addContract(Contract c, String contractText) throws RemoteException, SQLException;
 
-    long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException;
+//    long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException;
 
 //    long addContractPayment(long contractId, Payment p)
 //            throws RemoteException, IllegalUpdateException, SQLException;
@@ -150,8 +150,8 @@ public interface PactsServices extends EJBObject {
 
     void updateContract(Contract c) throws RemoteException, NoObjectFoundException, SQLException;
 
-    void updatePayment(Payment p)
-            throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException;
+//    void updatePayment(Payment p)
+//            throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException;
 
     void updateTaxForm(TaxForm t)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
@@ -254,9 +254,9 @@ public interface PactsServices extends EJBObject {
 
     BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException;
 
-    void deletePayment(long paymentId) throws RemoteException, Exception;
+//    void deletePayment(long paymentId) throws RemoteException, Exception;
 
-    void deletePayment(BasePayment payment) throws RemoteException, Exception;
+//    void deletePayment(BasePayment payment) throws RemoteException, Exception;
 
     BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
 

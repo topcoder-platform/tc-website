@@ -123,15 +123,15 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     // Data update routines
     // Additions
-    long addAffidavit(Affidavit a, String affidavitText)
-            throws  IllegalUpdateException, SQLException;
+//    long addAffidavit(Affidavit a, String affidavitText)
+//            throws  IllegalUpdateException, SQLException;
 
     long addAffidavit(Affidavit a, String affidavitText, Payment p)
             throws  IllegalUpdateException, SQLException;
 
     long addContract(Contract c, String contractText) throws  SQLException;
 
-    long addPayment(Payment p) throws  IllegalUpdateException, SQLException;
+//    long addPayment(Payment p) throws  IllegalUpdateException, SQLException;
     
     long addPayment(Payment p, boolean payReferrer) throws  IllegalUpdateException, SQLException;
 
@@ -157,8 +157,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     void updateContract(Contract c) throws  NoObjectFoundException, SQLException;
 
-    void updatePayment(Payment p)
-            throws  NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException;
+//    void updatePayment(Payment p)
+//            throws  NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException;
 
     void updateTaxForm(TaxForm t)
             throws  NoObjectFoundException, IllegalUpdateException, SQLException;
@@ -269,9 +269,9 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     BasePayment getBasePayment(long paymentId) throws  SQLException, InvalidStatusException;
     
-    void deletePayment(long paymentId) throws  SQLException;
+//    void deletePayment(long paymentId) throws  SQLException;
 
-    void deletePayment(BasePayment payment) throws  SQLException;
+//    void deletePayment(BasePayment payment) throws  SQLException;
 
     BasePayment fillPaymentData(BasePayment payment) throws  SQLException;
 

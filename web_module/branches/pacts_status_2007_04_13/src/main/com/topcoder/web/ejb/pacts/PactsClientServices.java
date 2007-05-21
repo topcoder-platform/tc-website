@@ -120,7 +120,7 @@ public interface PactsClientServices extends EJBObject {
      *
      * @param paymentId id of the payment to delete.
      */
-    void deletePayment(long paymentId) throws RemoteException, Exception;
+//    void deletePayment(long paymentId) throws RemoteException, Exception;
 
     /**
      * Delete a payment.
@@ -128,7 +128,7 @@ public interface PactsClientServices extends EJBObject {
      * @param payment payment to delete.
      * @throws SQLException
      */
-    void deletePayment(BasePayment payment) throws RemoteException, Exception;
+//    void deletePayment(BasePayment payment) throws RemoteException, Exception;
 
     /**
      * Look up and fill data in the payment object.

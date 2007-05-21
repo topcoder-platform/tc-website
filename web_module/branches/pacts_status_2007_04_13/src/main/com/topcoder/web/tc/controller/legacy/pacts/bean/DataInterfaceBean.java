@@ -1328,24 +1328,24 @@ public class DataInterfaceBean implements PactsConstants {
         ps.updateContract(c);
     }
 
-    /**
-     * Updates the given payment.  This process creates a new payment detail record, and also
-     * a new payment address record if the payment status is "Ready to Print".  It will throw an
-     * IllegalUpdateException if the payment's status is "Printed" or "Paid" - these status
-     * updates are done automatically by the system.
-     *
-     * @param   p The updated payment information
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  NoObjectFoundException If the specified object does not exist.
-     * @throws  IllegalUpdateException If the user tried to make an update that is not allowed.
-     * @throws  PaymentPaidException If the payment has already been paid.
-     * @throws  SQLException If there is some problem updating the data
-     */
-    public void updatePayment(Payment p)
-            throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        ps.updatePayment(p);
-    }
+//    /**
+//     * Updates the given payment.  This process creates a new payment detail record, and also
+//     * a new payment address record if the payment status is "Ready to Print".  It will throw an
+//     * IllegalUpdateException if the payment's status is "Printed" or "Paid" - these status
+//     * updates are done automatically by the system.
+//     *
+//     * @param   p The updated payment information
+//     * @throws  RemoteException If there is some communication problem with the EJB
+//     * @throws  NoObjectFoundException If the specified object does not exist.
+//     * @throws  IllegalUpdateException If the user tried to make an update that is not allowed.
+//     * @throws  PaymentPaidException If the payment has already been paid.
+//     * @throws  SQLException If there is some problem updating the data
+//     */
+//    public void updatePayment(Payment p)
+//            throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        ps.updatePayment(p);
+//    }
 
     /**
      * Updates the given tax form (excluding text updates).
