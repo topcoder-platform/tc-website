@@ -4469,13 +4469,15 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int i;
         Connection c = null;
         SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_STRING);
+        TransactionManager tm = null;
 
         try {
-            c = DBMS.getConnection();
+            tm = (TransactionManager) TCContext.getInitial().lookup(ApplicationServer.TRANS_MANAGER);
+
+            c = DBMS.getConnection(trxDataSource);
             if (makeChanges) {
-                c.setAutoCommit(false);
+                tm.begin();
             }
-            setLockTimeout(c);
 
             // Make sure we haven't done this before for this round.
             StringBuffer checkNew = new StringBuffer(300);
@@ -4584,28 +4586,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             if (makeChanges) {
-                c.commit();
-                c.setAutoCommit(true);
+                tm.commit();
             }
-            c.close();
-            c = null;
-
             return numWinners;
 
         } catch (Exception e) {
             printException(e);
             if (makeChanges) {
-                try {
-                    c.rollback();
-                } catch (Exception e1) {
-                    printException(e1);
-                }
-                restoreAutoCommit(c);
+                rollback(tm);
             }
-            close(c);            
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
             throw new SQLException(e.getMessage());
+        } finally {
+            close(c);            
         }
     }
 
@@ -5574,76 +5568,61 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return payment the payment added.
      * @throws SQLException
      */
-    private BasePayment addPayment(BasePayment payment, Connection conn) throws Exception {
-        BasePayment.Processor processor = payment.getProcessor();
-
-        if (processor.isDuplicated(payment)) {
-            throw new IllegalArgumentException("Payment is already in the database.");
-        }
-
-        processor.fillData(payment);
-
-        // delegate status to the mediator
-        (new PaymentStatusMediator()).newPayment(payment);
-        
-        Payment p = createPayment(payment);
-
-        log.debug("1) payment.getCurrentStatus().getDesc():" + payment.getCurrentStatus().getDesc());
-        log.debug("1) payment.getCurrentStatus().getReasons().size():" + payment.getCurrentStatus().getReasons().size());
-
-        long paymentId;
-
-        // Special treating for algorithm payments, because they have affidavits.
-        if (payment instanceof AlgorithmContestPayment ||
-                payment instanceof AlgorithmTournamentPrizePayment ||
-                payment instanceof MarathonMatchPayment) {
-            paymentId = makeNewAlgorithmPayment(conn, p, (AlgorithmRoundReferencePayment) payment);
-        } else if (payment.getContractId() > 0) {
-            paymentId = makeNewContractPayment(conn, payment.getContractId(), p);
-        } else {
-            paymentId = makeNewPayment(conn, p, p.payReferrer());
-        }
-
-        payment.setId(paymentId);
-        payment.setNetAmount(p.getNetAmount());
-        payment.resetModificationRationale();
-
-        return payment;
-    }
-
-    /**
-     * Add a payment in the database.
-     * An instance of a subclass of BasePayment must be passed.
-     *
-     * @param payment payment to add.
-     * @return payment the payment added.
-     * @throws SQLException
-     */
-    public BasePayment addPayment(BasePayment payment) throws SQLException {
+    private BasePayment addPayment(BasePayment payment) throws Exception {
         Connection c = null;
+        TransactionManager tm = null;
 
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
+            tm = (TransactionManager) TCContext.getInitial().lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
 
-            payment = addPayment(payment, c);
-
-            c.commit();
-
+            c = DBMS.getConnection(trxDataSource);
+            BasePayment.Processor processor = payment.getProcessor();
+    
+            if (processor.isDuplicated(payment)) {
+                throw new IllegalArgumentException("Payment is already in the database.");
+            }
+    
+            processor.fillData(payment);
+    
+            // delegate status to the mediator
+            (new PaymentStatusMediator()).newPayment(payment);
+            
+            Payment p = createPayment(payment);
+    
+            log.debug("1) payment.getCurrentStatus().getDesc():" + payment.getCurrentStatus().getDesc());
+            log.debug("1) payment.getCurrentStatus().getReasons().size():" + payment.getCurrentStatus().getReasons().size());
+    
+            long paymentId;
+    
+            // Special treating for algorithm payments, because they have affidavits.
+            if (payment instanceof AlgorithmContestPayment ||
+                    payment instanceof AlgorithmTournamentPrizePayment ||
+                    payment instanceof MarathonMatchPayment) {
+                paymentId = makeNewAlgorithmPayment(c, p, (AlgorithmRoundReferencePayment) payment);
+            } else if (payment.getContractId() > 0) {
+                paymentId = makeNewContractPayment(c, payment.getContractId(), p);
+            } else {
+                paymentId = makeNewPayment(c, p, p.payReferrer());
+            }
+    
+            tm.commit();
+            
+            payment.setId(paymentId);
+            payment.setNetAmount(p.getNetAmount());
+            payment.resetModificationRationale();
+    
             return payment;
         } catch (SQLException e) {
-            rollback(c);
+            rollback(tm);
             printException(e);
             throw e;
         } catch (Exception e) {
-            rollback(c);
+            rollback(tm);
             printException(e);
             throw new SQLException(e.getMessage());
         } finally {
-            setAutoCommit(c, true);
             close(c);
-            c = null;
         }
     }
 
@@ -5656,33 +5635,32 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public List addPayments(List payments) throws SQLException {
         Connection c = null;
-
+        TransactionManager tm = null;
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
+            tm = (TransactionManager) TCContext.getInitial().lookup(ApplicationServer.TRANS_MANAGER);
+            tm.begin();
+
+            c = DBMS.getConnection(trxDataSource);
 
             List p = new ArrayList();
 
             for (int i = 0; i < payments.size(); i++) {
-                p.add(addPayment((BasePayment) payments.get(i), c));
+                p.add(addPayment((BasePayment) payments.get(i)));
             }
 
-            c.commit();
+            tm.commit();
 
             return p;
         } catch (SQLException e) {
-            rollback(c);
+            rollback(tm);
             printException(e);
             throw e;
         } catch (Exception e) {
-            rollback(c);
+            rollback(tm);
             printException(e);
             throw new SQLException(e.getMessage());
         } finally {
-            setAutoCommit(c, true);
             close(c);
-            c = null;
         }
     }
 
