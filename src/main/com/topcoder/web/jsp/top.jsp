@@ -75,31 +75,31 @@ function findPos(obj) {
 <div align="center" style="margin: 0px 290px 0px 280px;">
    <div id="outerLogo">
       <div id="innerLogo">
-      <A href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/interface/topcoder.gif" alt="TopCoder" /></A>
+      <A href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="/i/interface/topcoder.gif" alt="TopCoder" style="display: block;" /></A>
       </div>
    </div>
 </div>
 
 <div class="memberCountBox">
 Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())%> - <jsp:include page="/date_time.jsp" />
-&#160;<a class="gMetal" href="Javascript:tcTime()">[Get Time]</a>
+&nbsp;<a class="gMetal" href="Javascript:tcTime()">[Get Time]</a>
 </div>
 
 <div class="topBar">
-   <div style="float: right; margin-left: 650px;">
-   <% if ( !sessionInfo.isAnonymous() ) { %>
-       Hello,&#160;<tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" />
-      <% if (level1.equals("long")) { %>
-               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Logout">Logout</a>
-      <% } else { %>
-               &#160;&#160;|&#160;&#160;<a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a>
-      <% } %>
-   <% } else {
-       if (level1.equals("long")) {%>
-               <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
-      <% } else { %>
-               <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=Login">Login</a>
-      <% } %>
-   <%}%>
-   </div>
+    <div style="float: right; margin: 5px 0px 0px 0px;">
+        <% if ( !sessionInfo.isAnonymous() ) { %>
+            Hello,&nbsp;<tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true" />
+            <% if (level1.equals("long")) { %>
+                | <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Logout">Logout</a>
+            <% } else { %>
+                | <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Logout">Logout</a>
+            <% } %>
+        <% } else {
+            if (level1.equals("long")) {%>
+                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
+            <% } else { %>
+                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=Login">Login</a>
+            <% } %>
+        <%}%>
+    </div>
 </div>
