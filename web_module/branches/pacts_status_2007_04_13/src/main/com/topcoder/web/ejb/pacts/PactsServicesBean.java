@@ -5568,7 +5568,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return payment the payment added.
      * @throws SQLException
      */
-    public BasePayment addPayment(BasePayment payment) throws Exception {
+    public BasePayment addPayment(BasePayment payment) throws SQLException {
         Connection c = null;
         TransactionManager tm = null;
 
