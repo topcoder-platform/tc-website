@@ -41,13 +41,17 @@ public class GenerateDRPayments extends ShortHibernateProcessor implements Pacts
             BasePayment payment = null;
             
             if (contestTypeId.equals(19)) {
-                payment = new DigitalRunPrizePayment(coderId, amount, Long.parseLong(Constants.STAGE_ID), place); 
+                long stageId = Long.parseLong(getRequest().getParameter(Constants.STAGE_ID));
+                payment = new DigitalRunPrizePayment(coderId, amount, stageId, place); 
                 
-            } else if (contestTypeId.equals(18)) {                
-                payment = new DigitalRunTopThirdPayment(coderId, amount, Long.parseLong(Constants.STAGE_ID), place);
+            } else if (contestTypeId.equals(18)) {
+                long stageId = Long.parseLong(getRequest().getParameter(Constants.STAGE_ID));
+                payment = new DigitalRunTopThirdPayment(coderId, amount,stageId, place);
                 
             } else if (contestTypeId.equals(19)) {
-                payment = new DigitalRunRockiePrizePayment(coderId, amount, Long.parseLong(Constants.SEASON_ID), place); 
+                long seasonId = Long.parseLong(getRequest().getParameter(Constants.SEASON_ID));
+                
+                payment = new DigitalRunRockiePrizePayment(coderId, amount, seasonId, place); 
 
             } else {
                 throw new Exception("Invalid contest type: " + contestTypeId);
