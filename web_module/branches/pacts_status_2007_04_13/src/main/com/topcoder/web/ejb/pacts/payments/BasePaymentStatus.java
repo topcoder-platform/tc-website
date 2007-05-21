@@ -18,7 +18,8 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 public abstract class BasePaymentStatus implements java.io.Serializable {
     protected List<PaymentStatusReason> reasons = new ArrayList<PaymentStatusReason>();
     
-    public Connection conn = null;
+    
+    public transient Connection conn = null;
     
     public BasePaymentStatus() {
         super();
