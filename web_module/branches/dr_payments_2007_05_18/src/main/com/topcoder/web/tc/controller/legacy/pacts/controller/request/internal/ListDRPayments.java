@@ -21,7 +21,7 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         try {
             int desActiveCount = 0;
             int devActiveCount = 0;
-            List<Integer> contests = new ArrayList<Integer>();
+            List<Contest> contests = new ArrayList<Contest>();
             
             if (getRequest().getParameter(Constants.STAGE_ID) != null) {
                 int stageId = Integer.parseInt(getRequest().getParameter(Constants.STAGE_ID));
@@ -71,7 +71,7 @@ getRequest().setAttribute("contests", contests);
         return rsc.getIntItem(0, 0);        
     }
     
-    private List<Integer> getStageContests(int stageId, int phaseId) throws Exception {
+    private List<Contest> getStageContests(int stageId, int phaseId) throws Exception {
         Request r = new Request();
         r.setContentHandle("dr_contests_for_stage");
         r.setProperty(Constants.PHASE_ID, phaseId + "");
@@ -79,14 +79,59 @@ getRequest().setAttribute("contests", contests);
         
         ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_contests_for_stage");
 
-        List<Integer> contests = new ArrayList<Integer>();
+        List<Contest> contests = new ArrayList<Contest>();
         
         for (ResultSetContainer.ResultSetRow row : rsc) {
-            contests.add(row.getIntItem("contest_id"));
+            contests.add(new Contest(row.getIntItem("contest_id"), row.getIntItem("contest_type_id"), row.getStringItem("contest_name")));
         }
         
         return contests;
         
+    }
+    
+    /**
+     * Class to hold data of a contest and its results.
+     * 
+     * @author Cucu
+     *
+     */
+    public static class Contest {
+        private int id;
+        private int typeId;
+        private String name;
+        private List<ContestResult> results;
+        
+        public Contest(int id, int typeId, String name) {
+            this.id = id;
+            this.typeId = typeId;
+            this.name = name;
+            results = new ArrayList<ContestResult>();
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public int getTypeId() {
+            return typeId;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public List<ContestResult> getResults() {
+            return results;
+        }
+        
+        public void addResult(ContestResult result) {
+            results.add(result);
+        }
+        
+    }
+    
+    public static class ContestResult {
+    
     }
     
 }

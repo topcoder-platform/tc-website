@@ -29,20 +29,22 @@
     <body>
         <h1>PACTS</h1>
         <h2 align="center">Generate Digital Run Payments</h2>
+
+<br>
+<c:if test="${desActiveCount >0 }">
+	<h3>Design phase not yet completed: ${desActiveCount } projects still active.</h3>
+</c:if>
+<c:if test="${devsActiveCount >0 }">
+	<h3>Development phase not yet completed: ${devActiveCount } projects still active.</h3>
+</c:if>
+
         <center>
 
 <br>
 
-<br>
-<c:if test="${desActiveCount >0 }">
-	<h3>Design phase not yet completed: ${desActiveCount } still active.</h3>
-</c:if>
-<c:if test="${devsActiveCount >0 }">
-	<h3>Development phase not yet completed: ${devActiveCount } still active.</h3>
-</c:if>
 
 <c:forEach  items="${contests}" var="c">
-contest: ${c }<br>
+contest: ${c.id }, ${c.typeId }, ${c.name }<br>
 </c:forEach>
 
 <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
