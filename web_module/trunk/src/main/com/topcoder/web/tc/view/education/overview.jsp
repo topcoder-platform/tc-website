@@ -39,12 +39,16 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=algorithmGames"><strong>Algorithm Games</strong></a>, by <tc-webtag:handle coderId="13396848" context="algorithm"/><br>
+The games we will talk about are two-person games with perfect information, no chance moves, and a win-or-lose outcome. In these games, players usually alternate moves until they reach a terminal position.</li>
 <li><a href="/tc?module=Static&d1=features&d2=051707"><strong>TCO Preview: Component Design and Development Competition</strong></a>, by <tc-webtag:handle coderId="275640" /><br>
 While not the most popular or spectator-friendly tournament track, the component contest always proves to be a tough five-week competition. This year was no exception, with hundreds of members registered and more than 100 submitting.</li>
 <li><a href="/tc?module=Static&d1=features&d2=051407"><strong>A Crash Course in SQL, Part 2</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
 In this last installment of this article series on relational databases, we'll take a look at some more of the "core" SQL concepts any good programmer needs to know, and we'll take a look at how to interact with relational databases using Java.</li>
+<%--
 <li><a href="/tc?module=Static&d1=features&d2=051007"><strong>TCO Preview: The Marathon Match Competition</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
 With this year's addition of Marathon Matches to the TopCoder Open, and a chance for 8 finalists to take a free trip to Las Vegas -- not to mention the hope of winning $15,000 -- it's no wonder that competitors came from far and wide to try their coding skills.</li>
+--%>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>

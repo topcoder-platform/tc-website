@@ -170,6 +170,10 @@
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow2"><strong>Part 2 - Algorithms</strong></a><br>
                &#160;-&#160;<a href="/tc?module=Static&d1=tutorials&d2=minimumCostFlow3"><strong>Part 3 - Applications</strong></a><br>
             </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="13396848" context="algorithm"/>
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=algorithmGames"><strong>Algorithm Games</strong></a>
+            </td></tr>
            <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
             </tr>
