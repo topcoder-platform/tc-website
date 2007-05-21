@@ -44,9 +44,9 @@
 
 
 <c:forEach  items="${contests}" var="c">
-contest: ${c.id }, ${c.typeId }, ${c.name }<br>
+<h3>contest: ${c.id }, ${c.typeId }, ${c.name }</h3><br>
 <c:forEach items="${c.results }" var="r">
-	${r.place }, ${r.coderId }, $ ${r.prize }, ${r.paymentId }
+	${r.place }, ${r.coderId }, $ ${r.prize }, ${r.paymentId }<br>
 </c:forEach>
 ${c.totalPrizes }
 

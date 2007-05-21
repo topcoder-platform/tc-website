@@ -131,7 +131,7 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         r.setContentHandle("dr_contest_payments");
         r.setProperty(Constants.CONTEST_ID, contest.getId() + "");
         
-        ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_contest_payments");
+        ResultSetContainer rsc = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get("dr_contest_payments");
         
         for (ResultSetContainer.ResultSetRow row : rsc) {
             double prize = Math.round(row.getDoubleItem("prize") * 100) / 100.0;
