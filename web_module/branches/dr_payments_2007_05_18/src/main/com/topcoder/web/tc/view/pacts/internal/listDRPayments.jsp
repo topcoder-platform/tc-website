@@ -4,6 +4,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <html>
@@ -30,6 +31,8 @@
         <h1>PACTS</h1>
         <h2 align="center">Generate Digital Run Payments</h2>
 
+        <center>
+
 <br>
 <c:if test="${desActiveCount >0 }">
 	<h3>Design phase not yet completed: ${desActiveCount } projects still active.</h3>
@@ -38,17 +41,39 @@
 	<h3>Development phase not yet completed: ${devActiveCount } projects still active.</h3>
 </c:if>
 
-        <center>
 
 <br>
 
 
 <c:forEach  items="${contests}" var="c">
-<h3>contest: ${c.id }, ${c.typeId }, ${c.name }</h3><br>
-<c:forEach items="${c.results }" var="r">
-	${r.place }, ${r.coderId }, $ ${r.prize }, ${r.paymentId }<br>
-</c:forEach>
-${c.totalPrizes }
+<h3>${c.name }</h3>
+<table>
+	<tr>
+		<td>Place</td>
+		<td>Coder</td>
+		<td>Amount</td>
+		<td>Status</td>
+	</tr>
+	<c:forEach items="${c.results }" var="r">
+		<tr>
+			<td>${r.place }</td>
+			<td><tc-webtag:handle coderId="${r.coderId}" context='component'/> </td>
+			<td align="right">$ <fmt:formatNumber value="${r.prize}" type="currency" currencySymbol="$"/> </td>
+			<td>
+			   		<c:choose>
+			   			<c:when test="${not empty r.paymentId}"><font color="#00A000">Paid </font><a href="${pacts:viewPayment(r.paymentId)}">(view)</a></c:when>
+			   			<c:otherwise><input type="checkbox" name="pay" value="TO-DO"> Pay</c:otherwise>
+			   		</c:choose>			
+			</td>
+		</tr>			
+	</c:forEach>
+	<tr>
+		<td colspan="2" align="right">Total:</td>
+		<td align="right"><fmt:formatNumber value="${c.totalPrizes}" type="currency" currencySymbol="$"/></td>
+		<td>Status</td>
+	</tr>
+</table>
+
 
 </c:forEach>
 
