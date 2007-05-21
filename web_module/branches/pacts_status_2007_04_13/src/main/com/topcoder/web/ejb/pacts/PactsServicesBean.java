@@ -4564,32 +4564,32 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             // Add address record if necessary
-            if (addressData != null && p.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS))) {
-                paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
-
-                StringBuffer addAddress = new StringBuffer(300);
-                addAddress.append("INSERT INTO payment_address ");
-                addAddress.append(" (payment_address_id, first_name, middle_name, last_name, ");
-                addAddress.append("  address1, address2, city, state_code, zip, country_code, address3, province) ");
-                addAddress.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
-                ps = c.prepareStatement(addAddress.toString());
-                ps.setLong(1, paymentAddressId);
-                ps.setString(2, (String) addressData.getItem("first_name").getResultData());
-                ps.setString(3, (String) addressData.getItem("middle_name").getResultData());
-                ps.setString(4, (String) addressData.getItem("last_name").getResultData());
-                ps.setString(5, (String) addressData.getItem("address1").getResultData());
-                ps.setString(6, (String) addressData.getItem("address2").getResultData());
-                ps.setString(7, (String) addressData.getItem("city").getResultData());
-                ps.setString(8, (String) addressData.getItem("state_code").getResultData());
-                ps.setString(9, (String) addressData.getItem("zip").getResultData());
-                ps.setString(10, (String) addressData.getItem("country_code").getResultData());
-                ps.setString(11, (String) addressData.getItem("address3").getResultData());
-                ps.setString(12, (String) addressData.getItem("province").getResultData());
-
-                ps.executeUpdate();
-                ps.close();
-                ps = null;
-            }
+//            if (addressData != null && p.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS))) {
+//                paymentAddressId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_ADDRESS_SEQ);
+//
+//                StringBuffer addAddress = new StringBuffer(300);
+//                addAddress.append("INSERT INTO payment_address ");
+//                addAddress.append(" (payment_address_id, first_name, middle_name, last_name, ");
+//                addAddress.append("  address1, address2, city, state_code, zip, country_code, address3, province) ");
+//                addAddress.append(" VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
+//                ps = c.prepareStatement(addAddress.toString());
+//                ps.setLong(1, paymentAddressId);
+//                ps.setString(2, (String) addressData.getItem("first_name").getResultData());
+//                ps.setString(3, (String) addressData.getItem("middle_name").getResultData());
+//                ps.setString(4, (String) addressData.getItem("last_name").getResultData());
+//                ps.setString(5, (String) addressData.getItem("address1").getResultData());
+//                ps.setString(6, (String) addressData.getItem("address2").getResultData());
+//                ps.setString(7, (String) addressData.getItem("city").getResultData());
+//                ps.setString(8, (String) addressData.getItem("state_code").getResultData());
+//                ps.setString(9, (String) addressData.getItem("zip").getResultData());
+//                ps.setString(10, (String) addressData.getItem("country_code").getResultData());
+//                ps.setString(11, (String) addressData.getItem("address3").getResultData());
+//                ps.setString(12, (String) addressData.getItem("province").getResultData());
+//
+//                ps.executeUpdate();
+//                ps.close();
+//                ps = null;
+//            }
 
             long paymentDetailId = insertPaymentDetail(c, p, paymentAddressId);
 
