@@ -1,6 +1,6 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
-import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
@@ -18,7 +18,7 @@ public class ViewGenerateDRPayments extends BaseProcessor implements PactsConsta
         try {
             Request r = new Request();
             r.setContentHandle("dr_finished_periods");
-            ResultSetContainer rsc = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_finished_periods");
+            ResultSetContainer rsc = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME).getData(r).get("dr_finished_periods");
             
             
             getRequest().setAttribute("periods" , rsc);

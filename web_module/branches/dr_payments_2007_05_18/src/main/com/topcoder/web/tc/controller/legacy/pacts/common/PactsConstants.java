@@ -511,6 +511,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_LIST_INTRO_EVENT_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/listIntroEventCompPayments.jsp";
     public static final String INTERNAL_VIEW_GENERATE_INTRO_EVENT_COMPONENT_PAYMENTS = INTERNAL_JSP_DIR + "/viewGenerateIntroEventCompPayments.jsp";
     public static final String INTERNAL_VIEW_GENERATE_DR_PAYMENTS = INTERNAL_JSP_DIR + "/viewGenerateDRPayments.jsp";
+    public static final String INTERNAL_LIST_DR_PAYMENTS = INTERNAL_JSP_DIR + "/listDRPayments.jsp";
 
     /*
       veredox - Don't get your panties in a knot.
