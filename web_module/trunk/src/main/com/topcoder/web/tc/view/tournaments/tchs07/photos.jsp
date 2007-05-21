@@ -93,6 +93,7 @@
             else if (imageIndex >= images.length) imageNum = images.length-1;
             else imageNum = imageIndex;
             document.getElementById("slideImg").src = images[imageNum];
+            document.blah.currImage.value = imageNum+1;
             // document.getElementById("slideImg").alt = descriptions[imageNum];
             document.getElementById('currImage').innerHTML = imageNum + 1;
             // document.getElementById('date').innerHTML = dates[imageNum];
@@ -106,7 +107,17 @@
     </script>
 </head>
 
-<body onload="javascipt: changeImage(0);">
+<%
+    final String CURR_IMAGE_KEY = "currImage";
+    String currImage = request.getParameter(CURR_IMAGE_KEY)==null?"":request.getParameter(CURR_IMAGE_KEY);
+%>
+
+
+<%if (!currImage.equals("")) { %>
+<body onload="changeImage('slideImg', <%=currImage%>);">
+<% } else { %>
+<body onload="changeImage('slideImg', 1);">
+<% } %>
 
 <div align="center" style="background: transparent;">
     <div class="content">
