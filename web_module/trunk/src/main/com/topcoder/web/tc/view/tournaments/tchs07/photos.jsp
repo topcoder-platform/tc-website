@@ -114,9 +114,9 @@
 
 
 <%if (!currImage.equals("")) { %>
-<body onload="changeImage(<%=currImage%>);">
+<body onload="changeImage(<%=currImage%>-1);">
 <% } else { %>
-<body onload="changeImage(1);">
+<body onload="changeImage(0);">
 <% } %>
 
 <div align="center" style="background: transparent;">
