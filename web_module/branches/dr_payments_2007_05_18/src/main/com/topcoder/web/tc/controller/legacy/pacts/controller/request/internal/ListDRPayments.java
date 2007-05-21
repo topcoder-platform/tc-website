@@ -167,8 +167,8 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
             throw new Exception("Invalid contest type: " + contest.getTypeId());
         }
             
-        List<IntroEventCompPayment> l = dib.findPayments(paymentType, contest.getId());
-log.debug(l.size() + " payments found for contest " + contest.getId());
+        List<IntroEventCompPayment> l = dib.findPayments(paymentType, periodId);
+log.debug(l.size() + " payments found for period " + periodId);
 
         for (ContestResult cr :contest.getResults()) {
             for (BasePayment payment : l) {                
