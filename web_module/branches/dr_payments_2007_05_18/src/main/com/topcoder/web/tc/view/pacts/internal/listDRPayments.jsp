@@ -47,7 +47,7 @@
 <br>
 
 <form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
-    <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GeneratDRPayments"/>
+    <input type="hidden" name="<%=PactsConstants.MODULE_KEY%>" value="GenerateDRPayments"/>
     <input type="hidden" name="<%=Constants.STAGE_ID%>" value="<%= request.getAttribute(Constants.STAGE_ID) %> }"/>
     <input type="hidden" name="<%=Constants.SEASON_ID%>" value="<%= request.getAttribute(Constants.SEASON_ID) %>"/>
 
