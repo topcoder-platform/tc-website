@@ -192,7 +192,6 @@ function flipMenu(myMenuName){
 // -->
 </script>
 
-<!--node is <%=request.getParameter("node")%> -->
 <div style="float: left; padding: 0px 0px 0px 0px;"><img src="/i/interface/leftnav_top.gif" alt="" /></div>
 <div id="navbar">
 <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
