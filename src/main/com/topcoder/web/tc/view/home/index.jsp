@@ -111,6 +111,22 @@
                 <%-- DIGITAL RUN 
                 <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrun20061104.png" alt="The Digital Run" border="0" style="display:block;"/></A>
                 --%>
+                
+                <%-- DIGITAL RUN ASSEMBLY CUP --%>
+                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunAsmblyCup.png" alt="The Digital Run Assembly Cup" border="0" style="display:block;"/></A>
+                
+                
+                <%-- DIGITAL RUN DESIGN CUP
+                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunDesCup.png" alt="The Digital Run Design Cup" border="0" style="display:block;"/></A>
+                --%>
+                
+                <%-- DIGITAL RUN DEVELOPMENT CUP
+                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunDevCup.png" alt="The Digital Run Development Cup" border="0" style="display:block;"/></A>
+                --%>
+                
+                <%-- DIGITAL RUN TOTAL PRIZES
+                <A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/home/digitalrunTotalPrizes.png" alt="The Digital Run Total Prizes" border="0" style="display:block;"/></A>
+                --%>
 
                 <%-- TCO07
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
@@ -132,8 +148,9 @@
                 <img src="/i/home/srm348_nsa.png" alt="SRM 348 brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
                  --%>
 
-                <%-- LICENSE ID --%>
+                <%-- LICENSE ID 
                 <A href="<tc-webtag:linkTracking link='http://studio.topcoder.com/?module=ViewContestDetails&ct=2093' refer='homepage' />"><img src="/i/home/licenseIDProject.jpg" alt="License ID Project" border="0" style="display:block;"/></A>
+                --%>
 
             </td>
         </tr>
@@ -285,12 +302,17 @@
                <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07sm.png" alt="TCO07" border="0" style="display:block;"/></A>
              --%>
              
-            <%-- TCHS07 --%>
+            <%-- TCHS07 
                <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"><img src="/i/home/tchs07_promo_051007.png" alt="TCHS07" border="0" style="display:block;"/></A>
-            
+            --%>
+               
             <%-- CSF 
             <A href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005" refer="tc_Index"/>"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF Powered by TopCoder" style="display:block;" /></A>
             --%>
+            
+            <%-- LICENSE ID --%>
+            <A href="<tc-webtag:linkTracking link='http://studio.topcoder.com/?module=ViewContestDetails&ct=2093' refer='homepage' />"><img src="/i/home/licenseIDProject.jpg" alt="License ID Project" border="0" style="display:block;"/></A>
+             
         </td>
     </tr>
 </table>
