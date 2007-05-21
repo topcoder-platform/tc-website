@@ -129,18 +129,21 @@
         <li>challenges received successful</li>
         <li>challenges received failed</li>
         <li>rated flag (1 or 0)</li>
+        <li>level one problem id</li>
         <li>level one submission points</li>
         <li>level one final points</li>
         <li>level one status</li>
         <li>level one time elapsed</li>
         <li>level one placed</li>
         <li>level one language</li>
+        <li>level two problem id</li>
         <li>level two submission points</li>
         <li>level two final points</li>
         <li>level two status</li>
         <li>level two time elapsed</li>
         <li>level two placed</li>
         <li>level two language</li>
+        <li>level three problem id</li>
         <li>level three submission points</li>
         <li>level three final points</li>
         <li>level three status</li>
