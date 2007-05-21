@@ -44,7 +44,7 @@
 
 
 <p>
-    5.9.3 - 2007.05.xx
+    5.9.3 - 2007.05.21
     <ul>
         <li>Don't cache marathon match data for too long, it's too big -dok</li>
         <li>Add component name filter on component past contests page -dok</li>

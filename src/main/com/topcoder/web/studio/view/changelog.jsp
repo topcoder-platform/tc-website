@@ -29,7 +29,7 @@
 
 
 <p>
-    1.3.2 - 2007.05.xx
+    1.3.2 - 2007.05.21
     <ul>
         <li>Use create date for submission date, and remove submission date field -dok</li>
         <li>Add the ability for a competitor to remove a submission -dok</li>
