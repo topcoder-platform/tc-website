@@ -8,6 +8,7 @@
     <property name="testclasses" value="${build}/testcases"/>
     <property name="build.javadocs" value="${build}/javadocs"/>
     <property name="lib.dir" value="lib"/>
+    <property name="jive.dir" value="lib/jars/jive"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
     <property name="struts.dir" value="${lib.dir}/jakarta-struts-1.1/lib"/>
     <property name="bin" value="lib/bin"/>
@@ -48,6 +49,12 @@
         <pathelement location="${jars.dir}/ifxjdbc.jar"/>
         <pathelement location="${jars.dir}/bfograph.jar"/>
         <pathelement location="${jars.dir}/activation.jar"/>
+
+        <pathelement location="${jive.dir}/jivebase.jar"/>
+        <pathelement location="${jive.dir}/jiveforums.jar"/>
+        <pathelement location="${jive.dir}/xwork.jar"/>
+        <pathelement location="${jive.dir}/htmlparser.jar"/>
+        
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
         <pathelement location="${jars.dir}/jboss/javax.servlet.jsp.jar"/>
@@ -997,6 +1004,20 @@
             </classpath>
         </java>
     </target>
+
+
+
+
+   <target name="oldstudio" depends="compile">
+        <java classname="com.topcoder.utilities.WidthHeightSetter" fork="true">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                <pathelement location="${resources}"/>
+            </classpath>
+        </java>
+    </target>
+
 
     <target name="run_loader_tests" depends="compile_tests" description="run junit tests">
         <junit printsummary="${junitsummary}" fork="yes">
