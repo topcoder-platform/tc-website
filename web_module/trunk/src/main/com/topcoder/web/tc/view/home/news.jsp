@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.21.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=bracket">TCO07 Algorithm Competition Brackets now online</A>
+        </span><br><br>
+        The semifinal room assignments for the TCO07 Algorithm Competition are now available online.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=bracket">details</A> |
+        <tc-webtag:forumLink forumID="514954" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.21.07<br>2:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -204,20 +223,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.14.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=051407">A Crash Course in SQL, Part 2</A></span><br><br>
-      In this last installment of this article series on relational databases, we'll take a look at some more of the "core" SQL concepts any good programmer needs to know, and we'll take a look at how to interact with relational databases using Java.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/dcp_big2.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="21684580" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=051407">full story</A> | 
-        <tc-webtag:forumLink forumID="515215" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
