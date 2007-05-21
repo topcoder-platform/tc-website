@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.21.07<br>2:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=algorithmGames">Algorithm Games</A></span><br><br>
+      In algorithm games, players usually alternate moves until they reach a terminal position -- one player is then declared the winner, and the other the loser. In this tutorial, we'll look at the basic division of positions to winning and losing, along with a look at the Game of Nim and composite games.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/rasto6sk_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="13396848" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=algorithmGames">full story</A> | 
+        <tc-webtag:forumLink forumID="515870" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.19.07<br>9:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -204,19 +221,3 @@
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>05.11.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">Downtime for scheduled maintenance: Sunday, May 13</span><br><br>
-        Due to maintenance, the TopCoder site will be down for approximately 30 minutes starting at 6:00 PM EDT on Sunday, May 13.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <tc-webtag:forumLink forumID="515782" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
