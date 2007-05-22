@@ -146,7 +146,7 @@ Other useful services that you might find useful to enhance the user experience 
 <li><A href="http://csf.networkmashups.com/IdentityManager30/IdentityManager.ashx">Identity Management</A> - the component that provides the details about the persona participant. <A href="http://msdn2.microsoft.com/en-us/library/aa303438.aspx">More information can be found here.</A></li>
 </ol>
 
-<h2>What is the "Session Manifest"?</h2>
+<h3>What is the "Session Manifest"?</h3>
 
 <p>
 <A href="/i/download/msSessionManifest/manifest.xml">manifest.xml</A> provides an idea about the format of Session manifest, details about participant manifest, types of participants, routing rules & policy details.
@@ -197,7 +197,14 @@ A persona participant manifest would look as described below
 
 <A href="http://msdn2.microsoft.com/en-us/library/aa303446.aspx">More information</A>
 
-<h2>What Microsoft is looking For</h2>
+<h3>Example Visualizations</h3>
+
+<p>
+<A href="/i/download/msSessionManifest/form1.jpg">form1.jpg</A>
+<br><A href="/i/download/msSessionManifest/sessionDiagram.jpg">sessionDiagram.jpg</A>
+</p>
+
+<h3>What Microsoft is looking For</h3>
 
 <ol>
 <li>.Net/Javascript Source code for the tool that you have built with the appropriate level of in-code comments</li>

@@ -75,10 +75,10 @@
                             <A href="/?module=Static&d1=assembly&d2=msSessionManifestDetails">Microsoft Session Manifest Tool</A>
                         </td>
                         <td class="valueC" nowrap="nowrap">
-                             <strong>04.10.2007</strong><br>16:00 EST
+                             <strong>05.22.2007</strong><br>16:00 EST
                         </td>
                         <td class="valueC" nowrap="nowrap">
-                             <strong>04.23.2007</strong><br>17:00 EST
+                             <strong>06.05.2007</strong><br>17:00 EST
                         </td>
                         <td class="valueR" nowrap="nowrap">
                             $3,000.00

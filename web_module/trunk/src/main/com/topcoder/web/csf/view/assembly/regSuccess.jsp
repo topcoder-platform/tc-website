@@ -40,7 +40,7 @@
 <div class="breadcrumb">
     <a href="/?module=Static&d1=competitions">Competitions</a>
     > <a href="/?module=Static&d1=assembly&d2=activeContests">Active Assembly Competitions</a>
-    > BT Business CSF Mashup Assembly Competition
+    > Microsoft Session Manifest Tool
 </div>
 
 <div align="center" style="margin: 100px 0px 140px 0px;">
