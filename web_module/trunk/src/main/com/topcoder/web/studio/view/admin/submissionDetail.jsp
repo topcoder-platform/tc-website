@@ -3,6 +3,7 @@
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -74,11 +75,10 @@
 
                     <c:choose>
                         <c:when test="${submission.mimeType.fileType.imageFile}">
-                            <img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}"/>
+                            <studio_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}" isAdminSite="true" includeLink="false"/>
                         </c:when>
                         <c:otherwise>
-                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
-                                Submission</a>
+                            <studio_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}" isAdminSite="true" includeLink="false"/>
                         </c:otherwise>
                     </c:choose>
                     <br/>

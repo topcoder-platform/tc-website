@@ -7,6 +7,7 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 <% ResultSetContainer results = (ResultSetContainer) request.getAttribute("results");%>
 <html>
 <head>
@@ -122,7 +123,7 @@
                             <%--THIS IS A CRAPPY WAY TO MAKE THE PAGE MANAGEABLE BEFORE RESIZING THE IMAGE--%>
                             <div align="center">
                                 <div style="overflow: hidden; width: 300px;">
-                                    <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="<%=Constants.SUBMISSION_ID%>" style="display: block;" onload="resizeImage(this);"/></A>
+                                    <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
                                 </div>
                             </div>
                         </c:when>
