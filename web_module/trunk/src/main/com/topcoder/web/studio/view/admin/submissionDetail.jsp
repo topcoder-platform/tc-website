@@ -78,7 +78,8 @@
                             <studio_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}" isAdminSite="true" includeLink="false"/>
                         </c:when>
                         <c:otherwise>
-                            <studio_tags:submissionDisplay submissionId="${submission.id}" width="${submission.width}" height="${submission.height}" isAdminSite="true" includeLink="false"/>
+                            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminDownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=${submission.id}">View
+                                Submission</a>
                         </c:otherwise>
                     </c:choose>
                     <br/>
