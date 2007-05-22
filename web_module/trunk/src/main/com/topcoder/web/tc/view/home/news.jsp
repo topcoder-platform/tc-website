@@ -15,6 +15,24 @@
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 --------------%>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.22.07<br>3:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Semi">TCHS07 Semifinal Round - Problem Set &amp; Analysis</A></span><br><br>
+      The match started with a very easy 250 problem that almost everyone was able to solve. The medium had a coder-friendly statement and was not very difficult as well. The hard problem could be solved but it included several tricks, which brought a lot of excitement into the challenge phase.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Katya_Lazareva_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8436401" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Semi">full story</A> | 
+        <tc-webtag:forumLink forumID="514497" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.21.07<br>4:00 PM</td>
@@ -214,25 +232,6 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">details</A> |
         <tc-webtag:forumLink forumID="505918" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.14.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogWinners">Introducing the TCO07 bloggers</A>
-        </span><br><br>
-        The voting is closed, and the community has ranked its favorite blog entries -- congratulations to <tc-webtag:handle coderId="10574855" /> and <tc-webtag:handle coderId="15498334" />!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogWinners">details</A> |
-        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=43">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
