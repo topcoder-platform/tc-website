@@ -4685,22 +4685,19 @@ public class TCLoadTCS extends TCLoad {
         log.debug("load season results");
         
         final String SELECT_SEASONS =
-            " select distinct s.season_id, pidr.value as dr_ind, " +
+            " select distinct s.season_id, " +
             "    (select min(start_date) from stage st where st.season_id = s.season_id) as start_date, " +
             "    (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " +
             " from project_result pr,  " + 
             "      season s,   " +
             "      project p,    " +
             "      project_info piel,   " +
-            "      outer project_info pidr   " +
             " where p.project_id = pr.project_id    " +
             " and p.project_status_id <> 3    " +
             " and p.project_category_id in (1, 2)    " +
             " and piel.project_info_type_id = 14   " +
             " and piel.value = 'Open'   " +
             " and p.project_id = piel.project_id  " +
-            " and p.project_id = pidr.project_id   " +
-            " and pidr.project_info_type_id = 26   " +
             " and (p.modify_date > ? " +
             "     OR pr.modify_date > ?)  " +
             " and (  " +
@@ -4797,19 +4794,19 @@ public class TCLoadTCS extends TCLoad {
             "       ,pr.final_score " +            
             "       ,pr.passed_review_ind " +
             "       ,pi_amount.value as amount " +
+            "       ,pi_dr.value as dr_ind " +
             "       ,(select count(*) from submission s, upload u  " +
             "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
             "         and submission_status_id in (1, 4) " +
             "        ) as num_submissions_passed_review  " +
             " from project p " +
             "    ,project_info pi_amount " +
-            "    ,project_info pi_dr " +
             "    ,project_result pr " +
+            "    ,outer project_info pi_dr " +
             " where pi_amount.project_id = p.project_id " +
             " and pi_amount.project_info_type_id = 16 " +
             " and pi_dr.project_id = p.project_id " +
             " and pi_dr.project_info_type_id = 26 " +
-            " and pi_dr.value = 'On' " +
             " and p.project_id = pr.project_id " +
             " and p.project_category_id = ? " +
             " and ( " +
@@ -4854,6 +4851,11 @@ public class TCLoadTCS extends TCLoad {
             List<ProjectResult> pr = new ArrayList<ProjectResult>();
             int count = 0;
             while (rs.next()) {
+                // Skip non Digital Review projects
+                if ("Off".equals(rs.getString("dr_ind"))) {
+                    continue;
+                }
+                
                 ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
                         rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
                         rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
