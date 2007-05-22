@@ -40,10 +40,10 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         
         for(ProjectResult p : pr) {
             // don't process results where the coder didn't pass review
-            if (!p.isPassedReview()) continue;
+            if (!p.isPassedReview()) { System.out.println(" coder " + p.getUserId() + " pr " + p.getProjectId() + " didn't pass review"); continue; }
             
             // enables filtering by subclasses
-            if (!processProjectResult(p)) continue;
+            if (!processProjectResult(p))  { System.out.println(" coder " + p.getUserId() + " pr " + p.getProjectId() + " SKIPPED " ); continue; }
             
             ContestResult cr = results.get(p.getUserId());
             
