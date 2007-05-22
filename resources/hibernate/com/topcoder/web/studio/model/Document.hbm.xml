@@ -15,6 +15,7 @@
             <key column="document_id"/>
             <many-to-many column="contest_id" class="Contest"/>
         </set>
+        <property name="originalFileName" column="original_file_name"/>
         <property name="systemFileName" column="system_file_name"/>
         <many-to-one name="path" column="path_id" class="FilePath" cascade="save-update"/>
         <many-to-one name="mimeType" column="mime_type_id" class="MimeType"
