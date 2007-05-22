@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.ejb.EJBException;
+import javax.ejb.SessionContext;
 import javax.transaction.Status;
 import javax.transaction.SystemException;
 import javax.transaction.TransactionManager;
@@ -76,6 +77,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     private static final double DESIGN_PROJECT_FIRST_INSTALLMENT_PERCENT = 0.75;
 
     private static final String trxDataSource = DBMS.JTS_OLTP_DATASOURCE_NAME;
+
+    private SessionContext ejbContext;
 
     public void ejbRemove() {
         super.ejbRemove();
@@ -5570,7 +5573,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public BasePayment addPayment(BasePayment payment) throws SQLException {
         Connection c = null;
-        TransactionManager tm = null;
+//        TransactionManager tm = null;
 
         try {
 //            tm = (TransactionManager) TCContext.getInitial().lookup(ApplicationServer.TRANS_MANAGER);
@@ -5614,10 +5617,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
             return payment;
         } catch (SQLException e) {
+            ejbContext.setRollbackOnly();
 //            rollback(tm);
             printException(e);
             throw e;
         } catch (Exception e) {
+            ejbContext.setRollbackOnly();
 //            rollback(tm);
             printException(e);
             throw new SQLException(e.getMessage());
@@ -6134,6 +6139,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         } catch (SystemException se) {
             //do nothing
         }
+    }
+
+
+    /**
+     * @see javax.ejb.SessionBean#setSessionContext(javax.ejb.SessionContext)
+     */
+    public void setSessionContext(SessionContext ctx) throws EJBException {
+        this.ejbContext = ctx;
     }
 
 }

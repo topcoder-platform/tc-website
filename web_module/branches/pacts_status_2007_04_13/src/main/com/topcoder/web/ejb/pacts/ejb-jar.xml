@@ -41,9 +41,20 @@
                 <ejb-name>PactsClientServices</ejb-name>
                 <method-name>*</method-name>
             </method>
+            <trans-attribute>Supports</trans-attribute>
+        </container-transaction>
+        <container-transaction>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>addPayment</method-name>
+                <method-params>com.topcoder.web.ejb.pacts.BasePayment</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsClientServices</ejb-name>
+                <method-name>addPayment</method-name>
+                <method-params>com.topcoder.web.ejb.pacts.BasePayment</method-params>
+            </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
-
-
