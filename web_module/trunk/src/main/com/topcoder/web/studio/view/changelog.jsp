@@ -27,7 +27,12 @@
 <div class="contentSpacer">
 
 
-
+<p>
+    1.3.3 - 2007.05.xxx
+    <ul>
+        <li>figure out image sizes server size and let client resize rather than resizing via javascript -dok</li>
+    </ul>
+</p>
 <p>
     1.3.2 - 2007.05.21
     <ul>
