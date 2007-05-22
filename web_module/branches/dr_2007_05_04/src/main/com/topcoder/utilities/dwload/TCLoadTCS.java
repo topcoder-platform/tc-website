@@ -4691,7 +4691,7 @@ public class TCLoadTCS extends TCLoad {
             " from project_result pr,  " + 
             "      season s,   " +
             "      project p,    " +
-            "      project_info piel,   " +
+            "      project_info piel   " +
             " where p.project_id = pr.project_id    " +
             " and p.project_status_id <> 3    " +
             " and p.project_category_id in (1, 2)    " +
