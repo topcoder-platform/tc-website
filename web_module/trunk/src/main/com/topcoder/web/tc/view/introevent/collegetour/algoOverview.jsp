@@ -70,7 +70,7 @@
     <A href="/tc?module=MatchDetails&rd=${mainEvent.roundId}">${contestName}
     </A>.
     In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
-    <a href="/tc?module=IntroEventViewReg&eid=${eid}">here</a>
+    <a href="/tc?module=IntroEventViewRegister&eid=${eid}">here</a>
     and be onsite for the competition.
     After the event ends, pizza will be served and a TopCoder representative will be present to discuss
     TopCoder competitions and employment services.
