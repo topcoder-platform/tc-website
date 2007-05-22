@@ -11,10 +11,12 @@
 <%@ page import="com.topcoder.shared.dataAccess.DataAccess"%>
 <%@ page import="com.topcoder.shared.util.DBMS"%>
 <%@ page import="com.topcoder.shared.dataAccess.QueryDataAccess"%>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <html>
   <head>
     <title>TopCoder Reporting II</title>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   </head>
   <body>
     <a href=<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>><< back to main menu<a><br/><br/>
