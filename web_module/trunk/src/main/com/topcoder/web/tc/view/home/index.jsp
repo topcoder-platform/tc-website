@@ -331,6 +331,11 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            <%-- POST WEDNESDAY ???
+            Yodlee to Sponsor TopCoder Single Round Match Series
+            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_052207">...more</A><br>[May 23]<br><br>
+            --%>
+
             Belarus All College Programming Event
             <A target="_blank" href="/tc?module=Static&d1=features&d2=050807">...more</A><br>[May 8]<br><br>
 
@@ -354,12 +359,6 @@
             </div>
             UBS, DRW, and NSA Join TCO 07
             <A href="/tc?module=Static&d1=pressroom&d2=pr_030507">...more</A><br>[March 5]<br><br>
-
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/tco07_logo.png" alt="TCO07" width="88" height="41" border="0"/>
-            </div>
-            TopCoder Announces TopCoder Open 2007 Sponsored by AOL
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_022207">...more</A><br>[February 22]<br><br>
 
         </td>
     </tr>
