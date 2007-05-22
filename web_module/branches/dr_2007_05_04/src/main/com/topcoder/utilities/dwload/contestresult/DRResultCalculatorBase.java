@@ -39,11 +39,12 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
         
         for(ProjectResult p : pr) {
+            if (p.getUserId() == 322651514) System.out.println("  record found pr = "+ p.getProjectId() );
             // don't process results where the coder didn't pass review
-            if (!p.isPassedReview()) { System.out.println(" coder " + p.getUserId() + " pr " + p.getProjectId() + " didn't pass review"); continue; }
+            if (!p.isPassedReview())  continue; 
             
             // enables filtering by subclasses
-            if (!processProjectResult(p))  { System.out.println(" coder " + p.getUserId() + " pr " + p.getProjectId() + " SKIPPED " ); continue; }
+            if (!processProjectResult(p))  continue; 
             
             ContestResult cr = results.get(p.getUserId());
             
@@ -60,7 +61,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
                 // Completed project:
                 // add the points for placement
                 cr.addPoints(calculatePointsAwarded(p));
-System.out.println(p.getProjectId() + " " + cr.getCoderId() + " " + calculatePointsAwarded(p));                
+if (cr.getCoderId() == 322651514)           System.out.println(p.getProjectId() + " " + calculatePointsAwarded(p));                
                 // remove penalty points if needed.
                 if (p.getPointAdjustment() > 0) {
                     cr.discountPoints(p.getPointAdjustment());
