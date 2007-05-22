@@ -36,7 +36,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException
 import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
 
@@ -1786,9 +1785,9 @@ public class DataInterfaceBean implements PactsConstants {
         ps.affirmAssignmentDocument(ad);
     }
     
-    public List<BasePaymentStatus> getPaymentStatusList(Boolean onlyViewable) throws RemoteException, SQLException {
+    public List<BasePaymentStatus> getPaymentStatusList() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.getPaymentStatusList(onlyViewable);
+        return ps.getPaymentStatusList();
     }
 
     public boolean hasAffirmedAssignmentDocument(long paymentTypeId, long coderId, long contestId) throws RemoteException {

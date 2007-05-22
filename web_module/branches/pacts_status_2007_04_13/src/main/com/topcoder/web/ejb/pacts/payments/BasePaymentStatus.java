@@ -5,7 +5,6 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +17,6 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 public abstract class BasePaymentStatus implements java.io.Serializable {
     protected List<PaymentStatusReason> reasons = new ArrayList<PaymentStatusReason>();
     
-    
-    //public transient Connection conn = null;
-    
     public BasePaymentStatus() {
         super();
     }
@@ -31,7 +27,6 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
         for (PaymentStatusReason reason : reasons) {
             newPaymentStatus.reasons.add(reason);
         }
-//        newPaymentStatus.conn = this.conn;
         
         return newPaymentStatus;  
     }
@@ -41,11 +36,7 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
     public abstract String getDesc();
 
     public abstract Long getId();
-    
-    public abstract Boolean isSelectable();
-    
-    public abstract Boolean isValid(BasePayment payment);
-    
+            
     public void nextState(BasePayment payment) throws StateTransitionFailureException {
     }
 

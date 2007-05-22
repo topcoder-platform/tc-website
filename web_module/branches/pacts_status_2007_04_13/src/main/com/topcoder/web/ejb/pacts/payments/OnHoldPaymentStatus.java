@@ -183,17 +183,6 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public Boolean isSelectable() {
-        return false;
-    }
-
-    @Override
-    public Boolean isValid(BasePayment payment) {
-        // since this is a system managed status, it's always valid
-        return true;
-    }
-
-    @Override
     public void delete(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("moving to deleted!");
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS));

@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.pacts;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +17,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException
 import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 
 /**
@@ -121,22 +119,10 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     Map findUsers(Map searchCriteria) throws  SQLException;
 
-    // Data update routines
-    // Additions
-//    long addAffidavit(Affidavit a, String affidavitText)
-//            throws  IllegalUpdateException, SQLException;
-
     long addAffidavit(Affidavit a, String affidavitText, Payment p)
             throws  IllegalUpdateException, SQLException;
 
     long addContract(Contract c, String contractText) throws  SQLException;
-
-//    long addPayment(Payment p) throws  IllegalUpdateException, SQLException;
-    
-//    long addPayment(Payment p, boolean payReferrer) throws  IllegalUpdateException, SQLException;
-
-//    long addContractPayment(long contractId, Payment p)
-//            throws  IllegalUpdateException, SQLException;
 
     long addTaxForm(TaxForm t, String taxFormText)
             throws  IllegalUpdateException, SQLException;
@@ -157,9 +143,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     void updateContract(Contract c) throws  NoObjectFoundException, SQLException;
 
-//    void updatePayment(Payment p)
-//            throws  NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException;
-
     void updateTaxForm(TaxForm t)
             throws  NoObjectFoundException, IllegalUpdateException, SQLException;
 
@@ -169,21 +152,9 @@ public interface PactsServicesLocal extends EJBLocalObject {
     void updateText(long objectId, int objectType, String newText)
             throws  NoObjectFoundException, SQLException;
 
-    // Special payment update routines
-//    void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
-//            throws  IllegalUpdateException, JMSException;
-
-//    UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
-//            throws  SQLException;
-
-//    void reviewPayments(long paymentId[])
-//            throws  NoObjectFoundException, IllegalUpdateException, SQLException;
-
     // Utility routines
     boolean canAffirmAffidavit(long userId, int affidavitTypeId)
             throws  SQLException;
-
-//    String[] printPayments() throws  PaymentNotReviewedException, SQLException;
 
     int generateRoundPayments(long roundId, boolean makeChanges)
             throws IllegalUpdateException,  SQLException;
@@ -196,9 +167,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
     	throws IllegalUpdateException,  SQLException;
-
-//    List generateComponentPayments(long projectId, long status, String client)
-//            throws IllegalUpdateException,  SQLException;
 
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
     		throws IllegalUpdateException,  SQLException, EventFailureException;
@@ -242,9 +210,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
     Map findComponentContests(String search) throws  SQLException;
 
     Map findStudioContests(String search) throws  SQLException;
-    
-//    ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws   SQLException;
-    
+        
     ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws   SQLException;
     
     // ================== Methods from the Client Service ================== 
@@ -255,8 +221,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     BasePayment updatePayment(BasePayment payment) throws  Exception;
 
-//    BasePayment updatePayment(Connection c, BasePayment payment) throws  Exception;
-
     List findPayments(int paymentTypeId) throws  SQLException, InvalidStatusException;
 
     List findPayments(int paymentTypeId, long referenceId) throws  SQLException, InvalidStatusException;
@@ -265,13 +229,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     List findCoderPayments(long coderId, int paymentTypeId) throws  SQLException, InvalidStatusException;
 
-//    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws  SQLException, InvalidStatusException;
-    
     BasePayment getBasePayment(long paymentId) throws  SQLException, InvalidStatusException;
-    
-//    void deletePayment(long paymentId) throws  SQLException;
-
-//    void deletePayment(BasePayment payment) throws  SQLException;
 
     BasePayment fillPaymentData(BasePayment payment) throws  SQLException;
 
@@ -297,19 +255,13 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     void affirmAssignmentDocument(AssignmentDocument ad);
     
-    List<BasePaymentStatus> getPaymentStatusList(Boolean onlyViewable) throws SQLException;
+    List<BasePaymentStatus> getPaymentStatusList() throws SQLException;
 
     boolean hasAffirmedAssignmentDocument(long paymentTypeId, long coderId, long contestId);
 
     public List<BasePayment> findCoderPayments(Map searchCriteria);
 
-//    public List<BasePayment> findCoderPayments(Connection c, Map searchCriteria);
-    
-//    public double getUserAccrualThreshold(Connection conn, long userId) throws SQLException;
-
     public double getUserAccrualThreshold(long userId) throws SQLException;
-
-//    public double getUserAccruingPaymentsTotal(Connection conn, long userId) throws SQLException;
 
     public double getUserAccruingPaymentsTotal(long userId) throws SQLException;
 }

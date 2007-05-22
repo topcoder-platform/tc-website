@@ -62,23 +62,12 @@ public class PaymentStatusFactory {
     }
 
     public static List<BasePaymentStatus> getAllStatusList() {
-        return getStatusList(false);
-    }
-    
-    public static List<BasePaymentStatus> getSelectableStatusList() {
-        return getStatusList(true);
-    }
-    
-    private static List<BasePaymentStatus> getStatusList(boolean onlySelectable) {
         List statusList = new ArrayList<BasePaymentStatus>(); 
 
         for (PaymentStatus availableStatus : PaymentStatus.values()) {
             BasePaymentStatus status = createStatus(availableStatus);
-            if (!onlySelectable || status.isSelectable()) {
-                statusList.add(status);
-            }
+            statusList.add(status);
         }
         return statusList;            
     }
-
 }

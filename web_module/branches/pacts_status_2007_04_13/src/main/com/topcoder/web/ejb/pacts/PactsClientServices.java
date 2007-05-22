@@ -94,19 +94,6 @@ public interface PactsClientServices extends EJBObject {
     List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception, InvalidStatusException;
 
     /**
-     * Find the payments of the specified type for a coder, referencing to a particular id.
-     * For example, if the payment is for algorithm contest, in the referenceId you must pass the round_id to look for.
-     * If the payment is for review board, you must pass the project_id and so on.
-     *
-     * @param coderId the coder to find payments for.
-     * @param paymentTypeId type of payment to look for.
-     * @param referenceId reference to look for
-     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
-     * @throws SQLException
-     */
-//    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception, InvalidStatusException;
-
-    /**
      * Get a BasePayment from the database.
      * 
      * @param paymentId id of the payment to load.
@@ -115,21 +102,6 @@ public interface PactsClientServices extends EJBObject {
      */
     BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException;
     
-    /**
-     * Delete a payment.
-     *
-     * @param paymentId id of the payment to delete.
-     */
-//    void deletePayment(long paymentId) throws RemoteException, Exception;
-
-    /**
-     * Delete a payment.
-     *
-     * @param payment payment to delete.
-     * @throws SQLException
-     */
-//    void deletePayment(BasePayment payment) throws RemoteException, Exception;
-
     /**
      * Look up and fill data in the payment object.
      * It fills:

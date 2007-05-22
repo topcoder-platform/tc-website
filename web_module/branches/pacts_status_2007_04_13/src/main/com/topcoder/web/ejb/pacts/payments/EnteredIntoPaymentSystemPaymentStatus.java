@@ -49,17 +49,6 @@ public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
     }
 
     @Override
-    public Boolean isSelectable() {
-        return false;
-    }
-
-    @Override
-    public Boolean isValid(BasePayment payment) {
-        // since this is a system managed status, it's always valid
-        return true;
-    }
-
-    @Override
     public void nextState(BasePayment payment) {
         //payment.setCurrentStatus(new EnteredIntoPaymentSystemPaymentStatus(payment));
     }

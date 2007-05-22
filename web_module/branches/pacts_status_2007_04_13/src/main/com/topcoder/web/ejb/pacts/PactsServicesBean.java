@@ -2245,12 +2245,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @return The list of payment statuses
      * @throws SQLException If there is some problem retrieving the data
      */
-    public List<BasePaymentStatus> getPaymentStatusList(Boolean onlyViewable) throws SQLException {
-        if (onlyViewable) {
-            return PaymentStatusFactory.getSelectableStatusList();
-        } else {
-            return PaymentStatusFactory.getAllStatusList();
-        }
+    public List<BasePaymentStatus> getPaymentStatusList() throws SQLException {
+        return PaymentStatusFactory.getAllStatusList();
     }
 
     /**
