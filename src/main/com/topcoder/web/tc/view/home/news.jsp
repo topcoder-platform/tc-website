@@ -2,11 +2,11 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%------------------------------------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>05.22.07<br>9:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_052207">Yodlee to Sponsor TopCoder Single Round Match Series</A></span><br><br>
-      Online Banking Solutions Leader Seeks Competitive Edge of TopCoder Community
+      TopCoder today announced that Yodlee, a leader in online banking solutions, will sponsor a series of three SRMs beginning on May 29th and continuing on June 24th and July 12th. Each match will offer prize purses of $5,000 for a total of $15,000 in cash payouts over the three part series.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -14,7 +14,7 @@
        <tc-webtag:forumLink forumID="515873" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
---%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.21.07<br>4:00 PM</td>
