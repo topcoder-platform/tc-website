@@ -3,6 +3,7 @@ package com.topcoder.web.studio.model;
 import com.topcoder.web.common.model.Base;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Set;
  */
 public class Document extends Base {
     private Long id;
-    private Set<Contest> contests;
+    private Set<Contest> contests = new HashSet<Contest>();
     private String originalFileName;
     private String systemFileName;
     private FilePath path;
