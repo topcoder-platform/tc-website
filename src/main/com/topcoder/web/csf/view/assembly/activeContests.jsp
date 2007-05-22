@@ -69,11 +69,10 @@
                         </td>
                         <td class="header">&nbsp;</td>
                     </tr>
-<%--
                     <% boolean even = true;%>
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
-                            <A href="/?module=Static&d1=assembly&d2=btBusinessDetails">BT Business CSF Mashup Assembly Competition</A>
+                            <A href="/?module=Static&d1=assembly&d2=msSessionManifestDetails">Microsoft Session Manifest Tool</A>
                         </td>
                         <td class="valueC" nowrap="nowrap">
                              <strong>04.10.2007</strong><br>16:00 EST
@@ -82,23 +81,23 @@
                              <strong>04.23.2007</strong><br>17:00 EST
                         </td>
                         <td class="valueR" nowrap="nowrap">
-                            $6,750.00
+                            $3,000.00
                         </td>
                         <td class="valueC">
-                            31
+                            0
                         </td>
                         <td class="valueC">
-                            3
+                            0
                         </td>
                         <td class="valueR" nowrap="nowrap">
-                            registration closed
+                            <%--registration closed--%>
                             <A href="/?module=SecureStatic&d1=assembly&d2=reg" class="button" style="margin: 4px;">Register</A>
                             <A href="/?module=Static&d1=assembly&d2=orIntro" class="button" style="margin: 4px;">Submit</A>
                         </td>
                     </tr>
                     <% even = !even;%>
---%>
 
+<%--
                 <tr class="light">
 
                     <td class="valueC" colspan="7">
@@ -108,6 +107,7 @@
                         </div>
                     </td>
                 </tr>
+--%>
 
                 </tbody>
             </table>
