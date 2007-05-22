@@ -27,7 +27,7 @@
             <home>com.topcoder.web.ejb.pacts.PactsClientServicesHome</home>
             <remote>com.topcoder.web.ejb.pacts.PactsClientServices</remote>
             <ejb-class>com.topcoder.web.ejb.pacts.PactsServicesBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
         </session>
     </enterprise-beans>
@@ -53,6 +53,95 @@
                 <ejb-name>PactsClientServices</ejb-name>
                 <method-name>addPayment</method-name>
                 <method-params>com.topcoder.web.ejb.pacts.BasePayment</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>addPayments</method-name>
+                <method-params>java.util.List</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsClientServices</ejb-name>
+                <method-name>addPayments</method-name>
+                <method-params>java.util.List</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>addAssignmentDocument</method-name>
+                <method-params>com.topcoder.web.common.model.AssignmentDocument</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>affirmAssignmentDocument</method-name>
+                <method-params>com.topcoder.web.common.model.AssignmentDocument</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>generateRoundPayments</method-name>
+                <method-params>long</method-params>
+                <method-params>int</method-params>
+                <method-params>boolean</method-params>
+                <method-params>int</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>updateText</method-name>
+                <method-params>long</method-params>
+                <method-params>int</method-params>
+                <method-params>String</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>createAssignmentDocumentTemplate</method-name>
+                <method-params>int</method-params>
+                <method-params>String</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>addObjectNote</method-name>
+                <method-params>long</method-params>
+                <method-params>int</method-params>
+                <method-params>long</method-params>
+                <method-params>com.topcoder.web.tc.controller.legacy.pacts.common.Note</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>affirmAffidavit</method-name>
+                <method-params>long</method-params>
+                <method-params>String</method-params>
+                <method-params>String</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>addAffidavit</method-name>
+                <method-params>com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit</method-params>
+                <method-params>String</method-params>
+                <method-params>com.topcoder.web.tc.controller.legacy.pacts.common.Payment</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>updateUserTaxForm</method-name>
+                <method-params>com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>addUserTaxForm</method-name>
+                <method-params>com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm</method-params>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>expireOldPayments</method-name>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>expireOldAffidavits</method-name>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>checkInactiveCoders</method-name>
+            </method>
+            <method>
+                <ejb-name>PactsServices</ejb-name>
+                <method-name>expireOldAssignmentDocuments</method-name>
             </method>
             <trans-attribute>Required</trans-attribute>
         </container-transaction>

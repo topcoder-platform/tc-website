@@ -20,15 +20,10 @@ import java.util.Map;
 
 import javax.ejb.EJBException;
 import javax.ejb.SessionContext;
-import javax.transaction.Status;
-import javax.transaction.SystemException;
-import javax.transaction.TransactionManager;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
@@ -1773,44 +1768,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     /**
      * Inserts or updates an assignment document to the DB
      *
-     * @param ad the Assignment Document to store
-     * @return The stored assignment document template
-     * @throws DeleteAffirmedAssignmentDocumentException
-     *          If there's an attempt to delete an affirmed assignment document
-     */
-    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
-        Connection conn = null;
-
-        TransactionManager tm = null;
-        try {
-            tm = (TransactionManager) TCContext.getInitial().lookup(ApplicationServer.TRANS_MANAGER);
-
-            conn = DBMS.getConnection(trxDataSource);
-            tm.begin();
-            AssignmentDocument retAD = addAssignmentDocument(conn, ad);
-            tm.commit();
-
-            return retAD;
-        } catch (Exception e) {
-            rollback(tm);
-            throw (new EJBException(e.getMessage(), e));
-        } finally {
-            close(conn);
-        }
-    }
-
-    /**
-     * Inserts or updates an assignment document to the DB
-     *
      * @param conn the Connection to use
      * @param ad   the Assignment Document to store
      * @return The stored assignment document template
      * @throws DeleteAffirmedAssignmentDocumentException
      *          If there's an attempt to delete an affirmed assignment document
      */
-    public AssignmentDocument addAssignmentDocument(Connection c, AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
+    public AssignmentDocument addAssignmentDocument(AssignmentDocument ad) throws DeleteAffirmedAssignmentDocumentException {
         PreparedStatement ps = null;
         ResultSet rs = null;
+        Connection c = null;
 
         boolean addOperation = false;
         if (ad.getId() == null) {
@@ -1892,6 +1859,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         boolean updateText = false;
         // store
         try {
+            c = DBMS.getConnection(trxDataSource);
+            
             if (ad.getText() == null || ad.getText().trim().length() == 0) {
                 // template is transformed if the ad is created with affirmed status 
                 // or the status is updated to affirmed. (and the text is empty)
@@ -1980,15 +1949,19 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             return ad;
         } catch (IDGenerationException e) {
+            ejbContext.setRollbackOnly();
             throw new EJBException(e);
         } catch (SQLException e) {
+            ejbContext.setRollbackOnly();
             DBMS.printSqlException(true, e);
             throw (new EJBException(e.getMessage(), e));
         } catch (Exception e) {
+            ejbContext.setRollbackOnly();
             throw (new EJBException(e.getMessage(), e));
         } finally {
             close(rs);
             close(ps);
+            close(c);
         }
     }
 
@@ -2109,28 +2082,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ad.setStatus(new AssignmentDocumentStatus(AssignmentDocumentStatus.AFFIRMED_STATUS_ID));
         ad.setAffirmedDate(null);
 
-        Connection c = null;
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
-
-            addAssignmentDocument(c, ad);
+            addAssignmentDocument(ad);
             
             (new PaymentStatusMediator()).affirmedIPTransfer(ad);
-
-            c.commit();
         } catch (Exception e) {
             printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            ejbContext.setRollbackOnly();
             throw (new EJBException(e.getMessage(), e));
-        } finally {
-            restoreAutoCommit(c);
-            close(c);            
         }
     }
 
@@ -3067,27 +3026,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             throws IllegalUpdateException, SQLException {
         Connection c = null;
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
+            c = DBMS.getConnection(trxDataSource);
 
             long affidavitId = makeAffidavitPayment(c, a, affidavitText, p)[1];
-
-            c.commit();
 
             return affidavitId;
         } catch (Exception e) {
             printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            ejbContext.setRollbackOnly();
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
             throw new SQLException(e.getMessage());
         } finally {
-            restoreAutoCommit(c);
             close(c);            
         }
     }
@@ -3665,9 +3615,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
         PreparedStatement ps = null;
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
+            c = DBMS.getConnection(trxDataSource);
             
             StringBuffer getDefaults = new StringBuffer(300);
             getDefaults.append("SELECT default_withholding_amount, default_withholding_percentage, use_percentage ");
@@ -3708,20 +3656,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             ps = null;
 
-            c.commit();
-            c.setAutoCommit(true);
-            c.close();
-            c = null;
         } catch (Exception e) {
             printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            ejbContext.setRollbackOnly();
             throw new SQLException(e.getMessage());
         } finally {
-            restoreAutoCommit(c);
             close(ps);
             close(c);            
         }
@@ -3747,9 +3686,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
         PreparedStatement ps = null;
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
+            c = DBMS.getConnection(trxDataSource);
 
             // Get ID number
             long noteId = (long) DBMS.getSeqId(c, DBMS.NOTE_SEQ);
@@ -3796,19 +3733,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.close();
             ps = null;
 
-            c.commit();
-
             return noteId;
         } catch (Exception e) {
             printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            ejbContext.setRollbackOnly();
             throw new SQLException(e.getMessage());
         } finally {
-            restoreAutoCommit(c);
             close(ps);            
             close(c);            
         }
@@ -3873,9 +3803,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         PreparedStatement ps = null;
         int rowsModified = 0;
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
+            c = DBMS.getConnection(trxDataSource);
 
             StringBuffer checkAffidavit = new StringBuffer(300);
             checkAffidavit.append("SELECT a.status_id, a.payment_id, a.affirmed, ");
@@ -3926,14 +3854,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw new NoObjectFoundException("User for affidavit " + affidavitId + " not found in database");
             }
 
-            c.commit();
         } catch (Exception e) {
             printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            ejbContext.setRollbackOnly();
             if (e instanceof NoObjectFoundException)
                 throw (NoObjectFoundException) e;
             else if (e instanceof IllegalUpdateException)
@@ -3941,7 +3864,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             else
                 throw new SQLException(e.getMessage());
         } finally {
-            restoreAutoCommit(c);            
             close(ps);
             close(c);
         }
@@ -4222,9 +4144,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
+            c = DBMS.getConnection(trxDataSource);
 
             StringBuffer update = new StringBuffer(300);
             update.append("UPDATE user_tax_form_xref SET date_filed = ?");
@@ -4251,17 +4171,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 (new PaymentStatusMediator()).newTaxForm(t.getHeader().getUser().getId());
             }
 
-            c.commit();
         } catch (Exception e) {
             printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            ejbContext.setRollbackOnly();
             throw new SQLException(e.getMessage());
         } finally {
-            restoreAutoCommit(c);
             close(ps);
             close(c);            
         }
@@ -4289,8 +4203,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         PreparedStatement ps = null;
         int rowsModified = 0;
         try {
-            c = DBMS.getConnection();
-            setLockTimeout(c);
+            c = DBMS.getConnection(trxDataSource);
             StringBuffer update = new StringBuffer(300);
 
             if (objectType == CONTRACT_OBJ) {
@@ -4306,30 +4219,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             if (rowsModified == 0) {
                 throw new NoObjectFoundException("Object with ID " + objectId + " not found in database");
             }
-
-            ps.close();
-            ps = null;
-
-            c.close();
-            c = null;
         } catch (Exception e) {
             printException(e);
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            ps = null;
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
+            ejbContext.setRollbackOnly();
             if (e instanceof NoObjectFoundException)
                 throw (NoObjectFoundException) e;
             else
                 throw new SQLException(e.getMessage());
+        } finally {
+            close(ps);
+            close(c);
         }
     }
 
@@ -4472,15 +4371,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int i;
         Connection c = null;
         SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_STRING);
-        TransactionManager tm = null;
 
         try {
-            tm = (TransactionManager) TCContext.getInitial().lookup(ApplicationServer.TRANS_MANAGER);
-
             c = DBMS.getConnection(trxDataSource);
-            if (makeChanges) {
-                tm.begin();
-            }
 
             // Make sure we haven't done this before for this round.
             StringBuffer checkNew = new StringBuffer(300);
@@ -4539,9 +4432,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 Payment p = new Payment();
                 p.setGrossAmount(TCData.getTCDouble(winners.getRow(i), "paid"));
 
-                AlgorithmContestPayment acp = new AlgorithmContestPayment(userId, 0.01, roundId);
-                (new PaymentStatusMediator()).newPayment(acp);
-                p.setCurrentStatus(acp.getCurrentStatus());
+                if (makeChanges) {
+                    AlgorithmContestPayment acp = new AlgorithmContestPayment(userId, 0.01, roundId);
+                    (new PaymentStatusMediator()).newPayment(acp);
+                    p.setCurrentStatus(acp.getCurrentStatus());
+                }
                 
                 p.getHeader().setDescription(roundName + " winnings");
                 p.getHeader().setTypeId(paymentTypeId);
@@ -4576,7 +4471,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         pairAdd.append(text.substring(0, 50));
                     }
                     pairAdd.append("\nPayment gross amount: " + p.getGrossAmount() + "\n");
-                    pairAdd.append("Payment status ID: " + p.getCurrentStatus() + "\n");
+                    //pairAdd.append("Payment status ID: " + p.getCurrentStatus() + "\n");
                     pairAdd.append("Payment description: " + p.getHeader().getDescription() + "\n");
                     pairAdd.append("Payment type ID: " + p.getHeader().getTypeId() + "\n");
                     pairAdd.append("Payment due date: " + p.getDueDate() + "\n");
@@ -4588,15 +4483,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            if (makeChanges) {
-                tm.commit();
-            }
             return numWinners;
-
         } catch (Exception e) {
             printException(e);
             if (makeChanges) {
-                rollback(tm);
+                ejbContext.setRollbackOnly();
             }
             if (e instanceof IllegalUpdateException)
                 throw (IllegalUpdateException) e;
@@ -4718,9 +4609,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
 
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false); 
-            setLockTimeout(c);
+            c = DBMS.getConnection(trxDataSource);
 
             StringBuffer query = new StringBuffer(300);
             
@@ -4752,18 +4641,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            c.commit();
             return rowCount;
         } catch (Exception e) {
             printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            ejbContext.setRollbackOnly();
             throw new SQLException(e.getMessage());
         } finally {
-            restoreAutoCommit(c);
             close(c);            
         }
     }
@@ -4783,9 +4666,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
 
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
+            c = DBMS.getConnection(trxDataSource);
 
             StringBuffer getPayments = new StringBuffer(300);
             getPayments.append("SELECT p.payment_id FROM affidavit a, payment p ");
@@ -4816,18 +4697,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            c.commit();
             return rowsUpdated;
         } catch (Exception e) {
             printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            ejbContext.setRollbackOnly();
             throw new SQLException(e.getMessage());
         } finally {
-            restoreAutoCommit(c);
             close(c);
         }
     }
@@ -4839,9 +4714,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
 
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
+            c = DBMS.getConnection(trxDataSource);
 
             StringBuffer getHoldPayments = new StringBuffer(300);
             getHoldPayments.append("SELECT u.user_id ");
@@ -4862,18 +4735,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            c.commit();
             return payments.size();
         } catch (Exception e) {
             printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            ejbContext.setRollbackOnly();
             throw new SQLException(e.getMessage());
         } finally {
-            restoreAutoCommit(c);
             close(c);
         }
     }
@@ -4891,9 +4758,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Connection c = null;
 
         try {
-            c = DBMS.getConnection();
-            c.setAutoCommit(false);
-            setLockTimeout(c);
+            c = DBMS.getConnection(trxDataSource);
 
             StringBuffer getPayments = new StringBuffer(300);
             getPayments.append("select p.payment_id from payment p, payment_detail pd, assignment_document ad ");
@@ -4926,18 +4791,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            c.commit();
             return rowsUpdated;
         } catch (Exception e) {
             printException(e);
-            try {
-                c.rollback();
-            } catch (Exception e1) {
-                printException(e1);
-            }
+            ejbContext.setRollbackOnly();
             throw new SQLException(e.getMessage());
         } finally {
-            restoreAutoCommit(c);
             close(c);
         }
     }
@@ -4950,7 +4809,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
 
-            conn = DBMS.getConnection();
+            conn = DBMS.getConnection(trxDataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("insert into affidavit_template (affidavit_template_id, affidavit_type_id, text)");
@@ -4986,9 +4845,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
 
-            conn = DBMS.getConnection();
-            conn.setAutoCommit(false);
-            setLockTimeout(conn);
+            conn = DBMS.getConnection(trxDataSource);
 
             StringBuffer update = new StringBuffer(1024);
             update.append("update assignment_document_template set cur_version = 0 ");
@@ -5016,16 +4873,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 throw (new EJBException("Wrong number of rows updated in 'assignment_document_template'. " +
                         "Updated " + rc + ", should have updated 1."));
             }
-            conn.commit();
         } catch (IDGenerationException e) {
-            rollback(conn);
+            ejbContext.setRollbackOnly();
             throw new EJBException(e);
         } catch (SQLException e) {
-            rollback(conn);
+            ejbContext.setRollbackOnly();
             DBMS.printSqlException(true, e);
             throw (new EJBException(e.getMessage(), e));
         } finally {
-            setAutoCommit(conn, true);
             close(ps);
             close(conn);
         }
@@ -5355,30 +5210,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
 
     /**
-     * Helper method to rollback a connection.
-     *
-     * @param c connection to rollback
-     */
-    private void rollback(Connection c) {
-        try {
-            c.rollback();
-        } catch (Exception e1) {
-            printException(e1);
-        }
-    }
-
-    /**
-     * Helper method to set the auto commit value of a connection
-     */
-    private void setAutoCommit(Connection c, boolean autoCommit) {
-        try {
-            c.setAutoCommit(autoCommit);
-        } catch (Exception e1) {
-            printException(e1);
-        }
-    }
-
-    /**
      * Look up and fill data in the payment object.
      * It fills:
      * - the description based on the type of payment.
@@ -5573,12 +5404,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public BasePayment addPayment(BasePayment payment) throws SQLException {
         Connection c = null;
-//        TransactionManager tm = null;
 
         try {
-//            tm = (TransactionManager) TCContext.getInitial().lookup(ApplicationServer.TRANS_MANAGER);
-//            tm.begin();
-
             c = DBMS.getConnection(trxDataSource);
             BasePayment.Processor processor = payment.getProcessor();
     
@@ -5609,8 +5436,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 paymentId = makeNewPayment(c, p, p.payReferrer());
             }
     
-//            tm.commit();
-            
             payment.setId(paymentId);
             payment.setNetAmount(p.getNetAmount());
             payment.resetModificationRationale();
@@ -5618,12 +5443,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             return payment;
         } catch (SQLException e) {
             ejbContext.setRollbackOnly();
-//            rollback(tm);
             printException(e);
             throw e;
         } catch (Exception e) {
             ejbContext.setRollbackOnly();
-//            rollback(tm);
             printException(e);
             throw new SQLException(e.getMessage());
         } finally {
@@ -5639,33 +5462,22 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException
      */
     public List addPayments(List payments) throws SQLException {
-        Connection c = null;
-        TransactionManager tm = null;
         try {
-            tm = (TransactionManager) TCContext.getInitial().lookup(ApplicationServer.TRANS_MANAGER);
-            tm.begin();
-
-            c = DBMS.getConnection(trxDataSource);
-
             List p = new ArrayList();
 
             for (int i = 0; i < payments.size(); i++) {
                 p.add(addPayment((BasePayment) payments.get(i)));
             }
 
-            tm.commit();
-
             return p;
         } catch (SQLException e) {
-            rollback(tm);
+            ejbContext.setRollbackOnly();
             printException(e);
             throw e;
         } catch (Exception e) {
-            rollback(tm);
+            ejbContext.setRollbackOnly();
             printException(e);
             throw new SQLException(e.getMessage());
-        } finally {
-            close(c);
         }
     }
 
@@ -6120,28 +5932,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
     
-    private void restoreAutoCommit(Connection conn) {
-        if (conn != null) {
-            try {
-                conn.setAutoCommit(true);
-            } catch (Exception ignore) {
-                log.error("FAILED to restore autocommit.");
-                ignore.printStackTrace();
-            }
-        }
-    }
-    
-    private void rollback(TransactionManager tm) {
-        try {
-            if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
-                tm.rollback();
-            }
-        } catch (SystemException se) {
-            //do nothing
-        }
-    }
-
-
     /**
      * @see javax.ejb.SessionBean#setSessionContext(javax.ejb.SessionContext)
      */
