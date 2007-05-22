@@ -49,27 +49,27 @@ public class PaymentStatusMediator {
             // if user is accruing and the payment is set to owed, it means we have reached accrual threshold
             // so we need to notify all accruing payments
 
-            log.debug("check if we need to notify accruing payments");
-            log.debug("payment.getCurrentStatus(): " + payment.getCurrentStatus().getDesc());
-            log.debug("dib.getUserAccrualThreshold(conn, payment.getCoderId()): " + dib.getUserAccrualThreshold(payment.getCoderId()));
-            
-            if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS)) && 
-                    dib.getUserAccrualThreshold(payment.getCoderId()) > 0) {
-
-                log.debug("need to notify all accruing payments");
-                Map criteria = new HashMap();
-                criteria.put(PactsConstants.USER_ID, String.valueOf(payment.getCoderId()));
-                criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()));
-    
-                List<BasePayment> payments = dib.findCoderPayments(criteria);
-                log.debug("need to notify " + payments.size() + " payments");
-                
-                // notify the status manager and update each payment
-                for (BasePayment notifyPayment : payments) {
-                    statusManager.accrualThresholdReached(notifyPayment);
-                    dib.updatePayment(notifyPayment);
-                }
-            }
+//            log.debug("check if we need to notify accruing payments");
+//            log.debug("payment.getCurrentStatus(): " + payment.getCurrentStatus().getDesc());
+//            log.debug("dib.getUserAccrualThreshold(conn, payment.getCoderId()): " + dib.getUserAccrualThreshold(payment.getCoderId()));
+//            
+//            if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS)) && 
+//                    dib.getUserAccrualThreshold(payment.getCoderId()) > 0) {
+//
+//                log.debug("need to notify all accruing payments");
+//                Map criteria = new HashMap();
+//                criteria.put(PactsConstants.USER_ID, String.valueOf(payment.getCoderId()));
+//                criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()));
+//    
+//                List<BasePayment> payments = dib.findCoderPayments(criteria);
+//                log.debug("need to notify " + payments.size() + " payments");
+//                
+//                // notify the status manager and update each payment
+//                for (BasePayment notifyPayment : payments) {
+//                    statusManager.accrualThresholdReached(notifyPayment);
+//                    dib.updatePayment(notifyPayment);
+//                }
+//            }
         } catch (Exception e) {
             throw new EventFailureException(e);
         }

@@ -6,12 +6,16 @@
 package com.topcoder.web.ejb.pacts.payments;
 
 import java.sql.Connection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
  * @author Pablo Wolfus (pulky)
@@ -70,7 +74,22 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
                 log.debug("payment.getGrossAmount(): " + payment.getGrossAmount());
                 
                 if (totalAmount + payment.getGrossAmount() > accrualThreshold) {
-                    // we have reached the amount, move to the next status
+                    // we have reached the amount, notify all accrual payments and move to the next status
+                    log.debug("need to notify all accruing payments");
+                    Map criteria = new HashMap();
+                    criteria.put(PactsConstants.USER_ID, String.valueOf(payment.getCoderId()));
+                    criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()));
+        
+                    List<BasePayment> payments = dib.findCoderPayments(criteria);
+                    log.debug("need to notify " + payments.size() + " payments");
+                    
+                    // notify the status manager and update each payment
+                    for (BasePayment notifyPayment : payments) {
+                        notifyPayment.getCurrentStatus().accrualThresholdReached(notifyPayment);
+                        dib.updatePayment(notifyPayment);
+                    }
+
+                    // move to next state
                     nextState(payment);
                 }
             } else {
