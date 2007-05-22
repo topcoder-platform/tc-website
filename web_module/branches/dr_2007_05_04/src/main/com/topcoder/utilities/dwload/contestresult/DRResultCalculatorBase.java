@@ -60,7 +60,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
                 // Completed project:
                 // add the points for placement
                 cr.addPoints(calculatePointsAwarded(p));
-                
+System.out.println(p.getProjectId() + " " + cr.getCoderId() + " " + calculatePointsAwarded(p));                
                 // remove penalty points if needed.
                 if (p.getPointAdjustment() > 0) {
                     cr.discountPoints(p.getPointAdjustment());
