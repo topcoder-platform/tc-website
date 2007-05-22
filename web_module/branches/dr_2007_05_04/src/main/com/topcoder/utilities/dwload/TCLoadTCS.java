@@ -1704,7 +1704,7 @@ public class TCLoadTCS extends TCLoad {
                 selectSubmissions.setLong(1, userId);
                 selectSubmissions.setLong(2, phaseId);
                 selectSubmissions.setLong(3, firstSeason);
-                selectSubmissions.setLong(4, secondSeason);
+                selectSubmissions.setLong(4, secondSeason != null? secondSeason : firstSeason);
                 rsSubmissions = selectSubmissions.executeQuery();
 
                 // this should be always, since if it's the first season, it must have submissions.
@@ -4600,17 +4600,13 @@ public class TCLoadTCS extends TCLoad {
             " from project_result pr, " +
             "      stage s, " +
             "      project p,  " +
-            "      project_info piel, " +
-            "      project_info pidr " +
+            "      project_info piel " +
             " where p.project_id = pr.project_id  " +
             " and p.project_status_id <> 3  " +
             " and p.project_category_id in (1, 2)  " +
             " and piel.project_info_type_id = 14  " +
             " and piel.value = 'Open'  " +
             " and p.project_id = piel.project_id  " +
-            " and p.project_id = pidr.project_id  " + 
-            " and pidr.project_info_type_id = 26  " + 
-            " and pidr.value = 'On' " + 
             " and (p.modify_date > ? " +
             "     OR pr.modify_date > ?) " +
             " and ( " +
