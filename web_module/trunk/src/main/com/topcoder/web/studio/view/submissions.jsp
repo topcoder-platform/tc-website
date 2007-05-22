@@ -10,6 +10,7 @@
 <%@ taglib uri="studio.tld" prefix="studio" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="studio_tags" tagdir="/WEB-INF/tags" %>
 
 <% ResultSetContainer submissions = (ResultSetContainer) request.getAttribute("submissions");%>
 
@@ -161,7 +162,10 @@
                             <%--THIS IS A CRAPPY WAY TO MAKE THE PAGE MANAGEABLE BEFORE RESIZING THE IMAGE--%>
                             <div align="center">
                                 <div style="overflow: hidden; width: 300px;">
+<%--
                                     <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="<%=Constants.SUBMISSION_ID%>" style="display: block;" onload="resizeImage(this);" /></A>
+--%>
+                                    <studio_tags:submissionDisplay submissionId='<rsc:item name="submission_id" row="<%=resultRow%>"/>' width="<rsc:item name="width" row="<%=resultRow%>"/>" height="<rsc:item name="height" row="<%=resultRow%>"/>"/>
                                 </div>
                             </div>
                         </c:when>
