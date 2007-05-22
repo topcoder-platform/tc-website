@@ -5879,7 +5879,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
         * @throws SQLException
         */
-        private List<BasePayment> findCoderPayments(Map searchCriteria) {
+        public List<BasePayment> findCoderPayments(Map searchCriteria) {
               ResultSetContainer rsc = null;
               List l = new ArrayList();
               Connection conn = null;

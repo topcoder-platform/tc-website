@@ -133,7 +133,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
 //    long addPayment(Payment p) throws  IllegalUpdateException, SQLException;
     
-    long addPayment(Payment p, boolean payReferrer) throws  IllegalUpdateException, SQLException;
+//    long addPayment(Payment p, boolean payReferrer) throws  IllegalUpdateException, SQLException;
 
 //    long addContractPayment(long contractId, Payment p)
 //            throws  IllegalUpdateException, SQLException;
@@ -255,7 +255,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
     
     BasePayment updatePayment(BasePayment payment) throws  Exception;
 
-    BasePayment updatePayment(Connection c, BasePayment payment) throws  Exception;
+//    BasePayment updatePayment(Connection c, BasePayment payment) throws  Exception;
 
     List findPayments(int paymentTypeId) throws  SQLException, InvalidStatusException;
 
@@ -303,13 +303,13 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     public List<BasePayment> findCoderPayments(Map searchCriteria);
 
-    public List<BasePayment> findCoderPayments(Connection c, Map searchCriteria);
+//    public List<BasePayment> findCoderPayments(Connection c, Map searchCriteria);
     
-    public double getUserAccrualThreshold(Connection conn, long userId) throws SQLException;
+//    public double getUserAccrualThreshold(Connection conn, long userId) throws SQLException;
 
     public double getUserAccrualThreshold(long userId) throws SQLException;
 
-    public double getUserAccruingPaymentsTotal(Connection conn, long userId) throws SQLException;
+//    public double getUserAccruingPaymentsTotal(Connection conn, long userId) throws SQLException;
 
     public double getUserAccruingPaymentsTotal(long userId) throws SQLException;
 }
