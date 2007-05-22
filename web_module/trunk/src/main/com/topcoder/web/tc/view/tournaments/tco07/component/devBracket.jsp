@@ -64,7 +64,7 @@
 <p align="center">
     The Review Board for the<br>TCO07 Component Development Finals:<br><br>
     <tc-webtag:handle coderId="7584235" context="development" /><br>
-    <tc-webtag:handle coderId="10353806" context="development" /><br>
+    <tc-webtag:handle coderId="297731" context="development" /><br>
     <tc-webtag:handle coderId="347569" context="development" />
 </p>
 
