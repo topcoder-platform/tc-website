@@ -4784,7 +4784,7 @@ public class TCLoadTCS extends TCLoad {
     private void loadDRContestResults(int seasonId, Timestamp startDate, Timestamp endDate, int phaseId, 
             int contestId, String className, double factor) throws Exception {
         
-        log.debug("loading contest_result for dr contest_id=" + contestId + " from " + startDate + " to " + endDate);
+        log.debug("loading contest_result for dr contest_id=" + contestId + ", phase=" + phaseId + " from " + startDate + " to " + endDate);
         final String SELECT_RESULTS = 
             " select p.project_id " +
             "       ,p.project_status_id " +
@@ -4841,7 +4841,9 @@ public class TCLoadTCS extends TCLoad {
                 ((TopPerformersCalculator) calc).setFactor(factor);
             }
             if (calc instanceof RookieContest) {
-                ((RookieContest) calc).setRookies(getRookies(seasonId, phaseId));
+                Set<Long> rookies = getRookies(seasonId, phaseId);
+                log.debug(rookies.size() + " rookies found for season " + seasonId + " phase " + phaseId);
+                ((RookieContest) calc).setRookies(rookies);
             }
             
             rs = selectResults.executeQuery();

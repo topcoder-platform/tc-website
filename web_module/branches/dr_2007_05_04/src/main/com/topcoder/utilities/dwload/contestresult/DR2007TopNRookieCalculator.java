@@ -18,6 +18,10 @@ public class DR2007TopNRookieCalculator extends DR2007ResultCalculatorBase imple
 
     public void setRookies(Set<Long> ids) {
         this.rookieIds = ids;        
+        System.out.print("Rookies:");
+        for(Long l : ids) {
+            System.out.print(l + " ");
+        }
     }
 
     /**
