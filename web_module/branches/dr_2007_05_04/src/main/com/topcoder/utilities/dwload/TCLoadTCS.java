@@ -4685,14 +4685,14 @@ public class TCLoadTCS extends TCLoad {
         log.debug("load season results");
         
         final String SELECT_SEASONS =
-            " select distinct s.season_id, " +
+            " select distinct s.season_id, pi_dr.value as dr_ind, " +
             "    (select min(start_date) from stage st where st.season_id = s.season_id) as start_date, " +
             "    (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " +
             " from project_result pr,  " + 
             "      season s,   " +
             "      project p,    " +
             "      project_info piel,   " +
-            "      project_info pidr   " +
+            "      outer project_info pidr   " +
             " where p.project_id = pr.project_id    " +
             " and p.project_status_id <> 3    " +
             " and p.project_category_id in (1, 2)    " +
@@ -4701,7 +4701,6 @@ public class TCLoadTCS extends TCLoad {
             " and p.project_id = piel.project_id  " +
             " and p.project_id = pidr.project_id   " +
             " and pidr.project_info_type_id = 26   " +
-            " and pidr.value = 'On'  " +
             " and (p.modify_date > ? " +
             "     OR pr.modify_date > ?)  " +
             " and (  " +
@@ -4742,6 +4741,10 @@ public class TCLoadTCS extends TCLoad {
         rsSeasons = selectSeason.executeQuery();
         
         while (rsSeasons.next()) {
+            // Skip projects that doesn't have Digital Run
+            if ("Off".equals(rsSeasons.getString("dr_ind"))) {
+                continue;
+            }
             int seasonId = rsSeasons.getInt("season_id");
             selectContests.clearParameters();
             selectContests.setInt(1, seasonId);
