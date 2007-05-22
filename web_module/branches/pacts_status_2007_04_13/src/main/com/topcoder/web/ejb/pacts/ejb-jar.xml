@@ -36,13 +36,12 @@
             <method>
                 <ejb-name>PactsServices</ejb-name>
                 <method-name>*</method-name>
-                <trans-attribute>Required</trans-attribute>
             </method>
             <method>
                 <ejb-name>PactsClientServices</ejb-name>
                 <method-name>*</method-name>
-                <trans-attribute>Required</trans-attribute>
             </method>
+            <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
