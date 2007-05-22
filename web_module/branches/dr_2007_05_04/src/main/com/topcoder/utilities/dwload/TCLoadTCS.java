@@ -4738,10 +4738,6 @@ public class TCLoadTCS extends TCLoad {
         rsSeasons = selectSeason.executeQuery();
         
         while (rsSeasons.next()) {
-            // Skip projects that doesn't have Digital Run
-            if ("Off".equals(rsSeasons.getString("dr_ind"))) {
-                continue;
-            }
             int seasonId = rsSeasons.getInt("season_id");
             selectContests.clearParameters();
             selectContests.setInt(1, seasonId);
