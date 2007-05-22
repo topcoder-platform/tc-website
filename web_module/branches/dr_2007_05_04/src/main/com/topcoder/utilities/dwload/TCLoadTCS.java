@@ -4685,7 +4685,7 @@ public class TCLoadTCS extends TCLoad {
         log.debug("load season results");
         
         final String SELECT_SEASONS =
-            " select distinct s.season_id, pi_dr.value as dr_ind, " +
+            " select distinct s.season_id, pidr.value as dr_ind, " +
             "    (select min(start_date) from stage st where st.season_id = s.season_id) as start_date, " +
             "    (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " +
             " from project_result pr,  " + 
