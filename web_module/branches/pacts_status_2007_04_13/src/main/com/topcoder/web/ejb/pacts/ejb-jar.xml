@@ -17,7 +17,7 @@
             <local>com.topcoder.web.ejb.pacts.PactsServicesLocal</local>
             <local-home>com.topcoder.web.ejb.pacts.PactsServicesLocalHome</local-home>
             <ejb-class>com.topcoder.web.ejb.pacts.PactsServicesBean</ejb-class>
-            <transaction-type>Bean</transaction-type>
+            <transaction-type>Container</transaction-type>
             <session-type>Stateless</session-type>
         </session>
         <session>
@@ -36,12 +36,13 @@
             <method>
                 <ejb-name>PactsServices</ejb-name>
                 <method-name>*</method-name>
+                <trans-attribute>Required</trans-attribute>
             </method>
             <method>
                 <ejb-name>PactsClientServices</ejb-name>
                 <method-name>*</method-name>
+                <trans-attribute>Required</trans-attribute>
             </method>
-            <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
