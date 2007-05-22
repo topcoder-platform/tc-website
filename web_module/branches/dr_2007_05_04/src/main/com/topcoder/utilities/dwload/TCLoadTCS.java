@@ -4923,7 +4923,7 @@ public class TCLoadTCS extends TCLoad {
         ResultSet rs = null;
         
         try {
-            st = prepareStatement("select user_id from rookie where season_id = ? and phase_id = ? and confirmed_ind = 1", TARGET_DB);
+            st = prepareStatement("select user_id from rookie where season_id = ? and phase_id = ?", TARGET_DB);
             st.setInt(1, seasonId);
             st.setInt(2, phaseId);
             
