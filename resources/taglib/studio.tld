@@ -17,7 +17,7 @@
 
     <tag>
         <name>handle</name>
-        <tag-class>com.topcoder.web.studio.view.tag.HandleTag</tag-class>
+        <tag-class>com.topcoder.web.studio.view.tags.HandleTag</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>coderId</name>
@@ -33,7 +33,7 @@
 
     <tag>
         <name>forumLink</name>
-        <tag-class>com.topcoder.web.studio.view.tag.ForumLinkTag</tag-class>
+        <tag-class>com.topcoder.web.studio.view.tags.ForumLinkTag</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>forumID</name>

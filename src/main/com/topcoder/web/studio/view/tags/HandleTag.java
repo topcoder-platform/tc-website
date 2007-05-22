@@ -1,4 +1,4 @@
-package com.topcoder.web.studio.view.tag;
+package com.topcoder.web.studio.view.tags;
 
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -62,7 +62,7 @@ public class HandleTag extends TagSupport {
     }
 
     /**
-     * Because the app server (JBoss) is caching the tag,
+     * Because the app server (JBoss) is caching the tags,
      * we have to clear out all the instance variables at the
      * end of execution.
      */

@@ -1,4 +1,4 @@
-package com.topcoder.web.studio.view.tag;
+package com.topcoder.web.studio.view.tags;
 
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.WebConstants;
