@@ -63,7 +63,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
 
                 // remove penalty points if needed.
                 if (Math.abs(p.getPointAdjustment()) > 0.01) {
-                    cr.discountPoints(p.getPointAdjustment());
+                    cr.discountPoints(-p.getPointAdjustment());
                 }
             }            
         }
