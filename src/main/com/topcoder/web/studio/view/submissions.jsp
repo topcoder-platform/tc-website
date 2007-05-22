@@ -49,11 +49,6 @@
     </c:if>
         myForm.submit();
     }
-    function resizeImage(myImage) {
-        var myHeight = Math.round(myImage.offsetHeight * 300 / myImage.offsetWidth);
-        myImage.style.width = 300 + 'px';
-        myImage.style.height = myHeight + 'px';
-    }
     //--></script>
 </head>
 
@@ -161,9 +156,7 @@
                         <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
                             <%--THIS IS A CRAPPY WAY TO MAKE THE PAGE MANAGEABLE BEFORE RESIZING THE IMAGE--%>
                             <div align="center">
-                                <div style="overflow: hidden; width: 300px;">
-                                    <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
-                                </div>
+                                <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
                             </div>
                         </c:when>
                         <c:otherwise>

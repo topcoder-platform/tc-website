@@ -178,21 +178,20 @@ A persona participant manifest would look as described below
 
 <pre>
 &lt;Participant timeout="30" role="Persona" inChannelResponse="true" type="WebService" servicePrincipalName="a/b"&gt;
- &lt;SoapVersion&gt;Soap12&lt;/SoapVersion&gt;
- &lt;ParticipantID&gt;PersonaParticipant&lt;/ParticipantID&gt;
-&lt;ParticipantName&gt;PersonaParticipant&lt;/ParticipantName&gt;
-    &lt;ParticipantUrl&gt;http://csf.networkmashups.com/IdentityManager30/IdentityManager.ashx.     
-                    &lt;/ParticipantUrl&gt;
-&lt;SecurityToken&gt;
-                     &lt;UsernameToken&gt;
-          &lt;Username&gt;User@csf.com&lt;/Username&gt;
-          &lt;Password&gt;Password3&lt;/Password&gt;
+    &lt;SoapVersion&gt;Soap12&lt;/SoapVersion&gt;
+    &lt;ParticipantID&gt;PersonaParticipant&lt;/ParticipantID&gt;
+    &lt;ParticipantName&gt;PersonaParticipant&lt;/ParticipantName&gt;
+    &lt;ParticipantUrl&gt;http://csf.networkmashups.com/IdentityManager30/IdentityManager.ashx&lt;/ParticipantUrl&gt;
+    &lt;SecurityToken&gt;
+        &lt;UsernameToken&gt;
+            &lt;Username&gt;User@csf.com&lt;/Username&gt;
+            &lt;Password&gt;Password3&lt;/Password&gt;
         &lt;/UsernameToken&gt;
-      &lt;/SecurityToken&gt;
-     &lt;PolicyDocument&gt;
+    &lt;/SecurityToken&gt;
+    &lt;PolicyDocument&gt;
         &lt;Reference&gt;PersonaParticipantPolicy&lt;/Reference&gt;
-            &lt;/PolicyDocument&gt;
-        &lt;/Participant&gt;
+    &lt;/PolicyDocument&gt;
+&lt;/Participant&gt;
 </pre>
 
 <A href="http://msdn2.microsoft.com/en-us/library/aa303446.aspx">More information</A>
