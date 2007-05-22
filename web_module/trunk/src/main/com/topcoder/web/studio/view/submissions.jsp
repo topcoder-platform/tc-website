@@ -165,7 +165,7 @@
 <%--
                                     <A href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>"><img src="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>" alt="<%=Constants.SUBMISSION_ID%>" style="display: block;" onload="resizeImage(this);" /></A>
 --%>
-                                    <studio_tags:submissionDisplay submissionId='<rsc:item name="submission_id" row="<%=resultRow%>"/>' width="<rsc:item name="width" row="<%=resultRow%>"/>" height="<rsc:item name="height" row="<%=resultRow%>"/>"/>
+                                    <studio_tags:submissionDisplay submissionId='<rsc:item name="submission_id" row="<%=resultRow%>"/>' width='<rsc:item name="width" row="<%=resultRow%>"/>' height='<rsc:item name="height" row="<%=resultRow%>"/>'/>
                                 </div>
                             </div>
                         </c:when>
