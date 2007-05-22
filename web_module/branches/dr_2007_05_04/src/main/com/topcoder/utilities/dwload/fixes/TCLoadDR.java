@@ -25,6 +25,8 @@ public class TCLoadDR extends TCLoadTCS {
         log.info("Full load of Digital Run");
         
         try { 
+            doLoadRookies();
+            
             doLoadSeason();
             
             doLoadStage();
