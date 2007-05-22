@@ -18,14 +18,6 @@
         <jsp:param name="key" value="tc_studio"/>
     </jsp:include>
     <script type="text/javascript" src="/js/popup.js"></script>
-    <script type="text/javascript"><!--
-    function resizeImage(myImage) {
-        var myHeight = Math.round(myImage.offsetHeight * 300 / myImage.offsetWidth);
-        myImage.style.width = 300 + 'px';
-        myImage.style.height = myHeight + 'px';
-    }
-    //-->
-    </script>
 </head>
 
 <body>
