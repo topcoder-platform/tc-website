@@ -5573,8 +5573,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         TransactionManager tm = null;
 
         try {
-            tm = (TransactionManager) TCContext.getInitial().lookup(ApplicationServer.TRANS_MANAGER);
-            tm.begin();
+//            tm = (TransactionManager) TCContext.getInitial().lookup(ApplicationServer.TRANS_MANAGER);
+//            tm.begin();
 
             c = DBMS.getConnection(trxDataSource);
             BasePayment.Processor processor = payment.getProcessor();
@@ -5606,7 +5606,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 paymentId = makeNewPayment(c, p, p.payReferrer());
             }
     
-            tm.commit();
+//            tm.commit();
             
             payment.setId(paymentId);
             payment.setNetAmount(p.getNetAmount());
@@ -5614,11 +5614,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
             return payment;
         } catch (SQLException e) {
-            rollback(tm);
+//            rollback(tm);
             printException(e);
             throw e;
         } catch (Exception e) {
-            rollback(tm);
+//            rollback(tm);
             printException(e);
             throw new SQLException(e.getMessage());
         } finally {
