@@ -41,7 +41,7 @@
             <div class="breadcrumb">
                 <A href="/?module=Static&amp;d1=competitions">Competitions</A>
                 > <A href="/?module=Static&d1=assembly&d2=activeContests">Active Assembly Competitions</A>
-                > Competition Name
+                > Microsoft Session Manifest Tool
             </div>
 
             <div align="center">
@@ -51,7 +51,7 @@
 
                 <form name="terms" method="post" action="${sessionInfo.secureAbsoluteServletPath}">
                     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AssemblyRegister"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_NAME%>" value="BT Business CSF Mashup Assembly Competition"/>
+                    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_NAME%>" value="Microsoft Session Manifest Tool"/>
 
 
                     <iframe marginwidth="5" src="/?module=Static&d1=assembly&d2=terms" height="300" width="590" style="margin-bottom: 10px;"></iframe>
