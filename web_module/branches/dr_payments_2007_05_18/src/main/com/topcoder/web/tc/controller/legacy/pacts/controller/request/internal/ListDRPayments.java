@@ -10,13 +10,17 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.IntroEventCompPayment;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
- * USE CACHED DATA ACCESS!
+ * It takes either a stage or season as a parameter, finds the contests for it, and displays
+ * a list of the people that won money for the contest.  It checks if the user was already 
+ * paid for it, and if not, it shows a check box so that it can be paid.
+ * If projects are still active for the contest, it will display a message and it won't 
+ * be possible to pay it.
+ * 
  * @author Cucu
  */
 public class ListDRPayments extends BaseProcessor implements PactsConstants {
@@ -68,6 +72,7 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
             getRequest().setAttribute("contests", contests);
             getRequest().setAttribute("desActiveCount", desActiveCount);
             getRequest().setAttribute("devActiveCount", devActiveCount);
+            
             setNextPage(INTERNAL_LIST_DR_PAYMENTS);
             setIsNextPageInContext(true);
         } catch (Exception e) {
@@ -112,9 +117,16 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
 
         return rsc.getIntItem(0, 0);        
     }
-
     
     
+    /**
+     * Get the contests for the specified stage.
+     * 
+     * @param stageId
+     * @param phaseId
+     * @return
+     * @throws Exception
+     */
     private List<Contest> getStageContests(int stageId, int phaseId) throws Exception {
         Request r = new Request();
         r.setContentHandle("dr_contests_for_stage");
@@ -133,6 +145,14 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         
     }
 
+    /**
+     * Get the contests for the specified season.
+     * 
+     * @param seasonId
+     * @param phaseId
+     * @return
+     * @throws Exception
+     */
     private List<Contest> getSeasonContests(int seasonId, int phaseId) throws Exception {
         Request r = new Request();
         r.setContentHandle("dr_contests_for_season");
@@ -151,24 +171,32 @@ public class ListDRPayments extends BaseProcessor implements PactsConstants {
         
     }
 
-    
+    /**
+     * In the contest results list of the contest, fills the payment id's of the prizes that are already paid.
+     * 
+     * @param contest
+     * @param periodId
+     * @throws Exception
+     */
     @SuppressWarnings("unchecked")
     private void fillPaid(Contest contest, int periodId) throws Exception {
         DataInterfaceBean dib = new DataInterfaceBean();
         
         int paymentType;
-        if (contest.getTypeId() == 19) {
+        if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_STAGE) {
             paymentType = DIGITAL_RUN_PRIZE_PAYMENT;
-        } else  if (contest.getTypeId() == 18) {
+            
+        } else  if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_TOP_PERFORMERS) {
             paymentType = DIGITAL_RUN_TOP_THIRD_PAYMENT;
-        } else  if (contest.getTypeId() == 20) {
+            
+        } else  if (contest.getTypeId() == Constants.CONTEST_TYPE_DR_ROOKIE) {
             paymentType = DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT;
+            
         } else {
             throw new Exception("Invalid contest type: " + contest.getTypeId());
         }
             
         List<BasePayment> l = dib.findPayments(paymentType, periodId);
-log.debug(l.size() + " payments found for period " + periodId);
 
         for (ContestResult cr :contest.getResults()) {
             for (BasePayment payment : l) {                
@@ -180,6 +208,12 @@ log.debug(l.size() + " payments found for period " + periodId);
     }
     
 
+    /**
+     * Loads the results of a contest in the contest object.
+     * 
+     * @param contest
+     * @throws Exception
+     */
     private void loadResults(Contest contest) throws Exception {
         Request r = new Request();
         r.setContentHandle("dr_contest_payments");
@@ -188,6 +222,7 @@ log.debug(l.size() + " payments found for period " + periodId);
         ResultSetContainer rsc = new DataAccess(DBMS.TCS_DW_DATASOURCE_NAME).getData(r).get("dr_contest_payments");
         
         for (ResultSetContainer.ResultSetRow row : rsc) {
+            // round the amount to 2 decimals
             double prize = Math.round(row.getDoubleItem("prize") * 100) / 100.0;
             ContestResult cr = new ContestResult(row.getIntItem("place"), row.getLongItem("coder_id"), prize);
             
@@ -243,6 +278,11 @@ log.debug(l.size() + " payments found for period " + periodId);
         
     }
     
+    /**
+     * Class to hold a result for a contest.
+     * 
+     * @author Cucu
+     */
     public static class ContestResult {
         int place;
         long coderId;

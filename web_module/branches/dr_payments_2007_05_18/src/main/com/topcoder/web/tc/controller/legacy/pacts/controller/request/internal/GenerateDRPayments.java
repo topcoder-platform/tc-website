@@ -5,10 +5,6 @@ import java.util.List;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.ShortHibernateProcessor;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.comp.ContestPrize;
-import com.topcoder.web.common.model.comp.UserContestPrize;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunPrizePayment;
 import com.topcoder.web.ejb.pacts.DigitalRunRockiePrizePayment;
@@ -18,6 +14,12 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
+/**
+ * Create Digital Run Payments.
+ * 
+ * @author Cucu
+ *
+ */
 public class GenerateDRPayments extends ShortHibernateProcessor implements PactsConstants {
 
     @Override
@@ -40,15 +42,15 @@ public class GenerateDRPayments extends ShortHibernateProcessor implements Pacts
             // Create the payment in PACTS
             BasePayment payment = null;
             
-            if (contestTypeId.equals(19)) {
+            if (contestTypeId.equals(Constants.CONTEST_TYPE_DR_STAGE)) {
                 long stageId = Long.parseLong(getRequest().getParameter(Constants.STAGE_ID));
                 payment = new DigitalRunPrizePayment(coderId, amount, stageId, place); 
                 
-            } else if (contestTypeId.equals(18)) {
+            } else if (contestTypeId.equals(Constants.CONTEST_TYPE_DR_TOP_PERFORMERS)) {
                 long stageId = Long.parseLong(getRequest().getParameter(Constants.STAGE_ID));
                 payment = new DigitalRunTopThirdPayment(coderId, amount,stageId, place);
                 
-            } else if (contestTypeId.equals(20)) {
+            } else if (contestTypeId.equals(Constants.CONTEST_TYPE_DR_ROOKIE)) {
                 long seasonId = Long.parseLong(getRequest().getParameter(Constants.SEASON_ID));
                 
                 payment = new DigitalRunRockiePrizePayment(coderId, amount, seasonId, place); 

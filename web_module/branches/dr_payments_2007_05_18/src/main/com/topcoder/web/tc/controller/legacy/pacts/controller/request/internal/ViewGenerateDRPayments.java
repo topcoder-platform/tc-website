@@ -9,6 +9,9 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
+ * Presents a combo box of stages and seasons whose that are potentially complete 
+ * (i.e. passed the end date), altough there can be active projects yet.
+ * 
  * @author Cucu
  */
 public class ViewGenerateDRPayments extends BaseProcessor implements PactsConstants {
