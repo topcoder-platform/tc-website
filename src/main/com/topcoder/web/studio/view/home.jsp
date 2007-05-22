@@ -43,7 +43,7 @@
 
 <%-- CSF --%>
                 <div>
-                    <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=ViewContestDetails&ct=1005" refer="studio_homepage" />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder"/></A>
+                    <a href="<tc-webtag:linkTracking link="http://csf.topcoder.com/?module=Static&d1=competitions" refer="studio_homepage" />"><img src="/i/home/csfBt.jpg" alt="Microsoft CSF, Powered by TopCoder"/></A>
                 </div>
 
 <%--   REGISTER NOW 
