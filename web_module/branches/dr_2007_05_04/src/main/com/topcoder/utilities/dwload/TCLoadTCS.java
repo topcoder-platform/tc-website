@@ -4785,7 +4785,18 @@ public class TCLoadTCS extends TCLoad {
             "       ,pr.point_adjustment " +
             "       ,pr.final_score " +            
             "       ,pr.passed_review_ind " +
-            "       ,pi_amount.value as amount " +
+            "       , (select cvd.price " +
+            "           from project_info pi_ci " +
+            "                , comp_catalog cc  " +
+            "                , comp_versions cv " + 
+            "                , comp_version_dates cvd " +
+            "           where pi_ci.project_info_type_id = 2 " +
+            "           and cc.component_id = pi_ci.value " + 
+            "           and cv.component_id = cc.component_id " +
+            "           and cv.comp_vers_id = cvd.comp_vers_id " +
+            "           and cv.phase_id = cvd.phase_id " +
+            "           and cv.phase_id = ? " +
+            "           and pi_ci.project_id = p.project_id) as amount " +
             "       ,pi_dr.value as dr_ind " +
             "       ,(select count(*) from submission s, upload u  " +
             "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
@@ -4822,9 +4833,10 @@ public class TCLoadTCS extends TCLoad {
         
         try {
             selectResults = prepareStatement(SELECT_RESULTS, SOURCE_DB);
-            selectResults.setInt(1, phaseId - 111); 
-            selectResults.setTimestamp(2, startDate);
-            selectResults.setTimestamp(3, endDate);
+            selectResults.setInt(1, phaseId); 
+            selectResults.setInt(2, phaseId - 111); 
+            selectResults.setTimestamp(3, startDate);
+            selectResults.setTimestamp(4, endDate);
             
             insert = prepareStatement(INSERT, TARGET_DB);
             
