@@ -39,7 +39,6 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
         
         for(ProjectResult p : pr) {
-            if (p.getUserId() == 22651514l) System.out.println("  record found pr = "+ p.getProjectId() );
             // don't process results where the coder didn't pass review
             if (!p.isPassedReview())  continue; 
             
@@ -61,7 +60,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
                 // Completed project:
                 // add the points for placement
                 cr.addPoints(calculatePointsAwarded(p));
-if (cr.getCoderId() == 22651514l)           System.out.println(p.getProjectId() + " " + calculatePointsAwarded(p));                
+
                 // remove penalty points if needed.
                 if (p.getPointAdjustment() > 0) {
                     cr.discountPoints(p.getPointAdjustment());
@@ -104,6 +103,12 @@ if (cr.getCoderId() == 22651514l)           System.out.println(p.getProjectId() 
         return true;
     }
 
+    /**
+     * Helper method to assing prizes to the first placements.
+     * 
+     * @param cr list of contest results, must be already sorted by placement
+     * @param prizesAmount prize amounts, from the first to the nth.
+     */
     protected void assignTopNPrizes(List<ContestResult> cr, List<Double> prizesAmount) {
         int n = prizesAmount.size();
         int [] placeCount = new int[n+1];
