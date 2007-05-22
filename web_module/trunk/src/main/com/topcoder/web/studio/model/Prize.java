@@ -4,6 +4,7 @@ import com.topcoder.web.common.model.Base;
 
 import java.util.Collections;
 import java.util.Set;
+import java.util.HashSet;
 
 /**
  * @author dok
@@ -13,7 +14,7 @@ import java.util.Set;
 public class Prize extends Base implements Comparable {
     private Integer place;
     private Float amount;
-    private Set<Contest> contests;
+    private Set<Contest> contests = new HashSet<Contest>();
     private Long id;
     private PrizeType type;
 
