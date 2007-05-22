@@ -4770,7 +4770,7 @@ public class TCLoadTCS extends TCLoad {
 
     
     /**
-     * Helper m ethod to load contest results for the specified contest.
+     * Helper method to load contest results for the specified contest.
      * 
      * @param seasonId
      * @param startDate
@@ -4784,7 +4784,7 @@ public class TCLoadTCS extends TCLoad {
     private void loadDRContestResults(int seasonId, Timestamp startDate, Timestamp endDate, int phaseId, 
             int contestId, String className, double factor) throws Exception {
         
-        log.debug("load contest_result for contest_id=" + contestId);
+        log.debug("loading contest_result for dr contest_id=" + contestId + " from " + startDate + " to " + endDate);
         final String SELECT_RESULTS = 
             " select p.project_id " +
             "       ,p.project_status_id " +
@@ -4847,20 +4847,23 @@ public class TCLoadTCS extends TCLoad {
             rs = selectResults.executeQuery();
             
             List<ProjectResult> pr = new ArrayList<ProjectResult>();
+            int count = 0;
             while (rs.next()) {
                 ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
                         rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
                         rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
                                         
                 pr.add(res);
+                count++;
             }
             close(rs);
+            log.debug("    " + count + " projects processed for the contest");
     
             simpleDelete("contest_result", "contest_id", contestId);
             
             List<ContestResult> results = calc.calculateResults(pr, getContestPrizesAmount(contestId));
             
-            int count = 0;
+            count = 0;
             
             for(ContestResult result : results) {
                 insert.clearParameters();
