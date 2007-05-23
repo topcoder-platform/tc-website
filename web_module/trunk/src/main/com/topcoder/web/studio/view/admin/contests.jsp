@@ -47,11 +47,13 @@
                         </tr>
                         <tr>
                             <td class="headerW"><div>&nbsp;</div></td>
-                            <td class="header" width="100%">Name</td>
-                            <td class="header">Status</td>
-                            <td class="headerC">Start</td>
-                            <td class="headerC">End</td>
-                            <td class="headerC">Submissions</td>
+                            <td class="header" width="100%">
+                                <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("name")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Name</a>
+                            </td>
+                            <td class="header"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("contest_status_desc")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Status</a></td>
+                            <td class="headerC"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("start_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Start</a></td>
+                            <td class="headerC"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("end_time")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">End</a></td>
+                            <td class="headerC"><a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewContests<tc-webtag:sort column="<%=contests.getColumnIndex("submission_count")%>" includeParams="true" excludeParams="<%=Constants.MODULE_KEY%>"/>">Submissions</a></td>
                             <td class="headerC">&nbsp;</td>
                             <td class="headerE"><div>&nbsp;</div></td>
                         </tr>
