@@ -1,10 +1,10 @@
-<%@ page import="com.jivesoftware.forum.ForumMessage,
+<%@ page import="com.jivesoftware.forum.Attachment,
+                 com.jivesoftware.forum.ForumMessage,
+                 com.jivesoftware.forum.ForumPermissions,
                  com.jivesoftware.forum.ForumThread,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 com.jivesoftware.forum.Attachment,
-                 com.jivesoftware.forum.ForumPermissions,
                  java.util.HashMap,
                  java.util.Iterator"
         %>

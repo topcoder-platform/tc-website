@@ -83,7 +83,6 @@
     <title>TopCoder Forums</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
     <jsp:include page="script.jsp"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_forums"/>

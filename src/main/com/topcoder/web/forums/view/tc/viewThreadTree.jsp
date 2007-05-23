@@ -1,20 +1,21 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
+<%@ page import="com.jivesoftware.base.JiveConstants,
+                com.jivesoftware.base.User,
+                com.jivesoftware.forum.*,
+                com.jivesoftware.forum.database.DbAttachmentManager,
+                com.topcoder.shared.util.ApplicationServer,
                 com.topcoder.web.common.BaseProcessor,
                 com.topcoder.web.common.StringUtils,
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.forums.controller.ForumsUtil,
                 com.topcoder.web.forums.model.ImageData,
-                com.topcoder.shared.util.ApplicationServer,
-                com.jivesoftware.base.User,
-                com.jivesoftware.base.JiveConstants,
-                com.jivesoftware.forum.action.util.Page,
-                com.jivesoftware.forum.*,
-                com.jivesoftware.forum.database.DbAttachmentManager,
-                java.util.*"
+                java.util.HashMap,
+                java.util.Hashtable,
+                java.util.Iterator"
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -55,6 +56,9 @@
 
 <html>
 <head>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    
 <title>TopCoder Forums</title>
     <jsp:include page="script.jsp" />
         <jsp:include page="/style.jsp">

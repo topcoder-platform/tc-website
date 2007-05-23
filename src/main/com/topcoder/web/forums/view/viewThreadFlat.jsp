@@ -1,25 +1,25 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
+<%@ page import="com.jivesoftware.base.JiveConstants,
+                com.jivesoftware.base.Poll,
+                com.jivesoftware.base.PollManager,
+                com.jivesoftware.base.User,
+                com.jivesoftware.forum.ForumMessage,
+                com.jivesoftware.forum.ForumThread,
+                com.jivesoftware.forum.RatingManager,
+                com.jivesoftware.forum.RatingManagerFactory,
+                com.jivesoftware.forum.ReadTracker,
+                com.jivesoftware.forum.ResultFilter,
+                com.jivesoftware.forum.Watch,
+                com.jivesoftware.forum.WatchManager,
+                com.jivesoftware.forum.action.util.Page,
+                com.topcoder.shared.util.DBMS,
                 com.topcoder.web.common.BaseProcessor,
+                com.topcoder.web.common.StringUtils,
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.forums.controller.ForumsUtil,
-                com.topcoder.web.common.StringUtils,
-                com.jivesoftware.base.User,
-                com.jivesoftware.base.JiveConstants,
-                com.jivesoftware.base.PollManager,
-                com.jivesoftware.base.Poll,
-                com.jivesoftware.forum.action.util.Page,
-                com.jivesoftware.forum.ForumMessage,
-                com.jivesoftware.forum.WatchManager,
-                com.jivesoftware.forum.Watch,
-                com.jivesoftware.forum.ResultFilter,
-                com.jivesoftware.forum.ForumThread,
-                com.jivesoftware.forum.ReadTracker,
-                com.jivesoftware.forum.RatingManagerFactory,
-                com.jivesoftware.forum.RatingManager,
-                java.text.NumberFormat,
                 java.text.DecimalFormat,
-                java.util.*,
-                com.topcoder.shared.util.DBMS"
+                java.text.NumberFormat,
+                java.util.HashMap,
+                java.util.Iterator"
 %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
@@ -64,7 +64,8 @@
 <html>
 <head>
 <title>TopCoder Forums</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <jsp:include page="script.jsp" />
         <jsp:include page="/style.jsp">
           <jsp:param name="key" value="tc_forums"/>

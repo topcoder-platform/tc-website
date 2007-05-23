@@ -1,17 +1,28 @@
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.User,
-                 com.jivesoftware.forum.*,
-                 com.jivesoftware.forum.action.util.Page,
-                 com.jivesoftware.forum.database.DbAttachmentManager,
-                 com.topcoder.web.common.BaseProcessor,
-                 com.topcoder.web.common.StringUtils,
-                 com.topcoder.web.forums.ForumConstants,
-                 com.topcoder.web.forums.controller.ForumsUtil,
-                 java.util.*"
+                 com.jivesoftware.forum.Attachment,
+                 com.jivesoftware.forum.ForumMessage,
+                 com.jivesoftware.forum.ForumThread,
+                 com.jivesoftware.forum.RatingManager,
+                 com.jivesoftware.forum.RatingManagerFactory,
+                 com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.Watch"
         %>
+<%@ page import="com.jivesoftware.forum.WatchManager" %>
+<%@ page import="com.jivesoftware.forum.action.util.Page" %>
+<%@ page import="com.jivesoftware.forum.database.DbAttachmentManager" %>
+<%@ page import="com.topcoder.web.common.BaseProcessor" %>
+<%@ page import="com.topcoder.web.common.StringUtils" %>
+<%@ page import="com.topcoder.web.forums.ForumConstants" %>
+<%@ page import="com.topcoder.web.forums.controller.ForumsUtil" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Hashtable" %>
+<%@ page import="java.util.Iterator" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="studio.tld" prefix="studio" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
@@ -111,6 +122,7 @@
 <html>
 <head>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>TopCoder Studio</title>
 
     <jsp:include page="style.jsp">

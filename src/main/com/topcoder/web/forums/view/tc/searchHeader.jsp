@@ -1,9 +1,7 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
+<%@ page import="com.jivesoftware.util.StringUtils,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
-                 com.jivesoftware.forum.Query,
-                 com.jivesoftware.util.StringUtils,
-                 java.util.*"
+                 java.util.HashMap"
 %>
 
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>

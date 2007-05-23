@@ -1,17 +1,14 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.common.BaseProcessor,
-                 com.topcoder.web.common.DateUtils,
+<%@ page import="com.jivesoftware.base.JiveGlobals,
+                 com.jivesoftware.forum.ForumMessage,
+                 com.jivesoftware.forum.Query,
+                 com.jivesoftware.forum.action.util.Page,
+                 com.jivesoftware.forum.action.util.Paginator,
+                 com.jivesoftware.forum.stats.ViewCountManager,
+                 com.jivesoftware.util.StringUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 com.jivesoftware.base.JiveGlobals,
-                 com.jivesoftware.forum.stats.ViewCountManager,
-                 com.jivesoftware.forum.action.util.Paginator,
-                 com.jivesoftware.forum.action.util.Page,
-                 com.jivesoftware.forum.Query,
-                 com.jivesoftware.forum.ForumMessage,
-                 com.jivesoftware.util.StringUtils,
-                 java.util.*,
-                 java.text.SimpleDateFormat"
+                 java.text.SimpleDateFormat,
+                 java.util.Iterator"
 %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />

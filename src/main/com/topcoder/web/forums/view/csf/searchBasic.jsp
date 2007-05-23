@@ -1,6 +1,6 @@
-<%@ page import="com.topcoder.web.common.BaseProcessor,
+<%@ page import="com.jivesoftware.forum.Query,
                  com.jivesoftware.forum.action.util.Paginator,
-                 com.jivesoftware.forum.Query,
+                 com.topcoder.web.common.BaseProcessor,
                  java.util.HashMap,
                  java.util.Iterator"
         %>

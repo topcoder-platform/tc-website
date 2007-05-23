@@ -39,7 +39,6 @@ public abstract class ForumsProcessor extends BaseProcessor {
      * Subclasses should do their work by implementing this method.
      */
     protected void businessProcessing() throws Exception {
-        getResponse().setContentType("text/html; charset=ISO-8859-1");
 
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);

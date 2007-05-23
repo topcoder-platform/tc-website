@@ -1,12 +1,11 @@
-<%@ page import="com.topcoder.web.common.StringUtils,
-                 com.topcoder.web.forums.ForumConstants,
-                 com.topcoder.web.forums.controller.ForumsUtil,
-                 com.jivesoftware.forum.ResultFilter,
+<%@ page import="com.jivesoftware.base.User,
                  com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.WatchManager,
-                 com.jivesoftware.forum.Forum,
-                 com.jivesoftware.base.User,
-                 java.util.*"
+                 com.topcoder.web.common.StringUtils,
+                 com.topcoder.web.forums.ForumConstants,
+                 java.util.Calendar,
+                 java.util.Iterator"
         %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">

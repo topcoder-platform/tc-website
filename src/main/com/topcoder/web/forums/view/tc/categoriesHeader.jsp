@@ -1,9 +1,9 @@
-<%@ page import="com.jivesoftware.forum.ForumFactory,
-				 com.jivesoftware.forum.ForumCategory,
+<%@ page import="com.jivesoftware.forum.ForumCategory,
+				 com.jivesoftware.forum.ForumFactory,
 				 com.jivesoftware.forum.ForumPermissions,
 				 com.topcoder.shared.util.ApplicationServer,
-				 com.topcoder.web.forums.ForumConstants,
 				 com.topcoder.web.common.StringUtils,
+				 com.topcoder.web.forums.ForumConstants,
 				 java.util.Iterator" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <% 	ForumFactory forumFactory = (ForumFactory)request.getAttribute("forumFactory"); %>

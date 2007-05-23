@@ -1,13 +1,20 @@
-<%@ page import="com.jivesoftware.base.JiveConstants,
-                 com.jivesoftware.base.User,
-                 com.jivesoftware.forum.*,
-                 com.topcoder.shared.util.DBMS,
-                 com.topcoder.web.common.BaseProcessor,
-                 com.topcoder.web.common.StringUtils,
-                 com.topcoder.web.forums.ForumConstants,
-                 com.topcoder.web.forums.controller.ForumsUtil,
-                 java.util.*"
+<%@ page import="com.jivesoftware.base.User,
+                 com.jivesoftware.forum.Attachment,
+                 com.jivesoftware.forum.ForumMessage,
+                 com.jivesoftware.forum.ForumThread,
+                 com.jivesoftware.forum.RatingManager,
+                 com.jivesoftware.forum.RatingManagerFactory,
+                 com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.Watch,
+                 com.jivesoftware.forum.WatchManager"
         %>
+<%@ page import="com.topcoder.web.common.BaseProcessor" %>
+<%@ page import="com.topcoder.web.common.StringUtils" %>
+<%@ page import="com.topcoder.web.forums.ForumConstants" %>
+<%@ page import="com.topcoder.web.forums.controller.ForumsUtil" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.Hashtable" %>
+<%@ page import="java.util.Iterator" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
