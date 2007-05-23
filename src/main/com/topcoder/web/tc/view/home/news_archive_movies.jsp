@@ -20,8 +20,8 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
-		<td width="180">
-			<jsp:include page="/includes/global_left.jsp">
+        <td width="180">
+            <jsp:include page="/includes/global_left.jsp">
 <jsp:param name="node" value="m_competitions"/>
 </jsp:include>
 </td>
@@ -37,6 +37,7 @@
         </jsp:include>
 
 <table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.23.07 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=movieStream">TCHS07 Photos &amp; Video now available</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.16.07 1:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep1">Introducing the new TC Channel!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.31.07 12:00 PM - </td><td width="100%"><A href="/movies/promotional/TopCoder_software_01.31.07.mov">Building Software through Competition</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">01.08.07 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tccc06&d3=movies">Watch the full TCCC06 Webcast</A></td></tr>
