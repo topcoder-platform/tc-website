@@ -163,7 +163,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         // sum the total points won by the top performers
         double totalPoints = 0;
         
-        double lowestScore = 10000000;
+        double lowestScore = 0;
                 
         for (ContestResult result : cr) {
         
