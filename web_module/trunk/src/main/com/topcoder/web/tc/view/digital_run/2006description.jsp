@@ -62,14 +62,14 @@ function menu_goto( menuform )
 <td align="left" style="padding-right:10px;border-right: 1px solid #999999;">
 <span class="subtitle">Design Cup Series</span><br>
 <A href="/tc?module=Static&d1=digital_run&d2=2006_des_overview" class="bcLink">Details</A><br>
-<A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Current leaderboard</A><br>
-<A href="/tc?module=RookieBoard&ph=112" class="bcLink">Current ROTY leaderboard</A>
+<A href="/tc?module=LeaderBoard&ph=112&staid=4" class="bcLink">Results</A><br>
+<A href="/tc?module=RookieBoard&ph=112&seid=1" class="bcLink">ROTY results</A>
 </td>
 <td align="left" style="padding-left:10px;">
 <span class="subtitle" class="bcLink">Development Cup Series</span><br>
 <A href="/tc?module=Static&d1=digital_run&d2=2006_dev_overview" class="bcLink">Details</A><br>
-<A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Current leaderboard</A><br>
-<A href="/tc?module=RookieBoard&ph=113" class="bcLink">Current ROTY leaderboard</A>
+<A href="/tc?module=LeaderBoard&ph=113&staid=4" class="bcLink">Results</A><br>
+<A href="/tc?module=RookieBoard&ph=113&seid=1" class="bcLink">ROTY results</A>
 </td>
 </tr>
 </table>
