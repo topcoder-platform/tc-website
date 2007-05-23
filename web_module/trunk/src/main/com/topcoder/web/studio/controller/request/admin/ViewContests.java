@@ -36,7 +36,7 @@ public class ViewContests extends BaseProcessor {
         SortInfo s = new SortInfo();
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
 
-        setNextPage("/contests.jsp");
+        setNextPage("/admin/contests.jsp");
         setIsNextPageInContext(true);
     }
 }

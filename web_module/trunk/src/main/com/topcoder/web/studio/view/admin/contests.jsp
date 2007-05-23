@@ -1,11 +1,13 @@
 <%@ page import="com.topcoder.web.studio.Constants" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
+<% ResultSetContainer contests = (ResultSetContainer) request.getAttribute("contests");%>
 <html>
 <head>
 <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
@@ -54,27 +56,27 @@
                             <td class="headerE"><div>&nbsp;</div></td>
                         </tr>
                         <% boolean even = true;%>
-                        <c:forEach items="${contests}" var="contest">
+                        <rsc:iterator list="<%=contests%>" id="resultRow">
                             <tr class="<%=even?"light":"dark"%>">
                                 <td class="valueW"><div>&nbsp;</div></td>
-                                <td class="value"><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${contest.name}</A></td>
-                                <td class="value" nowrap="nowrap">${contest.status.description}</td>
+                                <td class="value"><a href="${sessionInfo.servletPath}?module=ViewContestDetails&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">${resultRow.map['name']}</A></td>
+                                <td class="value" nowrap="nowrap">${resultRow.map['contest_status_desc']}</td>
                                 <td class="valueC" nowrap="nowrap">
-                                    <tc-webtag:format object="${contest.startTime}" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                    <tc-webtag:format object="${resultRow.map['start_time']}" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
                                 <td class="valueC" nowrap="nowrap">
-                                    <tc-webtag:format object="${contest.endTime}" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                                    <tc-webtag:format object="${resultRow.map['end_time']}" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                                 </td>
                                 <td class="valueC">
-                                    <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${contest.id}">${fn:length(contest.submissions)}</a>
+                                    <a href="${sessionInfo.servletPath}?module=AdminViewSubmissions&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">${resultRow.map['submission_count']}</a>
                                 </td>
                                 <td class="valueC">
-                                    <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${contest.id}">edit</a>
+                                    <a href="${sessionInfo.servletPath}?module=AdminViewContest&amp;<%=Constants.CONTEST_ID%>=${resultRow.map['contest_id']}">edit</a>
                                 </td>
                                 <td class="valueE"><div>&nbsp;</div></td>
                             </tr>
                             <% even = !even;%>
-                        </c:forEach>
+                        </rsc:iterator>
                         <tr>
                             <td class="SW" colspan="9">&nbsp;</td>
                             <td class="SE">&nbsp;</td>
