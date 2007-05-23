@@ -337,6 +337,12 @@ public class Constants implements WebConstants {
     public static String HS_PROBLEM_SOLUTION;
     public static String HS_RATING_HISTORY;
 
+    
+    public static final int CONTEST_TYPE_DR_TOP_PERFORMERS = 18;
+    public static final int CONTEST_TYPE_DR_STAGE = 19;
+    public static final int CONTEST_TYPE_DR_ROOKIE = 20;
+    
+    
     public static String DEFAULT_SURVEY_SCROLL_SIZE;
     public static final String COLOR = "color";
 

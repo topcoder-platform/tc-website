@@ -14,11 +14,6 @@ package com.topcoder.web.tc.model.dr;
 public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
 
     /**
-     * Property indicating if this row is in the top performers
-     */
-    private boolean topPerformer;
-
-    /**
      * Property to store the points prize
      */
     private double pointsPrize;
@@ -46,9 +41,8 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
      * @param totalPrize     The totalPrize to set.
      * @param outstandingPoints     The outstandingPoints to set.
      */
-    public LeaderBoardRow(long period, long phase, long rank, long userId, String userName, long points,
-                          boolean topPerformer, boolean winTrip, double pointsPrize,
-                          double placementPrize, double totalPrize, long outstandingPoints) {
+    public LeaderBoardRow(long period, long phase, long rank, long userId, String userName, double points, double potentialPoints,
+                          double pointsPrize, double placementPrize) {
         super();
         this.period = period;
         this.phase = phase;
@@ -56,10 +50,9 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
         this.userId = userId;
         this.userName = userName;
         this.points = points;
-        this.topPerformer = topPerformer;
         this.pointsPrize = pointsPrize;
         this.placementPrize = placementPrize;
-        this.outstandingPoints = outstandingPoints;
+        this.potentialPoints = potentialPoints;
     }
 
     /**
@@ -80,27 +73,21 @@ public class LeaderBoardRow extends BaseBoardRow implements IBoardRow {
      * @return Returns the topPerformer.
      */
     public boolean isTopPerformer() {
-        return topPerformer;
+        return pointsPrize > 0;
     }
 
-    /**
-     * @param topPerformer The topPerformer to set.
-     */
-    public void setTopPerformer(boolean topPerformer) {
-        this.topPerformer = topPerformer;
-    }
 
     /**
      * @return Returns the totalPrize.
      */
-    public double getTotalPrize() {
-        return this.placementPrize + this.pointsPrize;
+    public double getTotalPrize() {        
+        return placementPrize + pointsPrize;
     }
 
     /**
      * @return true if the coder will win a trip.
      */
     public boolean isWinTrip() {
-        return (this.placementPrize > 0);
+        return placementPrize > 0;
     }
 }

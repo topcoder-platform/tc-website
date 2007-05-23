@@ -62,6 +62,7 @@ Searches<br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=Static&d1=pacts&d2=internal&d3=generatePayments">Generate Algorithm Affidavits/Payments</a><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewGenerateComponentPayments">Generate Component Payments</a><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewGenerateIntroEventCompPayments">Generate Intro Event Payments</a><br>
+<a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewGenerateDRPayments">Generate DR Payments</a><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewCreateAffidavitTemplate">Create an Affidavit Template</a><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewCreateAssignmentDocumentTemplate">Create an Assignment Document Template</a><br>
 

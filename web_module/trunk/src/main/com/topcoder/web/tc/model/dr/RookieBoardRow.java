@@ -39,8 +39,8 @@ public class RookieBoardRow extends BaseBoardRow implements IBoardRow {
      * @param potential      The potential to set.
      * @param outstandingPoints The outstandingPoints to set.
      */
-    public RookieBoardRow(long period, long phase, long rank, long userId, String userName, long points,
-                          boolean winTrip, double placementPrize, boolean potential, long outstandingPoints) {
+    public RookieBoardRow(long period, long phase, long rank, long userId, String userName, double points, double potentialPoints,
+                           double placementPrize, boolean potential) {
         super();
         this.period = period;
         this.phase = phase;
@@ -50,7 +50,7 @@ public class RookieBoardRow extends BaseBoardRow implements IBoardRow {
         this.points = points;
         this.placementPrize = placementPrize;
         this.potential = potential;
-        this.outstandingPoints = outstandingPoints;
+        this.potentialPoints = potentialPoints;
     }
 
     /**

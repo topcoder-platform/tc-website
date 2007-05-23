@@ -173,7 +173,7 @@ function hideAll(){
             lastSection = resultRow.getStringItem("section_desc");
             %>
             <tr>
-               <td class="tableHeader" style="border-top: 1px solid #999999;">(<rsc:item name="section_weight" row="<%=resultRow%>"/>)</td>
+               <td class="tableHeader" style="border-top: 1px solid #999999;">(<rsc:item name="section_weight" row="<%=resultRow%>" format="####0.00"/>)</td>
                <td class="tableHeader" colspan="2" style="border-top: 1px solid #999999;"><rsc:item name="section_desc" row="<%=resultRow%>"/></td>
             </tr>
             <% } %>
@@ -184,7 +184,7 @@ function hideAll(){
             %>
             <tr>
                <td class="statDk" style="border-top: 1px solid #999999;">
-               <b>(<rsc:item name="question_weight" row="<%=resultRow%>" ifNull="" />)</b>
+               <b>(<rsc:item name="question_weight" row="<%=resultRow%>" ifNull=""  format="####0.00"/>)</b>
                </td>
                <td class="statDk" width="100%" style="border-top: 1px solid #999999;">
 
