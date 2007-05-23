@@ -4803,12 +4803,9 @@ public class TCLoadTCS extends TCLoad {
             "         and submission_status_id in (1, 4) " +
             "        ) as num_submissions_passed_review  " +
             " from project p " +
-            "    ,outer project_info pi_amount " +
             "    ,project_result pr " +
             "    ,outer project_info pi_dr " +
-            " where pi_amount.project_id = p.project_id " +
-            " and pi_amount.project_info_type_id = 16 " +
-            " and pi_dr.project_id = p.project_id " +
+            " where pi_dr.project_id = p.project_id " +
             " and pi_dr.project_info_type_id = 26 " +
             " and p.project_id = pr.project_id " +
             " and p.project_category_id = ? " +
@@ -4860,12 +4857,8 @@ public class TCLoadTCS extends TCLoad {
                     continue;
                 }
                 
-                double amount = -1;
-                if (rs.getString("amount") != null) {
-                    amount = rs.getDouble("amount");
-                }
                 ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
-                        rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), amount, 
+                        rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
                         rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
                                         
                 pr.add(res);
