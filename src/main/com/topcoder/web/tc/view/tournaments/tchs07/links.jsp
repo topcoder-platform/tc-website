@@ -11,6 +11,16 @@
     <img src="/i/tournament/tchs07/tchs07.png" alt="TCHS07" usemap="#tchslogo"/>
 </div>
 
+<div class="headline">
+    <map name="headline">
+    <area shape="rect" alt="" coords="9,17,99,32" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd" />
+    <area shape="rect" alt="" coords="114,17,214,32" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketTeam" />
+    <area shape="rect" alt="" coords="54,43,114,60" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=photos" />
+    <area shape="rect" alt="" coords="122,43,173,60" href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=movieStream" />
+    </map>
+    <img src="/i/tournament/tchs07/headlineFinal.png" alt="" usemap="#headline" />
+</div>
+
 <%--
 <div class="headline">
 <A href="/tc?module=TCHS07ViewRegistration"><img src="/i/tournament/tchs07/registernow.png" alt="Register Now" /></A>
@@ -23,7 +33,7 @@
 
 <div id="leftnav">
     <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview"<% if (tabLev1.equals("overview")) {%> class="on"<% } %>>OVERVIEW</A>
-    <a href="/pdfs/tournaments/tchs07_webprogram.pdf" alt="TCHS 2007 Web Program" target="_blank" />TOURNAMENT PROGRAM (PDF)</a>
+    <A href="/pdfs/tournaments/tchs07_webprogram.pdf"<% if (tabLev1.equals("program")) {%> class="on"<% } %>>TOURNAMENT PROGRAM (PDF)</A>
     <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onlineSchedule"<% if (tabLev1.equals("onlineSchedule")) {%> class="on"<% } %>>ONLINE
         SCHEDULE</A>
     <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule"<% if (tabLev1.equals("onsiteSchedule")) {%> class="on"<% } %>>ONSITE

@@ -59,6 +59,45 @@
             ,"/i/tournament/tchs07/onsitePhotos/046.jpg"
             ,"/i/tournament/tchs07/onsitePhotos/047.jpg"
             ,"/i/tournament/tchs07/onsitePhotos/048.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/049.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/050.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/051.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/052.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/053.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/054.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/055.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/056.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/057.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/058.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/059.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/060.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/061.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/062.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/063.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/064.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/065.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/066.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/067.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/068.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/069.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/070.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/071.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/072.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/073.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/074.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/075.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/076.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/077.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/078.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/079.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/080.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/081.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/082.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/083.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/084.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/085.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/086.jpg"
+            ,"/i/tournament/tchs07/onsitePhotos/087.jpg"
             ];
         function getNextIdx() {
             imageNum = imageNum + 1;
@@ -142,8 +181,8 @@
             
                 <a name="spot"></a>
                 <a href="#spot" onClick="changeImage(getPrevIdx());">previous</a>
-                <strong><span id="currImage"></span></strong>
-                of <strong><script type="text/javascript">document.write(images.length);</script></strong>
+                [ <strong><span id="currImage"></span></strong>
+                of <strong><script type="text/javascript">document.write(images.length);</script></strong> ]
                 
                 <a href="#spot" onClick="changeImage(getNextIdx());">next</a>
                 <br>Go to <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/>
@@ -154,6 +193,7 @@
 
             </div>
             </form>
+            <br clear="all" />
         </div>
         <div class="footer">
             Copyright &#169; 2000-2006, TopCoder, Inc. All rights reserved.
