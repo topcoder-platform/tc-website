@@ -37,9 +37,9 @@
                 <map name="highlights">
                 <area shape="rect" alt="" coords="1,1,199,95" href="/?module=Static&d1=leaderboardOverview" />
                 <area shape="rect" alt="" coords="1,105,199,195" href="/?module=ViewPastContests" />
-                <area shape="rect" alt="" coords="1,205,199,299" href="/?module=Static&d1=assembly&d2=pastContests" />
+                <area shape="rect" alt="" coords="1,205,199,299" href="/?module=Static&d1=assembly&d2=msSessionManifestDetails" />
                 </map>
-                <img src="/i/home/highlights0517.png" alt="Series Prizes" usemap="#highlights" />
+                <img src="/i/home/highlights0523.png" alt="Series Prizes" usemap="#highlights" />
             </div>
 
             <p>
