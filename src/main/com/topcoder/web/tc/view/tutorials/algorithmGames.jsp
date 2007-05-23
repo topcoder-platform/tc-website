@@ -81,26 +81,26 @@ The games we will talk about are two-person games with perfect information, no c
 <p><span class="bodySubtitle">The Basics </span><br />
 A simple example is the following game, played by two players who take turns moving. At the beginning there are n coins. When it is a player's turn he can take away 1, 3 or 4 coins. The player who takes the last one away is declared the winner (in other words, the player who can not make a move is the loser). The question is: For what n will the first player win if they both play optimally? </p>
 
-<p>We can see that n = 1, 3, 4 are winning positions for the first player, because he can simply take all the coins. For n=0 and 2 there are no possible moves -- the game is finished -- so these are the losing positions for the first player, because he can not make a move from them. If n=5 or 6 a player can move to 2 (by removing 3 or 4 coins), and he is in a winning position. If n=7 a player can move only to 3, 4, 6, but from all of them his opponent can win&#8230; </p>
+<p>We can see that n = 1, 3, 4 are winning positions for the first player, because he can simply take all the coins. For n=0 there are no possible moves -- the game is finished -- so it is the losing position for the first player, because he can not make a move from it. If n=2 the first player has only one option, to remove 1 coin. If n=5 or 6 a player can move to 2 (by removing 3 or 4 coins), and he is in a winning position. If n=7 a player can move only to 3, 4, 6, but from all of them his opponent can win&#8230; </p>
 
 <p><b>Positions have the following properties:</b></p>
 
 <ul>
-	<li>All terminal positions are losing. </li>
-	<li>If a player is able to move to a losing position then he is in a winning position. </li>
-	<li>If a player is able to move only to the winning positions then he is in a losing position. </li>
+    <li>All terminal positions are losing. </li>
+    <li>If a player is able to move to a losing position then he is in a winning position. </li>
+    <li>If a player is able to move only to the winning positions then he is in a losing position. </li>
 </ul>
 
 <p>These properties could be used to create a simple recursive algorithm <b>WL-Algorithm</b>:</p> 
 
 <pre class="code">
 <b>boolean</b> isWinning(position pos) {
-	moves[] = possible positions to which I can move from the
+    moves[] = possible positions to which I can move from the
 position pos;
-	<b>for</b> (all x in moves) 
-		<b>if</b> (!isWinning(x)) return true;
-	
-	<b>return</b> false; 
+    <b>for</b> (all x in moves) 
+        <b>if</b> (!isWinning(x)) return true;
+    
+    <b>return</b> false; 
 }
 </pre>
 
@@ -174,7 +174,7 @@ position pos;
    </tr>
 </table>
 
-<p>It can be seen that whether a position is winning or losing depends only on the last k positions, where k is the maximum number of coins we can take away. While there are only 2k possible values for the sequences of the length k, our sequence will become periodic. You can try to use this observation to solve the following problem: <br>
+<p>It can be seen that whether a position is winning or losing depends only on the last k positions, where k is the maximum number of coins we can take away. While there are only 2^k possible values for the sequences of the length k, our sequence will become periodic. You can try to use this observation to solve the following problem: <br>
 <a href="/stat?c=problem_statement&pm=6856">SRM 330: LongLongNim</a> </p>
 
 <p><span class="bodySubtitle">The Game of Nim </span><br />
@@ -188,17 +188,17 @@ The most famous mathematical game is probably the Game of Nim. This is the game 
 
 <p><b>How is xor being computed?</b></p>
 <pre class="code">
-	6 = (110)2		  1 1 0
-	9 = (1001)2		1 0 0 1
-	3 = (11)2		    1 1
-				--------
-				1 1 0 0
+    6 = (110)2           1 1 0
+    9 = (1001)2        1 0 0 1
+    3 = (11)2              1 1
+                       --------
+                       1 1 0 0
 </pre>
 
 <ul>
-	<li><b>xor</b> of two logic values is true if and only if one of them is true and the second is false</li>
-	<li>when computing <b>xor</b> of integers, first write them as binary numbers and then apply <b>xor</b> on columns. </li>
-	<li>so <b>xor</b> of even number of 1s is 0 and <b>xor</b> of odd number of 1s is 1 </li>
+    <li><b>xor</b> of two logic values is true if and only if one of them is true and the second is false</li>
+    <li>when computing <b>xor</b> of integers, first write them as binary numbers and then apply <b>xor</b> on columns. </li>
+    <li>so <b>xor</b> of even number of 1s is 0 and <b>xor</b> of odd number of 1s is 1 </li>
 </ul>
 
 <p><b>Why does it work?</b></p>
@@ -228,13 +228,13 @@ Position (7, 4, 1) is winning because 7 xor 4 xor 1 = (111)<sub>2</sub> xor (10)
 
 <pre class="code">
 <b>int</b> grundyNumber(position pos) {
-	moves[] = possible positions to which I can move from pos
-	set s;
-	<b>for</b> (all x in moves) insert into s grundyNumber(x);
-	//return the smallest non-negative integer not in the set s;	
-	<b>int</b> ret=0;
-	<b>while</b> (s.contains(ret)) ret++;
-	<b>return</b> ret;
+    moves[] = possible positions to which I can move from pos
+    set s;
+    <b>for</b> (all x in moves) insert into s grundyNumber(x);
+    //return the smallest non-negative integer not in the set s;    
+    <b>int</b> ret=0;
+    <b>while</b> (s.contains(ret)) ret++;
+    <b>return</b> ret;
 }
 </pre>
 
@@ -249,9 +249,9 @@ Position (7, 4, 1) is winning because 7 xor 4 xor 1 = (111)<sub>2</sub> xor (10)
 <p><b>Why is the pile of Nim equivalent to the subgame if its size is equal to the grundy number of that subgame? </b></p>
 
 <ul>
-	<li>If we decrease the size of the pile in Nim from A to B, we can move also in the subgame to the position with the grundy number B. (Our current position had grundy number A so it means we could move to positions with all smaller grundy numbers, otherwise the grundy number of our position would not be A.)</li>
-	<li>If we are in the subgame at a position with a grundy number higher than 0, by moving in it and decreasing its grundy number we can also decrease the size of pile in the Nim. </li>
-	<li>If we are in the subgame at the position with grundy number 0, by moving from that we will get to a position with a grundy number higher than 0. Because of that, from such a position it is possible to move back to 0. By doing that we can nullify every move from the position from grundy number 0. </li>
+    <li>If we decrease the size of the pile in Nim from A to B, we can move also in the subgame to the position with the grundy number B. (Our current position had grundy number A so it means we could move to positions with all smaller grundy numbers, otherwise the grundy number of our position would not be A.)</li>
+    <li>If we are in the subgame at a position with a grundy number higher than 0, by moving in it and decreasing its grundy number we can also decrease the size of pile in the Nim. </li>
+    <li>If we are in the subgame at the position with grundy number 0, by moving from that we will get to a position with a grundy number higher than 0. Because of that, from such a position it is possible to move back to 0. By doing that we can nullify every move from the position from grundy number 0. </li>
 </ul>
 
 <p>Example problems:<br>
@@ -268,7 +268,7 @@ It doesn't happen often, but you can occasionally encounter games with a slightl
 
 <p>You can verify correctness of both solutions by verifying the basic properties (from a winning position it is possible to move to a losing one and from a losing position it is possible to move only to the winning ones). Of course, everything works for all other composite games with these rules (not only for horse games). </p>
 
-<p><b>Homework:</b> What would be changed if a player had to move with every horse and would lose if she were not able to do so? </p>
+<p><b>Homework:</b> What would be changed if a player had to move with every horse and would lose if he were not able to do so? </p>
 
 <p><span class="bodySubtitle">Conclusion </span><br />
 Don't worry if you see a game problem during SRM -- it might be similar to one the games described above, or it could be reduced to one of them. If not, just think about it on concrete examples. Once you figure it out the coding part is usually very simple and straightforward. Good luck and have fun. </p>
