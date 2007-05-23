@@ -2,9 +2,9 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%------------------------------------------ for 7:30pm
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>05.23.07<br>7:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>05.23.07<br>7:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
@@ -21,7 +21,7 @@
         <tc-webtag:forumLink forumID="515914" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
-   --------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.23.07<br>3:45 PM</td>
