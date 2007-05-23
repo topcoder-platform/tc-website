@@ -171,22 +171,19 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
                 lowestScore = result.getFinalPoints();
             }
             if (result.getFinalPoints() < (lowestScore - DELTA_SCORE)) break;
-            System.out.println("Place" + result.getPlace());
             totalPoints += result.getFinalPoints();
         }
         
-        System.out.println("totalPoints" + totalPoints);
-        
-        // Set prizes
-        double amountPerPoint = prizePool / totalPoints;
-        for (ContestResult result : cr) {
-//            if (result.getPlace() > maxPlace) break;
 
-            if (result.getFinalPoints() < (lowestScore - DELTA_SCORE)) break;
-
-            result.setPrize(amountPerPoint * result.getFinalPoints());
+        if (totalPoints > 0) {
+            // Set prizes
+            double amountPerPoint = prizePool / totalPoints;
+            for (ContestResult result : cr) {
+                if (result.getFinalPoints() < (lowestScore - DELTA_SCORE)) break;
+    
+                result.setPrize(amountPerPoint * result.getFinalPoints());
+            }
         }
-        
         
     }
     
