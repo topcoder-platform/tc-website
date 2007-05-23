@@ -171,25 +171,31 @@ public abstract class BaseBoard extends BaseProcessor {
                     return arg0.getUserName().compareTo(arg1.getUserName());
                 }
             });
-        }
-        if (sortCol.equals(OUTSTANDING_POINTS_COLUMN)) {
+        } else  if (sortCol.equals(OUTSTANDING_POINTS_COLUMN)) {
             Collections.sort(boardResult, new Comparator<IBoardRow>() {
                 public int compare(IBoardRow arg0, IBoardRow arg1) {
                     return new Double(arg0.getPotentialPoints()).compareTo(new Double(arg1.getPotentialPoints()));
                 }
             });
-        }
-        if (sortCol.equals(TOTAL_POINTS_COLUMN)) {
+        } else if (sortCol.equals(TOTAL_POINTS_COLUMN)) {
             Collections.sort(boardResult, new Comparator<IBoardRow>() {
                 public int compare(IBoardRow arg0, IBoardRow arg1) {
                     return new Double(arg0.getTotalPoints()).compareTo(new Double(arg1.getTotalPoints()));
                 }
             });
+        } else {
+            // Default, sort by rank.
         }
 
         if (invert) {
             Collections.reverse(boardResult);
-        }
+
+            Collections.sort(boardResult, new Comparator<IBoardRow>() {
+                public int compare(IBoardRow arg0, IBoardRow arg1) {
+                    return new Long(arg0.getRank()).compareTo(arg1.getRank());
+                }
+            });
+}
         
         SortInfo s = new SortInfo();
         s.addDefault(Integer.parseInt(CODER_HANDLE_COLUMN), "asc");

@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         import="com.topcoder.shared.dataAccess.DataAccessConstants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+         import="com.topcoder.shared.dataAccess.DataAccessConstants" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
