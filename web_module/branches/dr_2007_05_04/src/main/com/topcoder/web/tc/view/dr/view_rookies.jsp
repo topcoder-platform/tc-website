@@ -9,10 +9,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%
-    ResultSetContainer seasons = (ResultSetContainer) request.getAttribute(Constants.SEASON_LIST_KEY);
-    String type = (String) request.getAttribute(Constants.TYPE_KEY);
-%>
 
 <c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
 <c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
@@ -196,7 +192,7 @@ Please select a <strong>season</strong><br>
     <tr class='${status.index % 2 == 1? "even" : "odd" }'>
         <td class="valueC">${boardRow.rank}</td>
         <td class="value" style="border-right: 1px solid #999999;">
-            <tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/>
+            <tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/>
             <c:if test="${boardRow.potential}">***</c:if></td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
@@ -213,7 +209,7 @@ Please select a <strong>season</strong><br>
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
             <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">
-	            <fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
+	            <fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
             </a>
             </c:if>
 	        </td>
