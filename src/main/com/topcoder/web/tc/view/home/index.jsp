@@ -331,10 +331,8 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
-            <%-- POST WEDNESDAY ???
             Yodlee to Sponsor TopCoder Single Round Match Series
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_052207">...more</A><br>[May 23]<br><br>
-            --%>
 
             Belarus All College Programming Event
             <A target="_blank" href="/tc?module=Static&d1=features&d2=050807">...more</A><br>[May 8]<br><br>
