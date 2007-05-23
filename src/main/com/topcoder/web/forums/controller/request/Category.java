@@ -7,6 +7,8 @@ import com.jivesoftware.base.JiveConstants;
 import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ResultFilter;
 import com.jivesoftware.forum.action.util.Paginator;
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.WebConstants;
 import com.topcoder.web.ejb.forums.Forums;
@@ -81,6 +83,11 @@ public class Category extends ForumsProcessor {
             boolean excludeEmptyForums = "true".equals(forumCategory.getProperty(ForumConstants.PROPERTY_HIDE_EMPTY_FORUMS));
             list = ForumsUtil.getForums(forumCategory, resultFilter, excludeEmptyForums);
         }
+        
+        if (list.size() == 0 && isGuest()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        }
+        
         ArrayList pageList = ForumsUtil.getPage(list, startIdx, forumRange);
         resultFilter.setStartIndex(startIdx);
         resultFilter.setNumResults(forumRange);
