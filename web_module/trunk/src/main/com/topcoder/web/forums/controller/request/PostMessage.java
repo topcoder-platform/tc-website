@@ -124,6 +124,11 @@ public class PostMessage extends ForumsProcessor {
         message.setSubject(subject);
         message.setBody(body);
 
+        if (log.isDebugEnabled()) {
+            log.debug("body is : \n\n" + body);
+            log.debug("subject is: \n\n" + subject);
+        }
+
         // Add an edit to the revision history only if Jive recognizes that an edit has taken place
         if (postMode.equals("Edit") && message.getModificationDate().getTime() > histModificationDate) {
             MessageHistoryLocal historyBean = (MessageHistoryLocal) createLocalEJB(getInitialContext(), MessageHistory.class);
