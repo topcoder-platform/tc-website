@@ -13,23 +13,23 @@ import com.topcoder.web.forums.controller.ForumsUtil;
 
 /**
  * @author mtong
- *
- * Provides logic to work with a message after a user decides to create a new thread, or edit/reply
- * to an existing message.
+ *         <p/>
+ *         Provides logic to work with a message after a user decides to create a new thread, or edit/reply
+ *         to an existing message.
  */
 public class Post extends ForumsProcessor {
 
-	protected void businessProcessing() throws Exception {
-		super.businessProcessing();
+    protected void businessProcessing() throws Exception {
+        super.businessProcessing();
         if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
-		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);        
+        String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
-        
+
         long forumID = -1;
         if (postMode.equals("New")) {
             forumID = Long.parseLong(forumIDStr);
@@ -39,9 +39,9 @@ public class Post extends ForumsProcessor {
             forumID = message.getForum().getID();
         }
 
-		setDefault(ForumConstants.FORUM_ID, String.valueOf(forumID));
-		setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
-		setDefault(ForumConstants.POST_MODE, postMode);
+        setDefault(ForumConstants.FORUM_ID, String.valueOf(forumID));
+        setDefault(ForumConstants.MESSAGE_ID, getRequest().getParameter(ForumConstants.MESSAGE_ID));
+        setDefault(ForumConstants.POST_MODE, postMode);
 
         Forum forum = forumFactory.getForum(forumID);
         if (!messageIDStr.equals("")) {
@@ -55,40 +55,40 @@ public class Post extends ForumsProcessor {
                 setDefault(ForumConstants.MESSAGE_SUBJECT, replySubject);
             }
             if (postMode.equals("Edit")) {
-            	if (!message.getUser().equals(user)) {
+                if (!message.getUser().equals(user)) {
                     setNextPage(getSessionInfo().getServletPath() + "?module=Main");
                     setIsNextPageInContext(false);
                     return;
                 }
-            	
+
                 setDefault(ForumConstants.MESSAGE_SUBJECT, message.getUnfilteredSubject());
                 setDefault(ForumConstants.MESSAGE_BODY, message.getUnfilteredBody());
-            } 
+            }
             getRequest().setAttribute("message", message);
             getRequest().setAttribute("thread", message.getForumThread());
         }
-        
+
         if (postMode.equals("New") || postMode.equals("Reply")) {
-        	ForumMessage tempMessage = (ForumMessage)getRequest().getSession().
-        		getAttribute("tempMessage_"	+ tempMessageIDStr);
-            if (tempMessage == null) { 
-            	getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, String.valueOf(ForumsUtil.tempMessageID));
-            	setDefault(ForumConstants.TEMP_MESSAGE_ID, String.valueOf(ForumsUtil.tempMessageID));
-            	tempMessage = forum.createMessage(user);
-            	getRequest().getSession().setAttribute("tempMessage_" + ForumsUtil.tempMessageID++, tempMessage);
+            ForumMessage tempMessage = (ForumMessage) getRequest().getSession().
+                    getAttribute("tempMessage_" + tempMessageIDStr);
+            if (tempMessage == null) {
+                getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, String.valueOf(ForumsUtil.tempMessageID));
+                setDefault(ForumConstants.TEMP_MESSAGE_ID, String.valueOf(ForumsUtil.tempMessageID));
+                tempMessage = forum.createMessage(user);
+                getRequest().getSession().setAttribute("tempMessage_" + ForumsUtil.tempMessageID++, tempMessage);
             } else {
-            	getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, tempMessageIDStr);
-            	setDefault(ForumConstants.MESSAGE_SUBJECT, tempMessage.getSubject());
-            	setDefault(ForumConstants.MESSAGE_BODY, ForumsUtil.createTextAreaBody(tempMessage.getUnfilteredBody()));
-            	setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
+                getRequest().setAttribute(ForumConstants.TEMP_MESSAGE_ID, tempMessageIDStr);
+                setDefault(ForumConstants.MESSAGE_SUBJECT, tempMessage.getSubject());
+                setDefault(ForumConstants.MESSAGE_BODY, ForumsUtil.createTextAreaBody(tempMessage.getUnfilteredBody()));
+                setDefault(ForumConstants.TEMP_MESSAGE_ID, getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
             }
             getRequest().setAttribute("tempMessage", tempMessage);
         }
-        
+
         getRequest().setAttribute("forum", forum);
         getRequest().setAttribute("postMode", postMode);
 
         setNextPage("/post.jsp");
-		setIsNextPageInContext(true);
-	}
+        setIsNextPageInContext(true);
+    }
 }

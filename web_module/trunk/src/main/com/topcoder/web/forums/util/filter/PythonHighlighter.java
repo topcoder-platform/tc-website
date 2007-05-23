@@ -1,10 +1,12 @@
 package com.topcoder.web.forums.util.filter;
 
-import com.jivesoftware.base.*;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
+import com.jivesoftware.base.Filter;
+import com.jivesoftware.base.FilterChain;
+import com.jivesoftware.base.Log;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.StringReader;
 
 /**
  * A Filter that syntax highlights Python code appearing between [py][/py] tags.
@@ -36,10 +38,10 @@ public class PythonHighlighter implements Filter {
     private String tableLinePanelBackgroundColor;
     private String tableCodePanelBackgroundColor;
     private String lineNumberColor;
-    
+
     private final static String TAG_NAME = "py";
     private final static String BEGIN_TAG = "[" + TAG_NAME + "]";
-    private final static String END_TAG = "[/" + TAG_NAME + "]";  
+    private final static String END_TAG = "[/" + TAG_NAME + "]";
     private final static int BEGIN_TAG_LEN = BEGIN_TAG.length();
     private final static int END_TAG_LEN = END_TAG.length();
 
@@ -109,8 +111,7 @@ public class PythonHighlighter implements Filter {
                 }
 
                 endCodeTag = end + END_TAG_LEN;
-            }
-            else {
+            } else {
                 filtered.append(string.substring(endCodeTag, startCodeTag) + "[py]");
                 endCodeTag = startCodeTag + BEGIN_TAG_LEN;
                 continue;
@@ -129,8 +130,7 @@ public class PythonHighlighter implements Filter {
 
             if (applyTableSurround) {
                 filtered.append(surroundWithTable(viewer.codeFilter(code), countLines(code)));
-            }
-            else {
+            } else {
                 filtered.append("<pre>");
                 filtered.append(viewer.codeFilter(code));
                 filtered.append("</pre>");
@@ -150,7 +150,7 @@ public class PythonHighlighter implements Filter {
      * existing page's background color does not display well with formatted code. Another useful
      * feature of the code table is the ability to conveniently output line numbers.
      *
-     * @param text code already formatted with html markup
+     * @param text     code already formatted with html markup
      * @param numLines number of lines in text
      * @return code surrounded with a table, possibly displaying line numbers
      */
@@ -192,7 +192,7 @@ public class PythonHighlighter implements Filter {
     private String makeLines(int numLines) {
         StringBuffer buffer = new StringBuffer();
 
-        for(int i = 1; i <= numLines; i++) {
+        for (int i = 1; i <= numLines; i++) {
             buffer.append(i + "<br>");
 
         }
@@ -284,20 +284,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that starts comment blocks. For example, it could
+     * Returns the HTML tags that starts comment blocks. For example, it could
      * be <code>&lt;i&gt;</code>.
      *
-     * @return the HTML tag to start comment blocks
+     * @return the HTML tags to start comment blocks
      */
     public String getCommentStart() {
         return commentStart;
     }
 
     /**
-     * Sets the HTML tag that starts comment blocks. For example, it could be
+     * Sets the HTML tags that starts comment blocks. For example, it could be
      * <code>&lt;i&gt;</code>.
      *
-     * @param commentStart the HTML tag to start comment blocks
+     * @param commentStart the HTML tags to start comment blocks
      */
     public void setCommentStart(String commentStart) {
         this.commentStart = commentStart;
@@ -305,20 +305,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that ends comment blocks. For example, it could be
-     * <code>&lt;/i&gt;</code>. The tag should correspond to the comment end tag.
+     * Returns the HTML tags that ends comment blocks. For example, it could be
+     * <code>&lt;/i&gt;</code>. The tags should correspond to the comment end tags.
      *
-     * @return the HTML tag to end comment blocks
+     * @return the HTML tags to end comment blocks
      */
     public String getCommentEnd() {
         return commentEnd;
     }
 
     /**
-     * Sets the HTML tag that ends comment blocks. For example, it could be <code>&lt;/i&gt;</code>.
-     * The tag should correspond to the comment end tag.
+     * Sets the HTML tags that ends comment blocks. For example, it could be <code>&lt;/i&gt;</code>.
+     * The tags should correspond to the comment end tags.
      *
-     * @param commentEnd the HTML tag to end comment blocks
+     * @param commentEnd the HTML tags to end comment blocks
      */
     public void setCommentEnd(String commentEnd) {
         this.commentEnd = commentEnd;
@@ -326,20 +326,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that starts string blocks. For example, it could be
+     * Returns the HTML tags that starts string blocks. For example, it could be
      * <code>&lt;font color=&quot;red&quot;&gt;</code>.
      *
-     * @return the HTML tag to start string blocks
+     * @return the HTML tags to start string blocks
      */
     public String getStringStart() {
         return stringStart;
     }
 
     /**
-     * Sets the HTML tag that starts string blocks. For example, it could be
+     * Sets the HTML tags that starts string blocks. For example, it could be
      * <code>&lt;font color=&quot;red&quot;&gt;</code>.
      *
-     * @param stringStart the HTML tag to start string blocks
+     * @param stringStart the HTML tags to start string blocks
      */
     public void setStringStart(String stringStart) {
         this.stringStart = stringStart;
@@ -347,20 +347,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that ends string blocks. For example, it could be
-     * <code>&lt;/font&gt;</code>. The tag should correspond to the string end tag.
+     * Returns the HTML tags that ends string blocks. For example, it could be
+     * <code>&lt;/font&gt;</code>. The tags should correspond to the string end tags.
      *
-     * @return the HTML tag to end string blocks
+     * @return the HTML tags to end string blocks
      */
     public String getStringEnd() {
         return stringEnd;
     }
 
     /**
-     * Sets the HTML tag that ends string blocks. For example, it could be
-     * <code>&lt;/font&gt;</code>. The tag should correspond to the string end tag.
+     * Sets the HTML tags that ends string blocks. For example, it could be
+     * <code>&lt;/font&gt;</code>. The tags should correspond to the string end tags.
      *
-     * @param stringEnd the HTML tag to end string blocks
+     * @param stringEnd the HTML tags to end string blocks
      */
     public void setStringEnd(String stringEnd) {
         this.stringEnd = stringEnd;
@@ -368,20 +368,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that starts keyword blocks. For example, it could be
+     * Returns the HTML tags that starts keyword blocks. For example, it could be
      * <code>&lt;font color=&quot;navy&quot;&gt;</code>.
      *
-     * @return the HTML tag to start keyword blocks
+     * @return the HTML tags to start keyword blocks
      */
     public String getReservedWordStart() {
         return reservedWordStart;
     }
 
     /**
-     * Sets the HTML tag that starts reserved word blocks. For example, it could be
+     * Sets the HTML tags that starts reserved word blocks. For example, it could be
      * <code>&lt;font color=&quot;navy&quot;&gt;</code>.
      *
-     * @param reservedWordStart the HTML tag to start keyword blocks
+     * @param reservedWordStart the HTML tags to start keyword blocks
      */
     public void setReservedWordStart(String reservedWordStart) {
         this.reservedWordStart = reservedWordStart;
@@ -389,21 +389,21 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that ends keyword blocks. For example, it could be
-     * <code>&lt;/font&gt;</code>. This should correspond to the end tag for keyword blocks.
+     * Returns the HTML tags that ends keyword blocks. For example, it could be
+     * <code>&lt;/font&gt;</code>. This should correspond to the end tags for keyword blocks.
      *
-     * @return the HTML tag to end keyword blocks
+     * @return the HTML tags to end keyword blocks
      */
     public String getReservedWordEnd() {
         return reservedWordEnd;
     }
 
     /**
-     * Sets the HTML tag that ends keyword blocks. For example, it could be
-     * <code>&lt;font color=&quot;navy&quot;&gt;</code>. This should correspond to the end tag
+     * Sets the HTML tags that ends keyword blocks. For example, it could be
+     * <code>&lt;font color=&quot;navy&quot;&gt;</code>. This should correspond to the end tags
      * for keyword blocks.
      *
-     * @param reservedWordEnd the HTML tag to end keyword blocks
+     * @param reservedWordEnd the HTML tags to end keyword blocks
      */
     public void setReservedWordEnd(String reservedWordEnd) {
         this.reservedWordEnd = reservedWordEnd;
@@ -411,20 +411,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that starts method blocks. For example, it could be
+     * Returns the HTML tags that starts method blocks. For example, it could be
      * <code>&lt;font color=&quot;brown&quot;&gt;</code>.
      *
-     * @return the HTML tag to start method blocks
+     * @return the HTML tags to start method blocks
      */
     public String getMethodStart() {
         return methodStart;
     }
 
     /**
-     * Sets the HTML tag that starts method blocks. For example, it could be
+     * Sets the HTML tags that starts method blocks. For example, it could be
      * <code>&lt;font color=&quot;brown&quot;&gt;</code>.
      *
-     * @param methodStart the HTML tag to start method blocks
+     * @param methodStart the HTML tags to start method blocks
      */
     public void setMethodStart(String methodStart) {
         this.methodStart = methodStart;
@@ -432,20 +432,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that ends method blocks. For example, it could be
-     * <code>&lt;/font&gt;</code>. This should correspond to the end tag for method blocks.
+     * Returns the HTML tags that ends method blocks. For example, it could be
+     * <code>&lt;/font&gt;</code>. This should correspond to the end tags for method blocks.
      *
-     * @return the HTML tag to end method blocks
+     * @return the HTML tags to end method blocks
      */
     public String getMethodEnd() {
         return methodEnd;
     }
 
     /**
-     * Sets the HTML tag that ends method blocks. For example, it could be
-     * <code>&lt;/font&gt;</code>. This should correspond to the end tag for method blocks.
+     * Sets the HTML tags that ends method blocks. For example, it could be
+     * <code>&lt;/font&gt;</code>. This should correspond to the end tags for method blocks.
      *
-     * @param methodEnd the HTML tag to end method blocks
+     * @param methodEnd the HTML tags to end method blocks
      */
     public void setMethodEnd(String methodEnd) {
         this.methodEnd = methodEnd;
@@ -453,20 +453,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that starts character blocks. For example, it could be
+     * Returns the HTML tags that starts character blocks. For example, it could be
      * <code>&lt;font color=&quot;navy&quot;&gt;</code>.
      *
-     * @return the HTML tag to start method blocks
+     * @return the HTML tags to start method blocks
      */
     public String getCharacterStart() {
         return characterStart;
     }
 
     /**
-     * Sets the HTML tag that starts character blocks. For example, it could be
+     * Sets the HTML tags that starts character blocks. For example, it could be
      * <code>&lt;font color=&quot;navy&quot;&gt;</code>.
      *
-     * @param characterStart the HTML tag to start method blocks
+     * @param characterStart the HTML tags to start method blocks
      */
     public void setCharacterStart(String characterStart) {
         this.characterStart = characterStart;
@@ -474,20 +474,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that ends character blocks. For example, it could be
-     * <code>&lt;/font&gt;</code>. This should correspond to the end tag for character blocks.
+     * Returns the HTML tags that ends character blocks. For example, it could be
+     * <code>&lt;/font&gt;</code>. This should correspond to the end tags for character blocks.
      *
-     * @return the HTML tag to end method blocks
+     * @return the HTML tags to end method blocks
      */
     public String getCharacterEnd() {
         return characterEnd;
     }
 
     /**
-     * Sets the HTML tag that ends character blocks. For example, it could be
-     * <code>&lt;/font&gt;</code>. This should correspond to the end tag for character blocks.
+     * Sets the HTML tags that ends character blocks. For example, it could be
+     * <code>&lt;/font&gt;</code>. This should correspond to the end tags for character blocks.
      *
-     * @param characterEnd the HTML tag to end character blocks
+     * @param characterEnd the HTML tags to end character blocks
      */
     public void setCharacterEnd(String characterEnd) {
         this.characterEnd = characterEnd;
@@ -495,20 +495,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that starts bracket blocks. For example, it could be
+     * Returns the HTML tags that starts bracket blocks. For example, it could be
      * <code>&lt;font color=&quot;navy&quot;&gt;</code>.
      *
-     * @return the HTML tag to start bracket blocks
+     * @return the HTML tags to start bracket blocks
      */
     public String getBracketStart() {
         return bracketStart;
     }
 
     /**
-     * Sets the HTML tag that starts character blocks. For example, it could be
+     * Sets the HTML tags that starts character blocks. For example, it could be
      * <code>&lt;font color=&quot;navy&quot;&gt;</code>.
      *
-     * @param bracketStart the HTML tag to start bracket blocks
+     * @param bracketStart the HTML tags to start bracket blocks
      */
     public void setBracketStart(String bracketStart) {
         this.bracketStart = bracketStart;
@@ -516,20 +516,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that ends character blocks. For example, it could be
-     * <code>&lt;/font&gt;</code>. This should correspond to the end tag for bracket blocks.
+     * Returns the HTML tags that ends character blocks. For example, it could be
+     * <code>&lt;/font&gt;</code>. This should correspond to the end tags for bracket blocks.
      *
-     * @return the HTML tag to end bracket blocks.
+     * @return the HTML tags to end bracket blocks.
      */
     public String getBracketEnd() {
         return bracketEnd;
     }
 
     /**
-     * Sets the HTML tag that ends character blocks. For example, it could be
-     * <code>&lt;/font&gt;</code>. This should correspond to the end tag for bracket blocks.
+     * Sets the HTML tags that ends character blocks. For example, it could be
+     * <code>&lt;/font&gt;</code>. This should correspond to the end tags for bracket blocks.
      *
-     * @param bracketEnd the HTML tag to end bracket blocks.
+     * @param bracketEnd the HTML tags to end bracket blocks.
      */
     public void setBracketEnd(String bracketEnd) {
         this.bracketEnd = bracketEnd;
@@ -546,10 +546,10 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Sets the HTML tag that starts character blocks. For example, it could be
+     * Sets the HTML tags that starts character blocks. For example, it could be
      * <code>&lt;font color=&quot;navy&quot;&gt;</code>.
      *
-     * @param numberStart the HTML tag to start bracket blocks
+     * @param numberStart the HTML tags to start bracket blocks
      */
     public void setNumberStart(String numberStart) {
         this.numberStart = numberStart;
@@ -557,20 +557,20 @@ public class PythonHighlighter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that ends character blocks. For example, it could be
-     * <code>&lt;/font&gt;</code>. This should correspond to the end tag for number literals.
+     * Returns the HTML tags that ends character blocks. For example, it could be
+     * <code>&lt;/font&gt;</code>. This should correspond to the end tags for number literals.
      *
-     * @return the HTML tag to end bracket blocks.
+     * @return the HTML tags to end bracket blocks.
      */
     public String getNumberEnd() {
         return numberEnd;
     }
 
     /**
-     * Sets the HTML tag that ends number literals. For example, it could be
-     * <code>&lt;/font&gt;</code>. This should correspond to the end tag for number literals.
+     * Sets the HTML tags that ends number literals. For example, it could be
+     * <code>&lt;/font&gt;</code>. This should correspond to the end tags for number literals.
      *
-     * @param numberEnd the HTML tag to end number literals.
+     * @param numberEnd the HTML tags to end number literals.
      */
     public void setNumberEnd(String numberEnd) {
         this.numberEnd = numberEnd;
@@ -629,7 +629,7 @@ public class PythonHighlighter implements Filter {
         }
 
         // if the last character is not a newline
-        if (cleaned.charAt(codeLength-1) != '\n') {
+        if (cleaned.charAt(codeLength - 1) != '\n') {
             endInNewline = false;
         }
 
@@ -644,14 +644,12 @@ public class PythonHighlighter implements Filter {
                 // [py]\n(tokens)\n[/py]
                 cleaned = cleaned.substring(1);
             }
-        }
-        else {
+        } else {
             if (startWithNewline) {
                 // get rid of initial newline, then append an extra newline to compensate
                 // [py]\n(tokens)[/py]
                 cleaned = cleaned.substring(1) + "\n";
-            }
-            else {
+            } else {
                 // append an extra newline to compensate
                 // [py](tokens)[/py]
                 cleaned = cleaned + "\n";
@@ -666,11 +664,13 @@ public class PythonHighlighter implements Filter {
         BufferedReader reader = new BufferedReader(new StringReader(text));
 
         try {
-            while(reader.readLine() != null) {
+            while (reader.readLine() != null) {
                 lineCount++;
             }
         }
-        catch (IOException ioe) { Log.error(ioe); }
+        catch (IOException ioe) {
+            Log.error(ioe);
+        }
 
         return lineCount;
     }

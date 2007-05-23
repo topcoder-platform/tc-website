@@ -80,7 +80,7 @@ public class Login extends ForumsProcessor {
                 log.debug(e.getMessage());
                 log.debug("login failed for: " + dest);
             }
-            AuthFactory.logoutUser(getHttpRequest(), getHttpResponse());
+            AuthFactory.logoutUser(getRequest(), getResponse());
             getAuthentication().logout();
             getRequest().setAttribute(BaseServlet.MESSAGE_KEY, "Handle or password incorrect.");
             getRequest().setAttribute(BaseServlet.NEXT_PAGE_KEY, dest);

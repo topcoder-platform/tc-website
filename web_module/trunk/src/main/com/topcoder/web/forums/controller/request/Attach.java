@@ -124,7 +124,7 @@ public class Attach extends ForumsProcessor {
         InputStream is = null;
         String fileName = null;
         String errorMessage = null;
-        
+
         try {
             if (uploadedFile.getSize() == 0) return;
             fileName = uploadedFile.getRemoteFileName();

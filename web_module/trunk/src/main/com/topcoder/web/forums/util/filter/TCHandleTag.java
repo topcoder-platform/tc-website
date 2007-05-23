@@ -9,10 +9,10 @@ import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.tag.HandleTag;
 
 /**
- * A filter that creates a handle tag for the username appearing between [handle][/handle] tags.
+ * A filter that creates a handle tags for the username appearing between [handle][/handle] tags.
  */
 public class TCHandleTag implements Filter {
-    
+
     private final static String[] TAG_NAMES = {"handle", "h"};
     private final static String[] BEGIN_TAGS = {"[" + TAG_NAMES[0] + "]", "[" + TAG_NAMES[1] + "]"};
     private final static String[] END_TAGS = {"[/" + TAG_NAMES[0] + "]", "[/" + TAG_NAMES[1] + "]"};
@@ -42,17 +42,17 @@ public class TCHandleTag implements Filter {
 
         // short circuit this filter if no [handle] found
         boolean tagNotFound = true;
-        for (int i=0; i<BEGIN_TAGS.length; i++) {
+        for (int i = 0; i < BEGIN_TAGS.length; i++) {
             tagNotFound &= (string.indexOf(BEGIN_TAGS[i]) < 0);
         }
         if (tagNotFound) {
             return chain.applyFilters(currentIndex, string);
         }
-        
+
         // we have something to filter
         while (true) {
             int tagUsed = -1;
-            for (int i=0; i<BEGIN_TAGS.length; i++) {
+            for (int i = 0; i < BEGIN_TAGS.length; i++) {
                 int beginTagIdx = string.indexOf(BEGIN_TAGS[i], endCodeTag);
                 if (beginTagIdx >= 0 && (tagUsed == -1 || beginTagIdx < startCodeTag)) {
                     tagUsed = i;
@@ -60,7 +60,7 @@ public class TCHandleTag implements Filter {
                 }
             }
             if (tagUsed == -1) break;
-            
+
             int end = string.indexOf(END_TAGS[tagUsed], startCodeTag + BEGIN_TAGS_LEN[tagUsed]);
 
             if (end > 0) {
@@ -71,8 +71,7 @@ public class TCHandleTag implements Filter {
                 }
 
                 endCodeTag = end + END_TAGS_LEN[tagUsed];
-            }
-            else {
+            } else {
                 filtered.append(string.substring(endCodeTag, startCodeTag) + BEGIN_TAGS[tagUsed]);
                 endCodeTag = startCodeTag + BEGIN_TAGS_LEN[tagUsed];
                 continue;

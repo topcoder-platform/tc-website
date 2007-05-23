@@ -1,24 +1,29 @@
 package com.topcoder.web.forums.util.filter;
 
-import com.jivesoftware.base.*;
-import com.jivesoftware.base.filter.*;
+import com.jivesoftware.base.Filter;
+import com.jivesoftware.base.FilterChain;
+import com.jivesoftware.base.JiveGlobals;
+import com.jivesoftware.base.Log;
+import com.jivesoftware.base.filter.Newline;
+import org.htmlparser.Attribute;
+import org.htmlparser.Node;
+import org.htmlparser.lexer.Lexer;
+import org.htmlparser.lexer.Page;
+import org.htmlparser.nodes.TagNode;
+import org.htmlparser.util.ParserException;
 
-import java.awt.Frame;
-import java.awt.MediaTracker;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.util.*;
+import java.awt.*;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-import org.htmlparser.*;
-import org.htmlparser.lexer.Lexer;
-import org.htmlparser.lexer.Page;
-import org.htmlparser.nodes.TagNode;
-import org.htmlparser.Attribute;
-import org.htmlparser.util.ParserException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+import java.util.Vector;
 
 /**
  * This filter adds the following options to Jive's default HTML filter:
@@ -32,7 +37,7 @@ public class TCHTMLFilter implements Filter {
     private boolean stripDisallowedTags = false;
     private boolean allowSymbols = true;
     private boolean restrictImageWidth = false;
-    
+
     private String allowedTagsString = "";
     private String disallowedTagsString = "";
     private String allowedAttributesString = "";
@@ -43,76 +48,76 @@ public class TCHTMLFilter implements Filter {
     private List disallowedKeywords = new ArrayList();
     private List allowedTags = new ArrayList();
     private List disallowedTags = new ArrayList();
-    
+
     //  Other vars //
     private String blockStart = "<pre>";
     private String blockEnd = "</pre>";
-    
-    public static String[] DEFAULT_ALLOWED_TAGS = {"annot","a","abbr","acronym","blockquote","b","br","em",
-            "font","i","img","li","ol","p","pre","s","strike","sub","sup","strong","table","td","tr",
-            "tt","u","ul"};
-    public static String[] DEFAULT_DISALLOWED_TAGS = {"o:~","st1:~"};
-    public static String[] DEFAULT_ALLOWED_ATTRIBUTES = {"a:href","img:src,height,width"};
+
+    public static String[] DEFAULT_ALLOWED_TAGS = {"annot", "a", "abbr", "acronym", "blockquote", "b", "br", "em",
+            "font", "i", "img", "li", "ol", "p", "pre", "s", "strike", "sub", "sup", "strong", "table", "td", "tr",
+            "tt", "u", "ul"};
+    public static String[] DEFAULT_DISALLOWED_TAGS = {"o:~", "st1:~"};
+    public static String[] DEFAULT_ALLOWED_ATTRIBUTES = {"a:href", "img:src,height,width"};
     public static String[] DEFAULT_DISALLOWED_KEYWORDS = {"javascript"};
     public static int DEFAULT_MAX_IMAGE_WIDTH = 600;
-    
+
     /**
      * Creates a new default HTML filter.
      */
     public TCHTMLFilter() {
-        for (int i=0; i<DEFAULT_ALLOWED_TAGS.length; i++) {
+        for (int i = 0; i < DEFAULT_ALLOWED_TAGS.length; i++) {
             allowedTags.add(DEFAULT_ALLOWED_TAGS[i]);
         }
         for (int i = 0; i < allowedTags.size(); i++) {
             allowedTagsString += allowedTags.get(i);
-            if (i != allowedTags.size()-1) {
-                allowedTagsString += ","; 
+            if (i != allowedTags.size() - 1) {
+                allowedTagsString += ",";
             }
         }
 
-        for (int i=0; i<DEFAULT_DISALLOWED_TAGS.length; i++) {
+        for (int i = 0; i < DEFAULT_DISALLOWED_TAGS.length; i++) {
             disallowedTags.add(DEFAULT_DISALLOWED_TAGS[i]);
         }
         for (int i = 0; i < disallowedTags.size(); i++) {
             disallowedTagsString += disallowedTags.get(i);
-            if (i != disallowedTags.size()-1) {
-                disallowedTagsString += ","; 
+            if (i != disallowedTags.size() - 1) {
+                disallowedTagsString += ",";
             }
         }
-        
-        for (int i=0; i<DEFAULT_ALLOWED_ATTRIBUTES.length; i++) {
+
+        for (int i = 0; i < DEFAULT_ALLOWED_ATTRIBUTES.length; i++) {
             String[] ss = DEFAULT_ALLOWED_ATTRIBUTES[i].split(":");
             ArrayList values = new ArrayList(Arrays.asList(ss[1].split(",")));
             allowedAttributes.put(ss[0], values);
         }
-        for (int i=0; i<DEFAULT_ALLOWED_ATTRIBUTES.length; i++) {
+        for (int i = 0; i < DEFAULT_ALLOWED_ATTRIBUTES.length; i++) {
             allowedAttributesString += DEFAULT_ALLOWED_ATTRIBUTES[i];
-            if (i != DEFAULT_ALLOWED_ATTRIBUTES.length-1) {
-                allowedAttributesString += " "; 
+            if (i != DEFAULT_ALLOWED_ATTRIBUTES.length - 1) {
+                allowedAttributesString += " ";
             }
         }
-        
-        for (int i=0; i<DEFAULT_DISALLOWED_KEYWORDS.length; i++) {
+
+        for (int i = 0; i < DEFAULT_DISALLOWED_KEYWORDS.length; i++) {
             disallowedKeywords.add(DEFAULT_DISALLOWED_KEYWORDS[i]);
         }
-        for (int i=0; i<disallowedKeywords.size(); i++) {
+        for (int i = 0; i < disallowedKeywords.size(); i++) {
             disallowedKeywordsString += disallowedKeywords.get(i);
-            if (i != disallowedKeywords.size()-1) {
-                disallowedKeywordsString += ","; 
+            if (i != disallowedKeywords.size() - 1) {
+                disallowedKeywordsString += ",";
             }
         }
-        
+
         maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH;
     }
 
     public String getName() {
         return "TCHTML";
     }
-    
+
     public String getAllowedAttributesString() {
         return allowedAttributesString;
     }
-    
+
     public void setAllowedAttributesString(String allowedAttributesString) {
         if (allowedAttributesString == null) {
             this.allowedAttributesString = "";
@@ -129,11 +134,11 @@ public class TCHTMLFilter implements Filter {
             allowedAttributes.put(ss[0], values);
         }
     }
-    
+
     public String getDisallowedKeywordsString() {
         return disallowedKeywordsString;
     }
-    
+
     public void setDisallowedKeywordsString(String disallowedKeywordsString) {
         if (disallowedKeywordsString == null) {
             this.disallowedKeywordsString = "";
@@ -181,25 +186,25 @@ public class TCHTMLFilter implements Filter {
     public void setAllowSymbols(boolean allowSymbols) {
         this.allowSymbols = allowSymbols;
     }
-    
+
     public boolean isRestrictImageWidth() {
-    	return restrictImageWidth;
+        return restrictImageWidth;
     }
-    
+
     public void setRestrictImageWidth(boolean restrictImageWidth) {
-    	this.restrictImageWidth = restrictImageWidth;
+        this.restrictImageWidth = restrictImageWidth;
     }
-    
+
     public String getMaxImageWidth() {
-    	return String.valueOf(maxImageWidth);
+        return String.valueOf(maxImageWidth);
     }
-    
+
     public void setMaxImageWidth(String maxImageWidth) {
-    	try {
-    		this.maxImageWidth = Integer.parseInt(maxImageWidth);
-    	} catch (NumberFormatException nfe) {
-    		this.maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH;
-    	}
+        try {
+            this.maxImageWidth = Integer.parseInt(maxImageWidth);
+        } catch (NumberFormatException nfe) {
+            this.maxImageWidth = DEFAULT_MAX_IMAGE_WIDTH;
+        }
     }
 
     public String getAllowedTagsString() {
@@ -239,22 +244,22 @@ public class TCHTMLFilter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that starts a HTML block. For example, it could be
+     * Returns the HTML tags that starts a HTML block. For example, it could be
      * <code>&lt;pre&gt;</code>. This will only be used if we are filtering html
      * in [html] [/html] blocks.
      *
-     * @return the HTML tag to start a HTML block.
+     * @return the HTML tags to start a HTML block.
      */
     public String getBlockStart() {
         return blockStart;
     }
 
     /**
-     * Sets the HTML tag that starts a HTML block. For example, it could be
+     * Sets the HTML tags that starts a HTML block. For example, it could be
      * <code>&lt;pre&gt;</code>. This will only be used if we are filtering html
      * in [html] [/html] blocks.
      *
-     * @param blockStart the HTML tag to start a HTML block.
+     * @param blockStart the HTML tags to start a HTML block.
      */
 
     public void setBlockStart(String blockStart) {
@@ -262,22 +267,22 @@ public class TCHTMLFilter implements Filter {
     }
 
     /**
-     * Returns the HTML tag that ends a HTML block. For example, it could be
+     * Returns the HTML tags that ends a HTML block. For example, it could be
      * <code>&lt;/pre&gt;</code>. This will only be used if we are filtering html
      * in [html] [/html] blocks.
      *
-     * @return the HTML tag to end a HTML block.
+     * @return the HTML tags to end a HTML block.
      */
     public String getBlockEnd() {
         return blockEnd;
     }
 
     /**
-     * Sets the HTML tag that ends a HTML block. For example, it could be
+     * Sets the HTML tags that ends a HTML block. For example, it could be
      * <code>&lt;/pre&gt;</code>. This will only be used if we are filtering html
      * in [html/ [/html] blocks.
      *
-     * @param blockEnd the HTML tag to end a HTML block.
+     * @param blockEnd the HTML tags to end a HTML block.
      */
     public void setBlockEnd(String blockEnd) {
         this.blockEnd = blockEnd;
@@ -294,8 +299,7 @@ public class TCHTMLFilter implements Filter {
         if (onlyFilterBlocksEnabled && string.indexOf("[html]") < 0) {
             doFilter(string, filtered, chain, false);
             return chain.applyFilters(currentIndex, filtered.toString());
-        }
-        else if (onlyFilterBlocksEnabled) {
+        } else if (onlyFilterBlocksEnabled) {
             int startCodeTag = 0;
             int endCodeTag = 0;
 
@@ -342,8 +346,7 @@ public class TCHTMLFilter implements Filter {
             }
 
             return filtered.toString();
-        }
-        else {
+        } else {
             doFilter(string, filtered, chain, false);
         }
 
@@ -401,17 +404,17 @@ public class TCHTMLFilter implements Filter {
     }
 
     /**
-     * Handles the filtering of specific html tags. Any acceptable tag will be allowed
+     * Handles the filtering of specific html tags. Any acceptable tags will be allowed
      * though it's attributes may be cleansed (i.e. the source attribute to the &lt;a&gt;
-     * tag will be checked for proper urls). Unacceptable tags are either escaped or
+     * tags will be checked for proper urls). Unacceptable tags are either escaped or
      * explicitly removed depending on whether {@link #isStripDisallowedTags()} is false or not.<p>
-     *
+     * <p/>
      * A few notes:
      * <ul>
-     *  <li>No attempt is made to 'fix' or otherwise correct improperly balanced tags.</li>
-     *  <li>Attribute cleaning is handled by the {@link #cleanseTag(TagNode)} method.</li>
-     *  <li>Attribute cleansing is limited to checking src and href tags on 'img' and 'a' tags,
-     *      and removing all on* attributes for handling javascript events</li>
+     * <li>No attempt is made to 'fix' or otherwise correct improperly balanced tags.</li>
+     * <li>Attribute cleaning is handled by the {@link #cleanseTag(TagNode)} method.</li>
+     * <li>Attribute cleansing is limited to checking src and href tags on 'img' and 'a' tags,
+     * and removing all on* attributes for handling javascript events</li>
      * </ul>
      *
      * @param toFilter the string to filter
@@ -438,32 +441,28 @@ public class TCHTMLFilter implements Filter {
                     TagNode tagNode = (TagNode) node;
                     String tagName = tagNode.getTagName();
 
-                    // empty tag
+                    // empty tags
                     if ("".equals(tagName) || tagName == null) {
                         buf.append("&lt;").append("&gt;");
-                    }
-                    else if (hasDisallowedKeywords(tagNode) || !allAttributesAllowed(tagNode)) {
+                    } else if (hasDisallowedKeywords(tagNode) || !allAttributesAllowed(tagNode)) {
                         if (!isStripDisallowedTags()) {
                             doPlainFilter(tagNode.toHtml(), buf);
                         }   // else skip
                     }
-                    // acceptable tag
+                    // acceptable tags
                     else if (isAcceptableTag(tagName)) {
                         hasTag = true;
                         buf.append(cleanseTag(tagNode));
-                    }
-                    else if (isUnAcceptableTag(tagName)) {
+                    } else if (isUnAcceptableTag(tagName)) {
                         // skip
                     }
                     // escape if allowed
                     else if (!isStripDisallowedTags()) {
                         doPlainFilter(tagNode.toHtml(), buf);
                     }
-                }
-                else if (node instanceof org.htmlparser.nodes.TextNode) {
+                } else if (node instanceof org.htmlparser.nodes.TextNode) {
                     buf.append(cleanseText(node.toHtml(), chain));
-                }
-                else {
+                } else {
                     // comment, escape
                     buf.append(cleanseText(node.toHtml(), chain));
                 }
@@ -478,8 +477,7 @@ public class TCHTMLFilter implements Filter {
                     Filter f = (Filter) filters.get(i);
                     if (f instanceof TCHTMLFilter) {
                         found = true;
-                    }
-                    else if (found && f instanceof Newline) {
+                    } else if (found && f instanceof Newline) {
                         if (((Newline) f).isNobrEnabled()) {
                             filtered.append("[nobr]").append(buf).append("[/nobr]");
                             return;
@@ -488,7 +486,9 @@ public class TCHTMLFilter implements Filter {
                 }
             }
         }
-        catch (ParserException e) { Log.error(e); }
+        catch (ParserException e) {
+            Log.error(e);
+        }
 
         filtered.append(buf);
     }
@@ -523,8 +523,7 @@ public class TCHTMLFilter implements Filter {
 
                 if (!allowSymbols && !contentIsHtml(chain.getSourceObject())) {
                     filtered.append("&#38;");
-                }
-                else {
+                } else {
                     // find the next ;
                     if (text.indexOf(';', i) != -1) {
                         char[] symbol = text.substring(i, text.indexOf(';', i)).toCharArray();
@@ -545,8 +544,7 @@ public class TCHTMLFilter implements Filter {
                         else {
                             filtered.append("&#38;");
                         }
-                    }
-                    else {
+                    } else {
                         filtered.append("&#38;");
                     }
                 }
@@ -567,10 +565,10 @@ public class TCHTMLFilter implements Filter {
     }
 
     /**
-     * Returns true if the tag is acceptable, false otherwise.
+     * Returns true if the tags is acceptable, false otherwise.
      *
-     * @param tagName the tag to verify for acceptability
-     * @return true if the tag is acceptable, false otherwise.
+     * @param tagName the tags to verify for acceptability
+     * @return true if the tags is acceptable, false otherwise.
      */
     private boolean isAcceptableTag(String tagName) {
         if (tagName != null && allowedTags.contains(tagName.toLowerCase())) {
@@ -581,10 +579,10 @@ public class TCHTMLFilter implements Filter {
     }
 
     /**
-     * Returns true if the tag is acceptable, false otherwise.
+     * Returns true if the tags is acceptable, false otherwise.
      *
-     * @param tagName the tag to verify for acceptability
-     * @return true if the tag is acceptable, false otherwise.
+     * @param tagName the tags to verify for acceptability
+     * @return true if the tags is acceptable, false otherwise.
      */
     private boolean isUnAcceptableTag(String tagName) {
         if (tagName != null) {
@@ -592,13 +590,12 @@ public class TCHTMLFilter implements Filter {
             for (int i = 0; i < disallowedTags.size(); i++) {
                 String tag = (String) disallowedTags.get(i);
                 // check for wildcard mapping
-                if (tag.charAt(tag.length() -1) == '~') {
-                    // match start of tag
+                if (tag.charAt(tag.length() - 1) == '~') {
+                    // match start of tags
                     if (lcTagName.indexOf(tag.substring(0, tag.length() - 1)) == 0) {
                         return true;
                     }
-                }
-                else {
+                } else {
                     if (tag.equals(tagName.toLowerCase())) {
                         return true;
                     }
@@ -608,21 +605,21 @@ public class TCHTMLFilter implements Filter {
 
         return false;
     }
-    
+
     /**
-     * Returns true if the tag contains disallowed keywords, false otherwise.
+     * Returns true if the tags contains disallowed keywords, false otherwise.
      *
-     * @param tag the tag to verify for acceptability
-     * @return true if the tag is acceptable, false otherwise.
+     * @param tag the tags to verify for acceptability
+     * @return true if the tags is acceptable, false otherwise.
      */
     private boolean hasDisallowedKeywords(TagNode tag) {
-        //Log.info("ENTERING: hasDisallowedKeywords - " + tag.getTagName());
+        //Log.info("ENTERING: hasDisallowedKeywords - " + tags.getTagName());
         Vector attributes = tag.getAttributesEx();
-        for (int i=0; i<attributes.size(); i++) {
-            Attribute attribute = (Attribute)attributes.get(i);
-            for (int j=0; j<disallowedKeywords.size(); j++) {
-                if (attribute.getValue() != null && 
-                        attribute.getValue().toLowerCase().indexOf(((String)disallowedKeywords.get(j)).toLowerCase()) != -1) {
+        for (int i = 0; i < attributes.size(); i++) {
+            Attribute attribute = (Attribute) attributes.get(i);
+            for (int j = 0; j < disallowedKeywords.size(); j++) {
+                if (attribute.getValue() != null &&
+                        attribute.getValue().toLowerCase().indexOf(((String) disallowedKeywords.get(j)).toLowerCase()) != -1) {
                     //Log.info("RETURNS: true");
                     return true;
                 }
@@ -631,26 +628,26 @@ public class TCHTMLFilter implements Filter {
         //Log.info("RETURNS: false");
         return false;
     }
-    
+
     /**
-     * Returns true if the tag contains only allowed attributes, false otherwise.
+     * Returns true if the tags contains only allowed attributes, false otherwise.
      *
-     * @param tag the tag to verify for acceptability
-     * @return true if the tag is acceptable, false otherwise.
+     * @param tag the tags to verify for acceptability
+     * @return true if the tags is acceptable, false otherwise.
      */
     private boolean allAttributesAllowed(TagNode tag) {
-        //Log.info("ENTERING: allAttributesAllowed - " + tag.getTagName());
+        //Log.info("ENTERING: allAttributesAllowed - " + tags.getTagName());
         String tagName = tag.getTagName().toLowerCase();
         Vector attributes = tag.getAttributesEx();
-        ArrayList allowed = (ArrayList)allowedAttributes.get(tagName);
-        for (int i=1; i<attributes.size(); i++) {
-            Attribute attribute = (Attribute)attributes.get(i);        
+        ArrayList allowed = (ArrayList) allowedAttributes.get(tagName);
+        for (int i = 1; i < attributes.size(); i++) {
+            Attribute attribute = (Attribute) attributes.get(i);
             /* if (attribute.getName() == null) {
-                Log.info("attribute: null");
-            } else {
-                Log.info("attribute: " + attribute.getName());
-            } */
-            if (allowed == null || 
+               Log.info("attribute: null");
+           } else {
+               Log.info("attribute: " + attribute.getName());
+           } */
+            if (allowed == null ||
                     (attribute.getName() != null && !(attribute.getName().equals("/")) &&
                             !allowed.contains(attribute.getName().toLowerCase()))) {
                 //Log.info("RETURNS: false");
@@ -660,12 +657,12 @@ public class TCHTMLFilter implements Filter {
         //Log.info("RETURNS: true");
         return true;
     }
-    
+
     /**
      * Handles the cleansing of html tags.
      *
-     * @param tag the complete tag minus the brackets
-     * @return the cleansed tag or null if all required attributes of the tag are invalid.
+     * @param tag the complete tags minus the brackets
+     * @return the cleansed tags or null if all required attributes of the tags are invalid.
      */
     private String cleanseTag(TagNode tag) {
         String tagName = tag.getTagName();
@@ -678,62 +675,61 @@ public class TCHTMLFilter implements Filter {
                     src = src.trim().toLowerCase();
                     // If there is a scheme but it's not http:// or https://, set the src to #
                     if (!src.startsWith("http://") && !src.startsWith("https://") &&
-                            src.indexOf("://") != -1)
-                    {
+                            src.indexOf("://") != -1) {
                         Attribute attr = tag.getAttributeEx("src");
                         attr.setValue("#");
                     }
                 }
 
                 if (restrictImageWidth) {
-	                String widthStr = tag.getAttribute("width");
-	                if (widthStr != null) {
-		                if (widthStr.endsWith("/")) {
-		                	widthStr = widthStr.substring(0,widthStr.length()-1);
-		                }
-		                try {
-		                	int width = Integer.parseInt(widthStr);
-		                	if (width > maxImageWidth) {
-		                		Attribute attrWidth = tag.getAttributeEx("width");
-		                		attrWidth.setValue(String.valueOf(maxImageWidth));
-			                }	
-		                } catch (NumberFormatException nfe) {}
-	                } else {
-	                	try {
-	                		Image im = Toolkit.getDefaultToolkit().getImage(new URL(src)); 
-	                		MediaTracker tracker = new MediaTracker(new Frame()); 
-	                		tracker.addImage(im, 0); 
-	                		tracker.waitForAll();
-	                		
-	                		int width = im.getWidth(null);
-			                String heightStr = tag.getAttribute("height");
-			                if (heightStr != null && heightStr.endsWith("/")) {
-			                	heightStr = heightStr.substring(0,heightStr.length()-1);
-			                }
-			                try {
-			                	int height = Integer.parseInt(heightStr);
-			                	width = width * (height / im.getHeight(null)); 
-			                } catch (NumberFormatException nfe) {}
-	                		if (width > maxImageWidth) {
-	                			Attribute attrWidth = tag.getAttributeEx("width");
-		                		attrWidth.setValue(String.valueOf(maxImageWidth));
-	                		}
-	                	} catch (InterruptedException ie) {
-	                		Log.error("TCHTMLFilter: InterruptedException encountered while retrieving image");
-	                	} catch (MalformedURLException mue) {
-	                		Log.error("TCHTMLFilter: MalformedURLException encountered while retrieving image (SRC = " + src + ")");
-	                	}
-	                }
+                    String widthStr = tag.getAttribute("width");
+                    if (widthStr != null) {
+                        if (widthStr.endsWith("/")) {
+                            widthStr = widthStr.substring(0, widthStr.length() - 1);
+                        }
+                        try {
+                            int width = Integer.parseInt(widthStr);
+                            if (width > maxImageWidth) {
+                                Attribute attrWidth = tag.getAttributeEx("width");
+                                attrWidth.setValue(String.valueOf(maxImageWidth));
+                            }
+                        } catch (NumberFormatException nfe) {
+                        }
+                    } else {
+                        try {
+                            Image im = Toolkit.getDefaultToolkit().getImage(new URL(src));
+                            MediaTracker tracker = new MediaTracker(new Frame());
+                            tracker.addImage(im, 0);
+                            tracker.waitForAll();
+
+                            int width = im.getWidth(null);
+                            String heightStr = tag.getAttribute("height");
+                            if (heightStr != null && heightStr.endsWith("/")) {
+                                heightStr = heightStr.substring(0, heightStr.length() - 1);
+                            }
+                            try {
+                                int height = Integer.parseInt(heightStr);
+                                width = width * (height / im.getHeight(null));
+                            } catch (NumberFormatException nfe) {
+                            }
+                            if (width > maxImageWidth) {
+                                Attribute attrWidth = tag.getAttributeEx("width");
+                                attrWidth.setValue(String.valueOf(maxImageWidth));
+                            }
+                        } catch (InterruptedException ie) {
+                            Log.error("TCHTMLFilter: InterruptedException encountered while retrieving image");
+                        } catch (MalformedURLException mue) {
+                            Log.error("TCHTMLFilter: MalformedURLException encountered while retrieving image (SRC = " + src + ")");
+                        }
+                    }
                 }
-            }
-            else {
+            } else {
                 String href = tag.getAttribute("href");
                 if (href != null) {
                     href = href.trim().toLowerCase();
                     // If there is a scheme but it's not http:// or https://, set the href to #
                     if (!href.startsWith("http://") && !href.startsWith("https://") &&
-                            href.indexOf("://") != -1)
-                    {
+                            href.indexOf("://") != -1) {
                         Attribute attr = tag.getAttributeEx("href");
                         attr.setValue("#");
                     }
@@ -744,7 +740,7 @@ public class TCHTMLFilter implements Filter {
         cleanseOnEvents(tag);
         return tag.toHtml();
     }
-    
+
     /**
      * Handles the removing of onEvents from html tags
      *

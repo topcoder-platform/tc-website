@@ -12,15 +12,15 @@ import com.topcoder.web.common.TCWebException;
 
 /**
  * @author mtong
- * 
- * Logs out of the forums.
+ *         <p/>
+ *         Logs out of the forums.
  */
 public class Logout extends ForumsProcessor {
 
     protected void businessProcessing() throws TCWebException {
         String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
 
-        AuthFactory.logoutUser(getHttpRequest(), getHttpResponse());
+        AuthFactory.logoutUser(getRequest(), getResponse());
         getAuthentication().logout();
         getRequest().getSession().invalidate();
 

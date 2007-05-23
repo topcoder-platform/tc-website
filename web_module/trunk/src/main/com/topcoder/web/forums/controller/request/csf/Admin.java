@@ -16,8 +16,8 @@ import com.topcoder.web.forums.controller.request.ForumsProcessor;
 
 /**
  * @author mtong
- *         
- * Administrative tool providing utilities not included in Jive.
+ *         <p/>
+ *         Administrative tool providing utilities not included in Jive.
  */
 public class Admin extends ForumsProcessor {
     protected static Logger log = Logger.getLogger(BaseProcessor.class);

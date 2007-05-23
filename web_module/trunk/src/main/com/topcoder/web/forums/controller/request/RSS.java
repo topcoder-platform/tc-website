@@ -16,12 +16,12 @@ import java.util.Iterator;
 
 /**
  * @author mtong
- *
- * Provides the root list of forums.
+ *         <p/>
+ *         Provides the root list of forums.
  */
 public class RSS extends ForumsProcessor {
-	protected void businessProcessing() throws Exception {
-		super.businessProcessing();
+    protected void businessProcessing() throws Exception {
+        super.businessProcessing();
 
         ResultFilter filter = new ResultFilter();
         filter.setNumResults(RSSActionSupport.DEFAULT_NUM_ITEMS);
@@ -36,20 +36,18 @@ public class RSS extends ForumsProcessor {
         if (!threadID.equals("")) {
             ForumThread thread = forumFactory.getForumThread(Long.parseLong(threadID));
             messages = thread.getMessages(filter);
-        }
-        else if (!forumID.equals("")) {
+        } else if (!forumID.equals("")) {
             Forum forum = forumFactory.getForum(Long.parseLong(forumID));
             messages = forum.getMessages(filter);
-        }
-        else if (!categoryID.equals("")) {
+        } else if (!categoryID.equals("")) {
             ForumCategory category = forumFactory.getForumCategory(Long.parseLong(categoryID));
             messages = category.getMessages(filter);
             getRequest().setAttribute("category", category);
         }
 
-		getRequest().setAttribute("messages", messages);
+        getRequest().setAttribute("messages", messages);
 
-		setNextPage("/rss.jsp");
-		setIsNextPageInContext(true);
-	}
+        setNextPage("/rss.jsp");
+        setIsNextPageInContext(true);
+    }
 }

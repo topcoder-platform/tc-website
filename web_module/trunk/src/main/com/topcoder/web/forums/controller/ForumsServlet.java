@@ -16,7 +16,11 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.*;
 import com.topcoder.web.common.error.RequestRateExceededException;
-import com.topcoder.web.common.security.*;
+import com.topcoder.web.common.security.CSFForumsAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.StudioForumsAuthentication;
+import com.topcoder.web.common.security.TCForumsAuthentication;
+import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.ejb.forums.ForumsLocal;
 import com.topcoder.web.ejb.forums.ForumsLocalHome;
 import com.topcoder.web.forums.controller.request.ForumsProcessor;
@@ -64,7 +68,7 @@ public class ForumsServlet extends BaseServlet {
             }
         };
         tOrphaned.start();
-        
+
         // Convert software group permissions into user permissions - pages load slowly for users 
         // who are in many permission groups. When this is fixed (probably by Jive), the user permissions
         // can be converted back into group permissions, and this thread can be removed.
@@ -114,7 +118,7 @@ public class ForumsServlet extends BaseServlet {
                 }
 
                 TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-                TCResponse tcResponse = HttpObjectFactory.createUnCachedResponse(response);
+                TCResponse tcResponse = HttpObjectFactory.createResponse(response);
 
                 if (throttleEnabled) {
                     if (throttle.throttle(request.getSession().getId())) {
@@ -129,15 +133,11 @@ public class ForumsServlet extends BaseServlet {
                 TCSubject user = getUser(authentication.getActiveUser().getId());
                 info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
                 tcRequest.setAttribute(SESSION_INFO_KEY, info);
+
                 //we can let browsers/proxies cache pages if the user is anonymous or it's https (they don't really cache https setuff)
-                if (log.isDebugEnabled()) {
-                    log.debug("uri: " + request.getRequestURL().toString());
-                }
                 if (!authentication.getActiveUser().isAnonymous() &&
                         !request.getRequestURL().toString().toLowerCase().startsWith("https")) {
-                    if (log.isDebugEnabled()) {
-                        log.debug("using an uncached response");
-                    }
+                    log.debug("using an uncached response");
                     tcResponse = HttpObjectFactory.createUnCachedResponse(response);
                 }
                 //todo perhaps this should be configurable...so implementing classes
@@ -259,8 +259,10 @@ public class ForumsServlet extends BaseServlet {
         ForumsProcessor rp = null;
 
         rp = (ForumsProcessor) Class.forName(processorName).newInstance();
+/*
         rp.setHttpRequest(httpRequest);
         rp.setHttpResponse(httpResponse);
+*/
         rp.setRequest(request);
         rp.setResponse(response);
         rp.setAuthentication(authentication);
