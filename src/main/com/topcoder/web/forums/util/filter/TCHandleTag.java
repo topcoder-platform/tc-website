@@ -116,6 +116,8 @@ public class TCHandleTag implements Filter {
 
 
     private long getCoderId(String handle) throws Exception {
+        handle = handle.replaceAll("\r|\n", "");
+        
         CachedDataAccess da = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
 
         Request r = new Request();
