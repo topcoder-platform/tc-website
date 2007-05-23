@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.23.07 11:30 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw">DRW Trading chat session scheduled for SRM 350</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.21.07 4:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=bracket">TCO07 Algorithm Competition Brackets now online</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.19.07 9:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">Burunduk2 wins the TCHS07!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.19.07 12:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">TCHS07 semifinals advancers</A></td></tr>
