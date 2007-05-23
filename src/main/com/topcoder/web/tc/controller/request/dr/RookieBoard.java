@@ -4,100 +4,111 @@
 
 package com.topcoder.web.tc.controller.request.dr;
 
-import com.topcoder.shared.dataAccess.DataAccessConstants;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.dr.IBoardRow;
 import com.topcoder.web.tc.model.dr.RookieBoardRow;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * <strong>Purpose</strong>:
  * A processor to retrieve dr rookie board.
  *
- * @author pulky
+ * @author pulky, cucu
  * @version 1.0.2
  */
 public class RookieBoard extends BaseBoard {
 
     /**
-     * The logger to log to.
-     */
-    private static final Logger log = Logger.getLogger(RookieBoard.class);
-
-    /**
      * Process the dr rookie board request.
      * Retrieves rookie list for development or design for a particular season.
      */
-    protected void businessProcessing() throws Exception {
-        // Prepare request for data retrieval
-        ResultSetContainer seasons = runQuery(Constants.DR_SEASON_COMMAND, Constants.DR_SEASON_QUERY);
-        if (log.isDebugEnabled()) {
-            log.debug("Got " + seasons.size() + " rows for seasons");
+    protected void boardProcessing() throws Exception {
+        // Season list.
+        ResultSetContainer seasons = runQuery("dr_rookie_seasons", "dr_rookie_seasons");
+        getRequest().setAttribute("seasons", seasons);
+
+
+        int seasonId = hasParameter(Constants.SEASON_ID) ? Integer.parseInt(getRequest().getParameter(Constants.SEASON_ID)) : getCurrentRookieSeason();
+        setDefault(Constants.SEASON_ID, seasonId);
+       
+        // Get the rookie contest for the season
+        int ct = getContestForSeason(seasonId, phaseId);
+        
+        // Get the results from the Database
+        Request r = new Request();
+        r.setContentHandle("dr_rookie_results");
+        r.setProperty("ph", phaseId + ""); 
+        r.setProperty("ct", ct + "");
+        r.setProperty("seid", seasonId + "");
+        
+        // Put the results in a list
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_DW_DATASOURCE_NAME); 
+        Map m = dai.getData(r);
+        ResultSetContainer rsc = (ResultSetContainer) m.get("dr_rookie_results");
+        
+        List<RookieBoardRow> results = new ArrayList<RookieBoardRow>();
+        
+        for (ResultSetContainer.ResultSetRow row : rsc) {
+            RookieBoardRow lbr = new RookieBoardRow(seasonId, phaseId, row.getIntItem("current_place"), row.getLongItem("coder_id"),row.getStringItem("handle"),
+                     row.getDoubleItem("final_points"), row.getDoubleItem("potential_points"), 
+                     row.getStringItem("current_prize") == null? 0.0 : row.getDoubleItem("current_prize"),
+                     row.getIntItem("confirmed_ind") == 0);
+            
+            results.add(lbr);            
         }
-        getRequest().setAttribute(Constants.SEASON_LIST_KEY, seasons);
-
-        if (log.isDebugEnabled()) {
-            log.debug("Getting rookie board coders...");
-        }
-        ResultSetContainer rsc = retrieveBoardData(Constants.SEASON_ID, Constants.ROOKIE_BOARD_COMMAND, Constants.ROOKIE_BOARD_QUERY);
-
-        long phase = new Long(getRequest().getParameter(Constants.PHASE_ID)).longValue();
-
-        List rookieBoardResult = processBoard(rsc, phase);
-
-        String sortDir = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        boolean invert = sortDir.equals("desc");
-
-        // break prizes ties
-        tieBreak(rookieBoardResult, getPlacementPrize(period, phase + ""), invert,
-                "dr_rookie_tie_break_placement", "dr_rookie_tie_break_score", Constants.SEASON_ID);
-
-        // sort
-        sortResult(rookieBoardResult, invert);
-
-        // crop
-        List resultBoard = cropResult(rookieBoardResult);
-
-        getRequest().setAttribute("boardList", resultBoard);
+        
+        // Sort and crop the list
+        sortResult(results, sortCol, invert);
+        List<IBoardRow> cropped = cropResult(results, startRank, numRecords);
+        
+        getRequest().setAttribute(Constants.SEASON_ID, seasonId);
+        getRequest().setAttribute("results", cropped);
+        
         setNextPage(Constants.VIEW_ROOKIE_BOARD_PAGE);
         setIsNextPageInContext(true);
     }
 
-
     /**
-     * First processing of the board
-     *
-     * @param rsc   the ResultSetContainer retrieved from DB
-     * @param phase the phase being used.
+     * Get the most recent season having rookie contest.
+     * @return
+     * @throws TCWebException
      */
-    private List processBoard(ResultSetContainer rsc, long phase) {
-        ResultSetRow row = null;
-        boolean firstRow = true;
-        List rookieBoardResult = new ArrayList(rsc.size());
-        for (Iterator it = rsc.iterator(); it.hasNext();) {
-            row = (ResultSetRow) it.next();
-            rookieBoardResult.add(new RookieBoardRow(row.getLongItem("season_id"), phase, row.getLongItem("rank"),
-                    row.getLongItem("user_id"), row.getStringItem("handle_lower"), row.getLongItem("total_points"),
-                    firstRow, 0, row.getLongItem("confirmed_ind") == 0, row.getLongItem("outstanding_points")));
-            firstRow = false;
-        }
-        return rookieBoardResult;
+    protected int getCurrentRookieSeason() throws TCWebException {
+        ResultSetContainer currentPeriod = runQuery("dr_current_rookie_season", "dr_current_rookie_season");
+        return currentPeriod.getIntItem(0, 0);
     }
+
     
     /**
-     * Queries placement points for rookie board
-     * Retrieves an array of the placement points for a particualr season and phase
+     * Get the rookie contest for the specified season and phase
      * 
-     * @since 1.0.3
+     * @param seasonId
+     * @param phaseId
+     * @return
+     * @throws Exception
      */
-    private double[] getPlacementPrize(String seasonId, String phaseId) throws TCWebException {
-        return getPlacementPrize("rookie_board_placement_prize", Constants.SEASON_ID, seasonId, phaseId);
+    private int getContestForSeason(int seasonId, int phaseId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("dr_contests_for_season");
+        r.setProperty(Constants.SEASON_ID, seasonId + "");
+        r.setProperty(Constants.PHASE_ID, phaseId + "");
+        
+        DataAccessInt dai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME); 
+        ResultSetContainer contests= dai.getData(r).get("dr_contests_for_season");
+
+        if (contests.size() == 0) throw new Exception("Missing a contest type rookie for season id " + seasonId  + " phase " + phaseId);
+
+        return contests.getIntItem(0, "contest_id");
     }
+
+
 }

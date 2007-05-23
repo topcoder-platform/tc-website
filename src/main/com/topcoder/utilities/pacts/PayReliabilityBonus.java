@@ -2,6 +2,8 @@ package com.topcoder.utilities.pacts;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -9,7 +11,6 @@ import javax.rmi.PortableRemoteObject;
 
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.sql.DBUtility;
-import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.PactsClientServices;
 import com.topcoder.web.ejb.pacts.PactsClientServicesHome;
 import com.topcoder.web.ejb.pacts.ReliabilityBonusPayment;
@@ -25,6 +26,12 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 public class PayReliabilityBonus extends DBUtility {
 
     /**
+     * Date when the reliability schema changes.  
+     * Remember that month it's 0 based.
+     */
+    private static final Date SCHEMA_CHANGE_DATE = new GregorianCalendar(2007,4,24).getTime();
+    
+    /**
      * This variable tells if only an analysis is wanted.
      */
     private String onlyAnalyze = null;
@@ -38,7 +45,16 @@ public class PayReliabilityBonus extends DBUtility {
 		// Find all the project result that have a payment but not a reliability bonus payment
 		// If a reliability bonus is deleted (status 69) it will be found anyways, so that if 
 		// someone deletes a reliability bonus, it is not created again.
-		query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.total_amount, p.payment_id ");
+		query.append("SELECT pr.user_id, pr.project_id, pr.old_reliability, pd.total_amount, p.payment_id, ");
+        query.append("       (select NVL(ppd.actual_start_time, psd.actual_start_time)   ");
+        query.append("          from tcs_catalog:project proj  ");
+        query.append("               , OUTER tcs_catalog:project_phase psd  ");
+        query.append("               , OUTER tcs_catalog:project_phase ppd  ");
+        query.append("          where  psd.project_id = proj.project_id   ");
+        query.append("          and psd.phase_type_id = 2   ");
+        query.append("          and ppd.project_id = proj.project_id   ");
+        query.append("          and proj.project_id = pr.project_id   ");
+        query.append("          and ppd.phase_type_id = 1) as posting_date ");
         query.append("FROM tcs_catalog:project pro, tcs_catalog:project_result pr, ");
         query.append("payment p, ");
         query.append("payment_detail pd ");
@@ -57,7 +73,8 @@ public class PayReliabilityBonus extends DBUtility {
         
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
         
-		log.info("user_id;project_id;reliability_percent;bonus_amount;old_reliability;total_amount");
+		log.info("user_id;project_id;bonus_amount;old_reliability;total_amount");
+
 
         int count = 0;
         ResultSet rs = psSelProjects.executeQuery();
@@ -67,17 +84,26 @@ public class PayReliabilityBonus extends DBUtility {
         	double reliability = rs.getDouble("old_reliability");
         	double amount = rs.getDouble("total_amount");
         	long paymentId = rs.getLong("payment_id");
-        	
-    		double bonusAmount = getReliabilityPercent(reliability) * amount;
+        	Date postingDate = rs.getDate("posting_Date");
+            
+            
+    		double bonusAmount;
+            
+            
+            if (postingDate.before(SCHEMA_CHANGE_DATE)) {
+                bonusAmount = getReliabilityPercent(reliability) * amount;
+            } else {
+                bonusAmount = getReliabilityPercent2(reliability) * amount;               
+            }
 
             if (onlyAnalyze.equalsIgnoreCase("false")) {
             	ReliabilityBonusPayment bp = new ReliabilityBonusPayment(userId, bonusAmount, paymentId);
             	bp.setNetAmount(bonusAmount);
 
-            	BasePayment p = ejb.addPayment(bp);
+            	ejb.addPayment(bp);
             }
 
-    		log.info("" + userId + ";" + projectId + ";" + getReliabilityPercent(reliability) + ";" + bonusAmount + ";" + reliability + ";" + amount);
+    		log.info("" + userId + ";" + projectId + ";" + bonusAmount + ";" + reliability + ";" + amount);
 			count++;			
         }
         log.info("Done. Bonus rows inserted: " + count);
@@ -95,10 +121,22 @@ public class PayReliabilityBonus extends DBUtility {
         return bonus;
     }
     
-	
+    private double getReliabilityPercent2(double reliability) {
+        double bonus = 0;
+        if (reliability >= .95) {
+            bonus = .5;
+        } else if (reliability >= .9) {
+            bonus = .2;
+        } else if (reliability >= .8) {
+            bonus = .1;
+        }
+        return bonus;
+    }
+
 
     public static Object createEJB() throws NamingException, Exception {
         InitialContext initial = TCContext.getInitial();
+
         Object objref = initial.lookup(PactsClientServicesHome.class.getName());
         PactsClientServicesHome home = (PactsClientServicesHome) 
             PortableRemoteObject.narrow(objref, PactsClientServicesHome.class);

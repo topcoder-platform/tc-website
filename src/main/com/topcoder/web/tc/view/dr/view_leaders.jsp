@@ -1,9 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.shared.dataAccess.DataAccessConstants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.common.BaseProcessor,
-                 com.topcoder.web.tc.Constants,
-                 java.util.HashMap" %>
+                 com.topcoder.web.tc.Constants" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -11,14 +8,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%
-    String type = (String) request.getAttribute(Constants.TYPE_KEY);
-    ResultSetContainer stages = (ResultSetContainer) request.getAttribute(Constants.STAGE_LIST_KEY);
-    HashMap defaults = (HashMap) request.getAttribute(BaseProcessor.DEFAULTS_KEY);
-%>
 
-<c:set value="<%=com.topcoder.web.common.BaseProcessor.DEFAULTS_KEY%>" var="defaults"/>
-<c:set value="<%=DataAccessConstants.START_RANK%>" var="startRank"/>
+<c:set var="phaseName" value='${isDevelopment? "Development" : "Design" }' />
+<c:set var="context" value='${isDevelopment? "development" : "design" }' />
 
 <html>
 <head>
@@ -31,7 +23,7 @@
     <script type="text/javascript">
         function changePeriod() {
             var myForm = document.leaderBoardForm;
-            <c:if test="${fn:length(boardList) > 0}">
+            <c:if test="${fn:length(results) > 0}">
             myForm.<%=DataAccessConstants.START_RANK%>.value = '';
             myForm.<%=DataAccessConstants.SORT_COLUMN%>.value = '';
             myForm.<%=DataAccessConstants.SORT_DIRECTION%>.value = '';
@@ -63,10 +55,10 @@
             myForm.submit();
         }
     </script>
+    
 </head>
-
+    
 <body>
-
 <jsp:include page="/top.jsp"/>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 <TR valign="top">
@@ -83,33 +75,40 @@
 
 <div align="center">
 <div class="maxWidthBody">
-    <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
-    <jsp:include page="/page_title.jsp">
-        <jsp:param name="image" value="digital_run_20061031"/>
-        <jsp:param name="title" value="Development Cup Series Leaderboard"/>
-    </jsp:include>
-    <% } else { %>
-    <jsp:include page="/page_title.jsp">
-        <jsp:param name="image" value="digital_run_20061031"/>
-        <jsp:param name="title" value="Design Cup Series Leaderboard"/>
-    </jsp:include>
-    <% } %>
-
+    <c:choose>
+    	<c:when test="${isDevelopment}">
+		    <jsp:include page="/page_title.jsp">
+		        <jsp:param name="image" value="digital_run_20061031"/>
+		        <jsp:param name="title" value="Development Cup Series Leaderboard"/>
+		    </jsp:include>
+	    </c:when>
+	    <c:otherwise>
+		    <jsp:include page="/page_title.jsp">
+		        <jsp:param name="image" value="digital_run_20061031"/>
+		        <jsp:param name="title" value="Design Cup Series Leaderboard"/>
+		    </jsp:include>
+	    </c:otherwise>
+	</c:choose>
 
     <div class="fixedWidthBody">
         <div style="float:right; text-align:left; white-space: nowrap;">
             <A href="/stat?c=top_designers" class="bcLink">Top Ranked Designers</a><br>
             <A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
         </div>
-        <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
-        <A href="/tc?&ph=112&module=LeaderBoard" class="bcLink">Design Cup Series Leaderboard</a><br>
-        Development Cup Series Leaderboard</a><br>
-    <% } else { %>
-    Design Cup Series Leaderboard<br>
-    <A href="/tc?&ph=113&module=LeaderBoard" class="bcLink">Development Cup Series Leaderboard</a><br>
-    <% } %>
-    <A href="/tc?module=RookieBoard&ph=112" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
-    <A href="/tc?module=RookieBoard&ph=113" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+    <c:choose>
+    	<c:when test="${isDevelopment}">
+	        <A href="/tc?&ph=112&module=LeaderBoard&staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br>
+    	    Development Cup Series Leaderboard</a><br>
+    	</c:when>
+    	<c:otherwise>
+    		Design Cup Series Leaderboard<br>
+		    <A href="/tc?&ph=113&module=LeaderBoard&staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br>
+        </c:otherwise>
+    </c:choose>
+	<c:if test="${hasRookieCompetition }" >
+	    <A href="/tc?module=RookieBoard&ph=112&seid=${seid}" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+    	<A href="/tc?module=RookieBoard&ph=113&seid=${seid}" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+    </c:if>
 </div>
 
 <br><br>
@@ -117,27 +116,16 @@
 <form name="leaderBoardForm" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="get">
 <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="LeaderBoard"/>
 <tc-webtag:hiddenInput name="<%=Constants.PHASE_ID%>"/>
-<!--tc-webtag:hiddenInput name="<%=Constants.STAGE_ID%>"/-->
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
 <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
 
 Please select a <strong>season</strong> and <strong>stage</strong><br>
-<SELECT CLASS="dropdown" NAME="<%=Constants.STAGE_ID%>" onchange="changePeriod()">
-    <rsc:iterator list="<%=stages%>" id="resultRow">
-        <% if (String.valueOf(resultRow.getLongItem("stage_id")).equals((String) defaults.get(Constants.STAGE_ID))) { %>
-        <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>" selected>
-            <rsc:item name="season_name" row="<%=resultRow%>"/> &gt;
-            <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
-        <% } else { %>
-        <OPTION value="<rsc:item name="stage_id" row="<%=resultRow%>"/>">
-            <rsc:item name="season_name" row="<%=resultRow%>"/> &gt;
-            <rsc:item name="stage_name" row="<%=resultRow%>"/></OPTION>
-        <% } %>
-    </rsc:iterator>
-</SELECT>
+
+<tc-webtag:rscSelect name="<%=Constants.STAGE_ID%>" styleClass="dropdown" onChange="changePeriod()" 
+          list="${stages}" fieldText="complete_name" fieldValue="stage_id" useTopValue="false" />
 
 <c:choose>
-<c:when test="${fn:length(boardList) > 0}">
+<c:when test="${fn:length(results) > 0}">
 
 <div class="pagingBox" style="width:300px;">
     <c:choose>
@@ -162,11 +150,7 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
 <table class="stat" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td class="title" colspan="11">
-            <% if (request.getParameter(Constants.PHASE_ID).equals("113")) { %>
-            Development Cup Series Leaderboard
-            <% } else { %>
-            Design Cup Series Leaderboard
-            <% } %>
+            ${phaseName } Cup Series Leaderboard
         </td>
     </tr>
     <tr>
@@ -203,59 +187,62 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         </td>
     </tr>
 
-        <% boolean even = false;%>
-        <% int i = 0;%>
-    <c:forEach items="${boardList}" var="boardRow">
-    <tr class="<%=even?"dark":"light"%>">
+    <c:forEach items="${results}" var="boardRow" varStatus="status">
+    <tr class='${status.index % 2 == 1? "even" : "odd" }'>
         <td class="valueC">${boardRow.rank}</td>
         <td class="value" style="border-right: 1px solid #999999;">
-            <tc-webtag:handle coderId='${boardRow.userId}' context='<%=type%>'/></td>
+            <tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/></td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
-                <div id="pop<%=i%>a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top Five</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>a')" onmouseout="popHide()" /></div>
+                <div id="pop${status.index }a" class="popUp"><div>Trip to the next TCO Finals for placing in the <strong>Top Five</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/trip.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }a')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.winTrip}">
-                <div id="pop<%=i%>b" class="popUp"><div>Cash prize for placing in the <strong>Top Five</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>b')" onmouseout="popHide()" /></div>
+                <div id="pop${status.index }b" class="popUp"><div>Cash prize for placing in the <strong>Top Five</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }b')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueC">
             <c:if test="${boardRow.topPerformer}">
-                <div id="pop<%=i%>c" class="popUp"><div>Cash prize for placing in the <strong>Top Performers</strong></div></div>
-                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop<%=i%>c')" onmouseout="popHide()" /></div>
+                <div id="pop${status.index }c" class="popUp"><div>Cash prize for placing in the <strong>Top Performers</strong></div></div>
+                <div align="center"><img src="/i/interface/emblem/prize.gif" alt="" border="0" onmouseover="popUp(this,'pop${status.index }c')" onmouseout="popHide()" /></div>
             </c:if>
         </td>
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
-            <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">${boardRow.points}</a>
+	            <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">
+            		    		<fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
+            	</a>
+            </c:if>
         </td>
-</c:if></td>
-<td class="valueR"><c:if test="${boardRow.placementPrize>0}">
-    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
-</c:if></td>
-<td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
-    <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
-</c:if></td>
-<td class="valueR" style="border-right: 1px solid #999999;">
-    <c:if test="${boardRow.totalPrize>0}">
-        <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
-    </c:if>
-    <c:if test="${boardRow.totalPrize==0}">
-        &#160;
-    </c:if>
-</td>
-<td class="valueR"><c:if test="${boardRow.outstandingPoints>0}">
-    <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">${boardRow.outstandingPoints}</a>
-</c:if></td>
-<td class="valueR">${boardRow.totalPoints}</td>
-</tr>
-<%i++;%>
-<%even = !even;%>
-</c:forEach>
+		<td class="valueR"><c:if test="${boardRow.placementPrize>0}">
+		    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
+		</c:if></td>
+		<td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
+		    <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
+		</c:if></td>
+		<td class="valueR" style="border-right: 1px solid #999999;">
+		    <c:if test="${boardRow.totalPrize>0}">
+		        <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
+		    </c:if>
+		    <c:if test="${boardRow.totalPrize==0}">
+		        &#160;
+		    </c:if>
+		</td>
+		<td class="valueR">
+			<c:if test="${boardRow.potentialPoints>0}">
+		    	<A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">
+		    		<fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
+		    		</a>
+			</c:if>
+		</td>
+		<td class="valueR"><fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></td>
+	</tr>
+	</c:forEach>
 </table>
+
 <div class="pagingBox" style="width:300px;">
     <c:choose>
         <c:when test="${croppedDataBefore}">
@@ -295,19 +282,9 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
     The selected stage is underway and results will start coming in soon.
 </c:otherwise>
 </c:choose>
-</div>
-</div>
-</TD>
-<td WIDTH="180" VALIGN="top">
-    <jsp:include page="/public_right.jsp">
-        <jsp:param name="level1" value="profile"/>
-    </jsp:include>
-</TD>
-<!-- Gutter -->
-<td WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" border="0"/></TD>
-<!-- Gutter Ends -->
-</tr>
-</TABLE>
-<jsp:include page="../foot.jsp"/>
+
+
+</table>
+
 </BODY>
 </HTML>

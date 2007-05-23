@@ -56,12 +56,12 @@ public interface IBoardRow {
     /**
      * @return Returns the points.
      */
-    public abstract long getPoints();
+    public abstract double getPoints();
 
     /**
      * @param points The points to set.
      */
-    public abstract void setPoints(long points);
+    public abstract void setPoints(double points);
 
     /**
      * @return Returns the rank.
@@ -89,17 +89,17 @@ public interface IBoardRow {
     public abstract boolean isWinTrip();
 
     /**
-     * @return Returns the outstandingPoints.
+     * @return Returns the potential Points.
      */
-    public long getOutstandingPoints();
+    public double getPotentialPoints();
 
     /**
-     * @param outstandingPoints The outstandingPoints to set.
+     * @param potential Points The potential Points to set.
      */
-    public void setOutstandingPoints(long outstandingPoints);
+    public void setPotentialPoints(double potentialPoints);
 
     /**
      * @return Returns the total points.
      */
-    public long getTotalPoints();
+    public double getTotalPoints();
 }
