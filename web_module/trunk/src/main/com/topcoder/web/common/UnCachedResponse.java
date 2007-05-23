@@ -33,8 +33,8 @@ public class UnCachedResponse extends SimpleResponse {
         if (overwrite) {
             init();
         } else {
-            if (!this.response.containsHeader("Cache-Control") &&
-                    !this.response.containsHeader("Expires")) {
+            if (!containsHeader("Cache-Control") &&
+                    !containsHeader("Expires")) {
                 init();
             }
         }
@@ -42,9 +42,9 @@ public class UnCachedResponse extends SimpleResponse {
     }
 
     private void init() {
-        this.response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        this.response.setHeader("Cache-Control", "pre-check=0, post-check=0");
-        this.response.setDateHeader("Expires", 0);
+        setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+        setHeader("Cache-Control", "pre-check=0, post-check=0");
+        setDateHeader("Expires", 0);
     }
 
 }
