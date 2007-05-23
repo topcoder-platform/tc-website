@@ -47,6 +47,14 @@
 <!-- Links to versions -->
 
 <p>
+	<b>2.0.4 - 2007.05.xx</b>
+	<ul>
+		<li>charset = utf-8 <%-- dont' for get to set the local in the jive properties--%></li>
+	</ul>
+</p>
+
+
+<p>
 	<b>>2.0.3 - 2007.05.02</b>
 	<ul>
 		<li>Updated the web cache.</li>
