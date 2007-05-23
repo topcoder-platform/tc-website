@@ -55,7 +55,6 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
             cr.addResult(p);
             
             if (p.getStatusId() == STATUS_COMPLETE) {
-                if (p.getUserId() == 10336829)  System.out.println(p.getProjectId() + ", " +  calculatePointsAwarded(p));
                 // Completed project:
                 // add the points for placement
                 cr.addPoints(calculatePointsAwarded(p));
@@ -164,8 +163,14 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         // sum the total points won by the top performers
         double totalPoints = 0;
         
+        double lowestScore = 10000000;
+                
         for (ContestResult result : cr) {
-            if (result.getPlace() > maxPlace) break;
+        
+            if (result.getPlace() == maxPlace) {
+                lowestScore = result.getFinalPoints();
+            }
+            if (result.getFinalPoints() < (lowestScore - DELTA_SCORE)) break;
             
             totalPoints += result.getFinalPoints();
         }
@@ -174,8 +179,10 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
         // Set prizes
         double amountPerPoint = prizePool / totalPoints;
         for (ContestResult result : cr) {
-            if (result.getPlace() > maxPlace) break;
-            
+//            if (result.getPlace() > maxPlace) break;
+
+            if (result.getFinalPoints() < (lowestScore - DELTA_SCORE)) break;
+
             result.setPrize(amountPerPoint * result.getFinalPoints());
         }
         
