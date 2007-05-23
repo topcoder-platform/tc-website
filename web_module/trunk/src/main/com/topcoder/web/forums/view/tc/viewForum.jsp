@@ -1,21 +1,25 @@
 <%@ page import="com.jivesoftware.base.JiveConstants,
                  com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.base.User,
-                 com.jivesoftware.forum.*,
+                 com.jivesoftware.forum.ForumCategory,
+                 com.jivesoftware.forum.ForumMessage,
+                 com.jivesoftware.forum.ReadTracker,
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.WatchManager,
                  com.jivesoftware.forum.action.util.Page,
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.stats.ViewCountManager,
                  com.topcoder.shared.util.ApplicationServer,
                  com.topcoder.web.common.StringUtils,
-                 com.topcoder.web.forums.ForumConstants,
-                 com.topcoder.web.forums.controller.ForumsUtil,
-                 com.topcoder.web.forums.model.ImageData,
-                 com.topcoder.web.forums.model.Paging,
-                 java.util.Iterator"
+                 com.topcoder.web.forums.ForumConstants"
         %>
+<%@ page import="com.topcoder.web.forums.controller.ForumsUtil" %>
+<%@ page import="com.topcoder.web.forums.model.ImageData" %>
+<%@ page import="com.topcoder.web.forums.model.Paging" %>
+<%@ page import="java.util.Iterator" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page language="java" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
@@ -76,9 +80,10 @@
 
 <html>
 <head>
-    <title>TopCoder Forums</title>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <link type="text/css" rel="stylesheet" href="/css/roundTables.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <title>TopCoder Forums</title>
     <jsp:include page="script.jsp"/>
     <jsp:include page="/style.jsp">
         <jsp:param name="key" value="tc_forums"/>

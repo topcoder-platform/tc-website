@@ -1,16 +1,18 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
+<%@ page import="com.jivesoftware.base.User,
+                 com.jivesoftware.forum.Query,
+                 com.jivesoftware.forum.action.util.Paginator,
+                 com.jivesoftware.util.StringUtils,
                  com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
-                 com.jivesoftware.base.User,
-                 com.jivesoftware.forum.action.util.Paginator,
-                 com.jivesoftware.forum.Query,
-                 com.jivesoftware.util.StringUtils,
-                 java.util.*,
-                 java.text.SimpleDateFormat"
+                 java.text.SimpleDateFormat,
+                 java.util.Date,
+                 java.util.HashMap"
 %>
+<%@ page import="java.util.Iterator" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="dates" name="dates" type="java.util.HashMap" toScope="request"/>
@@ -37,7 +39,8 @@ function noenter(e)
 
 <html>
 <head>
-<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>TopCoder Studio</title>
 
 <jsp:include page="style.jsp">

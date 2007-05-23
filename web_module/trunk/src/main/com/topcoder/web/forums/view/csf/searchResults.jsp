@@ -5,11 +5,10 @@
                  com.jivesoftware.forum.action.util.Paginator,
                  com.jivesoftware.forum.stats.ViewCountManager,
                  com.jivesoftware.util.StringUtils,
-                 com.topcoder.web.common.DateUtils,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
                  java.text.SimpleDateFormat,
-                 java.util.*"
+                 java.util.Iterator"
         %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="csf.tld" prefix="csf" %>

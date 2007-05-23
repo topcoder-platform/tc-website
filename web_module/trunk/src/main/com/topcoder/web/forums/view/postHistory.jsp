@@ -1,19 +1,18 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.forums.ForumConstants,
-                 com.topcoder.web.forums.controller.ForumsUtil,
-                 com.jivesoftware.forum.stats.ViewCountManager,
-                 com.jivesoftware.forum.action.util.Page,
+<%@ page import="com.jivesoftware.base.Group,
                  com.jivesoftware.base.JiveConstants,
-                 com.jivesoftware.base.Group,
-                 com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.RatingManager,
                  com.jivesoftware.forum.RatingManagerFactory,
-                 java.util.*,
-                 com.topcoder.shared.util.DBMS"
+                 com.jivesoftware.forum.ResultFilter,
+                 com.jivesoftware.forum.action.util.Page,
+                 com.topcoder.shared.util.DBMS,
+                 com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.controller.ForumsUtil,
+                 java.util.Iterator"
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="authToken" name="authToken" type="com.jivesoftware.base.AuthToken" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
@@ -71,6 +70,9 @@
 
 <html>
 <head>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
 <title>TopCoder Forums</title>
     <jsp:include page="/script.jsp" />
         <jsp:include page="/style.jsp">

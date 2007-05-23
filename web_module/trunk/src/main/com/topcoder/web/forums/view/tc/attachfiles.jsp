@@ -1,18 +1,17 @@
-<%@ page import="com.jivesoftware.util.StringUtils,
+<%@ page import="com.jivesoftware.forum.Attachment,
                  com.jivesoftware.forum.AttachmentManager,
-                 com.jivesoftware.base.action.ActionUtils,
-                 com.jivesoftware.forum.Attachment,
-                 com.jivesoftware.forum.action.AttachAction,
                  com.jivesoftware.forum.ForumMessage,
                  com.jivesoftware.forum.ForumThread,
                  com.jivesoftware.forum.database.DbAttachmentManager,
+                 com.topcoder.web.common.BaseProcessor,
                  com.topcoder.web.forums.ForumConstants,
                  com.topcoder.web.forums.controller.ForumsUtil,
-                 com.topcoder.web.common.BaseProcessor,
-                 java.util.*"
+                 java.util.HashMap,
+                 java.util.Iterator"
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="forum" name="forum" type="com.jivesoftware.forum.Forum" toScope="request"/>
@@ -29,6 +28,9 @@
 
 <html>
 <head>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
 <title>TopCoder Forums</title>
    <jsp:include page="script.jsp" /> 
         <jsp:include page="/style.jsp">

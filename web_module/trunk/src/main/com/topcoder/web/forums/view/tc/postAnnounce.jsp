@@ -1,16 +1,15 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
+<%@ page import="com.jivesoftware.forum.Announcement,
+                com.jivesoftware.forum.Forum,
+                com.jivesoftware.forum.ForumCategory,
                 com.topcoder.web.common.BaseProcessor,
                 com.topcoder.web.forums.ForumConstants,
                 com.topcoder.web.forums.controller.ForumsUtil,
-                com.jivesoftware.forum.stats.ViewCountManager,
-                com.jivesoftware.forum.Announcement,
-                com.jivesoftware.forum.ForumCategory,
-                com.jivesoftware.forum.Forum,
-                java.util.*"
+                java.util.HashMap"
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
@@ -67,6 +66,9 @@ function AllowTabCharacter() {
 
 <html>
 <head>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
 <title>TopCoder Forums</title>
     <jsp:include page="script.jsp" />
         <jsp:include page="/style.jsp">

@@ -1,13 +1,12 @@
-<%@ page import="com.topcoder.web.common.BaseServlet,
-                 com.topcoder.web.forums.ForumConstants,
-                 com.jivesoftware.base.JiveGlobals,
+<%@ page import="com.jivesoftware.base.JiveGlobals,
                  com.jivesoftware.forum.action.UserSettingsAction,
-                 com.topcoder.web.forums.controller.request.Settings,
-                 java.util.*"
+                 com.topcoder.web.forums.ForumConstants,
+                 com.topcoder.web.forums.controller.request.Settings"
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="user" name="user" type="com.jivesoftware.base.User" toScope="request"/>
 <tc-webtag:useBean id="status" name="status" type="java.lang.String" toScope="request"/>
@@ -20,7 +19,8 @@
 
 <html>
 <head>
-<link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <title>TopCoder Studio</title>
 
 <jsp:include page="style.jsp">

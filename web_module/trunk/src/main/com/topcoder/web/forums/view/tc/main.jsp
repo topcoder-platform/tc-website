@@ -1,6 +1,4 @@
 <%@ page import="com.jivesoftware.base.User,
-                 com.jivesoftware.forum.Forum,
-                 com.jivesoftware.forum.ForumCategory,
                  com.jivesoftware.forum.ReadTracker,
                  com.jivesoftware.forum.ResultFilter,
                  com.jivesoftware.forum.WatchManager,
@@ -8,13 +6,15 @@
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.common.WebConstants,
                  com.topcoder.web.forums.ForumConstants,
-                 com.topcoder.web.forums.controller.ForumsUtil,
                  com.topcoder.web.forums.model.ImageData,
-                 java.util.*"
+                 java.util.Calendar,
+                 java.util.Hashtable,
+                 java.util.Iterator"
         %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ page contentType="text/html;charset=utf-8" %>
 
 <tc-webtag:useBean id="forumFactory" name="forumFactory" type="com.jivesoftware.forum.ForumFactory" toScope="request"/>
 <tc-webtag:useBean id="categories" name="categories" type="java.util.ArrayList" toScope="request"/>
@@ -28,6 +28,9 @@
 
 <html>
 <head>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
     <title>TopCoder Forums</title>
     <jsp:include page="script.jsp"/>
     <jsp:include page="/style.jsp">
