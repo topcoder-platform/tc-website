@@ -185,17 +185,17 @@ public abstract class BaseBoard extends BaseProcessor {
             });
         } else {
             // Default, sort by rank.
-        }
-
-        if (invert) {
-            Collections.reverse(boardResult);
 
             Collections.sort(boardResult, new Comparator<IBoardRow>() {
                 public int compare(IBoardRow arg0, IBoardRow arg1) {
                     return new Long(arg0.getRank()).compareTo(arg1.getRank());
                 }
             });
-}
+        }
+
+        if (invert) {
+            Collections.reverse(boardResult);
+        }
         
         SortInfo s = new SortInfo();
         s.addDefault(Integer.parseInt(CODER_HANDLE_COLUMN), "asc");
