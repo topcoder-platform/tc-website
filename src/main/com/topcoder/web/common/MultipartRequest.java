@@ -1,12 +1,23 @@
 package com.topcoder.web.common;
 
-import com.topcoder.servlet.request.*;
+import com.topcoder.servlet.request.ConfigurationException;
+import com.topcoder.servlet.request.DisallowedDirectoryException;
+import com.topcoder.servlet.request.FileUpload;
+import com.topcoder.servlet.request.FileUploadResult;
+import com.topcoder.servlet.request.LocalFileUpload;
+import com.topcoder.servlet.request.PersistenceException;
+import com.topcoder.servlet.request.RequestParsingException;
+import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * @author rfairfax
@@ -26,7 +37,7 @@ public class MultipartRequest extends SimpleRequest {
         try {
             FileUpload fu = new LocalFileUpload("com.topcoder.servlet.request.FileUpload");
             file = fu.uploadFiles(request);
-            dir = ((LocalFileUpload)fu).getDir();
+            dir = ((LocalFileUpload) fu).getDir();
         } catch (ConfigurationException e) {
             throw new RuntimeException(e);
         } catch (DisallowedDirectoryException e) {
@@ -45,8 +56,8 @@ public class MultipartRequest extends SimpleRequest {
     public String getParameter(String name) {
         try {
             if (file.getParameter(name) != null) {
-                if (request.getCharacterEncoding() != null) {
-                    return new String(file.getParameter(name).getBytes(), request.getCharacterEncoding());
+                if (getRequest().getCharacterEncoding() != null) {
+                    return new String(file.getParameter(name).getBytes(), getRequest().getCharacterEncoding());
                 } else {
                     return file.getParameter(name);
                 }
@@ -78,7 +89,7 @@ public class MultipartRequest extends SimpleRequest {
         String[] sarr = file.getParameterValues(name);
         for (int i = 0; i < sarr.length; i++) {
             try {
-                sarr[i] = new String(sarr[i].getBytes(), request.getCharacterEncoding());
+                sarr[i] = new String(sarr[i].getBytes(), getRequest().getCharacterEncoding());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -90,7 +101,7 @@ public class MultipartRequest extends SimpleRequest {
         String[] sarr = file.getFormFileNames();
         for (int i = 0; i < sarr.length; i++) {
             try {
-                sarr[i] = new String(sarr[i].getBytes(), request.getCharacterEncoding());
+                sarr[i] = new String(sarr[i].getBytes(), getRequest().getCharacterEncoding());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
@@ -109,7 +120,7 @@ public class MultipartRequest extends SimpleRequest {
     public UploadedFile[] getAllUploadedFiles() {
         return file.getAllUploadedFiles();
     }
-    
+
     public String getDir() {
         return dir;
     }
