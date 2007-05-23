@@ -56,11 +56,12 @@ at least a 70 in review.  As of January 12th 2006, TopCoder has increased the mi
     <p>One will not be allowed to register for more than 2 projects if their relevant reliability rating is less
         than 70%, or if they don't have a reliability rating.</p>
 
-<p>Members will be eligible to receive a bonus on top of any prize money won if their Reliability Ratings are equal to or exceed
-80%. Winning members with Reliability Ratings equal to or exceeding 80% and less than 90% will receive a bonus equal to 10%
-of the prize. For Reliability Ratings equal to or exceeding 90% and less than 95%, winning members will receive a bonus equal
-to 15% of the prize. And winning members with a Reliability Rating equal to or exceeding of 95% will receive a bonus equal
-to 20% of the prize. The following is an example of payouts based on the member's Reliability Rating:</p>
+<p>Members will be eligible to receive a bonus on top of any prize money won if their Reliability Ratings are equal to or exceed 80%. 
+Winning members with Reliability Ratings equal to or exceeding 80% and less than 90% will receive a bonus equal to 10% of the prize. 
+For Reliability Ratings equal to or exceeding 90% and less than 95%, winning members will receive a bonus equal to 20% of the prize. 
+And winning members with a Reliability Rating equal to or exceeding of 95% will receive a bonus equal to 50% of the prize. 
+The new pay outs go into effect for projects launched after 9 am on 5/24/2007.  The following is an example of payouts based on the member's Reliability Rating:
+</p>
 
          <table width="400" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
 
@@ -77,36 +78,36 @@ to 20% of the prize. The following is an example of payouts based on the member'
                    
                     <td class="sidebarText">$5,000</td>
                     <td class="sidebarText">$5,500</td>
-                    <td class="sidebarText">$5,750</td>
                     <td class="sidebarText">$6,000</td>
+                    <td class="sidebarText">$7,500</td>
                 </tr>
                 <tr>
                    
                     <td class="sidebarText">$2,000</td>
                     <td class="sidebarText">$2,200</td>
-                    <td class="sidebarText">$2,300</td>
                     <td class="sidebarText">$2,400</td>
+                    <td class="sidebarText">$3,000</td>
                 </tr>                
                 <tr>
                    
                     <td class="sidebarText">$500</td>
                     <td class="sidebarText">$550</td>
-                    <td class="sidebarText">$575</td>
                     <td class="sidebarText">$600</td>
+                    <td class="sidebarText">$750</td>
                 </tr>
                   <tr>
                      
                     <td class="sidebarText">$200</td>
                     <td class="sidebarText">$220</td>
-                    <td class="sidebarText">$230</td>
                     <td class="sidebarText">$240</td>
+                    <td class="sidebarText">$300</td>
                 </tr>
                   <tr>
                      
                     <td class="sidebarText">$100</td>
                     <td class="sidebarText">$110</td>
-                    <td class="sidebarText">$115</td>
                     <td class="sidebarText">$120</td>
+                    <td class="sidebarText">$150</td>
                 </tr> 
                                
             </table>
