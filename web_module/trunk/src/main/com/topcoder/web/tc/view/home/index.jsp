@@ -66,14 +66,15 @@
         <A href="/"><img src="/i/home/topcoder.png" alt="TopCoder" style="display: block;" /></A>
     </td>
     <td align="center" style="padding: 10px 10px 10px 10px">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep1' refer='homepage' />"><img src="/i/home/tcchannelEp1.jpg" alt="TC Channel: Episode 1" /></A>
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open"/></A>
     </td>
     <td align="right" valign="top">
-<%-- STUDIO DOGEAR 
+<%-- STUDIO DOGEAR --%>
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/"><img src="/i/home/studioDogEarStandard.png" style="display: block;" alt="TopCoder Studio" /></A>
---%>
-<%-- TCO DOGEAR --%>
+
+<%-- TCO DOGEAR 
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/dogTCO07.png" style="display: block;" alt="TCO07 Sponsored by AOL" /></A>
+--%>
     </td>
 </tr>
 <tr>
@@ -340,6 +341,9 @@
             Russian, Croatian and US High School Programmers Win TopCoder Championship at Purdue University
             <A href="/tc?module=Static&d1=pressroom&d2=pr_052307">...more</A><br>[May 21]<br><br>
 
+            Introducing the new TC Channel!
+            <A target="_blank" href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep1">...more</A><br>[May 16]<br><br>
+
             Belarus All College Programming Event
             <A target="_blank" href="/tc?module=Static&d1=features&d2=050807">...more</A><br>[May 8]<br><br>
 
@@ -351,12 +355,6 @@
             </div>
             TopCoder Appoints Jiazhi Wu VP of Technology for China
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040307">...more</A><br>[April 3]<br><br>
-            
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/usatoday_logo.gif" alt="USA Today Logo" width="67" height="25" border="0"/>
-            </div>
-            Why Google put a research lab in Poland
-            <A target="_blank" href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">...more</A><br>[March 13]<br><br>
 
 
         </td>
