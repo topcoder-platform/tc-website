@@ -4,6 +4,26 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.23.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">TCHS07 Photos &amp; Video now available</A>
+        </span><br><br>
+        Check out the photo and video highlights from TopCoder's inaugural High School Tournament.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=photos">photos</A> |
+        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=movieStream">video</A> |
+        <tc-webtag:forumLink forumID="514497" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.23.07<br>11:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -196,21 +216,4 @@
         <A href="/tc?module=Static&d1=features&d2=051707">full story</A> | 
         <tc-webtag:forumLink forumID="515805" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.17.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm349">SRM 349 - Problem Set &amp; Analysis</A></span><br><br>
-      In Division 2, coders faced a straightforward easy, an approachable but tricky medium, and a challenging hard problem.  Only four coders successfully solved all three problems, placing them at the top of the pack.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm349">full story</A> | 
-        <tc-webtag:forumLink forumID="506239" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
