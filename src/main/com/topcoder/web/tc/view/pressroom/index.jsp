@@ -65,6 +65,21 @@
 
             <hr width="100%" size="1" noshade="noshade" />
             
+<%-- Russian, Croatian and US High School Programmers Win TopCoder Championship at Purdue University --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_021307"><img src="/i/pressroom/tchs07.png" alt="TCHS07" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_052307">Russian, Croatian and US High School Programmers Win TopCoder Championship at Purdue University</A></strong></font><br />
+                        First World Championship for TopCoder High School Members Sees Eastern Europe Prevail in Individual and Team Tournaments<span class="prHead"> [May 21]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
 <%-- TopCoder Appoints Russ Malz Vice President of Sales --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

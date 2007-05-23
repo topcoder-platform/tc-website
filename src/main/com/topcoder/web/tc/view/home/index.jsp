@@ -334,6 +334,12 @@
             Yodlee to Sponsor TopCoder Single Round Match Series
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_052207">...more</A><br>[May 23]<br><br>
 
+            <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/tchs07.png" alt="TCO07" width="88" height="41" border="0"/>
+            </div>
+            Russian, Croatian and US High School Programmers Win TopCoder Championship at Purdue University
+            <A href="/tc?module=Static&d1=pressroom&d2=pr_052307">...more</A><br>[May 21]<br><br>
+
             Belarus All College Programming Event
             <A target="_blank" href="/tc?module=Static&d1=features&d2=050807">...more</A><br>[May 8]<br><br>
 
@@ -352,11 +358,6 @@
             Why Google put a research lab in Poland
             <A target="_blank" href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">...more</A><br>[March 13]<br><br>
 
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/tco07_logo.png" alt="TCO07" width="88" height="41" border="0"/>
-            </div>
-            UBS, DRW, and NSA Join TCO 07
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_030507">...more</A><br>[March 5]<br><br>
 
         </td>
     </tr>
