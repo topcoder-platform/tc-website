@@ -41,7 +41,7 @@ import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusReasonException;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
@@ -1936,7 +1936,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             log.debug("hasHardCopy: " + hasHardCopy);
             log.debug("ad.isHardCopy(): " + ad.isHardCopy());
             if (!hasHardCopy && ad.isHardCopy()) {
-                (new PaymentStatusMediator()).hardCopyIPTransfer(ad.getUser().getId(), ad.getComponentProject() == null ? TC_STUDIO_PAYMENT : COMPONENT_PAYMENT);
+                (new PaymentStatusManager()).hardCopyIPTransfer(ad.getUser().getId(), ad.getComponentProject() == null ? TC_STUDIO_PAYMENT : COMPONENT_PAYMENT);
             }
             
             return ad;
@@ -2077,7 +2077,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         try {
             addAssignmentDocument(ad);
             
-            (new PaymentStatusMediator()).affirmedIPTransfer(ad);
+            (new PaymentStatusManager()).affirmedIPTransfer(ad);
         } catch (Exception e) {
             printException(e);
             ejbContext.setRollbackOnly();
@@ -3471,7 +3471,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                     CoderReferralPayment crp = new CoderReferralPayment(referId,
                             referPay.getGrossAmount(), paymentId);
-                    (new PaymentStatusMediator()).newPayment(crp);
+                    (new PaymentStatusManager()).newPayment(crp);
 
                     referPay.setCurrentStatus(crp.getCurrentStatus());
 
@@ -3641,7 +3641,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.close();
 
             if (t.getHeader().getStatusId() == USER_TAX_FORM_STATUS_ACTIVE) {
-                (new PaymentStatusMediator()).newTaxForm(t.getHeader().getUser().getId());
+                (new PaymentStatusManager()).newTaxForm(t.getHeader().getUser().getId());
             }
 
             ps = null;
@@ -3820,7 +3820,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             Long paymentId = (Long) rsc.getItem(0, "payment_id").getResultData();
 
             if (paymentId != null) {
-                (new PaymentStatusMediator()).affirmedAffidavit(paymentId);
+                (new PaymentStatusManager()).affirmedAffidavit(paymentId);
             }
             
             StringBuffer updateAffidavit = new StringBuffer(300);
@@ -4158,7 +4158,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = null;
 
             if (t.getHeader().getStatusId() == USER_TAX_FORM_STATUS_ACTIVE) {
-                (new PaymentStatusMediator()).newTaxForm(t.getHeader().getUser().getId());
+                (new PaymentStatusManager()).newTaxForm(t.getHeader().getUser().getId());
             }
 
         } catch (Exception e) {
@@ -4424,7 +4424,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                 if (makeChanges) {
                     AlgorithmContestPayment acp = new AlgorithmContestPayment(userId, 0.01, roundId);
-                    (new PaymentStatusMediator()).newPayment(acp);
+                    (new PaymentStatusManager()).newPayment(acp);
                     p.setCurrentStatus(acp.getCurrentStatus());
                 }
                 
@@ -4619,7 +4619,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             // notify payments
-            PaymentStatusMediator psm = new PaymentStatusMediator();
+            PaymentStatusManager psm = new PaymentStatusManager();
             long paymentId = 0;
             for (int i = 0; i < payments.getRowCount(); i++) {
                 try {
@@ -4675,7 +4675,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int rowsUpdated = runUpdateQuery(c, updateAffidavits.toString(), false);
 
             // notify payments
-            PaymentStatusMediator psm = new PaymentStatusMediator();
+            PaymentStatusManager psm = new PaymentStatusManager();
             long paymentId = 0;
             for (int i = 0; i < payments.getRowCount(); i++) {
                 try {
@@ -4713,7 +4713,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ResultSetContainer payments = runSelectQuery(c, getHoldPayments.toString(), false);
 
             // notify payments
-            PaymentStatusMediator psm = new PaymentStatusMediator();
+            PaymentStatusManager psm = new PaymentStatusManager();
             long paymentId = 0;
             for (int i = 0; i < payments.getRowCount(); i++) {
                 try {
@@ -4769,7 +4769,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             int rowsUpdated = runUpdateQuery(c, updateAssignmentDocuments.toString(), false);
 
             // notify payments
-            PaymentStatusMediator psm = new PaymentStatusMediator();
+            PaymentStatusManager psm = new PaymentStatusManager();
             long paymentId = 0;
             for (int i = 0; i < payments.getRowCount(); i++) {
                 try {
@@ -5406,7 +5406,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             processor.fillData(payment);
     
             // delegate status to the mediator
-            (new PaymentStatusMediator()).newPayment(payment);
+            (new PaymentStatusManager()).newPayment(payment);
             
             Payment p = createPayment(payment);
     

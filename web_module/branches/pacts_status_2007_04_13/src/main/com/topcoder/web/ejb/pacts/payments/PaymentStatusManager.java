@@ -1,5 +1,5 @@
 /*
-* PaymentStatusMediator
+* PaymentStatusManager
 *
 * Created Apr 23, 2007
 */
@@ -20,18 +20,18 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class PaymentStatusMediator {
+public class PaymentStatusManager {
     public enum UserEvents {
         ENTER_INTO_PAYMENT_SYSTEM_EVENT,
         DELETE_EVENT,
         PAY_EVENT
     }
     
-    private static final Logger log = Logger.getLogger(PaymentStatusMediator.class);
+    private static final Logger log = Logger.getLogger(PaymentStatusManager.class);
 
     private DataInterfaceBean dib = new DataInterfaceBean();
     
-    public PaymentStatusMediator() {
+    public PaymentStatusManager() {
     }
     
     public void newPayment(BasePayment payment) throws EventFailureException {

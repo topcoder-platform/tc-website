@@ -14,8 +14,8 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.EventFailureException;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator;
-import com.topcoder.web.ejb.pacts.payments.PaymentStatusMediator.UserEvents;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.UserEvents;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
@@ -44,7 +44,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
                 throw new TCWebException(re);
             }
 
-            PaymentStatusMediator psm = new PaymentStatusMediator();
+            PaymentStatusManager psm = new PaymentStatusManager();
 
             try {
                 switch (event) {
