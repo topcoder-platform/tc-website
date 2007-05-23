@@ -162,8 +162,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     int generateRoundPayments(long roundId, boolean makeChanges, int paymentTypeI)
     		throws IllegalUpdateException,  SQLException;
 
-    int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
-            throws IllegalUpdateException,  SQLException;
+//    int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
+//            throws IllegalUpdateException,  SQLException;
 
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
     	throws IllegalUpdateException,  SQLException;

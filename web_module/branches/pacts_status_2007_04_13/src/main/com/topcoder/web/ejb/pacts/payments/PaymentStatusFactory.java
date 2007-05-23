@@ -5,7 +5,6 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 

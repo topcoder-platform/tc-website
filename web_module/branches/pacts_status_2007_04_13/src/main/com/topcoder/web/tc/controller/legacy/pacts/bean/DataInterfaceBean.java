@@ -877,8 +877,6 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(METHOD_CODE) ||
                     key.equals(HANDLE))
                 inputOk = validateInput(value, STRING);
-//            else if (key.equals(IS_REVIEWED))
-//                inputOk = validateInput(value, BOOLEAN);
            else if (key.equals(PAYMENT_ID)) {
 			   String []s = value.split(",");
 			   inputOk = true;
@@ -1039,21 +1037,6 @@ public class DataInterfaceBean implements PactsConstants {
      *****************************************************/
 
     /**
-     * Adds a new affidavit to the database without any corresponding payment.
-     *
-     * @param   a Data for the new affidavit.
-     * @param   affidavitText The new affidavit's text
-     * @throws  IllegalUpdateException If the user is trying to make an illegal update.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new affidavit's ID.
-     */
-//    public long addAffidavit(Affidavit a, String affidavitText)
-//            throws RemoteException, IllegalUpdateException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.addAffidavit(a, affidavitText);
-//    }
-
-    /**
      * Adds the specified affidavit and payment to the database, and associates the two.
      * Also adds a correpsonding referral payment if the affidavit is a contest winnings
      * affidavit and someone referred the winning coder. <p>
@@ -1088,52 +1071,6 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.addContract(c, contractText);
     }
-
-    /**
-     * Adds the specified payment to the database.  Does not add a corresponding
-     * referral payment.
-     *
-     * @param   p Data for the new payment.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new payment's ID.
-     */
-//    public long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.addPayment(p);
-//    }
-
-    /**
-     * Adds the specified payment to the database.  
-     *
-     * @param   p Data for the new payment.
-     * @throws  RemoteException If there is some communication problem with the EJB
-     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-     * @throws  SQLException If there is some problem updating the data
-     * @return  The new payment's ID.
-     */
-//    public long addPayment(Payment p, boolean payReferrer) throws RemoteException, IllegalUpdateException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.addPayment(p, payReferrer);
-//    }
-
-
-//    /**
-//     * Adds the specified payment to the database, and to the specified contract.  Does
-//     * not add a corresponding referral payment.
-//     *
-//     * @param   contractId The ID of the contract to which to add the payment.
-//     * @param   p The payment data to add.
-//     * @throws  RemoteException If there is some communication problem with the EJB
-//     * @throws  IllegalUpdateException If the user is trying to make an update that is not allowed.
-//     * @throws  SQLException If there is some other problem updating the data
-//     * @return  The new payment's ID.
-//     */
-//    public long addContractPayment(long contractId, Payment p) throws RemoteException, IllegalUpdateException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.addContractPayment(contractId, p);
-//    }
 
     /**
      * Adds a tax form.
@@ -1327,25 +1264,6 @@ public class DataInterfaceBean implements PactsConstants {
         ps.updateContract(c);
     }
 
-//    /**
-//     * Updates the given payment.  This process creates a new payment detail record, and also
-//     * a new payment address record if the payment status is "Ready to Print".  It will throw an
-//     * IllegalUpdateException if the payment's status is "Printed" or "Paid" - these status
-//     * updates are done automatically by the system.
-//     *
-//     * @param   p The updated payment information
-//     * @throws  RemoteException If there is some communication problem with the EJB
-//     * @throws  NoObjectFoundException If the specified object does not exist.
-//     * @throws  IllegalUpdateException If the user tried to make an update that is not allowed.
-//     * @throws  PaymentPaidException If the payment has already been paid.
-//     * @throws  SQLException If there is some problem updating the data
-//     */
-//    public void updatePayment(Payment p)
-//            throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        ps.updatePayment(p);
-//    }
-
     /**
      * Updates the given tax form (excluding text updates).
      *
@@ -1396,64 +1314,6 @@ public class DataInterfaceBean implements PactsConstants {
         ps.updateText(objectId, objectType, newText);
     }
 
-//    /**
-//     * Updates the specified payments to the specified status. This function
-//     * should only be called by the Pacts message handler upon receipt of a message
-//     * passed in by the <tt>batchUpdatePaymentStatus</tt> function.
-//     *
-//     * @param   paymentId The payments to update
-//     * @param   statusId The new status
-//     * @throws  RemoteException If there is some communication problem with the EJB
-//     * @throws  SQLException If there is some other problem updating the data
-//     */
-//    public UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
-//            throws RemoteException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.doBatchUpdatePaymentStatus(paymentId, statusId);
-//    }
-
-//    /**
-//     * Updates the status on all the given payments to the given status.
-//     * Because this is a payment modification, this process creates a new
-//     * detail record for each payment involved, and a new address record if
-//     * called with &quot;Ready to Print&quot; status.  This function should be called
-//     * with the &quot;Ready to Print&quot; status to ready payments for printing. <p>
-//     *
-//     * This function actually just puts a message on the JMS queue.  The message handler,
-//     * upon receipt of the message, will call the function <tt>doBatchUpdatePaymentStatus()</tt>
-//     * which performs the modifications.
-//     *
-//     * @param   paymentId The payments to update
-//     * @param   statusId The new status
-//     * @param   userId The ID of the user submitting the request
-//     * @throws  RemoteException If there is some communication problem with the EJB
-//     * @throws  IllegalUpdateException If the user is attempting to update the status to Printed or Paid
-//     * @throws  JMSException If there is some problem putting the message on the queue
-//     */
-//    public void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
-//            throws RemoteException, IllegalUpdateException, JMSException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        ps.batchUpdatePaymentStatus(paymentId, statusId, userId);
-//    }
-
-//    /**
-//     * Marks the given payments as reviewed.  This function should be called if the
-//     * user wants to reprint payments that have already been printed, prior to the
-//     * reprint request.  Its purpose is to ensure that payments don't get printed
-//     * multiple times without good reason.
-//     *
-//     * @param   paymentId The payments to mark as reviewed.
-//     * @throws  NoObjectFoundException If any payment does not exist
-//     * @throws  IllegalUpdateException If any payment has not been printed
-//     * @throws  RemoteException If there is some communication problem with the EJB
-//     * @throws  SQLException If there is some other problem updating the data
-//     */
-//    public void reviewPayments(long paymentId[])
-//            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        ps.reviewPayments(paymentId);
-//    }
-
     /*****************************************************
      * Utility functions
      *****************************************************/
@@ -1491,27 +1351,6 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.hasTaxForm(userId);
     }
 
-
-//    /**
-//     * Prints the payments that have status of "Ready to Print" to an external location.
-//     * For each payment, updates the status to "Printed", updates the print count, sets
-//     * the review field to zero, and sets the date printed to the current date and time.
-//     * The payment information, and the separate payee or "vendor" information, are returned
-//     * in a two-element string array, the payment information coming first.
-//     *
-//     * @return  The payment and vendor information in String form
-//     * @throws  RemoteException If there is some communication problem with the EJB
-//     * @throws  PaymentNotReviewedException If any of the payments to print has been
-//     * previously printed and not subsequently reviewed
-//     * @throws  SQLException If there is some problem updating the database
-//     */
-//    public String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException {
-//        log.debug("printPayments called...");
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.printPayments();
-//    }
-
-
     /**
      * Generates all the affidavits and payments for the people who won
      * money in the given contest round.  Returns the number of
@@ -1532,11 +1371,11 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.generateRoundPayments(roundId, makeChanges);
     }
 
-    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
-            throws RemoteException, IllegalUpdateException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges);
-    }
+//    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
+//            throws RemoteException, IllegalUpdateException, SQLException {
+//        PactsServicesLocal ps = getEjbHandle();
+//        return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges);
+//    }
 
     public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
     		throws RemoteException, IllegalUpdateException, SQLException {
@@ -1550,27 +1389,6 @@ public class DataInterfaceBean implements PactsConstants {
     	PactsServicesLocal ps = getEjbHandle();
     	return ps.generateRoundPayments(roundId, makeChanges, paymentTypeId);
     }
-
-//    /**
-//     * Generates all the payments for the people who won money for the given project (designers, developers,
-//     * and review board members). If it is a development project, it may pay the missing 25% to the designer.
-//     * It doesn't insert the payments in the DB, just generates and return them.
-//     * 
-//     * @param projectId The ID of the project
-//     * @param status The project's status (see /topcoder/apps/review/projecttracker/ProjectStatus.java)
-//     * @param client The project's client (optional)
-//     * @param makeChanges If true, updates the database; if false, logs
-//     * the changes that would have been made had this parameter been true.
-//     * @return The generated payments in a List of BasePayment
-//     * @throws IllegalUpdateException If the affidavit/payment information
-//     * has already been generated for this round.
-//     * @throws SQLException If there was some error updating the data.
-//     */
-//    public List generateComponentPayments(long projectId, long status, String client)
-//        throws IllegalUpdateException, RemoteException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.generateComponentPayments(projectId, status, client);
-//    }
 
     public List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
         throws IllegalUpdateException, RemoteException, SQLException, EventFailureException {
@@ -1599,11 +1417,6 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getPaymentComponentData(paymentIds);
     }
-
-//    public ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.getPaymentHistory(userId, pendingOnly, sortColumn, sortAscending);    	
-//    }
 
     public ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
@@ -1730,11 +1543,6 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.updatePayment(payment);
     }
 
-//    public BasePayment updatePayment(Connection c, BasePayment payment) throws RemoteException, Exception {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.updatePayment(c, payment);
-//    }
-
     public BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getBasePayment(paymentId);
@@ -1800,25 +1608,10 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.findCoderPayments(searchCriteria);
     }
 
-//    public List<BasePayment> findCoderPayments(Connection c, Map searchCriteria) throws RemoteException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.findCoderPayments(c, searchCriteria);
-//    }
-
-//    public double getUserAccrualThreshold(Connection conn, long userId) throws RemoteException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.getUserAccrualThreshold(conn, userId);
-//    }
-
     public double getUserAccrualThreshold(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getUserAccrualThreshold(userId);
     }
-
-//    public double getUserAccruingPaymentsTotal(Connection conn, long userId) throws RemoteException, SQLException {
-//        PactsServicesLocal ps = getEjbHandle();
-//        return ps.getUserAccruingPaymentsTotal(conn, userId);
-//    }
 
     public double getUserAccruingPaymentsTotal(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();

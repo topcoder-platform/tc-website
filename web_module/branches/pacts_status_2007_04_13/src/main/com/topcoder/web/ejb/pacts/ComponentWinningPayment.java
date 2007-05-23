@@ -2,8 +2,6 @@ package com.topcoder.web.ejb.pacts;
 
 import java.sql.SQLException;
 
-import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-
 /**
  * Payment for a component winning.
  *
@@ -95,21 +93,6 @@ public class ComponentWinningPayment extends ComponentProjectReferencePayment {
             	return getComponentName(p.getProjectId()) + " - " + type + ", " + getOrdinal(p.getPlaced());
             }
 
-        }
-        
-        /**
-         * Returns whether the user has already affirmed the corresponding Assignment Document
-         *
-         * @param coderId coder to check for Assignment Document
-         * @param projectId project id to check for Assignment Document
-         * @return whether the user has already affirmed the corresponding Assignment Document
-         */
-        protected boolean hasAffirmedAssignmentDocument(long coderId, long projectId) {
-            try {
-                return new DataInterfaceBean().hasAffirmedAssignmentDocument(COMPONENT_PAYMENT, coderId, projectId);
-            } catch (Exception e) {
-                return false;
-            }
         }
     }
 }

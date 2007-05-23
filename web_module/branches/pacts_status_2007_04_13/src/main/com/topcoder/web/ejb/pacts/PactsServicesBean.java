@@ -1012,9 +1012,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentDetails.append("AND country.country_code = pa.country_code ");
 
         if (pendingOnly) {
-            selectPaymentDetails.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
-                    PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," +
-                    PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
+            selectPaymentDetails.append(" AND pd.status_id IN (" + 
+                PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId() + "," +
+                PaymentStatus.OWED_PAYMENT_STATUS.getId() + "," +
+                PaymentStatus.ACCRUING_PAYMENT_STATUS.getId() + ")");
         }
 
         selectPaymentDetails.append("ORDER BY date_due DESC");
@@ -1054,9 +1055,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectPaymentHeaders.append("AND country.country_code = pa.country_code ");
 
         if (pendingOnly) {
-            selectPaymentHeaders.append(" AND pd.status_id IN (" + PAYMENT_ON_HOLD_STATUS + "," +
-                    PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS + "," +
-                    PAYMENT_OWED_STATUS + "," + PAYMENT_PENDING_STATUS + ")");
+            selectPaymentHeaders.append(" AND pd.status_id IN (" + 
+                PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId() + "," +
+                PaymentStatus.OWED_PAYMENT_STATUS.getId() + "," +
+                PaymentStatus.ACCRUING_PAYMENT_STATUS.getId() + ")");
         }
 
         selectPaymentHeaders.append("ORDER BY date_due DESC");
@@ -1313,33 +1315,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public double getUserAccruingPaymentsTotal(long userId) throws SQLException {
         Connection conn = null;
         try {
-            conn = DBMS.getConnection();
-            return getUserAccruingPaymentsTotal(conn, userId);
+            conn = DBMS.getConnection(trxDataSource);
+            StringBuffer sb = new StringBuffer(300);
+            
+            sb.append("select nvl(sum(pd.gross_amount), 0) as total from payment p, payment_detail pd where "); 
+            sb.append("p.most_recent_detail_id = pd.payment_detail_id ");
+            sb.append("and p.user_id = " + userId);
+            sb.append("and pd.status_id = " + PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()); 
+            
+            ResultSetContainer rsc = runSelectQuery(conn, sb.toString(), false);
+    
+            if (rsc.iterator().hasNext()) {
+                return ((ResultSetRow) rsc.iterator().next()).getDoubleItem("total");
+            } else {
+                return 0;
+            }
         } finally {
             close(conn);
-        }
-    }
-
-    /**
-     * Returns the accruing payments total of a user
-     *
-     * @return accruing total
-     * @throws SQLException If there is some problem retrieving the data
-     */
-    private double getUserAccruingPaymentsTotal(Connection conn, long userId) throws SQLException {
-        StringBuffer sb = new StringBuffer(300);
-        
-        sb.append("select nvl(sum(pd.gross_amount), 0) as total from payment p, payment_detail pd where "); 
-        sb.append("p.most_recent_detail_id = pd.payment_detail_id ");
-        sb.append("and p.user_id = " + userId);
-        sb.append("and pd.status_id = " + PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()); 
-        
-        ResultSetContainer rsc = runSelectQuery(conn, sb.toString(), false);
-
-        if (rsc.iterator().hasNext()) {
-            return ((ResultSetRow) rsc.iterator().next()).getDoubleItem("total");
-        } else {
-            return 0;
         }
     }
 
@@ -2963,7 +2955,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     clause.append("EXISTS (SELECT 1 FROM payment, payment_detail ");
                     clause.append("        WHERE payment.user_id = u.user_id");
                     clause.append("        AND payment.most_recent_detail_id = payment_detail.payment_detail_id");
-                    clause.append("        AND payment_detail.status_id = " + PAYMENT_OWED_STATUS + ")");
+                    clause.append("        AND payment_detail.status_id in (" + 
+                        PaymentStatus.OWED_PAYMENT_STATUS.getId() + "," +
+                        PaymentStatus.ACCRUING_PAYMENT_STATUS.getId() + "))");
                     orClauses.add(clause.toString());
                 } 
             }
@@ -3201,7 +3195,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         checkPaid.append("SELECT COUNT(*) FROM payment p, payment_detail pd, payment_detail_xref pdx ");
         checkPaid.append("WHERE p.payment_id = pdx.payment_id ");
         checkPaid.append("AND pdx.payment_detail_id = pd.payment_detail_id ");
-        checkPaid.append("AND pd.status_id = " + PAID_STATUS + " ");
+        checkPaid.append("AND pd.status_id = " + PaymentStatus.PAID_PAYMENT_STATUS.getId() + " ");
         checkPaid.append("AND p.payment_id = " + p.getHeader().getId());
         ResultSetContainer rsc = runSelectQuery(c, checkPaid.toString(), false);
         int paidRecords = Integer.parseInt(rsc.getItem(0, 0).toString());
@@ -4343,7 +4337,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
-    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
+    private int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws IllegalUpdateException, SQLException {
         return generateRoundPayments(roundId, affidavitTypeId, makeChanges, ALGORITHM_CONTEST_PAYMENT);
     }

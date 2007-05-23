@@ -21,8 +21,6 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  * @version $Id$
  */
 public class PaymentStatusMediator {
-    private PaymentStatusManager statusManager = null;
-
     public enum UserEvents {
         ENTER_INTO_PAYMENT_SYSTEM_EVENT,
         DELETE_EVENT,
@@ -34,42 +32,17 @@ public class PaymentStatusMediator {
     private DataInterfaceBean dib = new DataInterfaceBean();
     
     public PaymentStatusMediator() {
-        statusManager = new PaymentStatusManager();
     }
     
     public void newPayment(BasePayment payment) throws EventFailureException {
         log.debug("newPayment called... ");
         
         try {
-            
-            
             // when a payment is created, the possible status can be any on hold, accruing and owed
-            statusManager.newPayment(payment);
+            payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS));
+            
+            payment.getCurrentStatus().activate(payment);
 
-            // if user is accruing and the payment is set to owed, it means we have reached accrual threshold
-            // so we need to notify all accruing payments
-
-//            log.debug("check if we need to notify accruing payments");
-//            log.debug("payment.getCurrentStatus(): " + payment.getCurrentStatus().getDesc());
-//            log.debug("dib.getUserAccrualThreshold(conn, payment.getCoderId()): " + dib.getUserAccrualThreshold(payment.getCoderId()));
-//            
-//            if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS)) && 
-//                    dib.getUserAccrualThreshold(payment.getCoderId()) > 0) {
-//
-//                log.debug("need to notify all accruing payments");
-//                Map criteria = new HashMap();
-//                criteria.put(PactsConstants.USER_ID, String.valueOf(payment.getCoderId()));
-//                criteria.put(PactsConstants.PAYMENT_STATUS_ID, String.valueOf(PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()));
-//    
-//                List<BasePayment> payments = dib.findCoderPayments(criteria);
-//                log.debug("need to notify " + payments.size() + " payments");
-//                
-//                // notify the status manager and update each payment
-//                for (BasePayment notifyPayment : payments) {
-//                    statusManager.accrualThresholdReached(notifyPayment);
-//                    dib.updatePayment(notifyPayment);
-//                }
-//            }
         } catch (Exception e) {
             throw new EventFailureException(e);
         }
@@ -88,7 +61,7 @@ public class PaymentStatusMediator {
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
-                statusManager.newTaxForm(payment);
+                payment.getCurrentStatus().newTaxForm(payment);
                 dib.updatePayment(payment);
                 
                 // if the payment changed its status, notify the possible childrens
@@ -115,7 +88,7 @@ public class PaymentStatusMediator {
             
             // notify the status manager and update each payment
             for (BasePayment payment : payments) {
-                statusManager.hardCopyIPTransfer(payment);
+                payment.getCurrentStatus().hardCopyIPTransfer(payment);
                 dib.updatePayment(payment);
 
                 // if the payment changed its status, notify the possible childrens
@@ -143,7 +116,7 @@ public class PaymentStatusMediator {
             
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
-            statusManager.affirmedAffidavit(payment);
+            payment.getCurrentStatus().affirmedAffidavit(payment);
             dib.updatePayment(payment);
 
             // if the payment changed its status, notify the possible childrens
@@ -177,7 +150,7 @@ public class PaymentStatusMediator {
 
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
-            statusManager.affirmedIPTransfer(payment);
+            payment.getCurrentStatus().affirmedIPTransfer(payment);
             dib.updatePayment(payment);
 
             // if the payment changed its status, notify the possible childrens
@@ -204,7 +177,7 @@ public class PaymentStatusMediator {
             
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
-            statusManager.expiredAffidavit(payment);
+            payment.getCurrentStatus().expiredAffidavit(payment);
             dib.updatePayment(payment);
 
             // if the payment was cancelled, notify the possible childrens
@@ -232,7 +205,7 @@ public class PaymentStatusMediator {
             
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
-            statusManager.expiredIPTransfer(payment);
+            payment.getCurrentStatus().expiredIPTransfer(payment);
             dib.updatePayment(payment);
 
             // if the payment was cancelled, notify the possible childrens
@@ -260,7 +233,7 @@ public class PaymentStatusMediator {
             
             // notify the status manager and update the payment
             BasePayment payment = payments.get(0);
-            statusManager.expiredPayment(payment);
+            payment.getCurrentStatus().expiredPayment(payment);
             dib.updatePayment(payment);
 
             // if the payment was expired, notify the possible childrens
@@ -282,7 +255,7 @@ public class PaymentStatusMediator {
 
             for (BasePayment payment : payments) {
                 // notify the status manager and update the payment
-                statusManager.inactiveCoder(payment);
+                payment.getCurrentStatus().inactiveCoder(payment);
                 dib.updatePayment(payment);
 
                 // if the payment was cancelled, notify the possible childrens
@@ -323,10 +296,10 @@ public class PaymentStatusMediator {
             for (BasePayment childPayment : childPayments) {
                 log.debug("notifying children: " + childPayment.getId());
                 if ("new".equals(notifType)) {
-                    statusManager.newPayment(childPayment);
+                    newPayment(childPayment);
                 }
                 if ("cancel".equals(notifType)) {
-                    statusManager.parentCancelled(childPayment);
+                    childPayment.getCurrentStatus().parentCancelled(childPayment);
                 }
                 dib.updatePayment(childPayment);
             }

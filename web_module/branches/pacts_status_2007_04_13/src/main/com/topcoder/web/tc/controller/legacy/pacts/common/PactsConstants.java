@@ -24,12 +24,6 @@ public interface PactsConstants extends Constants {
     public static final String USER_PROPERTY = "user_id";
     public static final String UPDATE_TYPE_PROPERTY = "update_type";
 
-    // Types of updates that are queued
-    // this shouldn't exist anymore.
-//    public static final int REVIEW_UPDATE_TYPE = 1;
-//    public static final int STATUS_UPDATE_TYPE = 2;
-//    public static final int PAID_UPDATE_TYPE = 3;
-
     // Default email address to which update results should be mailed
     public static final String DEFAULT_STAFF_EMAIL = "grunt@topcoder.com";
 

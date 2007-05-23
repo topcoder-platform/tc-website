@@ -22,7 +22,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
  *
- * @author  cucu
+ * @author  cucu, pulky
  */
 public class PaymentHistory extends BaseProcessor implements PactsConstants {
 
@@ -65,7 +65,6 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
 
             
             DataInterfaceBean dib = new DataInterfaceBean();
-//            ResultSetContainer rsc = new ResultSetContainer(dib.getPaymentHistory(getUser().getId(), !fullList, sortCol, sortAscending), Integer.parseInt(startRank), Integer.parseInt(endRank));
             
             Map criteria = new HashMap();
             criteria.put(PactsConstants.USER_ID, String.valueOf(getUser().getId()));

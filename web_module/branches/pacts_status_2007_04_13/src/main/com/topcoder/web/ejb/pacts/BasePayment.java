@@ -33,7 +33,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private double netAmount = 0;
     private Date dueDate = null;
     private Date paidDate = null;
-//    private int statusId = 0;
     private BasePaymentStatus currentStatus;
     private String description = null;
     private final int paymentTypeId;
@@ -48,9 +47,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
     private Date eventDate  = null;
-
-    // Description of the status, looked up in db
-//    private String statusDesc = null;
 
     // Some payments include a placement to use in the description.
     private int placed = 0;
@@ -350,9 +346,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         return id;
     }
 
-//    public String getStatusDesc() {
-//        return statusDesc;
-//    }
     public Date getEventDate() {
         return eventDate;
     }
@@ -364,10 +357,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
     }
-
-//    protected void setStatusDesc(String statusDesc) {
-//        this.statusDesc = statusDesc;
-//    }
 
     protected void setReferenceDescription(String referenceDescription) {
         this.referenceDescription = referenceDescription;
@@ -424,10 +413,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
      */
     public void setCurrentStatus(BasePaymentStatus status) {
         log.debug("BasePayment: Setting current status: #reasons: " + ((status == null ? "null" : status.getReasons().size())));
-//        if (statusId != this.statusId) {
-//            this.statusDesc = null;
-//
-//        }
+
         fieldChanged(MODIFICATION_STATUS, !status.equals(this.currentStatus));
 
         this.currentStatus = status;
@@ -492,20 +478,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         }
 
         /**
-         * Get the status of the payment.
-         * If the user has completed tax forms, it returns PAYMENT_PENDING_STATUS, otherwise PAYMENT_ON_HOLD_STATUS.
-         *
-         * Inheriting classes can override this method to use other status.
-         *
-         * @return the status of the payment.
-         * @throws SQLException
-         */
-        public int lookupStatus(BasePayment payment) throws SQLException {
-            return hasTaxForm(payment.getCoderId()) ?
-                    PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS;
-        }
-
-        /**
          * Fill eventDate, dueDate, statusId and description for the payment.
          *
          * @param payment payment to fill
@@ -519,14 +491,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             if (payment.getDueDate() == null) {
                 payment.setDueDate(lookupDueDate(payment));
             }
-
-//            if (payment.getStatusId() == 0) {
-//                payment.setStatusId(lookupStatus(payment));
-//
-//                if (payment.getStatusDesc() == null) {
-//                    payment.setStatusDesc(lookupStatusDesc(payment.getStatusId()));
-//                }
-//            }
 
             if (payment.getDescription() == null) {
                 payment.setDescription(lookupDescription(payment));
@@ -546,25 +510,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
          */
         public boolean isDuplicated(BasePayment payment) throws SQLException {
             return false;
-        }
-
-        /**
-         * Find the description of the specified status.
-         *
-         * @param statusId the status id to find.
-         * @return the description for the status.
-         * @throws SQLException
-         */
-        protected String lookupStatusDesc(int statusId) throws SQLException {
-            String query = "SELECT status_desc FROM status_lu WHERE status_id = " + statusId;
-
-            ResultSetContainer statusName = runSelectQuery(query);
-
-            if (statusName.getRowCount() == 0) {
-                throw new SQLException("Status code " + statusId + " not found in database");
-            }
-
-            return statusName.getItem(0, 0).toString();
         }
 
 
@@ -748,8 +693,5 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             }
             return placed + "th place";
         }
-
-
     }
-
 }
