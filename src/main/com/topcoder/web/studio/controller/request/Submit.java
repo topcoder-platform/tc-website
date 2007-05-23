@@ -77,8 +77,7 @@ public class Submit extends BaseSubmissionDataProcessor {
             } else {
                 //registered
 
-                //MultipartRequest r = (MultipartRequest) getRequest();
-                MultipartRequest r = new MultipartRequest(getRequest());
+                MultipartRequest r = (MultipartRequest) getRequest();
 
                 UploadedFile submissionFile = r.getUploadedFile(Constants.SUBMISSION);
 
