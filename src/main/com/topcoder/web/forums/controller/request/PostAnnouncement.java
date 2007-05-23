@@ -19,36 +19,36 @@ import java.util.TimeZone;
 
 /**
  * @author mtong
- *
- * Posts an announcement and redirects the user its place in the forums, or returns to 
- * postannounce.jsp if errors exist.
+ *         <p/>
+ *         Posts an announcement and redirects the user its place in the forums, or returns to
+ *         postannounce.jsp if errors exist.
  */
 public class PostAnnouncement extends ForumsProcessor {
-	protected void businessProcessing() throws Exception {
-		super.businessProcessing();
-		if (isGuest()) {
+    protected void businessProcessing() throws Exception {
+        super.businessProcessing();
+        if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
 
         AnnouncementManager announcementManager = forumFactory.getAnnouncementManager();
-        
+
         long categoryID = -1;
-		long forumID = -1;
-		long announcementID = -1;
+        long forumID = -1;
+        long announcementID = -1;
 
         ForumCategory category = null;
-        Forum forum = null; 
+        Forum forum = null;
         com.jivesoftware.forum.Announcement announcement = null;
-        
+
         String categoryIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.CATEGORY_ID));
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String announcementIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ANNOUNCEMENT_ID));
-		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
-		String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags
-            (getRequest().getParameter(ForumConstants.ANNOUNCEMENT_SUBJECT).trim());
+        String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
+        String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags
+                (getRequest().getParameter(ForumConstants.ANNOUNCEMENT_SUBJECT).trim());
         String body = getRequest().getParameter(ForumConstants.ANNOUNCEMENT_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
-        
+
         if (postMode.equals("New")) {
             categoryID = Long.parseLong(categoryIDStr);
             category = forumFactory.getForumCategory(categoryID);
@@ -76,39 +76,39 @@ public class PostAnnouncement extends ForumsProcessor {
         } else {
             addError(ForumConstants.ANNOUNCEMENT_SUBJECT, ForumConstants.ERR_POST_MODE_UNRECOGNIZED);
         }
-        
-		if (subject.trim().equals("")) {
-			addError(ForumConstants.ANNOUNCEMENT_SUBJECT, ForumConstants.ERR_EMPTY_MESSAGE_SUBJECT);
-		}
-		if (body.trim().equals("")) {
-			addError(ForumConstants.ANNOUNCEMENT_BODY, ForumConstants.ERR_EMPTY_MESSAGE_BODY);
-		}
+
+        if (subject.trim().equals("")) {
+            addError(ForumConstants.ANNOUNCEMENT_SUBJECT, ForumConstants.ERR_EMPTY_MESSAGE_SUBJECT);
+        }
+        if (body.trim().equals("")) {
+            addError(ForumConstants.ANNOUNCEMENT_BODY, ForumConstants.ERR_EMPTY_MESSAGE_BODY);
+        }
         if (subject.length() > ForumConstants.MESSAGE_SUBJECT_MAX_LENGTH) {
             addError(ForumConstants.ANNOUNCEMENT_SUBJECT, ForumConstants.ERR_LONG_MESSAGE_SUBJECT);
         }
         if (body.length() > ForumConstants.MESSAGE_BODY_MAX_LENGTH) {
-        	addError(ForumConstants.ANNOUNCEMENT_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
+            addError(ForumConstants.ANNOUNCEMENT_BODY, ForumConstants.ERR_LONG_MESSAGE_BODY);
         }
         if (!category.isAuthorized(ForumPermissions.ANNOUNCEMENT_ADMIN)) {
             addError(ForumConstants.ANNOUNCEMENT_BODY, ForumConstants.ERR_CANNOT_POST_ANNOUNCEMENT);
         }
-		if (hasErrors()) {
-			setDefault(ForumConstants.CATEGORY_ID, getRequest().getParameter(ForumConstants.CATEGORY_ID));
+        if (hasErrors()) {
+            setDefault(ForumConstants.CATEGORY_ID, getRequest().getParameter(ForumConstants.CATEGORY_ID));
             setDefault(ForumConstants.FORUM_ID, getRequest().getParameter(ForumConstants.FORUM_ID));
-			setDefault(ForumConstants.ANNOUNCEMENT_ID, getRequest().getParameter(ForumConstants.ANNOUNCEMENT_ID));
-			setDefault(ForumConstants.POST_MODE, postMode);
-			setDefault(ForumConstants.ANNOUNCEMENT_SUBJECT, subject);
+            setDefault(ForumConstants.ANNOUNCEMENT_ID, getRequest().getParameter(ForumConstants.ANNOUNCEMENT_ID));
+            setDefault(ForumConstants.POST_MODE, postMode);
+            setDefault(ForumConstants.ANNOUNCEMENT_SUBJECT, subject);
             setDefault(ForumConstants.ANNOUNCEMENT_BODY, textareaBody);
 
             getRequest().setAttribute("announcement", announcement);
             getRequest().setAttribute("category", category);
-			getRequest().setAttribute("forum", forum);
+            getRequest().setAttribute("forum", forum);
             getRequest().setAttribute("postMode", postMode);
 
             setNextPage("/postAnnounce.jsp");
-			setIsNextPageInContext(true);
-			return;
-		}
+            setIsNextPageInContext(true);
+            return;
+        }
 
         boolean isNewAnnouncement = false;
         if (announcement == null) {
@@ -125,17 +125,17 @@ public class PostAnnouncement extends ForumsProcessor {
                 announcement = announcementManager.createAnnouncement(user);
             }
             isNewAnnouncement = true;
-		} else {
-            announcement.setStartDate(Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime());      
+        } else {
+            announcement.setStartDate(Calendar.getInstance(TimeZone.getTimeZone("EST")).getTime());
         }
-		announcement.setSubject(subject);
-		announcement.setBody(body);
+        announcement.setSubject(subject);
+        announcement.setBody(body);
         if (isNewAnnouncement) {
             announcementManager.addAnnouncement(announcement);
         }
-        
-		setNextPage(getSessionInfo().getServletPath() +
-				"?module=Announcement&" + ForumConstants.ANNOUNCEMENT_ID + "=" + announcement.getID());
-		setIsNextPageInContext(false);
-	}
+
+        setNextPage(getSessionInfo().getServletPath() +
+                "?module=Announcement&" + ForumConstants.ANNOUNCEMENT_ID + "=" + announcement.getID());
+        setIsNextPageInContext(false);
+    }
 }

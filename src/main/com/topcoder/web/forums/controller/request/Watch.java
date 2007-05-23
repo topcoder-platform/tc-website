@@ -15,13 +15,13 @@ import com.topcoder.web.forums.controller.ForumsUtil;
 
 /**
  * @author mtong
- *
- * Adds or removes a watch from the user's watchlist.
+ *         <p/>
+ *         Adds or removes a watch from the user's watchlist.
  */
 public class Watch extends ForumsProcessor {
 
-	protected void businessProcessing() throws Exception {
-		super.businessProcessing();
+    protected void businessProcessing() throws Exception {
+        super.businessProcessing();
         if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
@@ -34,42 +34,42 @@ public class Watch extends ForumsProcessor {
         String errors = "";
 
         switch (type) {
-        case JiveConstants.THREAD:
-            ForumThread thread = forumFactory.getForumThread(id);
-        	if (cmd.equals("add")) {
-                if (watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.maxThreadWatchesPerPage) {
-                    watchManager.createWatch(user, thread);
-                } else {
-                	errors = ForumConstants.WATCH_THREAD;
-                }
-            } else if (cmd.equals("remove")) {
-                com.jivesoftware.forum.Watch watch = watchManager.getWatch(user, thread);
-                watchManager.deleteWatch(watch);
-            }
-            nextPage.append("?module=Thread&").append(ForumConstants.THREAD_ID).append("=").append(thread.getID());
-            String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
-            if (!threadView.equals("")) {
-            	nextPage.append("&").append(ForumConstants.THREAD_VIEW).append("=").append(threadView);
-            }
-            if (!errors.equals("")) {
-            	nextPage.append("&").append(ForumConstants.THREAD_ERROR).append("=").append(errors);
-            }
-            break;
-        case JiveConstants.FORUM_CATEGORY:
-            ForumCategory category = forumFactory.getForumCategory(id);
-            if (ForumsUtil.isSoftwareSubcategory(category)) {
+            case JiveConstants.THREAD:
+                ForumThread thread = forumFactory.getForumThread(id);
                 if (cmd.equals("add")) {
-                    watchManager.createWatch(user, category);
+                    if (watchManager.getTotalWatchCount(user, JiveConstants.THREAD) < ForumConstants.maxThreadWatchesPerPage) {
+                        watchManager.createWatch(user, thread);
+                    } else {
+                        errors = ForumConstants.WATCH_THREAD;
+                    }
                 } else if (cmd.equals("remove")) {
-                    com.jivesoftware.forum.Watch watch = watchManager.getWatch(user, category);
+                    com.jivesoftware.forum.Watch watch = watchManager.getWatch(user, thread);
                     watchManager.deleteWatch(watch);
                 }
-                nextPage.append("?module=Category&").append(ForumConstants.CATEGORY_ID).append("=").append(category.getID());
-            }
-            break;
+                nextPage.append("?module=Thread&").append(ForumConstants.THREAD_ID).append("=").append(thread.getID());
+                String threadView = StringUtils.checkNull(getRequest().getParameter(ForumConstants.THREAD_VIEW));
+                if (!threadView.equals("")) {
+                    nextPage.append("&").append(ForumConstants.THREAD_VIEW).append("=").append(threadView);
+                }
+                if (!errors.equals("")) {
+                    nextPage.append("&").append(ForumConstants.THREAD_ERROR).append("=").append(errors);
+                }
+                break;
+            case JiveConstants.FORUM_CATEGORY:
+                ForumCategory category = forumFactory.getForumCategory(id);
+                if (ForumsUtil.isSoftwareSubcategory(category)) {
+                    if (cmd.equals("add")) {
+                        watchManager.createWatch(user, category);
+                    } else if (cmd.equals("remove")) {
+                        com.jivesoftware.forum.Watch watch = watchManager.getWatch(user, category);
+                        watchManager.deleteWatch(watch);
+                    }
+                    nextPage.append("?module=Category&").append(ForumConstants.CATEGORY_ID).append("=").append(category.getID());
+                }
+                break;
         }
 
         setNextPage(nextPage.toString());
         setIsNextPageInContext(false);
-	}
+    }
 }

@@ -6,7 +6,11 @@ package com.topcoder.web.forums.controller.request;
 import com.jivesoftware.base.AuthToken;
 import com.jivesoftware.base.UnauthorizedException;
 import com.jivesoftware.base.User;
-import com.jivesoftware.forum.*;
+import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategory;
+import com.jivesoftware.forum.ForumFactory;
+import com.jivesoftware.forum.ReadTracker;
+import com.jivesoftware.forum.WatchManager;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.util.DBMS;
@@ -14,8 +18,6 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.CachedDataAccess;
 import com.topcoder.web.forums.ForumConstants;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Iterator;
 
 /**
@@ -24,13 +26,13 @@ import java.util.Iterator;
  *         Base class for forum-related processors, providing message and user data.
  */
 public abstract class ForumsProcessor extends BaseProcessor {
-    protected HttpServletRequest httpRequest;
-    protected HttpServletResponse httpResponse;
+    /*
+        protected HttpServletRequest httpRequest;
+        protected HttpServletResponse httpResponse;
+    */
     protected AuthToken authToken;
     protected ForumFactory forumFactory;
     protected User user;
-
-    /* TODO there is redundant code stuff that seems to break the design.  hopefully this can be cleaned */
 
 
     /**
@@ -38,7 +40,6 @@ public abstract class ForumsProcessor extends BaseProcessor {
      */
     protected void businessProcessing() throws Exception {
         getResponse().setContentType("text/html; charset=ISO-8859-1");
-        getHttpResponse().setContentType("text/html; charset=ISO-8859-1");
 
         getRequest().setAttribute("authToken", authToken);
         getRequest().setAttribute("user", user);
@@ -89,6 +90,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
         }
     }
 
+/*
     public HttpServletRequest getHttpRequest() {
         return httpRequest;
     }
@@ -104,6 +106,7 @@ public abstract class ForumsProcessor extends BaseProcessor {
     public void setHttpResponse(HttpServletResponse httpResponse) {
         this.httpResponse = httpResponse;
     }
+*/
 
     public void setAuthToken(AuthToken authToken) {
         this.authToken = authToken;

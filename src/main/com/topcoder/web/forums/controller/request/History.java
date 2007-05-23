@@ -19,12 +19,12 @@ import java.util.Iterator;
 
 /**
  * @author mtong
- *
- * Processor providing data related to a user's forum post history.
+ *         <p/>
+ *         Processor providing data related to a user's forum post history.
  */
 public class History extends ForumsProcessor {
-	protected void businessProcessing() throws Exception {
-		super.businessProcessing();
+    protected void businessProcessing() throws Exception {
+        super.businessProcessing();
         if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
@@ -46,7 +46,8 @@ public class History extends ForumsProcessor {
         if (user != null) {
             try {
                 range = Integer.parseInt(user.getProperty("jiveHistoryRange"));
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
 
         String sortField = StringUtils.checkNull(getRequest().getParameter(ForumConstants.SORT_FIELD));
@@ -57,7 +58,7 @@ public class History extends ForumsProcessor {
         if (sortOrder.equals("")) {
             sortOrder = String.valueOf(ResultFilter.DESCENDING);
         }
-        
+
         ResultFilter resultFilter = ResultFilter.createDefaultMessageFilter();
         resultFilter.setSortField(Integer.parseInt(sortField));
         resultFilter.setSortOrder(Integer.parseInt(sortOrder));
@@ -68,8 +69,8 @@ public class History extends ForumsProcessor {
         Paging paging = new Paging(resultFilter, totalItemCount);
         Paginator paginator = new Paginator(paging);
         Iterator itMessages = forumFactory.getUserMessages(historyUser, resultFilter);
-        
-        MessageHistoryLocal historyBean = (MessageHistoryLocal)createLocalEJB(getInitialContext(), MessageHistory.class);
+
+        MessageHistoryLocal historyBean = (MessageHistoryLocal) createLocalEJB(getInitialContext(), MessageHistory.class);
 
         getRequest().setAttribute("historyUser", historyUser);
         getRequest().setAttribute("messages", itMessages);
@@ -78,7 +79,7 @@ public class History extends ForumsProcessor {
         getRequest().setAttribute("sortField", sortField);
         getRequest().setAttribute("sortOrder", sortOrder);
 
-		setNextPage("/postHistory.jsp");
-		setIsNextPageInContext(true);
-	}
+        setNextPage("/postHistory.jsp");
+        setIsNextPageInContext(true);
+    }
 }

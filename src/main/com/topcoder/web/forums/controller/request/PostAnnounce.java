@@ -4,10 +4,10 @@
 package com.topcoder.web.forums.controller.request;
 
 import com.jivesoftware.base.JiveConstants;
-import com.jivesoftware.forum.ForumCategory;
-import com.jivesoftware.forum.Forum;
 import com.jivesoftware.forum.Announcement;
 import com.jivesoftware.forum.AnnouncementManager;
+import com.jivesoftware.forum.Forum;
+import com.jivesoftware.forum.ForumCategory;
 import com.jivesoftware.forum.ForumNotFoundException;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
@@ -17,25 +17,25 @@ import com.topcoder.web.forums.controller.ForumsUtil;
 
 /**
  * @author mtong
- *
- * Provides logic to work with an announcement after an admin decides to create a new announcement, or edit
- * an existing announcement.
+ *         <p/>
+ *         Provides logic to work with an announcement after an admin decides to create a new announcement, or edit
+ *         an existing announcement.
  */
 public class PostAnnounce extends ForumsProcessor {
 
-	protected void businessProcessing() throws Exception {
-		super.businessProcessing();
+    protected void businessProcessing() throws Exception {
+        super.businessProcessing();
         if (isGuest()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
-        
+
         AnnouncementManager announcementManager = forumFactory.getAnnouncementManager();
 
-		String postMode = getRequest().getParameter(ForumConstants.POST_MODE);     
+        String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
         String categoryIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.CATEGORY_ID));
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String announcementIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ANNOUNCEMENT_ID));
-        
+
         long categoryID = -1;
         long forumID = -1;
         if (postMode.equals("New")) {
@@ -45,8 +45,8 @@ public class PostAnnounce extends ForumsProcessor {
             }
         } else if (postMode.equals("Edit")) {
             long announcementID = Long.parseLong(announcementIDStr);
-            com.jivesoftware.forum.Announcement announcement = 
-                announcementManager.getAnnouncement(announcementID);
+            com.jivesoftware.forum.Announcement announcement =
+                    announcementManager.getAnnouncement(announcementID);
             if (announcement.getContainerObjectType() == JiveConstants.FORUM) {
                 Forum forum = forumFactory.getForum(announcement.getContainerObjectID());
                 forumID = forum.getID();
@@ -59,9 +59,9 @@ public class PostAnnounce extends ForumsProcessor {
         }
 
         setDefault(ForumConstants.CATEGORY_ID, String.valueOf(categoryID));
-		setDefault(ForumConstants.FORUM_ID, String.valueOf(forumID));
-		setDefault(ForumConstants.ANNOUNCEMENT_ID, getRequest().getParameter(ForumConstants.ANNOUNCEMENT_ID));
-		setDefault(ForumConstants.POST_MODE, postMode);
+        setDefault(ForumConstants.FORUM_ID, String.valueOf(forumID));
+        setDefault(ForumConstants.ANNOUNCEMENT_ID, getRequest().getParameter(ForumConstants.ANNOUNCEMENT_ID));
+        setDefault(ForumConstants.POST_MODE, postMode);
 
         if (!announcementIDStr.equals("")) {
             Announcement announcement = announcementManager.getAnnouncement(Long.parseLong(announcementIDStr));
@@ -72,7 +72,7 @@ public class PostAnnounce extends ForumsProcessor {
             }
             getRequest().setAttribute("announcement", announcement);
         }
-        
+
         ForumCategory category = forumFactory.getForumCategory(categoryID);
         getRequest().setAttribute("category", category);
         try {
@@ -83,11 +83,12 @@ public class PostAnnounce extends ForumsProcessor {
                 return;
             }
             getRequest().setAttribute("forum", forum);
-        } catch (ForumNotFoundException e) {}
+        } catch (ForumNotFoundException e) {
+        }
 
         getRequest().setAttribute("postMode", postMode);
 
         setNextPage("/postAnnounce.jsp");
-		setIsNextPageInContext(true);
-	}
+        setIsNextPageInContext(true);
+    }
 }

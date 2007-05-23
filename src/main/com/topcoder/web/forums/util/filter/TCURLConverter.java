@@ -1,21 +1,27 @@
 package com.topcoder.web.forums.util.filter;
 
 
-import com.jivesoftware.base.*;
+import com.jivesoftware.base.Filter;
+import com.jivesoftware.base.FilterChain;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  * A Filter that converts URL's to working HTML web links.<p>
- *
+ * <p/>
  * The default set of patterns recognized are <code>ftp://path-of-url</code>,
  * <code>http://path-of-url</code>, <code>https://path-of-url</code> but can be expanded upon.<p>
- *
+ * <p/>
  * In addition, the following patterns are also recognized.
- *
+ * <p/>
  * <code>[url path-of-url]descriptive text[/url]</code> and
  * <code>[url=path-of-url]descriptive text[/url]</code>.<p>
- *
+ * <p/>
  * The <code>[url]</code> allows any path to be defined as link.
  */
 public class TCURLConverter implements Filter {
@@ -26,7 +32,7 @@ public class TCURLConverter implements Filter {
     private int charsBeforeEllipsis = 0;
     private int charsAfterEllipsis = 0;
     private ArrayList schemes = new ArrayList();
-    
+
     public static int DEFAULT_LONG_LINK_LEN = 80;
     public static int DEFAULT_CHARS_BEFORE_ELLIPSIS = 25;
     public static int DEFAULT_CHARS_AFTER_ELLIPSIS = 15;
@@ -36,7 +42,7 @@ public class TCURLConverter implements Filter {
         schemes.add("http://");
         schemes.add("https://");
         schemes.add("ftp://");
-        
+
         longLinkLen = DEFAULT_LONG_LINK_LEN;
         charsBeforeEllipsis = DEFAULT_CHARS_BEFORE_ELLIPSIS;
         charsAfterEllipsis = DEFAULT_CHARS_AFTER_ELLIPSIS;
@@ -51,17 +57,17 @@ public class TCURLConverter implements Filter {
             return string;
         }
 
-        int length            = string.length();
+        int length = string.length();
         StringBuffer filtered = new StringBuffer((int) (length * 1.5));
-        ArrayList urlBlocks   = new ArrayList(5);
+        ArrayList urlBlocks = new ArrayList(5);
 
         // search for url's such as [url=..]text[/url] or [url ..]text[/url]
         int start = string.indexOf("[url");
         while (start != -1 && (start + 5 < length)) {
             // check to verify we're not in another block
             if (withinAnotherBlock(urlBlocks, start)) {
-                    start = string.indexOf("[url", start + 5);
-                    continue;
+                start = string.indexOf("[url", start + 5);
+                continue;
             }
 
             int end = string.indexOf("[/url]", start + 5);
@@ -76,11 +82,10 @@ public class TCURLConverter implements Filter {
             String url;
             String description;
             if (start + startTagClose > end) {
-                // broken url tag, ignore
+                // broken url tags, ignore
                 start = string.indexOf("[url", end + 6);
                 continue;
-            }
-            else if (startTagClose > 5) {
+            } else if (startTagClose > 5) {
                 url = u.substring(5, startTagClose);
                 description = u.substring(startTagClose + 1, u.length() - 6);
 
@@ -90,8 +95,7 @@ public class TCURLConverter implements Filter {
                     URLBlock block = new URLBlock(start, end + 5, url, description);
                     urlBlocks.add(block);
                 }
-            }
-            else {
+            } else {
                 url = description = u.substring(startTagClose + 1, u.length() - 6);
                 // Check the user entered URL for a "javascript:" or "file:" link. Only
                 // append the user entered link if it doesn't contain 'javascript:' and 'file:'
@@ -115,7 +119,7 @@ public class TCURLConverter implements Filter {
                 int end = start;
 
                 // check context, don't handle patterns preceded by any of '"<=
-        		if (start > 0) {
+                if (start > 0) {
                     char c = string.charAt(start - 1);
 
                     if (c == '\'' || c == '"' || c == '<' || c == '=') {
@@ -126,8 +130,8 @@ public class TCURLConverter implements Filter {
 
                 // check to verify we're not in another block
                 if (withinAnotherBlock(urlBlocks, start)) {
-                        start = string.indexOf(scheme, start + scheme.length());
-                        continue;
+                    start = string.indexOf(scheme, start + scheme.length());
+                    continue;
                 }
 
                 // find the end of the url
@@ -136,53 +140,50 @@ public class TCURLConverter implements Filter {
                     char c = string.charAt(cur);
 
                     switch (c) {
-                        case ' ':
-                            end = cur-1;
-                             break;
-                        case '\t':
-                            end = cur-1;
+                        case' ':
+                            end = cur - 1;
                             break;
-                        case '\'':
-                            end = cur-1;
+                        case'\t':
+                            end = cur - 1;
                             break;
-                        case '\"':
-                            end = cur-1;
+                        case'\'':
+                            end = cur - 1;
                             break;
-                        case '<':
-                            end = cur-1;
+                        case'\"':
+                            end = cur - 1;
                             break;
-                        case '[':
-                            end = cur-1;
+                        case'<':
+                            end = cur - 1;
                             break;
-                        case '\n':
-                            end = cur-1;
+                        case'[':
+                            end = cur - 1;
                             break;
-                        case '\r':
-                            end = cur-1;
+                        case'\n':
+                            end = cur - 1;
                             break;
-                        case '(':
-                            end = cur-1;
+                        case'\r':
+                            end = cur - 1;
                             break;
-                        case ')':
-                            end = cur-1;
+                        case'(':
+                            end = cur - 1;
                             break;
-                        case '{':
-                            end = cur-1;
+                        case')':
+                            end = cur - 1;
                             break;
-                        case '}':
-                            end = cur-1;
+                        case'{':
+                            end = cur - 1;
                             break;
-                        case '&':
+                        case'}':
+                            end = cur - 1;
+                            break;
+                        case'&':
                             if (cur + 3 <= length && string.charAt(cur + 1) == 'l'
-                                    && string.charAt(cur + 2) == 't' && string.charAt(cur + 3) == ';')
-                            {
-                                end = cur-1;
+                                    && string.charAt(cur + 2) == 't' && string.charAt(cur + 3) == ';') {
+                                end = cur - 1;
                                 break;
-                            }
-                            else if (cur + 3 <= length && string.charAt(cur + 1) == 'g'
-                                    && string.charAt(cur + 2) == 't' && string.charAt(cur + 3) == ';')
-                            {
-                                end = cur-1;
+                            } else if (cur + 3 <= length && string.charAt(cur + 1) == 'g'
+                                    && string.charAt(cur + 2) == 't' && string.charAt(cur + 3) == ';') {
+                                end = cur - 1;
                                 break;
                             }
                         default:
@@ -194,7 +195,7 @@ public class TCURLConverter implements Filter {
 
                 // if this is true it means the url goes to the end of the string
                 if (end == start) {
-                    end = length-1;
+                    end = length - 1;
                 }
 
                 // We now need to test to see if the URL we've extracted ends with a '.'.
@@ -253,12 +254,11 @@ public class TCURLConverter implements Filter {
             filtered.append('>');
             if (block.getDescription().length() > 0) {
                 filtered.append(chain.applyFilters(currentIndex, block.getDescription()));
-            }
-            else {
+            } else {
                 String url = block.getUrl();
                 if (isShortenLinks() && url.length() > longLinkLen) {
-                	url = url.substring(0, charsBeforeEllipsis) + "....." + 
-                		url.substring(url.length() - charsAfterEllipsis);
+                    url = url.substring(0, charsBeforeEllipsis) + "....." +
+                            url.substring(url.length() - charsAfterEllipsis);
                 }
                 filtered.append(url);
             }
@@ -266,7 +266,7 @@ public class TCURLConverter implements Filter {
         }
 
         if (last < string.length()) {
-             filtered.append(chain.applyFilters(currentIndex, string.substring(last)));
+            filtered.append(chain.applyFilters(currentIndex, string.substring(last)));
         }
 
         return filtered.toString();
@@ -290,49 +290,49 @@ public class TCURLConverter implements Filter {
     public void setNewWindowEnabled(boolean enabled) {
         this.newWindowEnabled = enabled;
     }
-    
+
     public boolean isShortenLinks() {
-    	return shortenLinks;
+        return shortenLinks;
     }
-    
+
     public void setShortenLinks(boolean shortenLinks) {
-    	this.shortenLinks = shortenLinks;
+        this.shortenLinks = shortenLinks;
     }
-    
+
     public String getLongLinkLen() {
-    	return String.valueOf(longLinkLen);
+        return String.valueOf(longLinkLen);
     }
-    
+
     public void setLongLinkLen(String longLinkLen) {
-    	try {
-    		this.longLinkLen = Integer.parseInt(longLinkLen);
-    	} catch (NumberFormatException nfe) {
-    		this.longLinkLen = DEFAULT_LONG_LINK_LEN;
-    	}
+        try {
+            this.longLinkLen = Integer.parseInt(longLinkLen);
+        } catch (NumberFormatException nfe) {
+            this.longLinkLen = DEFAULT_LONG_LINK_LEN;
+        }
     }
-    
+
     public String getCharsBeforeEllipsis() {
-    	return String.valueOf(charsBeforeEllipsis);
+        return String.valueOf(charsBeforeEllipsis);
     }
-    
+
     public void setCharsBeforeEllipsis(String charsBeforeEllipsis) {
-    	try {
-    		this.charsBeforeEllipsis = Integer.parseInt(charsBeforeEllipsis);
-    	} catch (NumberFormatException nfe) {
-    		this.charsBeforeEllipsis = DEFAULT_CHARS_BEFORE_ELLIPSIS;
-    	}
+        try {
+            this.charsBeforeEllipsis = Integer.parseInt(charsBeforeEllipsis);
+        } catch (NumberFormatException nfe) {
+            this.charsBeforeEllipsis = DEFAULT_CHARS_BEFORE_ELLIPSIS;
+        }
     }
-    
+
     public String getCharsAfterEllipsis() {
-    	return String.valueOf(charsAfterEllipsis);
+        return String.valueOf(charsAfterEllipsis);
     }
-    
+
     public void setCharsAfterEllipsis(String charsAfterEllipsis) {
-    	try {
-    		this.charsAfterEllipsis = Integer.parseInt(charsAfterEllipsis);
-    	} catch (NumberFormatException nfe) {
-    		this.charsAfterEllipsis = DEFAULT_CHARS_AFTER_ELLIPSIS;
-    	}
+        try {
+            this.charsAfterEllipsis = Integer.parseInt(charsAfterEllipsis);
+        } catch (NumberFormatException nfe) {
+            this.charsAfterEllipsis = DEFAULT_CHARS_AFTER_ELLIPSIS;
+        }
     }
 
     /**
@@ -395,7 +395,7 @@ public class TCURLConverter implements Filter {
 
     private boolean isNotEvil(String url) {
         String lcURL = url.toLowerCase();
-        if (lcURL.indexOf("javascript:") != -1)  {
+        if (lcURL.indexOf("javascript:") != -1) {
             return false;
         }
         if (lcURL.indexOf("file:") != -1) {
