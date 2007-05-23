@@ -26,7 +26,7 @@
         <div class="contentSpacer">
           <h2>Video montage from the onsite event</h2>
 
-            <div align="center" style="padding: 20px; background: transparent url(/i/media/videoBackdrop.png) center center no-repeat;">
+            <div align="center" style="padding: 20px; background: transparent url(/i/interface/videoBackdrop.png) center center no-repeat;">
     
                 <script language="JavaScript">
                 var s='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="320" height="280" id="webcast" align="middle">'
