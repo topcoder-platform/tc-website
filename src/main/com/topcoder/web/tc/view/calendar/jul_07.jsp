@@ -101,6 +101,7 @@
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10766">SRM 357</A></strong><br>
          <A href="/tc?module=Static&d1=sponsors&d2=yodlee">Yodlee</A><br>
+         $5,000<br>
          9:00 PM
          </div>
          <div class="hs">
