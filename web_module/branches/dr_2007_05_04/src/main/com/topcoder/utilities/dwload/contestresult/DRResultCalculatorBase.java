@@ -18,9 +18,9 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
 
         
     /**
-     * Active Project status 
+     * Complete Project status 
      */    
-    private static final int STATUS_ACTIVE = 1;
+    private static final int STATUS_COMPLETE = 7;
     
     /**
      * Maximum difference between points to consider them equals
@@ -54,9 +54,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
 
             cr.addResult(p);
             
-            if (p.getStatusId() == STATUS_ACTIVE) {
-                cr.addPotentialPoints(calculatePotentialPoints(p));
-            } else {
+            if (p.getStatusId() == STATUS_COMPLETE) {
                 if (p.getUserId() == 10336829)  System.out.println(p.getProjectId() + ", " +  calculatePointsAwarded(p));
                 // Completed project:
                 // add the points for placement
@@ -66,6 +64,8 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
                 if (Math.abs(p.getPointAdjustment()) > 0.01) {
                     cr.discountPoints(-p.getPointAdjustment());
                 }
+            } else {                    
+                cr.addPotentialPoints(calculatePotentialPoints(p));                    
             }            
         }
 
