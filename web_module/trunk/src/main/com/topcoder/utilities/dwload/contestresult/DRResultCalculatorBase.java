@@ -18,10 +18,15 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
 
         
     /**
+     * Active Project status 
+     */    
+    private static final int STATUS_ACTIVE = 1;
+
+    /**
      * Complete Project status 
      */    
     private static final int STATUS_COMPLETE = 7;
-    
+
     /**
      * Maximum difference between points to consider them equals
      */
@@ -63,7 +68,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
                 if (Math.abs(p.getPointAdjustment()) > 0.01) {
                     cr.discountPoints(-p.getPointAdjustment());
                 }
-            } else {                    
+            } else if (p.getStatusId() == STATUS_ACTIVE) {            
                 cr.addPotentialPoints(calculatePotentialPoints(p));                    
             }            
         }
