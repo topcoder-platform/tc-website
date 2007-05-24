@@ -1,13 +1,23 @@
 package com.topcoder.web.ejb.pacts;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.common.model.AssignmentDocument;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-
-import javax.ejb.EJBLocalObject;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
+
+import javax.ejb.EJBLocalObject;
+
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.EventFailureException;
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
 
 /**
  * The local interface for the PACTS EJB.  See the <tt>PactsServicesBean</tt>
@@ -202,16 +212,14 @@ public interface PactsServicesLocal extends EJBLocalObject {
     ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException;
 
     ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException;
-
-    Map findStudioContests(String search) throws  SQLException;
         
-    ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws   SQLException;
-    
     // ================== Methods from the Client Service ================== 
 
     BasePayment addPayment(BasePayment payment) throws SQLException;
 
     List addPayments(List payments) throws SQLException;
+    
+    BasePayment updatePayment(BasePayment payment) throws  Exception;
 
     List findPayments(int paymentTypeId) throws  SQLException, InvalidStatusException;
 

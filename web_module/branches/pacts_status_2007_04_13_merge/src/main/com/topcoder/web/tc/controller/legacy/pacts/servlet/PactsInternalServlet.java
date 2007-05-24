@@ -2550,40 +2550,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         forward(INTERNAL_NOTE_JSP, request, response);
     }
 
-    private void doVerifyPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        log.debug("doVerifyPayments called...");
-        HttpSession session = request.getSession(true);
-
-        DataInterfaceBean dib = new DataInterfaceBean();
-
-        String message = "<h2>Verification results:</h2>\n";
-
-        long count = dib.performPaymentsChecks(PAYMENT_OWED_STATUS);
-
-        message += count + " payments moved back to On Hold.\n";
-
-        request.setAttribute(BaseServlet.MESSAGE_KEY, message);
-        forward(INTERNAL_ERROR_JSP, request, response);
-    }
-
-    private long[] parsePayments(String[] values) {
-        List payments = new ArrayList();
-
-        for (int n = 0; n < values.length; n++) {
-            String s[] = values[n].split(",");
-            for (int i = 0; i < s.length; i++) {
-                payments.add(s[i]);
-            }
-        }
-
-        long[] paymentsArray = new long[payments.size()];
-        for (int n = 0; n < payments.size(); n++) {
-            paymentsArray[n] = Long.parseLong((String) payments.get(n));
-        }
-
-        return paymentsArray;
-    }
-
     protected void handleException(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException {
 
         try {

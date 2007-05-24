@@ -1,20 +1,5 @@
 package com.topcoder.web.tc.controller.legacy.pacts.bean;
 
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.model.AssignmentDocument;
-import com.topcoder.web.ejb.pacts.BasePayment;
-import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
-import com.topcoder.web.ejb.pacts.PactsServices;
-import com.topcoder.web.ejb.pacts.PactsServicesBean;
-import com.topcoder.web.ejb.pacts.PactsServicesLocal;
-import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
-
-import javax.jms.JMSException;
-import javax.naming.InitialContext;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.rmi.RemoteException;
@@ -26,6 +11,34 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+
+import javax.naming.InitialContext;
+
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.model.AssignmentDocument;
+import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
+import com.topcoder.web.ejb.pacts.PactsServices;
+import com.topcoder.web.ejb.pacts.PactsServicesBean;
+import com.topcoder.web.ejb.pacts.PactsServicesLocal;
+import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.EventFailureException;
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
+import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.InvalidSearchInputException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
 
 /**
  * This class receives incoming requests from the dispatch beans
@@ -1604,11 +1617,6 @@ public class DataInterfaceBean implements PactsConstants {
     public ResultSetContainer getContestsInfo(Long eid) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getContestsInfo(eid);
-    }
-
-    public long performPaymentsChecks(long statusId) throws RemoteException, SQLException {
-        PactsServicesLocal ps = getEjbHandle();
-        return ps.performPaymentsChecks(statusId);
     }
 }
 
