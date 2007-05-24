@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.24.07<br>2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=052407">Introducing Yodlee</A></span><br><br>
+      Starting with SRM 351, Yodlee will sponsor a series of three SRMs and chat with TopCoder members. Here's a little bit more on what we do, along with some recent news from the company.
+        </td>
+      <td class="newsPhoto"><%--<img src="/i/m/rasto6sk_big.jpg" alt="" width="55" height="61"/><br>--%>by Yodlee Staff</td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=052407">full story</A> | 
+        <tc-webtag:forumLink forumID="515943" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>05.23.07<br>7:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -199,25 +216,6 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule">onsite schedule</A> |
         <tc-webtag:forumLink forumID="515859" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.18.07<br>11:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/pdfs/tournaments/tchs07_webprogram.pdf">TCHS07 Program now available (PDF)</A>
-        </span><br><br>
-        The program for the 2007 TopCoder High School Tournament is now available online.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/pdfs/tournaments/tchs07_webprogram.pdf">details</A> |
-        <tc-webtag:forumLink forumID="515858" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    

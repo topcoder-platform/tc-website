@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText">Yodlee Staff</td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=052407"><strong>Introducing Yodlee</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>May 24, 2006</td>
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="275640" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=051707"><strong>TCO Preview: Component Design and Development Competition</strong></A></td>
                <td class="bodyText" nowrap=nowrap>May 17, 2006</td>

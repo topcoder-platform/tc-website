@@ -61,7 +61,7 @@
     <li>And much more...</li>
 </ul> 
 
-<p>Check out our website <A href="<tc-webtag:linkTracking link='http://www.yodlee.com/' refer='yodlee' />">www.yodlee.com</A> for more information.</p>
+<p>Read up on us in the Feature <a href="/tc?module=Static&d1=features&d2=052407">"Introducing Yodlee"</a> or check out our website <A href="<tc-webtag:linkTracking link='http://www.yodlee.com/' refer='yodlee' />">www.yodlee.com</A> for more information.</p>
 <p><a href="/tc?module=JobHit&jid=391&jt=1" class="button" style="width: 70px;">Apply Now</a></p>
 <p>&nbsp;</p>
 
