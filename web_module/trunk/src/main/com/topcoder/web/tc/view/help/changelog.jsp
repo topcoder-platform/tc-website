@@ -43,6 +43,12 @@
 </jsp:include>
 
 
+<p>
+    5.10.1 - 2007.05.xx
+    <ul>
+        <li>Add best rank, # wins, # top 5 finishes and # top 10 finishes to marathon match member profile stats -dok</li>
+    </ul>
+</p>
 
 <p>
     5.10 - 2007.05.23
