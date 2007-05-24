@@ -5,6 +5,7 @@
 
         %>
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 <% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
@@ -67,6 +68,9 @@
             There are <%=count%> submissions in the queue.
             <% } %>
 
+            <c:set value="<%=Constants.ROUND_ID%>" var="roundId"/>
+            <c:set value="<%=Constants.CONTEST_ID%>" var="contestId"/>
+            <c:set value="<%=Constants.COMPONENT_ID%>" var="componentId"/>
 
             <br />
             <br />
@@ -74,6 +78,9 @@
             <br />
             <br />
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewQueue">View Queue</A>
+            <br />
+            <br />
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&amp;${roundId}=${requestScope[roundId]}&amp;${contestId}=${requestScope[contestId]}&amp;${componentId}=${requestScope[componentId]}">Submit Again</A>
 
         </TD>
 

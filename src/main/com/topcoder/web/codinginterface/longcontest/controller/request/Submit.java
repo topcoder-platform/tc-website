@@ -268,7 +268,8 @@ public class Submit extends Base {
                     // Records errors and other info
                     if (res.getCompileStatus()) { // everything went ok! :)
                         closeProcessingPage(buildProcessorRequestString("SubmitSuccess",
-                                new String[]{Constants.ROUND_ID}, new String[]{String.valueOf(rid)}));
+                                new String[]{Constants.ROUND_ID, Constants.CONTEST_ID, Constants.COMPONENT_ID},
+                                new String[]{String.valueOf(rid), String.valueOf(cd), String.valueOf(cid)}));
                     } else { // Compilation errors!
                         // Save temp variables into session
                         request.getSession().setAttribute(Constants.CODE, code);

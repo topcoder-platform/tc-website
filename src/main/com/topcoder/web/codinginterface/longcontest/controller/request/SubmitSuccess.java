@@ -16,6 +16,8 @@ public class SubmitSuccess extends Base {
             int numberOfSubmissionOnLongTestQueue = TestServicesLocator.getService().getNumberOfSubmissionOnLongTestQueue();
             getRequest().setAttribute(Constants.QUEUE_LENGTH, new Long(numberOfSubmissionOnLongTestQueue));
             getRequest().setAttribute(Constants.ROUND_ID, getRequest().getParameter(Constants.ROUND_ID));
+            getRequest().setAttribute(Constants.COMPONENT_ID, getRequest().getParameter(Constants.COMPONENT_ID));
+            getRequest().setAttribute(Constants.CONTEST_ID, getRequest().getParameter(Constants.CONTEST_ID));
             setNextPage(Constants.PAGE_SUBMIT_SUCCESS);
             setIsNextPageInContext(true);
         } catch (Exception e) {
