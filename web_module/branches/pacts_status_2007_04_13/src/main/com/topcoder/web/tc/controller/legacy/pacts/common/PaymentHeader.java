@@ -128,8 +128,8 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
         log.debug("Making the PaymentHeader");
         id = TCData.getTCLong(rsr, "payment_id", 0, true);
-        recentStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
-        recentStatusId = TCData.getTCInt(rsr, "status_id", 0, true);
+        recentStatus = TCData.getTCString(rsr, "payment_status_desc", "default status", true);
+        recentStatusId = TCData.getTCInt(rsr, "payment_status_id", 0, true);
         recentGrossAmount = TCData.getTCDouble(rsr, "gross_amount", 0.0, true);
         recentNetAmount = TCData.getTCDouble(rsr, "net_amount", 0.0, true);
         description = TCData.getTCString(rsr, "payment_desc", "default description", true);

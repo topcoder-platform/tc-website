@@ -202,11 +202,8 @@ ${fn:length(paymentList)} records. <br />
         </OPTION>
 </SELECT>
                 
-<%--<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.STATUS_CMD  %>">--%>
 
 <input type="submit" value="Apply Event">
-
-    <%--       <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" /> <br><br>--%>
 
 
 </form>

@@ -352,13 +352,6 @@ function searchKeyPress(e)
         </td>
     </tr>
 
-<%--     <tr>
-        <td><b>Status:</b></td>
-        <td>
-           <tc-webtag:rscSelect name="status_id" list="${statusList}" 
-                fieldText="status_desc" fieldValue="status_id" useTopValue="false" />        
-        </td>
-    </tr> --%>
     <tr>
         <td><b>Description:</b></td>
         <td>
