@@ -12,4 +12,7 @@ public interface ContestResultCalculator {
     List<ContestResult> calculateResults(List<ProjectResult> pr, List<Double> prizesAmount);
     
     double calculatePointsAwarded(ProjectResult pr);
+    
+    double calculatePotentialPoints(ProjectResult pr);
+
 }
