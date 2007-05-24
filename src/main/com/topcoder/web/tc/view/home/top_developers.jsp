@@ -14,8 +14,7 @@
       <td class="statTextBig" colspan="3" align="center">
          <div style="padding:0px 0px 3px 5px;">
             <div style="float:left;"><A href="/tc?module=Static&d1=digital_run&d2=description"><img src="/i/interface/emblem/digitalrun.png" alt="The Digital Run" border="0" /></A></div>
-            <A href="/tc?module=LeaderBoard&ph=113&staid=4" class="gMetal">leaderboard</A>
-            <%--<A href="/tc?&ph=113&module=LeaderBoard" class="gMetal">leaderboard</A>--%>
+            <A href="/tc?&ph=113&module=LeaderBoard" class="gMetal">leaderboard</A>
             <%--| <A href="/tc?module=RookieBoard&ph=113" class="gMetal">ROTY</A>--%>
          </div>
       </td>
