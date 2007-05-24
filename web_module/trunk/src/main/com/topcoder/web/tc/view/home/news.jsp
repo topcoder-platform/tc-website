@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General News" border="0" /><br>05.24.07<br>6:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=17170">The Ball Tshirt Design: We have a winner</A>
+        </span><br><br>
+        Congratulations to <tc-webtag:handle coderId="22682305" />, whose submission was chosen as the most "fun and playful" design in The Ball Tshirt vote.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=17170">details</A> |
+        <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=58">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.24.07<br>2:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -15,7 +34,7 @@
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=features&d2=052407">full story</A> | 
-        <tc-webtag:forumLink forumID="515943" message="discuss this" /> | 
+        <tc-webtag:forumLink forumID="515944" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 
@@ -87,7 +106,7 @@
    </tr>
    <tr><td class="newsLinksCell">
        <A href="/tc?module=Static&d1=pressroom&d2=pr_052207">full story</A> | 
-       <tc-webtag:forumLink forumID="515873" message="discuss this" /> | 
+       <tc-webtag:forumLink forumID="515944" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
@@ -200,22 +219,3 @@
         <tc-webtag:forumLink forumID="514496" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-   <%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.19.07<br>10:45 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        Watch the LIVE video feed of the TCHS competitors
-        </span><br><br>
-        Purdue University setup webcams in both labs where we're holding the TCHS semifinals and finals.  Have a look.  <a href="http://lwsnb158-cam.cs.purdue.edu/view/index.shtml">Lab 1 video</A>. <a href="http://lwsnb160-cam.cs.purdue.edu/view/index.shtml">Lab 2 video</A>.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule">onsite schedule</A> |
-        <tc-webtag:forumLink forumID="515859" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
