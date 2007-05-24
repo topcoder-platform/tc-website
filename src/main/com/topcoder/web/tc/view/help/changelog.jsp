@@ -43,6 +43,17 @@
 </jsp:include>
 
 
+
+<p>
+    5.10 - 2007.05.23
+    <ul>
+        <li>Changed Digital Run DB schema and pages to work for DR 2007.5 -cucu</li>
+        <li>Add page in PACTS to create Digital Run payments automatically -cucu</li>
+        <li>Fixed scorecard to display weights as float -cucu</li>
+        <li>Changed Reliability Bonus amounts -cucu</li>
+    </ul>
+</p>
+
 <p>
     5.9.3 - 2007.05.21
     <ul>
