@@ -3330,7 +3330,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer insertPaymentDetail = new StringBuffer(300);
             insertPaymentDetail.append("INSERT INTO payment_detail ");
             insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, ");
-            insertPaymentDetail.append("  gross_amount, status_id, payment_address_id, modification_rationale_id, ");
+            insertPaymentDetail.append("  gross_amount, payment_status_id, payment_address_id, modification_rationale_id, ");
             insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
             insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
             insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id, ");
