@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">05.24.07 6:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=17170">The Ball Tshirt Design: We have a winner</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.22.07 5:45 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=17170">Vote now for The Ball Tshirt</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.11.07 3:00 PM - </td><td width="100%">Downtime for scheduled maintenance: Sunday, May 13</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.04.07 5:35 PM - </td><td width="100%"><A href="/tc?module=Static&d1=calendar&d2=thisMonth">Event Calendar updated through December 2007</A></td></tr>
