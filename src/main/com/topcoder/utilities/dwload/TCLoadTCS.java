@@ -1316,7 +1316,7 @@ public class TCLoadTCS extends TCLoad {
                         "	 , pr.current_reliability_ind " +
                         "	 , pr.reliable_submission_ind " +
                         "    , pr.rating_order " +
-                        "    , (select cvd.price " +
+                        "    , (select max(cvd.price) " +
                         "           from comp_versions cv " + 
                         "              , comp_version_dates cvd " +
                         "              , project_info pi_vers " +
@@ -1428,14 +1428,14 @@ public class TCLoadTCS extends TCLoad {
                 int count = 0;
                 //log.debug("PROCESSING PROJECT RESULTS " + project_id);
 
-//            log.debug("before result select");
+            log.debug("before result select");
                 projectResults = resultSelect.executeQuery();
-                //log.debug("after result select");
+               log.debug("after result select");
 
                 HashMap ratingsMap;
                 while (projectResults.next()) {
                     long project_id = projectResults.getLong("project_id");
-
+log.debug("project " + project_id);
                     psNumRatings.clearParameters();
                     psNumRatings.setLong(1, project_id);
                     numRatings = psNumRatings.executeQuery();
