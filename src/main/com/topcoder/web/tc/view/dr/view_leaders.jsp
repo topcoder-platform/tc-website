@@ -76,19 +76,19 @@
 <div align="center">
 <div class="maxWidthBody">
     <c:choose>
-    	<c:when test="${isDevelopment}">
-		    <jsp:include page="/page_title.jsp">
-		        <jsp:param name="image" value="digital_run_20061031"/>
-		        <jsp:param name="title" value="Development Cup Series Leaderboard"/>
-		    </jsp:include>
-	    </c:when>
-	    <c:otherwise>
-		    <jsp:include page="/page_title.jsp">
-		        <jsp:param name="image" value="digital_run_20061031"/>
-		        <jsp:param name="title" value="Design Cup Series Leaderboard"/>
-		    </jsp:include>
-	    </c:otherwise>
-	</c:choose>
+        <c:when test="${isDevelopment}">
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="digital_run_20061031"/>
+                <jsp:param name="title" value="Development Cup Series Leaderboard"/>
+            </jsp:include>
+        </c:when>
+        <c:otherwise>
+            <jsp:include page="/page_title.jsp">
+                <jsp:param name="image" value="digital_run_20061031"/>
+                <jsp:param name="title" value="Design Cup Series Leaderboard"/>
+            </jsp:include>
+        </c:otherwise>
+    </c:choose>
 
     <div class="fixedWidthBody">
         <div style="float:right; text-align:left; white-space: nowrap;">
@@ -96,18 +96,18 @@
             <A href="/stat?c=top_developers" class="bcLink">Top Ranked Developers</a>
         </div>
     <c:choose>
-    	<c:when test="${isDevelopment}">
-	        <A href="/tc?&ph=112&module=LeaderBoard&staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br>
-    	    Development Cup Series Leaderboard</a><br>
-    	</c:when>
-    	<c:otherwise>
-    		Design Cup Series Leaderboard<br>
-		    <A href="/tc?&ph=113&module=LeaderBoard&staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br>
+        <c:when test="${isDevelopment}">
+            <A href="/tc?&ph=112&module=LeaderBoard&staid=${staid}" class="bcLink">Design Cup Series Leaderboard</a><br>
+            Development Cup Series Leaderboard</a><br>
+        </c:when>
+        <c:otherwise>
+            Design Cup Series Leaderboard<br>
+            <A href="/tc?&ph=113&module=LeaderBoard&staid=${staid}" class="bcLink">Development Cup Series Leaderboard</a><br>
         </c:otherwise>
     </c:choose>
-	<c:if test="${hasRookieCompetition }" >
-	    <A href="/tc?module=RookieBoard&ph=112&seid=${seid}" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
-    	<A href="/tc?module=RookieBoard&ph=113&seid=${seid}" class="bcLink">Development Cup Series ROTY Leaderboard</a>
+    <c:if test="${hasRookieCompetition }" >
+        <A href="/tc?module=RookieBoard&ph=112&seid=${seid}" class="bcLink">Design Cup Series ROTY Leaderboard</a><br>
+        <A href="/tc?module=RookieBoard&ph=113&seid=${seid}" class="bcLink">Development Cup Series ROTY Leaderboard</a>
     </c:if>
 </div>
 
@@ -212,35 +212,35 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
         </td>
         <td class="valueR">
             <c:if test="${boardRow.points>0}">
-	            <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">
-            		    		<fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
-            	</a>
+                <A href="/tc?module=CompetitionHistory&ph=${boardRow.phase}&cr=${boardRow.userId}" class="bcLink">
+                                <fmt:formatNumber value="${boardRow.points}"  minFractionDigits="2" maxFractionDigits="2"/>
+                </a>
             </c:if>
         </td>
-		<td class="valueR"><c:if test="${boardRow.placementPrize>0}">
-		    <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
-		</c:if></td>
-		<td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
-		    <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
-		</c:if></td>
-		<td class="valueR" style="border-right: 1px solid #999999;">
-		    <c:if test="${boardRow.totalPrize>0}">
-		        <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
-		    </c:if>
-		    <c:if test="${boardRow.totalPrize==0}">
-		        &#160;
-		    </c:if>
-		</td>
-		<td class="valueR">
-			<c:if test="${boardRow.potentialPoints>0}">
-		    	<A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">
-		    		<fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
-		    		</a>
-			</c:if>
-		</td>
-		<td class="valueR"><fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></td>
-	</tr>
-	</c:forEach>
+        <td class="valueR"><c:if test="${boardRow.placementPrize>0}">
+            <fmt:formatNumber value="${boardRow.placementPrize}" type="currency" currencySymbol="$"/>
+        </c:if></td>
+        <td class="valueR"><c:if test="${boardRow.pointsPrize>0}">
+            <fmt:formatNumber value="${boardRow.pointsPrize}" type="currency" currencySymbol="$"/>
+        </c:if></td>
+        <td class="valueR" style="border-right: 1px solid #999999;">
+            <c:if test="${boardRow.totalPrize>0}">
+                <fmt:formatNumber value="${boardRow.totalPrize}" type="currency" currencySymbol="$"/>
+            </c:if>
+            <c:if test="${boardRow.totalPrize==0}">
+                &#160;
+            </c:if>
+        </td>
+        <td class="valueR">
+            <c:if test="${boardRow.potentialPoints>0}">
+                <A href="/tc?module=OutstandingProjects&ph=${boardRow.phase}&staid=${boardRow.period}&cr=${boardRow.userId}" class="bcLink">
+                    <fmt:formatNumber value="${boardRow.potentialPoints}"  minFractionDigits="2" maxFractionDigits="2"/>
+                    </a>
+            </c:if>
+        </td>
+        <td class="valueR"><fmt:formatNumber value="${boardRow.totalPoints}"  minFractionDigits="2" maxFractionDigits="2"/></td>
+    </tr>
+    </c:forEach>
 </table>
 
 <div class="pagingBox" style="width:300px;">
@@ -284,7 +284,22 @@ Please select a <strong>season</strong> and <strong>stage</strong><br>
 </c:choose>
 
 
+            </div>
+        </td>
+<%-- Center Column Ends --%>
+        
+<%-- Right Column Begins --%>
+        <td width="170">
+            <jsp:include page="../public_right.jsp">
+                <jsp:param name="level1" value="default"/>
+            </jsp:include>
+        </td>
+<%-- Right Column Ends --%>
+        
+    </tr>
+    </tbody>
 </table>
 
-</BODY>
-</HTML>
+<jsp:include page="../foot.jsp" />
+</body>
+</html>
