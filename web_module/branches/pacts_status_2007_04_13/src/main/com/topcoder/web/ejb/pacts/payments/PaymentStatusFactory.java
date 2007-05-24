@@ -30,7 +30,9 @@ public class PaymentStatusFactory {
         ENTERED_INTO_PAYMENT_SYSTEM_PAYMENT_STATUS (EnteredIntoPaymentSystemPaymentStatus.class.getName(), EnteredIntoPaymentSystemPaymentStatus.ID),
         DELETED_PAYMENT_STATUS (DeletedPaymentStatus.class.getName(), DeletedPaymentStatus.ID),
         ACCRUING_PAYMENT_STATUS (AccruingPaymentStatus.class.getName(), AccruingPaymentStatus.ID),
-        EXPIRED_PAYMENT_STATUS (ExpiredPaymentStatus.class.getName(), ExpiredPaymentStatus.ID);
+        EXPIRED_PAYMENT_STATUS (ExpiredPaymentStatus.class.getName(), ExpiredPaymentStatus.ID),
+        TEMP_FIX_PAYMENT_STATUS (TempFixPaymentStatus.class.getName(), TempFixPaymentStatus.ID),
+        SEE_FAQ_PAYMENT_STATUS (SeeFaqPaymentStatus.class.getName(), SeeFaqPaymentStatus.ID);
         
         /**
          * The className attached to the enum element
