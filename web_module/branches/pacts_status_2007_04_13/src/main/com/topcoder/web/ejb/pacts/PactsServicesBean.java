@@ -4662,7 +4662,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             query.append(" from payment_detail pd, payment p");
             query.append(" WHERE payment_type_id = " + ALGORITHM_CONTEST_PAYMENT);
             query.append(" AND pd.payment_detail_id = p.most_recent_detail_id");
-            query.append(" AND status_id = " + PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId());
+            query.append(" AND payment_status_id = " + PaymentStatus.ON_HOLD_PAYMENT_STATUS.getId());
             query.append(" AND today - " + PAYMENT_EXPIRE_TIME + " units day > date_due");
             ResultSetContainer payments = runSelectQuery(c, query.toString(), false);
 
