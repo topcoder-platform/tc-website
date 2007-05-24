@@ -275,9 +275,9 @@ Please select a <strong>season</strong><br>
 </div>
 </TD>
 <td WIDTH="180" VALIGN="top">
-    <jsp:include page="/public_right.jsp">
-        <jsp:param name="level1" value="profile"/>
-    </jsp:include>
+      <jsp:include page="../public_right.jsp">
+          <jsp:param name="level1" value="default"/>
+      </jsp:include>
 </TD>
 <!-- Gutter -->
 <td WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" border="0"/></TD>
