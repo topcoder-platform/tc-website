@@ -1318,10 +1318,14 @@ public class TCLoadTCS extends TCLoad {
                         "    , pr.rating_order " +
                         "    , (select cvd.price " +
                         "           from comp_versions cv " + 
-                        "                , comp_version_dates cvd " +
+                        "              , comp_version_dates cvd " +
+                        "              , project_info pi_vers " +
                         "           where cv.component_id = cc.component_id " +
                         "           and cv.comp_vers_id = cvd.comp_vers_id " +
                         "           and cv.phase_id = cvd.phase_id " +
+                        "           and cv.version = pi_vers.value " +
+                        "           and pi_vers.project_type_id = 3" +
+                        "           and pi_vers.project_id = p.project_id " +
                         "           and cv.phase_id = (p.project_category_id + 111)) as amount " +
                         "    from project_result pr" +
                         "    	,project p" +
