@@ -189,7 +189,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
     
     public abstract double calculatePointsAwarded(ProjectResult pr);
 
-    protected abstract double calculatePotentialPoints(ProjectResult pr);
+    public abstract double calculatePotentialPoints(ProjectResult pr);
 
     protected abstract void assignPrizes(List<ContestResult> pr, List<Double> prizesAmount);
 

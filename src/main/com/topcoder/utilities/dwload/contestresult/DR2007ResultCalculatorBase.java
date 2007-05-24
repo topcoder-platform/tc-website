@@ -32,7 +32,7 @@ public abstract class DR2007ResultCalculatorBase extends DRResultCalculatorBase 
     }
 
     @Override
-    protected double calculatePotentialPoints(ProjectResult pr) {
+    public double calculatePotentialPoints(ProjectResult pr) {
         return calculatePointsAwarded(true, 1, pr.getNumSubmissions());        
     }
 
