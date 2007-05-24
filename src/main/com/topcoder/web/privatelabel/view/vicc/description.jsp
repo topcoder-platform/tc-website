@@ -72,8 +72,8 @@ The 2007 TopCoder Open Sponsor Track Competition is now here!  Its format is mor
     </tr>
     <tr valign="top">
         <td class="sidebarText"><b>SRM 3</b> <br>June 12, 2007</td>
-        <td class="sidebarText">TBD</td>
-        <td class="sidebarText">TBD</td>
+        <td class="sidebarText">6:00 - 8:55 PM</td>
+        <td class="sidebarText">9:00 PM</td>
         <td class="sidebarText">All participants</td>
     </tr>
     <tr>
