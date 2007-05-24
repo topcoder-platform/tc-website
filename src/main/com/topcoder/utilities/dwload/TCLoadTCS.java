@@ -1322,7 +1322,7 @@ public class TCLoadTCS extends TCLoad {
                         "           where cv.component_id = cc.component_id " +
                         "           and cv.comp_vers_id = cvd.comp_vers_id " +
                         "           and cv.phase_id = cvd.phase_id " +
-                        "           and cv.phase_id = p.phase_id) as amount " +
+                        "           and cv.phase_id = (p.project_category_id + 111)) as amount " +
                         "    from project_result pr" +
                         "    	,project p" +
                         "		,project_info pi" +
