@@ -17,6 +17,9 @@ package com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
@@ -31,12 +34,15 @@ import java.util.Map;
 public class InternalDispatchPaymentList implements PactsConstants {
 	private static Logger log = Logger.getLogger(InternalDispatchPaymentList.class);
 	
-    HttpServletRequest request;
-    HttpServletResponse response;
+    TCRequest request;
+    TCResponse response;
 
-    public InternalDispatchPaymentList(HttpServletRequest request,
-                                       HttpServletResponse response) {
+    public InternalDispatchPaymentList(HttpServletRequest request, HttpServletResponse response) {
+        this.request = HttpObjectFactory.createRequest(request);
+        this.response = HttpObjectFactory.createResponse(response);
+    }
 
+    public InternalDispatchPaymentList(TCRequest request, TCResponse response) {
         this.request = request;
         this.response = response;
     }
@@ -93,8 +99,8 @@ public class InternalDispatchPaymentList implements PactsConstants {
         if (param != null && !param.equals("")) query.put(USER_ID, param);
         param = request.getParameter(HANDLE);
         if (param != null && !param.equals("")) query.put(HANDLE, param);
-        param = request.getParameter(IS_REVIEWED);
-        if (param != null && !param.equals("")) query.put(IS_REVIEWED, param);
+//        param = request.getParameter(IS_REVIEWED);
+//        if (param != null && !param.equals("")) query.put(IS_REVIEWED, param);
         param = request.getParameter(PROJECT_ID);
         if (param != null && !param.equals("")) query.put(PROJECT_ID, param);
         

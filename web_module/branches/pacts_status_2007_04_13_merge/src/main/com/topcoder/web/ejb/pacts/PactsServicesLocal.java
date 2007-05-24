@@ -108,11 +108,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     Map findUsers(Map searchCriteria) throws SQLException;
 
-    // Data update routines
-    // Additions
-    long addAffidavit(Affidavit a, String affidavitText)
-            throws IllegalUpdateException, SQLException;
-
     long addAffidavit(Affidavit a, String affidavitText, Payment p)
             throws IllegalUpdateException, SQLException;
 
@@ -120,15 +115,10 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     long addPayment(Payment p) throws IllegalUpdateException, SQLException;
 
-    long addPayment(Payment p, boolean payReferrer) throws IllegalUpdateException, SQLException;
-
-    long addContractPayment(long contractId, Payment p)
-            throws IllegalUpdateException, SQLException;
-
     long addTaxForm(TaxForm t, String taxFormText)
             throws IllegalUpdateException, SQLException;
 
-    void addUserTaxForm(TaxForm t) throws SQLException;
+    void addUserTaxForm(TaxForm t) throws  SQLException, EventFailureException;
 
     long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
             throws SQLException;
@@ -144,9 +134,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     void updateContract(Contract c) throws NoObjectFoundException, SQLException;
 
-    void updatePayment(Payment p)
-            throws NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException;
-
     void updateTaxForm(TaxForm t)
             throws NoObjectFoundException, IllegalUpdateException, SQLException;
 
@@ -156,23 +143,9 @@ public interface PactsServicesLocal extends EJBLocalObject {
     void updateText(long objectId, int objectType, String newText)
             throws NoObjectFoundException, SQLException;
 
-    // Special payment update routines
-/*
-    void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
-            throws  IllegalUpdateException, JMSException;
-*/
-
-    UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
-            throws SQLException;
-
-    void reviewPayments(long paymentId[])
-            throws NoObjectFoundException, IllegalUpdateException, SQLException;
-
     // Utility routines
     boolean canAffirmAffidavit(long userId, int affidavitTypeId)
             throws SQLException;
-
-    String[] printPayments() throws PaymentNotReviewedException, SQLException;
 
     int generateRoundPayments(long roundId, boolean makeChanges)
             throws IllegalUpdateException, SQLException;
@@ -180,21 +153,15 @@ public interface PactsServicesLocal extends EJBLocalObject {
     int generateRoundPayments(long roundId, boolean makeChanges, int paymentTypeI)
             throws IllegalUpdateException, SQLException;
 
-    int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
-            throws IllegalUpdateException, SQLException;
-
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
             throws IllegalUpdateException, SQLException;
 
-    List generateComponentPayments(long projectId, long status, String client)
-            throws IllegalUpdateException, SQLException;
-
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-            throws IllegalUpdateException, SQLException;
+    		throws IllegalUpdateException,  SQLException, EventFailureException;
 
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException;
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, EventFailureException;
 
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException;
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException, EventFailureException;
 
     int expireOldPayments() throws SQLException;
 
@@ -202,7 +169,9 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     int expireOldAssignmentDocuments() throws SQLException;
 
-    void createAffidavitTemplate(int affidavitTypeId, String text) throws SQLException;
+    int checkInactiveCoders() throws  SQLException;
+    
+    void createAffidavitTemplate(int affidavitTypeId, String text) throws  SQLException;
 
     void createAssignmentDocumentTemplate(int assignmentdocumentTypeId, String text);
 
@@ -234,25 +203,25 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException;
 
+    Map findStudioContests(String search) throws  SQLException;
+        
+    ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws   SQLException;
+    
     // ================== Methods from the Client Service ================== 
 
     BasePayment addPayment(BasePayment payment) throws SQLException;
 
     List addPayments(List payments) throws SQLException;
 
-    BasePayment updatePayment(BasePayment payment) throws Exception;
+    List findPayments(int paymentTypeId) throws  SQLException, InvalidStatusException;
 
-    List findPayments(int paymentTypeId) throws SQLException;
+    List findPayments(int paymentTypeId, long referenceId) throws  SQLException, InvalidStatusException;
 
-    List findPayments(int paymentTypeId, long referenceId) throws SQLException;
+    List findCoderPayments(long coderId) throws  SQLException, InvalidStatusException;
 
-    List findCoderPayments(long coderId) throws SQLException;
+    List findCoderPayments(long coderId, int paymentTypeId) throws  SQLException, InvalidStatusException;
 
-    List findCoderPayments(long coderId, int paymentTypeId) throws SQLException;
-
-    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws SQLException;
-
-    BasePayment getBasePayment(long paymentId) throws SQLException;
+    BasePayment getBasePayment(long paymentId) throws  SQLException, InvalidStatusException;
 
     void deletePayment(long paymentId) throws SQLException;
 
@@ -281,9 +250,20 @@ public interface PactsServicesLocal extends EJBLocalObject {
     Boolean hasHardCopyAssignmentDocumentByUserId(long userId, long assignmentDocumentTypeId);
 
     void affirmAssignmentDocument(AssignmentDocument ad);
+    
+    List<BasePaymentStatus> getPaymentStatusList() throws SQLException;
+
+    boolean hasAffirmedAssignmentDocument(long paymentTypeId, long coderId, long contestId);
+
+    public List<BasePayment> findCoderPayments(Map searchCriteria);
+
+    public double getUserAccrualThreshold(long userId) throws SQLException;
 
     ResultSetContainer getContestsInfo(long eid) throws SQLException;
 
     public long performPaymentsChecks(long statusId) throws SQLException;
+
+    public double getUserAccruingPaymentsTotal(long userId) throws SQLException;
+
 }
 

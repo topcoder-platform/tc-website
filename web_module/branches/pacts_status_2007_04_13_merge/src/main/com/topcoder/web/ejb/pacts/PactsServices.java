@@ -107,23 +107,16 @@ public interface PactsServices extends EJBObject {
 
     // Data update routines
     // Additions
-    long addAffidavit(Affidavit a, String affidavitText)
-            throws RemoteException, IllegalUpdateException, SQLException;
 
     long addAffidavit(Affidavit a, String affidavitText, Payment p)
             throws RemoteException, IllegalUpdateException, SQLException;
 
     long addContract(Contract c, String contractText) throws RemoteException, SQLException;
 
-    long addPayment(Payment p) throws RemoteException, IllegalUpdateException, SQLException;
-
-    long addContractPayment(long contractId, Payment p)
-            throws RemoteException, IllegalUpdateException, SQLException;
-
     long addTaxForm(TaxForm t, String taxFormText)
             throws RemoteException, IllegalUpdateException, SQLException;
 
-    void addUserTaxForm(TaxForm t) throws RemoteException, SQLException;
+    void addUserTaxForm(TaxForm t) throws RemoteException, SQLException, EventFailureException;
 
     long addObjectNote(long objectId, int objectType, long taxFormUserId, Note n)
             throws RemoteException, SQLException;
@@ -139,9 +132,6 @@ public interface PactsServices extends EJBObject {
 
     void updateContract(Contract c) throws RemoteException, NoObjectFoundException, SQLException;
 
-    void updatePayment(Payment p)
-            throws RemoteException, NoObjectFoundException, IllegalUpdateException, PaymentPaidException, SQLException;
-
     void updateTaxForm(TaxForm t)
             throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
 
@@ -151,23 +141,9 @@ public interface PactsServices extends EJBObject {
     void updateText(long objectId, int objectType, String newText)
             throws RemoteException, NoObjectFoundException, SQLException;
 
-    // Special payment update routines
-/*
-    void batchUpdatePaymentStatus(long paymentId[], int statusId, long userId)
-            throws RemoteException, IllegalUpdateException, JMSException;
-*/
-
-    UpdateResults doBatchUpdatePaymentStatus(long paymentId[], int statusId)
-            throws RemoteException, SQLException;
-
-    void reviewPayments(long paymentId[])
-            throws RemoteException, NoObjectFoundException, IllegalUpdateException, SQLException;
-
     // Utility routines
     boolean canAffirmAffidavit(long userId, int affidavitTypeId)
             throws RemoteException, SQLException;
-
-    String[] printPayments() throws RemoteException, PaymentNotReviewedException, SQLException;
 
     int generateRoundPayments(long roundId, boolean makeChanges)
             throws IllegalUpdateException, RemoteException, SQLException;
@@ -175,21 +151,15 @@ public interface PactsServices extends EJBObject {
     int generateRoundPayments(long roundId, boolean makeChanges, int paymentTypeI)
             throws IllegalUpdateException, RemoteException, SQLException;
 
-    int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
-            throws IllegalUpdateException, RemoteException, SQLException;
-
     int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges, int paymentTypeId)
             throws IllegalUpdateException, RemoteException, SQLException;
 
-    List generateComponentPayments(long projectId, long status, String client)
-            throws IllegalUpdateException, RemoteException, SQLException;
-
     List generateComponentPayments(long projectId, long status, String client, long devSupportCoderId)
-            throws IllegalUpdateException, RemoteException, SQLException;
+    	throws IllegalUpdateException, RemoteException, SQLException, EventFailureException;
 
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException;
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed) throws SQLException, RemoteException, EventFailureException;
 
-    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException, RemoteException;
+    List generateComponentUserPayments(long coderId, double grossAmount, String client, long projectId, int placed, long devSupportCoderId) throws SQLException, RemoteException, EventFailureException;
 
     int expireOldPayments() throws RemoteException, SQLException;
 
@@ -221,10 +191,8 @@ public interface PactsServices extends EJBObject {
 
     Map findStudioContests(String search) throws RemoteException, SQLException;
 
-    ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException;
-
-    ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException, SQLException;
-
+    ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws RemoteException,  SQLException;
+    
     // ================== Methods from the Client Service ================== 
 
     BasePayment addPayment(BasePayment payment) throws RemoteException, SQLException;
@@ -233,21 +201,15 @@ public interface PactsServices extends EJBObject {
 
     BasePayment updatePayment(BasePayment payment) throws RemoteException, Exception;
 
-    List findPayments(int paymentTypeId) throws RemoteException, Exception;
+    List findPayments(int paymentTypeId) throws RemoteException, Exception, InvalidStatusException;
 
-    List findPayments(int paymentTypeId, long referenceId) throws RemoteException, Exception;
+    List findPayments(int paymentTypeId, long referenceId) throws RemoteException, Exception, InvalidStatusException;
 
-    List findCoderPayments(long coderId) throws RemoteException, Exception;
+    List findCoderPayments(long coderId) throws RemoteException, Exception, InvalidStatusException;
 
-    List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception;
+    List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception, InvalidStatusException;
 
-    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception;
-
-    BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException;
-
-    void deletePayment(long paymentId) throws RemoteException, Exception;
-
-    void deletePayment(BasePayment payment) throws RemoteException, Exception;
+    BasePayment getBasePayment(long paymentId) throws RemoteException, SQLException, InvalidStatusException;
 
     BasePayment fillPaymentData(BasePayment payment) throws RemoteException, SQLException;
 
@@ -270,6 +232,5 @@ public interface PactsServices extends EJBObject {
     public List getAssignmentDocumentByUserIdProjectId(long userId, long projectId) throws RemoteException;
 
     public List getAssignmentDocumentByUserIdStudioContestId(long userId, long studioContestId) throws RemoteException;
-
 }
 

@@ -48,13 +48,13 @@
         out.print("\">" + payments[0].getHeader().getUser().getHandle() + "</a></td>\n");
     %>
 </tr>
-    <tr>
+<%--    <tr>
         <td><b>Reviewed:</b></td>
         <%
             if (payments.length >= 1 && payments[0].getHeader().isReviewed()) out.print("<td>Yes</td>\n");
             else out.print("<td>No</td>\n");
         %>
-    </tr>
+    </tr>--%>
 </table>
 <% } else out.print("payments was empty!\n");
 %>
@@ -77,7 +77,7 @@
     <% for (int n = 0; n < payments.length; n++) {
         out.print("<tr>\n");
         out.print("<td>" + payments[n].getDescription() + "</td>\n");
-        out.print("<td>" + payments[n].getStatusDesc() + "</td>\n");
+        out.print("<td>" + payments[n].getCurrentStatus().getDesc() + "</td>\n");
         out.print("<td>" + payments[n].getType() + "</td>\n");
         out.print("<td>" + payments[n].getMethod() + "</td>\n");
         out.print("<td>" + df.format(payments[n].getNetAmount()) + "</td>\n");
@@ -86,18 +86,18 @@
         out.print("<td>" + payments[n].getDueDate() + "</td>\n");
         out.print("<td>" + payments[n].getPayDate() + "</td>\n");
         out.print("<td>" + payments[n].getRationale() + "</td>\n");
-        if (payments[n].getStatusId() == PactsConstants.PAID_STATUS) {
-            out.print("<td><pre>");
-            out.println(payments[n].getLastName() + ", " + payments[n].getFirstName() + " " + payments[n].getMiddleName());
-            out.println(payments[n].getAddress1());
-            out.println(payments[n].getAddress2());
-            out.println(payments[n].getAddress3());
-            out.print(payments[n].getCity() + ", " + payments[n].getState() + " (");
-            out.println(payments[n].getStateCode() + ") " + payments[n].getZip() + " " + payments[n].getProvince());
-            out.print(payments[n].getCountry() + " (" + payments[n].getCountryCode() + ")");
-            out.print("</pre></td>\n");
-        }
-        out.print("</tr>\n");
+//        if (payments[n].getCurrentStatus().getDesc() == PactsConstants.PAID_STATUS) {
+//            out.print("<td><pre>");
+//            out.println(payments[n].getLastName() + ", " + payments[n].getFirstName() + " " + payments[n].getMiddleName());
+//            out.println(payments[n].getAddress1());
+//            out.println(payments[n].getAddress2());
+//            out.println(payments[n].getAddress3());
+//            out.print(payments[n].getCity() + ", " + payments[n].getState() + " (");
+//            out.println(payments[n].getStateCode() + ") " + payments[n].getZip() + " " + payments[n].getProvince());
+//            out.print(payments[n].getCountry() + " (" + payments[n].getCountryCode() + ")");
+//            out.print("</pre></td>\n");
+//        }
+//        out.print("</tr>\n");
     }
     %>
 
@@ -141,17 +141,17 @@
        out.println(PactsConstants.PAYMENT_ID+"="+request.getParameter(PactsConstants.PAYMENT_ID));
        out.println("\">Update Payment</a><br>");
 
-       out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
-       out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
-       out.println(PactsConstants.CMD_STRING+"="+PactsConstants.REVIEW_CMD+"&");
-       out.println(PactsConstants.PAYMENT_ID+"="+request.getParameter(PactsConstants.PAYMENT_ID)+"&");
-       out.print("query="+PactsConstants.INTERNAL_SERVLET_URL+"%3F");
-       out.print(PactsConstants.TASK_STRING+"%3D"+PactsConstants.VIEW_TASK+"%26");
-       out.print(PactsConstants.CMD_STRING+"%3D"+PactsConstants.PAYMENT_AUDIT_TRAIL_CMD+"%26");
-       out.print(PactsConstants.PAYMENT_ID+"%3D"+request.getParameter(PactsConstants.PAYMENT_ID)+"%26");
-       out.print("individual_payment%3D1");
-       out.println("\">Review Payment</a><br>");
-
+       //out.println("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
+       //out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
+       //out.println(PactsConstants.CMD_STRING+"="+PactsConstants.REVIEW_CMD+"&");
+       //out.println(PactsConstants.PAYMENT_ID+"="+request.getParameter(PactsConstants.PAYMENT_ID)+"&");
+       //out.print("query="+PactsConstants.INTERNAL_SERVLET_URL+"%3F");
+       //out.print(PactsConstants.TASK_STRING+"%3D"+PactsConstants.VIEW_TASK+"%26");
+       //out.print(PactsConstants.CMD_STRING+"%3D"+PactsConstants.PAYMENT_AUDIT_TRAIL_CMD+"%26");
+       //out.print(PactsConstants.PAYMENT_ID+"%3D"+request.getParameter(PactsConstants.PAYMENT_ID)+"%26");
+       //out.print("individual_payment%3D1");
+       //out.println("\">Review Payment</a><br>");
+       
     %>
 
     <jsp:include page="InternalFooter.jsp" flush="true"/>

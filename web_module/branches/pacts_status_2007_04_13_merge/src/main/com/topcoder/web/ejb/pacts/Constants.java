@@ -34,6 +34,7 @@ public interface Constants {
     public static final int SPECIFICATION_REVIEW_PAYMENT = 27;
     public static final int ASSEMBLY_COMPETITION_REVIEW = 28;
     public static final int ARCHITECTURE_PAYMENT = 29;
+    public static final int PREDICTIVE_CONTEST_PAYMENT = 30;
     public static final int INTRO_EVENT_COMP_PAYMENT = 31;
 
     public static final int NO_REFERENCE = 0;
@@ -52,7 +53,6 @@ public interface Constants {
     public static final int MODIFICATION_WITHOLDING_AMOUNT = 3;
     public static final int MODIFICATION_NET_AMOUNT = 4;
     public static final int MODIFICATION_GROSS_AMOUNT = 5;
-    public static final int MODIFICATION_DATE_PRINTED = 6;
     public static final int MODIFICATION_DATE_PAID = 7;
     public static final int MODIFICATION_STATUS = 8;
     public static final int MODIFICATION_REFERENCE = 9;
@@ -61,62 +61,6 @@ public interface Constants {
 
     // Type of affidavit to use for algorithm contests.
     public static final int ALGORITHM_AFFIDAVIT_TYPE = 1;
-
-    /* We get a "printed" status once a payment has been printed to a file
-     * for use in importing into quick books
-     * (Deactivated since 6/6/06 - mktong)
-     */
-    //public static final int PRINTED_STATUS = 52;
-
-    /**
-     *  We get a "paid" status once the checks are in the mail.  A TC rep.
-     * marks payments as having been paid
-     */
-    public static final int PAID_STATUS = 53;
-
-    /** 
-     * We get a "ready to print" status when a TC rep decides the payments are ready to print */
-    public static final int READY_TO_PRINT_STATUS = 54;
-
-    /** 
-     * We get an "on hold" status when the payment is going to someone who doesn't have a
-     * tax form on file at the time of the generation of the payment, or the person
-     * is not active at the time of printing
-     */
-    public static final int PAYMENT_ON_HOLD_STATUS = 55;
-
-    /* This is a particular case of the on hold status. A payment gets this status if 
-     * the corresponding an admin tries to print the payment but it doesn't have a corresponding
-     * affirmed Assignment Document
-     */
-    public static final int PAYMENT_ON_HOLD_NO_AFFIRMED_AD_STATUS = 201;
-
-    /* We get an "owed" status after the associated affidavit is affirmed, or if it's a referral
-     * payment.  In either case, it means we should pay them...
-     */
-    public static final int PAYMENT_OWED_STATUS = 56;
-
-    /** 
-     * We get a "pending" status if they have a tax form on file at the time
-     * of the generation of the payment
-     */
-    public static final int PAYMENT_PENDING_STATUS = 64;
-
-    /** 
-     * We get a "canceled" status when old affidavits expire */
-    public static final int PAYMENT_CANCELED_STATUS = 65;
-
-    /** 
-     * We get an "expired" status when algorithm payments lapse 60 days without
-     * receiving the necessary paperwork
-     */
-    public static final int PAYMENT_EXPIRED_STATUS = 68;
-
-    /**
-     * The deleted status is used to delete the payment.
-     * Also most_recent_detail_id is set to null in the payment.
-     */
-    public static final int PAYMENT_DELETED_STATUS = 69;
 
     public static final int AFFIDAVIT_PENDING_STATUS = 57;
     public static final int AFFIDAVIT_AFFIRMED_STATUS = 58;

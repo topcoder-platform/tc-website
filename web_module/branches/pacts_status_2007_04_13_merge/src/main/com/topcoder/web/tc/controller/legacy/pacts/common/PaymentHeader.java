@@ -49,7 +49,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private int typeId;
     private int methodId;
     private String client;
-    private boolean reviewed;
+    //private boolean reviewed;
 
     private long algorithmRoundId;
     private long componentProjectId;
@@ -84,7 +84,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         recentStatusId = 0;
         typeId = 0;
         methodId = 1;   // Check
-        reviewed = false;
+        //reviewed = false;
     }
 
 /* This constructor makes the object out of the Map containing
@@ -106,7 +106,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
             description = "Default Description";
             type = "Default Type";
             method = "Default Method";
-            reviewed = false;
+            //reviewed = false;
             return;
         }
 
@@ -120,7 +120,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
             description = "Default Description";
             type = "Default Type";
             method = "Default Method";
-            reviewed = false;
+            //reviewed = false;
             return;
         }
 
@@ -128,8 +128,8 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
         log.debug("Making the PaymentHeader");
         id = TCData.getTCLong(rsr, "payment_id", 0, true);
-        recentStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
-        recentStatusId = TCData.getTCInt(rsr, "status_id", 0, true);
+        recentStatus = TCData.getTCString(rsr, "payment_status_desc", "default status", true);
+        recentStatusId = TCData.getTCInt(rsr, "payment_status_id", 0, true);
         recentGrossAmount = TCData.getTCDouble(rsr, "gross_amount", 0.0, true);
         recentNetAmount = TCData.getTCDouble(rsr, "net_amount", 0.0, true);
         description = TCData.getTCString(rsr, "payment_desc", "default description", true);
@@ -162,7 +162,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         digitalRunSeasonId = TCData.getTCLong(rsr, "digital_run_season_id", 0, false);
         parentPaymentId = TCData.getTCLong(rsr, "parent_payment_id", 0, false);
 
-        reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
+        //reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
         
         createDate = TCData.getTCDate(rsr, "create_date", "00/00/00", false);
         modifyDate = TCData.getTCDate(rsr, "modify_date", "00/00/00", false);
@@ -275,13 +275,13 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.client = client;
     }
 
-    public boolean isReviewed() {
-        return reviewed;
-    }
-
-    public void setReviewed(boolean reviewed) {
-        this.reviewed = reviewed;
-    }
+//    public boolean isReviewed() {
+//        return reviewed;
+//    }
+//
+//    public void setReviewed(boolean reviewed) {
+//        this.reviewed = reviewed;
+//    }
 
     public long getAlgorithmProblemId() {
         return algorithmProblemId;

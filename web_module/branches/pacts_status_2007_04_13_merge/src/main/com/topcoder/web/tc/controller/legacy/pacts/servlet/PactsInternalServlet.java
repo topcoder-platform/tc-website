@@ -29,6 +29,10 @@ import com.topcoder.web.common.TCResponse;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.payments.InvalidPaymentEventException;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.UserEvents;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.*;
@@ -74,19 +78,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
     public synchronized void init(ServletConfig config) throws ServletException {
         super.init(config);
-        //start up a thread to read off the queue and process async requests
-/*        Thread t = new Thread() {
-            public void run() {
-                try {
-                    QueueRequest qr = new QueueRequest(DBMS.PACTS_QUEUE);
-                    qr.listen();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        t.start();*/
-
         // Thread for expiring old payments
         Thread tExpired = new Thread() {
             public void run() {
@@ -267,22 +258,21 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
                         if (
                                 checked
-                                        && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
-                                        && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
-                                        && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
-                                        && checkParam(LONG_TYPE, request.getParameter(PROJECT_ID), false, pp)
-                                        && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
-                                        && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
-                                        && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
-                                        && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
-                                        && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_NET_AMOUNT), false, pp)
-                                        && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_NET_AMOUNT), false, pp)
-                                        && checkParam(BOOL_TYPE, request.getParameter(IS_REVIEWED), false, pp)
-                                        && pp.get()) {
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(PROJECT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
+                                && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_NET_AMOUNT), false, pp)
+                                && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_NET_AMOUNT), false, pp)
+                                && pp.get()) {
                             doPaymentList(request, response);
                         } else {
                             throw new NavigationException("Invalid Search Parameter or No Search Parameter Specified");
@@ -550,30 +540,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                     }
                     throw new NavigationException("Invalid command " + command);
                 } else if (task.equals(PAYMENT_TASK)) {
-                    if (command.equals(PRINT_CMD)) {
-                        doPrintPayments(request, response);
-                        return;
-                    }
-                    if (command.equals(VERIFY_CMD)) {
-                        doVerifyPayments(request, response);
-                        return;
-                    }
-                    if (command.equals(REVIEW_CMD)) {
-                        doReviewPayments(request, response);
-                        return;
-                    }
-                    if (command.equals(STATUS_CMD)) {
-                        doPaymentStatus(request, response);
-                        return;
-                    }
-                    if (command.equals(FILE_CMD)) {
-                        if (checkParam(INT_TYPE, request.getParameter("file_num"), true))
-                            doFile(request, response);
-                        else {
-                            throw new NavigationException("Invalid File Number or File Number Specified");
-                        }
-                        return;
-                    }
                     throw new NavigationException("Invalid command " + command);
                 } else if (task.equals(AFFIRM_TASK)) {
                     if (command.equals(AFFIDAVIT_CMD)) {
@@ -1692,40 +1658,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         }
     }
 
-    private String replaceInternal(String s, String tok, String r) {
-        StringTokenizer t = new StringTokenizer(s, tok);
-        try {
-            s = (String) t.nextElement();
-            while (t.hasMoreElements()) {
-                s += r + (String) t.nextElement();
-            }
-        } catch (Exception e) {
-        }
-        return s;
-    }
-
-/*
-    private String safeParam(String param) {
-        String rv = new String(param);
-        rv = replaceInternal(rv, "%", "%25");
-        rv = replaceInternal(rv, "?", "%3F");
-        rv = replaceInternal(rv, "/", "%2F");
-        rv = replaceInternal(rv, "&", "%26");
-        rv = replaceInternal(rv, "=", "%3D");
-        rv = replaceInternal(rv, "+", "%2B");
-        rv = replaceInternal(rv, " ", "+");
-        return rv;
-    }
-*/
-
-/*
-    private String safeParam2(String param) {
-        String rv = new String(param);
-        rv = replaceInternal(rv, "&", "%26");
-        return rv;
-    }
-*/
-
     /**
      * Override to use getUser instead of getActiveUser, so that it just looks in the sesion and not in the cookie,
      */
@@ -1892,24 +1824,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                 new InternalDispatchPaymentList(request, response);
         PaymentHeader[] results = bean.get();
         if (results.length != 1) {
-            DataInterfaceBean dib = new DataInterfaceBean();
-
-            request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
             forward(INTERNAL_PAYMENT_LIST_JSP, request, response);
         } else {
-            forward(Links.viewPayment(results[0].getId()), request, response);
-/*            
- InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
-Map search = new HashMap();
-search.put(PAYMENT_ID, "" + results[0].getId());
-request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
-
-InternalDispatchPayment pb = new InternalDispatchPayment(request, response);
-request.setAttribute(PACTS_INTERNAL_RESULT, pb.get(results[0].getId()));
-request.setAttribute(CREATION_DATE, creationDates[0]);
-forward(INTERNAL_PAYMENT_JSP, request, response);
-*/
+        	forward(Links.viewPayment(results[0].getId()), request, response);        	
         }
     }
 
@@ -1941,7 +1859,6 @@ forward(INTERNAL_PAYMENT_JSP, request, response);
         log.debug("doSearch<br>");
 
         DataInterfaceBean dib = new DataInterfaceBean();
-        request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
         request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
         request.setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
 
@@ -2633,60 +2550,6 @@ forward(INTERNAL_PAYMENT_JSP, request, response);
         forward(INTERNAL_NOTE_JSP, request, response);
     }
 
-    private void doPrintPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        log.debug("doPrintPayments called...");
-        HttpSession session = request.getSession(true);
-
-        DataInterfaceBean dib = new DataInterfaceBean();
-
-        String files[] = dib.printPayments();
-
-        log.debug("saved " + files.length + " files in the session");
-
-        session.setAttribute(PACTS_QUICKBOOKS_FILES, files);
-
-        String message = "<h2>Files</h2>\n";
-
-        String filename, ext, date;
-        Date d;
-        boolean includes_date;
-
-        if (files.length == 0) message = "Error: No Files!";
-
-        for (int fileNum = 0; fileNum < files.length; fileNum++) {
-            if (FILES.length <= fileNum)
-                filename = DEFAULT_FILE;
-            else
-                filename = FILES[fileNum];
-
-            if (EXTS.length <= fileNum)
-                ext = DEFAULT_EXT;
-            else
-                ext = EXTS[fileNum];
-
-            if (INCLUDES_DATE.length <= fileNum)
-                includes_date = DEFAULT_INCLUDES_DATE;
-            else
-                includes_date = INCLUDES_DATE[fileNum];
-
-            if (includes_date) {
-                d = new Date(System.currentTimeMillis());
-                date = d.toString();
-                date = replaceInternal(date, ":", ".");
-                filename += FILE_TOKEN + date;
-            }
-            filename += "." + ext;
-
-            message += "<a href=\"" + INTERNAL_SERVLET_URL + "?" + TASK_STRING;
-            message += "=" + PAYMENT_TASK + "&" + CMD_STRING + "=" + FILE_CMD;
-            message += "&file_num=" + fileNum + "\">" + filename + "</a><br />\n";
-
-
-        }
-        request.setAttribute(BaseServlet.MESSAGE_KEY, message);
-        forward(INTERNAL_ERROR_JSP, request, response);
-    }
-
     private void doVerifyPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doVerifyPayments called...");
         HttpSession session = request.getSession(true);
@@ -2721,110 +2584,6 @@ forward(INTERNAL_PAYMENT_JSP, request, response);
         return paymentsArray;
     }
 
-    private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        try {
-            WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
-                    HttpObjectFactory.createResponse(response));
-
-            long userId = auth.getActiveUser().getId();
-
-            log.debug("doPaymentStatus<br>");
-
-            String[] values = request.getParameterValues(PAYMENT_ID);
-
-            long[] payments = parsePayments(values);
-
-            DataInterfaceBean dib = new DataInterfaceBean();
-
-            dib.batchUpdatePaymentStatus(payments, Integer.parseInt(request.getParameter("status_id")), userId);
-
-            request.setAttribute("message", "Payments Updated");
-            if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
-                forward(request.getParameter("query"), request, response);
-            else
-                throw new NavigationException("Payments Updated");
-
-        } catch (NumberFormatException e) {
-            throw new NavigationException("One or more of the Payment IDs specified is invalid.");
-        }
-    }
-
-    private void doReviewPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        try {
-            log.debug("doReviewPayments<br>");
-
-            String[] values = request.getParameterValues(PAYMENT_ID);
-            long[] payments = parsePayments(values);
-
-            DataInterfaceBean dib = new DataInterfaceBean();
-
-            dib.reviewPayments(payments);
-
-            request.setAttribute("message", "Payments have been reviewed");
-            if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION && request.getParameter("individual_payment") == null)
-                forward(request.getParameter("query"), request, response);
-            else
-                throw new NavigationException("Payments have been reviewed");
-
-        } catch (NumberFormatException e) {
-            throw new NavigationException("One or more of the Payment IDs specified is invalid.");
-        }
-    }
-
-    private void doFile(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-        int fileNum = Integer.parseInt(request.getParameter("file_num"));
-        HttpSession session = request.getSession(true);
-        String[] files = (String[]) session.getAttribute(PACTS_QUICKBOOKS_FILES);
-        if (files == null || files.length <= fileNum) {
-            throw new NavigationException("File not found");
-        }
-        String mime_type, filename, ext, date;
-        Date d;
-        boolean includes_date;
-
-        if (FILES.length <= fileNum)
-            filename = DEFAULT_FILE;
-        else
-            filename = FILES[fileNum];
-
-        if (EXTS.length <= fileNum)
-            ext = DEFAULT_EXT;
-        else
-            ext = EXTS[fileNum];
-
-        if (MIME_TYPES.length <= fileNum)
-            mime_type = DEFAULT_MIME_TYPE;
-        else
-            mime_type = MIME_TYPES[fileNum];
-
-        if (INCLUDES_DATE.length <= fileNum)
-            includes_date = DEFAULT_INCLUDES_DATE;
-        else
-            includes_date = INCLUDES_DATE[fileNum];
-
-        if (includes_date) {
-            d = new Date(System.currentTimeMillis());
-            date = d.toString();
-            date = replaceInternal(date, ":", ".");
-            filename += FILE_TOKEN + date;
-        }
-        filename += "." + ext;
-
-        response.setContentType(mime_type);
-        log.debug("mime_type: " + mime_type);
-        response.setHeader("Content-disposition",
-                "inline; filename=\"" +
-                        filename + "\"");
-
-        log.debug("filename is " + filename);
-
-        PrintWriter out = response.getWriter();
-        out.print(files[fileNum]);
-        return;
-
-    }
-
     protected void handleException(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException {
 
         try {
@@ -2842,7 +2601,6 @@ forward(INTERNAL_PAYMENT_JSP, request, response);
         }
 
     }
-
 
     private void doAffirmAffidavit(HttpServletRequest request, HttpServletResponse response) {
         forward(INTERNAL_AFFIRM_AFFIDAVIT_JSP, request, response);
