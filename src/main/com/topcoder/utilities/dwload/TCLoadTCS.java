@@ -309,7 +309,8 @@ public class TCLoadTCS extends TCLoad {
                 "get_screening_scorecard", "project_info", "reviewers_for_project", "scorecard_details", "submissions",
                 "comp_contest_details", "dr_leader_board", "dr_rookie_board", "competition_history", "algo_competition_history",
                 "dr_current_period", "dr_stages", "dr_seasons", "component_color_change", "stage_outstanding_projects",
-                "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages", "dr_contests_for_stage"
+                "season_outstanding_projects", "dr_results", "dr_rookie_results", "dr_rookie_seasons", "dr_stages", "dr_contests_for_stage",
+                "outstanding_projects"
         };
 
         HashSet<String> s = new HashSet<String>();
