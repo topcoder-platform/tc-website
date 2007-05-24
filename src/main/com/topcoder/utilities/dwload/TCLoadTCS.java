@@ -1346,8 +1346,8 @@ public class TCLoadTCS extends TCLoad {
                 "insert into project_result (project_id, user_id, submit_ind, valid_submission_ind, raw_score, final_score, inquire_timestamp," +
                         " submit_timestamp, review_complete_timestamp, payment, old_rating, new_rating, old_reliability, new_reliability, placed, rating_ind, " +
                         "reliability_ind, passed_review_ind, points_awarded, final_points,current_reliability_ind, reliable_submission_ind, old_rating_id, " +
-                        "new_rating_id, num_ratings, rating_order) " +
-                        "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?)";
+                        "new_rating_id, num_ratings, rating_order, potential_points) " +
+                        "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?, ?)";
 
         final String DW_DATA_SELECT =
                 "select sum(num_appeals) as num_appeals" +
@@ -1466,19 +1466,27 @@ public class TCLoadTCS extends TCLoad {
                     count++;
 
                     double pointsAwarded = 0;
+                    double potentialPoints = 0;
                     Integer stage = dRProjects.get(project_id);
                     boolean hasDR = false;
                     
                     if (stage != null &&
-                         projectResults.getInt("project_stat_id") == 7 &&  // COMPLETED                            
+                         (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED               
+                          projectResults.getInt("project_stat_id") == 1) && // ACTIVE 
                          projectResults.getInt("rating_ind") == 1) {
+                        
                         hasDR = true;
                         ContestResultCalculator crc = stageCalculators.get(stage);
                         if (crc != null) {
                             ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
                                        projectResults.getDouble("final_score"),  placed, 
-                                      0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview); 
-                            pointsAwarded = crc.calculatePointsAwarded(pr);
+                                      0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
+                            
+                            if (projectResults.getInt("project_stat_id") == 7) {
+                                pointsAwarded = crc.calculatePointsAwarded(pr);
+                            } else {
+                                potentialPoints = crc.calculatePotentialPoints(pr);
+                            }
                         }
                     }
                     resultInsert.clearParameters();
@@ -1530,6 +1538,7 @@ public class TCLoadTCS extends TCLoad {
                     }
                     resultInsert.setInt(25, projectResults.getInt("rating_ind") == 1 ? currNumRatings + 1 : currNumRatings);
                     resultInsert.setObject(26, projectResults.getObject("rating_order"));
+                    resultInsert.setDouble(27, potentialPoints);
 
                     //log.debug("before result insert");
                     //try {
