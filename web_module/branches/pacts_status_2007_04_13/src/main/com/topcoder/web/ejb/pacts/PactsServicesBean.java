@@ -5832,7 +5832,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         int installmentNumber = rsr.getIntItem("installment_number");
         Date dueDate = rsr.getTimestampItem("date_due");
         Date paidDate = rsr.getTimestampItem("date_paid");
-        long statusId = rsr.getLongItem("status_id");
+        long statusId = rsr.getLongItem("payment_status_id");
         String description = rsr.getStringItem("payment_desc");
         String client = rsr.getStringItem("client");
         String referenceFieldName = rsr.getStringItem("reference_field_name");
