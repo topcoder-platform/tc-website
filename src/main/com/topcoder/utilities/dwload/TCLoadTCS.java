@@ -1324,7 +1324,7 @@ public class TCLoadTCS extends TCLoad {
                         "           and cv.comp_vers_id = cvd.comp_vers_id " +
                         "           and cv.phase_id = cvd.phase_id " +
                         "           and cv.version = pi_vers.value " +
-                        "           and pi_vers.project_type_id = 3" +
+                        "           and pi_vers.project_info_type_id = 3" +
                         "           and pi_vers.project_id = p.project_id " +
                         "           and cv.phase_id = (p.project_category_id + 111)) as amount " +
                         "    from project_result pr" +
