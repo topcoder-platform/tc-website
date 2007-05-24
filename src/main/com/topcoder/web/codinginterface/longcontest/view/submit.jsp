@@ -142,9 +142,11 @@
                             ArrayList returnTypes = (ArrayList) request.getAttribute(Constants.RETURN_TYPE);
                             ArrayList paramTypes = (ArrayList) request.getAttribute(Constants.ARG_TYPES);
                             for (int i = 0; i < methodNames.size(); i++) {
-                        %>Method Name: <%=methodNames.get(i)%>
-                            Return Type: <%=StringUtils.htmlEncode((String) returnTypes.get(i))%>
-                            Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
+//formatting to the right so that these show up in the text area aligned right.                                
+                        %>
+Method Name: <%=methodNames.get(i)%>
+Return Type: <%=StringUtils.htmlEncode((String) returnTypes.get(i))%>
+Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
 
                             <% } %></textarea>
                     </td>
