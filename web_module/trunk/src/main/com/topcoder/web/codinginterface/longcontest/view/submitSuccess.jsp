@@ -78,9 +78,11 @@
             <br />
             <br />
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewQueue">View Queue</A>
+<%--
             <br />
             <br />
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&amp;${roundId}=${requestScope[roundId]}&amp;${contestId}=${requestScope[contestId]}&amp;${componentId}=${requestScope[componentId]}">Submit Again</A>
+--%>
 
         </TD>
 
