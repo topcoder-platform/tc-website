@@ -1316,7 +1316,13 @@ public class TCLoadTCS extends TCLoad {
                         "	 , pr.current_reliability_ind " +
                         "	 , pr.reliable_submission_ind " +
                         "    , pr.rating_order " +
-                        "    , (select value from project_info pi_amount where pi_amount.project_id = p.project_id and project_info_type_id = 16) as amount" +
+                        "    , (select cvd.price " +
+                        "           from comp_versions cv " + 
+                        "                , comp_version_dates cvd " +
+                        "           where cv.component_id = cc.component_id " +
+                        "           and cv.comp_vers_id = cvd.comp_vers_id " +
+                        "           and cv.phase_id = cvd.phase_id " +
+                        "           and cv.phase_id = p.phase_id) as amount " +
                         "    from project_result pr" +
                         "    	,project p" +
                         "		,project_info pi" +
