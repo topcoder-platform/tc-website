@@ -17,23 +17,49 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
+ * This class manage all the payments status related checks, actions and transitions.
+ * Any class that need to do something with the payment's statuses must delegate that 
+ * behaviour to this class.
+ * 
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 public class PaymentStatusManager {
+    /**
+     * Enumerates all possible user events to be applied to the payments. 
+     * 
+     * @author Pablo Wolfus (pulky)
+     * @version $Id$
+     */
     public enum UserEvents {
         ENTER_INTO_PAYMENT_SYSTEM_EVENT,
         DELETE_EVENT,
         PAY_EVENT
     }
     
+    /**
+     * Logger for this class
+     */
     private static final Logger log = Logger.getLogger(PaymentStatusManager.class);
 
+    /**
+     * Pacts services provider
+     */
     private DataInterfaceBean dib = new DataInterfaceBean();
     
+    /**
+     * Default constructor
+     */
     public PaymentStatusManager() {
     }
     
+    /**
+     * This method creates a start-point for the payment's status (on hold status) 
+     * and delegates on the status all the operations required to activate it. 
+     * 
+     * @param payment the payment being created
+     * @throws EventFailureException if any operation fails
+     */
     public void newPayment(BasePayment payment) throws EventFailureException {
         log.debug("newPayment called... ");
         
@@ -48,6 +74,12 @@ public class PaymentStatusManager {
         }
     }
 
+    /**
+     * This method notifies all on hold payments of the new tax form.  
+     * 
+     * @param userId the if of the user that got a new tax form 
+     * @throws EventFailureException if any operation fails
+     */
     public void newTaxForm(long userId) throws EventFailureException {
         try {
             log.debug("newTaxForm called for userId: " + userId);
@@ -74,6 +106,13 @@ public class PaymentStatusManager {
         }
     }
 
+    /**
+     * This method notifies all on hold payments of the new hard copy IP transfer.  
+     * 
+     * @param userId the if of the user that got a new tax form 
+     * @param paymentTypeId the payment type of the new hard copy IP transfer.
+     * @throws EventFailureException if any operation fails
+     */
     public void hardCopyIPTransfer(long userId, long paymentTypeId) throws EventFailureException {
         log.debug("hardCopyIPTransfer called for userId: " + userId + " paymentTypeId: " + paymentTypeId);
         try {
@@ -101,6 +140,12 @@ public class PaymentStatusManager {
         }
     }
 
+    /**
+     * This method notifies the corresponding payment of the affirmed affidavit.  
+     * 
+     * @param paymentId the payment related to the affirmed affidavit
+     * @throws EventFailureException if any operation fails
+     */
     public void affirmedAffidavit(Long paymentId) throws EventFailureException {
         log.debug("affirmedAffidavit called for paymentId: " + paymentId);
         try {
@@ -111,7 +156,7 @@ public class PaymentStatusManager {
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
-                log.debug("not exactly one result");
+                throw new StateTransitionFailureException("Incorrect number of payments retrieved. PaymentId: " + paymentId);
             }
             
             // notify the status manager and update the payment
@@ -128,6 +173,12 @@ public class PaymentStatusManager {
         }
     }
 
+    /**
+     * This method notifies the corresponding payment of the affirmed IP Transfer.  
+     * 
+     * @param ad the affirmed assignment document
+     * @throws EventFailureException if any operation fails
+     */
     public void affirmedIPTransfer(AssignmentDocument ad) throws EventFailureException {
         log.debug("affirmedIPTransfer called for ipTransferId: " + ad.getId());
         try {
@@ -145,7 +196,7 @@ public class PaymentStatusManager {
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
-                log.debug("not exactly one result");
+                throw new StateTransitionFailureException("Incorrect number of payments retrieved.");
             }
 
             // notify the status manager and update the payment
@@ -162,6 +213,12 @@ public class PaymentStatusManager {
         }
     }
 
+    /**
+     * This method notifies the corresponding payment of the expired affidavit.  
+     * 
+     * @param paymentId the payment related to the expired affidavit
+     * @throws EventFailureException if any operation fails
+     */
     public void expiredAffidavit(Long paymentId) throws EventFailureException {
         log.debug("expiredAffidavit called for paymentId: " + paymentId);
         try {
@@ -172,7 +229,7 @@ public class PaymentStatusManager {
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
-                log.debug("not exactly one result");
+                throw new StateTransitionFailureException("Incorrect number of payments retrieved. PaymentId: " + paymentId);
             }
             
             // notify the status manager and update the payment
@@ -190,6 +247,12 @@ public class PaymentStatusManager {
     }
 
 
+    /**
+     * This method notifies the corresponding payment of the expired IP Transfer.  
+     * 
+     * @param paymentId the payment related to the expired IP Transfer.
+     * @throws EventFailureException if any operation fails
+     */
     public void expiredIPTransfer(Long paymentId) throws EventFailureException {
         log.debug("expiredIPTransfer called for paymentId: " + paymentId);
         try {
@@ -200,7 +263,7 @@ public class PaymentStatusManager {
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
-                log.debug("not exactly one result");
+                throw new StateTransitionFailureException("Incorrect number of payments retrieved. PaymentId: " + paymentId);
             }
             
             // notify the status manager and update the payment
@@ -218,6 +281,12 @@ public class PaymentStatusManager {
     }
 
 
+    /**
+     * This method notifies the corresponding payment that it has expired.  
+     * 
+     * @param paymentId the payment id related to the expired payment
+     * @throws EventFailureException if any operation fails
+     */
     public void expiredPayment(Long paymentId) throws EventFailureException {
         log.debug("expiredIPTransfer called for paymentId: " + paymentId);
         try {
@@ -228,7 +297,7 @@ public class PaymentStatusManager {
             
             // if not exactly one result, throw exception
             if (payments.size() != 1) {
-                log.debug("not exactly one result");
+                throw new StateTransitionFailureException("Incorrect number of payments retrieved. PaymentId: " + paymentId);
             }
             
             // notify the status manager and update the payment
@@ -245,6 +314,12 @@ public class PaymentStatusManager {
         }
     }
 
+    /**
+     * This method notifies all the corresponding payments of an inactive coder.  
+     * 
+     * @param coderId the inactive coder.
+     * @throws EventFailureException if any operation fails
+     */
     public void inactiveCoder(Long coderId) throws EventFailureException {
         log.debug("inactiveCoder called for coderId: " + coderId);
         try {
@@ -268,6 +343,13 @@ public class PaymentStatusManager {
         }
     }
 
+    /**
+     * This method notifies the corresponding payment of the specified event.  
+     * 
+     * @param payment the target payment to notify 
+     * @param event the notification event
+     * @throws EventFailureException if any operation fails
+     */
     public void newUserEvent(BasePayment payment, UserEvents event) throws EventFailureException {
         try {
             switch (event) {
@@ -286,6 +368,13 @@ public class PaymentStatusManager {
         }
     }
 
+    /**
+     * Private helper method to notify all child payments of an event  
+     * 
+     * @param notifType the event to notify
+     * @param payment the payment to notify
+     * @throws EventFailureException if any operation fails
+     */
     private void notifyChildPayments(String notifType, BasePayment payment) throws EventFailureException {
         Map criteria = new HashMap();
         criteria.put(PactsConstants.PARENT_PAYMENT_ID, String.valueOf(payment.getId()));

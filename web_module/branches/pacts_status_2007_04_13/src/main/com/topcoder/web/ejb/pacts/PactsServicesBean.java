@@ -5405,7 +5405,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
             processor.fillData(payment);
     
-            // delegate status to the mediator
+            // delegate status to the manager
             (new PaymentStatusManager()).newPayment(payment);
             
             Payment p = createPayment(payment);

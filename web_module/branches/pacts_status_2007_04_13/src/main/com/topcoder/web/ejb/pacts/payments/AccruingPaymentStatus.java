@@ -22,30 +22,54 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
  */
 public class AccruingPaymentStatus extends BasePaymentStatus {
 
+    /**
+     * The loader for this class
+     */
     private static final Logger log = Logger.getLogger(AccruingPaymentStatus.class);
 
+    /**
+     * The payment status id
+     */
     public static final Long ID = 71l;
+
+    /**
+     * The payment status description
+     */
     public static final String DESC = "Accruing";
     
     /**
-     * 
+     * Default constructor   
      */
     public AccruingPaymentStatus() {
         super();
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
+     */
     @Override
     public String getDesc() {
         return DESC;
     }
 
+
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getId()
+     */
     @Override
     public Long getId() {
         return ID;
     }
 
+    /**
+     * This method checks for the accrual amount and decide wether to stay in this state or move to the next:
+     * - If the user has requested his winnings to be accrued, the payments will move to owed when the accrual threshold is reached
+     * - When the threshold is reached, all the rest of the accruing payments must be notified. 
+     * 
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#activate(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
-    public void activate(BasePayment payment) {
+    public void activate(BasePayment payment) throws StateTransitionFailureException {
         log.debug("Activate called for payment " + payment.getId());
         log.debug("Payment coder" + payment.getCoderId());
         DataInterfaceBean dib = new DataInterfaceBean();
@@ -85,52 +109,55 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            // do nothing
+            throw new StateTransitionFailureException(e);
         }
         
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#accrualThresholdReached(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
-    public void accrualThresholdReached(BasePayment payment) {
+    public void accrualThresholdReached(BasePayment payment) throws StateTransitionFailureException {
         nextState(payment);
         
     }   
     
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#nextState(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
-    public void nextState(BasePayment payment) {
+    public void nextState(BasePayment payment) throws StateTransitionFailureException {
         log.debug("moving to the next status!");
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.OWED_PAYMENT_STATUS));
-        try {
-            payment.getCurrentStatus().activate(payment);
-        } catch (Exception e) {
-            // do nothing
-        }
+        payment.getCurrentStatus().activate(payment);
     }
     
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#delete(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
-    public void delete(BasePayment payment) throws InvalidPaymentEventException {
+    public void delete(BasePayment payment) throws InvalidPaymentEventException, StateTransitionFailureException {
         log.debug("moving to deleted!");
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.DELETED_PAYMENT_STATUS));
-        try {
-            payment.getCurrentStatus().activate(payment);
-        } catch (Exception e) {
-            // do nothing
-        }
+        payment.getCurrentStatus().activate(payment);
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
-    public void inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
+    public void inactiveCoder(BasePayment payment) throws InvalidPaymentEventException, StateTransitionFailureException {
         log.debug("moving to cancelled (account status)!");
         BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS);
         newStatus.reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
         payment.setCurrentStatus(newStatus);
-        try {
-            payment.getCurrentStatus().activate(payment);
-        } catch (Exception e) {
-            // do nothing
-        }
+        payment.getCurrentStatus().activate(payment);
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#newInstance()
+     */
     @Override
     public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new AccruingPaymentStatus();

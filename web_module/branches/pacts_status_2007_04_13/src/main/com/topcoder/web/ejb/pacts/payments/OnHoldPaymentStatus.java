@@ -23,34 +23,64 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 
 /**
+ * This class represents a On Hold status for payments. 
+ *
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
 public class OnHoldPaymentStatus extends BasePaymentStatus {
 
+    /**
+     * The loader for this class
+     */
     private static final Logger log = Logger.getLogger(OnHoldPaymentStatus.class);
 
+    /**
+     * The payment status id
+     */
     public static final Long ID = 55l;
+
+    /**
+     * The payment status description
+     */
     public static final String DESC = "On Hold";
     
     /**
-     * 
+     * Default constructor   
      */
     public OnHoldPaymentStatus() {
         super();
 
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
+     */
     @Override
     public String getDesc() {
         return DESC;
     }
 
+    /**
+     * 
+     * 
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getId()
+     */
     @Override
     public Long getId() {
         return ID;
     }
 
+    /**
+     * This method checks for this reasons to stay on hold:
+     * 1) This payment is a child payment and the parent is on hold
+     * 2) The payment needs a tax form to continue
+     * 3) The payment needs an affirmed affidavit to continue
+     * 4) The payment needs an affirmed IP Transfer to continue
+     * 5) The payment needs a signed hard copy IP Transfer to continue
+     * 
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#activate(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void activate(BasePayment payment) throws StateTransitionFailureException {
         log.debug("activate called for payment: " + payment.getId());
@@ -108,6 +138,9 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         }
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#newTaxForm(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void newTaxForm(BasePayment payment) throws StateTransitionFailureException {
         log.debug("newTaxForm called for payment: " + payment.getId());
@@ -119,6 +152,9 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         }
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#affirmedAffidavit(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void affirmedAffidavit(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("affirmedAffidavit called for payment: " + payment.getId());
@@ -129,12 +165,18 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         }
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#expiredAffidavit(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void expiredAffidavit(BasePayment payment) throws InvalidPaymentEventException {
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
         payment.getCurrentStatus().expiredAffidavit(payment);
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void inactiveCoder(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("moving to cancelled (account status)!");
@@ -144,24 +186,36 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         payment.getCurrentStatus().activate(payment);
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#expiredIPTransfer(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void expiredIPTransfer(BasePayment payment) throws InvalidPaymentEventException {
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
         payment.getCurrentStatus().expiredIPTransfer(payment);
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#expiredPayment(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void expiredPayment(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.EXPIRED_PAYMENT_STATUS));
         payment.getCurrentStatus().activate(payment);
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#parentCancelled(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void parentCancelled(BasePayment payment) throws InvalidPaymentEventException {
         payment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS));
         payment.getCurrentStatus().parentCancelled(payment);
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#affirmedIPTransfer(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void affirmedIPTransfer(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("affirmedIPTransfer called for payment: " + payment.getId());
@@ -172,6 +226,9 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         }
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#hardCopyIPTransfer(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void hardCopyIPTransfer(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("hardCopyIPTransfer called for payment: " + payment.getId());
@@ -182,6 +239,9 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         }
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#delete(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void delete(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("moving to deleted!");
@@ -189,6 +249,9 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         payment.getCurrentStatus().activate(payment);
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#nextState(com.topcoder.web.ejb.pacts.BasePayment)
+     */
     @Override
     public void nextState(BasePayment payment) throws StateTransitionFailureException {
         if (reasons.size() == 0) {
@@ -201,12 +264,22 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
        }
     }
 
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#newInstance()
+     */
     @Override
     public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new OnHoldPaymentStatus();
         return newPaymentStatus;  
     }
     
+    /**
+     * Private helper method to check if the payment should stay on hold due to missing affirmed IP Transfer
+     * 
+     * @param payment the payment to check for
+     * @param dib pacts services provider
+     * @throws RemoteException
+     */
     private void checkAffirmedIPTransferDocument(BasePayment payment, DataInterfaceBean dib) throws RemoteException {
         log.debug("com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER: " + com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER);
          if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER)) {
@@ -233,6 +306,11 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
          }
     }
 
+    /**
+     * Private helper method to check if the payment should stay on hold due to missing affirmed affidavit
+     * 
+     * @param payment the payment to check for
+     */
     private void checkAffirmedAffidavit(BasePayment payment) {
         if (payment.getPaymentType() == BasePayment.ALGORITHM_CONTEST_PAYMENT ||
              payment.getPaymentType() == BasePayment.ALGORITHM_TOURNAMENT_PRIZE_PAYMENT ||
@@ -242,6 +320,14 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
          }
     }
 
+    /**
+     * Private helper method to check if the payment should stay on hold due to missing tax form
+     * 
+     * @param payment the payment to check for
+     * @param dib pacts services provider
+     * @throws RemoteException
+     * @throws SQLException
+     */
     private void checkUserTaxForm(BasePayment payment, DataInterfaceBean dib) throws RemoteException, SQLException {
         if (!dib.hasTaxForm(payment.getCoderId())) {
              log.debug("no tax form found! (#reasons): " + reasons.size());
