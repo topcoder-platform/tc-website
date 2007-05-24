@@ -146,7 +146,6 @@ for (int i = 0; i < methodNames.size(); i++) { %>
 Method Name: <%=methodNames.get(i)%>
 Return Type: <%=StringUtils.htmlEncode((String) returnTypes.get(i))%>
 Arg Types: <%=StringUtils.htmlEncode((String) paramTypes.get(i))%>
-                            
                             <% } %></textarea>
                     </td>
                 </tr>
