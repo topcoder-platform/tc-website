@@ -20,11 +20,16 @@ public class TCLoadDR extends TCLoadTCS {
     
     @Override
     public void performLoad() throws Exception {
-        fLastLogTime = new Timestamp(new GregorianCalendar(1980,0,1).getTime().getTime());
 
         log.info("Full load of Digital Run");
         
         try {            
+            // Reload project results after 4 may
+            fLastLogTime = new Timestamp(new GregorianCalendar(2007,4,4).getTime().getTime());
+
+            doLoadProjectResults();
+            
+            fLastLogTime = new Timestamp(new GregorianCalendar(1980,0,1).getTime().getTime());
             doLoadSeason();
             
             doLoadStage();
