@@ -179,7 +179,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
             // Set prizes
             double amountPerPoint = prizePool / totalPoints;
             for (ContestResult result : cr) {
-                if (result.getFinalPoints() > maxPlace) break;
+                if (result.getPlace() > maxPlace) break;
     
                 result.setPrize(amountPerPoint * result.getFinalPoints());
             }
