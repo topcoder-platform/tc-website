@@ -123,8 +123,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     long addContract(Contract c, String contractText) throws SQLException;
 
-    long addPayment(Payment p) throws IllegalUpdateException, SQLException;
-
     long addTaxForm(TaxForm t, String taxFormText)
             throws IllegalUpdateException, SQLException;
 
@@ -209,8 +207,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     Map findStudioContests(String search) throws SQLException;
 
-    ResultSetContainer getPaymentHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException;
-
     ResultSetContainer getAffidavitHistory(long userId, boolean pendingOnly, int sortColumn, boolean sortAscending) throws SQLException;
         
     // ================== Methods from the Client Service ================== 
@@ -230,10 +226,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
     List findCoderPayments(long coderId, int paymentTypeId) throws  SQLException, InvalidStatusException;
 
     BasePayment getBasePayment(long paymentId) throws  SQLException, InvalidStatusException;
-
-    void deletePayment(long paymentId) throws SQLException;
-
-    void deletePayment(BasePayment payment) throws SQLException;
 
     BasePayment fillPaymentData(BasePayment payment) throws SQLException;
 
@@ -268,8 +260,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
     public double getUserAccrualThreshold(long userId) throws SQLException;
 
     ResultSetContainer getContestsInfo(long eid) throws SQLException;
-
-    public long performPaymentsChecks(long statusId) throws SQLException;
 
     public double getUserAccruingPaymentsTotal(long userId) throws SQLException;
 
