@@ -270,7 +270,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             case ASSEMBLY_COMPETITION_REVIEW: return "Assembly Competition Review ";
             case ARCHITECTURE_PAYMENT: return "Architecture Payment";
             case PREDICTIVE_CONTEST_PAYMENT: return "Predictive Contest Payment";
-            case INTRODUCTORY_EVENT_COMPONENT_CONTEST_PAYMENT: return "Introductory Event Component Contest Payment";
+            case INTRO_EVENT_COMP_PAYMENT: return "Introductory Event Component Contest Payment";
             default: return "Other Payment";
         }
     }
