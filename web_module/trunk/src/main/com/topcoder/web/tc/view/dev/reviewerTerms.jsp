@@ -51,6 +51,7 @@
               <input type="hidden" name="<%=Constants.PHASE_ID%>" value="<%=request.getParameter(Constants.PHASE_ID)%>"/>
               <input type="hidden" name="<%=Constants.REVIEWER_TYPE_ID%>" value="<%=request.getParameter(Constants.REVIEWER_TYPE_ID)%>"/>
               <input type="hidden" name="<%=Constants.PRIMARY_FLAG%>" value="<%=request.getParameter(Constants.PRIMARY_FLAG)%>"/>
+              <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectReviewTermsAgree"/>
 
             <table border="0" cellspacing="0" cellpadding="5">
                 <tr valign="middle">
@@ -75,7 +76,6 @@
                 </tr>
                 <tr valign="middle">
                     <td align="center">
-                        <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="ProjectReviewTermsAgree"/>
                         <input type="submit" onClick="" name="submit" value=" Continue"/>
                     </td>
                 </tr>
