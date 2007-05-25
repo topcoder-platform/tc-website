@@ -123,7 +123,7 @@ ${fn:length(paymentList)} records. <br />
                     <c:set var="row_key" value="${payment.id},${reliabilityMap[payment.id]}"/>
                 </c:when>
 				<c:otherwise>
-                    <c:set var="row_key" value="${payment.id}"/>
+                    <fmt:formatNumber var="row_key" value="${payment.id}"/>
                 </c:otherwise>
 			</c:choose>
             <c:choose>
