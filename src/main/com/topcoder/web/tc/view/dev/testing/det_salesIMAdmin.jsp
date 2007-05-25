@@ -168,23 +168,23 @@ If you do not reside in the United States:<br>
       <td><strong>Phase</strong></td><td align="center"><strong>Start</strong></td><td align="center"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Registration Phase:</td><td align="center">05.11.2007</td><td align="center">05.16.2007</td>
+      <td>Registration Phase:</td><td align="center">05.25.2007</td><td align="center">05.30.2007</td>
    </tr>
    <tr>
-      <td>Test Submission:</td><td align="center">05.14.2007</td><td align="center">05.23.2007</td>
+      <td>Test Submission:</td><td align="center">05.28.2007</td><td align="center">06.05.2007</td>
    </tr>
    <tr>
-      <td>Test Case Screening:</td><td align="center">05.23.2007</td><td align="center">05.24.2007</td>
+      <td>Test Case Screening:</td><td align="center">06.05.2007</td><td align="center">06.06.2007</td>
    </tr>
    <tr>
-      <td>Winner Selection:</td><td align="center">&#160;</td><td align="center">05.29.2007</td>
+      <td>Winner Selection:</td><td align="center">&#160;</td><td align="center">06.12.2007</td>
    </tr>
 </table>
 </div>
 <br><br>
 <div class="sectionHeader">Registration</div>
-<p>Registration is closed.</p>
-<%--
+<%--<p>Registration is closed.</p>--%>
+
 <p>To sign up as a participant, send an email to <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Admin Testing Competition">TestingCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
@@ -193,7 +193,7 @@ If you do not reside in the United States:<br>
 </ul>
 TopCoder staff will respond as to whether you are registered or not.
 </p>
---%>
+
 <div class="sectionHeader">Submission</div>
 <p>Once you have test code you are ready to submit, you can do so by emailing your source code to <A href="mailto:TestingSubmissions@topcoder.com?subject=Submit: Sales IM Admin Testing Competition">TestingSubmissions@topcoder.com</A> by the submission deadline.  Once a submission is received, it will be screened.  All code that passes screening will be made available to the Assembly Competition teams.</p>
 
