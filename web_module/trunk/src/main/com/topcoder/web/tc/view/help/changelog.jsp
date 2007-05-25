@@ -47,6 +47,7 @@
     5.10.1 - 2007.05.xx
     <ul>
         <li>Add best rank, # wins, # top 5 finishes and # top 10 finishes to marathon match member profile stats -dok</li>
+        <li>Only accept POST requests during reviewer sign up -dok</li>
     </ul>
 </p>
 
