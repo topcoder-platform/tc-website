@@ -107,7 +107,6 @@ ${fn:length(paymentList)} records. <br />
 		<td><b>Client</b></td>
 		<td><b>Created</b></td>
 		<td><b>Modified</b></td>
-<%-- 		<td><b>Reviewed</b></td>  --%>
 	</tr>
 	<c:forEach var="payment" items="${paymentList}">
 			<c:set var="composed" value="false" />	
@@ -152,11 +151,6 @@ ${fn:length(paymentList)} records. <br />
 		<td><c:out value="${payment.client}" /></td>
 		<td><c:out value="${payment.createDate}" /> </td>
 		<td><c:out value="${payment.modifyDate}" /> </td>
-<%-- 		<td><c:choose>
-				<c:when test="${payment.reviewed}">Yes</c:when>
-				<c:otherwise>No</c:otherwise>
-			</c:choose>
-		</td> --%>
 		</tr>
         <tr>
         <td colspan=3>
@@ -181,10 +175,6 @@ ${fn:length(paymentList)} records. <br />
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 <br>
-
-<%--<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.REVIEW_CMD  %>"><br><br> --%>
-
-<%-- TODO: Change to events --%>
 
 <SELECT CLASS="dropdown" NAME="status_id">
         <OPTION value='1' selected>
