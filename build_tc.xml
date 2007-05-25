@@ -237,7 +237,6 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*.class"/>
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/payments/*.class"/>
             <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
         </jar>
     </target>
