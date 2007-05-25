@@ -4,6 +4,19 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>05.25.07<br>4:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=MatchDetails&rd=10675">Yodlee chat session scheduled for SRM 351</A></span><br><br>
+      Join representatives from Yodlee in the Arena at 6:00 AM EDT on May 29 to learn more about the company and its job opportunities.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=MatchDetails&rd=10675">details</A> | 
+         <tc-webtag:forumLink forumID="515944" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.25.07<br>2:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -199,22 +212,4 @@
         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.19.07<br>9:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">Burunduk2 wins the TCHS07!</A>
-        </span><br><br>
-        All the finalists put in a great effort, but <tc-webtag:handle coderId="21111148" context="hs_algorithm" /> took the title and prize, while <strong>V. Gimnazija</strong> won the teams competition.  Congratulations to all the TCHS competitors.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=bracketInd">details</A> |
-        <tc-webtag:forumLink forumID="514497" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
 
