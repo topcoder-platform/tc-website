@@ -60,6 +60,7 @@
                 <li><strong>Winner Announced:</strong> June 19, 2007</li>
             </ul>
             
+<%--
             <h2>Competition #4:</strong> CSF Mashup Assembly Competition</h2>
             <ul>
                 <li><strong>Submission Start Date:</strong> May 29, 2007</li>
@@ -68,7 +69,7 @@
                 <li><strong>Review End Date:</strong> June 22, 2007</li>
                 <li><strong>Winner Announced:</strong> June 25, 2007</li>
             </ul>
-            
+--%>            
             <h2>Competition #3:</strong> CSF Mashup Assembly Competition</h2>
             <ul>
                 <li><strong>Submission Start Date:</strong> May 22, 2007</li>
