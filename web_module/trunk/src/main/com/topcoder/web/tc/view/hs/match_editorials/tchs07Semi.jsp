@@ -48,7 +48,7 @@
     <span id="navigableLink" class="invisible"><A href="Javascript:makeNavigable();">Normal view</A><br></span>
     <A href="/tc?module=HSRoundOverview&rd=10763&snid=1&er=5">Match Overview</A><br>
 
-<tc-webtag:forumLink forumID="514497" message="Discuss this match" /></div>
+<tc-webtag:forumLink forumID="514496" message="Discuss this match" /></div>
 <span class="bodySubtitle">TCHS07 Semifinal Round</span><br>Saturday, May 19, 2007
 <br><br>
 
