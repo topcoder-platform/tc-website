@@ -50,7 +50,7 @@
                     <td width="100%">
                         <div class="bigRed" style="border-top: 1px solid #999999; border-bottom: 1px solid #999999;">
                             <div style="float: right; text-align: right;">
-                                $3,000.00<br>$1,000.00<br>$500.00<br>06.05.2007
+                                $6,000.00<br>$2,000.00<br>$1000.00<br>06.05.2007
                             </div>
                             <strong>
                                 First:<br>
@@ -70,6 +70,7 @@
             </tbody>
         </table>
         </div>
+        <div align="center"><span class="bigRed">Prizes doubled!</span></div>
 
 <h2>Project Overview</h2>
 
