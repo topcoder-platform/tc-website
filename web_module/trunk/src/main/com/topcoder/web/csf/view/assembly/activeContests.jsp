@@ -81,7 +81,7 @@
                              <strong>06.05.2007</strong><br>17:00 EST
                         </td>
                         <td class="valueR" nowrap="nowrap">
-                            $3,000.00
+                            <span class="bigRed">$6,000.00</span>
                         </td>
                         <td class="valueC">
                             14

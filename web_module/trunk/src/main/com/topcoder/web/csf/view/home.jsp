@@ -39,7 +39,7 @@
                 <area shape="rect" alt="" coords="1,105,199,195" href="/?module=ViewPastContests" />
                 <area shape="rect" alt="" coords="1,205,199,299" href="/?module=Static&d1=assembly&d2=msSessionManifestDetails" />
                 </map>
-                <img src="/i/home/highlights0523.png" alt="Series Prizes" usemap="#highlights" />
+                <img src="/i/home/highlights0525.png" alt="Series Prizes" usemap="#highlights" />
             </div>
 
             <p>
