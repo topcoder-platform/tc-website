@@ -7,27 +7,27 @@
 <%@ taglib uri="codinginterface.tld" prefix="ci" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
-<% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID)==null?Constants.LONG_ROUND_TYPE_ID:((Integer)request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
+<% int roundType = request.getAttribute(Constants.ROUND_TYPE_ID) == null ? Constants.LONG_ROUND_TYPE_ID : ((Integer) request.getAttribute(Constants.ROUND_TYPE_ID)).intValue();%>
 <% String myNode = "long_compete";
     String image = "long_comps_topcoder";
-     if (roundType==Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
-         myNode="long_practice";
-     } else if (roundType ==Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
-         myNode="long_intelmtcs_practice";
-         image = "long_comps_intel";
-     } else if (roundType ==Constants.INTEL_LONG_ROUND_TYPE_ID) {
-         myNode="long_intelmtcs_compete";
-         image = "long_comps_intel";
-     }
+    if (roundType == Constants.LONG_PRACTICE_ROUND_TYPE_ID) {
+        myNode = "long_practice";
+    } else if (roundType == Constants.INTEL_LONG_PRACTICE_ROUND_TYPE_ID) {
+        myNode = "long_intelmtcs_practice";
+        image = "long_comps_intel";
+    } else if (roundType == Constants.INTEL_LONG_ROUND_TYPE_ID) {
+        myNode = "long_intelmtcs_compete";
+        image = "long_comps_intel";
+    }
 %>
 
 <html>
 <head>
     <title>Submit Success</title>
-<jsp:include page="/script.jsp" />
-<jsp:include page="/style.jsp">
-<jsp:param name="key" value="tc_stats"/>
-</jsp:include>
+    <jsp:include page="/script.jsp"/>
+    <jsp:include page="/style.jsp">
+        <jsp:param name="key" value="tc_stats"/>
+    </jsp:include>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 
@@ -39,9 +39,9 @@
     <tr valign="top">
         <%-- Left Column Begins--%>
         <td width="180">
-         <jsp:include page="/includes/global_left.jsp">
-            <jsp:param name="node" value="<%=myNode%>"/>
-         </jsp:include>
+            <jsp:include page="/includes/global_left.jsp">
+                <jsp:param name="node" value="<%=myNode%>"/>
+            </jsp:include>
         </td>
         <%-- Left Column Ends --%>
 
@@ -54,7 +54,7 @@
             </jsp:include>
 
             <div style="float:right; padding: 0px 0px 0px 5px;">
-               <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
+                <ci:sponsorImage image="<%=Constants.SPONSOR_IMAGE%>" alt="Sponsor" border="0" ifNull="&#160;"/>
             </div>
 
             <% int count = ((Number) request.getAttribute(Constants.QUEUE_LENGTH)).intValue();%>
@@ -72,17 +72,17 @@
             <c:set value="<%=Constants.CONTEST_ID%>" var="contestId"/>
             <c:set value="<%=Constants.COMPONENT_ID%>" var="componentId"/>
 
-            <br />
-            <br />
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>">View Standings</A>
-            <br />
-            <br />
+            <br/>
+            <br/>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewStandings&<%=Constants.ROUND_ID%>=<%=request.getAttribute(Constants.ROUND_ID)%>">View
+                Standings</A>
+            <br/>
+            <br/>
             <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewQueue">View Queue</A>
-<%--
-            <br />
-            <br />
-            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&amp;${roundId}=${requestScope[roundId]}&amp;${contestId}=${requestScope[contestId]}&amp;${componentId}=${requestScope[componentId]}">Submit Again</A>
---%>
+            <br/>
+            <br/>
+            <A href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Submit&amp;${roundId}=${requestScope[roundId]}&amp;${contestId}=${requestScope[contestId]}&amp;${componentId}=${requestScope[componentId]}">Submit
+                Again</A>
 
         </TD>
 
