@@ -334,7 +334,7 @@ public class TCLoadTCS extends TCLoad {
 */
     }
 
-    private void getLastUpdateTime() throws Exception {
+    protected void getLastUpdateTime() throws Exception {
         Statement stmt = null;
         ResultSet rs = null;
         StringBuffer query;
@@ -1302,7 +1302,12 @@ public class TCLoadTCS extends TCLoad {
                         "    		where ri.resource_id = res.resource_id and ri.resource_info_type_id = 1 and res.resource_id = u.resource_id " +
                         "			and u.upload_id = sub.upload_id and sub.submission_id = r.submission_id and r.scorecard_id = s.scorecard_id " +
                         "			and s.scorecard_type_id = 2 and r.committed = 1 and u.project_id = pr.project_id and ri.value = pr.user_id and sub.submission_status_id <> 5) as review_completed_timestamp " +
-                        "    ,(select count(*) from project_result pr where project_id = p.project_id and pr.passed_review_ind = 1) as num_submissions_passed_review " +
+//                        "    ,(select count(*) from project_result pr where project_id = p.project_id and pr.passed_review_ind = 1) as num_submissions_passed_review " +
+                        "       ,(select count(*) from submission s, upload u  " +
+                        "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
+                        "         and submission_status_id in (1, 4) " +
+                        "        ) as num_submissions_passed_review  " +            
+
                         "    , pr.payment " +
                         "    , pr.old_rating " +
                         "    , pr.new_rating " +
@@ -1320,13 +1325,9 @@ public class TCLoadTCS extends TCLoad {
                         "    , (select max(cvd.price) " +
                         "           from comp_versions cv " + 
                         "              , comp_version_dates cvd " +
-                        "              , project_info pi_vers " +
                         "           where cv.component_id = cc.component_id " +
                         "           and cv.comp_vers_id = cvd.comp_vers_id " +
                         "           and cv.phase_id = cvd.phase_id " +
-                        "           and cv.version = pi_vers.value " +
-                        "           and pi_vers.project_info_type_id = 3" +
-                        "           and pi_vers.project_id = p.project_id " +
                         "           and cv.phase_id = (p.project_category_id + 111)) as amount " +
                         "    from project_result pr" +
                         "    	,project p" +
@@ -1484,7 +1485,7 @@ public class TCLoadTCS extends TCLoad {
                             ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
                                        projectResults.getDouble("final_score"),  placed, 
                                       0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
-                            
+
                             if (projectResults.getInt("project_stat_id") == 7) {
                                 pointsAwarded = crc.calculatePointsAwarded(pr);
                             } else {
@@ -4819,13 +4820,14 @@ public class TCLoadTCS extends TCLoad {
             "       ,(select count(*) from submission s, upload u  " +
             "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
             "         and submission_status_id in (1, 4) " +
-            "        ) as num_submissions_passed_review  " +
+            "        ) as num_submissions_passed_review  " +            
             " from project p " +
             "    ,project_result pr " +
             "    ,outer project_info pi_dr " +
             " where pi_dr.project_id = p.project_id " +
             " and pi_dr.project_info_type_id = 26 " +
             " and p.project_id = pr.project_id " +
+            " and pr.rating_ind=1 " +
             " and p.project_category_id = ? " +
             " and ( " +
             "      select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
@@ -4874,11 +4876,10 @@ public class TCLoadTCS extends TCLoad {
                 if ("Off".equals(rs.getString("dr_ind"))) {
                     continue;
                 }
-                
                 ProjectResult res = new ProjectResult(rs.getLong("project_id"), rs.getInt("project_status_id"), rs.getLong("user_id"),
                         rs.getDouble("final_score"), rs.getInt("placed"), rs.getInt("point_adjustment"), rs.getDouble("amount"), 
                         rs.getInt("num_submissions_passed_review"), rs.getBoolean("passed_review_ind"));
-                                        
+                           
                 pr.add(res);
                 count++;
             }

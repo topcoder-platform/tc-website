@@ -43,10 +43,7 @@ public abstract class DRResultCalculatorBase implements ContestResultCalculator 
     public  List<ContestResult> calculateResults(List<ProjectResult> pr, List<Double> prizesAmount) {
         Map<Long, ContestResult> results = new HashMap<Long, ContestResult>();
         
-        for(ProjectResult p : pr) {
-            // don't process results where the coder didn't pass review
-            if (!p.isPassedReview())  continue; 
-            
+        for(ProjectResult p : pr) {           
             // enables filtering by subclasses
             if (!processProjectResult(p))  continue; 
             
