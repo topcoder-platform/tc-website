@@ -121,22 +121,18 @@ ${fn:length(paymentList)} records. <br />
 		<td> 
             <c:choose>
 				<c:when test="${composed}">
-                    <c:choose>
-                    <c:when test="${empty checked_payments || cf:contains(checked_payments, payment.id)}">
-					   <input type="checkbox" name="checked_payment_id" value="${payment.id},${reliabilityMap[payment.id]}" checked></c:when>
-                    <c:otherwise>
-					   <input type="checkbox" name="checked_payment_id" value="${payment.id},${reliabilityMap[payment.id]}"></c:otherwise>
-                    </c:choose>
+                    <c:set var="row_key" value="${payment.id},${reliabilityMap[payment.id]}"/>
                 </c:when>
 				<c:otherwise>
-                    <c:choose>
-                    <c:when test="${empty checked_payments || cf:contains(checked_payments, payment.id)}">
-	       				<input type="checkbox" name="checked_payment_id" value="${payment.id}" checked></c:when>
-                    <c:otherwise>
-    					<input type="checkbox" name="checked_payment_id" value="${payment.id}"></c:otherwise>
-                    </c:choose>                       
+                    <c:set var="row_key" value="${payment.id}"/>
                 </c:otherwise>
 			</c:choose>
+            <c:choose>
+                <c:when test="${empty checked_payments || cf:contains(checked_payments, row_key)}">
+                   <input type="checkbox" name="checked_payment_id" value="${row_key}" checked></c:when>
+                <c:otherwise>
+                   <input type="checkbox" name="checked_payment_id" value="${row_key}"></c:otherwise>
+            </c:choose>
 		
 		</td>
 		<td><c:out value="${payment.user.first}" /></td>

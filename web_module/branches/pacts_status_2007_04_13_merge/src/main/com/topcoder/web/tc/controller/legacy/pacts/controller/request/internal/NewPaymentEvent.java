@@ -30,7 +30,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         int wrongPayments = 0;
         int event = Integer.parseInt(getRequest().getParameter("status_id"));
         
-        List<Long> checkedIds = new ArrayList<Long>(values.length);
+        List<String> checkedIds = new ArrayList<String>(values.length);
         
         Map criteria = new HashMap();
         for (String paymentId : values) {
@@ -83,7 +83,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
             getRequest().setAttribute("message_result", updatePayments.size() + " payments successfully updated");
         } else {
             for (String value : values) {
-                checkedIds.add(Long.parseLong(value));
+                checkedIds.add(value);
             }
             getRequest().setAttribute("checked_payments", checkedIds);
             getRequest().setAttribute("message_result", "Your request could not be processed because " + wrongPayments + " errors have been found found, please try again");            
