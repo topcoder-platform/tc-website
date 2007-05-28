@@ -182,7 +182,7 @@ ${fn:length(paymentList)} records. <br />
 		<td class="header"></td>
 		<td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>" >First</a></td>
 		<td class="header"><b>Last</b></td>
-		<td class="header"><b>User</b></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>" >User</a></td>
 		<td class="header"><b>Description</b></td>
 		<td class="headerR"><b>Gross</b></td>
 		<td class="headerR"><b>Tax</b></td>

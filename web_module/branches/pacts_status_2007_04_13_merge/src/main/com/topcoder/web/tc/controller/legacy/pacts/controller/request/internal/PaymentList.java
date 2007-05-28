@@ -218,7 +218,12 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     return arg0.getUser().getFirst().compareTo(arg1.getUser().getFirst());
                 }
             });
-        } else  if (sortCol.equals("2")) {
+        } else  if (sortCol.equals("3")) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return arg0.getUser().getHandle().compareTo(arg1.getUser().getHandle());
+                }
+            });
         }
 
         if (invert) {
