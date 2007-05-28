@@ -16,90 +16,90 @@ public interface IBoardRow {
     /**
      * @return Returns the phase.
      */
-    public abstract long getPhase();
+    long getPhase();
 
     /**
      * @param phase The phase to set.
      */
-    public abstract void setPhase(long phase);
+    void setPhase(long phase);
 
     /**
      * @return Returns the period.
      */
-    public abstract long getPeriod();
+    long getPeriod();
 
     /**
      * @param period The period to set.
      */
-    public abstract void setPeriod(long period);
+    void setPeriod(long period);
 
     /**
      * @return Returns the userName.
      */
-    public abstract String getUserName();
+    String getUserName();
 
     /**
      * @param userName The userName to set.
      */
-    public abstract void setUserName(String userName);
+    void setUserName(String userName);
 
     /**
      * @return Returns the placementPrize.
      */
-    public abstract double getPlacementPrize();
+    double getPlacementPrize();
 
     /**
      * @param placementPrize The placementPrize to set.
      */
-    public abstract void setPlacementPrize(double placementPrize);
+    void setPlacementPrize(double placementPrize);
 
     /**
      * @return Returns the points.
      */
-    public abstract double getPoints();
+    double getPoints();
 
     /**
      * @param points The points to set.
      */
-    public abstract void setPoints(double points);
+    void setPoints(double points);
 
     /**
      * @return Returns the rank.
      */
-    public abstract long getRank();
+    long getRank();
 
     /**
      * @param rank The rank to set.
      */
-    public abstract void setRank(long rank);
+    void setRank(long rank);
 
     /**
      * @return Returns the userId.
      */
-    public abstract long getUserId();
+    long getUserId();
 
     /**
      * @param userId The userId to set.
      */
-    public abstract void setUserId(long userId);
+    void setUserId(long userId);
 
     /**
      * @return true if the coder will win a trip.
      */
-    public abstract boolean isWinTrip();
+    boolean isWinTrip();
 
     /**
      * @return Returns the potential Points.
      */
-    public double getPotentialPoints();
+    double getPotentialPoints();
 
     /**
      * @param potential Points The potential Points to set.
      */
-    public void setPotentialPoints(double potentialPoints);
+    void setPotentialPoints(double potentialPoints);
 
     /**
      * @return Returns the total points.
      */
-    public double getTotalPoints();
+    double getTotalPoints();
 }
