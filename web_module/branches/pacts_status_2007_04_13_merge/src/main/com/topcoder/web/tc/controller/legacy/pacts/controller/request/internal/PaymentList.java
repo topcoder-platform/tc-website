@@ -16,7 +16,6 @@ import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeaderList;
@@ -34,19 +33,19 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 	public static final String GROUP_RELIABILITY = "gr";
 	public static final String TOGGLE_GROUP_RELIABILITY = "tgr";
 
-    public static final String FIRST_COL = "1";
-    public static final String LAST_COL = "2";
-    public static final String USER_COL = "3";
-    public static final String DESC_COL = "4";
-    public static final String GROSS_COL = "5";
-    public static final String TAX_COL = "6";
-    public static final String NET_COL = "7";
-    public static final String TYPE_COL = "8";
-    public static final String METHOD_COL = "9";
-    public static final String STATUS_COL = "10";
-    public static final String CLIENT_COL = "11";
-    public static final String CREATED_COL = "12";
-    public static final String MODIFIED_COL = "13";
+    public static final int FIRST_COL = 1;
+    public static final int LAST_COL = 2;
+    public static final int USER_COL = 3;
+    public static final int DESC_COL = 4;
+    public static final int GROSS_COL = 5;
+    public static final int TAX_COL = 6;
+    public static final int NET_COL = 7;
+    public static final int TYPE_COL = 8;
+    public static final int METHOD_COL = 9;
+    public static final int STATUS_COL = 10;
+    public static final int CLIENT_COL = 11;
+    public static final int CREATED_COL = 12;
+    public static final int MODIFIED_COL = 13;
     
     
     protected void businessProcessing() throws TCWebException {
@@ -322,19 +321,19 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         }
         
         SortInfo s = new SortInfo();
-        s.addDefault(Integer.parseInt(FIRST_COL), "asc");
-        s.addDefault(Integer.parseInt(LAST_COL), "asc");
-        s.addDefault(Integer.parseInt(USER_COL), "asc");
-        s.addDefault(Integer.parseInt(DESC_COL), "asc");
-        s.addDefault(Integer.parseInt(GROSS_COL), "desc");
-        s.addDefault(Integer.parseInt(TAX_COL), "desc");
-        s.addDefault(Integer.parseInt(NET_COL), "desc");
-        s.addDefault(Integer.parseInt(TYPE_COL), "asc");
-        s.addDefault(Integer.parseInt(METHOD_COL), "asc");
-        s.addDefault(Integer.parseInt(STATUS_COL), "asc");
-        s.addDefault(Integer.parseInt(CLIENT_COL), "asc");
-        s.addDefault(Integer.parseInt(CREATED_COL), "desc");
-        s.addDefault(Integer.parseInt(MODIFIED_COL), "desc");
+        s.addDefault(FIRST_COL, "asc");
+        s.addDefault(LAST_COL, "asc");
+        s.addDefault(USER_COL, "asc");
+        s.addDefault(DESC_COL, "asc");
+        s.addDefault(GROSS_COL, "desc");
+        s.addDefault(TAX_COL, "desc");
+        s.addDefault(NET_COL, "desc");
+        s.addDefault(TYPE_COL, "asc");
+        s.addDefault(METHOD_COL, "asc");
+        s.addDefault(STATUS_COL, "asc");
+        s.addDefault(CLIENT_COL, "asc");
+        s.addDefault(CREATED_COL, "desc");
+        s.addDefault(MODIFIED_COL, "desc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 
