@@ -233,6 +233,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         case FIRST_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    if (arg0.getUser().getFirst() == null) {
+                        return 1;
+                    }
                     return arg0.getUser().getFirst().toUpperCase().compareTo(arg1.getUser().getFirst().toUpperCase());
                 }
             });
@@ -240,6 +243,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         case LAST_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    if (arg0.getUser().getLast() == null) {
+                        return 1;
+                    }
                     return arg0.getUser().getLast().toUpperCase().compareTo(arg1.getUser().getLast().toUpperCase());
                 }
             });
@@ -247,6 +253,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         case USER_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    if (arg0.getUser().getHandle() == null) {
+                        return 1;
+                    }
                     return arg0.getUser().getHandle().toUpperCase().compareTo(arg1.getUser().getHandle().toUpperCase());
                 }
             });
@@ -254,6 +263,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         case DESC_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    if (arg0.getDescription() == null) {
+                        return 1;
+                    }
                     return arg0.getDescription().toUpperCase().compareTo(arg1.getDescription().toUpperCase());
                 }
             });
@@ -285,6 +297,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         case TYPE_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    if (arg0.getType() == null) {
+                        return 1;
+                    }
                     return arg0.getType().toUpperCase().compareTo(arg1.getType().toUpperCase());
                 }
             });
@@ -292,6 +307,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         case METHOD_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    if (arg0.getMethod() == null) {
+                        return 1;
+                    }
                     return arg0.getMethod().toUpperCase().compareTo(arg1.getMethod().toUpperCase());
                 }
             });
@@ -299,6 +317,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             case STATUS_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    if (arg0.getRecentStatus() == null) {
+                        return 1;
+                    }
                     return arg0.getRecentStatus().toUpperCase().compareTo(arg1.getRecentStatus().toUpperCase());
                 }
             });
@@ -306,6 +327,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         case CLIENT_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    if (arg0.getClient() == null) {
+                        return 1;
+                    }
                     return arg0.getClient().toUpperCase().compareTo(arg1.getClient().toUpperCase());
                 }
             });
@@ -313,7 +337,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         case CREATED_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YY");
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
                     try {
                         return (sdf.parse(arg0.getCreateDate())).compareTo(sdf.parse(arg1.getCreateDate()));
                     } catch (ParseException e) {
@@ -325,7 +349,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         case MODIFIED_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YY");
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy");
                     try {
                         return (sdf.parse(arg0.getModifyDate())).compareTo(sdf.parse(arg1.getModifyDate()));
                     } catch (ParseException e) {
@@ -337,7 +361,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         default:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    return (new Long(arg0.getId()).compareTo(arg1.getId()));
+                    return (new Long(arg1.getId()).compareTo(arg0.getId()));
                 }
             });
             break;
