@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.PaymentList" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -7,6 +8,7 @@
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
 <%--<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />--%>
 <c:set var="paymentList" value="<%= request.getAttribute(PaymentList.PAYMENTS) %>" />
@@ -30,7 +32,89 @@
         font-weight: bold;
         text-decoration: none;
 }
+table {
+empty-cells:show;
+}
+td, th {
+color:#333333;
+font-family:Arial,Helvetica,Verdana,sans-serif;
+font-size:12px;
+line-height:1.4;
+text-decoration:none;
+}
+table.stat {
+border-color:#999999 rgb(153, 153, 153) rgb(204, 204, 204);
+border-style:solid;
+border-width:1px 1px 7px;
+padding:0px;
+vertical-align:top;
+}
+table.stat td, table.stat th {
+line-height:normal;
+padding:2px 4px;
+}
+table.stat th.title, table.stat td.title {
+background-color:#999999;
+background-image:url(/i/stats/headerBG.gif);
+border-bottom:1px solid #999999;
+font-size:12px;
+font-weight:bold;
+text-align:left;
+text-decoration:none;
+white-space:nowrap;
+}
+table.stat th, table.stat td.header, table.stat td.headerC, table.stat td.headerR {
+background-color:#E5E5E5;
+color:#000000;
+font-size:11px;
+font-weight:bold;
+vertical-align:middle;
+}
+table.stat td.headerC {
+text-align:center;
+}
+table.stat td.headerR {
+text-align:right;
+}
+table.stat tr.light td {
+background-color:#F5F5F5;
+}
+table.stat tr.dark td {
+background-color:#EFEFEF;
+}
+table.stat td.value, table.stat td.valueC, table.stat td.valueR {
+border-top:1px solid #FFFFFF;
+font-size:11px;
+vertical-align:top;
+}
+table.stat td.valueC {
+text-align:center;
+}
+table.stat td.valueR {
+text-align:right;
+}
+table.stat td.field {
+color:#000000;
+font-size:11px;
+font-weight:bold;
+vertical-align:top;
+}
+table.stat a:link, table.stat a:visited {
+text-decoration:none;
+}
+table.stat a:hover, table.stat a:active {
+text-decoration:underline;
+}
+table.stat tr.highlight td {
+background-color:#EEEEFF;
+border-bottom:1px solid #0000FF;
+border-top:1px solid #0000FF;
+font-weight:bold;
+}
+
+
 </style>
+
 </head>
 <body>
 <script type="text/javascript">
@@ -58,6 +142,8 @@ ${fn:length(paymentList)} records. <br />
    <input type="hidden" name="module" value="NewPaymentEvent">
    <input type=hidden name="query" value="${query}">
 
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.PROJECT_ID%>" value="<%=request.getAttribute(PactsConstants.PROJECT_ID).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.HANDLE%>" value="<%=request.getAttribute(PactsConstants.HANDLE).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_CREATION_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_CREATION_DATE).toString()%>"/>
@@ -89,25 +175,26 @@ ${fn:length(paymentList)} records. <br />
 
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
-
+<br/>
 <c:set var="totalNet" value="0" />
-<table id="datatable" border="0" cellpadding="5" cellspacing="0">
+<table id="datatable" border="0" cellpadding="5" cellspacing="0"  class="stat" width="100%">
 	<tr>
-		<td></td>
-		<td><b>First</b></td>
-		<td><b>Last</b></td>
-		<td><b>User</b></td>
-		<td><b>Description</b></td>
-		<td><b>Gross</b></td>
-		<td><b>Tax</b></td>
-		<td><b>Net</b></td>
-		<td><b>Type</b></td>
-		<td><b>Method</b></td>
-		<td><b>Status</b></td>
-		<td><b>Client</b></td>
-		<td><b>Created</b></td>
-		<td><b>Modified</b></td>
+		<td class="header"></td>
+		<td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>" >First</a></td>
+		<td class="header"><b>Last</b></td>
+		<td class="header"><b>User</b></td>
+		<td class="header"><b>Description</b></td>
+		<td class="headerR"><b>Gross</b></td>
+		<td class="headerR"><b>Tax</b></td>
+		<td class="headerR"><b>Net</b></td>
+		<td class="header"><b>Type</b></td>
+		<td class="header"><b>Method</b></td>
+		<td class="header"><b>Status</b></td>
+		<td class="header"><b>Client</b></td>
+		<td class="headerC"><b>Created</b></td>
+		<td class="headerC"><b>Modified</b></td>
 	</tr>
+    <% boolean even = true;%>
 	<c:forEach var="payment" items="${paymentList}">
 			<c:set var="composed" value="false" />	
 			<c:set var="mark" value="" />
@@ -116,7 +203,7 @@ ${fn:length(paymentList)} records. <br />
                 <c:set var="mark" value="*" />
 			</c:if>
 		<c:set var="totalNet" value="${totalNet + payment.recentNetAmount}" />
-		<tr>
+        <tr class="<%=even?"light":"dark"%>">
 		<td> 
             <c:choose>
 				<c:when test="${composed}">
@@ -134,23 +221,23 @@ ${fn:length(paymentList)} records. <br />
             </c:choose>
 		
 		</td>
-		<td><c:out value="${payment.user.first}" /></td>
-		<td><c:out value="${payment.user.last}" /></td>
-		<td><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
-		<td><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
+		<td class="value"><c:out value="${payment.user.first}" /></td>
+		<td class="value"><c:out value="${payment.user.last}" /></td>
+		<td class="value"><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
+		<td class="value"><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
 			<c:if test="${composed}"> + 
 			     <a href="${pacts:viewPayment(reliabilityMap[payment.id])}">Reliability</a>
 			</c:if>
 		</td>
-		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-		<td><c:out value="${payment.type}" /></td>
-		<td><c:out value="${payment.method}" /></td>
-		<td><c:out value="${payment.recentStatus}" /><c:out value="${payment.currentStatus.reasonsText}"/></td>
-		<td><c:out value="${payment.client}" /></td>
-		<td><c:out value="${payment.createDate}" /> </td>
-		<td><c:out value="${payment.modifyDate}" /> </td>
+		<td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+		<td class="value"><c:out value="${payment.type}" /></td>
+		<td class="value"><c:out value="${payment.method}" /></td>
+		<td class="value"><c:out value="${payment.recentStatus}" /> <c:out value="${payment.currentStatus.reasonsText}"/></td>
+		<td class="value"><c:out value="${payment.client}" /></td>
+		<td class="valueC"><c:out value="${payment.createDate}" /> </td>
+		<td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
 		</tr>
         <tr>
         <td colspan=3>
@@ -163,6 +250,7 @@ ${fn:length(paymentList)} records. <br />
             </span>
         </td>
         </tr>
+         <% even = !even;%>
 	</c:forEach>
 	<tr>
 		<td colspan="7"><b>Total Net Amount:</b>
@@ -172,6 +260,7 @@ ${fn:length(paymentList)} records. <br />
 	</tr>
 	
 	</table>
+<br/>
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 <br>

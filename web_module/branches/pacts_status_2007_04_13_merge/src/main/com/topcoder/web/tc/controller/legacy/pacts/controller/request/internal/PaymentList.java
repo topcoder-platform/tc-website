@@ -1,20 +1,25 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
 
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeaderList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+import com.topcoder.web.tc.model.dr.IBoardRow;
 
 /**
  * Display a Payment List
@@ -27,12 +32,13 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 	public static final String RELIABILITY = "reliability";
 	public static final String GROUP_RELIABILITY = "gr";
 	public static final String TOGGLE_GROUP_RELIABILITY = "tgr";
-    
-    protected void businessProcessing() throws TCWebException {
 
-    	
+    protected void businessProcessing() throws TCWebException {
         try {
-        	boolean groupRel = !"false".equals(getRequest().getParameter(GROUP_RELIABILITY));
+            boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
+            String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+
+            boolean groupRel = !"false".equals(getRequest().getParameter(GROUP_RELIABILITY));
         	String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
             getRequest().setAttribute("query", requestQuery);
             log.debug("QueryString: " + requestQuery);
@@ -57,7 +63,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 	}
                 }
     
-                List payments = new ArrayList();
+                List<PaymentHeader> payments = new ArrayList<PaymentHeader>();
                 Map reliability = new HashMap();
                 
                 for (int i = 0; i < results.length; i++) {
@@ -83,6 +89,9 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
                 
                 if (results.length != 1) {
+                    // sort payments
+                    sortResult(payments, sortCol, invert);
+                    
                     getRequest().setAttribute(PAYMENTS, payments);
                     getRequest().setAttribute(RELIABILITY, reliability);
                     getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
@@ -188,6 +197,37 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     		}
     	}
     	return valuesStr.toString();
+    }
+
+    /**
+     * Sorts coders list.
+     *
+     * @param boardResult the original board list.
+     * @param invert      true if the order is descending.
+     * @return the sorted list.
+     */
+    protected void sortResult(List<PaymentHeader> result, String sortCol, boolean invert) {
+        if (result.size() == 0) {
+            return;
+        }
+
+        // all other columns are already sorted (rank)
+        if (sortCol.equals("1")) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return arg0.getUser().getFirst().compareTo(arg1.getUser().getFirst());
+                }
+            });
+        } else  if (sortCol.equals("2")) {
+        }
+
+        if (invert) {
+            Collections.reverse(result);
+        }
+        
+        SortInfo s = new SortInfo();
+        s.addDefault(Integer.parseInt("1"), "asc");
+        getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 
 }
