@@ -2754,6 +2754,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append(whereClauses.toString());
         selectHeaders.append(" ORDER BY 1");
 
+        // TODO: pulky: take this log out
+        log.debug("query: " + selectHeaders.toString());
+        
         ResultSetContainer rsc = runSearchQuery(selectHeaders.toString(), objects, true);
         HashMap hm = new HashMap();
         hm.put(PAYMENT_HEADER_LIST, rsc);
