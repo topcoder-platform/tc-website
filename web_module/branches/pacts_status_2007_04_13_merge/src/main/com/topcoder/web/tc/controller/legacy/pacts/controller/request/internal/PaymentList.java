@@ -51,7 +51,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     protected void businessProcessing() throws TCWebException {
         try {
             boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-            String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+            int sortCol = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN)));
 
             boolean groupRel = !"false".equals(getRequest().getParameter(GROUP_RELIABILITY));
         	String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
@@ -212,87 +212,100 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     }
 
     /**
-     * Sorts coders list.
+     * Sorts payment list.
      *
-     * @param boardResult the original board list.
-     * @param invert      true if the order is descending.
+     * @param result the original payment list.
+     * @param sortcol the columnt to sort with.
+     * @param invert true if the order is descending.
      * @return the sorted list.
      */
-    protected void sortResult(List<PaymentHeader> result, String sortCol, boolean invert) {
+    protected void sortResult(List<PaymentHeader> result, int sortCol, boolean invert) {
         if (result.size() == 0) {
             return;
         }
 
-        if (sortCol.equals(FIRST_COL)) {
+        switch (sortCol) {
+        case FIRST_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return arg0.getUser().getFirst().toUpperCase().compareTo(arg1.getUser().getFirst().toUpperCase());
                 }
             });
-        } else  if (sortCol.equals(LAST_COL)) {
+            break;
+        case LAST_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return arg0.getUser().getLast().toUpperCase().compareTo(arg1.getUser().getLast().toUpperCase());
                 }
             });
-        } else  if (sortCol.equals(USER_COL)) {
+            break;
+        case USER_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return arg0.getUser().getHandle().toUpperCase().compareTo(arg1.getUser().getHandle().toUpperCase());
                 }
             });
-        } else  if (sortCol.equals(DESC_COL)) {
+            break;
+        case DESC_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return arg0.getDescription().toUpperCase().compareTo(arg1.getDescription().toUpperCase());
                 }
             });
-        } else  if (sortCol.equals(GROSS_COL)) {
+            break;
+        case GROSS_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return new Double(arg0.getRecentGrossAmount()).compareTo(arg1.getRecentGrossAmount());
                     
                 }
             });
-        } else  if (sortCol.equals(TAX_COL)) {
+            break;
+        case TAX_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return new Double(arg0.getRecentGrossAmount() - arg0.getRecentNetAmount()).compareTo(arg1.getRecentGrossAmount() - arg1.getRecentNetAmount());
                     
                 }
             });
-        } else  if (sortCol.equals(NET_COL)) {
+            break;
+        case NET_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return new Double(arg0.getRecentNetAmount()).compareTo(arg1.getRecentNetAmount());
                     
                 }
             });
-        } else  if (sortCol.equals(TYPE_COL)) {
+            break;
+        case TYPE_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return arg0.getType().toUpperCase().compareTo(arg1.getType().toUpperCase());
                 }
             });
-        } else  if (sortCol.equals(METHOD_COL)) {
+            break;
+        case METHOD_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return arg0.getMethod().toUpperCase().compareTo(arg1.getMethod().toUpperCase());
                 }
             });
-        } else  if (sortCol.equals(STATUS_COL)) {
+            break;
+            case STATUS_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return arg0.getRecentStatus().toUpperCase().compareTo(arg1.getRecentStatus().toUpperCase());
                 }
             });
-        } else  if (sortCol.equals(CLIENT_COL)) {
+            break;
+        case CLIENT_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     return arg0.getClient().toUpperCase().compareTo(arg1.getClient().toUpperCase());
                 }
             });
-        } else  if (sortCol.equals(CREATED_COL)) {
+            break;
+        case CREATED_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YY");
@@ -303,7 +316,8 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     }
                 }
             });
-        } else  if (sortCol.equals(MODIFIED_COL)) {
+            break;
+        case MODIFIED_COL:
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
                     SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YY");
@@ -314,6 +328,7 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                     }
                 }
             });
+            break;
         }
 
         if (invert) {
