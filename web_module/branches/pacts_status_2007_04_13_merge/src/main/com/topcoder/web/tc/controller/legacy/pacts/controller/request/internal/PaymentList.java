@@ -334,6 +334,13 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
             });
             break;
+        default:
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return (new Long(arg0.getId()).compareTo(arg1.getId()));
+                }
+            });
+            break;
         }
 
         if (invert) {
