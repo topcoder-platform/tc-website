@@ -51,7 +51,12 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
     protected void businessProcessing() throws TCWebException {
         try {
             boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-            int sortCol = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN)));
+
+            int sortCol = 0;
+
+            if (!"".equals(StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN)).trim())) {
+                sortCol = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN)));
+            }
 
             boolean groupRel = !"false".equals(getRequest().getParameter(GROUP_RELIABILITY));
         	String requestQuery = INTERNAL_SERVLET_URL + "?" + getRequest().getQueryString();
