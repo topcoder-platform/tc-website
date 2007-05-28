@@ -83,9 +83,9 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
                 // check total amount for currently accruing payments for this user
                 double totalAmount = dib.getUserAccruingPaymentsTotal(payment.getCoderId());
                 log.debug("totalAmount: " + totalAmount);
-                log.debug("payment.getGrossAmount(): " + payment.getGrossAmount());
+                log.debug("payment.getNetAmount(): " + payment.getNetAmount());
                 
-                if (totalAmount + payment.getGrossAmount() > accrualThreshold) {
+                if (totalAmount + payment.getNetAmount() > accrualThreshold) {
                     // we have reached the amount, notify all accrual payments and move to the next status
                     log.debug("need to notify all accruing payments");
                     Map criteria = new HashMap();

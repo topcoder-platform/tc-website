@@ -1316,7 +1316,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             conn = DBMS.getConnection(trxDataSource);
             StringBuffer sb = new StringBuffer(300);
             
-            sb.append("select nvl(sum(pd.gross_amount), 0) as total from payment p, payment_detail pd where "); 
+            sb.append("select nvl(sum(pd.net_amount), 0) as total from payment p, payment_detail pd where "); 
             sb.append("p.most_recent_detail_id = pd.payment_detail_id ");
             sb.append("and p.user_id = " + userId);
             sb.append("and pd.payment_status_id = " + PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()); 
@@ -1834,23 +1834,29 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
         }
 
-        AssignmentDocument oldAssignmentDocumentInstance = null;
-        if (ad.getId() != null) {
-            // update
-            oldAssignmentDocumentInstance = getAssignmentDocument(ad.getId().longValue());
-
-            if (oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
-                    (ad.getStatus().getId().equals(AssignmentDocumentStatus.DELETED_STATUS_ID))) {
-                throw new DeleteAffirmedAssignmentDocumentException("Assignment Document cannot be deleted or rejected since it was affirmed");
-            }
-        }
-
         // only update text if it's an addition or the AD is being affirmed.
         boolean updateText = false;
         // store
         try {
             c = DBMS.getConnection(trxDataSource);
             
+            AssignmentDocument oldAssignmentDocumentInstance = null;
+            if (ad.getId() != null) {
+                // update
+                oldAssignmentDocumentInstance = getAssignmentDocument(ad.getId().longValue());
+
+                if (oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
+                        (ad.getStatus().getId().equals(AssignmentDocumentStatus.DELETED_STATUS_ID))) {
+                    throw new DeleteAffirmedAssignmentDocumentException("Assignment Document cannot be deleted or rejected since it was affirmed");
+                }
+                
+                if (!oldAssignmentDocumentInstance.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID) &&
+                        (ad.getStatus().getId().equals(AssignmentDocumentStatus.AFFIRMED_STATUS_ID))) {
+                    // notify the payment status manager the new affirmed assignment document
+                    (new PaymentStatusManager()).affirmedIPTransfer(ad);
+                }
+            }
+
             if (ad.getText() == null || ad.getText().trim().length() == 0) {
                 // template is transformed if the ad is created with affirmed status 
                 // or the status is updated to affirmed. (and the text is empty)
@@ -2075,8 +2081,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         try {
             addAssignmentDocument(ad);
-            
-            (new PaymentStatusManager()).affirmedIPTransfer(ad);
         } catch (Exception e) {
             printException(e);
             ejbContext.setRollbackOnly();

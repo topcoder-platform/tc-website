@@ -134,6 +134,10 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         recentStatus = TCData.getTCString(rsr, "payment_status_desc", "default status", true);
         recentStatusId = TCData.getTCInt(rsr, "payment_status_id", 0, true);
         try {
+            for (int i = 0; i < rsc.getColumnCount(); i++) {
+                log.debug("column " + i + " - " +rsc.getColumns()[0].getName());
+            }
+
             currentStatus = PaymentStatusFactory.createStatus((long)recentStatusId);
             long recentReasonId = TCData.getTCLong(rsr, "payment_status_reason_id", 0, true);
             if (recentReasonId != 0) {
