@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -19,12 +21,11 @@ import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeaderList;
 import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
-import com.topcoder.web.tc.model.dr.IBoardRow;
 
 /**
  * Display a Payment List
  *
- * @author  cucu
+ * @author  cucu, pulky
  */
 public class PaymentList extends PactsBaseProcessor implements PactsConstants {
    	
@@ -33,6 +34,21 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
 	public static final String GROUP_RELIABILITY = "gr";
 	public static final String TOGGLE_GROUP_RELIABILITY = "tgr";
 
+    public static final String FIRST_COL = "1";
+    public static final String LAST_COL = "2";
+    public static final String USER_COL = "3";
+    public static final String DESC_COL = "4";
+    public static final String GROSS_COL = "5";
+    public static final String TAX_COL = "6";
+    public static final String NET_COL = "7";
+    public static final String TYPE_COL = "8";
+    public static final String METHOD_COL = "9";
+    public static final String STATUS_COL = "10";
+    public static final String CLIENT_COL = "11";
+    public static final String CREATED_COL = "12";
+    public static final String MODIFIED_COL = "13";
+    
+    
     protected void businessProcessing() throws TCWebException {
         try {
             boolean invert = "desc".equals(getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
@@ -91,44 +107,41 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 if (results.length != 1) {
                     // sort payments
                     sortResult(payments, sortCol, invert);
-                    
-                    getRequest().setAttribute(PAYMENTS, payments);
-                    getRequest().setAttribute(RELIABILITY, reliability);
-                    getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
-    
-                    // mirror parameters
-                    getRequest().setAttribute(PAYMENT_ID, StringUtils.htmlEncode(getRequest().getParameter(PAYMENT_ID)));
-                    getRequest().setAttribute(PROJECT_ID, StringUtils.htmlEncode(getRequest().getParameter(PROJECT_ID)));
-                    getRequest().setAttribute(HANDLE, StringUtils.htmlEncode(getRequest().getParameter(HANDLE)));
-                    getRequest().setAttribute(EARLIEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_CREATION_DATE)));
-                    getRequest().setAttribute(LATEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_CREATION_DATE)));
-                    getRequest().setAttribute(EARLIEST_MODIFICATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_MODIFICATION_DATE)));
-                    getRequest().setAttribute(LATEST_MODIFICATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_MODIFICATION_DATE)));
-                    getRequest().setAttribute(EARLIEST_PAY_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_PAY_DATE)));
-                    getRequest().setAttribute(LATEST_PAY_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_PAY_DATE)));
-                    getRequest().setAttribute(EARLIEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_DUE_DATE)));
-                    getRequest().setAttribute(LATEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_DUE_DATE)));
-                    getRequest().setAttribute(LOWEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(LOWEST_NET_AMOUNT)));
-                    getRequest().setAttribute(HIGHEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(HIGHEST_NET_AMOUNT)));
-                    getRequest().setAttribute(STATUS_CODE, StringUtils.htmlEncode(getRequest().getParameter(STATUS_CODE)));
-                    getRequest().setAttribute(TYPE_CODE, StringUtils.htmlEncode(getRequest().getParameter(TYPE_CODE)));
-                    getRequest().setAttribute(METHOD_CODE, StringUtils.htmlEncode(getRequest().getParameter(METHOD_CODE)));
-    
-                    getRequest().setAttribute(AFFIDAVIT_ID, StringUtils.htmlEncode(getRequest().getParameter(AFFIDAVIT_ID)));
-                    getRequest().setAttribute(CONTRACT_ID, StringUtils.htmlEncode(getRequest().getParameter(CONTRACT_ID)));
-                    getRequest().setAttribute(USER_ID, StringUtils.htmlEncode(getRequest().getParameter(USER_ID)));
-                    
-                    if (getRequest().getAttribute(CHECKED_PAYMENT_ID) == null) {
-                        getRequest().setAttribute(CHECKED_PAYMENT_ID, "");                        
-                    }                    
-                    
-                    String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
-                    getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
-                    
-                    setNextPage(INTERNAL_PAYMENT_LIST_JSP);
-                } else {
-                    setNextPage(Links.viewPayment(results[0].getId()));
-                }
+                }                    
+                getRequest().setAttribute(PAYMENTS, payments);
+                getRequest().setAttribute(RELIABILITY, reliability);
+                getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
+
+                // mirror parameters
+                getRequest().setAttribute(PAYMENT_ID, StringUtils.htmlEncode(getRequest().getParameter(PAYMENT_ID)));
+                getRequest().setAttribute(PROJECT_ID, StringUtils.htmlEncode(getRequest().getParameter(PROJECT_ID)));
+                getRequest().setAttribute(HANDLE, StringUtils.htmlEncode(getRequest().getParameter(HANDLE)));
+                getRequest().setAttribute(EARLIEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_CREATION_DATE)));
+                getRequest().setAttribute(LATEST_CREATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_CREATION_DATE)));
+                getRequest().setAttribute(EARLIEST_MODIFICATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_MODIFICATION_DATE)));
+                getRequest().setAttribute(LATEST_MODIFICATION_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_MODIFICATION_DATE)));
+                getRequest().setAttribute(EARLIEST_PAY_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_PAY_DATE)));
+                getRequest().setAttribute(LATEST_PAY_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_PAY_DATE)));
+                getRequest().setAttribute(EARLIEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(EARLIEST_DUE_DATE)));
+                getRequest().setAttribute(LATEST_DUE_DATE, StringUtils.htmlEncode(getRequest().getParameter(LATEST_DUE_DATE)));
+                getRequest().setAttribute(LOWEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(LOWEST_NET_AMOUNT)));
+                getRequest().setAttribute(HIGHEST_NET_AMOUNT, StringUtils.htmlEncode(getRequest().getParameter(HIGHEST_NET_AMOUNT)));
+                getRequest().setAttribute(STATUS_CODE, StringUtils.htmlEncode(getRequest().getParameter(STATUS_CODE)));
+                getRequest().setAttribute(TYPE_CODE, StringUtils.htmlEncode(getRequest().getParameter(TYPE_CODE)));
+                getRequest().setAttribute(METHOD_CODE, StringUtils.htmlEncode(getRequest().getParameter(METHOD_CODE)));
+
+                getRequest().setAttribute(AFFIDAVIT_ID, StringUtils.htmlEncode(getRequest().getParameter(AFFIDAVIT_ID)));
+                getRequest().setAttribute(CONTRACT_ID, StringUtils.htmlEncode(getRequest().getParameter(CONTRACT_ID)));
+                getRequest().setAttribute(USER_ID, StringUtils.htmlEncode(getRequest().getParameter(USER_ID)));
+                
+                if (getRequest().getAttribute(CHECKED_PAYMENT_ID) == null) {
+                    getRequest().setAttribute(CHECKED_PAYMENT_ID, "");                        
+                }                    
+                
+                String toggle = requestQuery.replaceAll(GROUP_RELIABILITY + "=" + groupRel, "") + "&" + GROUP_RELIABILITY + "=" + !groupRel;
+                getRequest().setAttribute(TOGGLE_GROUP_RELIABILITY, toggle);
+                
+                setNextPage(INTERNAL_PAYMENT_LIST_JSP);
                 setIsNextPageInContext(true);
             } else {
                 throw new TCWebException("You must specify a filter for the payment list");
@@ -211,17 +224,95 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
             return;
         }
 
-        // all other columns are already sorted (rank)
-        if (sortCol.equals("1")) {
+        if (sortCol.equals(FIRST_COL)) {
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    return arg0.getUser().getFirst().compareTo(arg1.getUser().getFirst());
+                    return arg0.getUser().getFirst().toUpperCase().compareTo(arg1.getUser().getFirst().toUpperCase());
                 }
             });
-        } else  if (sortCol.equals("3")) {
+        } else  if (sortCol.equals(LAST_COL)) {
             Collections.sort(result, new Comparator<PaymentHeader>() {
                 public int compare(PaymentHeader arg0, PaymentHeader arg1) {
-                    return arg0.getUser().getHandle().compareTo(arg1.getUser().getHandle());
+                    return arg0.getUser().getLast().toUpperCase().compareTo(arg1.getUser().getLast().toUpperCase());
+                }
+            });
+        } else  if (sortCol.equals(USER_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return arg0.getUser().getHandle().toUpperCase().compareTo(arg1.getUser().getHandle().toUpperCase());
+                }
+            });
+        } else  if (sortCol.equals(DESC_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return arg0.getDescription().toUpperCase().compareTo(arg1.getDescription().toUpperCase());
+                }
+            });
+        } else  if (sortCol.equals(GROSS_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return new Double(arg0.getRecentGrossAmount()).compareTo(arg1.getRecentGrossAmount());
+                    
+                }
+            });
+        } else  if (sortCol.equals(TAX_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return new Double(arg0.getRecentGrossAmount() - arg0.getRecentNetAmount()).compareTo(arg1.getRecentGrossAmount() - arg1.getRecentNetAmount());
+                    
+                }
+            });
+        } else  if (sortCol.equals(NET_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return new Double(arg0.getRecentNetAmount()).compareTo(arg1.getRecentNetAmount());
+                    
+                }
+            });
+        } else  if (sortCol.equals(TYPE_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return arg0.getType().toUpperCase().compareTo(arg1.getType().toUpperCase());
+                }
+            });
+        } else  if (sortCol.equals(METHOD_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return arg0.getMethod().toUpperCase().compareTo(arg1.getMethod().toUpperCase());
+                }
+            });
+        } else  if (sortCol.equals(STATUS_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return arg0.getRecentStatus().toUpperCase().compareTo(arg1.getRecentStatus().toUpperCase());
+                }
+            });
+        } else  if (sortCol.equals(CLIENT_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    return arg0.getClient().toUpperCase().compareTo(arg1.getClient().toUpperCase());
+                }
+            });
+        } else  if (sortCol.equals(CREATED_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YY");
+                    try {
+                        return (sdf.parse(arg0.getCreateDate())).compareTo(sdf.parse(arg1.getCreateDate()));
+                    } catch (ParseException e) {
+                        return 0;
+                    }
+                }
+            });
+        } else  if (sortCol.equals(MODIFIED_COL)) {
+            Collections.sort(result, new Comparator<PaymentHeader>() {
+                public int compare(PaymentHeader arg0, PaymentHeader arg1) {
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/DD/YY");
+                    try {
+                        return (sdf.parse(arg0.getModifyDate())).compareTo(sdf.parse(arg1.getModifyDate()));
+                    } catch (ParseException e) {
+                        return 0;
+                    }
                 }
             });
         }
@@ -231,7 +322,19 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         }
         
         SortInfo s = new SortInfo();
-        s.addDefault(Integer.parseInt("1"), "asc");
+        s.addDefault(Integer.parseInt(FIRST_COL), "asc");
+        s.addDefault(Integer.parseInt(LAST_COL), "asc");
+        s.addDefault(Integer.parseInt(USER_COL), "asc");
+        s.addDefault(Integer.parseInt(DESC_COL), "asc");
+        s.addDefault(Integer.parseInt(GROSS_COL), "desc");
+        s.addDefault(Integer.parseInt(TAX_COL), "desc");
+        s.addDefault(Integer.parseInt(NET_COL), "desc");
+        s.addDefault(Integer.parseInt(TYPE_COL), "asc");
+        s.addDefault(Integer.parseInt(METHOD_COL), "asc");
+        s.addDefault(Integer.parseInt(STATUS_COL), "asc");
+        s.addDefault(Integer.parseInt(CLIENT_COL), "asc");
+        s.addDefault(Integer.parseInt(CREATED_COL), "desc");
+        s.addDefault(Integer.parseInt(MODIFIED_COL), "desc");
         getRequest().setAttribute(SortInfo.REQUEST_KEY, s);
     }
 

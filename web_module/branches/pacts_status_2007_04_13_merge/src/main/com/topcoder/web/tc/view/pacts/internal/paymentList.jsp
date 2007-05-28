@@ -180,19 +180,19 @@ ${fn:length(paymentList)} records. <br />
 <table id="datatable" border="0" cellpadding="5" cellspacing="0"  class="stat" width="100%">
 	<tr>
 		<td class="header"></td>
-		<td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="1" includeParams="true"/>" >First</a></td>
-		<td class="header"><b>Last</b></td>
-        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true"/>" >User</a></td>
-		<td class="header"><b>Description</b></td>
-		<td class="headerR"><b>Gross</b></td>
-		<td class="headerR"><b>Tax</b></td>
-		<td class="headerR"><b>Net</b></td>
-		<td class="header"><b>Type</b></td>
-		<td class="header"><b>Method</b></td>
-		<td class="header"><b>Status</b></td>
-		<td class="header"><b>Client</b></td>
-		<td class="headerC"><b>Created</b></td>
-		<td class="headerC"><b>Modified</b></td>
+		<td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.FIRST_COL%>" includeParams="true"/>" >First</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.LAST_COL%>" includeParams="true"/>" >Last</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.USER_COL%>" includeParams="true"/>" >User</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.DESC_COL%>" includeParams="true"/>" >Description</a></td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.GROSS_COL%>" includeParams="true"/>" >Gross</a></td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.TAX_COL%>" includeParams="true"/>" >Tax</a></td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.NET_COL%>" includeParams="true"/>" >Net</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.TYPE_COL%>" includeParams="true"/>" >Type</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.METHOD_COL%>" includeParams="true"/>" >Method</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.STATUS_COL%>" includeParams="true"/>" >Status</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CLIENT_COL%>" includeParams="true"/>" >Client</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATED_COL%>" includeParams="true"/>" >Created</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFIED_COL%>" includeParams="true"/>" >Modified</a></td>
 	</tr>
     <% boolean even = true;%>
 	<c:forEach var="payment" items="${paymentList}">
