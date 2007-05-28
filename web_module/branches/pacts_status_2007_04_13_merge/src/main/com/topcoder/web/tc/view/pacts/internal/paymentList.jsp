@@ -123,7 +123,7 @@ ${fn:length(paymentList)} records. <br />
                     <c:set var="row_key" value="${payment.id},${reliabilityMap[payment.id]}"/>
                 </c:when>
 				<c:otherwise>
-                    <fmt:formatNumber var="row_key" value="${payment.id}"/>
+                    <fmt:formatNumber var="row_key" value="${payment.id}" groupingUsed="False"/>
                 </c:otherwise>
 			</c:choose>
             <c:choose>
@@ -147,7 +147,7 @@ ${fn:length(paymentList)} records. <br />
 		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
 		<td><c:out value="${payment.type}" /></td>
 		<td><c:out value="${payment.method}" /></td>
-		<td><c:out value="${payment.recentStatus}" /></td>
+		<td><c:out value="${payment.recentStatus}" /><c:out value="${payment.currentStatus.reasonsText}"/></td>
 		<td><c:out value="${payment.client}" /></td>
 		<td><c:out value="${payment.createDate}" /> </td>
 		<td><c:out value="${payment.modifyDate}" /> </td>

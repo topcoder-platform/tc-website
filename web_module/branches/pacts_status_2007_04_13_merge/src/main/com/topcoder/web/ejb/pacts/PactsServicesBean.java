@@ -2669,15 +2669,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append("SELECT p.payment_id, pd.payment_desc, pd.payment_type_id, pd.payment_method_id, p.create_date, pd.create_date as modify_date,  ");
         selectHeaders.append("pt.payment_type_desc, pm.payment_method_desc, pd.net_amount, pd.payment_status_id, s.payment_status_desc, ");
         selectHeaders.append("p.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
-        selectHeaders.append("pd.date_modified, pd.gross_amount, pd.client, ");
+        selectHeaders.append("pd.date_modified, pd.gross_amount, pd.client, pdsrx.payment_status_reason_id, ");
         selectHeaders.append("pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         selectHeaders.append("pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
         selectHeaders.append("pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number ");
 
-
         StringBuffer from = new StringBuffer(300);
         from.append("FROM payment p, payment_type_lu pt, payment_method_lu pm, payment_detail pd, ");
-        from.append("payment_status_lu s, user u, coder c ");
+        from.append("payment_status_lu s, user u, coder c, OUTER payment_detail_status_reason_xref pdsrx ");
 
         StringBuffer whereClauses = new StringBuffer(300);
         whereClauses.append(" WHERE p.most_recent_detail_id = pd.payment_detail_id ");
@@ -2686,6 +2685,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         whereClauses.append(" AND s.payment_status_id = pd.payment_status_id ");
         whereClauses.append(" AND p.user_id = u.user_id ");
         whereClauses.append(" AND u.user_id = c.coder_id ");
+        whereClauses.append(" AND pdsrx.payment_detail_id = pd.payment_detail_id ");
 
         ArrayList objects = new ArrayList();
         Iterator i = searchCriteria.keySet().iterator();

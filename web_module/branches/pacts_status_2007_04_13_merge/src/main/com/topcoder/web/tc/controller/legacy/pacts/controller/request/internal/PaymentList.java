@@ -83,10 +83,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
                 }
                 
                 if (results.length != 1) {
-    //                setDefault("status_id", READY_TO_PRINT_STATUS + "");
-    //                setDefault("status_id",  "");
-                	
-    //                getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());                
                     getRequest().setAttribute(PAYMENTS, payments);
                     getRequest().setAttribute(RELIABILITY, reliability);
                     getRequest().setAttribute(GROUP_RELIABILITY, Boolean.valueOf(groupRel));
@@ -171,8 +167,6 @@ public class PaymentList extends PactsBaseProcessor implements PactsConstants {
         if (param != null && !param.equals("")) query.put(USER_ID, param);
         param = request.getParameter(HANDLE);
         if (param != null && !param.equals("")) query.put(HANDLE, param);
-//        param = request.getParameter(IS_REVIEWED);
-//        if (param != null && !param.equals("")) query.put(IS_REVIEWED, param);
         param = request.getParameter(PROJECT_ID);
         if (param != null && !param.equals("")) query.put(PROJECT_ID, param);
         
