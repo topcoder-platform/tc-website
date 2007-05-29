@@ -5656,7 +5656,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         Map searchCriteria = new HashMap();
 
         searchCriteria.put(PAYMENT_TYPE_ID, String.valueOf(paymentTypeId));
-        searchCriteria.put(PAYMENT_REFERENCE_ID, String.valueOf(paymentTypeId));
+        searchCriteria.put(PAYMENT_REFERENCE_ID, String.valueOf(referenceId));
         return findCoderPayments(searchCriteria);
     }
 
