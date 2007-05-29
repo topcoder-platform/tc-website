@@ -4763,6 +4763,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getHoldPayments.append("WHERE u.status != '" + ACTIVE_CODER_STATUS + "' ");
             if (userId != 0) {
                 getHoldPayments.append("AND u.user_id == " + userId + " ");
+            } else {
+                getHoldPayments.append("AND u.modify_date > current - 7 units day ");
+                getHoldPayments.append("AND user_id in (select distinct user_id from payment) ");
             }
             
             ResultSetContainer users = runSelectQuery(c, getHoldPayments.toString(), false);
