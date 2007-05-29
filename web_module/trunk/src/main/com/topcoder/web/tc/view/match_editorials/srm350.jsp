@@ -159,13 +159,13 @@ public int getDistance(String a, String b, String letterSet)
     a = a.toLowerCase();
     b = b.toLowerCase();
     int ans = 0;
-    for(int i = 0; i < letterSet.length(); i++) {
+    for(int i = 0; i &lt; letterSet.length(); i++) {
         int occa = 0, occb = 0;
         char temp = letterSet.charAt(i);
-        for(int j = 0; j < a.length(); j++) if(a.charAt(j) == temp) {
+        for(int j = 0; j &lt; a.length(); j++) if(a.charAt(j) == temp) {
             occa++;
         }
-        for(int j = 0; j < b.length(); j++) if(b.charAt(j) == temp) {
+        for(int j = 0; j &lt; b.length(); j++) if(b.charAt(j) == temp) {
             occb++;
         }
         ans += (occa - occb) * (occa - occb);
@@ -281,14 +281,14 @@ certain number is already in <tt>s</tt>:
 <pre>
 vector&lt;int&gt; s;
 boolean lookup[5000001];
-for(int i = 0; i <= 5000000; i++) lookup[i] = false;
+for(int i = 0; i &lt;= 5000000; i++) lookup[i] = false;
 s.push_back(0);
 s.push_back(1);
 lookup[0] = true;
 lookup[1] = true;
-for(int i = 2; i < 2237; i++) {
+for(int i = 2; i &lt; 2237; i++) {
     long long a = i;
-    while (a <= 5000000) {
+    while (a &lt;= 5000000) {
         a *= i;
         if (!lookup[a]) {
             s.push_back(a);
@@ -310,9 +310,9 @@ and mark their sum in the <tt>lookup</tt> as
 two perfect powers – zero and itself):
 
 <pre>
-for(int i = 0; i < s.size(); i++)
-    for (int j = 0; j <= i; j++)
-        if (s[i] + s[j] <= 5000000)
+for(int i = 0; i &lt; s.size(); i++)
+    for (int j = 0; j &lt;= i; j++)
+        if (s[i] + s[j] &lt;= 5000000)
             lookup[s[i] + s[j]] = true;
 </pre>
 
@@ -328,15 +328,14 @@ sums of two perfect powers. All that remains is counting such i between
 
 <pre>
 int ans = 0;
-for(int i = lowerBound; i <= upperBound; i++)
+for(int i = lowerBound; i &lt;= upperBound; i++)
     if (lookup[i]) 
         ans++;
 return ans;
 </pre>
 
 For the complete implementation of this approach consult <tc-webtag:handle
-coderId="7462740" context="algorithm">’s <a
-href="/stat?c=problem_solution&amp;rm=264826&amp;rd=10674&amp;pm=7613&amp;cr=7462740">code</a>.
+coderId="7462740" context="algorithm">’s <a href="/stat?c=problem_solution&amp;rm=264826&amp;rd=10674&amp;pm=7613&amp;cr=7462740">code</a>.
 <br /><br />
 </p>
 
