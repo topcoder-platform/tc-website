@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.25.07<br>2:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm350">SRM 350 - Problem Set &amp; Analysis</A></span><br><br>
+      Division 2 was marked with a tricky medium and quite a straight-forward hard. This led to many coders solving the hard one but failing the medium. Thus a plan of skipping the 500-pointer and moving straight to the 1000-pointer really paid off.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Xixas_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22629218" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm350">full story</A> | 
+        <tc-webtag:forumLink forumID="506240" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>05.25.07<br>4:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=MatchDetails&rd=10675">Yodlee chat session scheduled for SRM 351</A></span><br><br>
       Join representatives from Yodlee in the Arena at 6:00 AM EDT on May 29 to learn more about the company and its job opportunities.
@@ -195,21 +212,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.21.07<br>2:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=algorithmGames">Algorithm Games</A></span><br><br>
-      In algorithm games, players usually alternate moves until they reach a terminal position -- one player is then declared the winner, and the other the loser. In this tutorial, we'll look at the basic division of positions to winning and losing, along with a look at the Game of Nim and composite games.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/rasto6sk_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="13396848" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tutorials&d2=algorithmGames">full story</A> | 
-        <tc-webtag:forumLink forumID="515870" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
-
