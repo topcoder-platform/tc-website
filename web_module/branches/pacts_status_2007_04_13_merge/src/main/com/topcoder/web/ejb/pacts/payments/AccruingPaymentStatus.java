@@ -85,7 +85,7 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
                 log.debug("totalAmount: " + totalAmount);
                 log.debug("payment.getNetAmount(): " + payment.getNetAmount());
                 
-                if (totalAmount + payment.getNetAmount() > accrualThreshold) {
+                if (totalAmount + payment.getNetAmount() >= accrualThreshold) {
                     // we have reached the amount, notify all accrual payments and move to the next status
                     log.debug("need to notify all accruing payments");
                     Map criteria = new HashMap();

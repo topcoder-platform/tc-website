@@ -1316,10 +1316,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             conn = DBMS.getConnection(trxDataSource);
             StringBuffer sb = new StringBuffer(300);
             
-            sb.append("select nvl(sum(pd.net_amount), 0) as total from payment p, payment_detail pd where "); 
-            sb.append("p.most_recent_detail_id = pd.payment_detail_id ");
-            sb.append("and p.user_id = " + userId);
-            sb.append("and pd.payment_status_id = " + PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()); 
+            sb.append(" select nvl(sum(pd.net_amount), 0) as total from payment p, payment_detail pd where "); 
+            sb.append(" p.most_recent_detail_id = pd.payment_detail_id ");
+            sb.append(" and p.user_id = " + userId);
+            sb.append(" and (pd.payment_status_id = " + PaymentStatus.ACCRUING_PAYMENT_STATUS.getId()); 
+            sb.append(" or pd.payment_status_id = " + PaymentStatus.OWED_PAYMENT_STATUS.getId() + ")"); 
             
             ResultSetContainer rsc = runSelectQuery(conn, sb.toString(), false);
     
