@@ -5,6 +5,8 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import com.topcoder.web.ejb.pacts.BasePayment;
+
 
 /**
  * This class represents a Paid status for payments. 
@@ -37,6 +39,15 @@ public class PaidPaymentStatus extends BasePaymentStatus {
     @Override
     public String getDesc() {
         return DESC;
+    }
+
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
+     */
+    @Override
+    public int inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
+        // do nothing
+        return 0;
     }
 
     /**

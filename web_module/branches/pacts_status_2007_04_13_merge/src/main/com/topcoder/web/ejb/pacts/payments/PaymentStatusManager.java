@@ -333,13 +333,13 @@ public class PaymentStatusManager {
 
             for (BasePayment payment : payments) {
                 // notify the status manager and update the payment
-                payment.getCurrentStatus().inactiveCoder(payment);
+                cancelled += payment.getCurrentStatus().inactiveCoder(payment);
+                log.debug("cancelled payments: " + cancelled);
                 dib.updatePayment(payment);
 
                 // if the payment was cancelled, notify the possible childrens
                 if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
                     notifyChildPayments("cancel", payment);
-                    cancelled++;
                 }
             }
             return cancelled;

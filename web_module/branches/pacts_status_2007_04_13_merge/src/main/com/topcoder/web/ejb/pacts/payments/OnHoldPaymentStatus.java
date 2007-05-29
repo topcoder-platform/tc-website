@@ -178,12 +178,13 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override
-    public void inactiveCoder(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+    public int inactiveCoder(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         log.debug("moving to cancelled (account status)!");
         BasePaymentStatus newStatus = PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS);
         newStatus.reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
         payment.setCurrentStatus(newStatus);
         payment.getCurrentStatus().activate(payment);
+        return 1;
     }
 
     /**

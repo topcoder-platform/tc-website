@@ -31,7 +31,16 @@ public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
      * The payment status description
      */
     public static final String DESC = "Entered Into Payment System";
-    
+
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
+     */
+    @Override
+    public int inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
+        // do nothing
+        return 0;
+    }
+
     /**
      * Default constructor   
      */

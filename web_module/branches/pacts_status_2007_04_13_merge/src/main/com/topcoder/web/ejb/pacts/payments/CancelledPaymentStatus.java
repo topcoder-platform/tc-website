@@ -83,10 +83,11 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override
-    public void inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
+    public int inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
         if (!reasons.contains(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason())) {
             reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
         }
+        return 0;
     }
     
     /**

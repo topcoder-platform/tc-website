@@ -52,8 +52,9 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override
-    public void inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
+    public int inactiveCoder(BasePayment payment) throws InvalidPaymentEventException {
         // do nothing
+        return 0;
     }
 
     /**
