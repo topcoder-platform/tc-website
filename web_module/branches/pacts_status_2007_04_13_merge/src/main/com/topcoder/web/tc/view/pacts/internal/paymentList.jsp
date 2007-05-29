@@ -143,7 +143,13 @@ ${fn:length(paymentList)} records. <br />
         <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
         <td class="value"><c:out value="${payment.type}" /></td>
         <td class="value"><c:out value="${payment.method}" /></td>
-        <td class="value"><c:out value="${payment.recentStatus}" /> <c:out value="${payment.currentStatus.reasonsText}"/></td>
+
+        <td class="value"><strong>${payment.currentStatus.desc}</strong> 
+            <c:forEach items="${payment.currentStatus.reasons}" var="reason">    
+            <br>- ${reason.desc}
+            </c:forEach>
+        </td>
+
         <td class="value"><c:out value="${payment.client}" /></td>
         <td class="valueC"><c:out value="${payment.createDate}" /> </td>
         <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>

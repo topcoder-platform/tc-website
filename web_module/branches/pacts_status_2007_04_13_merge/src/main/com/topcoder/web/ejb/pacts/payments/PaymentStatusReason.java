@@ -7,7 +7,7 @@ package com.topcoder.web.ejb.pacts.payments;
  * @author Pablo Wolfus (pulky)
  * @version $Id$
  */
-public class PaymentStatusReason {
+public class PaymentStatusReason implements java.io.Serializable {
 
     /**
      * Enum for all the possible predefined status reasons 
