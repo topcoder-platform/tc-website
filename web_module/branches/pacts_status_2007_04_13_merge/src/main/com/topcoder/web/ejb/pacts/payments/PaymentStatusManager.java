@@ -337,7 +337,7 @@ public class PaymentStatusManager {
                 dib.updatePayment(payment);
 
                 // if the payment was cancelled, notify the possible childrens
-                if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
+                if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
                     notifyChildPayments("cancel", payment);
                     cancelled++;
                 }
