@@ -62,7 +62,7 @@
 <p>We caught up with April's "coders of the month," to learn a little bit more about them, what brought them to TopCoder, and their insights.</p>
 
 <p>
-<a href="/tc?module=COMHistory&achtid=5">Algorithm</a>: <tc-webtag:handle coderId="22675302" />:<br>
+<a href="/tc?module=COMHistory&achtid=5">Algorithm</a>: <tc-webtag:handle coderId="22675302" /><br>
 TCO07 Qual 1: 1911<br>
 SRM 344: 1775<br>
 SRM 343: 1592 <br>
@@ -85,7 +85,7 @@ Kyoto, Japan
 <p>"Please enjoy programming!"</p>
 
 <p>
-<a href="/tc?module=COMHistory&achtid=6">Design</a>: <tc-webtag:handle coderId="22651514" />:<br>
+<a href="/tc?module=COMHistory&achtid=6">Design</a>: <tc-webtag:handle coderId="22651514" /><br>
 5 wins, 3 second places, 1 third place <br>
 Cincinnati, Ohio
 </p>
@@ -104,7 +104,7 @@ Cincinnati, Ohio
 "Have fun. Enjoy the intensity of effort and focus required, and you will succeed."</p>
 
 <p>
-<a href="/tc?module=COMHistory&achtid=6">Development</a>: <tc-webtag:handle coderId="14820574" />:<br>
+<a href="/tc?module=COMHistory&achtid=7">Development</a>: <tc-webtag:handle coderId="14820574" /><br>
 3 wins, 2 second places<br>
 GuangZhou, China
 </p>

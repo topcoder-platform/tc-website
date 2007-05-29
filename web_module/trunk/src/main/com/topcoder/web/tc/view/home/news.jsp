@@ -2,7 +2,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%--------------------------------------------------------%>
+<%-----------------------------------------------
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.29.07<br>2:15 PM</td>
       <td class="newsTextCell">
@@ -18,7 +18,24 @@
         <tc-webtag:forumLink forumID="506240" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
-   
+---------%>   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.29.07<br>3:50 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=052907">Meet the May Coders of the Month</A></span><br><br>
+      We caught up with May's "coders of the month," to learn a little bit more about them, their proudest TopCoder moments, and more&#8230;
+        </td>
+      <td class="newsPhoto"><%--<img src="/i/m/rasto6sk_big.jpg" alt="" width="55" height="61"/><br>by TopCoder Staff--%></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=052907">full story</A> | 
+        <tc-webtag:forumLink forumID="515948" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>05.25.07<br>4:30 PM</td>
