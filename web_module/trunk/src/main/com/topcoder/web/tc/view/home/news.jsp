@@ -2,13 +2,14 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%-----------------------------------------------
+
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.29.07<br>2:15 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.29.07<br>5:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm350">SRM 350 - Problem Set &amp; Analysis</A></span><br><br>
-      Division 2 was marked with a tricky medium and quite a straight-forward hard. This led to many coders solving the hard one but failing the medium. Thus a plan of skipping the 500-pointer and moving straight to the 1000-pointer really paid off.
+      Division 2 was marked with a tricky medium and quite a straight-forward hard. This led to many coders solving the hard one but failing the medium. Division 1 was another story, though the medium was again trickier than the hard.
         </td>
       <td class="newsPhoto"><img src="/i/m/Xixas_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22629218" context="algorithm"/></td></tr></table>
       </td>
@@ -16,9 +17,9 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=match_editorials&d2=srm350">full story</A> | 
         <tc-webtag:forumLink forumID="506240" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
----------%>   
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.29.07<br>3:50 PM</td>
@@ -208,24 +209,5 @@
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Semi">full story</A> | 
         <tc-webtag:forumLink forumID="514496" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.21.07<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=bracket">TCO07 Algorithm Competition Brackets now online</A>
-        </span><br><br>
-        The semifinal room assignments for the TCO07 Algorithm Competition are now available online.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=bracket">details</A> |
-        <tc-webtag:forumLink forumID="514954" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
