@@ -13,17 +13,17 @@
     generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("general_problem_info");
     if (generalInfo.isEmpty())
         generalInfo = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("general_problem_info");
-        
-        %>
+
+%>
 <% ResultSetContainer divisionInfo = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_division_info"); %>
 
 <% ResultSetContainer div1Lang = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div2Lang = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div1Overall = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_detail_overall"); %>
 <% ResultSetContainer div2Overall = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("problem_detail_overall"); %>
-<% ResultSetContainer testers =  (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_testers");
-if (testers.isEmpty())
-	testers = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("problem_testers");
+<% ResultSetContainer testers = (ResultSetContainer) ((Map) request.getAttribute("div1Results")).get("problem_testers");
+    if (testers.isEmpty())
+        testers = (ResultSetContainer) ((Map) request.getAttribute("div2Results")).get("problem_testers");
 %>
 
 <% SimpleDateFormat sdfTime = new SimpleDateFormat("H:mm:ss.S");
@@ -77,10 +77,12 @@ if (testers.isEmpty())
         <td class="statText" width="100%" valign="top">
             <% if (generalInfo.getIntItem(0, "algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>
             <A HREF="/stat?c=problem_statement&amp;pm=<rsc:item set="<%=generalInfo%>" name="problem_id"/>&amp;rd=<rsc:item set="<%=generalInfo%>" name="round_id"/>" class="statText">
-                <rsc:item set="<%=generalInfo%>" name="class_name"/></A>
+                <rsc:item set="<%=generalInfo%>" name="class_name"/>
+            </A>
             <% } else { %>
             <A HREF="/tc?module=HSProblemStatement&amp;pm=<rsc:item set="<%=generalInfo%>" name="problem_id"/>&amp;rd=<rsc:item set="<%=generalInfo%>" name="round_id"/>" class="statText">
-                <rsc:item set="<%=generalInfo%>" name="class_name"/></A>
+                <rsc:item set="<%=generalInfo%>" name="class_name"/>
+            </A>
             <% } %>
 
 
@@ -93,10 +95,12 @@ if (testers.isEmpty())
         <td class="statText">
             <% if (generalInfo.getIntItem(0, "algo_rating_type_id") == Constants.TC_ALGO_RATING_TYPE_ID) { %>
             <A HREF="/stat?c=round_overview&amp;rd=<rsc:item set="<%=generalInfo%>" name="round_id" />" class="statText">
-                <rsc:item set="<%=generalInfo%>" name="event_name"/></A>
+                <rsc:item set="<%=generalInfo%>" name="event_name"/>
+            </A>
             <% } else { %>
             <A HREF="/tc?<%=Constants.MODULE_KEY%>=HSRoundOverview&amp;<%=Constants.ROUND_ID%>=<rsc:item set="<%=generalInfo%>" name="round_id" />" class="statText">
-                <rsc:item set="<%=generalInfo%>" name="event_name"/></A>
+                <rsc:item set="<%=generalInfo%>" name="event_name"/>
+            </A>
             <% } %>
         </td>
     </tr>
@@ -105,7 +109,8 @@ if (testers.isEmpty())
             Used As:
         </td>
         <td class="statText">
-            <rsc:item set="<%=generalInfo%>" name="div1_use"/> <%=generalInfo.getItem(0, "div2_use").getResultData() != null && generalInfo.getItem(0, "div1_use").getResultData() != null ? ", " : ""%>
+            <rsc:item set="<%=generalInfo%>" name="div1_use"/>
+            <%=generalInfo.getItem(0, "div2_use").getResultData() != null && generalInfo.getItem(0, "div1_use").getResultData() != null ? ", " : ""%>
             <rsc:item set="<%=generalInfo%>" name="div2_use"/>
         </td>
     </tr>
@@ -118,31 +123,32 @@ if (testers.isEmpty())
         </td>
     </tr>
     <tr>
-        <td class="statTextBig" nowrap="nowrap" >
+        <td class="statTextBig" nowrap="nowrap">
             Writer:
         </td>
         <td class="statText">
-        	<%  if (generalInfo.getItem(0, "writer_id").getResultData() != null) {%>
+            <% if (generalInfo.getItem(0, "writer_id").getResultData() != null) {%>
             <tc-webtag:handle coderId='<%=generalInfo.getLongItem(0, "writer_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
             <% } else { %>
-            	Unknown
+            Unknown
             <% } %>
         </td>
     </tr>
     <tr>
-        <td class="statTextBig" nowrap="nowrap" >
-            <%= testers.size() > 1? "Testers: " : "Tester:" %>
+        <td class="statTextBig" nowrap="nowrap">
+            <%= testers.size() > 1 ? "Testers: " : "Tester:" %>
         </td>
         <td class="statText">
-        	<%  if (testers.size() == 0 ) {%>
-            	Unknown
-            <% } else { 
-            	for (int i = 0; i < testers.size(); i++) {
-            		if (i>0) {%>, <% } %>
-            		<tc-webtag:handle coderId='<%=testers.getLongItem(i, "tester_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
-            
-				
-            <% } } %>
+            <% if (testers.size() == 0) {%>
+            Unknown
+            <% } else {
+                for (int i = 0; i < testers.size(); i++) {
+                    if (i > 0) {%>, <% } %>
+            <tc-webtag:handle coderId='<%=testers.getLongItem(i, "tester_id")%>' context='<%=HandleTag.HS_OR_ALGORITHM%>'/>
+
+
+            <% }
+            } %>
         </td>
     </tr>
 
@@ -159,14 +165,17 @@ if (testers.isEmpty())
         </td>
     </tr>
 
-    <tr><td class="bodyText"><br/></td><tr/>
+    <tr>
+        <td class="bodyText"><br/></td>
+        <tr/>
 </table>
 <table border="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%" align="center">
     <tr>
         <td BACKGROUND="/i/steel_bluebv_bg.gif"></td>
         <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
             <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statTextBig" align="right" width="40%">
-                <rsc:item name="division" row="<%=resultRow%>"/></TD>
+                <rsc:item name="division" row="<%=resultRow%>"/>
+            </TD>
         </rsc:iterator>
     </tr>
     <tr>
@@ -175,7 +184,8 @@ if (testers.isEmpty())
         </td>
         <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
             <td class="statText" align="right">
-                <rsc:item name="points" row="<%=resultRow%>" format="#" ifNull="&#160;"/></TD>
+                <rsc:item name="points" row="<%=resultRow%>" format="#" ifNull="&#160;"/>
+            </TD>
         </rsc:iterator>
     </tr>
     <tr>
@@ -183,7 +193,9 @@ if (testers.isEmpty())
             Competitors
         </td>
         <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
-            <td class="statText" align="right"><rsc:item name="competitors" row="<%=resultRow%>" ifNull="0"/></TD>
+            <td class="statText" align="right">
+                <rsc:item name="competitors" row="<%=resultRow%>" ifNull="0"/>
+            </TD>
         </rsc:iterator>
     </tr>
     <tr>
@@ -191,7 +203,9 @@ if (testers.isEmpty())
             Opens
         </td>
         <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
-            <td class="statText" align="right"><rsc:item name="problems_opened" row="<%=resultRow%>" ifNull="0"/></TD>
+            <td class="statText" align="right">
+                <rsc:item name="problems_opened" row="<%=resultRow%>" ifNull="0"/>
+            </TD>
         </rsc:iterator>
     </tr>
     <tr>
@@ -200,7 +214,8 @@ if (testers.isEmpty())
         </td>
         <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
             <td class="statText" align="right">
-                <rsc:item name="open_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
+                <rsc:item name="open_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/>
+            </TD>
         </rsc:iterator>
     </tr>
     <tr>
@@ -209,7 +224,8 @@ if (testers.isEmpty())
         </td>
         <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
             <td class="statText" align="right">
-                <rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
+                <rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/>
+            </TD>
         </rsc:iterator>
     </tr>
     <tr>
@@ -218,107 +234,133 @@ if (testers.isEmpty())
         </td>
         <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
             <td class="statText" align="right">
-                <rsc:item name="overall_accuracy" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/></TD>
+                <rsc:item name="overall_accuracy" row="<%=resultRow%>" ifNull="0.00%" format="0.00%"/>
+            </TD>
         </rsc:iterator>
     </tr>
 
-    <tr><td class="bodyText"><br/></td><tr/>
+    <tr>
+        <td class="bodyText"><br/></td>
+        <tr/>
 </table>
 <table border="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%" align="center">
 <% if (!div1Lang.isEmpty()) { %>
-<tr><td class="statText">Division I</td></tr>
+<tr>
+    <td class="statText">Division I</td>
+</tr>
 <tr>
     <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="30%"></TD>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
         <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="14%" align="right">
-            <rsc:item name="language_name" row="<%=resultRow%>"/></TD>
+            <rsc:item name="language_name" row="<%=resultRow%>"/>
+        </TD>
     </rsc:iterator>
     <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="14%" align="right">Overall</TD>
 </tr>
 <tr>
     <td class="statText">Problems Submitted</TD>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-        <td class="statText" align="right"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></TD>
+        <td class="statText" align="right">
+            <rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/>
+        </TD>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-        <td class="statText" align="right"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></TD>
+        <td class="statText" align="right">
+            <rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/>
+        </TD>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Problems Correct</TD>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-        <td class="statText" align="right"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></TD>
+        <td class="statText" align="right">
+            <rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/>
+        </TD>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-        <td class="statText" align="right"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></TD>
+        <td class="statText" align="right">
+            <rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/>
+        </TD>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Submission Accuracy</TD>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></TD>
+            <rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/>
+        </TD>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></TD>
+            <rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/>
+        </TD>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Problems Failed by Challenge</TD>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></TD>
+            <rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/>
+        </TD>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></TD>
+            <rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/>
+        </TD>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Problems Failed by System Test</TD>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></TD>
+            <rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/>
+        </TD>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></TD>
+            <rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/>
+        </TD>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Challenge Attempts Made</TD>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></TD>
+            <rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/>
+        </TD>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></TD>
+            <rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/>
+        </TD>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Challenge Accuracy</TD>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></TD>
+            <rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/>
+        </TD>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></TD>
+            <rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/>
+        </TD>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Best Time</TD>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-        <td class="statText" align="right"><%= resultRow.getItem("best_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></TD>
+        <td class="statText" align="right"><%= resultRow.getItem("best_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %>
+        </TD>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-        <td class="statText" align="right"><%= resultRow.getItem("best_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></td>
+        <td class="statText" align="right"><%= resultRow.getItem("best_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %>
+        </td>
     </rsc:iterator>
 </tr>
 <tr>
-    <td class="statText">High Scorer</td>
+    <td class="statText">Fastest</td>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
         <td class="statText" align="right">
             <% if (resultRow.getItem("coder_id").getResultData() != null) { %>
@@ -364,106 +406,133 @@ if (testers.isEmpty())
 <tr>
     <td class="statText">Average Correct Time</td>
     <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-        <td class="statText" align="right"><%= resultRow.getItem("avg_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></td>
+        <td class="statText" align="right"><%= resultRow.getItem("avg_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %>
+        </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-        <td class="statText" align="right"><%= resultRow.getItem("avg_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></td>
+        <td class="statText" align="right"><%= resultRow.getItem("avg_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %>
+        </td>
     </rsc:iterator>
 </tr>
 <% } %>
 
-<tr><td class="bodyText"><br/></td><tr/>
+<tr>
+<td class="bodyText"><br/></td>
+<tr/>
 
 <% if (!div2Lang.isEmpty()) { %>
-<tr><td class="statText">Division II</td></tr>
+<tr>
+    <td class="statText">Division II</td>
+</tr>
 <tr>
     <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="30%"></td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
         <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="14%" align="right">
-            <rsc:item name="language_name" row="<%=resultRow%>"/></td>
+            <rsc:item name="language_name" row="<%=resultRow%>"/>
+        </td>
     </rsc:iterator>
     <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText" width="14%" align="right">Overall</td>
 </tr>
 <tr>
     <td class="statText">Problems Submitted</td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-        <td class="statText" align="right"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></td>
+        <td class="statText" align="right">
+            <rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/>
+        </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-        <td class="statText" align="right"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></td>
+        <td class="statText" align="right">
+            <rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/>
+        </td>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Problems Correct</td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-        <td class="statText" align="right"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></td>
+        <td class="statText" align="right">
+            <rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/>
+        </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-        <td class="statText" align="right"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></td>
+        <td class="statText" align="right">
+            <rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/>
+        </td>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Submission Accuracy</td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></td>
+            <rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/>
+        </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></td>
+            <rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/>
+        </td>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Problems Failed by Challenge</td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></td>
+            <rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/>
+        </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></td>
+            <rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/>
+        </td>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Problems Failed by System Test</td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></td>
+            <rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/>
+        </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></td>
+            <rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/>
+        </td>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Challenge Attempts Made</td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></td>
+            <rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/>
+        </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></td>
+            <rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/>
+        </td>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Challenge Accuracy</td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></td>
+            <rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/>
+        </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
         <td class="statText" align="right">
-            <rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/></td>
+            <rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00%"/>
+        </td>
     </rsc:iterator>
 </tr>
 <tr>
     <td class="statText">Best Time</td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-        <td class="statText" align="right"><%= resultRow.getItem("best_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></td>
+        <td class="statText" align="right"><%= resultRow.getItem("best_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %>
+        </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-        <td class="statText" align="right"><%= resultRow.getItem("best_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></td>
+        <td class="statText" align="right"><%= resultRow.getItem("best_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %>
+        </td>
     </rsc:iterator>
 </tr>
 <tr>
@@ -507,10 +576,12 @@ if (testers.isEmpty())
 <tr>
     <td class="statText">Average Correct Time</td>
     <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-        <td class="statText" align="right"><%= resultRow.getItem("avg_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></td>
+        <td class="statText" align="right"><%= resultRow.getItem("avg_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %>
+        </td>
     </rsc:iterator>
     <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-        <td class="statText" align="right"><%= resultRow.getItem("avg_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></td>
+        <td class="statText" align="right"><%= resultRow.getItem("avg_time").getResultData() == null ? "" : sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %>
+        </td>
     </rsc:iterator>
 </tr>
 
