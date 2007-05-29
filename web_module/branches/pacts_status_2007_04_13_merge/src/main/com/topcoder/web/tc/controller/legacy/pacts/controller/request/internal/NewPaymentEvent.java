@@ -60,7 +60,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
                 }
             } catch (EventFailureException efe) {
                 wrongPayments++;
-                addError("err_" + payment.getId(), efe.getMessage());
+                addError("err_" + payment.getId(), efe.getCause().getMessage());
             }
             updatePayments.add(payment);
         }

@@ -322,9 +322,10 @@ public class PaymentStatusManager {
      * @param coderId the inactive coder.
      * @throws EventFailureException if any operation fails
      */
-    public void inactiveCoder(Long coderId) throws EventFailureException {
+    public int inactiveCoder(Long coderId) throws EventFailureException {
         log.debug("inactiveCoder called for coderId: " + coderId);
         try {
+            int cancelled = 0;
             Map criteria = new HashMap();
             criteria.put(PactsConstants.USER_ID, coderId.toString());
 
@@ -338,8 +339,10 @@ public class PaymentStatusManager {
                 // if the payment was cancelled, notify the possible childrens
                 if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
                     notifyChildPayments("cancel", payment);
+                    cancelled++;
                 }
             }
+            return cancelled;
         } catch (Exception e) {
             throw new EventFailureException(e);
         }

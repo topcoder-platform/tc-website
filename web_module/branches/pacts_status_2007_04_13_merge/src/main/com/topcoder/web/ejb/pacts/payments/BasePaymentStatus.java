@@ -93,10 +93,12 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
      * This method will handle coder inactivation event
      * 
      * @param payment the payment to apply the event to
+     * @return the number of cancelled payments
+     * 
      * @throws StateTransitionFailureException if anything fails
      * @throws InvalidPaymentEventException if the event cannot take place in this condition
      */
-    public void inactiveCoder(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
+    public int inactiveCoder(BasePayment payment) throws StateTransitionFailureException, InvalidPaymentEventException {
         throw new InvalidPaymentEventException();
     }
 

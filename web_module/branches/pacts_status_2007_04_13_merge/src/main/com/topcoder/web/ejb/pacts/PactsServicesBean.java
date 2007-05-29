@@ -4765,19 +4765,18 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 getHoldPayments.append("AND u.user_id == " + userId + " ");
             }
             
-            ResultSetContainer payments = runSelectQuery(c, getHoldPayments.toString(), false);
+            ResultSetContainer users = runSelectQuery(c, getHoldPayments.toString(), false);
 
             // notify payments
             PaymentStatusManager psm = new PaymentStatusManager();
-            long paymentId = 0;
+            long notifyUserId = 0;
             int count = 0;
-            for (int i = 0; i < payments.getRowCount(); i++) {
+            for (int i = 0; i < users.getRowCount(); i++) {
                 try {
-                    paymentId = payments.getLongItem(i, 0);
-                    psm.inactiveCoder(paymentId);
-                    count++;
+                    notifyUserId = users.getLongItem(i, 0);
+                    count += psm.inactiveCoder(notifyUserId);
                 } catch (EventFailureException e) {
-                    log.warn("Payment ID " + paymentId + " cancellation (account status) could not be completed due to\n" +
+                    log.warn("Payment ID " + notifyUserId + " cancellation (account status) could not be completed due to\n" +
                             e.getMessage());
                 }
             }
