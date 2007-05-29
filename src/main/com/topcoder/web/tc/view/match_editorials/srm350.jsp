@@ -159,13 +159,13 @@ public int getDistance(String a, String b, String letterSet)
     a = a.toLowerCase();
     b = b.toLowerCase();
     int ans = 0;
-    for(int i = 0; i &lt; letterSet.length(); i++) {
+    for(int i = 0; i < letterSet.length(); i++) {
         int occa = 0, occb = 0;
         char temp = letterSet.charAt(i);
-        for(int j = 0; j &lt; a.length(); j++) if(a.charAt(j) == temp) {
+        for(int j = 0; j < a.length(); j++) if(a.charAt(j) == temp) {
             occa++;
         }
-        for(int j = 0; j &lt; b.length(); j++) if(b.charAt(j) == temp) {
+        for(int j = 0; j < b.length(); j++) if(b.charAt(j) == temp) {
             occb++;
         }
         ans += (occa - occb) * (occa - occb);
@@ -263,6 +263,10 @@ Used as: Division One - Level One: <blockquote><table cellspacing="2">
     </td>
   </tr>
 </table></blockquote>
+
+
+
+
 <p>
 With many coders in both divisions overlooking the possibility of
 overflowing the 32-bit integer variables, or loathing to implement an array of
@@ -272,7 +276,7 @@ To begin with, let us calculate all the perfect powers that do not exceed
 5000000 and store them in an array <tt>s</tt>. 0 and 1 are
 clearly perfect powers so put them in <tt>s</tt>. Determine
 the remaining elements of <tt>s</tt> iterate through all the
-integers greater than 1 and less than 2237 (2237<sup>2</sup> > 5000000) and,
+integers greater than 1 and less than 2237 (2237<sup>2</sup> &gt; 5000000) and,
 given such integer, put all its integer powers not exceeding 5000000 into
 <tt>s</tt>. To avoid duplicate elements in
 <tt>s</tt> use an array of 5000001 booleans to look up whether a
@@ -292,14 +296,14 @@ for(int i = 2; i &lt; 2237; i++) {
         a *= i;
         if (!lookup[a]) {
             s.push_back(a);
-                        lookup[a] = true;
+            lookup[a] = true;
         }
     }
 }
 </pre>
 
 To this point many coders failed by declaring <tt>a</tt> in
-the above code as an int. This would lead to an overflow when i = 2236     since 2236<sup>2</sup> < 5000000 but 2236<sup>3</sup> is
+the above code as an int. This would lead to an overflow when i = 2236 since 2236<sup>2</sup> &lt; 5000000 but 2236<sup>3</sup> is
 too big for 32-bit integers.
 <br /><br />
 
@@ -335,9 +339,14 @@ return ans;
 </pre>
 
 For the complete implementation of this approach consult <tc-webtag:handle
-coderId="7462740" context="algorithm">’s <a href="/stat?c=problem_solution&amp;rm=264826&amp;rd=10674&amp;pm=7613&amp;cr=7462740">code</a>.
+coderId="7462740" context="algorithm">’s <a
+href="/stat?c=problem_solution&amp;rm=264826&amp;rd=10674&amp;pm=7613&amp;cr=7462740">code</a>.
 <br /><br />
 </p>
+
+
+
+
 
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=7587&amp;rd=10674" name="7587">BagsQuiz</a></b> </font> <A href="Javascript:openProblemRating(7587)"><img src="/i/rate_it.gif" hspace="10" border="0" alt="rate it" /></A> <A HREF="http://forums.topcoder.com/?module=ThreadList&forumID=506240" CLASS="statText"><img src="/i/interface/btn_discuss_it.gif" alt="discuss it" border="0" /></A> <br> Used as: Division Two - Level Three: <blockquote><table cellspacing="2">
@@ -426,12 +435,12 @@ the number of bags lying on the floor iterate through all of them to find the
 number of such i that <tt>inside[i]</tt> is zero. For the
 implementation of this approach see 
 <tc-webtag:handle coderId="21595683" context="algorithm"/>’s <a
-href="/stat?c=problem_solution&rm=264848&rd=10674&pm=7587&cr=21595683">solution</a>.
+href="    /stat?c=problem_solution&rm=264848&rd=10674&pm=7587&cr=21595683">solution</a>.
 <br /><br />
 
 Analyzing the elements of <b>actions</b> requires some
 string parsing skills, which can be honed <a
-href="/tc?module=Static&d1=features&d2=112106">here</a>.
+href="    /tc?module=Static&d1=features&d2=112106">here</a>.
 <br />
 <br />
 </p>
@@ -530,7 +539,7 @@ this quantity.
 
 For a detailed version of this solution see <tc-webtag:handle
 coderId="10574855" context="algorithm"/>’s <a
-href="/stat?c=problem_solution&rd=10674&rm=264843&cr=10574855&pm=7593">solution</a>.
+href="    /stat?c=problem_solution&rd=10674&rm=264843&cr=10574855&pm=7593">solution</a>.
 <br /><br />
 </p>
 
@@ -625,7 +634,7 @@ the coordinates of the intersection point of two lines and how to determine
 whether the two given lines are parallel (in this case their intersection point
 does not exist). This is a standard procedure and to inspect it in further
 detail see the geometry tutorial <a
-href="/tc?module=Static&d1=tutorials&d2=geometry2">here</a>.
+href="    /tc?module=Static&d1=tutorials&d2=geometry2">here</a>.
 <br />
 <br />
 
@@ -652,16 +661,15 @@ answer is F – 2n.
 
 For a clear implementation of this approach see <tc-webtag:handle
 coderId="10574855" context="algorithm"/>’s <a
-href="/stat?c=problem_solution&rm=264843&rd=10674&pm=7788&cr=10574855">solution</a>.
+href="    /stat?c=problem_solution&rm=264843&rd=10674&pm=7788&cr=10574855">solution</a>.
 <br /><br />
 </p>
- 
 
 
 
 
 <div class="authorPhoto">
-    <img src="/i/m/timmac_big.jpg" alt="Author" />
+    <img src="/i/m/Xixas_big.jpg" alt="Author" />
 </div>
 <div class="authorText">
     By&#160;<tc-webtag:handle coderId="22629218" context="algorithm"/><br />
