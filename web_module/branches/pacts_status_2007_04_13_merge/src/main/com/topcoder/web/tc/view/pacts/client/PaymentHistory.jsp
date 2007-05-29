@@ -179,7 +179,11 @@
             <td class="value">${payment.paymentTypeDesc}</td>
             <td class="valueC"><fmt:formatDate value="${payment.dueDate}" pattern="MM/dd/yyyy"/></td>
             <td class="valueR"><fmt:formatNumber value="${payment.netAmount}" type="currency" currencySymbol="$"/></td>
-            <td class="valueC">${payment.currentStatus.desc} ${payment.currentStatus.reasonsText}</td>
+            <td class="valueC"><strong>${payment.currentStatus.desc}</strong> 
+                <c:forEach items="${payment.currentStatus.reasons}" var="reason">    
+                <br>- ${reason.desc}
+                </c:forEach>
+            </td>
             <td class="valueC">
                 <c:if test="${fullList}" >
                      <b><fmt:formatDate value="${payment.paidDate}" pattern="MM/dd/yyyy"/></b>
