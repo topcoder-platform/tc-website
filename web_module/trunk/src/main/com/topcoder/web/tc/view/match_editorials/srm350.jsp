@@ -311,7 +311,7 @@ Secondly, iterate through all pairs of elements of <tt>s</tt>
 and mark their sum in the <tt>lookup</tt> as
 <tt>true</tt> if it does not exceed 5000000 (we can still use
 <tt>lookup</tt> since every perfect power is clearly the sum of
-two perfect powers – zero and itself):
+two perfect powers &ndash; zero and itself):
 
 <pre>
 for(int i = 0; i &lt; s.size(); i++)
@@ -339,11 +339,10 @@ return ans;
 </pre>
 
 For the complete implementation of this approach consult <tc-webtag:handle
-coderId="7462740" context="algorithm">’s <a
-href="/stat?c=problem_solution&amp;rm=264826&amp;rd=10674&amp;pm=7613&amp;cr=7462740">code</a>.
+coderId="7462740" context="algorithm"/>'s <a
+href="/stat?c=problem_solution&rm=264826&rd=10674&pm=7613&cr=7462740">code</a>.
 <br /><br />
 </p>
-
 
 
 
@@ -398,7 +397,7 @@ coders solving it correctly was rather high.
 
 To solve it note that the <i>inside</i> relation suggests that
 storing for every bag i the number of the bag j such that i is <i>inside</i>
-j might be helpful. Indeed, let’s denote <tt>inside[i]=j</tt>
+j might be helpful. Indeed, let's denote <tt>inside[i]=j</tt>
 in this case, where <tt>inside[i]=0</tt> if the bag i is
 currently lying on the floor. Initially all the bags are on the floor so the
 array <tt>inside</tt> is filled with zeroes. Analyzing the
@@ -407,19 +406,19 @@ elements of <b>actions</b> one by one and altering
 updating of <tt>inside</tt> depends on the action encountered:
 
 <ul>
-<li>If it is “PUT i INSIDE j” check if either
+<li>If it is "PUT i INSIDE j" check if either
 <tt>inside[i]</tt> or <tt>inside[j]</tt> is non-zero.
 If so, return -1, else set <tt>inside[i]=j</tt>.
 </li>
 <li>
-If it is “SWAP i WITH j” check if either
+If it is "SWAP i WITH j" check if either
 <tt>inside[i]</tt> or <tt>inside[j]</tt> is
 non-zero. If so, return -1. Else iterate through all the bags and if you find a
 bag k such that <tt>inside[k]=i</tt> then set
 <tt>inside[k]=j</tt> and vice versa.
 </li>
 <li>
-If it is “SET i LOOSE” then check if
+If it is "SET i LOOSE" then check if
 <tt>inside[i]</tt> is non-zero. If so, return -1. Else iterate
 through all the bags and if you find a bag k such that <tt>inside[k]=i</tt> set <tt>inside[k]=0</tt>.
 </li>
@@ -434,13 +433,13 @@ smaller number. Else the obtained configuration is a proper one and to count
 the number of bags lying on the floor iterate through all of them to find the
 number of such i that <tt>inside[i]</tt> is zero. For the
 implementation of this approach see 
-<tc-webtag:handle coderId="21595683" context="algorithm"/>’s <a
-href="    /stat?c=problem_solution&rm=264848&rd=10674&pm=7587&cr=21595683">solution</a>.
+<tc-webtag:handle coderId="21595683" context="algorithm"/>'s <a
+href="/stat?c=problem_solution&rm=264848&rd=10674&pm=7587&cr=21595683">solution</a>.
 <br /><br />
 
 Analyzing the elements of <b>actions</b> requires some
 string parsing skills, which can be honed <a
-href="    /tc?module=Static&d1=features&d2=112106">here</a>.
+href="/tc?module=Static&d1=features&d2=112106">here</a>.
 <br />
 <br />
 </p>
@@ -501,7 +500,7 @@ the set of its rays. Since the empty set and the sets having cardinalities 1 or
 2 must be discarded, the star number of such vertex is 2<sup>D</sup> – D*(D –
 1)/2 – D – 1. Knowing how to calculate the star number of a vertex given its
 degree we may find the maximal degree <tt>maxDeg</tt> that gives
-this number <= <b>C</b>, i.e. the maximal degree of a vertex
+this number &lt;= <b>C</b>, i.e. the maximal degree of a vertex
 that may appear on a starry path.
 <br />
 <br />
@@ -538,8 +537,8 @@ this quantity.
 <br />
 
 For a detailed version of this solution see <tc-webtag:handle
-coderId="10574855" context="algorithm"/>’s <a
-href="    /stat?c=problem_solution&rd=10674&rm=264843&cr=10574855&pm=7593">solution</a>.
+coderId="10574855" context="algorithm"/>'s <a
+href="/stat?c=problem_solution&rd=10674&rm=264843&cr=10574855&pm=7593">solution</a>.
 <br /><br />
 </p>
 
@@ -589,7 +588,7 @@ href="    /stat?c=problem_solution&rd=10674&rm=264843&cr=10574855&pm=7593">solut
 <p>
 What we have  in this problem determined by the lines is a planar graph
 and we have to determine the number of its finite faces. This suggests that
-Euler’s formula for planar graphs V + F – E = 2 may come in handy. Here V is
+Euler's formula for planar graphs V + F – E = 2 may come in handy. Here V is
 the number of vertices of the graph, F – the number of its faces (both finite
 and infinite) and E – the number of its edges. If you are unfamiliar with
 this formula and the concept of planar graphs cast a glance <a
@@ -599,8 +598,8 @@ href="http://en.wikipedia.org/wiki/Planar_graph">here</a>.
 
 First, we would want to know the total number of vertices V in our planar
 graph. To find it we will find all the intersection points of the given lines
-(V will be equal to this number plus 1, which stands for the vertex ‘at
-infinity’ through which all the lines pass). Intersection points can be stored
+(V will be equal to this number plus 1, which stands for the vertex 'at
+infinity' through which all the lines pass). Intersection points can be stored
 in many ways:
 
 <ul>
@@ -634,7 +633,7 @@ the coordinates of the intersection point of two lines and how to determine
 whether the two given lines are parallel (in this case their intersection point
 does not exist). This is a standard procedure and to inspect it in further
 detail see the geometry tutorial <a
-href="    /tc?module=Static&d1=tutorials&d2=geometry2">here</a>.
+href="/tc?module=Static&d1=tutorials&d2=geometry2">here</a>.
 <br />
 <br />
 
@@ -647,12 +646,12 @@ there exist two intersecting lines in this case we easily see that every line
 must intersect at least one other line. If the number of intersection points
 that the line pass through is <i>a</i>, then the number of edges
 lying on this line is clearly <i>a + 1</i>. Hence the total number
-of edges E will be the sum of such (<i>a + 1</i>)’s for all given
+of edges E will be the sum of such (<i>a + 1</i>)'s for all given
 lines. To find <i>a</i> for a certain line iterate through all the
 intersection points to see through how many of them the line passes.
 <br /><br />
 
-Now that we have V and E we may find F from the aformentioned Euler’s
+Now that we have V and E we may find F from the aformentioned Euler's
 formula: F = 2 + E – V. All that is left is to determine the number of infinite
 regions, which is 2n (n is the number of given lines) in this case. A rigorous
 proof of this fact goes by induction and is left to reader. Hence the required
@@ -660,8 +659,8 @@ answer is F – 2n.
 <br /><br />
 
 For a clear implementation of this approach see <tc-webtag:handle
-coderId="10574855" context="algorithm"/>’s <a
-href="    /stat?c=problem_solution&rm=264843&rd=10674&pm=7788&cr=10574855">solution</a>.
+coderId="10574855" context="algorithm"/>'s <a
+href="/stat?c=problem_solution&rm=264843&rd=10674&pm=7788&cr=10574855">solution</a>.
 <br /><br />
 </p>
 
