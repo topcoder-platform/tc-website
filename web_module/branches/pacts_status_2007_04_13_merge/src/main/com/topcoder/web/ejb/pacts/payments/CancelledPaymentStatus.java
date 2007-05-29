@@ -54,8 +54,8 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
      */
     @Override
     public void expiredAffidavit(BasePayment payment) {
-        if (!reasons.contains(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason())) {
-            reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
+        if (!reasons.contains(AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason())) {
+            reasons.add(AvailableStatusReason.EXPIRED_AFFIDAVIT_REASON.getStatusReason());
         }
     }
     
@@ -74,8 +74,8 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
      */
     @Override
     public void expiredIPTransfer(BasePayment payment) {
-        if (!reasons.contains(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason())) {
-            reasons.add(AvailableStatusReason.ACCOUNT_STATUS_REASON.getStatusReason());
+        if (!reasons.contains(AvailableStatusReason.EXPIRED_IP_TRANSFER_REASON.getStatusReason())) {
+            reasons.add(AvailableStatusReason.EXPIRED_IP_TRANSFER_REASON.getStatusReason());
         }
     }
 
