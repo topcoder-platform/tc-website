@@ -18,10 +18,10 @@ public class PaymentStatusReason {
     public enum AvailableStatusReason {
         NO_TAX_FORM_REASON (new PaymentStatusReason(10l, "Waiting for Tax Form")),
         NO_AFFIRMED_AFFIDAVIT_REASON (new PaymentStatusReason(11l, "Waiting for affirmed Affidavit")),
-        NO_AFFIRMED_IP_TRANSFER_REASON (new PaymentStatusReason(12l, "Waiting for affirmed IP Transfer")),
-        NO_HARD_COPY_IP_TRANSFER_REASON (new PaymentStatusReason(13l, "Waiting for hard copy IP Transfer")),
+        NO_AFFIRMED_IP_TRANSFER_REASON (new PaymentStatusReason(12l, "Waiting for affirmed Assignment Document")),
+        NO_HARD_COPY_IP_TRANSFER_REASON (new PaymentStatusReason(13l, "Waiting for hard copy Assignment Document")),
         EXPIRED_AFFIDAVIT_REASON (new PaymentStatusReason(50l, "Expired Affidavit")),
-        EXPIRED_IP_TRANSFER_REASON (new PaymentStatusReason(51l, "Expired IP Transfer")),
+        EXPIRED_IP_TRANSFER_REASON (new PaymentStatusReason(51l, "Expired Assignment Document")),
         ACCOUNT_STATUS_REASON (new PaymentStatusReason(52l, "Account Status")),
         ATTACHED_TO_PARENT_REASON (new PaymentStatusReason(100l, "Attached to Parent"));
         
