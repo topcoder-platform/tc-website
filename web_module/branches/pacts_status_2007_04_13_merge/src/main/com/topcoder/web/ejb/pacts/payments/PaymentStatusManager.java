@@ -197,18 +197,19 @@ public class PaymentStatusManager {
             List<BasePayment> payments = dib.findCoderPayments(criteria);
             
             // if not exactly one result, throw exception
-            if (payments.size() != 1) {
+            if (payments.size() < 1) {
                 throw new StateTransitionFailureException("Incorrect number of payments retrieved.");
             }
 
             // notify the status manager and update the payment
-            BasePayment payment = payments.get(0);
-            payment.getCurrentStatus().affirmedIPTransfer(payment);
-            dib.updatePayment(payment);
-
-            // if the payment changed its status, notify the possible childrens
-            if (!payment.getCurrentStatus().equals(this)) {
-                notifyChildPayments("new", payment);
+            for (BasePayment payment : payments) {
+                payment.getCurrentStatus().affirmedIPTransfer(payment);
+                dib.updatePayment(payment);
+    
+                // if the payment changed its status, notify the possible childrens
+                if (!payment.getCurrentStatus().equals(this)) {
+                    notifyChildPayments("new", payment);
+                }
             }
         } catch (Exception e) {
             throw new EventFailureException(e);
