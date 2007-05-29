@@ -65,7 +65,7 @@
 <p align="center">
     The Review Board for the<br>TCO07 Component Design Finals:<br><br>
     <tc-webtag:handle coderId="278342" context="design" /><br>
-    <tc-webtag:handle coderId="15179224" context="design" /><br>
+    <tc-webtag:handle coderId="10526732" context="design" /><br>
     <tc-webtag:handle coderId="10348862" context="design" />
 </p>
 </div>
