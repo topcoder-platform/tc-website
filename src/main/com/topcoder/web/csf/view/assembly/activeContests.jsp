@@ -78,13 +78,13 @@
                              <strong>05.22.2007</strong><br>16:00 EST
                         </td>
                         <td class="valueC" nowrap="nowrap">
-                             <strong>06.05.2007</strong><br>17:00 EST
+                             <strong>06.08.2007</strong><br>17:00 EST
                         </td>
                         <td class="valueR" nowrap="nowrap">
                             <span class="bigRed">$6,000.00</span>
                         </td>
                         <td class="valueC">
-                            14
+                            24
                         </td>
                         <td class="valueC">
                             0
