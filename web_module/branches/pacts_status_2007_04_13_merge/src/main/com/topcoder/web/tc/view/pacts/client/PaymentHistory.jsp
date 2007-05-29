@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.member.PaymentHistory" %>
 <%@ page language="java"
          import="com.topcoder.shared.dataAccess.DataAccessConstants,
-		         com.topcoder.web.tc.Constants" %>
+                 com.topcoder.web.tc.Constants" %>
 
 <%@ page language="java"  %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -126,7 +126,7 @@
             <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="2" includeParams="true" excludeParams="sr"/>" >Type</a></td>
             <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="3" includeParams="true" excludeParams="sr"/>" >Due Date</a></td>
             <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="4" includeParams="true" excludeParams="sr" />" >Net Payment</a></td>
-            <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr"/>" >Status</a></td>
+            <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="5" includeParams="true" excludeParams="sr"/>" >Status</a></td>
             <td class="headerC">
                 <c:if test="${fullList}" >
                     <b><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="6" includeParams="true" excludeParams="sr"/>" >Date Paid</a>       
@@ -136,11 +136,11 @@
         
         <c:forEach items="${payments}" var="payment">
         
-    	<c:set var="typeId" value="${payment.paymentType}" />
-    	<c:choose>
+        <c:set var="typeId" value="${payment.paymentType}" />
+        <c:choose>
     <c:when test="${typeId == 4}"><!-- coder referral --></c:when>
     <c:otherwise>
-    	
+        
         <tr class="<%=even?"light":"dark"%>">
             <td class="value">
                 <c:choose>
@@ -179,7 +179,7 @@
             <td class="value">${payment.paymentTypeDesc}</td>
             <td class="valueC"><fmt:formatDate value="${payment.dueDate}" pattern="MM/dd/yyyy"/></td>
             <td class="valueR"><fmt:formatNumber value="${payment.netAmount}" type="currency" currencySymbol="$"/></td>
-            <td class="valueC"><strong>${payment.currentStatus.desc}</strong> 
+            <td class="value"><strong>${payment.currentStatus.desc}</strong> 
                 <c:forEach items="${payment.currentStatus.reasons}" var="reason">    
                 <br>- ${reason.desc}
                 </c:forEach>
