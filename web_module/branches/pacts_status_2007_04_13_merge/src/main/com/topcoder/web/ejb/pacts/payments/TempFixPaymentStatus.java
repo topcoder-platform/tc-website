@@ -18,7 +18,7 @@ public class TempFixPaymentStatus extends BasePaymentStatus {
     /**
      * The payment status description
      */
-    public static final String DESC = "Temp Fix";
+    public static final String DESC = "Temp fix";
     
     /**
      * Default constructor   

@@ -30,7 +30,7 @@ public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
     /**
      * The payment status description
      */
-    public static final String DESC = "Entered Into Payment System";
+    public static final String DESC = "Entered into payment system";
 
     /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
