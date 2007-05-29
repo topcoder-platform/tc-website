@@ -302,7 +302,7 @@ All submissions are required to be submitted by the End Date.
                 <td nowrap="nowrap" valign="top"><strong>End Date:</strong></td>
                 <td>
 
-                    Tuesday, June 5, 2007 at 17:00 EDT
+                    Tuesday, June 8, 2007 at 17:00 EDT
                 </td>
             </tr>
         </tbody>

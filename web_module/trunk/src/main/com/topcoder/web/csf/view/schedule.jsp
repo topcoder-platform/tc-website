@@ -73,10 +73,10 @@
             <h2>Competition #3:</strong> CSF Mashup Assembly Competition</h2>
             <ul>
                 <li><strong>Submission Start Date:</strong> May 22, 2007</li>
-                <li><strong>Submission End Date:</strong> June 5, 2007</li>
-                <li><strong>Review Start Date:</strong> June 5, 2007</li>
-                <li><strong>Review End Date:</strong> June 15, 2007</li>
-                <li><strong>Winner Announced:</strong> June 18, 2007</li>
+                <li><strong>Submission End Date:</strong> June 8, 2007</li>
+                <li><strong>Review Start Date:</strong> June 8, 2007</li>
+                <li><strong>Review End Date:</strong> June 18, 2007</li>
+                <li><strong>Winner Announced:</strong> June 21, 2007</li>
             </ul>
 
             <h2>Competition #2: BT Business CSF Mashup Design Competition</h2>
