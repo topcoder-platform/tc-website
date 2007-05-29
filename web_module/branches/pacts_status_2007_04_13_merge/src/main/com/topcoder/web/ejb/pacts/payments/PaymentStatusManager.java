@@ -5,6 +5,8 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -343,6 +345,18 @@ public class PaymentStatusManager {
         }
     }
 
+    private Map<Long, Integer> inactiveUsersCache = new HashMap<Long, Integer>();
+    
+    private int checkInactiveCoders(long userId) throws RemoteException, SQLException {
+        if (inactiveUsersCache.containsKey(userId)) {
+            return inactiveUsersCache.get(userId).intValue();
+        }
+        int retValue = dib.checkInactiveCoders(userId);
+        inactiveUsersCache.put(userId, retValue);
+        
+        return retValue;
+    }
+    
     /**
      * This method notifies the corresponding payment of the specified event.  
      * 
@@ -352,16 +366,21 @@ public class PaymentStatusManager {
      */
     public void newUserEvent(BasePayment payment, UserEvents event) throws EventFailureException {
         try {
-            switch (event) {
-            case ENTER_INTO_PAYMENT_SYSTEM_EVENT:
-                payment.getCurrentStatus().enterIntoPaymentSystem(payment);
-                break;
-            case PAY_EVENT:
-                payment.getCurrentStatus().pay(payment);
-                break;
-            case DELETE_EVENT:
-                payment.getCurrentStatus().delete(payment);
-                break;
+            // before applying the event, check users for inactivation
+            if (checkInactiveCoders(payment.getCoderId()) == 0) {                
+                switch (event) {
+                case ENTER_INTO_PAYMENT_SYSTEM_EVENT:
+                    payment.getCurrentStatus().enterIntoPaymentSystem(payment);
+                    break;
+                case PAY_EVENT:
+                    payment.getCurrentStatus().pay(payment);
+                    break;
+                case DELETE_EVENT:
+                    payment.getCurrentStatus().delete(payment);
+                    break;
+                }
+            } else {
+                throw new EventFailureException("Account status changed, user was deactivated");
             }
         } catch (Exception e) {
             throw new EventFailureException(e);

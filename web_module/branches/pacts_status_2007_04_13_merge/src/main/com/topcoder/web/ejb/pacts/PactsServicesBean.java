@@ -3316,7 +3316,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      *
      * @param c         Connection to use
      * @param p         payment to insert
-     * @param addressId id of the payment_address, or 0 to insert null
      * @return the payment_detail_id of the inserted record
      * @throws Exception
      */
@@ -4748,11 +4747,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             close(c);
         }
     }
-
-
+    
+    
     /**
      */
-    public int checkInactiveCoders() throws SQLException {
+    public int checkInactiveCoders(long userId) throws SQLException {
         Connection c = null;
 
         try {
@@ -4762,22 +4761,28 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getHoldPayments.append("SELECT u.user_id ");
             getHoldPayments.append("FROM user u ");
             getHoldPayments.append("WHERE u.status != '" + ACTIVE_CODER_STATUS + "' ");
+            if (userId != 0) {
+                getHoldPayments.append("AND u.user_id == " + userId + " ");
+            }
+            
             ResultSetContainer payments = runSelectQuery(c, getHoldPayments.toString(), false);
 
             // notify payments
             PaymentStatusManager psm = new PaymentStatusManager();
             long paymentId = 0;
+            int count = 0;
             for (int i = 0; i < payments.getRowCount(); i++) {
                 try {
                     paymentId = payments.getLongItem(i, 0);
                     psm.inactiveCoder(paymentId);
+                    count++;
                 } catch (EventFailureException e) {
                     log.warn("Payment ID " + paymentId + " cancellation (account status) could not be completed due to\n" +
                             e.getMessage());
                 }
             }
 
-            return payments.size();
+            return count;
         } catch (Exception e) {
             printException(e);
             ejbContext.setRollbackOnly();

@@ -1435,8 +1435,14 @@ public class DataInterfaceBean implements PactsConstants {
     /**
      */
     public int checkInactiveCoders() throws RemoteException, SQLException {
+        return checkInactiveCoders(0);
+    }
+
+    /**
+     */
+    public int checkInactiveCoders(long userId) throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
-        return ps.checkInactiveCoders();
+        return ps.checkInactiveCoders(userId);
     }
 
 
