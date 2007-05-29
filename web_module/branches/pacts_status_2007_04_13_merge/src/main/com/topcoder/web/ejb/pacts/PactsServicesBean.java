@@ -5433,6 +5433,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     
             processor.fillData(payment);
     
+            // this need to be done in order to calculate the net amount before calling the status manager
+            Payment tmp = createPayment(payment);
+            fillPaymentNetAmount(c, tmp);            
+            payment.setNetAmount(tmp.getNetAmount());
+            
             // delegate status to the manager
             (new PaymentStatusManager()).newPayment(payment);
             
