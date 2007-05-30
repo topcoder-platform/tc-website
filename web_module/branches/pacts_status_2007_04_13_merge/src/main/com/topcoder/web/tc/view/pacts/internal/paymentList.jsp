@@ -54,6 +54,7 @@ ${fn:length(paymentList)} records. <br />
 
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
     <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.PAYMENT_ID%>" value="<%=request.getAttribute(PactsConstants.PAYMENT_ID).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.PROJECT_ID%>" value="<%=request.getAttribute(PactsConstants.PROJECT_ID).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.HANDLE%>" value="<%=request.getAttribute(PactsConstants.HANDLE).toString()%>"/>
     <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_CREATION_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_CREATION_DATE).toString()%>"/>
