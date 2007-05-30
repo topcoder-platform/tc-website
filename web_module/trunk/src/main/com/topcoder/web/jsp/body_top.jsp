@@ -19,7 +19,7 @@
   <TR>
     <TD VALIGN="top" WIDTH="11" ALIGN="right"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="<%=image1%>"/></TD>
     <TD VALIGN="top" WIDTH="75" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_<%=image%>.gif" ALT="<%=image%>"/></TD>
-    <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>&#160;<SPAN CLASS="bodySubhead">&#160;&#160;<%=StringUtils.checkNull(request.getParameter("title"))%>&#160;&#160;</SPAN></TD>
+    <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><br />&#160;<SPAN CLASS="bodySubhead">&#160;&#160;<%=StringUtils.checkNull(request.getParameter("title"))%>&#160;&#160;</SPAN></TD>
     <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"/></TD>
   </TR>
 

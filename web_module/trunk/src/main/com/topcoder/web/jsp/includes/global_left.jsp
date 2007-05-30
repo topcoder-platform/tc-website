@@ -170,7 +170,7 @@
 <script language="JavaScript" type="text/javascript" src="/js/arena.js"></script>
 
 
-<script language="javascript" type="text/javascript">
+<script language="JavaScript" type="text/javascript">
 <!--
 function toggleMenu(menuTitle,menuID){
    var menu = document.getElementById(menuID);
