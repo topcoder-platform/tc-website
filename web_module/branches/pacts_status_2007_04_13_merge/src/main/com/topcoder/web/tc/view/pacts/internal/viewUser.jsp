@@ -149,9 +149,8 @@
     </tr>
 
     <tr>
-        <td><b>Accrual Amount:</b></td>
-        <% out.print("<td>" + user.getHeader().getAccrualAmount() + "</td>\n");
-        %>
+        <td><b>Accrual Amount:</b></td><td>
+        $<fmt:formatNumber value="${user.header.accrualAmount}" pattern="###,##0.000" /></td>
     </tr>
 
 
