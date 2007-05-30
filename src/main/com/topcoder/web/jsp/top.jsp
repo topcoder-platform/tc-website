@@ -52,12 +52,12 @@ function findPos(obj) {
 <div id="launch4" class="popUp"><div><strong>Component Development Active Contests</strong></div></div>
 <div id="launch5" class="popUp"><div><strong>Marathon Match Active Contests</strong></div></div>
 
-<map name="competeBar">
+<map name="competeBar" id="competeBar">
 <area shape="rect" alt="" coords="0,0,66,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc" onmouseover="topPopShow(73,65,'launch0')" onmouseout="topPopHide()" />
 <area shape="rect" alt="" coords="68,0,106,30" href="javascript:arena();" onmouseover="topPopShow(108,65,'launch1')" onmouseout="topPopHide()" />
 <area shape="rect" alt="" coords="107,0,153,30" href="javascript:arena();" onmouseover="topPopShow(155,65,'launch2')" onmouseout="topPopHide()" />
-<area shape="rect" alt="" coords="154,0,179,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=112" onmouseover="topPopShow(181,65,'launch3')" onmouseout="topPopHide()" />
-<area shape="rect" alt="" coords="180,0,205,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&ph=113" onmouseover="topPopShow(207,65,'launch4')" onmouseout="topPopHide()" />
+<area shape="rect" alt="" coords="154,0,179,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=112" onmouseover="topPopShow(181,65,'launch3')" onmouseout="topPopHide()" />
+<area shape="rect" alt="" coords="180,0,205,30" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewActiveContests&amp;ph=113" onmouseover="topPopShow(207,65,'launch4')" onmouseout="topPopHide()" />
 <area shape="rect" alt="" coords="206,0,250,30" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=ViewActiveContests" onmouseover="topPopShow(252,65,'launch5')" onmouseout="topPopHide()" />
 </map>
 <%---------------------------------%>
@@ -98,7 +98,7 @@ Member Count: <%=new DecimalFormat("#,##0").format(sessionInfo.getMemberCount())
             if (level1.equals("long")) {%>
                 <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/longcontest/?module=Login">Login</a>
             <% } else { %>
-                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&module=Login">Login</a>
+                <a class="gMetal" href="http://<%=ApplicationServer.SERVER_NAME%>/tc?&amp;module=Login">Login</a>
             <% } %>
         <%}%>
     </div>
