@@ -63,8 +63,8 @@ function find(n) {
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
 
-<div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
-    Events</A></strong></div>
+<div align="center" class="bodyText"><strong><a href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
+    Events</a></strong></div>
 
 
 <p><br/></p>
@@ -93,8 +93,8 @@ function find(n) {
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
 
-<div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
-    Events</A></strong></div>
+<div align="center" class="bodyText"><strong><a href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
+    Events</a></strong></div>
 
 <p><br/></p>
 
@@ -117,8 +117,8 @@ function find(n) {
 <br/>
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
-<div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
-    Events</A></strong></div>
+<div align="center" class="bodyText"><strong><a href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
+    Events</a></strong></div>
 
 <p><br/></p>
 
@@ -135,8 +135,8 @@ function find(n) {
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
 
-<div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
-    Events</A></strong></div>
+<div align="center" class="bodyText"><strong><a href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
+    Events</a></strong></div>
 
 <p><br/></p>
 
@@ -153,8 +153,8 @@ function find(n) {
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
 
-<div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
-    Events</A></strong></div>
+<div align="center" class="bodyText"><strong><a href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
+    Events</a></strong></div>
 
 <p><br/></p>
 
@@ -171,8 +171,8 @@ function find(n) {
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
 
-<div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
-    Events</A></strong></div>
+<div align="center" class="bodyText"><strong><a href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
+    Events</a></strong></div>
 
 <p><br/></p>
 
@@ -189,8 +189,8 @@ function find(n) {
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
 
-<div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
-    Events</A></strong></div>
+<div align="center" class="bodyText"><strong><a href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
+    Events</a></strong></div>
 
 <p><br/></p>
 
@@ -207,8 +207,8 @@ function find(n) {
 <img src="/i/clear.gif" alt="" width="10" height="10" border="0"/><br/>
 
 
-<div align="center" class="bodyText"><strong><A href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
-    Events</A></strong></div>
+<div align="center" class="bodyText"><strong><a href="/tc?module=Static&d1=calendar&d2=thisMonth">More TopCoder
+    Events</a></strong></div>
 
 <p><br/></p>
 
@@ -227,7 +227,7 @@ function find(n) {
 <% } else if (level1.equals("card")) { %>
 
 <div class="cardRightTop">
-    <A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><IMG src="/i/es/animated_emp_promo.gif" alt="" width="170" height="119" border="0"/></A>
+    <a href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><IMG src="/i/es/animated_emp_promo.gif" alt="" width="170" height="119" border="0"/></a>
 </div>
 
 <div class="cardRight">

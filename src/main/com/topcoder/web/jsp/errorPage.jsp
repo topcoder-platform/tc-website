@@ -45,15 +45,15 @@
     <tr>
         <td class="homeTopBar" align=left>
         </td>
-        <td class="homeTopBar" align=right><A href="/tc?module=Static&d1=about&d2=index" class="loginLinks">About
-            TopCoder</A></td>
+        <td class="homeTopBar" align=right><a href="/tc?module=Static&d1=about&d2=index" class="loginLinks">About
+            TopCoder</a></td>
     </tr>
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr>
         <td width="50%" class="homeLogo" align="left">
-            <A href="/"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></A></td>
+            <a href="/"><img src="/i/home/TC_homeLogo.gif" alt="TopCoder"/></a></td>
         <td width="50%" class="homeLogo" align="right">&#160;</td>
     </tr>
 </table>
@@ -76,15 +76,15 @@
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr><td class="homeFooter" colspan="5">
-        <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
-        <A href="/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
-        <A href="/tc?module=Static&d1=pressroom&d2=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
-        <A href="/tc?module=Static&d1=about&d2=contactus" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
-        <A href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
-        <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
+        <a href="/" class="footerLinks">Home</a>&#160;&#160;|&#160;&#160;
+        <a href="/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</a>&#160;&#160;|&#160;&#160;
+        <a href="/tc?module=Static&d1=pressroom&d2=index" class="footerLinks">Press Room</a>&#160;&#160;|&#160;&#160;
+        <a href="/tc?module=Static&d1=about&d2=contactus" class="footerLinks">Contact Us</a>&#160;&#160;|&#160;&#160;
+        <a href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
+        <a href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</a>
         <br />
-        <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
-        <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A></td></tr>
+        <a href="/tc" class="footerLinks">Developer Center</a>&#160;&#160;|&#160;&#160;
+        <a href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</a></td></tr>
     <tr><td class="copyright" colspan="5">Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>
 </table>
 </body>

@@ -16,11 +16,11 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
-        <td class="<%=level1.equals("corporate")?"topNavOn":"topNav"%>" nowrap><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="topLink">Software</A></td>
+        <td class="<%=level1.equals("corporate")?"topNavOn":"topNav"%>" nowrap><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="topLink">Software</a></td>
 
-        <td class="<%=level1.equals("corporate")?"topNavOn":"topNav"%>" nowrap><A href="/corp/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</A></td>
+        <td class="<%=level1.equals("corporate")?"topNavOn":"topNav"%>" nowrap><a href="/corp/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</a></td>
 
-        <td class="<%=level1.equals("corporate")?"topNavOn":"topNav"%>" nowrap><A href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Marketing Services</A></td>
+        <td class="<%=level1.equals("corporate")?"topNavOn":"topNav"%>" nowrap><a href="/corp/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Marketing Services</a></td>
 
         <td class="topNav" width="49%">&#160;</td>
     </tr>
