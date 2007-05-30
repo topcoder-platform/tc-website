@@ -20,10 +20,10 @@
 <body>
 
 <h1>PACTS</h1>
-    <h2>Update Payment Status</h2>
+    <h2>Payment to update status</h2>
 
 <form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
-   <input type="hidden" name="module" value="EditPayment">
+   <input type="hidden" name="module" value="UpdatePaymentStatus">
    <input type="hidden" name="payment_id" value="${payment.id}">
 
 <table border="0" cellpadding="3" cellspacing="3">
@@ -39,7 +39,7 @@
     </tr>
         <tr>        
             <td><b>Description:</b></td>
-            <td><c:out value="${payment.header.description}" /></td>
+            <td><c:out value="${payment.description}" /></td>
         </tr>
         <tr>        
             <td><b>Status:</b></td>
@@ -50,30 +50,14 @@
         </tr>
         <tr>        
             <td><b>Type:</b></td>
-            <td><c:out value="${payment.header.type}" /></td>
+            <td><c:out value="${payment.paymentTypeDesc}" /></td>
         </tr>
-<c:choose>
-    <c:when test="${payment.netAmount != payment.totalAmount or payment.installmentNumber > 1}">
-        <tr>
-            <td><b>Installment Number:</b></td>
-            <td><fmt:formatNumber value="${payment.installmentNumber}" pattern="##0" /></td>
-        </tr>
-        <tr>
-            <td><b>Installment Net Amount:</b></td>
-            <td>$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
-        </tr>
-    </c:when>
-    <c:otherwise>
-        <tr>
-            <td><b>Net Amount:</b></td>
-            <td>$<fmt:formatNumber value="${payment.netAmount}" pattern="###,##0.00" /></td>
-        </tr>
-    </c:otherwise>
-</c:choose>
+</table>
 <br/>
     <h2>Select new status and reasons</h2>
+<b>* Warning:</b> no check will be made for this status update. This action can break the regular payment process flow.
+<br/><br/>
 <table border="0" cellpadding="3" cellspacing="3">
-</table>
         <tr>
             <td><b>Status:</b></td>
             <td>
@@ -84,7 +68,12 @@
                         </OPTION>
                     </c:forEach>
                 </SELECT>
-                <SELECT CLASS="dropdown" NAME="new_status_id" multiple size=4>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <SELECT CLASS="dropdown" NAME="new_status_reason_id" multiple size=4>
                     <c:forEach items="${payment_status_reason_list}" var="statusReasonItem">
                         <OPTION value='${statusReasonItem.id}'>
                             ${statusReasonItem.desc}
@@ -94,6 +83,7 @@
             </td>
         </tr>
 </table>
+<br>
 
 <input type="submit" value="Update payment status">
 </form>

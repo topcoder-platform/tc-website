@@ -6,19 +6,20 @@ import java.util.Map;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.ejb.pacts.payments.StateTransitionFailureException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 /**
  * update a payment status.
  *
  * @author  pulky
  */
-public class EditPaymentStatus extends PactsBaseProcessor implements PactsConstants {
+public class UpdatePaymentStatus extends PactsBaseProcessor implements PactsConstants {
 
     protected void businessProcessing() throws TCWebException {
         try {
@@ -28,8 +29,14 @@ public class EditPaymentStatus extends PactsBaseProcessor implements PactsConsta
             } catch (IllegalArgumentException iae) {
             }            
 
-            if (paymentId == 0) {
-                throw new IllegalArgumentException("Missing parameter " + PAYMENT_ID);
+            long newStatusId = 0;
+            try {
+                newStatusId = getLongParameter("new_status_id");
+            } catch (IllegalArgumentException iae) {
+            }            
+            
+            if (paymentId + newStatusId == 0) {
+                throw new IllegalArgumentException("Missing parameter " + PAYMENT_ID + " or new_status_id");
             }
 
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -45,13 +52,20 @@ public class EditPaymentStatus extends PactsBaseProcessor implements PactsConsta
             
             BasePayment payment = payments.get(0);
             
-            getRequest().setAttribute("payment", payment);
-            getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(payment.getCoderId())));
-            getRequest().setAttribute("payment_status_list", PaymentStatusFactory.getAllStatusList());
-            getRequest().setAttribute("payment_status_reason_list", PaymentStatusReason.getAllStatusReasonList());
+            BasePaymentStatus bps = PaymentStatusFactory.createStatus(newStatusId);
             
-            setNextPage(INTERNAL_EDIT_PAYMENT_STATUS_JSP);
-            setIsNextPageInContext(true);
+            String[] reasonIds = getRequest().getParameterValues("new_status_reason_id");
+            
+            for (String reasonId : reasonIds) {
+                bps.getReasons().add(PaymentStatusReason.getStatusReasonUsingId(Long.decode(reasonId)));
+            }
+
+            payment.setCurrentStatus(bps);
+            
+            dib.updatePayment(payment);
+            
+            setNextPage(Links.viewPayment(paymentId));
+            setIsNextPageInContext(false);
         } catch (Exception e) {
             throw new TCWebException(e);
         }
