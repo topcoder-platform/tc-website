@@ -49,7 +49,7 @@
 <!-- ends -->
 
 <p>
-    <h2>TopCoder College Tour SRM Overview</h2>
+    <h2>TopCoder Event Overview</h2>
 
     <br>
 
@@ -72,33 +72,28 @@
     In addition to <A href="/reg/">registering with TopCoder</A>, all competitors must register
     <a href="/tc?module=IntroEventViewReg&eid=${eid}">here</a>
     and be onsite for the competition.
-    After the event ends, pizza will be served and a TopCoder representative will be present to discuss
-    TopCoder competitions and employment services.
+    After the event, food and refreshments will be served and a TopCoder representative will be on hand to discuss TopCoder competitions and employment services.
 
     <br><br>
 
     <h3>Prizes</h3>
 
     <ul>
-    	<c:if test="${not empty mainEvent.firstPlacePrize }">
-	        <li>1st place prize - ${mainEvent.firstPlacePrize}
-    	    </li>
-    	</c:if>
-    	<c:if test="${not empty mainEvent.secondPlacePrize }">
-	        <li>1st place prize - ${mainEvent.secondPlacePrize}
-    	    </li>
-    	</c:if>
-    	<c:if test="${not empty mainEvent.thirdPlacePrize }">
-	        <li>1st place prize - ${mainEvent.thirdPlacePrize}
-    	    </li>
-    	</c:if>
+        <c:if test="${not empty mainEvent.firstPlacePrize }">
+            <li>1st place prize - ${mainEvent.firstPlacePrize}
+            </li>
+        </c:if>
+        <c:if test="${not empty mainEvent.secondPlacePrize }">
+            <li>1st place prize - ${mainEvent.secondPlacePrize}
+            </li>
+        </c:if>
+        <c:if test="${not empty mainEvent.thirdPlacePrize }">
+            <li>1st place prize - ${mainEvent.thirdPlacePrize}
+            </li>
+        </c:if>
     </ul>
 
-    All competitors will receive a TopCoder t-shirt. Placement in the SRM will be determined by the
-    total number of points at the conclusion of the SRM. The competitor with the highest total positive
-    (i.e., greater than zero) points will finish in 1st place. The overall winner will receive the 1st
-    place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher
-    will receive the 3rd place prize.
+    All competitors will receive a TopCoder T-shirt. Placement in the SRM will be determined by the total number of points at the conclusion of the SRM. The competitor with the highest total positive (i.e., greater than zero) points will finish in 1st place. The overall winner will receive the 1st place prize, the 2nd place finisher will receive the 2nd place prize, and the 3rd place finisher will receive the 3rd place prize.
 
     <br><br>
 
@@ -120,15 +115,13 @@
         </li>
         <li>
             <tc-webtag:format object="${resultsTime}" format="hh:mm a z" timeZone="${mainEvent.timeZone.description}"/>
-            - Pizza, Results, TopCoder presentation
+            - Refreshments, Winner announcements & TopCoder presentation
         </li>
     </ul>
 
 
     <strong>${mainEvent.recruiterName }
-    </strong>, a TopCoder representative, will be present to explain the TopCoder
-    algorithm, design and development competitions, TopCoder Employment Services, and other aspects of
-    TopCoder.
+    </strong>, a TopCoder representative, will be present to explain the unique array of competitions hosted by TopCoder, along with other aspects of the company.
 
     <br><br>
     
