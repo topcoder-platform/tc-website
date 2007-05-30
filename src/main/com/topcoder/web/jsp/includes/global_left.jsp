@@ -202,5 +202,7 @@ function flipMenu(myMenuName){
 <%
     String node = request.getParameter("node") == null ? "" : request.getParameter("node");
     if (!node.equals("competition_home")) {%>
-    <div align="center" style="float: left; clear:left; width: 170px; margin: 0px 0px 23px 0px;"><img src="/i/interface/brackets.png" alt="" /></div>
+    <div align="center" style="float: left; clear:left; width: 170px; margin: 0px;">
+        <img src="/i/interface/brackets.png" alt="" style="margin-bottom: 23px;" />
+    </div>
 <% } %>
