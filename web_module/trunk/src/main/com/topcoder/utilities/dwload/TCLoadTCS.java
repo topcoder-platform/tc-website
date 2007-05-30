@@ -3,25 +3,6 @@
  */
 package com.topcoder.utilities.dwload;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
-import java.sql.Types;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
-
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.shared.util.dwload.TCLoad;
@@ -31,6 +12,16 @@ import com.topcoder.utilities.dwload.contestresult.ContestResultCalculator;
 import com.topcoder.utilities.dwload.contestresult.ProjectResult;
 import com.topcoder.utilities.dwload.contestresult.RookieContest;
 import com.topcoder.utilities.dwload.contestresult.TopPerformersCalculator;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.sql.Types;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * <strong>Purpose</strong>:
@@ -107,7 +98,6 @@ public class TCLoadTCS extends TCLoad {
      * @since 1.1.0
      */
     private static final int POTENTIAL = 0;
-
 
 
     private static final long DELETED_PROJECT_STATUS = 3;
@@ -703,6 +693,7 @@ public class TCLoadTCS extends TCLoad {
         PreparedStatement insert = null;
         PreparedStatement update = null;
         ResultSet rs = null;
+        long userId = 0;
         try {
 
             long start = System.currentTimeMillis();
@@ -745,6 +736,7 @@ public class TCLoadTCS extends TCLoad {
             int count = 0;
             while (rs.next()) {
                 count++;
+                userId = rs.getLong("user_id");
                 //log.debug("PROCESSING USER " + rs.getInt("user_id"));
 
                 //update record, if 0 rows affected, insert record
@@ -757,7 +749,7 @@ public class TCLoadTCS extends TCLoad {
                 update.setObject(5, rs.getObject("last_rated_project_id"));
                 update.setInt(6, rs.getInt("highest_rating"));
                 update.setInt(7, rs.getInt("lowest_rating"));
-                update.setLong(8, rs.getLong("user_id"));
+                update.setLong(8, userId);
                 update.setObject(9, rs.getObject("phase_id"));
 
 
@@ -766,7 +758,7 @@ public class TCLoadTCS extends TCLoad {
                 if (retVal == 0) {
                     //need to insert
                     insert.clearParameters();
-                    insert.setLong(1, rs.getLong("user_id"));
+                    insert.setLong(1, userId);
                     insert.setObject(2, rs.getObject("rating"));
                     insert.setObject(3, rs.getObject("phase_id"));
                     insert.setObject(4, rs.getObject("vol"));
@@ -784,7 +776,7 @@ public class TCLoadTCS extends TCLoad {
 
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'user_rating' table failed.\n" +
+            throw new Exception("Load of 'user_rating' table failed. for user " + userId + " \n" +
                     sqle.getMessage());
         } finally {
             close(rs);
@@ -1200,7 +1192,7 @@ public class TCLoadTCS extends TCLoad {
         PreparedStatement select = null;
         ResultSet rs = null;
 
-        Map<Long, Integer>  dRProjects = new HashMap<Long, Integer>();
+        Map<Long, Integer> dRProjects = new HashMap<Long, Integer>();
         try {
             //get data from source DB
             final String SELECT = "select " +
@@ -1381,7 +1373,7 @@ public class TCLoadTCS extends TCLoad {
 
             Map<Integer, ContestResultCalculator> stageCalculators = getStageCalculators();
 
-            Map<Long,Integer> dRProjects = getDRProjects();
+            Map<Long, Integer> dRProjects = getDRProjects();
 
 
             projectSelect = prepareStatement(PROJECTS_SELECT, SOURCE_DB);
@@ -1473,16 +1465,16 @@ public class TCLoadTCS extends TCLoad {
                     boolean hasDR = false;
 
                     if (stage != null &&
-                         (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
-                          projectResults.getInt("project_stat_id") == 1) && // ACTIVE
-                         projectResults.getInt("rating_ind") == 1) {
+                            (projectResults.getInt("project_stat_id") == 7 ||  // COMPLETED
+                                    projectResults.getInt("project_stat_id") == 1) && // ACTIVE
+                            projectResults.getInt("rating_ind") == 1) {
 
                         hasDR = true;
                         ContestResultCalculator crc = stageCalculators.get(stage);
                         if (crc != null) {
                             ProjectResult pr = new ProjectResult(project_id, projectResults.getInt("project_stat_id"), projectResults.getLong("user_id"),
-                                       projectResults.getDouble("final_score"),  placed,
-                                      0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
+                                    projectResults.getDouble("final_score"), placed,
+                                    0, projectResults.getDouble("amount"), numSubmissionsPassedReview, passedReview);
 
                             if (projectResults.getInt("project_stat_id") == 7) {
                                 pointsAwarded = crc.calculatePointsAwarded(pr);
@@ -1622,7 +1614,6 @@ public class TCLoadTCS extends TCLoad {
     }
 
 
-
     /**
      * <p/>
      * Load rookies to the DW.
@@ -1721,7 +1712,7 @@ public class TCLoadTCS extends TCLoad {
                 selectSubmissions.setLong(1, userId);
                 selectSubmissions.setLong(2, phaseId);
                 selectSubmissions.setLong(3, firstSeason);
-                selectSubmissions.setLong(4, secondSeason != null? secondSeason : firstSeason);
+                selectSubmissions.setLong(4, secondSeason != null ? secondSeason : firstSeason);
                 rsSubmissions = selectSubmissions.executeQuery();
 
                 // this should be always, since if it's the first season, it must have submissions.
@@ -1745,7 +1736,7 @@ public class TCLoadTCS extends TCLoad {
                     insert.setLong(3, phaseId);
                     insert.setInt(4, POTENTIAL);
                     insert.executeUpdate();
-                    count ++;
+                    count++;
 
                     if (secondSeason != null) {
                         insert.setLong(2, secondSeason);
@@ -1792,7 +1783,7 @@ public class TCLoadTCS extends TCLoad {
     }
 
     private Map<Integer, Integer> getRookieNextSeasonMap() throws Exception {
-        Map<Integer, Integer> result = new HashMap<Integer, Integer> ();
+        Map<Integer, Integer> result = new HashMap<Integer, Integer>();
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -2506,8 +2497,8 @@ public class TCLoadTCS extends TCLoad {
             long start = System.currentTimeMillis();
 
             final String SELECT =
-                "select e.event_desc as event_name, e.event_id " +
-                "from event e where e.event_type_id = 5 and modify_date > ?";
+                    "select e.event_desc as event_name, e.event_id " +
+                            "from event e where e.event_type_id = 5 and modify_date > ?";
 
             final String UPDATE = "update event set event_name = ? " +
                     " where event_id = ? ";
@@ -4449,19 +4440,19 @@ public class TCLoadTCS extends TCLoad {
 
         final String SELECT =
                 " select season_id, name, rookie_competition_ind, next_rookie_season_id " +
-                "       , (select min(start_date) from stage st where st.season_id = s.season_id) as start_date " +
-                "       , (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " +
-                " from season s " +
-                " where modify_date > ? ";
+                        "       , (select min(start_date) from stage st where st.season_id = s.season_id) as start_date " +
+                        "       , (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " +
+                        " from season s " +
+                        " where modify_date > ? ";
 
 
         final String UPDATE =
                 "update season set start_calendar_id=?, end_calendar_id=?, name=?, rookie_competition_ind=?, next_rookie_season_id=? " +
-                " where season_id=?";
+                        " where season_id=?";
 
         final String INSERT =
                 "insert into season (start_calendar_id, end_calendar_id, name, rookie_competition_ind, next_rookie_season_id, season_id) " +
-                " values (?,?,?,?,?,?)";
+                        " values (?,?,?,?,?,?)";
 
 
         try {
@@ -4535,17 +4526,17 @@ public class TCLoadTCS extends TCLoad {
 
         final String SELECT =
                 " select stage_id, season_id, name, start_date, end_date, top_performers_factor " +
-                " from stage " +
-                " where modify_date > ? ";
+                        " from stage " +
+                        " where modify_date > ? ";
 
 
         final String UPDATE =
                 "update stage set season_id=?, start_calendar_id=?, end_calendar_id=?, name=?, top_performers_factor=? " +
-                " where stage_id=?";
+                        " where stage_id=?";
 
         final String INSERT =
                 "insert into stage (season_id, start_calendar_id, end_calendar_id, name, top_performers_factor, stage_id) " +
-                " values (?,?,?,?,?,?)";
+                        " values (?,?,?,?,?,?)";
 
 
         try {
@@ -4613,38 +4604,38 @@ public class TCLoadTCS extends TCLoad {
         log.debug("load stage results");
 
         final String SELECT_STAGES =
-            " select distinct s.season_id, s.stage_id, s.start_date, s.end_date, s.top_performers_factor " +
-            " from project_result pr, " +
-            "      stage s, " +
-            "      project p,  " +
-            "      project_info piel " +
-            " where p.project_id = pr.project_id  " +
-            " and p.project_status_id <> 3  " +
-            " and p.project_category_id in (1, 2)  " +
-            " and piel.project_info_type_id = 14  " +
-            " and piel.value = 'Open'  " +
-            " and p.project_id = piel.project_id  " +
-            " and (p.modify_date > ? " +
-            "     OR pr.modify_date > ?) " +
-            " and ( " +
-            " select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
-            " from project p " +
-            "     , OUTER project_phase psd " +
-            "     , OUTER project_phase ppd " +
-            " where  psd.project_id = p.project_id  " +
-            " and psd.phase_type_id = 2  " +
-            " and ppd.project_id = p.project_id  " +
-            " and ppd.phase_type_id = 1  " +
-            " and p.project_id = pr.project_id) between s.start_date and s.end_date ";
+                " select distinct s.season_id, s.stage_id, s.start_date, s.end_date, s.top_performers_factor " +
+                        " from project_result pr, " +
+                        "      stage s, " +
+                        "      project p,  " +
+                        "      project_info piel " +
+                        " where p.project_id = pr.project_id  " +
+                        " and p.project_status_id <> 3  " +
+                        " and p.project_category_id in (1, 2)  " +
+                        " and piel.project_info_type_id = 14  " +
+                        " and piel.value = 'Open'  " +
+                        " and p.project_id = piel.project_id  " +
+                        " and (p.modify_date > ? " +
+                        "     OR pr.modify_date > ?) " +
+                        " and ( " +
+                        " select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
+                        " from project p " +
+                        "     , OUTER project_phase psd " +
+                        "     , OUTER project_phase ppd " +
+                        " where  psd.project_id = p.project_id  " +
+                        " and psd.phase_type_id = 2  " +
+                        " and ppd.project_id = p.project_id  " +
+                        " and ppd.phase_type_id = 1  " +
+                        " and p.project_id = pr.project_id) between s.start_date and s.end_date ";
 
         final String SELECT_CONTESTS =
                 " select c.contest_id, c.phase_id, c.contest_type_id, crc.class_name " +
-                " from contest_stage_xref x " +
-                " ,contest c " +
-                " ,contest_result_calculator_lu crc " +
-                " where c.contest_id = x.contest_id " +
-                " and c.contest_result_calculator_id = crc.contest_result_calculator_id  " +
-                " and x.stage_id = ? ";
+                        " from contest_stage_xref x " +
+                        " ,contest c " +
+                        " ,contest_result_calculator_lu crc " +
+                        " where c.contest_id = x.contest_id " +
+                        " and c.contest_result_calculator_id = crc.contest_result_calculator_id  " +
+                        " and x.stage_id = ? ";
 
 
         PreparedStatement selectStages = null;
@@ -4673,7 +4664,7 @@ public class TCLoadTCS extends TCLoad {
 
                 while (rsContests.next()) {
                     loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),
-                             rsContests.getString("class_name"), factor);
+                            rsContests.getString("class_name"), factor);
                 }
 
             }
@@ -4698,82 +4689,82 @@ public class TCLoadTCS extends TCLoad {
         log.debug("load season results");
 
         final String SELECT_SEASONS =
-            " select distinct s.season_id, " +
-            "    (select min(start_date) from stage st where st.season_id = s.season_id) as start_date, " +
-            "    (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " +
-            " from project_result pr,  " +
-            "      season s,   " +
-            "      project p,    " +
-            "      project_info piel   " +
-            " where p.project_id = pr.project_id    " +
-            " and p.project_status_id <> 3    " +
-            " and p.project_category_id in (1, 2)    " +
-            " and piel.project_info_type_id = 14   " +
-            " and piel.value = 'Open'   " +
-            " and p.project_id = piel.project_id  " +
-            " and (p.modify_date > ? " +
-            "     OR pr.modify_date > ?)  " +
-            " and (  " +
-            " select NVL(ppd.actual_start_time, psd.actual_start_time)   " +
-            " from project p  " +
-            "     , OUTER project_phase psd  " +
-            "     , OUTER project_phase ppd  " +
-            " where  psd.project_id = p.project_id   " +
-            " and psd.phase_type_id = 2   " +
-            " and ppd.project_id = p.project_id   " +
-            " and ppd.phase_type_id = 1   " +
-            " and p.project_id = pr.project_id) between  " +
-            "      (select min(start_date) from stage st where st.season_id = s.season_id) and " +
-            "      (select max(end_date) from stage st where st.season_id = s.season_id)  ";
+                " select distinct s.season_id, " +
+                        "    (select min(start_date) from stage st where st.season_id = s.season_id) as start_date, " +
+                        "    (select max(end_date) from stage st where st.season_id = s.season_id) as end_date " +
+                        " from project_result pr,  " +
+                        "      season s,   " +
+                        "      project p,    " +
+                        "      project_info piel   " +
+                        " where p.project_id = pr.project_id    " +
+                        " and p.project_status_id <> 3    " +
+                        " and p.project_category_id in (1, 2)    " +
+                        " and piel.project_info_type_id = 14   " +
+                        " and piel.value = 'Open'   " +
+                        " and p.project_id = piel.project_id  " +
+                        " and (p.modify_date > ? " +
+                        "     OR pr.modify_date > ?)  " +
+                        " and (  " +
+                        " select NVL(ppd.actual_start_time, psd.actual_start_time)   " +
+                        " from project p  " +
+                        "     , OUTER project_phase psd  " +
+                        "     , OUTER project_phase ppd  " +
+                        " where  psd.project_id = p.project_id   " +
+                        " and psd.phase_type_id = 2   " +
+                        " and ppd.project_id = p.project_id   " +
+                        " and ppd.phase_type_id = 1   " +
+                        " and p.project_id = pr.project_id) between  " +
+                        "      (select min(start_date) from stage st where st.season_id = s.season_id) and " +
+                        "      (select max(end_date) from stage st where st.season_id = s.season_id)  ";
 
         final String SELECT_CONTESTS =
-            " select c.contest_id, c.phase_id, c.contest_type_id, crc.class_name " +
-            " from contest_season_xref x " +
-            " ,contest c " +
-            " ,contest_result_calculator_lu crc " +
-            " where c.contest_id = x.contest_id " +
-            " and c.contest_result_calculator_id = crc.contest_result_calculator_id  " +
-            " and x.season_id = ? ";
+                " select c.contest_id, c.phase_id, c.contest_type_id, crc.class_name " +
+                        " from contest_season_xref x " +
+                        " ,contest c " +
+                        " ,contest_result_calculator_lu crc " +
+                        " where c.contest_id = x.contest_id " +
+                        " and c.contest_result_calculator_id = crc.contest_result_calculator_id  " +
+                        " and x.season_id = ? ";
 
 
-    PreparedStatement selectSeason = null;
-    PreparedStatement selectContests = null;
-    ResultSet rsSeasons = null;
-    ResultSet rsContests = null;
+        PreparedStatement selectSeason = null;
+        PreparedStatement selectContests = null;
+        ResultSet rsSeasons = null;
+        ResultSet rsContests = null;
 
-    try {
-        selectSeason = prepareStatement(SELECT_SEASONS, SOURCE_DB);
-        selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
+        try {
+            selectSeason = prepareStatement(SELECT_SEASONS, SOURCE_DB);
+            selectContests = prepareStatement(SELECT_CONTESTS, SOURCE_DB);
 
-        selectSeason.setTimestamp(1, fLastLogTime);
-        selectSeason.setTimestamp(2, fLastLogTime);
+            selectSeason.setTimestamp(1, fLastLogTime);
+            selectSeason.setTimestamp(2, fLastLogTime);
 
-        rsSeasons = selectSeason.executeQuery();
+            rsSeasons = selectSeason.executeQuery();
 
-        while (rsSeasons.next()) {
-            int seasonId = rsSeasons.getInt("season_id");
-            selectContests.clearParameters();
-            selectContests.setInt(1, seasonId);
-            rsContests = selectContests.executeQuery();
+            while (rsSeasons.next()) {
+                int seasonId = rsSeasons.getInt("season_id");
+                selectContests.clearParameters();
+                selectContests.setInt(1, seasonId);
+                rsContests = selectContests.executeQuery();
 
-            Timestamp startDate = rsSeasons.getTimestamp("start_date");
-            Timestamp endDate = rsSeasons.getTimestamp("end_date");
+                Timestamp startDate = rsSeasons.getTimestamp("start_date");
+                Timestamp endDate = rsSeasons.getTimestamp("end_date");
 
-            while (rsContests.next()) {
-                loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),
-                         rsContests.getString("class_name"), 0.0);
+                while (rsContests.next()) {
+                    loadDRContestResults(seasonId, startDate, endDate, rsContests.getInt("phase_id"), rsContests.getInt("contest_id"),
+                            rsContests.getString("class_name"), 0.0);
+                }
+
             }
 
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'contest_result' table for seasons failed.\n" +
+                    sqle.getMessage());
+        } finally {
+            close(selectSeason);
+            close(rsSeasons);
         }
-
-    } catch (SQLException sqle) {
-        DBMS.printSqlException(true, sqle);
-        throw new Exception("Load of 'contest_result' table for seasons failed.\n" +
-                sqle.getMessage());
-    } finally {
-        close(selectSeason);
-        close(rsSeasons);
-    }
 
     }
 
@@ -4791,55 +4782,55 @@ public class TCLoadTCS extends TCLoad {
      * @throws Exception
      */
     private void loadDRContestResults(int seasonId, Timestamp startDate, Timestamp endDate, int phaseId,
-            int contestId, String className, double factor) throws Exception {
+                                      int contestId, String className, double factor) throws Exception {
 
         log.debug("loading contest_result for dr contest_id=" + contestId + ", phase=" + phaseId + " from " + startDate + " to " + endDate);
         final String SELECT_RESULTS =
-            " select p.project_id " +
-            "       ,p.project_status_id " +
-            "       ,pr.user_id " +
-            "       ,pr.placed " +
-            "       ,pr.point_adjustment " +
-            "       ,pr.final_score " +
-            "       ,pr.passed_review_ind " +
-            "       , (select max(cvd.price) " +
-            "           from project_info pi_ci " +
-            "                , comp_catalog cc  " +
-            "                , comp_versions cv " +
-            "                , comp_version_dates cvd " +
-            "           where pi_ci.project_info_type_id = 2 " +
-            "           and cc.component_id = pi_ci.value " +
-            "           and cv.component_id = cc.component_id " +
-            "           and cv.comp_vers_id = cvd.comp_vers_id " +
-            "           and cvd.phase_id = ? " +
-            "           and pi_ci.project_id = p.project_id) as amount " +
-            "       ,pi_dr.value as dr_ind " +
-            "       ,(select count(*) from submission s, upload u  " +
-            "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
-            "         and submission_status_id in (1, 4) " +
-            "        ) as num_submissions_passed_review  " +
-            " from project p " +
-            "    ,project_result pr " +
-            "    ,project_info pi_el " +     // The digital run flag should be enough, but since it's not always set, we're checking for open projects as well.
-            "    ,outer project_info pi_dr " +
-            " where pi_dr.project_id = p.project_id " +
-            " and pi_dr.project_info_type_id = 26 " +
-            " and p.project_id = pr.project_id " +
-            " and pr.rating_ind=1 " +
-            " and p.project_category_id = ? " +
-            " and pi_el.project_info_type_id = 14 " +
-            " and pi_el.value = 'Open' " +
-            " and pi_el.project_id = p.project_id " +
-            " and ( " +
-            "      select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
-            "      from project p1 " +
-            "        , OUTER project_phase psd " +
-            "        , OUTER project_phase ppd " +
-            "        where  psd.project_id = p1.project_id  " +
-            "        and psd.phase_type_id = 2  " +
-            "        and ppd.project_id = p1.project_id  " +
-            "        and ppd.phase_type_id = 1  " +
-            "        and p1.project_id = p.project_id) between ? and ? ";
+                " select p.project_id " +
+                        "       ,p.project_status_id " +
+                        "       ,pr.user_id " +
+                        "       ,pr.placed " +
+                        "       ,pr.point_adjustment " +
+                        "       ,pr.final_score " +
+                        "       ,pr.passed_review_ind " +
+                        "       , (select max(cvd.price) " +
+                        "           from project_info pi_ci " +
+                        "                , comp_catalog cc  " +
+                        "                , comp_versions cv " +
+                        "                , comp_version_dates cvd " +
+                        "           where pi_ci.project_info_type_id = 2 " +
+                        "           and cc.component_id = pi_ci.value " +
+                        "           and cv.component_id = cc.component_id " +
+                        "           and cv.comp_vers_id = cvd.comp_vers_id " +
+                        "           and cvd.phase_id = ? " +
+                        "           and pi_ci.project_id = p.project_id) as amount " +
+                        "       ,pi_dr.value as dr_ind " +
+                        "       ,(select count(*) from submission s, upload u  " +
+                        "         where u.upload_id = s.upload_id and project_id = p.project_id  " +
+                        "         and submission_status_id in (1, 4) " +
+                        "        ) as num_submissions_passed_review  " +
+                        " from project p " +
+                        "    ,project_result pr " +
+                        "    ,project_info pi_el " +     // The digital run flag should be enough, but since it's not always set, we're checking for open projects as well.
+                        "    ,outer project_info pi_dr " +
+                        " where pi_dr.project_id = p.project_id " +
+                        " and pi_dr.project_info_type_id = 26 " +
+                        " and p.project_id = pr.project_id " +
+                        " and pr.rating_ind=1 " +
+                        " and p.project_category_id = ? " +
+                        " and pi_el.project_info_type_id = 14 " +
+                        " and pi_el.value = 'Open' " +
+                        " and pi_el.project_id = p.project_id " +
+                        " and ( " +
+                        "      select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
+                        "      from project p1 " +
+                        "        , OUTER project_phase psd " +
+                        "        , OUTER project_phase ppd " +
+                        "        where  psd.project_id = p1.project_id  " +
+                        "        and psd.phase_type_id = 2  " +
+                        "        and ppd.project_id = p1.project_id  " +
+                        "        and ppd.phase_type_id = 1  " +
+                        "        and p1.project_id = p.project_id) between ? and ? ";
 
 
         final String INSERT = "insert into contest_result(contest_id, coder_id, initial_points, final_points, potential_points, current_place, current_prize) " +
@@ -4893,7 +4884,7 @@ public class TCLoadTCS extends TCLoad {
 
             count = 0;
 
-            for(ContestResult result : results) {
+            for (ContestResult result : results) {
                 insert.clearParameters();
                 insert.setInt(1, contestId);
                 insert.setLong(2, result.getCoderId());
@@ -4962,10 +4953,10 @@ public class TCLoadTCS extends TCLoad {
      */
     private List<Double> getContestPrizesAmount(long contestId) throws Exception {
         final String SELECT =
-            "select  place, prize_amount " +
-            "from contest_prize  " +
-            "where contest_id = ? " +
-            "order by place";
+                "select  place, prize_amount " +
+                        "from contest_prize  " +
+                        "where contest_id = ? " +
+                        "order by place";
 
         List<Double> prizes = new ArrayList<Double>();
         PreparedStatement select = null;
@@ -4977,7 +4968,7 @@ public class TCLoadTCS extends TCLoad {
 
             int expectedPlace = 1;
             while (rs.next()) {
-                if (rs.getString("place")!= null && rs.getInt("place") != expectedPlace) {
+                if (rs.getString("place") != null && rs.getInt("place") != expectedPlace) {
                     throw new Exception("Error in prizes for contest " + contestId + " expected a prize for place " + expectedPlace);
                 }
 
@@ -4992,21 +4983,22 @@ public class TCLoadTCS extends TCLoad {
 
     /**
      * Get a map with the class for calculating points and prizes for each stage id
+     *
      * @return
      * @throws Exception
      */
     private Map<Integer, ContestResultCalculator> getStageCalculators() throws Exception {
         final String SELECT =
-            " select  s.stage_id, min(class_name) as class_name " +
-            " from stage s " +
-            "      , contest_stage_xref x " +
-            "      , contest c " +
-            "      , contest_result_calculator_lu calc " +
-            " where s.stage_id = x.stage_id " +
-            " and x.contest_id = c.contest_id " +
-            " and c.contest_result_calculator_id = calc.contest_result_calculator_id " +
-            " and c.contest_type_id = 19 " +
-            " group by  s.stage_id ";
+                " select  s.stage_id, min(class_name) as class_name " +
+                        " from stage s " +
+                        "      , contest_stage_xref x " +
+                        "      , contest c " +
+                        "      , contest_result_calculator_lu calc " +
+                        " where s.stage_id = x.stage_id " +
+                        " and x.contest_id = c.contest_id " +
+                        " and c.contest_result_calculator_id = calc.contest_result_calculator_id " +
+                        " and c.contest_type_id = 19 " +
+                        " group by  s.stage_id ";
 
         Map<Integer, ContestResultCalculator> result = new HashMap<Integer, ContestResultCalculator>();
         PreparedStatement select = null;
