@@ -49,7 +49,7 @@ public class EditPaymentStatus extends PactsBaseProcessor implements PactsConsta
             getRequest().setAttribute("payment_status_list", PaymentStatusFactory.getAllStatusList());
             getRequest().setAttribute("payment_status_reason_list", PaymentStatusReason.getAllStatusReasonList());
             
-            setNextPage(INTERNAL_EDIT_PAYMENT_JSP);
+            setNextPage(INTERNAL_EDIT_PAYMENT_STATUS_JSP);
             setIsNextPageInContext(true);
         } catch (Exception e) {
             throw new TCWebException(e);
