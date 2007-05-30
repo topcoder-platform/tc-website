@@ -30,7 +30,7 @@
 %>
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
-		<td><b>User</b></td><td><b>Last Name</b></td><td><b>First Name</b></td><td><b>Middle Name</b></td>
+		<td><b>User</b></td><td><b>Last Name</b></td><td><b>First Name</b></td><td><b>Middle Name</b></td><td><b>Accrual Amount</b></td>
 		</tr>
 <%
   		for (int n = 0; n < userList.length; n++) {
@@ -47,6 +47,7 @@
 			out.print("<td>" + userList[n].getLast() + "</td>");
 			out.print("<td>" + userList[n].getFirst() + "</td>");
 			out.print("<td>" + userList[n].getMiddle() + "</td>");
+            out.print("<td>" + userList[n].getAccrualAmount() + "</td>");
 
 			out.print("</tr>\n");
 		}
