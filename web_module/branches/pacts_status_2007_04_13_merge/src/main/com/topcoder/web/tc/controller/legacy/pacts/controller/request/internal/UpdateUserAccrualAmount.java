@@ -34,6 +34,6 @@ public class UpdateUserAccrualAmount extends PactsBaseProcessor implements Pacts
         dib.saveUserAccrualThreshold(userId, newAccrualAmount);
 
         setNextPage(Links.viewUser(userId));
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(false);
     }
 }
