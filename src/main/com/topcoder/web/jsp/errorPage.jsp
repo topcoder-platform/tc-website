@@ -61,14 +61,14 @@
 <div class="centerer">
     <div style="padding:25px"><b>
         <span style="font-size: 18px; color: #990000;">Error</span>
-        <br><br>
+        <br /><br />
    <span class="homeText">
       <%=message == null ? "Sorry, there was an error in your request." : "<b>" + message + "</b>"%>
-      <br><br>
+      <br /><br />
       You may click <a href="<%=url==null?"javascript:history.back();":url%>">here</a> to return to the last page you were viewing.
-      <br><br>
+      <br /><br />
       If you have a question or comment, please email <a HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</a>.
-   <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+   <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
        <%=new Date().toString()%>
    </span></b>
     </div>
@@ -82,7 +82,7 @@
         <A href="/tc?module=Static&d1=about&d2=contactus" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
         <A href="/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
         <A href="/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
-        <br>
+        <br />
         <A href="/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
         <A href="/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A></td></tr>
     <tr><td class="copyright" colspan="5">Copyright &#169; 2001-2004, TopCoder, Inc. All rights reserved.</td></tr>

@@ -28,7 +28,7 @@ function find(n) {
 
 
 <div class="rightColContent">
-    <br><br>
+    <br /><br />
 </div>
 <%-- Member Profiles, Search Pages, and Private Label Events Pages ends --%>
 
@@ -219,7 +219,7 @@ function find(n) {
 
 
 <div class="rightColContent">
-    <br><br>
+    <br /><br />
 </div>
 
 <%-- About Us ends --%>
@@ -241,7 +241,7 @@ function find(n) {
 
 
 <div class="rightColContent">
-    <br><br>
+    <br /><br />
 </div>
 
 <%-- Review Board ends --%>
@@ -251,7 +251,7 @@ function find(n) {
 
 
 <div class="rightColContent">
-    <br><br>
+    <br /><br />
 </div>
 
 <%-- TCHS ends --%>
@@ -259,14 +259,14 @@ function find(n) {
 <% } else if (level1.equals("tchs")) { %>
 
 <div class="rightColContent">
-    <br><br>
+    <br /><br />
 </div>
 
 <%-- Employment Opportunities ends --%>
 
 <% } else { %>
 <div class="rightColContent">
-    <br><br>
+    <br /><br />
 </div>
 
 <% } %>
