@@ -721,8 +721,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectDetails.append("SELECT e.address as email, p.phone_number as work_phone, p.phone_number as home_phone, a.country_code, a.zip, ");
         selectDetails.append("a.state_code, a.city, a.address1, a.address2, u.first_name, u.middle_name, ");
         selectDetails.append("u.last_name, state.state_name, country.country_name, ");
-        selectDetails.append("c.coder_type_id, ct.coder_type_desc, s.user_status_desc, a.address3, a.province, nvl(ua.accrual_amount, 0) as accrual_amount ");
-        selectDetails.append("FROM coder c, user u, email e, coder_type ct, OUTER state, OUTER country, outer phone p, address a, user_address_xref x, user_status_lu s, outer(user_accrual ua) ");
+        selectDetails.append("c.coder_type_id, ct.coder_type_desc, s.user_status_desc, a.address3, a.province ");
+        selectDetails.append("FROM coder c, user u, email e, coder_type ct, OUTER state, OUTER country, outer phone p, address a, user_address_xref x, user_status_lu s ");
         selectDetails.append("WHERE c.coder_id = " + userId + " ");
         selectDetails.append("AND u.user_id = " + userId + " ");
         selectDetails.append("AND u.user_id = e.user_id ");
@@ -736,7 +736,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectDetails.append("AND ct.coder_type_id = c.coder_type_id ");
         selectDetails.append("AND state.state_code = a.state_code ");
         selectDetails.append("AND country.country_code = a.country_code ");
-        selectDetails.append("AND u.user_id = ua.user_id ");
 
         Connection c = null;
         try {
@@ -744,6 +743,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
             HashMap hm = new HashMap();
             hm.putAll(getUserProfileHeader(c, userId));
+            
+            // TODO: pulky: take this comment out
+            log.debug("query: " + selectDetails.toString());
             ResultSetContainer rsc = runSelectQuery(c, selectDetails.toString(), false);
             hm.put(USER_PROFILE_DETAIL, rsc);
             c.close();
@@ -792,8 +794,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // Helper function to get the user profile header given a connection and user Id.
     private Map getUserProfileHeader(Connection c, long userId) throws SQLException {
         StringBuffer selectHeader = new StringBuffer(300);
-        selectHeader.append("SELECT u.user_id, u.handle, u.first_name, u.middle_name, u.last_name FROM user u");
+        selectHeader.append("SELECT u.user_id, u.handle, u.first_name, u.middle_name, u.last_name, ");
+        selectHeader.append("nvl(ua.accrual_amount, 0) as accrual_amount FROM user u, outer(user_accrual ua) ");
         selectHeader.append(" WHERE user_id = " + userId);
+        selectHeader.append(" AND u.user_id = ua.user_id ");
 
         StringBuffer selectGroups = new StringBuffer(300);
         selectGroups.append("SELECT group_id FROM group_user ");
