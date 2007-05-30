@@ -38,7 +38,8 @@
   }
 -->
 </script>
-
+<table id="marginTable" border="0" cellpadding="0" cellspacing="10"  class="stat" width="100%">
+<tr><td>
 <h1>PACTS</h1>
 <h2>Payment List</h2>
 <p class="bigRed">
@@ -86,7 +87,7 @@ ${fn:length(paymentList)} records. <br />
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 <br/>
 <c:set var="totalNet" value="0" />
-<table id="datatable" border="0" cellpadding="0" cellspacing="0"  class="stat" width="100%">
+<table id="datatable" border="1" cellpadding="0" cellspacing="0"  class="stat" width="100%">
     <tr>
         <td class="header"></td>
         <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.FIRST_COL%>" includeParams="true"/>" >First</a></td>
@@ -154,17 +155,17 @@ ${fn:length(paymentList)} records. <br />
         <td class="valueC"><c:out value="${payment.createDate}" /> </td>
         <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
         </tr>
+        <tc-webtag:errorIterator id="err" name="err_${payment.id}">
         <tr>
         <td colspan="3">
         </td>
         <td colspan="11">
             <span class="bigRed">
-                <tc-webtag:errorIterator id="err"
-                    name="err_${payment.id}"><%=err%><br/>
-                </tc-webtag:errorIterator>
+                    <%=err%><br/>
             </span>
         </td>
         </tr>
+                </tc-webtag:errorIterator>
          <% even = !even;%>
     </c:forEach>
     <tr>
@@ -198,5 +199,8 @@ ${fn:length(paymentList)} records. <br />
 
 </form>
 <jsp:include page="InternalFooter.jsp" flush="true"/>
+</td></tr>
+</table>
+
 </body>
 </html>
