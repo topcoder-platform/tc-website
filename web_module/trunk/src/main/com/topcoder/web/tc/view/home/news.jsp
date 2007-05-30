@@ -2,7 +2,25 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>05.30.07<br>12:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=digital_run&d2=2007Stage4Winners">Digital Run: Stage 4 winners</A>
+        </span><br><br>
+        The last few fixes are complete, and the leaderboards for Stage 4 of the 2007 Digital Run are now final. Congratulations to <tc-webtag:handle coderId="287614" context="algorithm"/>, who won his third Design stage in a row, and to <tc-webtag:handle coderId="14820574" context="algorithm"/>, who won his first Development stage. Congratulations also to the 2007 Rookies of the Year, <tc-webtag:handle coderId="22651514" context="algorithm"/> and <tc-webtag:handle coderId="21221008" context="algorithm"/>!
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=digital_run&d2=2007Stage4Winners">details</A> |
+        <tc-webtag:forumLink forumID="515949" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
+   </td></tr>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.29.07<br>5:45 PM</td>
@@ -192,22 +210,5 @@
         <A href="/tc?module=ViewSurvey&sid=17170">details</A> |
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=551&start=0">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.22.07<br>3:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Semi">TCHS07 Semifinal Round - Problem Set &amp; Analysis</A></span><br><br>
-      The match started with a very easy 250 problem that almost everyone was able to solve. The medium had a coder-friendly statement and was not very difficult as well. The hard problem could be solved but it included several tricks, which brought a lot of excitement into the challenge phase.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Katya_Lazareva_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8436401" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=tchs07Semi">full story</A> | 
-        <tc-webtag:forumLink forumID="514496" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=hs&d2=match_editorials&d3=archive">archive</A>
    </td></tr>
    
