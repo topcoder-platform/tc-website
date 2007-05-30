@@ -260,51 +260,6 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
                         }
                         return;
                     }
-//                    if (command.equals(PAYMENT_CMD)) {
-//                        String[] statusValues = request.getParameterValues(STATUS_CODE);
-//                        String[] typeValues = request.getParameterValues(TYPE_CODE);
-//                        String[] methodValues = request.getParameterValues(METHOD_CODE);
-//
-//                        boolean checked = true;
-//                        if (statusValues != null) {
-//                            for (int i = 0; i < statusValues.length; i++) {
-//                                checked &= checkParam(LONG_TYPE, statusValues[i], false, pp);
-//                            }
-//                        }
-//                        if (typeValues != null) {
-//                            for (int i = 0; i < typeValues.length; i++) {
-//                                checked &= checkParam(INT_TYPE, typeValues[i], false, pp);
-//                            }
-//                        }
-//                        if (methodValues != null) {
-//                            for (int i = 0; i < methodValues.length; i++) {
-//                                checked &= checkParam(INT_TYPE, methodValues[i], false, pp);
-//                            }
-//                        }
-//
-//                        if (
-//                                checked
-//                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
-//                                && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
-//                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
-//                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
-//                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
-//                                && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
-//                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
-//                                && checkParam(LONG_TYPE, request.getParameter(PROJECT_ID), false, pp)
-//                                && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
-//                                && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
-//                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
-//                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
-//                                && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_NET_AMOUNT), false, pp)
-//                                && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_NET_AMOUNT), false, pp)
-//                                && pp.get()) {
-//                            doPaymentList(request, response);
-//                        } else {
-//                            throw new NavigationException("Invalid Search Parameter or No Search Parameter Specified");
-//                        }
-//                        return;
-//                    }
                     if (command.equals(TAX_FORM_CMD)) {
                         if (
                                 checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false)

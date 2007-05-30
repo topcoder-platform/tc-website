@@ -1,5 +1,10 @@
 package com.topcoder.web.ejb.pacts.payments;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
+
 
 /**
  * This class models a Payment Status reason.
@@ -63,6 +68,20 @@ public class PaymentStatusReason implements java.io.Serializable {
             }
         }
         throw new InvalidStatusReasonException();
+    }
+
+    /**
+     * Retrieve all possible payment's status reasons
+     * 
+     * @return a list of PaymentStatusReason with all the possible payment status reasons
+     */
+    public static List<PaymentStatusReason> getAllStatusReasonList() {
+        List statusReasonList = new ArrayList<PaymentStatusReason>(); 
+
+        for (AvailableStatusReason availableStatusReason : AvailableStatusReason.values()) {
+            statusReasonList.add(availableStatusReason.getStatusReason());
+        }
+        return statusReasonList;            
     }
 
     /**

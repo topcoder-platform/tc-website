@@ -223,8 +223,8 @@
 <a href="${pacts:updatePayment(payment.header.id)}">Update Payment</a>
 <br/>
 
-<%-- <a href="PactsInternalServlet?t=payments&c=Review Selected Payments&payment_id=${payment.header.id}&query=PactsInternalServlet%3Ft%3Dview%26c%3Dpayment%26payment_id%3d${payment.header.id}%26individual_payment%3D1">Review Payment</a>
-<br/>--%>
+<a href="${pacts:updatePaymentStatus(payment.header.id)}">Update Payment Status</a>
+<br/>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
 </body>
