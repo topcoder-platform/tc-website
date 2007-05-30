@@ -130,7 +130,7 @@ public class NavBuilder extends TagSupport {
             out.print(node.getHref());
             out.print("\"");
             if (node.getOnClick() != null) {
-                out.print(" onClick=\"");
+                out.print(" onclick=\"");
                 out.print(node.getOnClick());
                 out.print("\"");
             }
