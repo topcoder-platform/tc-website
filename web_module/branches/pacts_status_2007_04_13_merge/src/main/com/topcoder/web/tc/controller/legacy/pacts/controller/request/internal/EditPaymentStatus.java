@@ -11,6 +11,7 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.ejb.pacts.payments.StateTransitionFailureException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 /**
  * update a payment status.
@@ -45,7 +46,7 @@ public class EditPaymentStatus extends PactsBaseProcessor implements PactsConsta
             BasePayment payment = payments.get(0);
             
             getRequest().setAttribute("payment", payment);
-
+            getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(userId)));
             getRequest().setAttribute("payment_status_list", PaymentStatusFactory.getAllStatusList());
             getRequest().setAttribute("payment_status_reason_list", PaymentStatusReason.getAllStatusReasonList());
             
