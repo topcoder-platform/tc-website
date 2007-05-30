@@ -1,5 +1,6 @@
 package com.topcoder.web.ejb.pacts;
 
+import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -262,6 +263,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     ResultSetContainer getContestsInfo(long eid) throws SQLException;
 
     public double getUserAccruingPaymentsTotal(long userId) throws SQLException;
+
+    public void saveUserAccrualThreshold(long userId, double newAccrualAmount);
 
 }
 

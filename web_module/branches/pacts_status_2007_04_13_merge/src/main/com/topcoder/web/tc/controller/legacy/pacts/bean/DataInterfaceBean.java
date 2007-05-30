@@ -1624,5 +1624,15 @@ public class DataInterfaceBean implements PactsConstants {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getContestsInfo(eid);
     }
+    
+    /**
+     * saves the provided accrual amount to the specified user
+     *
+     * @throws RemoteException If there is some communication problem with the EJB
+     */
+    public void saveUserAccrualThreshold(long userId, double newAccrualAmount) throws RemoteException {
+        PactsServicesLocal ps = getEjbHandle();
+        ps.saveUserAccrualThreshold(userId, newAccrualAmount);
+    }
 }
 

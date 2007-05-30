@@ -1310,6 +1310,70 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
+     */
+    public void saveUserAccrualThreshold(long userId, double newAccrualAmount) {
+        PreparedStatement ps = null;
+        Connection c = null;
+
+        // validate
+        if (userId == 0) {
+            throw new IllegalArgumentException("Invalid user ID");
+        }
+
+        if (newAccrualAmount < 0) {
+            throw new IllegalArgumentException("Invalid accrual amount");
+        }
+
+        // store
+        boolean addOperation = true;
+        try {
+            c = DBMS.getConnection(trxDataSource);
+
+            ResultSetContainer rsc = runSelectQuery(c, "SELECT accrual_amount FROM user_accrual where user_id = " + userId, false);
+
+            if (rsc.iterator().hasNext()) {
+                addOperation = false;
+            }
+            
+
+            StringBuffer query = new StringBuffer(1024);
+            if (addOperation) {
+                // add
+                query.append("insert into 'informix'.accrual_amount( ");
+                query.append("accrual_amount, ");
+                query.append("user_id) ");
+                query.append("values (?, ?)");
+            } else {
+                // update
+                query.append("update 'informix'.accrual_amount set ");
+                query.append("accrual_amount = ? ");
+                query.append("where user_id = ? ");
+            }
+
+            ps = c.prepareStatement(query.toString());
+            ps.setDouble(1, newAccrualAmount);
+            ps.setLong(2, userId);
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw (new EJBException("Wrong number of rows updated in 'saveUserAccrualThreshold'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+        } catch (SQLException e) {
+            ejbContext.setRollbackOnly();
+            DBMS.printSqlException(true, e);
+            throw (new EJBException(e.getMessage(), e));
+        } catch (Exception e) {
+            ejbContext.setRollbackOnly();
+            throw (new EJBException(e.getMessage(), e));
+        } finally {
+            close(ps);
+            close(c);
+        }
+    }
+
+
+    
+    /**
      * Returns the accruing payments total of a user
      *
      * @return accruing total
