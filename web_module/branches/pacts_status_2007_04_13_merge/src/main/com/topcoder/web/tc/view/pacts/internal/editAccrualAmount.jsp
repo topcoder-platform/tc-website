@@ -22,13 +22,11 @@
 
 
 <h1>PACTS</h1>
-<c:choose>
-    <h2>Edit user accrual amount</h2>
-</c:choose>
+<h2>Edit user accrual amount</h2>
 
 <form name='f' action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
   <input type="hidden" name="<%=PactsConstants.USER_ID%>" value="${user.id}"/>
-  <input type="hidden" name="module" value="UpdateAccrualAmount"/>
+  <input type="hidden" name="module" value="UpdateUserAccrualAmount"/>
         <table cellpadding="5" cellspacing="5" border="0">
         <tr>
             <td><b>User</b></td>
@@ -36,13 +34,13 @@
         </tr>
         <tr>        
             <td><b>Accrual amount:</b></td>
-                <tc-webtag:textInput name="accrual_amount" id="accrual_amount" editable="true" /> 
             <td>
+                <tc-webtag:textInput name="accrual_amount" id="accrual_amount" editable="true" /> 
             </td>
         </tr>
 </table>
 
-<input type="button" value="Save acrrual amount" OnClick="send()">
+<input type="submit" value="Save acrrual amount">
 
 </form>
 
