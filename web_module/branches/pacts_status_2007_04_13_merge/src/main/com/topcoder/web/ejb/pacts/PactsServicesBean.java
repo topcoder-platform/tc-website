@@ -721,8 +721,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectDetails.append("SELECT e.address as email, p.phone_number as work_phone, p.phone_number as home_phone, a.country_code, a.zip, ");
         selectDetails.append("a.state_code, a.city, a.address1, a.address2, u.first_name, u.middle_name, ");
         selectDetails.append("u.last_name, state.state_name, country.country_name, ");
-        selectDetails.append("c.coder_type_id, ct.coder_type_desc, s.user_status_desc, a.address3, a.province ");
-        selectDetails.append("FROM coder c, user u, email e, coder_type ct, OUTER state, OUTER country, outer phone p, address a, user_address_xref x, user_status_lu s ");
+        selectDetails.append("c.coder_type_id, ct.coder_type_desc, s.user_status_desc, a.address3, a.province, nvl(ua.accrual_amount, 0) as accrual_amount ");
+        selectDetails.append("FROM coder c, user u, email e, coder_type ct, OUTER state, OUTER country, outer phone p, address a, user_address_xref x, user_status_lu s, outer(user_accrual ua) ");
         selectDetails.append("WHERE c.coder_id = " + userId + " ");
         selectDetails.append("AND u.user_id = " + userId + " ");
         selectDetails.append("AND u.user_id = e.user_id ");
@@ -735,7 +735,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectDetails.append("and a.address_type_id = 2 ");
         selectDetails.append("AND ct.coder_type_id = c.coder_type_id ");
         selectDetails.append("AND state.state_code = a.state_code ");
-        selectDetails.append("AND country.country_code = a.country_code");
+        selectDetails.append("AND country.country_code = a.country_code ");
+        selectDetails.append("AND u.user_id = ua.user_id ");
 
         Connection c = null;
         try {
