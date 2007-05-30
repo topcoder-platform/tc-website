@@ -94,6 +94,17 @@ public interface PactsClientServices extends EJBObject {
     List findCoderPayments(long coderId, int paymentTypeId) throws RemoteException, Exception, InvalidStatusException;
 
     /**
+     * Find the payments of the specified type for a coder.
+     *
+     * @param coderId the coder to find payments for.
+     * @param paymentTypeId type of payment to look for.
+     * @param referenceId the reference id.
+     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+     * @throws SQLException
+     */
+    List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws RemoteException, Exception, InvalidStatusException;
+
+    /**
      * Get a BasePayment from the database.
      * 
      * @param paymentId id of the payment to load.

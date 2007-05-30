@@ -5765,6 +5765,24 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
     /**
+     * Find the payments of the specified type for a coder.
+     *
+     * @param coderId       the coder to find payments for.
+     * @param paymentTypeId type of payment to look for.
+     * @param referenceId the reference id.
+     * @return a List with instances of the specific class for the payment type (always a BasePayment subclass)
+     * @throws SQLException
+     */
+    public List findCoderPayments(long coderId, int paymentTypeId, long referenceId) throws SQLException, InvalidStatusException {
+        Map searchCriteria = new HashMap();
+
+        searchCriteria.put(PAYMENT_TYPE_ID, String.valueOf(paymentTypeId));
+        searchCriteria.put(USER_ID, String.valueOf(coderId));
+        searchCriteria.put(PAYMENT_REFERENCE_ID, String.valueOf(referenceId));
+        return findCoderPayments(searchCriteria);
+    }
+
+    /**
      * Helper method to create the SQL select to find assignment document
      *
      * @return The SQL select to find assignment document
