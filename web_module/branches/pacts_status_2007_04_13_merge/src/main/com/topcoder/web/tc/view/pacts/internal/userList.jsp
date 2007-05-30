@@ -47,8 +47,10 @@
 			out.print("<td>" + userList[n].getLast() + "</td>");
 			out.print("<td>" + userList[n].getFirst() + "</td>");
 			out.print("<td>" + userList[n].getMiddle() + "</td>");
-            out.print("<td>" + userList[n].getAccrualAmount() + "</td>");
-
+            %>
+            <td>$<fmt:formatNumber value="${userList[n].accrualAmount}" pattern="###,##0.000" /></td>
+            
+            <%
 			out.print("</tr>\n");
 		}
 	}

@@ -2891,6 +2891,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         ArrayList orClauses = new ArrayList();
         ArrayList objects = new ArrayList();
 
+        whereClauses.add("u.user_id = ua.user_id");
+
         Iterator i = searchCriteria.keySet().iterator();
         try {
             while (i.hasNext()) {
