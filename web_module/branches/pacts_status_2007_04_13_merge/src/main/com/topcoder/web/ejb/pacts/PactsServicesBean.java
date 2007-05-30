@@ -2964,7 +2964,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     clause.append("EXISTS (SELECT 1 FROM payment, payment_detail ");
                     clause.append("        WHERE payment.user_id = u.user_id");
                     clause.append("        AND payment.most_recent_detail_id = payment_detail.payment_detail_id");
-                    clause.append("        AND payment_detail.status_id in (" + 
+                    clause.append("        AND payment_detail.payment_status_id in (" + 
                         PaymentStatus.OWED_PAYMENT_STATUS.getId() + "," +
                         PaymentStatus.ACCRUING_PAYMENT_STATUS.getId() + "))");
                     orClauses.add(clause.toString());
@@ -3000,6 +3000,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         selectHeader.append(" ORDER BY uchandle");
 
+        // TODO: pulky: take this comment out
+        log.debug("Query: " + selectHeader.toString());
+        
         ResultSetContainer rsc = runSearchQuery(selectHeader.toString(), objects, true);
         HashMap hm = new HashMap();
         hm.put(USER_PROFILE_HEADER_LIST, rsc);
