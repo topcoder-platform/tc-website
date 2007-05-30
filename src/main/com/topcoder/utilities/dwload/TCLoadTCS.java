@@ -13,7 +13,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -4823,12 +4822,16 @@ public class TCLoadTCS extends TCLoad {
             "        ) as num_submissions_passed_review  " +            
             " from project p " +
             "    ,project_result pr " +
+            "    ,project_info pi_el " +     // The digital run flag should be enough, but since it's not always set, we're checking for open projects as well.
             "    ,outer project_info pi_dr " +
             " where pi_dr.project_id = p.project_id " +
             " and pi_dr.project_info_type_id = 26 " +
             " and p.project_id = pr.project_id " +
             " and pr.rating_ind=1 " +
             " and p.project_category_id = ? " +
+            " and pi_el.project_info_type_id = 14 " +
+            " and pi_el.value = 'Open' " +
+            " and pi_el.project_id = p.project_id " +
             " and ( " +
             "      select NVL(ppd.actual_start_time, psd.actual_start_time)  " +
             "      from project p1 " +
