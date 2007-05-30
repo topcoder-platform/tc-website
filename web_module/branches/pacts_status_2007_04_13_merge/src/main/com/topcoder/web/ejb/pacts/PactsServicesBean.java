@@ -1339,13 +1339,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             StringBuffer query = new StringBuffer(1024);
             if (addOperation) {
                 // add
-                query.append("insert into 'informix'.accrual_amount( ");
+                query.append("insert into 'informix'.user_accrual( ");
                 query.append("accrual_amount, ");
                 query.append("user_id) ");
                 query.append("values (?, ?)");
             } else {
                 // update
-                query.append("update 'informix'.accrual_amount set ");
+                query.append("update 'informix'.user_accrual set ");
                 query.append("accrual_amount = ? ");
                 query.append("where user_id = ? ");
             }
