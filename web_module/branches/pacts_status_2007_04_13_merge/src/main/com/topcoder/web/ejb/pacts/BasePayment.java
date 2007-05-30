@@ -83,7 +83,18 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.installmentNumber = 1;
         this.placed = placed;
     }
-
+    
+    /**
+     * @deprecated
+     * 
+     * Gets status desc
+     *
+     * @return the status desc.
+     */
+    public String getStatusDesc() {
+        return currentStatus == null ? "" : currentStatus.getDesc();
+    }
+    
     /**
      * Get the type of reference that this payment uses.
      * It will return the value of one of the constants: NO_REFERENCE or REFERENCE_*
