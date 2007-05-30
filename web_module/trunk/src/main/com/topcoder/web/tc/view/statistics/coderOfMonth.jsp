@@ -98,7 +98,7 @@
 <span class="bodyText">
 <span class="title"><%=pageTitle%> Coder<br>of the Month</span>
 <br><br>
-TopCoder reserves the title of Coder of the Month for any member who has had an outstanding month of competition. These memebers may have had an exceptionally high rating increase for the month, earned a large amount of winnings, or has had an impressive winning streak.
+TopCoder reserves the title of Coder of the Month for any member who has had an outstanding month of competition. These members may have had an exceptionally high rating increase for the month, earned a large amount of winnings, or has had an impressive winning streak.
 <br><br>
     <% if (!ccom) {%>
 View the <A href="/tc?module=COMHistory&amp;<%=Constants.ACHIEVEMENT_TYPE_ID%>=<%=Constants.ACHIEVEMENT_TYPE_COM%>">Classic Coder of the Month Archive</A>
