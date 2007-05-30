@@ -49,6 +49,15 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
     public abstract Long getId();
             
     /**
+     * Getter for the payment's active flag
+     * 
+     * @return true if active
+     */
+    public boolean isActive() {
+        return true;
+    }
+
+    /**
      * This method will handle the state transition for each particular status
      * 
      * @param payment the payment to apply the event to

@@ -31,6 +31,14 @@ public class TempFixPaymentStatus extends BasePaymentStatus {
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
      */
     @Override
+    public boolean isActive() {
+        return false;
+    }
+
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
+     */
+    @Override
     public String getDesc() {
         return DESC;
     }

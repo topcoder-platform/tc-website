@@ -56,10 +56,12 @@ public class UpdatePaymentStatus extends PactsBaseProcessor implements PactsCons
             
             String[] reasonIds = getRequest().getParameterValues("new_status_reason_id");
             
-            for (String reasonId : reasonIds) {
-                bps.getReasons().add(PaymentStatusReason.getStatusReasonUsingId(Long.decode(reasonId)));
+            if (reasonIds != null) { 
+                for (String reasonId : reasonIds) {
+                    bps.getReasons().add(PaymentStatusReason.getStatusReasonUsingId(Long.decode(reasonId)));
+                }
             }
-
+            
             payment.setCurrentStatus(bps);
             
             dib.updatePayment(payment);

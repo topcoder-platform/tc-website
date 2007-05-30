@@ -119,4 +119,21 @@ public class PaymentStatusFactory {
         }
         return statusList;            
     }
+
+    /**
+     * Retrieve all possible payment's statuses
+     * 
+     * @return a list of BasePaymentStatus with all the possible payment statuses
+     */
+    public static List<BasePaymentStatus> getActiveStatusList() {
+        List statusList = new ArrayList<BasePaymentStatus>(); 
+
+        for (PaymentStatus availableStatus : PaymentStatus.values()) {
+            BasePaymentStatus status = createStatus(availableStatus);
+            if (status.isActive()) {
+                statusList.add(status);
+            }
+        }
+        return statusList;            
+    }
 }

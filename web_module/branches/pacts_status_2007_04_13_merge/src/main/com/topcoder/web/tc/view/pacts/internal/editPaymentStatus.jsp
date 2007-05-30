@@ -53,8 +53,7 @@
             <td><c:out value="${payment.paymentTypeDesc}" /></td>
         </tr>
 </table>
-<br/>
-    <h2>Select new status and reasons</h2>
+<h2>Select new status and reasons</h2>
 <b>* Warning:</b> no check will be made for this status update. This action can break the regular payment process flow.
 <br/><br/>
 <table border="0" cellpadding="3" cellspacing="3">
@@ -73,7 +72,7 @@
         <tr>
             <td></td>
             <td>
-                <SELECT CLASS="dropdown" NAME="new_status_reason_id" multiple size=4>
+                <SELECT CLASS="dropdown" NAME="new_status_reason_id" multiple size=6>
                     <c:forEach items="${payment_status_reason_list}" var="statusReasonItem">
                         <OPTION value='${statusReasonItem.id}'>
                             ${statusReasonItem.desc}
