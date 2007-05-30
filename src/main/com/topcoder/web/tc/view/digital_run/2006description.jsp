@@ -77,7 +77,8 @@ function menu_goto( menuform )
 <strong>
 <A href="/tc?module=Static&d1=digital_run&d2=2006_stage1_winners" class="bcLink">Stage 1 Winners</A><br>
 <A href="/tc?module=Static&d1=digital_run&d2=2006Stage2Winners" class="bcLink">Stage 2 Winners</A><br>
-<A href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners" class="bcLink">Stage 3 Winners</A>
+<A href="/tc?module=Static&d1=digital_run&d2=2007Stage3Winners" class="bcLink">Stage 3 Winners</A><br>
+<A href="/tc?module=Static&d1=digital_run&d2=2007Stage4Winners" class="bcLink">Stage 4 &amp; Rookie of the Year Winners</A>
 </strong>
 
 </div>
