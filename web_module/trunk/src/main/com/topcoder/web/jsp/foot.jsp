@@ -10,7 +10,7 @@
             <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=contactus" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
             <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</A>
-            <br>
+            <br />
             <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc" class="footerLinks">Developer Center</A>&#160;&#160;|&#160;&#160;
             <A href="http://<%=ApplicationServer.SERVER_NAME%>/corp/?module=Static&d1=corp&d2=index" class="footerLinks">Corporate Services</A>
         </td>
