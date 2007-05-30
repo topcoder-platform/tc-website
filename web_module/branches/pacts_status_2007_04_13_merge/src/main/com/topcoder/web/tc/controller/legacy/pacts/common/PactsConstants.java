@@ -159,6 +159,7 @@ public interface PactsConstants extends Constants {
     // Code lookups
     public static final Integer ASSIGNMENT_DOCUMENT_DEFAULT_EXPIRATION_PERIOD = new Integer(7);
 
+    public static final String ACCRUAL_AMOUNT = "accrual_amount";
     public static final String ASSIGNMENT_DOCUMENT_TYPE_LIST = "assignment_document_type_list";
     public static final String ASSIGNMENT_DOCUMENT_STATUS_LIST = "assignment_document_status_list";
     public static final String AFFIDAVIT_TYPE_LIST = "affidavit_type_list";
@@ -433,6 +434,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewTaxForm.jsp";
     public static final String INTERNAL_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewUserTaxForm.jsp";
     public static final String INTERNAL_ADD_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/addAssignmentDocument.jsp";
+    public static final String INTERNAL_EDIT_ACCRUAL_AMOUNT_JSP = INTERNAL_JSP_DIR + "/editAccrualAmount.jsp";
     public static final String INTERNAL_SEARCH_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/searchAssignmentDocument.jsp";
     public static final String INTERNAL_LIST_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/assignmentDocumentList.jsp";
     public static final String INTERNAL_ADD_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/addAffidavit.jsp";
