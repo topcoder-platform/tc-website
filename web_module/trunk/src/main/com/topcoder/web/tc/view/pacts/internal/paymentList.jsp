@@ -1,23 +1,29 @@
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants" %>
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal.PaymentList" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib uri="pacts.tld" prefix="pacts" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request"/>
 
-<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
+<%--<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />--%>
 <c:set var="paymentList" value="<%= request.getAttribute(PaymentList.PAYMENTS) %>" />
 <c:set var="reliabilityMap" value="<%= request.getAttribute(PaymentList.RELIABILITY) %>" />
 <c:set var="groupReliability" value="<%= request.getAttribute(PaymentList.GROUP_RELIABILITY) %>" />
 <c:set var="toggleGroupReliability" value="<%= request.getAttribute(PaymentList.TOGGLE_GROUP_RELIABILITY) %>" />
+
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>PACTS - Payment List</title>
+    <link type="text/css" rel="stylesheet" href="/css/tcStyles.css">
 </head>
 <body>
 <script type="text/javascript">
@@ -32,104 +38,170 @@
   }
 -->
 </script>
-
+<table id="marginTable" border="0" cellpadding="0" cellspacing="10"  class="stat" width="100%">
+<tr><td>
 <h1>PACTS</h1>
 <h2>Payment List</h2>
+<p class="bigRed">
+    ${message_result}
+</p>
+
 ${fn:length(paymentList)} records. <br />
 
-<form name="f" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="POST">
-	<input type=hidden name="<%=PactsConstants.TASK_STRING%>" value="<%=PactsConstants.PAYMENT_TASK%>">
-	<input type=hidden name="query" value="${query}">
+<form name="f" action="<%= PactsConstants.INTERNAL_SERVLET_URL%>" method="post">
+   <input type="hidden" name="module" value="NewPaymentEvent">
+   <input type=hidden name="query" value="${query}">
 
-	<a href="${toggleGroupReliability}">
-		<c:choose>
-			<c:when test="${groupReliability}">Ungroup components and reliabilities</c:when>
-			<c:otherwise>Group components with their reliabilities</c:otherwise>
-		</c:choose>
-	</a><br>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_COLUMN%>"/>
+    <tc-webtag:hiddenInput name="<%=DataAccessConstants.SORT_DIRECTION%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.PAYMENT_ID%>" value="<%=request.getAttribute(PactsConstants.PAYMENT_ID).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.PROJECT_ID%>" value="<%=request.getAttribute(PactsConstants.PROJECT_ID).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.HANDLE%>" value="<%=request.getAttribute(PactsConstants.HANDLE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_CREATION_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_CREATION_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_CREATION_DATE%>" value="<%=request.getAttribute(PactsConstants.LATEST_CREATION_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_MODIFICATION_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_MODIFICATION_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_MODIFICATION_DATE%>" value="<%=request.getAttribute(PactsConstants.LATEST_MODIFICATION_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_PAY_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_PAY_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_PAY_DATE%>" value="<%=request.getAttribute(PactsConstants.LATEST_PAY_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.EARLIEST_DUE_DATE%>" value="<%=request.getAttribute(PactsConstants.EARLIEST_DUE_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LATEST_DUE_DATE%>" value="<%=request.getAttribute(PactsConstants.LATEST_DUE_DATE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.LOWEST_NET_AMOUNT%>" value="<%=request.getAttribute(PactsConstants.LOWEST_NET_AMOUNT).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.HIGHEST_NET_AMOUNT%>" value="<%=request.getAttribute(PactsConstants.HIGHEST_NET_AMOUNT).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.STATUS_CODE%>" value="<%=request.getAttribute(PactsConstants.STATUS_CODE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.TYPE_CODE%>" value="<%=request.getAttribute(PactsConstants.TYPE_CODE).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.METHOD_CODE%>" value="<%=request.getAttribute(PactsConstants.METHOD_CODE).toString()%>"/>
+
+    <tc-webtag:hiddenInput name="<%=PactsConstants.AFFIDAVIT_ID%>" value="<%=request.getAttribute(PactsConstants.AFFIDAVIT_ID).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.CONTRACT_ID%>" value="<%=request.getAttribute(PactsConstants.CONTRACT_ID).toString()%>"/>
+    <tc-webtag:hiddenInput name="<%=PactsConstants.USER_ID%>" value="<%=request.getAttribute(PactsConstants.USER_ID).toString()%>"/>
+
+    <input type=hidden name="query" value="${query}">
+
+    <a href="${toggleGroupReliability}">
+        <c:choose>
+            <c:when test="${groupReliability}">Ungroup components and reliabilities</c:when>
+            <c:otherwise>Group components with their reliabilities</c:otherwise>
+        </c:choose>
+    </a><br>
 
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
-
+<br/>
 <c:set var="totalNet" value="0" />
-<table id="datatable" border="0" cellpadding="5" cellspacing="0">
-	<tr>
-		<td></td>
-		<td><b>First</b></td>
-		<td><b>Last</b></td>
-		<td><b>User</b></td>
-		<td><b>Description</b></td>
-		<td><b>Gross</b></td>
-		<td><b>Tax</b></td>
-		<td><b>Net</b></td>
-		<td><b>Type</b></td>
-		<td><b>Method</b></td>
-		<td><b>Status</b></td>
-		<td><b>Client</b></td>
-		<td><b>Created</b></td>
-		<td><b>Modified</b></td>
-		<td><b>Reviewed</b></td>
-	</tr>
-	<c:forEach var="payment" items="${paymentList}">
-			<c:set var="composed" value="false" />	
-			<c:set var="mark" value="" />
-			<c:if test="${not empty reliabilityMap[payment.id]}"> 	
-				<c:set var="composed" value="true" />			
-				<c:set var="mark" value="*" />
-			</c:if>
-		<c:set var="totalNet" value="${totalNet + payment.recentNetAmount}" />
-		<tr>
-		<td> <c:choose>
-				<c:when test="${composed}">
-					<input type="checkbox" name="payment_id" value="${payment.id},${reliabilityMap[payment.id]}" checked></c:when>
-				<c:otherwise>
-					<input type="checkbox" name="payment_id" value="${payment.id}" checked></c:otherwise>
-			</c:choose>
-		
-		</td>
-		<td><c:out value="${payment.user.first}" /></td>
-		<td><c:out value="${payment.user.last}" /></td>
-		<td><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
-		<td><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
-			<c:if test="${composed}"> + 
-			     <a href="${pacts:viewPayment(reliabilityMap[payment.id])}">Reliability</a>
-			</c:if>
-		</td>
-		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-		<td align="right" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
-		<td><c:out value="${payment.type}" /></td>
-		<td><c:out value="${payment.method}" /></td>
-		<td><c:out value="${payment.recentStatus}" /></td>
-		<td><c:out value="${payment.client}" /></td>
-		<td><c:out value="${payment.createDate}" /> </td>
-		<td><c:out value="${payment.modifyDate}" /> </td>
-		<td><c:choose>
-				<c:when test="${payment.reviewed}">Yes</c:when>
-				<c:otherwise>No</c:otherwise>
-			</c:choose>
-		</td>
-		</tr>
-	</c:forEach>
-	<tr>
-		<td colspan="7"><b>Total Net Amount:</b>
-		</td>
-		<td align="right" nowrap>$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
-		<td colspan="7"></td>
-	</tr>
-	
-	</table>
+<table id="datatable" border="1" cellpadding="0" cellspacing="0"  class="stat" width="100%">
+    <tr>
+        <td class="header"></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.FIRST_COL%>" includeParams="true"/>" >First</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.LAST_COL%>" includeParams="true"/>" >Last</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.USER_COL%>" includeParams="true"/>" >User</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.DESC_COL%>" includeParams="true"/>" >Description</a></td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.GROSS_COL%>" includeParams="true"/>" >Gross</a></td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.TAX_COL%>" includeParams="true"/>" >Tax</a></td>
+        <td class="headerR"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.NET_COL%>" includeParams="true"/>" >Net</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.TYPE_COL%>" includeParams="true"/>" >Type</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.METHOD_COL%>" includeParams="true"/>" >Method</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.STATUS_COL%>" includeParams="true"/>" >Status</a></td>
+        <td class="header"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CLIENT_COL%>" includeParams="true"/>" >Client</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.CREATED_COL%>" includeParams="true"/>" >Created</a></td>
+        <td class="headerC"><a href="<%=sessionInfo.getServletPath()%>?<tc-webtag:sort column="<%=PaymentList.MODIFIED_COL%>" includeParams="true"/>" >Modified</a></td>
+    </tr>
+    <% boolean even = true;%>
+    <c:forEach var="payment" items="${paymentList}">
+            <c:set var="composed" value="false" />    
+            <c:set var="mark" value="" />
+            <c:if test="${not empty reliabilityMap[payment.id]}">     
+                <c:set var="composed" value="true" />
+                <c:set var="mark" value="*" />
+            </c:if>
+        <c:set var="totalNet" value="${totalNet + payment.recentNetAmount}" />
+        <tr class="<%=even?"light":"dark"%>">
+        <td> 
+            <c:choose>
+                <c:when test="${composed}">
+                    <c:set var="row_key" value="${payment.id},${reliabilityMap[payment.id]}"/>
+                </c:when>
+                <c:otherwise>
+                    <fmt:formatNumber var="row_key" value="${payment.id}" groupingUsed="False"/>
+                </c:otherwise>
+            </c:choose>
+            <c:choose>
+                <c:when test="${empty checked_payments || cf:contains(checked_payments, row_key)}">
+                   <input type="checkbox" name="checked_payment_id" value="${row_key}" checked></c:when>
+                <c:otherwise>
+                   <input type="checkbox" name="checked_payment_id" value="${row_key}"></c:otherwise>
+            </c:choose>
+        
+        </td>
+        <td class="value" nowrap="nowrap"><c:out value="${payment.user.first}" /></td>
+        <td class="value" nowrap="nowrap"><c:out value="${payment.user.last}" /></td>
+        <td class="value"><a href="${pacts:viewUser(payment.user.id)}"><c:out value="${payment.user.handle}" /></td>
+        <td class="value"><a href="${pacts:viewPayment(payment.id)}"><c:out value="${payment.description}" /></a>
+            <c:if test="${composed}"> + 
+                 <a href="${pacts:viewPayment(reliabilityMap[payment.id])}">Reliability</a>
+            </c:if>
+        </td>
+        <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+        <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentGrossAmount - payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+        <td class="valueR" nowrap>$<fmt:formatNumber value="${payment.recentNetAmount}" pattern="###,##0.00" /><c:out value="${mark}" /></td>
+        <td class="value"><c:out value="${payment.type}" /></td>
+        <td class="value"><c:out value="${payment.method}" /></td>
+
+        <td class="value"><strong>${payment.currentStatus.desc}</strong> 
+            <c:forEach items="${payment.currentStatus.reasons}" var="reason">    
+            <br>- ${reason.desc}
+            </c:forEach>
+        </td>
+
+        <td class="value"><c:out value="${payment.client}" /></td>
+        <td class="valueC"><c:out value="${payment.createDate}" /> </td>
+        <td class="valueC"><c:out value="${payment.modifyDate}" /> </td>
+        </tr>
+        <tc-webtag:errorIterator id="err" name="err_${payment.id}">
+        <tr>
+        <td colspan="3">
+        </td>
+        <td colspan="11">
+            <span class="bigRed">
+                    <%=err%><br/>
+            </span>
+        </td>
+        </tr>
+                </tc-webtag:errorIterator>
+         <% even = !even;%>
+    </c:forEach>
+    <tr>
+        <td class="header" colspan="7"><b>Total Net Amount:</b>
+        </td>
+        <td class="headerR" nowrap="nowrap">$<fmt:formatNumber value="${totalNet}" pattern="###,###.00" /></td>
+        <td class="header" colspan="7">&nbsp;</td>
+    </tr>
+    
+    </table>
+<br/>
 <a href="Javascript:checkAll(true)">check all</a> -
  <a href="Javascript:checkAll(false)">uncheck all</a> <br>
 <br>
 
-<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.REVIEW_CMD  %>"><br><br>
-<input type="submit" name="<%=PactsConstants.CMD_STRING %>" value="<%=PactsConstants.STATUS_CMD  %>">
+<SELECT CLASS="dropdown" NAME="status_id">
+        <OPTION value='1' selected>
+            Enter into payment system
+        </OPTION>
+        <OPTION value='2'>
+            Pay
+        </OPTION>
+        <OPTION value='3'>
+            Delete
+        </OPTION>
+</SELECT>
+                
 
-           <tc-webtag:rscSelect name="status_id" list="${statusList}" fieldText="status_desc" fieldValue="status_id" useTopValue="false" /> <br><br>
+<input type="submit" value="Apply Event">
 
 
 </form>
 <jsp:include page="InternalFooter.jsp" flush="true"/>
+</td></tr>
+</table>
+
 </body>
 </html>

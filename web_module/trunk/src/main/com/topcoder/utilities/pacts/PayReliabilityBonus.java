@@ -73,7 +73,7 @@ public class PayReliabilityBonus extends DBUtility {
         
         PreparedStatement psSelProjects = prepareStatement("informixoltp", query.toString());
         
-		log.info("user_id;project_id;bonus_amount;old_reliability;total_amount");
+		log.info("user_id, project_id, posting date, bonus amount, old reliability, total amount, parent payment id");
 
 
         int count = 0;
@@ -103,7 +103,7 @@ public class PayReliabilityBonus extends DBUtility {
             	ejb.addPayment(bp);
             }
 
-    		log.info("" + userId + ";" + projectId + ";" + bonusAmount + ";" + reliability + ";" + amount);
+    		log.info("" + userId + ", " + projectId + ", " + postingDate + ", "+ bonusAmount + ", " + reliability + ", " + amount + ",  " + paymentId);
 			count++;			
         }
         log.info("Done. Bonus rows inserted: " + count);

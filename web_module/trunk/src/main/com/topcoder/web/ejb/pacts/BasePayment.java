@@ -10,6 +10,7 @@ import java.util.Date;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 
 /**
  * Represents basic payment information, without reference information.
@@ -31,7 +32,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
     private double grossAmount;
     private double netAmount = 0;
     private Date dueDate = null;
-    private int statusId = 0;
+    private Date paidDate = null;
+    private BasePaymentStatus currentStatus;
     private String description = null;
     private final int paymentTypeId;
     private String referenceDescription = null;
@@ -45,9 +47,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
     // Date when the event happened.  It is not stored in the database, but needed to know if referrals must be paid.
     private Date eventDate  = null;
-
-    // Description of the status, looked up in db
-    private String statusDesc = null;
 
     // Some payments include a placement to use in the description.
     private int placed = 0;
@@ -84,7 +83,7 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.installmentNumber = 1;
         this.placed = placed;
     }
-
+    
     /**
      * Get the type of reference that this payment uses.
      * It will return the value of one of the constants: NO_REFERENCE or REFERENCE_*
@@ -234,6 +233,47 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         return paymentTypeId;
     }
 
+    /**
+     * Get the type desc for this payment.
+     *
+     * @return the type desc for this payment.
+     */
+    public String getPaymentTypeDesc() {
+        switch(paymentTypeId) {
+            case ALGORITHM_CONTEST_PAYMENT: return "Algorithm Contest Payment";
+            case CONTRACT_PAYMENT: return "Contract Payment";
+            case PROBLEM_PAYMENT: return "Problem Payment";
+            case CODER_REFERRAL_PAYMENT: return "Coder Referral Payment";
+            case CHARITY_PAYMENT: return "Charity Payment";
+            case COMPONENT_PAYMENT: return "Component Payment";
+            case REVIEW_BOARD_PAYMENT: return "Review Board Payment";
+            case ONE_OFF_PAYMENT: return "One-off Payment";
+            case ARTICLE_PAYMENT: return "Article Payment";
+            case ASSEMBLY_PAYMENT: return "Assembly Payment";
+            case TESTING_PAYMENT: return "Testing Payment";
+            case LOGO_CONTEST_PAYMENT: return "Logo Contest Payment";
+            case TC_STUDIO_PAYMENT: return "Topcoder Studio Contest Payment";
+            case PROBLEM_TESTING_PAYMENT: return "Problem Testing Payment";
+            case PROBLEM_WRITING_PAYMENT: return "Problem Writing Payment";
+            case CCIP_PAYMENT: return "CCIP Payment";
+            case DIGITAL_RUN_PRIZE_PAYMENT: return "Digital Run Payment";
+            case DIGITAL_RUN_ROCKIE_PRIZE_PAYMENT: return "Digital Run Rookie Payment";
+            case COMPONENT_TOURNAMENT_BONUS_PAYMENT: return "Component Tournament Bonus Payment";
+            case ROYALTY_PAYMENT: return "Royalty Payment";
+            case MARATHON_MATCH_PAYMENT: return "Marathon Match Payment";
+            case ALGORITHM_TOURNAMENT_PRIZE_PAYMENT:; return "Algorithm Tournament Prize Payment";
+            case BUG_FIXES_PAYMENT: return "Bug Fixes Payment";
+            case RELIABILITY_BONUS_PAYMENT: return "Reliability Bonus Payment";
+            case DIGITAL_RUN_TOP_THIRD_PAYMENT: return "Digital Run Top Performers Payment";
+            case ARCHITECTURE_REVIEW_PAYMENT: return "Architecture Review Payment";
+            case SPECIFICATION_REVIEW_PAYMENT: return "Specification Review Payment";
+            case ASSEMBLY_COMPETITION_REVIEW: return "Assembly Competition Review ";
+            case ARCHITECTURE_PAYMENT: return "Architecture Payment";
+            case PREDICTIVE_CONTEST_PAYMENT: return "Predictive Contest Payment";
+            case INTRO_EVENT_COMP_PAYMENT: return "Introductory Event Component Contest Payment";
+            default: return "Other Payment";
+        }
+    }
 
     /**
      * Get a processor for filling necessary information in the payment.
@@ -270,6 +310,15 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.dueDate = dueDate;
     }
 
+    public Date getPaidDate() {
+        return paidDate;
+    }
+
+    public void setPaidDate(Date paidDate) {
+        fieldChanged(MODIFICATION_DATE_PAID, paidDate != null && !paidDate.equals(this.paidDate));
+        this.paidDate = paidDate;
+    }
+
     public double getGrossAmount() {
         return grossAmount;
     }
@@ -288,8 +337,8 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         this.netAmount = netAmount;
     }
 
-    public int getStatusId() {
-        return statusId;
+    public BasePaymentStatus getCurrentStatus() {
+        return currentStatus;
     }
 
     public long getCoderId() {
@@ -299,9 +348,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         return id;
     }
 
-    public String getStatusDesc() {
-        return statusDesc;
-    }
     public Date getEventDate() {
         return eventDate;
     }
@@ -312,10 +358,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
     public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
-    }
-
-    protected void setStatusDesc(String statusDesc) {
-        this.statusDesc = statusDesc;
     }
 
     protected void setReferenceDescription(String referenceDescription) {
@@ -371,14 +413,10 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
      *
      * @param statusId the new status id.
      */
-    public void setStatusId(int statusId) {
-        if (statusId != this.statusId) {
-            this.statusDesc = null;
+    public void setCurrentStatus(BasePaymentStatus status) {
+        fieldChanged(MODIFICATION_STATUS, !status.equals(this.currentStatus));
 
-        }
-        fieldChanged(MODIFICATION_STATUS, statusId != this.statusId);
-
-        this.statusId = statusId;
+        this.currentStatus = status;
     }
 
     public long getContractId() {
@@ -440,20 +478,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
         }
 
         /**
-         * Get the status of the payment.
-         * If the user has completed tax forms, it returns PAYMENT_PENDING_STATUS, otherwise PAYMENT_ON_HOLD_STATUS.
-         *
-         * Inheriting classes can override this method to use other status.
-         *
-         * @return the status of the payment.
-         * @throws SQLException
-         */
-        public int lookupStatus(BasePayment payment) throws SQLException {
-            return hasTaxForm(payment.getCoderId()) ?
-                    PAYMENT_PENDING_STATUS : PAYMENT_ON_HOLD_STATUS;
-        }
-
-        /**
          * Fill eventDate, dueDate, statusId and description for the payment.
          *
          * @param payment payment to fill
@@ -466,14 +490,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
 
             if (payment.getDueDate() == null) {
                 payment.setDueDate(lookupDueDate(payment));
-            }
-
-            if (payment.getStatusId() == 0) {
-                payment.setStatusId(lookupStatus(payment));
-
-                if (payment.getStatusDesc() == null) {
-                    payment.setStatusDesc(lookupStatusDesc(payment.getStatusId()));
-                }
             }
 
             if (payment.getDescription() == null) {
@@ -494,25 +510,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
          */
         public boolean isDuplicated(BasePayment payment) throws SQLException {
             return false;
-        }
-
-        /**
-         * Find the description of the specified status.
-         *
-         * @param statusId the status id to find.
-         * @return the description for the status.
-         * @throws SQLException
-         */
-        protected String lookupStatusDesc(int statusId) throws SQLException {
-            String query = "SELECT status_desc FROM status_lu WHERE status_id = " + statusId;
-
-            ResultSetContainer statusName = runSelectQuery(query);
-
-            if (statusName.getRowCount() == 0) {
-                throw new SQLException("Status code " + statusId + " not found in database");
-            }
-
-            return statusName.getItem(0, 0).toString();
         }
 
 
@@ -696,8 +693,5 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
             }
             return placed + "th place";
         }
-
-
     }
-
 }
