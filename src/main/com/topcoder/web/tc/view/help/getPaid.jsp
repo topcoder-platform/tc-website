@@ -127,6 +127,11 @@ The only exceptions to this schedule are:
 <strong>Payment Methods</strong><br>
 Members can be paid by check, by wire transfer, or by PayPal®. <A href="/tc?module=Static&d1=help&d2=paymentMethods&node=<%=node==null?"":node%>">Learn more</A>.
 <br><br>
+
+<strong>Tracking Payments</strong><br>
+Members can <A href="/tc?module=Static&d1=help&d2=paymentTracking&node=<%=node==null?"":node%>">track the status of their payments</A> through the <A href="/PactsMemberServlet?module=PaymentHistory">Payments</A> page under "My TopCoder".
+<br><br>
+
 <strong>Requirements</strong><br>
 Before TopCoder can process payment, we must have your full name and a complete and accurate address in your member profile, as well as any required affidavits and completed tax forms on file.
 <ul>
@@ -137,12 +142,10 @@ Before TopCoder can process payment, we must have your full name and a complete 
 To receive payments from Algorithm Competitions, you must have submitted a notarized affidavit and affirmed the affidavit from the relevant competition online (note: does not apply to design or development competitions).  
 <ul>
 <li><A href="/tc?module=Static&d1=help&d2=affidavits&node=<%=node==null?"":node%>">Learn more about affidavits.</A></li>
-<li>Affidavits can also be used to <A href="/tc?module=Static&d1=help&d2=paymentTracking&node=<%=node==null?"":node%>">track payments</A>.</li>
 </ul>
 <% } %>
 
-
-The tax forms we need will vary, depending on where you live. Learn more:</li>
+The tax forms we need will vary, depending on where you live. Learn more:
 <ul>
 <li>Requirements for <A href="/tc?module=Static&d1=help&d2=taxUS&node=<%=node==null?"":node%>">U.S. persons</A>, including U.S. citizens and resident alien</li>
 <li>Requirements for foreign person, non-resident alien or foreign national performing work <A href="/tc?module=Static&d1=help&d2=taxForeignUS&node=<%=node==null?"":node%>">inside the United States</A>. </li>
@@ -152,6 +155,7 @@ The tax forms we need will vary, depending on where you live. Learn more:</li>
 <br><br>
 Please email any other questions to <A href="mailto:payments@topcoder.com">payments@topcoder.com</A>. Please be sure to include both your TopCoder handle and your full name in all of correspondence.
 </div>
+
 </td>
 <!-- Center Column Ends -->
 
