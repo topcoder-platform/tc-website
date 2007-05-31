@@ -84,7 +84,7 @@
                             <span class="bigRed">$6,000.00</span>
                         </td>
                         <td class="valueC">
-                            24
+                            28
                         </td>
                         <td class="valueC">
                             0
