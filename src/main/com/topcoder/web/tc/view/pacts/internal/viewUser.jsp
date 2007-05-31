@@ -148,6 +148,11 @@
         %>
     </tr>
 
+    <tr>
+        <td><b>Accrual Amount:</b></td>
+        <td>$<fmt:formatNumber value="${user.header.accrualAmount}" pattern="###,##0.00" /></td>
+    </tr>
+
 
 
 </table>
@@ -231,6 +236,8 @@
         out.println("\">Add Tax Form</a><br>");
     %>
 
+        <a href="${pacts:updateUserAccrual(user.header.id)}">Edit user accrual amount</a>
+        <br/>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />
 

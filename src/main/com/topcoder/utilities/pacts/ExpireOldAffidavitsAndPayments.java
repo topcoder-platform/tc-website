@@ -91,6 +91,9 @@ public class ExpireOldAffidavitsAndPayments extends ServiceMBeanSupport implemen
                 n = dib.expireOldAssignmentDocuments();
                 logger.info(n + " assignment documents expired");
                 
+                n = dib.checkInactiveCoders();
+                logger.info("Inactive coder were checked and related payments were notified");
+                
             } catch (Exception e) {
                 if (!(e instanceof NameNotFoundException))
                     logger.error(e.getMessage());

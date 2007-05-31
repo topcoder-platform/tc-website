@@ -10,10 +10,11 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-
-import java.util.Map;
 
 public class PaymentHeaderList implements PactsConstants {
     private static Logger log = Logger.getLogger(PaymentHeaderList.class);
@@ -49,10 +50,22 @@ public class PaymentHeaderList implements PactsConstants {
         }
 
         //now form all of the contract headers
-        headerList = new PaymentHeader[numRows];
+        Map<Long, PaymentHeader> hm = new HashMap<Long, PaymentHeader>();
         for (int idx = 0; idx < numRows; idx++) {
-            headerList[idx] = new PaymentHeader(results, idx);
+            PaymentHeader ph = new PaymentHeader(results, idx);
+            if (hm.containsKey(ph.getId())) {
+                PaymentHeader existingPh = hm.get(ph.getId());
+                existingPh.getCurrentStatus().getReasons().addAll(ph.getCurrentStatus().getReasons());
+                //hm.put(ph.getId(), existingPh);
+            } else {
+                hm.put(ph.getId(), ph);
+            }
         }
+        
+        // post process to group status reasons.
+        headerList = new PaymentHeader[hm.size()];
+        
+        headerList = hm.values().toArray(headerList);
     }
 
 

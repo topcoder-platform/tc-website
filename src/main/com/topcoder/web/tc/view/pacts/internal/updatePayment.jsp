@@ -99,9 +99,9 @@
 			for (int n = 0; n < rowCount; n++) {
 				rsr = stati.getRow(n);
 				out.print("<option value=");
-				code = TCData.getTCInt(rsr,"status_id",0,true);
+				code = TCData.getTCInt(rsr,"payment_status_id",0,true);
 				out.print("" + code);
-				s = TCData.getTCString(rsr,"status_desc","default status",true);
+				s = TCData.getTCString(rsr,"payment_status_desc","default status",true);
 				if (code == payment.getHeader().getRecentStatusId()) {
 					out.print(" selected");
 				}

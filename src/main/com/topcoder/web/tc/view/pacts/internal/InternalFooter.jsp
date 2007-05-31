@@ -46,7 +46,7 @@ Searches<br>
    out.print("Notes</a>");
 %>
 <br><br>
-<%
+<%--
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.VERIFY_CMD+"\">");
@@ -57,8 +57,8 @@ Searches<br>
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.PAYMENT_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.PRINT_CMD+"\">");
    out.print("Print Payments</a><br>");
-%>
-<br><br>
+--%>
+<!--<br><br> -->
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=Static&d1=pacts&d2=internal&d3=generatePayments">Generate Algorithm Affidavits/Payments</a><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewGenerateComponentPayments">Generate Component Payments</a><br>
 <a href="<%=PactsConstants.INTERNAL_SERVLET_URL%>?<%=PactsConstants.MODULE_KEY%>=ViewGenerateIntroEventCompPayments">Generate Intro Event Payments</a><br>

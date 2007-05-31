@@ -14,7 +14,13 @@
     <short-name>pacts</short-name>
 
     <uri>pacts.tld</uri>
-
+    <function>
+        <name>updateUserAccrual</name>
+        <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
+        <function-signature>
+            String updateUserAccrual(long)
+        </function-signature>
+    </function>
     <function>
         <name>addAssignmentDocument</name>
         <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
@@ -94,6 +100,13 @@
         <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
         <function-signature>
             String updatePayment(long)
+        </function-signature>
+    </function>
+    <function>
+        <name>updatePaymentStatus</name>
+        <function-class>com.topcoder.web.tc.controller.legacy.pacts.common.Links</function-class>
+        <function-signature>
+            String updatePaymentStatus(long)
         </function-signature>
     </function>
     <function>

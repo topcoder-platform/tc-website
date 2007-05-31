@@ -237,15 +237,20 @@
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*.class"/>
-            <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/payments/*.class"/>
+           <metainf dir="${java}/com/topcoder/web/ejb/pacts" includes="*.xml"/>
         </jar>
     </target>
 
     <target name="package-EJB-PactsClientServicesBean" depends="compile">
         <jar jarfile="${ejb_jars}/PactsClientServices.jar">
-            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*Payment.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/*Payment*.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/Constants.class"/>
             <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/PactsClient*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/pacts/payments/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/bean/DataInterfaceBean.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/PactsConstants.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/common/model/AssignmentDocumentType.class"/>
         </jar>
     </target>
 

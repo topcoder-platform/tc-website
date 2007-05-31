@@ -13,7 +13,7 @@
 <c:set var="hasContract" value="${not empty contract}" />
 <c:set var="updating" value="${not empty payment}" />
 <c:set var="adding" value="${empty payment}" />
-<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />
+<%--<c:set var="statusList" value="<%= request.getAttribute(PactsConstants.STATUS_CODE_LIST) %>" />--%>
 <c:set var="typeList" value="<%= request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST) %>" />
 <c:set var="methodList" value="<%= request.getAttribute(PactsConstants.PAYMENT_METHOD_LIST) %>" />
 <c:set var="rationaleList" value="<%= request.getAttribute(PactsConstants.MODIFICATION_RATIONALE_LIST) %>" />
@@ -162,7 +162,7 @@ function placedChanged() {
 	displayAmounts();
 }
 
-function setStatus(id) {
+<%--function setStatus(id) {
 <c:if test="${adding}">
     var sel = document.f.status_id;
     var i;
@@ -173,7 +173,7 @@ function setStatus(id) {
         }
     }
 </c:if>
-}
+}--%>
 
 function initialize() {
     loaded();
@@ -352,13 +352,6 @@ function searchKeyPress(e)
         </td>
     </tr>
 
-    <tr>
-        <td><b>Status:</b></td>
-        <td>
-           <tc-webtag:rscSelect name="status_id" list="${statusList}" 
-                fieldText="status_desc" fieldValue="status_id" useTopValue="false" />        
-        </td>
-    </tr>
     <tr>
         <td><b>Description:</b></td>
         <td>

@@ -38,6 +38,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
     private String last;
     private String middle;
     private String first;
+    private double accrualAmount;
 
     /**************\
      *              *
@@ -53,6 +54,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         id = 0;
         handle = "Default TC Member";
         groupId = new long[0];
+        accrualAmount = 0;
     }
 
 /* This constructor makes the object out of raw data.
@@ -69,6 +71,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         middle = "";
         first = "";
         groupId = new long[0];
+        accrualAmount = 0;
     }
     
     /* This constructor makes the object out of raw data.
@@ -87,6 +90,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         this.middle = middle;
         this.last = last;
         groupId = new long[0];
+        accrualAmount = 0;
     }
 
 
@@ -112,6 +116,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
                 middle = "";
                 first = "";
                 groupId = new long[0];
+                accrualAmount = 0;
                 return;
             }
             ResultSetContainer.ResultSetRow row = rsc.getRow(0);
@@ -120,6 +125,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             last = TCData.getTCString(row, "last_name", "", false);
             middle = TCData.getTCString(row, "middle_name", "", false);
             first = TCData.getTCString(row, "first_name", "", false);
+            accrualAmount = TCData.getTCDouble(row, "accrual_amount", 0, false);
             rsc = (ResultSetContainer) (results.get(USER_GROUP_LIST));
             rowCount = rsc.getRowCount();
             groupId = new long[rowCount];
@@ -134,6 +140,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             last = "";
             middle = "";
             first = "";
+            accrualAmount = 0;
             groupId = new long[0];
         }
 
@@ -157,6 +164,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             middle = "";
             first = "";
             groupId = new long[0];
+            accrualAmount = 0;
             return;
         }
         ResultSetContainer.ResultSetRow rsr = rsc.getRow(row);
@@ -165,6 +173,8 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         last = TCData.getTCString(rsr, "last_name", "", false);
         middle = TCData.getTCString(rsr, "middle_name", "", false);
         first = TCData.getTCString(rsr, "first_name", "", false);
+        accrualAmount = TCData.getTCDouble(rsr, "accrual_amount", 0, false);
+        
         groupId = new long[0];
     }
 
@@ -185,6 +195,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
             last = "";
             middle = "";
             first = "";
+            accrualAmount = 0;
             groupId = new long[0];
             return;
         }
@@ -195,6 +206,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         last = TCData.getTCString(rsr, "last_name", "", false);
         middle = TCData.getTCString(rsr, "middle_name", "", false);
         first = TCData.getTCString(rsr, "first_name", "", false);
+        accrualAmount = TCData.getTCDouble(rsr, "accrual_amount", 0, false);
         groupId = new long[0];
 
         ResultSetContainer.ResultSetRow row;
@@ -250,6 +262,14 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public double getAccrualAmount() {
+        return accrualAmount;
+    }
+
+    public void setAccrualAmount(double accrualAmount) {
+        this.accrualAmount = accrualAmount;
     }
 
     public String getHandle() {

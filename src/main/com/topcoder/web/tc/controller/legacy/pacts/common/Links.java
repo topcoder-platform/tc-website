@@ -17,6 +17,10 @@ public class Links implements PactsConstants {
         return createLink("AddAffidavit", USER_ID, userId + "");
     }
 
+    public static String updateUserAccrual(long userId) {
+        return createLink("EditUserAccrualAmount", USER_ID, userId + "");
+    }
+    
     public static String addAssignmentDocument(long userId) {
         return createLink("AddAssignmentDocument", USER_ID, userId + "");
     }
@@ -54,8 +58,13 @@ public class Links implements PactsConstants {
     public static String addContractPayment(long contractId) {
         return createLink("EditPayment", CONTRACT_ID, contractId + "");
     }
+
     public static String updatePayment(long paymentId) {
         return createLink("EditPayment", PAYMENT_ID, paymentId + "");
+    }
+
+    public static String updatePaymentStatus(long paymentId) {
+        return createLink("EditPaymentStatus", PAYMENT_ID, paymentId + "");
     }
 
     public static String viewPayment(long paymentId) {

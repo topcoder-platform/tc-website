@@ -22,6 +22,10 @@ import java.util.Map;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 
 public class Payment implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(Payment.class);
@@ -32,8 +36,11 @@ public class Payment implements PactsConstants, java.io.Serializable {
     private int methodId;
     private String method;
     private String description;
-    private int statusId;
-    private String statusDesc;
+    //private long statusId;
+    
+    private BasePaymentStatus currentStatus;
+    
+    //private String statusDesc;
     private String modifiedDate;
     private String rationale;
     private int rationaleId;
@@ -98,8 +105,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
 
         try {
             id = TCData.getTCLong(rRow, "payment_detail_id");
-            statusDesc = TCData.getTCString(rRow, "status_desc");
-            statusId = TCData.getTCInt(rRow, "status_id");
+//            statusDesc = TCData.getTCString(rRow, "status_desc");
+            currentStatus = PaymentStatusFactory.createStatus(TCData.getTCLong(rRow, "payment_status_id"));
             rationale = TCData.getTCString(rRow, "modification_rationale_desc");
             rationaleId = TCData.getTCInt(rRow, "modification_rationale_id");
             grossAmount = TCData.getTCDouble(rRow, "gross_amount");
@@ -138,8 +145,25 @@ public class Payment implements PactsConstants, java.io.Serializable {
                 }
             }
 
+            currentStatus.getReasons().clear();
+            // check for status reasons
+            Long paymentStatusReason = TCData.getTCLong(rRow, "payment_status_reason_id");
+            if (paymentStatusReason != 0) {
+                log.debug("add reason 1 total: " + rsc.getRowCount());
+                currentStatus.getReasons().add(PaymentStatusReason.getStatusReasonUsingId(paymentStatusReason));
 
-            if ((statusId != PAID_STATUS)) {
+                for (int i = 1; rsc.getRowCount() > i; i++) {
+                    rRow = rsc.getRow(i);
+                    paymentStatusReason = TCData.getTCLong(rRow, "payment_status_reason_id");
+                    if (paymentStatusReason != 0) {
+                        log.debug("add reason "+ i+1);
+                        currentStatus.getReasons().add(PaymentStatusReason.getStatusReasonUsingId(paymentStatusReason));
+                    }
+                }
+            }
+            
+
+            if (!currentStatus.equals(PaymentStatusFactory.createStatus(PaymentStatus.PAID_PAYMENT_STATUS))) {
                 rsc = (ResultSetContainer) results.get(CURRENT_CODER_ADDRESS);
                 if (rsc != null) rRow = rsc.getRow(0);
             }
@@ -208,8 +232,8 @@ public class Payment implements PactsConstants, java.io.Serializable {
         country = "Defult Country";
         zip = "00000";
         state = "Default State";
-        statusDesc = "default status desc";
-        statusId = 0;
+//        statusDesc = "default status desc";
+//        statusId = 0;
         stateCode = "0";
         countryCode = "0";
         dueDate = "00/00/00";
@@ -225,13 +249,13 @@ public class Payment implements PactsConstants, java.io.Serializable {
      *
      */
     public Payment(long user, String desc, int type, int method,
-                   double net_amount, double gross_amount, int status) {
+                   double net_amount, double gross_amount, BasePaymentStatus status) {
 
         header = new PaymentHeader();
         netAmount = net_amount;
         grossAmount = gross_amount;
         totalAmount = gross_amount;
-        statusId = status;
+        currentStatus = status;
         header.setTypeId(type);
         header.setMethodId(method);
         header.getUser().setId(user);
@@ -296,21 +320,30 @@ public class Payment implements PactsConstants, java.io.Serializable {
         this.description = description;
     }
 
-    public int getStatusId() {
-        return statusId;
+//    public long getStatusId() {
+//        return statusId;
+//    }
+//
+//    public void setStatusId(long statusId) {
+//        this.statusId = statusId;
+//    }
+
+    public BasePaymentStatus getCurrentStatus() {
+        return currentStatus;
     }
 
-    public void setStatusId(int statusId) {
-        this.statusId = statusId;
+    public void setCurrentStatus(BasePaymentStatus status) {
+        log.debug("Payment: Setting current status: #reasons: " + ((status == null ? "null" : status.getReasons().size())));
+        this.currentStatus = status;
     }
 
-    public String getStatusDesc() {
-        return statusDesc;
-    }
-
-    public void setStatusDesc(String statusDesc) {
-        this.statusDesc = statusDesc;
-    }
+//    public String getStatusDesc() {
+//        return statusDesc;
+//    }
+//
+//    public void setStatusDesc(String statusDesc) {
+//        this.statusDesc = statusDesc;
+//    }
 
     public String getModifiedDate() {
         return modifiedDate;

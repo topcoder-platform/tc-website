@@ -145,9 +145,9 @@
 			for (int n = 0; n < rowCount; n++) {
 				rsr = stati.getRow(n);
 				out.print("<option value=");
-				s_id =TCData.getTCInt(rsr,"status_id",0,true);
+				s_id =TCData.getTCInt(rsr,"payment_status_id",0,true);
 				out.print(s_id);
-				s = TCData.getTCString(rsr,"status_desc","default status",true);
+				s = TCData.getTCString(rsr,"payment_status_desc","default status",true);
 				if (status < 0 && payment_is_for_contract && s.equals(PactsConstants.DEFAULT_CONTRACT_PAYMENT_STATUS)) {
 					out.print(" selected");
 				} else if (status < 0 && !payment_is_for_contract && s.equals(PactsConstants.DEFAULT_PAYMENT_STATUS)) {

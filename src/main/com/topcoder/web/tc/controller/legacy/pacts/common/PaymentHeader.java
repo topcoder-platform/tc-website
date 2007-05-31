@@ -17,11 +17,16 @@
 
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.pacts.BasePayment;
-
-import java.util.Map;
+import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
+import com.topcoder.web.ejb.pacts.payments.InvalidStatusReasonException;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 
 public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private static Logger log = Logger.getLogger(PaymentHeader.class);
@@ -49,7 +54,7 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
     private int typeId;
     private int methodId;
     private String client;
-    private boolean reviewed;
+    private BasePaymentStatus currentStatus;
 
     private long algorithmRoundId;
     private long componentProjectId;
@@ -82,9 +87,9 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         type = "Default Type";
         method = "Default Method";
         recentStatusId = 0;
+        currentStatus = null;
         typeId = 0;
         methodId = 1;   // Check
-        reviewed = false;
     }
 
 /* This constructor makes the object out of the Map containing
@@ -106,7 +111,6 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
             description = "Default Description";
             type = "Default Type";
             method = "Default Method";
-            reviewed = false;
             return;
         }
 
@@ -120,7 +124,6 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
             description = "Default Description";
             type = "Default Type";
             method = "Default Method";
-            reviewed = false;
             return;
         }
 
@@ -128,8 +131,19 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
         log.debug("Making the PaymentHeader");
         id = TCData.getTCLong(rsr, "payment_id", 0, true);
-        recentStatus = TCData.getTCString(rsr, "status_desc", "default status", true);
-        recentStatusId = TCData.getTCInt(rsr, "status_id", 0, true);
+        recentStatus = TCData.getTCString(rsr, "payment_status_desc", "default status", true);
+        recentStatusId = TCData.getTCInt(rsr, "payment_status_id", 0, true);
+        try {
+            currentStatus = PaymentStatusFactory.createStatus((long)recentStatusId);
+            long recentReasonId = TCData.getTCLong(rsr, "payment_status_reason_id", 0, true);
+            if (recentReasonId != 0) {
+                currentStatus.getReasons().add(PaymentStatusReason.getStatusReasonUsingId(recentReasonId));
+            }
+        } catch (InvalidStatusException e) {
+            e.printStackTrace();
+        } catch (InvalidStatusReasonException e) {
+            e.printStackTrace();
+        }
         recentGrossAmount = TCData.getTCDouble(rsr, "gross_amount", 0.0, true);
         recentNetAmount = TCData.getTCDouble(rsr, "net_amount", 0.0, true);
         description = TCData.getTCString(rsr, "payment_desc", "default description", true);
@@ -162,8 +176,6 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         digitalRunSeasonId = TCData.getTCLong(rsr, "digital_run_season_id", 0, false);
         parentPaymentId = TCData.getTCLong(rsr, "parent_payment_id", 0, false);
 
-        reviewed = 0 != TCData.getTCInt(rsr, "review", 0, true);
-        
         createDate = TCData.getTCDate(rsr, "create_date", "00/00/00", false);
         modifyDate = TCData.getTCDate(rsr, "modify_date", "00/00/00", false);
     }
@@ -250,6 +262,10 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
         this.recentStatusId = recentStatusId;
     }
 
+    public BasePaymentStatus getCurrentStatus() {
+        return currentStatus;
+    }
+
     public int getTypeId() {
         return typeId;
     }
@@ -273,14 +289,6 @@ public class PaymentHeader implements PactsConstants, java.io.Serializable {
 
     public void setClient(String client) {
         this.client = client;
-    }
-
-    public boolean isReviewed() {
-        return reviewed;
-    }
-
-    public void setReviewed(boolean reviewed) {
-        this.reviewed = reviewed;
     }
 
     public long getAlgorithmProblemId() {
