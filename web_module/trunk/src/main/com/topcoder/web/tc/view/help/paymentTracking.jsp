@@ -52,7 +52,7 @@ Our payment tracking tool (PACTs) will display one of the following categories:
 
     <li><strong>On Hold</strong> - A payment may be put on hold for a number of reasons.
         <ul>
-        <li><strong>Waiting for Tax form</strong> - TopCoder has not yet recieved the paymet recipient's tax form.</li>
+        <li><strong>Waiting for Tax form</strong> - TopCoder has not yet received the paymet recipient's tax form.</li>
         <li><strong>Waiting for affirmed Affidavit</strong> - The payment is attached to an affidavit that has not yet been affirmed.</li>
         <li><strong>Waiting for affirmed IP Transfer</strong> - The payment is attached to an intellectual property assignment document that has not yet been affirmed.</li>
         <li><strong>Waiting for hard copy IP Transfer</strong> - The payment is attached to an intellectual property assignment document that TopCoder has not yet received.</li>
@@ -61,8 +61,8 @@ Our payment tracking tool (PACTs) will display one of the following categories:
     </li>
 
 <li><strong>Owed</strong> - This payment is ready to be paid.</li>
-<li><strong>Accruing</strong> - The recipient has not reached his/her current threshhold for payment dispursement.</li>
-<li><strong>Entered Into payment system</strong> - The payment has been transfer from PACTS into TopCoder's accounting software.</li>
+<li><strong>Accruing</strong> - The recipient has not reached his/her current threshhold for payment disbursement.</li>
+<li><strong>Entered Into payment system</strong> - The payment has been transfered from PACTS into TopCoder's accounting software.</li>
 <li><strong>Paid</strong> - indicates that TopCoder has distributed the payment, though the member may not yet have received it.</li>
 <li><strong>Expired</strong> - The payment will not be paid.</li>
 
