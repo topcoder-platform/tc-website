@@ -112,7 +112,6 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                 if (parentPayment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS)) ||
                     parentPayment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
                     
-                    log.debug("Clone status");
                     // clone the status and returns
                     BasePaymentStatus bps = clone();
                     bps.getReasons().clear();
@@ -282,8 +281,8 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
      * @throws RemoteException
      */
     private void checkAffirmedIPTransferDocument(BasePayment payment, DataInterfaceBean dib) throws RemoteException {
-        log.debug("com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER: " + com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER);
          if ("on".equalsIgnoreCase(com.topcoder.web.tc.Constants.ACTIVATE_IP_TRANSFER)) {
+             log.debug("checkAffirmedIPTransferDocument called for payment: " + payment.getId());
              log.debug("payment.getPaymentType(): " + payment.getPaymentType());
              if (payment.getPaymentType() == BasePayment.COMPONENT_PAYMENT) {
                  if (!dib.hasAffirmedAssignmentDocument(payment.getPaymentType(), payment.getCoderId(), ((ComponentWinningPayment) payment).getProjectId())) {

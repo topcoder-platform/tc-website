@@ -175,8 +175,6 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
         first = TCData.getTCString(rsr, "first_name", "", false);
         accrualAmount = TCData.getTCDouble(rsr, "accrual_amount", 0, false);
         
-        // TODO: pulky: take this comment out        
-        log.debug("accrualAmount: " + accrualAmount);
         groupId = new long[0];
     }
 

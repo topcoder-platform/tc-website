@@ -744,8 +744,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             HashMap hm = new HashMap();
             hm.putAll(getUserProfileHeader(c, userId));
             
-            // TODO: pulky: take this comment out
-            log.debug("query: " + selectDetails.toString());
             ResultSetContainer rsc = runSelectQuery(c, selectDetails.toString(), false);
             hm.put(USER_PROFILE_DETAIL, rsc);
             c.close();
@@ -2007,9 +2005,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         "Updated " + rc + ", should have updated 1."));
             }
 
-			// TODO: pulky: take out logging
-            log.debug("hasHardCopy: " + hasHardCopy);
-            log.debug("ad.isHardCopy(): " + ad.isHardCopy());
             if (!hasHardCopy && ad.isHardCopy()) {
                 (new PaymentStatusManager()).hardCopyIPTransfer(ad.getUser().getId(), ad.getComponentProject() == null ? TC_STUDIO_PAYMENT : COMPONENT_PAYMENT);
             }
@@ -2828,9 +2823,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectHeaders.append(whereClauses.toString());
         selectHeaders.append(" ORDER BY 1");
 
-        // TODO: pulky: take this log out
-        log.debug("query: " + selectHeaders.toString());
-        
         ResultSetContainer rsc = runSearchQuery(selectHeaders.toString(), objects, true);
         HashMap hm = new HashMap();
         hm.put(PAYMENT_HEADER_LIST, rsc);
@@ -3069,9 +3061,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         selectHeader.append(" ORDER BY uchandle");
 
-        // TODO: pulky: take this comment out
-        log.debug("Query: " + selectHeader.toString());
-        
         ResultSetContainer rsc = runSearchQuery(selectHeader.toString(), objects, true);
         HashMap hm = new HashMap();
         hm.put(USER_PROFILE_HEADER_LIST, rsc);
@@ -3469,15 +3458,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 ps.close();
                 
                 ps = c.prepareStatement(insertPaymentStatusReasons.toString());
-    
-			// TODO: pulky: take out logging
-                log.debug("#reasons to add: " + p.getCurrentStatus().getReasons().size());
-                
+                    
                 for (PaymentStatusReason reason : p.getCurrentStatus().getReasons()) {
                     ps.clearParameters();
-                    
-			// TODO: pulky: take out logging
-                    log.debug("adding reason: " + paymentDetailId + ", " + reason.getId());
                     
                     ps.setLong(1, paymentDetailId);
                     ps.setLong(2, reason.getId());
@@ -4701,7 +4684,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         rsc = runSelectQuery(getReviewers.toString(), false);
 
         for (int i = 0; i < rsc.size(); i++) {
-            log.debug(rsc.getStringItem(i, "user_id"));
             long coderId = Long.parseLong(rsc.getStringItem(i, "user_id"));
             double amount = rsc.getDoubleItem(i, "paid");
             ReviewBoardPayment rbp = new ReviewBoardPayment(coderId, amount, client, projectId);
@@ -5512,20 +5494,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             processor.fillData(payment);
     
             // this need to be done in order to calculate the net amount before calling the status manager
-            log.debug("calculating net amount");
             Payment tmp = createPayment(payment);
             fillPaymentNetAmount(c, tmp);            
             payment.setNetAmount(tmp.getNetAmount());
-            log.debug("result: " + tmp.getNetAmount());
             
             // delegate status to the manager
             (new PaymentStatusManager()).newPayment(payment);
             
             Payment p = createPayment(payment);
-    
-    			// TODO: pulky: take out logging
-        log.debug("1) payment.getCurrentStatus().getDesc():" + payment.getCurrentStatus().getDesc());
-            log.debug("1) payment.getCurrentStatus().getReasons().size():" + payment.getCurrentStatus().getReasons().size());
     
             long paymentId;
     
@@ -5836,18 +5812,14 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                       if (key.equals(PAYMENT_TYPE_ID)) {
                           query.append(" AND pd.payment_type_id = ? ");
                           objects.add(value);
-                          log.debug("newValue: " + value);
                       } else if (key.equals(USER_ID)) {
                           query.append(" AND p.user_id = ? ");
                           objects.add(value);
-                          log.debug("newValue: " + value);
                       } else if (key.equals(PAYMENT_ID)) {
                           query.append(" AND p.payment_id in (" + value + ")");
-                          log.debug("newValue: " + value);
                       } else if (key.equals(PARENT_PAYMENT_ID)) {
                           query.append(" AND pd.parent_payment_id = ? ");
                           objects.add(value);
-                          log.debug("newValue: " + value);
                       } else if (key.equals(PAYMENT_REFERENCE_ID)) {
                           query.append(" AND (");
                           query.append("  pd.algorithm_round_id = ? OR ");
@@ -5858,19 +5830,13 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                           query.append("  pd.digital_run_stage_id = ? OR ");
                           query.append("  pd.digital_run_season_id = ? OR ");
                           query.append("  pd.parent_payment_id = ?)");
-                          for (int j = 0; j < 8; j++) {
-                              objects.add(value);
-                              log.debug("newValue: " + value);
-                          }
                       } else if (key.equals(PAYMENT_STATUS_ID)) {
                           query.append("AND pd.payment_status_id = ? ");
                           objects.add(value);
-                          log.debug("newValue: " + value);
                       }
                   }
                   query.append(" ORDER BY p.payment_id asc ");
 
-                  log.debug("query: " + query.toString());
                   rsc = runSearchQuery(conn, query.toString(), objects, true);
 
                   // use control-break to get the reasons and then build and add the payment.
@@ -5887,10 +5853,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                       }
                       
                       if (lastProcessedPayment != rsr.getLongItem("payment_id") && lastProcessedPayment != -1) {
-                          log.debug("(1) Adding paymentId " + payment.getId() + " to the list.");
                           for (Long reasonId : reasons) {
                               PaymentStatusReason psr = PaymentStatusReason.getStatusReasonUsingId(reasonId);
-                              log.debug("findCoderPayments() add reason: " + psr.getDesc());
                               payment.getCurrentStatus().getReasons().add(psr);
                           }
                           l.add(payment);
@@ -5900,7 +5864,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
                       // if there's a reason, add it.
                       if (rsr.getItem("payment_status_reason_id").getResultData() != null) {
-                          log.debug("(1) Adding reason " + rsr.getLongItem("payment_status_reason_id") + " to the list.");
                           reasons.add(rsr.getLongItem("payment_status_reason_id"));
                       }
 
@@ -5909,10 +5872,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                   if (rsr != null) {
                       for (Long reasonId : reasons) {
                           PaymentStatusReason psr = PaymentStatusReason.getStatusReasonUsingId(reasonId);
-                          log.debug("(2) findCoderPayments() add reason: " + psr.getDesc());
                           payment.getCurrentStatus().getReasons().add(psr);
                       }
-                      log.debug("(2) Adding paymentId " + payment.getId() + " to the list.");
                       l.add(payment);
                   }
               } catch (SQLException e) {

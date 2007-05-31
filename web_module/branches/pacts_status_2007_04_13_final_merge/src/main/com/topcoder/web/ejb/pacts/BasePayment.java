@@ -414,9 +414,6 @@ public abstract class BasePayment implements Constants, java.io.Serializable {
      * @param statusId the new status id.
      */
     public void setCurrentStatus(BasePaymentStatus status) {
-    	// TODO: pulky: take this comment out
-        log.debug("BasePayment: Setting current status: #reasons: " + ((status == null ? "null" : status.getReasons().size())));
-
         fieldChanged(MODIFICATION_STATUS, !status.equals(this.currentStatus));
 
         this.currentStatus = status;
