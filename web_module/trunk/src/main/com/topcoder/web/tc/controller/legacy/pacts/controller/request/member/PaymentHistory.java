@@ -74,7 +74,9 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             List<BasePayment> removePayments = new ArrayList<BasePayment>();
 
             for (BasePayment payment : payments) {
-                if (payment.getPaymentType() == 3 || payment.getPaymentType() == 5) {
+                if (payment.getPaymentType() == 3 || payment.getPaymentType() == 5 ||
+                    payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.TEMP_FIX_PAYMENT_STATUS)) ||
+                    payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.SEE_FAQ_PAYMENT_STATUS))) {
                     removePayments.add(payment);
                 } else {
                     if (!fullList) {
