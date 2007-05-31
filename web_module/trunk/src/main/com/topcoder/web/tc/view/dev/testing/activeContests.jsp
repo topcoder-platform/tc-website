@@ -54,8 +54,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMAdmin">Sales IM Admin Testing Competition</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Admin Testing Competition">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Admin Testing Competition">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -86,8 +86,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMChat">Sales IM Chat Testing Competition</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Chat Testing Competition">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Chat Testing Competition">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
@@ -118,8 +118,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMPerformance">Sales IM Performance Testing Competition</A>
       </td>
       <td class="valueC">
-      <%--registration closed--%>
-      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Performance Testing Competition">register</A>
+      registration closed
+      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Performance Testing Competition">register</A>--%>
       </td>
       <td class="valueC">
       &#160;
