@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.31.07<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees">Binary Indexed Trees</A></span><br><br>
+      Sometimes we need data structures that will make our algorithms faster. In this article we will discuss one such structure -- Binary Indexed Trees. First used for data compression, binary indexed trees are now commonly used for storing frequencies and manipulating cumulative frequency tables.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/boba5551_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="20394568" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees">full story</A> | 
+        <tc-webtag:forumLink forumID="515996" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.31.07<br>11:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -194,25 +211,5 @@
         <A href="/tc?module=Static&d1=dev&d2=support&d3=devReliability">development</A> |
         <tc-webtag:forumLink forumID="515914" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>05.23.07<br>3:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">TCHS07 Photos &amp; Video now available</A>
-        </span><br><br>
-        Check out the photo and video highlights from TopCoder's inaugural High School Tournament.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=photos">photos</A> |
-        <A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=movieStream">video</A> |
-        <tc-webtag:forumLink forumID="514497" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
    
