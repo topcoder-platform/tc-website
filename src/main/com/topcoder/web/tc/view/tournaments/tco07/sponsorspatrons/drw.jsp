@@ -34,7 +34,8 @@
                         <div style="float: right;">
                         <h2 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h2>
                         <strong>
-                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=drwChat20070328">SRM 344</A>
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=drwChat20070328">SRM 344</A><br />
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=drwChat20070523">SRM 350</A>
                         </strong>
                         </div>
                         <div style="margin-bottom: 20px;"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.drwtrading.com' refer='TCO07_DRW_PAGES' />"><img src="/i/tournament/tco07/drwlogo.png" alt="DRW" border="0" /></a></div>
