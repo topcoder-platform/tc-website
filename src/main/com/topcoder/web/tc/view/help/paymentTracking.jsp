@@ -45,7 +45,7 @@
 
 <span class="title">Payment Tracking</span>
 <br><br>
-Currently, members can track the process of competition winnings through the <A href="/PactsMemberServlet?module=PaymentHistory">Payments</A> page under "My TopCoder".
+Members can track the process of their payments through the <A href="/PactsMemberServlet?module=PaymentHistory">Payments</A> page under "My TopCoder".
 <br><br>
 Our payment tracking tool (PACTs) will display one of the following categories:
 <ul>
