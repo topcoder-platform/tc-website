@@ -39,18 +39,26 @@
       <td align="right"><img src="/i/tournament/tchs07/bracket_NW.png" alt="" border="0" /></td>
       <td rowspan="3" style="background-color: #000000;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td rowspan="3" valign="middle"><img src="/i/tournament/tchs07/bracket_R.png" alt="" border="0" /></td>
-      <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tchs07/champion.png" alt="" border="0" /><br><span style="font-size: 15px;">V. Gimnazija</span></td>
+      <td rowspan="3" valign="middle" align="center"><img src="/i/tournament/tchs07/champion.png" alt="" border="0" /><br /><span style="font-size: 15px;"><strong>V. Gimnazija</strong></span></td>
    </tr>
    <tr>
       <td style="padding: 15px" valign="middle" align="center">
-High School of Natural Science and Mathematics<br><br>
-Liviu Rebreanu National College Bistrita<br><br>
-SPb PTHS<br><br>
-TJHSST<br><br>
-V. Gimnazija<br><br>
-VI LO Bydgoszcz<br><br>
-Woburn Collegiate Institute<br><br>
-XV. Gimnazija Zagreb
+<strong>V. Gimnazija</strong><br />
+22<br />
+<strong>VI LO Bydgoszcz</strong><br />
+37<br />
+<strong>XV. Gimnazija Zagreb</strong><br />
+45<br />
+<strong>TJHSST</strong><br />
+50<br />
+<strong>SPb PTHS</strong><br />
+57<br />
+<strong>Liviu Rebreanu National College Bistrita</strong><br />
+66<br />
+<strong>Woburn Collegiate Institute</strong><br />
+69<br />
+<strong>High School of Natural Science and Mathematics</strong><br />
+75
       </td>
    </tr>
    <tr>
