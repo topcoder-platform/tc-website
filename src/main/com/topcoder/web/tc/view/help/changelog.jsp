@@ -60,8 +60,11 @@
             <li>If a payment is all set (tax form on file etc) create it with status owed rather than pending.</li>
             <li>Improved layout for payments lists, new features such as sorting.</li>
             <li>New page to set accrual limits.</li>
-            <li>New supervisor page for manual status updates.</li>        
-            <li>Pacts queue removed.</li>        
+            <li>New supervisor page for manual status updates.</li>
+            <li>The referred payment have the parent status until the
+                parents make it to owed. Then, the referred payment should have it
+                own detached status.</li>
+            <li>Pacts queue removed.</li>
         </ul>
         </li>
         <li>Add best rank, # wins, # top 5 finishes and # top 10 finishes to marathon match member profile stats -dok</li>
