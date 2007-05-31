@@ -137,10 +137,6 @@
         <c:forEach items="${payments}" var="payment">
         
         <c:set var="typeId" value="${payment.paymentType}" />
-        <c:choose>
-    <c:when test="${typeId == 4}"><!-- coder referral --></c:when>
-    <c:otherwise>
-        
         <tr class="<%=even?"light":"dark"%>">
             <td class="value">
                 <c:choose>
@@ -191,8 +187,6 @@
             </td>
          </tr>
          <% even = !even;%>
-         </c:otherwise>
-         </c:choose>
         </c:forEach>
     </tbody>
     </table>
