@@ -43,16 +43,29 @@
    <jsp:param name="title" value="How to Get Paid"/>
 </jsp:include>
 
-<span class="title">Algorithm Payment Tracking</span>
+<span class="title">Payment Tracking</span>
 <br><br>
-Currently, members can track the process of Algorithm Competition winnings through the <A href="/PactsMemberServlet?t=affidavit&c=affidavit_history">Affidavits</A> page under "My TopCoder".
+Currently, members can track the process of competition winnings through the <A href="/PactsMemberServlet?module=PaymentHistory">Payments</A> page under "My TopCoder".
 <br><br>
 Our payment tracking tool (PACTs) will display one of the following categories:
 <ul>
-<li><strong>On Hold</strong> indicates that either a tax form or a notarized affidavits has not been received, or that the required affidavit has not been affirmed</li>
-<li><strong>Pending</strong> indicates that all required documentation has been received and payment is being processed.</li>
-<li><strong>Owed</strong> indicates that payment has been processed and is in queue for distribution.</li>
-<li><strong>Paid</strong> indicates that TopCoder has distributed the payment, though the member may not yet have received it.</li>
+
+    <li><strong>On Hold</strong> - A payment may be put on hold for a number of reasons.
+        <ul>
+        <li><strong>Waiting for Tax form</strong> - TopCoder has not yet recieved the paymet recipient's tax form.</li>
+        <li><strong>Waiting for affirmed Affidavit</strong> - The payment is attached to an affidavit that has not yet been affirmed.</li>
+        <li><strong>Waiting for affirmed IP Transfer</strong> - The payment is attached to an intellectual property assignment document that has not yet been affirmed.</li>
+        <li><strong>Waiting for hard copy IP Transfer</strong> - The payment is attached to an intellectual property assignment document that TopCoder has not yet received.</li>
+        <li><strong>Attached to Parent</strong> - The payment is associated with another payment that is on hold for one of the above reasons.</li>
+      </ul>
+    </li>
+
+<li><strong>Owed</strong> - This payment is ready to be paid.</li>
+<li><strong>Accruing</strong> - The recipient has not reached his/her current threshhold for payment dispursement.</li>
+<li><strong>Entered Into payment system</strong> - The payment has been transfer from PACTS into TopCoder's accounting software.</li>
+<li><strong>Paid</strong> - indicates that TopCoder has distributed the payment, though the member may not yet have received it.</li>
+<li><strong>Expired</strong> - The payment will not be paid.</li>
+
 </ul>
 Please email any other questions to <A href="mailto:payments@topcoder.com">payments@topcoder.com</A>.
 </div>
