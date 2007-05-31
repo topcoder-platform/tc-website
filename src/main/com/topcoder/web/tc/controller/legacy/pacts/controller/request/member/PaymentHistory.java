@@ -16,6 +16,7 @@ import com.topcoder.web.common.model.SortInfo;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -76,7 +77,8 @@ public class PaymentHistory extends BaseProcessor implements PactsConstants {
             for (BasePayment payment : payments) {
                 if (payment.getPaymentType() == 3 || payment.getPaymentType() == 5 ||
                     payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.TEMP_FIX_PAYMENT_STATUS)) ||
-                    payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.SEE_FAQ_PAYMENT_STATUS))) {
+                    payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.SEE_FAQ_PAYMENT_STATUS)) ||
+                    payment.getCurrentStatus().getReasons().contains(AvailableStatusReason.ATTACHED_TO_PARENT_REASON)) {
                     removePayments.add(payment);
                 } else {
                     if (!fullList) {
