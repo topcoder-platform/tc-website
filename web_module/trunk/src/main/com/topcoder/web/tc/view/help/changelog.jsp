@@ -61,6 +61,7 @@
             <li>Improved layout for payments lists, new features such as sorting.</li>
             <li>New page to set accrual limits.</li>
             <li>New supervisor page for manual status updates.</li>        
+            <li>Pacts queue removed.</li>        
         </ul>
         </li>
         <li>Add best rank, # wins, # top 5 finishes and # top 10 finishes to marathon match member profile stats -dok</li>
