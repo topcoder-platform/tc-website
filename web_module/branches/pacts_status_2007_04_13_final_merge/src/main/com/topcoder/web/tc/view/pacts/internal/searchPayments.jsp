@@ -1,3 +1,7 @@
+<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html>
 
 <head>
@@ -17,18 +21,9 @@
  
 <body>
 
-<%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
-<%@ page import="com.topcoder.shared.dataAccess.resultSet.*" %>
 
-<% int statusRowCount = 0;
-   int paymentTypeRowCount = 0;
+<% int paymentTypeRowCount = 0;
    int paymentMethodRowCount = 0;
-   ResultSetContainer status = (ResultSetContainer) request.getAttribute(PactsConstants.STATUS_CODE_LIST);
-   if (status == null) {
-      out.println("No Status List!");
-      //status = new ResultSetContainer();
-   }
-   else statusRowCount = status.getRowCount();
    ResultSetContainer paymentType = (ResultSetContainer) request.getAttribute(PactsConstants.PAYMENT_TYPE_LIST);
    if (paymentType == null) {
       out.println("No Payment Type List!");
@@ -55,7 +50,7 @@
         <table border="0" cellpadding="5" cellspacing="0">
           <tr>
             <td>Payment ID:</td>
-<% out.println("            <td><input type=\"text\" name=\""+PactsConstants.PAYMENT_ID+"\" size=\"20\"></td>"); %>
+<% out.println("            <td><input type=\"text\" name=\""+"payment_id"+"\" size=\"20\"></td>"); %>
           </tr>
           <tr>
             <td>Project ID:</td>
@@ -102,12 +97,13 @@
           </tr>
           <tr>
             <td>Status:</td>
-<% out.println("            <td><select name=\""+PactsConstants.STATUS_CODE+"\" multiple size=4>");
-   out.println("              <option value=\"\" selected>Any</option>");
-   for (int n = 0; n < statusRowCount; n++) {
-      rsr = status.getRow(n);
-      out.println("              <option value=\""+TCData.getTCInt(rsr,"status_id",0,true)+"\">"+TCData.getTCString(rsr,"status_desc","default status",true)+"</option>");
-   } %>
+            <td><select name="<%=PactsConstants.STATUS_CODE%>" multiple size=4>
+                <option value="" selected>Any</option>
+                <c:forEach items="${payment_status_list}" var="baseStatus">
+                    <OPTION value='${baseStatus.id}'>
+                        ${baseStatus.desc}
+                    </OPTION>
+                </c:forEach>
               </select></td>
           </tr>
           <tr>
@@ -130,13 +126,13 @@
    } %>
               </select></td>
           </tr>
-          <tr>
+<%--          <tr>
             <td>Is Reviewed:</td>
 <% out.println("            <td><input type=\"radio\" value=\"true\" name=\""+PactsConstants.IS_REVIEWED+"\">Yes<br>");
    out.println("              <input type=\"radio\" name=\""+PactsConstants.IS_REVIEWED+"\" value=\"false\">No<br>");
    out.println("              <input type=\"radio\" name=\""+PactsConstants.IS_REVIEWED+"\" value=\"\" checked>Don't"); %>
-              Care</td>
-          </tr>
+              Care</td> 
+          </tr>--%>
         </table>
         <p><br>
         <input type="submit" value="Submit" name="B1"><input type="reset" value="Reset" name="B2">

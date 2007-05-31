@@ -24,11 +24,6 @@ public interface PactsConstants extends Constants {
     public static final String USER_PROPERTY = "user_id";
     public static final String UPDATE_TYPE_PROPERTY = "update_type";
 
-    // Types of updates that are queued
-    public static final int REVIEW_UPDATE_TYPE = 1;
-    public static final int STATUS_UPDATE_TYPE = 2;
-    public static final int PAID_UPDATE_TYPE = 3;
-
     // Default email address to which update results should be mailed
     public static final String DEFAULT_STAFF_EMAIL = "grunt@topcoder.com";
 
@@ -164,6 +159,7 @@ public interface PactsConstants extends Constants {
     // Code lookups
     public static final Integer ASSIGNMENT_DOCUMENT_DEFAULT_EXPIRATION_PERIOD = new Integer(7);
 
+    public static final String ACCRUAL_AMOUNT = "accrual_amount";
     public static final String ASSIGNMENT_DOCUMENT_TYPE_LIST = "assignment_document_type_list";
     public static final String ASSIGNMENT_DOCUMENT_STATUS_LIST = "assignment_document_status_list";
     public static final String AFFIDAVIT_TYPE_LIST = "affidavit_type_list";
@@ -171,6 +167,7 @@ public interface PactsConstants extends Constants {
     public static final String MODIFICATION_RATIONALE_LIST = "modification_rationale_list";
     public static final String NOTE_TYPE_LIST = "note_type_list";
     public static final String PAYMENT_TYPE_LIST = "payment_type_list";
+    public static final String PAYMENT_STATUS_LIST = "payment_status_list";
     public static final String PAYMENT_METHOD_LIST = "payment_method_list";
     public static final String STATUS_CODE_LIST = "status_code_list";
     public static final String USER_TYPE_LIST = "user_type_list";
@@ -201,44 +198,6 @@ public interface PactsConstants extends Constants {
     public static final int ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD = 5;
     public static final int ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD = 30;
 
-    /*
-    public static final String AFFIDAVIT_DETAIL = "affidavit";
-    public static final String CONTRACT = "contract";
-    public static final String CONTRACT_HEADER = "contract_header";
-    public static final String CONTRACT_DESC = "contract_desc";
-    public static final String NOTE = "note";
-    // Payments details come in a list
-    public static final String PAYMENT_HEADER = "payment_header";
-    public static final String AFFIDAVIT_HEADER = "affidavit_header";
-    public static final String PAYMENT_DETAIL_HEADER_LIST = "payment_detail_header_list";
-    public static final String PAYMENT_ADDRESS = "payment_address";
-    public static final String PAYMENT_DETAIL = "payment_detail";
-    public static final String PAYMENT_DETAIL_LIST = "payment_detail_list";
-    public static final String USER_TAX_FORM = "tax_form";
-    public static final String USER_PROFILE = "user_profile";
-    public static final String USER_PROFILE_DETAIL = "user_profile_detail";
-    public static final String USER_GROUP_LIST = "user_group_list";
-    public static final String USER_HEADER_SUMMARY = "user_header_summary";
-    public static final String USER_PROFILE_HEADER = "user_profile_header";
-
-    public static final String AFFIDAVIT_HEADER_LIST = "affidavit_header_list";
-    public static final String CONTRACT_HEADER_LIST = "contract_header_list";
-    public static final String ENTRY_HEADER_LIST = "entry_header_list";
-    public static final String NOTE_HEADER_LIST = "note_header_list";
-    public static final String PAYMENT_HEADER_LIST = "payment_header_list";
-    public static final String USER_TAX_FORM_HEADER_LIST = "tax_form_header_list";
-    public static final String USER_PROFILE_HEADER_LIST = "user_profile_header_list";
-    public static final String TEXT = "text";
-
-    public static final String AFFIDAVIT_TYPE_LIST = "affidavit_type_list";
-    public static final String CONTRACT_TYPE_LIST = "contract_type_list";
-    public static final String PAYMENT_TYPE_LIST = "payment_type_list";
-    public static final String NOTE_TYPE_LIST = "note_type_list";
-    public static final String USER_TYPE_LIST = "user_type_list";
-    public static final String MODIFICATION_RATIONALE_LIST = "modification_rationale_list";
-    public static final String STATUS_CODE_LIST = "status_code_list";
-    */
-
     // Criteria input types
     public static final int INTEGER = 1;
     public static final int DECIMAL = 2;
@@ -260,6 +219,8 @@ public interface PactsConstants extends Constants {
     // Criteria descriptors
     // Shared across searches
     public static final String USER_ID = "user_id";
+    public static final String PAYMENT_STATUS_ID = "payment_status_id";
+    public static final String IP_TRANSFER_ID = "ip_transfer_id";
     public static final String STATUS_CODE = "status_code";
     public static final String TYPE_CODE = "type_code";
     public static final String METHOD_CODE = "method_code";
@@ -269,6 +230,8 @@ public interface PactsConstants extends Constants {
     public static final String LATEST_MODIFICATION_DATE = "latest_modification_date";
     public static final String CREATION_DATE = "creation_date";
     public static final String PAYMENT_ID = "payment_id";
+    public static final String CHECKED_PAYMENT_ID = "checked_payment_id";
+    public static final String PARENT_PAYMENT_ID = "parent_payment_id";
     public static final String CONTRACT_ID = "contract_id";
     public static final String AFFIDAVIT_ID = "affidavit_id";
     public static final String ASSIGNMENT_DOCUMENT_ID = "assignment_document_id";
@@ -291,14 +254,10 @@ public interface PactsConstants extends Constants {
     // Payment searches
     public static final String EARLIEST_DUE_DATE = "earliest_due_date";
     public static final String LATEST_DUE_DATE = "latest_due_date";
-    public static final String EARLIEST_PRINT_DATE = "earliest_print_date";
-    public static final String LATEST_PRINT_DATE = "latest_print_date";
     public static final String EARLIEST_PAY_DATE = "earliest_pay_date";
     public static final String LATEST_PAY_DATE = "latest_pay_date";
     public static final String LOWEST_NET_AMOUNT = "lowest_net_amount";
     public static final String HIGHEST_NET_AMOUNT = "highest_net_amount";
-    // public static final String PAYMENT_TYPE_CODE = "payment_type_code";
-    public static final String IS_REVIEWED = "reviewed";
 
     // Affidavit searches
     public static final String IS_AFFIRMED = "is_affirmed";
@@ -310,10 +269,6 @@ public interface PactsConstants extends Constants {
     public static final String LATEST_START_DATE = "latest_start_date";
     public static final String EARLIEST_END_DATE = "earliest_end_date";
     public static final String LATEST_END_DATE = "latest_end_date";
-    // dpecora - these are duplicates of above start/end date searches
-    // (EARLIEST_ACTIVE_DATE = LATEST_END_DATE, LATEST_ACTIVE_DATE = EARLIEST_START_DATE)
-    // public static final String EARLIEST_ACTIVE_DATE = "earliest_active_date";
-    // public static final String LATEST_ACTIVE_DATE = "latest_active_date";
     public static final String CONTRACT_NAME = "contract_name";
 
     // Tax form searches
@@ -421,9 +376,6 @@ public interface PactsConstants extends Constants {
     public static final String USER_TAX_FORM_CMD = "user_tax_form";
     public static final String NOTE_LINK_CMD = "note_link";
     public static final String PAID_CMD = "Mark Selected Payments Paid";
-    public static final String PRINT_CMD = "print";
-    public static final String VERIFY_CMD = "verify";
-    public static final String REVIEW_CMD = "Review Selected Payments";
     public static final String STATUS_CMD = "Update Selected Payments' Status";
     public static final String FILE_CMD = "file";
 
@@ -431,7 +383,7 @@ public interface PactsConstants extends Constants {
     public static final String OBJECT_ID = "object_id";
     public static final String OBJECT_TYPE = "object_type";
     public static final String PAYMENT_TYPE_ID = "payment_type_id";
-
+    public static final String PAYMENT_REFERENCE_ID = "payment_reference_id";
     // request attributes
     public static final String PACTS_INTERNAL_RESULT = "pacts_internal_result";
     public static final String PACTS_MEMBER_RESULT = "pacts_member_result";
@@ -482,6 +434,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewTaxForm.jsp";
     public static final String INTERNAL_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/viewUserTaxForm.jsp";
     public static final String INTERNAL_ADD_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/addAssignmentDocument.jsp";
+    public static final String INTERNAL_EDIT_ACCRUAL_AMOUNT_JSP = INTERNAL_JSP_DIR + "/editAccrualAmount.jsp";
     public static final String INTERNAL_SEARCH_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/searchAssignmentDocument.jsp";
     public static final String INTERNAL_LIST_ASSIGNMENT_DOCUMENT_JSP = INTERNAL_JSP_DIR + "/assignmentDocumentList.jsp";
     public static final String INTERNAL_ADD_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/addAffidavit.jsp";
@@ -491,6 +444,7 @@ public interface PactsConstants extends Constants {
     public static final String INTERNAL_ADD_USER_TAX_FORM_JSP = INTERNAL_JSP_DIR + "/addUserTaxForm.jsp";
     public static final String INTERNAL_ADD_PAYMENT_JSP = INTERNAL_JSP_DIR + "/addPayment.jsp";
     public static final String INTERNAL_EDIT_PAYMENT_JSP = INTERNAL_JSP_DIR + "/editPayment.jsp";
+    public static final String INTERNAL_EDIT_PAYMENT_STATUS_JSP = INTERNAL_JSP_DIR + "/editPaymentStatus.jsp";
     public static final String INTERNAL_ADD_NOTE_LINK_JSP = INTERNAL_JSP_DIR + "/addNoteLink.jsp";
     public static final String INTERNAL_UPDATE_AFFIDAVIT_JSP = INTERNAL_JSP_DIR + "/updateAffidavit.jsp";
     public static final String INTERNAL_UPDATE_CONTRACT_JSP = INTERNAL_JSP_DIR + "/updateContract.jsp";
@@ -524,16 +478,12 @@ public interface PactsConstants extends Constants {
     //default add values
     // dpecora - I changed some of these to be consistent with status table
     public static final String DEFAULT_AFFIDAVIT_TYPE = "Contest Winning Affidavit";
-    //public static final String DEFAULT_AFFIDAVIT_STATUS = "Inactive";
     public static final String DEFAULT_AFFIDAVIT_STATUS = "Pending";
-    //public static final String DEFAULT_AFFIDAVIT_PAYMENT_STATUS = "Inactive";
     public static final String DEFAULT_AFFIDAVIT_PAYMENT_STATUS = "Pending";
     public static final String DEFAULT_AFFIDAVIT_PAYMENT_TYPE = "Contest Payment";
     public static final String DEFAULT_CONTRACT_PAYMENT_TYPE = "Contract Payment";
     public static final String DEFAULT_PAYMENT_TYPE = "Algorithm Contest Payment";
     public static final String DEFAULT_PAYMENT_METHOD = "Check";
-    //public static final String DEFAULT_CONTRACT_PAYMENT_STATUS = "Inactive";
-    //public static final String DEFAULT_PAYMENT_STATUS = "Inactive";
     public static final String DEFAULT_CONTRACT_PAYMENT_STATUS = "Pending";
     public static final String DEFAULT_PAYMENT_STATUS = "Pending";
     public static final String DEFAULT_CONTRACT_TYPE = "Problem Writer Contract";
@@ -542,7 +492,6 @@ public interface PactsConstants extends Constants {
     public static final String DEFAULT_USER_TAX_FORM_STATUS = "Inactive";
     public static final String DEFAULT_USER_TAX_FORM = "W-9";
     public static final String DEFAULT_MODIFICATION_RATIONALE = "Status Change";
-    public static final String DEFAULT_BATCH_STATUS = "Ready to Print";
 
     //Session attribute constants
     public static final String PACTS_QUICKBOOKS_FILES = "pacts_quickbooks_files";

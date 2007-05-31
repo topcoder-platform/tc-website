@@ -39,7 +39,7 @@ public class FillPaymentData extends BaseProcessor implements PactsConstants {
 
             getRequest().setAttribute("description", payment.getDescription());
             getRequest().setAttribute("dueDate", format.format(payment.getDueDate()));
-            getRequest().setAttribute("statusId", payment.getStatusId() + "");
+            //getRequest().setAttribute("statusId", payment.getStatusId() + "");
             getRequest().setAttribute("referenceDescription", payment.getReferenceDescription());
 
             if (payment instanceof ComponentWinningPayment) {

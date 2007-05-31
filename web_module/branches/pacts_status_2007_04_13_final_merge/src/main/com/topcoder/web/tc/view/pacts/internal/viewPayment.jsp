@@ -42,7 +42,10 @@
 </c:if>
 		<tr>		
 			<td><b>Status:</b></td>
-			<td><c:out value="${payment.statusDesc}" /></td>
+			<td>
+                <c:out value="${payment.currentStatus.desc}"/>
+                <c:out value="${payment.currentStatus.reasonsText}"/>
+	        </td>
 		</tr>
 		<tr>		
 			<td><b>Type:</b></td>
@@ -167,7 +170,7 @@
 				</td>
 		</tr>
 </c:if>
-		<tr>
+<%-- 		<tr>
 			<td><b>Reviewed:</b></td>
 			<td>
 				<c:choose>
@@ -175,7 +178,7 @@
 					<c:otherwise>No</c:otherwise>
 				</c:choose>
 			</td>
-		</tr>		
+		</tr>		--%>
 <c:if test="${not empty referred}">
 		<tr>
 			<td><b>Paid referal to:</b></td>
@@ -220,7 +223,7 @@
 <a href="${pacts:updatePayment(payment.header.id)}">Update Payment</a>
 <br/>
 
-<a href="PactsInternalServlet?t=payments&c=Review Selected Payments&payment_id=${payment.header.id}&query=PactsInternalServlet%3Ft%3Dview%26c%3Dpayment%26payment_id%3d${payment.header.id}%26individual_payment%3D1">Review Payment</a>
+<a href="${pacts:updatePaymentStatus(payment.header.id)}">Update Payment Status</a>
 <br/>
 
 <jsp:include page="InternalFooter.jsp" flush="true" />

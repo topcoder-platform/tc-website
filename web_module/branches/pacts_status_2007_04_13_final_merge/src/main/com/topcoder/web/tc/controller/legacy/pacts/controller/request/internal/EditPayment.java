@@ -8,7 +8,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.topcoder.web.common.NavigationException;
+import javax.transaction.Status;
+import javax.transaction.TransactionManager;
+
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.pacts.AlgorithmProblemReferencePayment;
@@ -25,6 +28,7 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Links;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeaderList;
 
@@ -84,17 +88,11 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
                 paymentId = getLongParameter(PAYMENT_ID);
             	payment = dib.getBasePayment(paymentId);
-
-                if (payment.getStatusId() == PAID_STATUS) {
-                    throw new NavigationException("You can't update a paid payment");
-                }
-
                 userId = payment.getCoderId();
                 user = new UserProfileHeader(dib.getUserProfileHeader(userId));
             }
 
             String desc = "";
-            int statusId = -1;
             int typeId = -1;
             double totalAmount = 0.0;
             double grossAmount = 0.0;
@@ -109,7 +107,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             	// The user is trying to save the payment, so check that the parameters are ok
 
                 desc = checkNotEmptyString("payment_desc", "Please enter a description for the payment.");
-                statusId = getIntParameter("status_id");
                 typeId = getIntParameter("payment_type_id");
                 client = (String) getRequest().getParameter("client");
                 totalAmount = checkNonNegativeDouble("total_amount", "Please enter a valid total amount");
@@ -139,78 +136,93 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                 if (!hasErrors()) {
                     // Parameters are ok, so add or update the payment
 
-                	payment = BasePayment.createPayment(typeId, userId, grossAmount, 0);                    	
-                	if (updating) {
-                		payment.setId(paymentId);
-                    }
-                    
-                	setReference(payment);                
-                    
-                    payment.setDescription(desc);
-                    payment.setStatusId(statusId);
-                    payment.setTotalAmount(totalAmount);
-                    payment.setGrossAmount(grossAmount > 0 && payment instanceof ComponentWinningPayment? grossAmount : totalAmount);
-                    payment.setNetAmount(netAmount);
-                    payment.setDueDate(sdf.parse(dueDate));
-                    payment.setMethodId(methodId);
-                    payment.setModificationRationale(modificationRationaleId);
-                    payment.setCharity(charity);
-                    payment.setInstallmentNumber(installmentNumber);
-               
-                    if (adding) {
-                    	List payments = new ArrayList();
-                        if (contractId > 0) {
-                            payment.setContractId(contractId);
-                        } 
+                    // start a transaction
+                    TransactionManager tm = null;
+                    try {
+                        tm = (TransactionManager) getInitialContext().lookup(ApplicationServer.TRANS_MANAGER);
+                        tm.begin();
                         
-                        if (payment instanceof ComponentWinningPayment) {
-
-                        	int placed = getIntParameter("placed");
-                        	ComponentWinningPayment p = (ComponentWinningPayment) payment;
-                    		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed, devSupportId); 
-
-                        	if (p.isDesign() && grossAmount == 0) {
-                        		BasePayment aux = (BasePayment) l.get(0);
-                        		if (installmentNumber == 1) {
-                        			p.setGrossAmount(aux.getGrossAmount());
-                        		} else {
-                        			p.setGrossAmount(totalAmount - aux.getGrossAmount());
-                        		}
+                    	payment = BasePayment.createPayment(typeId, userId, grossAmount, 0);                    	
+                    	if (updating) {
+                    		payment.setId(paymentId);
+                        }
+                        
+                    	setReference(payment);                
+                        
+                        payment.setDescription(desc);
+                        
+                        payment.setTotalAmount(totalAmount);
+                        payment.setGrossAmount(grossAmount > 0 && payment instanceof ComponentWinningPayment? grossAmount : totalAmount);
+                        payment.setNetAmount(netAmount);
+                        payment.setDueDate(sdf.parse(dueDate));
+                        payment.setMethodId(methodId);
+                        payment.setModificationRationale(modificationRationaleId);
+                        payment.setCharity(charity);
+                        payment.setInstallmentNumber(installmentNumber);
+                   
+                        if (adding) {
+                        	List payments = new ArrayList();
+                            if (contractId > 0) {
+                                payment.setContractId(contractId);
+                            } 
+                            
+                            if (payment instanceof ComponentWinningPayment) {
+    
+                            	int placed = getIntParameter("placed");
+                            	ComponentWinningPayment p = (ComponentWinningPayment) payment;
+                        		List l = dib.generateComponentUserPayments(p.getCoderId(), p.getGrossAmount(), p.getClient(), p.getProjectId(), placed, devSupportId); 
+    
+                                // manage payment status
+    
+                                if (p.isDesign() && grossAmount == 0) {
+                            		BasePayment aux = (BasePayment) l.get(0);
+                            		if (installmentNumber == 1) {
+                            			p.setGrossAmount(aux.getGrossAmount());
+                            		} else {
+                            			p.setGrossAmount(totalAmount - aux.getGrossAmount());
+                            		}
+    
+                                    payment = dib.addPayment(p);
+                                	payments.add(p);
+                            	} else {
+                            		l.set(0, p);
+    
+                                    l = dib.addPayments(l);
+                            		payments.addAll(l);
+                            	}
+                            } else {
                             	payment = dib.addPayment(payment);
                             	payments.add(payment);
-                        		
-                        	} else {
-                        		l.set(0, p);
+                            }               
 
-                        		l = dib.addPayments(l);
-                        		payments.addAll(l);
-                        	}
+                    		List ids = new ArrayList();
+                    		for (int i = 0; i < payments.size(); i++) {
+                    			long id = ((BasePayment) payments.get(i)).getId();
+                    			ids.add(new Long(id)); 
+    
+                            	List refer = dib.findPayments(CODER_REFERRAL_PAYMENT, id);
+                        		for (int j = 0; j < refer.size(); j++) {
+                        			ids.add(new Long(((BasePayment) refer.get(j)).getId())); 
+                        		}
+                    		}                		
+                            setNextPage(Links.viewPayments(ids));
                         } else {
-
-                        	payment = dib.addPayment(payment);
-                        	payments.add(payment);
-                        }               
-
-                        
-                		List ids = new ArrayList();
-                		for (int i = 0; i < payments.size(); i++) {
-                			long id = ((BasePayment) payments.get(i)).getId();
-                			ids.add(new Long(id)); 
-
-                        	List refer = dib.findPayments(CODER_REFERRAL_PAYMENT, id);
-                    		for (int j = 0; j < refer.size(); j++) {
-                    			ids.add(new Long(((BasePayment) refer.get(j)).getId())); 
-                    		}
-                		}                		
-                        setNextPage(Links.viewPayments(ids));
-                    } else {
-                        dib.updatePayment(payment);
-                        setNextPage(Links.viewPayment(paymentId));
+                            // get payment's status
+                            payment.setCurrentStatus(new Payment(dib.getPayment(paymentId)).getCurrentStatus());
+                            log.debug("# statuses: " + payment.getCurrentStatus().getReasons().size());
+                            dib.updatePayment(payment);
+                            setNextPage(Links.viewPayment(paymentId));
+                        }
+    
+                        setIsNextPageInContext(false);
+                        tm.commit();
+                        return;
+                    } catch (Exception e) {
+                        if (tm != null && (tm.getStatus() == Status.STATUS_ACTIVE || tm.getStatus() == Status.STATUS_MARKED_ROLLBACK)) {
+                            tm.rollback();
+                        }
+                        throw e;
                     }
-
-                    setIsNextPageInContext(false);
-
-                    return;
                 } else {
                     // there were some errors!
 
@@ -229,7 +241,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
 
                 if (adding) {
                     typeId = contractId > 0? CONTRACT_PAYMENT : ALGORITHM_CONTEST_PAYMENT;
-                    statusId = PAYMENT_PENDING_STATUS;
                     methodId = 1; // CHECK
                     Calendar date = Calendar.getInstance();
                     date.setTime(new Date());
@@ -246,15 +257,13 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
                     }
 
 
-                    statusId = payment.getStatusId();
                     totalAmount = payment.getTotalAmount();
                     grossAmount = payment.getGrossAmount();
                     netAmount = payment.getNetAmount();
                     installmentNumber = payment.getInstallmentNumber();
                     dueDate = sdf.format(payment.getDueDate());
                     charity = payment.isCharity();
-                    modificationRationaleId = MODIFICATION_STATUS;
-
+                    
                     setDefault("installment_number", new Integer(installmentNumber));
                     setDefault("total_amount", new Double(totalAmount));
                     setDefault("gross_amount", new Double(grossAmount));
@@ -281,8 +290,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             setDefault("payment_type_id", typeId + "");
             setDefault("payment_method_id", methodId + "");
             setDefault("client", client == null? "" : client);
-
-            setDefault("status_id", statusId + "");
             setDefault("due_date", dueDate);
             setDefault("modification_rationale_id", modificationRationaleId + "");
             setDefault("charity_ind", Boolean.valueOf(charity));
@@ -301,7 +308,6 @@ public class EditPayment extends PactsBaseProcessor implements PactsConstants {
             getRequest().setAttribute(MODIFICATION_RATIONALE_LIST, dib.getModificationRationales().get(MODIFICATION_RATIONALE_LIST));
             getRequest().setAttribute(PAYMENT_TYPE_LIST, getPaymentTypeList());
             getRequest().setAttribute(PAYMENT_METHOD_LIST, dib.getPaymentMethods().get(PAYMENT_METHOD_LIST));
-            getRequest().setAttribute(STATUS_CODE_LIST, getStatusList());
 
             setNextPage(INTERNAL_EDIT_PAYMENT_JSP);
             setIsNextPageInContext(true);
