@@ -33,14 +33,14 @@
 
 <jsp:include page="../page_title.jsp" >
 <jsp:param name="image" value="calendar"/>
-<jsp:param name="title" value="May 2007"/>
+<jsp:param name="title" value="June 2007"/>
 </jsp:include>
 
 <div style="float:right;white-space:nowrap;">All times are <A target="_blank" href="http://www.timeanddate.com/worldclock/city.html?n=98">Eastern Time</A> unless stated otherwise.  &#160; &#160; </div>
 
-<strong><A href="/tc?module=Static&d1=calendar&d2=apr_07" class="prevNext">&lt; prev</A> | <A href="/tc?module=Static&d1=calendar&d2=jun_07" class="prevNext">next &gt;</A></strong>
+<strong><A href="/tc?module=Static&d1=calendar&d2=may_07" class="prevNext">&lt; prev</A> | <A href="/tc?module=Static&d1=calendar&d2=jul_07" class="prevNext">next &gt;</A></strong>
 <jsp:include page="dropdown.jsp" >
-<jsp:param name="currMonth" value="may_07"/>
+<jsp:param name="currMonth" value="jun_07"/>
 </jsp:include>
 
 <table cellspacing="0" cellpadding="0" class="calendar" width="100%">
@@ -57,155 +57,180 @@
    <tr>
       <td class="empty">&#160;<br><br><br><br><br></td>
       <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
+      <td class="empty">&#160;</td>
       <td class="value">1
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10671">SRM 347</A></strong><br>
-         7:00 AM
-         </div>
       </td>
       <td class="value">2
-        <%-- <div class="long">
-         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 8</A></strong><br>
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10709">SRM 352</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
          12:00 NOON
-         </div>--%>
-      </td>
-      <td class="value">3
-         <div class="des_dev">
-         <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
-         9:00 AM
          </div>
+      </td>
+   </tr>
+
+   <tr>
+      <td class="value">3
       </td>
       <td class="value">4
       </td>
       <td class="value">5
       </td>
-   </tr>
-
-   <tr>
       <td class="value">6
-      </td>
-      <td class="value">7
-      </td>
-      <td class="value">8
-      </td>
-      <td class="value">9
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10672">SRM 348</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=nsa">NSA</A><br>
-         9:00 PM
+        <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 18</A></strong><br>
+         12:00 NOON<br>
+         1 week
          </div>
       </td>
-      <td class="value">10
+      <td class="value">7
          <div class="tco07">
          <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC Online Championship Round 1 Projects Posted</A></strong><br>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC Online Championship Round 3 Projects Posted</A></strong><br>
          9:00 AM 
          </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
+         <div class="srm">
+         <strong><A href="/tc?module=MatchDetails&rd=10710">SRM 353</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">UBS</A><br>
+         $5,000<br>
+         11:00 AM
+         </div>
+      </td>
+      <td class="value">8
+      </td>
+      <td class="value">9
+      </td>
+   </tr>
+
+   <tr>
+      <td class="value">10
       </td>
       <td class="value">11
       </td>
       <td class="value">12
       </td>
-   </tr>
-
-   <tr>
       <td class="value">13
       </td>
       <td class="value">14
-      </td>
-      <td class="value">15
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10673">SRM 349</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">UBS</A><br>
-         11:00 AM
+         <strong><A href="/tc?module=MatchDetails&rd=10711">SRM 354</A></strong><br>
+         <A href="/tc?module=Static&d1=sponsors&d2=yodlee">Yodlee</A><br>
+         $5,000<br>
+         7:00 AM
          </div>
-      </td>
-      <td class="value">16
-        <div class="long">
-         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 17</A></strong><br>
-         12:00 NOON<br>
-         2 weeks
-         </div>
-      </td>
-      <td class="value">17
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
+      </td>
+      <td class="value">15
+      </td>
+      <td class="value">16
+      </td>
+   </tr>
+
+   <tr>
+      <td class="value">17
       </td>
       <td class="value">18
       </td>
       <td class="value">19
-         <div class="tchs07">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule">TCHS07 Semifinal Round</A></strong><br>
-         10:00 AM
-         </div>
-         <div class="tchs07">
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=onsiteSchedule">TCHS07 Championship Round</A></strong><br>
-         2:30 PM
-         </div>
       </td>
-   </tr>
-
-   <tr>
       <td class="value">20
-      </td>
-      <td class="value">21
-      </td>
-      <td class="value">22
-      </td>
-      <td class="value">23
          <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10674">SRM 350</A></strong><br>
-         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drw">DRW</A><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10712">SRM 355</A></strong><br>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL</A><br>
          $5,000<br>
          9:00 PM
          </div>
       </td>
-      <td class="value">24
-         <div class="tco07">
-         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
-         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=schedule">CDDC Online Championship Round 2 Projects Posted</A></strong><br>
-         9:00 AM 
-         </div>
+      <td class="value">21
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
+      </td>
+      <td class="value">22
+      </td>
+      <td class="value">23
+      </td>
+   </tr>
+
+   <tr>
+      <td class="value">24
       </td>
       <td class="value">25
       </td>
       <td class="value">26
       </td>
-   </tr>
-
-   <tr>
       <td class="value">27
-      </td>
-      <td class="value">28
-      </td>
-      <td class="value">29
-         <div class="srm">
-         <strong><A href="/tc?module=MatchDetails&rd=10675">SRM 351</A></strong><br>
-         <A href="/tc?module=Static&d1=sponsors&d2=yodlee">Yodlee</A><br>
-         $5,000<br>
-         7:00 AM
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule">Algo Room 1</A></strong><br>
+         9:00 AM PDT 
+         </div>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule">Marathon Match Finals</A></strong><br>
+         9:00 AM PDT 
+         </div>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule">CDDC 1</A></strong><br>
+         1:00 PM PDT 
+         </div>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule">Algo Room 2</A></strong><br>
+         4:00 PM PDT 
          </div>
       </td>
-      <td class="value">30
-      </td>
-      <td class="value">31
+      <td class="value">28
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule">Algo Room 3</A></strong><br>
+         9:00 AM PDT 
+         </div>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule">Studio Finals</A></strong><br>
+         9:00 AM PDT 
+         </div>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule">CDDC 2</A></strong><br>
+         1:00 PM PDT 
+         </div>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule">Algo Wildcard</A></strong><br>
+         4:00 PM PDT 
+         </div>
          <div class="des_dev">
          <strong><A href="/tc?module=ViewActiveContests&ph=112">Des</A> & <A href="/tc?module=ViewActiveContests&ph=113">Dev</A> contests posted</strong><br>
          9:00 AM
          </div>
       </td>
-      <td class="empty">&#160;<br><br><br><br><br></td>
-      <td class="empty">&#160;</td>
+      <td class="value">29
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule">CDDC Finals</A></strong><br>
+         9:00 AM PDT 
+         </div>
+         <div class="tco07">
+         <div class="emblem"><img src="/i/tournament/tco07/emblem.png" alt="TCO07" /></div>
+         <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=onsiteSchedule">Algo Finals</A></strong><br>
+         1:30 PM PDT 
+         </div>
+      </td>
+      <td class="value">30
+      </td>
    </tr>
 
 </table>
