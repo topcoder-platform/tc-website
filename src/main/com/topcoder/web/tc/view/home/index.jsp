@@ -367,9 +367,9 @@
         <td class="homeArrow">&#160; </td>
         <td class="homeText"><br>
             <b>06.02</b> - SRM 352 - 12 NOON<br><br>
-            <b>06.06</b> - Marathon Match 18 - 12 NOON<br><br>
             <b>06.07</b> - CDDC Round 3 Projects Posted - 9 AM<br><br>
             <b>06.07</b> - SRM 353 - UBS - 11 AM<br><br>
+            <b>06.13</b> - Marathon Match 18 - 12 NOON<br><br>
             <b>06.14</b> - SRM 354 - Yodlee - 7 AM<br><br>
             <b>06.20</b> - SRM 355 - AOL - 9 PM<br><br>
             <b>06.27</b> - TCO07 Algo Room 1 - 9 AM<br><br>
