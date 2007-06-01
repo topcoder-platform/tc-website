@@ -9,6 +9,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <title>TopCoder Registration</title>
     <jsp:include page="/script.jsp"/>
     <jsp:include page="/style.jsp">
