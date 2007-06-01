@@ -39,7 +39,7 @@
 
 <!-- Center Column Begins -->
         <td class="bodyText" width="99%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-        <jsp:include page="../body_top.jsp" >
+        <jsp:include page="../page_title.jsp" >
            <jsp:param name="image" value="about_tc"/>
            <jsp:param name="image1" value="white"/>
            <jsp:param name="title" value="Overview"/>
