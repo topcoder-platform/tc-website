@@ -57,7 +57,7 @@
 <span class="bodyTitle">How To Find a Solution</span>
 
 <p>
-<img src="/i/m/Dumitru_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
+<img src="/i/m/Dumitru_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 By&#160;<tc-webtag:handle coderId="7305703" context="algorithm"/><br />
 <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
 </p>
