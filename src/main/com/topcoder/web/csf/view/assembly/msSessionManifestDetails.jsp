@@ -147,6 +147,10 @@ Other useful services that you might find useful to enhance the user experience 
 <li><A href="http://csf.networkmashups.com/IdentityManager30/IdentityManager.ashx">Identity Management</A> - the component that provides the details about the persona participant. <A href="http://msdn2.microsoft.com/en-us/library/aa303438.aspx">More information can be found here.</A></li>
 </ol>
 
+<p>
+<strong>IMPORTANT NOTE:</strong> Recognizing the fact that sometimes it is difficult to connect to these services across firewalls and security boundaries, you can also build the tool against the CSF Developer Lite edition. This edition will deploy the session services locally on your PC so that you can connect to it locally instead of across the network. You can download the <A href="http://msdn2.microsoft.com/en-us/communicationssector/bb363476.aspx">CSF Dev Lite version</A>.
+</p>
+
 <h3>What is the "Session Manifest"?</h3>
 
 <p>
