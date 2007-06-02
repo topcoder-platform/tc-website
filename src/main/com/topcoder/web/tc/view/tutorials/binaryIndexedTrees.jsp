@@ -73,7 +73,7 @@
 <a href="#add">Change frequency at some position and update tree</a><br>
 <a href="#reada">Read the actual frequency at a position</a><br>
 <a href="#scaling">Scaling the entire tree by a constant factor</a><br>
-<a href="#find">Find index with given cumulative frquency</a><br>
+<a href="#find">Find index with given cumulative frequency</a><br>
 <a href="#2d">2D BIT</a><br>
 <a href="#prob">Sample problem</a><br>
 <a href="#conc">Conclusion</a><br>
