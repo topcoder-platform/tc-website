@@ -1,28 +1,8 @@
 package com.topcoder.web.common.dao;
 
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.model.Answer;
-import com.topcoder.web.common.model.Coder;
-import com.topcoder.web.common.model.CoderType;
-import com.topcoder.web.common.model.Contact;
-import com.topcoder.web.common.model.DemographicAnswer;
-import com.topcoder.web.common.model.DemographicAssignment;
-import com.topcoder.web.common.model.DemographicResponse;
-import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
-import com.topcoder.web.common.model.Question;
-import com.topcoder.web.common.model.Response;
-import com.topcoder.web.common.model.TermsOfUse;
-import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.TCHibernateTestCase;
-import com.topcoder.web.reg.TestUtils;
+import com.topcoder.web.common.model.User;
 
 /**
  * @author dok
@@ -32,6 +12,10 @@ import com.topcoder.web.reg.TestUtils;
 public class UserDAOTestCase extends TCHibernateTestCase {
     protected static final Logger log = Logger.getLogger(UserDAOTestCase.class);
 
+
+    //todo test  find(String handle, String firstName, String lastName, String email) {
+
+/*
     public void testTransientDemogUpdate() {
         User u = DAOUtil.getFactory().getUserDAO().find("Petr", true);
 
@@ -44,13 +28,13 @@ public class UserDAOTestCase extends TCHibernateTestCase {
         ArrayList responses = new ArrayList();
         log.debug("found " + assignments.size() + " assignments");
         for (Iterator it = assignments.iterator(); it.hasNext();) {
-            da = (DemographicAssignment)it.next();
+            da = (DemographicAssignment) it.next();
             if (da.getQuestion().isMultipleSelect()) {
                 for (Iterator it1 = da.getQuestion().getAnswers().iterator(); it1.hasNext();) {
                     dr = new DemographicResponse();
                     dr.setUser(u);
                     dr.setQuestion(da.getQuestion());
-                    dr.setAnswer((DemographicAnswer)it1.next());
+                    dr.setAnswer((DemographicAnswer) it1.next());
                     //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
                     log.debug("add multiselect " + dr.getQuestion().getId() + " " + dr.getAnswer().getId());
                     responses.add(dr);
@@ -60,7 +44,7 @@ public class UserDAOTestCase extends TCHibernateTestCase {
                 dr.setUser(u);
                 dr.setQuestion(da.getQuestion());
                 Iterator it1 = da.getQuestion().getAnswers().iterator();
-                dr.setAnswer((DemographicAnswer)it1.next());
+                dr.setAnswer((DemographicAnswer) it1.next());
                 //dr.setId(new DemographicResponse.Identifier(ret.getId(), dr.getQuestion().getId(), dr.getAnswer().getId()));
                 log.debug("add singleselect " + dr.getQuestion().getId() + " " + dr.getAnswer().getId());
                 responses.add(dr);
@@ -99,24 +83,26 @@ public class UserDAOTestCase extends TCHibernateTestCase {
     }
 
 
-        public void testSaveOrUpdate() {
-            User u = TestUtils.makeUser();
-            DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
-            User u1 = DAOUtil.getFactory().getUserDAO().find(u.getId());
-            assertTrue("new coder does not exist", u1 != null);
+    public void testSaveOrUpdate() {
+        User u = TestUtils.makeUser();
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+        User u1 = DAOUtil.getFactory().getUserDAO().find(u.getId());
+        assertTrue("new coder does not exist", u1 != null);
 
-        }
+    }
+*/
 
-public void testFindWithTerms() {
-    User tomek = DAOUtil.getFactory().getUserDAO().find(new Long(144400));
-    assertFalse("could not find any terms for tomek", tomek.getTerms().isEmpty());
-}
+    public void testFindWithTerms() {
+        User tomek = DAOUtil.getFactory().getUserDAO().find((long) 144400);
+        assertFalse("could not find any terms for tomek", tomek.getTerms().isEmpty());
+    }
 
-public void testFindWithImage() {
-    User tomek = DAOUtil.getFactory().getUserDAO().find(new Long(144400));
-    assertFalse("could not find any images for tomek's", tomek.getCoder().getMemberPhoto()==null);
-}
+    public void testFindWithImage() {
+        User tomek = DAOUtil.getFactory().getUserDAO().find((long) 144400);
+        assertFalse("could not find any images for tomek's", tomek.getCoder().getMemberPhoto() == null);
+    }
 
+/*
     public void testSaveOrUpdateResponses() {
         User u = TestUtils.makeUser();
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
@@ -204,12 +190,12 @@ public void testFindWithImage() {
         Set s = dok.getDemographicResponses();
         DemographicResponse dr;
         assertFalse("couldn't find demographic responses", dok.getDemographicResponses().isEmpty());
-        for(Iterator it = s.iterator(); it.hasNext();) {
-            dr = (DemographicResponse)it.next();
-            assertFalse("found a null question", dr.getQuestion()==null);
-            assertFalse("found a null answer", dr.getAnswer()==null);
+        for (Iterator it = s.iterator(); it.hasNext();) {
+            dr = (DemographicResponse) it.next();
+            assertFalse("found a null question", dr.getQuestion() == null);
+            assertFalse("found a null answer", dr.getAnswer() == null);
             if (dr.getQuestion().isFreeForm()) {
-                assertFalse("found a null free form response", dr.getResponse()==null);
+                assertFalse("found a null free form response", dr.getResponse() == null);
             }
 
         }
@@ -225,7 +211,7 @@ public void testFindWithImage() {
         assertFalse("did not load pulky user", pulky == null);
 
         List events = DAOUtil.getFactory().getEventDAO().getEvents();
-        
+
         // get the latest test event
         Event latestEvent = null;
         boolean foundTestEvent = false;
@@ -243,16 +229,16 @@ public void testFindWithImage() {
         assertTrue("Test event not found, EventDAOTestCase must be run to create it", foundTestEvent);
 
         // register pulky to the event
-        
+
         EventRegistration er = new EventRegistration();
         er.getId().setUser(pulky);
         er.getId().setEvent(latestEvent);
         er.setEligible(new Boolean(true));
-        
+
         pulky.addEventRegistration(er);
         pulky.addTerms(latestEvent.getTerms());
         pulky.addResponse(createResponses(latestEvent.getSurvey().getQuestions(), pulky));
-        
+
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(pulky);
 
         tearDown();
@@ -273,9 +259,9 @@ public void testFindWithImage() {
         }
 
         assertTrue("Event registration not found", foundRegistration);
-        assertTrue("Wrong associated event: " + er2.getId().getEvent().getId() + " expected: " + 
+        assertTrue("Wrong associated event: " + er2.getId().getEvent().getId() + " expected: " +
                 latestEvent.getId(), er2.getId().getEvent().getId().equals(latestEvent.getId()));
-        assertTrue("Wrong associated user: " + er2.getId().getUser().getId() + " expected: " + 
+        assertTrue("Wrong associated user: " + er2.getId().getUser().getId() + " expected: " +
                 pulky.getId(), er2.getId().getUser().getId().equals(pulky.getId()));
 
         // check terms
@@ -291,16 +277,18 @@ public void testFindWithImage() {
         assertTrue("Event terms not found", foundTerms);
 
         // check responses
-                
+
         Set responses = pulky2.getResponses();
         for (Iterator it = responses.iterator(); it.hasNext();) {
             Response r = (Response) it.next();
-            
+
+*/
 /*            log.info("r.getQuestion().getId() : " + r.getQuestion().getId());
-            log.info("r.getText() : " + r.getText());
-            log.info("r.getAnswer().getId() : " + (r.getAnswer() == null ? new Long(0) : r.getAnswer().getId()));
-            log.info("r.getQuestion().isFreeForm() : " + r.getQuestion().isFreeForm());*/
-            
+log.info("r.getText() : " + r.getText());
+log.info("r.getAnswer().getId() : " + (r.getAnswer() == null ? new Long(0) : r.getAnswer().getId()));
+log.info("r.getQuestion().isFreeForm() : " + r.getQuestion().isFreeForm());*/
+/*
+
             if (findQuestion(latestEvent.getSurvey().getQuestions(), r.getQuestion().getId()) != null) {
                 if (r.getQuestion().isFreeForm()) {
                     assertTrue("Response not found (1)", r.getText().equals("test response"));
@@ -322,8 +310,8 @@ public void testFindWithImage() {
     }
 
     private List createResponses(Set questions, User u) {
-        List ret = new ArrayList(); 
-        
+        List ret = new ArrayList();
+
         for (Iterator it = questions.iterator(); it.hasNext();) {
             Response r = new Response();
             Question q = (Question) it.next();
@@ -334,10 +322,11 @@ public void testFindWithImage() {
             }
             r.setQuestion(q);
             r.setUser(u);
-            
+
             ret.add(r);
         }
-        
+
         return ret;
     }
+*/
 }

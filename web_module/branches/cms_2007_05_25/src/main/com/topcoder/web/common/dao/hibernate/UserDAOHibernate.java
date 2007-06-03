@@ -4,14 +4,18 @@ import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.reg.Constants;
+import com.topcoder.web.common.WebConstants;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author dok
@@ -38,24 +42,37 @@ public class UserDAOHibernate extends Base implements UserDAO {
 
     public User find(String userName, boolean ignoreCase, boolean activeRequired) {
         StringBuffer query = new StringBuffer(100);
-        query.append("FROM User WHERE ");
+        query.append("FROM com.topcoder.web.common.model.User u WHERE ");
         if (ignoreCase) {
-            query.append("handle_lower ");
+            query.append("u.lowerHandle ");
         } else {
-            query.append("handle ");
+            query.append("u.handle ");
         }
-        query.append(" = ? ");
+        query.append(" = :handle");
         if (activeRequired) {
-            query.append(" AND status = ?");
+            query.append(" AND u.status = :status");
         }
         Query q = session.createQuery(query.toString());
+        log.debug("query : " + q.getQueryString()+ " count: " + q.getNamedParameters().length);
+        for (String param:q.getNamedParameters()) {
+            log.debug("param: " + param);
+        }
         if (ignoreCase) {
-            q.setString(0, userName.toLowerCase());
+            q.setString("handle", userName.toLowerCase());
+            //q.setParameter("handle", userName.toLowerCase());
+            //q.setParameter(1, userName.toLowerCase());
+            //q.setString(0, userName.toLowerCase());
         } else {
-            q.setString(0, userName);
+            q.setString("handle", userName);
+            //q.setParameter("handle", userName);
+            //q.setParameter(1, userName);
+            //q.setString(0, userName);
         }
         if (activeRequired) {
-            q.setString(1, String.valueOf(Constants.ACTIVE_STATI[1]));
+            q.setString("status", String.valueOf(WebConstants.ACTIVE_STATI[1]));
+           //q.setParameter("status", String.valueOf(WebConstants.ACTIVE_STATI[1]));
+            //q.setParameter(2, String.valueOf(WebConstants.ACTIVE_STATI[1]));
+            //q.setString(2, String.valueOf(WebConstants.ACTIVE_STATI[1]));
         }
         return (User) q.uniqueResult();
 

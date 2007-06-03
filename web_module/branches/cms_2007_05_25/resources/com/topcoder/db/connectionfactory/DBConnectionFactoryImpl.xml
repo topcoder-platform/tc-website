@@ -5,7 +5,7 @@
                 The "default" property refers to a configured connection.
             -->
             <Property name="default">
-                <Value>DefaultJNDI</Value>
+                <Value>TestingConnection</Value>
             </Property>
 
             <!--
@@ -13,7 +13,6 @@
                 from a JDBC URL
             -->
             <!-- for testing -->
-            <!--
                         <Property name="TestingConnection">
                             <Property name="producer">
                                 <Value>com.topcoder.db.connectionfactory.producers.JDBCConnectionProducer</Value>
@@ -35,7 +34,6 @@
                                 </Property>
                             </Property>
                         </Property>
-            -->
 
             <!--
                 The following property configures the ConnectionProducer obtaining the Connections

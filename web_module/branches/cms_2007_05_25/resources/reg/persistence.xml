@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence">
+
+    <persistence-unit name="common">
+        <description>First try at a persistence unit.  Let's see if making all the entities in common one unit works well.</description>
+        <properties>
+            <property name="hibernate.ejb.cfgfile" value="hibernate.cfg.xml"/>
+            <property name="hibernate.ejb.interceptor" value="com.topcoder.web.common.model.TCInterceptor"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,5 +1,19 @@
 package com.topcoder.web.common.model;
 
+import com.topcoder.web.common.WebConstants;
+import com.topcoder.web.common.model.comp.UserContestPrize;
+import com.topcoder.web.common.voting.RankBallot;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.CascadeType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -8,11 +22,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.topcoder.web.common.WebConstants;
-import com.topcoder.web.common.model.comp.ContestPrize;
-import com.topcoder.web.common.model.comp.UserContestPrize;
-import com.topcoder.web.common.voting.RankBallot;
-
 /**
  * A class containing user information.
  *
@@ -20,33 +29,36 @@ import com.topcoder.web.common.voting.RankBallot;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
+@Entity
+@Table(name="user")
 public class User extends Base {
     private Long id;
     private String firstName;
     private String middleName;
     private String lastName;
     private String handle;
+    private String lowerHandle;
     private Character status;
     private String password;
     private String activationCode;
     private TimeZone timeZone;
-    private Set addresses;
-    private Set emailAddresses;
-    private Set phoneNumbers;
-    private Set notifications;
-    private Set userPreferences;
+    private Set<Address> addresses;
+    private Set<Email> emailAddresses;
+    private Set<Phone> phoneNumbers;
+    private Set<Notification> notifications;
+    private Set<UserPreference> userPreferences;
     /**
      * hoke: used getting information
      */
-    private Set demographicResponses;
-    private Set securityGroups;
+    private Set<DemographicResponse> demographicResponses;
+    private Set<UserGroup> securityGroups;
     private Coder coder;
     private Contact contact;
-    private Set terms;
-    private Set eventRegistrations;
+    private Set<TermsOfUse> terms;
+    private Set<EventRegistration> eventRegistrations;
     private SecretQuestion secretQuestion;
-    private Set responses;
-    private Set ballots;
+    private Set<Response> responses;
+    private Set<RankBallot> ballots;
     private Set<UserContestPrize> compPrizes;
     
     /**
@@ -57,25 +69,30 @@ public class User extends Base {
     /**
      * doing this weirdness to allow the EL to work with this
      */
-    private boolean agreedToSiteTerms;
+/*    private boolean agreedToSiteTerms;*/
 
     public User() {
         super();
-        status = new Character(WebConstants.UNACTIVE_STATI[1]);
-        addresses = new HashSet();
-        emailAddresses = new HashSet();
-        phoneNumbers = new HashSet();
-        demographicResponses = new HashSet();
-        notifications = new TreeSet();
-        securityGroups = new HashSet();
+        status = WebConstants.UNACTIVE_STATI[1];
+        addresses = new HashSet<Address>();
+        emailAddresses = new HashSet<Email>();
+        phoneNumbers = new HashSet<Phone>();
+        demographicResponses = new HashSet<DemographicResponse>();
+        notifications = new TreeSet<Notification>();
+        securityGroups = new HashSet<UserGroup>();
         transientResponses = new ArrayList();
-        userPreferences = new HashSet();
-        terms = new HashSet();
-        responses = new HashSet();
-        ballots = new HashSet();
+        userPreferences = new HashSet<UserPreference>();
+        terms = new HashSet<TermsOfUse>();
+        responses = new HashSet<Response>();
+        ballots = new HashSet<RankBallot>();
         compPrizes = new HashSet<UserContestPrize>();
     }
 
+
+    @Id
+    @GenericGenerator(name="user_id",
+            strategy="com.topcoder.web.common.model.IdGenerator",
+            parameters={@Parameter(name="sequence_name", value="USER_SEQ")})
     public Long getId() {
         return id;
     }
@@ -84,6 +101,7 @@ public class User extends Base {
         this.id = id;
     }
 
+    @Column(name="first_name")
     public String getFirstName() {
         return firstName;
     }
@@ -92,6 +110,7 @@ public class User extends Base {
         this.firstName = firstName;
     }
 
+    @Column(name="middle_name")
     public String getMiddleName() {
         return middleName;
     }
@@ -100,6 +119,7 @@ public class User extends Base {
         this.middleName = middleName;
     }
 
+    @Column(name="last_name")
     public String getLastName() {
         return lastName;
     }
@@ -108,6 +128,7 @@ public class User extends Base {
         this.lastName = lastName;
     }
 
+    @Column
     public String getHandle() {
         return handle;
     }
@@ -116,6 +137,7 @@ public class User extends Base {
         this.handle = handle;
     }
 
+    @Column
     public Character getStatus() {
         return status;
     }
@@ -124,6 +146,7 @@ public class User extends Base {
         this.status = status;
     }
 
+    @Column
     public String getPassword() {
         return password;
     }
@@ -132,6 +155,7 @@ public class User extends Base {
         this.password = password;
     }
 
+    @Column(name="activation_code")
     public String getActivationCode() {
         return activationCode;
     }
@@ -140,19 +164,25 @@ public class User extends Base {
         this.activationCode = activationCode;
     }
 
-    public Set getAddresses() {
+    @ManyToMany(targetEntity=com.topcoder.web.common.model.Address.class, cascade={CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(
+        name="user_address_xref",
+        joinColumns={@JoinColumn(name="user_id")},
+        inverseJoinColumns={@JoinColumn(name="user_id")}
+    )
+    public Set<Address> getAddresses() {
         return Collections.unmodifiableSet(addresses);
     }
 
-    public void setAddresses(Set addresses) {
+    public void setAddresses(Set<Address> addresses) {
         this.addresses = addresses;
     }
 
-    public Set getEmailAddresses() {
+    public Set<Email> getEmailAddresses() {
         return Collections.unmodifiableSet(emailAddresses);
     }
 
-    public void setEmailAddresses(Set emailAddresses) {
+    public void setEmailAddresses(Set<Email> emailAddresses) {
         this.emailAddresses = emailAddresses;
     }
 
@@ -164,8 +194,8 @@ public class User extends Base {
     public Phone getPrimaryPhoneNumber() {
         Phone p = null;
         boolean found = false;
-        for (Iterator it = getPhoneNumbers().iterator(); it.hasNext() && !found;) {
-            p = (Phone) it.next();
+        for (Iterator<Phone> it = getPhoneNumbers().iterator(); it.hasNext() && !found;) {
+            p = it.next();
             found = p.isPrimary();
         }
         if (found) {
@@ -179,16 +209,16 @@ public class User extends Base {
         Address a = null;
         if (getAddresses().size() > 0) {
             boolean found = false;
-            for (Iterator it = getAddresses().iterator(); it.hasNext() && !found;) {
-                a = (Address) it.next();
+            for (Iterator<Address> it = getAddresses().iterator(); it.hasNext() && !found;) {
+                a = it.next();
                 found = Address.HOME_TYPE_ID.equals(a.getAddressTypeId());
             }
         }
         return a;
     }
 
-    public Set getPhoneNumbers() {
-        return Collections.unmodifiableSet(phoneNumbers);
+    public Set<Phone> getPhoneNumbers() {
+        return phoneNumbers;
     }
 
     /**
@@ -199,8 +229,8 @@ public class User extends Base {
     public Email getPrimaryEmailAddress() {
         Email e = null;
         boolean found = false;
-        for (Iterator it = getEmailAddresses().iterator(); it.hasNext() && !found;) {
-            e = (Email) it.next();
+        for (Iterator<Email> it = getEmailAddresses().iterator(); it.hasNext() && !found;) {
+            e = it.next();
             found = e.isPrimary();
         }
         if (found) {
@@ -211,7 +241,7 @@ public class User extends Base {
     }
 
 
-    public void setPhoneNumbers(Set phoneNumbers) {
+    public void setPhoneNumbers(Set<Phone> phoneNumbers) {
         this.phoneNumbers = phoneNumbers;
     }
 
@@ -220,13 +250,16 @@ public class User extends Base {
     }
 
     public void addEmailAddress(Email e) {
+        e.setUser(this);
         this.emailAddresses.add(e);
     }
 
     public void addPhoneNumber(Phone p) {
+        p.setUser(this);
         this.phoneNumbers.add(p);
     }
 
+    
     public TimeZone getTimeZone() {
         return timeZone;
     }
@@ -235,11 +268,11 @@ public class User extends Base {
         this.timeZone = timeZone;
     }
 
-    public Set getDemographicResponses() {
+    public Set<DemographicResponse> getDemographicResponses() {
         return Collections.unmodifiableSet(demographicResponses);
     }
 
-    public void setDemographicResponses(Set demographicResponses) {
+    public void setDemographicResponses(Set<DemographicResponse> demographicResponses) {
         this.demographicResponses = demographicResponses;
     }
 
@@ -252,11 +285,11 @@ public class User extends Base {
         this.demographicResponses.remove(response);
     }
 
-    public Set getNotifications() {
+    public Set<Notification> getNotifications() {
         return Collections.unmodifiableSet(notifications);
     }
 
-    public void setNotifications(Set notifications) {
+    public void setNotifications(Set<Notification> notifications) {
         this.notifications = notifications;
     }
 
@@ -264,11 +297,11 @@ public class User extends Base {
         this.notifications.add(notification);
     }
 
-    public Set getSecurityGroups() {
+    public Set<UserGroup> getSecurityGroups() {
         return Collections.unmodifiableSet(securityGroups);
     }
 
-    public void setSecurityGroups(Set securityGroups) {
+    public void setSecurityGroups(Set<UserGroup> securityGroups) {
         this.securityGroups = securityGroups;
     }
 
@@ -276,15 +309,15 @@ public class User extends Base {
         return handle.toLowerCase();
     }
 
-    public Set getRegistrationTypes() {
+    public Set<RegistrationType> getRegistrationTypes() {
         //i think this could be done better with an HQL query, but dunno how yet
         UserGroup g;
-        Set ret = new HashSet();
-        for (Iterator it = securityGroups.iterator(); it.hasNext();) {
-            g = (UserGroup) it.next();
+        Set<RegistrationType> ret = new HashSet<RegistrationType>();
+        for (UserGroup securityGroup : securityGroups) {
+            g = securityGroup;
             if (SecurityGroup.ACTIVE.equals(g.getSecurityStatusId())) {
-                for (Iterator it1 = g.getSecurityGroup().getRegistrationTypes().iterator(); it1.hasNext();) {
-                    RegistrationType o = (RegistrationType) it1.next();
+                for (Object o1 : g.getSecurityGroup().getRegistrationTypes()) {
+                    RegistrationType o = (RegistrationType) o1;
                     ret.add(o);
                 }
             }
@@ -324,11 +357,11 @@ public class User extends Base {
         this.transientResponses = transientResponses;
     }
 
-    public Set getTerms() {
+    public Set<TermsOfUse> getTerms() {
         return Collections.unmodifiableSet(terms);
     }
 
-    public void setTerms(Set terms) {
+    public void setTerms(Set<TermsOfUse> terms) {
         this.terms = terms;
     }
 
@@ -339,8 +372,8 @@ public class User extends Base {
     public boolean hasTerms(Integer termsId) {
         boolean found = false;
         TermsOfUse t;
-        for (Iterator it = getTerms().iterator(); it.hasNext() && !found;) {
-            t = (TermsOfUse) it.next();
+        for (Iterator<TermsOfUse> it = getTerms().iterator(); it.hasNext() && !found;) {
+            t = it.next();
             if (log.isDebugEnabled()) {
                 log.debug("terms: " + t.getId());
             }
@@ -349,11 +382,11 @@ public class User extends Base {
         return found;
     }
 
-    public Set getUserPreferences() {
+    public Set<UserPreference> getUserPreferences() {
         return Collections.unmodifiableSet(userPreferences);
     }
 
-    public void setUserPreferences(Set userPreferences) {
+    public void setUserPreferences(Set<UserPreference> userPreferences) {
         this.userPreferences = userPreferences;
     }
 
@@ -362,8 +395,7 @@ public class User extends Base {
     }
 
     public UserPreference getUserPreference(Integer preferenceId) {
-        for (Iterator it = userPreferences.iterator(); it.hasNext();) {
-            UserPreference up = (UserPreference) it.next();
+        for (UserPreference up : userPreferences) {
             if (up.getId().getPreference().getId().equals(preferenceId)) {
                 return up;
             }
@@ -385,11 +417,11 @@ public class User extends Base {
     }
 
 
-    public Set getEventRegistrations() {
+    public Set<EventRegistration> getEventRegistrations() {
         return Collections.unmodifiableSet(eventRegistrations);
     }
 
-    public void setEventRegistrations(Set eventRegistrations) {
+    public void setEventRegistrations(Set<EventRegistration> eventRegistrations) {
         this.eventRegistrations = eventRegistrations;
     }
 
@@ -398,7 +430,7 @@ public class User extends Base {
     }
 
     public Set<UserContestPrize> getCompPrizes() {
-        return Collections.unmodifiableSet(compPrizes);        
+        return Collections.unmodifiableSet(compPrizes);
     }
     
     public void setCompPrizes(Set<UserContestPrize> compContestPrizes) {
@@ -409,21 +441,19 @@ public class User extends Base {
     }
     
     public EventRegistration getEventRegistration(Event e) {
-        EventRegistration curr;
-        for (Iterator it = getEventRegistrations().iterator(); it.hasNext();) {
-            curr = ((EventRegistration) it.next());
-            if (curr.getId().getEvent().getId() == e.getId()) {
-                return curr;
+        for (EventRegistration eventRegistration : getEventRegistrations()) {
+            if (eventRegistration.getId().getEvent().getId() == e.getId()) {
+                return eventRegistration;
             }
         }
         return null;
     }
 
-    public Set getResponses() {
+    public Set<Response> getResponses() {
         return Collections.unmodifiableSet(responses);
     }
 
-    public void setResponses(Set responses) {
+    public void setResponses(Set<Response> responses) {
         this.responses = responses;
     }
 
@@ -431,11 +461,11 @@ public class User extends Base {
         responses.add(r);
     }
 
-    public void addResponse(List r) {
+    public void addResponse(List<Response> r) {
         responses.addAll(r);
     }
 
-    public void addEventRegistration(Event event, List responses, Boolean eligible) {
+    public void addEventRegistration(Event event, List<Response> responses, Boolean eligible) {
         EventRegistration er = new EventRegistration();
         er.getId().setUser(this);
         er.getId().setEvent(event);
@@ -452,11 +482,11 @@ public class User extends Base {
         }
     }
 
-    public Set getBallots() {
+    public Set<RankBallot> getBallots() {
         return Collections.unmodifiableSet(ballots);
     }
 
-    public void setBallots(Set ballots) {
+    public void setBallots(Set<RankBallot> ballots) {
         this.ballots = ballots;
     }
 
@@ -464,4 +494,13 @@ public class User extends Base {
         ballots.add(ballot);
     }
 
+
+    @Column(name="handle_lower", updatable=false, insertable=false)
+    public String getLowerHandle() {
+        return lowerHandle;
+    }
+
+    public void setLowerHandle(String lowerHandle) {
+        this.lowerHandle = lowerHandle;
+    }
 }

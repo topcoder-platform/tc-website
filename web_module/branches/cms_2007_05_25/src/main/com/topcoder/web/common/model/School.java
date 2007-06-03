@@ -1,5 +1,13 @@
 package com.topcoder.web.common.model;
 
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Column;
 import java.util.Date;
 
 /**
@@ -7,6 +15,8 @@ import java.util.Date;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Apr 11, 2006
  */
+@Entity
+@Table(name="school")
 public class School extends Base {
     private Long id;
     private Address address;
@@ -20,6 +30,10 @@ public class School extends Base {
     public School() {
     }
 
+    @Id
+    @GenericGenerator(name="school_id",
+            strategy="com.topcoder.web.common.model.IdGenerator",
+            parameters={@Parameter(name="sequence_name", value="SCHOOL_SEQ")})
     public Long getId() {
         return id;
     }
@@ -28,6 +42,7 @@ public class School extends Base {
         this.id = id;
     }
 
+    @ManyToOne
     public Address getAddress() {
         return address;
     }
@@ -36,6 +51,7 @@ public class School extends Base {
         this.address = address;
     }
 
+    @ManyToOne
     public Coder getCoder() {
         return coder;
     }
@@ -52,6 +68,7 @@ public class School extends Base {
         this.name = name;
     }
 
+    @Column(name="short_name")
     public String getShortName() {
         return shortName;
     }
@@ -61,6 +78,7 @@ public class School extends Base {
     }
 
 
+    @ManyToOne
     public SchoolType getType() {
         return type;
     }
@@ -79,7 +97,7 @@ public class School extends Base {
     }
 
     public boolean isViewable() {
-        return viewable.booleanValue();
+        return viewable;
     }
 
     public boolean equals(Object o) {
@@ -99,6 +117,7 @@ public class School extends Base {
         }
     }
 
+    @Column(name="modify_date", insertable=false, updatable=false)
     public Date getModifyDate() {
         return modifyDate;
     }

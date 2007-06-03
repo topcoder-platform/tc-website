@@ -1,7 +1,13 @@
 package com.topcoder.web.common.model;
 
-import java.util.Collections;
-import java.util.Set;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 /**
  * A class to hold address information
@@ -10,6 +16,8 @@ import java.util.Set;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
+@Entity
+@Table(name="address")
 public class Address extends Base {
     public static final Integer OFFICE_TYPE_ID = 1;
     public static final Integer HOME_TYPE_ID = 2;
@@ -25,20 +33,17 @@ public class Address extends Base {
     private String city;
     private String postalCode;
     private String province;
-/*
-    private String stateCode;
-*/
     private State state;
-/*
-    private String countryCode;
-*/
     private Country country;
-    private Set users;
 
     public Address() {
 
     }
 
+    @Id
+    @GenericGenerator(name="address_id",
+            strategy="com.topcoder.web.common.model.IdGenerator",
+            parameters={@Parameter(name="sequence_name", value="ADDRESS_SEQ")})
     public Long getId() {
         return id;
     }
@@ -47,6 +52,7 @@ public class Address extends Base {
         this.id = id;
     }
 
+    @Column(name="address_type_id")
     public Integer getAddressTypeId() {
         return addressTypeId;
     }
@@ -63,7 +69,7 @@ public class Address extends Base {
         this.address1 = address1;
     }
 
-    public String getAddress2() {
+    public String getAddress2() {   
         return address2;
     }
 
@@ -87,6 +93,7 @@ public class Address extends Base {
         this.city = city;
     }
 
+    @Column(name="zip")
     public String getPostalCode() {
         return postalCode;
     }
@@ -103,33 +110,7 @@ public class Address extends Base {
         this.province = province;
     }
 
-/*    public String getStateCode() {
-        return stateCode;
-    }
-
-    public void setStateCode(String stateCode) {
-        this.stateCode = stateCode;
-    }*/
-
-/*
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-*/
-
-
-    /**
-     * Return a copy of the state.  Returning a clone
-     * because we don't want anything about the actual
-     * State objec to be changed as we don't
-     * want to persist changes to the state table.
-     *
-     * @return the state
-     */
+    @ManyToOne
     public State getState() {
         return state;
     }
@@ -138,7 +119,7 @@ public class Address extends Base {
         this.state = state;
     }
 
-
+    @ManyToOne
     public Country getCountry() {
         return country;
     }
@@ -146,14 +127,5 @@ public class Address extends Base {
     public void setCountry(Country country) {
         this.country = country;
     }
-
-    public Set getUsers() {
-        return Collections.unmodifiableSet(users);
-    }
-
-    public void setUsers(Set users) {
-        this.users = users;
-    }
-
 
 }
