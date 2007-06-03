@@ -23,7 +23,7 @@ public class MatchRules extends MatchInfo {
 
     protected void setForwardPage(boolean isHSMatch) {
         if (isHSMatch) {
-            setNextPage("/calendar/hs_srmRules.jsp");
+            setNextPage("/calendar/hsSRMRules.jsp");
         } else {
             setNextPage("/calendar/srmRules.jsp");
         }
