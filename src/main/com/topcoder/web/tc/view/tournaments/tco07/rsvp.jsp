@@ -107,7 +107,7 @@ Rooms are available at The Mirage for all attendees, please mention TopCoder.
             </div>
 
 <h1>
-Protecting System Information Utilizing<br>
+1:00 PM - 2:00 PM<br>PM Protecting System Information Utilizing<br>
 TopCoder's Software Methodology
 </h1>
 
@@ -116,7 +116,7 @@ Presented by TopCoder Direct
 </p>
 
 <h1>
-Talent, Skills and the Global Economy
+2:00 PM - 3:00 PM<br>Talent, Skills and the Global Economy
 </h1>
 
 <p>
@@ -125,7 +125,7 @@ Jack Hughes
 </p>
 
 <h1>
-Social Networking
+3:00 PM - 4:00 PM<br>Social Networking
 </h1>
 
 <p>
@@ -134,7 +134,7 @@ Senior Vice President of Messaging and Social Media, AOL
 </p>
 
 <h1>
-Virtual Workforce
+4:00 PM - 5:00 PM<br>Virtual Workforce
 </h1>
 
 <p>
@@ -143,7 +143,7 @@ Director of Research &amp; Development, VeriSign
 </p>
 
 <h1>
-Evolving Business Systems from<br>
+5:00 PM - 6:00 PM<br>Evolving Business Systems from<br>
 Spreadsheets to Enterprise Software
 </h1>
 
