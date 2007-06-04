@@ -142,7 +142,7 @@
 </div>
 
 <h2 align="center">
-    <a href="" class="bcLink">Rules & Regulations</a>
+    <a href="?<%=Constants.MODULE_KEY%>=MatchRules&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}" class="bcLink">Rules & Regulations</a>
 </h2>
 
 
