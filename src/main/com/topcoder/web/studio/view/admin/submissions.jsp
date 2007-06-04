@@ -118,7 +118,7 @@ Show submissions by (Enter Handle):
     <td class="header">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_handle")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter</a>
     </td>
-    <td class="header">
+    <td class="headerC">
         <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=AdminViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submitter_rank")+1%>" includeParams="true" excludeParams="<%=exclude%>"/>">Submitter
             Rank</a>
     </td>
@@ -174,7 +174,7 @@ Show submissions by (Enter Handle):
         <td class="value">
             <span class="coderText"><rsc:item name="submitter_handle" row="<%=resultRow%>"/></span>
         </td>
-        <td class="value">
+        <td class="valueC">
             <%if (resultRow.getIntItem("submission_type_id")==SubmissionType.FINAL_SUBMISSION_TYPE.intValue()) { %>
             Final
             <% } else { %>
@@ -191,7 +191,7 @@ Show submissions by (Enter Handle):
             <% } %>
         </td>
         <td class="valueC">
-            <rsc:item name="submit_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}"/>
+            <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
         </td>
         <td class="valueC">
             <c:choose>
@@ -199,7 +199,7 @@ Show submissions by (Enter Handle):
                     &#160;
                 </c:when>
                 <c:otherwise>
-                    <rsc:item name="review_date" row="<%=resultRow%>" format="MM.dd.yyyy HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="&#160;"/>
+                    <rsc:item name="review_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}" ifNull="&#160;"/>
                 </c:otherwise>
             </c:choose>
         </td>
