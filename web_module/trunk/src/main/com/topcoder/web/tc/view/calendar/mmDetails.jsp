@@ -13,49 +13,54 @@
     String time = StringUtils.checkNull((String) request.getAttribute("time"));
 %>
 <c:set var="row" value="<%=rsr%>" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html>
+
 <head>
     <title>TopCoder</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
-    <jsp:include page="script.jsp"/>
-    <jsp:include page="style.jsp">
+    <jsp:include page="../script.jsp" />
+    <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
 </head>
+
 <body>
 
-<jsp:include page="top.jsp">
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
 <tbody>
-<tr valign="top">
+    <tr valign="top">
 <%-- Left Column Begins--%>
-<td width="180">
-    <jsp:include page="includes/global_left.jsp">
-        <jsp:param name="node" value="long_compete"/>
-    </jsp:include>
-</td>
+        <td width="180">
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="node" value="m_long_contests"/>
+            </jsp:include>
+        </td>
 <%-- Left Column Ends --%>
 
 <%-- Center Column Begins --%>
-<td width="100%" align="center" class="bodyColumn">
-<div class="fixedWidthBody">
+        <td width="100%" align="center" class="bodyColumn">
+            <div class="fixedWidthBody">
 
-<jsp:include page="page_title.jsp">
-    <jsp:param name="image" value="long_comps_topcoder"/>
-    <jsp:param name="title" value="Contest Details"/>
-</jsp:include>
+    <jsp:include page="../page_title.jsp">
+        <jsp:param name="image" value="long_comps_topcoder"/>
+        <jsp:param name="title" value="Contest Details"/>
+    </jsp:include>
 
 <div align="center">
     <table style="margin-top: 20px; margin-bottom: 20px;" cellpadding="0" cellspacing="0">
         <tbody>
             <tr>
                 <td style="padding: 0px 5px 10px 0px;" align="center" width="50%">
-                    <a class="bigButton" style="width: 100px;"
-                       href="/longcontest/?module=ViewReg&<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register/Submit</a>
+                    <a class="bigButton" style="width: 120px;"
+                       href="/longcontest/?module=ViewReg&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register/Submit</a>
                     <%--<div class="bigButton" style="width: 100px;">Register</div>--%>
                 </td>
             </tr>
@@ -121,7 +126,7 @@
                     <strong>Opens:</strong>
                 </td>
                 <td align="center" nowrap="nowrap">
-                    <rsc:item name="reg_start_time" row="<%=rsr%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
+                    <rsc:item name="reg_start_time" row="<%=rsr%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                 </td>
             </tr>
             <tr>
@@ -129,7 +134,7 @@
                     <strong>Closes:</strong>
                 </td>
                 <td align="center" nowrap="nowrap">
-                    <rsc:item name="reg_end_time" row="<%=rsr%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z"/>
+                    <rsc:item name="reg_end_time" row="<%=rsr%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z"/>
                 </td>
             </tr>
         </tbody>
@@ -208,22 +213,24 @@
 </p>
 
 
-</div>
-</td>
+            </div>
+        </td>
 <%-- Center Column Ends --%>
-
+        
 <%-- Right Column Begins --%>
-<td width="170">
-    <jsp:include page="public_right.jsp">
-        <jsp:param name="level1" value="default"/>
-    </jsp:include>
-</td>
+        <td width="170">
+            <jsp:include page="../public_right.jsp">
+                <jsp:param name="level1" value="default"/>
+            </jsp:include>
+        </td>
 <%-- Right Column Ends --%>
-
-</tr>
+        
+    </tr>
 </tbody>
 </table>
 
-<jsp:include page="foot.jsp"/>
+<jsp:include page="../foot.jsp" />
+
 </body>
+
 </html>
