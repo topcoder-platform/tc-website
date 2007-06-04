@@ -3391,7 +3391,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             insertPaymentDetail.append("INSERT INTO payment_detail ");
             insertPaymentDetail.append(" (payment_detail_id, net_amount, date_paid, ");
             insertPaymentDetail.append("  gross_amount, payment_status_id, payment_address_id, modification_rationale_id, ");
-            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_modified, date_due, client, ");
+            insertPaymentDetail.append("  payment_desc, payment_type_id, payment_method_id, date_due, client, ");
             insertPaymentDetail.append("  algorithm_round_id, component_project_id, algorithm_problem_id, studio_contest_id, ");
             insertPaymentDetail.append("  component_contest_id, digital_run_stage_id, digital_run_season_id, parent_payment_id, ");
             insertPaymentDetail.append("  charity_ind, total_amount, installment_number) ");
@@ -3407,46 +3407,45 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setString(7, p.getHeader().getDescription());
             ps.setInt(8, p.getHeader().getTypeId());
             ps.setInt(9, p.getHeader().getMethodId());
-            ps.setTimestamp(10, new Timestamp(System.currentTimeMillis())); // date_modified
-            ps.setTimestamp(11, makeTimestamp(p.getDueDate(), true, false));
+            ps.setTimestamp(10, makeTimestamp(p.getDueDate(), true, false));
             if (!StringUtils.checkNull(p.getHeader().getClient()).equals("")) {
-                ps.setString(12, p.getHeader().getClient());
+                ps.setString(11, p.getHeader().getClient());
             } else {
-                ps.setNull(12, Types.VARCHAR);
+                ps.setNull(11, Types.VARCHAR);
             }
 
-            for (int i = 13; i <= 20; i++) {
+            for (int i = 12; i <= 19; i++) {
                 ps.setNull(i, Types.DECIMAL);
             }
             switch (BasePayment.getReferenceTypeId(p.getHeader().getTypeId())) {
                 case REFERENCE_ALGORITHM_ROUND_ID:
-                    setNullableLong(ps, 13, p.getHeader().getAlgorithmRoundId());
+                    setNullableLong(ps, 12, p.getHeader().getAlgorithmRoundId());
                     break;
                 case REFERENCE_COMPONENT_PROJECT_ID:
-                    setNullableLong(ps, 14, p.getHeader().getComponentProjectId());
+                    setNullableLong(ps, 13, p.getHeader().getComponentProjectId());
                     break;
                 case REFERENCE_ALGORITHM_PROBLEM_ID:
-                    setNullableLong(ps, 15, p.getHeader().getAlgorithmProblemId());
+                    setNullableLong(ps, 14, p.getHeader().getAlgorithmProblemId());
                     break;
                 case REFERENCE_STUDIO_CONTEST_ID:
-                    setNullableLong(ps, 16, p.getHeader().getStudioContestId());
+                    setNullableLong(ps, 15, p.getHeader().getStudioContestId());
                     break;
                 case REFERENCE_COMPONENT_CONTEST_ID:
-                    setNullableLong(ps, 17, p.getHeader().getComponentContestId());
+                    setNullableLong(ps, 16, p.getHeader().getComponentContestId());
                     break;
                 case REFERENCE_DIGITAL_RUN_STAGE_ID:
-                    setNullableLong(ps, 18, p.getHeader().getDigitalRunStageId());
+                    setNullableLong(ps, 17, p.getHeader().getDigitalRunStageId());
                     break;
                 case REFERENCE_DIGITAL_RUN_SEASON_ID:
-                    setNullableLong(ps, 19, p.getHeader().getDigitalRunSeasonId());
+                    setNullableLong(ps, 18, p.getHeader().getDigitalRunSeasonId());
                     break;
                 case REFERENCE_PARENT_PAYMENT_ID:
-                    setNullableLong(ps, 20, p.getHeader().getParentPaymentId());
+                    setNullableLong(ps, 19, p.getHeader().getParentPaymentId());
                     break;
             }
-            ps.setBoolean(21, p.isCharity());
-            ps.setDouble(22, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
-            ps.setInt(23, p.getInstallmentNumber());
+            ps.setBoolean(20, p.isCharity());
+            ps.setDouble(21, p.getTotalAmount() == 0 ? p.getGrossAmount() : p.getTotalAmount()); // default to gross amount if not filled.
+            ps.setInt(22, p.getInstallmentNumber());
             ps.executeUpdate();
 
             // insert reasons:
