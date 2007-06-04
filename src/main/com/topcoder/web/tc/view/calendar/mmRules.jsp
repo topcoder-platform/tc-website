@@ -165,6 +165,10 @@
         This tournament is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.
         </p>
 
+<h2 align="center">
+    <a href="" class="bcLink">Back to Contest Details</a>
+</h2>
+
             </div>
         </td>
 <%-- Center Column Ends --%>
