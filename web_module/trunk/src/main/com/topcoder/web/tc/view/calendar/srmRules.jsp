@@ -283,7 +283,7 @@ rated event following the rating change.
     <li>
         <b>When to start the Competition</b><br>
         TopCoder members must register from within the TopCoder Arena for this competition.
-        Registration is from <rsc:item name="reg_begin" row="<%=rsr%>"/> to <rsc:item name="reg_end" row="<%=rsr%>"/>.
+        Registration is from <rsc:item name="reg_start_time" row="<%=rsr%>" format="hh:mm a z"/> to <rsc:item name="reg_end_time" row="<%=rsr%>"  format="hh:mm a z"/>.
         To register, login to the TopCoder Arena application, click on the 'Active Contests' menu, choose the event to
         register for, and select the 'Register' option. TopCoder members from all over the country will be participating
         in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time
