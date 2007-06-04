@@ -42,9 +42,15 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 
+<p>
+    5.10.2 - 2007.06.04
+    <ul>
+        <li>Marathon Match details and rules pages -dok</li>
+    </ul>
+</p>
 
 <p>
-    5.10.1 - 2007.05.xx
+    5.10.1 - 2007.05.31
     <ul>
         <li>Pacts payment statuses reengeneering -pulky
         <ul>
