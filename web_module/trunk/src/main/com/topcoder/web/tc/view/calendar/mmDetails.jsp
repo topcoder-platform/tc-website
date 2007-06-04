@@ -6,11 +6,13 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 
     ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow) (((ResultSetContainer) request.getAttribute("rsc")).get(0));
     String time = StringUtils.checkNull((String) request.getAttribute("time"));
 %>
+<c:set var="row" value="<%=rsr%>" />
 <html>
 <head>
     <title>TopCoder</title>
@@ -53,7 +55,7 @@
             <tr>
                 <td style="padding: 0px 5px 10px 0px;" align="center" width="50%">
                     <a class="bigButton" style="width: 100px;"
-                       href="/longcontest/?module=ViewReg&<%=Constants.ROUND_ID%>=${rsr.map['round_id']}">Register/Submit</a>
+                       href="/longcontest/?module=ViewReg&<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register/Submit</a>
                     <%--<div class="bigButton" style="width: 100px;">Register</div>--%>
                 </td>
             </tr>
