@@ -394,7 +394,7 @@ value and, according to the outcome, take the lower or higher half of the interv
 	<font color="blue">while</font> ((bitMask <font color="green">!=</font> <font color="red">0</font>) <font color="green">&amp;&amp;</font> (idx <font color="green">&lt;</font> MaxVal)){ <i><font color="#999999">// nobody likes overflow :)</font></i>
 		<font color="blue">int</font> tIdx <font color="green">=</font> idx <font color="green">+</font> bitMask; <i><font color="#999999">// we make midpoint of interval</font></i>
 		<font color="blue">if</font> (cumFre <font color="green">==</font> tree[tIdx]) <i><font color="#999999">// if it is equal, we just return idx</font></i>
-			<font color="blue">return</font> idx;
+			<font color="blue">return</font> tIdx;
 		<font color="blue">else if</font> (cumFre <font color="green">&gt;</font> tree[tIdx]){ 
 		        <i><font color="#999999">// if tree frequency "can fit" into cumFre,
 		        // then include it</font></i>
@@ -406,7 +406,7 @@ value and, according to the outcome, take the lower or higher half of the interv
 	<font color="blue">if</font> (cumFre <font color="green">!=</font> <font color="red">0</font>) <i><font color="#999999">// maybe given cumulative frequency doesn't exist</font></i>
 		<font color="blue">return</font> <font color="green">-</font><font color="red">1</font>;
 	<font color="blue">else</font>
-		<font color="blue">return</font> tIdx;
+		<font color="blue">return</font> idx;
 }
 
 
@@ -430,7 +430,7 @@ value and, according to the outcome, take the lower or higher half of the interv
 	<font color="blue">if</font> (cumFre <font color="green">!=</font> <font color="red">0</font>)
 		<font color="blue">return</font> <font color="green">-</font><font color="red">1</font>;
 	<font color="blue">else</font>
-		<font color="blue">return</font> tIdx;
+		<font color="blue">return</font> idx;
 }
 </pre>
 
