@@ -14,6 +14,7 @@ import java.util.Map;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
+import com.topcoder.web.ejb.pacts.ReliabilityBonusPayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
@@ -406,14 +407,16 @@ public class PaymentStatusManager {
         try {
             List<BasePayment> childPayments = dib.findCoderPayments(criteria);
             for (BasePayment childPayment : childPayments) {
-                log.debug("notifying children: " + childPayment.getId());
-                if ("new".equals(notifType)) {
-                    newPayment(childPayment);
+                if (childPayment instanceof ReliabilityBonusPayment) {
+                    log.debug("notifying children: " + childPayment.getId());
+                    if ("new".equals(notifType)) {
+                        newPayment(childPayment);
+                    }
+                    if ("cancel".equals(notifType)) {
+                        childPayment.getCurrentStatus().parentCancelled(childPayment);
+                    }
+                    dib.updatePayment(childPayment);
                 }
-                if ("cancel".equals(notifType)) {
-                    childPayment.getCurrentStatus().parentCancelled(childPayment);
-                }
-                dib.updatePayment(childPayment);
             }
         } catch (Exception e) {
             throw new EventFailureException(e);

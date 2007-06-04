@@ -16,6 +16,7 @@ import com.topcoder.web.common.model.AssignmentDocumentType;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.ParentReferencePayment;
+import com.topcoder.web.ejb.pacts.ReliabilityBonusPayment;
 import com.topcoder.web.ejb.pacts.StudioContestPayment;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason.AvailableStatusReason;
@@ -88,10 +89,10 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
         try {
             DataInterfaceBean dib = new DataInterfaceBean();
    
-            if (payment instanceof ParentReferencePayment) {
-                log.debug("instanceof ParentReferencePayment");                
+            if (payment instanceof ReliabilityBonusPayment) {
+                log.debug("instanceof ReliabilityBonusPayment");                
                 
-                // if the payment has a reference to the parent it should get the parent's status
+                // if the payment is a reliability it should get the parent's status
                 // until the parent reaches accruing.
                 
                 Map criteria = new HashMap();
