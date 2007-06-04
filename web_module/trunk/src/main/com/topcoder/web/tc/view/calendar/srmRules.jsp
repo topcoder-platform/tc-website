@@ -105,15 +105,15 @@ according to the following rules:
     <li>
         <b>When to start the Competition</b><br>
         TopCoder members must register from within the TopCoder Arena for this competition.
-        Registration is from <rsc:item name="reg_begin" row="<%=rsr%>"/> to <rsc:item name="reg_end" row="<%=rsr%>"/>.
+        Registration is from <rsc:item name="reg_start_time" row="<%=rsr%>" format="hh:mm a z"/> to <rsc:item name="reg_end_time" row="<%=rsr%>"  format="hh:mm a z"/>.
         To register, login to the TopCoder Arena application, click on the 'Active Contests' menu, choose the event to
         register for, and select the 'Register' option. TopCoder members from all over the country will be participating
-        in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time
+        in this event, but <b><i>when not indicated, start times will be communicated as Eastern Time, so contestants in different time
         zones must adjust accordingly</i></b>. All competitors who have registered for the competition will be assigned
         to a specific competition room. TopCoder will perform the room assignments prior to the start of the
         competition, in a manner such that only coders in the same division are placed in the same room and the room
         assignments within each division are random.
-        The competition will begin at <rsc:item name="coding_begin" row="<%=rsr%>"/> Eastern Time.
+        The competition will begin at <rsc:item name="coding_start_time" row="<%=rsr%>" format="hh:mm a z"/> Eastern Time.
         <br/>
     </li>
     <br/>
@@ -237,7 +237,7 @@ Quebec province of Canada, or anywhere else where this competition is prohibited
 All competitors must be registered members of TopCoder,
 and must have agreed to the rules on this page by the
 
-<rsc:item name="reg_date" row="<%=rsr%>"/>&#160;<rsc:item name="reg_end" row="<%=rsr%>"/> Eastern Time registration
+<rsc:item name="reg_end_time" row="<%=rsr%>"  format="MM.dd.yyyy hh:mm a z"/> registration
 deadline.<br><br>
 
 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors),
@@ -291,7 +291,7 @@ rated event following the rating change.
         to a specific competition room. TopCoder will perform the room assignments prior to the start of the
         competition, in a manner such that only coders in the same division are placed in the same room and the room
         assignments within each division are random.
-        The competition will begin at <rsc:item name="coding_begin" row="<%=rsr%>"/> Eastern Time.
+        The competition will begin at <rsc:item name="coding_start_time" row="<%=rsr%>" format="hh:mm a z"/>.
         <br/>
     </li>
     <br/>
@@ -374,7 +374,7 @@ The match is open to all members who are at least 13 years of age.<br>
 All competitors must be registered members of TopCoder,
 and must have agreed to the rules on this page by the
 
-<rsc:item name="reg_date" row="<%=rsr%>"/>&#160;<rsc:item name="reg_end" row="<%=rsr%>"/> Eastern Time registration
+<rsc:item name="reg_end_time" row="<%=rsr%>" format="MM.dd.yyyy hh:mm a z"/>
 deadline.<br><br>
 
 Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors),

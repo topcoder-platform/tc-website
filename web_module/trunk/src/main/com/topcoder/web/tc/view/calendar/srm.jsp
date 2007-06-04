@@ -24,7 +24,6 @@
     int round_id = rsr.getIntItem("round_id");
     String time = StringUtils.checkNull((String) request.getAttribute("time"));
 %>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <HEAD>
@@ -102,17 +101,17 @@
         <TR BGCOLOR="#666666">
             <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                 <b>
-                    <rsc:item name="date" row="<%=rsr%>"/>
+                    <rsc:item name="coding_start_time" row="<%=rsr%>" format="MM.dd.yyyy"/>
                     <br/></b>
             </TD>
             <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                 <B>
-                    <rsc:item name="reg_begin" row="<%=rsr%>"/>
+                    <rsc:item name="reg_start_time" row="<%=rsr%>" format="hh:mm a z"/>
                 </B>
             </TD>
             <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                 <B>
-                    <rsc:item name="coding_begin" row="<%=rsr%>"/>
+                    <rsc:item name="coding_start_time" row="<%=rsr%>" format="hh:mm a z"/>
                 </B>
             </TD>
         </TR>
@@ -126,7 +125,7 @@
 <center>
     <span class="bodySubtitle"><rsc:item name="contest_name" row="<%=rsr%>"/></span>
     <br><br>
-    All times are Eastern Time unless otherwise noted, click
+    Click
     <a HREF="<%="http://www.timeanddate.com/worldclock/fixedtime.html?" + time+"&amp;p1=179"%>">here</a>
     to see when coding begins in other time zones.<br/></center>
 
