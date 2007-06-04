@@ -113,7 +113,7 @@ according to the following rules:
         to a specific competition room. TopCoder will perform the room assignments prior to the start of the
         competition, in a manner such that only coders in the same division are placed in the same room and the room
         assignments within each division are random.
-        The competition will begin at <rsc:item name="coding_start_time" row="<%=rsr%>" format="hh:mm a z"/> Eastern Time.
+        The competition will begin at <rsc:item name="coding_start_time" row="<%=rsr%>" format="hh:mm a z"/>.
         <br/>
     </li>
     <br/>
@@ -286,7 +286,7 @@ rated event following the rating change.
         Registration is from <rsc:item name="reg_start_time" row="<%=rsr%>" format="hh:mm a z"/> to <rsc:item name="reg_end_time" row="<%=rsr%>"  format="hh:mm a z"/>.
         To register, login to the TopCoder Arena application, click on the 'Active Contests' menu, choose the event to
         register for, and select the 'Register' option. TopCoder members from all over the country will be participating
-        in this event, but <b><i>all start times will be communicated as Eastern Time, so contestants in different time
+        in this event, but <b><i>when not indicated, start times will be communicated as Eastern Time, so contestants in different time
         zones must adjust accordingly</i></b>. All competitors who have registered for the competition will be assigned
         to a specific competition room. TopCoder will perform the room assignments prior to the start of the
         competition, in a manner such that only coders in the same division are placed in the same room and the room
