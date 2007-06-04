@@ -82,17 +82,17 @@
         <TR BGCOLOR="#666666">
             <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                 <b>
-                    <rsc:item name="date" row="<%=rsr%>"/>
-                    <br/> </b>
+                    <rsc:item name="coding_start_time" row="<%=rsr%>" format="MM.dd.yyyy"/>
+                    <br/></b>
             </TD>
             <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                 <B>
-                    <rsc:item name="reg_begin" row="<%=rsr%>"/>
+                    <rsc:item name="reg_start_time" row="<%=rsr%>" format="hh:mm a z"/>
                 </B>
             </TD>
             <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
                 <B>
-                    <rsc:item name="coding_begin" row="<%=rsr%>"/>
+                    <rsc:item name="coding_start_time" row="<%=rsr%>" format="hh:mm a z"/>
                 </B>
             </TD>
         </TR>

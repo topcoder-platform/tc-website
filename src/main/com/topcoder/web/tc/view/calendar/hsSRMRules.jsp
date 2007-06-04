@@ -64,13 +64,12 @@ No purchase necessary to enter or win. Void where prohibited.
 <b>About the TCHS SRM</b><br/>
 <ul>
     <li><b>When to start the Single Round Match (SRM)</b><br/>
-        TopCoder High School (TCHS) members must register for the SRM. Registration is from <rsc:item name="reg_begin"
-                                                                                                      row="<%=rsr%>"/>
-        to <rsc:item name="reg_end" row="<%=rsr%>"/>. To register, login
+        TopCoder High School (TCHS) members must register for the SRM. Registration is from
+        <rsc:item name="reg_start_time" row="<%=rsr%>" format="hh:mm a z"/> to <rsc:item name="reg_end_time" row="<%=rsr%>"  format="hh:mm a z"/>. To register, login
         to the TopCoder High School Arena application, click on the 'Active Contests' menu, choose the SRM to
         register for, and select the 'Register' option. <strong><em>TCHS members from all over the world may be
         participating in
-        this SRM, but all start times will be communicated as Eastern Time, so contestants in different time zones must
+        this SRM, when not indicated, start times will be communicated as Eastern Time, so contestants in different time zones must
         adjust accordingly.</em></strong> All competitors who have registered for the competition will be assigned to a
         specific
         competition room. TopCoder will perform the room assignments prior to the start of the competition.
@@ -141,7 +140,7 @@ The SRM is open to all TCHS members who are between the ages of 13 and 20, inclu
 education and not matriculated full time at a college or university.
 
 <p>All competitors must be registered members of TopCoder High School and must have agreed to the rules on this page by
-    the <rsc:item name="reg_date" row="<%=rsr%>"/>&#160;<rsc:item name="reg_end" row="<%=rsr%>"/> registration
+    the <rsc:item name="reg_end_time" row="<%=rsr%>"  format="MM.dd.yyyy hh:mm a z"/> registration
     deadline.</p>
 
 <p>Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors),
