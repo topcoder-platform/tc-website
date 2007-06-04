@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=060407"><strong>An Interview with Burunduk2</strong></a>, by <tc-webtag:handle coderId="8436401" context="algorithm"/><br>
+In this interview, the winner of TopCoder's first High School tournament talks about how he first got interested in coding, how he got his start in competition, and how he got his nickname.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees"><strong>Binary Indexed Trees</strong></a>, by <tc-webtag:handle coderId="20394568" context="algorithm"/><br>
 Sometimes we need data structures that will make our algorithms faster. In this article we will discuss one such structure -- Binary Indexed Trees. First used for data compression, binary indexed trees are now commonly used for storing frequencies and manipulating cumulative frequency tables.</li>
 <li><a href="/tc?module=Static&d1=features&d2=052907"><strong>Meet the May Coders of the Month</strong></a><br>
 We caught up with May's "coders of the month," to learn a little bit more about them, their proudest TopCoder moments, and more&#8230;</li>
-<li><a href="/tc?module=Static&d1=features&d2=052407"><strong>Introducing Yodlee</strong></a>, by Yodlee Staff<br>
-Starting with SRM 351, Yodlee will sponsor a series of three SRMs and chat with TopCoder members. Here's a little bit more on what we do, along with some recent news from the company.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>

@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.04.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=060407">An Interview with Burunduk2</A></span><br><br>
+      In this interview, the winner of TopCoder's first High School tournament talks about how he first got interested in coding, how he got his start in competition, and how he got his nickname.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Katya_Lazareva_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="8436401" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=060407">full story</A> | 
+        <tc-webtag:forumLink forumID="516083" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.01.07<br>6:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -20,7 +37,6 @@
         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-   
 
 <%--------------------------------------------------------%>
    <tr>
@@ -195,21 +211,3 @@
         <A href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=58">discuss this</a> |
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.24.07<br>2:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=052407">Introducing Yodlee</A></span><br><br>
-      Starting with SRM 351, Yodlee will sponsor a series of three SRMs and chat with TopCoder members. Here's a little bit more on what we do, along with some recent news from the company.
-        </td>
-      <td class="newsPhoto"><%--<img src="/i/m/rasto6sk_big.jpg" alt="" width="55" height="61"/><br>--%>by Yodlee Staff</td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=052407">full story</A> | 
-        <tc-webtag:forumLink forumID="515944" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
