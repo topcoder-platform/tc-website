@@ -119,7 +119,8 @@
                     <strong>Opens:</strong>
                 </td>
                 <td align="center" nowrap="nowrap">
-                    <rsc:item name="reg_start_time" row="<%=rsr%>" format='<strong>MM.dd.yyyy<br />hh:mm a z'/>
+                    <rsc:item name="reg_start_time" row="<%=rsr%>"
+                              format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z'"/>
                 </td>
             </tr>
             <tr>
@@ -127,7 +128,7 @@
                     <strong>Closes:</strong>
                 </td>
                 <td align="center" nowrap="nowrap">
-                    <rsc:item name="reg_end_time" row="<%=rsr%>" format='<strong>MM.dd.yyyy<br />hh:mm a z'/>
+                    <rsc:item name="reg_end_time" row="<%=rsr%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z'"/>
                 </td>
             </tr>
         </tbody>
