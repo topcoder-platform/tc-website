@@ -46,6 +46,8 @@
     5.10.2 - 2007.06.04
     <ul>
         <li>Marathon Match details and rules pages -dok</li>
+        <li>Referral payments detached from parents -pulky</li>
+        <%--<li>Payment's modification date auditory fixed -pulky</li>--%>
     </ul>
 </p>
 
