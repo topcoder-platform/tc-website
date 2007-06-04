@@ -59,7 +59,7 @@
         <tbody>
             <tr>
                 <td style="padding: 0px 5px 10px 0px;" align="center" width="50%">
-                    <a class="bigButton" style="width: 120px;"
+                    <a class="bigButton" style="width: 130px;"
                        href="/longcontest/?module=ViewReg&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register/Submit</a>
                     <%--<div class="bigButton" style="width: 100px;">Register</div>--%>
                 </td>
@@ -141,76 +141,10 @@
     </table>
 </div>
 
-<div class="sectionHeader">Conditions of Participation</div>
+<h2 align="center">
+    <a href="" class="bcLink">Rules & Regulations</a>
+</h2>
 
-<p>
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer justo dui, pharetra sed, ornare a, luctus sed,
-    lacus. Vivamus nonummy. Ut bibendum nisi quis lacus. Nunc eu lacus sit amet urna vehicula vestibulum. Maecenas
-    laoreet nunc. Nulla facilisi. Proin sem. Praesent nisl arcu, lobortis non, molestie nec, gravida ac, ipsum. Aenean
-    ornare nibh a nulla. Fusce dignissim, sem pulvinar adipiscing faucibus, pede dui laoreet ligula, in hendrerit nunc
-    lorem id dui. Maecenas ante.
-</p>
-
-<p>
-    Morbi ut nibh vel justo placerat posuere. Etiam ac sem a elit posuere gravida. Curabitur commodo nulla vitae massa.
-    Fusce tincidunt tincidunt arcu. Proin interdum consequat diam. Pellentesque metus nisl, consectetuer quis, viverra
-    non, imperdiet at, nibh. Maecenas imperdiet, arcu sit amet condimentum viverra, tortor elit ornare urna, eu interdum
-    nulla nulla quis augue. Nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse
-    potenti. Nam a sem et ante pulvinar sollicitudin.
-</p>
-
-<p>
-    Nulla metus. Nullam malesuada quam. Curabitur convallis aliquet dui. Nulla augue nulla, elementum nec, commodo eget,
-    vulputate et, diam. Vivamus commodo, dui sed mollis rhoncus, augue est hendrerit sapien, et scelerisque augue enim
-    at sem. Morbi vel sem sed nisl facilisis tincidunt. Vestibulum nec est. Vestibulum ante ipsum primis in faucibus
-    orci luctus et ultrices posuere cubilia Curae; Fusce ut mi. Mauris sollicitudin lacinia velit. Curabitur sed arcu.
-    Vivamus ipsum. Ut ullamcorper felis hendrerit pede. Cras felis eros, convallis non, pretium ac, interdum id, dui.
-    Praesent hendrerit consectetuer massa. Vestibulum laoreet. Donec sollicitudin vehicula turpis. Quisque eget nisi et
-    dolor porta ultricies.
-</p>
-
-<div class="sectionHeader">Eligibility</div>
-
-<p>
-    The competition is open to all members who are at least 13 years of age.
-</p>
-
-<p>
-    All competitors must be registered members of TopCoder, and must have agreed to the rules on this page prior to
-    participating in this competition.
-</p>
-
-<p>
-    Employees of TopCoder and those involved in the development, production (including prize suppliers and sponsors),
-    implementation and distribution of this tournament and their advertising or promotion agencies, parent companies,
-    service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly
-    associated with the competition and members of the immediate families and/or persons living in the same household as
-    such persons, are ineligible to enter the competition.
-</p>
-
-<div class="sectionHeader">Competition Structure</div>
-<p>
-    Each Marathon Match will contain a single problem. The problem statement will indicate both the question presented
-    to the contestant as well as how submissions will be scored. Contestants will submit their solution which will
-    immediately be put on a queue for system testing. Once system testing is complete, the competitor will be assigned a
-    score which will be available on the website. Each competitor may submit as many times as they choose, however they
-    may only submit once per hour.
-</p>
-
-<div class="sectionHeader">Other</div>
-
-<p>
-    The competition is void in whole or in part where prohibited by law.
-</p>
-
-<p>
-    A winners list of coder handles for all competitions will be available on the web site at http://www.topcoder.com
-    displayed for at least 3 months after the end of the competition.
-</p>
-
-<p>
-    This tournament is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.
-</p>
 
 
             </div>
