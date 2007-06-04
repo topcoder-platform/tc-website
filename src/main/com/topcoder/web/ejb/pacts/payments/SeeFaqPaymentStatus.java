@@ -18,7 +18,7 @@ public class SeeFaqPaymentStatus extends BasePaymentStatus {
     /**
      * The payment status description
      */
-    public static final String DESC = "See faq";
+    public static final String DESC = "Unknown - TopCoder researching";
     
     /**
      * Default constructor   
