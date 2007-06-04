@@ -30,7 +30,7 @@ import java.util.Map;
 public abstract class MatchInfo extends Base {
     private static Logger log = Logger.getLogger(MatchInfo.class);
 
-    protected abstract void setForwardPage(boolean isHSMatch);  // defined by subclasses
+    protected abstract void setForwardPage(int roundType);  // defined by subclasses
 
     protected void businessProcessing() throws TCWebException {
         String result = null;
@@ -63,7 +63,7 @@ public abstract class MatchInfo extends Base {
             time += "&sec=0";
             getRequest().setAttribute("time", time);
 
-            setForwardPage(rsc.getIntItem(0, "round_type_id") == 17);
+            setForwardPage(rsc.getIntItem(0, "round_type_id"));
             setIsNextPageInContext(true);
         } catch (TCWebException we) {
             throw we;

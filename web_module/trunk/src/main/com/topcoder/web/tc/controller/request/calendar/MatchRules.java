@@ -9,23 +9,28 @@
  */
 
 package com.topcoder.web.tc.controller.request.calendar;
+
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.model.algo.RoundType;
 
 /**
- *
  * @author cstjohn
  */
 public class MatchRules extends MatchInfo {
-    
+
     protected void businessProcessing() throws TCWebException {
         super.businessProcessing();
     }
 
-    protected void setForwardPage(boolean isHSMatch) {
-        if (isHSMatch) {
+    protected void setForwardPage(int roundType) {
+        if (RoundType.HS_SRM == roundType) {
             setNextPage("/calendar/hsSRMRules.jsp");
-        } else {
+        } else if (RoundType.SRM == roundType) {
             setNextPage("/calendar/srmRules.jsp");
+        } else if (RoundType.MARATHON == roundType) {
+            setNextPage("/calendar/mmRules.jsp");
+        } else {
+            throw new IllegalArgumentException("invalid round type specified " + roundType);
         }
     }
 }
