@@ -122,7 +122,7 @@
                 </td>
             </tr>
             <tr>
-                <td width="100%">
+                <td width="100%" align="left">
                     <strong>Opens:</strong>
                 </td>
                 <td align="center" nowrap="nowrap">
@@ -130,7 +130,7 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td align="left">
                     <strong>Closes:</strong>
                 </td>
                 <td align="center" nowrap="nowrap">
