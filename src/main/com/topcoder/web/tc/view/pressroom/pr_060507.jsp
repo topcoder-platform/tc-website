@@ -40,7 +40,7 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                     
-<div align="right"><tc-webtag:forumLink forumID="515881" message="Discuss this press release" /></div>
+<div align="right"><tc-webtag:forumLink forumID="516084" message="Discuss this press release" /></div>
                         
 <div align="center">
 <p><span class="bodyTitle">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</span><br>

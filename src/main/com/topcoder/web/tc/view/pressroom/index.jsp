@@ -50,7 +50,7 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-<%-- AOL to Webcast TopCoder Open 2007 Finals Live on June 29 --%>
+<%-- AOL to Webcast TopCoder Open 2007 Finals Live on June 29 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -64,7 +64,7 @@
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
-
+--%>
 <%-- Yodlee to Sponsor TopCoder Single Round Match Series --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

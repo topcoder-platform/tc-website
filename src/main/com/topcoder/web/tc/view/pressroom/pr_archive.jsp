@@ -46,7 +46,7 @@
 
 <!-- 2007 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2007</font></td></tr>
-<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</A> [June 5]<br/></td></tr>
+<%--<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</A> [June 5]<br/></td></tr>--%>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_052207">Yodlee to Sponsor TopCoder Single Round Match Series</A> [May 23]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_052307">Russian, Croatian and US High School Programmers Win TopCoder Championship at Purdue University</A> [May 21]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_040907">TopCoder Appoints Russ Malz Vice President of Sales</A> [April 9]<br/></td></tr>
