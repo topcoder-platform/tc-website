@@ -42,7 +42,7 @@
                     <jsp:param name="title" value="&nbsp;"/>
                 </jsp:include>
 
-                <a href="/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto"><img src="/i/m/nophoto_login.gif" alt="" class="memberPhoto" style="float: left; margin: 0px 10px 10px 0px;" /></a>
+                <a href="/tc?module=Static&d1=my_home&d2=submitPhoto"><img src="/i/m/nophoto_login.gif" alt="" class="memberPhoto" style="float: left; margin: 0px 10px 10px 0px;" /></a>
                 <tc-webtag:handle coderId="8436401" />
 
 <%--
@@ -101,11 +101,11 @@
                         <td class="value">
                             <p><a href="/reg/?nrg=false">Add registrations</a></p>
                             <p><a href="/reg/?nrg=false">Update my profile</a></p>
-                            <p><a href="/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto">Submit a photo</a></p>
+                            <p><a href="/tc?module=Static&d1=my_home&d2=submitPhoto">Submit a photo</a></p>
                         </td>
                         <td class="value">
                             <p><a href="/reg/?nrg=false">Privacy</a></p>
-                            <p><a href="/tc?module=Static&d1=my_home&d2=emailNotification">Email notification</a></p>
+                            <p><a href="/reg/?nrg=false">Email notification</a></p>
                             <p><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Settings">Forums preferences</a></p>
                         </td>
                         <td class="value">
@@ -116,7 +116,7 @@
                         </td>
                         <td class="value">
                             <p><a href="/tc?module=ViewReferrals">Referrals</a></p>
-                            <p><a href="/tc?module=Static&amp;d1=card&amp;d2=description">Cards/Badges</a></p>
+                            <p><a href="/tc?module=Static&d1=card&d2=description">Cards/Badges</a></p>
                         </td>
                     </tr>
                 </tbody>
