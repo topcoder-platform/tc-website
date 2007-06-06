@@ -28,11 +28,6 @@ public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 70l;
 
     /**
-     * The payment status description
-     */
-    public static final String DESC = "Entered into payment system";
-
-    /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override
@@ -46,14 +41,6 @@ public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
      */
     public EnteredIntoPaymentSystemPaymentStatus() {
         super();
-    }
-
-    /**
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
-     */
-    @Override
-    public String getDesc() {
-        return DESC;
     }
 
     /**

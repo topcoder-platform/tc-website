@@ -22,23 +22,10 @@ public class PaidPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 53l;
 
     /**
-     * The payment status description
-     */
-    public static final String DESC = "Paid";
-    
-    /**
      * Default constructor   
      */
     public PaidPaymentStatus() {
         super();
-    }
-    
-    /**
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
-     */
-    @Override
-    public String getDesc() {
-        return DESC;
     }
 
     /**

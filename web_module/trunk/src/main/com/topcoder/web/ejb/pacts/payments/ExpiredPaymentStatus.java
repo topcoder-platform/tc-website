@@ -21,23 +21,10 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 68l;
 
     /**
-     * The payment status description
-     */
-    public static final String DESC = "Expired";
-    
-    /**
      * Default constructor   
      */
     public ExpiredPaymentStatus() {
         super();
-    }
-
-    /**
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
-     */
-    @Override
-    public String getDesc() {
-        return DESC;
     }
 
     /**

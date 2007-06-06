@@ -31,11 +31,6 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
      * The payment status id
      */
     public static final Long ID = 71l;
-
-    /**
-     * The payment status description
-     */
-    public static final String DESC = "Accruing";
     
     /**
      * Default constructor   
@@ -43,15 +38,6 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     public AccruingPaymentStatus() {
         super();
     }
-
-    /**
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
-     */
-    @Override
-    public String getDesc() {
-        return DESC;
-    }
-
 
     /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getId()
@@ -71,13 +57,19 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
     @Override
     public void activate(BasePayment payment) throws StateTransitionFailureException {
         log.debug("Activate called for payment " + payment.getId());
-        log.debug("Payment coder" + payment.getCoderId());
+        log.debug("Payment coder " + payment.getCoderId());
+        log.debug("Payment charity: " + payment.isCharity());
         DataInterfaceBean dib = new DataInterfaceBean();
         try {
             // check the user's accrual threshold
-            double accrualThreshold = dib.getUserAccrualThreshold(payment.getCoderId());
-
-            log.debug("accrualThreshold: " + accrualThreshold);            
+            
+            double accrualThreshold = 0;
+            
+            // charity payments don't need checks
+            if (!payment.isCharity() && payment.getPaymentType() != BasePayment.CHARITY_PAYMENT) { 
+                dib.getUserAccrualThreshold(payment.getCoderId());
+                log.debug("accrualThreshold: " + accrualThreshold);            
+            }
             
             if (accrualThreshold > 0) {
                 // check total amount for currently accruing payments for this user
@@ -112,6 +104,25 @@ public class AccruingPaymentStatus extends BasePaymentStatus {
             throw new StateTransitionFailureException(e);
         }
         
+    }
+
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#paymentUpdated(com.topcoder.web.ejb.pacts.BasePayment)
+     */
+    @Override
+    public void paymentUpdated(BasePayment oldPayment, BasePayment newPayment) throws StateTransitionFailureException {
+        log.debug("paymentUpdated called for payment: " + oldPayment.getId());
+        
+        // if charity changed:
+        if (oldPayment.isCharity() != newPayment.isCharity()) {
+            if (newPayment.isCharity()) {
+                // the payment was moved to charity, it shouldn't have any restrictions
+                reasons.clear();
+                nextState(newPayment);                
+            } else {
+                // shouldn't happen
+            }
+        }
     }
 
     /**

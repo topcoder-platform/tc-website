@@ -78,6 +78,28 @@ public class PaymentStatusManager {
     }
 
     /**
+     * This method notifies the status of changes to the payment object.  
+     * 
+     * @param payment the payment being updated
+     * @throws EventFailureException if any operation fails
+     */
+    public void paymentUpdated(BasePayment newPayment) throws EventFailureException {
+        try {
+            log.debug("paymentUpdated called for paymentId: " + newPayment.getId());
+
+            // get the old instance
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.PAYMENT_ID, String.valueOf(newPayment.getId()));
+
+            BasePayment oldPayment = dib.findCoderPayments(criteria).get(0);
+
+            newPayment.getCurrentStatus().paymentUpdated(oldPayment, newPayment);
+        } catch (Exception e) {
+            throw new EventFailureException(e);
+        }
+    }
+
+    /**
      * This method notifies all on hold payments of the new tax form.  
      * 
      * @param userId the if of the user that got a new tax form 

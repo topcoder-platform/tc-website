@@ -45,7 +45,17 @@ import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusReason;
 import com.topcoder.web.ejb.pacts.payments.PaymentStatusFactory.PaymentStatus;
-import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Contract;
+import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Note;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
+import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentPaidException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TCData;
+import com.topcoder.web.tc.controller.legacy.pacts.common.TaxForm;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
 
 
 /**
@@ -1370,6 +1380,43 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     }
 
 
+    public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws SQLException {
+        Map<Long, BasePaymentStatus> statusMap = new HashMap<Long, BasePaymentStatus>();
+
+        try {
+            StringBuffer sb = new StringBuffer(300);
+            sb.append("SELECT payment_status_id, payment_status_desc, payment_status_active_ind FROM payment_status_lu");
+
+            ResultSetContainer rsc = runSelectQuery(sb.toString(), true);
+
+            for (Iterator it = rsc.iterator(); it.hasNext();) {
+                ResultSetRow rsr = (ResultSetRow) it.next();
+
+                String className = null;
+                Long id = new Long(rsr.getLongItem("payment_status_id"));
+
+                for (PaymentStatus availableStatus : PaymentStatus.values()) {
+                    if (availableStatus.getId().equals(id)) {
+                         className = availableStatus.getClassName();
+                    }
+                }
+                
+                Class c = Class.forName(className);
+                BasePaymentStatus bps = (BasePaymentStatus) c.newInstance();
+
+                bps.setDesc(rsr.getStringItem("payment_status_desc"));
+                bps.setActive(rsr.getIntItem("payment_status_active_ind") == 1);
+
+                statusMap.put(id, bps);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new SQLException(e.getMessage());
+        }
+        
+        return statusMap;
+    }
+    
     
     /**
      * Returns the accruing payments total of a user
@@ -5453,6 +5500,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             rationale = MODIFICATION_MULTIPLE_FIELDS;
         }
 
+        (new PaymentStatusManager()).paymentUpdated(payment);
+        
         Payment p = createPayment(payment);
         p.setRationaleId(rationale);
         updatePayment(p);
@@ -5770,7 +5819,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         sb.append("    pd.algorithm_round_id, pd.component_project_id, pd.algorithm_problem_id, ");
         sb.append("    pd.studio_contest_id, pd.component_contest_id, pd.digital_run_stage_id, ");
         sb.append("    pd.digital_run_season_id, pd.parent_payment_id, pd.total_amount, pd.installment_number, pd.client, ");
-        sb.append("    pdsrx.payment_status_reason_id, ");
+        sb.append("    pd.charity_ind, pdsrx.payment_status_reason_id, ");
         sb.append("    (SELECT reference_field_name   ");
         sb.append("       FROM payment_reference_lu pr,payment_type_lu pt ");
         sb.append("       WHERE pd.payment_type_id = pt.payment_type_id ");
@@ -5904,6 +5953,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         String description = rsr.getStringItem("payment_desc");
         String client = rsr.getStringItem("client");
         String referenceFieldName = rsr.getStringItem("reference_field_name");
+        int charityInd = rsr.getIntItem("charity_ind");
         long reference = 0;
         if (referenceFieldName != null) {
             try {
@@ -5921,6 +5971,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         payment.setDueDate(dueDate);
         payment.setPaidDate(paidDate);
         payment.setDescription(description);
+        payment.setCharity(charityInd == 1);
 
         BasePaymentStatus currentStatus = PaymentStatusFactory.createStatus(statusId);
         currentStatus.getReasons().clear();
