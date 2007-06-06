@@ -43,6 +43,14 @@
 </jsp:include>
 
 <p>
+    5.10.3 - 2007.06.xx
+    <ul>
+        <li>fix: Updates of the payment's charity flag is handled properly by the payment status manager-pulky</li>
+        <%--<li>fix: payment status descriptions are retrieved from the database-pulky</li>--%>
+    </ul>
+</p>
+
+<p>
     5.10.2 - 2007.06.04
     <ul>
         <li>Marathon Match details and rules pages -dok</li>
