@@ -44,20 +44,11 @@
             
                 <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="my_tc"/>
-                    <jsp:param name="title" value="Email Notification Preferences"/>
+                    <jsp:param name="title" value="Privacy"/>
                 </jsp:include>
-
-                <p align="center">
-                    Please check off all the email categories that you'd like to receive
-                </p>
 
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tbody>
-                    <tr>
-                        <td class="header" colspan="2">
-                            Competition announcements
-                        </td>
-                    </tr>
                     <tr class="light">
                         <td class="value" nowrap="nowrap">
                             <span style="display: block; padding-top: 4px;">Show / hide my school:</span>

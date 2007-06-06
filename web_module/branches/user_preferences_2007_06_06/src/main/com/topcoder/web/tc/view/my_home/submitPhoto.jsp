@@ -39,89 +39,9 @@
             
                 <jsp:include page="../page_title.jsp" >
                     <jsp:param name="image" value="my_tc"/>
-                    <jsp:param name="title" value="&nbsp;"/>
+                    <jsp:param name="title" value="Submit a photo"/>
                 </jsp:include>
 
-                <a href="/tc?module=Static&d1=my_home&d2=submitPhoto"><img src="/i/m/nophoto_login.gif" alt="" class="memberPhoto" style="float: left; margin: 0px 10px 10px 0px;" /></a>
-                <tc-webtag:handle coderId="8436401" />
-
-<%--
-                <div>
-                    <div style="float: right;" class="coderTextYellow">2078</div>
-                    <strong>Algorithm Rating:</strong>
-                </div>
-                <div>
-                    <div style="float: right;" class="coderTextGreen">965</div>
-                    <strong>Design Rating:</strong>
-                </div>
-                <div>
-                    <div style="float: right;" class="coderTextBlack">not rated</div>
-                    <strong>Development Rating:</strong>
-                </div>
-                <div>
-                    <div style="float: right;" class="coderTextBlack">not rated</div>
-                    <strong>Marathon Matches Rating:</strong>
-                </div>
---%>
-                <div>
-                    <div style="float: right;">05.09.2002</div>
-                    <strong>Member Since:</strong>
-                </div>
-                <div>
-                    <div style="float: right;">Canada</div>
-                    <strong>Country:</strong>
-                </div>
-                <div>
-                    <div style="float: right;">Queen's University</div>
-                    <strong>School:</strong>
-                </div>
-                <div>
-                    <div style="float: right;">$650.00</div>
-                    <strong>Total Earnings:</strong>
-                </div>
-
-                <div style="clear: both;">
-                <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-                <tbody>
-                    <tr>
-                        <td class="header">
-                            My Account
-                        </td>
-                        <td class="header">
-                            Preferences
-                        </td>
-                        <td class="header">
-                            Documentation
-                        </td>
-                        <td class="header">
-                            Other
-                        </td>
-                    </tr>
-                    <tr class="light">
-                        <td class="value">
-                            <p><a href="/reg/?nrg=false">Add registrations</a></p>
-                            <p><a href="/reg/?nrg=false">Update my profile</a></p>
-                            <p><a href="/tc?module=Static&d1=my_home&d2=submitPhoto">Submit a photo</a></p>
-                        </td>
-                        <td class="value">
-                            <p><a href="/reg/?nrg=false">Privacy</a></p>
-                            <p><a href="/reg/?nrg=false">Email notification</a></p>
-                            <p><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Settings">Forums preferences</a></p>
-                        </td>
-                        <td class="value">
-                            <p><a href="/PactsMemberServlet?module=AffidavitHistory">Affidavits</a></p>
-                            <p><a href="/PactsMemberServlet?module=PaymentHistory">Payments</a></p>
-                            <p><a href="/PactsMemberServlet?module=AssignmentDocumentHistory">Assignment documents</a></p>
-                            <p><a href="/tc?module=VisaSelection">Visa letter status</a></p>
-                        </td>
-                        <td class="value">
-                            <p><a href="/tc?module=ViewReferrals">Referrals</a></p>
-                            <p><a href="/tc?module=Static&d1=card&d2=description">Cards/Badges</a></p>
-                        </td>
-                    </tr>
-                </tbody>
-                </table>
-                </div>
 
             </div>
         </td>

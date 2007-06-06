@@ -85,8 +85,8 @@
                             <p><a href="/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto">Submit a photo</a></p>
                         </td>
                         <td class="value">
-                            <p><a href="/tc?module=Static&d1=my_home&d2=privacy">Privacy</a></p>
-                            <p><a href="/tc?module=Static&d1=my_home&d2=emailNotification">Email notification</a></p>
+                            <p><a href="/tc?module=Static&amp;d1=my_home&amp;d2=privacy">Privacy</a></p>
+                            <p><a href="/tc?module=Static&amp;d1=my_home&amp;d2=emailNotification">Email notification</a></p>
                             <p><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Settings">Forums preferences</a></p>
                         </td>
                         <td class="value">
