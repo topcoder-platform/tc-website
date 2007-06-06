@@ -120,7 +120,7 @@
         <mkdir dir="${sar.dir}"/>
     </target>
 
-    <target name="compile_shared" depends="init">
+    <target name="compile_shared" depends="init" unless="compile_shared_set">
         <javac
                 srcdir="${shared}"
                 destdir="${classes}"
@@ -133,9 +133,10 @@
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+        <property name="compile_shared_set" value="true"/>
     </target>
 
-    <target name="compile" depends="init,jar_shared">
+    <target name="compile" depends="init,jar_shared" unless="compile_set">
         <javac
                 srcdir="${java}"
                 destdir="${classes}"
@@ -152,6 +153,7 @@
             <exclude name="com/topcoder/web/csf/**"/>
         </javac>
         <antcall target="jar_common"/>
+        <property name="compile_set" value="true"/>
     </target>
 
     <target name="javadocs">
