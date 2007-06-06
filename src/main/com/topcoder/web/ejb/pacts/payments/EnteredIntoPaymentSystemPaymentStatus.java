@@ -67,6 +67,8 @@ public class EnteredIntoPaymentSystemPaymentStatus extends BasePaymentStatus {
     @Override
     public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new EnteredIntoPaymentSystemPaymentStatus();
+        newPaymentStatus.setDesc(this.desc);
+        newPaymentStatus.setActive(this.active);
         return newPaymentStatus;  
     }
 

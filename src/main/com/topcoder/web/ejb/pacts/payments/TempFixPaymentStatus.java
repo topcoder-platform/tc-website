@@ -45,6 +45,8 @@ public class TempFixPaymentStatus extends BasePaymentStatus {
     @Override
     public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new TempFixPaymentStatus();
+        newPaymentStatus.setDesc(this.desc);
+        newPaymentStatus.setActive(this.active);
         return newPaymentStatus;  
     }
 

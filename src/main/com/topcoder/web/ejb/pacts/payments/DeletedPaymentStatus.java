@@ -50,6 +50,8 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
     @Override
     public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new DeletedPaymentStatus();
+        newPaymentStatus.setDesc(this.desc);
+        newPaymentStatus.setActive(this.active);
         return newPaymentStatus;  
     }
 
