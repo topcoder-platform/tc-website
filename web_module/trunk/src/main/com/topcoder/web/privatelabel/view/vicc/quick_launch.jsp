@@ -50,7 +50,7 @@
                 <PARAM value="false" name="scriptable">
                 <PARAM name="host" value="www.topcoder.com">
                 <PARAM name="port" value="8001">
-                <PARAM name="tunnel" value="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=8001">
+                <PARAM name="tunnel" value="http://tunnel2.topcoder.com/servlets-examples/tunnel?host~newlistener&port~8001">
                 <PARAM name="companyName" value="VeriSign">
                 <PARAM name="poweredbyview" value="true">
                 <PARAM name="com.topcoder.client.contestApplet.editors.NoPluginManager" value="true">
@@ -62,7 +62,7 @@
                        archive="VeriSignContestApplet.jar"
                        host="www.topcoder.com"
                        port="8001"
-                       tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=8001"
+                       tunnel="http://tunnel2.topcoder.com/servlets-examples/tunnel?host~newlistener&port~8001"
                        companyName="VeriSign"
                        poweredbyview="true"
                        com.topcoder.client.contestApplet.editors.NoPluginManager="true"
