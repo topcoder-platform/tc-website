@@ -283,6 +283,8 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     @Override
     public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new OnHoldPaymentStatus();
+        newPaymentStatus.setDesc(this.desc);
+        newPaymentStatus.setActive(this.active);
         return newPaymentStatus;  
     }
     

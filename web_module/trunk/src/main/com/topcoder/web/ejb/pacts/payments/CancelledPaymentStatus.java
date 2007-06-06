@@ -83,6 +83,8 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
     @Override
     public BasePaymentStatus newInstance() {
         BasePaymentStatus newPaymentStatus = new CancelledPaymentStatus();
+        newPaymentStatus.setDesc(this.desc);
+        newPaymentStatus.setActive(this.active);
         return newPaymentStatus;  
     }
 
