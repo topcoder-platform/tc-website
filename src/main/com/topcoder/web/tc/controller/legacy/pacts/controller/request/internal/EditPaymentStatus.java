@@ -47,7 +47,7 @@ public class EditPaymentStatus extends PactsBaseProcessor implements PactsConsta
             
             getRequest().setAttribute("payment", payment);
             getRequest().setAttribute("user", new UserProfileHeader(dib.getUserProfileHeader(payment.getCoderId())));
-            getRequest().setAttribute("payment_status_list", PaymentStatusFactory.getAllStatusList());
+            getRequest().setAttribute("payment_status_list", PaymentStatusFactory.getActiveStatusList());
             getRequest().setAttribute("payment_status_reason_list", PaymentStatusReason.getAllStatusReasonList());
             
             setNextPage(INTERNAL_EDIT_PAYMENT_STATUS_JSP);
