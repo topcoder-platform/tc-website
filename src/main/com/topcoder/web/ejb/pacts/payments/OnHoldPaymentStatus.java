@@ -11,8 +11,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.model.AssignmentDocumentType;
+import com.topcoder.web.ejb.pacts.AlgorithmRoundReferencePayment;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.ComponentWinningPayment;
 import com.topcoder.web.ejb.pacts.ParentReferencePayment;
@@ -42,24 +44,11 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 55l;
 
     /**
-     * The payment status description
-     */
-    public static final String DESC = "On Hold";
-    
-    /**
      * Default constructor   
      */
     public OnHoldPaymentStatus() {
         super();
 
-    }
-
-    /**
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
-     */
-    @Override
-    public String getDesc() {
-        return DESC;
     }
 
     /**
@@ -123,18 +112,41 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
                 }
             }
             
-            // check for tax form (every payment type)
-             checkUserTaxForm(payment, dib);
-
-             // check for affirmed affidavit (alg contests, alg tournaments, marathon matrches)
-             checkAffirmedAffidavit(payment);
-
-             // check for affirmed IP document (component contests, studio contests)
-             checkAffirmedIPTransferDocument(payment, dib);
-             
-             nextState(payment);
+            // charity payments don't need checks
+            log.debug("Payment charity: " + payment.isCharity());
+            if (!payment.isCharity() && payment.getPaymentType() != BasePayment.CHARITY_PAYMENT) { 
+                // check for tax form (every payment type)
+                 checkUserTaxForm(payment, dib);
+    
+                 // check for affirmed affidavit (alg contests, alg tournaments, marathon matrches)
+                 checkAffirmedAffidavit(payment);
+    
+                 // check for affirmed IP document (component contests, studio contests)
+                 checkAffirmedIPTransferDocument(payment, dib);
+            }
+            
+            nextState(payment);
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
+        }
+    }
+
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#paymentUpdated(com.topcoder.web.ejb.pacts.BasePayment)
+     */
+    @Override
+    public void paymentUpdated(BasePayment oldPayment, BasePayment newPayment) throws StateTransitionFailureException {
+        log.debug("paymentUpdated called for payment: " + oldPayment.getId());
+        
+        // if charity changed:
+        if (oldPayment.isCharity() != newPayment.isCharity()) {
+            if (newPayment.isCharity()) {
+                // the payment was moved to charity, it shouldn't have any restrictions
+                reasons.clear();
+                nextState(newPayment);                
+            } else {
+                // shouldn't happen
+            }
         }
     }
 
@@ -312,12 +324,23 @@ public class OnHoldPaymentStatus extends BasePaymentStatus {
      * 
      * @param payment the payment to check for
      */
-    private void checkAffirmedAffidavit(BasePayment payment) {
+    private void checkAffirmedAffidavit(BasePayment payment) throws Exception {
         if (payment.getPaymentType() == BasePayment.ALGORITHM_CONTEST_PAYMENT ||
-             payment.getPaymentType() == BasePayment.ALGORITHM_TOURNAMENT_PRIZE_PAYMENT ||
-             payment.getPaymentType() == BasePayment.MARATHON_MATCH_PAYMENT) {
-             // if the payment is new, it's not possible that it has an affirmed affidavit
-             reasons.add(AvailableStatusReason.NO_AFFIRMED_AFFIDAVIT_REASON.getStatusReason());
+            payment.getPaymentType() == BasePayment.ALGORITHM_TOURNAMENT_PRIZE_PAYMENT ||
+            payment.getPaymentType() == BasePayment.MARATHON_MATCH_PAYMENT) {
+            
+            DataInterfaceBean dib = new DataInterfaceBean();
+        
+            Map criteria = new HashMap();
+            criteria.put(PactsConstants.USER_ID, String.valueOf(payment.getCoderId()));
+            criteria.put(PactsConstants.ROUND_ID, String.valueOf(((AlgorithmRoundReferencePayment)payment).getRoundId()));
+            criteria.put(PactsConstants.IS_AFFIRMED, "true");
+        
+            Map affirmedAffidavit = dib.findAffidavits(criteria);
+            
+            if (((ResultSetContainer) affirmedAffidavit.get(PactsConstants.AFFIDAVIT_HEADER_LIST)).size() <= 0) {
+                reasons.add(AvailableStatusReason.NO_AFFIRMED_AFFIDAVIT_REASON.getStatusReason());
+            }
          }
     }
 

@@ -7,6 +7,9 @@ package com.topcoder.web.ejb.pacts.payments;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 
 /**
  * This class implements a factory pattern for the payment statuses
@@ -75,6 +78,25 @@ public class PaymentStatusFactory {
     }
     
     /**
+     * Map to cache available Payment Statuses
+     */
+    private static Map<Long, BasePaymentStatus> statusMap = null;
+    
+    /**
+     * Private helper method that handles the available Payment Statuses cache
+     */
+    private static Map<Long, BasePaymentStatus> getStatusMap() {
+        if (statusMap == null) {
+            DataInterfaceBean dib = new DataInterfaceBean();
+            try {
+                statusMap = dib.getPaymentStatusMap();
+            } catch (Exception e) {
+            }
+        }
+        return statusMap;
+    }
+    
+    /**
      * Creates the required payment status
      * 
      * @param status the enum's status to create
@@ -82,9 +104,7 @@ public class PaymentStatusFactory {
      */
     public static BasePaymentStatus createStatus(PaymentStatus status) {
         try {
-            Class c = Class.forName(status.getClassName());
-            BasePaymentStatus bps = (BasePaymentStatus) c.newInstance();
-            return bps;
+            return getStatusMap().get(status.id).newInstance();
         } catch (Exception e) {
         }
         return null;

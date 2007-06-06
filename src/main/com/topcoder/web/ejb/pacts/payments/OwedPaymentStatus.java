@@ -29,23 +29,10 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 56l;
 
     /**
-     * The payment status description
-     */
-    public static final String DESC = "Owed";
-    
-    /**
      * Default constructor   
      */
     public OwedPaymentStatus() {
         super();
-    }
-
-    /**
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
-     */
-    @Override
-    public String getDesc() {
-        return DESC;
     }
 
     /**
@@ -54,6 +41,26 @@ public class OwedPaymentStatus extends BasePaymentStatus {
     @Override
     public Long getId() {
         return ID;
+    }
+
+    /**
+     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#paymentUpdated(com.topcoder.web.ejb.pacts.BasePayment)
+     */
+    @Override
+    public void paymentUpdated(BasePayment oldPayment, BasePayment newPayment) throws StateTransitionFailureException {
+        log.debug("paymentUpdated called for payment: " + oldPayment.getId());
+        
+        // if charity changed:
+        if (oldPayment.isCharity() != newPayment.isCharity()) {
+            if (newPayment.isCharity()) {
+                // the payment was moved to charity but we are in owed status, so nothing should be done. 
+            } else {
+                // the payment was moved to non-charity so we need to move it to the correct state.
+                // move it to owed and activate it.
+                newPayment.setCurrentStatus(PaymentStatusFactory.createStatus(PaymentStatus.ON_HOLD_PAYMENT_STATUS));
+                newPayment.getCurrentStatus().activate(newPayment);
+            }
+        }
     }
 
     /**

@@ -21,6 +21,16 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
     protected List<PaymentStatusReason> reasons = new ArrayList<PaymentStatusReason>();
     
     /**
+     * The payment status description
+     */
+    protected String desc = "Unk.";
+    
+    /**
+     * The payment status active flag
+     */
+    protected boolean active = false;
+    
+    /**
      * Default Constructor 
      */
     public BasePaymentStatus() {
@@ -35,26 +45,46 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
     public abstract BasePaymentStatus newInstance();
 
     /**
+     * Setter for the payment's status description
+     * 
+     * @param desc the description
+     */
+    public void setDesc(String desc){
+        this.desc = desc;
+    }
+    
+    /**
      * Getter for the payment's status description
      * 
      * @return the description
      */
-    public abstract String getDesc();
-
+    public String getDesc() {
+        return desc;
+    }
+    
     /**
      * Getter for the payment's status id
      * 
      * @return the id
      */
     public abstract Long getId();
-            
+    
     /**
      * Getter for the payment's active flag
      * 
      * @return true if active
      */
     public boolean isActive() {
-        return true;
+        return active;
+    }
+    
+    /**
+     * Setter for the payment's active flag
+     * 
+     * @param active true if active
+     */
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     /**
@@ -74,6 +104,17 @@ public abstract class BasePaymentStatus implements java.io.Serializable {
      * @throws StateTransitionFailureException if anything fails
      */
     public void activate(BasePayment payment) throws StateTransitionFailureException {
+        // default implementation does nothing
+    }
+
+    /**
+     * This method will handle payment updates
+     * 
+     * @param oldPayment the old instance of the payment
+     * @param newPayment the new instance of the payment
+     * @throws StateTransitionFailureException if anything fails
+     */
+    public void paymentUpdated(BasePayment oldPayment, BasePayment newPayment) throws StateTransitionFailureException {
         // default implementation does nothing
     }
 

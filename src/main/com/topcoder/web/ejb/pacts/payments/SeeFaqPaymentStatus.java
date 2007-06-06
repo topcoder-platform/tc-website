@@ -16,31 +16,10 @@ public class SeeFaqPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 101l;
 
     /**
-     * The payment status description
-     */
-    public static final String DESC = "Unknown - TopCoder researching";
-    
-    /**
      * Default constructor   
      */
     public SeeFaqPaymentStatus() {
         super();
-    }
-
-    /**
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
-     */
-    @Override
-    public boolean isActive() {
-        return false;
-    }
-
-    /**
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
-     */
-    @Override
-    public String getDesc() {
-        return DESC;
     }
 
     /**

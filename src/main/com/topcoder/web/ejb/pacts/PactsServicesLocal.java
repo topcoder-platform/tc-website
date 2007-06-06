@@ -268,5 +268,7 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     public void saveUserAccrualThreshold(long userId, double newAccrualAmount);
 
+    public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws SQLException;
+
 }
 

@@ -21,23 +21,10 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 69l;
 
     /**
-     * The payment status description
-     */
-    public static final String DESC = "Deleted";
-    
-    /**
      * Default constructor   
      */
     public DeletedPaymentStatus() {
         super();
-    }
-
-    /**
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
-     */
-    @Override
-    public String getDesc() {
-        return DESC;
     }
 
     /**

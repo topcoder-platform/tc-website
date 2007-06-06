@@ -22,23 +22,10 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
     public static final Long ID = 65l;
 
     /**
-     * The payment status description
-     */
-    public static final String DESC = "Cancelled";
-    
-    /**
      * Default constructor   
      */
     public CancelledPaymentStatus() {
         super();
-    }
-    
-    /**
-     * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#getDesc()
-     */
-    @Override
-    public String getDesc() {
-        return DESC;
     }
 
     /**
