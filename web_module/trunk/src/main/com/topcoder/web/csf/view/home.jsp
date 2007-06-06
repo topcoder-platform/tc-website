@@ -56,13 +56,11 @@
                 deployments in service provider networks .
             </p>
 
-            <c:choose>
-            <c:when test="${sessionInfo.anonymous}">
-            <p align="center">
-                <span class="bigRed">Click <A class="bigRed" href="<tc-webtag:linkTracking link="http://www.networkmashups.com/" refer="csf_home"/>">here</A> to register and learn more!</span>
-            </p>
-            </c:when>
-            </c:choose>
+            <c:if test="${sessionInfo.anonymous}">
+                    <p align="center">
+                        <span class="bigRed">Click <A class="bigRed" href="<tc-webtag:linkTracking link="http://www.networkmashups.com/" refer="csf_home"/>">here</A> to register and learn more!</span>
+                    </p>
+            </c:if>
 
             <h2>Competition Series Goals &amp; Objectives</h2>
             <ul>
