@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">06.06.07 4:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">UBS chat session before SRM 353</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.01.07 6:00 PM - </td><td width="100%"><A href="/tc?module=MatchDetails&rd=10709">NSA presents SRM 352</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.31.07 10:15 AM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drwChat20070523">DRW Trading SRM 350 chat session transcript</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.23.07 3:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tchs07&d3=overview">TCHS07 Photos &amp; Video now available</A></td></tr>
