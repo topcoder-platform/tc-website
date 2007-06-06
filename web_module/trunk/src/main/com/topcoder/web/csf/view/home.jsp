@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="csf.tld" prefix="csf" %>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <html>
@@ -55,10 +56,13 @@
                 deployments in service provider networks .
             </p>
 
-            <%-- hide this paragraph if logged in --%>
+            <c:choose>
+            <c:when test="${sessionInfo.anonymous}">
             <p align="center">
                 <span class="bigRed">Click <A class="bigRed" href="<tc-webtag:linkTracking link="http://www.networkmashups.com/" refer="csf_home"/>">here</A> to register and learn more!</span>
             </p>
+            </c:when>
+            </c:choose>
 
             <h2>Competition Series Goals &amp; Objectives</h2>
             <ul>
