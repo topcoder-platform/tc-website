@@ -44,25 +44,6 @@
 
                 <a href="/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto"><img src="/i/m/nophoto_login.gif" alt="" class="memberPhoto" style="float: left; margin: 0px 10px 10px 0px;" /></a>
                 <tc-webtag:handle coderId="8436401" />
-
-<%--
-                <div>
-                    <div style="float: right;" class="coderTextYellow">2078</div>
-                    <strong>Algorithm Rating:</strong>
-                </div>
-                <div>
-                    <div style="float: right;" class="coderTextGreen">965</div>
-                    <strong>Design Rating:</strong>
-                </div>
-                <div>
-                    <div style="float: right;" class="coderTextBlack">not rated</div>
-                    <strong>Development Rating:</strong>
-                </div>
-                <div>
-                    <div style="float: right;" class="coderTextBlack">not rated</div>
-                    <strong>Marathon Matches Rating:</strong>
-                </div>
---%>
                 <div>
                     <div style="float: right;">05.09.2002</div>
                     <strong>Member Since:</strong>
@@ -104,7 +85,7 @@
                             <p><a href="/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto">Submit a photo</a></p>
                         </td>
                         <td class="value">
-                            <p><a href="/reg/?nrg=false">Privacy</a></p>
+                            <p><a href="/tc?module=Static&d1=my_home&d2=privacy">Privacy</a></p>
                             <p><a href="/tc?module=Static&d1=my_home&d2=emailNotification">Email notification</a></p>
                             <p><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Settings">Forums preferences</a></p>
                         </td>

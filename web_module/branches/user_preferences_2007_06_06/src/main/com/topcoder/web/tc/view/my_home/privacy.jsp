@@ -14,6 +14,11 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <style type="text/css">
+    td.value{
+    border-top: 0px;
+    }
+    </style>
 </head>
 
 <body>
@@ -49,41 +54,35 @@
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tbody>
                     <tr>
-                        <td class="header" width="50%">
+                        <td class="header" colspan="2">
                             Competition announcements
-                        </td>
-                        <td class="header" width="50%">
-                            Other
                         </td>
                     </tr>
                     <tr class="light">
-                        <td class="value">
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Algorithm Competitions 
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Software Development Competitions 
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> High School Competitions 
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Marathon Match Competitions
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Studio Competitions 
-                            </p>
+                        <td class="value" nowrap="nowrap">
+                            <span style="display: block; padding-top: 4px;">Show / hide my school:</span>
+                        </td>
+                        <td class="value" width="100%">
+                            <input name="school" value="show" type="radio" /> Show
+                            <br /><input name="school" value="hide" type="radio" /> Hide
+                        </td>
+                    </tr>
+                    <tr class="light">
+                        <td class="value" nowrap="nowrap">
+                            Show / hide my earnings:
                         </td>
                         <td class="value">
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Employment Opportunities
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> News & Events
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Products & Services
-                            </p>
+                            <input name="earnings" value="show" type="radio" /> Show
+                            <br /><input name="earnings" value="hide" type="radio" /> Hide
+                        </td>
+                    </tr>
+                    <tr class="light">
+                        <td class="value" nowrap="nowrap" rowspan="2">
+                            Allow members to send me messages:
+                        </td>
+                        <td class="value">
+                            <input name="contact" value="yes" type="radio" /> Yes
+                            <br /><input name="contact" value="no" type="radio" /> No
                         </td>
                     </tr>
                 </tbody>
@@ -97,7 +96,7 @@
                                 <a href="#" class="button" style="width: 60px; margin-right: 10px;">Save</a>
                             </td>
                             <td>
-                                <a href="/tc?module=Static&d1=my_home&d2=index" class="button" style="width: 60px;">Cancel</a>
+                                <a href="/tc?module=Static&amp;d1=my_home&amp;d2=index" class="button" style="width: 60px;">Cancel</a>
                             </td>
                         </tr>
                     </tbody>
