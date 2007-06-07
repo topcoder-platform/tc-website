@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>06.07.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1006">Connected Services "Wireless Cities 2" mashup competition open</A>
+        </span><br><br>
+        Microsoft and British Telecom, in association with TopCoder, have launched another Mashup Competition. Prizes will be awarded to the top three ideas, with a total prize purse of $4,500.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1006">details</A> | 
+        <A href="http://csf.topcoder.com/forums?module=ThreadList&forumID=7">discuss this</A> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.07.07<br>3:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -197,19 +216,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set & Analysis" border="0" /><br>05.29.07<br>5:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm350">SRM 350 - Problem Set &amp; Analysis</A></span><br><br>
-      Division 2 was marked with a tricky medium and quite a straight-forward hard. This led to many coders solving the hard one but failing the medium. Division 1 was another story, though the medium was again trickier than the hard.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Xixas_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22629218" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm350">full story</A> | 
-        <tc-webtag:forumLink forumID="506240" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
