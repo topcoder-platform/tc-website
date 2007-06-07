@@ -10,17 +10,7 @@
 <jsp:param name="key" value="tc_main"/>
 </jsp:include>
 <SCRIPT LANGUAGE="JavaScript" SRC="/js/print.js"></SCRIPT>
-<style type="text/css">
-.GAtableText, .GAtableText2, .GAtableText3, .GAtableText4, .GAtableText5
-{
-   color: #333;
-   font-size: 11px;
-   font-weight: normal;
-   line-height: 14px;
-}
-.GAtableText {    background-color: #EEEEEE; }
-</style>
-
+    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
 </head>
 
 <body>
@@ -74,51 +64,70 @@
 <p>How do they do it? I asked some of the Ukrainian coders who advanced onsite this year about their training schedules and the most common obstacles they encounter. But first, here's a brief look at some of the statistics behind the Ukraine coders.</p>
 
 <p><b>Record Book</b> (as of May 7th 2007)</p>
-    <table class="formFrame" width="450" cellpadding="6" cellspacing="2">
-        <tr class="GAtableText">
-            <td>First member to reach blue:</td><td><tc-webtag:handle coderId="279506" /></td><td>&#160;</td><td align="center">SRM 85</td>
+<div align="center">
+   <table cellpadding="0" cellspacing="0" class="stat" style="width:450px; margin-bottom: 50px;">
+   <tbody>
+        <%boolean even = false;%>
+         <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">First member to reach blue:</td><td class="value"><tc-webtag:handle coderId="279506" /></td><td class="valueC">&#160;</td><td class="valueC">SRM 85</td>
         </tr>
-        <tr class="GAtableText">
-            <td>First member to reach yellow:</td><td><tc-webtag:handle coderId="278460" /></td><td>&#160;</td><td align="center">SRM 104</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">First member to reach yellow:</td><td class="value"><tc-webtag:handle coderId="278460" /></td><td class="valueC">&#160;</td><td class="valueC">SRM 104</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>First member to reach red:</td><td><tc-webtag:handle coderId="311170" /></td><td>&#160;</td><td align="center">SRM 148</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">First member to reach red:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">&#160;</td><td class="valueC">SRM 148</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Highest rating achieved:</td><td><tc-webtag:handle coderId="311170" /></td><td align="center">3025</td><td align="center">TCO'05 R1</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Highest rating achieved:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">3025</td><td class="valueC">TCO'05 R1</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Max number of consecutive rating increases:</td><td><tc-webtag:handle coderId="10288909" /></td><td align="center">9</td><td align="center">SRM 270-283</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Max number of consecutive rating increases:</td><td class="value"><tc-webtag:handle coderId="10288909" /></td><td class="valueC">9</td><td class="valueC">SRM 270-283</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Max submission accuracy:</td><td><tc-webtag:handle coderId="311170" /></td><td align="center">91.15%</td><td>&#160;</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Max submission accuracy:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">91.15%</td><td class="valueC">&#160;</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Max room wins:</td><td><tc-webtag:handle coderId="311170" /></td><td align="center">35</td><td>&#160;</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Max room wins:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">35</td><td class="valueC">&#160;</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Most impressive debut:</td><td><tc-webtag:handle coderId="7428266" /></td><td align="center">1910</td><td>&#160;</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Most impressive debut:</td><td class="value"><tc-webtag:handle coderId="7428266" /></td><td class="valueC">1910</td><td class="valueC">&#160;</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Max number of consecutive room wins:</td><td><tc-webtag:handle coderId="311170" /></td><td align="center">5</td><td align="center">SRM 183-190</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Max number of consecutive room wins:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">5</td><td class="valueC">SRM 183-190</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Max rating point gain:</td><td><tc-webtag:handle coderId="9927526" /></td><td align="center">525</td><td align="center">SRM 195</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Max rating point gain:</td><td class="value"><tc-webtag:handle coderId="9927526" /></td><td class="valueC">525</td><td class="valueC">SRM 195</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Max challenge success (overall):</td><td><tc-webtag:handle coderId="311170" /></td><td align="center">75.56%</td><td>&#160;</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Max challenge success (overall):</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">75.56%</td><td class="valueC">&#160;</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Max challenge success (single match):</td><td><tc-webtag:handle coderId="278460" /></td><td align="center">14</td><td align="center">SRM 217</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Max challenge success (single match):</td><td class="value"><tc-webtag:handle coderId="278460" /></td><td class="valueC">14</td><td class="valueC">SRM 217</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Most rated events:</td><td><tc-webtag:handle coderId="311170" /> and <tc-webtag:handle coderId="9927526" /></td><td align="center">100</td><td>&#160;</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Most rated events:</td><td class="value"><tc-webtag:handle coderId="311170" /> and <tc-webtag:handle coderId="9927526" /></td><td class="valueC">100</td><td class="valueC">&#160;</td>
         </tr>  
-         <tr class="GAtableText">
-            <td>Consecutive SRM appearances:</td><td><tc-webtag:handle coderId="7448904" /></td><td align="center">20</td><td align="center">SRM 177-197</td>
+        <%even = !even;%>
+        <tr class="<%=(even ? "dark" : "light")%>">
+            <td class="value">Consecutive SRM appearances:</td><td class="value"><tc-webtag:handle coderId="7448904" /></td><td class="valueC">20</td><td class="valueC">SRM 177-197</td>
         </tr>  
+        <%even = !even;%>
+   </tbody>
    </table>
-<br>
+</div>
+
 <p>
 <div class="authorPhoto">
     <img src="/i/m/bladerunner_big2.jpg" alt="Author" />
