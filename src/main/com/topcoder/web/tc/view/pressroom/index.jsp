@@ -50,7 +50,7 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-<%-- AOL to Webcast TopCoder Open 2007 Finals Live on June 29 
+<%-- AOL to Webcast TopCoder Open 2007 Finals Live on June 29 --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
@@ -58,13 +58,13 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</A></strong></font><br />
-                        Coverage of High Stakes Programming Competition Available Globally at http://dev.aol.com<span class="prHead"> [June 5]</span></p>
+                        TopCoder and AOL today announced that the 2007 TopCoder&#174; Open will be webcast live at the AOL&#174; Developer site (<a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a>) on Friday, June 29. Coverage of the TCO07 finals from the Mirage Resort in Las Vegas begins at 21:00 GMT.<span class="prHead"> [June 7]</span></p>
                     </td>
                 </tr>
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
---%>
+
 <%-- Yodlee to Sponsor TopCoder Single Round Match Series --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
