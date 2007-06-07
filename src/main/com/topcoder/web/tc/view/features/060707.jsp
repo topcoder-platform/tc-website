@@ -63,29 +63,29 @@
 
 <p>How do they do it? I asked some of the Ukrainian coders who advanced onsite this year about their training schedules and the most common obstacles they encounter. But first, here's a brief look at some of the statistics behind the Ukraine coders.</p>
 
-<p><b>Record Book</b> (as of May 7th 2007)</p>
+<p align="center"><strong>Record Book</strong> (as of May 7th 2007)</p>
 <div align="center">
    <table cellpadding="0" cellspacing="0" class="stat" style="width:450px; margin-bottom: 50px;">
    <tbody>
         <%boolean even = false;%>
          <tr class="<%=(even ? "dark" : "light")%>">
-            <td class="value">First member to reach blue:</td><td class="value"><tc-webtag:handle coderId="279506" /></td><td class="valueC">&#160;</td><td class="valueC">SRM 85</td>
+            <td class="value">First member to reach blue:</td><td class="value"><tc-webtag:handle coderId="279506" /></td><td class="valueC">&#160;</td><td class="valueC" nowrap="nowrap">SRM 85</td>
         </tr>
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
-            <td class="value">First member to reach yellow:</td><td class="value"><tc-webtag:handle coderId="278460" /></td><td class="valueC">&#160;</td><td class="valueC">SRM 104</td>
+            <td class="value">First member to reach yellow:</td><td class="value"><tc-webtag:handle coderId="278460" /></td><td class="valueC">&#160;</td><td class="valueC" nowrap="nowrap">SRM 104</td>
         </tr>  
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
-            <td class="value">First member to reach red:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">&#160;</td><td class="valueC">SRM 148</td>
+            <td class="value">First member to reach red:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">&#160;</td><td class="valueC" nowrap="nowrap">SRM 148</td>
         </tr>  
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
-            <td class="value">Highest rating achieved:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">3025</td><td class="valueC">TCO'05 R1</td>
+            <td class="value">Highest rating achieved:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">3025</td><td class="valueC" nowrap="nowrap">TCO'05 R1</td>
         </tr>  
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
-            <td class="value">Max number of consecutive rating increases:</td><td class="value"><tc-webtag:handle coderId="10288909" /></td><td class="valueC">9</td><td class="valueC">SRM 270-283</td>
+            <td class="value">Max number of consecutive rating increases:</td><td class="value"><tc-webtag:handle coderId="10288909" /></td><td class="valueC">9</td><td class="valueC" nowrap="nowrap">SRM 270-283</td>
         </tr>  
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
@@ -101,11 +101,11 @@
         </tr>  
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
-            <td class="value">Max number of consecutive room wins:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">5</td><td class="valueC">SRM 183-190</td>
+            <td class="value">Max number of consecutive room wins:</td><td class="value"><tc-webtag:handle coderId="311170" /></td><td class="valueC">5</td><td class="valueC" nowrap="nowrap">SRM 183-190</td>
         </tr>  
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
-            <td class="value">Max rating point gain:</td><td class="value"><tc-webtag:handle coderId="9927526" /></td><td class="valueC">525</td><td class="valueC">SRM 195</td>
+            <td class="value">Max rating point gain:</td><td class="value"><tc-webtag:handle coderId="9927526" /></td><td class="valueC">525</td><td class="valueC" nowrap="nowrap">SRM 195</td>
         </tr>  
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
@@ -113,7 +113,7 @@
         </tr>  
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
-            <td class="value">Max challenge success (single match):</td><td class="value"><tc-webtag:handle coderId="278460" /></td><td class="valueC">14</td><td class="valueC">SRM 217</td>
+            <td class="value">Max challenge success (single match):</td><td class="value"><tc-webtag:handle coderId="278460" /></td><td class="valueC">14</td><td class="valueC" nowrap="nowrap">SRM 217</td>
         </tr>  
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
@@ -121,7 +121,7 @@
         </tr>  
         <%even = !even;%>
         <tr class="<%=(even ? "dark" : "light")%>">
-            <td class="value">Consecutive SRM appearances:</td><td class="value"><tc-webtag:handle coderId="7448904" /></td><td class="valueC">20</td><td class="valueC">SRM 177-197</td>
+            <td class="value">Consecutive SRM appearances:</td><td class="value"><tc-webtag:handle coderId="7448904" /></td><td class="valueC">20</td><td class="valueC" nowrap="nowrap">SRM 177-197</td>
         </tr>  
         <%even = !even;%>
    </tbody>
