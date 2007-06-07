@@ -65,7 +65,7 @@
 
 <p align="center"><strong>Record Book</strong> (as of May 7th 2007)</p>
 <div align="center">
-   <table cellpadding="0" cellspacing="0" class="stat" style="width:450px; margin-bottom: 50px;">
+   <table cellpadding="0" cellspacing="0" class="stat" style="width:450px; margin-bottom: 30px;">
    <tbody>
         <%boolean even = false;%>
          <tr class="<%=(even ? "dark" : "light")%>">
