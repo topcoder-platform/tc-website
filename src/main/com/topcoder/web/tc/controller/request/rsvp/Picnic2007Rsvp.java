@@ -23,7 +23,7 @@ public class Picnic2007Rsvp extends Base {
             
             sendEmail(attending, name, email, activities, guests);
             
-            setNextPage("/rsvp/tco07/picnic2007Success.jsp");
+            setNextPage("/rsvp/picnic2007Success.jsp");
             setIsNextPageInContext(true);
         } else {
             throw new NavigationException("Invalid request type.");
