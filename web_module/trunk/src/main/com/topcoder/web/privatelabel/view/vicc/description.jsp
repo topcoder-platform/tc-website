@@ -28,13 +28,14 @@ Welcome to the VeriSign Code Fest -- VeriSign's annual internal coding competiti
 <br /><br />
 This year's Code Fest consists of three Single Round Matches (SRM) <strong>exclusively for VeriSign employees</strong> and the TopCoder Sponsor Track. First-place finishers from each will advance to the VTS finals. The SRMs are timed contests where participants compete online to solve the same problems under the same time constraints. You can compete in Java, C++, C#, or VB. As a sponsor of the TopCoder Open (TCO), VeriSign employees can compete in the TopCoder Sponsor Track competition.
 <br /><br />
+<%--
 <strong>Get Ready for Sponsor Track! Registration Deadline: March 27</strong>
 <br /><br />
 The 2007 TopCoder Open Sponsor Track Competition is now here!  Its format is more challenging with 5 elimination-style SRMs. VeriSign winners win bigger prizes (see below) and compete alongside employees from AOL. Don't miss your chance to show your technical prowess and do VeriSign proud.
 <br /><br />
 <strong>Important Note: The Sponsor Track competition is run separately from our Code Fest SRMs. The rules, registration process, and competition arena are different. Find the rules and registration here: <A href="/sponsortrack">www.topcoder.com/sponsortrack</A>.</strong>
 <br /><br />
-
+--%>
 <span class="bodySubtitle">Code Fest Schedule:</span><br />
 <br />
 
