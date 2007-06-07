@@ -27,8 +27,11 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.Us
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
@@ -60,152 +63,175 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      * @param request  the http request, where the session is stored
      * @param response the http response
      */
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response) {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         try {
+            try {
 
-            if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
-                process(request, response);
-                return;
+                if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
+                    process(request, response);
+                } else {
+                    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+                    //set up security objects and session info
+                    WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
+                    TCSubject user = getUser(authentication.getActiveUser().getId());
+                    SessionInfo info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+                    tcRequest.setAttribute(SESSION_INFO_KEY, info);
+                    //todo perhaps this should be configuraable...so implementing classes
+                    //todo don't have to do it if they don't want to
+                    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+
+                    // check to see if the user has not logged in
+                    if (info.isAnonymous()) {
+                        // forward to login page
+                        String errorURL = request.getRequestURI();
+                        errorURL += (request.getQueryString() == null) ? "" : "?" + request.getQueryString();
+                        StringBuffer buf = new StringBuffer();
+                        for (int idx = 0; idx < errorURL.length(); idx++) {
+                            char c = errorURL.charAt(idx);
+                            String str = (c == '&') ? "%26" : c + "";
+                            buf.append(str);
+                        }
+                        errorURL = buf.toString();
+
+                        response.sendRedirect("http://" + request.getServerName() + "/tc?module=Login&c=login&message=" + "You must log in to view this portion of the site.&nextpage=" + errorURL);
+                        return;
+
+                    } else {
+                        log.debug("we got the nav object");
+                    }
+
+                    String t = StringUtils.checkNull(request.getParameter(TASK_STRING));
+                    String c = StringUtils.checkNull(request.getParameter(CMD_STRING));
+
+                    log.debug("t= " + t + " c= " + c);
+                    if (t.equals(AFFIDAVIT_TASK)) {
+                        if (c.equals(AFFIDAVIT_DETAILS_CMD)) {
+                            doAffidavitDetails(request, response);
+                        } else if (c.equals(AFFIDAVIT_RENDER_CMD)) {
+                            doAffidavitRender(request, response);
+                        }
+                    } else if (t.equals(CONTRACT_TASK)) {
+                        // it is a contract task
+                        if (c.equals(CONTRACT_HISTORY_CMD)) {
+                            doContractHistory(request, response);
+                        } else if (c.equals(CONTRACT_PAYMENT_SUMMARY_CMD)) {
+                            doContractPaymentSummary(request, response);
+                        } else if (c.equals(CONTRACT_DETAILS_CMD)) {
+                            doContractDetails(request, response);
+                        }
+                    } else if (t.equals(PAYMENT_TASK)) {
+                        // it is a payment task
+                        if (c.equals(PAYMENT_HISTORY_CMD)) {
+                            doPaymentHistory(request, response);
+                        } else if (c.equals(PAYMENT_DETAILS_CMD)) {
+                            doPaymentDetails(request, response);
+                        }
+                    } else if (t.equals(TAX_FORM_TASK)) {
+                        // it is a user tax for task
+                        if (c.equals(TAX_FORM_HISTORY_CMD)) {
+                            doTaxFormHistory(request, response);
+                        } else if (c.equals(TAX_FORM_DETAILS_CMD)) {
+                            doTaxFormDetails(request, response);
+                        }
+                    } else {
+                        throw new NavigationException();
+                    }
+                }
+
+            } catch (Throwable e) {
+                handleException(request, response, e);
             }
 
-            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-            //set up security objects and session info
-            WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
-            TCSubject user = getUser(authentication.getActiveUser().getId());
-            SessionInfo info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
-            tcRequest.setAttribute(SESSION_INFO_KEY, info);
-            //todo perhaps this should be configuraable...so implementing classes
-            //todo don't have to do it if they don't want to
-            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
-
-            // check to see if the user has not logged in
-            if (info.isAnonymous()) {
-                // forward to login page
-                String errorURL = request.getRequestURI();
-                errorURL += (request.getQueryString() == null) ? "" : "?" + request.getQueryString();
-                StringBuffer buf = new StringBuffer();
-                for (int idx = 0; idx < errorURL.length(); idx++) {
-                    char c = errorURL.charAt(idx);
-                    String str = (c == '&') ? "%26" : new String(c + "");
-                    buf.append(str);
-                }
-                errorURL = buf.toString();
-
-                response.sendRedirect("http://" + request.getServerName() + "/tc?module=Login&c=login&message=" + "You must log in to view this portion of the site.&nextpage=" + errorURL);
-                return;
-
-            } else {
-                log.debug("we got the nav object");
-            }
-
-            String t = StringUtils.checkNull(request.getParameter(TASK_STRING));
-            String c = StringUtils.checkNull(request.getParameter(CMD_STRING));
-
-            log.debug("t= " + t + " c= " + c);
-            if (t.equals(AFFIDAVIT_TASK)) {
-                if (c.equals(AFFIDAVIT_DETAILS_CMD)) {
-                    doAffidavitDetails(request, response);
-                } else if (c.equals(AFFIDAVIT_RENDER_CMD)) {
-                    doAffidavitRender(request, response);
-                }
-            } else if (t.equals(CONTRACT_TASK)) {
-                // it is a contract task
-                if (c.equals(CONTRACT_HISTORY_CMD)) {
-                    doContractHistory(request, response);
-                } else if (c.equals(CONTRACT_PAYMENT_SUMMARY_CMD)) {
-                    doContractPaymentSummary(request, response);
-                } else if (c.equals(CONTRACT_DETAILS_CMD)) {
-                    doContractDetails(request, response);
-                }
-            } else if (t.equals(PAYMENT_TASK)) {
-                // it is a payment task
-                if (c.equals(PAYMENT_HISTORY_CMD)) {
-                    doPaymentHistory(request, response);
-                } else if (c.equals(PAYMENT_DETAILS_CMD)) {
-                    doPaymentDetails(request, response);
-                }
-            } else if (t.equals(TAX_FORM_TASK)) {
-                // it is a user tax for task
-                if (c.equals(TAX_FORM_HISTORY_CMD)) {
-                    doTaxFormHistory(request, response);
-                } else if (c.equals(TAX_FORM_DETAILS_CMD)) {
-                    doTaxFormDetails(request, response);
-                }
-            } else {
-                throw new NavigationException();
-            }
+            /* things are extremely broken, or perhaps some of the response
+             * buffer had already been flushed when an error was thrown,
+             * and the forward to error page failed.  in any event, make
+             * one last attempt to get an error message to the browser
+             */
         } catch (Exception e) {
-            log.error("our get method was excepted");
-            e.printStackTrace();
+            log.fatal("forwarding to error page failed", e);
+            response.setContentType("text/html");
+            response.setStatus(500);
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Internal Error</title></head>");
+            out.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+            out.println("</body></html>");
+            out.flush();
         }
     }
 
-    public void doPost(HttpServletRequest request,
-                       HttpServletResponse response) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         try {
-            if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
-                process(request, response);
-                return;
-            }
+            try {
+                if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
+                    process(request, response);
+                } else {
+                    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+                    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+                    //set up security objects and session info
+                    WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
+                    TCSubject user = getUser(authentication.getActiveUser().getId());
+                    SessionInfo info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
+                    tcRequest.setAttribute(SESSION_INFO_KEY, info);
+                    //todo perhaps this should be configuraable...so implementing classes
+                    //todo don't have to do it if they don't want to
+                    RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
-            TCRequest tcRequest = HttpObjectFactory.createRequest(request);
-            TCResponse tcResponse = HttpObjectFactory.createResponse(response);
-            //set up security objects and session info
-            WebAuthentication authentication = createAuthentication(tcRequest, tcResponse);
-            TCSubject user = getUser(authentication.getActiveUser().getId());
-            SessionInfo info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
-            tcRequest.setAttribute(SESSION_INFO_KEY, info);
-            //todo perhaps this should be configuraable...so implementing classes
-            //todo don't have to do it if they don't want to
-            RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
+                    // check to see if the user has not logged in
+                    if (info.isAnonymous()) {
+                        // forward to login page
+                        //String loginHref = "/?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
+                        //forward(loginHref,request,response);
+                        //return;
 
-            // check to see if the user has not logged in
-            if (info.isAnonymous()) {
-                // forward to login page
-                //String loginHref = "/?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
-                //forward(loginHref,request,response);
-                //return;
+                        String errorURL = request.getRequestURI();
+                        errorURL += (request.getQueryString() == null) ? "" : request.getQueryString();
 
-                String errorURL = request.getRequestURI();
-                errorURL += (request.getQueryString() == null) ? "" : request.getQueryString();
+                        response.sendRedirect("http://" + request.getServerName() + "/tc?module=Login&c=login&message=" + "You must log in to view this portion of the site.&nextpage=" + errorURL);
+                        return;
+                    } else {
+                        log.debug("we got the nav object");
+                    }
 
-                response.sendRedirect("http://" + request.getServerName() + "/tc?module=Login&c=login&message=" + "You must log in to view this portion of the site.&nextpage=" + errorURL);
-                return;
-            } else {
-                log.debug("we got the nav object");
-            }
+                    String t = StringUtils.checkNull(request.getParameter(TASK_STRING));
+                    String c = StringUtils.checkNull(request.getParameter(CMD_STRING));
 
-            String t = request.getParameter(TASK_STRING);
-            String c = request.getParameter(CMD_STRING);
-            if ((t == null) || (c == null)) {
-                //they will be sent to the main page
-                t = new String("");
-                c = new String("");
-            }
-
-            log.debug("t= " + t + " c= " + c);
-            if (t.equals(AFFIDAVIT_TASK)) {
-                log.debug("affidavit task");
-                if (c.equals(AFFIRM_AFFIDAVIT_CMD)) {
-                    log.debug("affirm affidavit cmd");
-                    doAffirmAffidavit(request, response);
-                    return;
+                    log.debug("t= " + t + " c= " + c);
+                    if (t.equals(AFFIDAVIT_TASK)) {
+                        log.debug("affidavit task");
+                        if (c.equals(AFFIRM_AFFIDAVIT_CMD)) {
+                            log.debug("affirm affidavit cmd");
+                            doAffirmAffidavit(request, response);
+                        } else {
+                            throw new NavigationException();
+                        }
+                    } else if (t.equals("edit_personal_info")) {
+                        doEditPersonalInfoPost(request, response);
+                    } else {
+                        throw new NavigationException();
+                    }
                 }
-            } else if (t.equals("edit_personal_info")) {
-                doEditPersonalInfoPost(request, response);
-                return;
+
+            } catch (Throwable e) {
+                handleException(request, response, e);
             }
 
-            //if we got here, there was no post method, send them back to the main page
-            UserProfileHeader header = new UserProfileHeader(info);
-            request.setAttribute(PACTS_MEMBER_RESULT, header);
-
-            forward("/pacts/client/Main.jsp", request, response);
+            /* things are extremely broken, or perhaps some of the response
+             * buffer had already been flushed when an error was thrown,
+             * and the forward to error page failed.  in any event, make
+             * one last attempt to get an error message to the browser
+             */
         } catch (Exception e) {
-            log.error("our get method was excepted");
-            e.printStackTrace();
+            log.fatal("forwarding to error page failed", e);
+            response.setContentType("text/html");
+            response.setStatus(500);
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Internal Error</title></head>");
+            out.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+            out.println("</body></html>");
+            out.flush();
         }
     }
 
