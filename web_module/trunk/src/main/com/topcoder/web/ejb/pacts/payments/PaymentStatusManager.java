@@ -357,13 +357,17 @@ public class PaymentStatusManager {
 
             for (BasePayment payment : payments) {
                 // notify the status manager and update the payment
-                cancelled += payment.getCurrentStatus().inactiveCoder(payment);
-                log.debug("cancelled payments: " + cancelled);
-                dib.updatePayment(payment);
+                try {
+                    cancelled += payment.getCurrentStatus().inactiveCoder(payment);
+                    log.debug("cancelled payments: " + cancelled);
+                    dib.updatePayment(payment);
 
-                // if the payment was cancelled, notify the possible childrens
-                if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
-                    notifyChildPayments("cancel", payment);
+                    // if the payment was cancelled, notify the possible childrens
+                    if (payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
+                        notifyChildPayments("cancel", payment);
+                    }
+                } catch (InvalidPaymentEventException ipee) {
+                    // ignore if the payment can't be cancelled due to it's advanced status
                 }
             }
             return cancelled;
