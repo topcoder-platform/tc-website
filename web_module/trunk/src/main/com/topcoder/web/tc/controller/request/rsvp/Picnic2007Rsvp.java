@@ -1,4 +1,4 @@
-package com.topcoder.web.tc.controller.rsvp;
+package com.topcoder.web.tc.controller.request.rsvp;
 
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
