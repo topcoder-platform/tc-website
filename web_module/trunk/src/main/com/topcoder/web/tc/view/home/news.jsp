@@ -2,19 +2,38 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%------------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>06.05.07<br>4:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</A></span><br><br>
-      Coverage of High Stakes Programming Competition Available Globally at http://dev.aol.com.
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.07.07<br>3:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=060707">TCO Preview: Meet Team Ukraine</A></span><br><br>
+      The 2007 TopCoder Open will host six Algorithm semifinalists from Ukraine, with "Team Ukraine" including the six highest rated Algorithm competitors from the country.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="" width="55" height="61"/> <img src="/i/m/aussie_big2.jpg" alt="" width="55" height="61"/>
+      <br>by <tc-webtag:handle coderId="15635590" /> &amp; <tc-webtag:handle coderId="284038" /></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_060507">full story</A> | 
+        <A href="/tc?module=Static&d1=features&d2=060707">full story</A> | 
+        <tc-webtag:forumLink forumID="516138" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>06.07.07<br>2:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</A></span><br><br>
+      TopCoder and AOL today announced that the 2007 TopCoder&#174; Open will be webcast live at the AOL&#174; Developer site (<a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a>) on Friday, June 29. Coverage of the TCO07 finals from the Mirage Resort in Las Vegas begins at 21:00 GMT.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_060507">details</A> | 
+       <a target="_blank" href="<tc-webtag:linkTracking link='http://www.prnewswire.com/mnr/topcoder/28583/' refer='pr_060507' />">watch trailer</A> | 
        <tc-webtag:forumLink forumID="516084" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
---------------------%>
+
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.06.07<br>4:45 PM</td>
@@ -193,34 +212,4 @@
         <A href="/tc?module=Static&d1=match_editorials&d2=srm350">full story</A> | 
         <tc-webtag:forumLink forumID="506240" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>05.29.07<br>3:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=052907">Meet the May Coders of the Month</A></span><br><br>
-      We caught up with May's "coders of the month," to learn a little bit more about them, their proudest TopCoder moments, and more&#8230;
-        </td>
-      <td class="newsPhoto"><%--<img src="/i/m/rasto6sk_big.jpg" alt="" width="55" height="61"/><br>by TopCoder Staff--%></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=052907">full story</A> | 
-        <tc-webtag:forumLink forumID="515948" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>05.25.07<br>4:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=MatchDetails&rd=10675">Yodlee chat session scheduled for SRM 351</A></span><br><br>
-      Join representatives from Yodlee in the Arena at 6:00 AM EDT on May 29 to learn more about the company and its job opportunities.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=MatchDetails&rd=10675">details</A> | 
-         <tc-webtag:forumLink forumID="515944" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
    </td></tr>

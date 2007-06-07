@@ -332,6 +332,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            AOL to Webcast TopCoder Open 2007 Finals Live on June 29
+            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_060507">...more</A><br>[June 7]<br><br>
+
             Yodlee to Sponsor TopCoder Single Round Match Series
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_052207">...more</A><br>[May 23]<br><br>
 
@@ -349,12 +352,6 @@
 
             TopCoder Appoints Russ Malz Vice President of Sales
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040907">...more</A><br>[April 9]<br><br>
-
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/china_20061027.gif" alt="TopCoder & China" width="67" height="25" border="0"/>
-            </div>
-            TopCoder Appoints Jiazhi Wu VP of Technology for China
-            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040307">...more</A><br>[April 3]<br><br>
 
 
         </td>

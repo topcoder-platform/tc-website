@@ -40,14 +40,16 @@
                         <jsp:param name="title" value="Press Release"/>
                     </jsp:include>
                     
-<div align="right"><tc-webtag:forumLink forumID="516084" message="Discuss this press release" /></div>
-                        
+<div align="right"><tc-webtag:forumLink forumID="516084" message="Discuss this press release" /><br>
+<a target="_blank" href="<tc-webtag:linkTracking link='http://www.prnewswire.com/mnr/topcoder/28583/' refer='pr_060507' />">Watch the streaming video</a></div>
+
+<br>
 <div align="center">
 <p><span class="bodyTitle">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</span><br>
 <span class="bodySubTitle"><em>Coverage of High Stakes Programming Competition Available Globally at <a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a></em></span></p>
 </div>
       
-<p><strong>Glastonbury, Conn., &amp; Dulles, Va., June 5, 2007 &#151;</strong>TopCoder&#174;, Inc., the leader in online programming competition, skills assessment and competitive software development, and AOL, a global Web services company, today announced that the 2007 TopCoder&#174; Open (TCO07) will be webcast live at the AOL&#174; Developer site (<a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a>) on Friday, June 29. Coverage of the TCO07 finals from the Mirage Resort in Las Vegas begins at 21:00 GMT.</p>
+<p><strong>Glastonbury, Conn., &amp; Dulles, Va., June 7, 2007 &#151;</strong>TopCoder&#174;, Inc., the leader in online programming competition, skills assessment and competitive software development, and AOL, a global Web services company, today announced that the 2007 TopCoder&#174; Open (TCO07) will be webcast live at the AOL&#174; Developer site (<a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a>) on Friday, June 29. Coverage of the TCO07 finals from the Mirage Resort in Las Vegas begins at 21:00 GMT.</p>
 
 <p>The TopCoder Open 2007, sponsored by AOL, will be presented live on the Internet, bringing the excitement and drama of competitive coding at the highest level as some of the brightest programmers and designers in the world work against the clock and each other for a share of $260,000 in prizes. Algorithm, component design and development, Studio graphic design and Marathon Match championships will all be at stake during the ultimate test of computing prowess, speed and accuracy.</p>
 
