@@ -45,6 +45,7 @@
 <p>
     5.10.3 - 2007.06.xx
     <ul>
+        <li>Added 2007 picnic RSVP</li>
         <li>fix: Updates of the payment's charity flag is handled properly by the payment status manager-pulky</li>
         <%--<li>fix: payment status descriptions are retrieved from the database-pulky</li>--%>
     </ul>
