@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
+<%@ page import="com.topcoder.web.tc.Constants" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -215,6 +216,9 @@ All TopCoder Staff is invited with their spouse/significant other and children.
 TopCoder will provide travel reimbursement expenses.
 </p>
 
+            <form name="submitRsvp" method="post" action="/tc">
+                <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="Picnic2007Rsvp"/>
+
             <table cellpadding="4" cellspacing="0">
             <tbody>
                 <tr>
@@ -250,7 +254,7 @@ TopCoder will provide travel reimbursement expenses.
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <textarea rows="3" cols="40"></textarea>
+                        <textarea name="guests" rows="3" cols="40"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -260,13 +264,15 @@ TopCoder will provide travel reimbursement expenses.
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <textarea rows="3" cols="40"></textarea>
+                        <textarea name="activities" rows="3" cols="40"></textarea>
                     </td>
                 </tr>
             </tbody>
             </table>
 
             <button name="submit" value="submit" type="submit" class="button">Send</button>
+
+            </form>
 
         </div>
     </div>
