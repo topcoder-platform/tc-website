@@ -15,71 +15,55 @@ package com.topcoder.web.tc.controller.legacy.pacts.servlet;
  * @see PactsMemberTableModel
  */
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseServlet;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.RequestTracker;
-import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.*;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.ContractBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.PaymentBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.UserTaxFormBean;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
-import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
-import com.topcoder.web.tc.controller.legacy.pacts.common.ContractHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.common.ContractWithText;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
-import com.topcoder.web.tc.controller.legacy.pacts.common.Payment;
-import com.topcoder.web.tc.controller.legacy.pacts.common.PaymentHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormHeader;
-import com.topcoder.web.tc.controller.legacy.pacts.common.TaxFormWithText;
-import com.topcoder.web.tc.controller.legacy.pacts.common.UserProfileHeader;
+import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
 
 public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     private static Logger log = Logger.getLogger(PactsMemberServlet.class);
 
     /**
      * Used for modules. It checks that the user is authenticated.
-     * 
      */
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
-    	return !auth.getActiveUser().isAnonymous();
+        return !auth.getActiveUser().isAnonymous();
     }
-    
+
 
     /**
      * this method handles all incoming http get requests.  It will
      * check to make sure the session has been autheniticated and that
      * the parameters are valid.  If the session is not authenticated,
      * it is forwarded to the login jsp.
-     *
+     * <p/>
      * Expected Session Parameters
      * ---------------------------
      * t - a session parameter that is used to specify
-     *  the task.
+     * the task.
      * c - a session parameter that is used to specify the command.
-     *  examples include affidavit_history, payment_history, etc.
+     * examples include affidavit_history, payment_history, etc.
      *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     public void doGet(HttpServletRequest request,
                       HttpServletResponse response) {
         try {
-        	
+
             if (request.getParameter(MODULE) != null || request.getAttribute(MODULE) != null) {
                 process(request, response);
                 return;
@@ -116,73 +100,42 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                 log.debug("we got the nav object");
             }
 
-            String t = request.getParameter(TASK_STRING);
-            String c = request.getParameter(CMD_STRING);
-            if ((t == null) || (c == null)) {
-                //they will be sent to the main page
-                t = new String("");
-                c = new String("");
-            }
+            String t = StringUtils.checkNull(request.getParameter(TASK_STRING));
+            String c = StringUtils.checkNull(request.getParameter(CMD_STRING));
 
             log.debug("t= " + t + " c= " + c);
             if (t.equals(AFFIDAVIT_TASK)) {
-                //it is an affidavit task
-            	/* deprecated
-                if (c.equals(AFFIDAVIT_HISTORY_CMD)) {
-                    //grab the history for the user
-                    doAffidavitHistory(request, response);
-                    return;
-                } else 
-                	*/
                 if (c.equals(AFFIDAVIT_DETAILS_CMD)) {
                     doAffidavitDetails(request, response);
-                    return;
                 } else if (c.equals(AFFIDAVIT_RENDER_CMD)) {
                     doAffidavitRender(request, response);
-                    return;
                 }
             } else if (t.equals(CONTRACT_TASK)) {
                 // it is a contract task
                 if (c.equals(CONTRACT_HISTORY_CMD)) {
                     doContractHistory(request, response);
-                    return;
                 } else if (c.equals(CONTRACT_PAYMENT_SUMMARY_CMD)) {
                     doContractPaymentSummary(request, response);
-                    return;
                 } else if (c.equals(CONTRACT_DETAILS_CMD)) {
                     doContractDetails(request, response);
-                    return;
                 }
             } else if (t.equals(PAYMENT_TASK)) {
                 // it is a payment task
                 if (c.equals(PAYMENT_HISTORY_CMD)) {
                     doPaymentHistory(request, response);
-                    return;
                 } else if (c.equals(PAYMENT_DETAILS_CMD)) {
                     doPaymentDetails(request, response);
-                    return;
                 }
             } else if (t.equals(TAX_FORM_TASK)) {
                 // it is a user tax for task
                 if (c.equals(TAX_FORM_HISTORY_CMD)) {
                     doTaxFormHistory(request, response);
-                    return;
                 } else if (c.equals(TAX_FORM_DETAILS_CMD)) {
                     doTaxFormDetails(request, response);
-                    return;
                 }
+            } else {
+                throw new NavigationException();
             }
-
-
-
-            // the task and command did not get anywhere, but they are
-            // logged in, send them to the main page with the user
-            // profile header so that they can display the handle
-            UserProfileHeader header = new UserProfileHeader(info);
-            request.setAttribute(PACTS_MEMBER_RESULT, header);
-
-            forward("/pacts/client/Main.jsp", request, response);
-            return;
         } catch (Exception e) {
             log.error("our get method was excepted");
             e.printStackTrace();
@@ -207,8 +160,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             //todo perhaps this should be configuraable...so implementing classes
             //todo don't have to do it if they don't want to
             RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
-
-
 
             // check to see if the user has not logged in
             if (info.isAnonymous()) {
@@ -266,8 +217,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      * object and a PactsMemberTableModel is filled with the data
      * returned as a session attribute.
      *
-     *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      * @deprecated
      */
@@ -288,55 +238,55 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         } else {
             request.setAttribute(PACTS_MEMBER_RESULT, affidavits);
             PaymentBean paymentBean = new PaymentBean();
-            for (int i=0; i<affidavits.length; i++) {
-            	if (affidavits[i].getPayment().getId() > 0) {
-            		Payment payment = paymentBean.getPayment(affidavits[i].getPayment().getId());
-            		affidavits[i].setPayDate(payment.getPayDate());
-            	}
+            for (int i = 0; i < affidavits.length; i++) {
+                if (affidavits[i].getPayment().getId() > 0) {
+                    Payment payment = paymentBean.getPayment(affidavits[i].getPayment().getId());
+                    affidavits[i].setPayDate(payment.getPayDate());
+                }
             }
         }
-        
+
         // Payment data
         PaymentBean paymentBean = new PaymentBean();
         Payment[] payments;
         int[] paymentTypes = {COMPONENT_PAYMENT, CHARITY_PAYMENT, REVIEW_BOARD_PAYMENT, ONE_OFF_PAYMENT};
-        
+
         if (fullList != null) {
             payments = paymentBean.getPaymentDetailsForUser(getUserId(request), paymentTypes, false);
         } else {
             payments = paymentBean.getPaymentDetailsForUser(getUserId(request), paymentTypes, true);
         }
         if (payments == null) {
-        	log.debug("we got null from getComponentDetailsForUser");
+            log.debug("we got null from getComponentDetailsForUser");
         } else {
-        	request.setAttribute(PAYMENT_DETAIL_LIST, payments);
-        	
-        	// Component IDs
-        	long[] paymentIds = new long[payments.length];
-        	for (int i=0; i<payments.length; i++) {
-        		paymentIds[i] = payments[i].getHeader().getId();
-        	}
-	    Map componentIdMap = paymentBean.getPaymentComponentData(paymentIds);
+            request.setAttribute(PAYMENT_DETAIL_LIST, payments);
+
+            // Component IDs
+            long[] paymentIds = new long[payments.length];
+            for (int i = 0; i < payments.length; i++) {
+                paymentIds[i] = payments[i].getHeader().getId();
+            }
+            Map componentIdMap = paymentBean.getPaymentComponentData(paymentIds);
             request.setAttribute(COMPONENT_DATA, componentIdMap);
-            
+
             // Payment creation dates
             try {
-            	String[] creationDates = paymentBean.getCreationDates(paymentIds);
-            	request.setAttribute(CREATION_DATE_LIST, creationDates);
+                String[] creationDates = paymentBean.getCreationDates(paymentIds);
+                request.setAttribute(CREATION_DATE_LIST, creationDates);
             } catch (Exception e1) {
-        		log.error("error in doAffidavitHistory");
+                log.error("error in doAffidavitHistory");
                 e1.printStackTrace();
-        	}
+            }
         }
-        
+
         forward(AFFIDAVIT_HISTORY_JSP, request, response);
     }
 
     /**
      * a helper function used to forward to jsps
      *
-     * @param href the refrerence string
-     * @param request the http request, where the session is stored
+     * @param href     the refrerence string
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void forward(String href, HttpServletRequest request,
@@ -362,7 +312,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     /**
      * used to get all of the contracts for a user.
      *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void doContractHistory(HttpServletRequest request,
@@ -390,8 +340,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      * used to view the details of a contract. Gets a ContractWithText
      * object from the Contract dispatch bean.
      *
-     *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void doContractDetails(HttpServletRequest request,
@@ -424,7 +373,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     /**
      * used to display a summary of all payments associated with a contract.
      *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void doContractPaymentSummary(HttpServletRequest request,
@@ -448,7 +397,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
 
         //check one of the payment and see if it has the correct user id
         if (payments.length > 0) {
-            if (payments[0].getUser().getId()!= getUserId(request)) {
+            if (payments[0].getUser().getId() != getUserId(request)) {
                 log.error("bad bad bad, this user id does not equal the nav uid");
                 return;
             }
@@ -468,7 +417,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      * affidavit.  If it can be affirmed, it will fill in a table with
      * the current contact information.
      *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void doAffidavitDetails(HttpServletRequest request,
@@ -542,7 +491,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     /**
      * Used to display a history of all payments made to a member.
      *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void doPaymentHistory(HttpServletRequest request,
@@ -565,7 +514,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      * payment because there is sufficient info in the descp for affidavits
      * and contract payments.
      *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void doPaymentDetails(HttpServletRequest request,
@@ -589,7 +538,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             }
 
             // make sure the payment user id matches the nav user id
-            if (payment.getHeader().getUser().getId()!= getUserId(request)) {
+            if (payment.getHeader().getUser().getId() != getUserId(request)) {
                 log.error("Shame on you trying to get payments that are not for you");
                 return;
             }
@@ -622,7 +571,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     /**
      * used to show all of the tax forms that have been filed for the member.
      *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void doTaxFormHistory(HttpServletRequest request,
@@ -642,7 +591,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     /**
      * used to get the details of a tax form, including the actual text.
      *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void doTaxFormDetails(HttpServletRequest request,
@@ -666,7 +615,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         }
     }
 
-
     /***********************************************************/
 
     /********************* Post methods ************************/
@@ -677,7 +625,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      * done updating the database, it will forward the request to the
      * jsp specified by the forward session parameter.
      *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void doEditPersonalInfoPost(HttpServletRequest request,
@@ -696,7 +644,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
      * was ok, it forward to the affidavit history jsp.  If ther was
      * an error, it forwards to an error page.
      *
-     * @param request the http request, where the session is stored
+     * @param request  the http request, where the session is stored
      * @param response the http response
      */
     private void doAffirmAffidavit(HttpServletRequest request,
@@ -737,7 +685,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             a = bean.getAffidavitWithText(affidavitId, birthday);
         }
 
-
         // check and make sure that the user id is the same for the
         // affiavid and member that is logged in
         if (getUserId(request) != a.getAffidavit().getHeader().getUser().getId()) {
@@ -750,7 +697,7 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
             return;
         }
 
-        if (birthday.trim().length()!=DATE_FORMAT_STRING.length()) {
+        if (birthday.trim().length() != DATE_FORMAT_STRING.length()) {
             log.debug("exception parsing the date, the text is:\n" + birthday);
             forward("/errorPage.jsp?errorMsg=\"birthday is malformed, please use " + DATE_FORMAT_STRING + " format\"", request, response);
             return;
@@ -782,7 +729,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                 return;
             }
 
-
             //todo i don't think this is relevant anymore
             //first replace the aged
             int aIdx = a.getAffidavitText().indexOf("FILL IN AGED");
@@ -800,16 +746,18 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
         // if we got here everything is good, we should affirm the affidavit
         bean.affirmAffidavit(a.getAffidavit().getHeader().getId(), a.getAffidavitText(), dfmt.format(d));
 
-
         // send it back to the affidavit history page
         //doAffidavitHistory(request, response);
         forward("/PactsMemberServlet?module=AffidavitHistory", request, response);
     }
-    /***********************************************************************/
+
+    /**
+     * *******************************************************************
+     */
 
 
     private long getUserId(HttpServletRequest request) {
-        SessionInfo info = (SessionInfo)request.getAttribute(SESSION_INFO_KEY);
+        SessionInfo info = (SessionInfo) request.getAttribute(SESSION_INFO_KEY);
         return info.getUserId();
     }
 }
