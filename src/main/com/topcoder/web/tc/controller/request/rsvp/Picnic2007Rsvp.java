@@ -46,7 +46,7 @@ public class Picnic2007Rsvp extends Base {
         msgText.append(email + "\n");
         msgText.append("Guests: ");
         msgText.append(guests + "\n");
-        msgText.append("Activities");
+        msgText.append("Activities: ");
         msgText.append(activities + "\n");
 
         msgText.append("\n\n");
