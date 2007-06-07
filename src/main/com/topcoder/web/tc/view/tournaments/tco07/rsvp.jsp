@@ -107,7 +107,7 @@ Rooms are available at The Mirage for all attendees, please mention TopCoder.
             </div>
 
 <h1>
-1:00 PM - 2:00 PM<br>PM Protecting System Information Utilizing<br>
+1:00 PM - 2:00 PM<br>Protecting System Information Utilizing<br>
 TopCoder's Software Methodology
 </h1>
 
