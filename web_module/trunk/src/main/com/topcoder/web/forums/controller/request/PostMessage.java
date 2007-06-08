@@ -48,6 +48,7 @@ public class PostMessage extends ForumsProcessor {
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
         String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags
                 (getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
+        subject = subject.replaceAll("\n", " ");
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
 
