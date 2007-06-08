@@ -35,9 +35,7 @@
                             <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=onsiteSchedule"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("onsiteschedule")) {%> class="navHighlight"<% } %>>
                                 <span>Schedule</span>
                             </a></li>
-                        <%--
                         <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=devForums"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("devforums")) {%> class="navHighlight"<% } %>><span>Developer Forums</span></a></li>
-                        --%>
                         <li class="stop">
                             <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=getVisa"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("getvisa")) {%> class="navHighlight"<% } %>>
                                 <span>Getting a Visa</span>
