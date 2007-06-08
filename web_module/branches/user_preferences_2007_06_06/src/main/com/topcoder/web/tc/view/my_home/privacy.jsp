@@ -58,7 +58,7 @@
                             </td>
                             <td class="value" width="100%">
                                 <c:choose>
-                                    <c:when test="{preference.type.id == 1}">
+                                    <c:when test="${preference.type.id == 1}">
                                         <tc-webtag:chkBox name="pref_${preference.id}"/>
                                     </c:when>
                                     <c:otherwise>
