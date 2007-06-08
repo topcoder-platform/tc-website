@@ -60,16 +60,24 @@
                                        <td class="value">Marathon Match Finals</td>
                                 </tr>
                                 <tr class="dark">
+                                       <td class="value">10:00am - 11:00am</td>
+                                       <td class="value">Developer Forum: <br><i>Security in Group Developed Software</i></td>
+                                </tr>
+                                <tr class="light">
                                        <td class="value">11:00am - Noon</td>
                                        <td class="value">UBS Presentation</td>
                                 </tr>
-                                <tr class="light">
+                                <tr class="dark">
                                        <td class="value">Noon - 1:00pm</td>
                                        <td class="value">Lunch</td>
                                 </tr>
-                                <tr class="dark">
+                                <tr class="light">
                                        <td class="value">1:00pm - 2:00pm</td>
                                        <td class="value">VeriSign Presentation</td>
+                                </tr>
+                                <tr class="dark">
+                                       <td class="value">2:00pm - 3:00pm</td>
+                                       <td class="value">Developer Forum: <br><i>The Power of Communities - And Its Future</i></td>
                                 </tr>
                                 <tr class="light">
                                        <td class="value">1:00pm - 2:30pm</td>
