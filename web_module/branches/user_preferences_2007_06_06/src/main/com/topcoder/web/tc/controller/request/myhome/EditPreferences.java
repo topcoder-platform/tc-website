@@ -89,11 +89,15 @@ public class EditPreferences extends ShortHibernateProcessor {
         Set fields = RegFieldHelper.getMainFieldSet(u.getRegistrationTypes(), u);
         fields.addAll(RegFieldHelper.getSecondaryFieldSet(u.getRegistrationTypes(), u));
 
+        for (String f: (Set<String>) fields) {
+            log.debug("fields: " + f);
+        }
+        
         List<Preference> preferenceList = new ArrayList<Preference>();
         for (Iterator it = group.getPreferences().iterator(); it.hasNext();) {
             Preference p = (Preference) it.next();
             
-            log.debug("checking preference: " + p.getName());
+            log.debug("checking preference: " + p.getName() + " Id: " + p.getId());
             
             if (fields.contains("pref_" + p.getId())) {
                 log.debug("In fields");
