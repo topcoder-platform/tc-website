@@ -57,7 +57,7 @@
                                 <span style="display: block; padding-top: 4px;">${preference.name}</span>
                             </td>
                             <td class="value" width="100%">
-                                <input name="<%=Constants.PREFERENCE_PREFIX%>${preference.id}" type="text"/>
+                                <input name="pref_${preference.id}" type="text"/>
                             </td>
                         </tr>
                     </c:forEach>
