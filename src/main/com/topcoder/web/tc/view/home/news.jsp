@@ -2,23 +2,23 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%---------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.08.07<br>1:45 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.08.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_17">Marathon Match 17 - Analysis</A></span><br><br>
-      MM17 has attracted a record number of participants between the regular Marathon Matches, 281 coders sent a submission of some type, and one half of them were new to MM's.
+      MM17 attracted a record number of participants for the regular Marathon Matches -- 281 coders sent in a submission of some type, and one half of them were new to MM's.
         </td>
-      <td class="newsPhoto"><img src="/i/m/ecv_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22651620" context="algorithm"/></td></tr></table>
+      <td class="newsPhoto"><img src="/i/m/ecv_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22651620"/></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_17">full story</A> | 
-        <tc-webtag:forumLink forumID="516049" message="discuss this" /> | 
+        <tc-webtag:forumLink forumID="515803" message="discuss this" /> | 
         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
-   -----------------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.08.07<br>2:00 PM</td>
@@ -212,24 +212,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=drwChat20070523">details</A> |
         <tc-webtag:forumLink forumID="514387" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/survey.png" alt="TopCoder Surveys" border="0" /><br>05.30.07<br>2:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=17260">Community survey: Your opinion needed</A>
-        </span><br><br>
-        We're running a survey of member opinions about competing, participating in forum discussions, and more. Tell us what you think!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=17260">details</A> |
-        <tc-webtag:forumLink forumID="515958" message="discuss this" /> | 
-        <A href="/tc?&module=SurveyList">archive</A>
    </td></tr>
    
