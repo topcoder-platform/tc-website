@@ -95,7 +95,7 @@ public class EditPreferences extends ShortHibernateProcessor {
             
             log.debug("checking preference: " + p.getName());
             
-            if (fields.contains(p.getName())) {
+            if (fields.contains("pref_" + p.getId())) {
                 log.debug("In fields");
                 for (UserPreference up : (Set<UserPreference>) u.getUserPreferences()) {
                     if (up.getId().getPreference().equals(p)) {
