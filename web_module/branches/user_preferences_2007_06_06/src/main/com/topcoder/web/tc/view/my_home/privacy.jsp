@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 
@@ -46,6 +48,21 @@
                     <jsp:param name="image" value="my_tc"/>
                     <jsp:param name="title" value="Privacy"/>
                 </jsp:include>
+
+                <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+                <tbody>
+                    <c:forEach var="preference" items="${preferenceList}">
+                        <tr class="light">
+                            <td class="value" nowrap="nowrap">
+                                <span style="display: block; padding-top: 4px;">${preference.name}</span>
+                            </td>
+                            <td class="value" width="100%">
+                                <input name="<%=Constants.PREFERENCE_PREFIX%>${preference.id}" type="text"/>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+                </table>
 
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tbody>
