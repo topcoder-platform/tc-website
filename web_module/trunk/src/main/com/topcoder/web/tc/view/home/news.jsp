@@ -2,6 +2,24 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%---------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.08.07<br>1:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_17">Marathon Match 17 - Analysis</A></span><br><br>
+      MM17 has attracted a record number of participants between the regular Marathon Matches, 281 coders sent a submission of some type, and one half of them were new to MM's.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/ecv_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22651620" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_17">full story</A> | 
+        <tc-webtag:forumLink forumID="516049" message="discuss this" /> | 
+        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   -----------------------%>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>06.07.07<br>4:00 PM</td>
@@ -195,24 +213,5 @@
         <A href="/tc?module=ViewSurvey&sid=17260">details</A> |
         <tc-webtag:forumLink forumID="515958" message="discuss this" /> | 
         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/software.png" alt="Component Competition News" border="0" /><br>05.30.07<br>12:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=digital_run&d2=2007Stage4Winners">Digital Run: Stage 4 winners</A>
-        </span><br><br>
-        The last few fixes are complete, and the leaderboards for Stage 4 of the 2007 Digital Run are now final. Congratulations to <tc-webtag:handle coderId="287614" context="algorithm"/>, who won his third Design stage in a row, and to <tc-webtag:handle coderId="14820574" context="algorithm"/>, who won his first Development stage. Congratulations also to the 2007 Rookies of the Year, <tc-webtag:handle coderId="22651514" context="algorithm"/> and <tc-webtag:handle coderId="21221008" context="algorithm"/>!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=digital_run&d2=2007Stage4Winners">details</A> |
-        <tc-webtag:forumLink forumID="515949" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
    
