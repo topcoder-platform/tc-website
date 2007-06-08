@@ -20,6 +20,8 @@ public class Preference extends Base implements Comparable {
     public static final Integer MEMBER_CONTACT_PREFERENCE_ID = new Integer(24);
     public static final Integer MEMBER_CONTACT_BANNED = new Integer(28);
 
+    public static final Integer SHOW_EARNINGS_PREFERENCE_ID = new Integer(100);
+
     private Integer id;
     private PreferenceType type;
     private PreferenceGroup group;

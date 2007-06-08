@@ -100,7 +100,7 @@ public class EditPreferences extends ShortHibernateProcessor {
                 for (UserPreference up : (Set<UserPreference>) u.getUserPreferences()) {
                     if (up.getId().getPreference().equals(p)) {
                         log.debug("In user's preferences");
-                        String key = Constants.PREFERENCE_PREFIX + p.getId();
+                        String key = "pref_" + p.getId();
                         log.debug("Value: " + up.getValue());
                         setDefault(key, up.getValue());                        
                     }

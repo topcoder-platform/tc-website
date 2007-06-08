@@ -25,7 +25,7 @@ import java.util.*;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
-abstract class Base extends LongHibernateProcessor {
+public abstract class Base extends LongHibernateProcessor {
 
     private User user = null;
     private DAOFactory factory = null;
@@ -158,6 +158,7 @@ abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.CODER_TYPE, getTrimmedParameter(Constants.CODER_TYPE));
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
         ret.put(Constants.MEMBER_CONTACT, getTrimmedParameter(Constants.MEMBER_CONTACT));
+        ret.put(Constants.SHOW_EARNINGS, getTrimmedParameter(Constants.SHOW_EARNINGS));
         ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
 
         //iterate through the notifications, we're essentially validating here
@@ -325,6 +326,8 @@ abstract class Base extends LongHibernateProcessor {
         }
 
         setDefault(Constants.MEMBER_CONTACT, String.valueOf(u.isMemberContactEnabled()));
+
+        setDefault(Constants.SHOW_EARNINGS, String.valueOf(u.isShowEarningsEnabled()));
 
         if (u.getContact() != null) {
             setDefault(Constants.TITLE, u.getContact().getTitle());

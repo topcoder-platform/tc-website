@@ -371,8 +371,13 @@ public class User extends Base {
         return null;
     }
 
-    public boolean isMemberContactEnabled() {
+    public boolean isShowEarningsEnabled() {
         UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+        return up == null ? false : String.valueOf(true).equals(up.getValue());
+    }
+
+    public boolean isMemberContactEnabled() {
+        UserPreference up = getUserPreference(Preference.SHOW_EARNINGS_PREFERENCE_ID);
         return up == null ? false : String.valueOf(true).equals(up.getValue());
     }
 

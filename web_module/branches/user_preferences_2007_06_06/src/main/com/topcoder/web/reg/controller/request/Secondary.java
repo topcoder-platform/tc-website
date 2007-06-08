@@ -45,6 +45,9 @@ public class Secondary extends Base {
                         }
 
                         setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
+
+                        setDefault(Constants.SHOW_EARNINGS, String.valueOf(params.get(Constants.SHOW_EARNINGS) != null));
+
                         if (!u.isNew()) {
                             setDefault(Constants.HANDLE, u.getHandle());
                         }
@@ -262,6 +265,20 @@ public class Secondary extends Base {
             if (up == null) {
                 up = new UserPreference();
                 Preference p = getFactory().getPreferenceDAO().find(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+                up.setId(new UserPreference.Identifier(u, p));
+                up.setValue(value);
+                u.addUserPreference(up);
+            } else {
+                up.setValue(value);
+            }
+        }
+
+        if (fields.contains(Constants.SHOW_EARNINGS)) {
+            UserPreference up = u.getUserPreference(Preference.SHOW_EARNINGS_PREFERENCE_ID);
+            String value = String.valueOf(params.get(Constants.SHOW_EARNINGS) != null);
+            if (up == null) {
+                up = new UserPreference();
+                Preference p = getFactory().getPreferenceDAO().find(Preference.SHOW_EARNINGS_PREFERENCE_ID);
                 up.setId(new UserPreference.Identifier(u, p));
                 up.setValue(value);
                 u.addUserPreference(up);
