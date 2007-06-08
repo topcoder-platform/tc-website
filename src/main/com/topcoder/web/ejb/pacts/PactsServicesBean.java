@@ -1407,6 +1407,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 bps.setDesc(rsr.getStringItem("payment_status_desc"));
                 bps.setActive(rsr.getIntItem("payment_status_active_ind") == 1);
 
+                log.debug("PaymentStatus found - id: " + id + " desc: " + 
+                        rsr.getStringItem("payment_status_desc") + " active: " + 
+                        rsr.getIntItem("payment_status_active_ind"));
+                
+                
                 statusMap.put(id, bps);
             }
         } catch (Exception e) {
@@ -2545,10 +2550,17 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
 
         selectHeaders.append(" ORDER BY origin_date DESC");
-        ResultSetContainer rsc = runSearchQuery(selectHeaders.toString(), objects, true);
-        HashMap hm = new HashMap();
-        hm.put(AFFIDAVIT_HEADER_LIST, rsc);
-        return hm;
+
+        Connection c = null;
+        try {
+            c = DBMS.getConnection(trxDataSource);
+            ResultSetContainer rsc = runSearchQuery(c, selectHeaders.toString(), objects, true);
+            HashMap hm = new HashMap();
+            hm.put(AFFIDAVIT_HEADER_LIST, rsc);
+            return hm;
+        } finally {
+            close(c);
+        }
     }
     
     /**
