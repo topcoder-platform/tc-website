@@ -58,7 +58,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/tc?module=Static&d1=pressroom&d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</A></strong></font><br />
-                        TopCoder and AOL today announced that the 2007 TopCoder&#174; Open will be webcast live at the AOL&#174; Developer site (<a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a>) on Friday, June 29. Coverage of the TCO07 finals from the Mirage Resort in Las Vegas begins at 21:00 GMT.<span class="prHead"> [June 7]</span></p>
+                        TopCoder and AOL today announced that the 2007 TopCoder&#174; Open will be webcast live at the AOL&#174; Developer site (<a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a>) on Friday, June 29. Coverage of the TCO07 finals from the Mirage Resort in Las Vegas begins at 21:00 GMT.<span class="prHead"> [June 7]</span> - <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=trailer&title=Trailer">Watch the trailer!</A></p>
                     </td>
                 </tr>
             </table>
