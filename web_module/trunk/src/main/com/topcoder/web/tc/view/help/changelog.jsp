@@ -43,7 +43,14 @@
 </jsp:include>
 
 <p>
-    5.10.3 - 2007.06.xx
+    5.10.4 - 2007.06.xx
+    <ul>
+        <li>Fixed PACTS algorithm round payment generation-pulky</li>
+    </ul>
+</p>
+
+<p>
+    5.10.3 - 2007.06.07
     <ul>
         <li>Added 2007 picnic RSVP-pulky</li>
         <li>fix: Updates of the payment's charity flag is handled properly by the payment status manager-pulky</li>
