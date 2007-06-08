@@ -31,7 +31,12 @@ public class EditPreferences extends ShortHibernateProcessor {
 
         User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
         
-        PreferenceGroup group = (PreferenceGroup) getRequest().getAttribute("group");
+        log.debug("group param: " + getRequest().getParameter("group"));
+
+        PreferenceGroup group = DAOUtil.getFactory().getPreferenceGroupDAO().find(new Integer(Integer.parseInt(getRequest().getParameter("group"))));
+        
+        log.debug("PreferenceGroup: " + group.getDescription());
+        
 //        HashSet values = new HashSet();
 //
 //        String key;
