@@ -54,10 +54,17 @@
                     <c:forEach var="preference" items="${preferenceList}">
                         <tr class="light">
                             <td class="value" nowrap="nowrap">
-                                <span style="display: block; padding-top: 4px;">${preference.name}</span>
+                                <span style="display: block; padding-top: 4px;">${preference.name}:</span>
                             </td>
                             <td class="value" width="100%">
-                                <input name="pref_${preference.id}" type="text"/>
+                                <c:choose>
+                                    <c:when test="{preference.type.id == 1}">
+                                        <tc-webtag:chkBox name="pref_${preference.id}"/>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <tc-webtag:textInput name="pref_${preference.id}"/>
+                                    </c:otherwise>
+                                </c:choose>
                             </td>
                         </tr>
                     </c:forEach>
