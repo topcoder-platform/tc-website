@@ -39,8 +39,7 @@ public class PreviewAnnouncement extends ForumsProcessor {
         String forumIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.FORUM_ID));
         String announcementIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.ANNOUNCEMENT_ID));
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
-        String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags
-                (getRequest().getParameter(ForumConstants.ANNOUNCEMENT_SUBJECT).trim());
+        String subject = ForumsUtil.formatSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
         String body = getRequest().getParameter(ForumConstants.ANNOUNCEMENT_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
 

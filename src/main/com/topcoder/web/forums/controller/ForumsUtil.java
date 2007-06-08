@@ -225,6 +225,12 @@ public class ForumsUtil {
         return null;
     }
 
+    public static String formatSubject(String subject) {
+        String formattedSubject = com.jivesoftware.util.StringUtils.escapeHTMLTags(subject.trim());
+        formattedSubject = formattedSubject.replaceAll("\n", " ");
+        return formattedSubject;
+    }
+    
     // Returns forums in a category, with empty forums omitted or placed at the list's end.
     public static ArrayList getForums(ForumCategory forumCategory, ResultFilter resultFilter,
                                       boolean excludeEmptyForums) {

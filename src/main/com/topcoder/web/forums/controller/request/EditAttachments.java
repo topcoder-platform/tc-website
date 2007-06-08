@@ -39,8 +39,7 @@ public class EditAttachments extends ForumsProcessor {
         ForumThread thread = null;
 
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
-        String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
-                getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
+        String subject = ForumsUtil.formatSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
         String textareaBody = ForumsUtil.createTextAreaBody(body);
 

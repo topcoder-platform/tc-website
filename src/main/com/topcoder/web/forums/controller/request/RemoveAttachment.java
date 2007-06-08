@@ -17,6 +17,7 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.forums.ForumConstants;
+import com.topcoder.web.forums.controller.ForumsUtil;
 
 /**
  * @author billy
@@ -33,8 +34,7 @@ public class RemoveAttachment extends ForumsProcessor {
         String messageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.MESSAGE_ID));
         String tempMessageIDStr = StringUtils.checkNull(getRequest().getParameter(ForumConstants.TEMP_MESSAGE_ID));
         String postMode = getRequest().getParameter(ForumConstants.POST_MODE);
-        String subject = com.jivesoftware.util.StringUtils.escapeHTMLTags(
-                getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT).trim());
+        String subject = ForumsUtil.formatSubject(getRequest().getParameter(ForumConstants.MESSAGE_SUBJECT));
         String body = getRequest().getParameter(ForumConstants.MESSAGE_BODY).trim();
 
         String strAttachmentID = getRequest().getParameter(ForumConstants.ATTACHMENT_ID);
