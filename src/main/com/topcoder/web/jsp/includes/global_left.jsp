@@ -192,7 +192,7 @@ function flipMenu(myMenuName){
 // -->
 </script>
 
-<div style="padding: 0px0px;"><img src="/i/interface/leftnav_top.gif" alt="" /></div>
+<div style="padding: 0px;"><img src="/i/interface/leftnav_top.gif" alt="" /></div>
 <div id="navbar">
     <nav:navBuilder navTree="tree" openClass="OPEN" selectedLeafClass="highlight" selectedParentClass="exp_ed" unSelectedParentClass="exp" selectedNode="<%=request.getParameter("node")%>"/>
     <jsp:include page="/includes/modules/simpleSearch.jsp"/>
