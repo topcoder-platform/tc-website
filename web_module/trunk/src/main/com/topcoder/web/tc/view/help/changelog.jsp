@@ -43,7 +43,7 @@
 </jsp:include>
 
 <p>
-    5.10.4 - 2007.06.xx
+    5.10.4 - 2007.06.11
     <ul>
         <li>Fixed PACTS algorithm round payment generation-pulky</li>
     </ul>
