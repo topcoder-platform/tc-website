@@ -39,17 +39,17 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=061107"><strong>TCO Preview: The Studio Design Competition</strong></a>, by <tc-webtag:handle coderId="15635590" /><br>
+This year's TopCoder Open included a completely new competition track - the Studio Design Competition. We asked some of the Studio Design Competition finalists about their preferences, strengths, and expectations. Here's what they had to say...</li>
 <li><a href="/tc?module=Static&d1=features&d2=060707"><strong>TCO Preview: Meet Team Ukraine</strong></a>, by <tc-webtag:handle coderId="15635590" /> &amp; <tc-webtag:handle coderId="284038" /><br>
 The 2007 TopCoder Open will host six Algorithm semifinalists from Ukraine, with "Team Ukraine" including the six highest rated Algorithm competitors from the country.</li>
 <li><a href="/tc?module=Static&d1=features&d2=060407"><strong>An Interview with Burunduk2</strong></a>, by <tc-webtag:handle coderId="8436401" context="algorithm"/><br>
 In this interview, the winner of TopCoder's first High School tournament talks about how he first got interested in coding, how he got his start in competition, and how he got his nickname.</li>
-<li><a href="/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees"><strong>Binary Indexed Trees</strong></a>, by <tc-webtag:handle coderId="20394568" context="algorithm"/><br>
-Sometimes we need data structures that will make our algorithms faster. In this article we will discuss one such structure -- Binary Indexed Trees. First used for data compression, binary indexed trees are now commonly used for storing frequencies and manipulating cumulative frequency tables.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
-<li><A href="/tc?module=Static&d1=features&d2=092806"><strong>Writing Code That Writes Code</strong></A>, by <tc-webtag:handle coderId="10584406" /><br>
-Writing code that writes code can be a powerful technique for developers. In an effort to be more productive, developers want to be able to accomplish tasks with fewer keystrokes, bugs, and headaches. While writing a code generator can take longer than simply writing the code, the time you can save in the future will more than make up for the initial effort.</ul>
+<li><A href="/tc?module=Static&d1=features&d2=100506"><strong>TopCoder @ Work: Incorporating new technologies</strong></A>, by <tc-webtag:handle coderId="10407399" /> &amp; <tc-webtag:handle coderId="22627518" /><br>
+The situation: The boss has just returned from a technology conference, no doubt full of torturous new ideas. You perspire in your seat, waiting for the inevitable conversation. What twisted brand of innovation will he force upon your project today? Last year's mandatory integration of XML over HTTP launched the development team into long weekends of unpaid overtime, as "unanticipated" browser compatibility issues plagued your flagship product.</ul>
 <br>
 <span class="bodySubtitle">Tell us what you'd like to learn!</span><br>
 Got ideas for educational content you'd like to see? Post your idea in <A href="http://forums.topcoder.com/?module=ThreadList&forumID=505803">the forum</A> for members to discuss, or send an email with your idea to <A href="mailto:editorial@topcoder.com">editorial@topcoder.com</A>.
