@@ -54,6 +54,14 @@
         <jsp:param name="title" value="Contest Details"/>
     </jsp:include>
 
+<%-- BRANDING --%>
+<div style="padding: 0px 0px 0px 5px; float: right;">
+    <img src="/i/longcontest/spon_verisign.png" alt="Sponsor" border="0">
+</div>
+
+<%-- BRANDING --%>
+<h2>Contest Name</h2>
+
 <div align="center">
     <table style="margin-top: 20px; margin-bottom: 20px;" cellpadding="0" cellspacing="0">
         <tbody>
@@ -75,7 +83,7 @@
 
 <div class="sectionHeader">Competition Overview</div>
 
-<p>
+<p align="justify">
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer justo dui, pharetra sed, ornare a, luctus sed,
     lacus. Vivamus nonummy. Ut bibendum nisi quis lacus. Nunc eu lacus sit amet urna vehicula vestibulum. Maecenas
     laoreet nunc. Nulla facilisi. Proin sem. Praesent nisl arcu, lobortis non, molestie nec, gravida ac, ipsum. Aenean
@@ -83,7 +91,7 @@
     lorem id dui. Maecenas ante.
 </p>
 
-<p>
+<p align="justify">
     Morbi ut nibh vel justo placerat posuere. Etiam ac sem a elit posuere gravida. Curabitur commodo nulla vitae massa.
     Fusce tincidunt tincidunt arcu. Proin interdum consequat diam. Pellentesque metus nisl, consectetuer quis, viverra
     non, imperdiet at, nibh. Maecenas imperdiet, arcu sit amet condimentum viverra, tortor elit ornare urna, eu interdum
@@ -91,7 +99,7 @@
     potenti. Nam a sem et ante pulvinar sollicitudin.
 </p>
 
-<p>
+<p align="justify">
     Nulla metus. Nullam malesuada quam. Curabitur convallis aliquet dui. Nulla augue nulla, elementum nec, commodo eget,
     vulputate et, diam. Vivamus commodo, dui sed mollis rhoncus, augue est hendrerit sapien, et scelerisque augue enim
     at sem. Morbi vel sem sed nisl facilisis tincidunt. Vestibulum nec est. Vestibulum ante ipsum primis in faucibus
@@ -103,7 +111,7 @@
 
 <div class="sectionHeader">Prizes</div>
 
-<p>
+<p align="justify">
     Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer justo dui, pharetra sed, ornare a, luctus sed,
     lacus. Vivamus nonummy. Ut bibendum nisi quis lacus. Nunc eu lacus sit amet urna vehicula vestibulum. Maecenas
     laoreet nunc. Nulla facilisi. Proin sem. Praesent nisl arcu, lobortis non, molestie nec, gravida ac, ipsum. Aenean
