@@ -125,7 +125,7 @@ It varies. The hardest thing is to have a good idea that fits the contest requir
 It was really hard because I'm working on my final project to finish my university studies, but when I was tired of coding I relaxed a little doing some sketches.</p>
 
 <p><strong>Your favorite design in the online rounds?</strong><br>
-The simplest idea (and the winning one) - the Algorithm T-shirt with words ÒPassed System Test".</p>
+The simplest idea (and the winning one) - the Algorithm T-shirt with words "Passed System Test".</p>
 
 <p><strong>Was there a contest that you'd like the chance to do over?</strong><br>
 All of them, I think I didn't do my best in any of them.</p>
