@@ -69,6 +69,7 @@
                         </td>
                         <td class="header">&nbsp;</td>
                     </tr>
+<%--
                     <% boolean even = true;%>
                     <tr class="<%=even?"light":"dark"%>">
                         <td class="value">
@@ -84,20 +85,19 @@
                             <span class="bigRed">$6,000.00</span>
                         </td>
                         <td class="valueC">
-                            30
+                            32
                         </td>
                         <td class="valueC">
                             0
                         </td>
                         <td class="valueR" nowrap="nowrap">
-                            <%--registration closed--%>
                             <A href="/?module=SecureStatic&d1=assembly&d2=reg" class="button" style="margin: 4px;">Register</A>
                             <A href="/?module=Static&d1=assembly&d2=orIntro" class="button" style="margin: 4px;">Submit</A>
                         </td>
                     </tr>
                     <% even = !even;%>
+--%>
 
-<%--
                 <tr class="light">
 
                     <td class="valueC" colspan="7">
@@ -107,7 +107,6 @@
                         </div>
                     </td>
                 </tr>
---%>
 
                 </tbody>
             </table>

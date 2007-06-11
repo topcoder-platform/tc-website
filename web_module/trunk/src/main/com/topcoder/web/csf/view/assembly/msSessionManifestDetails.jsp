@@ -43,6 +43,7 @@
     > Microsoft Session Manifest Tool
 </div>
 
+<%--
         <div align="center">
         <table class="bodyText" style="margin-top: 20px; margin-bottom: 20px; width: 320px;" cellpadding="0" cellspacing="0">
             <tbody>
@@ -71,6 +72,7 @@
         </table>
         </div>
         <div align="center"><span class="bigRed">Prizes doubled!</span></div>
+--%>
 
 <h2>Project Overview</h2>
 
