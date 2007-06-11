@@ -53,15 +53,23 @@
             <jsp:param name="title" value="Contest Details"/>
         </jsp:include>
 
-        <h2>Official Rules & Regulations</h2>
+        <%-- BRANDING --%>
+        <div style="padding: 0px 0px 0px 5px; float: right;">
+            <img src="/i/longcontest/spon_verisign.png" alt="Sponsor" border="0">
+        </div>
+        
+        <%-- BRANDING --%>
+        <h2>Contest Name</h2>
 
-        <p>
+        <h3>Official Rules & Regulations</h3>
+
+        <p align="justify">
         No purchase necessary to enter or win.
         </p>
 
         <div class="sectionHeader">About the Competition</div>
 
-        <p>
+        <p align="justify">
             <strong>When to start the Competition Round</strong><br />
             TopCoder members must register for the competition round. Registration may occur at any time
             from.
@@ -78,7 +86,7 @@
             earliest time that any member will be given
             access to the problem statement.
         </p>
-        <p>
+        <p align="justify">
             <strong>Upon Entering a Marathon Match</strong><br />
             Each Marathon Match will contain a single problem. The problem statement will indicate both
             the question
@@ -93,24 +101,24 @@
 
         <div class="sectionHeader">Conditions of Participation</div>
 
-        <p>
+        <p align="justify">
         By participating in the competition round, you agree to be bound by these rules and to all decisions
         of TopCoder,
         which are final, binding and conclusive in all matters.
         </p>
 
-        <p>
+        <p align="justify">
         Contestants must not cheat; all ideas for any code submitted must be the contestant's alone.
         </p>
 
-        <p>
+        <p align="justify">
         The winner in each Marathon Match will be the competitor that scores the most points across all
         competitors who participate in that match. All decisions relating to the viability of submissions,
         the ranking of submissions and all other matters pertaining to the competition shall be within the
         sole discretion of TopCoder or its designee and shall be final and binding in all respects.
         </p>
 
-        <p>
+        <p align="justify">
         By participating in a Marathon Match, a winner releases and agrees to hold harmless TopCoder, its
         affiliates, subsidiaries, sponsors, advertising and promotion agencies, and prize suppliers, and all
         of their respective directors, officers, employees, representatives and agents, from and against any
@@ -120,7 +128,7 @@
         receipt, use or misuse of a prize.
         </p>
 
-        <p>
+        <p align="justify">
         TopCoder, in its sole discretion, reserves the right to disqualify any person tampering with the
         entry process, the operation of the Web site, the competition process, or is otherwise in violation
         of the rules. TopCoder reserves the right to cancel, terminate or modify the competition if it is
@@ -130,11 +138,11 @@
 
         <div class="sectionHeader">Eligibility</div>
 
-        <p>
+        <p align="justify">
         The competition is open to all members who are at least 13 years of age.
         </p>
 
-        <p>
+        <p align="justify">
         All competitors must be registered members of TopCoder, and must have agreed to the rules on this
         page prior to
         participating in this competition between the
@@ -144,7 +152,7 @@
         competition submission deadline.
         </p>
 
-        <p>
+        <p align="justify">
         Employees of TopCoder and those involved in the development, production (including prize suppliers
         and sponsors), implementation and distribution of this tournament and their advertising or promotion
         agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any
@@ -155,22 +163,22 @@
 
         <div class="sectionHeader">Other</div>
         
-        <p>
+        <p align="justify">
         The competition is void in whole or in part where prohibited by law.
         </p>
         
-        <p>
+        <p align="justify">
         A winners list of coder handles for all competitions will be available on the web site at http://www.topcoder.com
         displayed for at least 3 months after the end of the competition.
         </p>
         
-        <p>
+        <p align="justify">
         This tournament is brought to you by TopCoder, Inc., 703 Hebron Ave, Glastonbury, CT 06033.
         </p>
 
-<h2 align="center">
-    <a href="?<%=Constants.MODULE_KEY%>=MatchDetails&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}" class="bcLink">Back to Contest Details</a>
-</h2>
+        <h2 align="center">
+            <a href="?<%=Constants.MODULE_KEY%>=MatchDetails&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}" class="bcLink">Back to Contest Details</a>
+        </h2>
 
             </div>
         </td>
