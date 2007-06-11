@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="15635590" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=061107"><strong>TCO Preview: The Studio Design Competition</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Jun 11, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="15635590" /> &amp; <tc-webtag:handle coderId="284038" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=060707"><strong>TCO Preview: Meet Team Ukraine</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jun 7, 2007</td> 

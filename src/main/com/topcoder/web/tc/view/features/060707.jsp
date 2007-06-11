@@ -54,7 +54,7 @@
 </div>
 <div class="authorText">
   By&#160;<tc-webtag:handle coderId="15635590" /> &amp; <tc-webtag:handle coderId="284038" /><br />
-      <em>TopCoder Member</em>
+      <em>TopCoder Members</em>
 </div>
 
 <br clear="all">
