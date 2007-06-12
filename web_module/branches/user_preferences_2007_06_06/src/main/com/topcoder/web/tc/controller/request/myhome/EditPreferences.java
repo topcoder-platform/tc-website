@@ -68,8 +68,8 @@ public class EditPreferences extends ShortHibernateProcessor {
         // this cannot be changed by high school users
         if ((u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getCompetitionType()) ||
                 u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getStudioType())) &&
-                u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
-            log.debug("is high school");
+                !u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+            log.debug("ask for showing high school");
             getRequest().setAttribute("isHighSchool", Boolean.TRUE);
             setDefault("show_school", u.getCoder().getCurrentSchool().getViewable());                        
         } else {
