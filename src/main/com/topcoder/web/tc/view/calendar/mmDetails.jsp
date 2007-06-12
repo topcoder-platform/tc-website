@@ -85,42 +85,40 @@
 
 <div class="sectionHeader">Competition Overview</div>
 
+<%if(row.getIntItem("round_id") == 10834) {%>
 <p align="justify">
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer justo dui, pharetra sed, ornare a, luctus sed,
-    lacus. Vivamus nonummy. Ut bibendum nisi quis lacus. Nunc eu lacus sit amet urna vehicula vestibulum. Maecenas
-    laoreet nunc. Nulla facilisi. Proin sem. Praesent nisl arcu, lobortis non, molestie nec, gravida ac, ipsum. Aenean
-    ornare nibh a nulla. Fusce dignissim, sem pulvinar adipiscing faucibus, pede dui laoreet ligula, in hendrerit nunc
-    lorem id dui. Maecenas ante.
+    This Marathon Match has some new rules and terms.  Please make sure to read
+    the rules carefully before competing.  By submitting a solution in this match,
+    you are agreeing to license it under the GNU Public License, Version 2.0.
 </p>
+<%}%>
 
 <p align="justify">
-    Morbi ut nibh vel justo placerat posuere. Etiam ac sem a elit posuere gravida. Curabitur commodo nulla vitae massa.
-    Fusce tincidunt tincidunt arcu. Proin interdum consequat diam. Pellentesque metus nisl, consectetuer quis, viverra
-    non, imperdiet at, nibh. Maecenas imperdiet, arcu sit amet condimentum viverra, tortor elit ornare urna, eu interdum
-    nulla nulla quis augue. Nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse
-    potenti. Nam a sem et ante pulvinar sollicitudin.
+    Unlike traditional algorithm competitions, the system is not necessarily testing for correctness. 
+    In Marathon Matches, the scoring mechanism may be different for each problem. 
+    A description of the scoring mechanism will be provided in the problem statement. 
+    Competitors will have to understand the scoring mechanism in order to effectively compete.  
+    Participants may submit code written in one of the following languages: Java, C++, C#.NET, VB.NET, or Python. 
 </p>
-
 <p align="justify">
-    Nulla metus. Nullam malesuada quam. Curabitur convallis aliquet dui. Nulla augue nulla, elementum nec, commodo eget,
-    vulputate et, diam. Vivamus commodo, dui sed mollis rhoncus, augue est hendrerit sapien, et scelerisque augue enim
-    at sem. Morbi vel sem sed nisl facilisis tincidunt. Vestibulum nec est. Vestibulum ante ipsum primis in faucibus
-    orci luctus et ultrices posuere cubilia Curae; Fusce ut mi. Mauris sollicitudin lacinia velit. Curabitur sed arcu.
-    Vivamus ipsum. Ut ullamcorper felis hendrerit pede. Cras felis eros, convallis non, pretium ac, interdum id, dui.
-    Praesent hendrerit consectetuer massa. Vestibulum laoreet. Donec sollicitudin vehicula turpis. Quisque eget nisi et
-    dolor porta ultricies.
+    Once the submission phase of a Marathon Match has ended, 
+    the final results will become available by clicking the Results link. 
+    Competitors will be able to see the test cases, other competitors' submissions, and results.
+    Once the results are final, ratings will be adjusted.
+</p>
+<p align="justify">
+    For more details on the Marathon Match format, <a href="/longcontest/?module=Static&d1=instructions">click here</a>
 </p>
 
+<%if(row.getIntItem("round_id") == 10834) {%>
 <div class="sectionHeader">Prizes</div>
-
+    There will be $5000 in total prize money.  The first and second highest scoring
+    submissions in each of the five languages supported will receive $750 and $250,
+    respectively.
 <p align="justify">
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Integer justo dui, pharetra sed, ornare a, luctus sed,
-    lacus. Vivamus nonummy. Ut bibendum nisi quis lacus. Nunc eu lacus sit amet urna vehicula vestibulum. Maecenas
-    laoreet nunc. Nulla facilisi. Proin sem. Praesent nisl arcu, lobortis non, molestie nec, gravida ac, ipsum. Aenean
-    ornare nibh a nulla. Fusce dignissim, sem pulvinar adipiscing faucibus, pede dui laoreet ligula, in hendrerit nunc
-    lorem id dui. Maecenas ante.
+    
 </p>
-
+<%}%>
 <div class="sectionHeader">Timeline</div>
 
 <div align="center" style="margin: 20px;">
