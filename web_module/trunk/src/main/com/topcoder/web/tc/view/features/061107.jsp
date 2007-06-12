@@ -97,7 +97,7 @@ This year's TopCoder Open included a completely new competition track, which may
 <p><span class="bodySubtitle">The Finals and the Finalists</span><br />
 As mentioned above, many of the best-performing Studio members will not compete in the finals mainly due to visa problems. However, I believe the competition will still be interesting - depending on the task the finalists will get.</p>
 
-<p>Unlike the Component Competition, the finalists will receive the description of their task only in Las Vegas, at the Welcome Reception on Tuesday, and they will have from then until Thursday to think it over. On Thursday they will have nine hours to realize their designs, get feedback from the judges and incorporate it into their final submissions. After that the judges will determine the winner - with no community vote or opinion factoring in this time.</p>
+<p>Unlike the Component Competition, the finalists will receive the description of their task only in Las Vegas, at the Welcome Reception on Tuesday, and they will have from then until Thursday to think it over. On Thursday they will have nine hours to realize their designs, get feedback from the judges and incorporate it into their final submissions. After the round is over, the final submissions will go to the community for a 24-hour vote.</p>
 
 <p>We were able to talk to most of the Studio Design Competition finalists about their preferences, strengths, and expectations. Here's what they had to say:</p>
 <br>
@@ -144,7 +144,7 @@ Yes, but after 5 years at the keyboard I'm rusty a little.</p>
 <tc-webtag:handle coderId="20781137" />, India<br>
 student of Netaji Subhas Institute of Technology<br>
 TCO achievements:	10 points (1 win)<br>
-Pre-TCO achievements:	1 third place
+Pre-TCO achievements:	1 win, 1 third place
 </p>
 
 <p><strong>What type of contests do you prefer?</strong><br>
@@ -306,7 +306,7 @@ My UML Tool Splash Screen designs - for the idea.</p>
 26 years, programmer<br>
 Interests: astronomy, classical music<br>
 TCO achievements:	40 points (3 second, 3 third and 1 fourth places)<br>
-Pre-TCO achievements:	3 wins and 1 fourth place
+Pre-TCO achievements:	4 wins, 1 third and 1 fourth
 </p>
 
 <p><strong>How long have you been taking part in Studio contests?</strong><br>
