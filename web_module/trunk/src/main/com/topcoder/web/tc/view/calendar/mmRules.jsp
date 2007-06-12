@@ -90,15 +90,28 @@
         </p>
         <p align="justify">
             <strong>Upon Entering a Marathon Match</strong><br />
-            Each Marathon Match will contain a single problem. The problem statement will indicate both
-            the question
-            presented to the contestant as well as how submissions will be scored. Contestants will
-            submit their
-            solution which will immediately be put on a queue for system testing. Once system testing is
-            complete,
-            the competitor will be assigned a score which will be available on the website. Each
-            competitor may
-            submit as many times as they choose, however they may only submit once per hour.
+            All competitors registered for a specific Marathon Match will see a Submit option 
+            for that event. Clicking the Submit link will take you to a page that will 
+            allow you to paste in a solution, select the proper language and either submit 
+            (for compilation and testing) or save your code. When the Submit button is 
+            selected, the code will be immediately compiled. Any compilation messages 
+            or errors will be shown in the Messages Area. If the compilation was 
+            successful, the submission will then be placed on a queue for automated testing. 
+            Example test cases will not be tested. When your submission has been processed,
+            you will receive an email indicating such and your place in the standings will 
+            be adjusted accordingly. During the submission phase, overall ranking and 
+            provisional score are the only pieces of information that will be made 
+            available. A given competitor will only be allowed to submit once every 
+            4 hours.  Additionally, if a competitor has a pending submission on the 
+            testing queue it must finish testing before they may submit again.
+        </p>
+        <p align="justify">
+            Clicking the Test Examples button will immediately compile and place your 
+            submission on a queue for automated testing of just the example test cases. 
+            Detailed feedback will be made available when the tests are complete, 
+            including processing time, score, and any output from the program. 
+            Competitors may submit test examples once every 30 minutes. The competitor's 
+            rank and overall score will not be updated.
         </p>
 
         <div class="sectionHeader">Conditions of Participation</div>
@@ -109,6 +122,17 @@
         which are final, binding and conclusive in all matters.
         </p>
 
+        <%if(rsr.getIntItem("round_id") == 10834) {%>
+        <p align="justify">
+            By participating in this Competition, you agree to license any code you 
+            submit in this Competition under the GNU General Public License as 
+            published by the Free Software Foundation, Version 2.0 to all other
+            competitors participating in this Competition (the terms and conditions
+            of the license may be found at 
+            <a href="http://www.opensource.org/licenses/gpl-licenses.php">http://www.opensource.org/licenses/gpl-licenses.php</a>.
+        </p>
+        <%}%>
+        
         <p align="justify">
         Contestants must not cheat; all ideas for any code submitted must be the contestant's alone.
         </p>
