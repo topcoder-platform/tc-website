@@ -5,7 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
@@ -17,7 +16,6 @@ import com.topcoder.web.common.model.PreferenceGroup;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
-import com.topcoder.web.tc.Constants;
 
 /**
  * @author pulky
@@ -107,6 +105,7 @@ public class EditPreferences extends ShortHibernateProcessor {
             }
             DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);                
         } else {
+            getRequest().setAttribute("group",  getRequest().getParameter("group"));
             getRequest().setAttribute("preferenceList", preferenceList);
     
             setNextPage("/my_home/privacy.jsp");
