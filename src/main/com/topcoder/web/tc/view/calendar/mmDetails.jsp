@@ -55,11 +55,11 @@
     </jsp:include>
 
 <%-- BRANDING --%>
-<div style="padding: 0px 0px 0px 5px; float: right;">
     <c:if test="${row.map['mm_image_path']!=null}">
+    <div style="padding: 0px 0px 0px 5px; float: right;">
         <img src="${row.map['mm_image_path']}" alt="Sponsor" border="0">
+    </div>
     </c:if>
-</div>
 
 <%-- BRANDING --%>
 <h2>${row.map['contest_name']} &gt; ${row.map['round_name']}</h2>
