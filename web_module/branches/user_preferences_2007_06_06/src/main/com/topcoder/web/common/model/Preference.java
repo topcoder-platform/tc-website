@@ -1,6 +1,7 @@
 package com.topcoder.web.common.model;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -29,6 +30,7 @@ public class Preference extends Base implements Comparable {
     private String description;
     private String sort;
     private Set values;
+    private Set registrationTypes;
 
     public Integer getId() {
         return id;
@@ -39,6 +41,11 @@ public class Preference extends Base implements Comparable {
     }
 
     public Preference() {
+        this.registrationTypes = new HashSet();
+    }
+
+    public Set getRegistrationTypes() {
+        return Collections.unmodifiableSet(registrationTypes);
     }
 
     public String getName() {
@@ -89,6 +96,9 @@ public class Preference extends Base implements Comparable {
         this.values = values;
     }
 
+    public void setRegistrationTypes(Set registrationTypes) {
+        this.registrationTypes = registrationTypes;
+    }
 
     public int compareTo(Object o) {
         Preference other = (Preference) o;

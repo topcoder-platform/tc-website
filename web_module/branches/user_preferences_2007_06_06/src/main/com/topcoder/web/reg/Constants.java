@@ -62,7 +62,8 @@ public class Constants implements WebConstants {
     public static final String HOME_SCHOOLED = "Home School";
 
     public static final String MEMBER_CONTACT = "pref_24";
-    public static final String SHOW_EARNINGS = "pref_100";
+    public static final String SHOW_SCHOOL = "pref_100";
+    public static final String SHOW_EARNINGS = "pref_101";
     
 
     public final static String PUNCTUATION = "-_.{}[]()";

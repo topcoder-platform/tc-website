@@ -17,6 +17,7 @@ public class RegistrationType extends Base {
     private Boolean active;
     private SecurityGroup securityGroup;
     private Set notifications;
+    private Set preferences;
     private Integer sort;
 
     public static final Integer COMPETITION_ID = new Integer(1);
@@ -28,6 +29,13 @@ public class RegistrationType extends Base {
 
     public RegistrationType() {
         this.notifications = new HashSet();
+        this.preferences = new HashSet();
+    }
+
+    public RegistrationType(Integer id) {
+        this.id = id;
+        this.notifications = new HashSet();
+        this.preferences = new HashSet();        
     }
 
     public String getDescription() {
@@ -49,6 +57,10 @@ public class RegistrationType extends Base {
 
     public Set getNotifications() {
         return Collections.unmodifiableSet(notifications);
+    }
+
+    public Set getPreferences() {
+        return Collections.unmodifiableSet(preferences);
     }
 
     public String getName() {
