@@ -74,9 +74,7 @@
                                 <span style="display: block; padding-top: 4px;">Show / hide my school:</span>
                             </td>
                             <td class="value" width="100%">
-                                <c:choose>
-                                    <tc-webtag:chkBox name="show_school"/>
-                                </c:choose>
+                                <tc-webtag:chkBox name="show_school"/>
                             </td>
                         </tr>
                     </c:if>
