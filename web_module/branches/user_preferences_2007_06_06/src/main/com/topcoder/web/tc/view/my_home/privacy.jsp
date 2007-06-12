@@ -21,6 +21,13 @@
     border-top: 0px;
     }
     </style>
+        <script type="text/javascript">
+        function submit() {
+            var myForm = document.f;
+            myForm.submit();
+        }
+    </script>
+    
 </head>
 
 <body>
@@ -48,6 +55,10 @@
                     <jsp:param name="image" value="my_tc"/>
                     <jsp:param name="title" value="Privacy"/>
                 </jsp:include>
+
+            <form name="f" action="${sessionInfo.servletPath}" method="post">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditPreferences"/>
+            <tc-webtag:hiddenInput name="group"/>
 
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tbody>
@@ -118,7 +129,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <a href="#" class="button" style="width: 60px; margin-right: 10px;">Save</a>
+                                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Save</a>
                             </td>
                             <td>
                                 <a href="/tc?module=Static&amp;d1=my_home&amp;d2=index" class="button" style="width: 60px;">Cancel</a>
@@ -126,6 +137,7 @@
                         </tr>
                     </tbody>
                     </table>
+                </form>            
                 </div>
 
             </div>

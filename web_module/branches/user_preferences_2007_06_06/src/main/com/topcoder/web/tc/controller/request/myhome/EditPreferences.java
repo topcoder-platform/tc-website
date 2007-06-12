@@ -82,7 +82,7 @@ public class EditPreferences extends ShortHibernateProcessor {
             askHighSchool = true;
             if (!isPost) {
                 getRequest().setAttribute("isHighSchool", Boolean.TRUE);
-                setDefault("show_school", u.getCoder().getCurrentSchool().getViewable());
+                setDefault("show_school", u.getCoder().getCurrentSchool() == null ? Boolean.FALSE : u.getCoder().getCurrentSchool().getViewable());
             }
         } else {
             if (!isPost) {
