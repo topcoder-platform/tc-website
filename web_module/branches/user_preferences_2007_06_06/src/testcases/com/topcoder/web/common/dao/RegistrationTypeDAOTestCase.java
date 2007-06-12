@@ -28,4 +28,9 @@ public class RegistrationTypeDAOTestCase extends TCHibernateTestCase {
         assertTrue("count not find any notificatinos", rt != null && !rt.isEmpty());
     }
 
+    public void testPreferences() {
+        Set rt = DAOUtil.getFactory().getRegistrationTypeDAO().find(new Integer(1)).getPreferences();
+        assertTrue("count not find any preferences", rt != null && !rt.isEmpty());
+    }
+
 }

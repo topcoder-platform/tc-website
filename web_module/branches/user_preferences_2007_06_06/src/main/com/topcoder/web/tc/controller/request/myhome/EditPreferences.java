@@ -14,7 +14,6 @@ import com.topcoder.web.common.model.PreferenceGroup;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
-import com.topcoder.web.reg.RegFieldHelper;
 
 /**
  * @author pulky
@@ -77,3 +76,4 @@ public class EditPreferences extends ShortHibernateProcessor {
         setNextPage("/my_home/privacy.jsp");
         setIsNextPageInContext(true);
     }
+}
