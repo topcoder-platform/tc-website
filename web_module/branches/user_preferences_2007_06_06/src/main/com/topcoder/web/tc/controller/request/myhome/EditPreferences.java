@@ -99,7 +99,7 @@ public class EditPreferences extends ShortHibernateProcessor {
                 u.getUserPreference(p.getId()).setValue(pref);
             }
             if (askHighSchool) {
-                String showSchool = StringUtils.checkNull(getRequest().getParameter("show_school")));
+                String showSchool = StringUtils.checkNull(getRequest().getParameter("show_school"));
                 if (showSchool == "") {
                     throw new TCWebException("missing pref parameter: show_school");
                 }
