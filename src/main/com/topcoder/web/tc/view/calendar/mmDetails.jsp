@@ -56,11 +56,13 @@
 
 <%-- BRANDING --%>
 <div style="padding: 0px 0px 0px 5px; float: right;">
-    <img src="/i/longcontest/spon_verisign.png" alt="Sponsor" border="0">
+    <c:if test="${row.map['mm_image_path']!=null}">
+        <img src="${row.map['mm_image_path']}" alt="Sponsor" border="0">
+    </c:if>
 </div>
 
 <%-- BRANDING --%>
-<h2>Contest Name</h2>
+<h2>${row.map['contest_name']} &gt; ${row.map['round_name']}</h2>
 
 <div align="center">
     <table style="margin-top: 20px; margin-bottom: 20px;" cellpadding="0" cellspacing="0">
