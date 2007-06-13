@@ -88,7 +88,7 @@ public class ComponentRecordbook extends Static {
 
             DataAccessInt dai2 = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
             Map result2 = dai2.getData(r);
-            ResultSetContainer rsc2 = (ResultSetContainer) result.get("member_contact_enabled"));
+            ResultSetContainer rsc2 = (ResultSetContainer) result.get("member_contact_enabled");
 
             for (ResultSetRow rsr : rsc2) {
                 if (!"hide".equals(rsr.getStringItem("value"))) {
