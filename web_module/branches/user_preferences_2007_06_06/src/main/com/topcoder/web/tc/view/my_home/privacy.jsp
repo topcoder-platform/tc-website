@@ -74,6 +74,14 @@
                                     <c:when test="${preference.type.id == 1}">
                                         <tc-webtag:chkBox name="pref_${preference.id}"/>
                                     </c:when>
+                                    <c:when test="${preference.type.id == 4}">
+                                        <<tc-webtag:radioButton name="pref_${preference.id}" value="true"/> Show
+                                        <br/><tc-webtag:radioButton name="pref_${preference.id}" value="false"/> Hide
+                                    </c:when>
+                                    <c:when test="${preference.type.id == 4}">
+                                        <<tc-webtag:radioButton name="pref_${preference.id}" value="true"/> Yes
+                                        <br/><tc-webtag:radioButton name="pref_${preference.id}" value="false"/> No
+                                    </c:when>
                                     <c:otherwise>
                                         <tc-webtag:textInput name="pref_${preference.id}"/>
                                     </c:otherwise>
