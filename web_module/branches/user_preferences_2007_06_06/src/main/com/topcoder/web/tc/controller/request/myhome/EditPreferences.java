@@ -90,20 +90,20 @@ public class EditPreferences extends ShortHibernateProcessor {
 
         if (isPost) {
             for (Preference p : preferenceList) {
-                String pref = getRequest().getParameter("pref_" + p.getId());
+                String pref = StringUtils.checkNull(getRequest().getParameter("pref_" + p.getId()));
                 log.debug("getting param: pref_" + p.getId() + ": " + pref);
-                if (pref == null) {
-                    throw new TCWebException("missing pref parameter: " + p.getId());
+                if (pref == "") {
+                    addError("err_" + p.getId(), "Please select the following option");
                 }
                 u.getUserPreference(p.getId()).setValue(pref);
             }
             if (askHighSchool) {
                 String showSchool = StringUtils.checkNull(getRequest().getParameter("show_school"));
                 log.debug("getting param: show_school: " + showSchool);
-                if (showSchool == null) {
-                    throw new TCWebException("missing pref parameter: show_school");
+                if (showSchool == "") {
+                    addError("err_show_school", "Please select the following option");
                 }
-                u.getCoder().getCurrentSchool().setViewable("on".equals(showSchool));           
+                u.getCoder().getCurrentSchool().setViewable("show".equals(showSchool));           
             }
             DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);                
         } else {
