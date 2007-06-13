@@ -41,6 +41,17 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+<%--
+<li>Fix validation in component registration process to make sure a reviewer can not compete on a project that they reviewed -dok</li>
+--%>
+
+<p>
+    5.10.5 - 2007.06.13
+    <ul>
+        <li>If the user goes to the old affidavit history link, redirect them to the new page -dok</li>
+    </ul>
+</p>
+
 
 <p>
     5.10.4 - 2007.06.11
