@@ -105,7 +105,7 @@ public class EditPreferences extends ShortHibernateProcessor {
             }
             DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);                
         } else {
-            getRequest().setAttribute("group",  getRequest().getParameter("group"));
+            setDefault("group",  getRequest().getParameter("group"));
             getRequest().setAttribute("preferenceList", preferenceList);
     
             setNextPage("/my_home/privacy.jsp");
