@@ -23,8 +23,6 @@ if (type == null) type = HandleTag.COMPONENT; %>
         <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
         <td class="value">
-            ${row.map['coder_id']}<br/>
-            ${cf:contains(hideList, row.map['coder_id'])}
             <c:if test="${empty hideList || !cf:contains(hideList, row.map['coder_id'])}">
                <tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/>
             </c:if>

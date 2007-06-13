@@ -87,7 +87,7 @@ public class ComponentRecordbook extends Static {
             r.setContentHandle("users_payments_visible");
             r.setProperty("cts", coderStr);
 
-            DataAccessInt dai2 = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
+            DataAccessInt dai2 = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true);
             Map result2 = dai2.getData(r);
             ResultSetContainer rsc2 = (ResultSetContainer) result2.get("users_payments_visible");
 
