@@ -27,8 +27,6 @@ public class EditPreferences extends ShortHibernateProcessor {
     protected void dbProcessing() throws Exception {
         boolean askHighSchool = false;
         
-        boolean isPost = "POST".equals(getRequest().getMethod()); 
-
         if (!userIdentified()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
@@ -61,9 +59,7 @@ public class EditPreferences extends ShortHibernateProcessor {
                         log.debug("In user's preferences");
                         String key = "pref_" + p.getId();
                         log.debug("Value: " + up.getValue());
-                        if (!isPost) {
-                            setDefault(key, up.getValue());
-                        }
+                        setDefault(key, up.getValue());
                     }
                 }
                 preferenceList.add(p);
@@ -78,17 +74,13 @@ public class EditPreferences extends ShortHibernateProcessor {
                 !u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
             log.debug("ask for showing high school");
             askHighSchool = true;
-            if (!isPost) {
-                getRequest().setAttribute("isHighSchool", Boolean.TRUE);
-                setDefault("show_school", u.getCoder().getCurrentSchool() == null ? Boolean.FALSE : u.getCoder().getCurrentSchool().getViewable());
-            }
+            getRequest().setAttribute("isHighSchool", Boolean.TRUE);
+            setDefault("show_school", u.getCoder().getCurrentSchool() == null ? Boolean.FALSE : u.getCoder().getCurrentSchool().getViewable());
         } else {
-            if (!isPost) {
-                getRequest().setAttribute("isHighSchool", Boolean.FALSE.toString());
-            }
+            getRequest().setAttribute("isHighSchool", Boolean.FALSE.toString());
         }
 
-        if (isPost) {
+        if ("POST".equals(getRequest().getMethod())) {
             for (Preference p : preferenceList) {
                 String pref = StringUtils.checkNull(getRequest().getParameter("pref_" + p.getId()));
                 log.debug("getting param: pref_" + p.getId() + ": " + pref);
