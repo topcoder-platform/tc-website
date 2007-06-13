@@ -2,6 +2,43 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%-------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.13.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm353">SRM 353 - Problem Set &amp; Analysis</A></span><br><br>
+      Division 2 was presented with a balanced problem set with a trivial easy, straightforward medium and standard dynamic programming as a hard. A bunch of coders solved all three problems correctly.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/xOberon_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="9906220" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm353">full story</A> | 
+        <tc-webtag:forumLink forumID="516050" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   -------------------------%>
+   
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>06.13.07<br>2:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=MatchDetails&rd=10711">Yodlee chat session scheduled for SRM 354</A>
+        </span><br><br>
+        Join representatives from Yodlee in the Arena at 6:00 AM EDT on June 14 to learn more about the company and its job opportunities.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=MatchDetails&rd=10711">details</A> |
+        <tc-webtag:forumLink forumID="515944" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+      
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>06.12.07<br>3:10 PM</td>
@@ -196,21 +233,3 @@
         <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>05.31.07<br>3:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees">Binary Indexed Trees</A></span><br><br>
-      Sometimes we need data structures that will make our algorithms faster. In this article we will discuss one such structure -- Binary Indexed Trees. First used for data compression, binary indexed trees are now commonly used for storing frequencies and manipulating cumulative frequency tables.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/boba5551_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="20394568" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees">full story</A> | 
-        <tc-webtag:forumLink forumID="515996" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
-   </td></tr>
-
