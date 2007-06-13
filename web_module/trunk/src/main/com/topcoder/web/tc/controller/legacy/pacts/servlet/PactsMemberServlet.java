@@ -111,7 +111,8 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                         } else if (c.equals(AFFIDAVIT_RENDER_CMD)) {
                             doAffidavitRender(request, response);
                         } else if (c.equals(AFFIDAVIT_HISTORY_CMD)) {
-                            fetchRegularPage(request, response, "?" + MODULE + "=AffidavitHistory", false);
+
+                            fetchRegularPage(request, response, info.getServletPath() + "?" + MODULE + "=AffidavitHistory", false);
                         } else {
                             throw new NavigationException();
                         }
