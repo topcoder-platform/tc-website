@@ -34,7 +34,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Map;
 
 public class PactsMemberServlet extends BaseServlet implements PactsConstants {
     private static Logger log = Logger.getLogger(PactsMemberServlet.class);
@@ -111,6 +110,10 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                             doAffidavitDetails(request, response);
                         } else if (c.equals(AFFIDAVIT_RENDER_CMD)) {
                             doAffidavitRender(request, response);
+                        } else if (c.equals(AFFIDAVIT_HISTORY_CMD)) {
+                            fetchRegularPage(request, response, "?" + MODULE + "=AffidavitHistory", false);
+                        } else {
+                            throw new NavigationException();
                         }
                     } else if (t.equals(CONTRACT_TASK)) {
                         // it is a contract task
@@ -120,6 +123,8 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                             doContractPaymentSummary(request, response);
                         } else if (c.equals(CONTRACT_DETAILS_CMD)) {
                             doContractDetails(request, response);
+                        } else {
+                            throw new NavigationException();
                         }
                     } else if (t.equals(PAYMENT_TASK)) {
                         // it is a payment task
@@ -127,6 +132,8 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                             doPaymentHistory(request, response);
                         } else if (c.equals(PAYMENT_DETAILS_CMD)) {
                             doPaymentDetails(request, response);
+                        } else {
+                            throw new NavigationException();
                         }
                     } else if (t.equals(TAX_FORM_TASK)) {
                         // it is a user tax for task
@@ -134,6 +141,8 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
                             doTaxFormHistory(request, response);
                         } else if (c.equals(TAX_FORM_DETAILS_CMD)) {
                             doTaxFormDetails(request, response);
+                        } else {
+                            throw new NavigationException();
                         }
                     } else {
                         throw new NavigationException();
@@ -237,76 +246,6 @@ public class PactsMemberServlet extends BaseServlet implements PactsConstants {
 
     /************************** Get methods ******************************/
 
-    /**
-     * this method is used to query the database for an affidavit history
-     * of the logged in user. The userId is obtained from the Navigation
-     * object and a PactsMemberTableModel is filled with the data
-     * returned as a session attribute.
-     *
-     * @param request  the http request, where the session is stored
-     * @param response the http response
-     * @deprecated
-     */
-    public void doAffidavitHistory(HttpServletRequest request,
-                                   HttpServletResponse response) {
-        AffidavitBean bean = new AffidavitBean();
-        Affidavit[] affidavits;
-
-        String fullList = request.getParameter("full_list");
-        if (fullList != null) {
-            affidavits = bean.getAffidavitsForUser(getUserId(request));
-        } else {
-            affidavits = bean.getPendingAffidavitsForUser(getUserId(request));
-        }
-
-        if (affidavits == null) {
-            log.debug("we got null from getAffidavitForUser");
-        } else {
-            request.setAttribute(PACTS_MEMBER_RESULT, affidavits);
-            PaymentBean paymentBean = new PaymentBean();
-            for (int i = 0; i < affidavits.length; i++) {
-                if (affidavits[i].getPayment().getId() > 0) {
-                    Payment payment = paymentBean.getPayment(affidavits[i].getPayment().getId());
-                    affidavits[i].setPayDate(payment.getPayDate());
-                }
-            }
-        }
-
-        // Payment data
-        PaymentBean paymentBean = new PaymentBean();
-        Payment[] payments;
-        int[] paymentTypes = {COMPONENT_PAYMENT, CHARITY_PAYMENT, REVIEW_BOARD_PAYMENT, ONE_OFF_PAYMENT};
-
-        if (fullList != null) {
-            payments = paymentBean.getPaymentDetailsForUser(getUserId(request), paymentTypes, false);
-        } else {
-            payments = paymentBean.getPaymentDetailsForUser(getUserId(request), paymentTypes, true);
-        }
-        if (payments == null) {
-            log.debug("we got null from getComponentDetailsForUser");
-        } else {
-            request.setAttribute(PAYMENT_DETAIL_LIST, payments);
-
-            // Component IDs
-            long[] paymentIds = new long[payments.length];
-            for (int i = 0; i < payments.length; i++) {
-                paymentIds[i] = payments[i].getHeader().getId();
-            }
-            Map componentIdMap = paymentBean.getPaymentComponentData(paymentIds);
-            request.setAttribute(COMPONENT_DATA, componentIdMap);
-
-            // Payment creation dates
-            try {
-                String[] creationDates = paymentBean.getCreationDates(paymentIds);
-                request.setAttribute(CREATION_DATE_LIST, creationDates);
-            } catch (Exception e1) {
-                log.error("error in doAffidavitHistory");
-                e1.printStackTrace();
-            }
-        }
-
-        forward(AFFIDAVIT_HISTORY_JSP, request, response);
-    }
 
     /**
      * a helper function used to forward to jsps
