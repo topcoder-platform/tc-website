@@ -114,6 +114,22 @@
             rank and overall score will not be updated.
         </p>
 
+        <%if(rsr.getIntItem("round_id") == 10834) {%>
+        <div class="sectionHeader">Prizes</div>
+        <p align="justify">
+        There will be $5000 in total prize money. The first and second highest 
+        scoring submissions in each of the five languages supported will 
+        receive $750 and $250, respectively.
+        </p>
+        <p align="justify">
+        In order to be eligible for prizes, a competitor must be a TopCoder 
+        member in good standing, at least 18 years of age, and must not be a 
+        resident of Cuba, Iran, Iraq, Libya, North Korea, Sudan, Syria, 
+        the Quebec province of Canada, or anywhere else where this contest is 
+        prohibited by applicable law.
+        </p>
+        <%}%>        
+
         <div class="sectionHeader">Conditions of Participation</div>
 
         <p align="justify">
