@@ -80,7 +80,7 @@ public class ComponentRecordbook extends Static {
             for (ResultSetRow rsr : rsc) {
                 hideList.add(rsr.getLongItem("coder_id"));
                 log.debug("adding: " + rsr.getLongItem("coder_id"));
-                coderStr += rsr.getLongItem("coder_id") + ", ";
+                coderStr += rsr.getLongItem("coder_id") + ",";
             }
             coderStr.substring(0, coderStr.length()-2);
             log.debug("cts: " + coderStr);
