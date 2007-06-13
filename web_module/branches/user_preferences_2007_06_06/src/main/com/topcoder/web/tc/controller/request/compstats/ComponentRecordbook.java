@@ -77,11 +77,11 @@ public class ComponentRecordbook extends Static {
 
             String coderStr = "";
             for (ResultSetRow rsr : rsc) {
-                log.debug("adding: " + rsr.getLongItem("coder_id"));
+                //log.debug("adding: " + rsr.getLongItem("coder_id"));
                 coderStr += rsr.getLongItem("coder_id") + ",";
             }
             coderStr = coderStr.substring(0, coderStr.length()-1);
-            log.debug("cts: " + coderStr);
+            //log.debug("cts: " + coderStr);
             
             Request r = new Request();
             r.setContentHandle("users_payments_visible");
@@ -94,7 +94,7 @@ public class ComponentRecordbook extends Static {
             List<Long> hideList = new ArrayList<Long>();
             for (ResultSetRow rsr : rsc2) {
                 if ("hide".equals(rsr.getStringItem("value"))) {
-                    log.debug("adding: " + rsr.getLongItem("user_id"));
+                    //log.debug("adding: " + rsr.getLongItem("user_id"));
                     hideList.add(rsr.getLongItem("user_id"));
                 }
             }
