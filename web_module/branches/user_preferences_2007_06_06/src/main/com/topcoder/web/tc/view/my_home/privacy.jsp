@@ -64,7 +64,24 @@
 
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tbody>
+                    <c:if test="${isHighSchool}">
+                        <tc-webtag:errorIterator id="err" name="err_show_school">
+                            <tr><td></td><td><span class="bigRed"><%=err%><br/></span></td></tr>
+                        </tc-webtag:errorIterator>
+                        <tr class="light">
+                            <td class="value" nowrap="nowrap">
+                                <span style="display: block; padding-top: 4px;">Show / hide my school:</span>
+                            </td>
+                            <td class="value" width="100%">
+                                <tc-webtag:radioButton name="show_school" value="show"/> Show
+                                <br/><tc-webtag:radioButton name="show_school" value="hide"/> Hide
+                            </td>
+                        </tr>
+                    </c:if>
                     <c:forEach var="preference" items="${preferenceList}">
+                        <tc-webtag:errorIterator id="err" name="err_${preference.id}}">
+                            <tr><td></td><td><span class="bigRed"><%=err%><br/></span></td></tr>
+                        </tc-webtag:errorIterator>
                         <tr class="light">
                             <td class="value" nowrap="nowrap">
                                 <span style="display: block; padding-top: 4px;">${preference.name}:</span>
@@ -75,12 +92,12 @@
                                         <tc-webtag:chkBox name="pref_${preference.id}"/>
                                     </c:when>
                                     <c:when test="${preference.type.id == 4}">
-                                        <<tc-webtag:radioButton name="pref_${preference.id}" value="true"/> Show
-                                        <br/><tc-webtag:radioButton name="pref_${preference.id}" value="false"/> Hide
+                                        <tc-webtag:radioButton name="pref_${preference.id}" value="show"/> Show
+                                        <br/><tc-webtag:radioButton name="pref_${preference.id}" value="hide"/> Hide
                                     </c:when>
                                     <c:when test="${preference.type.id == 5}">
-                                        <<tc-webtag:radioButton name="pref_${preference.id}" value="true"/> Yes
-                                        <br/><tc-webtag:radioButton name="pref_${preference.id}" value="false"/> No
+                                        <tc-webtag:radioButton name="pref_${preference.id}" value="yes"/> Yes
+                                        <br/><tc-webtag:radioButton name="pref_${preference.id}" value="no"/> No
                                     </c:when>
                                     <c:otherwise>
                                         <tc-webtag:textInput name="pref_${preference.id}"/>
@@ -89,48 +106,6 @@
                             </td>
                         </tr>
                     </c:forEach>
-                    <c:if test="${isHighSchool}">
-                        <tr class="light">
-                            <td class="value" nowrap="nowrap">
-                                <span style="display: block; padding-top: 4px;">Show / hide my school:</span>
-                            </td>
-                            <td class="value" width="100%">
-                                <tc-webtag:chkBox name="show_school"/>
-                            </td>
-                        </tr>
-                    </c:if>
-                </tbody>
-                </table>
-
-                <table cellpadding="0" cellspacing="0" class="stat" width="100%">
-                <tbody>
-                    <tr class="light">
-                        <td class="value" nowrap="nowrap">
-                            <span style="display: block; padding-top: 4px;">Show / hide my school:</span>
-                        </td>
-                        <td class="value" width="100%">
-                            <input name="school" value="show" type="radio" /> Show
-                            <br /><input name="school" value="hide" type="radio" /> Hide
-                        </td>
-                    </tr>
-                    <tr class="light">
-                        <td class="value" nowrap="nowrap">
-                            Show / hide my earnings:
-                        </td>
-                        <td class="value">
-                            <input name="earnings" value="show" type="radio" /> Show
-                            <br /><input name="earnings" value="hide" type="radio" /> Hide
-                        </td>
-                    </tr>
-                    <tr class="light">
-                        <td class="value" nowrap="nowrap" rowspan="2">
-                            Allow members to send me messages:
-                        </td>
-                        <td class="value">
-                            <input name="contact" value="yes" type="radio" /> Yes
-                            <br /><input name="contact" value="no" type="radio" /> No
-                        </td>
-                    </tr>
                 </tbody>
                 </table>
 

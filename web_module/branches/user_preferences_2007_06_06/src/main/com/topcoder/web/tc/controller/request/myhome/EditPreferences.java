@@ -105,7 +105,12 @@ public class EditPreferences extends ShortHibernateProcessor {
                 }
                 u.getCoder().getCurrentSchool().setViewable("show".equals(showSchool));           
             }
-            DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);                
+            if (hasErrors()) {
+                setNextPage("/my_home/privacy.jsp");                
+            } else {
+                DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+                setNextPage("/my_home/index.jsp");
+            }
         } else {
             setDefault("group",  getRequest().getParameter("group"));
             getRequest().setAttribute("preferenceList", preferenceList);
