@@ -32,14 +32,24 @@ public class EditPreferences extends ShortHibernateProcessor {
         }
 
         User u  = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-        
         log.debug("group param: " + getRequest().getParameter("group"));
-
         PreferenceGroup group = DAOUtil.getFactory().getPreferenceGroupDAO().find(new Integer(Integer.parseInt(getRequest().getParameter("group"))));
-        
         log.debug("PreferenceGroup: " + group.getDescription());
-
         List<Preference> preferenceList = new ArrayList<Preference>();
+
+        // add high school preference
+        // for users with either competition or studio
+        // this cannot be changed by high school users
+        if ((u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getCompetitionType()) ||
+                u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getStudioType())) &&
+                !u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+            log.debug("ask for showing high school");
+            askHighSchool = true;
+            getRequest().setAttribute("isHighSchool", Boolean.TRUE);
+            setDefault("show_school", u.getCoder().getCurrentSchool() == null ? Boolean.FALSE : u.getCoder().getCurrentSchool().getViewable());
+        } else {
+            getRequest().setAttribute("isHighSchool", Boolean.FALSE.toString());
+        }
 
         for (Iterator it = group.getPreferences().iterator(); it.hasNext();) {
             Preference p = (Preference) it.next();
@@ -65,20 +75,9 @@ public class EditPreferences extends ShortHibernateProcessor {
                 preferenceList.add(p);
             }
         }
-            
-        // add high school preference
-        // for users with either competition or studio
-        // this cannot be changed by high school users
-        if ((u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getCompetitionType()) ||
-                u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getStudioType())) &&
-                !u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
-            log.debug("ask for showing high school");
-            askHighSchool = true;
-            getRequest().setAttribute("isHighSchool", Boolean.TRUE);
-            setDefault("show_school", u.getCoder().getCurrentSchool() == null ? Boolean.FALSE : u.getCoder().getCurrentSchool().getViewable());
-        } else {
-            getRequest().setAttribute("isHighSchool", Boolean.FALSE.toString());
-        }
+
+        setDefault("group",  getRequest().getParameter("group"));
+        getRequest().setAttribute("preferenceList", preferenceList);
 
         if ("POST".equals(getRequest().getMethod())) {
             for (Preference p : preferenceList) {
@@ -104,9 +103,6 @@ public class EditPreferences extends ShortHibernateProcessor {
                 setNextPage("/my_home/index.jsp");
             }
         } else {
-            setDefault("group",  getRequest().getParameter("group"));
-            getRequest().setAttribute("preferenceList", preferenceList);
-    
             setNextPage("/my_home/privacy.jsp");
         }
         setIsNextPageInContext(true);
