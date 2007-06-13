@@ -129,7 +129,7 @@
             published by the Free Software Foundation, Version 2.0 to all other
             competitors participating in this Competition (the terms and conditions
             of the license may be found at 
-            <a href="http://www.opensource.org/licenses/gpl-licenses.php">http://www.opensource.org/licenses/gpl-licenses.php</a>.
+            <a href="http://www.opensource.org/licenses/gpl-license.php">http://www.opensource.org/licenses/gpl-license.php</a>.
         </p>
         <%}%>
         

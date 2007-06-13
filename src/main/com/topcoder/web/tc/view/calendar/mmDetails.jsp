@@ -85,7 +85,7 @@
 
 <div class="sectionHeader">Competition Overview</div>
 
-<%if(row.getIntItem("round_id") == 10834) {%>
+<%if(rsr.getIntItem("round_id") == 10834) {%>
 <p align="justify">
     This Marathon Match has some new rules and terms.  Please make sure to read
     the rules carefully before competing.  By submitting a solution in this match,
@@ -110,7 +110,7 @@
     For more details on the Marathon Match format, <a href="/longcontest/?module=Static&d1=instructions">click here</a>
 </p>
 
-<%if(row.getIntItem("round_id") == 10834) {%>
+<%if(rsr.getIntItem("round_id") == 10834) {%>
 <div class="sectionHeader">Prizes</div>
     There will be $5000 in total prize money.  The first and second highest scoring
     submissions in each of the five languages supported will receive $750 and $250,
