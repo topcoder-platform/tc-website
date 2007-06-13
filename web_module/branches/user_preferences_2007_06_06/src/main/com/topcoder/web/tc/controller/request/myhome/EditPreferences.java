@@ -46,7 +46,7 @@ public class EditPreferences extends ShortHibernateProcessor {
             log.debug("ask for showing high school");
             askHighSchool = true;
             getRequest().setAttribute("isHighSchool", Boolean.TRUE);
-            setDefault("show_school", u.getCoder().getCurrentSchool() == null ? Boolean.FALSE : u.getCoder().getCurrentSchool().getViewable());
+            setDefault("show_school", u.getCoder().getCurrentSchool() == null ? "" : u.getCoder().getCurrentSchool().getViewable() ? "show" : "hide");
         } else {
             getRequest().setAttribute("isHighSchool", Boolean.FALSE.toString());
         }
@@ -96,11 +96,11 @@ public class EditPreferences extends ShortHibernateProcessor {
                 }
                 u.getCoder().getCurrentSchool().setViewable("show".equals(showSchool));           
             }
-            if (hasErrors()) {
-                setNextPage("/my_home/privacy.jsp");                
-            } else {
+            if (!hasErrors()) {
                 DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
                 setNextPage("/my_home/index.jsp");
+            } else {
+                setNextPage("/my_home/privacy.jsp");                
             }
         } else {
             setNextPage("/my_home/privacy.jsp");
