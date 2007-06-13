@@ -1,15 +1,18 @@
 package com.topcoder.web.tc.controller.request.compstats;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.SoftwareComponent;
 import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.tc.controller.request.Static;
-
-import java.util.Map;
 
 public class ComponentRecordbook extends Static {
 
@@ -65,6 +68,37 @@ public class ComponentRecordbook extends Static {
         ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
         getRequest().setAttribute("result", rsc);
 
+        // for statistics that involve money, call the query to find out who wants to hide their payments.
+        if (handle.equals("overall_money") ||
+                handle.equals("royalties") ||
+                handle.equals("tournament_money") ||
+                handle.equals("component_money") ||
+                handle.equals("largest_comp_prize")) {
+
+            List<Long> hideList = new ArrayList<Long>();
+            String coderStr = "";
+            for (ResultSetRow rsr : rsc) {
+                hideList.add(rsr.getLongItem("coder_id"));
+                coderStr += rsr.getLongItem("coder_id") + rsc.size() > 1 ? ", " : "";
+            }
+            
+            Request r = new Request();
+            r.setContentHandle("member_contact_enabled");
+            r.setProperty("cr", coderStr);
+
+            DataAccessInt dai2 = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
+            Map result2 = dai2.getData(r);
+            ResultSetContainer rsc2 = (ResultSetContainer) result.get("member_contact_enabled"));
+
+            for (ResultSetRow rsr : rsc2) {
+                if (!"hide".equals(rsr.getStringItem("value"))) {
+                    hideList.remove(rsr.getLongItem("user_id"));
+                }
+            }
+            getRequest().setAttribute("hideList", hideList);
+        }
+        
+        
         String includeJsp
                 = "/compstats/" + dataRequest.getContentHandle() + ".jsp";
         getRequest().setAttribute("includeJsp", includeJsp);
