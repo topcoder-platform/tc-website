@@ -75,14 +75,12 @@ public class ComponentRecordbook extends Static {
                 handle.equals("component_money") ||
                 handle.equals("largest_comp_prize")) {
 
-            List<Long> hideList = new ArrayList<Long>();
             String coderStr = "";
             for (ResultSetRow rsr : rsc) {
-                hideList.add(rsr.getLongItem("coder_id"));
                 log.debug("adding: " + rsr.getLongItem("coder_id"));
                 coderStr += rsr.getLongItem("coder_id") + ",";
             }
-            coderStr = coderStr.substring(0, coderStr.length()-2);
+            coderStr = coderStr.substring(0, coderStr.length()-1);
             log.debug("cts: " + coderStr);
             
             Request r = new Request();
@@ -93,9 +91,11 @@ public class ComponentRecordbook extends Static {
             Map result2 = dai2.getData(r);
             ResultSetContainer rsc2 = (ResultSetContainer) result2.get("users_payments_visible");
 
+            List<Long> hideList = new ArrayList<Long>();
             for (ResultSetRow rsr : rsc2) {
-                if (!"hide".equals(rsr.getStringItem("value"))) {
-                    hideList.remove(rsr.getLongItem("user_id"));
+                if ("hide".equals(rsr.getStringItem("value"))) {
+                    log.debug("adding: " + rsr.getLongItem("user_id"));
+                    hideList.add(rsr.getLongItem("user_id"));
                 }
             }
             getRequest().setAttribute("hideList", hideList);
