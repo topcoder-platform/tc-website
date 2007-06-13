@@ -2,13 +2,13 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%-------------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.13.07<br>3:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.13.07<br>3:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm353">SRM 353 - Problem Set &amp; Analysis</A></span><br><br>
-      Division 2 was presented with a balanced problem set with a trivial easy, straightforward medium and standard dynamic programming as a hard. A bunch of coders solved all three problems correctly.
+      Division 2 was presented with a balanced problem set with a trivial easy, straightforward medium and standard dynamic programming as a hard.  Division 1 was another story, with a hard problem that got a total of zero successful submissions.
         </td>
       <td class="newsPhoto"><img src="/i/m/xOberon_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="9906220" context="algorithm"/></td></tr></table>
       </td>
@@ -18,7 +18,6 @@
         <tc-webtag:forumLink forumID="516050" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
-   -------------------------%>
    
 <%--------------------------------------------------------%>
    <tr>
@@ -213,23 +212,4 @@
         <A href="/tc?module=Static&d1=features&d2=060407">full story</A> | 
         <tc-webtag:forumLink forumID="516083" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.01.07<br>6:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=MatchDetails&rd=10709">NSA presents SRM 352</A>
-        </span><br><br>
-        SRM 352, brought to you by NSA, is set for 12:00 noon EDT on Saturday, June 2.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=MatchDetails&rd=10709">details</A> |
-        <tc-webtag:forumLink forumID="504999" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
