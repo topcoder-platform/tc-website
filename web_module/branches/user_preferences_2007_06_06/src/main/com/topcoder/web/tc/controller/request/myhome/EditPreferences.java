@@ -90,15 +90,21 @@ public class EditPreferences extends ShortHibernateProcessor {
 
         if (isPost) {
             for (Preference p : preferenceList) {
-                String pref = StringUtils.checkNull(getRequest().getParameter("pref_" + p.getId()));
-                if (pref == "") {
+                String pref = "";
+                try {
+                    pref = getRequest().getParameter("pref_" + p.getId());
+                    log.debug("getting param: pref_" + p.getId() + ": " + pref);
+                } catch (Exception e) {
                     throw new TCWebException("missing pref parameter: " + p.getId());
                 }
                 u.getUserPreference(p.getId()).setValue(pref);
             }
             if (askHighSchool) {
-                String showSchool = StringUtils.checkNull(getRequest().getParameter("show_school"));
-                if (showSchool == "") {
+                String showSchool = "";
+                try {
+                    showSchool = StringUtils.checkNull(getRequest().getParameter("show_school"));
+                    log.debug("getting param: show_school: " + showSchool);
+                } catch (Exception e) {
                     throw new TCWebException("missing pref parameter: show_school");
                 }
                 u.getCoder().getCurrentSchool().setViewable(new Boolean(showSchool));           
