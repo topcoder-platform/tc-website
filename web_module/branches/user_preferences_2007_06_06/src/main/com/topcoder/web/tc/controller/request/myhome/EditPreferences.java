@@ -42,11 +42,12 @@ public class EditPreferences extends ShortHibernateProcessor {
         // this cannot be changed by high school users
         if ((u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getCompetitionType()) ||
                 u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getStudioType())) &&
-                !u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getHighSchoolType())) {
+                !u.getRegistrationTypes().contains(DAOUtil.getFactory().getRegistrationTypeDAO().getHighSchoolType())
+                && u.getCoder().getCurrentSchool() != null) {
             log.debug("ask for showing high school");
             askHighSchool = true;
             getRequest().setAttribute("isHighSchool", Boolean.TRUE);
-            setDefault("show_school", u.getCoder().getCurrentSchool() == null ? "" : u.getCoder().getCurrentSchool().getViewable() ? "show" : "hide");
+            setDefault("show_school", u.getCoder().getCurrentSchool().getViewable() ? "show" : "hide");
         } else {
             getRequest().setAttribute("isHighSchool", Boolean.FALSE.toString());
         }
@@ -86,7 +87,15 @@ public class EditPreferences extends ShortHibernateProcessor {
                 if (pref == "") {
                     addError("err_" + p.getId(), "Please select the following option");
                 }
-                u.getUserPreference(p.getId()).setValue(pref);
+                if (u.getUserPreference(p.getId()) != null) {
+                    u.getUserPreference(p.getId()).setValue(pref);
+                } else {
+                    UserPreference up = new UserPreference();
+                    up.setNew(true);
+                    up.setId(new UserPreference.Identifier(u,p));
+                    up.setValue(pref);
+                    u.addUserPreference(up);
+                }
             }
             if (askHighSchool) {
                 String showSchool = StringUtils.checkNull(getRequest().getParameter("show_school"));
