@@ -337,6 +337,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            TopCoder Community Helps Research Led by Harvard Business School Professor
+            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_061307">...more</A><br>[June 13]<br><br>
+
             AOL to Webcast TopCoder Open 2007 Finals Live on June 29
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_060507">...more</A><br>[June 7]<br><br>
 
@@ -354,10 +357,6 @@
 
             Belarus All College Programming Event
             <A target="_blank" href="/tc?module=Static&d1=features&d2=050807">...more</A><br>[May 8]<br><br>
-
-            TopCoder Appoints Russ Malz Vice President of Sales
-            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040907">...more</A><br>[April 9]<br><br>
-
 
         </td>
     </tr>
