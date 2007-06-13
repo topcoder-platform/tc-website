@@ -79,7 +79,7 @@
                         </tr>
                     </c:if>
                     <c:forEach var="preference" items="${preferenceList}">
-                        <tc-webtag:errorIterator id="err" name="err_${preference.id}}">
+                        <tc-webtag:errorIterator id="err" name="err_${preference.id}">
                             <tr><td></td><td><span class="bigRed"><%=err%><br/></span></td></tr>
                         </tc-webtag:errorIterator>
                         <tr class="light">

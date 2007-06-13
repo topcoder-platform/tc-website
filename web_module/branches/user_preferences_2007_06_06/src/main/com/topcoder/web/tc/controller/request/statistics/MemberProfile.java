@@ -184,7 +184,7 @@ public class MemberProfile extends Base {
 
                 }
             }
-
+            
             r = new Request();
             r.setContentHandle("member_contact_enabled");
             r.setProperty("cr", coderId);
@@ -195,7 +195,20 @@ public class MemberProfile extends Base {
 
             boolean memberContactEnabled = false;
             if(rsc2.size() > 0) {
-                memberContactEnabled = "true".equals(rsc2.getStringItem(0, "value"));
+                memberContactEnabled = "yes".equals(rsc2.getStringItem(0, "value"));
+            }
+
+            r = new Request();
+            r.setContentHandle("users_payments_visible");
+            r.setProperty("cts", coderId);
+
+            dai2 = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
+            result2 = dai2.getData(r);
+            rsc2 = (ResultSetContainer) result2.get("users_payments_visible");
+
+            boolean hidePayments = false;
+            if(rsc2.size() > 0) {
+                hidePayments = "hide".equals(rsc2.getStringItem(0, "value"));
             }
 
             getRequest().setAttribute("resultMap", result);
@@ -207,6 +220,7 @@ public class MemberProfile extends Base {
             getRequest().setAttribute("hasDev", new Boolean(hasDev));
             getRequest().setAttribute("hasLong", new Boolean(hasLong));
             getRequest().setAttribute("memberContactEnabled", new Boolean(memberContactEnabled));
+            getRequest().setAttribute("hidePayments", new Boolean(hidePayments));
             getRequest().setAttribute("tab", tab);
 
             setNextPage(Constants.MEMBER_PROFILE);
