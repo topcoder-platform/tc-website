@@ -79,16 +79,19 @@ public class ComponentRecordbook extends Static {
             String coderStr = "";
             for (ResultSetRow rsr : rsc) {
                 hideList.add(rsr.getLongItem("coder_id"));
-                coderStr += rsr.getLongItem("coder_id") + rsc.size() > 1 ? ", " : "";
+                log.debug("adding: " + rsr.getLongItem("coder_id"));
+                coderStr += rsr.getLongItem("coder_id") + ", ";
             }
+            coderStr.substring(0, coderStr.length()-2);
+            log.debug("cts: " + coderStr);
             
             Request r = new Request();
-            r.setContentHandle("member_contact_enabled");
-            r.setProperty("cr", coderStr);
+            r.setContentHandle("users_payments_visible");
+            r.setProperty("cts", coderStr);
 
             DataAccessInt dai2 = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
             Map result2 = dai2.getData(r);
-            ResultSetContainer rsc2 = (ResultSetContainer) result.get("member_contact_enabled");
+            ResultSetContainer rsc2 = (ResultSetContainer) result2.get("users_payments_visible");
 
             for (ResultSetRow rsr : rsc2) {
                 if (!"hide".equals(rsr.getStringItem("value"))) {
