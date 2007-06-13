@@ -82,7 +82,7 @@ public class ComponentRecordbook extends Static {
                 log.debug("adding: " + rsr.getLongItem("coder_id"));
                 coderStr += rsr.getLongItem("coder_id") + ",";
             }
-            coderStr.substring(0, coderStr.length()-2);
+            coderStr.substring(0, coderStr.length()-3);
             log.debug("cts: " + coderStr);
             
             Request r = new Request();
