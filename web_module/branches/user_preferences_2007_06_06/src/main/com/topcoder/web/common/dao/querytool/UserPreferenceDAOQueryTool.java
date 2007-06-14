@@ -30,6 +30,7 @@ public class UserPreferenceDAOQueryTool extends Base implements UserPreferenceDA
     }
 
     public void saveOrUpdate(UserPreference up) {
+        // This is a read-only DAO
     }
     
     public List<UserPreference> find(List<Long> userIdList, Integer preferenceId) {
