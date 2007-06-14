@@ -5,6 +5,9 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Preference;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.tccc06.ViewAlgoRegistration;
 import com.topcoder.web.tc.controller.request.util.TCCC06ComponentTerms;
@@ -114,7 +117,11 @@ public class Home extends Base {
             getRequest().setAttribute("tco07_info",
                     tco07Dai.getData(tco07Request).get("tco07_info"));
             
-
+            // check whether or not show earnings
+            UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(getUser().getId(), Preference.SHOW_EARNINGS_PREFERENCE_ID);
+            boolean hidePayments = up != null && "hide".equals(up.getValue());
+            getRequest().setAttribute("hidePayments", new Boolean(hidePayments));
+            
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

@@ -75,7 +75,7 @@ public class UserPreferenceDAOQueryTool extends Base implements UserPreferenceDA
                 retList.add(buildUserPreference(preferenceId, rsr.getLongItem("user_id"), rsr.getStringItem("value")));
             }
         } catch (Exception e) {
-            
+            // just return null
         }
         return retList;
     }

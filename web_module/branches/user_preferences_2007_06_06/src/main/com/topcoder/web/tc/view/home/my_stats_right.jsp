@@ -5,20 +5,25 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer coderInfo= (ResultSetContainer)request.getAttribute("member_info");%>
-<% CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);%>
+<% CoderSessionInfo info = (CoderSessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY);
+   boolean hidePayments = ((Boolean)request.getAttribute("hidePayments")).booleanValue();
+%>
 
 <% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr>
         <td class="statTextBig" bgcolor="#333333">&#160;Coder: 
-        <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'/><br>
-            Total Earnings: 
-            <% if (coderInfo.getItem(0, "overall_earnings").getResultData() == null || coderInfo.getDoubleItem(0, "overall_earnings") > 0) { %>
-                <A href="/tc?module=PaymentSummary&cr=<%=info.getUserId()%>" class="statTextBig">
-                    <rsc:item set="<%=coderInfo%>" name="overall_earnings" format="$#,##0.00" ifNull="$0.00"/>
-                </A>
-            <% } else { %>
-                $0.00
+        <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>'/>
+            <% if(!hidePayments) { %>
+                <br>
+                Total Earnings: 
+                <% if (coderInfo.getItem(0, "overall_earnings").getResultData() == null || coderInfo.getDoubleItem(0, "overall_earnings") > 0) { %>
+                    <A href="/tc?module=PaymentSummary&cr=<%=info.getUserId()%>" class="statTextBig">
+                        <rsc:item set="<%=coderInfo%>" name="overall_earnings" format="$#,##0.00" ifNull="$0.00"/>
+                    </A>
+                <% } else { %>
+                    $0.00
+                <% } %>
             <% } %>
         </td>
     </tr>

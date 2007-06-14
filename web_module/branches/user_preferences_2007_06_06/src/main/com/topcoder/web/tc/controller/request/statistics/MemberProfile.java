@@ -204,13 +204,9 @@ public class MemberProfile extends Base {
                 memberContactEnabled = "yes".equals(rsc2.getStringItem(0, "value"));
             }
 
-
+            // check whether or not show earnings
             UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId), Preference.SHOW_EARNINGS_PREFERENCE_ID);
-
-            boolean hidePayments = false;
-            if(up != null) {
-                hidePayments = "hide".equals(up.getValue());
-            }
+            boolean hidePayments = up != null && "hide".equals(up.getValue());
 
             getRequest().setAttribute("resultMap", result);
 

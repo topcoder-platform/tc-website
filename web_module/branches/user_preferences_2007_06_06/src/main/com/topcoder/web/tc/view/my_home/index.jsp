@@ -1,8 +1,11 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<% ResultSetContainer coderInfo= (ResultSetContainer)request.getAttribute("member_info");%>
 
 <html>
 
@@ -42,22 +45,33 @@
                     <jsp:param name="title" value="&nbsp;"/>
                 </jsp:include>
 
-                <a href="/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto"><img src="/i/m/nophoto_login.gif" alt="" class="memberPhoto" style="float: left; margin: 0px 10px 10px 0px;" /></a>
-                <tc-webtag:handle coderId="8436401" />
+                <a href="<%=coderInfo.getIntItem(0, "has_image")==0?"https://"+request.getServerName()+"/reg/?nrg=false":"/tc?module=MemberProfile&cr="+coderInfo.getIntItem(0, "coder_id")%>"><img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" width="126" height="140" border="0" class="myStatsPhoto" /></a>
+<%--                 <a href="/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto"><img src="/i/m/nophoto_login.gif" alt="" class="memberPhoto" style="float: left; margin: 0px 10px 10px 0px;" /></a> --%>
+                <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>' />
                 <div>
-                    <div style="float: right;">05.09.2002</div>
+                    <div style="float: right;"><rsc:item name="member_since" set="<%=coderInfo%>" format="MM.dd.yyyy"/></div>
                     <strong>Member Since:</strong>
                 </div>
+                 <% if (coderInfo.getItem(0, "country_name").getResultData()!=null) { %>
+                    <div>
+                        <div style="float: right;"><rsc:item name="country_name" set="<%=coderInfo%>"/></div>
+                        <strong>Country:</strong>
+                    </div>
+                <% }%>
+                <% if (coderInfo.getStringItem(0,"school_name")!=null) { %>
+                    <div>
+                        <div style="float: right;"><rsc:item name="school_name" set="<%=coderInfo%>"/></div>
+                        <strong>School:</strong>
+                    </div>
+                <% }%>
                 <div>
-                    <div style="float: right;">Canada</div>
-                    <strong>Country:</strong>
-                </div>
-                <div>
-                    <div style="float: right;">Queen's University</div>
-                    <strong>School:</strong>
-                </div>
-                <div>
-                    <div style="float: right;">$650.00</div>
+                    <div style="float: right;">
+                        <% if (coderInfo.getItem(0, "overall_earnings").getResultData() == null || coderInfo.getDoubleItem(0, "overall_earnings") > 0) { %>
+                            <rsc:item set="<%=coderInfo%>" name="overall_earnings" format="$#,##0.00" ifNull="$0.00"/>
+                        <% } else { %>
+                            $0.00
+                        <% } %>
+                    </div>
                     <strong>Total Earnings:</strong>
                 </div>
 

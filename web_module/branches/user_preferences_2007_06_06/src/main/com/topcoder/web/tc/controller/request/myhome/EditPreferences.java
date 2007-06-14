@@ -11,7 +11,6 @@ import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.PreferenceGroup;
