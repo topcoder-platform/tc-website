@@ -17,6 +17,7 @@ import com.topcoder.web.common.model.PreferenceGroup;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.model.UserPreference;
+import com.topcoder.web.tc.Constants;
 
 /**
  * @author pulky
@@ -112,7 +113,7 @@ public class EditPreferences extends ShortHibernateProcessor {
                 s.add("user_preference");
                 s.add("user_preference_all");
                 CacheClearer.removelike(s);
-                setNextPage("/my_home/index.jsp");
+                setNextPage("/tc?" + Constants.MODULE_KEY + "=MyHome");
             } else {
                 setNextPage("/my_home/privacy.jsp");                
             }
