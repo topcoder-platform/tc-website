@@ -45,8 +45,8 @@
                     <jsp:param name="title" value="&nbsp;"/>
                 </jsp:include>
 
-                <a href="<%=coderInfo.getIntItem(0, "has_image")==0?"https://"+request.getServerName()+"/reg/?nrg=false":"/tc?module=MemberProfile&cr="+coderInfo.getIntItem(0, "coder_id")%>"><img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" width="126" height="140" border="0" class="myStatsPhoto" /></a>
-<%--                 <a href="/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto"><img src="/i/m/nophoto_login.gif" alt="" class="memberPhoto" style="float: left; margin: 0px 10px 10px 0px;" /></a> --%>
+                <a href="<%=coderInfo.getIntItem(0, "has_image")==0?"/tc?module=Static&amp;d1=my_home&amp;d2=submitPhoto":"/tc?module=MemberProfile&cr="+coderInfo.getIntItem(0, "coder_id")%>">
+                    <img src="<rsc:item set="<%=coderInfo%>" name="image_path" ifNull="/i/m/nophoto_submit.gif"/>" alt="" class="memberPhoto" style="float: left; margin: 0px 10px 10px 0px;" /></a>
                 <tc-webtag:handle coderId='<%=coderInfo.getLongItem(0, "coder_id")%>' />
                 <div>
                     <div style="float: right;"><rsc:item name="member_since" set="<%=coderInfo%>" format="MM.dd.yyyy"/></div>
@@ -100,7 +100,7 @@
                         </td>
                         <td class="value">
                             <p><a href="/tc?module=EditPreferences&group=10">Privacy</a></p>
-                            <p><a href="/tc?module=Static&amp;d1=my_home&amp;d2=emailNotification">Email notification</a></p>
+                            <p><a href="/tc?module=EditNotifications">Email notification</a></p>
                             <p><a href="http://<%=ApplicationServer.FORUMS_SERVER_NAME%>/?module=Settings">Forums preferences</a></p>
                         </td>
                         <td class="value">

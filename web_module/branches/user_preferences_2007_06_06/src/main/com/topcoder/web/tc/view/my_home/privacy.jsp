@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -23,13 +22,12 @@
     border-top: 0px;
     }
     </style>
-        <script type="text/javascript">
+    <script type="text/javascript">
         function submit() {
             var myForm = document.f;
             myForm.submit();
         }
-    </script>
-    
+    </script>    
 </head>
 
 <body>
@@ -117,7 +115,7 @@
                                 <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Save</a>
                             </td>
                             <td>
-                                <a href="/tc?module=Static&amp;d1=my_home&amp;d2=index" class="button" style="width: 60px;">Cancel</a>
+                                <a href="/tc?module=MyHome" class="button" style="width: 60px;">Cancel</a>
                             </td>
                         </tr>
                     </tbody>

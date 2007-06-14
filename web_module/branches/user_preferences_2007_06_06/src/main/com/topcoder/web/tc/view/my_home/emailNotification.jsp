@@ -1,8 +1,9 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 
@@ -14,6 +15,12 @@
     <jsp:include page="../style.jsp">
         <jsp:param name="key" value="tc_stats"/>
     </jsp:include>
+    <script type="text/javascript">
+        function submit() {
+            var myForm = document.f;
+            myForm.submit();
+        }
+    </script>
 </head>
 
 <body>
@@ -46,58 +53,40 @@
                     Please check off all the email categories that you'd like to receive
                 </p>
 
+            <form name="f" action="${sessionInfo.servletPath}" method="post">
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditPreferences"/>
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tbody>
                     <tr>
                         <td class="header" width="50%">
-                            Competition announcements
+                            Email notifications
                         </td>
                         <td class="header" width="50%">
-                            Other
+                            
                         </td>
                     </tr>
                     <tr class="light">
                         <td class="value">
+                            <c:forEach var="notification" items="${notifications}">
                             <p>
-                                <input name="name" checked="checked" type="checkbox" /> Algorithm Competitions 
+                                <tc-webtag:chkBox name="notif_${notification.id}"/> ${notification.Name}
                             </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Software Development Competitions 
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> High School Competitions 
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Marathon Match Competitions
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Studio Competitions 
-                            </p>
-                        </td>
-                        <td class="value">
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Employment Opportunities
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> News & Events
-                            </p>
-                            <p>
-                                <input name="name" checked="checked" type="checkbox" /> Products & Services
-                            </p>
+                            </c:forEach>
                         </td>
                     </tr>
                 </tbody>
                 </table>
+                </form>            
 
                 <div align="center">
                     <table cellpadding="0" cellspacing="0" style="margin: 20px;">
                     <tbody>
                         <tr>
                             <td>
-                                <a href="#" class="button" style="width: 60px; margin-right: 10px;">Save</a>
+                                <a href="javascript:submit()" class="button" style="width: 60px; margin-right: 10px;">Save</a>
                             </td>
                             <td>
-                                <a href="/tc?module=Static&d1=my_home&d2=index" class="button" style="width: 60px;">Cancel</a>
+                                <a href="/tc?module=MyHome" class="button" style="width: 60px;">Cancel</a>
                             </td>
                         </tr>
                     </tbody>
