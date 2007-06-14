@@ -178,6 +178,10 @@
                <tc-webtag:handle coderId="20394568" context="algorithm"/>
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees"><strong>Binary Indexed Trees</strong></a>
             </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="14926760" />
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=stringSearching"><strong>Introduction to String Searching Algorithms</strong></a>
+            </td></tr>
            <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
             </tr>
