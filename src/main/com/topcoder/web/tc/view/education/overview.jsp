@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=stringSearching"><strong>Introduction to String Searching Algorithms</strong></a>, by <tc-webtag:handle coderId="14926760" /><br>
+The fundamental string searching (matching) problem is defined as follows: given two strings - a text and a pattern, determine whether the pattern appears in the text. In this tutorial, we'll look at how the Rabin-Karp and Knuth-Morris-Pratt algorithms can help solve "the needle in a haystack problem."</li>
 <li><a href="/tc?module=Static&d1=features&d2=061107"><strong>TCO Preview: The Studio Design Competition</strong></a>, by <tc-webtag:handle coderId="15635590" /><br>
 This year's TopCoder Open included a completely new competition track - the Studio Design Competition. We asked some of the Studio Design Competition finalists about their preferences, strengths, and expectations. Here's what they had to say...</li>
 <li><a href="/tc?module=Static&d1=features&d2=060707"><strong>TCO Preview: Meet Team Ukraine</strong></a>, by <tc-webtag:handle coderId="15635590" /> &amp; <tc-webtag:handle coderId="284038" /><br>
 The 2007 TopCoder Open will host six Algorithm semifinalists from Ukraine, with "Team Ukraine" including the six highest rated Algorithm competitors from the country.</li>
-<li><a href="/tc?module=Static&d1=features&d2=060407"><strong>An Interview with Burunduk2</strong></a>, by <tc-webtag:handle coderId="8436401" context="algorithm"/><br>
-In this interview, the winner of TopCoder's first High School tournament talks about how he first got interested in coding, how he got his start in competition, and how he got his nickname.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
