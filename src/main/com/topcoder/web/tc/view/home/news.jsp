@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>06.14.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=stringSearching">Introduction to String Searching Algorithms</A></span><br><br>
+      The fundamental string searching (matching) problem is defined as follows: given two strings - a text and a pattern, determine whether the pattern appears in the text. In this tutorial, we'll look at how the Rabin-Karp and Knuth-Morris-Pratt algorithms can help solve "the needle in a haystack problem."
+        </td>
+      <td class="newsPhoto"><img src="/i/m/TheLlama_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="14926760" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tutorials&d2=stringSearching">full story</A> | 
+        <tc-webtag:forumLink forumID="516215" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>06.13.07<br>5:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_061307">TopCoder Community Helps Research Led by Harvard Business School Professor</A></span><br><br>
       TopCoder announced that its global community of members will help Professor Karim Lakhani of the Harvard Business School with his research agenda by providing access to their skills in innovative software development.
@@ -191,22 +208,5 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">details</A> |
         <tc-webtag:forumLink forumID="505918" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.05.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm352">SRM 352 - Problem Set &amp; Analysis</A></span><br><br>
-      <tc-webtag:handle coderId="10574855" context="algorithm"/> continues his dominance, winning for the 3rd time out of the past three contests. After his third win he has also gained a new TopCoder rating record - 3744! Congratulations!
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm352">full story</A> | 
-        <tc-webtag:forumLink forumID="516049" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
