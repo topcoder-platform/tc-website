@@ -41,9 +41,9 @@ public class EditNotifications extends ShortHibernateProcessor {
                 String notif = StringUtils.checkNull(getRequest().getParameter("notif_" + n.getId()));
                 log.debug("getting param: notif_" + n.getId() + ": " + notif);
 
-                if (userNotifications.contains(n) && !notif.equals("true")) {
+                if (userNotifications.contains(n) && !notif.equals("on")) {
                     u.removeNotification(n);
-                } else if (!userNotifications.contains(n) && notif.equals("true")) {
+                } else if (!userNotifications.contains(n) && notif.equals("on")) {
                     u.addNotification(n);
                 }
             }
