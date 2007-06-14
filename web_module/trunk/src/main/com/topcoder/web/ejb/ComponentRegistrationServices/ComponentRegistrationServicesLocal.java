@@ -15,9 +15,15 @@ public interface ComponentRegistrationServicesLocal extends EJBLocalObject {
 
     boolean isRegOpen(long projectId, String dataSource);
 
+    boolean hasUserReviewedWinningDesign(long projectId, long userId, String dataSource);
+
     boolean hasUserReviewedProject(long projectId, long userId, String dataSource);
 
+    boolean hasUserScreenedProject(long projectId, long userId, String dataSource);
+
     boolean isUserWinningDesigner(long projectId, long userId, String dataSource);
+
+    int getProjectCountSameVersion(long projectId, String dataSource);
 
     boolean isUserReliableEnough(long phaseId, long userId, String dataSource);
 

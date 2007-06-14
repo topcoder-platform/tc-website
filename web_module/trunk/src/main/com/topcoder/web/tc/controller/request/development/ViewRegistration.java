@@ -119,10 +119,16 @@ public class ViewRegistration extends Base {
             getRequest().setAttribute(Constants.MESSAGE, "You have already registered for this contest.");
         } else if (getRegEJB().hasUserReviewedProject(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, you have reviewed this project and are not eligible to compete.");
+        } else if (getRegEJB().hasUserScreenedProject(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+            getRequest().setAttribute(Constants.MESSAGE, "Sorry, you have screened this project and are not eligible to compete.");
         } else if (getRegEJB().isUserWinningDesigner(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, Winners of the design phase of a component are not allowed to participate in the development phase.");
         } else if (!getRegEJB().isUserReliableEnough(phase, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
             getRequest().setAttribute(Constants.MESSAGE, "Sorry, since your reliability is less than 70%, you may not register for more than 2 projects at a time.");
+        } else if (phase == SoftwareComponent.DEV_PHASE &&
+                getRegEJB().getProjectCountSameVersion(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME) == 1 &&
+                getRegEJB().hasUserReviewedWinningDesign(projectId, getUser().getId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+            getRequest().setAttribute(Constants.MESSAGE, "Sorry, you reviewed the winning design on this project so you can not develop it on it's first posting..");
         } else if (rating == 0) {
             int max = getRegEJB().getMaxUnratedRegistrants(projectId, DBMS.TCS_OLTP_DATASOURCE_NAME);
             if (max == 0) {
