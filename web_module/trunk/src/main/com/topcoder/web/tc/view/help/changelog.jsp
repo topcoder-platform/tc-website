@@ -48,6 +48,7 @@
             they reviewed -dok
         </li>
         <li>New license key for Poseidon -dok</li>
+        <li>Fixed expiration date message in assignment document's internal page -pulky</li>
     </ul>
 </p>
 
