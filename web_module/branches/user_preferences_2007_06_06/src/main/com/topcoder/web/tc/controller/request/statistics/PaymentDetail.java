@@ -55,7 +55,7 @@ public class PaymentDetail extends BaseProcessor {
 
         UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(getRequest().getParameter(Constants.CODER_ID)), Preference.SHOW_EARNINGS_PREFERENCE_ID);
         if (up != null && "hide".equals(up.getValue())) {
-            throw new TCWebException("The user requested to make this information private.");
+            throw new NavigationException("The user requested to make this information private.");
         }
 
         setDefault(Constants.CODER_ID, getRequest().getParameter(Constants.CODER_ID));
