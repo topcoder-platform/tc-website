@@ -47,6 +47,7 @@
         <li>Fix validation in component registration process to make sure a reviewer can not compete on a project that
             they reviewed -dok
         </li>
+        <li>New license key for Poseidon -dok</li>
     </ul>
 </p>
 
