@@ -56,44 +56,47 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
         return userRegistered;
     }
 
-    public boolean hasUserReviewedProject(long projectId, long userId, String dataSource) throws EJBException {
+
+    private static final String WINNING_DESIGN =
+            " select 1 " +
+                    " from resource r" +
+                    " , resource_info ri" +
+                    " , project p" +
+                    " where r.resource_id = ri.resource_id" +
+                    " and ri.resource_info_type_id = 1" +
+                    //any reviewer role
+                    " and r.resource_role_id in (4,5,6,7)" +
+                    " and ri.value = ?" +  //user id
+                    " and r.project_id = p.project_id" +
+                    " and p.project_category_id = 1" +
+                    //completed
+                    " and p.project_status_id = 7" +
+                    //only if there was a winner declared
+                    " and exists (select 1 " +
+                    " from project_info pi " +
+                    " where pi.project_info_type_id = 23 " +
+                    " and pi.project_id = p.project_id)" +
+                    //only projects that are the same compoent version as we're working with
+                    " and r.project_id in (select project_id " +
+                    " from project_info " +
+                    " where project_info_type_id = 1" +
+                    " and value = (select value" +
+                    " from project_info " +
+                    " where project_id = ?" +
+                    " and project_info_type_id = 1))";
+
+    public boolean hasUserReviewedWinningDesign(long projectId, long userId, String dataSource) throws EJBException {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
 
-        boolean hasReviewed = false;
-
-        InitialContext ctx = null;
-
         try {
-
             conn = DBMS.getConnection(dataSource);
-
-            StringBuffer query = new StringBuffer(1024);
-
-            //this checks that the user is eligible to register for a project, based on
-            //whether or not they have reviewed the project previously, and the
-            //repost status of the project
-
-            query.append("select 1 ");
-            query.append("from resource rur, resource_info ri ");
-            query.append("where rur.resource_role_id in (4, 5, 6, 7) "); // reviewer and test case reviewer
-            query.append("and rur.resource_id = ri.resource_id and ri.resource_info_type_id = 1 and ri.value = ? ");
-            query.append("and rur.project_id = ? ");
-            query.append("and not exists (select p2.project_id from project p2, project_info pi2  ");
-            query.append("where p2.project_id = pi2.project_id and pi2.project_info_type_id = 1 ");
-            query.append("and pi2.value = (select value from project_info where project_id = ? and project_info_type_id = 1) ");
-            query.append("and p2.project_status_id in (4,5,6) ");
-            query.append("and p2.project_category_id = (select project_category_id from project where project_id = ?)) ");
-
-            ps = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(WINNING_DESIGN);
             ps.setLong(1, userId);
             ps.setLong(2, projectId);
-            ps.setLong(3, projectId);
-            ps.setLong(4, projectId);
-
             rs = ps.executeQuery();
-            hasReviewed = rs.next();
+            return rs.next();
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw (new EJBException(_sqle.getMessage()));
@@ -101,11 +104,137 @@ public class ComponentRegistrationServicesBean extends BaseEJB {
             close(rs);
             close(ps);
             close(conn);
-            close(ctx);
+        }
+    }
+
+    private static final String REVIEWED =
+            " select 1 " +
+                    " from resource r " +
+                    " , resource_info ri " +
+                    " , project p " +
+                    " where r.resource_id = ri.resource_id " +
+                    " and ri.resource_info_type_id = 1 " +
+                    " and r.resource_role_id in (4,5,6,7) " +
+                    " and ri.value = ? " + //user id
+                    " and r.project_id = p.project_id " +
+                    //projects that are in the same "phase"
+                    " and p.project_category_id = (select project_category_id from project where project_id = ?) " +
+                    " and p.project_status_id in (4, 7, 8) " +  //projects whose status indicate they got reviewed
+                    //only projects that are the same compoent version as we're working with
+                    " and r.project_id in (select project_id  " +
+                    " from project_info  " +
+                    " where project_info_type_id = 1 " +
+                    " and value = (select value " +
+                    " from project_info  " +
+                    " where project_id = ? " +
+                    " and project_info_type_id = 1))";
+
+    public boolean hasUserReviewedProject(long projectId, long userId, String dataSource) throws EJBException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(REVIEWED);
+            ps.setLong(1, userId);
+            ps.setLong(2, projectId);
+            ps.setLong(3, projectId);
+            rs = ps.executeQuery();
+            return rs.next();
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw (new EJBException(_sqle.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+
+    private static final String SCREENED =
+            " select 1 " +
+                    " from resource r " +
+                    " , resource_info ri " +
+                    " , project p " +
+                    " where r.resource_id = ri.resource_id " +
+                    " and ri.resource_info_type_id = 1 " +
+                    " and r.resource_role_id in (3) " + // screener
+                    " and ri.value = ? " + // user id
+                    " and r.project_id = p.project_id " +
+                    //projects that are in the same "phase"
+                    " and p.project_category_id = (select project_category_id from project where project_id = ?) " +
+                    " and p.project_status_id in (5) " + //all failed screening
+                    //only projects that are the same compoent version as we're working with
+                    " and r.project_id in (select project_id  " +
+                    " from project_info  " +
+                    " where project_info_type_id = 1 " +
+                    " and value = (select value " +
+                    " from project_info  " +
+                    " where project_id = ? " +
+                    " and project_info_type_id = 1)) ";
+
+    public boolean hasUserScreenedProject(long projectId, long userId, String dataSource) throws EJBException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(SCREENED);
+            ps.setLong(1, userId);
+            ps.setLong(2, projectId);
+            ps.setLong(3, projectId);
+            rs = ps.executeQuery();
+            return rs.next();
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw (new EJBException(_sqle.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+        }
+    }
+
+
+    private static final String COUNT =
+            " select count(*) as count" +
+                    " from project p " +
+                    " where p.project_category_id = (select project_category_id from project where project_id = ?) " +
+                    " and p.project_status_id <> 3 " + //not deleted
+                    " and p.project_id in (select project_id  " +
+                    " from project_info  " +
+                    " where project_info_type_id = 1 " +
+                    " and value = (select value " +
+                    " from project_info  " +
+                    " where project_id = ? " +
+                    " and project_info_type_id = 1))";
+
+    public int getProjectCountSameVersion(long projectId, String dataSource) throws EJBException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(COUNT);
+            ps.setLong(1, projectId);
+            ps.setLong(2, projectId);
+            rs = ps.executeQuery();
+            rs.next();
+            return rs.getInt("count");
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw (new EJBException(_sqle.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
         }
 
-        return hasReviewed;
     }
+
 
     public boolean isUserWinningDesigner(long projectId, long userId, String dataSource) throws EJBException {
         PreparedStatement ps = null;

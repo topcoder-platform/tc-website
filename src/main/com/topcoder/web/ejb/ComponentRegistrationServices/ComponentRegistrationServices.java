@@ -1,9 +1,10 @@
 package com.topcoder.web.ejb.ComponentRegistrationServices;
 
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+
 import javax.ejb.EJBException;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 public interface ComponentRegistrationServices extends EJBObject {
     /**
@@ -22,7 +23,13 @@ public interface ComponentRegistrationServices extends EJBObject {
 
     boolean isRegOpen(long projectId, String dataSource) throws RemoteException, EJBException;
 
+    boolean hasUserReviewedWinningDesign(long projectId, long userId, String dataSource) throws RemoteException, EJBException;
+
     boolean hasUserReviewedProject(long projectId, long userId, String dataSource) throws RemoteException, EJBException;
+
+    boolean hasUserScreenedProject(long projectId, long userId, String dataSource) throws RemoteException, EJBException;
+
+    int getProjectCountSameVersion(long projectId, String dataSource) throws RemoteException, EJBException;
 
     boolean isUserWinningDesigner(long projectId, long userId, String dataSource) throws RemoteException, EJBException;
 
