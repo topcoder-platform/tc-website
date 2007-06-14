@@ -84,11 +84,11 @@
                 </div>
                 <div>
                     <p><strong>How do I return the Assignment?</strong></p>
-                    <p>Each individual member's first assignment must be signed and either (i) scanned as a PDF file and emailed to _________@topcoder.com or (ii) mailed to:  TopCoder, Inc., Attn: _________________, 703 Hebron Avenue, Glastonbury, CT 06033.  However, please keep in mind that we must actually receive the Assignment before the expiration of ____ days.</p>
+                    <p>Each individual member's first assignment must be signed and either (i) scanned as a PDF file and emailed to <a href="mailto:payments@topcoder.com?subject=Assignment Documents FAQ">payments@topcoder.com</a> or (ii) mailed to:  TopCoder, Inc., Attn: Payments, 703 Hebron Avenue, Glastonbury, CT 06033.  However, please keep in mind that we must actually receive the Assignment before the expiration of 30 days.</p>
                 </div>
                 <div>
                     <p><strong>How much time do I have to return the Assignment?</strong></p>
-                    <p>You have ____ days from the date on which you were notified that you won to sign and return the Assignment.  We must <span style:"text-decoration:underline;">receive</span> the signed Assignment before the expiration of ____ days.  Simply putting the Assignment in the mail is not sufficient.</p>
+                    <p>You have 30 days from the date on which you were notified that you won to sign and return the Assignment.  We must <span style:"text-decoration:underline;">receive</span> the signed Assignment before the expiration of 30 days.  Simply putting the Assignment in the mail is not sufficient.</p>
                 </div>
                 <div>
                     <p><strong>Why does the Assignment cover all of my past winning entries?</strong></p>
@@ -100,7 +100,7 @@
                 </div>
                 <div>
                     <p><strong>What happens if I don't confirm/ratify the Assignment after winning in the future?</strong></p>
-                    <p>As outlined above, when you agree to the terms of each competition, you also agree to assign ownership in the event that you win a prize.  If you don't confirm/ratify the Assignment, you will be violating the rules of the competition to which you agreed and you will not receive your prize.  In addition, you will not be allowed to participate in future competitions until the situation is resolved.</p>
+                    <p>As outlined above, when you agree to the terms of each competition, you also agree to assign ownership in the event that you win a prize.  If you don't confirm/ratify the Assignment, you will be violating the rules of the competition to which you agreed and you will not receive your prize.  In addition, you will not be allowed to participate in future competitions until the situation is resolved.  You have 5 days from the date on which you were notified that you won to confirm/ratify the Assignment.</p>
                 </div>
                 <div>
                     <p><strong>Does this mean I own my past winning entries?</strong></p>
