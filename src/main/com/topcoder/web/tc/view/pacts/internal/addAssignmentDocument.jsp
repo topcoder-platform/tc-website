@@ -213,7 +213,7 @@ function loaded() {
         <tr>
             <td><b>Expiration Date:</b></td><td>
             <tc-webtag:textInput name="expire_date" id="expire_date" size="12" editable="true" /> 
-                <button id="trigger_expire_date">Set</button> If left empty it is set to current date + 7 (has hard copy) or current date + 30 days (no hard copy)
+                <button id="trigger_expire_date">Set</button> If left empty it is set to current date + <%=PactsConstants.ASSIGNMENT_DOCUMENT_SHORT_EXPIRATION_PERIOD%> (has hard copy) or current date + <%=PactsConstants.ASSIGNMENT_DOCUMENT_LONG_EXPIRATION_PERIOD%> days (no hard copy)
             </td>            
         </tr>       
         <tr>
