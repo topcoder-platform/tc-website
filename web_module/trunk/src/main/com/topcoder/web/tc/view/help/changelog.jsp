@@ -41,9 +41,14 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
-<%--
-<li>Fix validation in component registration process to make sure a reviewer can not compete on a project that they reviewed -dok</li>
---%>
+<p>
+    5.10.6 - 2007.06.xx
+    <ul>
+        <li>Fix validation in component registration process to make sure a reviewer can not compete on a project that
+            they reviewed -dok
+        </li>
+    </ul>
+</p>
 
 <p>
     5.10.5 - 2007.06.13
@@ -82,27 +87,31 @@
     5.10.1 - 2007.05.31
     <ul>
         <li>Pacts payment statuses reengeneering -pulky
-        <ul>
-            <li>Payment's status process is now consistent and event driven.</li>
-            <li>All status descriptions are now indicative of what they are.</li>
-            <li>Added a new payment status "Entered into Payment System".</li>
-            <li>Removed print payments and related statuses and concepts.</li>
-            <li>Allowed payments to be updated to "Paid" either in batch or individually.</li>
-            <li>Removed the concept of reviewing payments.</li>
-            <li>Cheater's payments are nightly marked as "Cancelled due to account status".</li>
-            <li>Added a new status for payments called "Accruing".  This means that the user does not want to get paid right now.  Once a certain amount builds up for the user, the payments will actually be sent.</li>
-            <li>Existing payments migrated to the new status schema.</li>
-            <li>If a payment is all set (tax form on file etc) create it with status owed rather than pending.</li>
-            <li>Improved layout for payments lists, new features such as sorting.</li>
-            <li>New page to set accrual limits.</li>
-            <li>New supervisor page for manual status updates.</li>
-            <li>The referred payment have the parent status until the
-                parents make it to owed. Then, the referred payment should have it
-                own detached status.</li>
-            <li>Pacts queue removed.</li>
-        </ul>
+            <ul>
+                <li>Payment's status process is now consistent and event driven.</li>
+                <li>All status descriptions are now indicative of what they are.</li>
+                <li>Added a new payment status "Entered into Payment System".</li>
+                <li>Removed print payments and related statuses and concepts.</li>
+                <li>Allowed payments to be updated to "Paid" either in batch or individually.</li>
+                <li>Removed the concept of reviewing payments.</li>
+                <li>Cheater's payments are nightly marked as "Cancelled due to account status".</li>
+                <li>Added a new status for payments called "Accruing". This means that the user does not want to get
+                    paid right now. Once a certain amount builds up for the user, the payments will actually be sent.
+                </li>
+                <li>Existing payments migrated to the new status schema.</li>
+                <li>If a payment is all set (tax form on file etc) create it with status owed rather than pending.</li>
+                <li>Improved layout for payments lists, new features such as sorting.</li>
+                <li>New page to set accrual limits.</li>
+                <li>New supervisor page for manual status updates.</li>
+                <li>The referred payment have the parent status until the
+                    parents make it to owed. Then, the referred payment should have it
+                    own detached status.
+                </li>
+                <li>Pacts queue removed.</li>
+            </ul>
         </li>
-        <li>Add best rank, # wins, # top 5 finishes and # top 10 finishes to marathon match member profile stats -dok</li>
+        <li>Add best rank, # wins, # top 5 finishes and # top 10 finishes to marathon match member profile stats -dok
+        </li>
         <li>Only accept POST requests during reviewer sign up -dok</li>
     </ul>
 </p>
