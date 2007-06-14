@@ -1,11 +1,13 @@
 package com.topcoder.web.tc.controller.request.myhome;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
@@ -107,6 +109,10 @@ public class EditPreferences extends ShortHibernateProcessor {
             }
             if (!hasErrors()) {
                 DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+                HashSet<String> s = new HashSet<String>();
+                s.add("user_preference");
+                s.add("user_preference_all");
+                CacheClearer.removelike(s);
                 setNextPage("/my_home/index.jsp");
             } else {
                 setNextPage("/my_home/privacy.jsp");                

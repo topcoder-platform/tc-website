@@ -61,7 +61,7 @@ public class UserPreferenceDAOQueryTool extends Base implements UserPreferenceDA
     private List<UserPreference> getData(Request r, String queryName, Integer preferenceId) {
         List<UserPreference> retList = null;
         try {
-            DataAccessInt dai = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true);
+            DataAccessInt dai = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
             Map result = dai.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get(queryName);
            
