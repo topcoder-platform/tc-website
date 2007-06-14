@@ -79,6 +79,8 @@ public class ResultSetContainerConverter {
             hidePaymentColumn = hideKeyList.contains(keyCol);
             for (int i=0; i<rsc.getColumnCount(); i++) {
                 if (!hidePaymentColumn || !rsc.getColumnName(i).equals(paymentCol)) {
+                    addElement(hd, rsc.getColumnName(i), "*hidden*", emptyAtts);
+                } else {
                     addElement(hd, rsc.getColumnName(i), row.getStringItem(i), emptyAtts);
                 }
             }
