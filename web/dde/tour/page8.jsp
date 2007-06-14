@@ -36,20 +36,20 @@
         </div>
 
         <jsp:include page="nav.jsp">
-            <jsp:param name="node" value="page1"/>
+            <jsp:param name="node" value="page8"/>
         </jsp:include>
 
         <div id="slide">
-            <a href="/tour/page2.jsp" onfocus="this.blur();"><img src="/i/tour/page1.png" alt="" /></a>
+            <a href="/tour/page9.jsp" onfocus="this.blur();"><img src="/i/tour/page8.png" alt="" /></a>
         </div>
 
         <%--<h2 align="center">
-            We build software.
+            The new drawing board.
         </h2>--%>
 
         <p align="center">
-            < prev
-            | <a href="/tour/page2.jsp">next ></a>
+            <a href="/tour/page7.jsp">< prev</a>
+            | <a href="/tour/page9.jsp">next ></a>
         </p>
 
         <div class="popUp" id="myPopUp">
