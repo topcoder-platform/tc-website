@@ -42,9 +42,9 @@ public class EditNotifications extends ShortHibernateProcessor {
                 log.debug("getting param: notif_" + n.getId() + ": " + notif);
 
                 if (userNotifications.contains(n) && !notif.equals("true")) {
-                    u.getNotifications().remove(n);
+                    u.removeNotification(n);
                 } else if (!userNotifications.contains(n) && notif.equals("true")) {
-                    u.getNotifications().add(n);
+                    u.addNotification(n);
                 }
             }
             DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);

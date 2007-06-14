@@ -264,6 +264,10 @@ public class User extends Base {
         this.notifications.add(notification);
     }
 
+    public void removeNotification(Notification notification) {
+        this.notifications.remove(notification);
+    }
+
     public Set getSecurityGroups() {
         return Collections.unmodifiableSet(securityGroups);
     }

@@ -54,7 +54,7 @@
                 </p>
 
             <form name="f" action="${sessionInfo.servletPath}" method="post">
-            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditPreferences"/>
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditNotifications"/>
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tbody>
                     <tr>
@@ -69,7 +69,7 @@
                         <td class="value">
                             <c:forEach var="notification" items="${notifications}">
                             <p>
-                                <tc-webtag:chkBox name="notif_${notification.id}"/> ${notification.Name}
+                                <tc-webtag:chkBox name="notif_${notification.id}"/> ${notification.name}
                             </p>
                             </c:forEach>
                         </td>
