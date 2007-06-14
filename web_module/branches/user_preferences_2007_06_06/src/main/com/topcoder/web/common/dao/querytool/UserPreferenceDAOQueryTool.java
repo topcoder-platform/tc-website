@@ -22,11 +22,14 @@ import com.topcoder.web.common.model.UserPreference;
 public class UserPreferenceDAOQueryTool extends Base implements UserPreferenceDAO {
 
     public UserPreference find(User user, Preference preference) {
-        return null;
+        return find(user.getId(), preference.getId());
     }
 
     public UserPreference find(Long userId, Integer preferenceId) {
-        return null;
+        List<Long> userIdList = new ArrayList<Long>(1);
+        userIdList.add(userId);
+        List<UserPreference>  upList = find(userIdList, preferenceId);
+        return upList.size() > 0 ? upList.get(0) : null;
     }
 
     public void saveOrUpdate(UserPreference up) {

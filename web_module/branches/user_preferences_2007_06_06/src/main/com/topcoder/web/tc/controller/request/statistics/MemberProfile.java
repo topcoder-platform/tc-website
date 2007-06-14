@@ -10,15 +10,21 @@
 
 package com.topcoder.web.tc.controller.request.statistics;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Preference;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.tc.Constants;
 
 /**
@@ -198,17 +204,12 @@ public class MemberProfile extends Base {
                 memberContactEnabled = "yes".equals(rsc2.getStringItem(0, "value"));
             }
 
-            r = new Request();
-            r.setContentHandle("users_payments_visible");
-            r.setProperty("cts", coderId);
 
-            dai2 = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, false);
-            result2 = dai2.getData(r);
-            rsc2 = (ResultSetContainer) result2.get("users_payments_visible");
+            UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId), Preference.SHOW_EARNINGS_PREFERENCE_ID);
 
             boolean hidePayments = false;
-            if(rsc2.size() > 0) {
-                hidePayments = "hide".equals(rsc2.getStringItem(0, "value"));
+            if(up != null) {
+                hidePayments = "hide".equals(up.getValue());
             }
 
             getRequest().setAttribute("resultMap", result);
