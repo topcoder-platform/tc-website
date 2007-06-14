@@ -1,6 +1,7 @@
 package com.topcoder.web.common.dao;
 
 import com.topcoder.web.common.dao.hibernate.DAOFactoryHibernate;
+import com.topcoder.web.common.dao.querytool.DAOFactoryQueryTool;
 
 /**
  * @author dok
@@ -10,5 +11,9 @@ import com.topcoder.web.common.dao.hibernate.DAOFactoryHibernate;
 public class DAOUtil {
     public static DAOFactory getFactory() {
         return new DAOFactoryHibernate();
+    }
+
+    public static DAOFactory getQueryToolFactory() {
+        return new DAOFactoryQueryTool();
     }
 }

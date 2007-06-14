@@ -10,7 +10,10 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.SoftwareComponent;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.common.tag.HandleTag;
 import com.topcoder.web.tc.controller.request.Static;
 
@@ -68,39 +71,28 @@ public class ComponentRecordbook extends Static {
         ResultSetContainer rsc = (ResultSetContainer) result.get(dataRequest.getContentHandle());
         getRequest().setAttribute("result", rsc);
 
-        // for statistics that involve money, call the query to find out who wants to hide their payments.
+        // for statistics that involve money, find out who wants to hide their payments.
         if (handle.equals("overall_money") ||
                 handle.equals("royalties") ||
                 handle.equals("tournament_money") ||
                 handle.equals("component_money") ||
                 handle.equals("largest_comp_prize")) {
 
-            String coderStr = "";
+            List<Long> coderList = new ArrayList<Long>(rsc.size());
             for (ResultSetRow rsr : rsc) {
-                //log.debug("adding: " + rsr.getLongItem("coder_id"));
-                coderStr += rsr.getLongItem("coder_id") + ",";
+                coderList.add(rsr.getLongItem("coder_id"));
             }
-            coderStr = coderStr.substring(0, coderStr.length()-1);
-            //log.debug("cts: " + coderStr);
-            
-            Request r = new Request();
-            r.setContentHandle("users_payments_visible");
-            r.setProperty("cts", coderStr);
 
-            DataAccessInt dai2 = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true);
-            Map result2 = dai2.getData(r);
-            ResultSetContainer rsc2 = (ResultSetContainer) result2.get("users_payments_visible");
-
+            List<UserPreference> upList  = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(coderList, Preference.SHOW_EARNINGS_PREFERENCE_ID);
             List<Long> hideList = new ArrayList<Long>();
-            for (ResultSetRow rsr : rsc2) {
-                if ("hide".equals(rsr.getStringItem("value"))) {
-                    //log.debug("adding: " + rsr.getLongItem("user_id"));
-                    hideList.add(rsr.getLongItem("user_id"));
+            for (UserPreference up : upList) {
+                if ("hide".equals(up.getValue())) {
+                    log.debug("adding: " + up.getId().getUser().getId());
+                    hideList.add(up.getId().getUser().getId());
                 }
             }
             getRequest().setAttribute("hideList", hideList);
         }
-        
         
         String includeJsp
                 = "/compstats/" + dataRequest.getContentHandle() + ".jsp";
