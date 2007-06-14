@@ -1,7 +1,7 @@
 <%@ page language="java"
          import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.util.ApplicationServer,
-			     com.topcoder.web.common.BaseServlet,
+                 com.topcoder.web.common.BaseServlet,
                  com.topcoder.web.common.SessionInfo,
                  com.topcoder.web.tc.Constants" %>
 
@@ -285,13 +285,13 @@
             <% if (resultRow.getItem("screening_score").getResultData() == null) { %>
             <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>
             <% } else { %>
-            	<% if(isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) { %>
-	            	<A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>' class="bcLink">	            
-		                <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>	
-        		    </A>
-        		<% } else { %>
-		                <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/>	
-        		<% } %>
+                <% if(isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) { %>
+                    <A HREF='/tc?module=ScorecardDetails&pj=<%=projectId%>&uid=<%=resultRow.getLongItem("user_id")%>' class="bcLink">               
+                        <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/> 
+                    </A>
+                <% } else { %>
+                        <rsc:item row="<%=resultRow%>" name="screening_score" format="0.00" ifNull="unknown*"/> 
+                <% } %>
             <% } %>
         </TD>
         <TD class="value">
@@ -310,7 +310,7 @@
             <rsc:item row="<%=resultRow%>" name="final_score" format="0.00" ifNull="unknown*"/>
         </b></TD>
         <TD class="valueC"><b>
-            <rsc:item row="<%=resultRow%>" name="final_points" ifNull="N/A"/>
+            <rsc:item row="<%=resultRow%>" name="final_points" format="0.00" ifNull="N/A"/>
             <% if (resultRow.getItem("final_points").getResultData() != null &&
                     resultRow.getIntItem("final_points") != resultRow.getIntItem("initial_points")) { %>
             **
@@ -337,18 +337,18 @@
         %>
         <% } %>
         <TD class="valueC" nowrap="nowrap">
-    	    <% if ((isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) 
-    	            && (sessionInfo.isAdmin() || (!projectInfo.getStringItem(0, "category_desc").equals("Java Custom")
-     	                                         && !projectInfo.getStringItem(0, "category_desc").equals(".Net Custom")))    	            
-    	            ) { 
-    	    
-    	    %>
+            <% if ((isComplete || userId == resultRow.getLongItem("user_id") || isReviewer) 
+                    && (sessionInfo.isAdmin() || (!projectInfo.getStringItem(0, "category_desc").equals("Java Custom")
+                                                 && !projectInfo.getStringItem(0, "category_desc").equals(".Net Custom")))                  
+                    ) { 
+            
+            %>
             <div id="pop<%=i%>" class="popUp">
                 <div>Download submission</div>
             </div>
             <a href='/tc?module=DownloadSubmission&cr=<%= resultRow.getLongItem("user_id") %>&pj=<%= projectId %>&st=1&ph=<%= projectInfo.getStringItem(0, "phase_id") %>'>
                 <img src="/i/interface/emblem/disk.gif" alt="Download submission" border="0" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/></a>
-	        <% } %>
+            <% } %>
         </TD>
 
 
