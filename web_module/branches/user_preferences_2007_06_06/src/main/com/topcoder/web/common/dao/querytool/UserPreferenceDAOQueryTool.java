@@ -55,7 +55,6 @@ public class UserPreferenceDAOQueryTool extends Base implements UserPreferenceDA
             cts.append(id).append(",");
         }
         cts.delete(cts.length() - 1, cts.length());
-        cts.append(")");
         return cts.toString();
     }
 

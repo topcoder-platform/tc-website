@@ -47,10 +47,10 @@ public class BasicData extends Base {
                 key = (String)it.next();
                 rsc = (ResultSetContainer)m.get(key);
                 if (key.equals("dd_round_results")) {
-                    ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "prize", "user_id", getHideUsersList() ,getResponse().getOutputStream());
+                    ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "paid", "coder_id", getHideUsersList() ,getResponse().getOutputStream());
                 } else if (key.equals("dd_design_rating_history") ||
                         key.equals("dd_development_rating_history")) {
-                    ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "payment", "user_id", getHideUsersList() ,getResponse().getOutputStream());
+                    ResultSetContainerConverter.writeXMLhidingPayments(rsc, r.getContentHandle(), "payment", "coder_id", getHideUsersList() ,getResponse().getOutputStream());
                 } else {
                     ResultSetContainerConverter.writeXML(rsc, r.getContentHandle(), getResponse().getOutputStream());
                 }
