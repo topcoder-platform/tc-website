@@ -86,18 +86,18 @@ function brute_force(text[], pattern[])
 }
 </pre>
 
-<p>The "na_ve" approach is easy to understand and implement but it can be too slow in some cases. If the length of the text is n and the length of the pattern m, in the worst case it may take as much as (n * m) iterations to complete the task.</p>
+<p>The "naive" approach is easy to understand and implement but it can be too slow in some cases. If the length of the text is n and the length of the pattern m, in the worst case it may take as much as (n * m) iterations to complete the task.</p>
 
 <p>It should be noted though, that for most practical purposes, which deal with texts based on human languages, this approach is much faster since the inner loop usually quickly finds a mismatch and breaks. A problem arises when we are faced with different kinds of "texts," such as the genetic code.</p>
 
 <p><span class="bodySubtitle">Rabin-Karp Algorithm (RK)</span><br>
-This is actually the "na_ve" approach augmented with a powerful programming technique - the hash function. </p>
+This is actually the "naive" approach augmented with a powerful programming technique - the hash function. </p>
 
 <p>Every string s[] of length m can be seen as a number H written in a positional numeral system in base B (B &gt;= size of the alphabet used in the string):</p>
 
-<p><strong>H = s[0] * B(m - 1)  + s[1] * B(m - 2) + &#8230; + s[m - 2] * B1 + s[m - 1] * B0</strong></p>
+<p><strong>H = s[0] * B<sup>(m - 1)</sup>  + s[1] * B<sup>(m - 2)</sup> + &#8230; + s[m - 2] * B<sup>1</sup> + s[m - 1] * B<sup>0</sup></strong></p>
 
-<p>If we calculate the number H (the hash value) for the pattern and the same number for every substring of length m of the text than the inner loop of the "na_ve" method will disappear - instead of comparing two strings character by character we will have just to compare two integers.</p>
+<p>If we calculate the number H (the hash value) for the pattern and the same number for every substring of length m of the text than the inner loop of the "naive" method will disappear - instead of comparing two strings character by character we will have just to compare two integers.</p>
 
 <p>A problem arises when m and B are big enough and the number H becomes too large to fit into the standard integer types. To overcome this, instead of the number H itself we use its remainder when divided by some other number M. To get the remainder we do not have to calculate H. Applying the basic rules of modular arithmetic to the above expression: </p>
 
@@ -106,35 +106,34 @@ A * B = C   =&gt;   ((A % M) * (B % M)) % M = C % M</strong></p>
 
 <p>We get:</p>
 
-<p><strong>H % M = (((s[0] % M) * (B(m - 1) % M)) % M + ((s[1] % M) * (B(m - 2) % M)) % M  +&#8230;<br>
+<p><strong>H % M = (((s[0] % M) * (B<sup>(m - 1)</sup> % M)) % M + ((s[1] % M) * (B<sup>(m - 2)</sup> % M)) % M  +&#8230;<br>
 
-        &#8230;+ ((s[m - 2] % M) * (B1 % M)) % M + ((s[m - 1] % M) * (B0 % M)) % M) % M</strong></p>
-           
+        &#8230;+ ((s[m - 2] % M) * (B<sup>1</sup> % M)) % M + ((s[m - 1] % M) * (B<sup>0</sup> % M)) % M) % M</strong></p>
 
-<p>The drawback of using remainders is that it may turn out that two different strings map to the same number (it is called a collision). This is less likely to happen if M is sufficiently large and B and M are prime numbers. Still this does not allow us to entirely skip the inner loop of the "na_ve" method. However, its usage is significantly limited. We have to compare the "candidate" substring of the text with the pattern character by character only when their hash values are equal.</p>
+<p>The drawback of using remainders is that it may turn out that two different strings map to the same number (it is called a collision). This is less likely to happen if M is sufficiently large and B and M are prime numbers. Still this does not allow us to entirely skip the inner loop of the "naive" method. However, its usage is significantly limited. We have to compare the "candidate" substring of the text with the pattern character by character only when their hash values are equal.</p>
 
 <p>Obviously the approach described so far would be absolutely useless if we were not able to calculate the hash value for every substring of length m in the text in just one pass through the entire text. At first glance to do these calculations we will again need two nested loops: an outer one -- to iterate through all possible starting positions -- and an inner one -- to calculate the hash function for every starting position. Fortunately, this is not the case. Let's consider a string s[], and let's suppose we are to calculate the hash value for every substring in s[] with length say m = 3. It is easy to see that:</p>
 
-<p><strong>H0  =  Hs[0]&#8230;s[2]  =  s[0] * B2  + s[1] * B + s[2]</strong></p>
+<p><strong>H<sub>0</sub>  =  H<sub>s[0]&#8230;s[2]</sub>  =  s[0] * B<sup>2</sup>  + s[1] * B + s[2]</strong></p>
    
-<p><strong>H1  =  Hs[1]..s[3]   =  s[1] * B2  + s[2] * B + s[3]</strong></p>
+<p><strong>H<sub>1</sub>  =  H<sub>s[1]..s[3]</sub>   =  s[1] * B<sup>2</sup>  + s[2] * B + s[3]</strong></p>
 
-<p><strong>H1  =  (H0  - s[0] * B2 ) * B + s[3]</strong></p>
+<p><strong>H<sub>1</sub>  =  (H<sub>0</sub>  - s[0] * B<sup>2</sup> ) * B + s[3]</strong></p>
 
 <p>In general:</p>
 
-<p><strong>Hi  =  ( Hi - 1  - s[i- 1] * Bm - 1 ) * B + s[i + m - 1]</strong></p>
+<p><strong>H<sub>i</sub>  =  ( H<sub>i - 1</sub>  - s[i- 1] * B<sup>m - 1</sup> ) * B + s[i + m - 1]</strong></p>
 
 <p>Applying again the rules of modular arithmetic, we get:</p>
 
-<p><strong>Hi  % M  =  (((( Hi - 1  % M  - ((s[i- 1]  % M) * (Bm - 1 % M)) % M ) % M) * (B % M))  % M +  <br>
+<p><strong>H<sub>i</sub>  % M  =  (((( H<sub>i - 1</sub>  % M  - ((s[i- 1]  % M) * (B<sup>m - 1</sup> % M)) % M ) % M) * (B % M))  % M +  <br>
                           + s[i + m - 1] % M) % M</strong></p>
 
-<p>Obviously the value of (Hi - 1 - s[i - 1] * Bm - 1) may be negative. Again, the rules of modular arithmetic come into play:</p>
+<p>Obviously the value of (H<sub>i - 1</sub> - s[i - 1] * B<sup>m - 1</sup>) may be negative. Again, the rules of modular arithmetic come into play:</p>
 
 <p><strong>A - B = C   =&gt;   (A % M - B % M + k * M) % M = C % M</strong></p>
 
-<p>Since the absolute value of (Hi - 1 - s[i - 1] * Bm - 1) is between 0 and (M - 1), we can safely use a value of 1 for k.</p>
+<p>Since the absolute value of (H<sub>i - 1</sub> - s[i - 1] * B<sup>m - 1</sup>) is between 0 and (M - 1), we can safely use a value of 1 for k.</p>
 
 <p>Pseudocode for RK follows:</p>
 
@@ -182,7 +181,7 @@ function Rabin_Karp(text[], pattern[])
 }
 </pre>
 
-<p>Unfortunately, there are still cases when we will have to run the entire inner loop of the "na_ve" method for every starting position in the text -- for example, when searching for the pattern "aaa" in the string "aaaaaaaaaaaaaaaaaaaaaaaaa" -- so in the worst case we will still need (n * m) iterations. How do we overcome this? </p>
+<p>Unfortunately, there are still cases when we will have to run the entire inner loop of the "naive" method for every starting position in the text -- for example, when searching for the pattern "aaa" in the string "aaaaaaaaaaaaaaaaaaaaaaaaa" -- so in the worst case we will still need (n * m) iterations. How do we overcome this? </p>
 
 <p>Let's go back to the basic idea of the method -- to replace the string comparison character by character by a comparison of two integers. In order to keep those integers small enough we have to use modular arithmetic. This causes a "side effect" -- the mapping between strings and integers ceases to be unique. So now whenever the two integers are equal we still have to "confirm" that the two strings are identical by running character-by-character comparison. It can become a kind of vicious circle&#8230;</p>
 
@@ -195,7 +194,7 @@ function Rabin_Karp(text[], pattern[])
 <p>Another type of problems where the "rolling hash" technique is the key to the solution are those that ask us to find the most frequent substring of a fixed length in a given text. Since the length is already fixed we do not need any BS. We just use a hash table and keep track of the frequencies. </p>
 
 <p><span class="bodySubtitle">Knuth-Morris-Pratt Algorithm (KMP)</span><br>
-In some sense, the "na_ve" method and its extension RK reflect the standard approach of human logic to "the needle in a haystack problem". The basic idea behind KMP is a bit different. Let's suppose that we are able, after one pass through the text, to identify all positions where an existing match with the pattern ends. Obviously, this will solve our problem. Since we know the length of the pattern, we can easily identify the starting position of every match.</p>
+In some sense, the "naive" method and its extension RK reflect the standard approach of human logic to "the needle in a haystack problem". The basic idea behind KMP is a bit different. Let's suppose that we are able, after one pass through the text, to identify all positions where an existing match with the pattern ends. Obviously, this will solve our problem. Since we know the length of the pattern, we can easily identify the starting position of every match.</p>
 
 <p>Is this approach feasible? It turns out that it is, when we apply the concept of the automaton. We can think of an automaton as of a kind of abstract object, which can be in a finite number of states. At each step some information is presented to it. Depending on this information and its current state the automaton goes to a new state, uniquely determined by a set of internal rules. One of the states is considered as "final". Every time we reach this "final" state we have found an end position of a match.</p>
 
