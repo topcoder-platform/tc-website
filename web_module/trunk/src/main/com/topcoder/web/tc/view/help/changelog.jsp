@@ -42,7 +42,7 @@
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
 <p>
-    5.10.6 - 2007.06.xx
+    5.10.6 - 2007.06.14
     <ul>
         <li>Fix validation in component registration process to make sure a reviewer can not compete on a project that
             they reviewed -dok
