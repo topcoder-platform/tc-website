@@ -337,6 +337,12 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/computerworld.gif" width="81" height="21" alt="Computerworld" border="0" />
+            </div>
+            Outsourcing the eBay way
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='homepage' />">...more</a><br>[June 15]<br><br>
+
             TopCoder Community Helps Research Led by Harvard Business School Professor
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_061307">...more</A><br>[June 13]<br><br>
 
@@ -354,9 +360,6 @@
 
             Introducing the new TC Channel!
             <A target="_blank" href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep1">...more</A><br>[May 16]<br><br>
-
-            Belarus All College Programming Event
-            <A target="_blank" href="/tc?module=Static&d1=features&d2=050807">...more</A><br>[May 8]<br><br>
 
         </td>
     </tr>

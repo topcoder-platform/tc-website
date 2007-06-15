@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>06.15.07<br>3:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='/tc' />">Outsourcing the eBay way</a></span><br><br>
+      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/computerworld.gif" width="81" height="21" alt="Computerworld" border="0" /></div>
+      TopCoder uses another approach to connect employers to overseas tech workers. Users of TopCoder's Web site submit development projects that are used as the basis of coding competitions between developers.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='/tc' />">details</A> | 
+       <tc-webtag:forumLink forumID="516221" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Tutorials" border="0" /><br>06.14.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -191,22 +205,3 @@
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.06.07<br>4:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">UBS chat session before SRM 353</A>
-        </span><br><br>
-        SRM 353 is sponsored by UBS. Don’t miss the chat session before the match, starting at 10:00 AM EDT on June 7, where you can chat with UBS representatives about career opportunities at the company.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">details</A> |
-        <tc-webtag:forumLink forumID="505918" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-   
