@@ -42,6 +42,7 @@
         <pathelement location="${confluence.jars}/atlassian-user-2007-05-22.jar"/>
         <pathelement location="${confluence.jars}/confluence-2.5.3.jar"/>
         <pathelement location="${confluence.jars}/seraph-0.7.23.jar"/>
+        <pathelement location="${confluence.jars}/atlassian-event-0.2.jar"/>
 
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
