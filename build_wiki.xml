@@ -87,6 +87,28 @@
          
     </target>
 
+
+    <target name="move-conf">
+        <copy todir="${jboss_conf}">
+            <fileset dir="${resources}">
+                <include name="ApplicationServer.properties"/>
+            </fileset>
+        </copy>
+        <mkdir dir="${jboss_conf}/com/topcoder/security"/>
+        <mkdir dir="${jboss_conf}/com/topcoder/util/config"/>
+        <copy todir="${jboss_conf}/com/topcoder/security">
+            <fileset dir="${resources}/com/topcoder/security">
+                <include name="Util.properties"/>
+            </fileset>
+        </copy>
+        <copy todir="${jboss_conf}/com/topcoder/util/config">
+            <fileset dir="${resources}/com/topcoder/util/config">
+                <include name="ConfigManager.properties"/>
+            </fileset>
+        </copy>
+    </target>
+
+
 </project>
 
 
