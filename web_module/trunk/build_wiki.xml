@@ -37,6 +37,7 @@
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
 
         <pathelement location="${jars.dir}/jboss/javax.servlet.jar"/>
+        <pathelement location="${jars.dir}/jboss/jbossall-client.jar"/>
 
         <pathelement location="${confluence.jars}/hibernate-2.1.8-atlassian.jar"/>
         <pathelement location="${confluence.jars}/atlassian-user-2007-05-22.jar"/>
