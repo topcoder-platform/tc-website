@@ -226,11 +226,11 @@
         </tr>
         <tr>
             <td class="name">
-                <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if> Allow others to see my school:
+                <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if> Show / hide my school:
             </td>
             <td class="value">
-                <tc-webtag:radioButton name="${visibleSchool}" value="yes"/> Yes
-                <br/><tc-webtag:radioButton name="${visibleSchool}" value="no"/> No
+                <tc-webtag:radioButton name="${visibleSchool}" value="show"/> Yes
+                <br/><tc-webtag:radioButton name="${visibleSchool}" value="hide"/> No
             </td>
         </tr>
     </c:if>
