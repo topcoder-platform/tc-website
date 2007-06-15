@@ -1,29 +1,23 @@
 package com.topcoder.web.wiki;
 
 import com.atlassian.confluence.user.ConfluenceAuthenticator;
-import com.atlassian.user.User;
-import com.atlassian.user.impl.DefaultUser;
 import com.atlassian.confluence.user.UserAccessor;
 import com.atlassian.seraph.auth.AuthenticatorException;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.security.LoginException;
-import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
-import com.topcoder.web.ejb.email.Email;
+import com.atlassian.user.User;
+import com.atlassian.user.impl.DefaultUser;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.login.LoginRemote;
+import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.HttpObjectFactory;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCResponse;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
-import java.util.Arrays;
 
 /**
  * @author dok
@@ -64,13 +58,14 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 return false;
             }
 
-
+            return true;
         } catch (Exception e) {
             throw new AuthenticatorException(e.getMessage());
         }
 
     }
 
+/*
     private char getStatus(long userId) throws Exception {
         char result;
         com.topcoder.web.ejb.user.User user = (com.topcoder.web.ejb.user.User)
@@ -88,6 +83,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                 DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
     }
+*/
 
     protected boolean authenticate(Principal principal, String string) {
         log.debug("XXX authenticate called");
