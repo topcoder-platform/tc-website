@@ -193,7 +193,6 @@
 
 
 <c:if test="${cf:contains(fields, schoolName)}">
-    <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
     <tr>
         <td colspan="2"><span class="bigRed">
         <tc-webtag:errorIterator id="err" name="${schoolName}">${err}<br></tc-webtag:errorIterator>
@@ -202,7 +201,6 @@
         <tc-webtag:errorIterator id="err" name="${schoolCountry}">${err}<br></tc-webtag:errorIterator>
         <tc-webtag:errorIterator id="err" name="${schoolState}">${err}<br></tc-webtag:errorIterator>
         <tc-webtag:errorIterator id="err" name="${schoolId}">${err}<br></tc-webtag:errorIterator>
-        <tc-webtag:errorIterator id="err" name="${schoolVisible}">${err}<br></tc-webtag:errorIterator></span>
         </td>
     </tr>
     <tr>
@@ -219,7 +217,13 @@
                 School</a>
         </td>
     </tr>
+    <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
     <c:if test="${cf:contains(fields, visibleSchool)}">
+        <tr>
+            <td colspan="2"><span class="bigRed">
+            <tc-webtag:errorIterator id="err" name="${visibleSchool}">${err}<br></tc-webtag:errorIterator></span>
+            </td>
+        </tr>
         <tr>
             <td class="name">
                 <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if> Allow others to see my school:
