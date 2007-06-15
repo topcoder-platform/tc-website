@@ -489,6 +489,15 @@ public abstract class Base extends LongHibernateProcessor {
             }
         }
 
+        if (fields.contains(Constants.VISIBLE_SCHOOL)) {
+            ValidationResult nonEmptyResult =
+                new NonEmptyValidator("Please enter your preference.").validate(
+                        new StringInput((String) params.get(Constants.VISIBLE_SCHOOL)));
+            if (!nonEmptyResult.isValid()) {
+                addError(Constants.VISIBLE_SCHOOL, nonEmptyResult.getMessage());
+            }
+        }
+
         if (fields.contains(Constants.GPA) &&
                 fields.contains(Constants.GPA_SCALE) &&
                 hasParameter(params, Constants.GPA) &&
@@ -609,7 +618,7 @@ public abstract class Base extends LongHibernateProcessor {
                 setDefault(Constants.SCHOOL_TYPE, s.getType().getId());
             }
             if (u.getCoder().getCurrentSchool().getViewable() != null) {
-                setDefault(Constants.VISIBLE_SCHOOL, u.getCoder().getCurrentSchool().getViewable().toString());
+                setDefault(Constants.VISIBLE_SCHOOL, u.getCoder().getCurrentSchool().getViewable() ? "show" : "hide");
             }
             if (u.getCoder().getCurrentSchool().getGPA() != null) {
                 setDefault(Constants.GPA, u.getCoder().getCurrentSchool().getGPA().toString());
@@ -636,7 +645,7 @@ public abstract class Base extends LongHibernateProcessor {
                 }
             }
         } else {
-            setDefault(Constants.VISIBLE_SCHOOL, String.valueOf(true));
+            setDefault(Constants.VISIBLE_SCHOOL, "show");
         }
 
         if (u.getCoder() != null && !u.getCoder().getResumes().isEmpty()) {

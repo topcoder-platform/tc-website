@@ -225,7 +225,8 @@
                 <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if> Allow others to see my school:
             </td>
             <td class="value">
-                <tc-webtag:chkBox name="${visibleSchool}"/>
+                <tc-webtag:radioButton name="${visibleSchool}" value="yes"/> Yes
+                <br/><tc-webtag:radioButton name="${visibleSchool}" value="no"/> No
             </td>
         </tr>
     </c:if>
