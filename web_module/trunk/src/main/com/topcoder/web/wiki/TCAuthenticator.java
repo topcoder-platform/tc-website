@@ -112,6 +112,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
 
     public Principal getUser(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
         log.debug("XXX getUser(request, response) called");
+        return super.getUser(httpServletRequest, httpServletResponse);
+/*
         TCRequest tcRequest = HttpObjectFactory.createRequest(httpServletRequest);
         TCResponse tcResponse = HttpObjectFactory.createResponse(httpServletResponse);
         try {
@@ -126,5 +128,6 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             log.warn(e.getMessage());
             return null;
         }
+*/
     }
 }
