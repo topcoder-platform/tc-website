@@ -89,6 +89,8 @@ public class RegFieldHelper {
         requiredMainCompFields.add(Constants.SECRET_QUESTION_RESPONSE);
         requiredMainCompFields.add(Constants.EMAIL);
         requiredMainCompFields.add(Constants.EMAIL_CONFIRM);
+        requiredMainCompFields.add(Constants.MEMBER_CONTACT);
+        requiredMainCompFields.add(Constants.SHOW_EARNINGS);
         requiredMainCompFields.add(Constants.COMP_COUNTRY_CODE);
         requiredMainCompFields.add(Constants.CODER_TYPE);
         requiredMainCompFields.add(Constants.TIMEZONE);

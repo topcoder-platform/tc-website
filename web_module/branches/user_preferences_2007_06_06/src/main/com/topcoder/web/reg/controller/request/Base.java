@@ -342,9 +342,9 @@ public abstract class Base extends LongHibernateProcessor {
             setDefault(Constants.NOTIFICATION + ((Notification) it.next()).getId(), String.valueOf(true));
         }
 
-        setDefault(Constants.MEMBER_CONTACT, String.valueOf(u.isMemberContactEnabled()));
+        setDefault(Constants.MEMBER_CONTACT, u.isMemberContactEnabled() ? "yes" : "no");
 
-        setDefault(Constants.SHOW_EARNINGS, String.valueOf(u.isShowEarningsEnabled()));
+        setDefault(Constants.SHOW_EARNINGS, u.isShowEarningsEnabled() ? "show" : "hide");
 
         if (u.getContact() != null) {
             setDefault(Constants.TITLE, u.getContact().getTitle());
