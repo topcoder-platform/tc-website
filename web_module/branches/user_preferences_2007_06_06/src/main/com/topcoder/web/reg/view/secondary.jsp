@@ -193,6 +193,7 @@
 
 
 <c:if test="${cf:contains(fields, schoolName)}">
+    <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
     <tr>
         <td colspan="2"><span class="bigRed">
         <tc-webtag:errorIterator id="err" name="${schoolName}">${err}<br></tc-webtag:errorIterator>
@@ -218,7 +219,6 @@
                 School</a>
         </td>
     </tr>
-    <c:set value="<%=Constants.VISIBLE_SCHOOL%>" var="visibleSchool"/>
     <c:if test="${cf:contains(fields, visibleSchool)}">
         <tr>
             <td class="name">
