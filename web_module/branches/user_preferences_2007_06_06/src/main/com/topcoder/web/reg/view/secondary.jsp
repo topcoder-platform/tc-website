@@ -229,8 +229,8 @@
                 <c:if test="${cf:contains(reqFields, visibleSchool)}">*</c:if> Show / hide my school:
             </td>
             <td class="value">
-                <tc-webtag:radioButton name="${visibleSchool}" value="show"/> Yes
-                <br/><tc-webtag:radioButton name="${visibleSchool}" value="hide"/> No
+                <tc-webtag:radioButton name="${visibleSchool}" value="show"/> Show
+                <br/><tc-webtag:radioButton name="${visibleSchool}" value="hide"/> Hide
             </td>
         </tr>
     </c:if>
