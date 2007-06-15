@@ -78,6 +78,14 @@
     </target>
 
 
+    <target name="copy-to-confluence" depends="compile">
+        <copy todir="../confluence-2.5.3/confluence/WEB-INF/classes">
+            <fileset dir="${classes}">
+                <include name="com/topcoder/web/wiki/**/*.class"/>
+            </fileset>
+        </copy>
+         
+    </target>
 
 </project>
 
