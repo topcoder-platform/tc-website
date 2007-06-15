@@ -45,6 +45,8 @@
         <pathelement location="${confluence.jars}/seraph-0.7.23.jar"/>
         <pathelement location="${confluence.jars}/atlassian-event-0.2.jar"/>
 
+        <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
+
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
     <property name="class.path" refid="class.path"/>
@@ -65,9 +67,6 @@
                 source="1.5"
                 target="1.5" memoryMaximumSize="380m" memoryInitialSize="380m" fork="true">
             <include name="com/topcoder/web/wiki/**"/>
-            <include name="com/topcoder/common/**"/>
-            <include name="com/topcoder/web/common/**"/>
-
         </javac>
         <property name="compile_set" value="true"/>
     </target>
