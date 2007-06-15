@@ -5,6 +5,7 @@
     <property name="testclasses" value="${build}/testcases"/>
     <property name="lib.dir" value="lib"/>
     <property name="jars.dir" value="${lib.dir}/jars"/>
+    <property name="confluence.jars" value="${jars.dir}/confluence-2.5.3"/>
     <property name="bin" value="lib/bin"/>
     <property name="src.dir" value="src"/>
     <property name="java" value="${src.dir}/main"/>
@@ -34,6 +35,8 @@
         <pathelement location="${testclasses}"/>
         <pathelement location="${resources}"/>
         <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+
+        <pathelement location="${confluence.jars}/hibernate-2.1.8-atlassian.jar"/>
 
     </path>
     <!-- adding this here because i can't figure out how to use the above path element in other path elements-->
