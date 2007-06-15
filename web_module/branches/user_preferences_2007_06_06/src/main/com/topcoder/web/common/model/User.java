@@ -376,13 +376,13 @@ public class User extends Base {
     }
 
     public boolean isShowEarningsEnabled() {
-        UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
-        return up == null ? false : "yes".equals(up.getValue());
+        UserPreference up = getUserPreference(Preference.SHOW_EARNINGS_PREFERENCE_ID);
+        return up == null ? false : "show".equals(up.getValue());
     }
 
     public boolean isMemberContactEnabled() {
-        UserPreference up = getUserPreference(Preference.SHOW_EARNINGS_PREFERENCE_ID);
-        return up == null ? false : "show".equals(up.getValue());
+        UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
+        return up == null ? false : "yes".equals(up.getValue());
     }
 
     public SecretQuestion getSecretQuestion() {
