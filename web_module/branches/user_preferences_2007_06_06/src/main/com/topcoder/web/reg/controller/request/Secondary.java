@@ -275,15 +275,19 @@ public class Secondary extends Base {
         }
 
         if (fields.contains(Constants.SHOW_EARNINGS)) {
+            log.debug("In SHOW_EARNINGS");
             UserPreference up = u.getUserPreference(Preference.SHOW_EARNINGS_PREFERENCE_ID);
             String value = StringUtils.checkNull(String.valueOf(params.get(Constants.SHOW_EARNINGS)));
+            log.debug("value: " + value);
             if (up == null) {
+                log.debug("up == null");
                 up = new UserPreference();
                 Preference p = getFactory().getPreferenceDAO().find(Preference.SHOW_EARNINGS_PREFERENCE_ID);
                 up.setId(new UserPreference.Identifier(u, p));
                 up.setValue(value);
                 u.addUserPreference(up);
             } else {
+                log.debug("up != null");
                 up.setValue(value);
             }
         }
