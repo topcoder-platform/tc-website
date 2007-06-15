@@ -47,10 +47,11 @@
             Any questions?
         </h2>--%>
 
-        <p align="center">
-            <a href="/tour/page10.jsp">< prev</a>
-            | next >
-        </p>
+        <div align="center" style="margin: 10px;">
+            <a href="/tour/page10.jsp" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
+            <img src="/i/tour/bar.png" alt="" style="margin: 0px 6px;" />
+            <img src="/i/tour/nextNA.png" alt="Next page" />
+        </div>
 
         <div class="popUp" id="myPopUp">
             <div id="popUpText">&nbsp;</div>

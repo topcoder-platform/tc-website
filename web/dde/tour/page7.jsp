@@ -47,10 +47,11 @@
             Assembly & Testing Competitions.
         </h2>--%>
 
-        <p align="center">
-            <a href="/tour/page6.jsp">< prev</a>
-            | <a href="/tour/page8.jsp">next ></a>
-        </p>
+        <div align="center" style="margin: 10px;">
+            <a href="/tour/page6.jsp" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
+            <img src="/i/tour/bar.png" alt="" style="margin: 0px 6px;" />
+            <a href="/tour/page8.jsp" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
+        </div>
 
         <div class="popUp" id="myPopUp">
             <div id="popUpText">&nbsp;</div>

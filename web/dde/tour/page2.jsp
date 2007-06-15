@@ -47,10 +47,11 @@
             Our process makes us different.
         </h2>--%>
 
-        <p align="center">
-            <a href="/tour/page1.jsp">< prev</a>
-            | <a href="/tour/page3.jsp">next ></a>
-        </p>
+        <div align="center" style="margin: 10px;">
+            <a href="/tour/page1.jsp" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
+            <img src="/i/tour/bar.png" alt="" style="margin: 0px 6px;" />
+            <a href="/tour/page3.jsp" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
+        </div>
 
         <div class="popUp" id="myPopUp">
             <div id="popUpText">&nbsp;</div>

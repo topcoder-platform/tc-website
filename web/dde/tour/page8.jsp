@@ -40,17 +40,18 @@
         </jsp:include>
 
         <div id="slide">
-            <a href="/tour/page9.jsp" onfocus="this.blur();"><img src="/i/tour/page8.png" alt="" /></a>
+            <a href="/tour/page9.jsp" onfocus="this.blur();"><img src="/i/tour/page8.jpg" alt="" /></a>
         </div>
 
         <%--<h2 align="center">
             The new drawing board.
         </h2>--%>
 
-        <p align="center">
-            <a href="/tour/page7.jsp">< prev</a>
-            | <a href="/tour/page9.jsp">next ></a>
-        </p>
+        <div align="center" style="margin: 10px;">
+            <a href="/tour/page7.jsp" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
+            <img src="/i/tour/bar.png" alt="" style="margin: 0px 6px;" />
+            <a href="/tour/page9.jsp" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
+        </div>
 
         <div class="popUp" id="myPopUp">
             <div id="popUpText">&nbsp;</div>
