@@ -13,6 +13,8 @@
     <script type="text/javascript" src="/js/popup.js"></script>
     <script language="JavaScript" type="text/javascript">
     <!--
+    new Image().src = "/i/layout/prevOn.png";
+    new Image().src = "/i/layout/nextOn.png";
     function postPopUpText(myText) {
         document.getElementById("popUpText").innerHTML = myText;
     }
@@ -48,8 +50,9 @@
         </h2>--%>
 
         <p align="center">
-            < prev
-            | <a href="/tour/page2.jsp">next ></a>
+            <img src="/i/tour/prevNA.png" alt="Previous page" />
+            <img src="/i/tour/bar.png" alt="" style="margin: 0px 6px;" />
+            <a href="/tour/page2.jsp" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
         </p>
 
         <div class="popUp" id="myPopUp">

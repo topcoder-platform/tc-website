@@ -47,10 +47,11 @@
             Let the world compete on your next application.
         </h2>--%>
 
-        <p align="center">
-            <a href="/tour/page4.jsp">< prev</a>
-            | <a href="/tour/page6.jsp">next ></a>
-        </p>
+        <div align="center" style="margin: 10px;">
+            <a href="/tour/page4.jsp" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
+            <img src="/i/tour/bar.png" alt="" style="margin: 0px 6px;" />
+            <a href="/tour/page6.jsp" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
+        </div>
 
         <div class="popUp" id="myPopUp">
             <div id="popUpText">&nbsp;</div>
