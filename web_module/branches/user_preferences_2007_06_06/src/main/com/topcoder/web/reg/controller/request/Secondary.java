@@ -3,6 +3,7 @@ package com.topcoder.web.reg.controller.request;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.model.TimeZone;
@@ -44,9 +45,9 @@ public class Secondary extends Base {
                             }
                         }
 
-                        setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
+                        setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT)));
 
-                        setDefault(Constants.SHOW_EARNINGS, String.valueOf(params.get(Constants.SHOW_EARNINGS) != null));
+                        setDefault(Constants.SHOW_EARNINGS, String.valueOf(params.get(Constants.SHOW_EARNINGS)));
 
                         if (!u.isNew()) {
                             setDefault(Constants.HANDLE, u.getHandle());
@@ -261,7 +262,7 @@ public class Secondary extends Base {
 
         if (fields.contains(Constants.MEMBER_CONTACT)) {
             UserPreference up = u.getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
-            String value = String.valueOf(params.get(Constants.MEMBER_CONTACT) != null);
+            String value = StringUtils.checkNull(String.valueOf(params.get(Constants.MEMBER_CONTACT)));
             if (up == null) {
                 up = new UserPreference();
                 Preference p = getFactory().getPreferenceDAO().find(Preference.MEMBER_CONTACT_PREFERENCE_ID);
@@ -275,7 +276,7 @@ public class Secondary extends Base {
 
         if (fields.contains(Constants.SHOW_EARNINGS)) {
             UserPreference up = u.getUserPreference(Preference.SHOW_EARNINGS_PREFERENCE_ID);
-            String value = String.valueOf(params.get(Constants.SHOW_EARNINGS) != null);
+            String value = StringUtils.checkNull(String.valueOf(params.get(Constants.SHOW_EARNINGS)));
             if (up == null) {
                 up = new UserPreference();
                 Preference p = getFactory().getPreferenceDAO().find(Preference.SHOW_EARNINGS_PREFERENCE_ID);

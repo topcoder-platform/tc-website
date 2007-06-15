@@ -10,6 +10,7 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.validation.ListInput;
+import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
@@ -263,6 +264,22 @@ public abstract class Base extends LongHibernateProcessor {
                     new NotificationValidator().validate(new ListInput((List) params.get(Constants.NOTIFICATION)));
             if (!notificationResult.isValid()) {
                 addError(Constants.NOTIFICATION, notificationResult.getMessage());
+            }
+        }
+        if (fields.contains(Constants.MEMBER_CONTACT)) {
+            ValidationResult nonEmptyResult =
+                new NonEmptyValidator("Please enter your preference.").validate(
+                        new StringInput((String) params.get(Constants.MEMBER_CONTACT)));
+            if (!nonEmptyResult.isValid()) {
+                addError(Constants.MEMBER_CONTACT, nonEmptyResult.getMessage());
+            }
+        }
+        if (fields.contains(Constants.SHOW_EARNINGS)) {
+            ValidationResult nonEmptyResult =
+                new NonEmptyValidator("Please enter your preference.").validate(
+                        new StringInput((String) params.get(Constants.SHOW_EARNINGS)));
+            if (!nonEmptyResult.isValid()) {
+                addError(Constants.SHOW_EARNINGS, nonEmptyResult.getMessage());
             }
         }
     }
