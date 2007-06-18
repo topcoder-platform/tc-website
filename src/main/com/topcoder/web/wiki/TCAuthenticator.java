@@ -144,7 +144,8 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
             pmr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
             UserPrincipal p = pmr.getUser(userName);
             DefaultUser du = new DefaultUser();
-            du.setName(userName);
+            du.setName(p.getName());
+            du.setFullName(p.getName());
             return du;
         } catch (NoSuchUserException e) {
             log.debug("no such user");
