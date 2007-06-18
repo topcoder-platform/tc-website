@@ -38,9 +38,7 @@
             <input type="hidden" name="module" value="HsIneligible">
 
             <div align="center">
-                <span class="bigRed"><%= message %></span>
                 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
-                    <tr>
                         <td class="name">
                             Sorry, you are ineligible for HS.  Would you like to register for our post-HS competitions isntead?
                         </td>
