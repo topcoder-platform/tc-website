@@ -101,7 +101,7 @@
         <li>room_name</li>
         <li>user id</li>
         <li>handle</li>
-        <li>prize *hidden* with the user has chosen to hide prizes</li> 
+        <li>prize (*hidden* with the user has chosen to hide prizes)</li> 
         <li>old rating</li>
         <li>new rating</li>
         <li>new volatility</li>

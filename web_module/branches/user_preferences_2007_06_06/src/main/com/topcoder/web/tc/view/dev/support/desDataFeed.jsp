@@ -94,7 +94,7 @@
         <li>submit by date</li>
         <li>final score</li>
         <li>submit date</li>
-        <li>payment *hidden* with the user has chosen to hide prizes</li>
+        <li>payment (*hidden* with the user has chosen to hide prizes)</li>
         <li>placed</li>
         <li>old rating</li>
         <li>new rating</li>
