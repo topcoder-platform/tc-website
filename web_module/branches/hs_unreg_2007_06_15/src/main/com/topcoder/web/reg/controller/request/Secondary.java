@@ -65,6 +65,12 @@ public class Secondary extends Base {
                         setNextPage("/main.jsp");
                         setIsNextPageInContext(true);
                     } else {
+                        // FIX use constant for age
+                        int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
+                        if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= 20) {
+                            getRequest().getSession().setAttribute("params", params);
+                        }
+                            
                         loadFieldsIntoUserObject(fields, params);
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                         log.debug("we have " + secondaryFields.size() + " secondary fields");
