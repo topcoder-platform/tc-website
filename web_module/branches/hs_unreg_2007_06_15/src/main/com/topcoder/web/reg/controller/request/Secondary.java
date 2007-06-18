@@ -69,6 +69,9 @@ public class Secondary extends Base {
                         int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
                         if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= 20) {
                             getRequest().getSession().setAttribute("params", params);
+                            setNextPage("/hsIneligible.jsp");
+                            setIsNextPageInContext(true);
+                            return;
                         }
                             
                         loadFieldsIntoUserObject(fields, params);
