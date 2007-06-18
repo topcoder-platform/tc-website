@@ -31,16 +31,17 @@ public class HsIneligible extends Base {
         Map params = (Map) getRequest().getSession().getAttribute("params");
         
         
-        Set s = getRequestedTypes();
-        s.remove(RegistrationType.HIGH_SCHOOL_ID);
-        setRequestedTypes(s);
+        Set regTypes = getRequestedTypes();
+        boolean removed = regTypes.remove(RegistrationType.HIGH_SCHOOL_ID);
+        log.debug("removed:"+ removed);
+        setRequestedTypes(regTypes);
         
         User u = getRegUser();
         if (u == null) {
             throw new NavigationException("Sorry, your session has expired.");
         } 
         
-        Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
+        Set fields = RegFieldHelper.getMainFieldSet(regTypes, u);
 
         Map.Entry me;
         for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
@@ -62,13 +63,12 @@ public class HsIneligible extends Base {
         if (!u.isNew()) {
             setDefault(Constants.HANDLE, u.getHandle());
         }
-        List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
+        List nots = getFactory().getNotificationDAO().getNotifications(regTypes);
         if (nots != null) {
             getRequest().setAttribute("notifications", nots);
         }
         getRequest().setAttribute(Constants.FIELDS, fields);
-        getRequest().setAttribute(Constants.REQUIRED_FIELDS,
-                RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), u));
+        getRequest().setAttribute(Constants.REQUIRED_FIELDS, RegFieldHelper.getMainRequiredFieldSet(regTypes, u));
         getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
         getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
         getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
