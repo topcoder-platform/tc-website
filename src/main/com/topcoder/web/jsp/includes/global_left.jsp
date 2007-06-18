@@ -149,9 +149,7 @@
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=ViewReferrals", "Member Referrals", "referrals"));
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?module=AffidavitHistory", "Affidavits", "affidavits"));
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=VisaSelection", "Visa Letter Status", "visa"));
-/*
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?module=AssignmentDocumentHistory", "Assignment Documents", "assignment_docs"));
-*/
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/PactsMemberServlet?module=PaymentHistory", "Payments", "payments"));
       nav.search("m_my_tc").addChild(new NavNode("http://"+ApplicationServer.SERVER_NAME+"/tc?module=Static&amp;d1=card&amp;d2=description", "Cards / Badges", "cards_badges"));
 
