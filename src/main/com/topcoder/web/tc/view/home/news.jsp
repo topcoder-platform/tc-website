@@ -2,13 +2,13 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%---------------------------------------------------
+<%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.18.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=061807">TCO Preview: Meet Team Russia</A></span><br><br>
-      There are 12 coders representing the Russian Federation in the TCO07 Algorithm competition onsite, and one coder representing the Russian Federation in the Marathon track. Let's take a closer look at this year's finalists by 'generation' Ñ from the most experienced ones to the powerful youngsters.
+      There are 12 coders representing the Russian Federation in the TCO07 Algorithm competition onsite, and one coder representing the Russian Federation in the Marathon track. Let's take a closer look at this year's finalists by 'generation' - from the most experienced ones to the powerful youngsters.
         </td>
       <td class="newsPhoto"><img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10574855" /></td></tr></table>
       </td>
@@ -18,7 +18,7 @@
         <tc-webtag:forumLink forumID="516231" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
------%>
+
 
 <%--------------------------------------------------------%>
    <tr>
@@ -208,21 +208,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.07.07<br>3:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=060707">TCO Preview: Meet Team Ukraine</A></span><br><br>
-      The 2007 TopCoder Open will host six Algorithm semifinalists from Ukraine, with "Team Ukraine" including the six highest rated Algorithm competitors from the country.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Nickolas_big.jpg" alt="" width="55" height="61"/> <img src="/i/m/aussie_big2.jpg" alt="" width="55" height="61"/>
-      <br>by <tc-webtag:handle coderId="15635590" /> &amp; <tc-webtag:handle coderId="284038" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=060707">full story</A> | 
-        <tc-webtag:forumLink forumID="516138" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
