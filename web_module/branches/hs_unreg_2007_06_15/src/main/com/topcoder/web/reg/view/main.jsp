@@ -408,6 +408,46 @@
 </c:if>
 
 
+
+<c:set value="<%=Constants.AGE_FOR_HS%>" var="ageForHs"/>
+<c:if test="${cf:contains(fields, ageForHs)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.AGE_FOR_HS%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, ageForHs)}">*</c:if> How old will you be on xx/xx/xxxx?
+        </td>
+        <td class="value">
+            <tc-webtag:textInput name="<%=Constants.AGE_FOR_HS%>" size="3" maxlength="2" editable="true"/>
+        </td>
+    </tr>
+</c:if>
+
+<c:set value="<%=Constants.ATTENDING_HS%>" var="attendingHs"/>
+<c:if test="${cf:contains(fields, attendingHs)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.ATTENDING_HS%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, attendingHs)}">*</c:if> will you be attending high school/secondary school on xx/xx/xxxx?
+        </td>
+        <td class="value">
+            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="true"/> Yes
+            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="false"/> No
+            
+        </td>
+    </tr>
+</c:if>
+
+
 <c:set value="<%=Constants.HANDLE%>" var="handle"/>
 <c:if test="${cf:contains(fields, handle)}">
     <tr>

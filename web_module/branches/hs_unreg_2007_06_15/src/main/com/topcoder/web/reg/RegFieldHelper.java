@@ -146,6 +146,8 @@ public class RegFieldHelper {
         mainHSFields.add(Constants.QUOTE);
         mainHSFields.add(Constants.NOTIFICATION);
         mainHSFields.add(Constants.TIMEZONE);
+        mainHSFields.add(Constants.AGE_FOR_HS);
+        mainHSFields.add(Constants.ATTENDING_HS);
 
         requiredMainHSFields.add(Constants.GIVEN_NAME);
         requiredMainHSFields.add(Constants.SURNAME);
@@ -159,6 +161,8 @@ public class RegFieldHelper {
         requiredMainHSFields.add(Constants.EMAIL);
         requiredMainHSFields.add(Constants.EMAIL_CONFIRM);
         requiredMainHSFields.add(Constants.TIMEZONE);
+        requiredMainHSFields.add(Constants.AGE_FOR_HS);
+        requiredMainHSFields.add(Constants.ATTENDING_HS);
 
     }
 
