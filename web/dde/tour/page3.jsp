@@ -40,7 +40,7 @@
         </jsp:include>
 
         <div id="slide">
-            <a href="/tour/page4.jsp" onfocus="this.blur();"><img src="/i/tour/page3.png" alt="" /></a>
+            <a href="/tour/page4.jsp" onfocus="this.blur();"><img src="/i/tour/page3.jpg" alt="" /></a>
         </div>
 
         <%--<h2 align="center">
