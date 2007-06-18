@@ -51,7 +51,7 @@ public class PaymentSummary extends BaseProcessor {
 
         UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(getRequest().getParameter(Constants.CODER_ID)), Preference.SHOW_EARNINGS_PREFERENCE_ID);
         if (up != null && "hide".equals(up.getValue())) {
-            throw new NavigationException("The user requested to make this information private.");
+            throw new NavigationException("Sorry, " + up.getId().getUser().getHandle() + " has chosen to hide this information.");
         }
 
         // Gets the rest of the optional parameters.

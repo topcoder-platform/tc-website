@@ -8,175 +8,179 @@ import com.topcoder.web.common.dao.*;
  *          Create Date: May 11, 2006
  */
 public class DAOFactoryQueryTool implements DAOFactory {
-    public AlgoRatingTypeDAO getAlgoRatingTypeDAO() {
-        return null;
-    }
-    
-    public CoderDAO getCoderDAO() {
-        return null;
-    }
 
-    public CoderTypeDAO getCoderTypeDAO() {
-        return null;
-    }
-
-    public CompanyDAO getCompanyDAO() {
-        return null;
-    }
-
-    public CompContestDAO getCompContestDAO() {
-        return null;
-    }
-    
-    public ContactDAO getContactDAO() {
-        return null;
-    }
-    
-    public ContestPrizeDAO getContestPrizeDAO() {
-        return null;
-    }
-
-    public CountryDAO getCountryDAO() {
-        return null;
-    }
-
-    public DemographicAnswerDAO getDemographicAnswerDAO() {
-        return null;
-    }
-
-    public DemographicQuestionDAO getDemographicQuestionDAO() {
-        return null;
-    }
-
-    public DemographicAssignmentDAO getDemographicAssignmentDAO() {
-        return null;
-    }
-
-    public EventDAO getEventDAO() {
-        return null;
-    }
-
-    public IntroEventDAO getIntroEventDAO() {
-        return null;
-    }
-    public IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO(){
-        return null;
-    }
-
-    public EventRegistrationDAO getEventRegistrationDAO() {
-        return null;
-    }
-
-    public EventTypeDAO getEventTypeDAO() {
-        return null;
-    }
-
-    public FileTypeDAO getFileTypeDAO() {
-        return null;
-    }
-
-    public ImageDAO getImageDAO() {
-        return null;
-    }
-
-    public MemberContactMessageDAO getMemberContactMessageDAO() {
-        return null;
-    }
-
-    public MemberContactBlackListDAO getMemberContactBlackListDAO() {
-        return null;
-    }
-
-    public NotificationDAO getNotificationDAO() {
-        return null;
-    }
-
-    public PasswordRecoveryDAO getPasswordRecoveryDAO() {
-        return null;
-    }
-
-    public PreferenceDAO getPreferenceDAO() {
-        return null;
-    }
-
-    public PreferenceValueDAO getPreferenceValueDAO() {
-        return null;
-    }
-
-    public PreferenceGroupDAO getPreferenceGroupDAO() {
-        return null;
-    }
-
-    public ProjectDAO getProjectDAO() {
-        return null;
-    }
-
-    public RegistrationTypeDAO getRegistrationTypeDAO() {
-        return null;
-    }
-
-    public ReferralDAO getReferralDAO() {
-        return null;
-    }
-
-    public RoundDAO getRoundDAO() {
-        return null;
-    }
-
-    public SchoolDAO getSchoolDAO() {
-        return null;
-    }
-
-    public SchoolTypeDAO getSchoolTypeDAO() {
-        return null;
-    }
-
-    public SecurityGroupDAO getSecurityGroupDAO() {
-        return null;
-    }
-
-    public StateDAO getStateDAO() {
-        return null;
-    }
-
-    public TeamDAO getTeamDAO() {
-        return null;
-    }
-
-    public TeamTypeDAO getTeamTypeDAO() {
-        return null;
-    }
-
-    public TermsOfUseDAO getTermsOfUse() {
-        return null;
-    }
-
-    public QuestionTypeDAO getQuestionTypeDAO() {
-        return null;
-    }
-
-    public QuestionStyleDAO getQuestionStyleDAO() {
-        return null;
-    }
-
-    public TimeZoneDAO getTimeZoneDAO() {
-        return null;
-    }
-
-    public UserDAO getUserDAO() {
-        return null;
-    }
+    // This DAO exists because hibernate is currently not caching and we need a faster implementation
 
     public UserPreferenceDAO getUserPreferenceDAO() {
         return new UserPreferenceDAOQueryTool();
     }
+    
+    // The rest of the DAOs are not supported
+    
+    public AlgoRatingTypeDAO getAlgoRatingTypeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+    
+    public CoderDAO getCoderDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public CoderTypeDAO getCoderTypeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public CompanyDAO getCompanyDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public CompContestDAO getCompContestDAO() {
+        throw new RuntimeException("Not supported");
+    }
+    
+    public ContactDAO getContactDAO() {
+        throw new RuntimeException("Not supported");
+    }
+    
+    public ContestPrizeDAO getContestPrizeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public CountryDAO getCountryDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public DemographicAnswerDAO getDemographicAnswerDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public DemographicQuestionDAO getDemographicQuestionDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public DemographicAssignmentDAO getDemographicAssignmentDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public EventDAO getEventDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public IntroEventDAO getIntroEventDAO() {
+        throw new RuntimeException("Not supported");
+    }
+    public IntroEventPropertyTypeDAO getIntroEventPropertyTypeDAO(){
+        throw new RuntimeException("Not supported");
+    }
+
+    public EventRegistrationDAO getEventRegistrationDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public EventTypeDAO getEventTypeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public FileTypeDAO getFileTypeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public ImageDAO getImageDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public MemberContactMessageDAO getMemberContactMessageDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public MemberContactBlackListDAO getMemberContactBlackListDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public NotificationDAO getNotificationDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public PasswordRecoveryDAO getPasswordRecoveryDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public PreferenceDAO getPreferenceDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public PreferenceValueDAO getPreferenceValueDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public PreferenceGroupDAO getPreferenceGroupDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public ProjectDAO getProjectDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public RegistrationTypeDAO getRegistrationTypeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public ReferralDAO getReferralDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public RoundDAO getRoundDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public SchoolDAO getSchoolDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public SchoolTypeDAO getSchoolTypeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public SecurityGroupDAO getSecurityGroupDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public StateDAO getStateDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public TeamDAO getTeamDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public TeamTypeDAO getTeamTypeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public TermsOfUseDAO getTermsOfUse() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public QuestionTypeDAO getQuestionTypeDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public QuestionStyleDAO getQuestionStyleDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public TimeZoneDAO getTimeZoneDAO() {
+        throw new RuntimeException("Not supported");
+    }
+
+    public UserDAO getUserDAO() {
+        throw new RuntimeException("Not supported");
+    }
 
     public VisaLetterRequestDAO getVisaLetterRequestDAO() {
-        return null;
+        throw new RuntimeException("Not supported");
     }
 
     public VisaLetterEventDAO getVisaLetterEventDAO() {
-        return null;
+        throw new RuntimeException("Not supported");
     }
-
 }

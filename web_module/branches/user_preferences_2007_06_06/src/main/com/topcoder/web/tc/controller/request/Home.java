@@ -117,11 +117,6 @@ public class Home extends Base {
             getRequest().setAttribute("tco07_info",
                     tco07Dai.getData(tco07Request).get("tco07_info"));
             
-            // check whether or not show earnings
-            UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(getUser().getId(), Preference.SHOW_EARNINGS_PREFERENCE_ID);
-            boolean hidePayments = up != null && "hide".equals(up.getValue());
-            getRequest().setAttribute("hidePayments", new Boolean(hidePayments));
-            
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

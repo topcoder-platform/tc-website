@@ -72,7 +72,7 @@ public class UserPreferenceDAOQueryTool extends Base implements UserPreferenceDA
             retList = new ArrayList<UserPreference>(rsc.size());
             
             for (ResultSetRow rsr : rsc) {
-                retList.add(buildUserPreference(preferenceId, rsr.getLongItem("user_id"), rsr.getStringItem("value")));
+                retList.add(buildUserPreference(preferenceId, rsr.getLongItem("user_id"), rsr.getStringItem("value"), rsr.getStringItem("handle")));
             }
         } catch (Exception e) {
             // just return null
@@ -80,9 +80,10 @@ public class UserPreferenceDAOQueryTool extends Base implements UserPreferenceDA
         return retList;
     }
 
-    private UserPreference buildUserPreference(Integer preferenceId, Long userId, String value) {
+    private UserPreference buildUserPreference(Integer preferenceId, Long userId, String value, String handle) {
         User u = new User();
         u.setId(userId);
+        u.setHandle(handle);
 
         Preference p = new Preference();
         p.setId(preferenceId);
