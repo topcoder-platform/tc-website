@@ -79,7 +79,7 @@ public class PostTournamentSurveyHelper {
 
     private static void createLongAnswerQuestion(long surveyId, String line, Question q, SurveyQuestion sq) throws RemoteException {
 
-        long questionId = q.createQuestion(line, 83, "", QuestionType.TOURNAMENT_SURVEY_QUESTION,
+        long questionId = q.createQuestion(line.trim(), 83, "", QuestionType.TOURNAMENT_SURVEY_QUESTION,
                 QuestionStyle.LONG_ANSWER, false, DBMS.OLTP_DATASOURCE_NAME);
         sq.createSurveyQuestion(surveyId, questionId, DBMS.OLTP_DATASOURCE_NAME);
 
@@ -87,7 +87,7 @@ public class PostTournamentSurveyHelper {
     }
 
     private static void createRatingQuestion(long surveyId, String line, Question q, Answer a, SurveyQuestion sq) throws RemoteException {
-        long questionId = q.createQuestion(line, 83, "", QuestionType.TOURNAMENT_SURVEY_QUESTION,
+        long questionId = q.createQuestion(line.substring(line.indexOf(".")+1).trim(), 83, "", QuestionType.TOURNAMENT_SURVEY_QUESTION,
                 QuestionStyle.SINGLE_CHOICE, false, DBMS.OLTP_DATASOURCE_NAME);
         sq.createSurveyQuestion(surveyId, questionId, DBMS.OLTP_DATASOURCE_NAME);
         for (int i=0; i<5; i++) {
