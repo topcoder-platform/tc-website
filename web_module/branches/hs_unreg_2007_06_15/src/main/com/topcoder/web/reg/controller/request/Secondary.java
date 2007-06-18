@@ -45,6 +45,9 @@ public class Secondary extends Base {
                         }
 
                         setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
+                        setDefault(Constants.AGE_FOR_HS, params.get(Constants.AGE_FOR_HS));
+                        setDefault(Constants.ATTENDING_HS, params.get(Constants.ATTENDING_HS));
+                        
                         if (!u.isNew()) {
                             setDefault(Constants.HANDLE, u.getHandle());
                         }

@@ -440,8 +440,8 @@
             <c:if test="${cf:contains(reqFields, attendingHs)}">*</c:if> will you be attending high school/secondary school on xx/xx/xxxx?
         </td>
         <td class="value">
-            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="true"/> Yes
-            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="false"/> No
+            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="yes"/> Yes
+            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="no"/> No
             
         </td>
     </tr>

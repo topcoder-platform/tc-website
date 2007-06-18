@@ -159,7 +159,9 @@ abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
         ret.put(Constants.MEMBER_CONTACT, getTrimmedParameter(Constants.MEMBER_CONTACT));
         ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
-
+        ret.put(Constants.AGE_FOR_HS, getTrimmedParameter(Constants.AGE_FOR_HS));
+        ret.put(Constants.ATTENDING_HS, getTrimmedParameter(Constants.ATTENDING_HS));
+        
         //iterate through the notifications, we're essentially validating here
         //since we're only looking for valid notifications.
         List notifications = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
@@ -211,7 +213,10 @@ abstract class Base extends LongHibernateProcessor {
         simpleValidation(CountryValidator.class, fields, params, Constants.COMP_COUNTRY_CODE);
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
         simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
-
+        simpleValidation(AgeValidator.class, fields, params, Constants.AGE_FOR_HS);
+        simpleValidation(AttendingHSValidator.class, fields, params, Constants.ATTENDING_HS);
+        
+        
         ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
                 new StringInput((String) params.get(Constants.TERMS_OF_USE_ID)));
         if (!termsResults.isValid()) {
