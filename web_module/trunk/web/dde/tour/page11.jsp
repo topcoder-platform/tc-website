@@ -67,7 +67,7 @@
         <strong><a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=contactus' refer='software_tour_11' />">Call us today and let us build your next application.</a></strong>
         </p>
         <p align="center">
-        <strong><a href="<tc-webtag:linkTracking link='/reg/' refer='software_tour_11' />">I'd like to register now.</a></strong>
+        <strong><a href="<tc-webtag:linkTracking link='/reg/' refer='software_tour_11' />">I'd like to register for a TopCoder account.</a></strong>
         </p>
         <p align="center">
         <strong><a href="<tc-webtag:linkTracking link='/' refer='software_tour_11' />">Go back to the homepage.</a></strong>
