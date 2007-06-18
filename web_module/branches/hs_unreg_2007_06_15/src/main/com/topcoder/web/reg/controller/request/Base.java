@@ -1,5 +1,16 @@
 package com.topcoder.web.reg.controller.request;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import com.topcoder.servlet.request.FileDoesNotExistException;
 import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
@@ -8,17 +19,60 @@ import com.topcoder.web.common.MultipartRequest;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.DemographicAssignment;
+import com.topcoder.web.common.model.DemographicQuestion;
+import com.topcoder.web.common.model.DemographicResponse;
+import com.topcoder.web.common.model.Notification;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.Resume;
+import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.State;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.ListInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-import com.topcoder.web.reg.validation.*;
-
-import java.io.IOException;
-import java.util.*;
+import com.topcoder.web.reg.validation.Address1Validator;
+import com.topcoder.web.reg.validation.Address2Validator;
+import com.topcoder.web.reg.validation.Address3Validator;
+import com.topcoder.web.reg.validation.AgeValidator;
+import com.topcoder.web.reg.validation.AttendingHSValidator;
+import com.topcoder.web.reg.validation.CityValidator;
+import com.topcoder.web.reg.validation.CoderTypeValidator;
+import com.topcoder.web.reg.validation.CompanyNameValidator;
+import com.topcoder.web.reg.validation.CountryValidator;
+import com.topcoder.web.reg.validation.DemogFreeFormValidator;
+import com.topcoder.web.reg.validation.DemogMultiSelectValidator;
+import com.topcoder.web.reg.validation.DemogSingleSelectValidator;
+import com.topcoder.web.reg.validation.EmailConfirmValidator;
+import com.topcoder.web.reg.validation.EmailValidator;
+import com.topcoder.web.reg.validation.GPAScaleValidator;
+import com.topcoder.web.reg.validation.GPAValidator;
+import com.topcoder.web.reg.validation.GivenNameValidator;
+import com.topcoder.web.reg.validation.MiddleNameValidator;
+import com.topcoder.web.reg.validation.NotificationValidator;
+import com.topcoder.web.reg.validation.PasswordConfirmValidator;
+import com.topcoder.web.reg.validation.PasswordValidator;
+import com.topcoder.web.reg.validation.PostalCodeValidator;
+import com.topcoder.web.reg.validation.ProvinceValidator;
+import com.topcoder.web.reg.validation.QuoteValidator;
+import com.topcoder.web.reg.validation.ReferralValidator;
+import com.topcoder.web.reg.validation.ResumeValidator;
+import com.topcoder.web.reg.validation.SchoolIdValidator;
+import com.topcoder.web.reg.validation.SchoolNameValidator;
+import com.topcoder.web.reg.validation.SchoolTypeValidator;
+import com.topcoder.web.reg.validation.SecretQuestionResponseValidator;
+import com.topcoder.web.reg.validation.SecretQuestionValidator;
+import com.topcoder.web.reg.validation.StateValidator;
+import com.topcoder.web.reg.validation.SurnameValidator;
+import com.topcoder.web.reg.validation.TermsOfUseValidator;
+import com.topcoder.web.reg.validation.TimeZoneValidator;
+import com.topcoder.web.reg.validation.TitleValidator;
+import com.topcoder.web.reg.validation.UserNameValidator;
 
 /**
  * @author dok
@@ -123,6 +177,20 @@ abstract class Base extends LongHibernateProcessor {
         getRequest().getSession().setAttribute(Constants.REG_TYPES, requestedTypes);
     }
 
+    /**
+     * Return whether the user has requested to register in the specified type.
+     * 
+     * @param type the type to check
+     * @return
+     */
+    protected boolean hasRequestedType(int type) {       
+        for (RegistrationType rt : (Set<RegistrationType>) getRequestedTypes()) {
+            if (rt.getId() == type) {
+                return true;
+            }
+        }
+        return false;
+    }
     /**
      * Get all the data from the request relevent to the main page of registration
      * and load it into a map.

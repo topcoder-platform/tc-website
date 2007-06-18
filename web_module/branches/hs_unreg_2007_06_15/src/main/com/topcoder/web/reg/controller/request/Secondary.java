@@ -65,13 +65,15 @@ public class Secondary extends Base {
                         setNextPage("/main.jsp");
                         setIsNextPageInContext(true);
                     } else {
-                        // FIX use constant for age
-                        int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
-                        if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= 20) {
-                            getRequest().getSession().setAttribute("params", params);
-                            setNextPage("/hsIneligible.jsp");
-                            setIsNextPageInContext(true);
-                            return;
+                        // If the user is registering for hs, check that he has the right age and he'll be attending high school
+                        if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID)) {
+                            int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
+                            if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= Constants.MAX_AGE_FOR_HS) {
+                                getRequest().getSession().setAttribute("params", params);
+                                setNextPage("/hsIneligible.jsp");
+                                setIsNextPageInContext(true);
+                                return;
+                            }
                         }
                             
                         loadFieldsIntoUserObject(fields, params);

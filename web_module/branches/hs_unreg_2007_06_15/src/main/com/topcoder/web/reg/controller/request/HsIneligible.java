@@ -22,7 +22,7 @@ public class HsIneligible extends Base {
         log.debug("continue:" +  getRequest().getParameter("continue"));
         
         if (!"Yes".equals(getRequest().getParameter("continue"))) {
-            setNextPage("www.topcoder.com/tc");
+            setNextPage("/tc");
             setIsNextPageInContext(false);
             return;
         }
