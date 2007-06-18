@@ -44,9 +44,10 @@
 
 
 <p>
-    5.10.7 - 2007.06.xx
+    5.10.7 - 2007.06.18
     <ul>
-        <li>Online AD affirmation time changed from 5 days to 3. -pulky</li>
+        <li>Online Assignment Document affirmation time changed from 5 days to 3. -pulky</li>
+        <li>Assignment Document launch -dok</li>
     </ul>
 </p>
 
