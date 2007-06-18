@@ -39,12 +39,12 @@
 
             <div align="center">
                 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
-                        <td class="name">
-                            Sorry, you are ineligible for HS.  Would you like to register for our post-HS competitions isntead?
+                        <td>
+                            Sorry, you are ineligible for HS.  Would you like to register for our post-HS competitions instead?
                         </td>
                     </tr>
                     <tr>
-                        <td class="name">
+                        <td>
                             <input type="submit" name="continue" value="Yes">
                             <input type="submit" name="continue" value="No">                            
                         </td>
