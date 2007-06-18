@@ -69,7 +69,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
-                    <td width="274"><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_040907"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></A></td>
+                    <td width="274"><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_061307"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_061307">TopCoder Community Helps Research Led by Harvard Business School Professor</A></strong></font><br />
@@ -95,6 +95,21 @@
 
             <hr width="100%" size="1" noshade="noshade" />
 
+<%-- TopCoder Announces Enhanced Focus on Financial Services Industry --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_060607"><img src="/i/pressroom/topcoder_logo.png" alt="TopCoder" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_060607">TopCoder Announces Enhanced Focus on Financial Services Industry</A></strong></font><br />
+                        TopCoder announced a strategic move to provide an enhanced response to the specific needs of the financial services industry. The company today detailed its plans to increase focus on financial services applications and software solutions through a series of initiatives under the guidance of industry veteran Dan Houlihan. <span class="prHead"> [June 6]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
 <%-- Yodlee to Sponsor TopCoder Single Round Match Series --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -110,14 +125,14 @@
 
             <hr width="100%" size="1" noshade="noshade" />
             
-<%-- Russian, Croatian and US High School Programmers Win TopCoder Championship at Purdue University --%>
+<%-- Russian and Croatian High School Programmers Win TopCoder Championship at Purdue University --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
 
                     <td width="274"><A href="/tc?module=Static&d1=pressroom&d2=pr_021307"><img src="/i/pressroom/tchs07.png" alt="TCHS07" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_052307">Russian, Croatian and US High School Programmers Win TopCoder Championship at Purdue University</A></strong></font><br />
+                        <p><font size="3"><strong><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_052307">Russian and Croatian High School Programmers Win TopCoder Championship at Purdue University</A></strong></font><br />
                         First World Championship for TopCoder High School Members Sees Eastern Europe Prevail in Individual and Team Tournaments<span class="prHead"> [May 21]</span></p>
                     </td>
                 </tr>
