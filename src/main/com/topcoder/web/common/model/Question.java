@@ -4,13 +4,31 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Question implements Serializable {
-    public static final int SINGLE_CHOICE = 1;
-    public static final int MULTIPLE_CHOICE = 2;
-    public static final int LONG_ANSWER = 3;
-    public static final int SHORT_ANSWER = 4;
+    /**
+     * @deprecated
+     */
+    public static final int SINGLE_CHOICE = QuestionStyle.SHORT_ANSWER;
+    /**
+     * @deprecated
+     */
+    public static final int MULTIPLE_CHOICE = QuestionStyle.MULTIPLE_CHOICE;
+    /**
+     * @deprecated
+     */
+    public static final int LONG_ANSWER = QuestionStyle.LONG_ANSWER;
+    /**
+     * @deprecated
+     */
+    public static final int SHORT_ANSWER = QuestionStyle.SHORT_ANSWER;
 
-    public static final int GENERAL_DO_NOT_SHOW_RESULTS_TYPE = 6;
-    public static final int SCHULZE_ELECTION_TYPE = 7;
+    /**
+     * @deprecated
+     */
+    public static final int GENERAL_DO_NOT_SHOW_RESULTS_TYPE = QuestionType.GENERAL_SURVEY_NO_RESULTS;
+    /**
+     * @deprecated
+     */
+    public static final int SCHULZE_ELECTION_TYPE = QuestionType.SCHULZE_ELECTION;
 
     private long id;
     private String text;

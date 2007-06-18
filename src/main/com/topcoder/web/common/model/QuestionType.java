@@ -10,6 +10,14 @@ public class QuestionType extends Base {
     private String description;
     private boolean active;
 
+    public static final Integer SRM_SURVEY = 1;
+   public static final Integer ELIGIBLE = 2;
+    public static final Integer PERSONAL = 3;
+    public static final Integer TOURNAMENT_TRAVEL_INFO = 4;
+    public static final Integer TOURNAMENT_SURVEY_QUESTION = 5;
+    public static final Integer GENERAL_SURVEY_NO_RESULTS = 6;
+    public static final Integer SCHULZE_ELECTION = 7;
+
     public QuestionType() {
 
     }

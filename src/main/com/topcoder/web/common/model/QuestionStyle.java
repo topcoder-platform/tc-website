@@ -10,6 +10,11 @@ public class QuestionStyle extends Base {
     private String description;
     private boolean active;
 
+    public static final Integer SINGLE_CHOICE = 1;
+    public static final Integer MULTIPLE_CHOICE = 2;
+    public static final Integer LONG_ANSWER = 3;
+    public static final Integer SHORT_ANSWER = 4;
+
     public QuestionStyle() {
 
     }
