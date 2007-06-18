@@ -349,19 +349,19 @@
             AOL to Webcast TopCoder Open 2007 Finals Live on June 29
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_060507">...more</A><br>[June 7]<br><br>
 
+            TopCoder Announces Enhanced Focus on Financial Services Industry
+            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_060607">...more</A><br>[June 6]<br><br>
+
             Yodlee to Sponsor TopCoder Single Round Match Series
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_052207">...more</A><br>[May 23]<br><br>
 
             <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/tchs07.png" alt="TCO07" width="88" height="41" border="0"/>
             </div>
-            Russian, Croatian and US High School Programmers Win TopCoder Championship at Purdue University
+            Russian and Croatian High School Programmers Win TopCoder Championship at Purdue University
             <A href="/tc?module=Static&d1=pressroom&d2=pr_052307">...more</A><br>[May 21]<br><br>
 
-            Introducing the new TC Channel!
-            <A target="_blank" href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep1">...more</A><br>[May 16]<br><br>
-
-        </td>
+          </td>
     </tr>
     <tr>
         <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
