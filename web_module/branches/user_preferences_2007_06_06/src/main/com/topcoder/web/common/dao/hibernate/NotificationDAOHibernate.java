@@ -43,7 +43,6 @@ public class NotificationDAOHibernate extends Base implements NotificationDAO {
         } else {
             StringBuffer query = new StringBuffer(100);
             query.append("SELECT distinct n.type.sort, n FROM Notification n WHERE ");
-//            query.append("SELECT distinct n FROM Notification n WHERE ");
             query.append("n.status = 'A' AND n.registrationTypes.id in (");
             for (Iterator it = regTypes.iterator(); it.hasNext();) {
                 query.append(((RegistrationType) it.next()).getId()).append(",");
@@ -51,7 +50,6 @@ public class NotificationDAOHibernate extends Base implements NotificationDAO {
             query.delete(query.length() - 1, query.length());
             query.append(")");
             query.append(" order by n.type.sort, n.sort");
-//            query.append(" order by n.sort");
             Query q = session.createQuery(query.toString());
             List tmp = q.list();
 
