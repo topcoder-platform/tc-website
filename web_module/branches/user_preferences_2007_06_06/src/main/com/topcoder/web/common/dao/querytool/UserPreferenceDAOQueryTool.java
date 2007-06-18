@@ -34,6 +34,7 @@ public class UserPreferenceDAOQueryTool extends Base implements UserPreferenceDA
 
     public void saveOrUpdate(UserPreference up) {
         // This is a read-only DAO
+        throw new RuntimeException("Not supported");
     }
     
     public List<UserPreference> find(List<Long> userIdList, Integer preferenceId) {
@@ -75,7 +76,7 @@ public class UserPreferenceDAOQueryTool extends Base implements UserPreferenceDA
                 retList.add(buildUserPreference(preferenceId, rsr.getLongItem("user_id"), rsr.getStringItem("value"), rsr.getStringItem("handle")));
             }
         } catch (Exception e) {
-            // just return null
+            throw new RuntimeException(e);
         }
         return retList;
     }

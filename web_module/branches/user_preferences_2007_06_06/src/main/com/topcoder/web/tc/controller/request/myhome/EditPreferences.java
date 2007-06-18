@@ -109,10 +109,12 @@ public class EditPreferences extends ShortHibernateProcessor {
             }
             if (!hasErrors()) {
                 DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
-                HashSet<String> s = new HashSet<String>();
-                s.add("user_preference");
-                s.add("user_preference_all");
-                CacheClearer.removelike(s);
+                if (DAOUtil.useQueryToolFactory) {
+                    HashSet<String> s = new HashSet<String>();
+                    s.add("user_preference");
+                    s.add("user_preference_all");
+                    CacheClearer.removelike(s);
+                }
                 setNextPage("/tc?" + Constants.MODULE_KEY + "=MyHome");
             } else {
                 setNextPage("/my_home/privacy.jsp");                

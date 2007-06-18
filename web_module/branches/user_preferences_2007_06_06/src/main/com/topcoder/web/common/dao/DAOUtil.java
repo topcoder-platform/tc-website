@@ -9,11 +9,17 @@ import com.topcoder.web.common.dao.querytool.DAOFactoryQueryTool;
  *          Create Date: May 11, 2006
  */
 public class DAOUtil {
+    public static boolean useQueryToolFactory = true;
+
     public static DAOFactory getFactory() {
         return new DAOFactoryHibernate();
     }
 
     public static DAOFactory getQueryToolFactory() {
-        return new DAOFactoryQueryTool();
+        if (useQueryToolFactory) {
+            return new DAOFactoryQueryTool();
+        } else {
+            return new DAOFactoryHibernate();
+        }
     }
 }
