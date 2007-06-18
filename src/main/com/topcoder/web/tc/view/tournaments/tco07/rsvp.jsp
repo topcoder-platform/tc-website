@@ -139,7 +139,7 @@ Senior Vice President of Messaging and Social Media, AOL
 
 <p>
 Featuring Grady Bryant<br>
-Director of Research &amp; Development, VeriSign
+Vice President of Research &amp; Development, VeriSign
 </p>
 
 <h1>
