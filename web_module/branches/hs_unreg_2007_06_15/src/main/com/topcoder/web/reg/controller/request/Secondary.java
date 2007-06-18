@@ -70,6 +70,9 @@ public class Secondary extends Base {
                             int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
                             if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= Constants.MAX_AGE_FOR_HS) {
                                 getRequest().getSession().setAttribute("params", params);
+                                getRequest().setAttribute("registeredComp" ,isCurrentlyRegistered(u, RegistrationType.COMPETITION_ID));
+                                getRequest().setAttribute("requestedComp" ,hasRequestedType(RegistrationType.COMPETITION_ID));
+
                                 setNextPage("/hsIneligible.jsp");
                                 setIsNextPageInContext(true);
                                 return;

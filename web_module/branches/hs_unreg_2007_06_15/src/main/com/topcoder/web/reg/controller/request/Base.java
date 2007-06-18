@@ -191,6 +191,24 @@ abstract class Base extends LongHibernateProcessor {
         }
         return false;
     }
+    
+    
+    /**
+     * Return whether the user is currently registered for the specified type.
+     * 
+     * @param u
+     * @param type
+     * @return
+     */    
+    protected boolean isCurrentlyRegistered(User u, int type) {
+        for (RegistrationType rt : (Set<RegistrationType>) u.getRegistrationTypes()) {
+            if (rt.getId() == type) {
+                return true;
+            }
+        }
+        return false;        
+    }
+    
     /**
      * Get all the data from the request relevent to the main page of registration
      * and load it into a map.

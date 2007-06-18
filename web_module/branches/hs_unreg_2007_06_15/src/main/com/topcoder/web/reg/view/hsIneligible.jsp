@@ -38,7 +38,10 @@
             <input type="hidden" name="module" value="HsIneligible">
 
             <div align="center">
+        <c:choose>
+            <c:when test="${not registeredComp and not requestedComp}"> 
                 <table cellpadding="0" cellspacing="0" border="0" class="regFields">
+                	<tr>
                         <td>
                             Sorry, you are ineligible for HS.  Would you like to register for our post-HS competitions instead?
                         </td>
@@ -50,6 +53,38 @@
                         </td>
                     </tr>
                 </table>
+           </c:when>
+            <c:when test="${not registeredComp and requestedComp}"> 
+                <table cellpadding="0" cellspacing="0" border="0" class="regFields">
+                	<tr>
+                        <td>
+                            Sorry, you are ineligible for HS.  Continue to register for post-HS competitions?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="continue" value="Yes">
+                            <input type="submit" name="continue" value="No">                            
+                        </td>
+                    </tr>
+                </table>
+           </c:when>
+            <c:when test="${registeredComp}"> 
+                <table cellpadding="0" cellspacing="0" border="0" class="regFields">
+                	<tr>
+                        <td>
+                            Sorry, you are ineligible for HS.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" name="continue" value="Cancel">                            
+                        </td>
+                    </tr>
+                </table>
+           </c:when>
+                
+             </c:choose>
 
                 <p><br/></p>
 
