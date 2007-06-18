@@ -40,13 +40,14 @@ public class NotificationDAOHibernate extends Base implements NotificationDAO {
             ret = Collections.EMPTY_LIST;
         } else {
             StringBuffer query = new StringBuffer(100);
-            query.append("SELECT distinct n FROM Notification n WHERE n.status = 'A' AND n.registrationTypes.id in (");
+            query.append("SELECT distinct n FROM Notification n WHERE ");
+            query.append("n.status = 'A AND n.registrationTypes.id in (");
             for (Iterator it = regTypes.iterator(); it.hasNext();) {
                 query.append(((RegistrationType) it.next()).getId()).append(",");
             }
             query.delete(query.length() - 1, query.length());
             query.append(")");
-            query.append(" order by n.sort");
+            query.append(" order by n.type.sort, n.sort");
             Query q = session.createQuery(query.toString());
             ret = q.list();
         }
