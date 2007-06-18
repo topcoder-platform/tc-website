@@ -11,7 +11,6 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.security.PrincipalMgr;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -142,7 +141,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         //todo make a local call
         PrincipalMgrRemote pmr = null;
         try {
-            pmr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgr.class);
+            pmr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
             UserPrincipal p = pmr.getUser(userName);
             DefaultUser du = new DefaultUser();
             du.setName(userName);
