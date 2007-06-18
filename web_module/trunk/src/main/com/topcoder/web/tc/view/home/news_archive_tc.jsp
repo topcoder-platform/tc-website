@@ -40,6 +40,7 @@
         </jsp:include>
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">06.18.07 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=help&d2=assignmentDocFaq">New Assignment requirements for TopCoder competitions</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.12.07 3:10 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=17349">What does finding a clue sound like to you?</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.07.07 4:00 PM - </td><td width="100%"><A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1006">Connected Services "Wireless Cities 2" mashup competition open</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.24.07 6:00 PM - </td><td width="100%"><A href="/tc?module=SurveyResults&sid=17170">The Ball Tshirt Design: We have a winner</A></td></tr>

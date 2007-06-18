@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>06.18.07<br>5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=help&d2=assignmentDocFaq">New Assignment requirements for TopCoder competitions</A>
+        </span><br><br>
+        Going forward, TopCoder will begin requiring winners of certain competitions (those in which IP transfer is involved) to sign an Assignment document prior to collecting the winnings.  This will apply to competitions starting on or after Monday, June 18.  For more information, please visit our new FAQ section.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=help&d2=assignmentDocFaq">details</A> | 
+        <tc-webtag:forumLink forumID="516233" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.18.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -189,22 +208,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
       
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>06.07.07<br>4:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1006">Connected Services "Wireless Cities 2" mashup competition open</A>
-        </span><br><br>
-        Microsoft and British Telecom, in association with TopCoder, have launched another Mashup Competition. Prizes will be awarded to the top three ideas, with a total prize purse of $4,500.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="http://csf.topcoder.com/?module=ViewContestDetails&ct=1006">details</A> | 
-        <A href="http://csf.topcoder.com/forums?module=ThreadList&forumID=7">discuss this</A> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
