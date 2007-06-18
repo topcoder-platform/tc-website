@@ -41,6 +41,15 @@
     <jsp:param name="image1" value="white"/>
     <jsp:param name="title" value="TopCoder Web Site Change Log"/>
 </jsp:include>
+
+
+<p>
+    5.10.7 - 2007.06.xx
+    <ul>
+        <li>Online AD affirmation time changed from 5 days to 3. -pulky</li>
+    </ul>
+</p>
+
 <p>
     5.10.6 - 2007.06.14
     <ul>
