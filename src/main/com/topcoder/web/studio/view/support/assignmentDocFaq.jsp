@@ -100,7 +100,7 @@
                 </div>
                 <div>
                     <p><strong>What happens if I don't confirm/ratify the Assignment after winning in the future?</strong></p>
-                    <p>As outlined above, when you agree to the terms of each competition, you also agree to assign ownership in the event that you win a prize.  If you don't confirm/ratify the Assignment, you will be violating the rules of the competition to which you agreed and you will not receive your prize.  In addition, you will not be allowed to participate in future competitions until the situation is resolved.  You have 5 days from the date on which you were notified that you won to confirm/ratify the Assignment.</p>
+                    <p>As outlined above, when you agree to the terms of each competition, you also agree to assign ownership in the event that you win a prize.  If you don't confirm/ratify the Assignment, you will be violating the rules of the competition to which you agreed and you will not receive your prize.  In addition, you will not be allowed to participate in future competitions until the situation is resolved.  You have 3 days from the date on which you were notified that you won to confirm/ratify the Assignment.</p>
                 </div>
                 <div>
                     <p><strong>Does this mean I own my past winning entries?</strong></p>
