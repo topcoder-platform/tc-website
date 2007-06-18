@@ -3,20 +3,19 @@ package com.topcoder.web.wiki;
 import com.atlassian.confluence.user.ConfluenceAuthenticator;
 import com.atlassian.confluence.user.UserAccessor;
 import com.atlassian.seraph.auth.AuthenticatorException;
-import com.atlassian.user.User;
+import com.atlassian.seraph.util.CookieUtils;
 import com.atlassian.user.impl.DefaultUser;
-import com.topcoder.security.TCSubject;
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.NoSuchUserException;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.HttpObjectFactory;
-import com.topcoder.web.common.TCRequest;
-import com.topcoder.web.common.TCResponse;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.security.PrincipalMgr;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.rmi.RemoteException;
 import java.security.Principal;
 
 /**
@@ -27,72 +26,104 @@ import java.security.Principal;
 public class TCAuthenticator extends ConfluenceAuthenticator {
     private final static Logger log = Logger.getLogger(TCAuthenticator.class);
 
-    public boolean login(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
-                         String string, String string1, boolean b) throws AuthenticatorException {
+    private static int AUTOLOGIN_COOKIE_AGE = 365 * 24 * 60 * 60;
+
+    public boolean login(HttpServletRequest request, HttpServletResponse response,
+                         String userName, String password, boolean cookie) throws AuthenticatorException {
         log.debug("XXX login called");
 
-        TCRequest tcRequest = HttpObjectFactory.createRequest(httpServletRequest);
-        TCResponse tcResponse = HttpObjectFactory.createResponse(httpServletResponse);
-
-        WebAuthentication authentication =
-                null;
         try {
-            authentication = new BasicAuthentication(new SessionPersistor(httpServletRequest.getSession()),
-                    tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
-            User ret = new DefaultUser();
-            ret.setFullName(authentication.getActiveUser().getUserName());
 
+            Principal user = getUser(userName);
+            if (user != null) {
 
-            TCSubject sub = null;
-            //we need to check if they got the right user name and password before we check anything else
-            try {
-                LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
-                sub = login.login(string, string1);
-                if (log.isDebugEnabled()) {
-                    log.debug("correct user name and password");
+                //todo check for user status and email status potentially
+                try {
+                    if (authenticate(userName, password)) {
+                        request.getSession().setAttribute(LOGGED_IN_KEY, user);
+                        request.getSession().setAttribute(LOGGED_OUT_KEY, null);
+                        if (getRoleMapper().canLogin(user, request)) {
+                            if (cookie && response != null) {
+                                CookieUtils.setCookie(request, response, getLoginCookieKey(),
+                                        encodeCookie(userName, password), AUTOLOGIN_COOKIE_AGE, getCookiePath(request));
+                            }
+                        } else {
+                            request.getSession().removeAttribute(LOGGED_IN_KEY);
+                        }
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } catch (Exception e) {
+                    if (log.isDebugEnabled()) {
+                        e.printStackTrace();
+                    }
+                    return false;
                 }
-            } catch (Exception e) {
-                if (log.isDebugEnabled()) {
-                    e.printStackTrace();
-                }
-                return false;
+
             }
 
-            return true;
+
+            if (response != null && CookieUtils.getCookie(request, getLoginCookieKey()) != null) {
+
+                try {
+                    CookieUtils.invalidateCookie(request, response, getLoginCookieKey(), getCookiePath(request));
+                }
+                catch (Exception e) {
+                    log.error("Could not invalidate cookie: " + e, e);
+                }
+            }
+
+            return false;
+
         } catch (Exception e) {
             throw new AuthenticatorException(e.getMessage());
         }
 
     }
 
-/*
-    private char getStatus(long userId) throws Exception {
-        char result;
-        com.topcoder.web.ejb.user.User user = (com.topcoder.web.ejb.user.User)
-                BaseProcessor.createEJB(getInitialContext(), com.topcoder.web.ejb.user.User.class);
-        result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        return result;
+    /*
+        private char getStatus(long userId) throws Exception {
+            char result;
+            com.topcoder.web.ejb.user.User user = (com.topcoder.web.ejb.user.User)
+                    BaseProcessor.createEJB(getInitialContext(), com.topcoder.web.ejb.user.User.class);
+            result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            return result;
 
+        }
+
+
+        private int getEmailStatus(long userId) throws Exception {
+            int result;
+            Email email = (Email) BaseProcessor.createEJB(getInitialContext(), Email.class);
+            result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                    DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            return result;
+        }
+    */
+    private boolean authenticate(String userName, String password) {
+
+
+        try {
+            //todo make a local call
+            LoginRemote login = (LoginRemote) com.topcoder.web.common.security.Constants.createEJB(LoginRemote.class);
+            login.login(userName, password);
+            if (log.isDebugEnabled()) {
+                log.debug("correct user name and password");
+            }
+            return true;
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        } catch (GeneralSecurityException e) {
+            return false;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
-
-    private int getEmailStatus(long userId) throws Exception {
-        int result;
-        Email email = (Email) BaseProcessor.createEJB(getInitialContext(), Email.class);
-        result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
-                DBMS.COMMON_OLTP_DATASOURCE_NAME);
-        return result;
-    }
-*/
-
-    protected boolean authenticate(Principal principal, String string) {
+    protected boolean authenticate(Principal principal, String password) {
         log.debug("XXX authenticate called");
-        return super.authenticate(principal, string);
-    }
-
-    protected com.atlassian.event.EventManager getEventManager() {
-        log.debug("XXX getEventManager called");
-        return super.getEventManager();
+        return authenticate(principal.getName(), password);
     }
 
     public void setUserAccessor(UserAccessor userAccessor) {
@@ -105,9 +136,25 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         return super.getUserAccessor();
     }
 
-    protected Principal getUser(String string) {
+    protected Principal getUser(String userName) {
         log.debug("XXX getUser called");
-        return super.getUser(string);
+
+        //todo make a local call
+        PrincipalMgrRemote pmr = null;
+        try {
+            pmr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgr.class);
+            UserPrincipal p = pmr.getUser(userName);
+            DefaultUser du = new DefaultUser();
+            du.setName(userName);
+            return du;
+        } catch (NoSuchUserException e) {
+            log.debug("no such user");
+            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
     }
 
     public Principal getUser(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
