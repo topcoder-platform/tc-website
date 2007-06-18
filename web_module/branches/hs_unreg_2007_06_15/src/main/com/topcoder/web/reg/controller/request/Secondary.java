@@ -31,39 +31,7 @@ public class Secondary extends Base {
                     checkMainFields(params);
 
                     if (hasErrors()) {
-                        Map.Entry me;
-                        for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
-                            me = (Map.Entry) it.next();
-                            if (me.getKey().equals(Constants.NOTIFICATION)) {
-                                List a = (List) me.getValue();
-                                for (Iterator it1 = a.iterator(); it1.hasNext();) {
-                                    setDefault(Constants.NOTIFICATION + ((Notification) it1.next()).getId(), String.valueOf(true));
-                                }
-                            } else {
-                                setDefault((String) me.getKey(), me.getValue());
-                            }
-                        }
-
-                        setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
-                        setDefault(Constants.AGE_FOR_HS, params.get(Constants.AGE_FOR_HS));
-                        setDefault(Constants.ATTENDING_HS, params.get(Constants.ATTENDING_HS));
-                        
-                        if (!u.isNew()) {
-                            setDefault(Constants.HANDLE, u.getHandle());
-                        }
-                        List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
-                        if (nots != null) {
-                            getRequest().setAttribute("notifications", nots);
-                        }
-                        getRequest().setAttribute(Constants.FIELDS, fields);
-                        getRequest().setAttribute(Constants.REQUIRED_FIELDS,
-                                RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), u));
-                        getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
-                        getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
-                        getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
-                        getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
-                        setNextPage("/main.jsp");
-                        setIsNextPageInContext(true);
+                        reloadMain(params, u, fields);
                     } else {
                         // If the user is registering for hs, check that he has the right age and he'll be attending high school
                         if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID)) {
