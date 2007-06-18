@@ -131,7 +131,7 @@ TopCoder problem writer.</p>
 <i>TC rated Algorithm events</i>: 164.<br/>
 
 <i>Previous TCO and TCCC onsite appearances</i>: TCO 05 &mdash; 8th place, TCO 06 and TCCC 06 &mdash; semifinalist.</p>
-Nikolay is one of the few Russian TopCoder members not ctively involved in the Russian
+Nikolay is one of the few Russian TopCoder members not actively involved in the Russian
 progamming contest community: he wasn't a big contest lover during his university years, and moved abroad
 after his graduation in 2002. However, he became an active TopCoder member while working abroad,
 reaching the top in both Algorithm and Component Design competitions. He has attended the onsite part for both
@@ -222,7 +222,7 @@ status. Who knows, maybe TopCoder format suits him better?</p>
 <i>TC Marathon rating (max)</i>: 1931 (1931).<br/>
 <i>TC rated Marathon events</i>: 4.</p>
 <p>Maxim is representing another diamond in the crown of the Russian programming schools &mdash; the Petrozavodsk
-State University. Heavily supported heavily by the University, and even by the local government,
+State University. Heavily supported by the University, and even by the local government,
 Petrozavodsk students are among the most motivated to perform  in programming contests. Regular two-week
 training camps for all the top Russian teams take place in Petrozavodsk twice a year, so it's a base
 for a constantly evolving Russian university students' programming contest community, and Petrozavodsk
