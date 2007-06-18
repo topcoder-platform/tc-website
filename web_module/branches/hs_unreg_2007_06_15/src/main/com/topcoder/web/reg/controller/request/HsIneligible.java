@@ -32,8 +32,14 @@ public class HsIneligible extends Base {
         
         
         Set regTypes = getRequestedTypes();
-        boolean removed = regTypes.remove(RegistrationType.HIGH_SCHOOL_ID);
-        log.debug("removed:"+ removed);
+        for (Iterator it = regTypes.iterator(); it.hasNext();) {
+            RegistrationType rt = (RegistrationType) it.next();
+            if (rt.getId() == RegistrationType.HIGH_SCHOOL_ID) {
+                it.remove();
+                log.debug("removed!");
+                break;
+            }            
+        }
         setRequestedTypes(regTypes);
         
         User u = getRegUser();
