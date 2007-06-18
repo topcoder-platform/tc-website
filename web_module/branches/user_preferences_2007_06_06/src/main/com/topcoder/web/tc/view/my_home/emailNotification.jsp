@@ -57,9 +57,9 @@
             <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="EditNotifications"/>
                 <table cellpadding="0" cellspacing="0" class="stat" width="100%">
                 <tbody>                
-                    <c:set var="oldNotification"/>                   
+                    <c:set var="oldNotificationType" value="null"/>                   
                     <c:forEach var="notification" items="${notifications}">
-                        <c:if test="${notification == oldNotification}">
+                        <c:if test="${notification.type != oldNotificationType}">
                             <tr>
                                 <td class="header">
                                     ${notification.type.description}
@@ -71,11 +71,11 @@
                                 <tc-webtag:chkBox name="notif_${notification.id}"/> ${notification.name}
                             </td>
                         </tr>
-                        <c:set var="oldNotification" value="${notification}"/>                   
+                        <c:set var="oldNotificationType" value="${notification.type}"/>                   
                     </c:forEach>
                 </tbody>
                 </table>
-                </form>            
+                </form>        
 
                 <div align="center">
                     <table cellpadding="0" cellspacing="0" style="margin: 20px;">
