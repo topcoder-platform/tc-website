@@ -422,7 +422,7 @@
             <c:if test="${cf:contains(reqFields, ageForHs)}">*</c:if> How old will you be on xx/xx/xxxx?
         </td>
         <td class="value">
-            <tc-webtag:textInput name="<%=Constants.AGE_FOR_HS%>" size="3" maxlength="2" editable="true"/>
+            <tc-webtag:textInput name="<%=Constants.AGE_FOR_HS%>" size="3" maxlength="3" editable="true"/>
         </td>
     </tr>
 </c:if>

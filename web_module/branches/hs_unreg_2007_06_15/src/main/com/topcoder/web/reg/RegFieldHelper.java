@@ -146,8 +146,6 @@ public class RegFieldHelper {
         mainHSFields.add(Constants.QUOTE);
         mainHSFields.add(Constants.NOTIFICATION);
         mainHSFields.add(Constants.TIMEZONE);
-        mainHSFields.add(Constants.AGE_FOR_HS);
-        mainHSFields.add(Constants.ATTENDING_HS);
 
         requiredMainHSFields.add(Constants.GIVEN_NAME);
         requiredMainHSFields.add(Constants.SURNAME);
@@ -161,8 +159,6 @@ public class RegFieldHelper {
         requiredMainHSFields.add(Constants.EMAIL);
         requiredMainHSFields.add(Constants.EMAIL_CONFIRM);
         requiredMainHSFields.add(Constants.TIMEZONE);
-        requiredMainHSFields.add(Constants.AGE_FOR_HS);
-        requiredMainHSFields.add(Constants.ATTENDING_HS);
 
     }
 
@@ -479,6 +475,9 @@ public class RegFieldHelper {
                     } else {
                         ret.addAll(mainHSFields);
                     }
+                    ret.add(Constants.AGE_FOR_HS);
+                    ret.add(Constants.ATTENDING_HS);
+
                 } else if (curr.getId().equals(RegistrationType.MINIMAL_ID)) {
                     if (required) {
                         ret.addAll(requiredMainMinFields);
