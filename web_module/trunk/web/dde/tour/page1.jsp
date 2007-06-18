@@ -49,11 +49,16 @@
             We build software.
         </h2>--%>
 
-        <p align="center">
-            <img src="/i/tour/prevNA.png" alt="Previous page" />
-            <img src="/i/tour/bar.png" alt="" style="margin: 0px 6px;" />
-            <a href="/tour/page2.jsp" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
-        </p>
+        <div align="center">
+            <div style="width: 60px; height: 28px; margin: 10px;">
+                <div style="float: left;">
+                    <img src="/i/tour/prevNA.png" alt="Previous page" />
+                </div>
+                <div style="float: right;">
+                    <a href="/tour/page2.jsp" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
+                </div>
+            </div>
+        </div>
 
         <div class="popUp" id="myPopUp">
             <div id="popUpText">&nbsp;</div>

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=utf-8" %> 
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -40,22 +41,37 @@
         </jsp:include>
 
         <div id="slide">
-            <img src="/i/tour/page11.png" alt="" />
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=contactus"><img src="/i/tour/page11.png" alt="" /></a>
         </div>
 
         <%--<h2 align="center">
             Any questions?
         </h2>--%>
 
-        <div align="center" style="margin: 10px;">
-            <a href="/tour/page10.jsp" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
-            <img src="/i/tour/bar.png" alt="" style="margin: 0px 6px;" />
-            <img src="/i/tour/nextNA.png" alt="Next page" />
+        <div align="center">
+            <div style="width: 60px; height: 28px; margin: 10px;">
+                <div style="float: left;">
+                    <a href="/tour/page10.jsp" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
+                </div>
+                <div style="float: right;">
+                    <img src="/i/tour/nextNA.png" alt="Next page" />
+                </div>
+            </div>
         </div>
 
         <div class="popUp" id="myPopUp">
             <div id="popUpText">&nbsp;</div>
         </div>
+
+        <p align="center" style="margin-top: 20px;">
+        <strong><a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=contactus' refer='software_tour_11' />">Call us today and let us build your next application.</a></strong>
+        </p>
+        <p align="center">
+        <strong><a href="<tc-webtag:linkTracking link='/reg/' refer='software_tour_11' />">I'd like to register now.</a></strong>
+        </p>
+        <p align="center">
+        <strong><a href="<tc-webtag:linkTracking link='/' refer='software_tour_11' />">Go back to the homepage.</a></strong>
+        </p>
 
         <%--<jsp:include page="foot.jsp" />--%>
 
