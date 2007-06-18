@@ -19,6 +19,24 @@
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 -----%>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.18.07<br>1:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm354">SRM 354 - Problem Set &amp; Analysis</A></span><br><br>
+      Unlike the previous SRM, the Division I problem set wasn't very hard. The difficulty of the "above average" Easy problem was compensated by the rather easy Hard, which gave more than 50 coders the chance to solve all three problems.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Andrew_Lazarev_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7485898" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=match_editorials&d2=srm354">full story</A> | 
+        <tc-webtag:forumLink forumID="516051" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>06.15.07<br>3:30 PM</td>
