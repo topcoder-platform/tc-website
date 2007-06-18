@@ -2,6 +2,23 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%---------------------------------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.18.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=061807">TCO Preview: Meet Team Russia</A></span><br><br>
+      There are 12 coders representing the Russian Federation in the TCO07 Algorithm competition onsite, and one coder representing the Russian Federation in the Marathon track. Let's take a closer look at this year's finalists by 'generation' Ñ from the most experienced ones to the powerful youngsters.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10574855" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=061807">full story</A> | 
+        <tc-webtag:forumLink forumID="516231" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+-----%>
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>06.15.07<br>3:30 PM</td>
@@ -189,19 +206,5 @@
         <A href="/tc?module=Static&d1=features&d2=060707">full story</A> | 
         <tc-webtag:forumLink forumID="516138" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>06.07.07<br>2:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</A></span><br><br>
-      TopCoder and AOL today announced that the 2007 TopCoder&#174; Open will be webcast live at the AOL&#174; Developer site (<a target="_blank" href="<tc-webtag:linkTracking link='http://dev.aol.com' refer='pr_060507' />">http://dev.aol.com</a>) on Friday, June 29. Coverage of the TCO07 finals from the Mirage Resort in Las Vegas begins at 21:00 GMT.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_060507">details</A> | 
-       <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=trailer&title=Trailer">watch trailer</A> | 
-       <tc-webtag:forumLink forumID="516084" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
 
