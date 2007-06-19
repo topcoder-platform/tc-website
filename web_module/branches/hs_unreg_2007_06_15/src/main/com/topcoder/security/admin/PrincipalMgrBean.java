@@ -583,7 +583,7 @@ public class PrincipalMgrBean extends BaseEJB {
             ctx = new InitialContext();
             conn = Util.getConnection(ctx, DATA_SOURCE);
             ps = conn.prepareStatement(query);
-            ps.setInt(1, SecurityDB.STATUS_ACTIVE);
+            ps.setInt(1, SecurityDB.STATUS_INACTIVE);
             ps.setLong(2, userId);
             ps.setLong(3, groupId);
             ps.executeUpdate();
