@@ -28,6 +28,7 @@ import com.topcoder.web.common.model.Notification;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.Resume;
 import com.topcoder.web.common.model.School;
+import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.State;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.ListInput;
@@ -774,6 +775,8 @@ abstract class Base extends LongHibernateProcessor {
         getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
         getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
         getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
+        getRequest().setAttribute("season", getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON));
+
         setNextPage("/main.jsp");
         setIsNextPageInContext(true);
 

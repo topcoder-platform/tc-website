@@ -135,6 +135,7 @@ public class Main extends Base {
                 Set reqFields = RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), getRegUser());
                 getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
                 getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
+                getRequest().setAttribute("season", getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON));
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             }

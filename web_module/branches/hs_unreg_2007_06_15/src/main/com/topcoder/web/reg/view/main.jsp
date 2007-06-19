@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -419,7 +420,7 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, ageForHs)}">*</c:if> How old will you be on xx/xx/xxxx?
+            <c:if test="${cf:contains(reqFields, ageForHs)}">*</c:if> How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MM/dd/yyyy"/>?
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.AGE_FOR_HS%>" size="3" maxlength="3" editable="true"/>
@@ -437,7 +438,7 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, attendingHs)}">*</c:if> will you be attending high school/secondary school on xx/xx/xxxx?
+            <c:if test="${cf:contains(reqFields, attendingHs)}">*</c:if> will you be attending high school/secondary school on <fmt:formatDate value="${season.endDate}" pattern="MM/dd/yyyy"/>?
         </td>
         <td class="value">
             <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="yes"/> Yes
