@@ -7,7 +7,7 @@ public class Question implements Serializable {
     /**
      * @deprecated
      */
-    public static final int SINGLE_CHOICE = QuestionStyle.SHORT_ANSWER;
+    public static final int SINGLE_CHOICE = QuestionStyle.SINGLE_CHOICE;
     /**
      * @deprecated
      */
