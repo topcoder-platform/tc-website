@@ -152,6 +152,7 @@ public class Secondary extends Base {
         
         u.addEventRegistration(event, null, false);
         userDAO.saveOrUpdate(u);
+        markForCommit();
     }
 
 
