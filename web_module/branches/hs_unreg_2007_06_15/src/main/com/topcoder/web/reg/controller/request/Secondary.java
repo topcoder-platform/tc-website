@@ -50,7 +50,8 @@ public class Secondary extends Base {
                         reloadMain(params, u, fields);
                     } else {
                         // If the user is registering for hs, check that he has the right age and he'll be attending high school
-                        if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID)) {
+                        if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
+                                !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
                             int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
                             if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= Constants.MAX_AGE_FOR_HS) {
                                 log.debug("user is not eligible");
