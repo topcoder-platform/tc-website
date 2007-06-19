@@ -37,29 +37,23 @@
 
                 <div align="right" style="padding: 10px; background: transparent url(/i/tcchannel/videoBackdrop.png) right center no-repeat;">
 
-                    <div style="float: left; margin-top: 40px;">
+                    <div style="float: left; margin-top: 50px;">
                         <img src="/i/tcchannel/tcchannelLogo.png" alt="TC Channel" />
-                        <p align="left" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #999999;">
-                            <strong>
-                            <jsp:include page="tcchannelNav.jsp" />
-                            </strong>
-                        </p>
                     </div>
                     <script language="JavaScript">
                     var s='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0" width="320" height="280" id="webcast" align="middle">'
                     + '<param name="allowScriptAccess" value="always" />'
-                    + '<param name="movie" value="/flash/media/tcchannel.swf?&clip=<c:out value="${param['clip']}" default="ep1" escapeXml="true"/>" />'
+                    + '<param name="movie" value="/flash/media/tcchannel.swf?&clip=<c:out value="${param['clip']}" default="ep2" escapeXml="true"/>" />'
                     + '<param name="quality" value="high" />'
                     + '<param name="bgcolor" value="#000000" />'
                     + '<param name="allowFullScreen" value="true" />'
-                    + '<embed src="/flash/media/tcchannel.swf?&clip=<c:out value="${param['clip']}" default="ep1" escapeXml="true"/>" quality="high" bgcolor="#000000" allowFullScreen="true" width="320" height="280" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'
+                    + '<embed src="/flash/media/tcchannel.swf?&clip=<c:out value="${param['clip']}" default="ep2" escapeXml="true"/>" quality="high" bgcolor="#000000" allowFullScreen="true" width="320" height="280" name="webcast" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />'
                     + '</object>';
                     doWrite(s);
                     </script>
                 </div>
-                <p align="right">
-                    <tc-webtag:forumLink forumID="515804" message="Discuss this episode" />
-                </p>
+
+                <jsp:include page="tcchannelNav.jsp" />
 
                 <p style="margin-top: 30px;">
                     Comments? Ideas? Have a video clip you'd like to share? We want your feedback so drop us an email at <A href="mailto:tcchannel@topcoder.com">tcchannel@topcoder.com</A>.
