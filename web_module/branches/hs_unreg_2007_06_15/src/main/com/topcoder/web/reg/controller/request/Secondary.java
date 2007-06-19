@@ -14,6 +14,8 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.model.TimeZone;
 import com.topcoder.web.reg.Constants;
@@ -137,10 +139,17 @@ public class Secondary extends Base {
 
             //refresh the cached object
             SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            
         } finally {
             close(ctx);
         }
 
+        // Mark in event_registration table that the user tried to register but was not eligible.
+        UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
+        Event event = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON).getEvent();
+        
+        u.addEventRegistration(event, Collections.EMPTY_LIST, false);
+        userDAO.saveOrUpdate(u);
     }
 
 
