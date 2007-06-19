@@ -1,7 +1,8 @@
 package com.topcoder.web.wiki;
 
+import com.atlassian.confluence.user.ConfluenceAuthenticator;
+import com.atlassian.confluence.user.UserAccessor;
 import com.atlassian.seraph.auth.AuthenticatorException;
-import com.atlassian.seraph.auth.DefaultAuthenticator;
 import com.atlassian.seraph.util.CookieUtils;
 import com.atlassian.user.impl.DefaultUser;
 import com.topcoder.security.GeneralSecurityException;
@@ -21,8 +22,8 @@ import java.security.Principal;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 8, 2007
  */
-//public class TCAuthenticator extends ConfluenceAuthenticator {
-public class TCAuthenticator extends DefaultAuthenticator {
+public class TCAuthenticator extends ConfluenceAuthenticator {
+//public class TCAuthenticator extends DefaultAuthenticator {
     private final static Logger log = Logger.getLogger(TCAuthenticator.class);
 
     private static int AUTOLOGIN_COOKIE_AGE = 365 * 24 * 60 * 60;
@@ -44,6 +45,10 @@ public class TCAuthenticator extends DefaultAuthenticator {
                 //todo check for user status and email status potentially
                 try {
                     if (authenticate(userName, password)) {
+                        if (getUserAccessor().getUser(userName)==null) {
+                            log.debug("XXX create the user");
+                            getUserAccessor().addUser(userName, null, null, userName, new String[] {UserAccessor.GROUP_CONFLUENCE_USERS});
+                        }
                         request.getSession().setAttribute(LOGGED_IN_KEY, user);
                         request.getSession().setAttribute(LOGGED_OUT_KEY, null);
                         if (getRoleMapper().canLogin(user, request)) {
@@ -130,7 +135,6 @@ public class TCAuthenticator extends DefaultAuthenticator {
         return authenticate(principal.getName(), password);
     }
 
-/*
     public void setUserAccessor(UserAccessor userAccessor) {
         log.debug("XXX setUserAccessor called");
         super.setUserAccessor(userAccessor);
@@ -140,7 +144,6 @@ public class TCAuthenticator extends DefaultAuthenticator {
         log.debug("XXX getUserAccessor called");
         return super.getUserAccessor();
     }
-*/
 
     protected Principal getUser(String userName) {
         log.debug("XXX getUser called");
