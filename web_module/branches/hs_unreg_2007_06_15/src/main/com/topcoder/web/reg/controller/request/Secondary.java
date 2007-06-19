@@ -148,7 +148,9 @@ public class Secondary extends Base {
         UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
         Event event = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON).getEvent();
         
-        u.addEventRegistration(event, Collections.EMPTY_LIST, false);
+        log.debug("Mark as not eligible in event id: " + event.getId());
+        
+        u.addEventRegistration(event, null, false);
         userDAO.saveOrUpdate(u);
     }
 
