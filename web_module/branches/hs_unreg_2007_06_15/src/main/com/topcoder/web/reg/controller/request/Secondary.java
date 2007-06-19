@@ -1,15 +1,29 @@
 package com.topcoder.web.reg.controller.request;
 
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.model.TimeZone;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
 
+import java.rmi.RemoteException;
 import java.util.*;
+
+import javax.ejb.CreateException;
+import javax.naming.Context;
 
 /**
  * @author dok
@@ -37,6 +51,10 @@ public class Secondary extends Base {
                         if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID)) {
                             int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
                             if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= Constants.MAX_AGE_FOR_HS) {
+                                
+                                if (!u.isNew()) {
+                                    inactivateHsUser(u);
+                                }
                                 getRequest().getSession().setAttribute("params", params);
                                 getRequest().setAttribute("registeredComp" ,isCurrentlyRegistered(u, RegistrationType.COMPETITION_ID));
                                 getRequest().setAttribute("requestedComp" ,hasRequestedType(RegistrationType.COMPETITION_ID));
@@ -94,6 +112,30 @@ public class Secondary extends Base {
                 }
             }
         }
+    }
+
+
+    private void inactivateHsUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
+
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            TCSubject tcs = new TCSubject(132456);
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+            
+            UserPrincipal user = new UserPrincipal("", u.getId().longValue());
+            GroupPrincipal group = new GroupPrincipal("", 12); // HS group
+            
+            
+            pmr.removeUserFromGroup(group, user, tcs);
+
+            //refresh the cached object
+            SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
+        } finally {
+            close(ctx);
+        }
+
     }
 
 
