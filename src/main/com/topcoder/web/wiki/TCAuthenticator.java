@@ -1,8 +1,7 @@
 package com.topcoder.web.wiki;
 
-import com.atlassian.confluence.user.ConfluenceAuthenticator;
-import com.atlassian.confluence.user.UserAccessor;
 import com.atlassian.seraph.auth.AuthenticatorException;
+import com.atlassian.seraph.auth.DefaultAuthenticator;
 import com.atlassian.seraph.util.CookieUtils;
 import com.atlassian.user.impl.DefaultUser;
 import com.topcoder.security.GeneralSecurityException;
@@ -22,10 +21,16 @@ import java.security.Principal;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Jun 8, 2007
  */
-public class TCAuthenticator extends ConfluenceAuthenticator {
+//public class TCAuthenticator extends ConfluenceAuthenticator {
+public class TCAuthenticator extends DefaultAuthenticator {
     private final static Logger log = Logger.getLogger(TCAuthenticator.class);
 
     private static int AUTOLOGIN_COOKIE_AGE = 365 * 24 * 60 * 60;
+
+    public boolean login(HttpServletRequest request, HttpServletResponse response,
+                         String userName, String password) throws AuthenticatorException {
+        return login(request, response, userName, password, false);
+    }
 
     public boolean login(HttpServletRequest request, HttpServletResponse response,
                          String userName, String password, boolean cookie) throws AuthenticatorException {
@@ -125,6 +130,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         return authenticate(principal.getName(), password);
     }
 
+/*
     public void setUserAccessor(UserAccessor userAccessor) {
         log.debug("XXX setUserAccessor called");
         super.setUserAccessor(userAccessor);
@@ -134,6 +140,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
         log.debug("XXX getUserAccessor called");
         return super.getUserAccessor();
     }
+*/
 
     protected Principal getUser(String userName) {
         log.debug("XXX getUser called");
