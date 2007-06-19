@@ -128,6 +128,10 @@ public class Secondary extends Base {
             UserPrincipal user = new UserPrincipal("", u.getId().longValue());
             GroupPrincipal group = new GroupPrincipal("", 12); // HS group
             
+            // Add the user to the HS group; if the user already belongs it will throw an exception
+            try {
+                pmr.addUserToGroup(group, user, tcs);
+            } catch(Exception e) {}
             
             pmr.removeUserFromGroup(group, user, tcs);
 
