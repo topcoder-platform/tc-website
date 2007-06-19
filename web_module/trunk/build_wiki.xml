@@ -44,6 +44,8 @@
         <pathelement location="${confluence.jars}/confluence-2.5.3.jar"/>
         <pathelement location="${confluence.jars}/seraph-0.7.23.jar"/>
         <pathelement location="${confluence.jars}/atlassian-event-0.2.jar"/>
+        <pathelement location="${confluence.jars}/atlassian-bucket-2007.01.23.jar"/>
+
 
         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
