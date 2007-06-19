@@ -47,7 +47,7 @@ public class TCAuthenticator extends ConfluenceAuthenticator {
                     if (authenticate(userName, password)) {
                         if (getUserAccessor().getUser(userName)==null) {
                             log.debug("XXX create the user");
-                            getUserAccessor().addUser(userName, null, null, userName, new String[] {UserAccessor.GROUP_CONFLUENCE_USERS});
+                            getUserAccessor().addUser(userName, "", "", userName, new String[] {UserAccessor.GROUP_CONFLUENCE_USERS});
                         }
                         request.getSession().setAttribute(LOGGED_IN_KEY, user);
                         request.getSession().setAttribute(LOGGED_OUT_KEY, null);
