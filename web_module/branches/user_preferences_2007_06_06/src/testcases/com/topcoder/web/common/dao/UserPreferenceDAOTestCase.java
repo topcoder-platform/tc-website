@@ -44,7 +44,7 @@ public class UserPreferenceDAOTestCase extends TCHibernateTestCase {
 
     public void testFind5() {
         List<Long> l = new ArrayList<Long>();
-        l.add(7545675);
+        l.add(new Long(7545675));
         List<UserPreference> up = DAOUtil.getFactory().getUserPreferenceDAO().find(l, 24);
         assertNotNull("could not find UserPreference", up);
     }
