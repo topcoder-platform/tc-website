@@ -51,6 +51,7 @@ public class Secondary extends Base {
                         if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID)) {
                             int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
                             if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= Constants.MAX_AGE_FOR_HS) {
+                                log.debug("user is not eligible");
                                 
                                 if (!u.isNew()) {
                                     inactivateHsUser(u);
@@ -116,7 +117,7 @@ public class Secondary extends Base {
 
 
     private void inactivateHsUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
-
+        log.debug("Inactivating user " + u.getId() + " for HS.");
         Context ctx = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
