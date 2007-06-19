@@ -24,7 +24,7 @@ public class PreferenceDAOTestCase extends TCHibernateTestCase {
     }
 
     public void testRegTypes() {
-        Notification n = DAOUtil.getFactory().getPreferenceDAO().find(new Integer(24));
-        assertTrue("we found no reg types", n.getRegistrationTypes() != null && !n.getRegistrationTypes().isEmpty());
+        Preference p = DAOUtil.getFactory().getPreferenceDAO().find(new Integer(24));
+        assertTrue("we found no reg types", p.getRegistrationTypes() != null && !p.getRegistrationTypes().isEmpty());
     }
 }
