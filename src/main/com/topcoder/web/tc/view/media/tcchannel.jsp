@@ -39,15 +39,9 @@
 
                     <div style="float: left; margin-top: 40px;">
                         <img src="/i/tcchannel/tcchannelLogo.png" alt="TC Channel" />
-                        <p style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #999999;">
+                        <p align="left" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #999999;">
                             <strong>
-
-                            <jsp:include page="../includes/global_left.jsp">
-                                <jsp:param name="clip" value="tc_channel"/>
-                            </jsp:include>
-
-                            Episode 1 >>
-                            <br><a href="/tc?module=Static&d1=media&d2=tcchannel&clip=ep2">Episode 2</a>
+                            <jsp:include page="tcchannelNav.jsp" />
                             </strong>
                         </p>
                     </div>
