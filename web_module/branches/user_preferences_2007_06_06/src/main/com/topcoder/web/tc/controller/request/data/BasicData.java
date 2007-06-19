@@ -10,6 +10,7 @@ import javax.servlet.http.HttpUtils;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.ResultSetContainerConverter;
 import com.topcoder.web.common.SecurityHelper;
@@ -63,6 +64,9 @@ public class BasicData extends Base {
     }
 
     private List<Long> getHideUsersList() {
+        if (!DAOUtil.useQueryToolFactory) {
+            HibernateUtils.getSession().beginTransaction();
+        }
         List<UserPreference> upList = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Preference.SHOW_EARNINGS_PREFERENCE_ID);
         List<Long> hideList = new ArrayList<Long>();
         for (UserPreference up : upList) {

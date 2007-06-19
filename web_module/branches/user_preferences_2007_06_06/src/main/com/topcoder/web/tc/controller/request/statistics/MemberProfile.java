@@ -10,16 +10,14 @@
 
 package com.topcoder.web.tc.controller.request.statistics;
 
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -205,9 +203,12 @@ public class MemberProfile extends Base {
             }
 
             // check whether or not show earnings
+            if (!DAOUtil.useQueryToolFactory) {
+                HibernateUtils.getSession().beginTransaction();
+            }
             UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId), Preference.SHOW_EARNINGS_PREFERENCE_ID);
             boolean hidePayments = up != null && "hide".equals(up.getValue());
-
+            
             getRequest().setAttribute("resultMap", result);
 
             getRequest().setAttribute("hasAlg", new Boolean(hasAlg));

@@ -9,6 +9,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Preference;
@@ -83,6 +84,9 @@ public class ComponentRecordbook extends Static {
                 coderList.add(rsr.getLongItem("coder_id"));
             }
 
+            if (!DAOUtil.useQueryToolFactory) {
+                HibernateUtils.getSession().beginTransaction();
+            }
             List<UserPreference> upList  = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(coderList, Preference.SHOW_EARNINGS_PREFERENCE_ID);
             List<Long> hideList = new ArrayList<Long>();
             for (UserPreference up : upList) {

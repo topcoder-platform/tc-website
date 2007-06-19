@@ -49,6 +49,9 @@ public class PaymentSummary extends BaseProcessor {
             throw new TCWebException("parameter " + Constants.CODER_ID + " expected.");
         }
 
+        if (!DAOUtil.useQueryToolFactory) {
+            HibernateUtils.getSession().beginTransaction();
+        }
         UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(getRequest().getParameter(Constants.CODER_ID)), Preference.SHOW_EARNINGS_PREFERENCE_ID);
         if (up != null && "hide".equals(up.getValue())) {
             throw new NavigationException("Sorry, " + up.getId().getUser().getHandle() + " has chosen to hide this information.");
