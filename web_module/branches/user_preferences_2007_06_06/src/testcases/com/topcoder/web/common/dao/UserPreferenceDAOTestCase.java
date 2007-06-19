@@ -36,7 +36,7 @@ public class UserPreferenceDAOTestCase extends TCHibernateTestCase {
         assertNotNull("could not find UserPreference", up);
     }
 
-    public void testFind4) {
+    public void testFind4() {
         List<UserPreference> up = DAOUtil.getFactory().getUserPreferenceDAO().find(24);
         assertNotNull("could not find UserPreference", up);
     }
