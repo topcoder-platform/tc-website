@@ -188,7 +188,7 @@ Please select a <strong>season</strong><br>
     </tr>
 
     <c:forEach items="${results}" var="boardRow" varStatus="status">
-    <tr class='${status.index % 2 == 1? "even" : "odd" }'>
+    <tr class='${status.index % 2 == 1? "dark" : "light" }'>
         <td class="valueC">${boardRow.rank}</td>
         <td class="value" style="border-right: 1px solid #999999;">
             <tc-webtag:handle coderId='${boardRow.userId}' context='${context}'/>
