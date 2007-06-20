@@ -90,11 +90,6 @@ public class PreferenceValue extends Base implements Comparable {
                 return false;
         } else if (!description.equals(other.description))
             return false;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
         if (preference == null) {
             if (other.preference != null)
                 return false;

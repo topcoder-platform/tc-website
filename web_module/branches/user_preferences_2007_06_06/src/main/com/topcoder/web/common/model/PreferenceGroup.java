@@ -63,7 +63,6 @@ public class PreferenceGroup extends Base implements Comparable {
         int result = 1;
         result = PRIME * result + ((description == null) ? 0 : description.hashCode());
         result = PRIME * result + ((id == null) ? 0 : id.hashCode());
-        result = PRIME * result + ((preferences == null) ? 0 : preferences.hashCode());
         result = PRIME * result + ((sort == null) ? 0 : sort.hashCode());
         return result;
     }
@@ -86,11 +85,6 @@ public class PreferenceGroup extends Base implements Comparable {
             if (other.id != null)
                 return false;
         } else if (!id.equals(other.id))
-            return false;
-        if (preferences == null) {
-            if (other.preferences != null)
-                return false;
-        } else if (!preferences.equals(other.preferences))
             return false;
         if (sort == null) {
             if (other.sort != null)

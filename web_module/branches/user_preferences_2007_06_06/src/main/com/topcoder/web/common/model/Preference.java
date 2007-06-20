@@ -113,10 +113,8 @@ public class Preference extends Base implements Comparable {
         result = PRIME * result + ((group == null) ? 0 : group.hashCode());
         result = PRIME * result + ((id == null) ? 0 : id.hashCode());
         result = PRIME * result + ((name == null) ? 0 : name.hashCode());
-        result = PRIME * result + ((registrationTypes == null) ? 0 : registrationTypes.hashCode());
         result = PRIME * result + ((sort == null) ? 0 : sort.hashCode());
         result = PRIME * result + ((type == null) ? 0 : type.hashCode());
-        result = PRIME * result + ((values == null) ? 0 : values.hashCode());
         return result;
     }
 
@@ -149,11 +147,6 @@ public class Preference extends Base implements Comparable {
                 return false;
         } else if (!name.equals(other.name))
             return false;
-        if (registrationTypes == null) {
-            if (other.registrationTypes != null)
-                return false;
-        } else if (!registrationTypes.equals(other.registrationTypes))
-            return false;
         if (sort == null) {
             if (other.sort != null)
                 return false;
@@ -163,11 +156,6 @@ public class Preference extends Base implements Comparable {
             if (other.type != null)
                 return false;
         } else if (!type.equals(other.type))
-            return false;
-        if (values == null) {
-            if (other.values != null)
-                return false;
-        } else if (!values.equals(other.values))
             return false;
         return true;
     }
