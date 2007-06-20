@@ -133,10 +133,10 @@ public class Secondary extends Base {
             
             // Add the user to the HS group; if the user already belongs it will throw an exception
             try {
-                pmr.addUserToGroup(group, user, tcs);
+                pmr.addUserToGroup(group, user, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
             } catch(Exception e) {}
             
-            pmr.removeUserFromGroup(group, user, tcs);
+            pmr.removeUserFromGroup(group, user, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
 
             //refresh the cached object
             SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
@@ -151,9 +151,11 @@ public class Secondary extends Base {
         
         log.debug("Mark as not eligible in event id: " + event.getId());
         
-        u.addEventRegistration(event, null, false);
-        userDAO.saveOrUpdate(u);
-        markForCommit();
+        if (event != null) {
+            u.addEventRegistration(event, null, false);
+            userDAO.saveOrUpdate(u);
+            markForCommit();
+        }
     }
 
 

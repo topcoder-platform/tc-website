@@ -12,8 +12,12 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
+import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
@@ -39,6 +43,10 @@ public class Submit extends Base {
             boolean newUser = u.isNew();
             getFactory().getUserDAO().saveOrUpdate(u);
 
+            if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
+                    !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
+                registerHsSeason(u);
+            }
             securityStuff(newUser, u);
 
             markForCommit();
@@ -89,7 +97,6 @@ public class Submit extends Base {
                         }
                     }
                 }
-
             }
 
             HashSet h = new HashSet();
@@ -112,6 +119,19 @@ public class Submit extends Base {
         }
 
 
+    }
+
+    private void registerHsSeason(User u) {
+        UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
+        Event event = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON).getEvent();
+        
+        log.debug("User " + u.getId() + " registered for HS season in event " + event.getId());
+        if (event != null) {
+            u.addEventRegistration(event, null, true);
+            userDAO.saveOrUpdate(u);
+            markForCommit();
+        }
+        
     }
 
     private void securityStuff(boolean newUser, User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {

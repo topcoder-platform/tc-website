@@ -85,6 +85,9 @@ public interface PrincipalMgrLocal extends javax.ejb.EJBLocalObject {
     public abstract void removeUserFromGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject)
             throws GeneralSecurityException;
 
+    public abstract void removeUserFromGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject, String dataSource)
+        throws GeneralSecurityException;
+
     public abstract Collection getRoles(TCSubject tcsubject)
             throws GeneralSecurityException;
 
