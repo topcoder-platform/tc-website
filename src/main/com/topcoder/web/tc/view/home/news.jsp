@@ -16,7 +16,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='/tc' />">details</A> |
+        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='newsitem' />">details</A> |
         <tc-webtag:forumLink forumID="516246" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
