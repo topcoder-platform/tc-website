@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.20.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session: Introducing the MapQuest APIs</A>
+        </span><br><br>
+        AOL representatives will be in the Arena starting at 8:00 PM EDT tonight before SRM 355. Tonight's chat will focus on AOL's MapQuest APIs.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">details</A> |
+        <tc-webtag:forumLink forumID="516276" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+      
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>06.20.07<br>12:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -21,7 +40,6 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
       
-
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>06.18.07<br>5:00 PM</td>
@@ -191,21 +209,3 @@
         <tc-webtag:forumLink forumID="516149" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.08.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_17">Marathon Match 17 - Analysis</A></span><br><br>
-      MM17 attracted a record number of participants for the regular Marathon Matches -- 281 coders sent in a submission of some type, and one half of them were new to MM's.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/ecv_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="22651620"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_17">full story</A> | 
-        <tc-webtag:forumLink forumID="515803" message="discuss this" /> | 
-        <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
