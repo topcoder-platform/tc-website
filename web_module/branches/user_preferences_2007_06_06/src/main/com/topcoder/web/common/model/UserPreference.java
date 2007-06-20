@@ -103,33 +103,55 @@ public class UserPreference extends Base {
         result = PRIME * result + ((id == null) ? 0 : id.hashCode());
         result = PRIME * result + ((preferenceValue == null) ? 0 : preferenceValue.hashCode());
         result = PRIME * result + ((value == null) ? 0 : value.hashCode());
+        log.debug("UserPreference.hashCode() : " + result);
         return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
+            log.debug("1) UserPreference.equals() : true");
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
+            log.debug("2) UserPreference.equals() : false");
             return false;
-        if (getClass() != obj.getClass())
+        }
+        
+        if (getClass() != obj.getClass()) {
+            log.debug("3) UserPreference.equals() : false");
             return false;
+        }
+
         final UserPreference other = (UserPreference) obj;
         if (id == null) {
-            if (other.id != null)
+            if (other.id != null) {
+                log.debug("4) UserPreference.equals() : false");
                 return false;
-        } else if (!id.equals(other.id))
+            }
+        } else if (!id.equals(other.id)) {
+            log.debug("5) UserPreference.equals() : false");
             return false;
+        }
         if (preferenceValue == null) {
-            if (other.preferenceValue != null)
+            if (other.preferenceValue != null) {
+                log.debug("6) UserPreference.equals() : false");
                 return false;
-        } else if (!preferenceValue.equals(other.preferenceValue))
+            }
+        } else if (!preferenceValue.equals(other.preferenceValue)) {
+            log.debug("7) serPreference.equals() : false");
             return false;
+        }
         if (value == null) {
-            if (other.value != null)
+            if (other.value != null) {
+                log.debug("8) UserPreference.equals() : false");
                 return false;
-        } else if (!value.equals(other.value))
+            }
+        } else if (!value.equals(other.value)) {
+            log.debug("9) UserPreference.equals() : false");
             return false;
+        }
+        log.debug("10) UserPreference.equals() : true");        
         return true;
     }
 
