@@ -43,6 +43,9 @@ public class UserPreference extends Base {
         this.value = value;
     }
 
+
+    
+    
     public static class Identifier implements Serializable {
         private User user;
         private Preference preference;
@@ -89,6 +92,45 @@ public class UserPreference extends Base {
             return (user.getId() + " " + preference.getId()).hashCode();
         }
 
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result + ((id == null) ? 0 : id.hashCode());
+        result = PRIME * result + ((preferenceValue == null) ? 0 : preferenceValue.hashCode());
+        result = PRIME * result + ((value == null) ? 0 : value.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final UserPreference other = (UserPreference) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (preferenceValue == null) {
+            if (other.preferenceValue != null)
+                return false;
+        } else if (!preferenceValue.equals(other.preferenceValue))
+            return false;
+        if (value == null) {
+            if (other.value != null)
+                return false;
+        } else if (!value.equals(other.value))
+            return false;
+        return true;
     }
 
 }

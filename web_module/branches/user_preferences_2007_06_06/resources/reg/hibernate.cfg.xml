@@ -25,6 +25,11 @@
             com.topcoder.web.common.ExtendedThreadLocalSessionContext
         </property>
 
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="cache.provider_class">
+                org.jboss.hibernate.cache.DeployedTreeCacheProvider
+        </property>
+
 
         <!--   using jdbc transactions right now cuz i can't get jta to work right.  it could be jboss, or it could be something else...not sure
                 <property name="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.JBossTransactionManagerLookup</property>
@@ -155,7 +160,7 @@
         <mapping resource="com/topcoder/web/oracle/model/RoundStatus.hbm.xml"/>
         <mapping resource="com/topcoder/web/oracle/model/RoundRegistration.hbm.xml"/>
 
-
+        <class-cache class="com.topcoder.web.common.model.UserPreference" usage="transactional"/>
 
     </session-factory>
 
