@@ -80,8 +80,8 @@ public class UserPreference extends Base {
             }
             try {
                 UserPreference.Identifier up = (UserPreference.Identifier) o;
-                return (up.getPreference().equals(getPreference()) &&
-                        up.getUser().equals(getUser()));
+                return (up.getPreference().getId().equals(getPreference().getId()) &&
+                        up.getUser().getId().equals(getUser().getId()));
             } catch (ClassCastException e) {
                 return false;
             }
@@ -94,17 +94,9 @@ public class UserPreference extends Base {
 
     }
 
-
-
     @Override
     public int hashCode() {
-        final int PRIME = 31;
-        int result = 1;
-        result = PRIME * result + ((id == null) ? 0 : id.hashCode());
-        result = PRIME * result + ((preferenceValue == null) ? 0 : preferenceValue.hashCode());
-        result = PRIME * result + ((value == null) ? 0 : value.hashCode());
-        log.debug("UserPreference.hashCode() : " + result);
-        return result;
+        return id.hashCode();
     }
 
     @Override
@@ -133,25 +125,6 @@ public class UserPreference extends Base {
             log.debug("5) UserPreference.equals() : false");
             return false;
         }
-        if (preferenceValue == null) {
-            if (other.preferenceValue != null) {
-                log.debug("6) UserPreference.equals() : false");
-                return false;
-            }
-        } else if (!preferenceValue.equals(other.preferenceValue)) {
-            log.debug("7) serPreference.equals() : false");
-            return false;
-        }
-        if (value == null) {
-            if (other.value != null) {
-                log.debug("8) UserPreference.equals() : false");
-                return false;
-            }
-        } else if (!value.equals(other.value)) {
-            log.debug("9) UserPreference.equals() : false");
-            return false;
-        }
-        log.debug("10) UserPreference.equals() : true");        
         return true;
     }
 
