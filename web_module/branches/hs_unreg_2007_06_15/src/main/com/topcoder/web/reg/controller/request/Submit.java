@@ -47,6 +47,10 @@ public class Submit extends Base {
                     !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
                 registerHsSeason(u);
             }
+            if (getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
+                inactivateHsUser(u);
+            }
+                
             securityStuff(newUser, u);
 
             markForCommit();

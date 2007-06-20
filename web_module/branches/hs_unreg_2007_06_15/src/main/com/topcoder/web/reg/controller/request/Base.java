@@ -1,6 +1,7 @@
 package com.topcoder.web.reg.controller.request;
 
 import java.io.IOException;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -11,19 +12,34 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.ejb.CreateException;
+import javax.naming.Context;
+
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.GroupPrincipal;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.servlet.request.FileDoesNotExistException;
 import com.topcoder.servlet.request.PersistenceException;
 import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.MultipartRequest;
+import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.dao.DAOFactory;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.UserDAO;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.common.model.Address;
 import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.DemographicAssignment;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
+import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.Notification;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.Resume;
@@ -822,6 +838,45 @@ abstract class Base extends LongHibernateProcessor {
             factory = DAOUtil.getFactory();
         }
         return factory;
+    }
+
+    protected void inactivateHsUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
+        log.debug("Inactivating user " + u.getId() + " for HS.");
+        Context ctx = null;
+        try {
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+            TCSubject tcs = new TCSubject(132456);
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmr = pmrh.create();
+            
+            UserPrincipal user = new UserPrincipal("", u.getId().longValue());
+            GroupPrincipal group = new GroupPrincipal("", 12); // HS group
+            
+            // Add the user to the HS group; if the user already belongs it will throw an exception
+            try {
+                pmr.addUserToGroup(group, user, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            } catch(Exception e) {}
+            
+            pmr.removeUserFromGroup(group, user, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
+
+            //refresh the cached object
+            SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            
+        } finally {
+            close(ctx);
+        }
+
+        // Mark in event_registration table that the user tried to register but was not eligible.
+        UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
+        Event event = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON).getEvent();
+        
+        log.debug("Mark as not eligible in event id: " + event.getId());
+        
+        if (event != null) {
+            u.addEventRegistration(event, null, false);
+            userDAO.saveOrUpdate(u);
+            markForCommit();
+        }
     }
 
     /**

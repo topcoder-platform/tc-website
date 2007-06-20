@@ -56,9 +56,13 @@ public class Secondary extends Base {
                             if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= Constants.MAX_AGE_FOR_HS) {
                                 log.debug("user is not eligible");
                                 
-                                if (!u.isNew()) {
-                                    inactivateHsUser(u);
+                                if (u.isNew()) {
+                                    // setup in session so that the user is inactivated for hs when submitting.
+                                    getRequest().getSession().setAttribute(Constants.INACTIVATE_HS, Boolean.TRUE);
+                                } else {
+                                    inactivateHsUser(u);                                    
                                 }
+                                
                                 getRequest().getSession().setAttribute("params", params);
                                 getRequest().setAttribute("registeredComp" ,isCurrentlyRegistered(u, RegistrationType.COMPETITION_ID));
                                 getRequest().setAttribute("requestedComp" ,hasRequestedType(RegistrationType.COMPETITION_ID));
@@ -119,44 +123,6 @@ public class Secondary extends Base {
     }
 
 
-    private void inactivateHsUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
-        log.debug("Inactivating user " + u.getId() + " for HS.");
-        Context ctx = null;
-        try {
-            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-            TCSubject tcs = new TCSubject(132456);
-            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote pmr = pmrh.create();
-            
-            UserPrincipal user = new UserPrincipal("", u.getId().longValue());
-            GroupPrincipal group = new GroupPrincipal("", 12); // HS group
-            
-            // Add the user to the HS group; if the user already belongs it will throw an exception
-            try {
-                pmr.addUserToGroup(group, user, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            } catch(Exception e) {}
-            
-            pmr.removeUserFromGroup(group, user, tcs, DBMS.JTS_OLTP_DATASOURCE_NAME);
-
-            //refresh the cached object
-            SecurityHelper.getUserSubject(u.getId().longValue(), true, DBMS.JTS_OLTP_DATASOURCE_NAME);
-            
-        } finally {
-            close(ctx);
-        }
-
-        // Mark in event_registration table that the user tried to register but was not eligible.
-        UserDAO userDAO = DAOUtil.getFactory().getUserDAO();
-        Event event = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON).getEvent();
-        
-        log.debug("Mark as not eligible in event id: " + event.getId());
-        
-        if (event != null) {
-            u.addEventRegistration(event, null, false);
-            userDAO.saveOrUpdate(u);
-            markForCommit();
-        }
-    }
 
 
     private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {
