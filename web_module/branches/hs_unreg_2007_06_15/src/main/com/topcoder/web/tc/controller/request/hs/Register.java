@@ -38,7 +38,7 @@ public class Register extends ShortHibernateProcessor {
 
         // Check that the user is eligible, just in case he fakes the URL
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-        
+log.debug("User:" + u.getId());        
         Integer hsStatus = null;
         
         for (UserGroup sg : (Set<UserGroup>) u.getSecurityGroups()) {
@@ -59,11 +59,12 @@ public class Register extends ShortHibernateProcessor {
             throw new NavigationException("You're not eligible for High School or benn already registered");            
         }
                 
+        log.debug("passed checking");
                 
         int ageHs = Integer.parseInt(getRequest().getParameter(Constants.AGE_FOR_HS));
 
         boolean eligible = "yes".equals(getRequest().getParameter(Constants.ATTENDING_HS)) && ageHs < Constants.MAX_AGE_FOR_HS;
-
+log.debug("eligible: "+ eligible);
         u.addEventRegistration(event, null, eligible);
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);            
 
