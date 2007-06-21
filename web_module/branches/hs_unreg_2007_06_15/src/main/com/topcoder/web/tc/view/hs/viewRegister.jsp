@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.web.reg.Constants" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -38,36 +39,53 @@
         <td class="cardCell" width="100%" align="center" style="padding: 0px 0px 0px 0px;">
             <div class="myTCBody">
 
-                <div align="center" style="margin-top: 15px;">
-                    <img src="/i/hs/banner.jpg" alt="TopCoder High School" border="0">
-                </div>
+	<form action="/tc" method="POST" name="f">
+	<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="HSRegister"/>
 
-				<c:choose>
-					<c:when test="${not existSeason}">
-						There are no current or upcoming High School Seasons.
-					</c:when>
+		<c:choose>
+			<c:when test="${not existSeason}">
+				There are no current or upcoming High School Seasons.
+			</c:when>
 
-					<c:when test="${not registeredHs}">
-						You must <a href="http://www.topcoder.com/reg">register</a> for High School first.
-					</c:when>
-					
-					<c:when test="${not eligible}">
-						You are not eligible for High School competitions.
-					</c:when>
-					
-					<c:when test="${alreadyRegistered}">
-						You are registered for current High School season.
-					</c:when>
+			<c:when test="${not registeredHs}">
+				You must <a href="http://www.topcoder.com/reg">register</a> for High School first.
+			</c:when>
+			
+			<c:when test="${not eligible}">
+				You are not eligible for High School competitions.
+			</c:when>
+			
+			<c:when test="${alreadyRegistered}">
+				You are registered for current High School season.
+			</c:when>
 
-					<c:otherwise>
-						 How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MM/dd/yyyy"/>
-
-						 Will you be attending high school/secondary school on <fmt:formatDate value="${season.endDate}" pattern="MM/dd/yyyy"/>?
-						
-						submit button
-					</c:otherwise>					
-				</c:choose>
-
+			<c:otherwise>
+				<table>				
+				 <tr>
+			      <td>
+			         How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MMMMM dd,yyyy"/>?
+			      </td>
+			      <td>
+			          <tc-webtag:textInput name="<%=Constants.AGE_FOR_HS%>" size="3" maxlength="3" editable="true"/>
+			      </td>
+				</tr>
+			    <tr>
+			        <td>
+			           Will you be attending high school/secondary school on <fmt:formatDate value="${season.endDate}" pattern="MMMMM dd,yyyy"/>?
+			        </td>
+			        <td>
+			            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="yes"/> Yes
+			            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="no"/> No
+			            
+			        </td>
+			    </tr>
+			    </table>
+		    	<div align="center">
+				    <a href="#" onclick="document.mainForm.submit();return false;">Submit</a>
+				</div>		    
+			</c:otherwise>					
+		</c:choose>
+</form>
             </div>
 
         </td>

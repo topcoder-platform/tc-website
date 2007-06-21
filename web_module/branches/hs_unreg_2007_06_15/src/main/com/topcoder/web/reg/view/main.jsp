@@ -420,7 +420,7 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, ageForHs)}">*</c:if> How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MM/dd/yyyy"/>?
+            <c:if test="${cf:contains(reqFields, ageForHs)}">*</c:if> How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MMMMM dd,yyyy"/>?
         </td>
         <td class="value">
             <tc-webtag:textInput name="<%=Constants.AGE_FOR_HS%>" size="3" maxlength="3" editable="true"/>
@@ -438,7 +438,7 @@
     </tr>
     <tr>
         <td class="name">
-            <c:if test="${cf:contains(reqFields, attendingHs)}">*</c:if>Will you be attending high school/secondary school on <fmt:formatDate value="${season.endDate}" pattern="MM/dd/yyyy"/>?
+            <c:if test="${cf:contains(reqFields, attendingHs)}">*</c:if>Will you be attending high school/secondary school on <fmt:formatDate value="${season.endDate}" pattern="MMMMM dd,yyyy"/>?
         </td>
         <td class="value">
             <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="yes"/> Yes
