@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=features&d2=062107"><strong>TCO Preview: By the Numbers</strong></a>, by <tc-webtag:handle coderId="10407399" /><br>
+Every year, the TCO brings together a most interesting group of people, coming from an increasingly diverse and remote cross-section of the world.  With the addition of two new competitions to this year's tournament, the 78 on-site competitors are even more widespread than previous years, representing 25 countries on six continents (better luck next time, Antarctica!).</li>
 <li><a href="/tc?module=Static&d1=features&d2=061807"><strong>TCO Preview: Meet Team Russia</strong></a>, by <tc-webtag:handle coderId="10574855" /><br>
 There are 12 coders representing the Russian Federation in the TCO07 Algorithm competition onsite, and one coder representing the Russian Federation in the Marathon track. Let's take a closer look at this year's finalists by 'generation' - from the most experienced ones to the powerful youngsters.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=stringSearching"><strong>Introduction to String Searching Algorithms</strong></a>, by <tc-webtag:handle coderId="14926760" /><br>
 The fundamental string searching (matching) problem is defined as follows: given two strings - a text and a pattern, determine whether the pattern appears in the text. In this tutorial, we'll look at how the Rabin-Karp and Knuth-Morris-Pratt algorithms can help solve "the needle in a haystack problem."</li>
-<li><a href="/tc?module=Static&d1=features&d2=061107"><strong>TCO Preview: The Studio Design Competition</strong></a>, by <tc-webtag:handle coderId="15635590" /><br>
-This year's TopCoder Open included a completely new competition track - the Studio Design Competition. We asked some of the Studio Design Competition finalists about their preferences, strengths, and expectations. Here's what they had to say...</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
