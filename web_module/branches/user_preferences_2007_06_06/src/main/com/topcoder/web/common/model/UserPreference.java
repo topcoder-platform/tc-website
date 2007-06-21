@@ -97,9 +97,9 @@ public class UserPreference extends Base {
 
         public int hashCode() {
             log.debug("------------");
+            log.debug("this: " + this);
             log.debug("user.getId(): " + user.getId());
             log.debug("preference.getId(): " + preference.getId());
-            log.debug("getPreference().getId(): " + getPreference().getId());
             int i = (user.getId() + " " + preference.getId()).hashCode();
             log.debug("Identifier.hashcode: " + i);
             return i;
