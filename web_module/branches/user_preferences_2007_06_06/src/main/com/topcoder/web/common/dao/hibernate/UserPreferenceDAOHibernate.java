@@ -32,7 +32,7 @@ public class UserPreferenceDAOHibernate extends Base implements UserPreferenceDA
     public UserPreference find(Long userId, Integer preferenceId) {
         Query q = session.createQuery(" from UserPreference " +
                 " where user_id=" + userId +
-                " and preference_id=" + preferenceId);
+                " and preference_id=" + preferenceId).setCacheable(true);
         return (UserPreference) q.uniqueResult();
     }
 
