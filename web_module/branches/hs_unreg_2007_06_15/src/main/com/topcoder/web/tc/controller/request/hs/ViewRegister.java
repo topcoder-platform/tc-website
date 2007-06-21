@@ -22,7 +22,7 @@ public class ViewRegister extends RegistrationBase {
     @SuppressWarnings("unchecked")
     @Override
     protected void dbProcessing() throws Exception {
-        if (!userIdentified()) {
+        if (!userLoggedIn()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } 
         
