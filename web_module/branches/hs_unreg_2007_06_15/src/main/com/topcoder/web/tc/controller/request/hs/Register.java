@@ -75,7 +75,7 @@ log.debug("eligible: "+ eligible);
         markForCommit();
 
         setNextPage("/tc?module=HSViewRegister");
-        setIsNextPageInContext(true);
+        setIsNextPageInContext(false);
     } 
 
     protected void inactivateHsUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
