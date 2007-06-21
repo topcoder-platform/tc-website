@@ -1,31 +1,30 @@
 package com.topcoder.web.reg.controller.request;
 
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.GroupPrincipal;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import com.topcoder.shared.security.ClassResource;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
-import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.dao.DAOUtil;
-import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.AlgoRating;
+import com.topcoder.web.common.model.AlgoRatingType;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.Company;
+import com.topcoder.web.common.model.Email;
+import com.topcoder.web.common.model.Phone;
+import com.topcoder.web.common.model.Preference;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.SecretQuestion;
 import com.topcoder.web.common.model.TimeZone;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-
-import java.rmi.RemoteException;
-import java.util.*;
-
-import javax.ejb.CreateException;
-import javax.naming.Context;
 
 /**
  * @author dok

@@ -29,7 +29,6 @@ public class ViewRegister extends ShortHibernateProcessor {
         boolean existSeason = true;
         
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-log.debug("User: "+ u.getId());
         Integer hsStatus = null;
         for (UserGroup sg : (Set<UserGroup>) u.getSecurityGroups()) {
             if (sg.getSecurityGroup().getGroupId() == 12) { // use constants!
@@ -37,10 +36,8 @@ log.debug("User: "+ u.getId());
                 break;
             }
         }
-log.debug("status:  "+ hsStatus);        
         if (SecurityGroup.ACTIVE.equals(hsStatus)) {
             Season season =  DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON); 
-log.debug("active");                  
             if (season == null) {
                 existSeason = false;
             } else {
@@ -62,7 +59,6 @@ log.debug("active");
         } else {
             registeredHs = false;
         }
-        log.debug("x");                  
 
         getRequest().setAttribute("eligible", eligible);
         getRequest().setAttribute("alreadyRegistered", alreadyRegistered);

@@ -41,7 +41,13 @@
 
 	<form action="/tc" method="POST" name="f">
 	<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="HSRegister"/>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 		<c:choose>
 			<c:when test="${not existSeason}">
 				There are no current or upcoming High School Seasons.
@@ -63,7 +69,7 @@
 				<table>				
 				 <tr>
 			      <td>
-			         How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MMMMM dd,yyyy"/>?
+			         How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
 			      </td>
 			      <td>
 			          <tc-webtag:textInput name="<%=Constants.AGE_FOR_HS%>" size="3" maxlength="3" editable="true"/>
@@ -71,7 +77,7 @@
 				</tr>
 			    <tr>
 			        <td>
-			           Will you be attending high school/secondary school on <fmt:formatDate value="${season.endDate}" pattern="MMMMM dd,yyyy"/>?
+			           Will you be attending high school/secondary school on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
 			        </td>
 			        <td>
 			            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="yes"/> Yes
