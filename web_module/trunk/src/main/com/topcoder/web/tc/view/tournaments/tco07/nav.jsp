@@ -26,6 +26,10 @@
                     <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=about"<% if (tabLev1.equals("overview") && tabLev2.equals("details")) {%> class="navHighlight"<% } %>>
                         <span>Details</span>
                     </a></li>
+                <li class="stop">
+                    <a href="/pdfs/tournaments/TCO07_Program_View.pdf" target="_blank">
+                        <span>Tournament Program (PDF)</span>
+                    </a></li>
                 <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("joinus")) {%>open<% } else { %>closed<% } %>">
                     <a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();">
                         <span>Join Us Onsite</span>
