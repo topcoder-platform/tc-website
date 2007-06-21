@@ -2,7 +2,7 @@ package com.topcoder.web.tc.controller.request.hs;
 
 import java.util.Set;
 
-import com.topcoder.web.common.LongHibernateProcessor;
+import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
@@ -16,7 +16,7 @@ import com.topcoder.web.tc.Constants;
  *
  * @author cucu
  */
-public class ViewRegister extends LongHibernateProcessor {
+public class ViewRegister extends ShortHibernateProcessor {
 
     @SuppressWarnings("unchecked")
     @Override
