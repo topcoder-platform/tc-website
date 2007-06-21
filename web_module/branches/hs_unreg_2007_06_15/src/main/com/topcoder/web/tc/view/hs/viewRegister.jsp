@@ -62,10 +62,11 @@
 			</c:when>
 			
 			<c:when test="${alreadyRegistered}">
-				You are registered for current High School season.
+				You are registered for High School ${season.name}.
 			</c:when>
 
 			<c:otherwise>
+			Registration for High School ${season.name}.
 				<table>				
 				 <tr>
 			      <td>
