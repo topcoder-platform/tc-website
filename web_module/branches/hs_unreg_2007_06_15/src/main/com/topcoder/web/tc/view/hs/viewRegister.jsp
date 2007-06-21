@@ -87,7 +87,7 @@
 			    </tr>
 			    </table>
 		    	<div align="center">
-				    <a href="#" onclick="document.mainForm.submit();return false;">Submit</a>
+				    <a href="#" onclick="document.f.submit();return false;">Submit</a>
 				</div>		    
 			</c:otherwise>					
 		</c:choose>
