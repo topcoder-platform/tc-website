@@ -109,6 +109,7 @@ public class UserPreference extends Base {
 
     @Override
     public int hashCode() {
+        log.debug("---UserPreference.hashCode()---------");
         return id.hashCode();
     }
 
