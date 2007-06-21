@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.request.hs;
 
+import com.topcoder.shared.security.ClassResource;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
@@ -9,7 +11,8 @@ import com.topcoder.web.tc.Constants;
 
 
 /**
- *
+ * Unregister a coder from HS and the current HS season.
+ * 
  * @author cucu
  */
 public class Unregister extends RegistrationBase {
@@ -17,6 +20,9 @@ public class Unregister extends RegistrationBase {
     @SuppressWarnings("unchecked")
     @Override
     protected void dbProcessing() throws Exception {
+        if (!userIdentified()) {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        } 
 
         // Check that the user is eligible, just in case he fakes the URL
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
@@ -24,12 +30,13 @@ public class Unregister extends RegistrationBase {
         Event event =  DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON).getEvent(); 
         EventRegistration registration = DAOUtil.getFactory().getEventRegistrationDAO().find(u.getId(), event.getId());
         
+        // If he was eligible for the current season, mark him as uneligible.
         if (registration != null && registration.isEligible()) {
             registration.setEligible(false);
             DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
             markForCommit();
         }
-                                
+                    
         inactivateHsUser(u);
         
         setNextPage(Constants.HS_UNREGISTER);
