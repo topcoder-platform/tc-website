@@ -80,8 +80,15 @@ public class UserPreference extends Base {
             }
             try {
                 UserPreference.Identifier up = (UserPreference.Identifier) o;
-                return (up.getPreference().getId().equals(getPreference().getId()) &&
+                boolean e = (up.getPreference().getId().equals(getPreference().getId()) &&
                         up.getUser().getId().equals(getUser().getId()));
+                log.debug("------------");
+                log.debug("getPreference().getId(): " + getPreference().getId());
+                log.debug("getUser().getId(): " + getUser().getId());
+                log.debug("up.getPreference().getId(): " + up.getPreference().getId());
+                log.debug("up.getUser().getId(): " + up.getUser().getId());
+                log.debug("Identifier.equals: " + e);
+                return e;
             } catch (ClassCastException e) {
                 return false;
             }
@@ -89,7 +96,13 @@ public class UserPreference extends Base {
         }
 
         public int hashCode() {
-            return (user.getId() + " " + preference.getId()).hashCode();
+            log.debug("------------");
+            log.debug("user.getId(): " + user.getId());
+            log.debug("preference.getId(): " + preference.getId());
+            log.debug("getPreference().getId(): " + getPreference().getId());
+            int i = (user.getId() + " " + preference.getId()).hashCode();
+            log.debug("Identifier.hashcode: " + i);
+            return i;
         }
 
     }
