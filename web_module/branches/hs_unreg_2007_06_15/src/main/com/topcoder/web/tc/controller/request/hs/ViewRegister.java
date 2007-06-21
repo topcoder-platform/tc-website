@@ -1,22 +1,18 @@
 package com.topcoder.web.tc.controller.request.hs;
 
-import java.util.Set;
-
-import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.common.model.UserGroup;
 import com.topcoder.web.tc.Constants;
 
 /**
  *
  * @author cucu
  */
-public class ViewRegister extends ShortHibernateProcessor {
+public class ViewRegister extends RegistrationBase {
 
     @SuppressWarnings("unchecked")
     @Override
@@ -29,13 +25,8 @@ public class ViewRegister extends ShortHibernateProcessor {
         boolean existSeason = true;
         
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-        Integer hsStatus = null;
-        for (UserGroup sg : (Set<UserGroup>) u.getSecurityGroups()) {
-            if (sg.getSecurityGroup().getGroupId() == 12) { // use constants!
-                hsStatus = sg.getSecurityStatusId();
-                break;
-            }
-        }
+        Integer hsStatus = getHSGroupStatus(u);
+
         if (SecurityGroup.ACTIVE.equals(hsStatus)) {
             Season season =  DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON); 
             if (season == null) {
