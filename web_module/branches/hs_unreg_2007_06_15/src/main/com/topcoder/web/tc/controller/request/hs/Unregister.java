@@ -33,7 +33,7 @@ public class Unregister extends RegistrationBase {
         inactivateHsUser(u);
         
         setNextPage(Constants.HS_UNREGISTER);
-        setIsNextPageInContext(false);
+        setIsNextPageInContext(true);
     } 
 
 
