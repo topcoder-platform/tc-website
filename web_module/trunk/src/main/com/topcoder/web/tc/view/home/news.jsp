@@ -9,7 +9,7 @@
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
         <A href="/pdfs/tournaments/TCO07_Program_View.pdf">TCO07 Program now available</A>
-        </span> [PDF - 6.17mb]<br><br>
+        </span> [PDF - 6.87mb]<br><br>
         Learn more about the 2007 TopCoder Open competitors, and preview the competitions, with this year's TCO Tournament Program.
         </td>
       </tr></table>
