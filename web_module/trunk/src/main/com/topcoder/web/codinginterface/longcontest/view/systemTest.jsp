@@ -82,7 +82,7 @@
             <%-- this substring bullshit is because we're storing a string in the db serialized and pretty
             printer wraps strings in double quotes.  they are getting removed with this substring as they
             are not appropriate in this case.  the writer is responsible for all formatting --%>
-            <pre><%=testRow.getStringItem("expected_result").substring(1, testRow.getStringItem("expected_result").length()-2)%></pre>
+            <pre><%=testRow.getStringItem("expected_result").substring(1, testRow.getStringItem("expected_result").length()-1)%></pre>
 
 
         </td>
