@@ -727,8 +727,9 @@ public class TCHTMLFilter implements Filter {
                 String href = tag.getAttribute("href");
                 if (href != null) {
                     href = href.trim().toLowerCase();
-                    // If there is a scheme but it's not http:// or https://, set the href to #
+                    // If there is a scheme but it's not http://, https://, ftp://, or ftps://, set the href to #
                     if (!href.startsWith("http://") && !href.startsWith("https://") &&
+                        !href.startsWith("ftp://") && !href.startsWith("ftps://") &&
                             href.indexOf("://") != -1) {
                         Attribute attr = tag.getAttributeEx("href");
                         attr.setValue("#");
