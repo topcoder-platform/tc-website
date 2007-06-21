@@ -161,6 +161,7 @@
         <mapping resource="com/topcoder/web/oracle/model/RoundRegistration.hbm.xml"/>
 
         <class-cache class="com.topcoder.web.common.model.UserPreference" usage="transactional"/>
+        <class-cache class="com.topcoder.web.common.model.Country" usage="transactional"/>
 
     </session-factory>
 

@@ -21,6 +21,7 @@ import com.topcoder.web.common.HibernateUtils;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.Country;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.tc.Constants;
@@ -206,7 +207,24 @@ public class MemberProfile extends Base {
             if (!DAOUtil.useQueryToolFactory) {
                 HibernateUtils.getSession().beginTransaction();
             }
+            
+            // ---------------TEST
+            log.debug("UserPreference first access");
             UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId), Preference.SHOW_EARNINGS_PREFERENCE_ID);
+            log.debug("UserPreference second access");
+            UserPreference up2 = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId), Preference.SHOW_EARNINGS_PREFERENCE_ID);
+
+  
+            log.debug("Country first access");
+            Country c = DAOUtil.getFactory().getCountryDAO().find(Country.US_CODE);
+            log.debug("Country second access");
+            Country c2 = DAOUtil.getFactory().getCountryDAO().find(Country.US_CODE);
+            log.debug("Country third access");
+            Country c3 = DAOUtil.getFactory().getCountryDAO().find(Country.US_CODE);
+            
+            // ---------------TEST            
+            
+//            UserPreference up = DAOUtil.getQueryToolFactory().getUserPreferenceDAO().find(Long.parseLong(coderId), Preference.SHOW_EARNINGS_PREFERENCE_ID);
             boolean hidePayments = up != null && "hide".equals(up.getValue());
             
             getRequest().setAttribute("resultMap", result);
