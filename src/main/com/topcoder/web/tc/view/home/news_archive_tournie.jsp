@@ -39,7 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<tr class="bodyText"><td nowrap="nowrap">06.21.07 12:00 PM - </td><td width="100%"><A href="/pdfs/tournaments/TCO07_Program_View.pdf">TCO07 Program now available</A> [PDF - 6.17mb]</td></tr>
+<tr class="bodyText"><td nowrap="nowrap">06.21.07 12:00 PM - </td><td width="100%"><A href="/pdfs/tournaments/TCO07_Program_View.pdf">TCO07 Program now available</A> [PDF - 6.87mb]</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.20.07 3:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session: Introducing the MapQuest APIs</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.08.07 2:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=devForums">Developer Forums added to TCO07 Schedule</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.06.07 4:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs">UBS chat session before SRM 353</A></td></tr>
