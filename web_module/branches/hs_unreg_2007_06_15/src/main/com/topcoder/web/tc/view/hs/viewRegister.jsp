@@ -41,6 +41,7 @@
 
 	<form action="/tc" method="POST" name="f">
 	<tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="HSRegister"/>
+	<tc-webtag:hiddenInput name="<%=com.topcoder.web.tc.Constants.SEASON_ID%>" value="${season.id}"/>
 <br>
 <br>
 <br>
@@ -51,6 +52,9 @@
 		<c:choose>
 			<c:when test="${not existSeason}">
 				There are no current or upcoming High School Seasons.
+			</c:when>
+			<c:when test="${not regOpen}">
+				Registration for the season is not open.
 			</c:when>
 
 			<c:when test="${not registeredHs}">

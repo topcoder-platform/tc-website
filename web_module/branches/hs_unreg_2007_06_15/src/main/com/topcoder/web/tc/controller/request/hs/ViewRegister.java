@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.request.hs;
 
+import java.util.Date;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
@@ -26,30 +28,48 @@ public class ViewRegister extends RegistrationBase {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } 
         
+        Integer seasonId = null;
+        if (getRequest().getParameter(Constants.SEASON_ID) != null) {
+            seasonId = new Integer(getRequest().getParameter(Constants.SEASON_ID));
+        }
+        
         boolean eligible = true;
         boolean alreadyRegistered = false;
         boolean registeredHs = true;
         boolean existSeason = true;
+        boolean regOpen = true;
         
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
         Integer hsStatus = getHSGroupStatus(u);
 
         if (SecurityGroup.ACTIVE.equals(hsStatus)) {
-            Season season =  DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON); 
+            Season season;
+            if (seasonId == null) {
+                season = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
+            } else {
+                season = DAOUtil.getFactory().getSeasonDAO().find(seasonId);
+            }
+            
             if (season == null) {
                 existSeason = false;
             } else {
                 Event e = season.getEvent();
-                EventRegistration registration = DAOUtil.getFactory().getEventRegistrationDAO().find(u.getId(), e.getId());
-                
-                if (registration != null) {
-                    if (registration.isEligible()) {
-                        alreadyRegistered = true;
-                    } else {
-                        eligible = false;
-                    }
+                Date now = new Date();
+
+              
+                if (e.getRegistrationStart().after(now) || e.getRegistrationEnd().before(now)) {
+                    regOpen = false;
+                } else {                    
+                    EventRegistration registration = DAOUtil.getFactory().getEventRegistrationDAO().find(u.getId(), e.getId());
+                    
+                    if (registration != null) {
+                        if (registration.isEligible()) {
+                            alreadyRegistered = true;
+                        } else {
+                            eligible = false;
+                        }
+                    }                    
                 }
-                
                 getRequest().setAttribute("season", season);
             }                        
         } else if (SecurityGroup.INACTIVE.equals(hsStatus)) {
@@ -62,6 +82,7 @@ public class ViewRegister extends RegistrationBase {
         getRequest().setAttribute("alreadyRegistered", alreadyRegistered);
         getRequest().setAttribute("registeredHs", registeredHs);
         getRequest().setAttribute("existSeason", existSeason);
+        getRequest().setAttribute("regOpen", regOpen);
         
         setNextPage(Constants.HS_VIEW_REGISTER);
         setIsNextPageInContext(true);
