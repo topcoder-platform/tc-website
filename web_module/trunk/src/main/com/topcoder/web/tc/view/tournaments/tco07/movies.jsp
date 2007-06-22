@@ -36,7 +36,8 @@
                         <h2>Webcast</h2>
                         Requires Flash 7 or higher:
                         <br><br>
-                        <strong><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=trailer&title=Trailer">Trailer</A></strong><br>
+                        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=trailer&title=Trailer">Trailer</A>
+                        <%--<br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=aolCTO&title=Interview%20with%20AOL%20CTO,%20Balan%20Nair">Interview with AOL CTO, Balan Nair</A>--%>
 
                     </div>
                 </td>
