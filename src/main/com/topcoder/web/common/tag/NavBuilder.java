@@ -83,7 +83,13 @@ public class NavBuilder extends TagSupport {
         return SKIP_BODY;
     }
 
+
     private void printOutput(NavNode node, Set parents) throws IOException {
+        String serverUrl = "http://"+pageContext==null?"null":pageContext.getRequest().getServerName();
+        if (log.isDebugEnabled()) {
+            log.debug("serverUrl " + serverUrl);
+        }
+
         JspWriter out = pageContext.getOut();
         out.print("\n<li");
         if (node.isLink() && node.isLeaf()) {
@@ -99,7 +105,11 @@ public class NavBuilder extends TagSupport {
             out.print(">");//close the li
             //log.debug("leaf link " + node.getKey());
             out.print("<a href=\"");
-            out.print(node.getHref());
+            if (node.getHref().toLowerCase().startsWith(serverUrl.toLowerCase())) {
+                out.print(node.getHref().substring(serverUrl.length()));
+            } else {
+                out.print(node.getHref());
+            }
             out.print("\"");
             if (node.getOnClick() != null) {
                 out.print(" \"");
@@ -127,7 +137,11 @@ public class NavBuilder extends TagSupport {
             //log.debug("link not leaf " + node.getKey());
             //is link and not leaf
             out.print("<a href=\"");
-            out.print(node.getHref());
+            if (node.getHref().toLowerCase().startsWith(serverUrl.toLowerCase())) {
+                out.print(node.getHref().substring(serverUrl.length()));
+            } else {
+                out.print(node.getHref());
+            }
             out.print("\"");
             if (node.getOnClick() != null) {
                 out.print(" onclick=\"");
