@@ -17,7 +17,7 @@ import com.topcoder.web.reg.RegFieldHelper;
 public class HsIneligible extends Base {
 
     protected void registrationProcessing() throws Exception {
-       
+   
         if (!"Yes".equals(getRequest().getParameter("continue"))) {
             setNextPage("/tc");
             setIsNextPageInContext(false);

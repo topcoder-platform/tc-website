@@ -37,7 +37,7 @@ public class Submit extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
         } else if (u.isNew() || userLoggedIn()) {
             //todo check if the handle is taken again
             boolean newUser = u.isNew();
