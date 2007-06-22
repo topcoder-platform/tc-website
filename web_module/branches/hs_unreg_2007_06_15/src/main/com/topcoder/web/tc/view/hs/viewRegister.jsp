@@ -66,7 +66,7 @@
 			</c:when>
 
 			<c:otherwise>
-			Registration for High School ${season.name}.
+			<h2>			Registration for High School ${season.name}. </h2>
 				<table>				
 				 <tr>
 			      <td>
