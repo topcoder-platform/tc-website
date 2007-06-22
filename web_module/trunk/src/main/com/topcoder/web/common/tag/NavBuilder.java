@@ -105,6 +105,9 @@ public class NavBuilder extends TagSupport {
             out.print(">");//close the li
             //log.debug("leaf link " + node.getKey());
             out.print("<a href=\"");
+            if (log.isDebugEnabled()) {
+                log.debug("href " + node.getHref());
+            }
             if (node.getHref().toLowerCase().startsWith(serverUrl.toLowerCase())) {
                 out.print(node.getHref().substring(serverUrl.length()));
             } else {
@@ -137,6 +140,9 @@ public class NavBuilder extends TagSupport {
             //log.debug("link not leaf " + node.getKey());
             //is link and not leaf
             out.print("<a href=\"");
+            if (log.isDebugEnabled()) {
+                log.debug("href " + node.getHref());
+            }
             if (node.getHref().toLowerCase().startsWith(serverUrl.toLowerCase())) {
                 out.print(node.getHref().substring(serverUrl.length()));
             } else {
@@ -168,7 +174,7 @@ public class NavBuilder extends TagSupport {
             out.print("\n</ul>");
         }
         out.print("</li>");
-    }
+    }   
 
 
     /**
