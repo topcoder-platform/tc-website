@@ -83,11 +83,12 @@
     <tr class="light"><td class="value">United States</td><td class="value">6</td></tr>    
     <tr class="dark"><td class="value">Canada</td><td class="value">5</td></tr>    
     <tr class="light"><td class="value">Sweden</td><td class="value">4</td></tr>    
-    <tr class="dark"><td class="value">South Korea</td><td class="value">3</td></tr>    
-    <tr class="light"><td class="value">India</td><td class="value">2</td></tr>    
-    <tr class="dark"><td class="value">Indonesia</td><td class="value">2</td></tr>    
+    <tr class="dark"><td class="value">Indonesia</td><td class="value">3</td></tr>    
+    <tr class="light"><td class="value">South Korea</td><td class="value">3</td></tr>    
+    <tr class="dark"><td class="value">India</td><td class="value">2</td></tr>    
     <tr class="light"><td class="value">Norway</td><td class="value">2</td></tr>    
-    <tr class="dark"><td class="value">South Africa</td><td class="value">2</td></tr>    
+    <tr class="dark"><td class="value">Slovakia</td><td class="value">2</td></tr>    
+    <tr class="light"><td class="value">South Africa</td><td class="value">2</td></tr>    
 
 </tbody>
 </table>
@@ -106,20 +107,21 @@
 <tbody>
 <tr class="light"><td class="value">9,031,088</td><td class="value">Sweden</td><td class="value">4</td><td class="value">2,257,772 </td></tr> 
 <tr class="dark"><td class="value">4,627,926</td><td class="value">Norway</td><td class="value">2</td><td class="value">2,313,963</td></tr> 
-<tr class="light"><td class="value">38,518,241</td><td class="value">Poland</td><td class="value">10</td><td class="value">3,851,824</td></tr> 
+<tr class="light"><td class="value">5,447,502</td><td class="value">Slovakia</td><td class="value">2</td><td class="value">2,723,751</td></tr> 
 
-<tr class="dark"><td class="value">4,493,312</td><td class="value">Croatia</td><td class="value">1</td><td class="value">4,493,312</td></tr> 
-<tr class="light"><td class="value">5,447,502</td><td class="value">Slovakia</td><td class="value">1</td><td class="value">5,447,502</td></tr> 
+<tr class="dark"><td class="value">38,518,241</td><td class="value">Poland</td><td class="value">10</td><td class="value">3,851,824</td></tr> 
+<tr class="light"><td class="value">4,493,312</td><td class="value">Croatia</td><td class="value">1</td><td class="value">4,493,312</td></tr> 
 <tr class="dark"><td class="value">46,299,862</td><td class="value">Ukraine</td><td class="value">8</td><td class="value">5,787,483</td></tr> 
-<tr class="light"><td class="value">33,390,141</td><td class="value">Canada</td><td class="value">5</td><td class="value">6,678,028</td></tr> 
 
+<tr class="light"><td class="value">33,390,141</td><td class="value">Canada</td><td class="value">5</td><td class="value">6,678,028</td></tr> 
 <tr class="dark"><td class="value">8,199,783</td><td class="value">Austria</td><td class="value">1</td><td class="value">8,199,783</td></tr> 
 <tr class="light"><td class="value">141,377,752</td><td class="value">Russian Federation</td><td class="value">13</td><td class="value">10,875,212</td></tr> 
+
 <tr class="dark"><td class="value">49,044,790</td><td class="value">Korea, Republic of</td><td class="value">3</td><td class="value">16,348,263</td></tr>
 </tbody>
 </table>
 
-<p>So, what does all of this say?  Well, apparently Sweden, Norway, and Poland are dense sources of TopCoder talent.  And sorted this way, the most stress is probably falling on <tc-webtag:handle coderId="15763373" context="algorithm" /> and <tc-webtag:handle coderId="20781137" context="algorithm" /> - as the two competitors from India, they're each representing around a half a billion of their countrymen (no pressure, guys!). Beyond that, I will let others abuse these statistics any way they choose in order to draw their own conclusions.</p>
+<p>So, what does all of this say?  Well, apparently Sweden, Norway, and Slovakia are dense sources of TopCoder talent.  And sorted this way, the most stress is probably falling on <tc-webtag:handle coderId="15763373" context="algorithm" /> and <tc-webtag:handle coderId="20781137" context="algorithm" /> - as the two competitors from India, they're each representing around a half a billion of their countrymen (no pressure, guys!). Beyond that, I will let others abuse these statistics any way they choose in order to draw their own conclusions.</p>
 
 <p>While national pride is great, it doesn't pay the rent. Among those attending the TCO, who's really bringing home the bacon? Here are the top 10 breadwinners heading to Vegas:</p>
 
