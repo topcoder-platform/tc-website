@@ -44,6 +44,14 @@
 
 
 <p>
+    5.10.8 - 2007.06.xx
+    <ul>
+        <li>Make the left nav a bit more efficient by removing the server name from link when not necessary. -dok</li>
+    </ul>
+</p>
+
+
+<p>
     5.10.7 - 2007.06.18
     <ul>
         <li>Online Assignment Document affirmation time changed from 5 days to 3. -pulky</li>
