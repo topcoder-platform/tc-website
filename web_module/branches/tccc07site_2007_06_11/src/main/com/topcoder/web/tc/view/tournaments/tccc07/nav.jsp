@@ -13,6 +13,43 @@
     }
     // -->
 </script>
+<div align="center">
+    <div id="navButtons">
+        <%--------------TOURNAMENT OVERVIEW---------------%>
+        <div style="float:left;">
+            <a href=""><img src="/i/tournament/tccc07/tournie.png" alt="Tournament Overview" /></a>
+        </div>
+        
+        <%--------------ALGORITHM---------------%>
+        <div style="float:left;">
+            <a href=""><img src="/i/tournament/tccc07/alg.png" alt="Algorithm Competition" /></a>
+        </div>
+    
+        <%--------------COMPONENT---------------%>
+        <div style="float:left;">
+            <a href=""><img src="/i/tournament/tccc07/comp.png" alt="Component Competition" /></a>
+        </div>
+        
+        <%--------------MARATHON---------------%>
+        <div style="float:left;">
+            <a href=""><img src="/i/tournament/tccc07/mara.png" alt="Marathon Competition" /></a>
+        </div>
+        
+        <%--------------STUDIO---------------%>
+        <div style="float:left;">
+            <a href=""><img src="/i/tournament/tccc07/studio.png" alt="Studio Overview" /></a>
+        </div>
+    </div>
+    
+    <div id="navText">
+        <p class="secondaryLinks"><a href="" alt="Secondary Navigation">Secondary Navigation</a> | <a href="" alt="Secondary Navigation">Secondary Navigation</a> | <a href="" alt="Secondary Navigation">Secondary Navigation</a> | <a href="" alt="Secondary Navigation">Secondary Navigation ON</a> | <a href="" alt="Secondary Navigation">Secondary Navigation</a></p>
+        <p class="tertiaryLinks"><a href="" alt="Tertiary Navigation">Tertiary Navigation</a> | <a href="" alt="Tertiary Navigation">Tertiary Navigation</a> | <a href="" alt="Tertiary Navigation">Tertiary Navigation ON</a> | <a href="" alt="Tertiary Navigation">Tertiary Navigation</a> | <a href="" alt="Tertiary Navigation">Tertiary Navigation</a></p>
+    </div>
+    
+    <div style="position:absolute; top:375px; right:30px;">
+        <img src="/i/tournament/tccc07/stylebar.png" alt="stylebar" />
+    </div>
+</div>
 
 <!---
 <div id="nav">
@@ -272,51 +309,3 @@
         </li>
     </ul> 
 </div> -->
-
-
-<div id="navSponsors">
-
-    <% if (tabLev3.equals("aol")) {%>
-    <div>
-        <A href=""><img src="/i/tournament/tccc07/sponsorlogo2.png" alt="Sponsor Logo 2"/></A>
-    </div>
-    <% } else if (tabLev3.equals("nsa")) { %>
-    <div>
-        <A href=""><img src="/i/tournament/tccc07/sponsorlogo2.png" alt="Sponsor Logo 2"/></A>
-    </div>
-    <% } else if (tabLev3.equals("ubs")) { %>
-    <div>
-        <A href=""><img src="/i/tournament/tccc07/sponsorlogo2.png" alt="Sponsor Logo 2"/></A>
-    </div>
-    <% } else if (tabLev3.equals("drw")) { %>
-    <div>
-        <A href=""><img src="/i/tournament/tccc07/sponsorlogo2.png" alt="Sponsor Logo 2"/></A>
-    </div>
-    <% } else if (tabLev3.equals("verisign")) { %>
-    <div>
-        <A href=""><img src="/i/tournament/tccc07/sponsorlogo2.png" alt="Sponsor Logo 2"/></A>
-    </div>
-    <% } else { %>
-
-    <div>
-        <A href=""><img src="/i/tournament/tccc07/sponsorlogo2.png" alt="Sponsor Logo 2"/></A>
-    </div>
-
-    <div>
-        <A href=""><img src="/i/tournament/tccc07/sponsorlogo2.png" alt="Sponsor Logo 2"/></A>
-    </div>
-
-    <div>
-        <A href=""><img src="/i/tournament/tccc07/sponsorlogo2.png" alt="Sponsor Logo 2"/></A>
-    </div>
-
-    <div>
-        <A href=""><img src="/i/tournament/tccc07/sponsorlogo2.png" alt="Sponsor Logo 2"/></A>
-    </div>
-
-    <div>
-        <A href=""><img src="/i/tournament/tccc07/sponsorlogo2.png" alt="Sponsor Logo 2"/></A>
-    </div>
-
-    <% } %>
-</div>
