@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.25.07<br>5:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=062507">TCO Preview: Meet the Bloggers</A></span><br><br>
+      The winners of this year's TopCoder Open "Blog It" contest, Petr and jmzero will be blogging about the TCO in Las Vegas later this week.
+        </td>
+      <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/> &amp; <img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15498334" /> &amp; <tc-webtag:handle coderId="10574855" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=062507">full story</A> | 
+        <tc-webtag:forumLink forumID="516296" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>06.25.07<br>3:15 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">Live TCO Coverage to Feature Broadcast Team, Interviews and Behind-the-Scenes Action</a></span><br><br>
       <!-- <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/tco07_logo.png" width="81" height="21" alt="Computerworld" border="0" /></div> -->
@@ -191,17 +208,3 @@
         <tc-webtag:forumLink forumID="516215" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=tutorials&d2=alg_index">archive</A>
    </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>06.13.07<br>5:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=pressroom&d2=pr_061307">TopCoder Community Helps Research Led by Harvard Business School Professor</A></span><br><br>
-      TopCoder announced that its global community of members will help Professor Karim Lakhani of the Harvard Business School with his research agenda by providing access to their skills in innovative software development.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_061307">details</A> | 
-       <tc-webtag:forumLink forumID="516186" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-   
