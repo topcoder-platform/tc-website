@@ -33,9 +33,15 @@
 
         <div style="padding: 15px; text-align: left; width: 540px;">
 
-      <div align="center">
-      <img src="/i/sponsor/Yodlee_logo.gif" border=0/>
+      <div align="center"><img src="/i/sponsor/Yodlee_logo.gif" border=0 alt="Yodlee Logo" /></div>
+      <br /><br />
+      <div style="float: right;">
+        <h3 style="border-bottom: 1px solid #999999;">Chat Session Transcripts</h2>
+        <strong>
+        <A style="text-decoration:none;" href="/tc?module=Static&d1=sponsors&d2=yodleeChat20070614">SRM 354</A>
+        </strong>
       </div>
+      <br /><br />
 
       <br />
 <p>We're here because <span style="font-size:18px; font-weight: bold; color: #B34444; ">we love our jobs.</span> Yodlee is a growing, thriving environment that values <span style="font-size:18px; font-weight: bold; color: #7C9CBA;">smart, hard-working people</span> working together to solve problems.  Our people work in both Redwood Shores, California,
