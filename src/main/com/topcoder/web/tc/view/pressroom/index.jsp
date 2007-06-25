@@ -50,6 +50,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<%-- TCO07 Live Coverage --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507"><img src="/i/pressroom/tco07_logo.png" alt="TCO07" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">Live Coverage of 2007 TopCoder Open to Feature Broadcast Team, Interviews and Behind-the-Scenes Action</a></strong></font><br />
+                        The TopCoder Open, which will be presented live by at <a href="http://dev.aol.com/">http://dev.aol.com</a> on June 29, will be hosted by sportscasting celebrity Jeremy Schaap, Google’s John Dethridge, a former TopCoder champion and five time onsite finalist, and Ken Vogel, a 2002 quarter finalist and currently a director in equities IT with UBS. The webcast will also include live views of the arena, entertaining profiles and interviews.<span class="prHead"> [June 25]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+            
 <%-- Computerworld --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

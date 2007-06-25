@@ -346,6 +346,9 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            Live Coverage of 2007 TopCoder Open to Feature Broadcast Team
+            <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">...more</a><br>[June 25]<br><br>
+            
             <div style="float: right; padding-left: 5px;">
                 <img src="/i/pressroom/computerworld.gif" width="81" height="21" alt="Computerworld" border="0" />
             </div>
@@ -363,12 +366,6 @@
 
             Yodlee to Sponsor TopCoder Single Round Match Series
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_052207">...more</A><br>[May 23]<br><br>
-
-            <div style="float: right; padding-left: 5px;">
-                <img src="/i/pressroom/tchs07.png" alt="TCO07" width="88" height="41" border="0"/>
-            </div>
-            Russian and Croatian High School Programmers Win TopCoder Championship at Purdue University
-            <A href="/tc?module=Static&d1=pressroom&d2=pr_052307">...more</A><br>[May 21]<br><br>
 
           </td>
     </tr>
