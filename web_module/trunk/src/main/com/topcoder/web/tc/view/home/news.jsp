@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>06.25.07<br>3:15 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">Live TCO Coverage to Feature Broadcast Team, Interviews and Behind-the-Scenes Action</a></span><br><br>
+      <!-- <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/tco07_logo.png" width="81" height="21" alt="Computerworld" border="0" /></div> -->
+      The TopCoder Open, which will be presented live by at <a href="http://dev.aol.com/">http://dev.aol.com</a> on June 29, will be hosted by sportscasting celebrity Jeremy Schaap, Google’s John Dethridge, a former TopCoder champion and five time onsite finalist, and Ken Vogel, a 2002 quarter finalist and currently a director in equities IT with UBS. The webcast will also include live views of the arena, entertaining profiles and interviews.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">details</A> | 
+       <tc-webtag:forumLink forumID="516295" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.22.07<br>1:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -189,22 +203,5 @@
        <A href="/tc?module=Static&d1=pressroom&d2=pr_061307">details</A> | 
        <tc-webtag:forumLink forumID="516186" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.13.07<br>3:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm353">SRM 353 - Problem Set &amp; Analysis</A></span><br><br>
-      Division 2 was presented with a balanced problem set with a trivial easy, straightforward medium and standard dynamic programming as a hard.  Division 1 was another story, with a hard problem that got a total of zero successful submissions.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/xOberon_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="9906220" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm353">full story</A> | 
-        <tc-webtag:forumLink forumID="516050" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    

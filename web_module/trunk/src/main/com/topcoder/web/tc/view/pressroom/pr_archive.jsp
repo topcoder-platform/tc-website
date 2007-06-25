@@ -46,6 +46,7 @@
 
 <!-- 2007 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2007</font></td></tr>
+<tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_062507">Live Coverage of 2007 TopCoder Open to Feature Broadcast Team, Interviews and Behind-the-Scenes Action</A> [June 25]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_061307">TopCoder Community Helps Research Led by Harvard Business School Professor</A> [June 13]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_060507">AOL to Webcast TopCoder Open 2007 Finals Live on June 29</A> [June 7]<br/></td></tr>
 <tr><td class="prHead"><A href="/tc?module=Static&d1=pressroom&d2=pr_060607">TopCoder Announces Enhanced Focus on Financial Services Industry</A> [June 6]<br/></td></tr>
