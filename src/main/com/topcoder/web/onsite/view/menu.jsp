@@ -16,48 +16,84 @@
 
 <html>
 <head>
-<title>2006 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
-<link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/TCCC06style.css"/>
+<title>2007 TopCoder Open - Computer Programming Tournament</title>
+<link type="image/x-icon" rel="shortcut icon" href="http://<%=ApplicationServer.SERVER_NAME%>/i/favicon.ico"/>
+<style TYPE="text/css">
+html{ 
+margin:0px;
+padding:0px;
+font-family: Arial, Verdana, Helvetica, sans-serif;
+}
+
+body{ 
+font-family: Arial, Verdana, Helvetica, sans-serif;
+line-height: normal;
+font-size: 12px;
+color: #666666;
+background: #FFA500;
+margin:0px;
+padding:0px;
+}
+
+img{
+border: none;
+display: block;
+}
+
+h1{
+color: #333333;
+font-style: italic;
+font-size: 125%;
+}
+
+p{
+padding: 0px;
+margin: 0px 0px 10px 0px;
+}
+
+td, th{ 
+line-height: normal;
+font-size: 12px;
+}
+
+#content{
+width: 700px;
+margin: 20px;
+background: #FFFFFF;
+border: 4px solid #cc6600;
+}
+</style>
 <link type="text/css" rel="stylesheet" href="http://<%=ApplicationServer.SERVER_NAME%>/css/coders.css"/>
 </head>
 <body>
 
+<div align="center" style="background: transparent;">
+    <div id="content">
+        <div style="margin: 20px;" align="left">
+
+
 <div style="float:right;">
-<a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/tc_logo.gif" border=0/></a>
+<a href="http://<%=ApplicationServer.SERVER_NAME%>/"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco07/topcoderlogo.png" border=0/></a>
 </div>
-<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tccc06&d3=about"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tccc06/tccc06_logo_aol.gif" border=0/></A>
+<A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="http://<%=ApplicationServer.SERVER_NAME%>/i/tournament/tco07/wagerLogo.png" border=0/></A>
 
-<div style="padding: 20px 40px 200px 40px;" align="center">
-   <div style="width: 500px;" align="center" class="bodyText">
-
-   <span class="bigTitle">Component Competition Wager System</span>
-   <br><br>
-   
-   <table width="400" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-      <tr>
-         <td class="sidebarTitle">
-            <% if (!sessionInfo.isAnonymous()) { %>
-            <div style="float:right;">
-            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Logout&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Logout</a>
-            </div>
-            <% } %>
-            <% if (sessionInfo.isAnonymous()) { %>
+    <div style="float:right;">
+        <% if (sessionInfo.isAnonymous()) { %>
             <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Login&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Login</a>
-            <% } else { %>
-             Logged in as: <tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true"/>
-            <% } %>
-         </td>
-      </tr>
-      <tr>
-         <td class="sidebarText" align="center" style="padding:20px;">
-            <span class="bigTitle">
-            <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewCompetitions">View Competitions</a>
-            </span>
-         </td>
-      </tr>
-   </table>
+        <% } else { %>
+            Logged in as <tc-webtag:handle coderId='<%=sessionInfo.getUserId()%>' darkBG="true"/>
+            | <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=Logout&nextpage=<jsp:getProperty name="sessionInfo" property="servletPath"/>">Logout</a>
+        <% } %>
+    </div>
 
-   </div>
+   <h1>Component Competition Wager System</h1>
+   
+    <div align="center" style="margin: 40px 0px 80px 0px;">
+        <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=ViewCompetitions">View Competitions</a>
+    </div>
+
+        </div>
+    </div>
 </div>
 
 </body>
