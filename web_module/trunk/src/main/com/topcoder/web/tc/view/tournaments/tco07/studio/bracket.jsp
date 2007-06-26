@@ -49,7 +49,6 @@
       <td style="padding: 15px" valign="middle" align="center">
       <strong>amiune</strong><br><br>
       <strong>FMX</strong><br><br>
-      <strong>mahestro</strong><br><br>
       <strong>maraqja</strong><br><br>
       <strong>oton</strong><br><br>
       <strong>Sigchld</strong><br><br>
