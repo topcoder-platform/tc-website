@@ -34,7 +34,7 @@
 
                         <h1><span>Component Design Summary</span></h1>
                         <div style="float:right;">
-                            <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=516333">Discuss this match</A><br>
+                            <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=516333">Discuss this</A><br>
                         </div>
 
 <p>Wednesday, June 27, 2007<br />
