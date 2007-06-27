@@ -4,6 +4,26 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.27.07<br>7:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        Component <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">Development</A> Finals: Round 1
+        </span><br><br>
+        For their first component, the TCO07 Design finalists tackled File Delivery, which automatically stores files for email attachment. The Development finalists worked on DynamicWebPageData, which standardizes the handling of data within a web application.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">design</A> |
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">development</A> |
+        <tc-webtag:forumLink forumID="516333" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+      
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.27.07<br>5:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -202,20 +222,3 @@ wanting to upset the favorites.
         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.18.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=061807">TCO Preview: Meet Team Russia</A></span><br><br>
-      There are 12 coders representing the Russian Federation in the TCO07 Algorithm competition onsite, and one coder representing the Russian Federation in the Marathon track. Let's take a closer look at this year's finalists by 'generation' - from the most experienced ones to the powerful youngsters.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10574855" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=061807">full story</A> | 
-        <tc-webtag:forumLink forumID="516231" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
