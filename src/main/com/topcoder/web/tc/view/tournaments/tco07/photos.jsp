@@ -8,8 +8,79 @@
     <link type="text/css" rel="stylesheet" href="/css/tournaments/tco07.css"/>
     <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
     <jsp:include page="../../script.jsp" />
+    <script language="JavaScript" type="text/javascript" src="/js/slideShow.js"></script>
+    <script type="text/javascript">
+        function lpad(val) {
+          var temp = ""+val;
+          while(temp.length<3) temp="0"+temp;
+          return temp;
+        }
+        var imageNum = 1;
+                
+        var count = 40;
+        var images = new Array(count);
+        for (var i=0; i<count; i++) {
+            images[i]= "/i/tournament/tco07/onsitePhotos/"+lpad(i+1)+".jpg";
+        }
+        function getNextIdx() {
+            imageNum = imageNum + 1;
+            if (imageNum >= images.length) {
+                imageNum = 0;
+            }
+            preload(imageNum);
+            if (imageNum<images.length-1) {
+                preload(imageNum+1);
+            } else {
+                preload(0);
+            }
+            return imageNum;
+        }
+
+        function getPrevIdx() {
+            imageNum = imageNum - 1;
+            if (imageNum < 0) {
+                imageNum = images.length - 1;
+            }
+            preload(imageNum);
+            if (imageNum>0) {
+                preload(imageNum-1);
+            } else {
+                preload(images.length-1);
+            }
+            return imageNum;
+        }
+
+        function changeImage(imageIndex) {
+            if (imageIndex < 0) imageNum = 0;
+            else if (imageIndex >= images.length) imageNum = images.length-1;
+            else imageNum = imageIndex;
+            document.getElementById("slideImg").src = images[imageNum];
+            document.blah.currImage.value = imageNum+1;
+            // document.getElementById("slideImg").alt = descriptions[imageNum];
+            document.getElementById('currImage').innerHTML = imageNum + 1;
+            // document.getElementById('date').innerHTML = dates[imageNum];
+            // document.getElementById('caption').innerHTML = descriptions[imageNum];
+        }
+        function preload(idx) {
+          var img = new Image();
+          img.src = images[idx];
+        }
+
+    </script>
+
 </head>
-<body>
+
+<%
+    final String CURR_IMAGE_KEY = "currImage";
+    String currImage = request.getParameter(CURR_IMAGE_KEY)==null?"":request.getParameter(CURR_IMAGE_KEY);
+%>
+
+
+<%if (!currImage.equals("")) { %>
+<body onload="changeImage(<%=currImage%>-1);">
+<% } else { %>
+<body onload="changeImage(0);">
+<% } %>
 
 <div align="center" style="background: transparent;">
     <div id="content">
@@ -32,15 +103,42 @@
                     <div id="pageBody">
 
                         <h1><span>Photos</span></h1>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque eget sem. Donec massa. Nam ligula elit, blandit at, volutpat vitae, euismod ac, lorem. Integer lacus ipsum, sodales sit amet, varius eget, tincidunt a, dui. Vivamus lectus felis, interdum nec, scelerisque vel, fermentum eget, ligula. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec iaculis ultricies turpis. Proin sed dui ac neque iaculis mollis. Pellentesque tempus ornare est. Suspendisse non elit eget libero consequat rhoncus. Duis ut purus. Ut et urna quis neque consequat rhoncus. Aliquam fringilla. Vestibulum quis nunc. Donec sollicitudin auctor felis. Vestibulum suscipit magna pulvinar enim. Aliquam laoreet.
-                        </p>
-                        <p>
-                        Nam volutpat. Mauris euismod. Donec dignissim ipsum ac mi. In ipsum. Vestibulum varius, elit vel sollicitudin hendrerit, augue lacus gravida ante, at vulputate nibh lectus quis lectus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Morbi sed nisi a nulla pretium vestibulum. Vivamus nisi neque, venenatis ut, pulvinar id, pulvinar vel, orci. Integer adipiscing euismod massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed justo. Sed ac metus eu elit lacinia scelerisque. Curabitur pellentesque volutpat diam. Phasellus condimentum posuere mauris. Sed magna tellus, nonummy quis, lacinia nec, egestas eget, diam. Aliquam non lorem.
-                        </p>
-                        <p>
-                        Nulla vel lacus. Donec ut erat. Nunc justo odio, tristique non, viverra tempor, facilisis at, augue. Integer lacinia suscipit diam. Aenean ultrices neque eu lectus. Mauris ut leo. Ut a ante. Phasellus augue. Nam a nibh. Quisque at sapien et lacus ultrices rhoncus. Mauris velit dui, luctus quis, dignissim eget, facilisis eget, arcu.
-                        </p>
+
+            <form name="blah" action="/tc">
+                <input type="hidden" name="module" value="Static"/>
+                <input type="hidden" name="d1" value="tournaments"/>    
+                <input type="hidden" name="d2" value="tchs07"/>
+                <input type="hidden" name="d3" value="photos"/>
+
+            <div id="slideShow" align="center">
+            
+                <a href="Javascript:void changeImage(0);">Reception</a>
+<%--
+                | <a href="#spot" onClick="changeImage(9);">Algo Room 1</a>
+                | <a href="#spot" onClick="changeImage(19);">Algo Room 2</a>
+                | <a href="#spot" onClick="changeImage(29);">Algo Room 3</a>
+                | <a href="#spot" onClick="changeImage(39);">WildCard</a>
+                <br>
+                <a href="#spot" onClick="changeImage(49);">Component Finals</a>
+                | <a href="#spot" onClick="changeImage(59);">Algorithm Finals</a>
+                | <a href="#spot" onClick="changeImage(69);">Winners</a>
+--%>
+
+                <br><br>
+                <a name="spot"></a>
+                <a href="#spot" onClick="changeImage(getPrevIdx());">previous</a>
+                [ <strong><span id="currImage"></span></strong>
+                of <strong><script type="text/javascript">document.write(images.length);</script></strong> ]
+                
+                <a href="#spot" onClick="changeImage(getNextIdx());">next</a>
+                <br>Go to <input type="text" value="1" name="<%=CURR_IMAGE_KEY%>" size="3"/>
+                
+                <div id="slideImage" style="margin: 6px 0px;">
+                    <img src="#" id="slideImg" alt=""/>
+                </div>
+            </div>
+            </form>
+            <br clear="all" />
 
                     </div>
                 </td>
