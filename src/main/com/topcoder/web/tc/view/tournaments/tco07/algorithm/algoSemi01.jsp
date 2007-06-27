@@ -38,6 +38,7 @@
 Wednesday, June 27, 2007<br>
 Introduction by <tc-webtag:handle coderId="303644" context="algorithm"/>
 
+<img style="float:right; width:200px; 350px; padding-left:10px;" src="/i/tournament/tco07/shotR1.jpg">
 <br><br>
 
 <p>TopCoder Open 2007 started with the Algorithm Semifinal 1.
