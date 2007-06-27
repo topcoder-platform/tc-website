@@ -24,33 +24,49 @@
 
                     <jsp:include page="../nav.jsp" >
                     <jsp:param name="tabLev1" value="overview"/>
-                    <jsp:param name="tabLev2" value=""/>
-                    <jsp:param name="tabLev3" value=""/>
+                    <jsp:param name="tabLev2" value="onsiteevents"/>
+                    <jsp:param name="tabLev3" value="blogs"/>
                     </jsp:include>
 
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <h1><span style="text-align:center;">Admin Blogs | Member Blogs</span></h1>
-                        <div style="width:600px;">
-                            <%-- Admin Blogs --%>
-                            <div style="width:200px; float:left;">
-                                <p>
-                                    <h3><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=admin01">Top 10 lessons learned</A></h3>
-                                    <p class="newsPhoto"><img src="/i/m/polgara_big2.jpg" alt="" width="55" height="61"/><br>
-                                    by <tc-webtag:handle coderId="153650" context="algorithm"/><br>
-                                        [ Tuesday, June 26 - 7:00 PM ]
+                        <h1><span>Blogs</span></h1>
+                        <div style="width:400px;">
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
+                                    <img src="/i/m/jmzero_big.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><tc-webtag:handle coderId="15498334" context="algorithm"/></span>
+                                </p>
+                                
+                                <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=jmzero01">Those about to rock</A></span><br />
+                                    [ Wednesday, June 27 - 11:00 AM ]
                                 </p>
                             </div>
                             
-                            <%-- Spacer Div --%>
-                            <div style="width:200px; float:left;">
-                                <img src="/i/spacer.gif" />
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
+                                    <img src="/i/m/Petr_big.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><tc-webtag:handle coderId="10574855" context="algorithm"/></span>
+                                </p>
+                                
+                                <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=Petr01">Welcome to night #1</A></span><br />
+                                    [ Wednesday, June 27 - 1:30 AM ]
+                                </p>
                             </div>
                             
-                            <%-- Member Blogs --%>
-                            <div style="width:200px; float:left;">
-                                <img src="/i/spacer.gif" />
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
+                                    <img src="/i/m/polgara_big2.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><tc-webtag:handle coderId="153650" context="algorithm"/></span>
+                                </p>
+                                
+                                <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=polgara01">Top 10 lessons learned</A></span><br />
+                                    [ Tuesday, June 26 - 7:00 PM ]
+                                </p>
                             </div>
                         </div>
                     </div>
