@@ -17,7 +17,7 @@
         }
         var imageNum = 1;
                 
-        var count = 40;
+        var count = 80;
         var images = new Array(count);
         for (var i=0; i<count; i++) {
             images[i]= "/i/tournament/tco07/onsitePhotos/"+lpad(i+1)+".jpg";
@@ -113,8 +113,8 @@
             <div id="slideShow" align="center">
             
                 <a href="Javascript:void changeImage(0);">Reception</a>
+                | <a href="#spot" onClick="changeImage(38);">Algo Room 1</a>
 <%--
-                | <a href="#spot" onClick="changeImage(9);">Algo Room 1</a>
                 | <a href="#spot" onClick="changeImage(19);">Algo Room 2</a>
                 | <a href="#spot" onClick="changeImage(29);">Algo Room 3</a>
                 | <a href="#spot" onClick="changeImage(39);">WildCard</a>
