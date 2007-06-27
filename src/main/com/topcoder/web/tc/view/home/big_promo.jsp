@@ -13,7 +13,13 @@
 <img src="/i/home/tchs07registration.png" alt="TCHS07" border="0" style="display:block;" usemap="#tchs07"/>
 --%>
 <%-- TCO07 --%>
-<A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about"><img src="/i/home/tco07.png" alt="2007 TopCoder Open"/></A>
+<map name="tco07">
+<area shape="rect" alt="" coords="5,5,309,146" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" />
+<area shape="rect" alt="" coords="345,18,440,47" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" />
+<area shape="rect" alt="" coords="345,59,440,90" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=photos" />
+<area shape="rect" alt="" coords="345,98,440,131" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=overview" />
+</map>
+<img src="/i/home/tco07Links.png" alt="2007 TopCoder Open" usemap="#tco07" />
 
 
 <%-- homepage design prediction 
