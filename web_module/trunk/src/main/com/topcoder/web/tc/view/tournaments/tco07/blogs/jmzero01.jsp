@@ -32,6 +32,10 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
                         <h1><span>Those about to rock - 06.27.07 11:00 AM EDT</span></h1>
+                        
+                        <div style="float:right;">
+                            <tc-webtag:forumLink forumID="516303" message="Discuss" />
+                        </div>
                     
                         <img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
                         By&#160;<tc-webtag:handle coderId="15498334" context="algorithm"/><br />

@@ -32,6 +32,10 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
                         <h1><span>Top 10 lessons learned - 06.26.07 7:00 PM EDT</span></h1>
+                        
+                        <div style="float:right;">
+                            <tc-webtag:forumLink forumID="516303" message="Discuss" />
+                        </div>
                     
                         <img src="/i/m/polgara_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
                         By&#160;<tc-webtag:handle coderId="153650" context="algorithm"/><br />
