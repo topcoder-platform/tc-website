@@ -60,8 +60,8 @@
     <tr><td class="title" colspan="6">Most Consecutive SRM appearances.</td></tr>
     <tr>
         <td class="headerC">Rank</td>
-        <td class="header">Coder</td>
-        <td class="headerC" width="100%" nowrap>Consecutive<br>SRM<br>Apearances</td>
+        <td class="header" width="100%">Coder</td>
+        <td class="headerC" nowrap="nowrap"><div style="width: 90px;">Consecutive<br>SRM<br>Apearances</div></td>
         <td class="headerC" colspan="3">Duration</td>
     </tr>
 </thead>
@@ -71,10 +71,23 @@
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
         <td class="value"><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
-        <td class="valueC"><rsc:item row="<%=resultRow%>" name="length"/>
+        <td class="valueC">
            <% if (resultRow.getIntItem("is_current") == 1) { %>                        
+            <div style="float: left; width: 30px;">
+                &nbsp;
+            </div>
+            <div style="float: right; width: 30px;">                                    
                 <img src="/i/interface/emblem/andclimbing.png" alt="" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
+            </div>
+            <% } else { %>
+            <div style="float: left; width: 30px;">
+                &nbsp;
+            </div>
+            <div style="float: right; width: 30px;">                                    
+                &nbsp;
+            </div>
             <% } %>
+            <rsc:item row="<%=resultRow%>" name="length"/>
         </td>
         <td class="valueR" nowrap>
         <strong><rsc:item row="<%=resultRow%>" name="start_contest_name"/></strong><br>
