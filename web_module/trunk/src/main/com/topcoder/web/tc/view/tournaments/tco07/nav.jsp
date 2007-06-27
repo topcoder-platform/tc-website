@@ -14,13 +14,6 @@
     // -->
 </script>
 
-<map name="headerLinks">
-<area shape="rect" alt="" coords="3,3, 112,25" href="/pdfs/tournaments/TCO07_Program_View.pdf" />
-<area shape="rect" alt="" coords="124,3, 210,25" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" />
-<area shape="rect" alt="" coords="224,3, 309,25" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=photos" />
-<area shape="rect" alt="" coords="323,3, 394,25" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=overview" />
-</map>
-
 <div id="nav">
     <ul>
         <%--------------TOURNAMENT OVERVIEW---------------%>
@@ -63,10 +56,9 @@
                 </li>
                 <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("onsiteevents")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Onsite Events</span></a>
                     <ul>
-                <%--
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=photos"<% if (tabLev1.equals("overview") && tabLev2.equals("onsiteevents") && tabLev3.equals("photos")) {%> class="navHighlight"<% } %>><span>Photos</span></a></li>
-                --%>
                         <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=movies"<% if (tabLev1.equals("overview") && tabLev2.equals("onsiteevents") && tabLev3.equals("movies")) {%> class="navHighlight"<% } %>><span>Movies</span></a></li>
+                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=photos"<% if (tabLev1.equals("overview") && tabLev2.equals("onsiteevents") && tabLev3.equals("photos")) {%> class="navHighlight"<% } %>><span>Photos</span></a></li>
+                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=blogs&amp;d4=overview"<% if (tabLev1.equals("overview") && tabLev2.equals("onsiteevents") && tabLev3.equals("blogs")) {%> class="navHighlight"<% } %>><span>Blogs</span></a></li>
                     </ul>
                 </li>
                 <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors")) {%>open<% } else { %>closed<% } %>">
