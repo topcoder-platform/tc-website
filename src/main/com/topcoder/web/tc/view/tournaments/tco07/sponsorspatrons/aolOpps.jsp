@@ -67,12 +67,12 @@ Lead the race with AOL and take your place on one of AOL's many technology teams
 
 <h2>Check out what AOL is doing in your area!! </h2>
 
-<h3>Dulles, VA</h3>
+<h2>Dulles, VA</h2>
 <p>
 <b>Projects:</b> text classification and entity linking, content/user targeting system, syndication framework, profile system, and search. AOL's new Open Services initiative enables developers to build customized third-party applications, plug-ins and mashups based on AOL's leading products and services. More information on AOL's range of developer resources and open APIs, including Open AIM®, AOL® Music Now Web Services and MapQuest® OpenAPI, can be found at <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.aol.com' refer='TCO07_AOL_PAGES' />">http://developer.aol.com/</a>. 
 </p>
  
-<h3>Mountain View, CA and Dulles, VA</h3>
+<h2>Mountain View, CA and Dulles, VA</h2>
 <p>
 <a target="_blank" href="<tc-webtag:linkTracking link='http://developer.aol.com' refer='TCO07_AOL_PAGES' />">http://developer.aol.com/</a><br>
 <b>Mission:</b> To build a global medium as central to people's lives as the telephone or television....and even more valuable. We have a wide variety of projects, nearly all focused on building the size of AOL's audience on the web. Our goal is to move AOL into a new era, focused on free, standards-based web products and technologies. AOL has the largest and most-engaged audience in the online world. Our innovation and development of products are some of the most visible products on the market today. 
@@ -95,13 +95,13 @@ Here are a few of the products we own or work on in Mountain View. ...and in cas
    <li>...and more on the way! Come talk to us and we'll fill you in! </li>
 </ul>
 </p>
-<h3>Seattle, WA</h3>
+<h2>Seattle, WA</h2>
 <p>
 <a target="_blank" href="<tc-webtag:linkTracking link='http://www.tegic.com/about' refer='TCO07_AOL_PAGES' />">www.tegic.com/about/</a><br>
 <b>Projects:</b> The AOL Seattle office is 100% dedicated to wireless development, and we're working on cutting-edge wireless data solutions that will change the way people use their cell phones and hand held devices. We are building a unique startup-oriented team dedicated to creating a digital wireless infrastructure to connect consumers to information and content in an easy and user-friendly manner. As a solid team of just over 100, we can preserve the small-company atmosphere while still benefiting from the many corporate assets of AOL: a world-class technology infrastructure, extensive user base, the many AOL services such as AIM, AOL Music, etc., and the media assets of TimeWarner. 
 </p>
  
-<h3>Dublin, Ireland</h3>
+<h2>Dublin, Ireland</h2>
 <p><b>Projects:</b><br> 
 <ul>
 <li><b>Personalization:</b><br>
@@ -114,7 +114,7 @@ The latest version of AOL's search application, 7.0 is currently under developme
 This actually represents a collection of personal investment management tools for the AOL Money and Finance channel. These products deliver company stock price and detailed information almost 1 billion times per day, and provide portfolio management tools for 12 million portfolios, used each month by over 2 million of our users.</li>
 </ul>
 
-<h3>AOL/Parent Company Name - Advertising.com</h3>
+<h2>AOL/Parent Company Name - Advertising.com</h2>
 <p>
 Headquarters: 1020 Hull Street, Baltimore, MD 21230<br>
 Mt View Office location: 888 Villa Street, Suite 300, Mountain View, CA 94041
@@ -125,9 +125,110 @@ Advertising.com, Inc., founded in 1998, is a leading provider of results-based i
 <p>
 <b>Projects:</b> Optimization of internet advertising, Data mining, behavioral targeting of internet advertising, large scale ad serving, high performance technical computing, vary large scale data management, information retrieval algorithm design, numerical analysis 
 </p>
+
+<h2>Bangalore, India</h2>
+
+<p>AOL Bangalore Development Center (BDC) was created in March 2004 and has grown rapidly to over 350 highly qualified engineers. BDC provides software solutions in interactive services through internet product development, quality assurance and project management. The areas of expertise range from social networking, search, web publishing, and authentication to e-commerce. The BDC recognizes the strong Indian research community and is actively engaged with institutions to explore futuristic ideas and products. The BDC is located in a state-of-the-art building on Airport Road in Bangalore. It is committed to hiring top technical and management talent and offers attractive compensation and benefits, career planning, and growth opportunities amid a stimulating work environment.</p>
+
+<p><b>Positions include: </b><br> </p>
+
+<p><b>Research Scientist/Sr. Research Scientist</b><br>
+Organization:  Office of the CTO<br>
+FLSA Status: Exempt</p>
+
+<ul>
+	<li><b>Job Family Summary:</b><br>
+	Conduct basic and applied research on challenging computer science problems in the areas of Internet Technologies, including Machine Learning, Text Categorization, User Modeling and Personalization, Multimedia Search, Computational Linguistics, Video/Image Understanding, Speech/Music/Audio Understanding, Artificial Intelligence, Knowledge Engineering, Bayesian and Statistical Analysis, Cognitive Science and Psychology, Optimization, Targeted Advertising, Hardware and Software Architectures and Algorithms, and Parallel and Distributed Information Systems.</li>
+
+	<li><b>Principal Responsibilities:</b><br>
+	Initiate and execute research projects, develop new and innovative algorithms and technologies; pursue patents where appropriate.  Analyze data, identify problems and potential customers, devise solutions and build prototypes.  Stay current on published state-of-the-art algorithms and competing technologies. Maintain world-class academic credentials through publications, presentations, external collaborations, and service to the research community. Work in cutting edge technologies and also interact with engineering teams. </li>
+
+	<li><b>Qualifications: Knowledge, Experience, Skills:</b><br>
+	Must have a well-established research track record as demonstrated by journal publications and conference papers, as well as participation on program committees, editorial boards, and advisory panels. Additional requirements include outstanding communication skills and the ability to develop original research agendas. Junior candidates must have demonstrated outstanding potential for leadership in their field as judged by letters of recommendation. Candidates must also be able to collaborate effectively with other researchers and product development teams. </li>
+
+	<li><b>Education</b>: <br>
+PhD degree in computer science, electrical engineering, statistics, mathematics, or related field.</li>
+
+	<li><b>Experience</b>: <br>
+For Junior Scientists one must have research experience leading to Ph.D in Computer science: web search, information retrieval, machine learning, system design, computational linguistics, matrix and graph algorithms, data mining, human-computer interaction/user experience, microeconomics. 
+<br><br>
+For Senior Scientists a minimum of 5 years of research experience in either industry or other research organizations, after Ph.D.</li>
+
+	<li><b>Specialized Knowledge:</b><br>
+Skills: Outstanding written and verbal communications skills, as well as strong collaboration skills are required. Must have demonstrated ability to innovate and generate new ideas</li>
+</ul>
+
+
+<p><b>Senior Software Engineer</b><br>
+<ul>
+	<li>Skills: Excellent knowledge of OOAD, Java, J2EE, XML Technologies, Apache, Tomcat, Other Web Containers, Mule, Feeds processing, DB: MySql &amp; Sybase</li>
+	<li>Experience: 6+ years </li>
+	<li>Positions Open: 2</li>
+</ul></p>
+
+<p><b>Senior Software Engineer</b><br>
+<ul>
+	<li>Skills: Excellent knowledge of OOAD, Java, J2EE, XML Technologies, Apache, Tomcat, Other Web Containers, Mule, Feeds processing, DB: MySql &amp; Sybase</li>
+	<li>Experience: 6+ years </li>
+	<li>Positions Open: 1</li>
+</ul></p>
+
+<p><b>Web Technologist</b><br>
+<ul>
+	<li>Skills: CSS Expertise required to deal with UI and Cross Browser Issue, HTML, DHTML, XML, JavaScript, AJAX </li>
+	<li>Experience: 3 to 6 years</li>
+	<li>Positions Open: 2</li>
+</ul></p>
+
+<p><b>Web Technologist</b><br>
+<ul>
+	<li>Skills: Java, JSP, JSTL, Struts-Tiles </li>
+	<li>Experience: 3 - 6 years</li>
+	<li>Positions Open: 8</li>
+</ul></p>
+
+<p><b>Sr. Web Technologist</b><br>
+<ul>
+	<li>Skills: Java, JSP, JSTL, Struts-Tiles </li>
+	<li>Experience: 6+ years</li>
+	<li>Positions Open:	9</li>
+</ul></p>
+
+<p><b>Associate Web Technologist</b><br>
+<ul>
+	<li>Skills: Java, JSP, JSTL, Struts-Tiles </li>
+	<li>Experience: 1 - 4 years</li>
+	<li>Positions Open: 1</li>
+</ul></p>
+
+<p><b>Senior Software Engineer</b><br>
+<ul>
+	<li>Skills Mandatory: Java, JSPs, Servlets, Knowledge about XML, XSLT, Javascript, Experience working on web servers such as Tomcat</li>
+	<li>Experience: 6+ years</li>
+	<li>Positions Open: 1</li>
+</ul></p>
+
+<p><b>Web / Sr. Web Technologist </b><br>
+<ul>
+	<li>Skills: XHTML,CSS, JavaScript, Unix, (PHP or JSP) any server side scripting, XML </li>
+	<li>Desired Skills: Perl, TCL</li>
+	<li>Experience: 3-6 / 6+ years	</li>
+	<li>Positions Open: 3	</li>
+</ul></p>
+
+<p><b>Software Engineer</b><br> 	
+<ul>
+	<li>Skills: Mandatory - C, C++, Win32 SDK, Windows Service Development, Multi-threading, COM, ActiveX, Windows UI development</li>
+	<li>Desired Skills: HTML, DHTML, Javascript</li>
+	<li>Experience: 3-6 years</li>
+	<li>Positions Open: 2</li>
+</ul></p>
+
 <p>
 <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aolConfirm" class="button" style="width: 70px;">Apply Now</a>
 </p>
+
+
                     </div>
                 </td>
             </tr>
