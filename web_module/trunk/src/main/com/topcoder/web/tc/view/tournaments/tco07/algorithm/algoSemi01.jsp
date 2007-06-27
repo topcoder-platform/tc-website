@@ -34,7 +34,7 @@
 
                         <h1><span>Jan_Kuipers wins Room 1!</span></h1>
                         <img src="/i/m/Olexiy_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
-<A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=506181">Discuss this match</A><br>
+<A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=514954">Discuss this match</A><br>
 Wednesday, June 27, 2007<br>
 Introduction by <tc-webtag:handle coderId="303644" context="algorithm"/>
 
@@ -59,7 +59,7 @@ previous highest score on that problem, while <tc-webtag:handle coderId="1984956
 <p>
 The challenge phase didn't change the standings significantly, while system testing caused many solutions to fail.
 As the result, all 3 submissions for the hard failed and <tc-webtag:handle coderId="309453" context="algorithm"/> advanced to the finals thanks to his amazing score on the medium.
-<tc-webtag:handle coderId="8355516" context="algorithm"/> also advances to the finals thanking to his challenge, while <tc-webtag:handle coderId="10157606" context="algorithm"/>, <tc-webtag:handle coderId="7433858" context="algorithm"/> and <tc-webtag:handle coderId="7446789" context="algorithm"/> all go to the WildCard. 
+<tc-webtag:handle coderId="8355516" context="algorithm"/> also advances to the finals thanks to his challenge, while <tc-webtag:handle coderId="10157606" context="algorithm"/>, <tc-webtag:handle coderId="7433858" context="algorithm"/> and <tc-webtag:handle coderId="7446789" context="algorithm"/> all go to the WildCard. 
 
 <tc-webtag:handle coderId="7390467" context="algorithm"/>, with a successful challenge, takes the last Wild Card spot, with a tiny half-point lead over <tc-webtag:handle coderId="13351270" context="algorithm"/>.
 

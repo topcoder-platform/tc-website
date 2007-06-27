@@ -4,6 +4,28 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.27.07<br>3:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi01">Jan_Kuipers wins Room 1!</A>
+        </span><br><br>
+        TopCoder Open 2007 started with the Algorithm Semifinal 1.
+Number 1 seed <tc-webtag:handle coderId="19849563" context="algorithm"/> and TCO 2005 Algorithm Champion <tc-webtag:handle coderId="8355516" context="algorithm"/> 
+were fighting for their spots with 14 other members, with each of them 
+wanting to upset the favorites.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi01">details</A> |
+        <tc-webtag:forumLink forumID="514954" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+      
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>06.26.07<br>3:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -194,19 +216,5 @@
         <A href="/tc?module=Static&d1=match_editorials&d2=srm354">full story</A> | 
         <tc-webtag:forumLink forumID="516051" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>06.15.07<br>3:30 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='/tc' />">Outsourcing the eBay way</a></span><br><br>
-      <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/computerworld.gif" width="81" height="21" alt="Computerworld" border="0" /></div>
-      TopCoder uses another approach to connect employers to overseas tech workers. Users of TopCoder's Web site submit development projects that are used as the basis of coding competitions between developers.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='/tc' />">details</A> | 
-       <tc-webtag:forumLink forumID="516221" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
    </td></tr>
    
