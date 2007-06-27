@@ -49,9 +49,9 @@
       <td style="padding: 15px" valign="middle" align="center">
       <strong>amiune</strong><br><br>
       <strong>FMX</strong><br><br>
-      <strong>maraqja</strong><br><br>
+      <strong>Maraqja</strong><br><br>
       <strong>oton</strong><br><br>
-      <strong>Sigchld</strong><br><br>
+      <strong>SIGCHLD</strong><br><br>
       <strong>Tricia_Tjia</strong><br><br>
       <strong>yiming</strong>
       </td>
