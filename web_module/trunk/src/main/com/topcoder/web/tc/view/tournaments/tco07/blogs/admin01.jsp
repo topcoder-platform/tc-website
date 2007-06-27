@@ -31,7 +31,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <h1><span>Top 10 lessons learned - 6.26.07 8:00 PM EDT</span></h1>
+                        <h1><span>Top 10 lessons learned - 06.26.07 7:00 PM EDT</span></h1>
                     
                         <img src="/i/m/polgara_big2.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
                         By&#160;<tc-webtag:handle coderId="153650" context="algorithm"/><br />
@@ -47,7 +47,7 @@
                         <ol>
                         <li>Get to the UBS booth early - their free (and tasty) chocolates disappear like magic.</li>
                         <li>Practice pronouncing "<tc-webtag:handle coderId="10574855" context="algorithm"/>'s" name many times in advance before you try to say it live on a webcast.</li>
-                        <li>If you are only 5 ft 2 inches and are made to stand between faxman and olexiy during a live webcast, ensure you have a clause in your Rider contract that provides you with a box to stand on while doing the interview (the same rule applies to interviewing <tc-webtag:handle coderId="8357090" context="algorithm"/>).</li>
+                        <li>If you are only 5 ft 2 inches and are made to stand between <tc-webtag:handle coderId="7267401" context="algorithm"/> and <tc-webtag:handle coderId="303644" context="algorithm"/> during a live webcast, ensure you have a clause in your Rider contract that provides you with a box to stand on while doing the interview (the same rule applies to interviewing <tc-webtag:handle coderId="8357090" context="algorithm"/>).</li>
                         <li>Visit the NSA booth.  Everything on display is super-fun and geek-worthy.  And if that is not enough, they have to kill you once you know too much.</li>
                         <li>The white couches at the AOL booth are the most comfortable seating you can get in the competition arena.
                         <li><tc-webtag:handle coderId="262056" context="algorithm"/> looks waaaay too relaxed to be human during algorithm competitions.  I am not that relaxed taking a bubble bath.</li>
