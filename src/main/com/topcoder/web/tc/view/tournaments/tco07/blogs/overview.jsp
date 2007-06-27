@@ -32,6 +32,9 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
                         <h1><span>Blogs</span></h1>
+                        <div style="float:right;">
+                            <tc-webtag:forumLink forumID="516303" message="Discuss" />
+                        </div>
                         <div style="width:400px;">
                             <div style="width:400px; float:left;">
                                 <p style="float:left; width:50px;">
