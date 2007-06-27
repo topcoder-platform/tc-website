@@ -87,11 +87,9 @@ Div I
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 11 /*"rank"*/ + "]" %>'/></td>
         <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 2 /*"length"*/ + "]" %>'/>
-<%--
            <% if (resultRow.getIntItem("is_current") == 1) { %>                        
                 <img src="/i/interface/emblem/andclimbing.png" alt="" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
             <% } %>
---%>
         </td>
         <td class="valueR" nowrap>
         <strong><bean:write name="resultRow" property='<%= "item[" + 5 /*"contest"*/ + "]" %>'/></strong><br>
