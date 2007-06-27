@@ -33,6 +33,10 @@
                     <div id="pageBody">
                         <h1><span>Welcome to night #1 - 06.27.07 1:30 AM EDT</span></h1>
                     
+                        <div style="float:right;">
+                            <tc-webtag:forumLink forumID="516303" message="Discuss" />
+                        </div>
+
                         <img src="/i/m/Petr_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
                         By&#160;<tc-webtag:handle coderId="10574855" context="algorithm"/><br />
                         <span class="smallText"><em>TopCoder Member</em></span>
