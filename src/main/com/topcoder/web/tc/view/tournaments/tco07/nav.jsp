@@ -182,8 +182,8 @@
                         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desBracket"<% if (tabLev1.equals("component") && tabLev2.equals("design") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
                 <%--
                         <li class="stop"><a href=""><span>Finals</span></a></li>
-                        <li class="stop"><a href=""><span>Summary</span></a></li>
                 --%>
+                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary"<% if (tabLev1.equals("component") && tabLev2.equals("design") && tabLev3.equals("summary")) {%> class="navHighlight"<% } %>><span>Summary</span></a></li>
                     </ul>
                 </li>
                 <li class="<% if (tabLev1.equals("component") && tabLev2.equals("development")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Development</span></a>
@@ -192,8 +192,8 @@
                         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devBracket"<% if (tabLev1.equals("component") && tabLev2.equals("development") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
                 <%--
                         <li class="stop"><a href=""><span>Finals</span></a></li>
-                        <li class="stop"><a href=""><span>Summary</span></a></li>
                 --%>
+                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary"<% if (tabLev1.equals("component") && tabLev2.equals("development") && tabLev3.equals("summary")) {%> class="navHighlight"<% } %>><span>Summary</span></a></li>
                     </ul>
                 </li>
             </ul>

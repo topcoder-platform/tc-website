@@ -107,7 +107,7 @@
             <form name="blah" action="/tc">
                 <input type="hidden" name="module" value="Static"/>
                 <input type="hidden" name="d1" value="tournaments"/>    
-                <input type="hidden" name="d2" value="tchs07"/>
+                <input type="hidden" name="d2" value="tco07"/>
                 <input type="hidden" name="d3" value="photos"/>
 
             <div id="slideShow" align="center">
