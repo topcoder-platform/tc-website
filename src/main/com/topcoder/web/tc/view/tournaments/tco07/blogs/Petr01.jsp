@@ -44,7 +44,7 @@
                         While some of the competitors still took their time to enjoy viewing the
                         surrounding landmarks (from the left: <tc-webtag:handle coderId="15881985" context="algorithm"/>, <tc-webtag:handle coderId="19721111" context="algorithm"/>, <tc-webtag:handle coderId="7485898" context="algorithm"/>),</p>
                         
-                        <div align="center"><img src="/i/tournament/tco07/blogs/Petr01-01.jpg" width="480px" height="360px" /></div>
+                        <div align="center"><img src="/i/tournament/tco07/blogs/Petr01-01.jpg" width="480px" height="360px" /></div><br />
                         
                         <p>most of the people involved have gathered in the Montego room at 7:00 pm
                         to greet the opening of the 2007 TopCoder Open. I've managed to discuss

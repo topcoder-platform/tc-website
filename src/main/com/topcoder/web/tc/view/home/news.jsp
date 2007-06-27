@@ -4,13 +4,13 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.27.07<br>3:30 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.27.07<br>3:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi01">Jan_Kuipers wins Room 1!</A>
         </span><br><br>
-        TopCoder Open 2007 started with the Algorithm Semifinal 1.
+        The TopCoder Open started with the Algorithm Semifinal 1.
 Number 1 seed <tc-webtag:handle coderId="19849563" context="algorithm"/> and TCO 2005 Algorithm Champion <tc-webtag:handle coderId="8355516" context="algorithm"/> 
 were fighting for their spots with 14 other members, with each of them 
 wanting to upset the favorites.
