@@ -356,9 +356,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 l.add(ad);
             }
 
-            close(rs);
-            close(ps);
-
             return l;
         } catch (Exception e) {
             printException(e);
