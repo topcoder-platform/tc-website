@@ -1551,7 +1551,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ad.setText("");
         else
             ad.setText(new String(bytes));
-//        ad.setText(DBMS.getTextString(rsr., "assignment_document_text"));
 
         ad.setSubmissionTitle(rs.getString("assignment_document_submission_title"));
 
@@ -1616,10 +1615,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public List findAssignmentDocument(Map searchCriteria) {
         ResultSet rs = null;
-        ResultSetContainer rsc = null;
         List l = new ArrayList();
         Connection c = null;
-        PreparedStatement ps = null;
 
         try {
             c = DBMS.getConnection(trxDataSource);
@@ -1687,13 +1684,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             l = retrieveAssignmentDocuments(c, getAssignmentDocument.toString(), objects);
 
-//            for (Iterator it = rsc.iterator(); it.hasNext();) {
-//                ResultSetRow rsr = (ResultSetRow) it.next();
-//
-//                AssignmentDocument ad = createAssignmentDocumentBean(c, rsr);
-//
-//                l.add(ad);
-//            }
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw (new EJBException(e.getMessage(), e));
@@ -1902,7 +1892,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             ps.setLong(1, assignmentDocumentTypeId);
             rs = ps.executeQuery();
-//            rsc = new ResultSetContainer(rs, false);
 
             if (!rs.next()) {
                 throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentTypeId);
@@ -1917,8 +1906,6 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 adt.setText("");
             else
                 adt.setText(new String(bytes));
-
-//            adt.setText(rs.getString("assignment_document_template_text"));
 
             return adt;
         } catch (SQLException e) {
