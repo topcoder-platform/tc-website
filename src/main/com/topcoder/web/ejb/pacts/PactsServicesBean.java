@@ -2087,7 +2087,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setObject(8, ad.getComponentProject() == null ? null : ad.getComponentProject().getId());
             ps.setTimestamp(9, ad.getAffirmedDate());
             if (addOperation || updateText) {
-                ps.setBytes(10, DBMS.serializeTextString(ad.getText()));
+                ps.setBytes(10, ad.getText() == null ? null : DBMS.serializeTextString(ad.getText()));
                 ps.setTimestamp(11, ad.getExpireDate());
                 if (!addOperation) {
                     ps.setLong(12, ad.getId().longValue());
@@ -5079,7 +5079,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, assignmentDocumentTemplateId);
             ps.setInt(2, assignmentdocumentTypeId);
-            ps.setBytes(3, DBMS.serializeTextString(text));
+            ps.setBytes(3, text == null ? null : DBMS.serializeTextString(text));
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
