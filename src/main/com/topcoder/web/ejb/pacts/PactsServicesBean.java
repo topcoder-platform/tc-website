@@ -368,12 +368,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 sb.append(objects.get(i).toString() + "\n");
             log.error(sb.toString());
 
-            try {
-                if (rs != null) rs.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            rs = null;
+//            try {
+//                if (rs != null) rs.close();
+//            } catch (Exception e1) {
+//                printException(e1);
+//            }
+//            rs = null;
             try {
                 if (ps != null) ps.close();
             } catch (Exception e1) {
