@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">06.28.07 4:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi03">bmerry wins Room 3!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.27.07 10:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi02">Vitaliy wins Room 2!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.27.07 7:00 PM - </td><td width="100%">Component <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">Development</A> Finals: Round 1</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.27.07 5:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=overview">The TCO blogs are now online</A></td></tr>
