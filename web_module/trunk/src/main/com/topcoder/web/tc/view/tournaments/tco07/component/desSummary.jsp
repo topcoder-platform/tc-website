@@ -59,6 +59,16 @@ From a design point of view this application is not hard but there are a lot of 
 The best submission managed to address all the requirements properly and also took into consideration performance issues (handling huge uploaded files efficiently). Some added additional functionality, such as the ability to view a history of the uploaded files, and support for authentication in the future.
 </p>
 
+<p>And here is the final scoreboard for this component:</p>
+<table cellspacing="0" cellpadding="0" class="stat" style="width: 100%"> <thead>
+    <tr class="sidebarTitle" nowrap="nowrap"> <td class="header">Competitor</td><td class="header">Reviewer: <tc-webtag:handle coderId="10526732" context="design"/></td><td class="header">Reviewer: <tc-webtag:handle coderId="278342" context="design"/></td><td class="header">Reviewer: <tc-webtag:handle coderId="10348862" context="design"/></td><td class="header">Average</td>
+    </tr>
+</thead>
+<tbody>
+<tr class="light"><td class="value"><tc-webtag:handle coderId="152342" context="design"/></td><td class="value">94.97</td><td class="value">89.25</td><td class="value">86.78</td><td class="value">90.33</td></tr>    
+<tr class="dark"><td class="value"><tc-webtag:handle coderId="10028010" context="design"/></td><td class="value">97.31</td><td class="value">85.78</td><td class="value">84.97</td><td class="value">89.35</td></tr>    
+<tr class="light"><td class="value"><tc-webtag:handle coderId="275640" context="design"/></td><td class="value">93.44</td><td class="value">86.91</td><td class="value">84.78</td><td class="value">88.38</td></tr> <tr class="dark"><td class="value"><tc-webtag:handle coderId="252022" context="design"/></td><td class="value">62.75</td><td class="value">61.28</td><td class="value">67.53</td><td class="value">63.85</td></tr> <tr class="light"><td class="value"><tc-webtag:handle coderId="22651514" context="design"/></td><td class="value">66.75</td><td class="value">55.84</td><td class="value">58.25</td><td class="value">60.28</td></tr> <tr class="dark"><td class="value"><tc-webtag:handle coderId="20256177" context="design"/></td><td class="value">59.97</td><td class="value">45.06</td><td class="value">54.53</td><td class="value">53.19</td></tr> </tbody> </table>
+
 <br /><br />
                     </div>
                 </td>
