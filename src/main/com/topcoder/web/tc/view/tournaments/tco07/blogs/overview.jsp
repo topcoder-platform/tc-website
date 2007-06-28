@@ -39,6 +39,18 @@
                         <div style="width:400px;">
                             <div style="width:400px; float:left;">
                                 <p style="float:left; width:50px;">
+                                    <img src="/i/m/polgara_big2.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><tc-webtag:handle coderId="153650" context="algorithm"/></span>
+                                </p>
+                                
+                                <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=polgara02">Competing with the Wii</A></span><br />
+                                    [ Thursday, June 28 - 5:00 PM ]
+                                </p>
+                            </div>
+                            
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
                                     <img src="/i/m/jmzero_big.jpg" alt="" width="27" height="30"/><br />
                                     <span class="smallHandle"><tc-webtag:handle coderId="15498334" context="algorithm"/></span>
                                 </p>
