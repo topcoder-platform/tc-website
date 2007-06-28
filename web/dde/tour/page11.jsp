@@ -40,13 +40,26 @@
             <jsp:param name="node" value="page11"/>
         </jsp:include>
 
+        <div style="width: 698px; height: 398px; border: 1px solid #eeeeee;">
+            <div style="margin: 40px 20px 80px 20px;">
+                <img src="/i/tour/page11title.png" alt="What to do now" />
+            </div>
+            <p align="center" style="margin-top: 20px;">
+            <strong><a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=contactus' refer='software_tour_11' />">Call us today and let us build your next application.</a></strong>
+            </p>
+            <p align="center">
+            <strong><a href="<tc-webtag:linkTracking link='/reg/' refer='software_tour_11' />">I'd like to register for a TopCoder account.</a></strong>
+            </p>
+            <p align="center">
+            <strong><a href="<tc-webtag:linkTracking link='/' refer='software_tour_11' />">Go back to the homepage.</a></strong>
+            </p>
+        </div>
+
+        <%--
         <div id="slide">
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&amp;d1=about&amp;d2=contactus"><img src="/i/tour/page11.png" alt="" /></a>
         </div>
-
-        <%--<h2 align="center">
-            Any questions?
-        </h2>--%>
+        --%>
 
         <div align="center">
             <div style="width: 60px; height: 28px; margin: 10px;">
@@ -63,6 +76,7 @@
             <div id="popUpText">&nbsp;</div>
         </div>
 
+        <%--
         <p align="center" style="margin-top: 20px;">
         <strong><a href="<tc-webtag:linkTracking link='/tc?module=Static&d1=about&d2=contactus' refer='software_tour_11' />">Call us today and let us build your next application.</a></strong>
         </p>
@@ -72,6 +86,7 @@
         <p align="center">
         <strong><a href="<tc-webtag:linkTracking link='/' refer='software_tour_11' />">Go back to the homepage.</a></strong>
         </p>
+        --%>
 
         <%--<jsp:include page="foot.jsp" />--%>
 
