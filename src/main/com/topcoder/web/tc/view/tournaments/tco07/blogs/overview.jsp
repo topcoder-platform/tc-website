@@ -39,6 +39,18 @@
                         <div style="width:400px;">
                             <div style="width:400px; float:left;">
                                 <p style="float:left; width:50px;">
+                                    <img src="/i/m/Petr_big.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><tc-webtag:handle coderId="10574855" context="algorithm"/></span>
+                                </p>
+                                
+                                <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=Petr05">Algorithm Semifinal Room #3</A></span><br />
+                                    [ Thursday, June 28 - 2:00 PM ]
+                                </p>
+                            </div>
+                            
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
                                     <img src="/i/m/jmzero_big.jpg" alt="" width="27" height="30"/><br />
                                     <span class="smallHandle"><tc-webtag:handle coderId="15498334" context="algorithm"/></span>
                                 </p>
