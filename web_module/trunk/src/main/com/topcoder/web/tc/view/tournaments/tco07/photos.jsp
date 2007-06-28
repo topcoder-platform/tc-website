@@ -114,7 +114,8 @@
             
                 <a href="Javascript:void changeImage(0);">Reception</a>
                 | <a href="#spot" onClick="changeImage(38);">Algo Room 1</a>
-                | <a href="#spot" onClick="changeImage(80);">Algo Room 2</a>
+                | <a href="#spot" onClick="changeImage(80);">Marathon Match</a>
+                | <a href="#spot" onClick="changeImage(111);">Algo Room 2</a>
 <%--
                 | <a href="#spot" onClick="changeImage(29);">Algo Room 3</a>
                 | <a href="#spot" onClick="changeImage(39);">WildCard</a>
