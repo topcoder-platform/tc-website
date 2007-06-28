@@ -78,7 +78,7 @@
         <%-- TCO07  fri 
         <map name="tco07">
         <area shape="rect" alt="" coords="1,5,287,146" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" />
-        <area shape="rect" alt="" coords="297,22,490,78" href="<tc-webtag:linkTracking link='http://dev.aol.com/' refer='/tc' />" />
+        <area shape="rect" alt="" coords="297,22,490,78" href="<tc-webtag:linkTracking link='http://dev.aol.com/' refer='homepage' />" />
         <area shape="rect" alt="" coords="300,109,361,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" />
         <area shape="rect" alt="" coords="375,109,430,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=photos" />
         <area shape="rect" alt="" coords="442,109,489,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=overview" />
