@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.28.07<br>4:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi03">bmerry wins Room 3!</A>
+        </span><br><br>
+<tc-webtag:handle coderId="251074" context="algorithm"/> and <tc-webtag:handle coderId="21971539" context="algorithm"/> advance to the finals, while <tc-webtag:handle coderId="7462740" context="algorithm"/>, <tc-webtag:handle coderId="9927526" context="algorithm"/>, <tc-webtag:handle coderId="293874" context="algorithm"/> and <tc-webtag:handle coderId="272072" context="algorithm"/> are heading for the wildcard.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi03">details</A> |
+        <tc-webtag:forumLink forumID="514956" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+      
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.28.07<br>4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -199,25 +218,6 @@ wanting to upset the favorites.
    <tr><td class="newsLinksCell">
         <A href="/pdfs/tournaments/TCO07_Program_View.pdf">details</A> |
         <tc-webtag:forumLink forumID="516285" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.20.07<br>3:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">AOL chat session: Introducing the MapQuest APIs</A>
-        </span><br><br>
-        AOL representatives will be in the Arena starting at 8:00 PM EDT tonight before SRM 355. Tonight's chat will focus on AOL's MapQuest APIs.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">details</A> |
-        <tc-webtag:forumLink forumID="516276" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
       
