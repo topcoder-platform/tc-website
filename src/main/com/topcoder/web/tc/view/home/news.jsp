@@ -4,6 +4,26 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.27.07<br>3:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi02">Vitaliy wins Room 2!</A>
+        </span><br><br>
+<tc-webtag:handle coderId="21822659" context="algorithm"/> and <tc-webtag:handle coderId="14886245" context="algorithm"/> will be in the finals.
+<tc-webtag:handle coderId="144400" context="algorithm"/>, <tc-webtag:handle coderId="7390224" context="algorithm"/>, <tc-webtag:handle coderId="311170" context="algorithm"/> and <tc-webtag:handle coderId="7442498" context="algorithm"/> will be in the wildcard round.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi02">details</A> |
+        <tc-webtag:forumLink forumID="514955" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+      
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.27.07<br>7:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -203,22 +223,3 @@ wanting to upset the favorites.
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
       
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>06.18.07<br>5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=help&d2=assignmentDocFaq">New Assignment requirements for TopCoder competitions</A>
-        </span><br><br>
-        Going forward, TopCoder will begin requiring winners of certain competitions (those in which IP transfer is involved) to sign an Assignment document prior to collecting the winnings.  This will apply to competitions starting on or after Monday, June 18.  For more information, please visit our new FAQ section.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=help&d2=assignmentDocFaq">details</A> | 
-        <tc-webtag:forumLink forumID="516233" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-   
