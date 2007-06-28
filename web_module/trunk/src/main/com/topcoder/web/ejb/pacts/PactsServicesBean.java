@@ -1685,7 +1685,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            l = retrieveAssignmentDocuments(c, getAssignmentDocument.toString(), objects)
+            l = retrieveAssignmentDocuments(c, getAssignmentDocument.toString(), objects);
 
 //            for (Iterator it = rsc.iterator(); it.hasNext();) {
 //                ResultSetRow rsr = (ResultSetRow) it.next();
