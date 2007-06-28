@@ -36,7 +36,7 @@
                             <tc-webtag:forumLink forumID="516303" message="Discuss" />
                         </div>
                         
-                        <div style="width:400px;">
+                        <div style="width:400px; padding-bottom:20px;">
                             <div style="width:400px; float:left;">
                                 <p style="float:left; width:50px;">
                                     <img src="/i/m/polgara_big2.jpg" alt="" width="27" height="30"/><br />
@@ -204,6 +204,7 @@
                                     [ Tuesday, June 26 - 7:00 PM ]
                                 </p>
                             </div>
+                            <div>&nbsp;</div>
                         </div>
                     </div>
                 </td>
