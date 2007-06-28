@@ -264,6 +264,10 @@ public class User extends Base {
         this.notifications.add(notification);
     }
 
+    public void removeNotification(Notification notification) {
+        this.notifications.remove(notification);
+    }
+
     public Set getSecurityGroups() {
         return Collections.unmodifiableSet(securityGroups);
     }
@@ -371,9 +375,14 @@ public class User extends Base {
         return null;
     }
 
+    public boolean isShowEarningsEnabled() {
+        UserPreference up = getUserPreference(Preference.SHOW_EARNINGS_PREFERENCE_ID);
+        return up == null ? false : "show".equals(up.getValue());
+    }
+
     public boolean isMemberContactEnabled() {
         UserPreference up = getUserPreference(Preference.MEMBER_CONTACT_PREFERENCE_ID);
-        return up == null ? false : String.valueOf(true).equals(up.getValue());
+        return up == null ? false : "yes".equals(up.getValue());
     }
 
     public SecretQuestion getSecretQuestion() {
@@ -462,6 +471,31 @@ public class User extends Base {
 
     public void addBallot(RankBallot ballot) {
         ballots.add(ballot);
+    }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final User other = (User) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
     }
 
 }

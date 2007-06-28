@@ -1,5 +1,6 @@
 package com.topcoder.web.common.dao;
 
+import com.topcoder.web.common.model.Notification;
 import com.topcoder.web.common.model.Preference;
 import com.topcoder.web.reg.TCHibernateTestCase;
 
@@ -22,4 +23,8 @@ public class PreferenceDAOTestCase extends TCHibernateTestCase {
         assertEquals("preference 'unlock' should have id 1", 1, p.getId().longValue());
     }
 
+    public void testRegTypes() {
+        Preference p = DAOUtil.getFactory().getPreferenceDAO().find(new Integer(24));
+        assertTrue("we found no reg types", p.getRegistrationTypes() != null && !p.getRegistrationTypes().isEmpty());
+    }
 }

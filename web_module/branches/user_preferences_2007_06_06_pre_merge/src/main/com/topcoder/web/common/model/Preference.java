@@ -1,6 +1,7 @@
 package com.topcoder.web.common.model;
 
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -20,6 +21,8 @@ public class Preference extends Base implements Comparable {
     public static final Integer MEMBER_CONTACT_PREFERENCE_ID = new Integer(24);
     public static final Integer MEMBER_CONTACT_BANNED = new Integer(28);
 
+    public static final Integer SHOW_EARNINGS_PREFERENCE_ID = new Integer(100);
+
     private Integer id;
     private PreferenceType type;
     private PreferenceGroup group;
@@ -27,6 +30,7 @@ public class Preference extends Base implements Comparable {
     private String description;
     private String sort;
     private Set values;
+    private Set registrationTypes;
 
     public Integer getId() {
         return id;
@@ -37,6 +41,11 @@ public class Preference extends Base implements Comparable {
     }
 
     public Preference() {
+        this.registrationTypes = new HashSet();
+    }
+
+    public Set getRegistrationTypes() {
+        return Collections.unmodifiableSet(registrationTypes);
     }
 
     public String getName() {
@@ -87,9 +96,39 @@ public class Preference extends Base implements Comparable {
         this.values = values;
     }
 
+    public void setRegistrationTypes(Set registrationTypes) {
+        this.registrationTypes = registrationTypes;
+    }
 
     public int compareTo(Object o) {
         Preference other = (Preference) o;
         return getSort().compareTo(other.getSort());
     }
+
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result + ((id == null) ? 0 : id.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final Preference other = (Preference) obj;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        return true;
+    }
+    
+    
 }

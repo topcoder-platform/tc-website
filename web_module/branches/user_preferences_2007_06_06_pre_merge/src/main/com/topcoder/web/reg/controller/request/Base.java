@@ -10,6 +10,7 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
 import com.topcoder.web.common.model.*;
 import com.topcoder.web.common.validation.ListInput;
+import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.common.validation.Validator;
@@ -25,7 +26,7 @@ import java.util.*;
  * @version $Revision$ Date: 2005/01/01 00:00:00
  *          Create Date: Mar 29, 2006
  */
-abstract class Base extends LongHibernateProcessor {
+public abstract class Base extends LongHibernateProcessor {
 
     private User user = null;
     private DAOFactory factory = null;
@@ -158,6 +159,7 @@ abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.CODER_TYPE, getTrimmedParameter(Constants.CODER_TYPE));
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
         ret.put(Constants.MEMBER_CONTACT, getTrimmedParameter(Constants.MEMBER_CONTACT));
+        ret.put(Constants.SHOW_EARNINGS, getTrimmedParameter(Constants.SHOW_EARNINGS));
         ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
 
         //iterate through the notifications, we're essentially validating here
@@ -264,6 +266,22 @@ abstract class Base extends LongHibernateProcessor {
                 addError(Constants.NOTIFICATION, notificationResult.getMessage());
             }
         }
+        if (fields.contains(Constants.MEMBER_CONTACT)) {
+            ValidationResult nonEmptyResult =
+                new NonEmptyValidator("Please enter your preference.").validate(
+                        new StringInput((String) params.get(Constants.MEMBER_CONTACT)));
+            if (!nonEmptyResult.isValid()) {
+                addError(Constants.MEMBER_CONTACT, nonEmptyResult.getMessage());
+            }
+        }
+        if (fields.contains(Constants.SHOW_EARNINGS)) {
+            ValidationResult nonEmptyResult =
+                new NonEmptyValidator("Please enter your preference.").validate(
+                        new StringInput((String) params.get(Constants.SHOW_EARNINGS)));
+            if (!nonEmptyResult.isValid()) {
+                addError(Constants.SHOW_EARNINGS, nonEmptyResult.getMessage());
+            }
+        }
     }
 
 
@@ -324,7 +342,9 @@ abstract class Base extends LongHibernateProcessor {
             setDefault(Constants.NOTIFICATION + ((Notification) it.next()).getId(), String.valueOf(true));
         }
 
-        setDefault(Constants.MEMBER_CONTACT, String.valueOf(u.isMemberContactEnabled()));
+        setDefault(Constants.MEMBER_CONTACT, u.isMemberContactEnabled() ? "yes" : "no");
+
+        setDefault(Constants.SHOW_EARNINGS, u.isShowEarningsEnabled() ? "show" : "hide");
 
         if (u.getContact() != null) {
             setDefault(Constants.TITLE, u.getContact().getTitle());
@@ -469,6 +489,15 @@ abstract class Base extends LongHibernateProcessor {
             }
         }
 
+        if (fields.contains(Constants.VISIBLE_SCHOOL)) {
+            ValidationResult nonEmptyResult =
+                new NonEmptyValidator("Please enter your preference.").validate(
+                        new StringInput((String) params.get(Constants.VISIBLE_SCHOOL)));
+            if (!nonEmptyResult.isValid()) {
+                addError(Constants.VISIBLE_SCHOOL, nonEmptyResult.getMessage());
+            }
+        }
+
         if (fields.contains(Constants.GPA) &&
                 fields.contains(Constants.GPA_SCALE) &&
                 hasParameter(params, Constants.GPA) &&
@@ -589,7 +618,7 @@ abstract class Base extends LongHibernateProcessor {
                 setDefault(Constants.SCHOOL_TYPE, s.getType().getId());
             }
             if (u.getCoder().getCurrentSchool().getViewable() != null) {
-                setDefault(Constants.VISIBLE_SCHOOL, u.getCoder().getCurrentSchool().getViewable().toString());
+                setDefault(Constants.VISIBLE_SCHOOL, u.getCoder().getCurrentSchool().getViewable() ? "show" : "hide");
             }
             if (u.getCoder().getCurrentSchool().getGPA() != null) {
                 setDefault(Constants.GPA, u.getCoder().getCurrentSchool().getGPA().toString());
@@ -616,7 +645,7 @@ abstract class Base extends LongHibernateProcessor {
                 }
             }
         } else {
-            setDefault(Constants.VISIBLE_SCHOOL, String.valueOf(true));
+            setDefault(Constants.VISIBLE_SCHOOL, "show");
         }
 
         if (u.getCoder() != null && !u.getCoder().getResumes().isEmpty()) {

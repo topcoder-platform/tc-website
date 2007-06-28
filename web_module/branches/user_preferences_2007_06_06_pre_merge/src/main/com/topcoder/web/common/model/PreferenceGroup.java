@@ -57,4 +57,42 @@ public class PreferenceGroup extends Base implements Comparable {
         this.preferences = preferences;
     }
 
+    @Override
+    public int hashCode() {
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result + ((description == null) ? 0 : description.hashCode());
+        result = PRIME * result + ((id == null) ? 0 : id.hashCode());
+        result = PRIME * result + ((sort == null) ? 0 : sort.hashCode());
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        final PreferenceGroup other = (PreferenceGroup) obj;
+        if (description == null) {
+            if (other.description != null)
+                return false;
+        } else if (!description.equals(other.description))
+            return false;
+        if (id == null) {
+            if (other.id != null)
+                return false;
+        } else if (!id.equals(other.id))
+            return false;
+        if (sort == null) {
+            if (other.sort != null)
+                return false;
+        } else if (!sort.equals(other.sort))
+            return false;
+        return true;
+    }
+
+    
 }
