@@ -39,6 +39,30 @@
                         <div style="width:400px; padding-bottom:20px;">
                             <div style="width:400px; float:left;">
                                 <p style="float:left; width:50px;">
+                                    <img src="/i/m/jmpld40_big.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><tc-webtag:handle coderId="14999860" context="algorithm"/></span>
+                                </p>
+                                
+                                <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=jmpld4002">TopCoder gone wild</A></span><br />
+                                    [ Thursday, June 28 - 7:00 PM ]
+                                </p>
+                            </div>
+                            
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
+                                    <img src="/i/m/Petr_big.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><tc-webtag:handle coderId="10574855" context="algorithm"/></span>
+                                </p>
+                                
+                                <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=Petr06">DRW tunes in to the TCO spirit</A></span><br />
+                                    [ Thursday, June 28 - 6:00 PM ]
+                                </p>
+                            </div>
+                            
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
                                     <img src="/i/m/polgara_big2.jpg" alt="" width="27" height="30"/><br />
                                     <span class="smallHandle"><tc-webtag:handle coderId="153650" context="algorithm"/></span>
                                 </p>
