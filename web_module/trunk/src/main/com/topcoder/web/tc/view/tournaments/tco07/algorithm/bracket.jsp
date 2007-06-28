@@ -77,12 +77,20 @@
       <td valign="middle"><img src="/i/tournament/tco07/bracket_bar.png" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
       <%-- WILDCARD ROOM --%>
-        &nbsp;
+        <tc-webtag:handle coderId="10157606" context="algorithm"/><br>
+        <tc-webtag:handle coderId="7433858" context="algorithm"/><br>
+        <tc-webtag:handle coderId="7446789" context="algorithm"/><br>
+        <tc-webtag:handle coderId="7390467" context="algorithm"/><br>
       </td>
       <td valign="middle">&#160;</td>
       <td rowspan="9" style="padding: 15px" valign="middle" align="center">
       <%-- FINALS --%>
-        &nbsp;
+        <tc-webtag:handle coderId="309453" context="algorithm"/><br>
+        <tc-webtag:handle coderId="8355516" context="algorithm"/><br>
+        <tc-webtag:handle coderId="21822659" context="algorithm"/><br>
+        <tc-webtag:handle coderId="14886245" context="algorithm"/><br>
+        <tc-webtag:handle coderId="251074" context="algorithm"/><br>
+        <tc-webtag:handle coderId="21971539" context="algorithm"/><br>
       </td>
    </tr>
    <tr>
@@ -123,7 +131,10 @@
       <td valign="middle"><img src="/i/tournament/tco07/bracket_bar.png" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
       <%-- WILDCARD ROOM --%>
-        &nbsp;
+        <tc-webtag:handle coderId="144400" context="algorithm"/><br>
+        <tc-webtag:handle coderId="7390224" context="algorithm"/><br>
+        <tc-webtag:handle coderId="311170" context="algorithm"/><br>
+        <tc-webtag:handle coderId="7442498" context="algorithm"/><br>
       </td>
       <td rowspan="2" style="background-color: #000000;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
       <td valign="middle"><img src="/i/tournament/tco07/bracket_bar.png" alt="" border="0" /></td>
@@ -172,7 +183,10 @@
       <td valign="middle"><img src="/i/tournament/tco07/bracket_bar.png" alt="" border="0" /></td>
       <td style="padding: 15px" valign="middle" align="center">
       <%-- WILDCARD ROOM --%>
-        &nbsp;
+        <tc-webtag:handle coderId="7462740" context="algorithm"/><br>
+        <tc-webtag:handle coderId="9927526" context="algorithm"/><br>
+        <tc-webtag:handle coderId="293874" context="algorithm"/><br>
+        <tc-webtag:handle coderId="272072" context="algorithm"/><br>
       </td>
       <td rowspan="2" style="background-color: #000000;"><img src="/i/clear.gif" alt="" width="10" height="10" /></td>
    </tr>
