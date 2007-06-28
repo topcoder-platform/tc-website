@@ -137,9 +137,9 @@
                     <ul>
                         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi01"<% if (tabLev1.equals("algorithm") && tabLev2.equals("summary") && tabLev3.equals("room1")) {%> class="navHighlight"<% } %>><span>Room 1</span></a></li>
                         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi02"<% if (tabLev1.equals("algorithm") && tabLev2.equals("summary") && tabLev3.equals("room2")) {%> class="navHighlight"<% } %>><span>Room 2</span></a></li>
-                        
+                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi03"<% if (tabLev1.equals("algorithm") && tabLev2.equals("summary") && tabLev3.equals("room3")) {%> class="navHighlight"<% } %>><span>Room 3</span></a></li>
                         <%--
-                        <li class="stop"><a href=""><span>Room 3</span></a></li>
+                        
                         <li class="stop"><a href=""><span>WildCard</span></a></li>
                         <li class="stop"><a href=""><span>Finals</span></a></li>
                 --%>
