@@ -336,7 +336,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
-    private ResultSet runSearchQuery(Connection c, String query, ArrayList objects) throws SQLException {
+    private List retrieveAssignmentDocuments(Connection c, String query, ArrayList objects) throws SQLException {
+        List l = new ArrayList();
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
@@ -349,13 +350,16 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     ps.setString(i + 1, (String) o);
             }
             rs = ps.executeQuery();
-//            ResultSetContainer rsc = new ResultSetContainer(rs, false);
-//            rs.close();
-//            rs = null;
-            ps.close();
-            ps = null;
+            while (rs.next()) {
+                AssignmentDocument ad = createAssignmentDocumentBean(c, rs);
 
-            return rs;
+                l.add(ad);
+            }
+
+            close(rs);
+            close(ps);
+
+            return l;
         } catch (Exception e) {
             printException(e);
             StringBuffer sb = new StringBuffer(300);
@@ -368,19 +372,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 sb.append(objects.get(i).toString() + "\n");
             log.error(sb.toString());
 
-//            try {
-//                if (rs != null) rs.close();
-//            } catch (Exception e1) {
-//                printException(e1);
-//            }
-//            rs = null;
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            ps = null;
             throw new SQLException(e.getMessage());
+        } finally {
+            close(rs);
+            close(ps);
         }
     }
 
@@ -1690,12 +1685,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            rs = runSearchQuery(c, getAssignmentDocument.toString(), objects);
-            while (rs.next()) {
-                AssignmentDocument ad = createAssignmentDocumentBean(c, rs);
-
-                l.add(ad);
-            }
+            l = retrieveAssignmentDocuments(c, getAssignmentDocument.toString(), objects)
 
 //            for (Iterator it = rsc.iterator(); it.hasNext();) {
 //                ResultSetRow rsr = (ResultSetRow) it.next();
