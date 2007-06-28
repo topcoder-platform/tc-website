@@ -4,6 +4,23 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.28.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=062807">Meet the June Coders of the Month</A></span><br><br>
+      We caught up with June's "coders of the month," to learn a little bit more about them, how they feel about competition, and more&#8230;
+        </td>
+      <td class="newsPhoto"><%--<img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/>--%> <br>by <tc-webtag:handle coderId="8365955" /> </td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=features&d2=062807">full story</A> | 
+        <tc-webtag:forumLink forumID="516358" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.27.07<br>10:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -30,7 +47,7 @@
       <td valign="top"><span class="newsTitle">
         Component <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">Development</A> Finals: Round 1
         </span><br><br>
-        For their first component, the TCO07 Design finalists tackled File Delivery, which automatically stores files for email attachment. The Development finalists worked on DynamicWebPageData, which standardizes the handling of data within a web application.
+        For their first component, the TCO07 Design finalists tackled File Delivery, which automatically stores files for email attachment. The Development finalists worked on Dynamic Web Page Data, which standardizes the handling of data within a web application.
         </td>
       </tr></table>
       </td>
@@ -202,24 +219,5 @@ wanting to upset the favorites.
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=aol">details</A> |
         <tc-webtag:forumLink forumID="516276" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>06.20.07<br>12:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='newsitem' />">Episode 2 of the TC Channel now online</A>
-        </span><br><br>
-        Episode 2 of the TC Channel is now available online. This month's episode includes the latest news, a new approach to the educational segment, an interview with <tc-webtag:handle coderId="7267401" />, a profile of the Paweska clan -- <tc-webtag:handle coderId="287614" />, <tc-webtag:handle coderId="252022" /> and <tc-webtag:handle coderId="10535364" /> -- and your viewer mail.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='newsitem' />">details</A> |
-        <tc-webtag:forumLink forumID="516246" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
       
