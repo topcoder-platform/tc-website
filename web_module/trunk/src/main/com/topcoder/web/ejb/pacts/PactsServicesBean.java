@@ -336,6 +336,54 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         }
     }
 
+    private ResultSet runSearchQuery(Connection c, String query, ArrayList objects) throws SQLException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ps = c.prepareStatement(query);
+            for (int i = 0; i < objects.size(); i++) {
+                Object o = objects.get(i);
+                if (o instanceof Timestamp)
+                    ps.setTimestamp(i + 1, (Timestamp) o);
+                else if (o instanceof String)
+                    ps.setString(i + 1, (String) o);
+            }
+            rs = ps.executeQuery();
+//            ResultSetContainer rsc = new ResultSetContainer(rs, false);
+//            rs.close();
+//            rs = null;
+            ps.close();
+            ps = null;
+
+            return rs;
+        } catch (Exception e) {
+            printException(e);
+            StringBuffer sb = new StringBuffer(300);
+            sb.append("----- Query:\n");
+            sb.append(query + "\n");
+            sb.append("----- Objects: (size:");
+            sb.append(objects.size());
+            sb.append(")\n");
+            for (int i = 0; i < objects.size(); i++)
+                sb.append(objects.get(i).toString() + "\n");
+            log.error(sb.toString());
+
+            try {
+                if (rs != null) rs.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            rs = null;
+            try {
+                if (ps != null) ps.close();
+            } catch (Exception e1) {
+                printException(e1);
+            }
+            ps = null;
+            throw new SQLException(e.getMessage());
+        }
+    }
+
     private Timestamp makeTimestamp(String dateString, boolean allowNulls, boolean endOfDay)
             throws Exception {
         log.debug("makeTimestamp: " + dateString + " " + allowNulls + " " + endOfDay);
@@ -1483,45 +1531,51 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * Helper method to create the assignment document bean
      *
      * @param conn the connection to use
-     * @param rsr  the ResultSetRow retrieved
+     * @param rs  the ResultSetRow retrieved
      * @return The Assignment Document bean
      * @throws SQLException If there is some problem retrieving the data
      */
-    private AssignmentDocument createAssignmentDocumentBean(Connection conn, ResultSetRow rsr) throws SQLException {
+    private AssignmentDocument createAssignmentDocumentBean(Connection conn, ResultSet rs) throws SQLException {
         AssignmentDocument ad = new AssignmentDocument();
-        ad.setId(new Long(rsr.getLongItem("assignment_document_id")));
+        ad.setId(new Long(rs.getLong("assignment_document_id")));
 
-        ad.setHardCopy(new Boolean(rsr.getIntItem("assignment_document_hard_copy_ind") == 1));
-        ad.setAffirmedDate(rsr.getTimestampItem("affirmed_date"));
-        ad.setExpireDate(rsr.getTimestampItem("expire_date"));
-        ad.setCreateDate(rsr.getTimestampItem("create_date"));
-        ad.setModifyDate(rsr.getTimestampItem("modify_date"));
+        ad.setHardCopy(new Boolean(rs.getInt("assignment_document_hard_copy_ind") == 1));
+        ad.setAffirmedDate(rs.getTimestamp("affirmed_date"));
+        ad.setExpireDate(rs.getTimestamp("expire_date"));
+        ad.setCreateDate(rs.getTimestamp("create_date"));
+        ad.setModifyDate(rs.getTimestamp("modify_date"));
 
-        UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rsr.getLongItem("user_id")));
+        UserProfileHeader user = new UserProfileHeader(getUserProfileHeader(conn, rs.getLong("user_id")));
         User u = new User();
         u.setId(new Long(user.getId()));
         u.setHandle(user.getHandle());
         ad.setUser(u);
 
-        ad.setText(rsr.getStringItem("assignment_document_text"));
-        ad.setSubmissionTitle(rsr.getStringItem("assignment_document_submission_title"));
+        byte[] bytes = rs.getBytes("assignment_document_text");
+        if (bytes == null)
+            ad.setText("");
+        else
+            ad.setText(new String(bytes));
+//        ad.setText(DBMS.getTextString(rsr., "assignment_document_text"));
+
+        ad.setSubmissionTitle(rs.getString("assignment_document_submission_title"));
 
         AssignmentDocumentType adt = new AssignmentDocumentType();
-        adt.setId(new Long(rsr.getLongItem("assignment_document_type_id")));
-        adt.setDescription(rsr.getStringItem("assignment_document_type_desc"));
+        adt.setId(new Long(rs.getLong("assignment_document_type_id")));
+        adt.setDescription(rs.getString("assignment_document_type_desc"));
         ad.setType(adt);
 
         AssignmentDocumentStatus ads = new AssignmentDocumentStatus();
-        ads.setId(new Long(rsr.getLongItem("assignment_document_status_id")));
-        ads.setDescription(rsr.getStringItem("assignment_document_status_desc"));
+        ads.setId(new Long(rs.getLong("assignment_document_status_id")));
+        ads.setDescription(rs.getString("assignment_document_status_desc"));
         ad.setStatus(ads);
 
-        if (rsr.getItem("component_project_id").getResultData() != null) {
-            ComponentProject cp = findComponentProjectById(rsr.getLongItem("component_project_id"));
+        if (rs.getObject("component_project_id") != null) {
+            ComponentProject cp = findComponentProjectById(rs.getLong("component_project_id"));
             ad.setComponentProject(cp);
         }
-        if (rsr.getItem("studio_contest_id").getResultData() != null) {
-            StudioContest c = findStudioContestsById(rsr.getLongItem("studio_contest_id"));
+        if (rs.getObject("studio_contest_id") != null) {
+            StudioContest c = findStudioContestsById(rs.getLong("studio_contest_id"));
             ad.setStudioContest(c);
         }
 
@@ -1566,9 +1620,11 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws SQLException If there is some problem retrieving the data
      */
     public List findAssignmentDocument(Map searchCriteria) {
+        ResultSet rs = null;
         ResultSetContainer rsc = null;
         List l = new ArrayList();
         Connection c = null;
+        PreparedStatement ps = null;
 
         try {
             c = DBMS.getConnection(trxDataSource);
@@ -1634,21 +1690,27 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 }
             }
 
-            rsc = runSearchQuery(c, getAssignmentDocument.toString(), objects, true);
-
-            for (Iterator it = rsc.iterator(); it.hasNext();) {
-                ResultSetRow rsr = (ResultSetRow) it.next();
-
-                AssignmentDocument ad = createAssignmentDocumentBean(c, rsr);
+            rs = runSearchQuery(c, getAssignmentDocument.toString(), objects);
+            while (rs.next()) {
+                AssignmentDocument ad = createAssignmentDocumentBean(c, rs);
 
                 l.add(ad);
             }
+
+//            for (Iterator it = rsc.iterator(); it.hasNext();) {
+//                ResultSetRow rsr = (ResultSetRow) it.next();
+//
+//                AssignmentDocument ad = createAssignmentDocumentBean(c, rsr);
+//
+//                l.add(ad);
+//            }
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
             throw (new EJBException(e.getMessage(), e));
         } catch (Exception e) {
             throw (new EJBException(e.getMessage(), e));
         } finally {
+            close(rs);
             close(c);
         }
         return l;
@@ -1850,15 +1912,23 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             ps.setLong(1, assignmentDocumentTypeId);
             rs = ps.executeQuery();
-            rsc = new ResultSetContainer(rs, false);
+//            rsc = new ResultSetContainer(rs, false);
 
-            if (rsc.isEmpty()) {
+            if (!rs.next()) {
                 throw new IllegalUpdateException("Couldn't find an assigment document for id: " + assignmentDocumentTypeId);
             }
 
             AssignmentDocumentTemplate adt = new AssignmentDocumentTemplate();
-            adt.setId(new Long(rsc.getLongItem(0, "assignment_document_template_id")));
-            adt.setText(rsc.getStringItem(0, "assignment_document_template_text"));
+            adt.setId(new Long(rs.getLong("assignment_document_template_id")));
+
+            
+            byte[] bytes = rs.getBytes("assignment_document_template_text");
+            if (bytes == null)
+                adt.setText("");
+            else
+                adt.setText(new String(bytes));
+
+//            adt.setText(rs.getString("assignment_document_template_text"));
 
             return adt;
         } catch (SQLException e) {
@@ -2040,7 +2110,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setObject(8, ad.getComponentProject() == null ? null : ad.getComponentProject().getId());
             ps.setTimestamp(9, ad.getAffirmedDate());
             if (addOperation || updateText) {
-                ps.setString(10, ad.getText());
+                ps.setBytes(10, DBMS.serializeTextString(ad.getText()));
                 ps.setTimestamp(11, ad.getExpireDate());
                 if (!addOperation) {
                     ps.setLong(12, ad.getId().longValue());
@@ -5032,7 +5102,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, assignmentDocumentTemplateId);
             ps.setInt(2, assignmentdocumentTypeId);
-            ps.setBytes(3, text.getBytes());
+            ps.setBytes(3, DBMS.serializeTextString(text));
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
