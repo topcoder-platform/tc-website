@@ -82,9 +82,28 @@ Congratulations to the advancers and good luck to the coders competing in the Wi
     return bestResult;
 </pre>
 <p>Instead of using a whole matrix we can use two rows cause we generate best[p] from best[p-1], and to use just one row we fill the elements of the row from right to left, so that if we are currently at element j, all elements from j to the end are elements of best[p] being processed and all elements from start to j are elements of best[p - 1].</p>
+
 <p><span style="font-size:14px; font-weight:bold;">Inc</span></p>
 <p>by <tc-webtag:handle coderId="287269" context="algorithm"/></p>
-<p>The editorial for Inc is coming soon...</p>
+<p>
+This problem can be solved with a recursive function to return the final state of the board, given the current state and how may turns have been taken.
+From the number of turns, you can deduce whose turn it is to move next.
+To find that player's best move, simply loop through all legal moves, generate the new board state, and call the function recursively to determine what final state this move would result in.
+Coding the somewhat complex tiebreaking rules can be simplified a bit by looping over the legal moves in the correct order.
+</p>
+
+<p>
+Of course, a recursive function will time out without using dynamic programming or memoization.
+It is key to realize that not all possible 3^25 board positions are reachable from any single starting position.  You only need to store the increment (mod 3) for each row and column, leading to a much more manageable 3^10 possible states.
+</p>
+
+<p>
+This problem would be simpler if it only asked for your final score, rather than the final board position.
+You can either store both the score and board position in your memoization table, or have a function that computes your score based on the initial board position and increments for each row and column.
+Efficient coding is required to avoid timing out.
+I had to add a second memoization table to the function that computes the score based on a board position in order to make my solution fast enough.
+That explains why I'm not among the ranks of the the coders participating in the onsite rounds of the TopCoder Open.
+</p>
 
 
 <br /><br />
