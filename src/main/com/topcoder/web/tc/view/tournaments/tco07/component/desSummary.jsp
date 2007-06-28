@@ -37,13 +37,29 @@
                             <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=516333">Discuss this</A><br>
                         </div>
 
-<p>Wednesday, June 27, 2007<br />
+<p>Thursday, June 28, 2007<br />
 by <span><b>the Design Review Board</b></span><br />
 <span><i>TopCoder Members</i></span></p>
 
 <p>Here's an overview of the components the Design finalists have been battling over:</p>
 
+<%-- Round 2 --%>
+<p>Thursday, June 28, 2007<br />
+<span style="font-size:14px; font-weight:bold;">Generic Application Service Processor</span><br />
+by <tc-webtag:handle coderId="10348862" context="design" />
+</p>
 
+<p>The Generic Application Service Processor (GASP) component provides a service framework for applications, which allows the decoupling between the presentation and business tiers of an application. The customer of a service will use a concrete Event in order to invoke the service. He can pass the custom arguments using the Payload property of the Event. The user will interact only with a service processor delegate, which has the ability to look up the service processor (similar to how the Context is looked up in Java).</p>
+<p>The GASP will look up the concrete service implementation based on the ID and version of the Event and will invoke the service. The invocation can be performed inside a transaction and this component will provide at least one implementation of a transaction management mechanism. The result of the service invocation will be returned to the user inside a ServiceResponse, in the Payload property. The user will also have the possibility to simulate a session between multiple invocations of different services by reusing the same EventContext for subsequent service invocations.</p>
+<p>Implementing the design for this component was quite straightforward, as the notions needed for the framework were identified and well specified in the requirements. One place where the designers had to be creative in order to achieve the requirements was in the transactions area.</p>
+<p>For the Java version, there are multiple technologies that could be supported: EJB, Spring, and so forth. For the .NET version, the usage of TransactionScope was quite straightforward. The designers also had a challenge in choosing the way to look up the service processor and the way to invoke the services. These could have been done locally (using direct method calls) or remotely. There was one interesting approach which uses MSMQs in order to look-up the service processor remotely.</p>
+<p>This approach has the advantage of working remotely, but it has the drawback of a possible overhead introduced by the queues. Another interesting aspect inside a submission was the possibility to map the service to normal methods, similar to how web services / web methods work.</p>
+
+<br /><br />
+
+
+
+<%-- Round 1 --%>
 <p>Wednesday, June 27, 2007<br />
 <span style="font-size:14px; font-weight:bold;">Round 1: File Delivery</span><br />
 by <tc-webtag:handle coderId="278342" />
@@ -58,7 +74,6 @@ From a design point of view this application is not hard but there are a lot of 
 <p>
 The best submission managed to address all the requirements properly and also took into consideration performance issues (handling huge uploaded files efficiently). Some added additional functionality, such as the ability to view a history of the uploaded files, and support for authentication in the future.
 </p>
-
 <p>And here is the final scoreboard for this component:</p>
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%"> <thead>
     <tr class="sidebarTitle" nowrap="nowrap"> <td class="header">Competitor</td><td class="header">Reviewer: <tc-webtag:handle coderId="10526732" context="design"/></td><td class="header">Reviewer: <tc-webtag:handle coderId="278342" context="design"/></td><td class="header">Reviewer: <tc-webtag:handle coderId="10348862" context="design"/></td><td class="header">Average</td>

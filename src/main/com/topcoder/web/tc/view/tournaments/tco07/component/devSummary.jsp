@@ -37,13 +37,32 @@
                             <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=516333">Discuss this</A><br>
                         </div>
 
-<p>Wednesday, June 27, 2007<br />
+<p>Thursday, June 28, 2007<br />
 by <span><b>the Development Review Board</b></span><br />
 <span><i>TopCoder Members</i></span></p>
 
-<p>Here's an overview of the components the Design finalists have been battling over:</p>
+<p>Here's an overview of the components the Development finalists have been battling over:</p>
 
 
+<%-- Round 2 --%>
+<p>Wednesday, June 28, 2007<br />
+<span style="font-size:14px; font-weight:bold;">AJAX Customizable Page Layout</span><br />
+by <tc-webtag:handle coderId="7584235" context="development" />
+</p>
+
+<p>The AJAX Customizable Page Layout component provides an AJAX-based mechanism for use with web applications to give the ability for a web application user to customize the layout of a page by dragging and dropping content sections. The component consists of custom controls that implement the movable sections, and server-side objects that handle AJAX-based notifications of customization actions by recording them in a persistent store for use during subsequent page views.</p>
+<p>The movement of sections is supported by the client-side JavaScript classes. Yes! C# developers had to write JavaScript code here.</p>
+<p>Actually this part could be identical in Java and C# versions but designers used different ways of interacting with the underlying TopCoder JavaScript Drag and Drop component.</p>
+<p>In the C# version, the designer suggested developers explicitly control the absolute coordinates of the movable sections. In this case when any action occurs we need to manually rearrange elements. It includes calculation of parent's absolute coordinates and relative position of each section within the parent. But JavaScript functions have different behavior depends of the browser (we need to support IE and FireFox) and page mode (quirks or strict) and it is not easy to make all these things workable. The other common challenge came from the fact that developers have to recalculate positions not only after the layout change but after other events (load, resize) also.</p>
+<p>In the Java version developers didn't work with coordinates at all but instead swapped elements in the DOM. It is much easier and requires less effort to make the component workable.</p>
+<p>Compared with JavaScript, the implementation of the custom controls and server side objects was straightforward and relatively easy.</p>
+
+<br /><br />
+
+
+
+
+<%-- Round 1 --%>
 <p>Wednesday, June 27, 2007<br />
 <span style="font-size:14px; font-weight:bold;">Dynamic Web Page Data</span><br />
 by <tc-webtag:handle coderId="297731" />
@@ -58,7 +77,6 @@ Even though simple in appearance, its developers needed to pay special attention
 <p>
 It should be interesting to see what usage this component is put to in the following weeks.
 </p>
-
 <p>And here is the final scoreboard for this component:</p>
 <table cellspacing="0" cellpadding="0" class="stat" style="width: 100%"> <thead>
     <tr class="sidebarTitle" nowrap="nowrap"> <td class="header">Competitor</td><td class="header">Reviewer: <tc-webtag:handle coderId="347569" context="development"/></td><td class="header">Reviewer: <tc-webtag:handle coderId="297731" context="development"/></td><td class="header">Reviewer: <tc-webtag:handle coderId="7584235" context="development"/></td><td class="header">Average</td>
