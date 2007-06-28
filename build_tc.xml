@@ -133,7 +133,7 @@
         </javac>
         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
-        <property name="compile_shared_set" value="true"/>
+	<property name="compile_shared_set" value="true"/>
     </target>
 
     <target name="compile" depends="init,jar_shared" unless="compile_set">
@@ -153,8 +153,8 @@
             <exclude name="com/topcoder/web/csf/**"/>
             <exclude name="com/topcoder/web/wiki/**"/>
         </javac>
-        <antcall target="jar_common"/>
         <property name="compile_set" value="true"/>
+        <antcall target="jar_common"/>
     </target>
 
     <target name="javadocs">
@@ -177,12 +177,13 @@
         <delete dir="${bin}"/>
     </target>
 
-    <target name="jar_shared" depends="compile_shared">
+    <target name="jar_shared" depends="compile_shared" unless="jar_shared_set">
         <jar jarfile="${shared.jar}">
             <fileset dir="${classes}">
                 <include name="com/topcoder/shared/**/*.class"/>
             </fileset>
         </jar>
+	<property name="jar_shared_set" value="true"/>
     </target>
 
     <target name="jar_common" depends="">
@@ -508,7 +509,7 @@
     </target>
 
 
-    <target name="deploy">
+    <target name="deploy" depends="compile">
         <antcall target="deploy-tc"/>
         <antcall target="deploy-admin"/>
         <antcall target="deploy-query"/>
