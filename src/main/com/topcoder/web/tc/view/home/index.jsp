@@ -100,7 +100,7 @@
 </tr>
 <tr>
     <td align="center" colspan="3">
-        <A href="<tc-webtag:linkTracking link='/whatistopcoder' refer='homepage' />"><img src="/i/home/webuildsoftwareV2.png" alt="" style="display: block;" /></A>
+        <A href="<tc-webtag:linkTracking link='http://software.topcoder.com/tour/page1.jsp' refer='homepage' />"><img src="/i/home/webuildsoftwareV3.png" alt="" style="display: block;" /></A>
     </td>
 </tr>
 </tbody>
