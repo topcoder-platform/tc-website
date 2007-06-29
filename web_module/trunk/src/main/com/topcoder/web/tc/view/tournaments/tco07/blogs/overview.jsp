@@ -44,6 +44,18 @@
                                 </p>
                                 
                                 <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=jmzero08">Floors, Windows, and an interview with bmerry</A></span><br />
+                                    [ Friday, June 29 - 2:00 PM ]
+                                </p>
+                            </div>
+                            
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
+                                    <img src="/i/m/jmzero_big.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><tc-webtag:handle coderId="15498334" context="algorithm"/></span>
+                                </p>
+                                
+                                <p style="float:left;">
                                     <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=jmzero07">Groups of blue men</A></span><br />
                                     [ Friday, June 29 - 11:45 AM ]
                                 </p>
