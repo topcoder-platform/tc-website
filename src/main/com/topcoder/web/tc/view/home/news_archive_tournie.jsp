@@ -39,8 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
-<%-- <tr class="bodyText"><td nowrap="nowrap">06.28.07 10:00 PM - </td><td width="100%"><A href=" ">Cast your vote for a new Studio homepage</A></td></tr> --%>
-
+<tr class="bodyText"><td nowrap="nowrap">06.28.07 10:45 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=19040">Pick the winner of the Studio competition!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.28.07 9:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoWildcard">JongMan wins the Wildcard round!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.28.07 6:50 PM - </td><td width="100%">Component <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">Development</A>Finals: Round 2</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.28.07 4:45 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi03">bmerry wins Room 3!</A></td></tr>
