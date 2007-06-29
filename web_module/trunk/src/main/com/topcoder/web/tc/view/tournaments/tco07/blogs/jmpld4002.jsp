@@ -44,7 +44,7 @@
                         
                         <br>
                         <p>TopCoder admins work really hard at the TCO, but we do have some time for some fun too! I was able to get some fun pictures of our admins being crazy and just having a good time.</p>
-                        <p>Here is <tc-webtag:handle coderId="8520396"/> and jwlms on the last day of set up.</p>
+                        <p>Here is <tc-webtag:handle coderId="8520396"/> and <a href="http://studio.topcoder.com/" class="coderTextOrange">jwlms</a> on the last day of set up.</p>
                         <p><div align=center><img src="/i/tournament/tco07/blogs/jmpld4002_2.jpg"></div><br /></p>
                         <p>Here is the <tc-webtag:handle coderId="7267401"/> doing what he does best!</p>
                         <p><div align=center><img src="/i/tournament/tco07/blogs/jmpld4002_3.jpg"></div><br /></p>
