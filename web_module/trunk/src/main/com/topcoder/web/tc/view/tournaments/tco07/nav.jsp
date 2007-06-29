@@ -139,9 +139,7 @@
                         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi02"<% if (tabLev1.equals("algorithm") && tabLev2.equals("summary") && tabLev3.equals("room2")) {%> class="navHighlight"<% } %>><span>Room 2</span></a></li>
                         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoSemi03"<% if (tabLev1.equals("algorithm") && tabLev2.equals("summary") && tabLev3.equals("room3")) {%> class="navHighlight"<% } %>><span>Room 3</span></a></li>
                         <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoWildcard"<% if (tabLev1.equals("algorithm") && tabLev2.equals("summary") && tabLev3.equals("wildcard")) {%> class="navHighlight"<% } %>><span>WildCard</span></a></li>
-                        <%--
-                        <li class="stop"><a href=""><span>Finals</span></a></li>
-                --%>
+                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoFinals"<% if (tabLev1.equals("algorithm") && tabLev2.equals("summary") && tabLev3.equals("finals")) {%> class="navHighlight"<% } %>><span>Finals</span></a></li>
                     </ul>
                 </li>
             </ul>
@@ -229,11 +227,10 @@
                     <a href="/tc?module=TCO07ViewRegistrants&amp;ct=marathon"<% if (tabLev1.equals("marathon") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
                         <span>Registrants</span>
                     </a></li>
-                <%--
                 <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=description"<% if (tabLev1.equals("algorithm") && tabLev2.equals("description")) {%> class="navHighlight"<% } %>>
+                    <a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=summary"<% if (tabLev1.equals("marathon") && tabLev2.equals("summary")) {%> class="navHighlight"<% } %>>
                         <span>Summary</span>
-                    </a></li> --%>
+                    </a></li>
             </ul>
         </li>
         <%--------------STUDIO---------------%>
@@ -270,12 +267,9 @@
                     <a href="/tc?module=TCO07ViewRegistrants&amp;ct=studio"<% if (tabLev1.equals("studio") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
                         <span>Registrants</span>
                     </a></li>
-                    
-                <%--
                 <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=description"<% if (tabLev1.equals("algorithm") && tabLev2.equals("description")) {%> class="navHighlight"<% } %>>
+                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=summary"<% if (tabLev1.equals("studio") && tabLev2.equals("summary")) {%> class="navHighlight"<% } %>>
                         <span>Summary</span>
-                    </a></li> --%>
             </ul>
         </li>
     </ul>
