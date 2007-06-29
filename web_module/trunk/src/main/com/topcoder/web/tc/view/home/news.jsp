@@ -2,6 +2,52 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
+<%-----------------------------
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.28.07<br>10:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href=" ">Cast your vote for a new Studio homepage</A>
+        </span><br><br>
+For this contest, we asked the TCO Studio Design Competition finalists to come up with a new "look and feel" for the Studio homepage.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href=" ">details</A> |
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=363">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+      ---------------------------%>
+      
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.28.07<br>9:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoWildcard">JongMan wins the Wildcard round!</A>
+        </span><br><br>
+<tc-webtag:handle coderId="7446789" context="algorithm"/> and <tc-webtag:handle coderId="144400" context="algorithm"/> advance to the finals. They'll join 
+<tc-webtag:handle coderId="309453" context="algorithm"/>,
+<tc-webtag:handle coderId="8355516" context="algorithm"/>, 
+<tc-webtag:handle coderId="21822659" context="algorithm"/>, 
+<tc-webtag:handle coderId="14886245" context="algorithm"/>, 
+<tc-webtag:handle coderId="251074" context="algorithm"/> and 
+<tc-webtag:handle coderId="21971539" context="algorithm"/> in the finals tomorrow, starting at 1:30 PM PDT.
+Congratulations and good luck to the finalists!
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoWildcard">details</A> |
+        <tc-webtag:forumLink forumID="514957" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+      
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.28.07<br>6:50 PM</td>
@@ -203,22 +249,5 @@ wanting to upset the favorites.
         <A href="/tc?module=Static&d1=match_editorials&d2=srm355">full story</A> | 
         <tc-webtag:forumLink forumID="516052" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.21.07<br>5:00 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=062107">TCO Preview: By the Numbers</A></span><br><br>
-      Every year, the TCO brings together a most interesting group of people, coming from an increasingly diverse and remote cross-section of the world.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/timmac_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10407399" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=062107">full story</A> | 
-        <tc-webtag:forumLink forumID="516286" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
    
