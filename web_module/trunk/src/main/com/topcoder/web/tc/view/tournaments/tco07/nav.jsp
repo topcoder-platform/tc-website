@@ -265,6 +265,10 @@
                     <a href="/tc?module=TCO07ViewRegistrants&amp;ct=studio"<% if (tabLev1.equals("studio") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
                         <span>Registrants</span>
                     </a></li>
+                <li class="stop">
+                    <a href="">
+                        <strong><span>Vote for the winner</span></strong>
+                    </a></li>
             </ul>
         </li>
     </ul>
