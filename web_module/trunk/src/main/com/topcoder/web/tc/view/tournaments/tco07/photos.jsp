@@ -17,7 +17,7 @@
         }
         var imageNum = 1;
                 
-        var count = 177;
+        var count = 225;
         var images = new Array(count);
         for (var i=0; i<count; i++) {
             images[i]= "/i/tournament/tco07/onsitePhotos/"+lpad(i+1)+".jpg";
@@ -118,10 +118,10 @@
                 | <a href="#spot" onClick="changeImage(111);">Algo Room 2</a>
                 | <a href="#spot" onClick="changeImage(141);">Studio</a>
                 | <a href="#spot" onClick="changeImage(155);">Algo Room 3</a>
-<%--
-                | <a href="#spot" onClick="changeImage(39);">WildCard</a>
+                | <a href="#spot" onClick="changeImage(177);">WildCard</a>
                 <br>
-                <a href="#spot" onClick="changeImage(49);">Component Finals</a>
+                <a href="#spot" onClick="changeImage(199);">Component Finals</a>
+<%--
                 | <a href="#spot" onClick="changeImage(59);">Algorithm Finals</a>
                 | <a href="#spot" onClick="changeImage(69);">Winners</a>
 --%>
