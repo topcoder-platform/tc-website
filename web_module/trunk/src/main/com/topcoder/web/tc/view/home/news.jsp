@@ -10,7 +10,7 @@
       <td valign="top"><span class="newsTitle">
         <A href=" ">Cast your vote for a new Studio homepage</A>
         </span><br><br>
-For this contest, we asked the TCO Studio Design Competition finalists to come up with a new "look and feel" for the Studio homepage.
+For this contest, we asked the TCO Studio Design Competition finalists to come up with a new "look and feel" for the Studio homepage.  Voting ends at 4:00 PM EDT on Friday June 29.  Vote now!
         </td>
       </tr></table>
       </td>
