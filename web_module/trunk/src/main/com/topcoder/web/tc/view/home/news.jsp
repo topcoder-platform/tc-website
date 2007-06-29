@@ -4,6 +4,26 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.29.07<br>5:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        Component <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">Development</A> Finals: Round 3
+        </span><br><br>
+        For their final component, the TCO07 Design finalists worked on DB Converter, which provides the functionality to convert a database structure from one database to another. The Development finalists worked on Stress Test, which provides a framework for defining and executing stress tests. Watch for the final results later today.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">design</A> |
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">development</A> |
+        <tc-webtag:forumLink forumID="516333" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+      
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.29.07<br>4:25 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -74,7 +94,7 @@ Congratulations and good luck to the finalists!
       <td valign="top"><span class="newsTitle">
         Component <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">Development</A> Finals: Round 2
         </span><br><br>
-        For their first component, the TCO07 Development finalists worked on AJAX Customizable Page Layout, while the Design finalists tackled the Generic Application Service Processor.
+        For their second component, the TCO07 Development finalists worked on AJAX Customizable Page Layout, while the Design finalists tackled the Generic Application Service Processor.
         </td>
       </tr></table>
       </td>
@@ -221,20 +241,3 @@ wanting to upset the favorites.
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
       
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Features" border="0" /><br>06.25.07<br>5:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=062507">TCO Preview: Meet the Bloggers</A></span><br><br>
-      The winners of this year's TopCoder Open "Blog It" contest, Petr and jmzero will be blogging about the TCO in Las Vegas later this week.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/jmzero_big.jpg" alt="" width="55" height="61"/> &amp; <img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="15498334" /> &amp; <tc-webtag:handle coderId="10574855" /></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=features&d2=062507">full story</A> | 
-        <tc-webtag:forumLink forumID="516296" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
