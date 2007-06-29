@@ -32,7 +32,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><span>Component Development Summary</span></h1>
+                        <h1><span>Hefeng is the new Component Development Champion</span></h1>
                         <div style="float:right;">
                             <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=516333">Discuss this</A><br>
                         </div>
@@ -41,7 +41,7 @@
 by <span><b>the Development Review Board</b></span><br />
 <span><i>TopCoder Members</i></span></p>
 
-<p>Here's an overview of the components the Development finalists have been battling over:</p>
+<p>After three days of on-site finals, <tc-webtag:handle coderId="15214882" context="development"/> emerged as the winner of the 2007 TopCoder Open Component Development competition, taking home the top prize of $15,000. <tc-webtag:handle coderId="9998760" context="development"/> came in second, and <tc-webtag:handle coderId="7210680" context="development"/> took home the third.</p>
 
 
 <%-- Round 3 --%>
