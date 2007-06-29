@@ -86,7 +86,8 @@
                 So, poke around, ask questions and, above all, compete and have fun!
                 <br><br>
 
-                <h2><A href="/?module=ViewActiveContests">Check out some Studio contests!</A></h2>
+                <h2 align="center"><A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=ViewSurvey&sid=19040">Vote now</A> for the<br />TCO07 Studio Competition winner!</h2>
+                <%--<h2><A href="/?module=ViewActiveContests">Check out some Studio contests!</A></h2>--%>
                 <A href="https://<%=ApplicationServer.SERVER_NAME%>/reg/">Register</A> as a Studio
                 member so you can receive emails when new contests arrive.
                 <br><br>
