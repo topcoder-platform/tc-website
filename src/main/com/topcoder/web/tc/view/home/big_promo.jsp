@@ -29,8 +29,11 @@
         <area shape="rect" alt="" coords="375,109,430,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=photos" />
         <area shape="rect" alt="" coords="442,109,489,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=overview" />
         </map>
-        <img src="/i/home/tco07webcast.png" alt="2007 TopCoder Open" usemap="#tco07" />
+        <img src="/i/home/tco07webcast.png" alt="2007 TopCoder Open" usemap="#tco07" style="display: block;" />
         --%>
+        <div>
+            <a href="/tc?module=ViewSurvey&sid=19040"><img src="/i/home/tco07StudioVote.png" alt="" style="display: block;" /><a>
+        </div>
 
 <%-- homepage design prediction 
 <A href="/to"><img src="/i/home/predictRd2.png" alt="Predict the winners"/></A>

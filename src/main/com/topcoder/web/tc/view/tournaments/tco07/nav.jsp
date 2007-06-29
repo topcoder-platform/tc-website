@@ -266,7 +266,7 @@
                         <span>Registrants</span>
                     </a></li>
                 <li class="stop">
-                    <a href="">
+                    <a href="/tc?module=ViewSurvey&sid=19040">
                         <strong><span>Vote for the winner</span></strong>
                     </a></li>
             </ul>

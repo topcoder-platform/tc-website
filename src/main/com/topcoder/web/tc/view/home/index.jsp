@@ -85,6 +85,11 @@
         </map>
         <img src="/i/home/tco07webcast.png" alt="2007 TopCoder Open" usemap="#tco07" />
         --%>
+
+        <div>
+            <a href="/tc?module=ViewSurvey&sid=19040"><img src="/i/home/tco07StudioVote.png" alt="" style="display: block;" /><a>
+        </div>
+
         <%-- TC CHANNEL 
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='homepage' />"><img src="/i/home/tcchannelEp2.jpg" alt="TC Channel: Episode 2" /></A>
         --%>
