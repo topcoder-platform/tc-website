@@ -229,6 +229,11 @@
                     <a href="/tc?module=TCO07ViewRegistrants&amp;ct=marathon"<% if (tabLev1.equals("marathon") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
                         <span>Registrants</span>
                     </a></li>
+                <%--
+                <li class="stop">
+                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=description"<% if (tabLev1.equals("algorithm") && tabLev2.equals("description")) {%> class="navHighlight"<% } %>>
+                        <span>Summary</span>
+                    </a></li> --%>
             </ul>
         </li>
         <%--------------STUDIO---------------%>
@@ -265,6 +270,12 @@
                     <a href="/tc?module=TCO07ViewRegistrants&amp;ct=studio"<% if (tabLev1.equals("studio") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
                         <span>Registrants</span>
                     </a></li>
+                    
+                <%--
+                <li class="stop">
+                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=description"<% if (tabLev1.equals("algorithm") && tabLev2.equals("description")) {%> class="navHighlight"<% } %>>
+                        <span>Summary</span>
+                    </a></li> --%>
             </ul>
         </li>
     </ul>
