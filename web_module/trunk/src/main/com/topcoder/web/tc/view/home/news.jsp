@@ -2,13 +2,13 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
 
-<%-----------------------------
+<%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.28.07<br>10:00 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.28.07<br>10:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
-        <A href=" ">Cast your vote for a new Studio homepage</A>
+        <A href="/tc?module=ViewSurvey&sid=19040">Pick the winner of the Studio competition!</A>
         </span><br><br>
 For this contest, we asked the TCO Studio Design Competition finalists to come up with a new "look and feel" for the Studio homepage.  Voting ends at 4:00 PM EDT on Friday June 29.  Vote now!
         </td>
@@ -16,11 +16,10 @@ For this contest, we asked the TCO Studio Design Competition finalists to come u
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href=" ">details</A> |
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=363">discuss this</a> | 
+        <A href="/tc?module=ViewSurvey&sid=19040">details</A> |
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=626&start=0&mc=1#2345">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
-      ---------------------------%>
       
 <%--------------------------------------------------------%>
    <tr>
@@ -232,22 +231,5 @@ wanting to upset the favorites.
        <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">details</A> | 
        <tc-webtag:forumLink forumID="516295" message="discuss this" /> | 
        <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>06.22.07<br>1:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm355">SRM 355 - Problem Set &amp; Analysis</A></span><br><br>
-      The match in Division 1 started quietly, as most coders struggled with an unusually tedious easy problem. However, the solutions finally started to pour in, as about 400 coders managed to submit something, and several coders even submitted all three.
-        </td>
-      <td class="newsPhoto"><img src="/i/m/Petr_big.jpg" alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10574855" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=match_editorials&d2=srm355">full story</A> | 
-        <tc-webtag:forumLink forumID="516052" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
