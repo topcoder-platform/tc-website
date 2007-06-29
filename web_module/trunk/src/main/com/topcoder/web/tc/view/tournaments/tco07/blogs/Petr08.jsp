@@ -31,7 +31,7 @@
                 </td>
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
-                        <h1><span>Algorithm Wildcard Round 2 - 06.28.07 9:00 PM EDT</span></h1>
+                        <h1><span>Algorithm Wildcard Round - 06.28.07 9:00 PM EDT</span></h1>
                     
                         <div style="float:right;">
                             <tc-webtag:forumLink forumID="516303" message="Discuss" />

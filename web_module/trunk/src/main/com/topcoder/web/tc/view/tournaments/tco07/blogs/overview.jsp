@@ -44,7 +44,7 @@
                                 </p>
                                 
                                 <p style="float:left;">
-                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=Petr08">Algorithm Wildcard Round 2</A></span><br />
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=Petr08">Algorithm Wildcard Round</A></span><br />
                                     [ Thursday, June 28 - 9:00 PM ]
                                 </p>
                             </div>
