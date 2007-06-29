@@ -44,8 +44,24 @@ by <span><b>the Development Review Board</b></span><br />
 <p>Here's an overview of the components the Development finalists have been battling over:</p>
 
 
+<%-- Round 3 --%>
+<p>Friday, June 29, 2007<br />
+<span style="font-size:14px; font-weight:bold;">Stress Test</span><br />
+by <tc-webtag:handle coderId="347569" context="development"/>
+</p>
+
+<p>The Stress Test component provides a framework for defining and executing stress tests. The tests can be running on multiple threads with flexible scheduling options.</p>
+<p>Both designs (Java version and .NET version) are very clear and the implementation notes for most methods and algorithms are detailed. Developers should pay attention to thread safety, since most submissions had thread safety issues.</p>
+<p>In the test runner class of the .NET version, the original design uses the .NET framework API, which cannot handle more than 64 threads. One submission made improvements on this, and can use more than 64 threads to run the tests.</p>
+
+
+<br /><br />
+
+
+
+
 <%-- Round 2 --%>
-<p>Wednesday, June 28, 2007<br />
+<p>Thursday, June 28, 2007<br />
 <span style="font-size:14px; font-weight:bold;">AJAX Customizable Page Layout</span><br />
 by <tc-webtag:handle coderId="7584235" context="development" />
 </p>

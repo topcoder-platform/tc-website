@@ -43,6 +43,21 @@ by <span><b>the Design Review Board</b></span><br />
 
 <p>Here's an overview of the components the Design finalists have been battling over:</p>
 
+<%-- Round 3 --%>
+<p>Friday, June 29, 2007<br />
+<span style="font-size:14px; font-weight:bold;">DB Converter</span><br />
+by <tc-webtag:handle coderId="10526732" context="design"/>
+</p>
+
+<p>DB Converter is a command line tool which provides the functionality to convert a database structure from one database to another. Since the concrete design of different database systems vary a great deal, the component will only cover the configured / pre-defined parts of the database structure, and log all the things not successfully converted into a file. The initial version supports database objects including Table, Column, Keys and Index.</p>
+<p>The very first thing to consider before starting the design is to define a set of metadata to store the database structure, then two main procedures should be designed, one is to pull out the structure / objects of a database and convert it to the metadata form defined before, the other procedure is to convert the metadata information into DDL which can establish the structure in the destination database.</p>
+<p>The basic requirement is not hard to fulfill, but making the whole design clean and easy to understand is not a trivial job. More specifically, how to define the metadata and the configuration format is important for flexibility and extensibility consideration. Some of the competitors deal with this problem elegantly and provide clean design which is easy to extend and can accommodate further requirements.</p>
+
+
+<br /><br />
+
+
+
 <%-- Round 2 --%>
 <p>Thursday, June 28, 2007<br />
 <span style="font-size:14px; font-weight:bold;">Generic Application Service Processor</span><br />
