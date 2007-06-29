@@ -32,7 +32,7 @@
                 <td id="bodySpacer" width="100%">
                     <div id="pageBody">
 
-                        <h1><span>Component Design Summary</span></h1>
+                        <h1><span>kyky is the new Component Design Champion</span></h1>
                         <div style="float:right;">
                             <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=516333">Discuss this</A><br>
                         </div>
@@ -41,7 +41,8 @@
 by <span><b>the Design Review Board</b></span><br />
 <span><i>TopCoder Members</i></span></p>
 
-<p>Here's an overview of the components the Design finalists have been battling over:</p>
+<p>After three days of on-site finals, <tc-webtag:handle coderId="152342" context="design"/> emerged as the winner of the 2007 TopCoder Open Component Design competition, taking home the top prize of $25,000. <tc-webtag:handle coderId="22651514" context="design"/> took second place, and <tc-webtag:handle coderId="10028010" context="design"/> took home the third.</p>
+
 
 <%-- Round 3 --%>
 <p>Friday, June 29, 2007<br />
