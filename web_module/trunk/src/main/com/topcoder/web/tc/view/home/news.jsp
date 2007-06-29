@@ -8,15 +8,15 @@
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle">
-        <a href="http://dev.aol.com/tco_webcast1/">The TCO07 Webcast is now live!</A>
+        <a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://dev.aol.com/tco_webcast1&amp;refer=/tc" />The TCO07 Webcast is now live!</A>
         </span><br><br>
-Tune in to <a href="http://dev.aol.com/tco_webcast1/">dev.aol.com</a> now to watch all the action, live from Las Vegas.
+Tune in to <a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://dev.aol.com/tco_webcast1&amp;refer=/tc" />dev.aol.com</a> now to watch all the action, live from Las Vegas.
         </td>
       </tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <a href="http://dev.aol.com/tco_webcast1/">details</A> |
+        <a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://dev.aol.com/tco_webcast1&amp;refer=/tc" />details</A> |
         <tc-webtag:forumLink forumID="514380" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
