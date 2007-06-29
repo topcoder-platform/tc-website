@@ -47,6 +47,7 @@
     5.10.8 - 2007.06.xx
     <ul>
         <li>Make the left nav a bit more efficient by removing the server name from link when not necessary. -dok</li>
+        <li>Assignment Document database related bugfix. -pulky</li>
     </ul>
 </p>
 
