@@ -41,6 +41,8 @@
 by <span><b>the Design Review Board</b></span><br />
 <span><i>TopCoder Members</i></span></p>
 
+<img style="float:right; width:200px; 350px; padding-left:10px;" src="/i/tournament/tco07/compDes.jpg">
+<br><br>
 <p>After three days of on-site finals, <tc-webtag:handle coderId="152342" context="design"/> emerged as the winner of the 2007 TopCoder Open Component Design competition, taking home the top prize of $25,000. <tc-webtag:handle coderId="22651514" context="design"/> took second place, and <tc-webtag:handle coderId="10028010" context="design"/> took home the third.</p>
 
 
