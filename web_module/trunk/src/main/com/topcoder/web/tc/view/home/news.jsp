@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.29.07<br>4:25 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <a href="http://dev.aol.com/tco_webcast1/">The TCO07 Webcast is now live!</A>
+        </span><br><br>
+Tune in to <a href="http://dev.aol.com/tco_webcast1/">dev.aol.com</a> now to watch all the action, live from Las Vegas.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <a href="http://dev.aol.com/tco_webcast1/">details</A> |
+        <tc-webtag:forumLink forumID="514380" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+      
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.28.07<br>10:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -217,19 +236,5 @@ wanting to upset the favorites.
         <A href="/tc?module=Static&d1=features&d2=062507">full story</A> | 
         <tc-webtag:forumLink forumID="516296" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases &amp; Articles" border="0" /><br>06.25.07<br>3:15 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">Live TCO Coverage to Feature Broadcast Team, Interviews and Behind-the-Scenes Action</a></span><br><br>
-      <!-- <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/tco07_logo.png" width="81" height="21" alt="Computerworld" border="0" /></div> -->
-      The TopCoder Open, which will be presented live by at <a href="http://dev.aol.com/">http://dev.aol.com</a> on June 29, will be hosted by sportscasting celebrity Jeremy Schaap, Google’s John Dethridge, a former TopCoder champion and five time onsite finalist, and Ken Vogel, a 2002 quarter finalist and currently a director in equities IT with UBS. The webcast will also include live views of the arena, entertaining profiles and interviews.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-       <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">details</A> | 
-       <tc-webtag:forumLink forumID="516295" message="discuss this" /> | 
-       <A href="/tc?module=Static&d1=pressroom&d2=pr_archive">archive</A>
    </td></tr>
    
