@@ -37,7 +37,7 @@
                             <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=516333">Discuss this</A><br>
                         </div>
 
-<p>Thursday, June 28, 2007<br />
+<p>Friday, June 29, 2007<br />
 by <span><b>the Design Review Board</b></span><br />
 <span><i>TopCoder Members</i></span></p>
 
