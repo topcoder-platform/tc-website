@@ -91,6 +91,8 @@
         <tc-webtag:handle coderId="14886245" context="algorithm"/><br>
         <tc-webtag:handle coderId="251074" context="algorithm"/><br>
         <tc-webtag:handle coderId="21971539" context="algorithm"/><br>
+        <tc-webtag:handle coderId="7446789" context="algorithm"/><br>
+        <tc-webtag:handle coderId="144400" context="algorithm"/><br>
       </td>
    </tr>
    <tr>
@@ -141,7 +143,7 @@
       <td valign="middle"><img src="/i/tournament/tco07/bracket_R.png" alt="" border="0" /></td>
       <td valign="middle" align="center">
         <img src="/i/tournament/tco07/champion.png" alt="" border="0" />
-        <br><span class="bigTitle">&nbsp;<%--<tc-webtag:handle coderId="10574855" context="algorithm"/></span>--%>
+        <br><span class="bigTitle">&nbsp;<tc-webtag:handle coderId="309453" context="algorithm"/></span>
       </td>
    </tr>
    <tr>
