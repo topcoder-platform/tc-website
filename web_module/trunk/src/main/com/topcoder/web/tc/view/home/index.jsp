@@ -66,24 +66,20 @@
         <A href="/"><img src="/i/home/topcoder.png" alt="TopCoder" style="display: block;" /></A>
     </td>
     <td align="center" style="padding: 10px 10px 10px 10px">
-        <%-- TCO07  wed/thurs 
-        <map name="tco07">
-        <area shape="rect" alt="" coords="5,5,309,146" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" />
-        <area shape="rect" alt="" coords="345,18,440,47" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" />
-        <area shape="rect" alt="" coords="345,59,440,90" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=photos" />
-        <area shape="rect" alt="" coords="345,98,440,131" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=overview" />
-        </map>
-        <img src="/i/home/tco07Links.png" alt="2007 TopCoder Open" usemap="#tco07" />
-        --%>
         <%-- TCO07  fri --%>
         <map name="tco07">
+        <area shape="rect" alt="" coords="313,36,343,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoFinals" />
+        <area shape="rect" alt="" coords="346,36,376,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary" />
+        <area shape="rect" alt="" coords="379,36,409,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary" />
+        <area shape="rect" alt="" coords="412,36,442,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=summary" />
+        <area shape="rect" alt="" coords="445,36,475,96" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=summary" />
+
         <area shape="rect" alt="" coords="1,5,287,146" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=about" />
-        <area shape="rect" alt="" coords="297,22,490,78" href="<tc-webtag:linkTracking link='http://dev.aol.com/tco_webcast1' refer='homepage' />" />
         <area shape="rect" alt="" coords="300,109,361,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movies" />
         <area shape="rect" alt="" coords="375,109,430,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=photos" />
         <area shape="rect" alt="" coords="442,109,489,130" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=overview" />
         </map>
-        <img src="/i/home/tco07webcast.png" alt="2007 TopCoder Open" usemap="#tco07" style="display: block;" />
+        <img src="/i/home/tco07champions.png" alt="2007 TopCoder Open" usemap="#tco07" style="display: block;" />
         
         <%-- TC CHANNEL 
         <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='homepage' />"><img src="/i/home/tcchannelEp2.jpg" alt="TC Channel: Episode 2" /></A>
