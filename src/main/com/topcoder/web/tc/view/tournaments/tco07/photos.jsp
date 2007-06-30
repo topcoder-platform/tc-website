@@ -17,7 +17,7 @@
         }
         var imageNum = 1;
                 
-        var count = 275;
+        var count = 257;
         var images = new Array(count);
         for (var i=0; i<count; i++) {
             images[i]= "/i/tournament/tco07/onsitePhotos/"+lpad(i+1)+".jpg";
@@ -121,8 +121,8 @@
                 | <a href="#spot" onClick="changeImage(177);">WildCard</a>
                 <br>
                 <a href="#spot" onClick="changeImage(199);">Component Finals</a>
-                | <a href="#spot" onClick="changeImage(225);">Algorithm Finals</a>
-                | <a href="#spot" onClick="changeImage(244);">Winners</a>
+                | <a href="#spot" onClick="changeImage(207);">Algorithm Finals</a>
+                | <a href="#spot" onClick="changeImage(226);">Winners</a>
                 <br><br>
                 <a name="spot"></a>
                 <a href="#spot" onClick="changeImage(getPrevIdx());">previous</a>
