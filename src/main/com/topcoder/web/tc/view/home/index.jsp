@@ -383,27 +383,19 @@
     </tr>
     <tr>
         <td class="homeArrow"><img src="/i/home/triangle.gif" alt="" border="0"/></td>
-        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">June Events:</A></td>
+        <td class="homeTitle"><A href="/tc?module=Static&d1=calendar&d2=thisMonth" class="homeTitleLink">July Events:</A></td>
     </tr>
     <tr>
         <td class="homeArrow">&#160; </td>
         <td class="homeText"><br>
-            <b>06.02</b> - SRM 352 - 12 NOON<br><br>
-            <b>06.07</b> - CDDC Round 3 Projects Posted - 9 AM<br><br>
-            <b>06.07</b> - SRM 353 - UBS - 11 AM<br><br>
-            <b>06.13</b> - Marathon Match 18 - 12 NOON<br><br>
-            <b>06.14</b> - SRM 354 - Yodlee - 7 AM<br><br>
-            <b>06.20</b> - SRM 355 - AOL - 9 PM<br><br>
-            <b>06.27</b> - TCO07 Algo Room 1 - 9 AM<br><br>
-            <b>06.27</b> - TCO07 Marathon Match Finals - 9 AM<br><br>
-            <b>06.27</b> - TCO07 CDDC Round 1 - 1 PM<br><br>
-            <b>06.27</b> - TCO07 Algo Room 2 - 4 PM<br><br>
-            <b>06.28</b> - TCO07 Algo Room 3 - 9 AM<br><br>
-            <b>06.28</b> - TCO07 Studio Finals - 9 AM<br><br>
-            <b>06.28</b> - TCO07 CDDC Round 2 - 1 PM<br><br>
-            <b>06.28</b> - TCO07 Algo Wildcard - 4 PM<br><br>
-            <b>06.29</b> - TCO07 CDDC Finals - 9 AM<br><br>
-            <b>06.29</b> - TCO07 Algo Finals - 1:30 PM<br><br>
+            <b>07.02</b> - SRM 356 - 9 PM<br><br>
+            <b>07.12</b> - SRM 357 - Yodlee - 9 PM<br><br>
+            <b>07.12</b> - TCHS SRM 33 - 9 PM<br><br>
+            <b>07.17</b> - SRM 358 - 7 AM<br><br>
+            <b>07.17</b> - TCHS SRM 34 - 7 AM<br><br>
+            <b>07.21</b> - SRM 359 - 12 NOON<br><br>
+            <b>07.21</b> - TCHS SRM 35 - 12 NOON<br><br>
+            <b>07.24</b> - SRM 360 - 11 AM<br><br>
             <%--<b>01.13</b> - <div style="float:left; padding-right:5px;"><A href="/longcontest/?module=ViewActiveContests&rt=15"><img src="/i/longcontest/spon_intel.gif" alt="Intel&#174;" border="0" /></A></div>Intel&#174; Multi-Threading Competition 12 - 12 NOON<br><br>--%>
         </td>
     </tr>
