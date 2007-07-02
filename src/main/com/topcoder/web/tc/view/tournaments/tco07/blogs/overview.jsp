@@ -39,6 +39,42 @@
                         <div style="width:400px; padding-bottom:20px;">
                             <div style="width:400px; float:left;">
                                 <p style="float:left; width:50px;">
+                                    <img src="/i/m/nophoto.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><a href="http://studio.topcoder.com/" class="coderTextOrange">jwlms</a></span>
+                                </p>
+                                
+                                <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=jwlms01">My TCO Top five</A></span><br />
+                                    [ Saturday, June 30 - 5:00 PM ]
+                                </p>
+                            </div>
+                            
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
+                                    <img src="/i/m/jmzero_big.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><tc-webtag:handle coderId="15498334" context="algorithm"/></span>
+                                </p>
+                                
+                                <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=jmzero09">The finals, and final thoughts</A></span><br />
+                                    [ Friday, June 29 - 9:30 PM ]
+                                </p>
+                            </div>
+                            
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
+                                    <img src="/i/m/polgara_big2.jpg" alt="" width="27" height="30"/><br />
+                                    <span class="smallHandle"><tc-webtag:handle coderId="153650" context="algorithm"/></span>
+                                </p>
+                                
+                                <p style="float:left;">
+                                    <span style="font-weight:bold;"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=blogs&d4=polgara03">An interview with myself</A></span><br />
+                                    [ Friday, June 29 - 8:00 PM ]
+                                </p>
+                            </div>
+                            
+                            <div style="width:400px; float:left;">
+                                <p style="float:left; width:50px;">
                                     <img src="/i/m/Petr_big.jpg" alt="" width="27" height="30"/><br />
                                     <span class="smallHandle"><tc-webtag:handle coderId="10574855" context="algorithm"/></span>
                                 </p>
