@@ -93,7 +93,7 @@
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=summary">details</A> |
-        <a href="http://studio.topcoder.com/forums?module=Thread&threadID=626&start=0&mc=1#2345">discuss this"</a> | 
+        <a href="http://studio.topcoder.com/forums?module=Thread&threadID=626&start=0&mc=1#2345">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
       
