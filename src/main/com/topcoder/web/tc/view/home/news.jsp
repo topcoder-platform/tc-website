@@ -26,7 +26,7 @@
       <td valign="top"><span class="newsTitle">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign">VeriSign chat scheduled before SRM 356</A>
         </span><br><br>
-        VeriSign representatives will join TopCoder members in the Arena at 8:00 PM EDT tonight to discuss career opportunities at the company. 
+        Please join VeriSign in the chat room at 8:00 PM, before SRM 356, to discuss "Leveraging the TopCoder Direct Model."
         </td>
       </tr></table>
       </td>
