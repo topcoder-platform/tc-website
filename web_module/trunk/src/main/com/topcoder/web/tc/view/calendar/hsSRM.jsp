@@ -143,6 +143,7 @@
     </TD>
 </TR>
 
+<%if(rsr.getIntItem("round_id") < 10767) {%>
 
 <TR>
 <TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
@@ -247,6 +248,36 @@
         &amp; regulations.</B></A>
 </TD>
 </TR>
+<% } else {%>
+<TR>
+<TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
+    <b>TCHS SRM Description</b>
+
+    <ul>
+        <li>Maximum of 25 coders per room</li>
+        <li>Ratings will be adjusted post-match for all competitors</li>
+        <li>Members will be emailed prior to the match with date and time (opt-in)</li>
+    </ul>
+
+    <p>
+        The match will feature a mixed programming language format. For each individual problem,
+        the coder will have the option of using either Java, C++, Microsoft&#174; Visual C#&#174; .NET
+        or Microsoft&#174; Visual Basic&#174; .NET to code the solution. Syntactical knowledge of all
+        four languages will be helpful during the challenge phase of each match.
+    </p>
+
+    <b>Eligibility</b><br/>
+
+    <p>Anyone who is a registered TopCoder High School competitor between the ages of 13 and 20, inclusive, who is
+        pursuing a secondary school education for the 2007-2008 school year through at least March 15, 2008 and who
+        is not matriculated full time at a college or university may compete in any Single Round Match and the
+        TopCoder High School tournament.</p>
+
+    <A HREF="/tc?module=MatchRules&rd=<rsc:item name="round_id" row="<%=rsr%>"/>"><B>Click here for complete rules
+        &amp; regulations.</B></A>
+</TD>
+</TR>
+<% } %>
 </TABLE>
 
 </div>
