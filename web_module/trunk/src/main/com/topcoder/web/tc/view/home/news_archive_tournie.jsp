@@ -39,6 +39,11 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">06.29.07 8:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoFinals">Congratulations to Jan_Kuipers, the TCO07 Algorithm Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">06.29.07 8:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Congratulations to kyky, the TCO07 Component Design Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">06.29.07 8:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">Congratulations to hefeng, the TCO07 Component Development Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">06.29.07 8:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=summary">Congratulations to Mojito1, the TCO07 Marathon Match Champion</A></td></tr>
+<tr class="bodyText"><td nowrap="nowrap">06.29.07 8:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=summary">Congratulations to yiming, the TCO07 Studio Design Champion</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.29.07 5:00 PM - </td><td width="100%">Component <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">Development</A> Finals: Round 3</td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.29.07 4:25 PM - </td><td width="100%"><a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://dev.aol.com/tco_webcast1&amp;refer=/tc" />The TCO07 Webcast is now live!</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.28.07 10:45 PM - </td><td width="100%"><A href="/tc?module=ViewSurvey&sid=19040">Pick the winner of the Studio competition!</A></td></tr>
