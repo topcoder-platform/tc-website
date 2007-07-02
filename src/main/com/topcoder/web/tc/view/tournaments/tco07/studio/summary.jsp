@@ -34,7 +34,7 @@
 
                         <h1><span>yiming is the TCO07 Studio Design Champion</span></h1>
                         <div style="float:right;">
-                            <A HREF="http://forums.topcoder.com/?module=ThreadList&amp;forumID=516304">Discuss this competition</A><br />
+                            <A HREF="http://studio.topcoder.com/forums?module=Thread&threadID=626&start=0&mc=1#2345">Discuss this competition</A><br />
                         </div>
 
 <img src="/i/m/nophoto.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
