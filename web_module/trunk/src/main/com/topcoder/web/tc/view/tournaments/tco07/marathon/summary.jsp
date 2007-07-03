@@ -39,7 +39,7 @@
 
 <img src="/i/m/lbackstrom_big.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" class="myStatsPhoto"/><br />
 Friday, June 29, 2007<br>
-Introduction by <a href="/tc?module=MemberProfile&amp;cr=159052&amp;tab=alg" class="coderTextYellow">lbackstrom</a>
+Introduction by <tc-webtag:handle coderId="159052" context="marathon"/>
 
 <br /><br />
 <img style="float:right; width:200px; 350px; padding-left:10px;" src="/i/tournament/tco07/marathon.jpg">
