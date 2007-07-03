@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>07.03.07<br>2:45 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104">Design the TCCC07 logo</A>
+        </span><br><br>
+        The 2007 TopCoder Collegiate Challenge logo design contest is now open. A total of $5,000 will be awarded to the top five designers, with the grand prize winner earning $3,000! The submission deadline is Tuesday, July 10, 2007 at 2:00 PM EDT, so don't miss out.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104">details</A>
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>//forums?module=ThreadList&forumID=73">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+      
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>07.03.07<br>1:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -206,32 +225,6 @@ For this contest, we asked the TCO Studio Design Competition finalists to come u
    <tr><td class="newsLinksCell">
         <A href="/tc?module=ViewSurvey&sid=19040">details</A> |
         <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=626&start=0&mc=1#2345">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.28.07<br>9:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoWildcard">JongMan wins the Wildcard round!</A>
-        </span><br><br>
-<tc-webtag:handle coderId="7446789" context="algorithm"/> and <tc-webtag:handle coderId="144400" context="algorithm"/> advance to the finals. They'll join 
-<tc-webtag:handle coderId="309453" context="algorithm"/>,
-<tc-webtag:handle coderId="8355516" context="algorithm"/>, 
-<tc-webtag:handle coderId="21822659" context="algorithm"/>, 
-<tc-webtag:handle coderId="14886245" context="algorithm"/>, 
-<tc-webtag:handle coderId="251074" context="algorithm"/> and 
-<tc-webtag:handle coderId="21971539" context="algorithm"/> in the finals tomorrow, starting at 1:30 PM PDT.
-Congratulations and good luck to the finalists!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoWildcard">details</A> |
-        <tc-webtag:forumLink forumID="514957" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
       
