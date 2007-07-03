@@ -44,46 +44,6 @@ by <span><b>the Development Review Board</b></span><br />
 <p>After three days of on-site finals, <tc-webtag:handle coderId="15214882" context="development"/> emerged as the winner of the 2007 TopCoder Open Component Development competition, taking home the top prize of $15,000. <tc-webtag:handle coderId="9998760" context="development"/> came in second, and <tc-webtag:handle coderId="7210680" context="development"/> took home the third.</p>
 
 
-<%-- Round 3 --%>
-<p>Friday, June 29, 2007<br />
-<span style="font-size:14px; font-weight:bold;">Stress Test</span><br />
-by <tc-webtag:handle coderId="347569" context="development"/>
-</p>
-
-<p>The Stress Test component provides a framework for defining and executing stress tests. The tests can be running on multiple threads with flexible scheduling options.</p>
-<p>Both designs (Java version and .NET version) are very clear and the implementation notes for most methods and algorithms are detailed. Developers should pay attention to thread safety, since most submissions had thread safety issues.</p>
-<p>In the test runner class of the .NET version, the original design uses the .NET framework API, which cannot handle more than 64 threads. One submission made improvements on this, and can use more than 64 threads to run the tests.</p>
-<table cellspacing="0" cellpadding="0" class="stat" style="width: 100%"> <thead>
-    <tr class="sidebarTitle" nowrap="nowrap"> <td class="header">Competitor</td> <td class="header" style="text-align:center;">Reviewer: <tc-webtag:handle coderId="7584235" context="development"/></td><td class="header" style="text-align:center;">Reviewer: <tc-webtag:handle coderId="297731" context="development"/></td><td class="header" style="text-align:center;">Reviewer: <tc-webtag:handle coderId="347569" context="development"/></td><td class="header" style="text-align:center;">Average</td></tr> </thead> <tbody> <tr class="light"><td class="value"><tc-webtag:handle coderId="15214882" context="development"/></td><td class="value" style="text-align:center;">97.34</td><td class="value" style="text-align:center;">94.34</td><td class="value" style="text-align:center;">97.59</td><td class="value" style="text-align:center;">96.42</td></tr> <tr class="dark"><td class="value"><tc-webtag:handle coderId="9998760" context="development"/></td><td class="value" style="text-align:center;">92.05</td><td class="value" style="text-align:center;">98.69</td><td class="value" style="text-align:center;">96.81</td><td class="value" style="text-align:center;">95.85</td></tr> <tr class="light"><td class="value"><tc-webtag:handle coderId="7210680" context="development"/></td><td class="value" style="text-align:center;">97.72</td><td class="value" style="text-align:center;">91.61</td><td class="value" style="text-align:center;">96.34</td><td class="value" style="text-align:center;">95.22</td></tr> <tr class="dark"><td class="value"><tc-webtag:handle coderId="7359397" context="development"/></td><td class="value" style="text-align:center;">94.82</td><td class="value" style="text-align:center;">87.84</td><td class="value" style="text-align:center;">87.38</td><td class="value" style="text-align:center;">90.01</td></tr> <tr class="light"><td class="value"><tc-webtag:handle coderId="15763373" context="development"/></td><td class="value" style="text-align:center;">78.32</td><td class="value" style="text-align:center;">84.61</td><td class="value" style="text-align:center;">86.34</td><td class="value" style="text-align:center;">83.09</td></tr> </tbody> </table>
-
-<br /><br />
-
-
-
-
-<%-- Round 2 --%>
-<p>Thursday, June 28, 2007<br />
-<span style="font-size:14px; font-weight:bold;">AJAX Customizable Page Layout</span><br />
-by <tc-webtag:handle coderId="7584235" context="development" />
-</p>
-
-<p>The AJAX Customizable Page Layout component provides an AJAX-based mechanism for use with web applications to give the ability for a web application user to customize the layout of a page by dragging and dropping content sections. The component consists of custom controls that implement the movable sections, and server-side objects that handle AJAX-based notifications of customization actions by recording them in a persistent store for use during subsequent page views.</p>
-<p>The movement of sections is supported by the client-side JavaScript classes. Yes! C# developers had to write JavaScript code here.</p>
-<p>Actually this part could be identical in Java and C# versions but designers used different ways of interacting with the underlying TopCoder JavaScript Drag and Drop component.</p>
-<p>In the C# version, the designer suggested developers explicitly control the absolute coordinates of the movable sections. In this case when any action occurs we need to manually rearrange elements. It includes calculation of parent's absolute coordinates and relative position of each section within the parent. But JavaScript functions have different behavior depends of the browser (we need to support IE and FireFox) and page mode (quirks or strict) and it is not easy to make all these things workable. The other common challenge came from the fact that developers have to recalculate positions not only after the layout change but after other events (load, resize) also.</p>
-<p>In the Java version developers didn't work with coordinates at all but instead swapped elements in the DOM. It is much easier and requires less effort to make the component workable.</p>
-<p>Compared with JavaScript, the implementation of the custom controls and server side objects was straightforward and relatively easy.</p>
-<table cellspacing="0" cellpadding="0" class="stat" style="width: 100%"> <thead>
-    <tr class="sidebarTitle" nowrap="nowrap"> <td class="header">Competitor</td> <td class="header" style="text-align:center;">Reviewer: <tc-webtag:handle coderId="347569" context="development"/></td><td class="header" style="text-align:center;">Reviewer: <tc-webtag:handle coderId="7584235" context="development"/></td><td class="header" style="text-align:center;">Reviewer: <tc-webtag:handle coderId="297731" context="development"/></td><td class="header" style="text-align:center;">Average</td></tr></thead>
-<tbody>
-
-<tr class="light"><td class="value"><tc-webtag:handle coderId="9998760" context="development"/></td><td class="value" style="text-align:center;">88.59</td><td class="value" style="text-align:center;">95.32</td><td class="value" style="text-align:center;">98.69</td><td class="value" style="text-align:center;">94.20</td></tr> <tr class="dark"><td class="value"><tc-webtag:handle coderId="7210680" context="development"/></td><td class="value" style="text-align:center;">88.88</td><td class="value" style="text-align:center;">86.21</td><td class="value" style="text-align:center;">99.25</td><td class="value" style="text-align:center;">91.45</td></tr> <tr class="light"><td class="value"><tc-webtag:handle coderId="15214882" context="development"/></td><td class="value" style="text-align:center;">82.41</td><td class="value" style="text-align:center;">87.41</td><td class="value" style="text-align:center;">97.19</td><td class="value" style="text-align:center;">89.00</td></tr> <tr class="dark"><td class="value"><tc-webtag:handle coderId="20092786" context="development"/></td><td class="value" style="text-align:center;">72.16</td><td class="value" style="text-align:center;">80.02</td><td class="value" style="text-align:center;">89.06</td><td class="value" style="text-align:center;">80.41</td></tr> <tr class="light"><td class="value"><tc-webtag:handle coderId="7359397" context="development"/></td><td class="value" style="text-align:center;">64.25</td><td class="value" style="text-align:center;">79.1</td><td class="value" style="text-align:center;">90.94</td><td class="value" style="text-align:center;">78.10</td></tr> <tr class="dark"><td class="value"><tc-webtag:handle coderId="15763373" context="development"/></td><td class="value" style="text-align:center;">56.12</td><td class="value" style="text-align:center;">62.04</td><td class="value" style="text-align:center;">82.89</td><td class="value" style="text-align:center;">67.02</td></tr> </tbody> </table>
-
-<br /><br />
-
-
-
-
 <%-- Round 1 --%>
 <p>Wednesday, June 27, 2007<br />
 <span style="font-size:14px; font-weight:bold;">Dynamic Web Page Data</span><br />
@@ -99,15 +59,154 @@ Even though simple in appearance, its developers needed to pay special attention
 <p>
 It should be interesting to see what usage this component is put to in the following weeks.
 </p>
-<p>And here is the final scoreboard for this component:</p>
-<table cellspacing="0" cellpadding="0" class="stat" style="width: 100%"> <thead>
-    <tr class="sidebarTitle" nowrap="nowrap"> <td class="header">Competitor</td><td class="header" style="text-align:center;">Reviewer: <tc-webtag:handle coderId="347569" context="development"/></td><td class="header" style="text-align:center;">Reviewer: <tc-webtag:handle coderId="297731" context="development"/></td><td class="header" style="text-align:center;">Reviewer: <tc-webtag:handle coderId="7584235" context="development"/></td><td class="header" style="text-align:center;">Average</td>
-    </tr>
-</thead>
-<tbody>
-<tr class="light"><td class="value"><tc-webtag:handle coderId="15214882" context="development"/></td><td class="value" style="text-align:center;">91.25</td><td class="value" style="text-align:center;">96.91</td><td class="value" style="text-align:center;">94.56</td><td class="value" style="text-align:center;">94.24</td></tr> <tr class="dark"><td class="value"><tc-webtag:handle coderId="7210680" context="development"/></td><td class="value" style="text-align:center;">89.34</td><td class="value" style="text-align:center;">97.16</td><td class="value" style="text-align:center;">93.13</td><td class="value" style="text-align:center;">93.21</td></tr> <tr class="light"><td class="value"><tc-webtag:handle coderId="9998760" context="development"/></td><td class="value" style="text-align:center;">88.84</td><td class="value" style="text-align:center;">91.34</td><td class="value" style="text-align:center;">95.46</td><td class="value" style="text-align:center;">91.88</td></tr> <tr class="dark"><td class="value"><tc-webtag:handle coderId="15763373" context="development"/></td><td class="value" style="text-align:center;">81.19</td><td class="value" style="text-align:center;">86.14</td><td class="value" style="text-align:center;">90.41</td><td class="value" style="text-align:center;">85.91</td></tr> <tr class="light"><td class="value"><tc-webtag:handle coderId="20092786" context="development"/></td><td class="value" style="text-align:center;">76.81</td><td class="value" style="text-align:center;">86.72</td><td class="value" style="text-align:center;">83.9</td><td class="value" style="text-align:center;">82.48</td></tr> </tbody> </table>
 
 <br /><br />
+
+
+<%-- Round 2 --%>
+<p>Thursday, June 28, 2007<br />
+<span style="font-size:14px; font-weight:bold;">AJAX Customizable Page Layout</span><br />
+by <tc-webtag:handle coderId="7584235" context="development" />
+</p>
+
+<p>The AJAX Customizable Page Layout component provides an AJAX-based mechanism for use with web applications to give the ability for a web application user to customize the layout of a page by dragging and dropping content sections. The component consists of custom controls that implement the movable sections, and server-side objects that handle AJAX-based notifications of customization actions by recording them in a persistent store for use during subsequent page views.</p>
+<p>The movement of sections is supported by the client-side JavaScript classes. Yes! C# developers had to write JavaScript code here.</p>
+<p>Actually this part could be identical in Java and C# versions but designers used different ways of interacting with the underlying TopCoder JavaScript Drag and Drop component.</p>
+<p>In the C# version, the designer suggested developers explicitly control the absolute coordinates of the movable sections. In this case when any action occurs we need to manually rearrange elements. It includes calculation of parent's absolute coordinates and relative position of each section within the parent. But JavaScript functions have different behavior depends of the browser (we need to support IE and FireFox) and page mode (quirks or strict) and it is not easy to make all these things workable. The other common challenge came from the fact that developers have to recalculate positions not only after the layout change but after other events (load, resize) also.</p>
+<p>In the Java version developers didn't work with coordinates at all but instead swapped elements in the DOM. It is much easier and requires less effort to make the component workable.</p>
+<p>Compared with JavaScript, the implementation of the custom controls and server side objects was straightforward and relatively easy.</p>
+
+<br /><br />
+
+
+<%-- Round 3 --%>
+<p>Friday, June 29, 2007<br />
+<span style="font-size:14px; font-weight:bold;">Stress Test</span><br />
+by <tc-webtag:handle coderId="347569" context="development"/>
+</p>
+
+<p>The Stress Test component provides a framework for defining and executing stress tests. The tests can be running on multiple threads with flexible scheduling options.</p>
+<p>Both designs (Java version and .NET version) are very clear and the implementation notes for most methods and algorithms are detailed. Developers should pay attention to thread safety, since most submissions had thread safety issues.</p>
+<p>In the test runner class of the .NET version, the original design uses the .NET framework API, which cannot handle more than 64 threads. One submission made improvements on this, and can use more than 64 threads to run the tests.</p>
+
+<br /><br />
+
+<p style="font-size:14px; font-weight:bold;">Component Development: Scores & Wagers</p>
+
+
+<table cellspacing="0" cellpadding="0" class="stat" style="width: 100%">
+ <thead>
+  <tr class="sidebarTitle" nowrap="nowrap">
+    <td class="headerC" colspan="1">&nbsp;</td>
+    <td class="headerC" colspan="3">Round 1</td>
+    <td class="headerC" colspan="3">Round 2</td>
+    <td class="headerC" colspan="3">Round 3</td>
+    <td class="headerC" colspan="1">&nbsp;</td>
+  </tr>
+  <tr class="sidebarTitle" nowrap="nowrap">
+    <td class="header">Competitor</td>
+    <td class="headerC">score</td>
+    <td class="headerC">place</td>
+    <td class="headerC">wager</td>
+    <td class="headerC">score</td>
+    <td class="headerC">place</td>
+    <td class="headerC">wager</td>
+    <td class="headerC">score</td>
+    <td class="headerC">place</td>
+    <td class="headerC">wager</td>
+    <td class="headerC">Total</td>
+  </tr>
+</thead>
+<tbody>
+  <tr class="light">
+    <td class="value"><tc-webtag:handle coderId="15214882" context="development"/></td>
+    <td class="valueC">94.24</td>
+    <td class="valueC">1</td>
+    <td class="valueC">25</td>
+    <td class="valueC">89</td>
+    <td class="valueC">3</td>
+    <td class="valueC">20</td>
+    <td class="valueC">96.42</td>
+    <td class="valueC">1</td>
+    <td class="valueC">55</td>
+    <td class="valueC">86</td>
+  </tr>
+  <tr class="dark">
+    <td class="value"><tc-webtag:handle coderId="9998760" context="development"/></td>
+    <td class="valueC">91.88</td>
+    <td class="valueC">3</td>
+    <td class="valueC">18</td>
+    <td class="valueC">94.2</td>
+    <td class="valueC">1</td>
+    <td class="valueC">60</td>
+    <td class="valueC">95.85</td>
+    <td class="valueC">2</td>
+    <td class="valueC">22</td>
+    <td class="valueC">77</td>
+  </tr>
+  <tr class="light">
+    <td class="value"><tc-webtag:handle coderId="7210680" context="development"/></td>
+    <td class="valueC">93.21</td>
+    <td class="valueC">2</td>
+    <td class="valueC">24</td>
+    <td class="valueC">91.45</td>
+    <td class="valueC">2</td>
+    <td class="valueC">19</td>
+    <td class="valueC">95.22</td>
+    <td class="valueC">3</td>
+    <td class="valueC">57</td>
+    <td class="valueC">40</td>
+  </tr>
+  <tr class="dark">
+    <td class="value"><tc-webtag:handle coderId="7359397" context="development"/></td>
+    <td class="valueC">25</td>
+    <td class="valueC">6</td>
+    <td class="valueC">10</td>
+    <td class="valueC">78.1</td>
+    <td class="valueC">5</td>
+    <td class="valueC">30</td>
+    <td class="valueC">90.01</td>
+    <td class="valueC">4</td>
+    <td class="valueC">60</td>
+    <td class="valueC">22</td>
+  </tr>
+  <tr class="light">
+    <td class="value"><tc-webtag:handle coderId="15763373" context="development"/></td>
+    <td class="valueC">85.91</td>
+    <td class="valueC">4</td>
+    <td class="valueC">30</td>
+    <td class="valueC">67.02</td>
+    <td class="valueC">6</td>
+    <td class="valueC">10</td>
+    <td class="valueC">83.09</td>
+    <td class="valueC">5</td>
+    <td class="valueC">60</td>
+    <td class="valueC">20</td>
+  </tr>
+  <tr class="dark">
+    <td class="value"><tc-webtag:handle coderId="20092786" context="development"/></td>
+    <td class="valueC">82.48</td>
+    <td class="valueC">5</td>
+    <td class="valueC">33</td>
+    <td class="valueC">80.41</td>
+    <td class="valueC">4</td>
+    <td class="valueC">33</td>
+    <td class="valueC">25</td>
+    <td class="valueC">6</td>
+    <td class="valueC">34</td>
+    <td class="valueC">19</td>
+  </tr>
+</tbody>
+</table>
+<p></p>
+
+
+
+
+
+
+
+
                     </div>
                 </td>
             </tr>
