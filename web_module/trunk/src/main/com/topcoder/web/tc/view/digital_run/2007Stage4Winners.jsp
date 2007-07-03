@@ -59,7 +59,7 @@
 Stage 4 of the 2006-7 Digital Run season concluded on May 3, 2007. Here are the winners:
 <br><br>
 <strong>Design Cup:</strong><br>
-A total of 83 competitors earned a combined 78,500.00 placement points. Fourty-two designers wound up in the top half and claimed part of the $150,000 prize pool. For the third stage in a row, <tc-webtag:handle coderId="287614" context="algorithm"/> again claimed the top spot in Stage 4 with another strong performance, earing 9,015 points.
+A total of 83 competitors earned a combined 78,500.00 placement points. Forty-two designers wound up in the top half and claimed part of the $150,000 prize pool. For the third stage in a row, <tc-webtag:handle coderId="287614" context="algorithm"/> again claimed the top spot in Stage 4 with another strong performance, earing 9,015 points.
 <br><br>
 Check out the final <A href="/tc?&ph=112&module=LeaderBoard&staid=4">Design Cup: Stage 4 leaderboard</A>.
 <br><br>
