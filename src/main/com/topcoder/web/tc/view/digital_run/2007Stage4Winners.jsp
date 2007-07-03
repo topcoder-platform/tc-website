@@ -72,7 +72,7 @@ In Stage 4, 168 developers (24 more than Stage 3) earned a total of 71,000 place
 <br><br>
 Check out the final <A href="/tc?module=LeaderBoard&ph=113&sc=&sd=&staid=4&nr=50&sr=">Development Cup: Stage 4 leaderboard</A>.
 <br><br>
-With the end of Stage 4, the 2007 Development Cup Rookie of the Year competition was wrapped up. Congratulations to <tc-webtag:handle coderId="21221008" context="algorithm"/>, who piled up 8,785 points over the course of the year and took home the $7,500 Rookie of the Year prize.
+With the end of Stage 4, the 2007 Development Cup Rookie of the Year competition was wrapped up. Congratulations to <tc-webtag:handle coderId="21221008" context="development"/>, who piled up 8,785 points over the course of the year and took home the $7,500 Rookie of the Year prize.
 <br><br>
 Check out the final <A href="/tc?module=RookieBoard&ph=113&seid=1">Development Cup: ROTY leaderboard</A>.
 <br><br>
