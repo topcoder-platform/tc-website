@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>07.03.07<br>1:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=montage&title=Handheld%20camera%20montage">TCO07 highlights video now available</A>
+        </span><br><br>
+        If you couldn't make it to Las Vegas, check out this video montage of the behind-the-scenes action from this year's TopCoder Open. The video is approximately 10 minutes long.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=montage&title=Handheld%20camera%20montage">details</A> |
+        <tc-webtag:forumLink forumID="514380" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+      
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.02.07<br>2:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -213,26 +232,6 @@ Congratulations and good luck to the finalists!
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoWildcard">details</A> |
         <tc-webtag:forumLink forumID="514957" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.28.07<br>6:50 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        Component <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">Development</A> Finals: Round 2
-        </span><br><br>
-        For their second component, the TCO07 Development finalists worked on AJAX Customizable Page Layout, while the Design finalists tackled the Generic Application Service Processor.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">design</A> |
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">development</A> |
-        <tc-webtag:forumLink forumID="516333" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
       
