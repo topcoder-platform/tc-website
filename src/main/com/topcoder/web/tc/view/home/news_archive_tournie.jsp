@@ -39,6 +39,7 @@
 
 
 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">07.03.07 2:45 PM - </td><td width="100%"><A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104">Design the TCCC07 logo</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.02.07 1:00 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign">VeriSign chat scheduled before SRM 356</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.29.07 8:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoFinals">Congratulations to Jan_Kuipers, the TCO07 Algorithm Champion</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.29.07 8:30 PM - </td><td width="100%"><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Congratulations to kyky, the TCO07 Component Design Champion</A></td></tr>
