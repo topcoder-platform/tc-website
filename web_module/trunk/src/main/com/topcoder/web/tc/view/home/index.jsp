@@ -341,8 +341,13 @@
             <A href="/tc?module=Static&d1=my_home&d2=empReferrals"><img src="/i/home/empRefSm_20070517.png" alt="TopCoder Employee Referral Program" border="0" style="display:block;"/></A>
              --%>
              
-             <%-- TC CHANNEL --%>
+             <%-- TC CHANNEL 
             <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep2.png" alt="TC Channel: Episode 2" /></A>
+            --%>
+            
+            <%-- TOPCODER EMPLOYEE REFERRAL PROGRAM --%>
+            <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104"><img src="/i/home/tccc07_logo_design_promo.png" alt="TCCC07 Logo Design Contest" border="0" style="display:block;"/></A>
+             
              
         </td>
     </tr>
