@@ -106,7 +106,7 @@ The &quot;Guitarists&quot; component defines the &quot;Guitarist&quot; interface
 It also has an implementation of this interface, defined as:
 
 <pre class="code"> 
- public class CoolGuitarist {
+ public class CoolGuitarist implements Guitarist {
      void playGuitar(Guitar guitar) {
         guitar.play();
      }
@@ -116,7 +116,7 @@ It also has an implementation of this interface, defined as:
 We want to guarantee that the CoolGuitarist.playGuitar() method will really call the Guitar.play() method, so we need to write some unit tests. Here's where we run into a problem, though, because we don't have any Guitar implementations yet for testing. Let's go ahead and code a mock-up implementation: \
 
 <pre class="code"> 
- class MockGuitar {
+ class MockGuitar implements Guitar {
      private int timesPlayed = 0;
      public int getTimesPlayed() {
         return timesPlayed;
