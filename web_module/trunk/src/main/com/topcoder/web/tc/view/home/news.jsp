@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.06.07<br>4:30 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm356">SRM 356 - Problem Set &amp; Analysis</A></span><br><br>
+      It was the first SRM after the TopCoder Open, and coders weary from the TCO were greeted by a problem set hard enough to be used onsite.  In both divisions nobody solved all three problems and only 144 Division 1 coders were able to solve at least one problem.</td>
+         <td class="newsPhoto"><img src="/i/m/Pawa_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10323773" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm356">full story</A> | 
+         <tc-webtag:forumLink forumID="516053" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>07.03.07<br>2:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -16,8 +32,8 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104">details</A>
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=73">discuss this</a> |
+        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104">details</A> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=73">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
       
@@ -206,25 +222,6 @@ Tune in to <a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http
    <tr><td class="newsLinksCell">
         <a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://dev.aol.com/tco_webcast1&amp;refer=/tc" />details</A> |
         <tc-webtag:forumLink forumID="514380" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.28.07<br>10:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=ViewSurvey&sid=19040">Pick the winner of the Studio competition!</A>
-        </span><br><br>
-For this contest, we asked the TCO Studio Design Competition finalists to come up with a new "look and feel" for the Studio homepage.  Voting ends at 4:00 PM EDT on Friday June 29.  Vote now!
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=ViewSurvey&sid=19040">details</A> |
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=Thread&threadID=626&start=0&mc=1#2345">discuss this</a> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
       
