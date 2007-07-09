@@ -219,11 +219,7 @@ public class PaymentStatusManager {
             
             List<BasePayment> payments = dib.findCoderPayments(criteria);
             
-            // if not exactly one result, throw exception
-            if (payments.size() < 1) {
-                throw new StateTransitionFailureException("Incorrect number of payments retrieved.");
-            }
-
+            // if no payments are found, do nothing.
             // notify the status manager and update the payment
             for (BasePayment payment : payments) {
                 payment.getCurrentStatus().affirmedIPTransfer(payment);
@@ -287,19 +283,18 @@ public class PaymentStatusManager {
 
             List<BasePayment> payments = dib.findCoderPayments(criteria);
             
-            // if not exactly one result, throw exception
-            if (payments.size() != 1) {
-                throw new StateTransitionFailureException("Incorrect number of payments retrieved. PaymentId: " + paymentId);
-            }
-            
-            // notify the status manager and update the payment
-            BasePayment payment = payments.get(0);
-            payment.getCurrentStatus().expiredIPTransfer(payment);
-            dib.updatePayment(payment);
-
-            // if the payment was cancelled, notify the possible childrens
-            if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
-                notifyChildPayments("cancel", payment);
+            // if no payment is found, do nothing
+            if (payments.size() == 1) {
+                
+                // notify the status manager and update the payment
+                BasePayment payment = payments.get(0);
+                payment.getCurrentStatus().expiredIPTransfer(payment);
+                dib.updatePayment(payment);
+    
+                // if the payment was cancelled, notify the possible childrens
+                if (!payment.getCurrentStatus().equals(PaymentStatusFactory.createStatus(PaymentStatus.CANCELLED_PAYMENT_STATUS))) {
+                    notifyChildPayments("cancel", payment);
+                }
             }
         } catch (Exception e) {
             throw new EventFailureException(e);
@@ -314,7 +309,7 @@ public class PaymentStatusManager {
      * @throws EventFailureException if any operation fails
      */
     public void expiredPayment(Long paymentId) throws EventFailureException {
-        log.debug("expiredIPTransfer called for paymentId: " + paymentId);
+        log.debug("expiredPayment called for paymentId: " + paymentId);
         try {
             Map criteria = new HashMap();
             criteria.put(PactsConstants.PAYMENT_ID, paymentId.toString());
