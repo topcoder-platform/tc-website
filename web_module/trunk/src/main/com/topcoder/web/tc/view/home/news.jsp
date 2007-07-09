@@ -4,6 +4,22 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.09.07<br>3:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_tco07">TCO07 Marathon Match Final - Analysis</A></span><br><br>
+      In this editorial, TCO07 Marathon Match champion <tc-webtag:handle coderId="10600282" /> looks at the competition's final on-site problem and discusses his winning approach.</td>
+         <td class="newsPhoto"><img src="/i/m/Mojito1_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10600282" context="marathon" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_tco07">full story</A> | 
+         <tc-webtag:forumLink forumID="516304" message="discuss this" /> | 
+         <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.06.07<br>4:30 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -203,25 +219,6 @@
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">design</A> |
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">development</A> |
         <tc-webtag:forumLink forumID="516333" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.29.07<br>4:25 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://dev.aol.com/tco_webcast1&amp;refer=/tc" />The TCO07 Webcast is now live!</A>
-        </span><br><br>
-Tune in to <a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://dev.aol.com/tco_webcast1&amp;refer=/tc" />dev.aol.com</a> now to watch all the action, live from Las Vegas.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://dev.aol.com/tco_webcast1&amp;refer=/tc" />details</A> |
-        <tc-webtag:forumLink forumID="514380" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
       
