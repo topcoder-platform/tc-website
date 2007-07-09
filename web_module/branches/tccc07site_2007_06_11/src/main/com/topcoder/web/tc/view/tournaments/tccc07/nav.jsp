@@ -1,311 +1,118 @@
+<%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="java.util.Date" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+
 <%
     String tabLev1 = request.getParameter("tabLev1") == null ? "" : request.getParameter("tabLev1");
     String tabLev2 = request.getParameter("tabLev2") == null ? "" : request.getParameter("tabLev2");
     String tabLev3 = request.getParameter("tabLev3") == null ? "" : request.getParameter("tabLev3");
 %>
 
-<script language="javascript" type="text/javascript">
-    <!--
-    function toggleMenu(menuTitle, menuID) {
-        if (menuTitle.className == 'closed') menuTitle.className = 'open';
-        else menuTitle.className = 'closed';
-        return;
-    }
-    // -->
-</script>
-<div align="center">
-    <div id="navButtons">
-        <%--------------TOURNAMENT OVERVIEW---------------%>
-        <div style="float:left;">
-            <a href=""><img src="/i/tournament/tccc07/tournie.png" alt="Tournament Overview" /></a>
+<div style="margin-bottom:-60px; position:relative;">
+    <div id="sponsorNtclogo">
+        <div align="left" style="padding-left:30px; padding-top:10px; width:313px; height:162px;">
+            <a href="/"><img src="/i/tournament/tccc07/sponsorlogo.png" alt="Sponsor Logo" /></a>
         </div>
-        
-        <%--------------ALGORITHM---------------%>
-        <div style="float:left;">
-            <a href=""><img src="/i/tournament/tccc07/alg.png" alt="Algorithm Competition" /></a>
-        </div>
-    
-        <%--------------COMPONENT---------------%>
-        <div style="float:left;">
-            <a href=""><img src="/i/tournament/tccc07/comp.png" alt="Component Competition" /></a>
-        </div>
-        
-        <%--------------MARATHON---------------%>
-        <div style="float:left;">
-            <a href=""><img src="/i/tournament/tccc07/mara.png" alt="Marathon Competition" /></a>
-        </div>
-        
-        <%--------------STUDIO---------------%>
-        <div style="float:left;">
-            <a href=""><img src="/i/tournament/tccc07/studio.png" alt="Studio Overview" /></a>
+        <div id="tclogo">
+            <a href="/"><img src="/i/tournament/tccc07/topcoderlogo.png" alt="TopCoder&#174;" /></a>
         </div>
     </div>
     
-    <div id="navText">
-        <p class="secondaryLinks"><a href="" alt="Secondary Navigation">Secondary Navigation</a> | <a href="" alt="Secondary Navigation">Secondary Navigation</a> | <a href="" alt="Secondary Navigation">Secondary Navigation</a> | <a href="" alt="Secondary Navigation">Secondary Navigation ON</a> | <a href="" alt="Secondary Navigation">Secondary Navigation</a></p>
-        <p class="tertiaryLinks"><a href="" alt="Tertiary Navigation">Tertiary Navigation</a> | <a href="" alt="Tertiary Navigation">Tertiary Navigation</a> | <a href="" alt="Tertiary Navigation">Tertiary Navigation ON</a> | <a href="" alt="Tertiary Navigation">Tertiary Navigation</a> | <a href="" alt="Tertiary Navigation">Tertiary Navigation</a></p>
+    <div style="margin-top:0px;">
+
+<%--------------PRIMARY NAV---------------%>
+        <div align="center">
+            <div id="navButtons">
+
+                <div style="float:left;">
+                <% if (tabLev1.equals("overview")) {%>
+                    <a href=""><img src="/i/tournament/tccc07/tournie_on.png" alt="Tournament Overview" /></a>
+                <% } else { %>
+                    <a href=""><img src="/i/tournament/tccc07/tournie.png" alt="Tournament Overview" /></a>
+                <% } %>
+                </div>
+
+                <div style="float:left;">
+                <% if (tabLev1.equals("algorithm")) {%>
+                    <a href=""><img src="/i/tournament/tccc07/alg_on.png" alt="Algorithm Competition" /></a>
+                <% } else { %>
+                    <a href=""><img src="/i/tournament/tccc07/alg.png" alt="Algorithm Competition" /></a>
+                <% } %>
+                </div>
+            
+                <div style="float:left;">
+                <% if (tabLev1.equals("component")) {%>
+                    <a href=""><img src="/i/tournament/tccc07/comp_on.png" alt="Component Competition" /></a>
+                <% } else { %>
+                    <a href=""><img src="/i/tournament/tccc07/comp.png" alt="Component Competition" /></a>
+                <% } %>
+                </div>
+                
+                <div style="float:left;">
+                <% if (tabLev1.equals("marathon")) {%>
+                    <a href=""><img src="/i/tournament/tccc07/mara_on.png" alt="Marathon Competition" /></a>
+                <% } else { %>
+                    <a href=""><img src="/i/tournament/tccc07/mara.png" alt="Marathon Competition" /></a>
+                <% } %>
+                </div>
+                
+                <div style="float:left;">
+                <% if (tabLev1.equals("studio")) {%>
+                    <a href=""><img src="/i/tournament/tccc07/studio_on.png" alt="Studio Overview" /></a>
+                <% } else { %>
+                    <a href=""><img src="/i/tournament/tccc07/studio.png" alt="Studio Overview" /></a>
+                <% } %>
+                </div>
+        
+            </div>
+            
+<%--------------SECONDARY NAV---------------%>
+            <div id="navText">
+            <% if (tabLev1.equals("overview")) {%>
+                <p id="secondaryNav">
+                    <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=about"<% if (tabLev2.equals("overview")) {%> class="on"<% } %>>Details</a>
+                    | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=onsiteSchedule"<% if (tabLev2.equals("joinus")) {%> class="on"<% } %>>Join us onsite</a>
+                    | <a href=""<% if (tabLev2.equals("onsiteevents")) {%> class="on"<% } %>>Onsite events</a>
+                    | <a href=""<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a>
+                </p>
+            <% } else if (tabLev1.equals("algorithm")) { %>
+            <% } else if (tabLev1.equals("component")) { %>
+            <% } else if (tabLev1.equals("marathon")) { %>
+            <% } else if (tabLev1.equals("studio")) { %>
+            <% } %>
+
+<%--------------TERTIARY NAV---------------%>
+            <% if (tabLev1.equals("overview")) {%>
+                <% if (tabLev2.equals("joinus")) {%>
+                    <p id="tertiaryNav">
+                        <a href=""<% if (tabLev3.equals("onsiteschedule")) {%> class="on"<% } %>>Onsite schedule</a>
+                        | <a href=""<% if (tabLev3.equals("devforums")) {%> class="on"<% } %>>Developer forums</a>
+                        | <a href=""<% if (tabLev3.equals("getvisa")) {%> class="on"<% } %>>Getting a visa</a>
+                        | <a href=""<% if (tabLev3.equals("transportation")) {%> class="on"<% } %>>Transportation</a>
+                        | <a href=""<% if (tabLev3.equals("hotels")) {%> class="on"<% } %>>Hotels</a>
+                        | <a href=""<% if (tabLev3.equals("whattodo")) {%> class="on"<% } %>>What to do</a>
+                    </p>
+                <% } else if (tabLev2.equals("onsiteevents")) { %>
+                <% } %>
+            <% } else if (tabLev1.equals("algorithm")) { %>
+            <% } else if (tabLev1.equals("component")) { %>
+            <% } else if (tabLev1.equals("marathon")) { %>
+            <% } else if (tabLev1.equals("studio")) { %>
+            <% } %>
+            </div>
+            
+            <div style="position:absolute; top:375px; right:30px;">
+                <img src="/i/tournament/tccc07/stylebar.png" alt="stylebar" />
+            </div>
+        </div>
+
     </div>
     
-    <div style="position:absolute; top:375px; right:30px;">
-        <img src="/i/tournament/tccc07/stylebar.png" alt="stylebar" />
+    <div style="position:absolute; top:400px; right:7%;">
+        <tc-webtag:format object="<%=new Date()%>" format="EEEE, MMMM d, yyyy" timeZone="<%=(String)request.getAttribute(Constants.TIMEZONE)%>"/>
+        <div id="sponsors">
+            <jsp:include page="sponsors.jsp" />
+        </div>
     </div>
+
 </div>
-
-<!---
-<div id="nav">
-
-    <ul>
-        <%--------------TOURNAMENT OVERVIEW---------------%>
-        <li class="<% if (tabLev1.equals("overview")) {%>open<% } else { %>closed<% } %>">
-            <a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();">
-                <span>Tournament Overview</span>
-            </a>
-            <ul>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=about"<% if (tabLev1.equals("overview") && tabLev2.equals("details")) {%> class="navHighlight"<% } %>>
-                        <span>Details</span>
-                    </a></li>
-                <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("joinus")) {%>open<% } else { %>closed<% } %>">
-                    <a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();">
-                        <span>Join Us Onsite</span>
-                    </a>
-                    <ul>
-                        <li class="stop">
-                            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=onsiteSchedule"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("onsiteschedule")) {%> class="navHighlight"<% } %>>
-                                <span>Schedule</span>
-                            </a></li>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=devForums"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("devforums")) {%> class="navHighlight"<% } %>><span>Developer Forums</span></a></li>
-                        <li class="stop">
-                            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=getVisa"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("getvisa")) {%> class="navHighlight"<% } %>>
-                                <span>Getting a Visa</span>
-                            </a></li>
-                        <li class="stop">
-                            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=transportation"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("transportation")) {%> class="navHighlight"<% } %>>
-                                <span>Transportation</span>
-                            </a></li>
-                        <li class="stop">
-                            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=hotels"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("hotels")) {%> class="navHighlight"<% } %>>
-                                <span>Hotels</span>
-                            </a></li>
-                        <li class="stop">
-                            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=whatToDo"<% if (tabLev1.equals("overview") && tabLev2.equals("joinus") && tabLev3.equals("whattodo")) {%> class="navHighlight"<% } %>>
-                                <span>What To Do</span>
-                            </a></li>
-                    </ul>
-                </li>
-                <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("onsiteevents")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Onsite Events</span></a>
-                    <ul>
-                <%--
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=photos"<% if (tabLev1.equals("overview") && tabLev2.equals("onsiteevents") && tabLev3.equals("photos")) {%> class="navHighlight"<% } %>><span>Photos</span></a></li>
-                --%>
-                        <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=movies"<% if (tabLev1.equals("overview") && tabLev2.equals("onsiteevents") && tabLev3.equals("movies")) {%> class="navHighlight"<% } %>><span>Movies</span></a></li>
-                    </ul>
-                </li>
-                <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors")) {%>open<% } else { %>closed<% } %>">
-                    <a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();">
-                        <span>Sponsors</span>
-                    </a>
-                    <ul>
-                        <li class="stop">
-                            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=aol"<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors") && tabLev3.equals("aol")) {%> class="navHighlight"<% } %>>
-                                <span>AOL</span>
-                            </a></li>
-                        <li class="stop">
-                            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=drw"<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors") && tabLev3.equals("drw")) {%> class="navHighlight"<% } %>>
-                                <span>DRW</span>
-                            </a></li>
-                        <li class="stop">
-                            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=ubs"<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors") && tabLev3.equals("ubs")) {%> class="navHighlight"<% } %>>
-                                <span>UBS</span>
-                            </a></li>
-                        <li class="stop">
-                            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=verisign"<% if (tabLev1.equals("overview") && tabLev2.equals("sponsors") && tabLev3.equals("verisign")) {%> class="navHighlight"<% } %>>
-                                <span>VeriSign</span>
-                            </a></li>
-                    </ul>
-                </li>
-                <li class="<% if (tabLev1.equals("overview") && tabLev2.equals("eventpatrons")) {%>open<% } else { %>closed<% } %>">
-                    <a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();">
-                        <span>Event Patrons</span>
-                    </a>
-                    <ul>
-                        <li class="stop">
-                            <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=sponsorspatrons&amp;d4=nsa"<% if (tabLev1.equals("overview") && tabLev2.equals("eventpatrons") && tabLev3.equals("nsa")) {%> class="navHighlight"<% } %>>
-                                <span>NSA</span>
-                            </a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <%--------------ALGORITHM---------------%>
-        <li class="<% if (tabLev1.equals("algorithm")) {%>open<% } else { %>closed<% } %>">
-            <a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();">
-                <span>Algorithm</span>
-            </a>
-            <ul>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=description"<% if (tabLev1.equals("algorithm") && tabLev2.equals("description")) {%> class="navHighlight"<% } %>>
-                        <span>Description</span>
-                    </a></li>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=schedule"<% if (tabLev1.equals("algorithm") && tabLev2.equals("schedule")) {%> class="navHighlight"<% } %>>
-                        <span>Schedule</span>
-                    </a></li>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=algorithm&amp;d4=rules"<% if (tabLev1.equals("algorithm") && tabLev2.equals("rules")) {%> class="navHighlight"<% } %>>
-                        <span>Rules</span>
-                    </a></li>
-                <%--
-                <li class="stop">
-                    <a href="/tc?module=TCO07ViewRegistration&amp;ct=algorithm"<% if (tabLev1.equals("algorithm") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>>
-                        <span>Register</span>
-                    </a></li>
-                --%>
-                <li class="stop">
-                    <a href="/tc?module=TCO07ViewRegistrants&amp;ct=algorithm"<% if (tabLev1.equals("algorithm") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
-                        <span>Registrants</span>
-                    </a></li>
-                <li class="<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Advancers</span></a>
-                    <ul>
-                        <li class="stop"><a href="/tc?module=SimpleStats&d1=tournaments&d2=tco07&d3=algorithm&&d4=qualification&c=tco07_alg_qual&trans=true"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("qualification")) {%> class="navHighlight"<% } %>><span>Qualification</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=sectionA"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("sections")) {%> class="navHighlight"<% } %>><span>Sections</span></a></li>
-                        <li class="stop"><a href="/tc?module=SimpleStats&c=tco07_alg_adv_overview&trans=true&d1=tournaments&d2=tco07&d3=algorithm&d4=advancers"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("overview")) {%> class="navHighlight"<% } %>><span>Overview</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=bracket"<% if (tabLev1.equals("algorithm") && tabLev2.equals("advancers") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
-                    </ul>
-                </li>
-                <%--
-                <li class="<% if (tabLev1.equals("algorithm") && tabLev2.equals("summary")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Summary</span></a>
-                    <ul>
-                        <li class="stop"><a href=""><span>Room 1</span></a></li>
-                        <li class="stop"><a href=""><span>Room 2</span></a></li>
-                        <li class="stop"><a href=""><span>Room 3</span></a></li>
-                        <li class="stop"><a href=""><span>WildCard</span></a></li>
-                        <li class="stop"><a href=""><span>Finals</span></a></li>
-                    </ul>
-                </li>
-                --%>
-            </ul>
-        </li>
-
-        <%--------------COMPONENT---------------%>
-        <li class="<% if (tabLev1.equals("component")) {%>open<% } else { %>closed<% } %>">
-            <a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();">
-                <span>Component</span>
-            </a>
-            <ul>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=component&amp;d4=description"<% if (tabLev1.equals("component") && tabLev2.equals("description")) {%> class="navHighlight"<% } %>>
-                        <span>Description</span>
-                    </a></li>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=component&amp;d4=schedule"<% if (tabLev1.equals("component") && tabLev2.equals("schedule")) {%> class="navHighlight"<% } %>>
-                        <span>Schedule</span>
-                    </a></li>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=component&amp;d4=rules"<% if (tabLev1.equals("component") && tabLev2.equals("rules")) {%> class="navHighlight"<% } %>>
-                        <span>Rules</span>
-                    </a></li>
-                <%--
-                <li class="stop">
-                    <a href="/tc?module=TCO07ViewRegistration&amp;ct=component"<% if (tabLev1.equals("component") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>>
-                        <span>Register</span>
-                    </a></li>
-                --%>
-                <li class="stop">
-                    <a href="/tc?module=TCO07ViewRegistrants&amp;ct=component"<% if (tabLev1.equals("component") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
-                        <span>Registrants</span>
-                    </a></li>
-        
-                <li class="<% if (tabLev1.equals("component") && tabLev2.equals("design")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Design</span></a>
-                    <ul>
-                        <li class="stop"><a href="/tc?module=TCO07ContestDetails&amp;ct=286"<% if (tabLev1.equals("component") && tabLev2.equals("design") && tabLev3.equals("results")) {%> class="navHighlight"<% } %>><span>Results</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desBracket"<% if (tabLev1.equals("component") && tabLev2.equals("design") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
-                <%--
-                        <li class="stop"><a href=""><span>Finals</span></a></li>
-                        <li class="stop"><a href=""><span>Summary</span></a></li>
-                --%>
-                    </ul>
-                </li>
-                <li class="<% if (tabLev1.equals("component") && tabLev2.equals("development")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Development</span></a>
-                    <ul>
-                        <li class="stop"><a href="/tc?module=TCO07ContestDetails&amp;ct=287"<% if (tabLev1.equals("component") && tabLev2.equals("development") && tabLev3.equals("results")) {%> class="navHighlight"<% } %>><span>Results</span></a></li>
-                        <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devBracket"<% if (tabLev1.equals("component") && tabLev2.equals("development") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
-                <%--
-                        <li class="stop"><a href=""><span>Finals</span></a></li>
-                        <li class="stop"><a href=""><span>Summary</span></a></li>
-                --%>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <%--------------MARATHON---------------%>
-        <li class="<% if (tabLev1.equals("marathon")) {%>open<% } else { %>closed<% } %>">
-            <a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();">
-                <span>Marathon Match</span>
-            </a>
-            <ul>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=marathon&amp;d4=description"<% if (tabLev1.equals("marathon") && tabLev2.equals("description")) {%> class="navHighlight"<% } %>>
-                        <span>Description</span>
-                    </a></li>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=marathon&amp;d4=schedule"<% if (tabLev1.equals("marathon") && tabLev2.equals("schedule")) {%> class="navHighlight"<% } %>>
-                        <span>Schedule</span>
-                    </a></li>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=marathon&amp;d4=rules"<% if (tabLev1.equals("marathon") && tabLev2.equals("rules")) {%> class="navHighlight"<% } %>>
-                        <span>Rules</span>
-                    </a></li>
-                <li class="<% if (tabLev1.equals("marathon") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Advancers</span></a>
-                    <ul>
-                    <li class="stop"><a href="/tc?module=SimpleStats&amp;c=tco07_mm_adv_overview&amp;trans=true&amp;d1=tournaments&amp;d2=tco07&amp;d3=marathon&amp;d4=advOverview"<% if (tabLev1.equals("marathon") && tabLev2.equals("advancers") && tabLev3.equals("overview")) {%> class="navHighlight"<% } %>><span>Overview</span></a></li>
-                    <li class="stop"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=marathon&amp;d4=bracket"<% if (tabLev1.equals("marathon") && tabLev2.equals("advancers") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
-                    </ul>
-                </li>
-                <%--
-                <li class="stop"><a href="/tc?module=TCO07ViewRegistration&amp;ct=marathon"<% if (tabLev1.equals("marathon") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>><span>Register</span></a></li>
-                --%>
-                <li class="stop">
-                    <a href="/tc?module=TCO07ViewRegistrants&amp;ct=marathon"<% if (tabLev1.equals("marathon") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
-                        <span>Registrants</span>
-                    </a></li>
-            </ul>
-        </li>
-        <%--------------STUDIO---------------%>
-        <li class="<% if (tabLev1.equals("studio")) {%>open<% } else { %>closed<% } %>">
-            <a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();">
-                <span>Studio</span>
-            </a>
-            <ul>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=description"<% if (tabLev1.equals("studio") && tabLev2.equals("description")) {%> class="navHighlight"<% } %>>
-                        <span>Description</span>
-                    </a></li>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=schedule"<% if (tabLev1.equals("studio") && tabLev2.equals("schedule")) {%> class="navHighlight"<% } %>>
-                        <span>Schedule</span>
-                    </a></li>
-                <li class="stop">
-                    <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco07&amp;d3=studio&amp;d4=rules"<% if (tabLev1.equals("studio") && tabLev2.equals("rules")) {%> class="navHighlight"<% } %>>
-                        <span>Rules</span>
-                    </a></li>
-                <li class="<% if (tabLev1.equals("studio") && tabLev2.equals("advancers")) {%>open<% } else { %>closed<% } %>"><a href="javascript:void(0)" onClick="Javascript:toggleMenu(this.parentNode)" onfocus="this.blur();"><span>Advancers</span></a>
-                    <ul>
-                    <li class="stop"><a href="/tc?module=StudioLeaderboard&amp;d1=tournaments&amp;d3=studio&amp;d4=leaderboard&eid=2040&amp;d2=tco07"<% if (tabLev1.equals("studio") && tabLev2.equals("advancers") && tabLev3.equals("leaderboard")) {%> class="navHighlight"<% } %>><span>Leaderboard</span></a></li>
-                    <li class="stop"><a href="/tc?module=Static&d1=tournaments&d2=tco07&d3=studio&d4=bracket"<% if (tabLev1.equals("studio") && tabLev2.equals("advancers") && tabLev3.equals("bracket")) {%> class="navHighlight"<% } %>><span>Bracket</span></a></li>
-                    </ul>
-                </li>
-<%--
-                <li class="stop">
-                    <a href="/tc?module=TCO07ViewRegistration&amp;ct=studio"<% if (tabLev1.equals("studio") && tabLev2.equals("register")) {%> class="navHighlight"<% } %>>
-                        <span>Register</span>
-                    </a></li>
---%>
-                <li class="stop">
-                    <a href="/tc?module=TCO07ViewRegistrants&amp;ct=studio"<% if (tabLev1.equals("studio") && tabLev2.equals("registrants")) {%> class="navHighlight"<% } %>>
-                        <span>Registrants</span>
-                    </a></li>
-            </ul>
-        </li>
-    </ul> 
-</div> -->

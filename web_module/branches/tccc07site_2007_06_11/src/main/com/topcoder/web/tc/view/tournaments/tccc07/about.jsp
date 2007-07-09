@@ -14,7 +14,12 @@
 <div align="center" style="background: transparent;">
     <div id="content">
 
-        <jsp:include page="header.jsp" />
+        <jsp:include page="nav.jsp" >
+        <jsp:param name="tabLev1" value="overview"/>
+        <jsp:param name="tabLev2" value="details"/>
+        <jsp:param name="tabLev3" value=""/>
+        </jsp:include>
+
             <div id="pageBody">
                 <div id="breadcrumbs">
                     <a href="" alt="Tournament Overview">Tournament Overview</a> > <a href="" alt="Secondary Section">Secondary Section</a> > <a href="" alt="Tertiary Section">Tertiary Section</a>
