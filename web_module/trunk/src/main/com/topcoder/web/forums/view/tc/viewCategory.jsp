@@ -380,7 +380,8 @@
     </tr>
 </table>
 
-<br><br><br>
+<div style="clear:both;">&nbsp;</div>
+
 </td>
 <!-- Center Column Ends -->
 

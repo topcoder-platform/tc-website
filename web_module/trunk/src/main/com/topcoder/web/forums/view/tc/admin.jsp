@@ -108,6 +108,8 @@
 <input type="image" src="/i/roundTables/update.gif" alt="Update" />
 </div></form>
 
+<div style="clear:both;">&nbsp;</div>
+
         </td>
 <!-- Center Column Ends -->
 

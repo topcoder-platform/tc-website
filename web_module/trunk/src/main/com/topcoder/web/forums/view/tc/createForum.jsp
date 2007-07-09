@@ -29,21 +29,21 @@ function noenter(e)
 function AllowTabCharacter() {
     // IE only
     if (navigator.appName.indexOf('Microsoft') != -1) {
-	    if (event != null) {
-	        if (event.srcElement) {
-	            if (event.srcElement.value) {
-	                if (event.keyCode == 9) {  // tab character
-	                    if (document.selection != null) {
-	                        document.selection.createRange().text = '\t';
-	                        event.returnValue = false;
-	                    } else {
-	                        event.srcElement.value += '\t';
-	                        return false;
-	                    }
-	                }
-	            }
-	        }
-	    }
+        if (event != null) {
+            if (event.srcElement) {
+                if (event.srcElement.value) {
+                    if (event.keyCode == 9) {  // tab character
+                        if (document.selection != null) {
+                            document.selection.createRange().text = '\t';
+                            event.returnValue = false;
+                        } else {
+                            event.srcElement.value += '\t';
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 </script>
@@ -101,24 +101,24 @@ function AllowTabCharacter() {
         </jsp:include>
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
-	<tr>
-	   <td class="categoriesBox" style="padding-right: 20px;">
-	      <jsp:include page="categoriesHeader.jsp" />
-	   </td>
-	   <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
-	       <jsp:include page="searchHeader.jsp" />
-	   </td>
-	</tr>
-	
-	<tr>
-		<td colspan="2" style="padding-bottom:3px;"><b>
-	       <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
-	            <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> <img src="/i/interface/exp_w.gif" align="absmiddle"/>
-	       </tc-webtag:iterator>
-	 		<%=postHeading%>
-	       </b>
-	   </td>
-	</tr>
+    <tr>
+       <td class="categoriesBox" style="padding-right: 20px;">
+          <jsp:include page="categoriesHeader.jsp" />
+       </td>
+       <td nowrap="nowrap" valign="top" width="100%" style="padding-right: 20px;">
+           <jsp:include page="searchHeader.jsp" />
+       </td>
+    </tr>
+    
+    <tr>
+        <td colspan="2" style="padding-bottom:3px;"><b>
+           <tc-webtag:iterator id="category" type="com.jivesoftware.forum.ForumCategory" iterator='<%=ForumsUtil.getCategoryTree(forumCategory)%>'>
+                <A href="?module=Category&<%=ForumConstants.CATEGORY_ID%>=<%=category.getID()%>" class="rtbcLink"><%=category.getName()%></A> <img src="/i/interface/exp_w.gif" align="absmiddle"/>
+           </tc-webtag:iterator>
+             <%=postHeading%>
+           </b>
+       </td>
+    </tr>
 </table>
 
 <br>
@@ -129,30 +129,31 @@ function AllowTabCharacter() {
 <tc-webtag:hiddenInput name="<%=ForumConstants.CATEGORY_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.FORUM_ID%>"/>
 <tc-webtag:hiddenInput name="<%=ForumConstants.POST_MODE%>"/>
-	<tr>
-		<td class="rtHeader">
-			<%=postHeading%>
-		</td>
-	</tr>
-	
-	<tr>
-		<td class="rtTextCell100">
-		<%  if (errors.get(ForumConstants.FORUM_NAME) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.FORUM_NAME%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
-		<b>Name:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.FORUM_NAME%>" escapeHtml="false" onKeyPress="return noenter(event)"/><br/><br/>
-		<%  if (errors.get(ForumConstants.FORUM_DESCRIPTION) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.FORUM_DESCRIPTION%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
-		<b>Description:</b></font><br/><tc-webtag:textArea id="tcPostArea" rows="15" cols="72" name="<%=ForumConstants.FORUM_DESCRIPTION%>" onKeyDown="AllowTabCharacter()"/>
-		</td>
-	</tr>
-	
-	<tr>
-		<td class="rtFooter">
-			<input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='CreateForum';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_CREATE%>'"/>
-		</td>
-	</tr>
+    <tr>
+        <td class="rtHeader">
+            <%=postHeading%>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="rtTextCell100">
+        <%  if (errors.get(ForumConstants.FORUM_NAME) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.FORUM_NAME%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
+        <b>Name:</b><br/><tc-webtag:textInput size="60" name="<%=ForumConstants.FORUM_NAME%>" escapeHtml="false" onKeyPress="return noenter(event)"/><br/><br/>
+        <%  if (errors.get(ForumConstants.FORUM_DESCRIPTION) != null) { %><span class="bigRed"><tc-webtag:errorIterator id="err" name="<%=ForumConstants.FORUM_DESCRIPTION%>"><%=err%><br/></tc-webtag:errorIterator></span><% } %>
+        <b>Description:</b></font><br/><tc-webtag:textArea id="tcPostArea" rows="15" cols="72" name="<%=ForumConstants.FORUM_DESCRIPTION%>" onKeyDown="AllowTabCharacter()"/>
+        </td>
+    </tr>
+    
+    <tr>
+        <td class="rtFooter">
+            <input type="image" src="/i/roundTables/post.gif" class="rtButton" alt="Post" onclick="form1.module.value='CreateForum';form1.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_CREATE%>'"/>
+        </td>
+    </tr>
 </form>
 </table>
 
-        <p><br/></p>
+<div style="clear:both;">&nbsp;</div>
+
         </td>
 <!-- Center Column Ends -->
 

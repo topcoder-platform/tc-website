@@ -527,7 +527,7 @@ function toggleTabs(id) {
 <input type="image" src="/i/roundTables/save.gif" alt="Save"/>
 </div></form>
 
-<p><br/></p>
+<div style="clear:both;">&nbsp;</div>
 
 </td>
 <!-- Center Column Ends -->

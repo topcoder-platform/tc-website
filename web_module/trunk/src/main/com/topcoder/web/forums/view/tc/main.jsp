@@ -241,6 +241,9 @@
         <td></td>
     </tr>
 </table>
+
+<div style="clear:both;">&nbsp;</div>
+
 </td>
 <!-- Center Column Ends -->
 
