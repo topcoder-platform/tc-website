@@ -86,7 +86,7 @@ Div I
         <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 3 /*"coder_score"*/ + "]" %>'/>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 11 /*"rank"*/ + "]" %>'/></td>
         <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
-        <td class="valueC">
+        <td class="valueC" width="100px" nowrap>
            <% if (resultRow.getIntItem("is_current") == 1) { %>                        
             <div style="float: left; width: 30px;">
                 &nbsp;
