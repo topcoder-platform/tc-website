@@ -88,8 +88,21 @@ Div I
         <td class="value" nowrap><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueC"><bean:write name="resultRow" property='<%= "item[" + 2 /*"length"*/ + "]" %>'/>
            <% if (resultRow.getIntItem("is_current") == 1) { %>                        
+            <div style="float: left; width: 30px;">
+                &nbsp;
+            </div>
+            <div style="float: right; width: 30px;">                                    
                 <img src="/i/interface/emblem/andclimbing.png" alt="" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
+            </div>
+            <% } else { %>
+            <div style="float: left; width: 30px;">
+                &nbsp;
+            </div>
+            <div style="float: right; width: 30px;">                                    
+                &nbsp;
+            </div>
             <% } %>
+            
         </td>
         <td class="valueR" nowrap>
         <strong><bean:write name="resultRow" property='<%= "item[" + 5 /*"contest"*/ + "]" %>'/></strong><br>

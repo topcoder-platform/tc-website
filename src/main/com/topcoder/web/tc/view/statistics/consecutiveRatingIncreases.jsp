@@ -83,9 +83,22 @@ SRMs | <A HREF="/stat?c=consecutive_rating_increases&wst=4">SRMs and Tournaments
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
         <td class="value"><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="length"/>
-           <% if (resultRow.getIntItem("is_current") == 1) { %>                
+           <% if (resultRow.getIntItem("is_current") == 1) { %>                        
+            <div style="float: left; width: 30px;">
+                &nbsp;
+            </div>
+            <div style="float: right; width: 30px;">                                    
                 <img src="/i/interface/emblem/andclimbing.png" alt="" align="absmiddle" onmouseover="popUp(this,'emblemPopup')" onMouseOut="popHide()" />
-           <% } %>
+            </div>
+            <% } else { %>
+            <div style="float: left; width: 30px;">
+                &nbsp;
+            </div>
+            <div style="float: right; width: 30px;">                                    
+                &nbsp;
+            </div>
+            <% } %>
+           
         </td>
         <td class="valueR" nowrap>
         <strong><rsc:item row="<%=resultRow%>" name="start_contest_name"/></strong><br>
