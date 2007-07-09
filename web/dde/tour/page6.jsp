@@ -40,7 +40,7 @@
         </jsp:include>
 
         <div id="slide">
-            <a href="/tour/page7.jsp" onfocus="this.blur();"><img src="/i/tour/page6.jpg" alt="" /></a>
+            <a href="/tcs?module=Static&d1=tour&d2=page7" onfocus="this.blur();"><img src="/i/tour/page6.jpg" alt="" /></a>
         </div>
 
         <%--<h2 align="center">
@@ -50,10 +50,10 @@
         <div align="center">
             <div style="width: 60px; height: 28px; margin: 10px;">
                 <div style="float: left;">
-                    <a href="/tour/page5.jsp" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
+                    <a href="/tcs?module=Static&d1=tour&d2=page5" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
                 </div>
                 <div style="float: right;">
-                    <a href="/tour/page7.jsp" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
+                    <a href="/tcs?module=Static&d1=tour&d2=page7" onfocus="this.blur();"><img src="/i/tour/next.png" alt="Next page" /></a>
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
             <div id="popUpText">&nbsp;</div>
         </div>
 
-        <%--<jsp:include page="foot.jsp" />--%>
+        
 
     </div>
 </div>
