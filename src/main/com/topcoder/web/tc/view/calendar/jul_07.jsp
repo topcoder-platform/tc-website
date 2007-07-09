@@ -65,10 +65,6 @@
          </div>
       </td>
       <td class="value">3
-        <%-- <div class="long">
-         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 8</A></strong><br>
-         12:00 NOON
-         </div>--%>
       </td>
       <td class="value">4
       </td>
@@ -92,6 +88,11 @@
       <td class="value">10
       </td>
       <td class="value">11
+         <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 19</A></strong><br>
+         12:00 NOON<br>
+         2 weeks
+         </div>
       </td>
       <td class="value">12
          <div class="des_dev">
