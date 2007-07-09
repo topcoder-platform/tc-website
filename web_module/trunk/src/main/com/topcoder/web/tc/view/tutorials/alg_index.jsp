@@ -182,6 +182,10 @@
                <tc-webtag:handle coderId="14926760" />
                </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=stringSearching"><strong>Introduction to String Searching Algorithms</strong></a>
             </td></tr>
+            <tr valign=top><td class="bodyText">
+               <tc-webtag:handle coderId="22671469" />
+               </td><td class="bodyText" nowrap=nowrap><a href="/tc?module=Static&d1=tutorials&d2=maxFlowRevisited"><strong>Maximum Flow: Augmenting Path Algorithms Comparison</strong></a>
+            </td></tr>
            <tr valign="top">
                <td class="bodyText" colspan="2"><br><a href="/tc?module=Static&d1=help&d2=writeForTC">Write algorithm tutorials for TopCoder.com</a></td>
             </tr>
