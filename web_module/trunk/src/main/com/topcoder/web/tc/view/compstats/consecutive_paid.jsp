@@ -23,7 +23,7 @@ Only those contests where the competitor was rated are included.
     <tr>
         <td class="headerC">Rank</td>
         <td class="header">Coder</td>
-        <td class="headerC">Consecutive<br>Top 2</td>
+        <td class="headerC" width="100px">Consecutive<br>Top 2</td>
         <td class="headerC" colspan="3">Duration</td>            
     </tr>
     <% boolean even = false; %>
@@ -31,7 +31,7 @@ Only those contests where the competitor was rated are included.
         <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
         <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
-        <td class="valueC">
+        <td class="valueC" width="100px">
            <% if (row.getIntItem("is_current") == 1) { %>                        
             <div style="float: left; width: 30px;">
                 &nbsp;
