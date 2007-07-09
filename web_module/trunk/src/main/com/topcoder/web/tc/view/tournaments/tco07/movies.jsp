@@ -34,11 +34,13 @@
                         <h1><span>Movies</span></h1>
 
                         <h2>Webcast</h2>
-                        Requires Flash 7 or higher:
-                        <br><br>
                         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=trailer&title=Trailer">Trailer</A>
-                        <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=aolCTO&title=Interview%20with%20AOL%20CTO,%20Balan%20Nair">Interview with AOL CTO, Balan Nair</A>
 
+                        <br /><br />
+
+                        <h2>Miscellaneous</h2>
+                        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=aolCTO&title=Interview%20with%20AOL%20CTO,%20Balan%20Nair">Interview with AOL CTO, Balan Nair</A>
+                        <br /><A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=montage&title=Handheld%20camera%20montage">Handheld camera montage</A>
                     </div>
                 </td>
             </tr>
