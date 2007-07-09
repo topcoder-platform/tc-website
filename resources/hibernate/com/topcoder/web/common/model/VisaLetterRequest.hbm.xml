@@ -23,7 +23,6 @@
         <property name="requestDate" type="date" column="request_date" access="field"/>
         <property name="sentDate" type="date" column="sent_date" access="field"/>
         <property name="denied" type="boolean" column="denied_ind" access="field"/>
-        <property name="salutation" column="salutation" access="field"/>
         
     </class>
 </hibernate-mapping>
