@@ -31,7 +31,7 @@ Only those contests where the competitor was rated are included.
         <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item name="rank" row="<%=row%>"/></td>
         <td class="value"><tc-webtag:handle coderId='<%=row.getLongItem("coder_id")%>' context='<%=type%>'/></td>
-        <td class="valueC"><rsc:item name="length" row="<%=row%>" format="0"/>
+        <td class="valueC">
            <% if (row.getIntItem("is_current") == 1) { %>                        
             <div style="float: left; width: 30px;">
                 &nbsp;
@@ -47,7 +47,7 @@ Only those contests where the competitor was rated are included.
                 &nbsp;
             </div>
             <% } %>
-           
+           <rsc:item name="length" row="<%=row%>" format="0"/>
         </td>
         <td class="valueR" width="50%">
             <A href="/tc?module=CompContestDetails&pj=<rsc:item name="start_project_id" row="<%=row%>"/>"><rsc:item name="start_project_name" row="<%=row%>"/></A><br>
