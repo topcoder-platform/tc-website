@@ -5,11 +5,15 @@
     </sourcesList>
     <onlyAnalyze>true</onlyAnalyze>
     <sendMails>false</sendMails>
+    <daysShortPeriod>90</daysShortPeriod>
+    <daysLongPeriod>36500</daysLongPeriod>
     <firstWarningInterval>7</firstWarningInterval>
     <secondWarningInterval>2</secondWarningInterval>
     <daysBeforeWarning>30</daysBeforeWarning>
-    <scoreThreshold>80</scoreThreshold>
-    <submissionThresholdLastYear>4</submissionThresholdLastYear>
+    <scoreThresholdShort>85</scoreThresholdShort>
+    <scoreThresholdLong>85</scoreThresholdLong>
+    <submissionThresholdShort>1</submissionThresholdShort>
+    <submissionThresholdLong>10</submissionThresholdLong>
     <adminEmail>jivern@topcoder.com</adminEmail>
     <systemEmail>service@topcodersoftware.com</systemEmail>
     <parameterList>
