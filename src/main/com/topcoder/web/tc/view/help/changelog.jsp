@@ -47,6 +47,7 @@
     5.10.9 - 2007.07.xx
     <ul>
         <li>Add "and climbing" icon in some stats. -cucu, nick</li>
+        <li>Fixed bug that didn't allow to affirm an Assignment Document without a corresponding payment. -pulky</li>
     </ul>
 </p>
 
