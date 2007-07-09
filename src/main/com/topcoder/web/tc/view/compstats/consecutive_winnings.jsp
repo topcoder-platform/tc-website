@@ -23,7 +23,7 @@ Only those contests where the competitor was rated are included.
     <tr>
         <td class="headerC">Rank</td>
         <td class="header">Coder</td>
-        <td class="headerC">Consecutive<br>Wins</td>
+        <td class="headerC" width="100px" >Consecutive<br>Wins</td>
         <td class="headerC" colspan="3">Duration</td>        
         </tr>
     <% boolean even = false; %>
