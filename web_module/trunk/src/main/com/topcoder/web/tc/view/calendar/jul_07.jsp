@@ -92,7 +92,7 @@
          <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 19</A></strong><br>
          12:00 NOON<br>
          2 weeks
-         </div>
+         </div> 
       </td>
       <td class="value">12
          <div class="des_dev">
