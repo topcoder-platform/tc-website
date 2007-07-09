@@ -64,7 +64,7 @@
         <div align="center">
             <div style="width: 60px; height: 28px; margin: 10px;">
                 <div style="float: left;">
-                    <a href="/tour/page10.jsp" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
+                    <a href="/tcs?module=Static&d1=tour&d2=page10" onfocus="this.blur();"><img src="/i/tour/prev.png" alt="Previous page" /></a>
                 </div>
                 <div style="float: right;">
                     <img src="/i/tour/nextNA.png" alt="Next page" />
@@ -88,7 +88,7 @@
         </p>
         --%>
 
-        <%--<jsp:include page="foot.jsp" />--%>
+        
 
     </div>
 </div>
