@@ -39,12 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
+<li><a href="/tc?module=Static&d1=tutorials&d2=maxFlowRevisited"><strong>Maximum Flow: Augmenting Path Algorithms Comparison</strong></a>, by <tc-webtag:handle coderId="22671469" /><br>
+In this article, we'll revisit the so-called "max-flow" problem, with the goal of making some practical analysis of the most famous augmenting path algorithms. We will discuss several algorithms, and reveal which one is actually most efficient one in practice.</li>
 <li><a href="/tc?module=Static&d1=features&d2=070207"><strong>An Interview with Team V. Gimnazija</strong></a>, by <tc-webtag:handle coderId="7390467" /><br>
 The team portion of the TCHS 2007 tournament was won by the V. [fifth] Gimnazija team. I sat down and talked with the three winning members, Petar Sirkovic [<tc-webtag:handle coderId="21507690" />], Ivo Sluganovic [<tc-webtag:handle coderId="15604398" />], Goran Zuzic [<tc-webtag:handle coderId="11972352" />], as well as their chaperone, Predrag Brodanac.</li>
 <li><a href="/tc?module=Static&d1=features&d2=062807"><strong>Meet the June Coders of the Month</strong></a>, by <tc-webtag:handle coderId="8365955" /><br>
 We caught up with June's "coders of the month," to learn a little bit more about them, how they feel about competition, and more&#8230;</li>
-<li><a href="/tc?module=Static&d1=features&d2=062507"><strong>TCO Preview: Meet the Bloggers</strong></a>, by <tc-webtag:handle coderId="15498334" /> &amp; <tc-webtag:handle coderId="10574855" /><br>
-The winners of this year's TopCoder Open "Blog It" contest, <tc-webtag:handle coderId="10574855" /> and <tc-webtag:handle coderId="15498334" /> will be blogging about the TCO in Las Vegas later this week.</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
