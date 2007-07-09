@@ -44,6 +44,13 @@
 
 
 <p>
+    5.10.9 - 2007.07.xx
+    <ul>
+        <li>Add "and climbing" icon in some stats. -cucu, nick</li>
+    </ul>
+</p>
+
+<p>
     5.10.8 - 2007.06.28
     <ul>
         <li>Make the left nav a bit more efficient by removing the server name from link when not necessary. -dok</li>
