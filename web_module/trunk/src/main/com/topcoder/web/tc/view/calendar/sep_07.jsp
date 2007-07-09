@@ -90,6 +90,11 @@
          </div>
       </td>
       <td class="value">5
+         <div class="long">
+         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 22</A></strong><br>
+         12:00 NOON<br>
+         2 weeks
+         </div>
       <%--
          <div class="tccc07">
          <div class="emblem"><img src="/i/tournament/tccc07/emblem.png" alt="TCCC07" /></div>
