@@ -28,16 +28,6 @@ public class ApplyRBoardRules extends DBUtility {
     private static final int MILLIS_IN_DAY = 1000 * 60 * 60 * 24;
 
     /**
-     * Days assumed for the three months rule.
-     */
-    private static final int DAYS_THREE_MONTHS = 90;
-
-    /**
-     * Days assumed for the year rule.
-     */
-    private static final int DAYS_YEAR = 365;
-
-    /**
      * Status of disqualified reviewers.
      */
     private static final int DISQUALIFIED_STATUS = 110;
@@ -46,6 +36,16 @@ public class ApplyRBoardRules extends DBUtility {
      * Status of active reviewers.
      */
     private static final int QUALIFIED_STATUS = 100;
+
+    /**
+     * Days assumed for the short period rule.
+     */
+    private int daysShortPeriod = 90;
+
+    /**
+     * Days assumed for the long period rule.
+     */
+    private int daysLongPeriod = 3650;
 
     /**
      * This variable tells the first day's interval in which send warning mails.
@@ -63,14 +63,24 @@ public class ApplyRBoardRules extends DBUtility {
     private int daysBeforeWarning = 30;
 
     /**
-     * This variable tells the project's minimum score to be taken into consideration for the restrictions.
+     * This variable tells the project's minimum score to be taken into consideration for short period restrictions.
      */
-    private int scoreThreshold = 80;
+    private int scoreThresholdShort = 85;
 
     /**
-     * This variable tells how many submissions should be in the last year.
+     * This variable tells the project's minimum score to be taken into consideration for long period restrictions.
      */
-    private int submissionThresholdLastYear = 4;
+    private int scoreThresholdLong = 85;
+
+    /**
+     * This variable tells how many submissions should be in the short period.
+     */
+    private int submissionThresholdShort = 1;
+
+    /**
+     * This variable tells how many submissions should be in the long period.
+     */
+    private int submissionThresholdLong = 10;
 
     /**
      * This variable tells if only an analysis is wanted.
@@ -109,8 +119,8 @@ public class ApplyRBoardRules extends DBUtility {
         PreparedStatement psSelDetails = null;
 
         ResultSet rsUsers = null;
-        ResultSet rsDetails90 = null;
-        ResultSet rsDetails365 = null;
+        ResultSet rsDetailsShort = null;
+        ResultSet rsDetailsLong = null;
 
         digestMail.append("Today's reviewer movements:\n\n");
         try {
@@ -135,47 +145,51 @@ public class ApplyRBoardRules extends DBUtility {
                 String logMsg = "";
 
                 psSelDetails.clearParameters();
-                psSelDetails.setInt(1, DAYS_THREE_MONTHS);  // Days to analyze
-                psSelDetails.setInt(2, scoreThreshold);  // score threshold
+                psSelDetails.setInt(1, daysShortPeriod);  // Days to analyze
+                psSelDetails.setInt(2, scoreThresholdShort);  // score threshold
                 psSelDetails.setInt(3, rsUsers.getInt("project_type_id"));  // project_type
                 psSelDetails.setLong(4, rsUsers.getLong("user_id"));  // user_id
                 psSelDetails.setLong(5, rsUsers.getLong("catalog_id"));  // catalog_id
 
-                String possibleDisqualificationReason = " (no submission in the last " + DAYS_THREE_MONTHS + " days.";
-
-                /*log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
+//                String possibleDisqualificationReason = " (no " + submissionThresholdShort + " submissions in the last " + daysShortPeriod + " days.";
+                
+                log.debug("Analyzing " + ((rsUsers.getInt("status_id") == DISQUALIFIED_STATUS) ? "Inactive" : "Active") +
                         " user " + rsUsers.getLong("user_id") + "("+ rsUsers.getString("handle") + ")" +
                         " Project Type: " + rsUsers.getString("project_type_name") +
-                        " Catalog Id: " + rsUsers.getString("catalog_name"));*/
+                        " Catalog Id: " + rsUsers.getString("catalog_name"));
 
                 logMsg = " - <" + rsUsers.getString("handle") + "> <" + rsUsers.getString("project_type_name") + "> <" +
                         rsUsers.getString("catalog_name") + ">";
 
+                rsDetailsShort = psSelDetails.executeQuery();
 
-                rsDetails90 = psSelDetails.executeQuery();
+                // counts submissions
+                int countShort = 0;
+                for (; countShort < submissionThresholdShort && rsDetailsShort.next(); countShort++) ;
 
-                if (rsDetails90.next()) {
-                    // passed the 90 days rule successfully.
+                if (countShort >= submissionThresholdShort) {
+                    // passed the short period rule successfully.
 
-                    possibleDisqualificationReason = " (no at least " + submissionThresholdLastYear + " submissions in the last " + DAYS_YEAR + " days.";
+//                  possibleDisqualificationReason = " (no " + submissionThresholdLong + " submissions in the last " + daysLongPeriod + " days.";
 
                     // calculates how many days will be needed to be disqualified with the 90 days rule.
-                    daysToBeDisqualified = DAYS_THREE_MONTHS - (rsDetails90.getDate("current_date").getTime() -
-                            rsDetails90.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
+                    daysToBeDisqualified = daysShortPeriod - (rsDetailsShort.getDate("current_date").getTime() -
+                            rsDetailsShort.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
-                    psSelDetails.setInt(1, DAYS_YEAR);  // Days to analyze
-                    rsDetails365 = psSelDetails.executeQuery();
+                    psSelDetails.setInt(1, daysLongPeriod);  // Days to analyze
+                    psSelDetails.setInt(2, scoreThresholdLong);  // score threshold
+                    rsDetailsLong = psSelDetails.executeQuery();
 
                     // counts submissions
-                    int count = 0;
-                    for (; count < submissionThresholdLastYear && rsDetails365.next(); count++) ;
+                    int countLong = 0;
+                    for (; countLong < submissionThresholdLong && rsDetailsLong.next(); countLong++) ;
 
-                    if (count == submissionThresholdLastYear) {
-                        // passed the last year rule successfully.
+                    if (countLong >= submissionThresholdLong) {
+                        // passed the long period rule successfully.
 
-                        // calculates how many days will be needed to be disqualified with the last year rule.
-                        daysToBeDisqualified2 = DAYS_YEAR - (rsDetails365.getDate("current_date").getTime() -
-                                rsDetails365.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
+                        // calculates how many days will be needed to be disqualified with the long period rule.
+                        daysToBeDisqualified2 = daysLongPeriod - (rsDetailsLong.getDate("current_date").getTime() -
+                                rsDetailsLong.getDate("rating_date").getTime()) / (MILLIS_IN_DAY);
 
                         // The interesting amount is the lowest one. This will be the min days that the rev. will
                         // be disqualified.
@@ -196,7 +210,7 @@ public class ApplyRBoardRules extends DBUtility {
                         qualifiedReviewersCount++;
                         updateReviewerStatus(QUALIFIED_STATUS, rsUsers.getLong("user_id"),
                                 rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
-                        //log.debug("... activated!!! ");
+//               log.debug("... activated!!! ");
                         log.debug("ACT" + logMsg);
 
                         // send mail.
@@ -211,7 +225,7 @@ public class ApplyRBoardRules extends DBUtility {
                         disqualifiedReviewersCount++;
                         updateReviewerStatus(DISQUALIFIED_STATUS, rsUsers.getLong("user_id"),
                                 rsUsers.getInt("project_type_id"), rsUsers.getLong("catalog_id"));
-                        //log.debug("... disqualified " + possibleDisqualificationReason);
+//                        log.debug("... disqualified " + possibleDisqualificationReason);
                         log.debug("DISQ" + logMsg);
 
                         // send mail.
@@ -222,7 +236,7 @@ public class ApplyRBoardRules extends DBUtility {
                         // near to be disqualified.
                         if (daysToBeDisqualified <= daysBeforeWarning) {
                             warnedReviewersCount++;
-                            //log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
+//                            log.debug("... will be disqualified in " + daysToBeDisqualified + " days  < ------------------------- WARNING!! ");
                             log.debug("WARN" + logMsg);
 
                             // send mail.
@@ -234,7 +248,6 @@ public class ApplyRBoardRules extends DBUtility {
                             }
                         } else {
                             log.debug("OK" + logMsg);
-//                            log.debug("... ok");
                         }
                     }
                 }
@@ -298,9 +311,9 @@ public class ApplyRBoardRules extends DBUtility {
         mail.append("Hello " + handle + ",\n\n");
         mail.append("We are pleased to inform you that you have been reactivated for performing ");
         mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
-        mail.append("Remember that to stay active you must complete at least one project ");
-        mail.append("in the last 90 days and four in the last year in the corresponding catalog / ");
-        mail.append("development or design with a score equal or greater than 80 in each one.\n\n");
+        mail.append("Remember that to stay active you must complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : " "));
+        mail.append("in the last " + daysShortPeriod + " days and " + submissionThresholdLong + " overall in the corresponding catalog / ");
+        mail.append("development or design with a score equal or greater than " + scoreThresholdShort + " in each one.\n\n");
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
@@ -338,9 +351,9 @@ public class ApplyRBoardRules extends DBUtility {
         mail.append("able to complete your current projects.\n\n");
         mail.append("This is temporary. You no longer fulfill the requirements to be a reviewer, ");
         mail.append("but if you resolve this, you will be able to perform reviews again.\n\n");
-        mail.append("Note: To be qualified as a reviewer you must complete at least one project ");
-        mail.append("in the last 90 days and four in the last year in the corresponding catalog / ");
-        mail.append("development or design with a score equal or greater than 80 in each one.\n\n");
+        mail.append("Note: To be qualified as a reviewer you must complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : " "));
+        mail.append("in the last " + daysShortPeriod + " days and " + submissionThresholdLong + " overall in the corresponding catalog / ");
+        mail.append("development or design with a score equal or greater than " + scoreThresholdShort + " in each one.\n\n");        
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
@@ -376,9 +389,9 @@ public class ApplyRBoardRules extends DBUtility {
         mail.append("Hello " + handle + ",\n\n");
         mail.append("This mail is to warn you that in " + daysToBeDisqualified + " day/s you will be disqualified from performing ");
         mail.append("reviews on " + catalogName + " " + projectTypeName + " projects.\n\n");
-        mail.append("Note: To be qualified as a reviewer you must complete at least one project ");
-        mail.append("in the last 90 days and four in the last year in the corresponding catalog / ");
-        mail.append("development or design with a score equal or greater than 80 in each one.\n\n");
+        mail.append("Note: To be qualified as a reviewer you must complete at least " + submissionThresholdShort + " project" + (submissionThresholdShort > 1 ? "s" : " "));
+        mail.append("in the last " + daysShortPeriod + " days and " + submissionThresholdLong + " overall in the corresponding catalog / ");
+        mail.append("development or design with a score equal or greater than " + scoreThresholdShort + " in each one.\n\n");        
         mail.append("If you have any questions, please contact us at service@topcodersoftware.com.\n\n");
         mail.append("Thank you, \nTopCoder Software.\n");
 
@@ -425,7 +438,19 @@ public class ApplyRBoardRules extends DBUtility {
             setUsageError("Please specify a systemEmail.\n");
         params.remove("systemEmail");
 
-        String temp = (String) params.get("firstWarningInterval");
+        String temp = (String) params.get("daysShortPeriod");
+        if (temp == null)
+            setUsageError("Please specify a daysShortPeriod.\n");
+        daysShortPeriod = Integer.parseInt(temp);
+        params.remove("daysShortPeriod");
+
+        temp = (String) params.get("daysLongPeriod");
+        if (temp == null)
+            setUsageError("Please specify a daysLongPeriod.\n");
+        daysLongPeriod = Integer.parseInt(temp);
+        params.remove("daysLongPeriod");
+
+        temp = (String) params.get("firstWarningInterval");
         if (temp == null)
             setUsageError("Please specify a firstWarningInterval.\n");
         firstWarningInterval = Integer.parseInt(temp);
@@ -443,17 +468,29 @@ public class ApplyRBoardRules extends DBUtility {
         daysBeforeWarning = Integer.parseInt(temp);
         params.remove("daysBeforeWarning");
 
-        temp = (String) params.get("scoreThreshold");
+        temp = (String) params.get("scoreThresholdShort");
         if (temp == null)
-            setUsageError("Please specify a scoreThreshold.\n");
-        scoreThreshold = Integer.parseInt(temp);
-        params.remove("scoreThreshold");
+            setUsageError("Please specify a scoreThresholdShort.\n");
+        scoreThresholdShort = Integer.parseInt(temp);
+        params.remove("scoreThresholdShort");
 
-        temp = (String) params.get("submissionThresholdLastYear");
+        temp = (String) params.get("scoreThresholdLong");
         if (temp == null)
-            setUsageError("Please specify a submissionThresholdLastYear.\n");
-        submissionThresholdLastYear = Integer.parseInt(temp);
-        params.remove("submissionThresholdLastYear");
+            setUsageError("Please specify a scoreThresholdLong.\n");
+        scoreThresholdLong = Integer.parseInt(temp);
+        params.remove("scoreThresholdLong");
+
+        temp = (String) params.get("submissionThresholdShort");
+        if (temp == null)
+            setUsageError("Please specify a submissionThresholdShort.\n");
+        submissionThresholdShort = Integer.parseInt(temp);
+        params.remove("submissionThresholdShort");
+
+        temp = (String) params.get("submissionThresholdLong");
+        if (temp == null)
+            setUsageError("Please specify a submissionThresholdLong.\n");
+        submissionThresholdLong = Integer.parseInt(temp);
+        params.remove("submissionThresholdLong");
 
         log.debug("onlyAnalyze : " + onlyAnalyze);
     }
@@ -467,14 +504,18 @@ public class ApplyRBoardRules extends DBUtility {
         sErrorMsg.setLength(0);
         sErrorMsg.append(msg + "\n");
         sErrorMsg.append("PaymentFixUtility:\n");
-        sErrorMsg.append("   The following parameters should be included in the XML or the command line");
+        sErrorMsg.append("   The following parameters should be included in the XML or the command line\n");
+        sErrorMsg.append("   -daysShortPeriod : days for the short period.\n");
+        sErrorMsg.append("   -daysLongPeriod : days for the long period.\n");
         sErrorMsg.append("   -onlyAnalyze : whether to just analyze without updates.\n");
         sErrorMsg.append("   -sendMails : whether to send mails or not.\n");
         sErrorMsg.append("   -firstWarningInterval : first day's interval in which send warning mails.\n");
         sErrorMsg.append("   -secondWarningInterval : day's interval to send warning mails after first interval has been reached.\n");
         sErrorMsg.append("   -daysBeforeWarning : minimum amount of days to be disqualified to send a warning.\n");
-        sErrorMsg.append("   -scoreThreshold : project's minimum score to be taken into consideration for the restrictions.\n");
-        sErrorMsg.append("   -submissionThresholdLastYear : how many submissions should be in the last year.\n");
+        sErrorMsg.append("   -scoreThresholdShort : project's minimum score to be taken into consideration for the short period restrictions.\n");
+        sErrorMsg.append("   -scoreThresholdLong : project's minimum score to be taken into consideration for the long period restrictions.\n");
+        sErrorMsg.append("   -submissionThresholdShort : how many submissions should be in the short period.\n");
+        sErrorMsg.append("   -submissionThresholdLong : how many submissions should be in the long period.\n");
         sErrorMsg.append("   -adminEmail : admin email address.\n");
         sErrorMsg.append("   -systemEmail : system email address.\n");
         fatal_error();
