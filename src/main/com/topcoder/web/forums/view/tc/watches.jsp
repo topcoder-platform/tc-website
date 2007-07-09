@@ -167,7 +167,9 @@
                     <input type="image" src="/i/roundTables/update.gif" alt="Update" onclick="form2.<%=ForumConstants.STATUS%>.value='<%=ForumConstants.STATUS_UPDATE%>'"/>
                 </div>                
             </form>
-            <p><br/></p>
+
+            <div style="clear:both;">&nbsp;</div>
+
             <%	} %>
         </td>
         <!-- Center Column Ends -->

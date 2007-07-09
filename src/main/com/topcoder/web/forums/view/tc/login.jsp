@@ -134,11 +134,10 @@
                 </tr>
             </table>
 
-            <p><br></p>
-
-            <p><br></p>
-
         </div>
+
+<div style="clear:both;">&nbsp;</div>
+
     </td>
     <!-- Center Column ends -->
 

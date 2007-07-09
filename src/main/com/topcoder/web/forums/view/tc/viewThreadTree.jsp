@@ -360,7 +360,8 @@ function displayVotes(messageID, posVotes, negVotes, userRating) {
    <td align="right"><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" src="/i/interface/btn_rss.gif"/></a></td>
 </table>
 
-        <p><br></p>
+<div style="clear:both;">&nbsp;</div>
+
         </td>
 
 <!-- Center Column Ends -->

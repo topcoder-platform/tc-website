@@ -140,7 +140,8 @@
 </tc-webtag:iterator>
 <%-------------POSTS END---------------%>
 
-        <p><br/></p>
+<div style="clear:both;">&nbsp;</div>
+
         </td>
 
 <!-- Center Column Ends -->

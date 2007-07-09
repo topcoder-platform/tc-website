@@ -78,9 +78,9 @@ function noenter(e)
 
 <table cellpadding="0" cellspacing="0" class="rtbcTable">
 <tr>
-	<td style="padding-bottom:3px;">
-		<b><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Search</b>
-	</td>
+    <td style="padding-bottom:3px;">
+        <b><a href="?module=Main" class="rtbcLink">Forums</a> <img src="/i/interface/exp_w.gif" align="absmiddle"/> Search</b>
+    </td>
 </tr>
 </table>
 
@@ -188,24 +188,26 @@ function noenter(e)
 </table>
 <br>
 
-<%	if ("search".equals(status)) { %>
-	<%	boolean displayPerThread = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
-    	int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); 
-		int categoriesCount = (request.getAttribute("categoriesCount") != null) ? ((Integer)request.getAttribute("categoriesCount")).intValue() : 0;
-		if (categoriesCount > 0) { %>
-		<jsp:include page="searchCategoryResults.jsp"/><p>
-	<%	} %>
-	<%	if (resultCount > 0) { %>
-    	<jsp:include page="searchResults.jsp"/>
-    <%	} %>
-    <%	if (categoriesCount == 0 && resultCount == 0) { %>
-	    <table cellpadding="0" cellspacing="0" class="rtbcTable">
-		    <tr>
-		        <td class="rtbc">No search results for "<%=StringUtils.escapeHTMLTags(query.getQueryString())%>". Please try a less restrictive search.</td>
-		    </tr>
-		</table>
-	<%	} %>
+<%    if ("search".equals(status)) { %>
+    <%    boolean displayPerThread = JiveGlobals.getJiveBooleanProperty("search.results.groupByThread", true); 
+        int resultCount = (displayPerThread) ? query.getResultByThreadCount() : query.getResultCount(); 
+        int categoriesCount = (request.getAttribute("categoriesCount") != null) ? ((Integer)request.getAttribute("categoriesCount")).intValue() : 0;
+        if (categoriesCount > 0) { %>
+        <jsp:include page="searchCategoryResults.jsp"/><p>
+    <%    } %>
+    <%    if (resultCount > 0) { %>
+        <jsp:include page="searchResults.jsp"/>
+    <%    } %>
+    <%    if (categoriesCount == 0 && resultCount == 0) { %>
+        <table cellpadding="0" cellspacing="0" class="rtbcTable">
+            <tr>
+                <td class="rtbc">No search results for "<%=StringUtils.escapeHTMLTags(query.getQueryString())%>". Please try a less restrictive search.</td>
+            </tr>
+        </table>
+    <%    } %>
 <%  } %>
+
+<div style="clear:both;">&nbsp;</div>
 
 </td>
 <!-- Center Column Ends -->

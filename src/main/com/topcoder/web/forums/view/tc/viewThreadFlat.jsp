@@ -587,7 +587,9 @@ background: #6363E3 url(/i/survey/bar_bg.gif) center left repeat-x;
 <% if (paginator.getNumPages() > 1) { %>
     <br><a href="?module=RSS&<%=ForumConstants.THREAD_ID%>=<%=thread.getID()%>"><img alt="RSS" border="none" align="right" src="/i/interface/btn_rss.gif"/></a>
 <% } %>
-        <p><br></p>
+
+<div style="clear:both;">&nbsp;</div>
+
         </td>
 
 <!-- Center Column Ends -->

@@ -297,7 +297,9 @@
 <span class="bigRed"><A href="?module=Post&<%=ForumConstants.POST_MODE%>=New&<%=ForumConstants.FORUM_ID%>=<%=forum.getID()%>" class="bigRed">Be
     the first to post in this forum!</A></span>
 <% } %>
-<p><br/></p>
+
+<div style="clear:both;">&nbsp;</div>
+
 </td>
 <!-- Center Column Ends -->
 

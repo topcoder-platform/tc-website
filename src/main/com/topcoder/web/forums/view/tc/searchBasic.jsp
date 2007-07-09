@@ -110,6 +110,8 @@ function noenter(e)
 	<%	} %>
 <%  } %>
 
+<div style="clear:both;">&nbsp;</div>
+
 </td>
 <!-- Center Column Ends -->
 
