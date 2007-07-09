@@ -1,0 +1,94 @@
+<%@ page contentType="text/html;charset=utf-8" %> 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <title>2007 TopCoder Collegiate Challenge - Computer Programming Tournament</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
+    <link type="text/css" rel="stylesheet" href="/css/tournaments/tccc07.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/coders.css"/>
+    <jsp:include page="../../script.jsp" />
+</head>
+<body>
+
+<div align="center" style="background: transparent;">
+    <div id="content">
+
+        <jsp:include page="../header.jsp" />
+        
+        <div id="pageBody">
+            <div id="breadcrumbs">
+                <a href="" alt="Tournament Overview">Tournament Overview</a> > <a href="" alt="Secondary Section">Secondary Section</a> > <a href="" alt="Tertiary Section">Tertiary Section</a>
+            </div>
+            <h1><span>Studio Design Competition Schedule</span></h1>
+            <p>
+            The Studio competitions will have eight (8) weeks of online competition and one (1) onsite Championship round. Each contestant participating in an online round must submit his/her design submission for any contest by the submission deadline as scheduled.
+            </p>
+            
+            <div id="tableNhandles">
+                <table cellpadding="0" cellspacing="0" class="stat"> 
+                    <tbody> 
+                        <tr> 
+                            <td class="title" colspan="5">Schedule</td> 
+                        </tr> 
+                        <tr> 
+                            <td class="header">&nbsp;</td> 
+                            <td class="header">Start Date</td> 
+                            <td class="header">Start Time</td> 
+                            <td class="header">End Date</td> 
+                            <td class="header">End Time</td> 
+                        </tr> 
+                        <tr class="light"> 
+                            <td class="value">SDC Registration</td> 
+                            <td class="value">July 23, 2007</td> 
+                            <td class="value">9:00 AM EDT (GMT/UTC -4)</td> 
+                            <td class="value">August 24, 2007</td>
+                            <td class="value">5:00 PM EDT (GMT/UTC -4)</td>
+                        </tr> 
+                        <tr class="dark"> 
+                            <td class="value">Online Competition</td> 
+                            <td class="value">July 23, 2007</td> 
+                            <td class="value">9:00 AM EDT (GMT/UTC -4)</td> 
+                            <td class="value">September 7, 2007</td>
+                            <td class="value">2:00 PM EDT (GMT/UTC -4)</td>
+                        </tr> 
+                        <tr class="light"> 
+                            <td class="value">Onsite Competition</td> 
+                            <td class="valueC">November 1, 2007</td> 
+                            <td class="valueR">9:00 AM PDT (GMT/UTC -4)</td> 
+                            <td class="value">November 1, 2007</td>
+                            <td class="value">5:00 PM EDT (GMT/UTC -4)</td>
+                        </tr> 
+                    </tbody> 
+                </table>
+                <br /><br />
+                
+                <table cellpadding="0" cellspacing="0" class="stat"> 
+                    <tbody> 
+                        <tr> 
+                            <td class="title" colspan="2">Important Dates</td> 
+                        </tr> 
+                        <tr> 
+                            <td class="header">Important Items to Note</td> 
+                            <td class="header">Date and Time (Eastern Daylight Time)</td>
+                        </tr> 
+                        <tr class="light"> 
+                            <td class="value">Last Day to Request a Visa Letter</td> 
+                            <td class="value">Monday, September 10, 2007 at 5:00 PM</td> 
+                        </tr> 
+                        <tr class="dark"> 
+                            <td class="value">Finalist Documents Due</td> 
+                            <td class="value">Friday, September 28, 2007 at 5:00 PM</td> 
+                        </tr> 
+                    </tbody> 
+                </table>
+            </div>
+        </div>
+        
+        <jsp:include page="../footer.jsp" />
+    </div>
+</div>
+
+</body>
+
+</html>
