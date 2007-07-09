@@ -82,7 +82,7 @@ SRMs | <A HREF="/stat?c=consecutive_rating_increases&wst=4">SRMs and Tournaments
     <tr class="<%=even?"dark":"light"%>">
         <td class="valueC"><rsc:item row="<%=resultRow%>" name="rank"/></td>
         <td class="value"><tc-webtag:handle coderId="<%=resultRow.getLongItem("coder_id")%>" context="algorithm"/></td>
-        <td class="valueC">
+        <td class="valueC" width="100px" nowrap>
            <% if (resultRow.getIntItem("is_current") == 1) { %>                        
             <div style="float: left; width: 30px;">
                 &nbsp;
