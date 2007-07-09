@@ -71,8 +71,8 @@ SRMs | <A HREF="/stat?c=consecutive_rating_increases&wst=4">SRMs and Tournaments
     <tr><td class="title" colspan="6">Most Consecutive Algorithm Rating Increases</td></tr>
     <tr>
         <td class="headerC">Rank</td>
-        <td class="header">Coder</td>
-        <td class="headerC" width="100%" nowrap>Consecutive<br>Rating<br>Increases</td>
+        <td class="header" width="100%">Coder</td>
+        <td class="headerC" width="100px" nowrap>Consecutive<br>Rating<br>Increases</td>
         <td class="headerC" colspan="3">Duration</td>
     </tr>
 </thead>
