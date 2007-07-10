@@ -65,9 +65,10 @@
 <%-- BRANDING --%>
 <h2>${row.map['contest_name']} &gt; ${row.map['round_name']}</h2>
 
-    <c:set value="<%=new Date()%>" var="currentDate"/>
 
-<c:if test="${row.map['coding_start_time']<currentDate && row.map['coding_end_time'] > currentDate}">
+    <c:set value="<%=new Date()%>" var="currentDate"/>
+<c:if test="${row.map['coding_end_time'] > currentDate && row.map['coding_start_time'] < currentDate}">
+
     <div align="center">
         <table style="margin-top: 20px; margin-bottom: 20px;" cellpadding="0" cellspacing="0">
             <tbody>
