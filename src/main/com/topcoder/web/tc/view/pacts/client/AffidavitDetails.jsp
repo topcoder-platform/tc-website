@@ -88,7 +88,6 @@
 <%
    } else {
       if(!a.getAffidavit().getHeader().isAffirmed()) {
-a.setAffidavitText(new String("<form action=pactsmemberservlet?t=affidavit&amp;amp;c=affirm_affidavit  method=post>") + a.getAffidavitText());
 
          if(a.getPayment().getCountry().equals("India")) {
             int idx = a.getAffidavitText().indexOf("FILL IN AGED");
@@ -98,33 +97,29 @@ a.setAffidavitText(new String("<form action=pactsmemberservlet?t=affidavit&amp;a
                 if (idx>=0)
                 a.setAffidavitText(a.getAffidavitText().substring(0,idx) + "<input type=\"text\" name=\"family_name\" size=\"25\" maxlength=\"25\" />" + a.getAffidavitText().substring(idx+(new String("FILL IN BELOW")).length()));
          }
+%>
 
-out.print("<p>" + a.getAffidavitText() + "</p>");
-out.print("<div align=\"center\">");
-out.print("<input type=hidden name=" + PactsConstants.AFFIDAVIT_ID);
-out.print(" value=" + a.getAffidavit().getHeader().getId()+ " />");
-if(a.getAffidavit().getBirthday().length() <= 0) {
-   out.print("enter your birthday (mm/dd/yyyy): <input type=\"text\" name=\"date_of_birth\" size=\"15\" maxlength=\"15\" />");
-}
-out.print("<input type=\"submit\" value=\"affirm affidavit\" />");
-out.print("</form>");
-%><form action="/reg/?nrg=false"><%
-out.print("<input type=\"submit\" value=\"edit personal information\" />");
-out.print("</form>");
-out.print("</div>");
-       } else {
-         out.print("<p>" + a.getAffidavitText() + "</p>");
-      }
+    <form action="PactsMemberServlet"  method="post">
+          <p>
+              <%=a.getAffidavitText()%>
+              </p>
+        <div align="center">
+            <input type="hidden" name="<%=PactsConstants.AFFIDAVIT_ID%>" value="<%=a.getAffidavit().getHeader().getId()%>"/>
+            <%if(a.getAffidavit().getBirthday().length() <= 0) {%>
+            enter your birthday (mm/dd/yyyy): <input type="text" name="date_of_birth" size="15" maxlength="15" />
+            <% }%>
+            <input type="submit" value="affirm affidavit" />
+            <a href="/reg/?nrg=false">Edit Personal Information</a>
+        </div>
+        </form>
+    <% } else {%>
+         <p><%=a.getAffidavitText()%></p>
+    <% }
    }
-
     } else {
-
 %>
-
 did not get affidavit
-
-<%  }
-%>
+<%  }%>
 </div>
 
         </td>
