@@ -54,7 +54,7 @@
         <c:choose>
             <c:when test="${confirmRegistration}">
                 <p align="center">
-                    You have been succesfully registered for High School ${season.name}.
+                    You have been successfully registered for High School ${season.name}.
                 </p>
             </c:when>
 
