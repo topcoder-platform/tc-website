@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.common.StringUtils" %>
 <%@ page import="com.topcoder.web.tc.Constants" %>
+<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -64,7 +65,7 @@
 <%-- BRANDING --%>
 <h2>${row.map['contest_name']} &gt; ${row.map['round_name']}</h2>
 
-<jsp:useBean id="currentDate" type="java.util.Date"/>
+    <c:set value="<%=new Date()%>" var="currentDate"/>
 
 <c:if test="${row.map['coding_start_time']<currentDate && row.map['coding_end_time'] > currentDate}">
     <div align="center">
