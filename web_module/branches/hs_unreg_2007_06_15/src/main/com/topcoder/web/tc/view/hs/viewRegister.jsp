@@ -10,7 +10,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-    <title>TopCoder Software Tour</title>
+    <title>TopCoder High School Competitions</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link type="image/x-icon" rel="shortcut icon" href="/i/favicon.ico"/>
     <jsp:include page="../script.jsp" />
