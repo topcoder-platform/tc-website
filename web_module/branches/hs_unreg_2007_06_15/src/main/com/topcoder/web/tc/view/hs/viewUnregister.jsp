@@ -50,7 +50,7 @@
         <c:choose>
             <c:when test="${not active}">
                 <p align="center">
-                    You are not registered for High School competitions.
+                    You are not registered for TopCoder High School competitions.
                 </p>
             </c:when>
 
