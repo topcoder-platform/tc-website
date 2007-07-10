@@ -64,24 +64,28 @@
 <%-- BRANDING --%>
 <h2>${row.map['contest_name']} &gt; ${row.map['round_name']}</h2>
 
-<div align="center">
-    <table style="margin-top: 20px; margin-bottom: 20px;" cellpadding="0" cellspacing="0">
-        <tbody>
-            <tr>
-                <td style="padding: 0px 5px 10px 0px;" align="center" width="50%">
-                    <a class="bigButton" style="width: 130px;"
-                       href="/longcontest/?module=ViewReg&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register/Submit</a>
-                    <%--<div class="bigButton" style="width: 100px;">Register</div>--%>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3" style="padding-top: 10px;" align="center">
-                    Register to get info necessary to submit a solution<br/>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<jsp:useBean id="currentDate" type="java.util.Date"/>
+
+<c:if test="${row.map['coding_start_time']<currentDate && row.map['coding_end_time'] > currentDate}">
+    <div align="center">
+        <table style="margin-top: 20px; margin-bottom: 20px;" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td style="padding: 0px 5px 10px 0px;" align="center" width="50%">
+                        <a class="bigButton" style="width: 130px;"
+                           href="/longcontest/?module=ViewReg&amp;<%=Constants.ROUND_ID%>=${row.map['round_id']}">Register/Submit</a>
+                        <%--<div class="bigButton" style="width: 100px;">Register</div>--%>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding-top: 10px;" align="center">
+                        Register to get info necessary to submit a solution<br/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</c:if>    
 
 <div class="sectionHeader">Competition Overview</div>
 
