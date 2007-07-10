@@ -24,7 +24,7 @@
                 <div id="breadcrumbs">
                     <a href="" alt="Tournament Overview">Tournament Overview</a> > <a href="" alt="Secondary Section">Secondary Section</a> > <a href="" alt="Tertiary Section">Tertiary Section</a>
                 </div>
-                <h1><span>2007 TopCoder Collegiate Challenge - Component Design and Development Competition</span></h1>
+                <h1><span>Component Design and Development Competition</span></h1>
                 
                 <h2>Component Design</h2>
                 <p>TopCoder Design Competitions require participants to design a software component.  Starting from a requirements specification, they produce a full set of design documentation: UML class, sequence, and use case diagrams, and a component specification document, which contains algorithm descriptions, exception handling, and documentation.</p>
