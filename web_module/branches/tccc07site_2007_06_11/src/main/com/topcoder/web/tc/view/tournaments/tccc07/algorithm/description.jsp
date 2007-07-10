@@ -35,7 +35,7 @@
                         submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</li>
                     </ul>
                 <p>When is the competition?  See the schedule <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule" alt="TCCC07 Algorithm Schedule">here.</a></p>
-                <p>It is important for you to read the official rules and regulations (link to rules) for more details.</p>
+                <p>It is important for you to read the official <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=rules" alt="TCCC07 Algorithm Rules &amp; Regulations">rules and regulations</a> for more details.</p>
                 <p>We encourage you to utilize the TopCoder practice rooms in the competition arena prior to competing.</p>
                 <p>The competition is free and you must be an 18 years or older collegiate member, as well as meet all eligibility criteria, in order to participate.</p>
             </div>
