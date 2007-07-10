@@ -105,6 +105,8 @@
               </p>
         <div align="center">
             <input type="hidden" name="<%=PactsConstants.AFFIDAVIT_ID%>" value="<%=a.getAffidavit().getHeader().getId()%>"/>
+            <input type="hidden" name="<%=PactsConstants.TASK_STRING%>" value="affidavit"/>
+            <input type="hidden" name="<%=PactsConstants.CMD_STRING%>" value="affirm_affidavit"/>
             <%if(a.getAffidavit().getBirthday().length() <= 0) {%>
             enter your birthday (mm/dd/yyyy): <input type="text" name="date_of_birth" size="15" maxlength="15" />
             <% }%>
