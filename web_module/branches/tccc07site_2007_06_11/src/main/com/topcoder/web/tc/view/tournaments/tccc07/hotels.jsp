@@ -15,9 +15,9 @@
     <div id="content">
 
         <jsp:include page="nav.jsp" >
-        <jsp:param name="tabLev1" value="joinus"/>
-        <jsp:param name="tabLev2" value="hotels"/>
-        <jsp:param name="tabLev3" value=""/>
+        <jsp:param name="tabLev1" value="overview"/>
+        <jsp:param name="tabLev2" value="joinus"/>
+        <jsp:param name="tabLev3" value="hotels"/>
         </jsp:include>
 
             <div id="pageBody">
