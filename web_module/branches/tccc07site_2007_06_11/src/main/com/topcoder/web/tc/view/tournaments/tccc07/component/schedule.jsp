@@ -106,9 +106,11 @@
             </table> 
             <br /><br />
                 
-            <h2>Important Dates</h2>
             <table cellpadding="0" cellspacing="0" class="stat"> 
                 <tbody> 
+                    <tr>
+                        <td class="title" colspan="2">Important Dates</td>
+                    </tr>
                     <tr> 
                         <td class="header">Important Items To Note</td> 
                         <td class="header">Date and Time (Eastern Daylight Time)</td>
