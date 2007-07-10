@@ -49,7 +49,22 @@
             </table>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-            
+
+<%-- Bill Taylor --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />"><img src="/i/pressroom/guardian_logo.png" alt="Guardian Unlimited logo" border="0" /></a></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">Bill Taylor on big ideas</a></strong></font><br />
+                        In his latest column for <i>The Guardian</i>, Mavericks at Work author Bill Taylor asked "a big question facing all of us who are serious about our work and career: <i>Just how good am I, really?</i>," citing TopCoder as the type of competition today's professionals can use to prove themselves.<span class="prHead"> [July 10]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+     
 <%-- TCO07 Live Coverage --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

@@ -363,6 +363,12 @@
         <td class="homeArrow">&#160;</td>
         <td class="homeText"><br>
 
+            <div style="float: right; padding-left: 5px;">
+                <img src="/i/pressroom/guardian_logo.png" width="67" height="30" alt="Guardian Unlimited" border="0" />
+            </div>
+            Bill Taylor on big ideas
+            <a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">...more</a><br>[July 10]<br><br>
+
             Live Coverage of 2007 TopCoder Open to Feature Broadcast Team
             <a target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_062507">...more</a><br>[June 25]<br><br>
             
@@ -380,9 +386,6 @@
 
             TopCoder Announces Enhanced Focus on Financial Services Industry
             <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_060607">...more</A><br>[June 6]<br><br>
-
-            Yodlee to Sponsor TopCoder Single Round Match Series
-            <A target="_blank" href="/tc?module=Static&d1=pressroom&d2=pr_052207">...more</A><br>[May 23]<br><br>
 
           </td>
     </tr>

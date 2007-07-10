@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>07.10.07<br>1:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">Bill Taylor on big ideas</a></span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/guardian_logo.png" width="67" height="30" alt="Guardian Unlimited" border="0" /></div>
+      In his latest column for <i>The Guardian</i>, Mavericks at Work author Bill Taylor asked "a big question facing all of us who are serious about our work and career: <i>Just how good am I, really?</i>," citing TopCoder as the type of competition today's professionals can use to prove themselves.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">full story</a> | 
+       <tc-webtag:forumLink forumID="516438" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/general.png" alt="General TopCoder News" border="0" /><br>07.09.07<br>6:30 PM</td>
       <td class="newsTextCell"><span class="newsTitle">
         <A href="/tc?module=Static&d1=calendar&d2=thisMonth">Marathon Matches added to Event Calendar</A></span><br><br>
@@ -190,25 +204,6 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">details</A> |
         <tc-webtag:forumLink forumID="516333" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.29.07<br>8:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=summary">Congratulations to Mojito1, the TCO07 Marathon Match Champion</A>
-        </span><br><br>
-        <tc-webtag:handle coderId="10600282" context="marathon"/> is the winner of the first TopCoder Open Marathon Match competition.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=marathon&d4=summary">details</A> |
-        <tc-webtag:forumLink forumID="516304" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
       
