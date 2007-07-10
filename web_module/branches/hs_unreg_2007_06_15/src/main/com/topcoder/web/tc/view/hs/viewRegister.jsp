@@ -48,8 +48,7 @@
     <form action="/tc" method="post" name="f">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="HSRegister"/>
     <tc-webtag:hiddenInput name="<%=com.topcoder.web.tc.Constants.SEASON_ID%>" value="${season.id}"/>
-        <h2>Registration for TopCoder High School ${season.name}</h2>
-        <div style="margin-top: 20px;">
+        <h2 align="center">Registration for TopCoder High School ${season.name}</h2>
 
         <c:choose>
             <c:when test="${confirmRegistration}">
@@ -107,7 +106,6 @@
             </c:otherwise>                    
         </c:choose>
 
-        </div>
 </form>
 
             </div>
