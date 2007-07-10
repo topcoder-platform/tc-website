@@ -109,6 +109,7 @@
             enter your birthday (mm/dd/yyyy): <input type="text" name="date_of_birth" size="15" maxlength="15" />
             <% }%>
             <input type="submit" value="affirm affidavit" />
+            <br /><br />
             <a href="/reg/?nrg=false">Edit Personal Information</a>
         </div>
         </form>
