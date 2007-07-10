@@ -48,42 +48,42 @@
     <form action="/tc" method="post" name="f">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="HSRegister"/>
     <tc-webtag:hiddenInput name="<%=com.topcoder.web.tc.Constants.SEASON_ID%>" value="${season.id}"/>
-        <h2>Registration for High School ${season.name}</h2>
+        <h2>Registration for TopCoder High School ${season.name}</h2>
         <div style="margin-top: 20px;">
 
         <c:choose>
             <c:when test="${confirmRegistration}">
                 <p align="center">
-                    You have been successfully registered for High School ${season.name}.
+                    You have been successfully registered for TopCoder High School ${season.name}.
                 </p>
             </c:when>
 
             <c:when test="${not existSeason}">
                 <p align="center">
-                    There are no current or upcoming High School Seasons.
+                    There are no current or upcoming TopCoder High School Seasons.
                 </p>
             </c:when>
             <c:when test="${not regOpen}">
                 <p align="center">
-                    Registration for the season is not open.
+                    Registration for this season is not open.
                 </p>
             </c:when>
 
             <c:when test="${not registeredHs}">
                 <p align="center">
-                    You must <a href="http://www.topcoder.com/reg">register</a> for High School first.
+                    You must <a href="http://www.topcoder.com/reg">register</a> for TopCoder High School competitions first.
                 </p>
             </c:when>
             
             <c:when test="${not eligible}">
                 <p align="center">
-                    You are not eligible for High School competitions.
+                    You are not eligible for TopCoder High School competitions.
                 </p>
             </c:when>
             
             <c:when test="${alreadyRegistered}">
                 <p align="center">
-                    You are already registered for High School ${season.name}.
+                    You are already registered for TopCoder High School ${season.name}.
                 </p>
             </c:when>
 
