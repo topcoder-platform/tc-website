@@ -78,8 +78,11 @@ public class Register extends RegistrationBase {
         
         markForCommit();
 
-        setNextPage("/tc?module=HSViewRegister");
-        setIsNextPageInContext(false);
+        getRequest().setAttribute("season", season);
+        getRequest().setAttribute("confirmRegistration", true);        
+
+        setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
+        setIsNextPageInContext(true);
     } 
 
 

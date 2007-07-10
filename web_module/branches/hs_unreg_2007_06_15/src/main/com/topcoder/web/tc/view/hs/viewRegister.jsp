@@ -52,6 +52,12 @@
         <div style="margin-top: 20px;">
 
         <c:choose>
+            <c:when test="${confirmRegistration}">
+                <p align="center">
+                    You have been succesfully registered for High School ${season.name}.
+                </p>
+            </c:when>
+
             <c:when test="${not existSeason}">
                 <p align="center">
                     There are no current or upcoming High School Seasons.
