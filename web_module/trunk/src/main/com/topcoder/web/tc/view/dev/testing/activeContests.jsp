@@ -54,8 +54,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMAdmin">Sales IM Admin Testing Competition</A>
       </td>
       <td class="valueC">
-      registration closed
-      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Admin Testing Competition">register</A>--%>
+      <%--registration closed--%>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Admin Testing Competition">register</A>
       </td>
       <td class="valueC">
       &#160;
@@ -69,12 +69,12 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_salesIMAdmin">standings</A>
       --%>
       </td>
-      <td class="valueC">$1,200</td>
+      <td class="valueC">$1,500</td>
       <td class="valueC">
-      05.30.2007 9:00 AM EDT
+      07.16.2007 9:00 AM EDT
       </td>
       <td class="valueC">
-      06.05.2007 9:00 AM EDT
+      07.24.2007 9:00 AM EDT
       </td>
       <td class="valueC" nowrap="nowrap">
       <tc-webtag:forumLink forumID="515778" message="discuss" />
@@ -86,8 +86,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMChat">Sales IM Chat Testing Competition</A>
       </td>
       <td class="valueC">
-      registration closed
-      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Chat Testing Competition">register</A>--%>
+      <%--registration closed--%>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Chat Testing Competition">register</A>
       </td>
       <td class="valueC">
       &#160;
@@ -101,12 +101,12 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_salesIMChat">standings</A>
       --%>
       </td>
-      <td class="valueC">$1,500</td>
+      <td class="valueC">$2,000</td>
       <td class="valueC">
-      05.30.2007 9:00 AM EDT
+      07.16.2007 9:00 AM EDT
       </td>
       <td class="valueC">
-      06.08.2007 9:00 AM EDT
+      07.28.2007 9:00 AM EDT
       </td>
       <td class="valueC" nowrap="nowrap">
       <tc-webtag:forumLink forumID="515779" message="discuss" />
@@ -118,8 +118,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMPerformance">Sales IM Performance Testing Competition</A>
       </td>
       <td class="valueC">
-      registration closed
-      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Performance Testing Competition">register</A>--%>
+      <%--registration closed--%>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Performance Testing Competition">register</A>
       </td>
       <td class="valueC">
       &#160;
@@ -133,12 +133,12 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_salesIMPerformance">standings</A>
       --%>
       </td>
-      <td class="valueC">$600</td>
+      <td class="valueC">$700</td>
       <td class="valueC">
-      05.22.2007 9:00 AM EDT
+      07.16.2007 9:00 AM EDT
       </td>
       <td class="valueC">
-      05.25.2007 9:00 AM EDT
+      07.21.2007 9:00 AM EDT
       </td>
       <td class="valueC" nowrap="nowrap">
       <tc-webtag:forumLink forumID="515798" message="discuss" />
@@ -150,8 +150,8 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMPrechat">Sales IM Pre-Chat Testing Competition</A>
       </td>
       <td class="valueC">
-      registration closed
-      <%--<A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Pre-Chat Testing Competition">register</A>--%>
+      <%--registration closed--%>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Pre-Chat Testing Competition">register</A>
       </td>
       <td class="valueC">
       &#160;
@@ -165,12 +165,12 @@
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_salesIMPrechat">standings</A>
       --%>
       </td>
-      <td class="valueC">$1,200</td>
+      <td class="valueC">$2,000</td>
       <td class="valueC">
-      05.16.2007 9:00 AM EDT
+      07.16.2007 9:00 AM EDT
       </td>
       <td class="valueC">
-      05.25.2007 9:00 AM EDT
+      07.28.2007 9:00 AM EDT
       </td>
       <td class="valueC" nowrap="nowrap">
       <tc-webtag:forumLink forumID="515780" message="discuss" />
