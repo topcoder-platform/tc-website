@@ -4743,6 +4743,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // Get winning designers/developers to be paid for completed projects
         if (status == 7) {
+            log.info("Project complete, generating payments for winners");
+            
             StringBuffer getWinners = new StringBuffer(300);
             getWinners.append("select pr.placed, pr.user_id, payment as paid, pcl.name ");
             getWinners.append("from tcs_catalog:project_result pr, tcs_catalog:project p, tcs_catalog:project_category_lu pcl ");
@@ -4758,6 +4760,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 long coderId = Long.parseLong(rsc.getItem(i, "user_id").toString());
                 double amount = rsc.getDoubleItem(i, "paid");
                 int placed = rsc.getIntItem(i, "placed");
+                log.info("coder: " + coderId + " placed: "  + placed + " amount: " + amount );
                 payments.addAll(generateComponentUserPayments(coderId, amount, client, projectId, placed, devSupportCoderId));
             }
         }
@@ -4799,7 +4802,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
 
     /**
-     * Sets the status on all contest payments with Pending or On Hold status older than a specified time
+     * Sets the status on all contest payments with Pending or On Hld status older than a specified time
      * to Expired. The time limit is specified in <tt>PactsConstants.java</tt>
      * and is currently set to 60 days.
      *
@@ -5732,7 +5735,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             l.add(p);
         } else if (projectType == DEVELOPMENT_PROJECT) {
             long designProject = getDesignProject(projectId);
-
+            log.info("1st place for dev project, will pay 2nd installment to project id: " +designProject);
             // add the development payment as it is
             ComponentWinningPayment cwp = new ComponentWinningPayment(coderId, grossAmount, client, projectId, placed);
             l.add(cwp);
@@ -5760,6 +5763,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     long coderId2 = rsc.getLongItem(0, "user_id");
                     int methodId = rsc.getIntItem(0, "payment_method_id");
 
+                    log.info("installment: " + installment + " total: " + totalAmount + " paid: " + paid);
                     if (totalAmount > paid) {
                         if (devSupportCoderId > 0) {
                             coderId2 = devSupportCoderId;
@@ -5773,7 +5777,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                         if (devSupportCoderId == 0) {
                             p.setMethodId(methodId);
                         }
-
+                        log.info("Pay to: " + coderId2 + " $ " + (totalAmount - paid) + " for project " + designProject);
                         l.add(p);
                     }
                 }
