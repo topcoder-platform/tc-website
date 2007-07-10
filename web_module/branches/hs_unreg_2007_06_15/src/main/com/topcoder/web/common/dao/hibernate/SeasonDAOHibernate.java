@@ -30,10 +30,19 @@ public class SeasonDAOHibernate extends Base implements SeasonDAO {
      * Return the current season, or the upcoming if there is no current season.
      */
     public Season findCurrent(Integer type) {
-        Query q = session.createQuery(" from Season s where s.endDate > current and s.typeId = " + type + " order by s.endDate");
-        List<Season> l = q.list();
+        List<Season> l = findCurrentAndUpcoming(type);
         if (l.size() == 0) return null;
         
         return l.get(0);
     }
+    
+    /**
+     * Return the current and upcoming seasons.
+     */
+    @SuppressWarnings("unchecked")
+    public List<Season> findCurrentAndUpcoming(Integer type) {
+        Query q = session.createQuery(" from Season s where s.endDate > current and s.typeId = " + type + " order by s.endDate");
+        return  q.list();        
+    }
+
 }

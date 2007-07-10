@@ -5,6 +5,7 @@ import java.util.Date;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.model.CoderType;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Season;
@@ -42,14 +43,19 @@ public class ViewRegister extends RegistrationBase {
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
         Integer hsStatus = getHSGroupStatus(u);
 
-        if (SecurityGroup.ACTIVE.equals(hsStatus)) {
-            Season season;
-            if (seasonId == null) {
-                season = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
-            } else {
-                season = DAOUtil.getFactory().getSeasonDAO().find(seasonId);
-            }
-            
+        Season season;
+        if (seasonId == null) {
+            season = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
+        } else {
+            season = DAOUtil.getFactory().getSeasonDAO().find(seasonId);
+        }
+        
+        getRequest().setAttribute("season", season);
+
+        if (SecurityGroup.INACTIVE.equals(hsStatus) ||
+                CoderType.PROFESSIONAL.equals(u.getCoder().getCoderType().getId())) {
+            eligible = false;
+        } else if (SecurityGroup.ACTIVE.equals(hsStatus)) {
             if (season == null) {
                 existSeason = false;
             } else {
@@ -70,10 +76,7 @@ public class ViewRegister extends RegistrationBase {
                         }
                     }                    
                 }
-                getRequest().setAttribute("season", season);
             }                        
-        } else if (SecurityGroup.INACTIVE.equals(hsStatus)) {
-            eligible = false;
         } else {
             registeredHs = false;
         }
