@@ -43,6 +43,7 @@
          <A href="/tc?module=Static&d1=help&d2=generalFaq">General FAQ</A><br>
          <A href="/tc?module=Static&d1=help&d2=competitionFaq">Competition FAQ</A><br>
          <A href="/tc?module=Static&d1=help&d2=formsFaq">Forms W-9 & W-8BEN FAQ</A><br>
+         <A href="/tc?module=Static&d1=help&d2=assignmentDocFaq">Assignment Document FAQ</A>
 
          <p><br/></p>
          </td>
