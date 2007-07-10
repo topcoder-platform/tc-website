@@ -61,7 +61,7 @@ public class Register extends RegistrationBase {
         EventRegistration registration = DAOUtil.getFactory().getEventRegistrationDAO().find(u.getId(), event.getId());
         
         if (registration != null) {
-            throw new NavigationException("You're not eligible for High School or benn already registered");            
+            throw new NavigationException("You're not eligible for High School or already registered");            
         }
                                 
         int ageHs = Integer.parseInt(getRequest().getParameter(Constants.AGE_FOR_HS));
