@@ -84,6 +84,10 @@
     <c:if test="${not full_list}" >
         <a href="/PactsMemberServlet?module=AssignmentDocumentHistory&full_list=true" class="bcLink">View all</a> | View pending
     </c:if>
+    <div align="center">
+        <a class="bcLink" href="/tc?module=Static&d1=help&d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
+    </div>
+
 </div>
 
 <br clear="all" />
@@ -115,10 +119,6 @@
     </c:if>
     
     <br>
-    
-    <div align="center">
-        <a class="bcLink" href="/tc?module=Static&d1=help&d2=assignmentDocFaq">What is an Assignment Document?</a><br /><br />
-    </div>
     
     <table cellpadding="0" cellspacing="0" class="stat" width="100%">
     <tbody>
