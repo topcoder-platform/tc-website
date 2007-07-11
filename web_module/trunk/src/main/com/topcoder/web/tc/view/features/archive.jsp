@@ -43,6 +43,13 @@
                <td class="bodyText"><b>Title</b></td>
                <td class="bodyText"><b>Date</b></td>
             </tr>
+            <%-- POST THURS JULY 12
+            <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="21684580" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=071207"><strong>An Interview with ahyangyi</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Jul 12, 2007</td> 
+            </tr>
+            --%>
             <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="7390467" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=070207"><strong>An Interview with Team V. Gimnazija</strong></A></td>
