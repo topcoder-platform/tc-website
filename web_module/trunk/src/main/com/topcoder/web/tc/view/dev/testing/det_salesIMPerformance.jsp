@@ -179,7 +179,7 @@ If you do not reside in the United States:<br>
 <br><br>
 <div class="sectionHeader">Registration</div>
 <%--<p>Registration is closed.</p>--%>
-
+  
 <p>To sign up as a participant, send an email to <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Sales IM Performance Testing Competition">TestingCompetitions@topcoder.com</A>.  In the email, include the following information:
 <ul>
 <li>Handle</li>
