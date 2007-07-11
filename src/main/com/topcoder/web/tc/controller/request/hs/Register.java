@@ -110,7 +110,8 @@ public class Register extends RegistrationBase {
         markForCommit();
 
         getRequest().setAttribute("season", season);
-        getRequest().setAttribute("confirmRegistration", eligible);        
+        getRequest().setAttribute("confirmRegistration", true);        
+        getRequest().setAttribute("eligible", eligible);        
 
         setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
         setIsNextPageInContext(true);
