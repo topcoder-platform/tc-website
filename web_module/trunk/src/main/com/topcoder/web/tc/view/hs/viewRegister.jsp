@@ -51,6 +51,12 @@
         <h2 align="center">Registration for TopCoder High School ${season.name}</h2>
 
         <c:choose>
+            <c:when test="${not eligible}">
+                <p align="center">
+                    You are not eligible for TopCoder High School competitions.
+                </p>
+            </c:when>
+
             <c:when test="${confirmRegistration}">
                 <p align="center">
                     You have been successfully registered for TopCoder High School ${season.name}.
@@ -74,11 +80,6 @@
                 </p>
             </c:when>
             
-            <c:when test="${not eligible}">
-                <p align="center">
-                    You are not eligible for TopCoder High School competitions.
-                </p>
-            </c:when>
             
             <c:when test="${alreadyRegistered}">
                 <p align="center">
