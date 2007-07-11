@@ -238,9 +238,9 @@ In 1972 Edmonds and Karp developed another way to find an augmenting path. At ea
 
 <p align="center"><span class="math">F* - F<sub>i</sub> = F* - F<sub>i-1</sub> - f<sub>i</sub> &le; F* - F<sub>i-1</sub> - (F* - F<sub>i-1</sub>) / m = (1 - 1 / m) (F* - F<sub>i-1</sub>) &le; ... &le; (1 - 1 / m)<sup>i</sup> _ F*</span></p>
  
-<p>We have to find such an integer <span class="math">i</span>, which gives <span class="math">(1 - 1 / m)<sup>i</sup> _ F* < 1<span class="math">. One can check that </p>
+<p>We have to find such an integer <span class="math">i</span>, which gives <span class="math">(1 - 1 / m)<sup>i</sup> _ F* &lt; 1</span>. One can check that </p>
 
-<p align="center"><span class="math">i > log<sub> m / (m+1)</sub> F*  = O(m _ </span>log <span class="math">F*) = O(m _ log(nU))</span></p>
+<p align="center"><span class="math">i </span> log<span class="math"><sub> m / (m+1)</sub> F*  = O(m _ </span>log <span class="math">F*) = O(m _ </span>log<span class="math">(nU))</span></p>
 
 <p>And the latter inequality proves the theorem.</p>
 
