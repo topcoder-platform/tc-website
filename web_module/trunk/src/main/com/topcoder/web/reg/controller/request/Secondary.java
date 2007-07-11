@@ -1,15 +1,30 @@
 package com.topcoder.web.reg.controller.request;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.Address;
+import com.topcoder.web.common.model.AlgoRating;
+import com.topcoder.web.common.model.AlgoRatingType;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.Company;
+import com.topcoder.web.common.model.Email;
+import com.topcoder.web.common.model.Phone;
+import com.topcoder.web.common.model.Preference;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.SecretQuestion;
 import com.topcoder.web.common.model.TimeZone;
+import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserPreference;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-
-import java.util.*;
 
 /**
  * @author dok
@@ -21,7 +36,7 @@ public class Secondary extends Base {
     protected void registrationProcessing() throws Exception {
         User u = getRegUser();
         if (u == null) {
-            throw new NavigationException("Sorry, your session has expired.");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
         } else {
 
             Set fields = RegFieldHelper.getMainFieldSet(getRequestedTypes(), u);
@@ -31,37 +46,32 @@ public class Secondary extends Base {
                     checkMainFields(params);
 
                     if (hasErrors()) {
-                        Map.Entry me;
-                        for (Iterator it = params.entrySet().iterator(); it.hasNext();) {
-                            me = (Map.Entry) it.next();
-                            if (me.getKey().equals(Constants.NOTIFICATION)) {
-                                List a = (List) me.getValue();
-                                for (Iterator it1 = a.iterator(); it1.hasNext();) {
-                                    setDefault(Constants.NOTIFICATION + ((Notification) it1.next()).getId(), String.valueOf(true));
+                        reloadMain(params, u, fields);
+                    } else {
+                        // If the user is registering for hs, check that he has the right age and he'll be attending high school
+                        if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
+                                !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
+                            int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
+                            if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= Constants.MAX_AGE_FOR_HS) {
+                                log.debug("user is not eligible");
+                                
+                                if (u.isNew()) {
+                                    // setup in session so that the user is inactivated for hs when submitting.
+                                    getRequest().getSession().setAttribute(Constants.INACTIVATE_HS, Boolean.TRUE);
+                                } else {
+                                    inactivateHsUser(u);                                    
                                 }
-                            } else {
-                                setDefault((String) me.getKey(), me.getValue());
+                                
+                                getRequest().getSession().setAttribute("params", params);
+                                getRequest().setAttribute("registeredComp" ,isCurrentlyRegistered(u, RegistrationType.COMPETITION_ID));
+                                getRequest().setAttribute("requestedComp" ,hasRequestedType(RegistrationType.COMPETITION_ID));
+
+                                setNextPage("/hsIneligible.jsp");
+                                setIsNextPageInContext(true);
+                                return;
                             }
                         }
-
-                        setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
-                        if (!u.isNew()) {
-                            setDefault(Constants.HANDLE, u.getHandle());
-                        }
-                        List nots = getFactory().getNotificationDAO().getNotifications(getRequestedTypes());
-                        if (nots != null) {
-                            getRequest().setAttribute("notifications", nots);
-                        }
-                        getRequest().setAttribute(Constants.FIELDS, fields);
-                        getRequest().setAttribute(Constants.REQUIRED_FIELDS,
-                                RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), u));
-                        getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
-                        getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
-                        getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
-                        getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
-                        setNextPage("/main.jsp");
-                        setIsNextPageInContext(true);
-                    } else {
+                            
                         loadFieldsIntoUserObject(fields, params);
                         Set secondaryFields = RegFieldHelper.getSecondaryFieldSet(getRequestedTypes(), u);
                         log.debug("we have " + secondaryFields.size() + " secondary fields");
@@ -110,6 +120,8 @@ public class Secondary extends Base {
             }
         }
     }
+
+
 
 
     private void loadFieldsIntoUserObject(Set fields, Map params) throws TCWebException {

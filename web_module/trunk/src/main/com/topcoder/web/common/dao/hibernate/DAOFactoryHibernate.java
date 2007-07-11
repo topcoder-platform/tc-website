@@ -131,6 +131,10 @@ public class DAOFactoryHibernate implements DAOFactory {
         return new SchoolTypeDAOHibernate();
     }
 
+    public SeasonDAO getSeasonDAO() {
+        return new SeasonDAOHibernate();
+    }
+
     public SecurityGroupDAO getSecurityGroupDAO() {
         return new SecurityGroupDAOHibernate();
     }

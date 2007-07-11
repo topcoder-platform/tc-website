@@ -90,6 +90,9 @@ public interface PrincipalMgrRemote extends EJBObject {
     public abstract void removeUserFromGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject)
             throws RemoteException, GeneralSecurityException;
 
+    public abstract void removeUserFromGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject, String dataSource)
+            throws RemoteException, GeneralSecurityException;
+
     public abstract Collection getRoles(TCSubject tcsubject)
             throws RemoteException, GeneralSecurityException;
 
