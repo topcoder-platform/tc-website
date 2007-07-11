@@ -38,6 +38,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
 <!-- 2007  --> 
 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2007</font></td></tr>
+<tr><td class="newsText"><a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/computerworld_20070709.pdf' refer='art_archive' />">Programming's Crack Competitor</a> [PDF] [July 11 - Computerworld]<br/></td></tr>
 <tr><td class="newsText"><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">Bill Taylor on big ideas</a> [July 10 - Guardian Unlimited]<br/></td></tr>
 <tr><td class="newsText"><a target="_blank" href="<tc-webtag:linkTracking link='http://www.computerworld.com.au/index.php/id;1241090047;fp;2;fpid;1' refer='art_archive' />">Outsourcing the eBay way</a> [June 15 - Computerworld]<br/></td></tr>
 <tr><td class="newsText"><A target="_blank" href="http://www.usatoday.com/tech/techinvestor/industry/2007-03-13-google-poland_N.htm">Why Google put a research lab in Poland</A> [March 13 - USA Today]<br/></td></tr>

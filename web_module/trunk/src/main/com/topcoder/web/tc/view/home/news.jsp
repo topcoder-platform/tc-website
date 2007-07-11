@@ -4,6 +4,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>07.11.07<br>5:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/computerworld_20070709.pdf' refer='/tc' />">Programming's Crack Competitor</a> [PDF]</span><br><br>
+        <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/computerworld.gif" width="67" height="18" alt="Computerworld" border="0" /></div>
+       What kind of trophies do they give to programming champions? Jiazhi Wu would know. As an undergrad at Zhejiang University in China, Wu won a record 39 out of 45 programming contests held by TopCoder.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+       <a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/computerworld_20070709.pdf' refer='/tc' />">full story</a> | 
+       <tc-webtag:forumLink forumID="516492" message="discuss this" /> | 
+       <A href="/tc?module=Static&d1=pressroom&d2=art_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>07.10.07<br>1:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><a target="_blank" href="<tc-webtag:linkTracking link='http://technology.guardian.co.uk/opinion/story/0,,2120402,00.html' refer='pressroom_index' />">Bill Taylor on big ideas</a></span><br><br>
         <div style="float: right; padding-left: 5px;"><img src="/i/pressroom/guardian_logo.png" width="67" height="30" alt="Guardian Unlimited" border="0" /></div>
@@ -31,7 +45,7 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>07.09.07<br>4:45 PM</td>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tutorial.png" alt="Educational Content" border="0" /><br>07.09.07<br>4:45 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
       <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=maxFlowRevisited">Maximum Flow: Augmenting Path Algorithms Comparison</A></span><br><br>
@@ -184,25 +198,6 @@
    </tr>
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">details</A> |
-        <tc-webtag:forumLink forumID="516333" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.29.07<br>8:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">Congratulations to hefeng, the TCO07 Component Development Champion</A>
-        </span><br><br>
-        <tc-webtag:handle coderId="15214882" context="development"/> has won the TopCoder Open Component Development competiton.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=devSummary">details</A> |
         <tc-webtag:forumLink forumID="516333" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
