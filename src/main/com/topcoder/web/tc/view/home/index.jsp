@@ -309,13 +309,14 @@
             <img src="/i/home/tco07Rd1-B_nsa.png" alt="TCO07 Round 1-B brought to you by NSA" border="0" style="display:block;" usemap="#mm"/>
             --%>
 
-            <%-- SRM SPONSOR 
+            <%-- SRM SPONSOR --%>
                 <map name="mm">
-                <area shape="rect" alt="" coords="1,1,264,95" href="/tc?module=MatchDetails&rd=10710" />
-                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=ubs" />
+                <area shape="rect" alt="" coords="1,1,80,95" href="/tc?module=MatchDetails&rd=10766" />
+                <area shape="rect" alt="" coords="110,1,250,95" href="/tc?module=Static&d1=sponsors&d2=yodlee" />
+                <area shape="rect" alt="" coords="1,106,264,135" href="/tc?module=Static&d1=sponsors&d2=yodlee" />
                 </map>
-                <img src="/i/home/srm353_ubs.png" alt="SRM 353 brought to you by UBS" border="0" style="display:block;" usemap="#mm"/>
-                --%>
+                <img src="/i/home/srm357_yodlee.png" alt="SRM 357 brought to you by Yodlee" border="0" style="display:block;" usemap="#mm"/>
+                
                 
             <%-- 2 Registration Prototype contests open @ Studio 
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewActiveContests" target="_blank"><img src="/i/home/regproto_studiopromo.png" alt="2 Registration Prototype contests open @ Studio" border="0" style="display:block;" /></A>
@@ -345,9 +346,9 @@
             <A href="<tc-webtag:linkTracking link='/tc?module=Static&d1=media&d2=tcchannel&clip=ep2' refer='homepage' />"><img src="/i/home/tcchannel_promo_ep2.png" alt="TC Channel: Episode 2" /></A>
             --%>
             
-            <%-- TOPCODER EMPLOYEE REFERRAL PROGRAM --%>
+            <%-- TOPCODER EMPLOYEE REFERRAL PROGRAM 
             <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104"><img src="/i/home/tccc07_logo_design_promo.png" alt="TCCC07 Logo Design Contest" border="0" style="display:block;"/></A>
-             
+            --%> 
              
         </td>
     </tr>
