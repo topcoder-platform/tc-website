@@ -703,7 +703,6 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(LATEST_CREATION_DATE))
                 inputOk = validateInput(value, DATE);
             else if (key.equals(USER_ID) ||
-                    key.equals(STATUS_CODE) ||
                     key.equals(AFFIDAVIT_ID) ||
                     key.equals(ROUND_ID) ||
                     key.equals(TYPE_CODE))
