@@ -91,7 +91,7 @@
       </td>
       <td class="value">5
          <div class="long">
-         <strong><A href="/longcontest/?module=Static&d1=instructions">Marathon Match 22</A></strong><br>
+         <strong><A href="/tc?module=MatchDetails&rd=10862">Marathon Match 22</A></strong><br>
          12:00 NOON<br>
          2 weeks
          </div>
