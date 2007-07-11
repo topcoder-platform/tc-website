@@ -448,6 +448,26 @@
     </tr>
 </c:if>
 
+<c:set value="<%=Constants.ATTENDING_COLLEGE%>" var="attendingCollege"/>
+<c:if test="${cf:contains(fields, attendingCollege)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.ATTENDING_COLLEGE%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, attendingCollege)}">*</c:if>Will you be attending college/university full time on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
+        </td>
+        <td class="value">
+            <tc-webtag:radioButton name="<%=Constants.ATTENDING_COLLEGE%>" value="yes"/> Yes
+            <tc-webtag:radioButton name="<%=Constants.ATTENDING_COLLEGE%>" value="no"/> No
+            
+        </td>
+    </tr>
+</c:if>
+
 
 <c:set value="<%=Constants.HANDLE%>" var="handle"/>
 <c:if test="${cf:contains(fields, handle)}">
