@@ -80,7 +80,8 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     addError("error", "Cannot cancel or delete an affirmed affidavit");
                 }                    
                 long roundId = getOptionalLongParameter(ROUND_ID);
-                if (roundId > 0) {
+                if (roundId > 0 && !(new Long(roundId)).equals(affidavit.getRoundId())) {
+                    // updating round Id
                     // duplicate user, round is not allowed.
                     Map query = new Hashtable();
                     String param = String.valueOf(roundId);
