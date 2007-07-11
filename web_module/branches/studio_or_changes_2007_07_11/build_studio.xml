@@ -111,7 +111,7 @@
     </target>
 
 
-    <target name="compile" depends="init,jar_shared" unless="compile_set">>
+    <target name="compile" depends="init,jar_shared" unless="compile_set">
         <available property="jdk1.4+" classname="java.nio.ByteBuffer"/>
         <javac
                 srcdir="${java}"
