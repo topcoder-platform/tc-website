@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.request.hs;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import com.topcoder.shared.security.ClassResource;
@@ -26,6 +28,8 @@ public class Unregister extends RegistrationBase {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } 
 
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+
         // Check that the user is eligible, just in case he fakes the URL
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
        
@@ -37,6 +41,7 @@ public class Unregister extends RegistrationBase {
             // If he was eligible for the current season, mark him as uneligible.
             if (registration != null && registration.isEligible()) {
                 registration.setEligible(false);
+                registration.setNotes("System: User requested un registration on " + sdf.format(new Date()));
                 DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
                 markForCommit();
             }
