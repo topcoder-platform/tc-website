@@ -103,6 +103,10 @@ public class Admin extends ForumsProcessor {
         } else if (command.equals(ForumConstants.ADMIN_CONVERT_TCS_FORUM_PERMS)) {
             log.info("Converting TCS forum permissions... ");
             PermissionsConversion.convertPermissions(forumFactory);
+        } else if (command.equals("Marathon Test")) {
+            log.info("Creating test forum in Marathon Matches category...");
+            ForumsLocal forums = (ForumsLocal) createLocalEJB(getInitialContext(), Forums.class);
+            forums.createMarathonForum(10090, "Marathon Match Test");
         }
         /*
         else if (command.equals("Add test forums")) {
