@@ -2578,7 +2578,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     selectHeaders.append(" AND UPPER(u.handle) LIKE ?");  //todo user handle_lower
                     objects.add(value);
                 } else if (key.equals(STATUS_CODE)) {
-                    selectHeaders.append(" AND a.status_id = " + value);
+                    selectHeaders.append(" AND a.status_id in (" + value + ")");
                 } else if (key.equals(ROUND_ID)) {
                     selectHeaders.append(" AND a.round_id = " + value);
                 } else if (key.equals(TYPE_CODE)) {
