@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.request.hs;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.PermissionException;
@@ -10,7 +11,9 @@ import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Season;
+import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.model.UserGroup;
 import com.topcoder.web.tc.Constants;
 
 
@@ -48,7 +51,21 @@ public class Unregister extends RegistrationBase {
         }
                     
         inactivateHsUser(u);
-        
+
+        boolean hasReg = false;
+        for (UserGroup sg : (Set<UserGroup>) u.getSecurityGroups()) {
+            log.debug("security group: "+ sg.getSecurityGroup().getGroupId() + " status: " + sg.getSecurityStatusId() +
+                    "  rt size: " + sg.getSecurityGroup().getRegistrationTypes().size());
+            // if it belongs to a security group for a registration 
+            if (!sg.getSecurityGroup().getRegistrationTypes().isEmpty()) { 
+                if (SecurityGroup.ACTIVE.equals(sg.getSecurityStatusId())) {
+                    hasReg = true;
+                    break;                   
+                }
+            }
+        }
+
+        getRequest().setAttribute("hasReg", hasReg);
         setNextPage(Constants.HS_UNREGISTER);
         setIsNextPageInContext(true);
     } 

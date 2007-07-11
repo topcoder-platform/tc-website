@@ -46,10 +46,26 @@
                 </jsp:include>
 
                 <p align="center">
-                    You are no longer registered for TopCoder High School Competitions.
+                    <strong>You are no longer registered for TopCoder High School Competitions.</strong>
                 </p>
 
+			<c:if test="${not hasReg}">			
+                <p align="center" style="margin-top:40px;">
+                    <strong>Uh-oh.</strong> Now that you've removed TopCoder High School registration from your account, you have no TopCoder registrations.
+                    Many members start competing in standard TopCoder competitions after leaving high school.
+                </p>
+                <p align="center">
+                    <strong>Would you like to register for TopCoder competitions?</strong>
+                </p>
+                <p align="center">
+                    <a href="/reg/?nrg=false" class="button" style="width: 60px;">Register</a>
+                </p>
+                <p align="center">
+                    Just check off all the registrations you'd like to add to your account.
+                </p>
+                </c:if>
             </div>
+
         </td>
 <%-- Center Column Ends --%>
         
