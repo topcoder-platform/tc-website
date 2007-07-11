@@ -760,6 +760,38 @@ public class ForumsBean extends BaseEJB {
             //log.debug("Converted permissions.");
         }
     }
+    
+    private long createForum(long categoryID, String name) throws Exception {
+        return createForum(categoryID, name, "");
+    }
+    
+    private long createForum(long categoryID, String name, String description) throws Exception {
+        try {
+            ForumCategory category = forumFactory.getForumCategory(categoryID);
+            Forum forum = forumFactory.createForum(name, description, category);
+            return forum.getID();
+        } catch (Exception e) {
+            logException(e, "error in creating software component forums");
+            throw e;
+        }
+    }
+    
+    // Creates a forum in the "Marathon Matches" category and adds the "round.forum_id" value for the round.
+    public long createMarathonForum(long roundID, String name) {
+        try {
+            long forumID = createForum(17, name);
+            this.update("round",
+                new String[]{"forum_id"},
+                new String[]{String.valueOf(forumID)},
+                new String[]{"round_id"},
+                new String[]{String.valueOf(roundID)},
+                DBMS.OLTP_DATASOURCE_NAME);
+            return forumID;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
 
     private void logException(Exception e, String msg) {
         log.info("*** " + msg + ": " + e);
