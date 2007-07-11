@@ -703,6 +703,7 @@ public class DataInterfaceBean implements PactsConstants {
                     key.equals(LATEST_CREATION_DATE))
                 inputOk = validateInput(value, DATE);
             else if (key.equals(USER_ID) ||
+                    key.equals(STATUS_CODE) ||
                     key.equals(AFFIDAVIT_ID) ||
                     key.equals(ROUND_ID) ||
                     key.equals(TYPE_CODE))
@@ -710,7 +711,8 @@ public class DataInterfaceBean implements PactsConstants {
             else if (key.equals(IS_AFFIRMED) ||
                     key.equals(IS_NOTARIZED))
                 inputOk = validateInput(value, BOOLEAN);
-            else if (key.equals(HANDLE))
+            else if (key.equals(HANDLE) ||
+                    key.equals(STATUS_CODE))
                 inputOk = validateInput(value, STRING);
             else
                 throw new UnsupportedSearchException("Search by " + key + " not supported");
