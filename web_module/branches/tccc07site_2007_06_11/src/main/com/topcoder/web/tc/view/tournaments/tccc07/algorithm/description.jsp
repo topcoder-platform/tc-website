@@ -21,9 +21,6 @@
         </jsp:include>
 
             <div id="pageBody">
-                <div id="breadcrumbs">
-                    <a href="" alt="Tournament Overview">Tournament Overview</a> > <a href="" alt="Secondary Section">Secondary Section</a> > <a href="" alt="Tertiary Section">Tertiary Section</a>
-                </div>
                 <h1><span>Algorithm Competition</span></h1>
                 
                 <p>The Algorithm competition, as part of the 2007 TopCoder Collegiate Challenge, is a timed contest where all contestants compete online and are given the same problems to solve under the same time constraints.  The competition is available in four programming languages:  Java, C#, C++, and VB.NET.</p>

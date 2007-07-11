@@ -21,9 +21,6 @@
         </jsp:include>
 
             <div id="pageBody">
-                <div id="breadcrumbs">
-                    <a href="" alt="Tournament Overview">Tournament Overview</a> > <a href="" alt="Secondary Section">Secondary Section</a> > <a href="" alt="Tertiary Section">Tertiary Section</a>
-                </div>
                 <h1><span>Studio Design Description</span></h1>
                 
                 <p>TopCoder Studio is thrilled to announce its first collegiate tournament for graphic and web designers! Competitors will put their design talent to the test during the 8-week Studio Design Competition (SDC) Online Round leading up to the Finals, held at the Contemporary Resort in Walt Disney World in Orlando, Florida, USA. Eight of the most creative collegiate competitors will win a trip to Orlando where they will compete in the championship round for the chance to win cash prizes totaling $30,000.</p>

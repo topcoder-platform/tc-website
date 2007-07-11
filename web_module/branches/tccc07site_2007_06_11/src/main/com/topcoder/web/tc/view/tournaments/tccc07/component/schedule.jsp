@@ -21,9 +21,6 @@
         </jsp:include>
         
         <div id="pageBody">
-            <div id="breadcrumbs">
-                <a href="" alt="Tournament Overview">Tournament Overview</a> > <a href="" alt="Secondary Section">Secondary Section</a> > <a href="" alt="Tertiary Section">Tertiary Section</a>
-            </div>
             <h1><span>Component Competition Schedule*</span></h1>
             
             <br /><br />
