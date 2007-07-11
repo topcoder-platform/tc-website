@@ -89,6 +89,9 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     param = String.valueOf(userId);
                     if (param != null && !param.equals("")) query.put(USER_ID, param);
     
+                    query.put(STATUS_CODE, AFFIDAVIT_PENDING_STATUS + ", " + AFFIDAVIT_AFFIRMED_STATUS
+                            + ", " + AFFIDAVIT_EXPIRED_STATUS);
+
                     Map results = dib.findAffidavits(query);
     
                     AffidavitHeaderList ahl = new AffidavitHeaderList(results);
