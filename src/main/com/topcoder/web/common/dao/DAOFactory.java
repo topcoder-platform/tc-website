@@ -68,6 +68,8 @@ public interface DAOFactory {
 
     SchoolTypeDAO getSchoolTypeDAO();
 
+    SeasonDAO getSeasonDAO();
+    
     SecurityGroupDAO getSecurityGroupDAO();
 
     StateDAO getStateDAO();

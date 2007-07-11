@@ -73,6 +73,7 @@ public class User extends Base {
         terms = new HashSet();
         responses = new HashSet();
         ballots = new HashSet();
+        eventRegistrations = new HashSet();
         compPrizes = new HashSet<UserContestPrize>();
     }
 

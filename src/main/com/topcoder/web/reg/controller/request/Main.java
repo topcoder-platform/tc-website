@@ -34,7 +34,7 @@ public class Main extends Base {
             }
         }
         if (getRegUser() == null) {
-            throw new NavigationException("Sorry, your session has expired.");
+            throw new NavigationException("Sorry, your session has expired.", "http://www.topcoder.com/reg");
         } else if (getRegUser().isNew() || userLoggedIn()) {
             User u = getRegUser();
             RegistrationTypeDAO regTypeDAO = getFactory().getRegistrationTypeDAO();
@@ -135,6 +135,7 @@ public class Main extends Base {
                 Set reqFields = RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), getRegUser());
                 getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
                 getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
+                getRequest().setAttribute("season", getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON));
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             }

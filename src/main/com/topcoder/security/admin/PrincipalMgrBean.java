@@ -570,8 +570,13 @@ public class PrincipalMgrBean extends BaseEJB {
             close(ctx);
         }
     }
-
     public void removeUserFromGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor)
+        throws GeneralSecurityException {
+        removeUserFromGroup(group, user, requestor, DATA_SOURCE);
+        
+    }
+
+    public void removeUserFromGroup(GroupPrincipal group, UserPrincipal user, TCSubject requestor, String dataSource)
             throws GeneralSecurityException {
         long userId = user.getId();
         long groupId = group.getId();
@@ -581,9 +586,9 @@ public class PrincipalMgrBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            conn = Util.getConnection(ctx, DATA_SOURCE);
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
-            ps.setInt(1, SecurityDB.STATUS_ACTIVE);
+            ps.setInt(1, SecurityDB.STATUS_INACTIVE);
             ps.setLong(2, userId);
             ps.setLong(3, groupId);
             ps.executeUpdate();

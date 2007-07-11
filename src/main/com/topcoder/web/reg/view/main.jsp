@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -403,6 +404,46 @@
             <c:if test="${not regUser.new}">            
 	            To block specific TopCoder members from contacting you, go to the <a target="blackListWindow" href='/tc?module=BlackList'>black list</a> page.
             </c:if>
+        </td>
+    </tr>
+</c:if>
+
+
+
+<c:set value="<%=Constants.AGE_FOR_HS%>" var="ageForHs"/>
+<c:if test="${cf:contains(fields, ageForHs)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.AGE_FOR_HS%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, ageForHs)}">*</c:if> How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
+        </td>
+        <td class="value">
+            <tc-webtag:textInput name="<%=Constants.AGE_FOR_HS%>" size="3" maxlength="3" editable="true"/>
+        </td>
+    </tr>
+</c:if>
+
+<c:set value="<%=Constants.ATTENDING_HS%>" var="attendingHs"/>
+<c:if test="${cf:contains(fields, attendingHs)}">
+    <tr>
+        <td colspan="2"><span class="bigRed">
+        <tc-webtag:errorIterator id="err" name="<%=Constants.ATTENDING_HS%>"><%=err%><br>
+        </tc-webtag:errorIterator></span>
+        </td>
+    </tr>
+    <tr>
+        <td class="name">
+            <c:if test="${cf:contains(reqFields, attendingHs)}">*</c:if>Will you be attending high school/secondary school on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
+        </td>
+        <td class="value">
+            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="yes"/> Yes
+            <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="no"/> No
+            
         </td>
     </tr>
 </c:if>
