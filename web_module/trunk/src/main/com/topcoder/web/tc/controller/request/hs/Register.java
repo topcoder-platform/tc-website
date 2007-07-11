@@ -32,6 +32,14 @@ public class Register extends RegistrationBase {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } 
 
+        // retrieve the season
+        Integer seasonId = new Integer(getRequest().getParameter(com.topcoder.web.tc.Constants.SEASON_ID));
+        Season season = DAOUtil.getFactory().getSeasonDAO().find(seasonId);
+
+        if (season == null) {
+            throw new NavigationException("Invalid season_id");
+        }
+        
         // check that the user has filled the fields
         ValidationResult result = new AgeValidator().validate(new StringInput(getRequest().getParameter(Constants.AGE_FOR_HS)));
         if (!result.isValid()) {
@@ -53,6 +61,7 @@ public class Register extends RegistrationBase {
             getRequest().setAttribute("registeredHs", true);
             getRequest().setAttribute("existSeason", true);
             getRequest().setAttribute("regOpen", true);
+            getRequest().setAttribute("season", season);
             
             setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
             setIsNextPageInContext(true);
@@ -60,10 +69,6 @@ public class Register extends RegistrationBase {
         }
         
         
-        Integer seasonId = null;
-        if (getRequest().getParameter(com.topcoder.web.tc.Constants.SEASON_ID) != null) {
-            seasonId = new Integer(getRequest().getParameter(com.topcoder.web.tc.Constants.SEASON_ID));
-        }
 
         // Check that the user is eligible, just in case he fakes the URL
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
@@ -75,16 +80,6 @@ public class Register extends RegistrationBase {
             throw new NavigationException("You're not eligible for High School");
         }
         
-        Season season;
-        if (seasonId == null) {
-            season = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
-        } else {
-            season = DAOUtil.getFactory().getSeasonDAO().find(seasonId);
-        }
-
-        if (season == null) {
-            throw new NavigationException("Invalid season_id");
-        }
         Event event = season.getEvent();
         
         Date now = new Date();
