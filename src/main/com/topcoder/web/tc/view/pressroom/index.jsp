@@ -50,6 +50,21 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<%-- Computerworld --%>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+
+                    <td width="274"><a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/computerworld_20070709.pdf' refer='pressroom_index' />"><img src="/i/pressroom/computerworld.gif" alt="ComputerWorld logo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><a target="_blank" href="<tc-webtag:linkTracking link='/pdfs/press_room/computerworld_20070709.pdf' refer='pressroom_index' />">Programming's Crack Competitor</a> [PDF]</strong></font><br />
+                        What kind of trophies do they give to programming champions? Jiazhi Wu would know. As an undergrad at Zhejiang University in China, Wu won a record 39 out of 45 programming contests held by TopCoder.<span class="prHead"> [July 11]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <%-- Bill Taylor --%>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
