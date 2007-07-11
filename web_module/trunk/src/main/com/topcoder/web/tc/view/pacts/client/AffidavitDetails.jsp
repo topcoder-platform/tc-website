@@ -66,7 +66,7 @@
 <p class="bigRed">Learn <a href="/tc?module=Static&amp;amp;d1=help&amp;amp;d2=getPaid&amp;amp;node=algo_get_paid" class="bigRed">How to Get Paid</a> from TopCoder for your algorithm competition winnings.</p>
 
 <% if (!a.hasNotarizedAffidavit()||a.canAffirmOnline()) { %>
-<p><a href="PactsMemberServlet?t=affidavit&amp;amp;c=render_affidavit&amp;affidavit_id=<%=a.getAffidavit().getHeader().getId()%>">click here for a printer friendly version of the affidavit</a></p>
+<p><a href="PactsMemberServlet?t=affidavit&amp;c=render_affidavit&amp;affidavit_id=<%=a.getAffidavit().getHeader().getId()%>">click here for a printer friendly version of the affidavit</a></p>
 <% } %>
 <% }
    if(!a.canAffirmOnline()) { %>
