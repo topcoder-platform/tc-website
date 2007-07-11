@@ -33,82 +33,100 @@
                 <span class="pageName">Schedule</span>
             </div>
 
-            <h2>Competition #5 Part #2: BT Business CSF Mashup Assembly Competition</h2>
-            <ul>
-                <li><strong>Submission Start Date:</strong> July 19, 2007</li>
-                <li><strong>Submission End Date:</strong> Aug 8, 2007</li>
-                <li><strong>Review Start Date:</strong> Aug 9, 2007</li>
-                <li><strong>Review End Date:</strong> Sep 3, 2007</li>
-                <li><strong>Winner Announced:</strong> Sep 5, 2007</li>
-            </ul>
-            
-            <h2>Competition #5:</strong> BT Business CSF Mashup Design Competition</h2>
-            <ul>
-                <li><strong>Submission Start Date:</strong> June 11, 2007</li>
-                <li><strong>Submission End Date:</strong> June 27, 2007</li>
-                <li><strong>Review Start Date:</strong> July 5, 2007</li>
-                <li><strong>Review End Date:</strong> July 16, 2007</li>
-                <li><strong>Winner Announced:</strong> July 18, 2007</li>
-            </ul>
-            
-            <h2>Competition #2 Part #2:</strong> BT Business CSF Mashup Assembly Competition</h2>
-            <ul>
-                <li><strong>Submission Start Date:</strong> June 5, 2007</li>
-                <li><strong>Submission End Date:</strong> June 22, 2007</li>
-                <li><strong>Review Start Date:</strong> June 25, 2007</li>
-                <li><strong>Review End Date:</strong> July 18, 2007</li>
-                <li><strong>Winner Announced:</strong> June 19, 2007</li>
-            </ul>
-            
-<%--
-            <h2>Competition #4:</strong> CSF Mashup Assembly Competition</h2>
-            <ul>
-                <li><strong>Submission Start Date:</strong> May 29, 2007</li>
-                <li><strong>Submission End Date:</strong> June 12, 2007</li>
-                <li><strong>Review Start Date:</strong> June 12, 2007</li>
-                <li><strong>Review End Date:</strong> June 22, 2007</li>
-                <li><strong>Winner Announced:</strong> June 25, 2007</li>
-            </ul>
---%>            
+            <table cellpadding="0" cellspacing="0" class="stat" width="100%">
+            <tbody>
+                <tr>
+                    <td class="title" width="50%">
+                        <h2 align="center">Creative: Mashup design</h2>
+                    </td>
+                    <td class="title" width="50%">
+                        <h2 align="center">Assembly: Building prototypes</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="header" colspan="2">
+                        Current competitions
+                    </td>
+                </tr>
+                <tr>
+                    <td class="value" style="vertical-align: top;">
+                        <div style="margin:10px;">
+                            <h3>British Telecom Wireless Cities</h3>
+                                - <strong>Submission Start Date:</strong> June 7, 2007
+                                <br />- <strong>Submission End Date:</strong> June 21, 2007
+                                <br />- <strong>Review Start Date:</strong> June 22, 2007
+                                <br />- <strong>Review End Date:</strong> July 6, 2007
+                                <br />- <strong>Winner Announced:</strong> Results coming soon!
+                            <br /><br /><a href="/?module=ViewContestDetails&ct=1006 ">details</a>
+                        </div>
+                    </td>
+                    <td class="value" style="vertical-align: top;">
+                        <div style="margin:10px;">
+                            <h3>Microsoft Session Manifest Tool</h3>
+                                - <strong>Submission Start Date:</strong> May 22, 2007
+                                <br />- <strong>Submission End Date:</strong> June 8, 2007
+                                <br />- <strong>Review Start Date:</strong> June 8, 2007
+                                <br />- <strong>Review End Date:</strong> June 18, 2007
+                                <br />- <strong>Winner Announced:</strong> Results coming soon!
+                            <br /><br /><a href="/?module=Static&d1=assembly&d2=msSessionManifestDetails ">details</a>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="header" colspan="2">
+                        Coming soon
+                    </td>
+                </tr>
+                <tr>
+                    <td class="value" style="vertical-align: top;">
+                        <div style="margin:10px;">
+                            <h3>British Telecom Workspace</h3>
+                            Details coming soon!
+                        </div>
+                    </td>
+                    <td class="value" style="vertical-align: top;">
+                        <div style="margin:10px;">
+                            <h3>British Telecom Wireless Cities</h3>
+                            Details coming soon!
+                        </div>
+                        <div style="margin:10px;">
+                            <h3>Microsoft Resource Description Framework Tool</h3>
+                            Details coming soon!
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="header" colspan="2">
+                        Successful competitions
+                    </td>
+                </tr>
+                <tr>
+                    <td class="value" style="vertical-align: top;">
+                        <div style="margin:10px;">
+                            <h3>British Telecom Business</h3>
+                                - <strong>Submission Start Date:</strong> March 6, 2007
+                                <br />- <strong>Submission End Date:</strong> March 18, 2007
+                                <br />- <strong>Review Start Date:</strong> March 22, 2007
+                                <br />- <strong>Review End Date:</strong> March 30, 2007
+                                <br />- <strong>Winner Announced:</strong> April 2, 2007
+                            <br /><br /><a href="/?module=ViewContestDetails&ct=1004 ">details</a>
+                        </div>
+                    </td>
+                    <td class="value" style="vertical-align: top;">
+                        <div style="margin:10px;">
+                            <h3>British Telecom Business</h3>
+                                - <strong>Submission Start Date:</strong> April 10, 2007
+                                <br />- <strong>Submission End Date:</strong> April 23, 2007
+                                <br />- <strong>Review Start Date:</strong> April 27, 2007
+                                <br />- <strong>Review End Date:</strong> May 15, 2007
+                                <br />- <strong>Winner Announced:</strong> May 16, 2007
+                            <br /><br /><a href="/?module=Static&d1=assembly&d2=btBusinessDetails">details</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
 
-            <h2>Competition #3:</strong> CSF Mashup Assembly Competition</h2>
-            <ul>
-                <li><strong>Submission Start Date:</strong> May 22, 2007</li>
-                <li><strong>Submission End Date:</strong> June 8, 2007</li>
-                <li><strong>Review Start Date:</strong> June 8, 2007</li>
-                <li><strong>Review End Date:</strong> June 18, 2007</li>
-                <li><strong>Winner Announced:</strong> June 21, 2007</li>
-            </ul>
-
-            <h2>Competition #2: BT Business CSF Mashup Design Competition</h2>
-
-            <ul>
-                <li><strong>Submission Start Date:</strong> June 7, 2007</li>
-                <li><strong>Submission End Date:</strong> June 21, 2007</li>
-                <li><strong>Review Start Date:</strong> June 22, 2007</li>
-                <li><strong>Review End Date:</strong> July 6, 2007</li>
-                <li><strong>Winner Announced:</strong> July 8, 2007</li>
-            </ul>
-
-            <h2>Competition #1 Part #2: BT Business CSF Mashup Assembly Competition</h2>
-
-            <ul>
-                <li><strong>Submission Start Date:</strong> April 10, 2007</li>
-                <li><strong>Submission End Date:</strong> April 23, 2007</li>
-                <li><strong>Review Start Date:</strong> April 27, 2007</li>
-                <li><strong>Review End Date:</strong> May 15, 2007</li>
-                <li><strong>Winner Announced:</strong> May 16, 2007</li>
-            </ul>
-
-            <h2>Competition #1: BT Business CSF Mashup Design Competition</h2>
-
-            <ul>
-                <li><strong>Submission Start Date:</strong> March 6, 2007</li>
-                <li><strong>Submission End Date:</strong> March 18, 2007</li>
-                <li><strong>Review Start Date:</strong> March 22, 2007</li>
-                <li><strong>Review End Date:</strong> March 30, 2007</li>
-                <li><strong>Winner Announced:</strong> April 2, 2007</li>
-            </ul>
 
 
             <p><strong>Other competitions will be added to the schedule soon, so check back often!</strong></p>
