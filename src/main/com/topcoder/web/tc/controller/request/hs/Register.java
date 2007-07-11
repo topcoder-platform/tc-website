@@ -55,7 +55,8 @@ public class Register extends RegistrationBase {
             getRequest().setAttribute("regOpen", true);
             
             setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
-            setIsNextPageInContext(true);            
+            setIsNextPageInContext(true);
+            return;
         }
         
         
