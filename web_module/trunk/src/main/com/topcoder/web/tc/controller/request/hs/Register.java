@@ -11,7 +11,13 @@ import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
+import com.topcoder.web.reg.validation.AgeValidator;
+import com.topcoder.web.reg.validation.AttendingCollegeValidator;
+import com.topcoder.web.reg.validation.AttendingHSValidator;
 
 /**
  * Register an user for the current HS season.
@@ -26,6 +32,33 @@ public class Register extends RegistrationBase {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } 
 
+        // check that the user has filled the fields
+        ValidationResult result = new AgeValidator().validate(new StringInput(getRequest().getParameter(Constants.AGE_FOR_HS)));
+        if (!result.isValid()) {
+            addError(Constants.AGE_FOR_HS, result.getMessage());
+        }
+        result = new AttendingHSValidator().validate(new StringInput(getRequest().getParameter(Constants.ATTENDING_HS)));
+        if (!result.isValid()) {
+            addError(Constants.ATTENDING_HS, result.getMessage());
+        }
+        result = new AttendingCollegeValidator().validate(new StringInput(getRequest().getParameter(Constants.ATTENDING_COLLEGE)));
+        if (!result.isValid()) {
+            addError(Constants.ATTENDING_COLLEGE, result.getMessage());
+        }
+
+        if (hasErrors()) {
+            getRequest().setAttribute("confirmRegistration", false);        
+            getRequest().setAttribute("eligible", true);
+            getRequest().setAttribute("alreadyRegistered", false);
+            getRequest().setAttribute("registeredHs", true);
+            getRequest().setAttribute("existSeason", true);
+            getRequest().setAttribute("regOpen", true);
+            
+            setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
+            setIsNextPageInContext(true);            
+        }
+        
+        
         Integer seasonId = null;
         if (getRequest().getParameter(com.topcoder.web.tc.Constants.SEASON_ID) != null) {
             seasonId = new Integer(getRequest().getParameter(com.topcoder.web.tc.Constants.SEASON_ID));
@@ -66,7 +99,9 @@ public class Register extends RegistrationBase {
                                 
         int ageHs = Integer.parseInt(getRequest().getParameter(Constants.AGE_FOR_HS));
 
-        boolean eligible = "yes".equals(getRequest().getParameter(Constants.ATTENDING_HS)) && ageHs < Constants.MAX_AGE_FOR_HS;
+        boolean eligible = "yes".equals(getRequest().getParameter(Constants.ATTENDING_HS)) 
+                        && "no".equals(getRequest().getParameter(Constants.ATTENDING_COLLEGE))
+                        && ageHs < Constants.MAX_AGE_FOR_HS;
 
         u.addEventRegistration(event, null, eligible);
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);            
