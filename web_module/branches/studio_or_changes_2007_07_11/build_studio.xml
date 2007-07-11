@@ -157,7 +157,7 @@
         <delete dir="${bin}"/>
     </target>
 
-    <target name="jar_shared" depends="compile_shared" unless="jar_shared_set">>
+    <target name="jar_shared" depends="compile_shared" unless="jar_shared_set">
         <jar jarfile="${shared.jar}">
             <fileset dir="${classes}">
                 <include name="com/topcoder/shared/**/*.class"/>
