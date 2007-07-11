@@ -12,6 +12,7 @@
         </composite-id>
 
         <property name="eligible" type="boolean" column="eligible_ind" access="field"/>
+        <property name="notes" column="notes"/>
     </class>
 
 </hibernate-mapping>
