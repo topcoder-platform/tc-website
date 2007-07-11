@@ -52,7 +52,9 @@ public class Secondary extends Base {
                         if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
                                 !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
                             int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
-                            if (!"yes".equals(params.get(Constants.ATTENDING_HS)) || ageHs >= Constants.MAX_AGE_FOR_HS) {
+                            if (!"yes".equals(params.get(Constants.ATTENDING_HS))
+                                    || !"no".equals(params.get(Constants.ATTENDING_COLLEGE))
+                                    || ageHs >= Constants.MAX_AGE_FOR_HS) {
                                 log.debug("user is not eligible");
                                 
                                 if (u.isNew()) {
