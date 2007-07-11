@@ -55,6 +55,11 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                 boolean affirmating = (statusId == AFFIDAVIT_AFFIRMED_STATUS) && !isAffirmed;
 
                 if (affirmating) {
+                    if (affidavit.getHeader().getStatusId() == AFFIDAVIT_CANCELED_STATUS ||
+                            affidavit.getHeader().getStatusId() == AFFIDAVIT_DELETED_STATUS) {
+                        addError("error", "Cannot affirm a canceled or deleted affidavit");
+                    }
+                    
                     birthday = checkDate("date_of_birth", "Please enter a valid birthday date");
                     if (!birthday.before(new Date()) && birthday.after(new GregorianCalendar(1900,0,1).getTime())) {
                         addError("error", "Please enter a valid birthday date");
@@ -68,6 +73,11 @@ public class UpdateAffidavit extends PactsBaseProcessor implements PactsConstant
                     }
                 }
 
+                if (isAffirmed && (statusId == AFFIDAVIT_CANCELED_STATUS ||
+                        statusId == AFFIDAVIT_DELETED_STATUS)) {
+                    addError("error", "Cannot cancel or delete an affirmed affidavit");
+                }                    
+                    
                 if (hasErrors()) {
                     setDefault("affidavit_desc", desc);
                     setDefault("affidavit_status_id", statusId + "");
