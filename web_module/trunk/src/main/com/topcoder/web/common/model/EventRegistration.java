@@ -11,6 +11,15 @@ public class EventRegistration extends Base {
 
     private Identifier id = new Identifier();
     private Boolean eligible;
+    private String notes;
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
 
     public Identifier getId() {
         return id;
