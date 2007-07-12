@@ -55,6 +55,19 @@ public class Register extends RegistrationBase {
             addError(Constants.ATTENDING_HS, result.getMessage());
         }
 
+        if (!hasError(Constants.AGE) && !hasError(Constants.AGE_END_SEASON)) {
+            int age = Integer.parseInt((String) getRequest().getParameter(Constants.AGE));
+            int ageEndSeason = Integer.parseInt((String) getRequest().getParameter(Constants.AGE_END_SEASON));
+            int dif = ageEndSeason - age;
+           
+            if (dif != 0 && dif != 1) {
+                addError(Constants.AGE, "Please check the age.");
+                addError(Constants.AGE_END_SEASON, "Please check the age.");
+            }
+            
+        }
+
+        
         if (hasErrors()) {
             getRequest().setAttribute("confirmRegistration", false);        
             getRequest().setAttribute("eligible", true);
