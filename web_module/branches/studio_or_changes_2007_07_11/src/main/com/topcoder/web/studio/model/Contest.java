@@ -63,7 +63,7 @@ public class Contest extends Base {
         this.endTime = endTime;
     }
 
-    public Set getConfig() {
+    public Set<ContestConfig> getConfig() {
         return config;
     }
 
@@ -71,7 +71,7 @@ public class Contest extends Base {
         this.config = config;
     }
 
-    public Set getPrizes() {
+    public Set<Prize> getPrizes() {
         return prizes;
     }
 
@@ -122,7 +122,7 @@ public class Contest extends Base {
         return getConfig(StudioDAOUtil.getFactory().getContestPropertyDAO().find(ContestProperty.MAX_SUBMISSIONS));
     }
 
-    public Set getDocuments() {
+    public Set<Document> getDocuments() {
         return documents;
     }
 
@@ -150,7 +150,7 @@ public class Contest extends Base {
         this.forumId = forumId;
     }
 
-    public Set getSubmissions() {
+    public Set<Submission> getSubmissions() {
         return submissions;
     }
 
