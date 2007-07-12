@@ -60,7 +60,7 @@
       <td class="value">2
          <div class="srm">
          <strong><A href="/tc?module=MatchDetails&rd=10765">SRM 356</A></strong><br>
-         <%--<A href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=sponsorspatrons&d4=verisign">VeriSign</A><br>--%>
+         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=sponsorspatrons&d4=verisign">VeriSign</A><br>
          9:00 PM
          </div>
       </td>
