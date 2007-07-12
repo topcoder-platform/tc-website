@@ -12,7 +12,7 @@ public class AttendingHSValidator implements Validator {
 
     public ValidationResult validate(ValidationInput input) {
         ValidationResult ret = new NonEmptyValidator(
-                "Please enter whether you'll be attending high school/secondary school on the specfied date.").validate(input);
+                "Please choose yes or no.").validate(input);
        
         return ret;
     }
