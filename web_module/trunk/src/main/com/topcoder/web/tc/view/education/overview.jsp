@@ -39,15 +39,12 @@
 <br><br>
 <span class="bodySubtitle">Most recent articles:</span><br>
 <ul>
-<%--POST THURSDAY JULY 12
 <li><a href="/tc?module=Static&d1=features&d2=071207"><strong>An Interview with ahyangyi</strong></a>, by <tc-webtag:handle coderId="21684580" /><br>
-"I'm in awe."  Those were the words used by TopCoder member <tc-webtag:handle coderId="22651496" /> in describing <tc-webtag:handle coderId="20812309" />, one of the newest "targets" in algorithm competitions, and the first ever high school student to achieve such status.</li>--%>
+"I'm in awe."  Those were the words used by TopCoder member <tc-webtag:handle coderId="22651496" /> in describing <tc-webtag:handle coderId="20812309" />, one of the newest "targets" in algorithm competitions, and the first ever high school student to achieve such status.</li>
 <li><a href="/tc?module=Static&d1=tutorials&d2=maxFlowRevisited"><strong>Maximum Flow: Augmenting Path Algorithms Comparison</strong></a>, by <tc-webtag:handle coderId="22671469" /><br>
 In this article, we'll revisit the so-called "max-flow" problem, with the goal of making some practical analysis of the most famous augmenting path algorithms. We will discuss several algorithms, and reveal which one is actually most efficient one in practice.</li>
 <li><a href="/tc?module=Static&d1=features&d2=070207"><strong>An Interview with Team V. Gimnazija</strong></a>, by <tc-webtag:handle coderId="7390467" /><br>
 The team portion of the TCHS 2007 tournament was won by the V. [fifth] Gimnazija team. I sat down and talked with the three winning members, Petar Sirkovic [<tc-webtag:handle coderId="21507690" />], Ivo Sluganovic [<tc-webtag:handle coderId="15604398" />], Goran Zuzic [<tc-webtag:handle coderId="11972352" />], as well as their chaperone, Predrag Brodanac.</li>
-<li><a href="/tc?module=Static&d1=features&d2=062807"><strong>Meet the June Coders of the Month</strong></a>, by <tc-webtag:handle coderId="8365955" /><br>
-We caught up with June's "coders of the month," to learn a little bit more about them, how they feel about competition, and more&#8230;</li>
 </ul>
 <span class="bodySubtitle">From the archives: </span><br>
 <ul>
