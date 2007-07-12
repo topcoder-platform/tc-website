@@ -40,6 +40,7 @@ import com.topcoder.web.common.model.DemographicAssignment;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Notification;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.Resume;
@@ -886,8 +887,16 @@ abstract class Base extends LongHibernateProcessor {
         
         log.debug("Mark as not eligible in event id: " + event.getId());
         
-        if (event != null) {
-            u.addEventRegistration(event, null, false);
+        if (event != null) {            
+            EventRegistration er = u.getEventRegistration(event);
+            
+            if (er == null) {                
+                er = new EventRegistration();
+                er.setId(new EventRegistration.Identifier(u,event));
+                u.addEventRegistration(er);
+            }
+            er.setEligible(false);
+            
             userDAO.saveOrUpdate(u);
             markForCommit();
         }
