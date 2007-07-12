@@ -49,6 +49,72 @@
       <td class="tableHeader" align="center" nowrap="nowrap">Forums</td>
    </tr>
    <% boolean even = false; %>
+   <%--
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_documentIndexerIndex">Document Indexer Testing Competition: Indexing Module</A>
+      </td>
+      <td class="valueC">
+      <!--registration closed--!>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Document Indexer Testing Competition: Indexing Module">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <!--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_documentIndexerIndex">results</A>
+      --!>
+      </td>
+      <td class="valueC">
+      &#160;
+      <!--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_documentIndexerIndex">standings</A>
+      --!>
+      </td>
+      <td class="valueC">$800</td>
+      <td class="valueC">
+      07.16.2007 9:00 AM EDT
+      </td>
+      <td class="valueC">
+      07.23.2007 9:00 AM EDT
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <tc-webtag:forumLink forumID="516527" message="discuss" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   <tr class="<%=even?"dark":"light"%>">
+      <td class="value">
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_documentIndexerSearch">Document Indexer Testing Competition: Search Module</A>
+      </td>
+      <td class="valueC">
+      <!--registration closed--!>
+      <A href="mailto:TestingCompetitions@topcoder.com?subject=Register: Document Indexer Testing Competition: Search Module">register</A>
+      </td>
+      <td class="valueC">
+      &#160;
+      <!--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=res_documentIndexerSearch">results</A>
+      --!>
+      </td>
+      <td class="valueC">
+      &#160;
+      <!--
+      <A href="/tc?module=Static&d1=dev&d2=testing&d3=sta_documentIndexerSearch">standings</A>
+      --!>
+      </td>
+      <td class="valueC">$800</td>
+      <td class="valueC">
+      07.16.2007 9:00 AM EDT
+      </td>
+      <td class="valueC">
+      07.23.2007 9:00 AM EDT
+      </td>
+      <td class="valueC" nowrap="nowrap">
+      <tc-webtag:forumLink forumID="516528" message="discuss" />
+      </td>
+   </tr>
+   <% even = !even;%>
+   --%>
    <tr class="<%=even?"dark":"light"%>">
       <td class="value">
       <A href="/tc?module=Static&d1=dev&d2=testing&d3=det_salesIMAdmin">Sales IM Admin Testing Competition</A>
