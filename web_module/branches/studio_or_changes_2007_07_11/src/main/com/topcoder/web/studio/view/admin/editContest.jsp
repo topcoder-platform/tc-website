@@ -376,6 +376,52 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
 <br /><br />
 
+<div class="header">Documentation</div>
+
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+    <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
+
+    <p>
+        <c:forEach items="${contest.documents}" var="document">
+            ${document.type.description}
+            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
+                    ${document.originalFileName}</a>
+            <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
+                Remove
+            </button>
+            <br />
+        </c:forEach>
+    </p>
+</form>
+
+
+<c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
+<c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm"
+      enctype="multipart/form-data">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
+    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
+
+    <p>
+    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
+        <br /></tc-webtag:errorIterator></span>
+        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
+            <br /></tc-webtag:errorIterator></span>
+        <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
+        <input type="file" name="${doc}">
+        <button name="submit" value="submit" type="submit">Add</button>
+        <br /><br />
+        Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask
+        around
+        to get it added.
+    </p>
+</form>
+
+</c:if>
+
+
 <div class="header">Prizes</div>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
@@ -434,51 +480,16 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </form>
 <br /><br />
 
-<div class="header">Documentation</div>
 
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removeDocForm">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminRemoveDocument"/>
+
+<form action="${sessionInfo.secureAbsoluteServetPath}" method="POST" name="setToReviewForm">
+    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-    <tc-webtag:hiddenInput name="<%=Constants.DOCUMENT_ID%>"/>
+    <button name="submit" value="submit" type="submit">
+        Send Submissions to Online Review
+    </button>
 
-    <p>
-        <c:forEach items="${contest.documents}" var="document">
-            ${document.type.description}
-            <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=DownloadDocument&amp;<%=Constants.DOCUMENT_ID%>=${document.id}">
-                    ${document.originalFileName}</a>
-            <button onClick="document.removeDocForm.<%=Constants.DOCUMENT_ID%>.value ='${document.id}'">
-                Remove
-            </button>
-            <br />
-        </c:forEach>
-    </p>
 </form>
-
-
-<c:set value="<%=Constants.DOCUMENT%>" var="doc"/>
-<c:set value="<%=Constants.DOCUMENT_TYPE_ID%>" var="docType"/>
-<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addDocumentForm"
-      enctype="multipart/form-data">
-    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddDocument"/>
-    <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
-
-    <p>
-    <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
-        <br /></tc-webtag:errorIterator></span>
-        <span class="bigRed"><tc-webtag:errorIterator id="err" name="${doc}">${err}
-            <br /></tc-webtag:errorIterator></span>
-        <tc-webtag:objectSelect name="${docType}" list="${docTypes}" valueField="id" textField="description"/>
-        <input type="file" name="${doc}">
-        <button name="submit" value="submit" type="submit">Add</button>
-        <br /><br />
-        Only certain file formats are accepted, if there is something you need to upload that doesn't work, ask
-        around
-        to get it added.
-    </p>
-</form>
-
-</c:if>
-
 
 </div>
 <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
