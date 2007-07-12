@@ -322,7 +322,7 @@ abstract class Base extends LongHibernateProcessor {
         simpleValidation(AgeValidator.class, fields, params, Constants.AGE_END_SEASON);
         simpleValidation(AttendingHSValidator.class, fields, params, Constants.ATTENDING_HS);
         
-        if (!hasError(Constants.AGE) && !hasError(Constants.AGE_END_SEASON)) {
+        if (fields.contains(Constants.AGE) && !hasError(Constants.AGE) && !hasError(Constants.AGE_END_SEASON)) {
             int age = Integer.parseInt((String) params.get(Constants.AGE));
             int ageEndSeason = Integer.parseInt((String) params.get(Constants.AGE_END_SEASON));
             int dif = ageEndSeason - age;
