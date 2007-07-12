@@ -482,7 +482,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
 
 
-<form action="${sessionInfo.secureAbsoluteServetPath}" method="POST" name="setToReviewForm">
+<form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="setToReviewForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSendToReview"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
     <button name="submit" value="submit" type="submit">
