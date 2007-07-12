@@ -475,9 +475,9 @@ public class RegFieldHelper {
                     } else {
                         ret.addAll(mainHSFields);
                     }
-                    ret.add(Constants.AGE_FOR_HS);
+                    ret.add(Constants.AGE);
+                    ret.add(Constants.AGE_END_SEASON);
                     ret.add(Constants.ATTENDING_HS);
-                    ret.add(Constants.ATTENDING_COLLEGE);
                 } else if (curr.getId().equals(RegistrationType.MINIMAL_ID)) {
                     if (required) {
                         ret.addAll(requiredMainMinFields);
