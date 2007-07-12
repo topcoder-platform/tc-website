@@ -37,9 +37,9 @@ public class Constants implements WebConstants {
     public static final String SECRET_QUESTION = "sq";
     public static final String SECRET_QUESTION_RESPONSE = "sqr";
 
-    public static final String AGE_FOR_HS = "ahs";
+    public static final String AGE = "age";
+    public static final String AGE_END_SEASON = "agees";
     public static final String ATTENDING_HS = "aths";
-    public static final String ATTENDING_COLLEGE = "atcoll";
 
     public static final String SCHOOL_CITY = "schc";
     public static final String SCHOOL_STATE = "schs";
@@ -106,6 +106,7 @@ public class Constants implements WebConstants {
 
     public static int MAX_REFERRAL_OTHER_LENGTH;
 
+    public static int MIN_AGE_FOR_HS;
     public static int MAX_AGE_FOR_HS;
 
     public static int REG_TERMS_ID;

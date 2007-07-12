@@ -13,7 +13,7 @@ import com.topcoder.web.common.validation.Validator;
 public class AgeValidator implements Validator {
 
     public ValidationResult validate(ValidationInput input) {
-        ValidationResult ret = new NonEmptyValidator("Please enter your age for the specified date.").validate(input);
+        ValidationResult ret = new NonEmptyValidator("Please enter your age.").validate(input);
         
         if (!ret.isValid()) return ret;
         

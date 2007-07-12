@@ -51,11 +51,14 @@ public class Secondary extends Base {
                         // If the user is registering for hs, check that he has the right age and he'll be attending high school
                         if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
                                 !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
-                            int ageHs = Integer.parseInt((String) params.get(Constants.AGE_FOR_HS));
-                            if (!"yes".equals(params.get(Constants.ATTENDING_HS))
-                                    || !"no".equals(params.get(Constants.ATTENDING_COLLEGE))
-                                    || ageHs >= Constants.MAX_AGE_FOR_HS) {
-                                log.debug("user is not eligible");
+                            
+                            int ageHs = Integer.parseInt((String) params.get(Constants.AGE));
+                            int ageEndSeason = Integer.parseInt((String) params.get(Constants.AGE_END_SEASON));
+                            boolean attendingHS = "yes".equals(params.get(Constants.ATTENDING_HS));
+                            
+                            if (!isEligibleHS(ageHs, ageEndSeason, attendingHS)) {
+                                log.info("user " + u.getId()+  " is not eligible. Age: " + ageHs + ", age at the end of season: " + ageEndSeason +
+                                        ", attending HS: " + attendingHS);
                                 
                                 if (u.isNew()) {
                                     // setup in session so that the user is inactivated for hs when submitting.
@@ -121,6 +124,23 @@ public class Secondary extends Base {
                 }
             }
         }
+    }
+    
+    /**
+     * Return whether a user is eligible for participating in High School competitions.
+     * 
+     * @param ageHs the age right now.
+     * @param ageEndSeason the age at the end of the HS season
+     * @param attendingHS whether the user will be attending HS during the season
+     * 
+     * @return true if the user is eligible.
+     */
+    public static boolean isEligibleHS(int ageHs, int ageEndSeason, boolean attendingHS) {
+        if (!attendingHS) return false;
+        if (ageHs < Constants.MIN_AGE_FOR_HS || ageHs > Constants.MAX_AGE_FOR_HS) return false;
+        if (ageEndSeason < Constants.MIN_AGE_FOR_HS || ageEndSeason > Constants.MAX_AGE_FOR_HS) return false;
+        
+        return true;
     }
 
 

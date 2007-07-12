@@ -13,10 +13,9 @@ import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.reg.Constants;
+import com.topcoder.web.reg.controller.request.Secondary;
 import com.topcoder.web.reg.validation.AgeValidator;
-import com.topcoder.web.reg.validation.AttendingCollegeValidator;
 import com.topcoder.web.reg.validation.AttendingHSValidator;
 
 /**
@@ -41,17 +40,19 @@ public class Register extends RegistrationBase {
         }
         
         // check that the user has filled the fields
-        ValidationResult result = new AgeValidator().validate(new StringInput(getRequest().getParameter(Constants.AGE_FOR_HS)));
+        ValidationResult result = new AgeValidator().validate(new StringInput(getRequest().getParameter(Constants.AGE)));
         if (!result.isValid()) {
-            addError(Constants.AGE_FOR_HS, result.getMessage());
+            addError(Constants.AGE, result.getMessage());
         }
+        
+        result = new AgeValidator().validate(new StringInput(getRequest().getParameter(Constants.AGE_END_SEASON)));
+        if (!result.isValid()) {
+            addError(Constants.AGE_END_SEASON, result.getMessage());
+        }
+
         result = new AttendingHSValidator().validate(new StringInput(getRequest().getParameter(Constants.ATTENDING_HS)));
         if (!result.isValid()) {
             addError(Constants.ATTENDING_HS, result.getMessage());
-        }
-        result = new AttendingCollegeValidator().validate(new StringInput(getRequest().getParameter(Constants.ATTENDING_COLLEGE)));
-        if (!result.isValid()) {
-            addError(Constants.ATTENDING_COLLEGE, result.getMessage());
         }
 
         if (hasErrors()) {
@@ -92,18 +93,20 @@ public class Register extends RegistrationBase {
         if (registration != null) {
             throw new NavigationException("You're not eligible for High School or already registered");            
         }
-                                
-        int ageHs = Integer.parseInt(getRequest().getParameter(Constants.AGE_FOR_HS));
 
-        boolean eligible = "yes".equals(getRequest().getParameter(Constants.ATTENDING_HS)) 
-                        && "no".equals(getRequest().getParameter(Constants.ATTENDING_COLLEGE))
-                        && ageHs < Constants.MAX_AGE_FOR_HS;
-
+        int ageHs = Integer.parseInt(getRequest().getParameter(Constants.AGE));
+        int ageEndSeason = Integer.parseInt(getRequest().getParameter(Constants.AGE_END_SEASON));
+        boolean attendingHS = "yes".equals(getRequest().getParameter(Constants.ATTENDING_HS));
+        
+        boolean eligible = Secondary.isEligibleHS(ageHs, ageEndSeason, attendingHS);
+        
         u.addEventRegistration(event, null, eligible);
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);            
 
         // If the user is not eligible, mark him as inactive in security groups.
         if (!eligible) {
+            log.info("user " + u.getId()+  " is not eligible. Age: " + ageHs + ", age at the end of season: " + ageEndSeason +
+                    ", attending HS: " + attendingHS);
             inactivateHsUser(u);
         }
         

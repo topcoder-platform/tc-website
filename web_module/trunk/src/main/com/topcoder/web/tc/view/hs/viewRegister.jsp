@@ -91,15 +91,29 @@
 
 			    <p align="center">            
 					<span class="bigRed">
-	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.AGE_FOR_HS%>"><%=err%><br>
+	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.AGE%>"><%=err%><br>
+		    	    	</tc-webtag:errorIterator>
+		        	</span>           
+		        </p>
+                <p align="center">
+                    How old are you?
+                    <br />
+                    <tc-webtag:textInput name="<%=Constants.AGE%>" size="3" maxlength="3" editable="true"/>
+                </p>
+                
+			    <p align="center">            
+					<span class="bigRed">
+	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.AGE_END_SEASON%>"><%=err%><br>
 		    	    	</tc-webtag:errorIterator>
 		        	</span>           
 		        </p>
                 <p align="center">
                     How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
                     <br />
-                    <tc-webtag:textInput name="<%=Constants.AGE_FOR_HS%>" size="3" maxlength="3" editable="true"/>
+                    <tc-webtag:textInput name="<%=Constants.AGE_END_SEASON%>" size="3" maxlength="3" editable="true"/>
                 </p>
+
+                
 			    <p align="center">            
 					<span class="bigRed">
 	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.ATTENDING_HS%>"><%=err%><br>
@@ -107,22 +121,12 @@
 		        	</span>           
 		        </p>
                 <p align="center">
-                    Will you be attending high school/secondary school on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
-                    <br />
+            		Are you currently pursuing or will you be pursuing your secondary school (non-University) education between 
+                 		<fmt:formatDate value="${season.startDate}" pattern="MMMMM d, yyyy"/>
+			             and <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
+                                 <br />
                     <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="yes"/> Yes
                     <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="no"/> No
-                </p>
-			    <p align="center">            
-					<span class="bigRed">
-	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.ATTENDING_COLLEGE%>"><%=err%><br>
-		    	    	</tc-webtag:errorIterator>
-		        	</span>           
-		        </p>
-                <p align="center">
-                    Will you be attending college/university full time on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
-                    <br />
-                    <tc-webtag:radioButton name="<%=Constants.ATTENDING_COLLEGE%>" value="yes"/> Yes
-                    <tc-webtag:radioButton name="<%=Constants.ATTENDING_COLLEGE%>" value="no"/> No
                 </p>
 
             <div align="center">
