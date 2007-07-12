@@ -51,7 +51,7 @@ public class Submit extends Base {
             securityStuff(newUser, u);
 
             if (getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
-                inactivateHsUser(u);
+                inactivateHsUser(u, (String) getRequest().getSession().getAttribute(Constants.NOTES));
             }
 
             markForCommit();
