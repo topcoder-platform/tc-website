@@ -57,7 +57,6 @@ import com.topcoder.web.reg.validation.Address1Validator;
 import com.topcoder.web.reg.validation.Address2Validator;
 import com.topcoder.web.reg.validation.Address3Validator;
 import com.topcoder.web.reg.validation.AgeValidator;
-import com.topcoder.web.reg.validation.AttendingCollegeValidator;
 import com.topcoder.web.reg.validation.AttendingHSValidator;
 import com.topcoder.web.reg.validation.CityValidator;
 import com.topcoder.web.reg.validation.CoderTypeValidator;
@@ -263,9 +262,9 @@ abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
         ret.put(Constants.MEMBER_CONTACT, getTrimmedParameter(Constants.MEMBER_CONTACT));
         ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
-        ret.put(Constants.AGE_FOR_HS, getTrimmedParameter(Constants.AGE_FOR_HS));
+        ret.put(Constants.AGE, getTrimmedParameter(Constants.AGE));
+        ret.put(Constants.AGE_END_SEASON, getTrimmedParameter(Constants.AGE_END_SEASON));
         ret.put(Constants.ATTENDING_HS, getTrimmedParameter(Constants.ATTENDING_HS));
-        ret.put(Constants.ATTENDING_COLLEGE, getTrimmedParameter(Constants.ATTENDING_COLLEGE));
         
         //iterate through the notifications, we're essentially validating here
         //since we're only looking for valid notifications.
@@ -318,9 +317,9 @@ abstract class Base extends LongHibernateProcessor {
         simpleValidation(CountryValidator.class, fields, params, Constants.COMP_COUNTRY_CODE);
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
         simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
-        simpleValidation(AgeValidator.class, fields, params, Constants.AGE_FOR_HS);
+        simpleValidation(AgeValidator.class, fields, params, Constants.AGE);
+        simpleValidation(AgeValidator.class, fields, params, Constants.AGE_END_SEASON);
         simpleValidation(AttendingHSValidator.class, fields, params, Constants.ATTENDING_HS);
-        simpleValidation(AttendingCollegeValidator.class, fields, params, Constants.ATTENDING_COLLEGE);
         
         
         ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
@@ -777,9 +776,9 @@ abstract class Base extends LongHibernateProcessor {
         }
 
         setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
-        setDefault(Constants.AGE_FOR_HS, params.get(Constants.AGE_FOR_HS));
+        setDefault(Constants.AGE, params.get(Constants.AGE));
+        setDefault(Constants.AGE_END_SEASON, params.get(Constants.AGE_END_SEASON));
         setDefault(Constants.ATTENDING_HS, params.get(Constants.ATTENDING_HS));
-        setDefault(Constants.ATTENDING_COLLEGE, params.get(Constants.ATTENDING_COLLEGE));
         
         if (!u.isNew()) {
             setDefault(Constants.HANDLE, u.getHandle());
