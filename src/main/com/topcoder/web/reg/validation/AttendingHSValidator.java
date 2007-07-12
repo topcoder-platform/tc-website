@@ -11,8 +11,7 @@ import com.topcoder.web.common.validation.Validator;
 public class AttendingHSValidator implements Validator {
 
     public ValidationResult validate(ValidationInput input) {
-        ValidationResult ret = new NonEmptyValidator(
-                "Please choose yes or no.").validate(input);
+        ValidationResult ret = new NonEmptyValidator("Please choose yes or no.").validate(input);
        
         return ret;
     }

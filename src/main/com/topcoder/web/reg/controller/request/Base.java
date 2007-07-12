@@ -321,6 +321,17 @@ abstract class Base extends LongHibernateProcessor {
         simpleValidation(AgeValidator.class, fields, params, Constants.AGE_END_SEASON);
         simpleValidation(AttendingHSValidator.class, fields, params, Constants.ATTENDING_HS);
         
+        if (!hasError(Constants.AGE) && !hasError(Constants.AGE_END_SEASON)) {
+            int age = Integer.parseInt((String) params.get(Constants.AGE));
+            int ageEndSeason = Integer.parseInt((String) params.get(Constants.AGE_END_SEASON));
+            int dif = ageEndSeason - age;
+           
+            if (dif != 0 && dif != 1) {
+                addError(Constants.AGE, "Please check the age.");
+                addError(Constants.AGE_END_SEASON, "Please check the age.");
+            }
+            
+        }
         
         ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
                 new StringInput((String) params.get(Constants.TERMS_OF_USE_ID)));
