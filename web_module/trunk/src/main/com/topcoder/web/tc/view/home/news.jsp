@@ -18,6 +18,26 @@
          <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
    </td></tr>
 --------%>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>07.12.07<br>11:15 AM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=MatchDetails&rd=10766">Yodlee chat session scheduled for SRM 357</A>
+        </span><br><br>
+        Join Yodlee representatives in the chat room at 8:00 PM EDT tonight to learn more about their company and their exciting career opportunities.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=MatchDetails&rd=10766">details</A> |
+        <tc-webtag:forumLink forumID="515944" message="discuss this" /> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+      
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/pressroom.png" alt="Press Releases & Articles" border="0" /><br>07.11.07<br>5:30 PM</td>
@@ -196,25 +216,6 @@
    <tr><td class="newsLinksCell">
         <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=algorithm&d4=algoFinals">details</A> |
         <tc-webtag:forumLink forumID="514958" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>06.29.07<br>8:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">Congratulations to kyky, the TCO07 Component Design Champion</A>
-        </span><br><br>
-        <tc-webtag:handle coderId="152342" context="design"/> is the new Component Design Champion.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=component&d4=desSummary">details</A> |
-        <tc-webtag:forumLink forumID="516333" message="discuss this" /> | 
         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
       
