@@ -44,6 +44,13 @@
 
 
 <p>
+    5.10.10 - 2007.07.12
+    <ul>
+        <li>Add HS registration and unregistration for seasons. - cucu</li>
+    </ul>
+</p>
+
+<p>
     5.10.9 - 2007.07.09
     <ul>
         <li>Add "and climbing" icon in some stats. -cucu, nick</li>
