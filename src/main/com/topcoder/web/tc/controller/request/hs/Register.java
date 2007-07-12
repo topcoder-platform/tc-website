@@ -77,6 +77,9 @@ public class Register extends RegistrationBase {
             getRequest().setAttribute("regOpen", true);
             getRequest().setAttribute("season", season);
             
+            setDefault(Constants.AGE, getRequest().getParameter(Constants.AGE));
+            setDefault(Constants.AGE_END_SEASON, getRequest().getParameter(Constants.AGE_END_SEASON));
+            setDefault(Constants.ATTENDING_HS, getRequest().getParameter(Constants.ATTENDING_HS));
             setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
             setIsNextPageInContext(true);
             return;
