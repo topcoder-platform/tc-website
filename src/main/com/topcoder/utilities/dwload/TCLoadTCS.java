@@ -3295,18 +3295,9 @@ public class TCLoadTCS extends TCLoad {
 
                 String questionHeader = (String) rs.getObject("question_text");
                 if (questionHeader != null) {
-/*                    int p1 = questionHeader.indexOf(". ");
-                    int p2 = questionHeader.indexOf('\n');
-
-                    int posic = questionHeader.length();
-                    if (p1 >= 0 && p1 < posic) posic = p1 + 1;
-                    if (p2 >= 0 && p2 < posic) posic = p2;
-
-                    questionHeader = questionHeader.substring(0, posic);
-                    */
-                    int posic = questionHeader.indexOf('\n');
-                    if (posic >= 0) {
-                        questionHeader = questionHeader.substring(0, posic);
+                    int p = questionHeader.lastIndexOf(" ", 250);
+                    if (p >= 0) {
+                        questionHeader = questionHeader.substring(0, p) + "...";
                     }
 
                 }
