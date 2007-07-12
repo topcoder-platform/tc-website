@@ -121,7 +121,7 @@ public class Register extends RegistrationBase {
         er.setEligible(eligible);
 
         if (!eligible) {
-           er.setNotes("HS Register: Age: " + ageHs + ", age at the end of season: " + ageEndSeason + ", attending HS: " + attendingHS);
+           er.setNotes("From HS Register: Age: " + ageHs + ", age at the end of season: " + ageEndSeason + ", attending HS: " + attendingHS);
         }
        
         u.addEventRegistration(er);
