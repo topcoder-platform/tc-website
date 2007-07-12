@@ -72,9 +72,8 @@ The Document Indexer API is currently being created in an Assembly contest being
 
 <p>This Testing competition will create a series of automated tests that will verify that the Indexing Module is working according to the requirements documentation.  Test scenarios will be provided and competitors will be required to convert those scenarios into automated tests.  However competitors are also expected to create additional automated tests based on their understanding of the requirements.</p>
 
-
 <p><strong>Indexing Function module:</strong><br>
-This application assumes the database tables (see schema below) will be populated by an external application. This application will have to provide a web page that displays all the documents and a web page that displays the new un-indexed documents. These pages will give the option to the user to index a new un-indexed document or to index all new un-indexed documents or to index all documents. The documents will be displayed in a table, with all the information present in the database, except the id. The coder and file type information will be displayed using the text names, not the ids.</p>
+This application assumes the database tables will be populated by an external application. This application will have to provide a web page that displays all the documents and a web page that displays the new un-indexed documents. These pages will give the option to the user to index a new un-indexed document or to index all new un-indexed documents or to index all documents. The documents will be displayed in a table, with all the information present in the database, except the id. The coder and file type information will be displayed using the text names, not the ids.</p>
 
 <p>This module will reuse the documents in the "resume" table and will just register them with the Document Repository, before indexing takes place. This will be achieved using the DocumentRepository.createMetadata(&#8230;) method. The extra information present in the "resume" table will have to be reused, by being set in the argument Metadata before it is created in the repository.</p>
 
@@ -101,6 +100,7 @@ Click image to see larger view.</div>
 <p>Testing Technologies 
 <ul>
 	<li>JUNIT</li>
+	<li>httpUnit</li>
 </ul>
 </p>
 
@@ -170,7 +170,7 @@ If you do not reside in the United States:<br>
       <td><strong>Phase</strong></td><td align="center"><strong>Start</strong></td><td align="center"><strong>End</strong></td>
    </tr>
    <tr>
-      <td>Registration Phase:</td><td align="center">07.12.2007</td><td align="center">07.16.2007</td>
+      <td>Registration Phase:</td><td align="center">07.13.2007</td><td align="center">07.16.2007</td>
    </tr>
    <tr>
       <td>Test Submission:</td><td align="center">07.16.2007</td><td align="center">07.23.2007</td>
