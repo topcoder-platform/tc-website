@@ -855,8 +855,8 @@ abstract class Base extends LongHibernateProcessor {
         return factory;
     }
 
-    protected void inactivateHsUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
-        log.debug("Inactivating user " + u.getId() + " for HS.");
+    protected void inactivateHsUser(User u, String notes) throws Exception, RemoteException, CreateException, GeneralSecurityException {
+        log.debug("Inactivating user " + u.getId() + " for HS." + notes);
         Context ctx = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
@@ -896,6 +896,7 @@ abstract class Base extends LongHibernateProcessor {
                 u.addEventRegistration(er);
             }
             er.setEligible(false);
+            er.setNotes(notes);
             
             userDAO.saveOrUpdate(u);
             markForCommit();

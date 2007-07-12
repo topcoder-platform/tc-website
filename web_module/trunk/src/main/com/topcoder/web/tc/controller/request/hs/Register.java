@@ -116,7 +116,16 @@ public class Register extends RegistrationBase {
         
         boolean eligible = Secondary.isEligibleHS(ageHs, ageEndSeason, attendingHS);
         
-        u.addEventRegistration(event, null, eligible);
+        EventRegistration er = new EventRegistration();
+        er.setId(new EventRegistration.Identifier(u,event));
+        er.setEligible(eligible);
+
+        if (!eligible) {
+           er.setNotes("HS Register: Age: " + ageHs + ", age at the end of season: " + ageEndSeason + ", attending HS: " + attendingHS);
+        }
+       
+        u.addEventRegistration(er);
+
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);            
 
         // If the user is not eligible, mark him as inactive in security groups.

@@ -57,14 +57,15 @@ public class Secondary extends Base {
                             boolean attendingHS = "yes".equals(params.get(Constants.ATTENDING_HS));
                             
                             if (!isEligibleHS(ageHs, ageEndSeason, attendingHS)) {
-                                log.info("user " + u.getId()+  " is not eligible. Age: " + ageHs + ", age at the end of season: " + ageEndSeason +
-                                        ", attending HS: " + attendingHS);
+                                String notes = "From /reg: Age: " + ageHs + ", age at the end of season: " + ageEndSeason +  ", attending HS: " + attendingHS;
+                                log.info("user " + u.getId()+  " is not eligible. " + notes);
                                 
                                 if (u.isNew()) {
                                     // setup in session so that the user is inactivated for hs when submitting.
                                     getRequest().getSession().setAttribute(Constants.INACTIVATE_HS, Boolean.TRUE);
+                                    getRequest().getSession().setAttribute(Constants.NOTES, notes);
                                 } else {
-                                    inactivateHsUser(u);                                    
+                                    inactivateHsUser(u, notes);                                    
                                 }
                                 
                                 getRequest().getSession().setAttribute("params", params);
