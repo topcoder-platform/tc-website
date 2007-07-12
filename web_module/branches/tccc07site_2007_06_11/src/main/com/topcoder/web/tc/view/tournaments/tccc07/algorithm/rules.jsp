@@ -30,7 +30,7 @@
                     <a href="#prizes">Prizes</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                     <a href="#conditions">Conditions of Participation</a>
                 </p>
-                <p style="color:red;">No purchase necessary to enter or win. Void where prohibited.</p>
+                <p><span class="bigRed">No purchase necessary to enter or win. Void where prohibited.</span></p>
                 </p>
                 
                 <h2>Overview of the Tournament</h2>
@@ -246,7 +246,7 @@
                     
                 <a name="prizes"></a>
                 <h2>About the Prizes</h2>
-                <p>The Algorithm Competition will award prizes to up to 1,800 competitors and $100,000 in cash prizes. Any and all applicable taxes on prizes are the sole responsibility of the prizewinner. Prizes will be distributed as follows:</p>
+                <p>All contestants who submit components that pass screening during at least one week of online competition will receive a prize. A maximum of $100,000 in cash prizes will be awarded during the CDDC, ($60,000 will be awarded during Design Competition and $40,000 will be awarded during the Development Competition). Any and all applicable taxes on prizes are the sole responsibility of the competitor. Additionally each component winner will be paid component prize money.</p>
                 <table cellpadding="0" cellspacing="0" class="stat"> 
                     <tbody> 
                         <tr> 
@@ -311,7 +311,7 @@
                 <a name="conditions"></a>
                 <h2>Conditions of Participation</h2>
                 <p>By participating in the Algorithm Competition, you agree to be bound by these rules and to all decisions of TopCoder, which are final, binding and conclusive in all matters. Also, by participating in the Algorithm Competition, you consent to providing certain information to the title sponsor. Such information shall include the information contained in your TopCoder member profile, as well as your competition statistics.</p>
-                <p style="color:red;">Contestants must not cheat. All ideas for code and/or challenges submitted must be the contestant's alone. TopCoder uses the word "cheat" to mean collaboration of any sort - including, but not limited to, working with another competitor, submitting code that was not fully authored by you, and using resources, software, etc. that are not allowed in TopCoder competitions. TopCoder reserves the right, in its sole discretion, to remove any competitor from participating in the Algorithm Competition whom it suspects has cheated.</p>
+                <p><span class="bigRed">Contestants must not cheat. All ideas for code and/or challenges submitted must be the contestant's alone. TopCoder uses the word "cheat" to mean collaboration of any sort - including, but not limited to, working with another competitor, submitting code that was not fully authored by you, and using resources, software, etc. that are not allowed in TopCoder competitions. TopCoder reserves the right, in its sole discretion, to remove any competitor from participating in the Algorithm Competition whom it suspects has cheated.</span></p>
                 <p>If a competitor is eliminated for cheating after he/she is confirmed as a finalist and a flight is already purchased for the onsite finals, that competitor will be responsible for reimbursing TopCoder the cost of the airfare. TopCoder reserves the right to withhold any cash prizes owed until the amount of the plane ticket is paid off.</p>
                 <p>All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
                 <p>Competitors who win prizes will be notified via e-mail within 10 days of the completion of each round that they have won a prize. Competitors who win cash prizes from Online Rounds #2 and #3 must complete the following documents within 60 days of the date of the online round during which a cash prize was awarded:</p>
