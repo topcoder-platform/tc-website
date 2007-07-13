@@ -1,9 +1,7 @@
 package com.topcoder.web.studio.controller.request.admin;
 
-import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.cache.CacheClient;
-import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
@@ -12,6 +10,7 @@ import com.topcoder.web.studio.model.Prize;
 import com.topcoder.web.studio.model.ReviewStatus;
 import com.topcoder.web.studio.model.Submission;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -51,11 +50,11 @@ public class SetPlace extends Base {
             throw new NavigationException("Submission did not pass, it can not place.");
         } else {
 
-            Set prizes = s.getContest().getPrizes();
+            Set<Prize> prizes = s.getContest().getPrizes();
             boolean found = false;
             Prize p = null;
-            for (Iterator it = prizes.iterator(); it.hasNext() && !found;) {
-                p = (Prize) it.next();
+            for (Iterator<Prize> it = prizes.iterator(); it.hasNext() && !found;) {
+                p = it.next();
                 found = prizeId.equals(p.getId());
             }
             if (p == null) {
@@ -69,10 +68,10 @@ public class SetPlace extends Base {
                 factory.getSubmissionDAO().saveOrUpdate(s);
 
                 try {
-                    CacheClient cc = CacheClientFactory.create();
-                    Request r = new Request();
-                    r.setContentHandle("studio_home_data");
-                    cc.remove(r.getCacheKey());
+                    HashSet<String> cachedStuff = new HashSet<String>();
+                    cachedStuff.add(Constants.CONTEST_ID+"="+s.getContest().getId().toString());
+                    cachedStuff.add("studio_home_data");
+                    CacheClearer.removelike(cachedStuff);
                 } catch (Exception ignore) {
                     ignore.printStackTrace();
                 }
