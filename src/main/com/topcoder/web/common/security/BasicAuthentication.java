@@ -264,6 +264,7 @@ public class BasicAuthentication implements WebAuthentication {
      */
     private String hashForUser(long uid) throws Exception {
         //log.debug("hash for user: " + uid);
+        //todo include user status in here so that when we kick people out, their cookie dies
         CachedDataAccess dai = new CachedDataAccess(MaxAge.HALF_HOUR, DBMS.OLTP_DATASOURCE_NAME);
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
