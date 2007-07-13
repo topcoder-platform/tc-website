@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>07.13.07<br>4:00 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=Static&d1=hs&d2=home">Register for the new season of TopCoder High School</A>
+        </span><br><br>
+        With the new TopCoder High School season underway, please update your registration. If you're planning to compete, you'll need to register for <a href="/tc?module=HSViewRegister">Season 2</a>, and check out more <a href="http://forums.topcoder.com/?module=Thread&threadID=581544">news</a> about this season. If you're no longer in high school, please <a href="/tc?module=HSViewUnregister">unregister</a> from TCHS competitions.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=Static&d1=hs&d2=home">details</A> |
+        <a href="http://forums.topcoder.com/?module=Thread&threadID=581544">discuss this</a> |
+        <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+      
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.12.07<br>3:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -183,19 +202,3 @@
         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
    </td></tr>
       
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.02.07<br>2:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=070207">An Interview with Team V. Gimnazija</A></span><br><br>
-      The team portion of the TCHS 2007 tournament was won by the V. [fifth] Gimnazija team. I sat down and talked with the three winning members, Petar Sirkovic [<tc-webtag:handle coderId="21507690" />], Ivo Sluganovic [<tc-webtag:handle coderId="15604398" />], Goran Zuzic [<tc-webtag:handle coderId="11972352" />], as well as their chaperone, Predrag Brodanac.</td>
-         <td class="newsPhoto"><img src="/i/m/lovro_big3.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="7390467" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=features&d2=070207">full story</A> | 
-         <tc-webtag:forumLink forumID="516364" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
-   </td></tr>
-
