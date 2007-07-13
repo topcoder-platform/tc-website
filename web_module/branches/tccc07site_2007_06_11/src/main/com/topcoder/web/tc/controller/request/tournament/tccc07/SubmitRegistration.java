@@ -25,7 +25,7 @@ import java.util.Set;
 public class SubmitRegistration extends SubmitRegistrationBase {
 
     protected final String getEventShortDesc() {
-        return "tcc07" + getRequest().getParameter("ct");
+        return "tccc07" + getRequest().getParameter("ct");
     }
 
     protected Boolean validateSurvey(Survey survey, List responses) {
@@ -56,7 +56,7 @@ public class SubmitRegistration extends SubmitRegistrationBase {
                 }
             }
         }
-        if (getEventShortDesc().equals("tcc07algorithm")) {
+        if (getEventShortDesc().equals("tccc07algorithm")) {
             if (pref1.equals(pref2) && pref2.equals(pref3)) {
                 addError(pref1Key, "You can't select the same section more than once.");
                 addError(pref2Key, "You can't select the same section more than once.");
@@ -154,9 +154,9 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     protected void setNextPage(Event e, User u) {
         getRequest().setAttribute("ct", getRequest().getParameter("ct"));
         if (hasErrors()) {
-            setNextPage("/tournaments/tcc07/terms.jsp");
+            setNextPage("/tournaments/tccc07/terms.jsp");
         } else {
-            setNextPage("/tournaments/tcc07/termsSuccess.jsp");
+            setNextPage("/tournaments/tccc07/termsSuccess.jsp");
         }
         setIsNextPageInContext(true);
     }

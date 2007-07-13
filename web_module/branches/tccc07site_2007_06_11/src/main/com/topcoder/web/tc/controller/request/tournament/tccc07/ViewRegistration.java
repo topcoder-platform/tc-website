@@ -16,7 +16,7 @@ import java.util.Set;
 public class ViewRegistration extends ViewRegistrationBase {
 
     protected final String getEventShortDesc() {
-        return "tcc07" + getRequest().getParameter("ct");
+        return "tccc07" + getRequest().getParameter("ct");
     }
 
     protected void alreadyRegisteredProcessing(EventRegistration er) {
@@ -56,9 +56,9 @@ public class ViewRegistration extends ViewRegistrationBase {
         EventRegistration er = u.getEventRegistration(e);
         if (er != null) {
             getRequest().setAttribute("eligible", er.isEligible());
-            setNextPage("/tournaments/tcc07/termsSuccess.jsp");
+            setNextPage("/tournaments/tccc07/termsSuccess.jsp");
         } else {
-            setNextPage("/tournaments/tcc07/terms.jsp");
+            setNextPage("/tournaments/tccc07/terms.jsp");
         }
         setIsNextPageInContext(true);
     }

@@ -14,7 +14,7 @@ import com.topcoder.web.tc.controller.request.tournament.ViewRegistrantsBase;
  */
 public class ViewRegistrants extends ViewRegistrantsBase {
     protected final String getEventShortDesc() {
-        return "tcc07" + getRequest().getParameter("ct");
+        return "tccc07" + getRequest().getParameter("ct");
     }
 
     protected void dbProcessing() throws Exception {
@@ -36,7 +36,7 @@ public class ViewRegistrants extends ViewRegistrantsBase {
     
     protected void setNextPage(Event e) {
         getRequest().setAttribute("ct", getRequest().getParameter("ct"));
-        setNextPage("/tournaments/tcc07/" + getRequest().getParameter("ct") + "/registrants.jsp");
+        setNextPage("/tournaments/tccc07/" + getRequest().getParameter("ct") + "/registrants.jsp");
         setIsNextPageInContext(true);
     }
 }
