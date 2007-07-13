@@ -40,6 +40,7 @@
                 </jsp:include>
 
                 <table border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr class="bodyText"><td nowrap="nowrap">07.13.07 4:00 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=Static&d1=hs&d2=home">Register for the new season of TopCoder High School</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">07.12.07 11:15 AM&#160;-&#160</td><td width="100%"><A href="/tc?module=MatchDetails&rd=10766">Yodlee chat session scheduled for SRM 357</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">06.13.07 2:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=MatchDetails&rd=10711">Yodlee chat session scheduled for SRM 354</A></td></tr>
 <tr class="bodyText"><td nowrap="nowrap">05.25.07 4:30 PM&#160;-&#160</td><td width="100%"><A href="/tc?module=MatchDetails&rd=10675">Yodlee chat session scheduled for SRM 351</A></td></tr>
