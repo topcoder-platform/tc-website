@@ -30,10 +30,10 @@
                 <td class="nav"><A href="/pl/?module=Static&d1=vicc&d2=login"><img src="/i/events/vicc/tabs/ver_L2_registrationOff.gif" alt="" border="0"/></A></td>
                 <% } %>
                 <% if (tabLev2.equals("results")) {%>
-                <td class="nav"><A href="/pl/?module=Static&d1=vicc&d2=resultsSrm3"><img src="/i/events/vicc/tabs/ver_L2_resultsOn.gif" alt="" border="0"/></A>
+                <td class="nav"><A href="/pl/?module=Static&d1=vicc&d2=resultsFinals"><img src="/i/events/vicc/tabs/ver_L2_resultsOn.gif" alt="" border="0"/></A>
                 </td>
                 <% } else { %>
-                <td class="nav"><A href="/pl/?module=Static&d1=vicc&d2=resultsSrm3"><img src="/i/events/vicc/tabs/ver_L2_resultsOff.gif" alt="" border="0"/></A>
+                <td class="nav"><A href="/pl/?module=Static&d1=vicc&d2=resultsFinals"><img src="/i/events/vicc/tabs/ver_L2_resultsOff.gif" alt="" border="0"/></A>
                 </td>
                 <% } %>
                 <%--
@@ -87,9 +87,7 @@
                 <td class="subnav"><a href="/pl/?module=Static&d1=vicc&d2=resultsSrm2"><% if (tabLev3.equals("srm2")) {%><img src="/i/events/vicc/tabs/ver_L3_srm2On.gif" border="0" width="52"/><% } else { %><img src="/i/events/vicc/tabs/ver_L3_srm2Off.gif" border="0" width="52"/><% } %></a></td>
                 <td class="subnav"><a href="/pl/?module=Static&d1=vicc&d2=resultsSponsorTrack"><% if (tabLev3.equals("sponsortrack")) {%><img src="/i/events/vicc/tabs/ver_L3_sponsortrackOn.gif" border="0" width="90"/><% } else { %><img src="/i/events/vicc/tabs/ver_L3_sponsortrackOff.gif" border="0" width="90"/><% } %></a></td>
                 <td class="subnav"><a href="/pl/?module=Static&d1=vicc&d2=resultsSrm3"><% if (tabLev3.equals("srm3")) {%><img src="/i/events/vicc/tabs/ver_L3_srm3On.gif" border="0" width="52"/><% } else { %><img src="/i/events/vicc/tabs/ver_L3_srm3Off.gif" border="0" width="52"/><% } %></a></td>
-                <%--
                 <td class="subnav"><a href="/pl/?module=Static&d1=vicc&d2=resultsFinals"><% if (tabLev3.equals("finals")) {%><img src="/i/events/vicc/tabs/ver_L3_finalsOn.gif" border="0" width="52"/><% } else { %><img src="/i/events/vicc/tabs/ver_L3_finalsOff.gif" border="0" width="52"/><% } %></a></td>
-               --%>
                <% } else if (tabLev2.equals("competitionArena")) {%>
                 <td class="subnavBG"><img src="/i/clear.gif" height="35" width="1" border="0"/></td>
                 <% } %>
