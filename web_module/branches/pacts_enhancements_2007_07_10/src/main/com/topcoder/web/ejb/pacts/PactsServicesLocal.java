@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.pacts;
 
 import java.rmi.RemoteException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -269,6 +270,8 @@ public interface PactsServicesLocal extends EJBLocalObject {
     public void saveUserAccrualThreshold(long userId, double newAccrualAmount);
 
     public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws SQLException;
+
+    public HashMap<Long, String> newPaymentEvent(String[] values, int event) throws SQLException;
 
 }
 

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -18,6 +19,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.ejb.pacts.DeleteAffirmedAssignmentDocumentException;
@@ -27,6 +29,8 @@ import com.topcoder.web.ejb.pacts.PactsServicesLocal;
 import com.topcoder.web.ejb.pacts.payments.BasePaymentStatus;
 import com.topcoder.web.ejb.pacts.payments.EventFailureException;
 import com.topcoder.web.ejb.pacts.payments.InvalidStatusException;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager;
+import com.topcoder.web.ejb.pacts.payments.PaymentStatusManager.UserEvents;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitWithText;
@@ -1640,6 +1644,11 @@ public class DataInterfaceBean implements PactsConstants {
     public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws RemoteException, SQLException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.getPaymentStatusMap();
+    }
+
+    public HashMap<Long, String> newPaymentEvent(String[] values, int event) throws RemoteException, SQLException {
+        PactsServicesLocal ps = getEjbHandle();
+        return ps.newPaymentEvent(values, event);
     }
 }
 
