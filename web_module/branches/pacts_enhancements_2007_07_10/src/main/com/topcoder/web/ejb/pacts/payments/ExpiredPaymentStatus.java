@@ -36,6 +36,21 @@ public class ExpiredPaymentStatus extends BasePaymentStatus {
     }
 
     /**
+     * This method will handle the state activation for each particular status
+     * 
+     * @param payment the payment to apply the event to
+     * @throws StateTransitionFailureException if anything fails
+     */
+    public void activate(BasePayment payment) throws StateTransitionFailureException {
+        try {
+            // If the payment expires, we need to cancel attached documents. (affidavit)
+            cancelAttachedDocuments(payment);
+        } catch (Exception e) {
+            throw new StateTransitionFailureException(e);
+        }            
+    }
+
+    /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override

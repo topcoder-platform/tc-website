@@ -5,6 +5,8 @@
 */
 package com.topcoder.web.ejb.pacts.payments;
 
+import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +16,10 @@ import com.topcoder.web.ejb.pacts.BasePayment;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.common.Affidavit;
 import com.topcoder.web.tc.controller.legacy.pacts.common.AffidavitHeaderList;
+import com.topcoder.web.tc.controller.legacy.pacts.common.InvalidSearchInputException;
+import com.topcoder.web.tc.controller.legacy.pacts.common.NoObjectFoundException;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
+import com.topcoder.web.tc.controller.legacy.pacts.common.UnsupportedSearchException;
 
 /**
  * This class represents a Deleted status for payments. 
@@ -53,34 +58,11 @@ public class DeletedPaymentStatus extends BasePaymentStatus {
     public void activate(BasePayment payment) throws StateTransitionFailureException {
         try {
             // If the payment is deleted, we need to cancel attached documents. (affidavit)
-            if (payment.getPaymentType() == BasePayment.ALGORITHM_CONTEST_PAYMENT ||
-                    payment.getPaymentType() == BasePayment.ALGORITHM_TOURNAMENT_PRIZE_PAYMENT ||
-                    payment.getPaymentType() == BasePayment.MARATHON_MATCH_PAYMENT) {
-                    
-                    DataInterfaceBean dib = new DataInterfaceBean();
-                
-                    Map criteria = new HashMap();
-                    criteria.put(PactsConstants.USER_ID, String.valueOf(payment.getCoderId()));
-                    criteria.put(PactsConstants.ROUND_ID, String.valueOf(((AlgorithmRoundReferencePayment)payment).getRoundId()));
-                
-                    Map results = dib.findAffidavits(criteria);
-                    AffidavitHeaderList ahl = new AffidavitHeaderList(results);
-                    
-                    if (ahl != null && ahl.getHeaderList() != null &&
-                            ahl.getHeaderList().length > 0 && 
-                            ahl.getHeaderList()[0].getStatusId() != PactsConstants.AFFIDAVIT_CANCELED_STATUS &&
-                            ahl.getHeaderList()[0].getStatusId() != PactsConstants.AFFIDAVIT_DELETED_STATUS) {
-                        // cancel affidavit
-                        Affidavit affidavit = new Affidavit(dib.getAffidavit(ahl.getHeaderList()[0].getId()));
-                        affidavit.getHeader().setStatusId(PactsConstants.AFFIDAVIT_CANCELED_STATUS);
-                        dib.updateAffidavit(affidavit);
-                    }
-            }
+            cancelAttachedDocuments(payment);
         } catch (Exception e) {
             throw new StateTransitionFailureException(e);
         }            
     }
-
 
     /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#inactiveCoder(com.topcoder.web.ejb.pacts.BasePayment)

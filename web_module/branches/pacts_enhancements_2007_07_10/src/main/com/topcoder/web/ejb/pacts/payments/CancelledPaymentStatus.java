@@ -37,6 +37,21 @@ public class CancelledPaymentStatus extends BasePaymentStatus {
     }
 
     /**
+     * This method will handle the state activation for each particular status
+     * 
+     * @param payment the payment to apply the event to
+     * @throws StateTransitionFailureException if anything fails
+     */
+    public void activate(BasePayment payment) throws StateTransitionFailureException {
+        try {
+            // If the payment is cancelled, we need to cancel attached documents. (affidavit)
+            cancelAttachedDocuments(payment);
+        } catch (Exception e) {
+            throw new StateTransitionFailureException(e);
+        }            
+    }
+
+    /**
      * @see com.topcoder.web.ejb.pacts.payments.BasePaymentStatus#expiredAffidavit(com.topcoder.web.ejb.pacts.BasePayment)
      */
     @Override
