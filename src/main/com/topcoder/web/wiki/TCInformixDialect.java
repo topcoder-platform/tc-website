@@ -12,12 +12,12 @@ import java.sql.Types;
 public class TCInformixDialect extends InformixDialect {
     public TCInformixDialect() {
         super();
+/*
         registerColumnType(Types.BLOB, "byte");
         registerColumnType(Types.CLOB, "text");
-/*
+*/
         registerColumnType(Types.BLOB, "blob");
         registerColumnType(Types.CLOB, "clob");
-*/
         registerColumnType(Types.DOUBLE, "float");
 
     }
