@@ -20,7 +20,7 @@ public class NewPaymentEvent extends PaymentList implements PactsConstants {
         int event = Integer.parseInt(getRequest().getParameter("status_id"));
         
         List<String> checkedIds = new ArrayList<String>(values.length);
-        HashMap<Long, String> errors = null;
+        Map<Long, String> errors = null;
         try {
             errors = dib.newPaymentEvent(values, event);
         } catch (Exception e) {

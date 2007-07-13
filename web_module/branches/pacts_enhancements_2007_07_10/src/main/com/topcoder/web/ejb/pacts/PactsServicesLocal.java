@@ -271,7 +271,6 @@ public interface PactsServicesLocal extends EJBLocalObject {
 
     public Map<Long, BasePaymentStatus> getPaymentStatusMap() throws SQLException;
 
-    public HashMap<Long, String> newPaymentEvent(String[] values, int event) throws SQLException;
-
+    public Map<Long, String> newPaymentEvent(String[] values, int event);
 }
 

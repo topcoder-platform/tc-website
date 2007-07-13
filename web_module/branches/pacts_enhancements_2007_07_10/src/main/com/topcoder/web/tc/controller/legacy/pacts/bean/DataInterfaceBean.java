@@ -1646,7 +1646,7 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.getPaymentStatusMap();
     }
 
-    public HashMap<Long, String> newPaymentEvent(String[] values, int event) throws RemoteException, SQLException {
+    public Map<Long, String> newPaymentEvent(String[] values, int event) throws RemoteException {
         PactsServicesLocal ps = getEjbHandle();
         return ps.newPaymentEvent(values, event);
     }
