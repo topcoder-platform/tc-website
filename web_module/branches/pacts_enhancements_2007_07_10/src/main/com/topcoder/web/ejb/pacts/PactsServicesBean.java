@@ -1,6 +1,5 @@
 package com.topcoder.web.ejb.pacts;
 
-import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,17 +20,14 @@ import java.util.Map;
 
 import javax.ejb.EJBException;
 import javax.ejb.SessionContext;
-import javax.transaction.TransactionManager;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer.ResultSetRow;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IDGenerationException;
 import com.topcoder.web.common.IdGeneratorClient;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.AssignmentDocument;
 import com.topcoder.web.common.model.AssignmentDocumentStatus;
 import com.topcoder.web.common.model.AssignmentDocumentTemplate;
@@ -4072,9 +4068,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             rowsModified = ps.executeUpdate();
         } catch (Exception e) {
             printException(e);
-            close(ps);
-            close(c);
             throw new SQLException(e.getMessage());
+        } finally {
+            close(ps);
+            close(c);            
         }
 
         if (rowsModified == 0)
