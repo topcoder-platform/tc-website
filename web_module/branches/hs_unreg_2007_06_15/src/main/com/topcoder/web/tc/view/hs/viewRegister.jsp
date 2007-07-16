@@ -3,7 +3,7 @@
 				 com.topcoder.web.common.model.Season,
                  com.topcoder.web.common.model.Question,
                  com.topcoder.web.common.tag.AnswerInput,
-                 com.topcoder.web.tc.controller.request.tournament.RegistrationBase,
+                  com.topcoder.web.tc.controller.request.hs.RegistrationBase,
                  com.topcoder.web.common.BaseProcessor" %>
 <%@ page import="java.util.Collections,
                  java.util.Set,
@@ -148,14 +148,14 @@
 
 
             <tc:questionIterator list="${questions}" id="question">
-                        	<% if (question.getKeyword().equals(RegistrationBase.AGE)) { %>
+                        	<% if (question.getKeyword().equals(RegistrationBase.AGE) || question.getKeyword().equals(RegistrationBase.AGE_END_SEASON)) { %>
                                     <p align="center">
         	                        <span class="bigRed">
         	                        <tc-webtag:errorIterator id="err"
         	                            name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
         	                        </tc-webtag:errorIterator>
         	                        </span>&nbsp;<br>
-                                    <jsp:getProperty name="question" property="text"/> 
+                                    <jsp:getProperty name="question" property="text"/> <br>
         	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
         	                        </p>
                         	<% } else { %>

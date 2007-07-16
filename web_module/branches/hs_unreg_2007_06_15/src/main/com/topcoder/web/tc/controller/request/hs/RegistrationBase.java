@@ -27,6 +27,10 @@ import com.topcoder.web.common.model.UserGroup;
  */
 public abstract class RegistrationBase extends ShortHibernateProcessor {
 
+    public static final String AGE = "age";
+    public static final String AGE_END_SEASON = "agees";
+    public static final String IN_HIGH_SCHOOL = "inhs";
+
     protected static final int HS_GROUP_ID = 12;
     
     /**
