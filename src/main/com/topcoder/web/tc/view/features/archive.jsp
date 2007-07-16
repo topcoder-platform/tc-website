@@ -44,6 +44,11 @@
                <td class="bodyText"><b>Date</b></td>
             </tr>
             <tr valign="top">
+               <td class="bodyText"><tc-webtag:handle coderId="251074" /></td>
+               <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=071607"><strong>An Introduction to Version Control</strong></A></td>
+               <td class="bodyText" nowrap=nowrap>Jul 16, 2007</td> 
+            </tr>
+            <tr valign="top">
                <td class="bodyText"><tc-webtag:handle coderId="21684580" /></td>
                <td class="bodyText" nowrap=nowrap><A href="/tc?module=Static&d1=features&d2=071207"><strong>An Interview with ahyangyi</strong></A></td>
                <td class="bodyText" nowrap=nowrap>Jul 12, 2007</td> 

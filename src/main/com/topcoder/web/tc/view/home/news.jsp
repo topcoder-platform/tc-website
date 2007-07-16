@@ -4,6 +4,40 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.16.07<br>4:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=features&d2=071607">An Introduction to Version Control</A></span><br><br>
+      In this article, I'll look at the concepts involved in version control, and illustrate them with two open-source systems: <a href="http://subversion.tigris.org/">Subversion</a> and <a href="http://git.or.cz/">git</a>.</td>
+         <td class="newsPhoto"><img src="/i/m/bmerry_big2.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="251074" context="algorithm"/></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=features&d2=071607">full story</A> | 
+         <tc-webtag:forumLink forumID="516594" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=features&d2=archive">archive</A>
+   </td></tr>
+
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.16.07<br>3:20 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm357">SRM 357 - Problem Set &amp; Analysis</A></span><br><br>
+      <tc-webtag:handle coderId="19849563" context="algorithm"/> easily cruised through the field to victory. TopCoder and web-casting veteran <tc-webtag:handle coderId="270505" context="algorithm"/> came second with a 100+ gap,
+and <tc-webtag:handle coderId="272408" context="algorithm"/> rounded out the top three, finishing almost 300 points behind John.</td>
+         <td class="newsPhoto"><img src="/i/m/Cosmin.ro_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="303185" context="algorithm" /></td></tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=match_editorials&d2=srm357">full story</A> | 
+         <tc-webtag:forumLink forumID="516054" message="discuss this" /> | 
+         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
+   </td></tr>
+   
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/alg.png" alt="Algorithm Competition News" border="0" /><br>07.13.07<br>4:00 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -164,41 +198,3 @@
          <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>07.03.07<br>2:45 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104">Design the TCCC07 logo</A>
-        </span><br><br>
-        The 2007 TopCoder Collegiate Challenge logo design contest is now open. A total of $5,000 will be awarded to the top five designers, with the grand prize winner earning $3,000! The submission deadline is Tuesday, July 10, 2007 at 2:00 PM EDT, so don't miss out.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="https://<%=ApplicationServer.STUDIO_SERVER_NAME%>/?module=ViewContestDetails&ct=2104">details</A> | 
-        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=73">discuss this</a> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-      
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/movie.png" alt="Movie News" border="0" /><br>07.03.07<br>1:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=montage&title=Handheld%20camera%20montage">TCO07 highlights video now available</A>
-        </span><br><br>
-        If you couldn't make it to Las Vegas, check out this video montage of the behind-the-scenes action from this year's TopCoder Open. The video is approximately 10 minutes long.
-        </td>
-      </tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-        <A href="/tc?module=Static&d1=tournaments&d2=tco07&d3=movieStream&clip=montage&title=Handheld%20camera%20montage">details</A> |
-        <tc-webtag:forumLink forumID="514380" message="discuss this" /> | 
-        <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
-   </td></tr>
-      
