@@ -24,6 +24,7 @@
             <h1><span>Algorithm Competition Schedule*</span></h1>
             
             <h2>Registration</h2>
+
             <p>Registration for the 2007 TopCoder Open Algorithm Competition will open at 9:00 AM EDT on Monday, July 23, and will close at 5:00 AM EDT on Thursday, August 16,2007. In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition. There is no limit to the number of registrants for the competition, however each individual may only register once.</p>
             
             <table cellpadding="0" cellspacing="0" class="stat"> 
@@ -34,6 +35,7 @@
                     </tr>
                 </tbody>
             </table>
+
             <br /><br />
 
             <h2>Qualification Round</h2>
@@ -51,6 +53,7 @@
                         <td class="value">Saturday, August 18<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td> 
                         <td class="value">All members who have <br />not previously qualified - <br />limited to the first 1,350 <br />participants to register</td> 
                         <td class="value">550</td>
+
                     </tr> 
                     <tr class="dark"> 
                         <td class="value">Qualification Round #2</td> 
@@ -63,6 +66,7 @@
                         <td class="value">Thursday, August 23<br />Register: 6:00 - 8:55 PM<br />START: 9:00 PM</td> 
                         <td class="value">All members who have <br />not previously qualified - <br />limited to the first 1,350 <br />participants to register</td> 
                         <td class="value">550</td>
+
                     </tr>
                     <tr class="dark">
                         <td class="value" colspan="4">*Times are Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will be held the following day at the same time.</td>
@@ -74,6 +78,7 @@
             <table cellpadding="0" cellspacing="0" class="stat"> 
                 <tbody> 
                     <tr>
+
                         <td class="title" colspan="4">Online Elimination Rounds</td>
                     </tr>
                     <tr> 
@@ -87,6 +92,7 @@
                         <td class="value">Tuesday, August 28<br />Register: 6:00 - 8:55 PM<br />START: 9:00 PM</td> 
                         <td class="value">Up to 720**</td> 
                         <td class="value">300</td>
+
                     </tr> 
                     <tr class="dark"> 
                         <td class="value">Online Round #1 - <br />Section B</td> 
@@ -99,6 +105,7 @@
                         <td class="value">Saturday, September 1<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td> 
                         <td class="value">Up to 720**</td> 
                         <td class="value">300</td>
+
                     </tr>
                     <tr class="dark"> 
                         <td class="value">Online Round #2 </td> 
@@ -111,6 +118,7 @@
                         <td class="value">Saturday, September 15<br />Register: 10:00 AM - 12:55 PM<br />START: 1:00 PM</td> 
                         <td class="value">300</td> 
                         <td class="value">150</td>
+
                     </tr>
                     <tr class="dark"> 
                         <td class="value">Online Round #4</td> 
@@ -119,8 +127,9 @@
                         <td class="value">48</td>
                     </tr>
                     <tr class="light">
-                        <td class="value" colspan="4">* NOTE: All times are Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will be the following day at the same time.<br />
-                        ** If less than 1,800 competitors qualify to compete in Online Round <br />#1, the maximum number of competitors that will be assigned into any section will be 40% of the actual number of qualifiers, rounded up.</td>
+
+                      <td class="value" colspan="4">* NOTE: All times are Eastern Daylight Time (UTC/GMT -4). In the event that a round must be cancelled for any reason, the round will be the following day at the same time.<br />
+                        ** If less than 1,800 competitors qualify to compete in Online Round #1, the maximum number of competitors that will be assigned into any section will be 40% of the actual number of qualifiers, rounded up.</td>
                     </tr> 
                 </tbody> 
             </table>
@@ -129,11 +138,12 @@
             <table cellpadding="0" cellspacing="0" class="stat"> 
                 <tbody> 
                     <tr>
+
                         <td class="title" colspan="2">Onsite Semifinal and Championship Rounds</td>
                     </tr>
                     <tr> 
                         <td class="header">Round of Competition</td> 
-                        <td class="header">Date and Time (Pacific Daylight Time)</td>
+                        <td class="header">Date and Time (Eastern Daylight Time)</td>
                     </tr> 
                     <tr class="light"> 
                         <td class="value">Semifinal Room #1</td> 
@@ -157,6 +167,7 @@
                     </tr> 
                 </tbody> 
             </table>
+
             <br /><br />
             
             <h2>* Find start times in your time zone</h2>
@@ -166,6 +177,7 @@
                 <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=13&min=0&sec=0&p1=179">1:00 PM</a> | 
                 <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=18&min=0&sec=0&p1=179">6:00 PM</a> | 
                 <a href="http://www.timeanddate.com/worldclock/fixedtime.html?month=9&day=12&year=2006&hour=21&min=0&sec=0&p1=179">9:00 PM</a>
+
             </p>
         </div>
         

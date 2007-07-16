@@ -24,7 +24,7 @@
             <div id="pageBody">
                 <h1><span>Onsite Schedule</span></h1>
                 <div align="center">
-                    <br /><br />
+                    <br />
                     <table cellpadding="0" cellspacing="0" class="stat"> 
                         <tbody>
                             <tr>
