@@ -4,6 +4,25 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/tournament.png" alt="Tournament News" border="0" /><br>07.16.07<br>5:15 PM</td>
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle">
+        <A href="/tc?module=SurveyResults&sid=19130">TCCC07 Logo Design vote results</A>
+        </span><br><br>
+        Congratulations to <tc-webtag:handle coderId="22673857" />, whose submission came out on top in the TopCoder Collegiate Challenge Logo Design contest.
+        </td>
+      </tr></table>
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+        <A href="/tc?module=SurveyResults&sid=19130">details</A> | 
+        <a href="http://<%=ApplicationServer.STUDIO_SERVER_NAME%>/forums?module=ThreadList&forumID=73&mc=29">discuss this</a> | 
+        <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/feature.png" alt="Feature Article" border="0" /><br>07.16.07<br>4:15 PM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -180,21 +199,5 @@ and <tc-webtag:handle coderId="272408" context="algorithm"/> rounded out the top
          <A href="/longcontest/?module=Static&d1=match_editorials&d2=mm_tco07">full story</A> | 
          <tc-webtag:forumLink forumID="516304" message="discuss this" /> | 
          <A href="/longcontest/?module=Static&d1=match_editorials&d2=archive">archive</A>
-   </td></tr>
-   
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/v2/analysis.png" alt="Problem Set &amp; Analysis" border="0" /><br>07.06.07<br>4:30 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=match_editorials&d2=srm356">SRM 356 - Problem Set &amp; Analysis</A></span><br><br>
-      It was the first SRM after the TopCoder Open, and coders weary from the TCO were greeted by a problem set hard enough to be used onsite.  In both divisions nobody solved all three problems and only 144 Division 1 coders were able to solve at least one problem.</td>
-         <td class="newsPhoto"><img src="/i/m/Pawa_big.jpg"  alt="" width="55" height="61"/><br>by <tc-webtag:handle coderId="10323773" context="algorithm"/></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=match_editorials&d2=srm356">full story</A> | 
-         <tc-webtag:forumLink forumID="516053" message="discuss this" /> | 
-         <A href="/tc?module=Static&d1=match_editorials&d2=archive">archive</A>
    </td></tr>
    
