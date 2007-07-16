@@ -28,8 +28,8 @@ public class ViewSubmissionDetail extends Base {
         getRequest().setAttribute("submission", s);
         SubmissionReview submissionReview = f.getSubmissionReviewDAO().find(submissionId);
         getRequest().setAttribute("reviewStatuses", f.getReviewStatusDAO().getReviewStatuses());
-        getRequest().setAttribute("currentUser", DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId())));
-        if (s.getResult() != null) {
+        getRequest().setAttribute("currentUser", DAOUtil.getFactory().getUserDAO().find(getUser().getId()));
+        if (s.getResult() != null && s.getResult().getPrize() != null) {
             setDefault(Constants.PRIZE_ID, s.getResult().getPrize().getId());
         }
 
