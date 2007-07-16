@@ -2,6 +2,7 @@ package com.topcoder.web.studio.controller.request.admin;
 
 import com.topcoder.shared.util.dwload.CacheClearer;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.studio.Constants;
 import com.topcoder.web.studio.dao.StudioDAOFactory;
 import com.topcoder.web.studio.dao.StudioDAOUtil;
@@ -30,7 +31,7 @@ public class SetPlace extends Base {
         }
 
         Long prizeId = null;
-        if (getRequest().getParameter(Constants.PRIZE_ID) != null) {
+        if (!"".equals(StringUtils.checkNull(getRequest().getParameter(Constants.PRIZE_ID)))) {
             try {
                 prizeId = new Long(getRequest().getParameter(Constants.PRIZE_ID));
             } catch (NumberFormatException e) {
