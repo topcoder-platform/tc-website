@@ -30,7 +30,7 @@ public class DownloadSubmission extends BaseSubmissionDataProcessor {
 
         boolean isOwner = s.getSubmitter().getId().equals(getUser().getId());
 
-        boolean isWinner = isWinner(s.getSubmitter(), s.getContest(), StudioDAOUtil.getFactory().getSubmissionDAO());
+        boolean isWinner = s.getResult() != null && s.getResult().getPrize() != null && s.getResult().getPrize().getPlace() == 1;
 
         boolean isOver = new Date().after(s.getContest().getEndTime());
 
