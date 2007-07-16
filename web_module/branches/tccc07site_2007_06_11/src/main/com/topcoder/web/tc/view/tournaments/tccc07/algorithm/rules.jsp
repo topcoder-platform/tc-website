@@ -401,7 +401,7 @@
                 
                 <h2>Other</h2>
                 <p>The Algorithm Competition and the Tournament are void in whole or in part where prohibited by law.</p>
-                <p>A list of winning competitors by handle will be available on the web site at <a href="http://www.topcoder.com/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the Algorithm Competition.</p>
+                <p>A list of winning competitors by handle will be available on the web site at <a href="/tc">http://www.topcoder.com/tc</a>, and will be displayed for at least 3 months after the end of the Algorithm Competition.</p>
 
 
                 
