@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.reg.Constants,
 				 com.topcoder.web.common.model.Event,
+				 com.topcoder.web.common.model.Season,
                  com.topcoder.web.common.model.Question,
                  com.topcoder.web.common.tag.AnswerInput,
                  com.topcoder.web.tc.controller.request.tournament.RegistrationBase,
@@ -20,7 +21,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<% Event event = (Event) request.getAttribute("event"); 
+<% Event event = ((Season) request.getAttribute("season")).getEvent(); 
    List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
    HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
 %>
