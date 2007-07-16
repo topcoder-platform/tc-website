@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.hs;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -11,14 +12,17 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.QuestionStyle;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
+import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.reg.Constants;
+import com.topcoder.web.reg.controller.request.Secondary;
 import com.topcoder.web.reg.validation.AgeValidator;
 import com.topcoder.web.reg.validation.AttendingHSValidator;
 import com.topcoder.web.tc.controller.request.survey.Helper;
@@ -103,8 +107,7 @@ public class Register extends RegistrationBase {
             setIsNextPageInContext(true);
             return;
         }
-        
-        /*
+               
 
         // Check that the user is eligible, just in case he fakes the URL
         Integer hsStatus = getHSGroupStatus(u);
@@ -126,9 +129,9 @@ public class Register extends RegistrationBase {
             throw new NavigationException("You're not eligible for High School or already registered");            
         }
 
-        int ageHs = Integer.parseInt(getRequest().getParameter(Constants.AGE));
-        int ageEndSeason = Integer.parseInt(getRequest().getParameter(Constants.AGE_END_SEASON));
-        boolean attendingHS = "yes".equals(getRequest().getParameter(Constants.ATTENDING_HS));
+        int ageHs = Integer.parseInt(ageStr);
+        int ageEndSeason = Integer.parseInt(ageEndSeasonStr);
+        boolean attendingHS = "yes".equals(attendingStr);
         
         boolean eligible = Secondary.isEligibleHS(ageHs, ageEndSeason, attendingHS);
         
@@ -152,11 +155,10 @@ public class Register extends RegistrationBase {
         }
         
         markForCommit();
-*/
+
         getRequest().setAttribute("season", season);
         getRequest().setAttribute("confirmRegistration", true);        
-//        getRequest().setAttribute("eligible", eligible);        
-        getRequest().setAttribute("eligible", true);
+        getRequest().setAttribute("eligible", eligible);        
 
         setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
         setIsNextPageInContext(true);
