@@ -179,10 +179,14 @@ public class Register extends RegistrationBase {
             }
         }
 
-        Map<String,String> m = new HashMap<String,String>();
+        Map<String,Response> m = new HashMap<String,Response>();
         for(Response r : responses) {
-            //m.put(r.getQuestion().getKeyword(), r.getText());
-            log.info("question: " + r.getQuestion().getKeyword() + "," + r.getText() +";" + r.getAnswer()!= null? r.getAnswer().getText() : "null");
+            m.put(r.getQuestion().getKeyword(), r);
+            try {
+               log.info("question: " + r.getQuestion().getKeyword() + "," + r);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         
         return responses;
