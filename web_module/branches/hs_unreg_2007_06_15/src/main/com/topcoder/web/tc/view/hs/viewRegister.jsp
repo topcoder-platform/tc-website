@@ -1,4 +1,15 @@
-<%@ page import="com.topcoder.web.reg.Constants" %>
+<%@ page import="com.topcoder.web.reg.Constants,
+				 com.topcoder.web.common.model.Event,
+                 com.topcoder.web.common.model.Question,
+                 com.topcoder.web.common.tag.AnswerInput,
+                 com.topcoder.web.tc.controller.request.tournament.RegistrationBase,
+                 com.topcoder.web.common.BaseProcessor" %>
+<%@ page import="java.util.Collections,
+                 java.util.Set,
+                 java.util.ArrayList,
+                 java.util.List,
+                 java.util.HashMap" %>
+
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -9,6 +20,11 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<% Event event = (Event) request.getAttribute("event"); 
+   List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
+   HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
+%>
+    
 <html>
 <head>
     <title>TopCoder High School Competitions</title>
@@ -131,7 +147,7 @@
                 </p>
 
 
-            <tc:questionIterator list="${event.survey.questions}" id="question">
+            <tc:questionIterator list="<%= questionInfo  %>" id="question">
             	${question.text }, ${question.id } <br>
             </tc:questionIterator>
 
