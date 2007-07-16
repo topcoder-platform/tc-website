@@ -181,8 +181,8 @@ public class Register extends RegistrationBase {
 
         Map<String,String> m = new HashMap<String,String>();
         for(Response r : responses) {
-            m.put(r.getQuestion().getKeyword(), r.getAnswer().getText());
-            log.info("question: " + r.getQuestion().getKeyword() + "," + r.getAnswer().getText());
+            //m.put(r.getQuestion().getKeyword(), r.getText());
+            log.info("question: " + r.getQuestion().getKeyword() + "," + r.getText() +";" + r.getAnswer()!= null? r.getAnswer().getText() : "null");
         }
         
         return responses;
