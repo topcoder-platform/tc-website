@@ -42,8 +42,10 @@
 
         <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=hs&d2=support&d3=getStarted">General TopCoder Arena Usage / Getting Started</a></span><br/>
             <span class="outline1">1 <a href="/tc?module=Static&d1=hs&d2=support&d3=getStarted#becomemember">Become a TopCoder Member</a></span><br/>
+<%--
                 <span class="outline2">1.1 <a href="/tc?module=Static&d1=hs&d2=support&d3=getStarted#team">Registering a Team</a></span><br/>
-                <span class="outline2">1.2 <a href="/tc?module=Static&d1=hs&d2=support&d3=getStarted#individual">Registering as an Individual</a></span><br/>
+                <span class="outline2">1.1 <a href="/tc?module=Static&d1=hs&d2=support&d3=getStarted#individual">Registering as an Individual</a></span><br/>
+--%>
             <span class="outline1">2 <a href="/tc?module=Static&d1=hs&d2=support&d3=getStarted#whatisarena">What is the TopCoder Arena?</a></span><br/>
             <span class="outline1">3 <a href="/tc?module=Static&d1=hs&d2=support&d3=getStarted#howtorun">How to Run the TopCoder Arena</a></span><br/>
                 <span class="outline2">3.1 <a href="/tc?module=Static&d1=hs&d2=support&d3=getStarted#whatsoftware">What software will you need to install?</a></span><br/>

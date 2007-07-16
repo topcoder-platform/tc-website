@@ -43,6 +43,7 @@
         <a name="becomemember"></a>
       <p><span class="bodySubtitle">1 Become a TopCoder Member</span><br/>
       In order to log into the TopCoder Arena, you will need to be a TopCoder member.  If you have not already done so, you must first <A href="/reg/">register</A> on TopCoder's web site.  Once you register, you will be sent an activation email to the email address that you provided during the registration process.  As soon as you activate your account, you will be free to log into the TopCoder Arena using the handle and password that you've specified.
+<%--
       <ul>
       <li>
         <a name="team"></a>
@@ -55,6 +56,7 @@
          Students will be able to compete either as an individual or as part of a team representing their school, or, in case they are not affiliated with a school, representing their town or themselves.  Eligible students who do not attend a school can register to compete as an individual.  If only one student signs up from a school, that student will compete as an individual.
       </li>
       </ul>
+--%>
       </p>
         <a name="whatisarena"></a>
       <p><span class="bodySubtitle">2 What is the TopCoder Arena?</span><br/>
