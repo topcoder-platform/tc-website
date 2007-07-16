@@ -1,7 +1,7 @@
 <%@ page import="com.topcoder.web.common.model.Event" %>
 <%@ page contentType="text/html;charset=utf-8" %> 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%String compType = (String) request.getAttribute("ct");
+<%String eventType = (String) request.getAttribute("et");
   Event e = (Event) request.getAttribute("event");
   Boolean eligible = (Boolean) request.getAttribute("eligible"); %>
 <html>
@@ -19,7 +19,7 @@
     <div id="content">
 
         <jsp:include page="nav.jsp" >
-        <jsp:param name="tabLev1" value="<%=compType%>"/>
+        <jsp:param name="tabLev1" value="<%=eventType%>"/>
         <jsp:param name="tabLev2" value="register"/>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>

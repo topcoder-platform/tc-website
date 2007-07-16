@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="com.topcoder.web.common.model.EventType" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 
 <%
@@ -33,7 +34,7 @@
                 </div>
 
                 <div style="float:left;">
-                <% if (tabLev1.equals("algorithm")) {%>
+                <% if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) {%>
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description"><img src="/i/tournament/tccc07/alg_on.png" alt="Algorithm Competition" /></a>
                 <% } else { %>
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description"><img src="/i/tournament/tccc07/alg.png" alt="Algorithm Competition" /></a>
@@ -41,7 +42,7 @@
                 </div>
             
                 <div style="float:left;">
-                <% if (tabLev1.equals("component")) {%>
+                <% if (tabLev1.equals(EventType.COMPONENT_TOURNAMENT_ID.toString())) {%>
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=description"><img src="/i/tournament/tccc07/comp_on.png" alt="Component Competition" /></a>
                 <% } else { %>
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=description"><img src="/i/tournament/tccc07/comp.png" alt="Component Competition" /></a>
@@ -49,7 +50,7 @@
                 </div>
                 
                 <div style="float:left;">
-                <% if (tabLev1.equals("marathon")) {%>
+                <% if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) {%>
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description"><img src="/i/tournament/tccc07/mara_on.png" alt="Marathon Competition" /></a>
                 <% } else { %>
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description"><img src="/i/tournament/tccc07/mara.png" alt="Marathon Competition" /></a>
@@ -57,7 +58,7 @@
                 </div>
                 
                 <div style="float:left;">
-                <% if (tabLev1.equals("studio")) {%>
+                <% if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) {%>
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=description"><img src="/i/tournament/tccc07/studio_on.png" alt="Studio Overview" /></a>
                 <% } else { %>
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=description"><img src="/i/tournament/tccc07/studio.png" alt="Studio Overview" /></a>
@@ -77,7 +78,7 @@
                     | <a href=""<% if (tabLev2.equals("sponsors")) {%> class="on"<% } %>>Sponsors</a>
                 --%>
                 </p>
-            <% } else if (tabLev1.equals("algorithm")) { %>
+            <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
                 <p id="secondaryNav">
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a>
@@ -89,7 +90,7 @@
                     | <a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a>
                 --%>
                 </p>
-            <% } else if (tabLev1.equals("component")) { %>
+            <% } else if (tabLev1.equals(EventType.COMPONENT_TOURNAMENT_ID.toString())) { %>
                 <p id="secondaryNav">
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a>
@@ -101,7 +102,7 @@
                     | <a href=""<% if (tabLev2.equals("development")) {%> class="on"<% } %>>Development</a>
                 --%>
                 </p>
-            <% } else if (tabLev1.equals("marathon")) { %>
+            <% } else if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) { %>
                 <p id="secondaryNav">
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a>
@@ -113,7 +114,7 @@
                     | <a href=""<% if (tabLev2.equals("summary")) {%> class="on"<% } %>>Summary</a>
                 --%>
                 </p>
-            <% } else if (tabLev1.equals("studio")) { %>
+            <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
                 <p id="secondaryNav">
                     <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=description"<% if (tabLev2.equals("description")) {%> class="on"<% } %>>Description</a>
                     | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=schedule"<% if (tabLev2.equals("schedule")) {%> class="on"<% } %>>Schedule</a>
@@ -145,7 +146,7 @@
                         | <a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=blogs&d4=overview"<% if (tabLev3.equals("blogs")) {%> class="on"<% } %>>Blogs</a>
                     </p>
                 <% } %>
-            <% } else if (tabLev1.equals("algorithm")) { %>
+            <% } else if (tabLev1.equals(EventType.ALGORITHM_TOURNAMENT_ID.toString())) { %>
                 <% if (tabLev2.equals("advancers")) {%>
                     <p id="tertiaryNav">
                         <a href=""<% if (tabLev3.equals("qualification")) {%> class="on"<% } %>>Qualification</a>
@@ -162,9 +163,9 @@
                         | <a href=""<% if (tabLev3.equals("finals")) {%> class="on"<% } %>>Finals</a>
                     </p>
                 <% } %>
-            <% } else if (tabLev1.equals("component")) { %>
-            <% } else if (tabLev1.equals("marathon")) { %>
-            <% } else if (tabLev1.equals("studio")) { %>
+            <% } else if (tabLev1.equals(EventType.COMPONENT_TOURNAMENT_ID.toString())) { %>
+            <% } else if (tabLev1.equals(EventType.MARATHON_TOURNAMENT_ID.toString())) { %>
+            <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
             <% } %>
             </div>
             

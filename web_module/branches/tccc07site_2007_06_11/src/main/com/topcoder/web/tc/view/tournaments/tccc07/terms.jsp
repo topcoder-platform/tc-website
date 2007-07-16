@@ -13,7 +13,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%String compType = (String) request.getAttribute("ct");
+<%String eventType = (String) request.getAttribute("et");
   Event event = (Event) request.getAttribute("event");
    List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
    HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
@@ -33,7 +33,7 @@
     <div id="content">
 
         <jsp:include page="nav.jsp" >
-        <jsp:param name="tabLev1" value="<%=compType%>"/>
+        <jsp:param name="tabLev1" value="<%=eventType%>"/>
         <jsp:param name="tabLev2" value="register"/>
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
@@ -44,7 +44,7 @@
 
                         <form name="terms" method="post" action="/tc">
                             <input name="module" value="TCCC07SubmitRegistration" type="hidden">
-                            <input name="ct" value="<%=compType%>" type="hidden">
+                            <input name="et" value="<%=eventType%>" type="hidden">
                             <p align="center">To complete your registration for the <%=event.getDescription()%> you must <b>read and agree to</b> the terms listed below.</p>
                             <div align="center">
                                 <iframe width="590" height="300" marginWidth="5" src="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc07&amp;d3=termsContent&<%=Constants.TERMS_OF_USE_ID%>=<%=event.getTerms().getId()%>"></iframe>
