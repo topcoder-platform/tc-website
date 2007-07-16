@@ -29,11 +29,13 @@ public class SetPlace extends Base {
             throw new NavigationException("Invalid Submission Specified");
         }
 
-        Long prizeId;
-        try {
-            prizeId = new Long(getRequest().getParameter(Constants.PRIZE_ID));
-        } catch (NumberFormatException e) {
-            throw new NavigationException("Invalid prize Specified");
+        Long prizeId = null;
+        if (getRequest().getParameter(Constants.PRIZE_ID) != null) {
+            try {
+                prizeId = new Long(getRequest().getParameter(Constants.PRIZE_ID));
+            } catch (NumberFormatException e) {
+                throw new NavigationException("Invalid prize Specified");
+            }
         }
         if (log.isDebugEnabled()) {
             log.debug("got prize: " + prizeId);
@@ -50,14 +52,16 @@ public class SetPlace extends Base {
             throw new NavigationException("Submission did not pass, it can not place.");
         } else {
 
-            Set<Prize> prizes = s.getContest().getPrizes();
-            boolean found = false;
             Prize p = null;
-            for (Iterator<Prize> it = prizes.iterator(); it.hasNext() && !found;) {
-                p = it.next();
-                found = prizeId.equals(p.getId());
+            if (prizeId != null) {
+                Set<Prize> prizes = s.getContest().getPrizes();
+                boolean found = false;
+                for (Iterator<Prize> it = prizes.iterator(); it.hasNext() && !found;) {
+                    p = it.next();
+                    found = prizeId.equals(p.getId());
+                }
             }
-            if (p == null) {
+            if (p == null && prizeId != null) {
                 throw new NavigationException("Invalid Prize Specified");
             } else {
                 ContestResult cr = new ContestResult();
@@ -69,7 +73,7 @@ public class SetPlace extends Base {
 
                 try {
                     HashSet<String> cachedStuff = new HashSet<String>();
-                    cachedStuff.add(Constants.CONTEST_ID+"="+s.getContest().getId().toString());
+                    cachedStuff.add(Constants.CONTEST_ID + "=" + s.getContest().getId().toString());
                     cachedStuff.add("studio_home_data");
                     CacheClearer.removelike(cachedStuff);
                 } catch (Exception ignore) {
