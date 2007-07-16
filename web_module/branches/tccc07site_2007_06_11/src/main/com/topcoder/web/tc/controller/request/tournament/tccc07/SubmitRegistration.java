@@ -1,5 +1,9 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc07;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
@@ -7,15 +11,18 @@ import com.topcoder.web.common.cache.CacheClient;
 import com.topcoder.web.common.cache.CacheClientFactory;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.UserDAO;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.EventType;
+import com.topcoder.web.common.model.Question;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.Response;
+import com.topcoder.web.common.model.Survey;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.survey.Helper;
 import com.topcoder.web.tc.controller.request.tournament.SubmitRegistrationBase;
-
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 /**
  * @author dok, pulky
@@ -25,7 +32,16 @@ import java.util.Set;
 public class SubmitRegistration extends SubmitRegistrationBase {
 
     protected final String getEventShortDesc() {
-        return "tccc07" + getRequest().getParameter("ct");
+        String contestType = StringUtils.checkNull(getRequest().getParameter("ct"));
+        if ("".equals(contestType)) {
+            String eventType = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_TYPE));
+            if (!"".equals(eventType)) {
+                return "tccc07" + getContestTypeUsingEventType(Integer.parseInt(eventType));
+            }
+        } else {
+            return "tccc07" + getRequest().getParameter("ct");
+        }
+        return null;
     }
 
     protected Boolean validateSurvey(Survey survey, List responses) {
@@ -59,7 +75,19 @@ public class SubmitRegistration extends SubmitRegistrationBase {
     }
 
     protected void dbProcessing() throws Exception {
-        if (!TCO_COMPETITION_TYPES.contains(StringUtils.checkNull(getRequest().getParameter("ct")))) {
+        String contestType = StringUtils.checkNull(getRequest().getParameter("ct"));
+        if ("".equals(contestType)) {
+            String eventType = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_TYPE));
+            Integer eventTypeId;
+            try {
+                eventTypeId = Integer.parseInt(eventType);
+            } catch (NumberFormatException nfe) {
+                throw new TCWebException("invalid event type parameter.");                
+            }
+            if ("".equals(eventType) || "".equals(getContestTypeUsingEventType(eventTypeId))) {
+                throw new TCWebException("invalid event type parameter.");                
+            }
+        } else if (!TCO_COMPETITION_TYPES.contains(StringUtils.checkNull(getRequest().getParameter("ct")))) {
             throw new TCWebException("invalid ct parameter.");
         }
         super.dbProcessing();

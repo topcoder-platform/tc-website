@@ -53,7 +53,7 @@
                     You are registered for the <strong><%=resultRow.getStringItem("event_desc")%></strong>.
                 <% } else { %>
                     You are not registered for the <strong><%=resultRow.getStringItem("event_desc")%></strong>, click
-                <a href="/tc?module=TCCC07ViewRegistration&ct=<rsc:item name="ct" row='<%=resultRow%>'/>" class="tccc07MessageLink">here</a> to register.
+                <a href="/tc?module=TCCC07ViewRegistration&et=<rsc:item name="event_type_id" row='<%=resultRow%>'/>" class="tccc07MessageLink">here</a> to register.
                 <% } %>
                 <br/><br/>
             </rsc:iterator>

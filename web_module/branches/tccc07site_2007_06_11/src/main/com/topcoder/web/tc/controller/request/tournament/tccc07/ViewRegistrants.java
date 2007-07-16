@@ -5,6 +5,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.SortInfo;
+import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.controller.request.tournament.RegistrationBase;
 import com.topcoder.web.tc.controller.request.tournament.ViewRegistrantsBase;
 /**
@@ -14,15 +15,35 @@ import com.topcoder.web.tc.controller.request.tournament.ViewRegistrantsBase;
  */
 public class ViewRegistrants extends ViewRegistrantsBase {
     protected final String getEventShortDesc() {
-        return "tccc07" + getRequest().getParameter("ct");
+        String contestType = StringUtils.checkNull(getRequest().getParameter("ct"));
+        if ("".equals(contestType)) {
+            String eventType = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_TYPE));
+            if (!"".equals(eventType)) {
+                return "tccc07" + getContestTypeUsingEventType(Integer.parseInt(eventType));
+            }
+        } else {
+            return "tccc07" + getRequest().getParameter("ct");
+        }
+        return null;
     }
 
     protected void dbProcessing() throws Exception {
-        if (!RegistrationBase.TCO_COMPETITION_TYPES.contains(StringUtils.checkNull(getRequest().getParameter("ct")))) {
+        String contestType = StringUtils.checkNull(getRequest().getParameter("ct"));
+        if ("".equals(contestType)) {
+            String eventType = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_TYPE));
+            Integer eventTypeId;
+            try {
+                eventTypeId = Integer.parseInt(eventType);
+            } catch (NumberFormatException nfe) {
+                throw new TCWebException("invalid event type parameter.");                
+            }
+            if ("".equals(eventType) || "".equals(getContestTypeUsingEventType(eventTypeId))) {
+                throw new TCWebException("invalid event type parameter.");                
+            }
+        } else if (!RegistrationBase.TCO_COMPETITION_TYPES.contains(StringUtils.checkNull(getRequest().getParameter("ct")))) {
             throw new TCWebException("invalid ct parameter.");
         }
-        super.dbProcessing();
-    }
+        super.dbProcessing();    }
     
     protected void setSortInfo(ResultSetContainer rsc) {
         SortInfo s = new SortInfo();

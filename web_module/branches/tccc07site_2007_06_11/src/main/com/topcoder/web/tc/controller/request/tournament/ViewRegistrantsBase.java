@@ -11,6 +11,7 @@ import com.topcoder.web.common.ShortHibernateProcessor;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventType;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
@@ -63,6 +64,20 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
             return DAOUtil.getFactory().getEventDAO().find(new Long(eventId));
         }
     }
+
+    protected final String getContestTypeUsingEventType(Integer eventTypeId) {
+        if (EventType.COMPONENT_TOURNAMENT_ID.equals(eventTypeId)) {
+            return "component";
+        } else if (EventType.ALGORITHM_TOURNAMENT_ID.equals(eventTypeId)) {
+            return "component";        
+        } else if (EventType.MARATHON_TOURNAMENT_ID.equals(eventTypeId)) {
+            return "component";
+        } else if (EventType.STUDIO_TOURNAMENT_ID.equals(eventTypeId)) {
+            return "component";
+        }
+        return "";
+    }
+
 
     protected void setNextPage(Event e) {
         setNextPage("/tournaments/" + e.getShortDescription() + "/registrants.jsp");
