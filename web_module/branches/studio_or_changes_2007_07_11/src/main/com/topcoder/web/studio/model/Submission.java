@@ -26,6 +26,7 @@ public class Submission extends Base {
     private Integer height;
     private Integer width;
     private SubmissionStatus status;
+    private Integer onlineReviewSubmissionId;
 
 
     public Long getId() {
@@ -150,5 +151,14 @@ public class Submission extends Base {
 
     public void setStatus(SubmissionStatus status) {
         this.status = status;
+    }
+
+
+    public Integer getOnlineReviewSubmissionId() {
+        return onlineReviewSubmissionId;
+    }
+
+    public void setOnlineReviewSubmissionId(Integer onlineReviewSubmissionId) {
+        this.onlineReviewSubmissionId = onlineReviewSubmissionId;
     }
 }
