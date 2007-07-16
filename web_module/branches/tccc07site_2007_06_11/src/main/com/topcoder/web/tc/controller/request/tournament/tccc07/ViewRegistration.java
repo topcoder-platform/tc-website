@@ -1,5 +1,4 @@
 package com.topcoder.web.tc.controller.request.tournament.tccc07;
-
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.model.*;
