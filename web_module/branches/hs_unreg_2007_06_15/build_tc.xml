@@ -498,9 +498,9 @@
     <target name="build-sars" depends="compile">
         <jar jarfile="${sar.dir}/expireOldAffidavitsAndPayments.sar" basedir="${classes}"
              includes="com/topcoder/utilities/pacts/ExpireOldAffidavitsAndPayments*,
-             		com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
-             		com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
-             		com/topcoder/web/ejb/pacts/*.class">
+                    com/topcoder/web/tc/controller/legacy/pacts/bean/*.class,
+                    com/topcoder/web/tc/controller/legacy/pacts/common/*.class,
+                    com/topcoder/web/ejb/pacts/*.class">
 
             <metainf dir="${java}/com/topcoder/utilities/pacts" includes="*.xml"/>
         </jar>
@@ -851,6 +851,7 @@
                 <include name="com/topcoder/web/oracle/model/**/*.class"/>
             </classes>
             <webinf dir="${resources}/taglib">
+                <include name="tc.tld"/>
                 <include name="tc-webtags.tld"/>
                 <include name="reg-tags.tld"/>
                 <include name="common-functions.tld"/>
