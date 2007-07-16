@@ -39,7 +39,15 @@
             <div style="float:right; margin-top: 6px;"><A href="/tc?module=Static&d1=help&d2=index"><img src="/i/introevent/tryMoreAlgo.png" alt="Try some more Algorithm Competitions?" /></A></div>
             <h2>Problem Statement for AttendanceShort</h2>
 
-
+            <!--
+            <div>
+            <strong>
+            Problem Statement 
+            | <A href="/tc?module=Static&d1=introevent&d2=bcsscs&d3=attendanceShortSol" class="bcLink">Solution</A>
+            </strong>
+            </div>
+            -->
+            
             <table>
                 <tbody>
                     <tr>
