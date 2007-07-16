@@ -26,6 +26,16 @@
 
 <div class="contentSpacer">
 
+<p>
+    2.0.0 - 2007.xx.xxx
+    <ul>
+        <li>Send submissions to Online Review for scoring -dok</li>
+        <li>Fix bug where date in review email indicated it was in the user's timezone but was really eastern time -dok</li>
+        <li>Fix bug where the cache wasn't refreshed after an admin changed results -dok</li>
+        <li>Allow and admin to remove the place of a submission -dok</li>
+    </ul>
+</p>
+
 
 <p>
     1.3.3 - 2007.05.xxx
