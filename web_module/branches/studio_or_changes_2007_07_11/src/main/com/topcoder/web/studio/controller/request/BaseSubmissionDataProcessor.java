@@ -8,6 +8,7 @@ import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.ContestResult;
 import com.topcoder.web.studio.model.Submission;
 import com.topcoder.web.studio.model.SubmissionStatus;
+import com.topcoder.web.studio.model.SubmissionType;
 
 import java.util.Iterator;
 import java.util.List;
@@ -19,8 +20,8 @@ import java.util.List;
  */
 abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
 
-    boolean isWinner(User u, Contest c, SubmissionDAO dao, Integer ct) {
-        List submissions = dao.getSubmissions(u, c, ct, SubmissionStatus.ACTIVE);
+    boolean userPlaced(User u, Contest c, SubmissionDAO dao) {
+        List submissions = dao.getSubmissions(u, c, SubmissionType.INITIAL_CONTEST_SUBMISSION_TYPE, SubmissionStatus.ACTIVE);
 
         boolean isWinner = false;
         for (Iterator it = submissions.iterator(); it.hasNext() && !isWinner;) {
@@ -28,21 +29,21 @@ abstract class BaseSubmissionDataProcessor extends ShortHibernateProcessor {
             ContestResult curr;
             for (Iterator it2 = s.getContest().getResults().iterator(); it2.hasNext() && !isWinner;) {
                 curr = (ContestResult) it2.next();
-                isWinner = s.equals(curr.getSubmission()) && curr.getPrize().getPlace() != null;
+                isWinner = curr.getPrize() != null && s.equals(curr.getSubmission()) && curr.getPrize().getPlace() != null;
             }
         }
         return isWinner;
     }
 
-    void loadSubmissionData(User u, Contest c, SubmissionDAO dao, Integer ct) {
+    void loadSubmissionData(User u, Contest c, SubmissionDAO dao, Integer submissionTypeId) {
         Integer maxRank = dao.getMaxRank(c, u);
-        loadSubmissionData(u, c, dao, maxRank, ct);
+        loadSubmissionData(u, c, dao, maxRank, submissionTypeId);
     }
 
-    void loadSubmissionData(User u, Contest c, SubmissionDAO dao, Integer maxRank, Integer ct) {
+    void loadSubmissionData(User u, Contest c, SubmissionDAO dao, Integer maxRank, Integer submissionTypeId) {
         getRequest().setAttribute("maxRank", maxRank);
 
-        List submissions = dao.getSubmissions(u, c, ct, SubmissionStatus.ACTIVE);
+        List submissions = dao.getSubmissions(u, c, submissionTypeId, SubmissionStatus.ACTIVE);
 
         Submission curr;
         for (Object submission : submissions) {

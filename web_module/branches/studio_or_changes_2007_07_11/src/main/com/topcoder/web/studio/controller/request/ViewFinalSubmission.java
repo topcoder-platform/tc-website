@@ -43,7 +43,7 @@ public class ViewFinalSubmission extends BaseSubmissionDataProcessor {
                 throw new NavigationException("User not registered for the contest");
             }
 
-            if (!isWinner(u, c, cFactory.getSubmissionDAO())) {
+            if (!userPlaced(u, c, cFactory.getSubmissionDAO())) {
                 throw new NavigationException("User cannot upload final submissions");
             }
 
