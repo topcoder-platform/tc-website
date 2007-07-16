@@ -127,6 +127,11 @@ public class Main extends Base {
                     getRequest().setAttribute("notifications", nots);
                 }
 
+                Season season = getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
+                if (season != null && season.getEvent() != null && season.getEvent().getSurvey() != null) {
+                    getRequest().setAttribute("questions", season.getEvent().getSurvey().getQuestions());
+                }
+                        
                 getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
                 getRequest().setAttribute("coderTypes", getFactory().getCoderTypeDAO().getCoderTypes());
                 getRequest().setAttribute("timeZones", getFactory().getTimeZoneDAO().getTimeZones());
@@ -135,7 +140,7 @@ public class Main extends Base {
                 Set reqFields = RegFieldHelper.getMainRequiredFieldSet(getRequestedTypes(), getRegUser());
                 getRequest().setAttribute(Constants.REQUIRED_FIELDS, reqFields);
                 getRequest().setAttribute("regTerms", getFactory().getTermsOfUse().find(new Integer(Constants.REG_TERMS_ID)));
-                getRequest().setAttribute("season", getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON));
+                getRequest().setAttribute("season", season);
                 setNextPage("/main.jsp");
                 setIsNextPageInContext(true);
             }

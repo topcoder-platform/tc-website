@@ -29,6 +29,7 @@ import com.topcoder.web.tc.controller.request.survey.Helper;
 
 /**
  * Register an user for the current HS season.
+ * 
  * @author cucu
  */
 public class Register extends RegistrationBase {
@@ -60,7 +61,7 @@ public class Register extends RegistrationBase {
 
         String ageStr = responsesMap.get(AGE).getText();
         String ageEndSeasonStr = responsesMap.get(AGE_END_SEASON).getText();
-        String attendingStr = responsesMap.get(IN_HIGH_SCHOOL).getAnswer() == null? null : responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText();
+        String attendingStr = responsesMap.get(IN_HIGH_SCHOOL) == null? null : responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText();
         
         // check that the user has filled the fields
         ValidationResult result = new AgeValidator().validate(new StringInput(ageStr));

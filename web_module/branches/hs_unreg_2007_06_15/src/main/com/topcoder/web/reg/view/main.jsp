@@ -1,10 +1,13 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer" %>
-<%@ page import="com.topcoder.web.reg.Constants" %>
+<%@ page import="com.topcoder.web.reg.Constants,
+                 com.topcoder.web.common.tag.AnswerInput" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="common-functions" prefix="cf" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -470,6 +473,39 @@
         </td>
     </tr>
 </c:if>
+
+<c:if test="${cf:contains(fields, attendingHs)}">
+	  <c:set var="ansPrefix" value="<%=AnswerInput.PREFIX%>" />
+      <tc:questionIterator list="${questions}" id="question">
+		   <tr>
+		       <td colspan="2"><span class="bigRed">
+		       <tc-webtag:errorIterator id="err" name="${ansPrefix}${question.id}"><%=err%><br>
+		       </tc-webtag:errorIterator></span>
+		       </td>
+		   </tr>
+		    <tr>
+		        <td class="name">
+		            * ${question.text }
+		        </td>
+		        <td class="value">
+                  <tc:answerInput id="answerInput" question="${question}">
+                         ${answerInput}
+                         <%=answerText%>
+                         &nbsp;&nbsp;&nbsp;
+                  </tc:answerInput>		            
+		        </td>
+		    </tr>
+
+
+      </tc:questionIterator>
+    
+</c:if>
+
+
+
+
+
+
 
 <c:set value="<%=Constants.HANDLE%>" var="handle"/>
 <c:if test="${cf:contains(fields, handle)}">
