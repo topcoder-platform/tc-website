@@ -15,35 +15,26 @@ import com.topcoder.web.tc.controller.request.tournament.ViewRegistrantsBase;
  */
 public class ViewRegistrants extends ViewRegistrantsBase {
     protected final String getEventShortDesc() {
-        String contestType = StringUtils.checkNull(getRequest().getParameter("ct"));
-        if ("".equals(contestType)) {
-            String eventType = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_TYPE));
-            if (!"".equals(eventType)) {
-                return "tccc07" + getContestTypeUsingEventType(Integer.parseInt(eventType));
-            }
-        } else {
-            return "tccc07" + getRequest().getParameter("ct");
+        String eventType = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_TYPE));
+        if (!"".equals(eventType)) {
+            return "tccc07" + getContestTypeUsingEventType(Integer.parseInt(eventType));
         }
         return null;
     }
 
     protected void dbProcessing() throws Exception {
-        String contestType = StringUtils.checkNull(getRequest().getParameter("ct"));
-        if ("".equals(contestType)) {
-            String eventType = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_TYPE));
-            Integer eventTypeId;
-            try {
-                eventTypeId = Integer.parseInt(eventType);
-            } catch (NumberFormatException nfe) {
-                throw new TCWebException("invalid event type parameter.");                
-            }
-            if ("".equals(eventType) || "".equals(getContestTypeUsingEventType(eventTypeId))) {
-                throw new TCWebException("invalid event type parameter.");                
-            }
-        } else if (!RegistrationBase.TCO_COMPETITION_TYPES.contains(StringUtils.checkNull(getRequest().getParameter("ct")))) {
-            throw new TCWebException("invalid ct parameter.");
+        String eventType = StringUtils.checkNull(getRequest().getParameter(Constants.EVENT_TYPE));
+        Integer eventTypeId;
+        try {
+            eventTypeId = Integer.parseInt(eventType);
+        } catch (NumberFormatException nfe) {
+            throw new TCWebException("invalid event type parameter.");                
         }
-        super.dbProcessing();    }
+        if ("".equals(eventType) || "".equals(getContestTypeUsingEventType(eventTypeId))) {
+            throw new TCWebException("invalid event type parameter.");                
+        }
+        super.dbProcessing();    
+    }
     
     protected void setSortInfo(ResultSetContainer rsc) {
         SortInfo s = new SortInfo();
@@ -56,8 +47,8 @@ public class ViewRegistrants extends ViewRegistrantsBase {
     }
     
     protected void setNextPage(Event e) {
-        getRequest().setAttribute("ct", getRequest().getParameter("ct"));
-        setNextPage("/tournaments/tccc07/" + getRequest().getParameter("ct") + "/registrants.jsp");
+        getRequest().setAttribute(Constants.EVENT_TYPE, getRequest().getParameter(Constants.EVENT_TYPE));
+        setNextPage("/tournaments/tccc07/" + getContestTypeUsingEventType(Integer.parseInt(getRequest().getParameter("et")) + "/registrants.jsp");
         setIsNextPageInContext(true);
     }
 }

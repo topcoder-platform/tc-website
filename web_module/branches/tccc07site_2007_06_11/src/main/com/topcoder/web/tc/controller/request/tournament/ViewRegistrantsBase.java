@@ -69,11 +69,11 @@ public abstract class ViewRegistrantsBase extends ShortHibernateProcessor {
         if (EventType.COMPONENT_TOURNAMENT_ID.equals(eventTypeId)) {
             return "component";
         } else if (EventType.ALGORITHM_TOURNAMENT_ID.equals(eventTypeId)) {
-            return "component";        
+            return "algorithm";        
         } else if (EventType.MARATHON_TOURNAMENT_ID.equals(eventTypeId)) {
-            return "component";
+            return "marathon";
         } else if (EventType.STUDIO_TOURNAMENT_ID.equals(eventTypeId)) {
-            return "component";
+            return "studio";
         }
         return "";
     }
