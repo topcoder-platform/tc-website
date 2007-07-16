@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.tc.Constants" %>
 <%@ page import="com.topcoder.web.common.model.Event,
+				 com.topcoder.web.common.model.Season,
                  com.topcoder.web.common.model.Question,
                  com.topcoder.web.common.tag.AnswerInput,
                  com.topcoder.web.tc.controller.request.tournament.RegistrationBase,
@@ -13,7 +14,7 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<% Event event = (Event) request.getAttribute("event"); 
+<% Event event = ((Season) request.getAttribute("season")).getEvent(); 
    List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
    HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
    %>
