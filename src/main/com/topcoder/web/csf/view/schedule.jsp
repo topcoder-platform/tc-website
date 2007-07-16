@@ -51,13 +51,7 @@
                 <tr>
                     <td class="value" style="vertical-align: top;">
                         <div style="margin:10px;">
-                            <h3>British Telecom Wireless Cities</h3>
-                                - <strong>Submission Start Date:</strong> June 7, 2007
-                                <br />- <strong>Submission End Date:</strong> June 21, 2007
-                                <br />- <strong>Review Start Date:</strong> June 22, 2007
-                                <br />- <strong>Review End Date:</strong> July 6, 2007
-                                <br />- <strong>Winner Announced:</strong> Results coming soon!
-                            <br /><br /><a href="/?module=ViewContestDetails&ct=1006 ">details</a>
+                            <h3>No active competitions at this time.<br />Please check again soon.</h3>
                         </div>
                     </td>
                     <td class="value" style="vertical-align: top;">
@@ -110,6 +104,15 @@
                                 <br />- <strong>Review End Date:</strong> March 30, 2007
                                 <br />- <strong>Winner Announced:</strong> April 2, 2007
                             <br /><br /><a href="/?module=ViewContestDetails&ct=1004 ">details</a>
+                        </div>
+                        <div style="margin:10px;">
+                            <h3>British Telecom Wireless Cities</h3>
+                                - <strong>Submission Start Date:</strong> June 7, 2007
+                                <br />- <strong>Submission End Date:</strong> June 21, 2007
+                                <br />- <strong>Review Start Date:</strong> June 22, 2007
+                                <br />- <strong>Review End Date:</strong> July 6, 2007
+                                <br />- <strong>Winner Announced:</strong> July 13, 2007
+                            <br /><br /><a href="/?module=ViewContestDetails&ct=1006 ">details</a>
                         </div>
                     </td>
                     <td class="value" style="vertical-align: top;">

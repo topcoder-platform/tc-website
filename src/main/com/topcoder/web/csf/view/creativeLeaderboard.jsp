@@ -99,7 +99,7 @@
     </tr>
    <% even = !even;%>
    <tr class="<%=even?"dark":"light"%>">
-        <td class="valueC">5</td>
+        <td class="valueC">4</td>
         <td class="value">foxyhu</td>
         <td class="valueC">
         75</td>
