@@ -1,7 +1,6 @@
 package com.topcoder.web.tc.controller.request.hs;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -12,15 +11,16 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
-import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.QuestionStyle;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
-import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
+import com.topcoder.web.common.validation.StringInput;
+import com.topcoder.web.common.validation.ValidationResult;
 import com.topcoder.web.reg.Constants;
-import com.topcoder.web.reg.controller.request.Secondary;
+import com.topcoder.web.reg.validation.AgeValidator;
+import com.topcoder.web.reg.validation.AttendingHSValidator;
 import com.topcoder.web.tc.controller.request.survey.Helper;
 
 /**
@@ -49,27 +49,26 @@ public class Register extends RegistrationBase {
 
         
         Map<String,Response> responses = processSurvey(event, u);
-//        Boolean eligible = validateSurvey(event.getSurvey(), responses);
-
-        /*
         
-        
+        String ageStr = responses.get(AGE).getText();
+        String ageEndSeasonStr = responses.get(AGE_END_SEASON).getText();
+        String attendingStr = responses.get(IN_HIGH_SCHOOL).getAnswer().getText();
         
         // check that the user has filled the fields
-        ValidationResult result = new AgeValidator().validate(new StringInput(getRequest().getParameter(Constants.AGE)));
+        ValidationResult result = new AgeValidator().validate(new StringInput(ageStr));
         if (!result.isValid()) {
-            addError(Constants.AGE, result.getMessage());
+            addErrorQuestion(responses, AGE, result.getMessage());
         }
         
-        result = new AgeValidator().validate(new StringInput(getRequest().getParameter(Constants.AGE_END_SEASON)));
+        result = new AgeValidator().validate(new StringInput(ageEndSeasonStr));
         if (!result.isValid()) {
-            addError(Constants.AGE_END_SEASON, result.getMessage());
+            addErrorQuestion(responses, AGE_END_SEASON, result.getMessage());
         }
 
-        result = new AttendingHSValidator().validate(new StringInput(getRequest().getParameter(Constants.ATTENDING_HS)));
+        result = new AttendingHSValidator().validate(new StringInput(attendingStr));
         if (!result.isValid()) {
-            addError(Constants.ATTENDING_HS, result.getMessage());
-        }*/
+            addErrorQuestion(responses, IN_HIGH_SCHOOL, result.getMessage());
+        }
 
         // check that the ages are consistent
         if (!hasErrors()) {
@@ -78,8 +77,8 @@ public class Register extends RegistrationBase {
             int dif = ageEndSeason - age;
            
             if (dif != 0 && dif != 1) {
-                addError(AnswerInput.PREFIX + responses.get(AGE).getQuestion().getId(), "Please check the age.");
-                addError(AnswerInput.PREFIX + responses.get(AGE_END_SEASON).getQuestion().getId(), "Please check the age.");
+                addErrorQuestion(responses, AGE, "Please check the age.");
+                addErrorQuestion(responses, AGE_END_SEASON, "Please check the age.");
             }
             
         }
@@ -163,7 +162,14 @@ public class Register extends RegistrationBase {
         setIsNextPageInContext(true);
     } 
 
-    
+
+
+    private void addErrorQuestion(Map<String, Response> responses, String field, String message) {
+        addError(AnswerInput.PREFIX + responses.get(field).getQuestion().getId(), message);        
+    }
+
+
+
     protected Map<String,Response> processSurvey(Event event, User user) {
         Helper helper = new Helper(getRequest());
 
