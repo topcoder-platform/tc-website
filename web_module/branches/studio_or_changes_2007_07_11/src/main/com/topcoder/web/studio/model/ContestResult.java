@@ -85,7 +85,10 @@ public class ContestResult extends Base implements Comparable {
     }
 
     public int compareTo(Object o) {
-        return getPrize().compareTo(((ContestResult) o).getPrize());
+        ContestResult other = (ContestResult) o;
+        if (getPrize() == null && other.getPrize() != null) return -1;
+        else if (getPrize() != null && other.getPrize() == null) return 1;
+        else return getPrize().compareTo(other.getPrize());
     }
 
 
