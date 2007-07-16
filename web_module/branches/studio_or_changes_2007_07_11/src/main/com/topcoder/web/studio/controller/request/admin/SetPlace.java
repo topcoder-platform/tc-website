@@ -62,7 +62,11 @@ public class SetPlace extends Base {
                     found = prizeId.equals(p.getId());
                 }
             }
-            if (p == null && prizeId != null) {
+            if (prizeId == null) {
+                //clear prize
+                s.getResult().setPrize(null);
+                factory.getSubmissionDAO().saveOrUpdate(s);
+            } else if (p == null) {
                 throw new NavigationException("Invalid Prize Specified");
             } else {
                 ContestResult cr = new ContestResult();
@@ -71,18 +75,16 @@ public class SetPlace extends Base {
                 cr.setSubmission(s);
                 s.setResult(cr);
                 factory.getSubmissionDAO().saveOrUpdate(s);
-
-                try {
-                    HashSet<String> cachedStuff = new HashSet<String>();
-                    cachedStuff.add(Constants.CONTEST_ID + "=" + s.getContest().getId().toString());
-                    cachedStuff.add("studio_home_data");
-                    CacheClearer.removelike(cachedStuff);
-                } catch (Exception ignore) {
-                    ignore.printStackTrace();
-                }
-
-
             }
+            try {
+                HashSet<String> cachedStuff = new HashSet<String>();
+                cachedStuff.add(Constants.CONTEST_ID + "=" + s.getContest().getId().toString());
+                cachedStuff.add("studio_home_data");
+                CacheClearer.removelike(cachedStuff);
+            } catch (Exception ignore) {
+                ignore.printStackTrace();
+            }
+
         }
 
         setNextPage(getSessionInfo().getServletPath() + "?" + Constants.MODULE_KEY +
