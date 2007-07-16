@@ -1,18 +1,24 @@
 package com.topcoder.web.reg.controller.request;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.hibernate.UserDAOHibernate;
-import com.topcoder.web.common.model.*;
+import com.topcoder.web.common.model.Coder;
+import com.topcoder.web.common.model.CoderType;
+import com.topcoder.web.common.model.Contact;
+import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.Season;
+import com.topcoder.web.common.model.User;
 import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.RegFieldHelper;
-
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 /**
  * @author dok
@@ -129,7 +135,7 @@ public class Main extends Base {
 
                 Season season = getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
                 if (season != null && season.getEvent() != null && season.getEvent().getSurvey() != null) {
-                    getRequest().setAttribute("questions", season.getEvent().getSurvey().getQuestions());
+                    getRequest().setAttribute("questions", new ArrayList(season.getEvent().getSurvey().getQuestions()));
                 }
                         
                 getRequest().setAttribute("countries", getFactory().getCountryDAO().getCountries());
