@@ -21,8 +21,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<% Event event = ((Season) request.getAttribute("season")).getEvent(); 
-   List questionInfo = new ArrayList(event.getSurvey().getQuestions()); 
+<%
    HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
 %>
     
@@ -148,7 +147,7 @@
                 </p>
 
 
-            <tc:questionIterator list="<%= questionInfo  %>" id="question">
+            <tc:questionIterator list="${questions}" id="question">
                         	<% if (question.getKeyword().equals(RegistrationBase.AGE)) { %>
                                     <p align="center">
         	                        <span class="bigRed">

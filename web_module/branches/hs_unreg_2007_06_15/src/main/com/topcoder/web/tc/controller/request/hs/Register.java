@@ -1,6 +1,10 @@
 package com.topcoder.web.tc.controller.request.hs;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.NavigationException;
@@ -8,6 +12,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.EventRegistration;
+import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
@@ -17,6 +22,7 @@ import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.controller.request.Secondary;
 import com.topcoder.web.reg.validation.AgeValidator;
 import com.topcoder.web.reg.validation.AttendingHSValidator;
+import com.topcoder.web.tc.controller.request.survey.Helper;
 
 /**
  * Register an user for the current HS season.
@@ -38,6 +44,17 @@ public class Register extends RegistrationBase {
         if (season == null) {
             throw new NavigationException("Invalid season_id");
         }
+        
+        Event event = season.getEvent();
+        User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
+
+        
+        List<Response> responses = processSurvey(event, u);
+//        Boolean eligible = validateSurvey(event.getSurvey(), responses);
+
+        /*
+        
+        
         
         // check that the user has filled the fields
         ValidationResult result = new AgeValidator().validate(new StringInput(getRequest().getParameter(Constants.AGE)));
@@ -88,8 +105,6 @@ public class Register extends RegistrationBase {
         
 
         // Check that the user is eligible, just in case he fakes the URL
-        User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
-
         Integer hsStatus = getHSGroupStatus(u);
         
        
@@ -97,7 +112,6 @@ public class Register extends RegistrationBase {
             throw new NavigationException("You're not eligible for High School");
         }
         
-        Event event = season.getEvent();
         
         Date now = new Date();
         if (event.getRegistrationStart().after(now) || event.getRegistrationEnd().before(now)) {
@@ -136,14 +150,43 @@ public class Register extends RegistrationBase {
         }
         
         markForCommit();
-
+*/
         getRequest().setAttribute("season", season);
         getRequest().setAttribute("confirmRegistration", true);        
-        getRequest().setAttribute("eligible", eligible);        
+//        getRequest().setAttribute("eligible", eligible);        
+        getRequest().setAttribute("eligible", true);
 
         setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
         setIsNextPageInContext(true);
     } 
+
+    
+    protected List<Response> processSurvey(Event event, User user) {
+        Helper helper = new Helper(getRequest());
+
+        List<Response> responses = helper.processResponses(event.getSurvey());
+        
+        for (Iterator it = responses.iterator(); it.hasNext();) {
+            ((Response) it.next()).setUser(user);
+        }
+    
+        helper.checkRequiredQuestions(event.getSurvey(), responses);
+        
+        if (helper.hasErrors()) {
+            for (Iterator it = helper.getErrors().entrySet().iterator(); it.hasNext();) {
+                Map.Entry entry = (Map.Entry) it.next();
+                addError((String) entry.getKey(), entry.getValue());
+            }
+        }
+
+        Map<String,String> m = new HashMap<String,String>();
+        for(Response r : responses) {
+            m.put(r.getQuestion().getKeyword(), r.getAnswer().getText());
+            log.info("question: " + r.getQuestion().getKeyword() + "," + r.getAnswer().getText());
+        }
+        
+        return responses;
+    }
 
 
 }
