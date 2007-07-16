@@ -44,6 +44,7 @@ public class SendToReview extends Base {
                                 SubmissionStatus.ACTIVE.equals(s.getStatus().getId()) &&
                                 s.getReview() != null && ReviewStatus.PASSED.equals(s.getReview().getStatus().getId())) {
                             log.debug("XXXXXX  passed all checks, sending to OR XXXXX");
+                            //todo save returned OR submission for this studio submission so we have the mapping.
                         }
 
                     }
