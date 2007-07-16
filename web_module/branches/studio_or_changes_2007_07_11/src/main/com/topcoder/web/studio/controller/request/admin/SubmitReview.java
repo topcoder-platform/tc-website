@@ -91,7 +91,7 @@ public class SubmitReview extends Base {
             User submitter = DAOUtil.getFactory().getUserDAO().find(submitterId);
 
             if (!"".equals(response) && submitter.getPrimaryEmailAddress().getStatusId().equals(Email.STATUS_ID_ACTIVE)) {
-                sendEmail(submitter, response, s.getOriginalFileName(), rs, reviewer);
+                sendEmail(submitter, response, s.getOriginalFileName(), rs, reviewer, s.getCreateDate());
             }
 
             sr = StudioDAOUtil.getFactory().getSubmissionReviewDAO().find(submissionId);
@@ -111,7 +111,7 @@ public class SubmitReview extends Base {
 
     }
 
-    private void sendEmail(User submitter, String text, String fileName, ReviewStatus status, User reviewer) throws Exception {
+    private void sendEmail(User submitter, String text, String fileName, ReviewStatus status, User reviewer, Date submitDate) throws Exception {
 
         TCSEmailMessage mail = new TCSEmailMessage();
         if (ReviewStatus.PASSED.equals(status.getId())) {
@@ -137,8 +137,7 @@ public class SubmitReview extends Base {
                 new CalendarDateFormatMethod("EEEE, MMMM d, yyyy 'at' HH:mm z"), true);
 
         Calendar cal = Calendar.getInstance();
-        cal.setTime(DateUtils.getConvertedDate(new Date(System.currentTimeMillis()),
-                submitter.getTimeZone().getDescription()));
+        cal.setTime(DateUtils.getConvertedDate(submitDate, submitter.getTimeZone().getDescription()));
         cal.setTimeZone(TimeZone.getTimeZone(submitter.getTimeZone().getDescription()));
 
         msgText.append(formatter.format(cal));
