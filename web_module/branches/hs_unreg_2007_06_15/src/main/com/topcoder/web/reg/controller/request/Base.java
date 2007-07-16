@@ -40,6 +40,7 @@ import com.topcoder.web.common.model.DemographicAssignment;
 import com.topcoder.web.common.model.DemographicQuestion;
 import com.topcoder.web.common.model.DemographicResponse;
 import com.topcoder.web.common.model.Event;
+import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Notification;
 import com.topcoder.web.common.model.RegistrationType;
 import com.topcoder.web.common.model.Resume;
@@ -262,7 +263,8 @@ abstract class Base extends LongHibernateProcessor {
         ret.put(Constants.TIMEZONE, getTrimmedParameter(Constants.TIMEZONE));
         ret.put(Constants.MEMBER_CONTACT, getTrimmedParameter(Constants.MEMBER_CONTACT));
         ret.put(Constants.TERMS_OF_USE_ID, getTrimmedParameter(Constants.TERMS_OF_USE_ID));
-        ret.put(Constants.AGE_FOR_HS, getTrimmedParameter(Constants.AGE_FOR_HS));
+        ret.put(Constants.AGE, getTrimmedParameter(Constants.AGE));
+        ret.put(Constants.AGE_END_SEASON, getTrimmedParameter(Constants.AGE_END_SEASON));
         ret.put(Constants.ATTENDING_HS, getTrimmedParameter(Constants.ATTENDING_HS));
         
         //iterate through the notifications, we're essentially validating here
@@ -316,9 +318,21 @@ abstract class Base extends LongHibernateProcessor {
         simpleValidation(CountryValidator.class, fields, params, Constants.COMP_COUNTRY_CODE);
         simpleValidation(CoderTypeValidator.class, fields, params, Constants.CODER_TYPE);
         simpleValidation(TimeZoneValidator.class, fields, params, Constants.TIMEZONE);
-        simpleValidation(AgeValidator.class, fields, params, Constants.AGE_FOR_HS);
+        simpleValidation(AgeValidator.class, fields, params, Constants.AGE);
+        simpleValidation(AgeValidator.class, fields, params, Constants.AGE_END_SEASON);
         simpleValidation(AttendingHSValidator.class, fields, params, Constants.ATTENDING_HS);
         
+        if (fields.contains(Constants.AGE) && !hasError(Constants.AGE) && !hasError(Constants.AGE_END_SEASON)) {
+            int age = Integer.parseInt((String) params.get(Constants.AGE));
+            int ageEndSeason = Integer.parseInt((String) params.get(Constants.AGE_END_SEASON));
+            int dif = ageEndSeason - age;
+           
+            if (dif != 0 && dif != 1) {
+                addError(Constants.AGE, "Please check the age.");
+                addError(Constants.AGE_END_SEASON, "Please check the age.");
+            }
+            
+        }
         
         ValidationResult termsResults = new TermsOfUseValidator(getRegUser()).validate(
                 new StringInput((String) params.get(Constants.TERMS_OF_USE_ID)));
@@ -774,7 +788,8 @@ abstract class Base extends LongHibernateProcessor {
         }
 
         setDefault(Constants.MEMBER_CONTACT, String.valueOf(params.get(Constants.MEMBER_CONTACT) != null));
-        setDefault(Constants.AGE_FOR_HS, params.get(Constants.AGE_FOR_HS));
+        setDefault(Constants.AGE, params.get(Constants.AGE));
+        setDefault(Constants.AGE_END_SEASON, params.get(Constants.AGE_END_SEASON));
         setDefault(Constants.ATTENDING_HS, params.get(Constants.ATTENDING_HS));
         
         if (!u.isNew()) {
@@ -840,8 +855,8 @@ abstract class Base extends LongHibernateProcessor {
         return factory;
     }
 
-    protected void inactivateHsUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
-        log.debug("Inactivating user " + u.getId() + " for HS.");
+    protected void inactivateHsUser(User u, String notes) throws Exception, RemoteException, CreateException, GeneralSecurityException {
+        log.debug("Inactivating user " + u.getId() + " for HS." + notes);
         Context ctx = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
@@ -872,8 +887,17 @@ abstract class Base extends LongHibernateProcessor {
         
         log.debug("Mark as not eligible in event id: " + event.getId());
         
-        if (event != null) {
-            u.addEventRegistration(event, null, false);
+        if (event != null) {            
+            EventRegistration er = u.getEventRegistration(event);
+            
+            if (er == null) {                
+                er = new EventRegistration();
+                er.setId(new EventRegistration.Identifier(u,event));
+                u.addEventRegistration(er);
+            }
+            er.setEligible(false);
+            er.setNotes(notes);
+            
             userDAO.saveOrUpdate(u);
             markForCommit();
         }

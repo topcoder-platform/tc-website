@@ -49,7 +49,7 @@
                     <strong>You are no longer registered for TopCoder High School Competitions.</strong>
                 </p>
 
-<%-- Only show this if the user is no longer registered for anything on the registration selection page 
+			<c:if test="${not hasReg}">			
                 <p align="center" style="margin-top:40px;">
                     <strong>Uh-oh.</strong> Now that you've removed TopCoder High School registration from your account, you have no TopCoder registrations.
                     Many members start competing in standard TopCoder competitions after leaving high school.
@@ -63,10 +63,9 @@
                 <p align="center">
                     Just check off all the registrations you'd like to add to your account.
                 </p>
---%>
-
-
+                </c:if>
             </div>
+
         </td>
 <%-- Center Column Ends --%>
         
