@@ -107,18 +107,26 @@
 
                 <br/> <br/>
 
-                <div class="header">Contest Results</div>
+                <c:set value="<%=ReviewStatus.PASSED%>" var="passedStatus"/>
 
-                <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
-                    <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSetPlace"/>
-                    <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
+                <c:if test="${submissionReview.status==passedStatus}">
+                    <div class="header">Contest Results</div>
 
-                    <p>
-                        Place:
-                        <tc-webtag:objectSelect name="<%=Constants.PRIZE_ID%>" list="${submission.contest.prizes}" valueField="id" textField="place"/>
-                        <button name="submit" value="submit" type="submit">Save</button>
-                    </p>
-                </form>
+                    <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
+                        <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminSetPlace"/>
+                        <tc-webtag:hiddenInput name="<%=Constants.SUBMISSION_ID%>" value="${submission.id}"/>
+
+                        <p>
+                            Place:
+                            <tc-webtag:objectSelect name="<%=Constants.PRIZE_ID%>" list="${submission.contest.prizes}" valueField="id" textField="place"/>
+                            <button name="submit" value="submit" type="submit">Save</button>
+                        </p>
+                    </form>
+                    
+                </c:if>
+
+
+
 
             </div>
             <img src="/i/layout/contentInS.gif" alt="" style="display:block;"/>
