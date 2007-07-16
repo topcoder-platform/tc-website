@@ -105,48 +105,6 @@
             </c:when>
 
             <c:otherwise>
-
-			    <p align="center">            
-					<span class="bigRed">
-	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.AGE%>"><%=err%><br>
-		    	    	</tc-webtag:errorIterator>
-		        	</span>           
-		        </p>
-                <p align="center">
-                    How old are you?
-                    <br />
-                    <tc-webtag:textInput name="<%=Constants.AGE%>" size="3" maxlength="3" editable="true"/>
-                </p>
-                
-			    <p align="center">            
-					<span class="bigRed">
-	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.AGE_END_SEASON%>"><%=err%><br>
-		    	    	</tc-webtag:errorIterator>
-		        	</span>           
-		        </p>
-                <p align="center">
-                    How old will you be on <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
-                    <br />
-                    <tc-webtag:textInput name="<%=Constants.AGE_END_SEASON%>" size="3" maxlength="3" editable="true"/>
-                </p>
-
-                
-			    <p align="center">            
-					<span class="bigRed">
-	    	    		<tc-webtag:errorIterator id="err" name="<%=Constants.ATTENDING_HS%>"><%=err%><br>
-		    	    	</tc-webtag:errorIterator>
-		        	</span>           
-		        </p>
-                <p align="center">
-            		Are you currently pursuing or will you be pursuing your secondary school (non-University) education between 
-                 		<fmt:formatDate value="${season.startDate}" pattern="MMMMM d, yyyy"/>
-			             and <fmt:formatDate value="${season.endDate}" pattern="MMMMM d, yyyy"/>?
-                                 <br />
-                    <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="yes"/> Yes
-                    <tc-webtag:radioButton name="<%=Constants.ATTENDING_HS%>" value="no"/> No
-                </p>
-
-
             <tc:questionIterator list="${questions}" id="question">
                         	<% if (question.getKeyword().equals(RegistrationBase.AGE) || question.getKeyword().equals(RegistrationBase.AGE_END_SEASON)) { %>
                                     <p align="center">

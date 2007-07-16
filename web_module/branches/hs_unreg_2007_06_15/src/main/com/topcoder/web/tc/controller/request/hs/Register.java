@@ -1,5 +1,6 @@
 package com.topcoder.web.tc.controller.request.hs;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -21,7 +22,6 @@ import com.topcoder.web.common.model.User;
 import com.topcoder.web.common.tag.AnswerInput;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.reg.Constants;
 import com.topcoder.web.reg.controller.request.Secondary;
 import com.topcoder.web.reg.validation.AgeValidator;
 import com.topcoder.web.reg.validation.AttendingHSValidator;
@@ -52,37 +52,41 @@ public class Register extends RegistrationBase {
         User u = DAOUtil.getFactory().getUserDAO().find(new Long(getUser().getId()));
 
         
-        Map<String,Response> responses = processSurvey(event, u);
-        
-        String ageStr = responses.get(AGE).getText();
-        String ageEndSeasonStr = responses.get(AGE_END_SEASON).getText();
-        String attendingStr = responses.get(IN_HIGH_SCHOOL).getAnswer().getText();
+        List<Response> responses = processSurvey(event, u);
+        Map<String,Response> responsesMap = new HashMap<String,Response>();
+        for(Response r : responses) {
+            responsesMap.put(r.getQuestion().getKeyword(), r);
+        }
+
+        String ageStr = responsesMap.get(AGE).getText();
+        String ageEndSeasonStr = responsesMap.get(AGE_END_SEASON).getText();
+        String attendingStr = responsesMap.get(IN_HIGH_SCHOOL).getAnswer() == null? null : responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText();
         
         // check that the user has filled the fields
         ValidationResult result = new AgeValidator().validate(new StringInput(ageStr));
         if (!result.isValid()) {
-            addErrorQuestion(responses, AGE, result.getMessage());
+            addErrorQuestion(responsesMap, AGE, result.getMessage());
         }
         
         result = new AgeValidator().validate(new StringInput(ageEndSeasonStr));
         if (!result.isValid()) {
-            addErrorQuestion(responses, AGE_END_SEASON, result.getMessage());
+            addErrorQuestion(responsesMap, AGE_END_SEASON, result.getMessage());
         }
 
         result = new AttendingHSValidator().validate(new StringInput(attendingStr));
         if (!result.isValid()) {
-            addErrorQuestion(responses, IN_HIGH_SCHOOL, result.getMessage());
+            addErrorQuestion(responsesMap, IN_HIGH_SCHOOL, result.getMessage());
         }
 
         // check that the ages are consistent
         if (!hasErrors()) {
-            int age = Integer.parseInt(responses.get(AGE).getText());
-            int ageEndSeason = Integer.parseInt(responses.get(AGE_END_SEASON).getText());
+            int age = Integer.parseInt(ageStr);
+            int ageEndSeason = Integer.parseInt(ageEndSeasonStr);
             int dif = ageEndSeason - age;
            
             if (dif != 0 && dif != 1) {
-                addErrorQuestion(responses, AGE, "Please check the age.");
-                addErrorQuestion(responses, AGE_END_SEASON, "Please check the age.");
+                addErrorQuestion(responsesMap, AGE, "Please check the age.");
+                addErrorQuestion(responsesMap, AGE_END_SEASON, "Please check the age.");
             }
             
         }
@@ -97,12 +101,9 @@ public class Register extends RegistrationBase {
             getRequest().setAttribute("regOpen", true);
             getRequest().setAttribute("season", season);
             
-            setDefaults(responses.values());
-            getRequest().setAttribute("questions", new java.util.ArrayList(event.getSurvey().getQuestions()));
+            setDefaults(responsesMap.values());
+            getRequest().setAttribute("questions", new ArrayList(event.getSurvey().getQuestions()));
             
-            //setDefault(Constants.AGE, getRequest().getParameter(Constants.AGE));
-            //setDefault(Constants.AGE_END_SEASON, getRequest().getParameter(Constants.AGE_END_SEASON));
-            //setDefault(Constants.ATTENDING_HS, getRequest().getParameter(Constants.ATTENDING_HS));
             setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
             setIsNextPageInContext(true);
             return;
@@ -131,26 +132,16 @@ public class Register extends RegistrationBase {
 
         int ageHs = Integer.parseInt(ageStr);
         int ageEndSeason = Integer.parseInt(ageEndSeasonStr);
-        boolean attendingHS = "yes".equals(attendingStr);
+        boolean attendingHS = "yes".equalsIgnoreCase(attendingStr);
         
         boolean eligible = Secondary.isEligibleHS(ageHs, ageEndSeason, attendingHS);
-        
-        EventRegistration er = new EventRegistration();
-        er.setId(new EventRegistration.Identifier(u,event));
-        er.setEligible(eligible);
-
-        if (!eligible) {
-           er.setNotes("From HS Register: Age: " + ageHs + ", age at the end of season: " + ageEndSeason + ", attending HS: " + attendingHS);
-        }
-       
-        u.addEventRegistration(er);
+               
+        u.addEventRegistration(event, responses, eligible);
 
         DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);            
 
         // If the user is not eligible, mark him as inactive in security groups.
         if (!eligible) {
-            log.info("user " + u.getId()+  " is not eligible. Age: " + ageHs + ", age at the end of season: " + ageEndSeason +
-                    ", attending HS: " + attendingHS);
             inactivateHsUser(u);
         }
         
@@ -172,7 +163,7 @@ public class Register extends RegistrationBase {
 
 
 
-    protected Map<String,Response> processSurvey(Event event, User user) {
+    protected List<Response> processSurvey(Event event, User user) {
         Helper helper = new Helper(getRequest());
 
         List<Response> responses = helper.processResponses(event.getSurvey());
@@ -190,12 +181,8 @@ public class Register extends RegistrationBase {
             }
         }
 
-        Map<String,Response> m = new HashMap<String,Response>();
-        for(Response r : responses) {
-            m.put(r.getQuestion().getKeyword(), r);
-        }
         
-        return m;
+        return responses;
     }
 
     protected void setDefaults(Collection responses) {
