@@ -95,6 +95,8 @@ public class Register extends RegistrationBase {
             getRequest().setAttribute("season", season);
             
             setDefaults(responses.values());
+            getRequest().setAttribute("questions", new java.util.ArrayList(event.getSurvey().getQuestions()));
+            
             //setDefault(Constants.AGE, getRequest().getParameter(Constants.AGE));
             //setDefault(Constants.AGE_END_SEASON, getRequest().getParameter(Constants.AGE_END_SEASON));
             //setDefault(Constants.ATTENDING_HS, getRequest().getParameter(Constants.ATTENDING_HS));

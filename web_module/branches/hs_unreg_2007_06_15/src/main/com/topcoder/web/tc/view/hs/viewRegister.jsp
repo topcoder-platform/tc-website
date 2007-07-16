@@ -150,11 +150,13 @@
             <tc:questionIterator list="${questions}" id="question">
                         	<% if (question.getKeyword().equals(RegistrationBase.AGE) || question.getKeyword().equals(RegistrationBase.AGE_END_SEASON)) { %>
                                     <p align="center">
-        	                        <span class="bigRed">
-        	                        <tc-webtag:errorIterator id="err"
-        	                            name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/>
-        	                        </tc-webtag:errorIterator>
-        	                        </span>&nbsp;<br>
+	        	                        <span class="bigRed">
+	        	                        <tc-webtag:errorIterator id="err"
+	        	                            name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%>        	                            
+	        	                        </tc-webtag:errorIterator>
+	        	                        </span>&nbsp;<br>
+        	                        </p>
+        	                        <p>
                                     <jsp:getProperty name="question" property="text"/> <br>
         	                        <input type="text" size="3" maxlength="3" name="<%=AnswerInput.PREFIX + question.getId()%>" id ="answerInput" value="<%= defaults.containsKey(AnswerInput.PREFIX + question.getId()) ? defaults.get(AnswerInput.PREFIX + question.getId()) : "" %>"/>
         	                        </p>
