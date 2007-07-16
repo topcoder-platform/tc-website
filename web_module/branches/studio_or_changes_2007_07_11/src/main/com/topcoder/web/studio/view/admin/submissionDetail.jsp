@@ -109,7 +109,7 @@
 
                 <c:set value="<%=ReviewStatus.PASSED%>" var="passedStatus"/>
 
-                <c:if test="${submissionReview.status==passedStatus}">
+                <c:if test="${submissionReview.status.id==passedStatus}">
                     <div class="header">Contest Results</div>
 
                     <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="placedForm">
