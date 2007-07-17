@@ -60,9 +60,17 @@ public class Prize extends Base implements Comparable {
 
     public int compareTo(Object o) {
         Prize other = (Prize) o;
-        if (getPlace() == null) return 1;
-        else if (other.getPlace() == null) return -1;
-        else return getPlace().compareTo(other.getPlace());
+        if (getPlace() == null && other.getPlace() != null) {
+            return 1;
+        } else if (other.getPlace() == null && getPlace() != null) {
+            return -1;
+        } else if (other.getPlace() != null && getPlace() != null) {
+            return getPlace().compareTo(other.getPlace());
+        } else {
+            //both null
+            return 0;
+        }
+
     }
 
 
