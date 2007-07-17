@@ -45,7 +45,7 @@ public class Submit extends Base {
             boolean newUser = u.isNew();
             getFactory().getUserDAO().saveOrUpdate(u);
 
-            RegistrationHelper rh = new RegistrationHelper(getRequest(), (Map<String,Response>) getRequest().getAttribute(Constants.HS_RESPONSES));
+            RegistrationHelper rh = new RegistrationHelper(getRequest(), (Map<String,Response>) getRequest().getSession().getAttribute(Constants.HS_RESPONSES));
 
             if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
                     !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {

@@ -140,6 +140,8 @@ public class RegistrationHelper {
 
         result = new AttendingHSValidator().validate(new StringInput(attendingStr));
         if (!result.isValid()) {
+            log.debug("in_high_school: " + IN_HIGH_SCHOOL + "," + responsesMap.get(IN_HIGH_SCHOOL) + "," + responsesMap.get(IN_HIGH_SCHOOL).getQuestion() + "," + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId());
+            
             results.add(new String[]{AnswerInput.PREFIX + responsesMap.get(IN_HIGH_SCHOOL).getQuestion().getId(), result.getMessage()}); 
         }
 
