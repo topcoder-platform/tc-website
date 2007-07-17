@@ -104,10 +104,10 @@
             <td class="NW">&nbsp;</td>
             <c:choose>
                 <c:when test="${contest.configMap[viewSubmitters]}">
-                    <td class="title" colspan="4">Submissions</td>
+                    <td class="title" colspan="5">Submissions</td>
                 </c:when>
                 <c:otherwise>
-                    <td class="title" colspan="3">Submissions</td>
+                    <td class="title" colspan="4">Submissions</td>
                 </c:otherwise>
             </c:choose>
             <td class="NE">&nbsp;</td>
@@ -121,15 +121,18 @@
                     Handle</a>
                 </td>
             </c:if>
-            <td class="headerC" nowrap="nowrap">
+            <td class="headerC" nowrap="nowrap" width="50%">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("submission_id")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
                     Submission ID</a>
             </td>
-            <td class="headerC" nowrap="nowrap">
+            <td class="headerC" nowrap="nowrap" width="50%">
                 <a href="${sessionInfo.servletPath}?<%=Constants.MODULE_KEY%>=ViewSubmissions<tc-webtag:sort column="<%=submissions.getColumnIndex("create_date")%>" includeParams="true" excludeParams="<%=exclude%>"/>">
                     Submitted</a>
             </td>
-            <td class="headerC" width="100%">
+            <td class="headerR">
+                <a href="">Score</a>
+            </td>
+            <td class="headerC">
                 Submission
             </td>
             <td class="headerE"><div>&nbsp;</div></td>
@@ -150,13 +153,17 @@
                 <td class="valueC" nowrap="nowrap">
                     <rsc:item name="create_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
+                <td class="valueR">
+                    <a href="">99.99</a>
+                </td>
                 <td class="valueC">
 
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                            <%--THIS IS A CRAPPY WAY TO MAKE THE PAGE MANAGEABLE BEFORE RESIZING THE IMAGE--%>
-                            <div align="center">
+                            <div align="center" style="overflow: hidden; width: 300px;">
+                                <a href=""><%-- LINK IMAGE TO FULL SIZE version --%>
                                 <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
+                                </a>
                             </div>
                         </c:when>
                         <c:otherwise>
@@ -177,10 +184,10 @@
         <tr>
             <c:choose>
                 <c:when test="${contest.configMap[viewSubmitters]}">
-                    <td class="SW" colspan="5">&nbsp;</td>
+                    <td class="SW" colspan="6">&nbsp;</td>
                 </c:when>
                 <c:otherwise>
-                    <td class="SW" colspan="4">&nbsp;</td>
+                    <td class="SW" colspan="5">&nbsp;</td>
                 </c:otherwise>
             </c:choose>
 

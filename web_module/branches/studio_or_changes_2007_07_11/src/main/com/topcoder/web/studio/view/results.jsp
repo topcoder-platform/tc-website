@@ -38,7 +38,7 @@
 </div>
 
 <div class="breadcrumb">
-    <A href="/?<%=Constants.MODULE_KEY%>=ViewPastContests">Past Contests</A> &gt;
+    <a href="/?<%=Constants.MODULE_KEY%>=ViewPastContests">Past Contests</a> &gt;
     ${contest.name}
 </div>
 
@@ -48,7 +48,7 @@
     <tbody>
         <tr>
             <td class="NW">&nbsp;</td>
-            <td class="title" colspan="7">Winners</td>
+            <td class="title" colspan="8">Winners</td>
             <td class="NE">&nbsp;</td>
         </tr>
         <tr>
@@ -60,6 +60,9 @@
             </td>
             <td class="header">
                 Handle
+            </td>
+            <td class="headerR">
+                Score
             </td>
             <td class="headerR">
                 Prize
@@ -98,13 +101,16 @@
                     <studio:handle coderId="<%=resultRow.getLongItem("submitter_id")%>"/>
                 </td>
                 <td class="valueR">
+                    <a href="">99.99</a>
+                </td>
+                <td class="valueR">
                     <rsc:item name="amount" row="<%=resultRow%>" format="$###,###.00"/>
                 </td>
                 <td class="valueC">
-                    <rsc:item name="reg_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    <rsc:item name="reg_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
                 <td class="valueC">
-                    <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br>'HH:mm z" timeZone="${sessionInfo.timezone}"/>
+                    <rsc:item name="submit_date" row="<%=resultRow%>" format="'<strong>'MM.dd.yyyy'</strong><br />'HH:mm z" timeZone="${sessionInfo.timezone}"/>
                 </td>
                 <td class="valueC">
                     <rsc:item name="submission_id" row="<%=resultRow%>"/>
@@ -112,10 +118,11 @@
                 <td class="valueC">
                     <c:choose>
                         <c:when test="<%=resultRow.getBooleanItem("is_image")%>">
-                            <%--THIS IS A CRAPPY WAY TO MAKE THE PAGE MANAGEABLE BEFORE RESIZING THE IMAGE--%>
                             <div align="center">
                                 <div style="overflow: hidden; width: 300px;">
+                                    <a href=""><%-- LINK IMAGE TO FULL SIZE version --%>
                                     <studio_tags:submissionDisplay submissionId="${resultRow.map['submission_id']}" width="${resultRow.map['width']}" height="${resultRow.map['height']}"/>
+                                    </a>
                                 </div>
                             </div>
                         </c:when>
@@ -124,9 +131,9 @@
                                 <div id="pop<%=i%>" class="popUp">
                                     <div>View submission</div>
                                 </div>
-                                <A href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
+                                <a href="${sessionInfo.servletPath}?module=DownloadSubmission&amp;<%=Constants.SUBMISSION_ID%>=<rsc:item name="submission_id" row="<%=resultRow%>"/>">
                                     <img src="/i/layout/magnify.gif" alt="" onmouseover="popUp(this,'pop<%=i%>')" onmouseout="popHide()"/>
-                                </A>
+                                </a>
                             </div>
                         </c:otherwise>
                     </c:choose>
@@ -137,10 +144,44 @@
             </tr>
         <% even = !even; i++; %>
         </rsc:iterator>
+            <tr class="<%=even?"light":"dark"%>">
+                <td class="valueW">
+                    <div>&nbsp;</div>
+                </td>
+                <td class="valueC">
+                    BONUS
+                </td>
+                <td class="value">
+                    <studio:handle coderId="22076237"/>
+                </td>
+                <td class="valueR">
+                    <a href="">99.99</a>
+                </td>
+                <td class="valueR">
+                    $100.00
+                </td>
+                <td class="valueC">
+                    <strong>04.03.2007</strong>
+                    <br />13:41 EDT
+                </td>
+                <td class="valueC">
+                    <strong>04.03.2007</strong>
+                    <br />13:41 EDT
+                </td>
+                <td class="valueC">
+                    1234
+                </td>
+                <td class="valueC">
+                    same as other submissions
+                </td>
+                <td class="valueE">
+                    <div>&nbsp;</div>
+                </td>
+            </tr>
 
         <tr>
             <td class="SW">&nbsp;</td>
-            <td class="title" colspan="7">
+            <td class="title" colspan="8">
                 <a href="/?module=ViewSubmissions&ct=${contest.id}" class="small">...view all submissions</a>
             </td>
             <td class="SE">&nbsp;</td>
