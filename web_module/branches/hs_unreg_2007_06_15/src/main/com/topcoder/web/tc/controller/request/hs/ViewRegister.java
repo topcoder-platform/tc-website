@@ -82,7 +82,6 @@ public class ViewRegister extends RegistrationBase {
             registeredHs = false;
         }
 
-        getRequest().setAttribute("confirmRegistration", false);        
         getRequest().setAttribute("eligible", eligible);
         getRequest().setAttribute("alreadyRegistered", alreadyRegistered);
         getRequest().setAttribute("registeredHs", registeredHs);

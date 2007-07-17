@@ -14,7 +14,7 @@ import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
-import com.topcoder.web.studio.Constants;
+import com.topcoder.web.tc.Constants;
 
 /**
  * Register an user for the current HS season.
@@ -157,6 +157,7 @@ public class Register extends RegistrationBase {
 
         String nextPage = getSessionInfo().getServletPath() + "?" + 
                     Constants.MODULE_KEY + "=HSRegistrationResult&" +
+                    Constants.SEASON_ID + "=" + season.getId() + "&" +
                     RegistrationResult.SUCCESS + "=" + (eligible? "1" : "0");
 
         setNextPage(nextPage);

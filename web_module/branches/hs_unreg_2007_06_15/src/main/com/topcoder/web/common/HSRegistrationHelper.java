@@ -27,7 +27,7 @@ import com.topcoder.web.common.validation.AgeValidator;
 import com.topcoder.web.common.validation.NonEmptyValidator;
 import com.topcoder.web.common.validation.StringInput;
 import com.topcoder.web.common.validation.ValidationResult;
-import com.topcoder.web.tc.Constants;
+
 
 /**
  * Helper class for registering to a HS season.
