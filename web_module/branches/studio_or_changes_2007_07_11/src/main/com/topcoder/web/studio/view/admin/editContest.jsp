@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ page import="com.topcoder.web.studio.Constants" %>
 <%@ page import="com.topcoder.web.studio.model.ContestProperty" %>
+<%@ page import="com.topcoder.web.studio.model.PrizeType" %>
 <%@ page contentType="text/html;charset=utf-8" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -422,6 +423,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 </c:if>
 
 
+<c:set value="<%=PrizeType.CONTEST%>" var="contestPrize"/>
 <div class="header">Prizes</div>
 
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="removePrizeForm">
@@ -431,7 +433,11 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
     <p>
         <c:forEach items="${contest.prizes}" var="prize">
-            Type: ${prize.type.description} Place: ${prize.place} Prize:
+            Type: ${prize.type.description}
+            <c:if test="${prize.type.id==contestPrize}">
+                Place: ${prize.place}
+            </c:if>
+            Prize Amount:
             <fmt:formatNumber value="${prize.amount}" type="currency"/>
             <button onClick="document.removePrizeForm.<%=Constants.PRIZE_PLACE%>.value ='${prize.place}'">
                 Remove
