@@ -92,7 +92,7 @@ public class Prize extends Base implements Comparable {
      * Override hashcode with a more comprehensive implementation that includes
      * the business key of this object.
      *
-     * @return
+     * @return the hash code
      */
     public int hashCode() {
         StringBuilder buf = new StringBuilder(30);
