@@ -56,13 +56,7 @@
                     </td>
                     <td class="value" style="vertical-align: top;">
                         <div style="margin:10px;">
-                            <h3>Microsoft Session Manifest Tool</h3>
-                                - <strong>Submission Start Date:</strong> May 22, 2007
-                                <br />- <strong>Submission End Date:</strong> June 8, 2007
-                                <br />- <strong>Review Start Date:</strong> June 8, 2007
-                                <br />- <strong>Review End Date:</strong> June 18, 2007
-                                <br />- <strong>Winner Announced:</strong> Results coming soon!
-                            <br /><br /><a href="/?module=Static&d1=assembly&d2=msSessionManifestDetails ">details</a>
+                            <h3>No active competitions at this time.<br />Please check again soon.</h3>
                         </div>
                     </td>
                 </tr>
@@ -102,7 +96,7 @@
                                 <br />- <strong>Submission End Date:</strong> March 18, 2007
                                 <br />- <strong>Review Start Date:</strong> March 22, 2007
                                 <br />- <strong>Review End Date:</strong> March 30, 2007
-                                <br />- <strong>Winner Announced:</strong> April 2, 2007
+                                <br />- <strong>Winner:</strong> <a href="/?module=ViewPastContests">View the results!</a>
                             <br /><br /><a href="/?module=ViewContestDetails&ct=1004 ">details</a>
                         </div>
                         <div style="margin:10px;">
@@ -111,7 +105,7 @@
                                 <br />- <strong>Submission End Date:</strong> June 21, 2007
                                 <br />- <strong>Review Start Date:</strong> June 22, 2007
                                 <br />- <strong>Review End Date:</strong> July 6, 2007
-                                <br />- <strong>Winner Announced:</strong> July 13, 2007
+                                <br />- <strong>Winner:</strong> <a href="/?module=ViewPastContests">View the results!</a>
                             <br /><br /><a href="/?module=ViewContestDetails&ct=1006 ">details</a>
                         </div>
                     </td>
@@ -122,7 +116,7 @@
                                 <br />- <strong>Submission End Date:</strong> April 23, 2007
                                 <br />- <strong>Review Start Date:</strong> April 27, 2007
                                 <br />- <strong>Review End Date:</strong> May 15, 2007
-                                <br />- <strong>Winner Announced:</strong> May 16, 2007
+                                <br />- <strong>Winner:</strong> <a href="/?module=Static&d1=assembly&d2=pastContests">View the results!</a>
                             <br /><br /><a href="/?module=Static&d1=assembly&d2=btBusinessDetails">details</a>
                         </div>
                         <div style="margin:10px;">
@@ -131,7 +125,7 @@
                                 <br />- <strong>Submission End Date:</strong> June 8, 2007
                                 <br />- <strong>Review Start Date:</strong> June 8, 2007
                                 <br />- <strong>Review End Date:</strong> June 18, 2007
-                                <br />- <strong>Winner Announced:</strong> July 16, 2007
+                                <br />- <strong>Winner:</strong> <a href="/?module=Static&d1=assembly&d2=pastContests">View the results!</a>
                             <br /><br /><a href="/?module=Static&d1=assembly&d2=msSessionManifestDetails ">details</a>
                         </div>
                     </td>
