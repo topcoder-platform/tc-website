@@ -68,6 +68,7 @@
             </div>
             
 <%--------------SECONDARY NAV---------------%>
+            <div id="navTextB">&nbsp;</div>
             <div id="navText">
             <% if (tabLev1.equals("overview")) {%>
                 <p id="secondaryNav">
@@ -168,6 +169,7 @@
             <% } else if (tabLev1.equals(EventType.STUDIO_TOURNAMENT_ID.toString())) { %>
             <% } %>
             </div>
+            <div id="navTextB">&nbsp;</div>
             
             <div style="position:absolute; top:375px; right:30px;">
                 <img src="/i/tournament/tccc07/stylebar.png" alt="stylebar" />

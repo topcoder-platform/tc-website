@@ -22,7 +22,9 @@
 
             <div id="pageBodyOutside">
             <div id="pageBody">
+                <div id="h1Border">&nbsp;</div>
                 <h1><span>2007 TopCoder Collegiate Challenge</span></h1>
+                <div id="h1Border">&nbsp;</div>
                 <p>We're going to Disneyland and taking some of you lucky competitors with us!</p>
                 <p>The 2007 TopCoder Collegiate Challenge is back and it's sure to be better than ever!  Last year, Petr, PE, and nicka81 left San Diego with the grand prizes.  This year, we're giving five students their chance to be TopCoder Champions!</p>
                 <p>There are four competitions that you can chose from:  Algorithm Competition, Component Design and Development Competition, Marathon Match Competition and Studio Design Competition.</p>
