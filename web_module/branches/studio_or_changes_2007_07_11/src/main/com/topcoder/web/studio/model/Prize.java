@@ -103,7 +103,7 @@ public class Prize extends Base implements Comparable {
         buf.append(getPlace()).append(" ");
         buf.append(getAmount());
         if (log.isDebugEnabled()) {
-            log.debug("XXX hashcode called " + buf);
+            log.debug("XXX hashcode called " + buf + " " + buf.hashCode());
         }
         return buf.hashCode();
     }
