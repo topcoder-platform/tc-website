@@ -26,11 +26,11 @@ import com.topcoder.web.common.model.UserGroup;
  * @author cucu
  */
 public abstract class RegistrationBase extends ShortHibernateProcessor {
-
+/*
     public static final String AGE = "age";
     public static final String AGE_END_SEASON = "agees";
     public static final String IN_HIGH_SCHOOL = "inhs";
-
+*/
     protected static final int HS_GROUP_ID = 12;
     
     /**
@@ -58,6 +58,7 @@ public abstract class RegistrationBase extends ShortHibernateProcessor {
      * @throws CreateException
      * @throws GeneralSecurityException
      */
+    @Deprecated
     protected void inactivateHsUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
         log.debug("Inactivating user " + u.getId() + " for HS.");
         Context ctx = null;

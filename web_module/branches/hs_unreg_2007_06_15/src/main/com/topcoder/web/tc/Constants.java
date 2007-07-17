@@ -86,10 +86,6 @@ public class Constants implements WebConstants {
     public static String MAX_NUM_HS_RATINGS;
     public static String MAX_DAYS_SINCE_LAST_HS_COMP;
 
-    public static int MIN_AGE_FOR_HS;
-    public static int MAX_AGE_FOR_HS;
-
-
     public static String PROJECT_ID;
     public static String PROJECT_TYPE_ID;
     public static String PHASE_ID;
@@ -342,6 +338,8 @@ public class Constants implements WebConstants {
     public static String HS_VIEW_REGISTER;
     public static String HS_VIEW_UNREGISTER;
     public static String HS_UNREGISTER;
+    public static String HS_REGISTER_SUCCESS;
+    public static String HS_REGISTER_NOT_ELIGIBLE;
 
     
     public static final int CONTEST_TYPE_DR_TOP_PERFORMERS = 18;

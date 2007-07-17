@@ -136,4 +136,6 @@ public interface WebConstants {
 
     public static final String CANDIDATE_IDS = "cids";
     
+    public static final int HS_MIN_REG_AGE = 13;
+    public static final int HS_MAX_REG_AGE = 20;
 }

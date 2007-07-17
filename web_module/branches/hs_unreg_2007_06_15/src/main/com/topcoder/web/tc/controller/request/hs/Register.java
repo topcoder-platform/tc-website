@@ -14,6 +14,7 @@ import com.topcoder.web.common.model.EventRegistration;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
+import com.topcoder.web.studio.Constants;
 
 /**
  * Register an user for the current HS season.
@@ -155,11 +156,12 @@ public class Register extends RegistrationBase {
         
         markForCommit();
 
-        getRequest().setAttribute("season", season);
-        getRequest().setAttribute("confirmRegistration", true);        
-        getRequest().setAttribute("eligible", eligible);        
+        String nextPage = getSessionInfo().getServletPath() + "?" + 
+                    Constants.MODULE_KEY + "=HSRegistrationResult&" +
+                    RegistrationResult.SUCCESS + "=" + (eligible? "1" : "0");
 
-        setNextPage(com.topcoder.web.tc.Constants.HS_VIEW_REGISTER);
+        setNextPage(nextPage);
+
         setIsNextPageInContext(true);
     } 
 

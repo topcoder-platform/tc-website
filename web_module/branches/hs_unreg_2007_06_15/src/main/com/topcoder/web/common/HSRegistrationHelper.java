@@ -16,9 +16,6 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.SecurityHelper;
-import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.Question;
@@ -106,13 +103,11 @@ public class HSRegistrationHelper {
         
         responsesMap = new HashMap<String,Response>();
         for(Response r : responses) {
-            log.debug("add response for question " + r.getQuestion().getKeyword());
             responsesMap.put(r.getQuestion().getKeyword(), r);
         }
+
         for(Question q : new ArrayList<Question>(season.getEvent().getSurvey().getQuestions())) {
-        log.debug("question: " + q.getId() + ", " + q.getKeyword());
             if (!responsesMap.containsKey(q.getKeyword())) {
-                log.debug("not in list!");
                 Response r = new Response();
                 r.setQuestion(q);
                 responsesMap.put(q.getKeyword(), r);
@@ -249,8 +244,8 @@ public class HSRegistrationHelper {
         boolean attendingHS = "yes".equalsIgnoreCase(responsesMap.get(IN_HIGH_SCHOOL).getAnswer().getText());
             
         if (!attendingHS) return false;
-        if (ageHs < Constants.MIN_AGE_FOR_HS || ageHs > Constants.MAX_AGE_FOR_HS) return false;
-        if (ageEndSeason < Constants.MIN_AGE_FOR_HS || ageEndSeason > Constants.MAX_AGE_FOR_HS) return false;
+        if (ageHs < WebConstants.HS_MIN_REG_AGE || ageHs > WebConstants.HS_MAX_REG_AGE) return false;
+        if (ageEndSeason < WebConstants.HS_MIN_REG_AGE || ageEndSeason > WebConstants.HS_MAX_REG_AGE) return false;
         
         return true;
     }
