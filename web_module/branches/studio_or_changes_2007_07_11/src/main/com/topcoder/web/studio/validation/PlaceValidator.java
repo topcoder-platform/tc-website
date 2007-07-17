@@ -1,10 +1,12 @@
 package com.topcoder.web.studio.validation;
 
-import com.topcoder.web.common.validation.*;
+import com.topcoder.web.common.validation.BasicResult;
+import com.topcoder.web.common.validation.NonEmptyValidator;
+import com.topcoder.web.common.validation.ValidationInput;
+import com.topcoder.web.common.validation.ValidationResult;
+import com.topcoder.web.common.validation.Validator;
 import com.topcoder.web.studio.model.Contest;
 import com.topcoder.web.studio.model.Prize;
-
-import java.util.Iterator;
 
 /**
  * @author dok
@@ -27,10 +29,8 @@ public class PlaceValidator implements Validator {
             } catch (NumberFormatException e) {
                 return new BasicResult(false, "Please enter a valid prize place.");
             }
-            Prize curr;
-            for (Iterator it = contest.getPrizes().iterator(); it.hasNext();) {
-                curr = (Prize) it.next();
-                if (curr.getPlace().equals(place)) {
+            for (Prize curr : contest.getPrizes()) {
+                if (curr.getPlace() != null && curr.getPlace().equals(place)) {
                     return new BasicResult(false, "Invalid place, the contest already has a prize for place " + place);
                 }
             }
