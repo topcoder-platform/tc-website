@@ -12,6 +12,7 @@
 <body>
 
 <div align="center" style="background: transparent;">
+    <div id="containAll">
     <div id="content">
 
         <jsp:include page="nav.jsp" >
@@ -43,94 +44,82 @@
                                 <td class="header" colspan="2">Wednesday, October 31, 2007</td>
                             </tr>
                             <tr class="dark"> 
-                                <td class="value">9:00am - 11:00am</td> 
+                                <td class="value">8:30am - 10:30am</td> 
                                 <td class="value">Algorithm Semifinal Room 1</td>
                             </tr> 
                             <tr class="light"> 
-                                <td class="value">9:00am - 6:00pm</td> 
+                                <td class="value">9:00am - 5:00pm</td> 
                                 <td class="value">Marathon Match Finals</td>
                             </tr>
                             <tr class="dark"> 
-                                <td class="value">11:00am - Noon</td> 
-                                <td class="value">Sponsor Presentation</td>
-                            </tr> 
-                            <tr class="light">
-                                <td class="value">Noon - 1:00pm</td>
+                                <td class="value">Noon - 1:00pm</td> 
                                 <td class="value">Lunch</td>
                             </tr> 
-                            <tr class="dark">
-                                <td class="value">1:00pm - 2:00pm</td>
-                                <td class="value">Component Design &amp; Development 1</td>
-                            </tr>
                             <tr class="light">
-                                <td class="value">3:00pm - 4:00pm</td>
-                                <td class="value">Sponsor Presentation</td>
-                            </tr>
+                                <td class="value">11:30pm - 1:00pm</td>
+                                <td class="value">Component Design &amp; Development 1</td>
+                            </tr> 
                             <tr class="dark">
-                                <td class="value">4:00pm - 6:00pm</td>
+                                <td class="value">2:00pm - 4:00pm</td>
                                 <td class="value">Algorithm Semifinal Room 2</td>
                             </tr>
                             <tr class="light">
-                                <td class="value">4:00pm - 10:00pm</td>
-                                <td class="value">Competitor Game Room</td>
+                                <td class="value">6:00pm - 10:00pm</td>
+                                <td class="value">Evening Event</td>
                             </tr>
                             <tr>
                                 <td class="header" colspan="2">Thursday, November 1, 2007</td>
                             </tr>
                             <tr class="dark">
-                                <td class="value">9:00am - 11:00am</td>
+                                <td class="value">8:30am - 10:30am</td>
                                 <td class="value">Algorithm Semifinal Room 3</td>
                             </tr>
                             <tr class="light">
-                                <td class="value">9:00am - 6:00pm</td>
+                                <td class="value">9:00am - 5:00pm</td>
                                 <td class="value">Studio Graphic Design Finals</td>
                             </tr>
                             <tr class="dark">
-                                <td class="value">11:00am - Noon</td>
-                                <td class="value">Sponsor Presentation</td>
-                            </tr>
-                            <tr class="light">
                                 <td class="value">Noon - 1:00pm</td>
                                 <td class="value">Lunch</td>
                             </tr>
-                            <tr class="dark">
-                                <td class="value">1:00pm - 2:00pm</td>
-                                <td class="value">Component Design &amp; Development 2</td>
-                            </tr>
                             <tr class="light">
-                                <td class="value">4:00pm -6:00pm</td>
+                                <td class="value">11:30pm - 1:00pm</td>
+                                <td class="value">Component Design & Development 2</td>
+                            </tr>
+                            <tr class="dark">
+                                <td class="value">2:00pm -4:00pm</td>
                                 <td class="value">Algorithm Wildcard Round</td>
                             </tr>
-                            <tr class="dark">
-                                <td class="value">6:30pm - 10:00pm</td>
+                            <tr class="light">
+                                <td class="value">5:30pm - 10:00pm</td>
                                 <td class="value">Evening Event</td>
                             </tr>
                             <tr>
                                 <td class="header" colspan="2">Friday, November 2, 2007</td>
                             </tr>
-                            <tr class="light">
-                                <td class="value">9:00am - 10:00am</td>
+                            <tr class="dark">
+                                <td class="value">9:00am - 10:30am</td>
                                 <td class="value">Component Design &amp; Development Appeals Final</td>
                             </tr>
-                            <tr class="dark">
-                                <td class="value">11:00am - Noon</td>
-                                <td class="value">Sponsor Presentation</td>
-                            </tr>
                             <tr class="light">
+                                <td class="value">11:00am - Noon</td>
+                                <td class="value">AOL Presentation</td>
+                            </tr>
+                            <tr class="dark">
                                 <td class="value">Noon - 1:00pm</td>
                                 <td class="value">Lunch</td>
                             </tr>
-                            <tr class="dark">
+                            <tr class="light">
                                 <td class="value">1:30pm - 3:30pm</td>
                                 <td class="value">Algorithm Championship Round</td>
                             </tr>
-                            <tr class="light">
-                                <td class="value">3:30pm - 4:30pm</td>
-                                <td class="value">All Champion Announcements</td>
-                            </tr>
                             <tr class="dark">
+                                <td class="value">3:30pm - 4:30pm</td>
+                                <td class="value">All Champion Announcements and Awards</td>
+                            </tr>
+                            <tr class="light">
                                 <td class="value">7:00pm - 10:00pm</td>
-                                <td class="value">Awards Reception</td>
+                                <td class="value">Reception</td>
                             </tr>
                         </tbody>
                     </table> 
@@ -138,7 +127,9 @@
                 </div>
             </div>
             </div>
-        <jsp:include page="footer.jsp" />
+        
+    </div>
+    <jsp:include page="footer.jsp" />
     </div>
 </div>
 
