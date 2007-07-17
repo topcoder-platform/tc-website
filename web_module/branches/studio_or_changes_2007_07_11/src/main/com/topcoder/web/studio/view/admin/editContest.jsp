@@ -443,6 +443,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
 
 <c:set value="<%=Constants.PRIZE_PLACE%>" var="prizePlace"/>
 <c:set value="<%=Constants.PRIZE_VALUE%>" var="prizeValue"/>
+<c:set value="<%=Constants.PRIZE_TYPE_ID%>" var="prizeType"/>
 <form action="${sessionInfo.secureAbsoluteServletPath}" method="POST" name="addPrizeForm">
     <tc-webtag:hiddenInput name="<%=Constants.MODULE_KEY%>" value="AdminAddPrize"/>
     <tc-webtag:hiddenInput name="<%=Constants.CONTEST_ID%>"/>
@@ -478,7 +479,7 @@ var prizeDesc = getValue("document.editForm", "${prizeDesc}");
                 Prize Type:
             </td>
             <td class="value">
-                <tc-webtag:objectSelect name='${prizeType}' list="${prizeType}" valueField="id" textField="description"/>
+                <tc-webtag:objectSelect name='${prizeType}' list="${prizeTypes}" valueField="id" textField="description"/>
                 <button name="submit" value="submit" type="submit">
                     Add
                 </button>
