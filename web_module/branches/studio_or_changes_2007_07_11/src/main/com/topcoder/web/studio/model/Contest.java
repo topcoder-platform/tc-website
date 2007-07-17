@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 /**
@@ -22,7 +23,7 @@ public class Contest extends Base {
     private Timestamp startTime;
     private Timestamp endTime;
     private Set<ContestConfig> config = new HashSet<ContestConfig>();
-    private Set<Prize> prizes = new TreeSet<Prize>();
+    private SortedSet<Prize> prizes = new TreeSet<Prize>();
     private Set<Document> documents = new HashSet<Document>();
     private ContestStatus status;
     private Integer forumId;
@@ -71,11 +72,11 @@ public class Contest extends Base {
         this.config = config;
     }
 
-    public Set<Prize> getPrizes() {
+    public SortedSet<Prize> getPrizes() {
         return prizes;
     }
 
-    public void setPrizes(Set<Prize> prizes) {
+    public void setPrizes(SortedSet<Prize> prizes) {
         this.prizes = prizes;
     }
 
