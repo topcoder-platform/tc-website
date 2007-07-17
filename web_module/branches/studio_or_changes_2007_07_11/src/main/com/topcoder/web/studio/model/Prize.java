@@ -64,6 +64,45 @@ public class Prize extends Base implements Comparable {
         else if (other.getPlace() == null) return -1;
         else return getPlace().compareTo(other.getPlace());
     }
+
+
+    /**
+     * Override with more comprehensive implementation. We're using
+     * the amount, prize type and if it's not null, the place as the
+     * business key.
+     *
+     * @param o the other object
+     * @return whether they are the same or not
+     */
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Prize)) return false;
+        final Prize that = (Prize) o;
+        if (this.getType().equals(that.getType())) {
+            if (this.getPlace() != null && that.getPlace() != null) {
+                return this.getPlace().equals(that.getPlace()) && this.getAmount().equals(that.getAmount());
+            } else
+                return this.getPlace() == null && that.getPlace() == null && this.getAmount().equals(that.getAmount());
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Override hashcode with a more comprehensive implementation that includes
+     * the business key of this object.
+     *
+     * @return
+     */
+    public int hashCode() {
+        StringBuilder buf = new StringBuilder(30);
+        buf.append(getType().getDescription()).append(" ");
+        buf.append(getPlace()).append(" ");
+        buf.append(getAmount());
+        return buf.hashCode();
+    }
+
+
 }
 
 
