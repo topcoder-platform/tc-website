@@ -3,8 +3,8 @@ package com.topcoder.web.studio.model;
 import com.topcoder.web.common.model.Base;
 
 import java.util.Collections;
-import java.util.Set;
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author dok
@@ -60,7 +60,9 @@ public class Prize extends Base implements Comparable {
 
     public int compareTo(Object o) {
         Prize other = (Prize) o;
-        return getPlace().compareTo(other.getPlace());
+        if (getPlace() == null) return 1;
+        else if (other.getPlace() == null) return -1;
+        else return getPlace().compareTo(other.getPlace());
     }
 }
 
