@@ -78,6 +78,7 @@ public class Prize extends Base implements Comparable {
         if (this == o) return true;
         if (!(o instanceof Prize)) return false;
         final Prize that = (Prize) o;
+
         if (this.getType().equals(that.getType())) {
             if (this.getPlace() != null && that.getPlace() != null) {
                 return this.getPlace().equals(that.getPlace()) && this.getAmount().equals(that.getAmount());
@@ -102,6 +103,14 @@ public class Prize extends Base implements Comparable {
         return buf.hashCode();
     }
 
+    public String toString() {
+        StringBuilder buf = new StringBuilder(100);
+        buf.append("place: ").append(place);
+        buf.append("amount: ").append(amount);
+        buf.append("type: ").append(type);
+        buf.append("id: ").append(id);
+        return buf.toString();
+    }
 
 }
 
