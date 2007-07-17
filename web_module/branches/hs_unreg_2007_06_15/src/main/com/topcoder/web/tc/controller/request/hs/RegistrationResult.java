@@ -21,7 +21,7 @@ public class RegistrationResult extends ShortHibernateProcessor {
         
         boolean success = "1".equals(getRequest().getParameter(SUCCESS));
         setNextPage(success? Constants.HS_REGISTER_SUCCESS : Constants.HS_REGISTER_NOT_ELIGIBLE);
-        setIsNextPageInContext(false);
+        setIsNextPageInContext(true);
     }
 
 }
