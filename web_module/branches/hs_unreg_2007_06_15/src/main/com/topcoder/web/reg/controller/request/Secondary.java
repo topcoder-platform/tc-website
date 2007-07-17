@@ -49,7 +49,7 @@ public class Secondary extends Base {
                     checkMainFields(params);
                     
                     Season season = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON);
-                    RegistrationHelper rh = new RegistrationHelper(getRequest(), season);
+                    RegistrationHelper rh = new RegistrationHelper(getRequest());
   
                     checkHSRegistrationQuestions(rh);
 
@@ -62,14 +62,12 @@ public class Secondary extends Base {
                                 !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
                                                        
                             if (!rh.isEligibleHS()) {
-//                                String notes = "From /reg: Age: " + ageHs + ", age at the end of season: " + ageEndSeason +  ", attending HS: " + attendingHS;
-                                String notes = "FIX IT!";
                                 log.info("user " + u.getId()+  " is not eligible. ");
                                 
                                 if (u.isNew()) {
                                     // setup in session so that the user is inactivated for hs when submitting.
                                     getRequest().getSession().setAttribute(Constants.INACTIVATE_HS, Boolean.TRUE);
-                                    getRequest().getSession().setAttribute(Constants.NOTES, rh.getResponsesMap());
+                                    getRequest().getSession().setAttribute(Constants.HS_RESPONSES, rh.getResponsesMap());
                                 } else {
                                     rh.inactivateUser(u);
                                     markForCommit();

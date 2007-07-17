@@ -15,8 +15,10 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.dao.DAOUtil;
 import com.topcoder.web.common.dao.RegistrationTypeDAO;
 import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.hs.RegistrationHelper;
 import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.RegistrationType;
+import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
 import com.topcoder.web.common.model.SecurityGroup;
 import com.topcoder.web.common.model.User;
@@ -43,15 +45,19 @@ public class Submit extends Base {
             boolean newUser = u.isNew();
             getFactory().getUserDAO().saveOrUpdate(u);
 
+            RegistrationHelper rh = new RegistrationHelper(getRequest(), (Map<String,Response>) getRequest().getAttribute(Constants.HS_RESPONSES));
+
             if (hasRequestedType(RegistrationType.HIGH_SCHOOL_ID) && 
                     !isCurrentlyRegistered(u, RegistrationType.HIGH_SCHOOL_ID)) {
-                registerHsSeason(u);
+                rh.registerForSeason(u);
+                markForCommit();
             }
                 
             securityStuff(newUser, u);
 
+
             if (getRequest().getSession().getAttribute(Constants.INACTIVATE_HS) != null) {
-                inactivateHsUser(u, (String) getRequest().getSession().getAttribute(Constants.NOTES));
+                rh.inactivateUser(u);
             }
 
             markForCommit();

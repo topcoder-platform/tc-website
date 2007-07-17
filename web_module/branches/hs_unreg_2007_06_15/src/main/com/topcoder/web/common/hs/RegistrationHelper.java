@@ -18,9 +18,14 @@ import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.LongHibernateProcessor;
 import com.topcoder.web.common.SecurityHelper;
 import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.dao.DAOUtil;
+import com.topcoder.web.common.dao.UserDAO;
+import com.topcoder.web.common.model.Event;
 import com.topcoder.web.common.model.Question;
 import com.topcoder.web.common.model.Response;
 import com.topcoder.web.common.model.Season;
@@ -40,11 +45,24 @@ import com.topcoder.web.tc.controller.request.survey.Helper;
  *
  */
 public class RegistrationHelper {
-    private TCRequest request;
-
-    private Season season;
     
+    protected static final Logger log = Logger.getLogger(RegistrationHelper.class);
+    
+    private TCRequest request;
+    
+    /**
+     * Holds the current HS season.
+     */
+    private Season currentSeason = null;
+    
+    /**
+     * Stores a map between the question keywords and their responses.
+     */
     private Map<String,Response> responsesMap;
+    
+    /**
+     * List of responses
+     */
     private List<Response> responses; 
     
     /**
@@ -64,21 +82,29 @@ public class RegistrationHelper {
     public static final String IN_HIGH_SCHOOL = "inhs";
 
     
-    public RegistrationHelper(TCRequest request, Season season) {
+    public RegistrationHelper(TCRequest request) {
         this.request = request;
-        this.season = season;
     }
 
     public RegistrationHelper(TCRequest request,  Map<String,Response> responsesMap) {
         this.request = request;
-        this.responsesMap = responsesMap;        
+        this.responsesMap = responsesMap;       
+        this.responses = new ArrayList<Response>(responsesMap.values());      
     }
 
     public Map<String,Response> getResponsesMap() {
         return responsesMap;
     }
     
+    
     public List<String[]> validateQuestions() {
+        if (getCurrentSeason() != null) {
+            return validateQuestions(getCurrentSeason());
+        }       
+        return new ArrayList<String[]>();
+    }
+
+    public List<String[]> validateQuestions(Season season) {
         Helper helper = new Helper(request);
 
         List<String[]> results = new ArrayList<String[]>();
@@ -86,13 +112,15 @@ public class RegistrationHelper {
         
         responsesMap = new HashMap<String,Response>();
         for(Response r : responses) {
+            log.debug("add response for question " + r.getQuestion().getKeyword());
             responsesMap.put(r.getQuestion().getKeyword(), r);
         }
         for(Question q : new ArrayList<Question>(season.getEvent().getSurvey().getQuestions())) {
+        log.debug("question: " + q.getId() + ", " + q.getKeyword());
             if (!responsesMap.containsKey(q.getKeyword())) {
+                log.debug("not in list!");
                 responsesMap.put(q.getKeyword(), null);
-            }
-            
+            }            
         }
 
         String ageStr = responsesMap.get(AGE).getText();
@@ -141,7 +169,13 @@ public class RegistrationHelper {
     }
     
     
-    public void inactivateUser(User u) throws Exception, RemoteException, CreateException, GeneralSecurityException {
+    public void inactivateUser(User u) throws Exception {
+        if (getCurrentSeason() != null) {
+            inactivateUser(u, getCurrentSeason());
+        }       
+    }
+    
+    public void inactivateUser(User u, Season season) throws Exception {
         Context ctx = null;
         try {
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
@@ -170,9 +204,31 @@ public class RegistrationHelper {
         u.addEventRegistration(season.getEvent(), responses, false);
     }
 
+    
+    public void registerForSeason(User u) {
+        if (getCurrentSeason() != null) {
+            registerForSeason(u, getCurrentSeason());
+        }
+    }
+    
+
+    public void registerForSeason(User u, Season season) {
+        Event event = season.getEvent();
+        
+        u.addEventRegistration(event, responses, true);
+
+        DAOUtil.getFactory().getUserDAO().saveOrUpdate(u);
+    }
+    
+    private Season getCurrentSeason() {
+        if (currentSeason == null) {
+            currentSeason = DAOUtil.getFactory().getSeasonDAO().findCurrent(Season.HS_SEASON); 
+        }
+        return currentSeason;
+    }
+    
     /**
      * Return whether a user is eligible for participating in High School competitions.
-     * 
      * 
      * @return true if the user is eligible.
      */
