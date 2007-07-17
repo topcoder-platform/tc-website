@@ -20,77 +20,27 @@
         <jsp:param name="tabLev3" value=""/>
         </jsp:include>
 
+            <div id="pageBodyOutside">
             <div id="pageBody">
-                <h1><span>Title Here</span></h1>
-                <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
+                <h1><span>2007 TopCoder Collegiate Challenge</span></h1>
+                <p>We're going to Disneyland and taking some of you lucky competitors with us!</p>
+                <p>The 2007 TopCoder Collegiate Challenge is back and it's sure to be better than ever!  Last year, Petr, PE, and nicka81 left San Diego with the grand prizes.  This year, we're giving five students their chance to be TopCoder Champions!</p>
+                <p>There are four competitions that you can chose from:  Algorithm Competition, Component Design and Development Competition, Marathon Match Competition and Studio Design Competition.</p>
+                <p>If you want a chance to visit Walt Disney World and to win part of the $250,000 prize purse, here's what to do:</p>
+                    <ol>
+                        <li>Become a TopCoder member.  It's free!  You need to be one to participate. <a href="/reg" alt="TopCoder Registration">Join now</a>.</li>
+                        <li>Make sure you're eligible.  All registered TopCoder collegiate members over the age of 18 may compete.  See complete rules for full details.</li>
+                        <li>Pick your competition and read the rules:</li>
+                            <ul>
+                                <li><a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=algorithm&d4=description" alt="2007 TCCC07 Algorithm Competition">Algorithm Competition</a></li>
+                                <li><a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=component&d4=description" alt="2007 TCCC07 Component Design &amp; Development Competition">Component Design &amp; Development Competition</a></li>
+                                <li><a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=marathon&d4=description" alt="2007 TCCC07 Marathon Match Competition">Marathon Match Competition</a></li>
+                                <li><a href="/tc?module=Static&d1=tournaments&d2=tccc07&d3=studio&d4=description" alt="2007 TCCC07 Studio Design Competition">Studio Design Competition</a></li>
+                            </ul>
+                        <li>Have fun and best of luck!</li>
+                <p>This tournament is brought to you by TopCoder, Inc. (<a href="/" alt="TopCoder">http://www.topcoder.com/</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
                 
-                <h2>Subtitle</h2>
-                <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </p>
-                
-                <div id="tableNhandles">
-                    <table cellpadding="0" cellspacing="0" class="stat"> 
-                        <tbody> 
-                            <tr> 
-                                <td class="title" colspan="3">Table</td> 
-                            </tr> 
-                            <tr> 
-                                <td class="header">Header</td> 
-                                <td class="headerC">Header</td> 
-                                <td class="headerR">Header</td> 
-                            </tr> 
-                            <tr class="dark"> 
-                                <td class="value">Value</td> 
-                                <td class="valueC">Value</td> 
-                                <td class="valueR">Value</td> 
-                            </tr> 
-                            <tr class="light"> 
-                                <td class="value">Value</td> 
-                                <td class="valueC">Value</td> 
-                                <td class="valueR">Value</td> 
-                            </tr> 
-                            <tr class="dark"> 
-                                <td class="value">Value</td> 
-                                <td class="valueC">Value</td> 
-                                <td class="valueR">Value</td> 
-                            </tr> 
-                            <tr class="light"> 
-                                <td class="value">Value</td> 
-                                <td class="valueC">Value</td> 
-                                <td class="valueR">Value</td> 
-                            </tr> 
-                            <tr class="dark"> 
-                                <td class="value">Value</td> 
-                                <td class="valueC">Value</td> 
-                                <td class="valueR">Value</td> 
-                            </tr> 
-                            <tr class="light"> 
-                                <td class="value">Value</td> 
-                                <td class="valueC">Value</td> 
-                                <td class="valueR">Value</td> 
-                            </tr> 
-                        </tbody> 
-                    </table>
-                
-                    <div id="handleColors">
-                        <ul style="list-style:none;">HANDLE COLORS
-                            <li style="color:#ff9900;">HANDLE 1</li>
-                            <li style="color:#ee0000;">HANDLE 2</li>
-                            <li style="color:#ddcc00;">HANDLE 3</li>
-                            <li style="color:#5959dd;">HANDLE 4</li>
-                            <li style="color:#00a900;">HANDLE 5</li>
-                            <li style="color:#999999;">HANDLE 6</li>
-                            <li style="color:#ffffff;">HANDLE 7</li>
-                        </ul>
-                    </div>
-                </div>
-                <!--
-                <div id="sponsors">
-                    <jsp:include page="sponsors.jsp" />
-                </div> -->
+            </div>
             </div>
         <jsp:include page="footer.jsp" />
     </div>
